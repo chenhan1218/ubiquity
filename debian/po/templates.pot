@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-19 17:18+0100\n"
+"POT-Creation-Date: 2005-05-19 17:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,4 +40,10 @@ msgstr ""
 #. Description
 #: ../firstboot.templates:8
 msgid "These items help you configure your new system."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../firstboot.templates:13
+msgid "Exit configuration"
 msgstr ""

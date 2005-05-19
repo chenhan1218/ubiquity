@@ -7,3 +7,7 @@ Type: select
 Choices: ${CHOICES}
 _Description: Choose the next step in the configuration process:
  These items help you configure your new system.
+
+Template: firstboot/menu/exit
+Type: text
+_Description: Exit configuration
