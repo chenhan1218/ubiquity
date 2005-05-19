@@ -13,11 +13,13 @@ binary-arch: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k
-	dh_installdirs usr/share/firstboot/menu usr/share/lintian/overrides
-	cp debian/lintian-override $(tmp)/usr/share/lintian/overrides/firstboot
+	dh_installdirs usr/share/firstboot/menu usr/share/debconf/templates \
+		usr/share/lintian/overrides
 	dh_install firstboot usr/sbin/
 	dh_install menu/* usr/share/firstboot/menu/
-	dh_installdebconf
+	po2debconf debian/firstboot.templates \
+		> $(tmp)/usr/share/debconf/templates/firstboot.templates
+	cp debian/lintian-override $(tmp)/usr/share/lintian/overrides/firstboot
 	dh_installdocs
 	dh_installchangelogs
 	dh_compress

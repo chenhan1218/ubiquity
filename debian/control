@@ -2,12 +2,12 @@ Source: firstboot
 Section: admin
 Priority: extra
 Maintainer: Colin Watson <cjwatson@ubuntu.com>
-Build-Depends-Indep: debhelper (>= 4.0.0)
+Build-Depends-Indep: debhelper (>= 4.0.0), po-debconf
 Standards-Version: 3.6.1
 
 Package: firstboot
 Architecture: all
-Depends: ${misc:Depends}
+Depends: debconf (>= 1.2.0) | debconf-2.0
 Description: Perform end-user configuration after initial installation
  The firstboot script re-asks a number of questions that are normally asked
  during installation, and reconfigures the system accordingly. This allows a
