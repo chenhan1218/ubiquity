@@ -53,7 +53,7 @@ prep_menu () {
 				if [ "$SET_DEFAULT" -eq 1 ]; then
 					# Mark first menu item as default to
 					# get things going.
-					db_get firstboot/main-menu "$RET"
+					db_set firstboot/main-menu "$RET"
 				fi
 			else
 				CHOICES="$CHOICES, $RET"
