@@ -1,0 +1,16 @@
+Source: firstboot
+Section: admin
+Priority: extra
+Maintainer: Colin Watson <cjwatson@ubuntu.com>
+Build-Depends-Indep: debhelper (>= 4.0.0)
+Standards-Version: 3.6.1
+
+Package: firstboot
+Architecture: all
+Depends: ${misc:Depends}
+Description: Perform end-user configuration after initial installation
+ The firstboot script re-asks a number of questions that are normally asked
+ during installation, and reconfigures the system accordingly. This allows a
+ vendor to install a skeleton system, clone it onto a large number of
+ machines, and ship it to end users, while still allowing end users to set
+ up their own username and password, language, timezone, and so on.

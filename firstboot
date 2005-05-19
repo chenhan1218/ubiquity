@@ -1,0 +1,119 @@
+#! /bin/sh
+
+# This program handles OEM installations: it is run on the first boot after
+# the end user receives the system, to configure settings specific to that
+# end user.
+#
+# Modelled on base-config.
+
+set -e
+
+. /usr/share/debconf/confmodule
+
+LIBDIR=/usr/share/firstboot
+TMPDIR="$(mktemp -d -t firstboot.XXXXXX)"
+cd "$TMPDIR"
+
+db_get debconf/priority
+ORIG_PRIORITY="$RET"
+
+cleanup () {
+	db_set debconf/priority "$ORIG_PRIORITY"
+
+	cd /
+	rm -rf "$TMPDIR"
+	exit 0
+}
+
+# Get an ordered list of the menu items.
+get_menu_items () {
+	(
+		for i in $(find "$LIBDIR/menu" \( -type f -or -type l \) -perm -700 -printf '%f\n'); do
+			if [ -e "$LIBDIR/menu/$i.mnu" ]; then
+				echo "$(grep ^Order: "$LIBDIR/menu/$i.mnu" | cut -f 2 -d ' ')" "$i"
+			fi
+		done
+	) | sort -n | cut -d ' ' -f 2
+}
+
+# Set up to display the menu.
+prep_menu () {
+	SET_DEFAULT="$1"
+
+	rm -f menu-mapping
+	CHOICES=
+	for item in $(get_menu_items); do
+		testscript="$LIBDIR/menu/${item%.mnu}.tst"
+		if [ ! -x "$testscript" ] || "$testscript"; then
+			db_metaget "firstboot/menu/$item" description || RET="$item"
+			RET="$(echo "$RET" | sed -e 's/,//g' -e 's/  / /g')"
+			echo "$RET,$item" >> menu-mapping
+			if [ -z "$CHOICES" ]; then
+				CHOICES="$RET"
+				if [ "$SET_DEFAULT" -eq 1 ]; then
+					# Mark first menu item as default to
+					# get things going.
+					db_get firstboot/main-menu "$RET"
+				fi
+			else
+				CHOICES="$CHOICES, $RET"
+			fi
+		fi
+	done
+
+	db_subst firstboot/main-menu CHOICES "$CHOICES"
+}
+
+# Set up to display the menu.
+prep_menu 1
+
+db_capb backup
+
+ADVANCE=0
+
+# Display the main menu.
+while :; do
+	# Title might get reset, so set it each time.
+	db_settitle firstboot/title
+
+	if [ "$ADVANCE" = 1 ]; then
+		# Advance default to the next menu item.
+		db_get firstboot/title
+		NEXT="$(grep -A 1 "^$RET," menu-mapping | cut -d , -f 1 | tail -n 1)"
+		if [ "$NEXT" ]; then
+			db_set firstboot/main-menu "$NEXT"
+		fi
+	fi
+	ADVANCE=1
+
+	db_fset firstboot/main-menu seen false
+	if db_input medium firstboot/main-menu; then
+		# Backing all the way out is the same as exiting firstboot.
+		# However, note that I only go if the question will be
+		# shown. Otherwise, debconf's auto-backup code could emulate
+		# a backup based on a prior backup within a menu item.
+		db_go || exit 30
+	fi
+
+	db_get firstboot/main-menu
+	menu_item="$(grep "^$RET," menu-mapping | cut -d , -f 2)"
+
+	if ! "$LIBDIR/menu/$menu_item"; then
+		ADVANCE=0
+		# Drop priority to make sure the menu is displayed, since a
+		# menu item is failing.
+		db_get debconf/priority
+		if [ "$RET" = high ] || [ "$RET" = critical ]; then
+			db_set debconf/priority medium
+		fi
+	elif grep -q 'Exit-Menu: true' "$LIBDIR/menu/$menu_item.mnu"; then
+		# This menu item finished the install, so exit the menu.
+		cleanup
+	else
+		# Restore to the default priority, in case there was a
+		# previous failure.
+		db_set debconf/priority "$ORIG_PRIORITY"
+	fi
+done
+
+cleanup

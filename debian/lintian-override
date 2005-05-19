@@ -1,0 +1,2 @@
+firstboot: no-debconf-config
+firstboot: debconf-is-not-a-registry ./usr/sbin/firstboot
