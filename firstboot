@@ -78,7 +78,7 @@ while :; do
 
 	if [ "$ADVANCE" = 1 ]; then
 		# Advance default to the next menu item.
-		db_get firstboot/title
+		db_get firstboot/main-menu
 		NEXT="$(grep -A 1 "^$RET," menu-mapping | cut -d , -f 1 | tail -n 1)"
 		if [ "$NEXT" ]; then
 			db_set firstboot/main-menu "$NEXT"
