@@ -1,0 +1,14 @@
+#! /bin/sh
+# Set the timezone.
+
+. /usr/share/debconf/confmodule
+
+TZSETUP_ARGS='-y -g'
+
+if db_get debian-installer/country && [ "$RET" ]; then
+	TZSETUP_ARGS="$TZSETUP_ARGS -c $RET"
+fi
+
+/usr/sbin/tzsetup $TZSETUP_ARGS
+
+# TODO: deal with modules.conf/modules.dep timestamps, like base-config

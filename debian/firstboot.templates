@@ -8,6 +8,10 @@ Choices: ${CHOICES}
 _Description: Choose the next step in the configuration process:
  These items help you configure your new system.
 
+Template: firstboot/menu/timezone
+Type: text
+_Description: Configure timezone
+
 Template: firstboot/menu/passwd
 Type: text
 _Description: Set up users and passwords
