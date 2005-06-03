@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-25 18:33+0100\n"
+"POT-Creation-Date: 2005-06-03 22:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,36 +26,36 @@ msgstr ""
 
 #. Type: title
 #. Description
-#: ../firstboot.templates:3
+#: ../firstboot-menu.templates:3
 msgid "Configuring your new system"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../firstboot.templates:8
+#: ../firstboot-menu.templates:8
 msgid "Choose the next step in the configuration process:"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../firstboot.templates:8
+#: ../firstboot-menu.templates:8
 msgid "These items help you configure your new system."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../firstboot.templates:13
+#: ../firstboot-menu.templates:13
 msgid "Configure timezone"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../firstboot.templates:17
+#: ../firstboot-menu.templates:17
 msgid "Set up users and passwords"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../firstboot.templates:21
+#: ../firstboot-menu.templates:21
 msgid "Exit configuration"
 msgstr ""
