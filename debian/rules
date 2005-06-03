@@ -15,7 +15,7 @@ binary-arch: build
 	dh_clean -k
 	dh_installdirs usr/share/firstboot/menu usr/share/debconf/templates \
 		usr/share/lintian/overrides
-	dh_install firstboot-menu usr/sbin/
+	dh_install firstboot firstboot-menu usr/sbin/
 	dh_install menu/* usr/share/firstboot/menu/
 	set -e; for x in menu/*.templates; do \
 		po2debconf --podir=debian/po $$x \

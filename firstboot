@@ -1,0 +1,14 @@
+#! /bin/sh
+
+# This program handles OEM installations: it is run on the first boot after
+# the end user receives the system, to configure settings specific to that
+# end user.
+
+# Wrapper script to load debconf templates and invoke the menu.
+
+set -e
+
+find /usr/share/firstboot/menu -maxdepth 1 -name \*.templates -print0 | \
+	xargs -0r debconf-loadtemplate firstboot
+
+firstboot-menu
