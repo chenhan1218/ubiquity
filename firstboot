@@ -11,4 +11,4 @@ set -e
 find /usr/share/firstboot/menu -maxdepth 1 -name \*.templates -print0 | \
 	xargs -0r debconf-loadtemplate firstboot
 
-firstboot-menu
+/usr/share/firstboot/firstboot-menu
