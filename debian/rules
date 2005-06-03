@@ -17,6 +17,10 @@ binary-arch: build
 		usr/share/lintian/overrides
 	dh_install firstboot-menu usr/sbin/
 	dh_install menu/* usr/share/firstboot/menu/
+	set -e; for x in menu/*.templates; do \
+		po2debconf --podir=debian/po $$x \
+			> $(tmp)/usr/share/firstboot/menu/$${x##*/}; \
+	done
 	po2debconf debian/firstboot-menu.templates \
 		> $(tmp)/usr/share/debconf/templates/firstboot-menu.templates
 	cp debian/lintian-override $(tmp)/usr/share/lintian/overrides/firstboot
