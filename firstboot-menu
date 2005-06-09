@@ -17,6 +17,16 @@ cd "$TMPDIR"
 db_get debconf/priority
 ORIG_PRIORITY="$RET"
 
+usage () {
+	cat <<EOF
+Usage: firstboot [options]
+
+Options:
+  -i, --include ITEMS   Display only these (comma-separated) menu items.
+  -e, --exclude ITEMS   Don't display these (comma-separated) menu items.
+EOF
+}
+
 cleanup () {
 	db_set debconf/priority "$ORIG_PRIORITY"
 
@@ -36,6 +46,24 @@ get_menu_items () {
 	) | sort -n | cut -d ' ' -f 2
 }
 
+in_item_list () {
+	item="$1"
+	list="$2"
+
+	IFS_SAVE="$IFS"
+	IFS=,
+	for check in $list; do
+		IFS="$IFS_SAVE"
+		if [ "$item" = "$check" ]; then
+			return 0
+		fi
+		IFS=,
+	done
+	IFS="$IFS_SAVE"
+
+	return 1
+}
+
 # Set up to display the menu.
 prep_menu () {
 	SET_DEFAULT="$1"
@@ -43,6 +71,19 @@ prep_menu () {
 	rm -f menu-mapping
 	CHOICES=
 	for item in $(get_menu_items); do
+		# Always include the exit item. Otherwise, check includes
+		# and excludes.
+		if [ "$item" != exit ]; then
+			if [ "$INCLUDE" ] && \
+			   ! in_item_list "$item" "$INCLUDE"; then
+				continue
+			fi
+			if [ "$EXCLUDE" ] && \
+			   in_item_list "$item" "$EXCLUDE"; then
+				continue
+			fi
+		fi
+
 		testscript="$LIBDIR/menu/${item%.mnu}.tst"
 		if [ ! -x "$testscript" ] || "$testscript"; then
 			db_metaget "firstboot/menu/$item" description || RET="$item"
@@ -63,6 +104,33 @@ prep_menu () {
 
 	db_subst firstboot/main-menu CHOICES "$CHOICES"
 }
+
+INCLUDE=
+EXCLUDE=
+
+if ! eval set -- "$(getopt -o i:e: -l help,include:,exclude: -- "$@")"; then
+	usage >&2
+	exit 1
+fi
+
+while :; do
+	case $1 in
+		--help)
+			usage
+			exit 0
+			;;
+		-i|--include)
+			INCLUDE="$2"
+			shift 2
+			;;
+		-e|--exclude)
+			EXCLUDE="$2"
+			shift 2
+			;;
+		--)	shift; break ;;
+		*)	usage >&2; exit 1 ;;
+	esac
+done
 
 # Set up to display the menu.
 prep_menu 1
