@@ -7,7 +7,7 @@ Standards-Version: 3.6.1
 
 Package: firstboot
 Architecture: all
-Depends: debconf (>= 1.2.0) | debconf-2.0, base-config
+Depends: debconf (>= 1.2.0) | debconf-2.0, base-config, firstboot-kbd-chooser
 Description: Perform end-user configuration after initial installation
  The firstboot script re-asks a number of questions that are normally asked
  during installation, and reconfigures the system accordingly. This allows a
