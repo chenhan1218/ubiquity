@@ -1,5 +1,6 @@
 #! /bin/sh
 # Set the timezone.
+set -e
 
 . /usr/share/debconf/confmodule
 
