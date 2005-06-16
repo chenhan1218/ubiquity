@@ -7,7 +7,7 @@ import os
 import gobject
 import gtk
 import debconf
-from firstbootutils import preseed
+from wizardstep import WizardStep
 
 def _find_in_choices(choices, item):
     for index in range(len(choices)):
@@ -15,7 +15,7 @@ def _find_in_choices(choices, item):
             return index
     return None
 
-class Timezone:
+class Timezone(WizardStep):
     area_map = {
         'Atlantic Ocean':               'Atlantic',
         'Indian Ocean':                 'Indian',
@@ -116,7 +116,7 @@ class Timezone:
 
         area = self.glade.get_widget('geographic_area_combo').get_active_text()
         zone = self.glade.get_widget('select_zone_combo').get_active_text()
-        preseed(self.db, 'tzconfig/preseed_zone', '%s/%s' % (area, zone))
+        self.preseed(self.db, 'tzconfig/preseed_zone', '%s/%s' % (area, zone))
 
         gtk.main_quit()
 

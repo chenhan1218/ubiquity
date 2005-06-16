@@ -5,9 +5,9 @@
 
 import gtk
 import debconf
-from firstbootutils import preseed
+from wizardstep import WizardStep
 
-class Password:
+class Password(WizardStep):
     def __init__(self, db, glade):
         self.db = db
         self.glade = glade
@@ -28,11 +28,11 @@ class Password:
 
         # TODO: validation!
 
-        preseed(self.db, 'passwd/user-fullname', fullname)
-        preseed(self.db, 'passwd/username', username)
+        self.preseed(self.db, 'passwd/user-fullname', fullname)
+        self.preseed(self.db, 'passwd/username', username)
         # TODO: maybe encrypt these first
-        preseed(self.db, 'passwd/user-password', password)
-        preseed(self.db, 'passwd/user-password-again', password_confirm)
+        self.preseed(self.db, 'passwd/user-password', password)
+        self.preseed(self.db, 'passwd/user-password-again', password_confirm)
 
         gtk.main_quit()
 
