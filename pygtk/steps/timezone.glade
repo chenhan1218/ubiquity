@@ -38,23 +38,14 @@
                                 <property name="n_columns">2</property>
                                 <property name="visible">True</property>
                                 <child>
-                                    <widget class="GtkLabel" id="geographic_area_label">
-                                        <property name="label" context="True" translatable="True">Area for your time zone:</property>
-                                        <property name="events"></property>
-                                        <property name="xalign">1.0</property>
-                                        <property name="visible">True</property>
-                                    </widget>
-                                    <packing>
-                                        <property name="x_options">fill</property>
-                                    </packing>
-                                </child>
-                                <child>
-                                    <widget class="GtkComboBox" id="geographic_area_combo">
+                                    <widget class="GtkComboBox" id="select_zone_combo">
                                         <property name="events"></property>
                                         <property name="visible">True</property>
                                     </widget>
                                     <packing>
                                         <property name="left_attach">1</property>
+                                        <property name="bottom_attach">2</property>
+                                        <property name="top_attach">1</property>
                                         <property name="right_attach">2</property>
                                     </packing>
                                 </child>
@@ -72,15 +63,24 @@
                                     </packing>
                                 </child>
                                 <child>
-                                    <widget class="GtkComboBox" id="select_zone_combo">
+                                    <widget class="GtkComboBox" id="geographic_area_combo">
                                         <property name="events"></property>
                                         <property name="visible">True</property>
                                     </widget>
                                     <packing>
                                         <property name="left_attach">1</property>
-                                        <property name="bottom_attach">2</property>
-                                        <property name="top_attach">1</property>
                                         <property name="right_attach">2</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <widget class="GtkLabel" id="geographic_area_label">
+                                        <property name="label" context="True" translatable="True">Area for your time zone:</property>
+                                        <property name="events"></property>
+                                        <property name="xalign">1.0</property>
+                                        <property name="visible">True</property>
+                                    </widget>
+                                    <packing>
+                                        <property name="x_options">fill</property>
                                     </packing>
                                 </child>
                             </widget>
@@ -91,6 +91,7 @@
                     </widget>
                     <packing>
                         <property name="padding">6</property>
+                        <property name="position">2</property>
                     </packing>
                 </child>
                 <child>
@@ -109,9 +110,8 @@
                         <property name="visible">True</property>
                         <child>
                             <widget class="GtkButton" id="button_ok">
-                                <property name="image">&lt;gtk.Image object (GtkImage) at 0x307e4918&gt;</property>
                                 <property name="receives_default">True</property>
-                                <property name="label" context="True" translatable="True">gtk-ok</property>
+                                <property name="label">gtk-ok</property>
                                 <property name="use_underline">True</property>
                                 <property name="events"></property>
                                 <property name="use_stock">True</property>
@@ -122,9 +122,8 @@
                         </child>
                         <child>
                             <widget class="GtkButton" id="button_cancel">
-                                <property name="image">&lt;gtk.Image object (GtkImage) at 0x307e4a80&gt;</property>
                                 <property name="receives_default">True</property>
-                                <property name="label" context="True" translatable="True">gtk-cancel</property>
+                                <property name="label">gtk-cancel</property>
                                 <property name="use_underline">True</property>
                                 <property name="events"></property>
                                 <property name="use_stock">True</property>
@@ -137,8 +136,8 @@
                         </child>
                     </widget>
                     <packing>
-                        <property name="position">1</property>
                         <property name="pack_type">end</property>
+                        <property name="expand">False</property>
                     </packing>
                 </child>
             </widget>
