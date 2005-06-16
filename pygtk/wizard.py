@@ -30,7 +30,7 @@ class Wizard:
 
         self.steps = {}
         for step in [f for f in os.listdir(stepsdir) if f.endswith('.py')]:
-            name = '.'.join(glade.split('.')[:-1])
+            name = '.'.join(step.split('.')[:-1])
             mod = getattr(__import__('steps.%s' % name), name)
             if hasattr(mod, 'stepname'):
                 self.steps[name] = getattr(mod, mod.stepname)
