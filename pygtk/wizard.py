@@ -45,4 +45,4 @@ class Wizard:
 if __name__ == '__main__':
     debconf.runFrontEnd()
     db = debconf.Debconf()
-    Wizard(db).run('timezone')
+    Wizard(db).run(sys.argv[1])
