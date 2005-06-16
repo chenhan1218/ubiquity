@@ -12,11 +12,9 @@ import gtk
 import gtk.glade
 import debconf
 
-#moduledir = '/usr/lib/firstboot/pygtk/steps'
-moduledir = '.'
+moduledir = '/usr/lib/firstboot/pygtk'
 stepsdir = os.path.join(moduledir, 'steps')
 
-sys.path.insert(0, moduledir)
 from steps.timezone import *
 
 class Wizard:
