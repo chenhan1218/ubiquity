@@ -70,10 +70,6 @@ class Timezone(WizardStep):
         self.update_zone_list(area, timezone)
         geographic_area.connect('changed', self.area_handler)
 
-        self.glade.get_widget('button_ok').connect('clicked', self.ok_handler)
-        self.glade.get_widget('button_cancel').connect('clicked',
-                                                       gtk.main_quit)
-
     def update_zone_list(self, area, default_zone=None):
         select_zone = self.glade.get_widget('select_zone_combo')
         list_store = select_zone.get_model()
@@ -117,9 +113,6 @@ class Timezone(WizardStep):
         zone = self.glade.get_widget('select_zone_combo').get_active_text()
         self.preseed('tzconfig/preseed_zone', '%s/%s' % (area, zone))
 
-        gtk.main_quit()
-
-    def run(self):
-        gtk.main()
+        super(Timezone, self).ok_handler(widget, data)
 
 stepname = 'Timezone'
