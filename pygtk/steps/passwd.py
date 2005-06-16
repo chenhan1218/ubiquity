@@ -9,8 +9,7 @@ from wizardstep import WizardStep
 
 class Password(WizardStep):
     def __init__(self, db, glade):
-        self.db = db
-        self.glade = glade
+        super(Password, self).__init__(db, glade)
 
         # TODO: skip this if there's already a user configured, or re-ask
         # and create a new one, or what?
@@ -28,11 +27,11 @@ class Password(WizardStep):
 
         # TODO: validation!
 
-        self.preseed(self.db, 'passwd/user-fullname', fullname)
-        self.preseed(self.db, 'passwd/username', username)
+        self.preseed('passwd/user-fullname', fullname)
+        self.preseed('passwd/username', username)
         # TODO: maybe encrypt these first
-        self.preseed(self.db, 'passwd/user-password', password)
-        self.preseed(self.db, 'passwd/user-password-again', password_confirm)
+        self.preseed('passwd/user-password', password)
+        self.preseed('passwd/user-password-again', password_confirm)
 
         gtk.main_quit()
 

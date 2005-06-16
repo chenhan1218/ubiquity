@@ -25,8 +25,7 @@ class Timezone(WizardStep):
     }
 
     def __init__(self, db, glade):
-        self.db = db
-        self.glade = glade
+        super(Timezone, self).__init__(db, glade)
 
         if os.path.isfile('/etc/timezone'):
             timezone = open('/etc/timezone').readline().strip()
@@ -116,7 +115,7 @@ class Timezone(WizardStep):
 
         area = self.glade.get_widget('geographic_area_combo').get_active_text()
         zone = self.glade.get_widget('select_zone_combo').get_active_text()
-        self.preseed(self.db, 'tzconfig/preseed_zone', '%s/%s' % (area, zone))
+        self.preseed('tzconfig/preseed_zone', '%s/%s' % (area, zone))
 
         gtk.main_quit()
 

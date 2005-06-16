@@ -5,14 +5,18 @@
 
 import debconf
 
-class WizardStep:
-    def preseed(self, db, name, value, seen=True):
+class WizardStep(object):
+    def __init__(self, db, glade):
+        self.db = db
+        self.glade = glade
+
+    def preseed(self, name, value, seen=True):
         try:
-            db.set(name, value)
+            self.db.set(name, value)
         except debconf.DebconfError:
-            db.register('debian-installer/dummy', name)
-            db.set(name, value)
-            db.subst(name, 'ID', name)
+            self.db.register('debian-installer/dummy', name)
+            self.db.set(name, value)
+            self.db.subst(name, 'ID', name)
 
         if seen:
-            db.fset(name, 'seen', 'true')
+            self.db.fset(name, 'seen', 'true')
