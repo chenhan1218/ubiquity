@@ -26,7 +26,7 @@ class Wizard:
         self.glades = {}
         for glade in [f for f in os.listdir(stepsdir) if f.endswith('.glade')]:
             name = '.'.join(glade.split('.')[:-1])
-            self.glades[name] = gtk.glade.XML(os.path.join(stepsdir, glade))
+            self.glades[name] = os.path.join(stepsdir, glade)
 
         self.steps = {}
         for step in [f for f in os.listdir(stepsdir) if f.endswith('.py')]:
@@ -36,10 +36,11 @@ class Wizard:
                 self.steps[name] = getattr(mod, mod.stepname)
 
     def run(self, step):
-        self.glades[step].signal_autoconnect(self)
-        dialog = self.glades[step].get_widget('dialog')
+        xml = gtk.glade.XML(self.glades[step])
+        xml.signal_autoconnect(self)
+        dialog = xml.get_widget('dialog')
         dialog.connect('destroy', gtk.main_quit)
-        stepper = self.steps[step](self.db, self.glades[step])
+        stepper = self.steps[step](self.db, xml)
         stepper.run()
 
 if __name__ == '__main__':
