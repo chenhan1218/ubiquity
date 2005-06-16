@@ -18,6 +18,8 @@ binary-arch: build
 	dh_install firstboot usr/sbin/
 	dh_install firstboot-menu usr/share/firstboot/
 	dh_install menu/* usr/share/firstboot/menu/
+	dh_install pygtk/*.py /usr/lib/firstboot/pygtk/
+	dh_install pygtk/steps/*.py /usr/lib/firstboot/pygtk/steps/
 	set -e; for x in menu/*.templates; do \
 		po2debconf --podir=debian/po $$x \
 			> $(tmp)/usr/share/firstboot/menu/$${x##*/}; \
