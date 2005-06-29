@@ -1,7 +1,7 @@
-firstboot was written by Colin Watson <cjwatson@ubuntu.com>.
+oem-config was written by Colin Watson <cjwatson@ubuntu.com>.
 It is Copyright (C) 2005 Canonical Ltd.
 
-Some code in firstboot is borrowed from base-config, whose copyright
+Some code in oem-config is borrowed from base-config, whose copyright
 declaration is as follows:
 
   This package is copyright 2000-2004 by Joey Hess <joeyh@debian.org>.

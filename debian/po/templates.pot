@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-03 22:07+0100\n"
+"POT-Creation-Date: 2005-06-29 11:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,19 +26,19 @@ msgstr ""
 
 #. Type: title
 #. Description
-#: ../firstboot-menu.templates:3
+#: ../oem-config-menu.templates:3
 msgid "Configuring your new system"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../firstboot-menu.templates:8
+#: ../oem-config-menu.templates:8
 msgid "Choose the next step in the configuration process:"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../firstboot-menu.templates:8
+#: ../oem-config-menu.templates:8
 msgid "These items help you configure your new system."
 msgstr ""
 

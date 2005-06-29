@@ -1,8 +1,8 @@
-Template: firstboot/title
+Template: oem-config/title
 Type: title
 _Description: Configuring your new system
 
-Template: firstboot/main-menu
+Template: oem-config/main-menu
 Type: select
 Choices: ${CHOICES}
 _Description: Choose the next step in the configuration process:

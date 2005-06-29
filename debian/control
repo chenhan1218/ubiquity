@@ -1,15 +1,15 @@
-Source: firstboot
+Source: oem-config
 Section: admin
 Priority: extra
 Maintainer: Colin Watson <cjwatson@ubuntu.com>
 Build-Depends-Indep: debhelper (>= 4.0.0), po-debconf
 Standards-Version: 3.6.1
 
-Package: firstboot
+Package: oem-config
 Architecture: all
-Depends: debconf (>= 1.2.0) | debconf-2.0, base-config, firstboot-kbd-chooser, python, python-gtk2, python-glade2
+Depends: debconf (>= 1.2.0) | debconf-2.0, base-config, oem-config-kbd-chooser, python, python-gtk2, python-glade2
 Description: Perform end-user configuration after initial installation
- The firstboot script re-asks a number of questions that are normally asked
+ The oem-config script re-asks a number of questions that are normally asked
  during installation, and reconfigures the system accordingly. This allows a
  vendor to install a skeleton system, clone it onto a large number of
  machines, and ship it to end users, while still allowing end users to set

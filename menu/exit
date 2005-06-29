@@ -1,5 +1,5 @@
 #! /bin/sh
-# Exit firstboot.
+# Exit oem-config.
 set -e
 
 # Put the real inittab into place and tell init.

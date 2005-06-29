@@ -1,2 +1,2 @@
-firstboot: no-debconf-config
-firstboot: debconf-is-not-a-registry ./usr/sbin/firstboot-menu
+oem-config: no-debconf-config
+oem-config: debconf-is-not-a-registry ./usr/sbin/oem-config-menu

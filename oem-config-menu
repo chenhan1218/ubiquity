@@ -15,7 +15,7 @@ ORIG_PRIORITY="$RET"
 
 usage () {
 	cat <<EOF
-Usage: firstboot [options]
+Usage: oem-config [options]
 
 Options:
   -i, --include ITEMS   Display only these (comma-separated) menu items.
@@ -79,7 +79,7 @@ prep_menu () {
 
 		testscript="$FB_LIBDIR/menu/${item%.mnu}.tst"
 		if [ ! -x "$testscript" ] || "$testscript"; then
-			db_metaget "firstboot/menu/$item" description || RET="$item"
+			db_metaget "oem-config/menu/$item" description || RET="$item"
 			RET="$(echo "$RET" | sed -e 's/,//g' -e 's/  / /g')"
 			echo "$RET,$item" >> menu-mapping
 			if [ -z "$CHOICES" ]; then
@@ -87,7 +87,7 @@ prep_menu () {
 				if [ "$SET_DEFAULT" -eq 1 ]; then
 					# Mark first menu item as default to
 					# get things going.
-					db_set firstboot/main-menu "$RET"
+					db_set oem-config/main-menu "$RET"
 				fi
 			else
 				CHOICES="$CHOICES, $RET"
@@ -95,7 +95,7 @@ prep_menu () {
 		fi
 	done
 
-	db_subst firstboot/main-menu CHOICES "$CHOICES"
+	db_subst oem-config/main-menu CHOICES "$CHOICES"
 }
 
 INCLUDE=
@@ -135,28 +135,28 @@ ADVANCE=0
 # Display the main menu.
 while :; do
 	# Title might get reset, so set it each time.
-	db_settitle firstboot/title
+	db_settitle oem-config/title
 
 	if [ "$ADVANCE" = 1 ]; then
 		# Advance default to the next menu item.
-		db_get firstboot/main-menu
+		db_get oem-config/main-menu
 		NEXT="$(grep -A 1 "^$RET," menu-mapping | cut -d , -f 1 | tail -n 1)"
 		if [ "$NEXT" ]; then
-			db_set firstboot/main-menu "$NEXT"
+			db_set oem-config/main-menu "$NEXT"
 		fi
 	fi
 	ADVANCE=1
 
-	db_fset firstboot/main-menu seen false
-	if db_input medium firstboot/main-menu; then
-		# Backing all the way out is the same as exiting firstboot.
+	db_fset oem-config/main-menu seen false
+	if db_input medium oem-config/main-menu; then
+		# Backing all the way out is the same as exiting oem-config.
 		# However, note that I only go if the question will be
 		# shown. Otherwise, debconf's auto-backup code could emulate
 		# a backup based on a prior backup within a menu item.
 		db_go || exit 30
 	fi
 
-	db_get firstboot/main-menu
+	db_get oem-config/main-menu
 	menu_item="$(grep "^$RET," menu-mapping | cut -d , -f 2)"
 
 	# Set as unseen all questions that we're going to ask.

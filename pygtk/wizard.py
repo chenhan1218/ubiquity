@@ -12,7 +12,7 @@ import gtk
 import gtk.glade
 import debconf
 
-moduledir = '/usr/lib/firstboot/pygtk'
+moduledir = '/usr/lib/oem-config/pygtk'
 stepsdir = os.path.join(moduledir, 'steps')
 
 from steps.timezone import *
