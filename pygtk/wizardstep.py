@@ -10,6 +10,7 @@ class WizardStep(object):
     def __init__(self, db, glade):
         self.db = db
         self.glade = glade
+        self.succeeded = False
 
         self.glade.get_widget('button_ok').connect('clicked', self.ok_handler)
         self.glade.get_widget('button_cancel').connect('clicked',
@@ -27,6 +28,7 @@ class WizardStep(object):
             self.db.fset(name, 'seen', 'true')
 
     def ok_handler(self, widget, data=None):
+        self.succeeded = True
         gtk.main_quit()
 
     def run(self):

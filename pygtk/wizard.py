@@ -125,11 +125,12 @@ class Wizard:
         dialog.connect('destroy', gtk.main_quit)
         stepper = self.steps[step](self.db, xml)
         stepper.run()
+        return stepper.succeeded
 
     def run(self):
         items = self.get_menu_items()
         index = 0
-        while index < len(items):
+        while index >= 0 and index < len(items):
             item = items[index]
             # Set as unseen all questions that we're going to ask.
             if 'asks' in self.menus[item]:
@@ -138,14 +139,16 @@ class Wizard:
                     self.db.fset(name, 'seen', 'false')
 
             # Is there a custom frontend for this item? If so, run it.
-            # TODO: backup handling
             if item in self.steps:
-                self.run_step(item)
+                if not self.run_step(item):
+                    index -= 1
+                    continue
 
             # Run the pure-debconf menu item.
-            # TODO: do something useful on failure
-            # TODO: backup handling
-            os.spawnl(os.P_WAIT, os.path.join(menudir, item))
+            # TODO: do something more useful on failure
+            if os.spawnl(os.P_WAIT, os.path.join(menudir, item)) != 0:
+                index -= 1
+                continue
 
             # Did this menu item finish the configuration process?
             if ('exit-menu' in self.menus[item] and
