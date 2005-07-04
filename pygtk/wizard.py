@@ -36,6 +36,16 @@ class Wizard:
                 if excludes is not None and name in excludes:
                     continue
 
+            # If the frontend isn't up yet, load any templates that come
+            # with this item.
+            if 'DEBIAN_HAS_FRONTEND' not in os.environ:
+                templates = os.path.join(menudir, '%s.templates' % name)
+                if os.access(templates, os.R_OK):
+                    if os.spawnlp(os.P_WAIT, 'debconf-loadtemplate',
+                                  'debconf-loadtemplate', 'oem-config',
+                                  templates) != 0:
+                        continue
+
             # If there is a test script, check that it succeeds.
             testscript = os.path.join(menudir, '%s.tst' % name)
             if os.access(testscript, os.X_OK):
