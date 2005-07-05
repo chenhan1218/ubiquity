@@ -13,6 +13,7 @@ pygtk.require('2.0')
 import gtk
 import gtk.glade
 import debconf
+import debconffilter
 
 menudir = '/usr/share/oem-config/menu'
 moduledir = '/usr/lib/oem-config/pygtk'
@@ -79,7 +80,8 @@ class Wizard:
 
                 magic_env = 'OEM_CONFIG_ASKS_%s' % name
                 if magic_env in os.environ:
-                    self.menus[name]['asks'] = os.environ[magic_env].split(' ')
+                    self.menus[name]['asks-questions'] = \
+                        os.environ[magic_env].split(' ')
                 else:
                     # TODO: os.popen() doesn't take a list, so we have to
                     # quote metacharacters by hand. Once we're entirely
@@ -93,7 +95,7 @@ class Wizard:
                         line = line.rstrip('\n')
                         if line.startswith('Name: '):
                             asks.append(line[6:])
-                    self.menus[name]['asks'] = asks
+                    self.menus[name]['asks-questions'] = asks
                     os.environ[magic_env] = ' '.join(asks)
 
         self.start_debconf()
@@ -109,6 +111,13 @@ class Wizard:
             mod = getattr(__import__('steps.%s' % name), name)
             if hasattr(mod, 'stepname'):
                 self.steps[name] = getattr(mod, mod.stepname)
+
+        self.widgets = {}
+        for name in self.menus:
+            if name in self.steps:
+                self.widgets[self.menus[name]['asks']] = \
+                    self.steps[name](self.db, self.glades[name])
+        self.debconffilter = debconffilter.DebconfFilter(self.db, self.widgets)
 
     def start_debconf(self):
         debconf.runFrontEnd()
@@ -130,7 +139,8 @@ class Wizard:
 
     def run_step(self, step):
         stepper = self.steps[step](self.db, self.glades[step])
-        stepper.run()
+        # TODO: None arguments temporary, for future debconffilter integration
+        stepper.run(None, None)
         return stepper.succeeded
 
     def run(self):
@@ -139,9 +149,9 @@ class Wizard:
         while index >= 0 and index < len(items):
             item = items[index]
             # Set as unseen all questions that we're going to ask.
-            if 'asks' in self.menus[item]:
-                for name in self.menus[item]['asks']:
-                    print >>sys.stderr, 'asks', item, name
+            if 'asks-questions' in self.menus[item]:
+                for name in self.menus[item]['asks-questions']:
+                    print >>sys.stderr, 'asks-questions', item, name
                     self.db.fset(name, 'seen', 'false')
 
             # Is there a custom frontend for this item? If so, run it.

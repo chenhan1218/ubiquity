@@ -34,7 +34,7 @@ class WizardStep(object):
     def prepare(self):
         pass
 
-    def run(self):
+    def run(self, priority, question):
         self.glade = gtk.glade.XML(self.gladefile)
         self.glade.signal_autoconnect(self)
         self.dialog = self.glade.get_widget('dialog')
