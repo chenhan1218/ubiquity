@@ -13,6 +13,9 @@ class WizardStep(object):
         self.succeeded = False
         self.prepared = False
 
+    def choices(self, question):
+        return map(unicode, self.db.metaget(question, 'choices').split(', '))
+
     def preseed(self, name, value, seen=True):
         try:
             self.db.set(name, value)

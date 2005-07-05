@@ -27,9 +27,7 @@ class Timezone(WizardStep):
     def __init__(self, db, glade):
         super(Timezone, self).__init__(db, glade)
 
-        choices = self.db.command('metaget', 'tzconfig/geographic_area',
-                                  'choices').split(', ')
-        self.geographic_area_choices = map(unicode, choices)
+        self.geographic_area_choices = self.choices('tzconfig/geographic_area')
 
     def update_zone_list(self, area, default_zone=None):
         select_zone = self.glade.get_widget('select_zone_combo')
@@ -37,9 +35,7 @@ class Timezone(WizardStep):
         list_store.clear()
 
         try:
-            choices = self.db.command('metaget',
-                                      'tzconfig/choose_country_zone/%s' % area,
-                                      'choices').split(', ')
+            choices = self.choices('tzconfig/choose_country_zone/%s' % area)
         except debconf.DebconfError:
             if area in self.area_map:
                 area = self.area_map[area]
