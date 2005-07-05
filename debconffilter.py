@@ -36,12 +36,23 @@ class DebconfFilter:
         if self.debug_re is not None and self.debug_re.search(key):
             print >>sys.stderr, "debconf (%s):" % key, ' '.join(args)
 
+    def reply(self, code, text=None, log=False):
+        if text is not None:
+            ret = '%d %s' % (code, text)
+        else:
+            ret = str(code)
+        if log:
+            self.debug('filter', '-->', ret)
+        self.subin.write('%s\n' % ret)
+        self.subin.flush()
+
     def run(self, subprocess):
         subp = popen2.Popen3(subprocess)
-        (subin, subout) = (subp.tochild, subp.fromchild)
+        (self.subin, self.subout) = (subp.tochild, subp.fromchild)
+        next_go_backup = False
 
         while True:
-            line = subout.readline()
+            line = self.subout.readline()
             if line == '':
                 break
 
@@ -65,6 +76,10 @@ class DebconfFilter:
                 if widget is not None:
                     self.debug('filter', 'widget found for', question)
                     widget.run(priority, question)
+                    if not widget.succeeded:
+                        next_go_backup = True
+                    self.reply(0, 'question will be asked', log=True)
+                    continue
 
             if command == 'SET' and len(params) == 2:
                 (question, value) = params
@@ -75,18 +90,19 @@ class DebconfFilter:
                         if hasattr(widget, 'set'):
                             self.widgets[pattern].set(question, value)
 
+            if command == 'GO' and next_go_backup:
+                next_go_backup = False
+                self.reply(30, 'backup', log=True)
+                continue
+
             try:
                 data = self.db.command(command, *params)
                 if data == '':
-                    subin.write("0\n")
+                    self.reply(0)
                 else:
-                    subin.write("0 %s\n" % data)
-                subin.flush()
+                    self.reply(0, data)
             except debconf.DebconfError, e:
-                self.debug('filter',
-                    "error returned by frontend: %d (%s)" % e.args)
-                subin.write("%d %s\n" % e.args)
-                subin.flush()
+                self.reply(*e.args)
 
         return subp.wait()
 
