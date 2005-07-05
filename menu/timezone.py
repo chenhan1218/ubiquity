@@ -109,7 +109,10 @@ class Timezone(WizardStep):
 
     def ok_handler(self, widget, data=None):
         utc = self.glade.get_widget('utc_button').get_active()
-        # TODO: feed into /etc/default/rcS
+        if utc:
+            self.preseed('tzconfig/gmt', 'true')
+        else:
+            self.preseed('tzconfig/gmt', 'false')
 
         area = self.glade.get_widget('geographic_area_combo').get_active_text()
         zone = self.glade.get_widget('select_zone_combo').get_active_text()
