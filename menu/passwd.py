@@ -8,8 +8,8 @@ import debconf
 from wizardstep import WizardStep
 
 class Password(WizardStep):
-    def __init__(self, db, glade):
-        super(Password, self).__init__(db, glade)
+    def prepare(self):
+        super(Password, self).prepare()
 
         # TODO: skip this if there's already a user configured, or re-ask
         # and create a new one, or what?
