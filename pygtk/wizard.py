@@ -49,7 +49,7 @@ class Wizard:
             # If there is a test script, check that it succeeds.
             testscript = os.path.join(menudir, '%s.tst' % name)
             if os.access(testscript, os.X_OK):
-                if os.spawnl(os.P_WAIT, testscript) != 0:
+                if os.spawnl(os.P_WAIT, testscript, testscript) != 0:
                     continue
 
             self.menus[name] = {}
@@ -156,7 +156,8 @@ class Wizard:
 
             # Run the pure-debconf menu item.
             # TODO: do something more useful on failure
-            if os.spawnl(os.P_WAIT, os.path.join(menudir, item)) != 0:
+            itempath = os.path.join(menudir, item)
+            if os.spawnl(os.P_WAIT, itempath, itempath) != 0:
                 index -= 1
                 continue
 
