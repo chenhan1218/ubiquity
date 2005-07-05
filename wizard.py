@@ -109,13 +109,13 @@ class Wizard:
             name = '.'.join(step.split('.')[:-1])
             mod = getattr(__import__('menu.%s' % name), name)
             if hasattr(mod, 'stepname'):
-                self.steps[name] = getattr(mod, mod.stepname)
+                stepmethod = getattr(mod, mod.stepname)
+                self.steps[name] = stepmethod(self.db, self.glades[name])
 
         self.widgets = {}
         for name in self.menus:
             if name in self.steps:
-                self.widgets[self.menus[name]['asks']] = \
-                    self.steps[name](self.db, self.glades[name])
+                self.widgets[self.menus[name]['asks']] = self.steps[name]
         self.debconffilter = debconffilter.DebconfFilter(self.db, self.widgets)
 
     def start_debconf(self):
@@ -145,6 +145,9 @@ class Wizard:
             if 'asks-questions' in self.menus[item]:
                 for name in self.menus[item]['asks-questions']:
                     self.db.fset(name, 'seen', 'false')
+
+            if item in self.steps and not self.steps[item].prepared:
+                self.steps[item].prepare()
 
             # Run the menu item through a debconf filter, which may display
             # custom widgets as required.

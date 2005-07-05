@@ -11,6 +11,7 @@ class WizardStep(object):
         self.db = db
         self.gladefile = glade
         self.succeeded = False
+        self.prepared = False
 
     def preseed(self, name, value, seen=True):
         try:
@@ -32,9 +33,8 @@ class WizardStep(object):
         self.dialog.destroy()
 
     def prepare(self):
-        pass
+        self.prepared = True
 
-    def run(self, priority, question):
         self.glade = gtk.glade.XML(self.gladefile)
         self.glade.signal_autoconnect(self)
         self.dialog = self.glade.get_widget('dialog')
@@ -44,6 +44,5 @@ class WizardStep(object):
         self.glade.get_widget('button_cancel').connect('clicked',
                                                        self.cancel_handler)
 
-        self.prepare()
-
+    def run(self, priority, question):
         gtk.main()

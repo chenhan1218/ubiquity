@@ -63,6 +63,8 @@ class Timezone(WizardStep):
                 select_zone.set_active(active)
 
     def prepare(self):
+        super(Timezone, self).prepare()
+
         if os.path.isfile('/etc/timezone'):
             timezone = open('/etc/timezone').readline().strip()
         elif os.path.islink('/etc/localtime'):
