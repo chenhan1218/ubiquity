@@ -9,12 +9,8 @@ import debconf
 class WizardStep(object):
     def __init__(self, db, glade):
         self.db = db
-        self.glade = glade
+        self.gladefile = glade
         self.succeeded = False
-
-        self.glade.get_widget('button_ok').connect('clicked', self.ok_handler)
-        self.glade.get_widget('button_cancel').connect('clicked',
-                                                       gtk.main_quit)
 
     def preseed(self, name, value, seen=True):
         try:
@@ -29,7 +25,25 @@ class WizardStep(object):
 
     def ok_handler(self, widget, data=None):
         self.succeeded = True
-        gtk.main_quit()
+        self.dialog.destroy()
+
+    def cancel_handler(self, widget, data=None):
+        self.succeeded = False
+        self.dialog.destroy()
+
+    def prepare(self):
+        pass
 
     def run(self):
+        self.glade = gtk.glade.XML(self.gladefile)
+        self.glade.signal_autoconnect(self)
+        self.dialog = self.glade.get_widget('dialog')
+        self.dialog.connect('destroy', gtk.main_quit)
+
+        self.glade.get_widget('button_ok').connect('clicked', self.ok_handler)
+        self.glade.get_widget('button_cancel').connect('clicked',
+                                                       self.cancel_handler)
+
+        self.prepare()
+
         gtk.main()

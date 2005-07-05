@@ -129,11 +129,7 @@ class Wizard:
         return items
 
     def run_step(self, step):
-        xml = gtk.glade.XML(self.glades[step])
-        xml.signal_autoconnect(self)
-        dialog = xml.get_widget('dialog')
-        dialog.connect('destroy', gtk.main_quit)
-        stepper = self.steps[step](self.db, xml)
+        stepper = self.steps[step](self.db, self.glades[step])
         stepper.run()
         return stepper.succeeded
 
