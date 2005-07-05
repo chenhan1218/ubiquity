@@ -122,6 +122,14 @@ class Timezone(WizardStep):
 
         super(Timezone, self).ok_handler(widget, data)
 
+    def set(self, question, value):
+        if question == 'tzconfig/gmt':
+            utc_button = self.glade.get_widget('utc_button')
+            if value == 'true':
+                utc_button.set_active(True)
+            else:
+                utc_button.set_active(False)
+
     def run(self, priority, question):
         if question == 'tzconfig/verify_choices':
             # ignored for now
