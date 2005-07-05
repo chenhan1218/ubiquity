@@ -18,6 +18,10 @@ import debconf
 #   * fetch the question's description using METAGET
 #   * set the question's value using SET
 #   * set the question's seen flag using FSET
+#
+# Widgets may also have a set(self, question, value) method; if present,
+# this will be called whenever the confmodule uses SET. They may wish to use
+# this to adjust the values of questions in their user interface.
 
 class DebconfFilter:
     def __init__(self, db, widgets={}):
@@ -50,7 +54,7 @@ class DebconfFilter:
 
             self.debug('filter', '<--', command, *params)
 
-            if command == 'INPUT' and len(params) > 1:
+            if command == 'INPUT' and len(params) == 2:
                 (priority, question) = params
                 for pattern in self.widgets.keys():
                     if re.search(pattern, question):
@@ -61,6 +65,15 @@ class DebconfFilter:
                 if widget is not None:
                     self.debug('filter', 'widget found for', question)
                     widget.run(priority, question)
+
+            if command == 'SET' and len(params) == 2:
+                (question, value) = params
+                for pattern in self.widgets.keys():
+                    if re.search(pattern, question):
+                        self.debug('filter', 'widget found for', question)
+                        widget = self.widgets[pattern]
+                        if hasattr(widget, 'set'):
+                            self.widgets[pattern].set(question, value)
 
             try:
                 data = self.db.command(command, *params)
