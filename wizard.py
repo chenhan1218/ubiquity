@@ -150,7 +150,6 @@ class Wizard:
             # Set as unseen all questions that we're going to ask.
             if 'asks-questions' in self.menus[item]:
                 for name in self.menus[item]['asks-questions']:
-                    print >>sys.stderr, 'asks-questions', item, name
                     self.db.fset(name, 'seen', 'false')
 
             # Run the menu item through a debconf filter, which may display
