@@ -8,10 +8,10 @@
 
 set -e
 
-find /usr/share/oem-config/menu -maxdepth 1 -name \*.templates -print0 | \
+find /usr/lib/oem-config/menu -maxdepth 1 -name \*.templates -print0 | \
 	xargs -0r debconf-loadtemplate oem-config
 
-FB_LIBDIR=/usr/share/oem-config
+FB_LIBDIR=/usr/lib/oem-config
 FB_TMPDIR="$(mktemp -d -t oem-config.XXXXXX)"
 export FB_LIBDIR FB_TMPDIR
 cd "$FB_TMPDIR"
@@ -30,7 +30,7 @@ for i in $(find "$FB_LIBDIR/menu" \( -type f -or -type l \) -perm -700 -printf '
 done
 
 CODE=0
-if ! /usr/share/oem-config/oem-config-menu "$@"; then
+if ! /usr/lib/oem-config/oem-config-menu "$@"; then
 	CODE=$?
 fi
 

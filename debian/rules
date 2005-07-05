@@ -13,17 +13,15 @@ binary-arch: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k
-	dh_installdirs usr/share/oem-config/menu usr/share/debconf/templates \
+	dh_installdirs usr/lib/oem-config/menu usr/share/debconf/templates \
 		usr/share/lintian/overrides
 	dh_install oem-config usr/sbin/
-	dh_install oem-config-menu usr/share/oem-config/
-	dh_install menu/* usr/share/oem-config/menu/
-	dh_install pygtk/*.py /usr/lib/oem-config/pygtk/
-	dh_install pygtk/steps/*.py pygtk/steps/*.glade \
-		/usr/lib/oem-config/pygtk/steps/
+	dh_install oem-config-menu usr/lib/oem-config/
+	dh_install *.py /usr/lib/oem-config/
+	dh_install menu/* usr/lib/oem-config/menu/
 	set -e; for x in menu/*.templates; do \
 		po2debconf --podir=debian/po $$x \
-			> $(tmp)/usr/share/oem-config/menu/$${x##*/}; \
+			> $(tmp)/usr/lib/oem-config/menu/$${x##*/}; \
 	done
 	po2debconf debian/oem-config-menu.templates \
 		> $(tmp)/usr/share/debconf/templates/oem-config-menu.templates

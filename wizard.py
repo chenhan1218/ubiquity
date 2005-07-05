@@ -15,13 +15,12 @@ import gtk.glade
 import debconf
 import debconffilter
 
-menudir = '/usr/share/oem-config/menu'
-moduledir = '/usr/lib/oem-config/pygtk'
-stepsdir = os.path.join(moduledir, 'steps')
+moduledir = '/usr/lib/oem-config'
+menudir = '/usr/lib/oem-config/menu'
 
 menu_line_re = re.compile(r'(.*?): (.*)')
 
-from steps.timezone import *
+from menu.timezone import *
 
 class Wizard:
     def __init__(self, includes=None, excludes=None):
@@ -101,14 +100,14 @@ class Wizard:
         self.start_debconf()
 
         self.glades = {}
-        for glade in [f for f in os.listdir(stepsdir) if f.endswith('.glade')]:
+        for glade in [f for f in os.listdir(menudir) if f.endswith('.glade')]:
             name = '.'.join(glade.split('.')[:-1])
-            self.glades[name] = os.path.join(stepsdir, glade)
+            self.glades[name] = os.path.join(menudir, glade)
 
         self.steps = {}
-        for step in [f for f in os.listdir(stepsdir) if f.endswith('.py')]:
+        for step in [f for f in os.listdir(menudir) if f.endswith('.py')]:
             name = '.'.join(step.split('.')[:-1])
-            mod = getattr(__import__('steps.%s' % name), name)
+            mod = getattr(__import__('menu.%s' % name), name)
             if hasattr(mod, 'stepname'):
                 self.steps[name] = getattr(mod, mod.stepname)
 
