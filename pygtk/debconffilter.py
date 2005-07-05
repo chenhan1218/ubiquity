@@ -6,6 +6,7 @@
 
 import sys
 import os
+import popen2
 import re
 import debconf
 
@@ -32,7 +33,9 @@ class DebconfFilter:
             print >>sys.stderr, "debconf (%s):" % key, ' '.join(args)
 
     def run(self, subprocess):
-        (subin, subout) = os.popen2(subprocess)
+        subp = popen2.Popen3(subprocess)
+        (subin, subout) = (subp.tochild, subp.fromchild)
+
         while True:
             line = subout.readline()
             if line == '':
@@ -72,6 +75,8 @@ class DebconfFilter:
                 subin.write("%d %s\n" % e.args)
                 subin.flush()
 
+        return subp.wait()
+
 if __name__ == '__main__':
     class Widget:
         def __init__(self, db, text):
@@ -85,4 +90,5 @@ if __name__ == '__main__':
     widgets = {}
     widgets['tzconfig/change_timezone'] = Widget(db, 'I am a custom widget')
     df = DebconfFilter(db, widgets)
-    df.run(sys.argv[1])
+    ret = df.run(sys.argv[1])
+    print >>sys.stderr, "%s exited with code %d" % (sys.argv[1], ret)
