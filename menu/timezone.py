@@ -120,4 +120,11 @@ class Timezone(WizardStep):
 
         super(Timezone, self).ok_handler(widget, data)
 
+    def run(self, priority, question):
+        if question == 'tzconfig/verify_choices':
+            # ignored for now
+            return
+
+        super(Timezone, self).run(priority, question)
+
 stepname = 'Timezone'
