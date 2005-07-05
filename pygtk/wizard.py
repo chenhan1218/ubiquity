@@ -154,16 +154,11 @@ class Wizard:
                     print >>sys.stderr, 'asks-questions', item, name
                     self.db.fset(name, 'seen', 'false')
 
-            # Is there a custom frontend for this item? If so, run it.
-            if item in self.steps:
-                if not self.run_step(item):
-                    index -= 1
-                    continue
-
-            # Run the pure-debconf menu item.
+            # Run the menu item through a debconf filter, which may display
+            # custom widgets as required.
             # TODO: do something more useful on failure
             itempath = os.path.join(menudir, item)
-            if os.spawnl(os.P_WAIT, itempath, itempath) != 0:
+            if self.debconffilter.run(itempath) != 0:
                 index -= 1
                 continue
 
