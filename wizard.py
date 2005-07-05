@@ -136,12 +136,6 @@ class Wizard:
         items.sort(menu_sort)
         return items
 
-    def run_step(self, step):
-        stepper = self.steps[step](self.db, self.glades[step])
-        # TODO: None arguments temporary, for future debconffilter integration
-        stepper.run(None, None)
-        return stepper.succeeded
-
     def run(self):
         items = self.get_menu_items()
         index = 0
