@@ -36,15 +36,28 @@ class Wizard:
                 if excludes is not None and name in excludes:
                     continue
 
+            menudata = {}
+            menufile = open(os.path.join(menudir, menu))
+            for line in menufile:
+                match = menu_line_re.match(line)
+                if match is not None:
+                    menudata[match.group(1).lower()] = match.group(2)
+
             # If the frontend isn't up yet, load any templates that come
             # with this item.
             if 'DEBIAN_HAS_FRONTEND' not in os.environ:
                 templates = os.path.join(menudir, '%s.templates' % name)
-                if os.access(templates, os.R_OK):
-                    if os.spawnlp(os.P_WAIT, 'debconf-loadtemplate',
-                                  'debconf-loadtemplate', 'oem-config',
-                                  templates) != 0:
+                if os.path.exists(templates):
+                    if self.load_template(templates) != 0:
                         continue
+
+                if 'extra-templates' in menudata:
+                    extras = menudata['extra-templates']
+                    for extra in extras.split(' '):
+                        if not extra.startswith('/'):
+                            extra = os.path.join(menudir, extra)
+                        if self.load_template(extra) != 0:
+                            continue
 
             # If there is a test script, check that it succeeds.
             testscript = os.path.join(menudir, '%s.tst' % name)
@@ -52,12 +65,7 @@ class Wizard:
                 if os.spawnl(os.P_WAIT, testscript, testscript) != 0:
                     continue
 
-            self.menus[name] = {}
-            menufile = open(os.path.join(menudir, menu))
-            for line in menufile:
-                match = menu_line_re.match(line)
-                if match is not None:
-                    self.menus[name][match.group(1).lower()] = match.group(2)
+            self.menus[name] = menudata
 
             # If there is an Asks: field, match it against the list of
             # question names in the debconf database.
@@ -125,6 +133,10 @@ class Wizard:
         for name in self.menus:
             self.menus[name]['description'] = \
                 self.db.metaget('oem-config/menu/%s' % name, 'description')
+
+    def load_template(self, template):
+        return os.spawnlp(os.P_WAIT, 'debconf-loadtemplate',
+                          'debconf-loadtemplate', 'oem-config', template)
 
     # Get a list of the menu items, sorted by their Order: fields.
     def get_menu_items(self):
