@@ -47,7 +47,11 @@ class DebconfFilter:
         self.subin.flush()
 
     def run(self, subprocess):
+        os.environ['DEBIAN_HAS_FRONTEND'] = '1'
+        os.environ['PERL_DL_NONLAZY'] = '1'
         subp = popen2.Popen3(subprocess)
+        del os.environ['PERL_DL_NONLAZY']
+        del os.environ['DEBIAN_HAS_FRONTEND']
         (self.subin, self.subout) = (subp.tochild, subp.fromchild)
         next_go_backup = False
 

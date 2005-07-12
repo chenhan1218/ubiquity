@@ -7,8 +7,7 @@ import gtk
 import debconf
 
 class WizardStep(object):
-    def __init__(self, db, glade):
-        self.db = db
+    def __init__(self, glade):
         self.gladefile = glade
         self.succeeded = False
         self.prepared = False
@@ -61,8 +60,10 @@ class WizardStep(object):
         self.succeeded = False
         self.dialog.destroy()
 
-    def prepare(self):
+    def prepare(self, db):
         self.prepared = True
+
+        self.db = db
 
         self.glade = gtk.glade.XML(self.gladefile)
         self.glade.signal_autoconnect(self)

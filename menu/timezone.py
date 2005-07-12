@@ -24,11 +24,6 @@ class Timezone(WizardStep):
         'None of the above':            'Etc',
     }
 
-    def __init__(self, db, glade):
-        super(Timezone, self).__init__(db, glade)
-
-        self.geographic_area_choices = self.choices('tzconfig/geographic_area')
-
     def update_zone_list(self, area, default_zone=None):
         select_zone = self.glade.get_widget('select_zone_combo')
         list_store = select_zone.get_model()
@@ -58,8 +53,10 @@ class Timezone(WizardStep):
             else:
                 select_zone.set_active(active)
 
-    def prepare(self):
-        super(Timezone, self).prepare()
+    def prepare(self, db):
+        super(Timezone, self).prepare(db)
+
+        self.geographic_area_choices = self.choices('tzconfig/geographic_area')
 
         if os.path.isfile('/etc/timezone'):
             timezone = open('/etc/timezone').readline().strip()

@@ -13,7 +13,8 @@ pygtk.require('2.0')
 import gtk
 import gtk.glade
 import debconf
-import debconffilter
+from debconffilter import DebconfFilter
+from debconfcommunicator import DebconfCommunicator
 
 moduledir = '/usr/lib/oem-config'
 menudir = '/usr/lib/oem-config/menu'
@@ -43,21 +44,19 @@ class Wizard:
                 if match is not None:
                     menudata[match.group(1).lower()] = match.group(2)
 
-            # If the frontend isn't up yet, load any templates that come
-            # with this item.
-            if 'DEBIAN_HAS_FRONTEND' not in os.environ:
-                templates = os.path.join(menudir, '%s.templates' % name)
-                if os.path.exists(templates):
-                    if self.load_template(templates) != 0:
-                        continue
+            # Load any templates that come with this item.
+            templates = os.path.join(menudir, '%s.templates' % name)
+            if os.path.exists(templates):
+                if self.load_template(templates) != 0:
+                    continue
 
-                if 'extra-templates' in menudata:
-                    extras = menudata['extra-templates']
-                    for extra in extras.split(' '):
-                        if not extra.startswith('/'):
-                            extra = os.path.join(menudir, extra)
-                        if self.load_template(extra) != 0:
-                            continue
+            if 'extra-templates' in menudata:
+                extras = menudata['extra-templates']
+                for extra in extras.split(' '):
+                    if not extra.startswith('/'):
+                        extra = os.path.join(menudir, extra)
+                    if self.load_template(extra) != 0:
+                        continue
 
             # If there is a test script, check that it succeeds.
             testscript = os.path.join(menudir, '%s.tst' % name)
@@ -74,38 +73,35 @@ class Wizard:
                 asks = []
 
                 # It isn't possible to use debconf-copydb after the debconf
-                # frontend has started up, so we have to resort to this
-                # nasty hack: we process the Asks: fields, stuff them into
-                # the environment, start the debconf frontend (re-execing
-                # ourselves) and fetch the processed Asks: fields back out
-                # of the environment again.
+                # frontend has started up, so we have to use
+                # DebconfCommunicator to talk to a separate
+                # debconf-communicate process rather than starting a proper
+                # frontend.
                 #
                 # The best fix for this mess is to make debconf-copydb treat
                 # its source database as read-only. Unfortunately, layering
                 # issues inside debconf make this difficult for the time
                 # being.
 
-                magic_env = 'OEM_CONFIG_ASKS_%s' % name
-                if magic_env in os.environ:
-                    self.menus[name]['asks-questions'] = \
-                        os.environ[magic_env].split(' ')
-                else:
-                    # TODO: os.popen() doesn't take a list, so we have to
-                    # quote metacharacters by hand. Once we're entirely
-                    # comfortable with relying on Python 2.4, we can use
-                    # subprocess.call() instead.
-                    asks_re = re.sub(r'\W', r'\\\g<0>', asks_re)
-                    for line in os.popen(
-                            'debconf-copydb configdb pipe' +
-                            ' --config=Name:pipe --config=Driver:Pipe' +
-                            ' --config=InFd:none --pattern=%s' % asks_re):
-                        line = line.rstrip('\n')
-                        if line.startswith('Name: '):
-                            asks.append(line[6:])
-                    self.menus[name]['asks-questions'] = asks
-                    os.environ[magic_env] = ' '.join(asks)
+                # TODO: os.popen() doesn't take a list, so we have to
+                # quote metacharacters by hand. Once we're entirely
+                # comfortable with relying on Python 2.4, we can use
+                # subprocess.call() instead.
+                asks_re = re.sub(r'\W', r'\\\g<0>', asks_re)
+                for line in os.popen(
+                        'debconf-copydb configdb pipe' +
+                        ' --config=Name:pipe --config=Driver:Pipe' +
+                        ' --config=InFd:none --pattern=%s' % asks_re):
+                    line = line.rstrip('\n')
+                    if line.startswith('Name: '):
+                        asks.append(line[6:])
+                self.menus[name]['asks-questions'] = asks
 
-        self.start_debconf()
+        db = DebconfCommunicator('oem-config')
+
+        for name in self.menus:
+            self.menus[name]['description'] = \
+                db.metaget('oem-config/menu/%s' % name, 'description')
 
         self.glades = {}
         for glade in [f for f in os.listdir(menudir) if f.endswith('.glade')]:
@@ -118,21 +114,14 @@ class Wizard:
             mod = getattr(__import__('menu.%s' % name), name)
             if hasattr(mod, 'stepname'):
                 stepmethod = getattr(mod, mod.stepname)
-                self.steps[name] = stepmethod(self.db, self.glades[name])
+                self.steps[name] = stepmethod(self.glades[name])
 
         self.widgets = {}
         for name in self.menus:
             if name in self.steps:
                 self.widgets[self.menus[name]['asks']] = self.steps[name]
-        self.debconffilter = debconffilter.DebconfFilter(self.db, self.widgets)
 
-    def start_debconf(self):
-        debconf.runFrontEnd()
-        self.db = debconf.Debconf()
-
-        for name in self.menus:
-            self.menus[name]['description'] = \
-                self.db.metaget('oem-config/menu/%s' % name, 'description')
+        db.shutdown()
 
     def load_template(self, template):
         return os.spawnlp(os.P_WAIT, 'debconf-loadtemplate',
@@ -149,6 +138,9 @@ class Wizard:
         return items
 
     def run(self):
+        db = DebconfCommunicator('oem-config')
+        debconffilter = DebconfFilter(db, self.widgets)
+
         items = self.get_menu_items()
         index = 0
         while index >= 0 and index < len(items):
@@ -156,16 +148,16 @@ class Wizard:
             # Set as unseen all questions that we're going to ask.
             if 'asks-questions' in self.menus[item]:
                 for name in self.menus[item]['asks-questions']:
-                    self.db.fset(name, 'seen', 'false')
+                    db.fset(name, 'seen', 'false')
 
             if item in self.steps and not self.steps[item].prepared:
-                self.steps[item].prepare()
+                self.steps[item].prepare(db)
 
             # Run the menu item through a debconf filter, which may display
             # custom widgets as required.
             # TODO: do something more useful on failure
             itempath = os.path.join(menudir, item)
-            if self.debconffilter.run(itempath) != 0:
+            if debconffilter.run(itempath) != 0:
                 index -= 1
                 continue
 
@@ -175,6 +167,8 @@ class Wizard:
                 break
 
             index += 1
+
+        db.shutdown()
 
 if __name__ == '__main__':
     parser = optparse.OptionParser()
