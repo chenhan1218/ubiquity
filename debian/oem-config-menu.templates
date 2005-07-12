@@ -1,13 +1,3 @@
-Template: oem-config/title
-Type: title
-_Description: Configuring your new system
-
-Template: oem-config/main-menu
-Type: select
-Choices: ${CHOICES}
-_Description: Choose the next step in the configuration process:
- These items help you configure your new system.
-
 Template: debian-installer/language
 Type: string
 # This template borrowed from localechooser, since kbd-chooser needs it.

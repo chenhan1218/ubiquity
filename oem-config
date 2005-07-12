@@ -4,36 +4,4 @@
 # the end user receives the system, to configure settings specific to that
 # end user.
 
-# Wrapper script to load debconf templates and invoke the menu.
-
-set -e
-
-find /usr/lib/oem-config/menu -maxdepth 1 -name \*.templates -print0 | \
-	xargs -0r debconf-loadtemplate oem-config
-
-FB_LIBDIR=/usr/lib/oem-config
-FB_TMPDIR="$(mktemp -d -t oem-config.XXXXXX)"
-export FB_LIBDIR FB_TMPDIR
-cd "$FB_TMPDIR"
-
-mkdir -p asks
-for i in $(find "$FB_LIBDIR/menu" \( -type f -or -type l \) -perm -700 -printf '%f\n'); do
-	mnu="$FB_LIBDIR/menu/$i.mnu"
-	if ! grep -q ^Asks: "$mnu"; then
-		continue
-	fi
-	asks="$(grep ^Asks: "$mnu" | cut -f 2 -d ' ')"
-	debconf-copydb configdb pipe \
-		--config=Name:pipe --config=Driver:Pipe \
-		--config=InFd:none --pattern="$asks" | \
-		sed -n '/^Name: / { s/^Name: //; p }' > "asks/$i"
-done
-
-CODE=0
-if ! /usr/lib/oem-config/oem-config-menu "$@"; then
-	CODE=$?
-fi
-
-cd /
-rm -rf "$FB_TMPDIR"
-exit $?
+exec /usr/lib/oem-config/wizard.py "$@"
