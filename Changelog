@@ -1,0 +1,7 @@
+15-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
+	* Changelog: Initial version.
+	* ubuntu-express: Imported from Matt's baz repository
+	* installer: Extended version of ubuntu-express
+	* ubuntu-express.diff: Patch between ubuntu-express and installer
+	* frontend: Created directory for UIs implementations. Already created
+	the skeleton of 2 of them (noui and text)
