@@ -1,6 +1,6 @@
---- ubuntu-express	2005-07-15 11:54:57.367661376 +0100
-+++ installer	2005-07-14 18:17:22.000000000 +0100
-@@ -12,6 +12,21 @@
+--- ubuntu-express	2005-07-15 11:54:57.000000000 +0100
++++ installer	2005-07-15 17:20:58.108976696 +0100
+@@ -12,8 +12,23 @@
      source = '/source'
      target = '/target'
  
@@ -12,17 +12,38 @@
 +        hostname = self.wizard.get_hostname()
 +        timezone = self.wizard.get_timezone()
 +        keymap   = self.wizard.get_keymap()
-+        user     = self.wizard.get_user()
-+        password = self.wizard.get_password()
 +        fullname = self.wizard.get_fullname()
++        user, password = self.wizard.get_user()
 +        mountpoints = self.wizard.get_hostname()
 +      finally:
 +        self.install(mountpoints,timezone,keymap,username,password,fullname,hostname)
 +
      def install(self, mountpoints, timezone, keymap, username, password, fullname,
                  hostname):
++	self.wizard.get_partitions()
          self.mount_target(mountpoints)
-@@ -143,13 +158,26 @@
+         self.mount_source()
+         try:
+@@ -124,7 +139,9 @@
+                 fqpath = os.path.join(self.source, dirpath, name)
+ 
+                 if os.path.isfile(fqpath):
+-                    files.append((relpath, os.path.getsize(fqpath)))
++		    size = os.path.getsize(fqpath)
++		    total_size += size	
++                    files.append((relpath, size))
+                 else:
+                     files.append((relpath, None))
+ 
+@@ -137,19 +154,34 @@
+             copy.stdin.write(path + '\0')
+             if size is not None:
+                 copied_bytes += size
++            per = (copied_bytes * 100) / total_size
++            self.wizard.set_progress(per)
+ 
+         copy.stdin.close()
+         copy.wait()
          
  
      def mount_source(self):
@@ -52,3 +73,9 @@
  
      def ex(self, *args):
          status = subprocess.call(args)
+@@ -178,3 +210,5 @@
+ 
+ if __name__ == '__main__':
+     Installer().install({'/' : sys.argv[1]}, 'US/Pacific', 'dvorak', 'mdz', 'mdz2', 'Matt Zimmerman', 'ubuntu')
++
++# vim:ai:et:sts=4:tw=80:sw=4:
