@@ -1,0 +1,54 @@
+--- ubuntu-express	2005-07-15 11:54:57.367661376 +0100
++++ installer	2005-07-14 18:17:22.000000000 +0100
+@@ -12,6 +12,21 @@
+     source = '/source'
+     target = '/target'
+ 
++    def frontend(self, type='text'):
++      ui = gettatr(__import__('frontend.%s' % type), type)
++
++      try:
++        self.wizard = ui()
++        hostname = self.wizard.get_hostname()
++        timezone = self.wizard.get_timezone()
++        keymap   = self.wizard.get_keymap()
++        user     = self.wizard.get_user()
++        password = self.wizard.get_password()
++        fullname = self.wizard.get_fullname()
++        mountpoints = self.wizard.get_hostname()
++      finally:
++        self.install(mountpoints,timezone,keymap,username,password,fullname,hostname)
++
+     def install(self, mountpoints, timezone, keymap, username, password, fullname,
+                 hostname):
+         self.mount_target(mountpoints)
+@@ -143,13 +158,26 @@
+         
+ 
+     def mount_source(self):
+-        self.ex('losetup', '/dev/cloop1', '/cdrom/casper/filesystem.cloop')
++	from os import path
++	path = '/cdrom/casper/filesystem.'
++	files = [path + 'cloop', path + 'squashfs']
++	for f in files:
++		if path.isfile(f) and path.splitext(f)[1] == '.cloop':
++			file = f
++			self.dev = '/dev/cloop1'
++		elif path.isfile(f) and path.splitext(f)[1] == '.squashfs':
++			file = f
++			self.dev = '/dev/loop3'
++		else return -1			
++
++        self.ex('losetup', self.dev, file)
+         os.mkdir(self.source)
+-        self.ex('mount', '/dev/cloop1', self.source)
++        self.ex('mount', self.dev, self.source)
++	return 0
+ 
+     def unmount_source(self):
+         self.ex('umount', self.source)
+-        self.ex('losetup', '-d', '/dev/cloop1')
++        self.ex('losetup', '-d', self.dev)
+ 
+     def ex(self, *args):
+         status = subprocess.call(args)
