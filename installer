@@ -20,9 +20,8 @@ class Installer:
         hostname = self.wizard.get_hostname()
         timezone = self.wizard.get_timezone()
         keymap   = self.wizard.get_keymap()
-        user     = self.wizard.get_user()
-        password = self.wizard.get_password()
         fullname = self.wizard.get_fullname()
+        user, password = self.wizard.get_user()
         mountpoints = self.wizard.get_hostname()
       finally:
         self.install(mountpoints,timezone,keymap,username,password,fullname,hostname)

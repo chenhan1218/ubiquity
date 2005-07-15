@@ -1,22 +1,41 @@
 #!/usr/bin/python
 
 '''
-This is just a silly example.
-Later we'll convert it into a real one
+Text Frontend
+
+Text frontend implementation for the installer
 '''
 
 class Wizard:
   def __init__(self):
     print "Welcome to the UbuntuExpress"
 
-  def get_hostname(self):
-    print "Please enter the hostname for this system."
-    hostname = raw_input("Hostname: ")
-    return hostname
-
   def set_progress(self,num):
     for i in range(0,num):
       print ".",
     print "\n%d " % num
 
+  def get_hostname(self):
+    print "Please enter the hostname for this system."
+    hostname = raw_input("Hostname: ")
+    return hostname
+
+  def get_timezone(self):
+    pass
+
+  def get_keymap(self):
+    pass
+
+  def get_user(self):
+    pass
+
+  def get_fullname(self):
+    pass
+
+  def get_hostname(self):
+    pass
+
+  def get_partitions(self):
+    pass
+  
 # vim:ai:et:sts=2:tw=80:sw=2:

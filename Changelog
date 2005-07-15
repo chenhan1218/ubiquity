@@ -1,4 +1,12 @@
 15-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
+	* instaler:
+		- Added get_partitions call in installer method.
+		- Added progressbar stuff in copy_all method.
+		- Joined get_user() and get_password() into get_user()
+	* frontend/gnome.py: Added frontend for Gnome
+	* frontend/*: Reorganized the mothods
+	
+15-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
 	* Changelog: Initial version.
 	* ubuntu-express: Imported from Matt's baz repository
 	* installer: Extended version of ubuntu-express
