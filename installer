@@ -29,6 +29,7 @@ class Installer:
 
     def install(self, mountpoints, timezone, keymap, username, password, fullname,
                 hostname):
+	self.wizard.get_partitions()
         self.mount_target(mountpoints)
         self.mount_source()
         try:
@@ -139,7 +140,9 @@ class Installer:
                 fqpath = os.path.join(self.source, dirpath, name)
 
                 if os.path.isfile(fqpath):
-                    files.append((relpath, os.path.getsize(fqpath)))
+		    size = os.path.getsize(fqpath)
+		    total_size += size	
+                    files.append((relpath, size))
                 else:
                     files.append((relpath, None))
 
@@ -152,6 +155,8 @@ class Installer:
             copy.stdin.write(path + '\0')
             if size is not None:
                 copied_bytes += size
+            per = (copied_bytes * 100) / total_size
+            self.wizard.set_progress(per)
 
         copy.stdin.close()
         copy.wait()
@@ -206,3 +211,5 @@ class Installer:
 
 if __name__ == '__main__':
     Installer().install({'/' : sys.argv[1]}, 'US/Pacific', 'dvorak', 'mdz', 'mdz2', 'Matt Zimmerman', 'ubuntu')
+
+# vim:ai:et:sts=4:tw=80:sw=4:
