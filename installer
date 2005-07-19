@@ -172,7 +172,8 @@ class Installer:
 		elif path.isfile(f) and path.splitext(f)[1] == '.squashfs':
 			file = f
 			self.dev = '/dev/loop3'
-		else return -1			
+		else:
+                    return -1			
 
         self.ex('losetup', self.dev, file)
         os.mkdir(self.source)
