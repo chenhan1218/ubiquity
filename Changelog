@@ -1,3 +1,8 @@
+20-07-2005 Javier Carranza <javier.carranza_@_interactors.coop>
+	* frontend/glade/*:
+		- Glade frontend created.
+		- Added test.py to test UI.
+
 15-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
 	* instaler:
 		- Added get_partitions call in installer method.
