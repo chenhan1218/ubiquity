@@ -8,6 +8,7 @@
 	* frontend/glade/*:
 		- Glade frontend created.
 		- Added test.py to test UI.
+		- Added i18n support.
 
 15-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
 	* instaler:
