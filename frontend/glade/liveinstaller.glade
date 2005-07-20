@@ -8,7 +8,7 @@
   <property name="width_request">640</property>
   <property name="height_request">480</property>
   <property name="visible">True</property>
-  <property name="title" translatable="yes">Instalador Guadalinex 2005</property>
+  <property name="title" translatable="yes">Guadalinex 2005 live installer</property>
   <property name="type">GTK_WINDOW_TOPLEVEL</property>
   <property name="window_position">GTK_WIN_POS_CENTER</property>
   <property name="modal">False</property>
@@ -30,21 +30,21 @@
       <signal name="cancel" handler="on_frontend_installer_cancel" last_modification_time="Wed, 20 Jul 2005 09:56:01 GMT"/>
 
       <child>
-	<widget class="GnomeDruidPageEdge" id="bienvenida">
+	<widget class="GnomeDruidPageEdge" id="welcome">
 	  <property name="visible">True</property>
 	  <property name="position">GNOME_EDGE_START</property>
-	  <property name="title" translatable="yes">Bienvenido a Guadalinex</property>
-	  <property name="text" translatable="yes">Guadalinex es Software Libre. Cada uno de los programas y aplicaciones que integran la distribución Guadalinex tiene su propia licencia. En muchos casos es una licencia GPL, pero si desea modificar cualquier aplicación debería consultar antes los términos específicos de cada una. En cualquier caso, la distribución Guadalinex en sí, incluidas las mejoras o modificaciones sobre aplicaciones y scripts de instalación, la documentación y el material gráfico se licencia bajo GPL y por tanto está permitida su reproducción y difusión siempre que se mantenga esta licencia.</property>
+	  <property name="title" translatable="yes">Welcome to Guadalinex</property>
+	  <property name="text" translatable="yes">Guadalinex is Free Software. Every program which includes the Guadalinex distribution has its own license. The most provides a GPL license, but if you wish to modify any application should before consult the specific terms of each one. In any case, the Guadalinex distribution includes the improvements or modifications on applications and scripts of installation, the documentation and the graphical material license under GPL and therefore has allowed to its reproduction and diffusion whenever this license stays.</property>
 	  <property name="background_color">#080870702121</property>
 	  <property name="logo_background_color">#080870702121</property>
-	  <property name="logo">LogoJuntaCons-Guada.gif</property>
+	  <property name="logo">logo.png</property>
 	</widget>
       </child>
 
       <child>
 	<widget class="GnomeDruidPageStandard" id="step1">
 	  <property name="visible">True</property>
-	  <property name="title" translatable="yes">Zona horaria e Idioma</property>
+	  <property name="title" translatable="yes">Timezone and Language</property>
 	  <property name="background">#080870702121</property>
 	  <property name="logo_background">#080870702121</property>
 
@@ -88,8 +88,8 @@
 			  <property name="left_margin">5</property>
 			  <property name="right_margin">0</property>
 			  <property name="indent">0</property>
-			  <property name="text" translatable="yes">Seleccione el idioma a utilizar durante el proceso de instalación de Guadalinex 2005.
-Además se le solicita la zona horaria donde su equipo está localizado, a fin de configurar correctamente el sistema horario local.</property>
+			  <property name="text" translatable="yes">Select the using language to the installation process of Guadalinex 2005.
+In addition the timezone where its computer is located is asked for, in order to set the local system hour correctly.</property>
 			</widget>
 		      </child>
 		    </widget>
@@ -113,7 +113,7 @@ Además se le solicita la zona horaria donde su equipo está localizado, a fin d
 		      <child>
 			<widget class="GtkLabel" id="label2">
 			  <property name="visible">True</property>
-			  <property name="label" translatable="yes">Franja Horaria:</property>
+			  <property name="label" translatable="yes">Timezone:</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
 			  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -143,8 +143,8 @@ Además se le solicita la zona horaria donde su equipo está localizado, a fin d
 		      <child>
 			<widget class="GtkComboBoxEntry" id="language">
 			  <property name="visible">True</property>
-			  <property name="items" translatable="yes">Español
-Inglés</property>
+			  <property name="items" translatable="yes">English
+Spanish</property>
 			  <property name="add_tearoffs">False</property>
 			  <property name="has_frame">False</property>
 			  <property name="focus_on_click">True</property>
@@ -181,8 +181,8 @@ Inglés</property>
 		      <child>
 			<widget class="GtkLabel" id="label1">
 			  <property name="visible">True</property>
-			  <property name="label" translatable="yes">Seleccione el idioma
-de instalación:</property>
+			  <property name="label" translatable="yes">Select the installation 
+language:</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
 			  <property name="justify">GTK_JUSTIFY_RIGHT</property>
@@ -231,7 +231,7 @@ de instalación:</property>
       <child>
 	<widget class="GnomeDruidPageStandard" id="step2">
 	  <property name="visible">True</property>
-	  <property name="title" translatable="yes">Usuario y contraseña</property>
+	  <property name="title" translatable="yes">Username and Password</property>
 	  <property name="background">#080870702121</property>
 	  <property name="logo_background">#080870702121</property>
 
@@ -275,9 +275,9 @@ de instalación:</property>
 			  <property name="left_margin">5</property>
 			  <property name="right_margin">0</property>
 			  <property name="indent">0</property>
-			  <property name="text" translatable="yes">El sistema Guadalinex precisa de un usuario y contraseña para su instalación.
-El primer usuario del sistema obtendrá privilegios de administración, de forma que tras la instalación será el único capacitado para realizar tareas de instalación de aplicaciones o configuraciones de sistema.
-Introduzca su contraseña en dos ocasiones para verificar su correcta escritura.</property>
+			  <property name="text" translatable="yes">The Guadalinex system needs user and password for its installation.
+The first user created  in the system will obtain administration privileges, so after this installation it will be the only one who will be enabled to make tasks of installation or configurations of this system.
+Type your password twice to verify its correct writing.</property>
 			</widget>
 		      </child>
 		    </widget>
@@ -301,7 +301,7 @@ Introduzca su contraseña en dos ocasiones para verificar su correcta escritura.
 		      <child>
 			<widget class="GtkLabel" id="label5">
 			  <property name="visible">True</property>
-			  <property name="label" translatable="yes">Verificación de contraseña:</property>
+			  <property name="label" translatable="yes">Verify password:</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
 			  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -394,7 +394,7 @@ Introduzca su contraseña en dos ocasiones para verificar su correcta escritura.
 		      <child>
 			<widget class="GtkLabel" id="label4">
 			  <property name="visible">True</property>
-			  <property name="label" translatable="yes">Contraseña:</property>
+			  <property name="label" translatable="yes">Password:</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
 			  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -424,7 +424,7 @@ Introduzca su contraseña en dos ocasiones para verificar su correcta escritura.
 		      <child>
 			<widget class="GtkLabel" id="label3">
 			  <property name="visible">True</property>
-			  <property name="label" translatable="yes">Nombre de usuario:</property>
+			  <property name="label" translatable="yes">Username:</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
 			  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -473,7 +473,7 @@ Introduzca su contraseña en dos ocasiones para verificar su correcta escritura.
       <child>
 	<widget class="GnomeDruidPageStandard" id="step3">
 	  <property name="visible">True</property>
-	  <property name="title" translatable="yes">Nombre del equipo</property>
+	  <property name="title" translatable="yes">Hostname</property>
 	  <property name="background">#080870702121</property>
 	  <property name="logo_background">#080870702121</property>
 
@@ -517,9 +517,8 @@ Introduzca su contraseña en dos ocasiones para verificar su correcta escritura.
 			  <property name="left_margin">5</property>
 			  <property name="right_margin">0</property>
 			  <property name="indent">0</property>
-			  <property name="text" translatable="yes">El sistema Guadalinex precisa de un usuario y contraseña para su instalación.
-El primer usuario del sistema obtendrá privilegios de administración, de forma que tras la instalación será el único capacitado para realizar tareas de instalación de aplicaciones o configuraciones de sistema.
-Introduzca su contraseña en dos ocasiones para verificar su correcta escritura.</property>
+			  <property name="text" translatable="yes">The system needs a hostname with which to be able to manage tasks of network and maintenance of system. 
+Assign a name to your computer so it can be easily identifiable in yours domestic network.</property>
 			</widget>
 		      </child>
 		    </widget>
@@ -540,7 +539,7 @@ Introduzca su contraseña en dos ocasiones para verificar su correcta escritura.
 		      <child>
 			<widget class="GtkLabel" id="label7">
 			  <property name="visible">True</property>
-			  <property name="label" translatable="yes">Nombre del equipo:</property>
+			  <property name="label" translatable="yes">Hostname:</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
 			  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -603,7 +602,7 @@ Introduzca su contraseña en dos ocasiones para verificar su correcta escritura.
       <child>
 	<widget class="GnomeDruidPageStandard" id="step4">
 	  <property name="visible">True</property>
-	  <property name="title" translatable="yes">Configuración de red</property>
+	  <property name="title" translatable="yes">Network configuration</property>
 	  <property name="background">#080870702121</property>
 	  <property name="logo_background">#080870702121</property>
 
@@ -647,8 +646,8 @@ Introduzca su contraseña en dos ocasiones para verificar su correcta escritura.
 			  <property name="left_margin">5</property>
 			  <property name="right_margin">0</property>
 			  <property name="indent">0</property>
-			  <property name="text" translatable="yes">Para poder comunicar su sistema con otros ordenadores de su propia red doméstica o Internet, deberemos comprobar sus posibilidades de conexión.
-Asímismo, en caso de no existir un sistema automatizado de asignación de datos de configuración de red, deberá especificar manualmente los datos de conexión facilitados por su proveedor de servicios de Internet.</property>
+			  <property name="text" translatable="yes">In order to be able to communicate this system with other computers of your own domestic network or the Internet, we will have to verify its possibilities of connection. 
+In addition, if an automated system of network configuration doesn't exist, you will have to specify the connection data  provides by your supplier of services of Internet to you manually.</property>
 			</widget>
 		      </child>
 		    </widget>
@@ -690,7 +689,7 @@ Asímismo, en caso de no existir un sistema automatizado de asignación de datos
       <child>
 	<widget class="GnomeDruidPageStandard" id="step5">
 	  <property name="visible">True</property>
-	  <property name="title" translatable="yes">Particionado</property>
+	  <property name="title" translatable="yes">Partitioning</property>
 	  <property name="background">#080870702121</property>
 	  <property name="logo_background">#080870702121</property>
 
@@ -712,7 +711,7 @@ Asímismo, en caso de no existir un sistema automatizado de asignación de datos
       <child>
 	<widget class="GnomeDruidPageStandard" id="step6">
 	  <property name="visible">True</property>
-	  <property name="title" translatable="yes">Instalando...</property>
+	  <property name="title" translatable="yes">Installing...</property>
 	  <property name="background">#080870702121</property>
 	  <property name="logo_background">#080870702121</property>
 
@@ -729,7 +728,7 @@ Asímismo, en caso de no existir un sistema automatizado de asignación de datos
 		  <property name="orientation">GTK_PROGRESS_LEFT_TO_RIGHT</property>
 		  <property name="fraction">0</property>
 		  <property name="pulse_step">0.10000000149</property>
-		  <property name="text" translatable="yes">Instalación de Guadalinex 2005</property>
+		  <property name="text" translatable="yes">Guadalinex 2005 install system</property>
 		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
 		</widget>
 		<packing>
@@ -747,13 +746,15 @@ Asímismo, en caso de no existir un sistema automatizado de asignación de datos
 	<widget class="GnomeDruidPageEdge" id="final">
 	  <property name="visible">True</property>
 	  <property name="position">GNOME_EDGE_FINISH</property>
-	  <property name="title" translatable="yes">Disfrútelo</property>
-	  <property name="text" translatable="yes">La instalación de Guadalinex 2005 ha finalizado.
+	  <property name="title" translatable="yes">Just enjoy it !!</property>
+	  <property name="text" translatable="yes">The Guadalinex 2005 installation has ended. 
 
-Le animamos a probar toda la potencia del escritorio Guadalinex, eche un vistazo a la completa selección de aplicaciones incluidas en nuestro sistema operativo. Disfrute con toda la potencia y funcionalidad que el software libre pone a su disposición.</property>
+We animated to you to test all the power of the Guadalinex desktop, throws a first sight to the complete selection of applications including in our operating system. 
+
+Enjoy with all the power and functionality that free software makes you available.</property>
 	  <property name="background_color">#080870702121</property>
 	  <property name="logo_background_color">#080870702121</property>
-	  <property name="logo">LogoJuntaCons-Guada.gif</property>
+	  <property name="logo">logo.png</property>
 	</widget>
       </child>
     </widget>
