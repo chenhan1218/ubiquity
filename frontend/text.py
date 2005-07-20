@@ -29,9 +29,6 @@ class Wizard:
   def get_user(self):
     pass
 
-  def get_fullname(self):
-    pass
-
   def get_hostname(self):
     pass
 

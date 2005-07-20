@@ -39,9 +39,6 @@ class Wizard:
   def get_keymap(self):
     pass
 
-  def get_fullname(self):
-    pass
-
   def get_hostname(self):
     pass
 

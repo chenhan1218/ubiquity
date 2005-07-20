@@ -20,8 +20,7 @@ class Installer:
         hostname = self.wizard.get_hostname()
         timezone = self.wizard.get_timezone()
         keymap   = self.wizard.get_keymap()
-        fullname = self.wizard.get_fullname()
-        user, password = self.wizard.get_user()
+        fullname, user, password = self.wizard.get_user()
         mountpoints = self.wizard.get_hostname()
       finally:
         self.install(mountpoints,timezone,keymap,username,password,fullname,hostname)
@@ -163,8 +162,7 @@ class Installer:
 
     def mount_source(self):
 	from os import path
-	path = '/cdrom/casper/filesystem.'
-	files = [path + 'cloop', path + 'squashfs']
+	files = ['/cdrom/casper/filesystem.cloop', '/cdrom/META/META.squashfs']
 	for f in files:
 		if path.isfile(f) and path.splitext(f)[1] == '.cloop':
 			file = f
