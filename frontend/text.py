@@ -20,16 +20,10 @@ class Wizard:
     hostname = raw_input("Hostname: ")
     return hostname
 
-  def get_timezone(self):
-    pass
-
-  def get_keymap(self):
+  def get_locales(self):
     pass
 
   def get_user(self):
-    pass
-
-  def get_hostname(self):
     pass
 
   def get_partitions(self):
