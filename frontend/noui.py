@@ -44,7 +44,7 @@ class Wizard:
     
   def get_locales(self):
     try:
-      timezone = self.db.get('base-config/tzconfig/preseed_zone')
+      timezone = self.db.get('tzconfig/choose_country_zone_multiple')
     except:
       timezone = open('/etc/timezone').readline().strip()
     keymap  = self.db.get('debian-installer/keymap')

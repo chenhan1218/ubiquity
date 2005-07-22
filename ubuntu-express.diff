@@ -1,30 +1,51 @@
 --- ubuntu-express	2005-07-15 11:54:57.000000000 +0100
-+++ installer	2005-07-15 17:20:58.108976696 +0100
-@@ -12,8 +12,23 @@
++++ installer	2005-07-22 04:46:57.000000000 +0100
+@@ -12,8 +12,18 @@
      source = '/source'
      target = '/target'
  
-+    def frontend(self, type='text'):
-+      ui = gettatr(__import__('frontend.%s' % type), type)
+-    def install(self, mountpoints, timezone, keymap, username, password, fullname,
+-                hostname):
++    def frontend(self, type='noui'):
++      ui = getattr(__import__('frontend.%s' % type), type)
 +
-+      try:
-+        self.wizard = ui()
-+        hostname = self.wizard.get_hostname()
-+        timezone = self.wizard.get_timezone()
-+        keymap   = self.wizard.get_keymap()
-+        fullname = self.wizard.get_fullname()
-+        user, password = self.wizard.get_user()
-+        mountpoints = self.wizard.get_hostname()
-+      finally:
-+        self.install(mountpoints,timezone,keymap,username,password,fullname,hostname)
++      self.wizard = ui.Wizard()
++      hostname = self.wizard.get_hostname()
++      timezone, keymap, locales    = self.wizard.get_locales()
++      fullname, username, password = self.wizard.get_user()
 +
-     def install(self, mountpoints, timezone, keymap, username, password, fullname,
-                 hostname):
-+	self.wizard.get_partitions()
++      self.install(timezone,keymap,locales,username,password,fullname,hostname)
++
++    def install(self, timezone, keymap, locales, username, password, fullname, hostname):
++	mountpoints = self.wizard.get_partitions()
          self.mount_target(mountpoints)
          self.mount_source()
          try:
-@@ -124,7 +139,9 @@
+@@ -32,6 +42,7 @@
+         finally:
+             self.unmount_target(mountpoints)
+ 
++
+     def configure_fstab(self, mountpoints):
+         fstab = open(os.path.join(self.target,'etc/fstab'), 'w')
+         for path, device in mountpoints.items():
+@@ -77,12 +88,11 @@
+         self.chrex('mount', '-t', 'proc', 'proc', '/proc')
+         self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
+ 
+-        uname = subprocess.Popen(['uname', '-r'], stdout=subprocess.PIPE)
+-        kernel_version = uname.stdout.read().rstrip()
+-        uname.wait()
++        kernel_version = open('/proc/sys/kernel/osrelease').readline().strip()
++        packages = ['gnome-panel', 'xserver-xorg', 'linux-image-' + kernel_version]
+         
+         try:
+-            for package in ('gnome-panel', 'xserver-xorg', 'linux-image-' + kernel_version):
++            for package in packages:
+                 self.copy_debconf(package)
+                 self.reconfigure(package)
+         finally:
+@@ -124,7 +134,9 @@
                  fqpath = os.path.join(self.source, dirpath, name)
  
                  if os.path.isfile(fqpath):
@@ -35,7 +56,7 @@
                  else:
                      files.append((relpath, None))
  
-@@ -137,19 +154,34 @@
+@@ -137,19 +149,34 @@
              copy.stdin.write(path + '\0')
              if size is not None:
                  copied_bytes += size
@@ -49,8 +70,7 @@
      def mount_source(self):
 -        self.ex('losetup', '/dev/cloop1', '/cdrom/casper/filesystem.cloop')
 +	from os import path
-+	path = '/cdrom/casper/filesystem.'
-+	files = [path + 'cloop', path + 'squashfs']
++	files = ['/cdrom/casper/filesystem.cloop', '/cdrom/META/META.squashfs']
 +	for f in files:
 +		if path.isfile(f) and path.splitext(f)[1] == '.cloop':
 +			file = f
@@ -58,7 +78,8 @@
 +		elif path.isfile(f) and path.splitext(f)[1] == '.squashfs':
 +			file = f
 +			self.dev = '/dev/loop3'
-+		else return -1			
++		else:
++                    return -1			
 +
 +        self.ex('losetup', self.dev, file)
          os.mkdir(self.source)
@@ -73,9 +94,11 @@
  
      def ex(self, *args):
          status = subprocess.call(args)
-@@ -178,3 +210,5 @@
+@@ -177,4 +204,6 @@
+         self.chrex('dpkg-reconfigure', '-fnoninteractive', package)
  
  if __name__ == '__main__':
-     Installer().install({'/' : sys.argv[1]}, 'US/Pacific', 'dvorak', 'mdz', 'mdz2', 'Matt Zimmerman', 'ubuntu')
+-    Installer().install({'/' : sys.argv[1]}, 'US/Pacific', 'dvorak', 'mdz', 'mdz2', 'Matt Zimmerman', 'ubuntu')
++    Installer().frontend()
 +
 +# vim:ai:et:sts=4:tw=80:sw=4:

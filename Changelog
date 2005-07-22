@@ -1,3 +1,18 @@
+22-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
+	* installer: Little improvements in configure_hardware() method.
+	* ubuntu-express.diff: Updated.
+	
+21-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
+	* frontend/gnome.py: Joined some methods into get_locales()
+	* frontend/noui.py:
+		- Joined some methods.
+		- Added testing stuff to the end.
+		- Commented some future features.
+	* installer:
+		- Fixed some bugs and typos.
+		- Joined some calls to wizard's methods.
+		- Changed the testing stuff from the bottom.
+	
 20-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
 	* frontend/*.py: Eliminated get_fullname() method.
 	* installer:

@@ -88,12 +88,11 @@ class Installer:
         self.chrex('mount', '-t', 'proc', 'proc', '/proc')
         self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
 
-        uname = subprocess.Popen(['uname', '-r'], stdout=subprocess.PIPE)
-        kernel_version = uname.stdout.read().rstrip()
-        uname.wait()
+        kernel_version = open('/proc/sys/kernel/osrelease').readline().strip()
+        packages = ['gnome-panel', 'xserver-xorg', 'linux-image-' + kernel_version]
         
         try:
-            for package in ('gnome-panel', 'xserver-xorg', 'linux-image-' + kernel_version):
+            for package in packages:
                 self.copy_debconf(package)
                 self.reconfigure(package)
         finally:
