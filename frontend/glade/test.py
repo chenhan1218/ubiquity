@@ -1,10 +1,10 @@
 #!/usr/bin/python
 
-import pygtk # for testing GTK version number
-pygtk.require ('2.0')
-import gtk
+#import pygtk # for testing GTK version number
+#pygtk.require ('2.0')
 import gtk.glade
 import gettext
+import gnome.ui
 
 DIR = './locale'
 
@@ -18,10 +18,14 @@ def main():
  # load the interface
  main_window = gtk.glade.XML('liveinstaller.glade')
  
- main_window.get_widget('welcome').show()
- main_window.get_widget('final').show()
+ main_window.get_widget('welcome').show_all()
+ main_window.get_widget('final').show_all()
 
- # connect the signals in the interface
+ main_window.get_widget('welcome').set_bg_color(gtk.gdk.color_parse("#087021"))
+ main_window.get_widget('welcome').set_logo(gtk.gdk.pixbuf_new_from_file("pixmaps/logo.png"))
+ main_window.get_widget('final').set_bg_color(gtk.gdk.color_parse("#087021"))
+ main_window.get_widget('final').set_logo(gtk.gdk.pixbuf_new_from_file("pixmaps/logo.png"))
+
  main_window.signal_autoconnect(GladeHandlers.__dict__)
 
  gtk.main()

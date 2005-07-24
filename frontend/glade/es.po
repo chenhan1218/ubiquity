@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: liveinstaller\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-20 18:24+0200\n"
-"PO-Revision-Date: 2005-07-20 18:24+0200\n"
+"POT-Creation-Date: 2005-07-22 18:04+0200\n"
+"PO-Revision-Date: 2005-07-22 18:04+0200\n"
 "Last-Translator: Javier Carranza <javier.carranza@interactors.coop>\n"
 "Language-Team: Spanish <ES@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,11 +20,11 @@ msgstr ""
 msgid "Guadalinex 2005 live installer"
 msgstr "Instalador Guadalinex 2005"
 
-#: liveinstaller.glade:36
+#: liveinstaller.glade:38
 msgid "Welcome to Guadalinex"
 msgstr "Bienvenido a Guadalinex"
 
-#: liveinstaller.glade:37
+#: liveinstaller.glade:39
 msgid ""
 "Guadalinex is Free Software. Every program which includes the Guadalinex "
 "distribution has its own license. The most provides a GPL license, but if "
@@ -43,11 +43,11 @@ msgstr ""
 "y el material gráfico se licencia bajo GPL y por tanto está permitida su "
 "reproducción y difusión siempre que se mantenga esta licencia."
 
-#: liveinstaller.glade:47
+#: liveinstaller.glade:49
 msgid "Timezone and Language"
 msgstr "Zona horaria e Idioma"
 
-#: liveinstaller.glade:91
+#: liveinstaller.glade:93
 msgid ""
 "Select the using language to the installation process of Guadalinex 2005.\n"
 "In addition the timezone where its computer is located is asked for, in "
@@ -58,11 +58,11 @@ msgstr ""
 "Además se le solicita la zona horaria donde su equipo está localizado, a fin"
 "de configurar correctamente el sistema horario local."
 
-#: liveinstaller.glade:116
+#: liveinstaller.glade:155
 msgid "Timezone:"
 msgstr "Franja Horaria:"
 
-#: liveinstaller.glade:146
+#: liveinstaller.glade:185
 msgid ""
 "English\n"
 "Spanish"
@@ -70,25 +70,29 @@ msgstr ""
 "Español\n"
 "Inglés"
 
-#: liveinstaller.glade:184
+#: liveinstaller.glade:204
 msgid ""
-"Select the installation \n"
+"Installation \n"
 "language:"
 msgstr ""
-"Seleccione el idioma\n"
-"de instalación:"
+"Idioma de \n"
+"instalación:"
 
-#: liveinstaller.glade:234
-msgid "Username and Password"
-msgstr "Usuario y contraseña"
+#: liveinstaller.glade:271
+msgid "System Configuration"
+msgstr "Configuración de sistema"
 
-#: liveinstaller.glade:278
+#: liveinstaller.glade:315
 msgid ""
 "The Guadalinex system needs user and password for its installation.\n"
 "The first user created  in the system will obtain administration privileges, "
 "so after this installation it will be the only one who will be enabled to "
 "make tasks of installation or configurations of this system.\n"
-"Type your password twice to verify its correct writing."
+"Type your password twice to verify its correct writing.\n"
+"The system needs a hostname with which to be able to manage tasks of network "
+"and maintenance of system.\n"
+"Assign a name to your computer so it can be easily identifiable in yours "
+"domestic network."
 msgstr ""
 "El sistema Guadalinex precisa de un usuario y contraseña para su "
 "instalación.\n"
@@ -96,44 +100,35 @@ msgstr ""
 "forma que tras la instalación será el único capacitado para realizar tareas "
 "de instalación de aplicaciones o configuraciones de sistema.\n"
 "Introduzca su contraseña en dos ocasiones para verificar su correcta "
-"escritura."
+"escritura.\n"
+"El sistema necesita un nombre identificativo con el que poder gestionar tareas"
+"de red y mantenimiento de sistema. \n"
+"Asigne un nombre a su equipo de forma que pueda ser fácilmente identificable en"
+"su red doméstica."
 
-#: liveinstaller.glade:304
-msgid "Verify password:"
-msgstr "Verificación de contraseña:"
+#: liveinstaller.glade:464
+msgid "Username:"
+msgstr "Usuario:"
 
-#: liveinstaller.glade:397
+#: liveinstaller.glade:495
 msgid "Password:"
 msgstr "Contraseña:"
 
-#: liveinstaller.glade:427
-msgid "Username:"
-msgstr "Nombre de usuario:"
+#: liveinstaller.glade:525
+msgid "Verify password:"
+msgstr "Comprobación de\n"
+"Contraseña:"
 
-#: liveinstaller.glade:476
-msgid "Hostname"
-msgstr "Nombre del equipo"
-
-#: liveinstaller.glade:520
-msgid ""
-"The system needs a hostname with which to be able to manage tasks of network "
-"and maintenance of system. \n"
-"Assign a name to your computer so it can be easily identifiable in yours "
-"domestic network."
-msgstr ""
-"El sistema necesita un nombre identificativo con el que poder gestionar tareas"
-"de red y mantenimiento de sistema.  Asigne un nombre a su equipo de forma que"
-"pueda ser fácilmente identificable en su red doméstica."
-
-#: liveinstaller.glade:542
+#: liveinstaller.glade:555
 msgid "Hostname:"
-msgstr "Nombre del equipo:"
+msgstr "Nombre del\n"
+"Equipo:"
 
-#: liveinstaller.glade:605
+#: liveinstaller.glade:622
 msgid "Network configuration"
 msgstr "Configuración de red"
 
-#: liveinstaller.glade:649
+#: liveinstaller.glade:666
 msgid ""
 "In order to be able to communicate this system with other computers of your "
 "own domestic network or the Internet, we will have to verify its "
@@ -148,23 +143,23 @@ msgstr ""
 "datos de configuración de red, deberá especificar manualmente los datos de "
 "conexión facilitados por su proveedor de servicios de Internet."
 
-#: liveinstaller.glade:692
+#: liveinstaller.glade:709
 msgid "Partitioning"
 msgstr "Particionado"
 
-#: liveinstaller.glade:714
+#: liveinstaller.glade:731
 msgid "Installing..."
 msgstr "Instalando..."
 
-#: liveinstaller.glade:731
-msgid "Guadalinex 2005 install system"
-msgstr "Instalación de Guadalinex 2005"
+#: liveinstaller.glade:763
+msgid "Guadalinex 2005 progress installation"
+msgstr "Progreso de la instalación de Guadalinex 2005"
 
-#: liveinstaller.glade:749
+#: liveinstaller.glade:781
 msgid "Just enjoy it !!"
-msgstr "Disfrútelo"
+msgstr "Disfrútalo"
 
-#: liveinstaller.glade:750
+#: liveinstaller.glade:782
 msgid ""
 "The Guadalinex 2005 installation has ended. \n"
 "\n"

@@ -1,3 +1,9 @@
+24-07-2005 Javier Carranza <javier.carranza_@_interactors.coop>
+	* frontend/glade/*:
+		- test.py improved
+		- pixmaps added
+		- Added improvements commented by telemaco (usability)
+		
 22-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
 	* installer: Little improvements in configure_hardware() method.
 	* ubuntu-express.diff: Updated.
