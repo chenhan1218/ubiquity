@@ -24,8 +24,9 @@ class DM:
         wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
         greeter = subprocess.Popen([program], stdin=null, stdout=logfile, stderr=logfile)
         greeter.wait()
-        wm.wait()
 
+        os.kill(wm.pid, signal.SIGTERM)
+        wm.wait()
         os.kill(server.pid, signal.SIGTERM)
         os.waitpid(server.pid, 0)
 
