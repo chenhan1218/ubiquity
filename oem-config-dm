@@ -1,0 +1,36 @@
+#!/usr/bin/python
+
+import os
+import sys
+import subprocess
+import time
+import signal
+
+class DM:
+    def __init__(self, vt, display):
+        self.vt = vt
+        self.display = display
+
+    def run(self, program):
+        null = open('/dev/null', 'w')
+        logfile = open('/var/log/oem-config.log', 'a')
+
+        server = subprocess.Popen(['X', '-br', '-ac', '-noreset', self.vt, self.display], stdin=null, stdout=logfile, stderr=logfile)
+        
+        env = os.environ.copy()
+        env['DISPLAY'] = self.display
+        
+        time.sleep(5)
+        greeter = subprocess.Popen([program], stdin=null, stdout=logfile, stderr=logfile, env=env)
+        greeter.wait()
+
+        os.kill(server.pid, signal.SIGTERM)
+        os.waitpid(server.pid, 0)
+
+if len(sys.argv) < 3:
+    sys.stderr.write('Usage: oem-config-dm <vt[1-N]> <:[0-N]> <program>\n')
+    sys.exit(1)
+
+vt, display, program = sys.argv[1:]
+dm = DM(vt, display)
+dm.run(program)
