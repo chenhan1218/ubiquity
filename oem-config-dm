@@ -17,12 +17,14 @@ class DM:
 
         server = subprocess.Popen(['X', '-br', '-ac', '-noreset', self.vt, self.display], stdin=null, stdout=logfile, stderr=logfile)
         
-        env = os.environ.copy()
-        env['DISPLAY'] = self.display
+        os.environ['DISPLAY'] = self.display
         
         time.sleep(5)
-        greeter = subprocess.Popen([program], stdin=null, stdout=logfile, stderr=logfile, env=env)
+
+        wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
+        greeter = subprocess.Popen([program], stdin=null, stdout=logfile, stderr=logfile)
         greeter.wait()
+        wm.wait()
 
         os.kill(server.pid, signal.SIGTERM)
         os.waitpid(server.pid, 0)
