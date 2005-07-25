@@ -28,7 +28,7 @@ class DM:
         os.kill(wm.pid, signal.SIGTERM)
         wm.wait()
         os.kill(server.pid, signal.SIGTERM)
-        os.waitpid(server.pid, 0)
+        server.wait()
 
 if len(sys.argv) < 3:
     sys.stderr.write('Usage: oem-config-dm <vt[1-N]> <:[0-N]> <program>\n')
