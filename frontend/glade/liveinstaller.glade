@@ -39,7 +39,7 @@
 	  <property name="text" translatable="yes">Guadalinex is Free Software. Every program which includes the Guadalinex distribution has its own license. The most provides a GPL license, but if you wish to modify any application should before consult the specific terms of each one. In any case, the Guadalinex distribution includes the improvements or modifications on applications and scripts of installation, the documentation and the graphical material license under GPL and therefore has allowed to its reproduction and diffusion whenever this license stays.</property>
 	  <property name="background_color">#080870702121</property>
 	  <property name="logo_background_color">#080870702121</property>
-	  <property name="logo">pixmaps/logo.png</property>
+	  <property name="logo">logo.png</property>
 	</widget>
       </child>
 
@@ -180,25 +180,6 @@ In addition the timezone where its computer is located is asked for, in order to
 		      </child>
 
 		      <child>
-			<widget class="GtkComboBoxEntry" id="language">
-			  <property name="visible">True</property>
-			  <property name="items" translatable="yes">English
-Spanish</property>
-			  <property name="add_tearoffs">False</property>
-			  <property name="has_frame">False</property>
-			  <property name="focus_on_click">True</property>
-			</widget>
-			<packing>
-			  <property name="left_attach">2</property>
-			  <property name="right_attach">3</property>
-			  <property name="top_attach">0</property>
-			  <property name="bottom_attach">1</property>
-			  <property name="x_options"></property>
-			  <property name="y_options"></property>
-			</packing>
-		      </child>
-
-		      <child>
 			<widget class="GtkLabel" id="label1">
 			  <property name="visible">True</property>
 			  <property name="label" translatable="yes">Installation 
@@ -233,7 +214,6 @@ language:</property>
 			<widget class="GtkComboBoxEntry" id="timezone">
 			  <property name="visible">True</property>
 			  <property name="add_tearoffs">False</property>
-			  <property name="has_frame">True</property>
 			  <property name="focus_on_click">True</property>
 			</widget>
 			<packing>
@@ -243,7 +223,24 @@ language:</property>
 			  <property name="bottom_attach">2</property>
 			  <property name="y_padding">11</property>
 			  <property name="x_options">fill</property>
-			  <property name="y_options">fill</property>
+			  <property name="y_options"></property>
+			</packing>
+		      </child>
+
+		      <child>
+			<widget class="GtkComboBox" id="language">
+			  <property name="visible">True</property>
+			  <property name="items" translatable="yes">English
+Spanish</property>
+			  <property name="add_tearoffs">False</property>
+			  <property name="focus_on_click">True</property>
+			</widget>
+			<packing>
+			  <property name="left_attach">2</property>
+			  <property name="right_attach">3</property>
+			  <property name="top_attach">0</property>
+			  <property name="bottom_attach">1</property>
+			  <property name="y_options"></property>
 			</packing>
 		      </child>
 		    </widget>
@@ -338,7 +335,7 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 		      <property name="column_spacing">0</property>
 
 		      <child>
-			<widget class="GtkEntry" id="user">
+			<widget class="GtkEntry" id="username">
 			  <property name="visible">True</property>
 			  <property name="can_focus">True</property>
 			  <property name="editable">True</property>
@@ -359,7 +356,7 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 		      </child>
 
 		      <child>
-			<widget class="GtkEntry" id="pass">
+			<widget class="GtkEntry" id="password">
 			  <property name="visible">True</property>
 			  <property name="can_focus">True</property>
 			  <property name="editable">True</property>
@@ -471,7 +468,7 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 			  <property name="yalign">0.5</property>
 			  <property name="xpad">0</property>
 			  <property name="ypad">0</property>
-			  <property name="mnemonic_widget">user</property>
+			  <property name="mnemonic_widget">username</property>
 			  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
 			  <property name="width_chars">-1</property>
 			  <property name="single_line_mode">False</property>
@@ -502,7 +499,7 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 			  <property name="yalign">0.5</property>
 			  <property name="xpad">0</property>
 			  <property name="ypad">0</property>
-			  <property name="mnemonic_widget">pass</property>
+			  <property name="mnemonic_widget">password</property>
 			  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
 			  <property name="width_chars">-1</property>
 			  <property name="single_line_mode">False</property>
@@ -786,7 +783,7 @@ We animated to you to test all the power of the Guadalinex desktop, throws a fir
 Enjoy with all the power and functionality that free software makes you available.</property>
 	  <property name="background_color">#080870702121</property>
 	  <property name="logo_background_color">#080870702121</property>
-	  <property name="logo">pixmaps/logo.png</property>
+	  <property name="logo">logo.png</property>
 	</widget>
       </child>
     </widget>
