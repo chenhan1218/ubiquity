@@ -1,12 +1,24 @@
-26-07-2005 Antonio Olmo <aolmo@emergya.info>
-	* Validation library created.
-	* Some typo fixed and checks added.
-	* Very simple documentation system created
+26-07-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
+	* installer:
+		- Restored the previous version. The checks were not necessary
+		any more.
+		- Moved in the method get_locales() from the frontend/noui.py.
+		- Sorted the calls in frontend method.
+		- Improved the configure_network() method with call to the
+		network backend of the gst.
+	* frontend/noui.py:
+		- Moved out the method get_locales() to installer.
+		- Joined get_hostname() and get_user() methods into get_info()
+	
+26-07-2005 Antonio Olmo <aolmo_@_emergya.info>
+	* lib/validation.py: Validation library created.
+	* installer: Some typo fixed and checks added.
+	* doc/*: Very simple documentation system created
 	  (should be improved by switching from pydoc to python-docutils).
-	* ubuntu-express.diff updated.
+	* ubuntu-express.diff: updated.
 
 26-07-2005 Javier Carranza <javier.carranza_@_interactors.coop>
-		- frontend.py developed (to handle installer signals and data)
+	* frontend/glade/frontend.py: developed (to handle installer signals and data)
 
 24-07-2005 Javier Carranza <javier.carranza_@_interactors.coop>
 	* frontend/glade/*:
@@ -14,11 +26,11 @@
 		- pixmaps added
 		- Added improvements commented by telemaco (usability)
 		
-22-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
+22-07-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
 	* installer: Little improvements in configure_hardware() method.
 	* ubuntu-express.diff: Updated.
 	
-21-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
+21-07-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
 	* frontend/gnome.py: Joined some methods into get_locales()
 	* frontend/noui.py:
 		- Joined some methods.
@@ -29,7 +41,7 @@
 		- Joined some calls to wizard's methods.
 		- Changed the testing stuff from the bottom.
 	
-20-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
+20-07-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
 	* frontend/*.py: Eliminated get_fullname() method.
 	* installer:
 		- Joined get_fullname() into get_user().
@@ -41,7 +53,7 @@
 		- Added test.py to test UI.
 		- Added i18n support.
 
-15-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
+15-07-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
 	* instaler:
 		- Added get_partitions call in installer method.
 		- Added progressbar stuff in copy_all method.
@@ -49,7 +61,7 @@
 	* frontend/gnome.py: Added frontend for Gnome.
 	* frontend/*: Reorganized the mothods.
 	
-15-07-2005 Juan Jesús Ojeda Croissier <juanje_@_interactors.coop>
+15-07-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
 	* Changelog: Initial version.
 	* ubuntu-express: Imported from Matt's baz repository.
 	* installer: Extended version of ubuntu-express.
