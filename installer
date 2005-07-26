@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-# Last modified by Antonio Olmo Titos <aolmo@emergya.info> on 26 july 2005.
-
 import sys
 import shutil
 import os
@@ -13,14 +11,31 @@ class CommandFailed(Exception): pass
 class Installer:
     source = '/source'
     target = '/target'
+    
+    def get_locales(self):
+      debconf.runFrontEnd()
+      db = debconf.Debconf()
+
+      try:
+        timezone = db.get('express/timezone')
+            if timezone = '':
+                timezone = db.get('tzconfig/choose_country_zone_multiple')
+      except:
+        timezone = open('/etc/timezone').readline().strip()
+      keymap  = db.get('express/keymap')
+      keymap_sec = db.get('debian-installer/keymap')
+        if keymap != keymap_sec:
+            keymap = keymap_sec
+        
+      locales = db.get('locales/default_environment_locale')
+      return timezone, keymap, locales
 
     def frontend(self, type='noui'):
       ui = getattr(__import__('frontend.%s' % type), type)
 
+      timezone, keymap, locales = get_locales()
       self.wizard = ui.Wizard()
-      hostname = self.wizard.get_hostname()
-      timezone, keymap, locales    = self.wizard.get_locales()
-      fullname, username, password = self.wizard.get_user()
+      hostname, fullname, username, password = self.wizard.get_info()
 
       self.install(timezone,keymap,locales,username,password,fullname,hostname)
 
@@ -102,8 +117,10 @@ class Installer:
             self.chrex('umount', '/sys')
 
     def configure_network(self):
-        shutil.copyfile('/etc/network/interfaces',
-                        os.path.join(self.target, 'etc/network/interfaces'))
+        self.ex('/usr/share/setup-tool-backends/scripts/network-conf','--get',
+        '>',self.target + '/tmp/network.xml')
+        self.chex('/usr/share/setup-tool-backends/scripts/network-conf','--set',
+        '<','/tmp/network.xml')
     
     def mount_target(self, mountpoints):
         os.mkdir(self.target)
@@ -169,7 +186,7 @@ class Installer:
 			file = f
 			self.dev = '/dev/loop3'
 		else:
-                    return -1
+                    return -1			
 
         self.ex('losetup', self.dev, file)
         os.mkdir(self.source)
@@ -208,12 +225,4 @@ class Installer:
 if __name__ == '__main__':
     Installer().frontend()
 
-    # What to do when no arguments are provided:
-    if len (sys.argv) < 2:
-        sys.stderr.write ('%s: no arguments provided.\n' % sys.argv [0])
-        sys.exit (2)
-    else:
-        Installer().install({'/' : sys.argv[1]}, 'US/Pacific', 'dvorak', 'mdz', 'mdz2', 'Matt Zimmerman', 'ubuntu')
-
 # vim:ai:et:sts=4:tw=80:sw=4:
-
