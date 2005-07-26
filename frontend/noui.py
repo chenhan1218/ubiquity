@@ -27,30 +27,18 @@ class Wizard:
       print ".",
     print "\n%d " % num
 
-  def get_hostname(self):
-    hostname = self.db.get('base-config/get-hostname')
-    return hostname
-
-  def get_user(self):
+  def get_info(self):
     info = []
     # Just for tests. We should use a especific package for this
     # It seems to be because of the installer preseed, so it could be
     # a good idea something like:
     # info.append(self.db.get('express/username'))
-    info.append(self.db.get('passwd/username'))
+    info.append(self.db.get('base-config/get-hostname'))
     info.append(self.db.get('passwd/user-fullname'))
+    info.append(self.db.get('passwd/username'))
     info.append(self.db.get('passwd/user-password'))
     return info
     
-  def get_locales(self):
-    try:
-      timezone = self.db.get('tzconfig/choose_country_zone_multiple')
-    except:
-      timezone = open('/etc/timezone').readline().strip()
-    keymap  = self.db.get('debian-installer/keymap')
-    locales = self.db.get('locales/default_environment_locale')
-    return timezone, keymap, locales
-
   def get_partitions(self):
     #FIXME: We've to put here the autopartitioning stuff
     
