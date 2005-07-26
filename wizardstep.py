@@ -37,9 +37,21 @@ class WizardStep(object):
 
         return items
 
+    def choices_untranslated(self, question):
+        choices = unicode(self.db.metaget(question, 'choices-c'))
+        return self.split_choices(choices)
+
     def choices(self, question):
         choices = unicode(self.db.metaget(question, 'choices'))
         return self.split_choices(choices)
+
+    def translate_to_c(self, question, value):
+        choices = self.choices(question)
+        choices_c = self.choices_untranslated(question)
+        for i in range(len(choices)):
+            if choices[i] == value:
+                return choices_c[i]
+        raise ValueError, value
 
     def preseed(self, name, value, seen=True):
         try:
