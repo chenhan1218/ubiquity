@@ -11,7 +11,7 @@ class DM:
         self.vt = vt
         self.display = display
 
-    def run(self, program):
+    def run(self, *program):
         null = open('/dev/null', 'w')
         logfile = open('/var/log/oem-config.log', 'a')
 
@@ -22,7 +22,7 @@ class DM:
         time.sleep(5)
 
         wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
-        greeter = subprocess.Popen([program], stdin=null, stdout=logfile, stderr=logfile)
+        greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         greeter.wait()
 
         os.kill(wm.pid, signal.SIGTERM)
@@ -31,9 +31,9 @@ class DM:
         server.wait()
 
 if len(sys.argv) < 3:
-    sys.stderr.write('Usage: oem-config-dm <vt[1-N]> <:[0-N]> <program>\n')
+    sys.stderr.write('Usage: oem-config-dm <vt[1-N]> <:[0-N]> <program> [<arguments>]\n')
     sys.exit(1)
 
-vt, display, program = sys.argv[1:]
+vt, display = sys.argv[1:3]
 dm = DM(vt, display)
-dm.run(program)
+dm.run(*sys.argv[3:])
