@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# Last modified by Antonio Olmo Titos <aolmo@emergya.info> on 26 july 2005.
+
 import sys
 import shutil
 import os
@@ -167,7 +169,7 @@ class Installer:
 			file = f
 			self.dev = '/dev/loop3'
 		else:
-                    return -1			
+                    return -1
 
         self.ex('losetup', self.dev, file)
         os.mkdir(self.source)
@@ -206,4 +208,12 @@ class Installer:
 if __name__ == '__main__':
     Installer().frontend()
 
+    # What to do when no arguments are provided:
+    if len (sys.argv) < 2:
+        sys.stderr.write ('%s: no arguments provided.\n' % sys.argv [0])
+        sys.exit (2)
+    else:
+        Installer().install({'/' : sys.argv[1]}, 'US/Pacific', 'dvorak', 'mdz', 'mdz2', 'Matt Zimmerman', 'ubuntu')
+
 # vim:ai:et:sts=4:tw=80:sw=4:
+

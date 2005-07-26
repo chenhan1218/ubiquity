@@ -1,3 +1,10 @@
+26-07-2005 Antonio Olmo <aolmo@emergya.info>
+	* Validation library created.
+	* Some typo fixed and checks added.
+	* Very simple documentation system created
+	  (should be improved by switching from pydoc to python-docutils).
+	* ubuntu-express.diff updated.
+
 26-07-2005 Javier Carranza <javier.carranza_@_interactors.coop>
 		- frontend.py developed (to handle installer signals and data)
 

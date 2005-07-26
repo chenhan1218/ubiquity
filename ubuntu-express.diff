@@ -1,6 +1,14 @@
---- ubuntu-express	2005-07-15 11:54:57.000000000 +0100
-+++ installer	2005-07-22 04:46:57.000000000 +0100
-@@ -12,8 +12,18 @@
+--- ubuntu-express	2005-07-15 13:14:15.000000000 +0200
++++ installer	2005-07-26 11:24:12.000000000 +0200
+@@ -1,5 +1,7 @@
+ #!/usr/bin/python
+ 
++# Last modified by Antonio Olmo Titos <aolmo@emergya.info> on 26 july 2005.
++
+ import sys
+ import shutil
+ import os
+@@ -12,8 +14,18 @@
      source = '/source'
      target = '/target'
  
@@ -21,7 +29,7 @@
          self.mount_target(mountpoints)
          self.mount_source()
          try:
-@@ -32,6 +42,7 @@
+@@ -32,6 +44,7 @@
          finally:
              self.unmount_target(mountpoints)
  
@@ -29,7 +37,7 @@
      def configure_fstab(self, mountpoints):
          fstab = open(os.path.join(self.target,'etc/fstab'), 'w')
          for path, device in mountpoints.items():
-@@ -77,12 +88,11 @@
+@@ -77,12 +90,11 @@
          self.chrex('mount', '-t', 'proc', 'proc', '/proc')
          self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
  
@@ -45,7 +53,7 @@
                  self.copy_debconf(package)
                  self.reconfigure(package)
          finally:
-@@ -124,7 +134,9 @@
+@@ -124,7 +136,9 @@
                  fqpath = os.path.join(self.source, dirpath, name)
  
                  if os.path.isfile(fqpath):
@@ -56,7 +64,7 @@
                  else:
                      files.append((relpath, None))
  
-@@ -137,19 +149,34 @@
+@@ -137,19 +151,34 @@
              copy.stdin.write(path + '\0')
              if size is not None:
                  copied_bytes += size
@@ -79,7 +87,7 @@
 +			file = f
 +			self.dev = '/dev/loop3'
 +		else:
-+                    return -1			
++                    return -1
 +
 +        self.ex('losetup', self.dev, file)
          os.mkdir(self.source)
@@ -94,11 +102,19 @@
  
      def ex(self, *args):
          status = subprocess.call(args)
-@@ -177,4 +204,6 @@
+@@ -177,4 +206,14 @@
          self.chrex('dpkg-reconfigure', '-fnoninteractive', package)
  
  if __name__ == '__main__':
 -    Installer().install({'/' : sys.argv[1]}, 'US/Pacific', 'dvorak', 'mdz', 'mdz2', 'Matt Zimmerman', 'ubuntu')
 +    Installer().frontend()
 +
++    # What to do when no arguments are provided:
++    if len (sys.argv) < 2:
++        sys.stderr.write ('%s: no arguments provided.\n' % sys.argv [0])
++        sys.exit (2)
++    else:
++        Installer().install({'/' : sys.argv[1]}, 'US/Pacific', 'dvorak', 'mdz', 'mdz2', 'Matt Zimmerman', 'ubuntu')
++
 +# vim:ai:et:sts=4:tw=80:sw=4:
++
