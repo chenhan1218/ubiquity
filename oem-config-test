@@ -1,0 +1,2 @@
+#! /bin/sh
+exec /usr/sbin/oem-config-dm vt7 :0 hwdb-gui
