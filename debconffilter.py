@@ -91,7 +91,7 @@ class DebconfFilter:
                         self.debug('filter', 'widget found for', question)
                         widget = self.widgets[pattern]
                         if hasattr(widget, 'set'):
-                            self.widgets[pattern].set(question, value)
+                            widget.set(question, value)
 
             if command == 'GO' and next_go_backup:
                 next_go_backup = False
