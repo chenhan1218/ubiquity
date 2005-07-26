@@ -66,10 +66,12 @@ class WizardStep(object):
 
     def ok_handler(self, widget, data=None):
         self.succeeded = True
+        self.prepared = False
         self.dialog.destroy()
 
     def cancel_handler(self, widget, data=None):
         self.succeeded = False
+        self.prepared = False
         self.dialog.destroy()
 
     def prepare(self, db):
