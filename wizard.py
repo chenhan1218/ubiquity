@@ -161,7 +161,7 @@ class Wizard:
                 for name in self.menus[item]['asks-questions']:
                     db.fset(name, 'seen', 'false')
 
-            if item in self.steps and not self.steps[item].prepared:
+            if item in self.steps:
                 self.steps[item].prepare(db)
 
             # Run the menu item through a debconf filter, which may display
