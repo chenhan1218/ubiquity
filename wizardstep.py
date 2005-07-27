@@ -77,12 +77,12 @@ class WizardStep(object):
     def ok_handler(self, widget, data=None):
         self.succeeded = True
         self.prepared = False
-        self.dialog.destroy()
+        self.dialog.hide()
 
     def cancel_handler(self, widget, data=None):
         self.succeeded = False
         self.prepared = False
-        self.dialog.destroy()
+        self.dialog.hide()
 
     def prepare(self, db):
         self.prepared = True
@@ -100,5 +100,6 @@ class WizardStep(object):
 
     def run(self, priority, question):
         self.succeeded = False
+        self.dialog.show()
         gtk.main()
         return self.succeeded
