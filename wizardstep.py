@@ -9,7 +9,6 @@ import debconf
 class WizardStep(object):
     def __init__(self, glade):
         self.gladefile = glade
-        self.succeeded = False
         self.prepared = False
 
     # Split a string on commas, stripping surrounding whitespace, and
@@ -100,5 +99,6 @@ class WizardStep(object):
                                                        self.cancel_handler)
 
     def run(self, priority, question):
+        self.succeeded = False
         gtk.main()
         return self.succeeded
