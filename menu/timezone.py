@@ -128,6 +128,6 @@ class Timezone(WizardStep):
             # ignored for now
             return True
 
-        super(Timezone, self).run(priority, question)
+        return super(Timezone, self).run(priority, question)
 
 stepname = 'Timezone'
