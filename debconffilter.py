@@ -18,6 +18,9 @@ import debconf
 #   * set the question's value using SET
 #   * set the question's seen flag using FSET
 #
+# If run() returns a false value, the next call to GO will return 30
+# (backup).
+#
 # Widgets may also have a set(self, question, value) method; if present,
 # this will be called whenever the confmodule uses SET. They may wish to use
 # this to adjust the values of questions in their user interface.
@@ -78,8 +81,7 @@ class DebconfFilter:
                     widget = None
                 if widget is not None:
                     self.debug('filter', 'widget found for', question)
-                    widget.run(priority, question)
-                    if not widget.succeeded:
+                    if not widget.run(priority, question):
                         next_go_backup = True
                     self.reply(0, 'question will be asked', log=True)
                     continue

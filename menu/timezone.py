@@ -126,7 +126,7 @@ class Timezone(WizardStep):
     def run(self, priority, question):
         if question == 'tzconfig/verify_choices':
             # ignored for now
-            return
+            return True
 
         super(Timezone, self).run(priority, question)
 

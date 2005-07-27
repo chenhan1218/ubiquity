@@ -101,3 +101,4 @@ class WizardStep(object):
 
     def run(self, priority, question):
         gtk.main()
+        return self.succeeded
