@@ -26,9 +26,9 @@ from menu.timezone import *
 class Wizard:
     def __init__(self, includes=None, excludes=None):
         if 'OEM_CONFIG_DEBUG' in os.environ:
-            self.debug = True
+            self.debug_enabled = True
         else:
-            self.debug = False
+            self.debug_enabled = False
 
         self.menus = {}
         for menu in [f for f in os.listdir(menudir) if f.endswith('.mnu')]:
@@ -129,7 +129,7 @@ class Wizard:
         db.shutdown()
 
     def debug(self, message):
-        if self.debug:
+        if self.debug_enabled:
             print >>sys.stderr, message
 
     def load_template(self, template):
