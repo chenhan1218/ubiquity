@@ -64,6 +64,9 @@ class WizardStep(object):
         if seen:
             self.db.fset(name, 'seen', 'true')
 
+    def preseed_as_c(self, name, value, seen=True):
+        self.preseed(name, self.translate_to_c(name, value), seen)
+
     def ok_handler(self, widget, data=None):
         self.succeeded = True
         self.prepared = False
