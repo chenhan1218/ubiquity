@@ -1,5 +1,19 @@
 #!/usr/bin/python
 
+'''
+Installer
+
+This is a installer program for a Ubuntu or Metadistros Live system.
+This is the main program, but there is also a couple of libraries to
+help it to work. For example the frontends library.
+The way it works is simple. It detect the Frontend to use, then
+load the module for that frontend. After that, it makes some calls
+through the frontend in order to get the info necessary to install.
+
+Once it has the info, partitioning, format, copy de distro to the disk
+and configure everything.
+'''
+
 import sys
 import shutil
 import os
@@ -13,24 +27,37 @@ class Installer:
     target = '/target'
     
     def get_locales(self):
+      '''get_locales() -> timezone, keymap, locales
+
+      Get the timezone, keymap and locales from the
+      Debconf database and return them.
+      '''
       debconf.runFrontEnd()
       db = debconf.Debconf()
 
       try:
         timezone = db.get('express/timezone')
-            if timezone = '':
-                timezone = db.get('tzconfig/choose_country_zone_multiple')
+        if timezone == '':
+            timezone = db.get('tzconfig/choose_country_zone_multiple')
       except:
         timezone = open('/etc/timezone').readline().strip()
       keymap  = db.get('express/keymap')
       keymap_sec = db.get('debian-installer/keymap')
-        if keymap != keymap_sec:
-            keymap = keymap_sec
+      if keymap != keymap_sec:
+        keymap = keymap_sec
         
       locales = db.get('locales/default_environment_locale')
       return timezone, keymap, locales
 
     def frontend(self, type='noui'):
+      '''frontend(type='noui') -> none
+      
+      Get the type of frontend to use and load the module for that.
+      Get the locales stuff with get_locales() method and ask
+      the hostname, fullname, username and  password through the
+      selected frontend.
+      After get everything call to the install() method.
+      '''
       ui = getattr(__import__('frontend.%s' % type), type)
 
       timezone, keymap, locales = get_locales()
@@ -40,7 +67,15 @@ class Installer:
       self.install(timezone,keymap,locales,username,password,fullname,hostname)
 
     def install(self, timezone, keymap, locales, username, password, fullname, hostname):
+        '''install(timezone, keymap, locales, username, password, fullname,
+        hostname) -> none
+
+        Here is all the logic of the program. After get the info from the
+        frontend, the program do all it need to install the distro to the
+        target(partitioning,formating,copy and postconfig).
+        '''
 	mountpoints = self.wizard.get_partitions()
+        self.format_target(mountpoints)
         self.mount_target(mountpoints)
         self.mount_source()
         try:
@@ -122,6 +157,17 @@ class Installer:
         self.chex('/usr/share/setup-tool-backends/scripts/network-conf','--set',
         '<','/tmp/network.xml')
     
+    def format_target(self, mountpoints):
+        '''format_target(mountpoints) -> bool
+
+        From mountpoints extract the devices to partition 
+        and do it.
+        The method return true or false depends the result
+        of this operation.
+        '''
+        #FIXME: create this method
+        pass
+        
     def mount_target(self, mountpoints):
         os.mkdir(self.target)
         self.ex('mount', mountpoints['/'], self.target)
