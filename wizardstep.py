@@ -11,6 +11,7 @@ class WizardStep(object):
         self.gladefile = glade
         self.prepared = False
         self.done = False
+        self.current_question = None
 
     # Split a string on commas, stripping surrounding whitespace, and
     # honouring backslash-quoting.
@@ -105,6 +106,7 @@ class WizardStep(object):
                                                        self.cancel_handler)
 
     def run(self, priority, question):
+        self.current_question = question
         if not self.done:
             self.succeeded = False
             self.dialog.show()
