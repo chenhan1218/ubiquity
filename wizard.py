@@ -25,6 +25,11 @@ from menu.timezone import *
 
 class Wizard:
     def __init__(self, includes=None, excludes=None):
+        if 'OEM_CONFIG_DEBUG' in os.environ:
+            self.debug = True
+        else:
+            self.debug = False
+
         self.menus = {}
         for menu in [f for f in os.listdir(menudir) if f.endswith('.mnu')]:
             name = '.'.join(menu.split('.')[:-1])
@@ -123,6 +128,10 @@ class Wizard:
 
         db.shutdown()
 
+    def debug(self, message):
+        if self.debug:
+            print >>sys.stderr, message
+
     def load_template(self, template):
         return os.spawnlp(os.P_WAIT, 'debconf-loadtemplate',
                           'debconf-loadtemplate', 'oem-config', template)
@@ -145,6 +154,8 @@ class Wizard:
         index = 0
         while index >= 0 and index < len(items):
             item = items[index]
+            self.debug("oem-config: Running menu item %s" % item)
+
             # Set as unseen all questions that we're going to ask.
             if 'asks-questions' in self.menus[item]:
                 for name in self.menus[item]['asks-questions']:
