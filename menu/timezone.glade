@@ -4,7 +4,7 @@
         <property name="title" context="True" translatable="True">Time zone configuration</property>
         <property name="resize_mode">queue</property>
         <property name="events"></property>
-        <property name="window_position">center-on-parent</property>
+        <property name="window_position">center-always</property>
         <property name="type_hint">dialog</property>
         <property name="visible">True</property>
         <child internal-child="vbox">
@@ -38,14 +38,23 @@
                                 <property name="n_columns">2</property>
                                 <property name="visible">True</property>
                                 <child>
-                                    <widget class="GtkComboBox" id="select_zone_combo">
+                                    <widget class="GtkLabel" id="geographic_area_label">
+                                        <property name="label" context="True" translatable="True">Area for your time zone:</property>
+                                        <property name="events"></property>
+                                        <property name="xalign">1.0</property>
+                                        <property name="visible">True</property>
+                                    </widget>
+                                    <packing>
+                                        <property name="x_options">fill</property>
+                                    </packing>
+                                </child>
+                                <child>
+                                    <widget class="GtkComboBox" id="geographic_area_combo">
                                         <property name="events"></property>
                                         <property name="visible">True</property>
                                     </widget>
                                     <packing>
                                         <property name="left_attach">1</property>
-                                        <property name="bottom_attach">2</property>
-                                        <property name="top_attach">1</property>
                                         <property name="right_attach">2</property>
                                     </packing>
                                 </child>
@@ -63,24 +72,15 @@
                                     </packing>
                                 </child>
                                 <child>
-                                    <widget class="GtkComboBox" id="geographic_area_combo">
+                                    <widget class="GtkComboBox" id="select_zone_combo">
                                         <property name="events"></property>
                                         <property name="visible">True</property>
                                     </widget>
                                     <packing>
                                         <property name="left_attach">1</property>
+                                        <property name="bottom_attach">2</property>
+                                        <property name="top_attach">1</property>
                                         <property name="right_attach">2</property>
-                                    </packing>
-                                </child>
-                                <child>
-                                    <widget class="GtkLabel" id="geographic_area_label">
-                                        <property name="label" context="True" translatable="True">Area for your time zone:</property>
-                                        <property name="events"></property>
-                                        <property name="xalign">1.0</property>
-                                        <property name="visible">True</property>
-                                    </widget>
-                                    <packing>
-                                        <property name="x_options">fill</property>
                                     </packing>
                                 </child>
                             </widget>

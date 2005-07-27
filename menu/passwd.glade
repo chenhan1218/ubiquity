@@ -4,7 +4,7 @@
         <property name="title" context="True" translatable="True">User configuration</property>
         <property name="resize_mode">queue</property>
         <property name="events"></property>
-        <property name="window_position">center-on-parent</property>
+        <property name="window_position">center-always</property>
         <property name="type_hint">dialog</property>
         <property name="visible">True</property>
         <child internal-child="vbox">
@@ -22,67 +22,25 @@
                         <property name="n_columns">2</property>
                         <property name="visible">True</property>
                         <child>
-                            <widget class="GtkEntry" id="user_password_confirm_entry">
-                                <property name="events"></property>
-                                <property name="visibility">False</property>
-                                <property name="can_focus">True</property>
-                                <property name="visible">True</property>
-                            </widget>
-                            <packing>
-                                <property name="left_attach">1</property>
-                                <property name="bottom_attach">4</property>
-                                <property name="top_attach">3</property>
-                                <property name="right_attach">2</property>
-                            </packing>
-                        </child>
-                        <child>
-                            <widget class="GtkLabel" id="user_password_confirm_label">
-                                <property name="label" context="True" translatable="True">Confirm password:</property>
+                            <widget class="GtkLabel" id="user_fullname_label">
+                                <property name="label" context="True" translatable="True">Full name:</property>
                                 <property name="events"></property>
                                 <property name="xalign">0.0</property>
                                 <property name="visible">True</property>
                             </widget>
                             <packing>
-                                <property name="bottom_attach">4</property>
-                                <property name="top_attach">3</property>
+                                <property name="x_options">fill</property>
                             </packing>
                         </child>
                         <child>
-                            <widget class="GtkEntry" id="user_password_entry">
-                                <property name="events"></property>
-                                <property name="visibility">False</property>
-                                <property name="can_focus">True</property>
-                                <property name="visible">True</property>
-                            </widget>
-                            <packing>
-                                <property name="left_attach">1</property>
-                                <property name="bottom_attach">3</property>
-                                <property name="top_attach">2</property>
-                                <property name="right_attach">2</property>
-                            </packing>
-                        </child>
-                        <child>
-                            <widget class="GtkLabel" id="user_password_label">
-                                <property name="label" context="True" translatable="True">Password:</property>
-                                <property name="events"></property>
-                                <property name="xalign">0.0</property>
-                                <property name="visible">True</property>
-                            </widget>
-                            <packing>
-                                <property name="bottom_attach">3</property>
-                                <property name="top_attach">2</property>
-                            </packing>
-                        </child>
-                        <child>
-                            <widget class="GtkEntry" id="user_name_entry">
+                            <widget class="GtkEntry" id="user_fullname_entry">
+                                <property name="is_focus">True</property>
                                 <property name="events"></property>
                                 <property name="can_focus">True</property>
                                 <property name="visible">True</property>
                             </widget>
                             <packing>
                                 <property name="left_attach">1</property>
-                                <property name="bottom_attach">2</property>
-                                <property name="top_attach">1</property>
                                 <property name="right_attach">2</property>
                             </packing>
                         </child>
@@ -100,26 +58,68 @@
                             </packing>
                         </child>
                         <child>
-                            <widget class="GtkEntry" id="user_fullname_entry">
-                                <property name="is_focus">True</property>
+                            <widget class="GtkEntry" id="user_name_entry">
                                 <property name="events"></property>
                                 <property name="can_focus">True</property>
                                 <property name="visible">True</property>
                             </widget>
                             <packing>
                                 <property name="left_attach">1</property>
+                                <property name="bottom_attach">2</property>
+                                <property name="top_attach">1</property>
                                 <property name="right_attach">2</property>
                             </packing>
                         </child>
                         <child>
-                            <widget class="GtkLabel" id="user_fullname_label">
-                                <property name="label" context="True" translatable="True">Full name:</property>
+                            <widget class="GtkLabel" id="user_password_label">
+                                <property name="label" context="True" translatable="True">Password:</property>
                                 <property name="events"></property>
                                 <property name="xalign">0.0</property>
                                 <property name="visible">True</property>
                             </widget>
                             <packing>
-                                <property name="x_options">fill</property>
+                                <property name="bottom_attach">3</property>
+                                <property name="top_attach">2</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <widget class="GtkEntry" id="user_password_entry">
+                                <property name="events"></property>
+                                <property name="visibility">False</property>
+                                <property name="can_focus">True</property>
+                                <property name="visible">True</property>
+                            </widget>
+                            <packing>
+                                <property name="left_attach">1</property>
+                                <property name="bottom_attach">3</property>
+                                <property name="top_attach">2</property>
+                                <property name="right_attach">2</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <widget class="GtkLabel" id="user_password_confirm_label">
+                                <property name="label" context="True" translatable="True">Confirm password:</property>
+                                <property name="events"></property>
+                                <property name="xalign">0.0</property>
+                                <property name="visible">True</property>
+                            </widget>
+                            <packing>
+                                <property name="bottom_attach">4</property>
+                                <property name="top_attach">3</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <widget class="GtkEntry" id="user_password_confirm_entry">
+                                <property name="events"></property>
+                                <property name="visibility">False</property>
+                                <property name="can_focus">True</property>
+                                <property name="visible">True</property>
+                            </widget>
+                            <packing>
+                                <property name="left_attach">1</property>
+                                <property name="bottom_attach">4</property>
+                                <property name="top_attach">3</property>
+                                <property name="right_attach">2</property>
                             </packing>
                         </child>
                     </widget>
