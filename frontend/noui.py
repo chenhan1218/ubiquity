@@ -18,16 +18,31 @@ like timezone, keymap and locales.
 import debconf
 
 class Wizard:
+  '''
+  This is a wizard interface to interact with the user and the 
+  main program. It has some basic methods:
+  - set_progress()
+  - get_info()
+  - get_partitions()
+  '''
   def __init__(self):
     debconf.runFrontEnd()
     self.db = debconf.Debconf()
 
-  def set_progress(self,num):
-    for i in range(0,num):
-      print ".",
-    print "\n%d " % num
+  def set_progress(self,num,msg=''):
+    '''set_progress(num, msg='') -> none
+
+    Put the progress bar in the 'num' percent and if
+    there is any value in 'msg', this method print it.
+    '''
+    print "%d\t%s" % (num,msg)
 
   def get_info(self):
+    '''get_info() -> [hostname, fullname, name, password]
+
+    Get from the Debconf database the information about
+    hostname and user. Return a list with those values.
+    '''
     info = []
     # Just for tests. We should use a especific package for this
     # It seems to be because of the installer preseed, so it could be
@@ -40,6 +55,13 @@ class Wizard:
     return info
     
   def get_partitions(self):
+    '''get_partitions() -> dict {'mount point' : 'dev'}
+
+    Get the information to be able to partitioning the disk.
+    Partitioning the disk and return a dict with the pairs
+    mount point and device.
+    At least, there must be 2 partitions: / and swap.
+    '''
     #FIXME: We've to put here the autopartitioning stuff
     
     # This is just a example info.
@@ -55,18 +77,13 @@ class Wizard:
  
 if __name__ == '__main__':
   w = Wizard()
-  name, fullname, password = w.get_user()
-  timezone, keymap, locales  =  w.get_locales()
+  hostname, fullname, name, password = w.get_info()
   print '''
   Hostname: %s
   User Full name: %s
   Username: %s
   Password: %s
-  Timezone: %s
-  Keymap: %s
-  Locales: %s
   Mountpoints : %s
-  ''' % (w.get_hostname(), fullname, name, password,
-  timezone, keymap, locales, w.get_partitions())
+  ''' % (hostname, fullname, name, password, w.get_partitions())
 
 # vim:ai:et:sts=2:tw=80:sw=2:
