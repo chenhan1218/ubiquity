@@ -84,6 +84,8 @@ class DebconfFilter:
                     if not widget.run(priority, question):
                         self.debug('filter', 'widget requested backup')
                         next_go_backup = True
+                    else:
+                        next_go_backup = False
                     self.reply(0, 'question will be asked', log=True)
                     continue
 
