@@ -97,7 +97,6 @@ class DebconfFilter:
                             widget.set(question, value)
 
             if command == 'GO' and next_go_backup:
-                next_go_backup = False
                 self.reply(30, 'backup', log=True)
                 continue
 
@@ -107,6 +106,12 @@ class DebconfFilter:
                     self.reply(0)
                 else:
                     self.reply(0, data)
+
+                # Visible elements reset the backup state. If we just reset
+                # the backup state on GO, then invisible elements would not
+                # be properly skipped over in multi-stage backups.
+                if command == 'INPUT':
+                    next_go_backup = False
             except debconf.DebconfError, e:
                 self.reply(*e.args)
 
