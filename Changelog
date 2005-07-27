@@ -1,3 +1,10 @@
+27-07-2005 Javier Carranza <javier.carranza_@_interactors.coop>
+	* frontend/glade:
+		- Added some methods.
+		- Added fullscren featured mode.
+		- Added text screens for the installation process.
+		- Added styles.
+
 27-07-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
 	* frontend/noui.py:
 		- Added some documentation.
@@ -6,6 +13,7 @@
 		- Added some documentation.
 		- Fixed some syntax.
 		- Added format_target() method.
+
 26-07-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
 	* installer:
 		- Restored the previous version. The checks were not necessary
@@ -17,7 +25,7 @@
 	* frontend/noui.py:
 		- Moved out the method get_locales() to installer.
 		- Joined get_hostname() and get_user() methods into get_info()
-	
+
 26-07-2005 Antonio Olmo <aolmo_@_emergya.info>
 	* lib/validation.py: Validation library created.
 	* installer: Some typo fixed and checks added.
@@ -33,11 +41,11 @@
 		- test.py improved
 		- pixmaps added
 		- Added improvements commented by telemaco (usability)
-		
+
 22-07-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
 	* installer: Little improvements in configure_hardware() method.
 	* ubuntu-express.diff: Updated.
-	
+
 21-07-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
 	* frontend/gnome.py: Joined some methods into get_locales()
 	* frontend/noui.py:
@@ -48,13 +56,13 @@
 		- Fixed some bugs and typos.
 		- Joined some calls to wizard's methods.
 		- Changed the testing stuff from the bottom.
-	
+
 20-07-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
 	* frontend/*.py: Eliminated get_fullname() method.
 	* installer:
 		- Joined get_fullname() into get_user().
 		- Changed images files in mount_source() method.
-		
+
 20-07-2005 Javier Carranza <javier.carranza_@_interactors.coop>
 	* frontend/glade/*:
 		- Glade frontend created.
@@ -68,7 +76,7 @@
 		- Joined get_user() and get_password() into get_user().
 	* frontend/gnome.py: Added frontend for Gnome.
 	* frontend/*: Reorganized the mothods.
-	
+
 15-07-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
 	* Changelog: Initial version.
 	* ubuntu-express: Imported from Matt's baz repository.
