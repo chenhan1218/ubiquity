@@ -78,11 +78,13 @@ class WizardStep(object):
         self.succeeded = True
         self.prepared = False
         self.dialog.hide()
+        gtk.main_quit()
 
     def cancel_handler(self, widget, data=None):
         self.succeeded = False
         self.prepared = False
         self.dialog.hide()
+        gtk.main_quit()
 
     def prepare(self, db):
         self.prepared = True
