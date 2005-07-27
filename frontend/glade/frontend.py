@@ -3,6 +3,7 @@
 
 import gtk.glade
 import gnome.ui
+import gtkmozembed
 from pango import FontDescription
 from gobject import TYPE_STRING
 from os import path, walk
@@ -24,9 +25,8 @@ class FrontendInstaller:
     
     # load the interface
     self.main_window = gtk.glade.XML('liveinstaller.glade')
-    self.show_start()
+    self.show_browser()
     self.show_end()
-    self.fill_combo()
     
     # set style
     self.installer_style()
@@ -42,28 +42,25 @@ class FrontendInstaller:
     textdomain("frontend.py")
     install("frontend.py", DIR, unicode=1)
 
+  def show_browser(self):
+    widget = gtkmozembed.MozEmbed()
+    widget.load_url("http://www.gnome.org/")
+    widget.get_location()
+    self.main_window.get_widget('vbox1').add(widget)
+    widget.show()
+
   def installer_style(self):
     # set screen styles
-    self.main_window.get_widget('welcome').modify_font(FontDescription('Helvetica 14'))
-    self.main_window.get_widget('welcome').modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
     self.main_window.get_widget('installing_title').modify_font(FontDescription('Helvetica 30'))
     self.main_window.get_widget('installing_title').modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
     self.main_window.get_widget('installing_text').modify_font(FontDescription('Helvetica 16'))
     self.main_window.get_widget('installing_text').modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
-    self.main_window.get_widget('final').modify_font(FontDescription('Helvetica 14'))
-    self.main_window.get_widget('final').modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
-    
-    # implementation tests
-    #style = gtk.Style()
-    #style.fg[gtk.STATE_NORMAL] = self.main_window.get_widget('installing_title').get_colormap().alloc(65000,0,0)
-    #style.font = "-adobe-helvetica-bold-r-normal--*-210-*-*-*-*-*-*"
-    #self.main_window.get_widget('help_step1').set_size_request(100, 100)
     
     # set fullscreen mode
     self.main_window.get_widget('live_installer').fullscreen()
     self.main_window.get_widget('live_installer').show()
     
-# show and design start and end page
+# show and design end page
   def show_start(self):
     welcome = self.main_window.get_widget('welcome')
     welcome.show()
@@ -72,22 +69,11 @@ class FrontendInstaller:
 
   def show_end(self):
     final = self.main_window.get_widget('final')
-    final.show()
     final.set_bg_color(gtk.gdk.color_parse("#087021"))
     final.set_logo(gtk.gdk.pixbuf_new_from_file("pixmaps/logo.png"))
-
-  def fill_combo(self):
-    # Fill timezone GtkComboBoxEntry
-    lista = gtk.ListStore(TYPE_STRING)
-    
-    for root, dirs, files in walk(DIRNAME, topdown=False):
-      for name in files:
-	pointer = path.join(root, name).split(DIRNAME)[1]
-	if not search('right|posix|SystemV|Etc', pointer) and search('/', pointer):
-	  lista.append([pointer])
-    
-    self.main_window.get_widget('timezone').set_model(lista)
-    self.main_window.get_widget('timezone').set_text_column(0)
+    final.modify_font(FontDescription('Helvetica 14'))
+    final.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
+    final.show()
 
   def main(self):
     gtk.main()
