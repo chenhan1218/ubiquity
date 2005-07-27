@@ -10,6 +10,7 @@ class WizardStep(object):
     def __init__(self, glade):
         self.gladefile = glade
         self.prepared = False
+        self.done = False
 
     # Split a string on commas, stripping surrounding whitespace, and
     # honouring backslash-quoting.
@@ -77,17 +78,20 @@ class WizardStep(object):
     def ok_handler(self, widget, data=None):
         self.succeeded = True
         self.prepared = False
+        self.done = True
         self.dialog.hide()
         gtk.main_quit()
 
     def cancel_handler(self, widget, data=None):
         self.succeeded = False
         self.prepared = False
+        self.done = True
         self.dialog.hide()
         gtk.main_quit()
 
     def prepare(self, db):
         self.prepared = True
+        self.done = False
 
         self.db = db
 
@@ -101,7 +105,8 @@ class WizardStep(object):
                                                        self.cancel_handler)
 
     def run(self, priority, question):
-        self.succeeded = False
-        self.dialog.show()
-        gtk.main()
+        if not self.done:
+            self.succeeded = False
+            self.dialog.show()
+            gtk.main()
         return self.succeeded
