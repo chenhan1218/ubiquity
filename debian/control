@@ -7,7 +7,7 @@ Standards-Version: 3.6.1
 
 Package: oem-config
 Architecture: all
-Depends: debconf (>= 1.4.52), debconf-utils, base-config, oem-config-keyboard, ${python:Depends}, python-gtk2, python-glade2
+Depends: debconf (>= 1.4.52), debconf-utils, base-config, oem-config-keyboard, oem-config-locale, ${python:Depends}, python-gtk2, python-glade2
 Recommends: hwdb-client
 Description: Perform end-user configuration after initial installation
  The oem-config script re-asks a number of questions that are normally asked
