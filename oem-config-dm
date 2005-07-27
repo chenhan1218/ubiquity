@@ -16,9 +16,9 @@ class DM:
         logfile = open('/var/log/oem-config.log', 'a')
 
         server = subprocess.Popen(['X', '-br', '-ac', '-noreset', self.vt, self.display], stdin=null, stdout=logfile, stderr=logfile)
-        
+
         os.environ['DISPLAY'] = self.display
-        
+
         time.sleep(5)
 
         wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
