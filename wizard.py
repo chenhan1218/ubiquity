@@ -158,6 +158,16 @@ class Wizard:
             item = items[index]
             self.debug("oem-config: Running menu item %s" % item)
 
+            # Hack to allow a menu item to repeat on backup as long as the
+            # value of any one of a named set of questions has changed. This
+            # allows the locale question to back up when the language
+            # changes and start a new debconf frontend, while still backing
+            # up normally if the user cancels.
+            if 'repeat-if-changed' in self.menus[item]:
+                oldrepeat = {}
+                for name in self.menus[item]['repeat-if-changed'].split():
+                    oldrepeat[name] = db.get(name)
+
             # Set as unseen all questions that we're going to ask.
             if 'asks-questions' in self.menus[item]:
                 for name in self.menus[item]['asks-questions']:
@@ -171,7 +181,14 @@ class Wizard:
             itempath = os.path.join(menudir, item)
             ret = debconffilter.run(itempath)
             if (ret / 256) == 10:
-                index -= 1
+                if 'repeat-if-changed' in self.menus[item]:
+                    for name in self.menus[item]['repeat-if-changed'].split():
+                        if oldrepeat[name] != db.get(name):
+                            break
+                    else:
+                        index -= 1
+                else:
+                    index -= 1
                 continue
             elif ret != 0:
                 raise WizardException, "Menu item %s exited %d" % (item, ret)
