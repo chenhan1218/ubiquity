@@ -38,11 +38,8 @@ class DebconfFilter:
         if self.debug_re is not None and self.debug_re.search(key):
             print >>sys.stderr, "debconf (%s):" % key, ' '.join(args)
 
-    def reply(self, code, text=None, log=False):
-        if text is not None:
-            ret = '%d %s' % (code, text)
-        else:
-            ret = str(code)
+    def reply(self, code, text='', log=False):
+        ret = '%d %s' % (code, text)
         if log:
             self.debug('filter', '-->', ret)
         self.subin.write('%s\n' % ret)
@@ -104,10 +101,7 @@ class DebconfFilter:
 
             try:
                 data = self.db.command(command, *params)
-                if data == '':
-                    self.reply(0)
-                else:
-                    self.reply(0, data)
+                self.reply(0, data)
 
                 # Visible elements reset the backup state. If we just reset
                 # the backup state on GO, then invisible elements would not
