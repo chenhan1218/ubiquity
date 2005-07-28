@@ -112,19 +112,3 @@ class DebconfFilter:
                 self.reply(*e.args)
 
         return subp.wait()
-
-if __name__ == '__main__':
-    class Widget:
-        def __init__(self, db, text):
-            self.db = db
-            self.text = text
-        def run(self, priority, question):
-            print '%s (%s): %s' % (question, priority, self.text)
-
-    debconf.runFrontEnd()
-    db = debconf.Debconf()
-    widgets = {}
-    widgets['tzconfig/change_timezone'] = Widget(db, 'I am a custom widget')
-    df = DebconfFilter(db, widgets)
-    ret = df.run(sys.argv[1])
-    print >>sys.stderr, "%s exited with code %d" % (sys.argv[1], ret)
