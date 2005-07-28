@@ -23,8 +23,6 @@ class DM:
 
         time.sleep(5)
 
-        wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
-
         if os.access(background, os.R_OK):
             import gtk
             pixbuf = gtk.gdk.pixbuf_new_from_file(background)
@@ -35,6 +33,8 @@ class DM:
             root.set_back_pixmap(pixmap, False)
             root.clear()
             gtk.gdk.flush()
+
+        wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         greeter.wait()
