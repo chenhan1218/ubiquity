@@ -1,6 +1,11 @@
+28-07-2005 Antonio Olmo <aolmo_@_emergya.info>
+	* part/: partitioning stuff.
+	* part/peez2/: partition wizard (currently being tested).
+	* ../README.txt: brief explanations for beginners.
+
 27-07-2005 Antonio Olmo <aolmo_@_emergya.info>
-	* Doc slightly improved with epydoc.
-	* Validation library (almost) finished.
+	* doc/: slightly improved with epydoc.
+	* lib/validation.py: (almost?) finished.
 
 27-07-2005 Javier Carranza <javier.carranza_@_interactors.coop>
 	* frontend/glade:
