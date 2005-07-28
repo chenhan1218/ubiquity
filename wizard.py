@@ -170,11 +170,11 @@ class Wizard:
             # custom widgets as required.
             itempath = os.path.join(menudir, item)
             ret = debconffilter.run(itempath)
-            if ret == 30:
+            if (ret / 256) == 10:
                 index -= 1
                 continue
             elif ret != 0:
-                raise WizardException, "Menu item %s returned %d" % (item, ret)
+                raise WizardException, "Menu item %s exited %d" % (item, ret)
 
             # Did this menu item finish the configuration process?
             if ('exit-menu' in self.menus[item] and
