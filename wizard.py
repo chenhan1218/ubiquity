@@ -23,6 +23,8 @@ menu_line_re = re.compile(r'(.*?): (.*)')
 
 from menu.timezone import *
 
+class WizardException(Exception): pass
+
 class Wizard:
     def __init__(self, includes=None, excludes=None):
         if 'OEM_CONFIG_DEBUG' in os.environ:
@@ -166,11 +168,13 @@ class Wizard:
 
             # Run the menu item through a debconf filter, which may display
             # custom widgets as required.
-            # TODO: do something more useful on failure
             itempath = os.path.join(menudir, item)
-            if debconffilter.run(itempath) != 0:
+            ret = debconffilter.run(itempath)
+            if ret == 30:
                 index -= 1
                 continue
+            elif ret != 0:
+                raise WizardException, "Menu item %s returned %d" % (item, ret)
 
             # Did this menu item finish the configuration process?
             if ('exit-menu' in self.menus[item] and
