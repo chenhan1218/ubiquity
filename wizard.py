@@ -149,14 +149,22 @@ class Wizard:
         return items
 
     def run(self):
-        db = DebconfCommunicator('oem-config')
-        debconffilter = DebconfFilter(db, self.widgets)
-
         items = self.get_menu_items()
         index = 0
         while index >= 0 and index < len(items):
             item = items[index]
             self.debug("oem-config: Running menu item %s" % item)
+
+            # Pick the language out of /etc/environment.
+            if os.access('/etc/environment', os.R_OK):
+                language = \
+                    os.popen('. /etc/environment; echo "$LANG"').readline()
+                language = language.strip()
+                if language != '':
+                    os.environ['LANG'] = language
+
+            db = DebconfCommunicator('oem-config')
+            debconffilter = DebconfFilter(db, self.widgets)
 
             # Hack to allow a menu item to repeat on backup as long as the
             # value of any one of a named set of questions has changed. This
@@ -189,9 +197,12 @@ class Wizard:
                         index -= 1
                 else:
                     index -= 1
+                db.shutdown()
                 continue
             elif ret != 0:
                 raise WizardException, "Menu item %s exited %d" % (item, ret)
+
+            db.shutdown()
 
             # Did this menu item finish the configuration process?
             if ('exit-menu' in self.menus[item] and
@@ -199,8 +210,6 @@ class Wizard:
                 break
 
             index += 1
-
-        db.shutdown()
 
 if __name__ == '__main__':
     parser = optparse.OptionParser()
