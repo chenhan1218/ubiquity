@@ -11,11 +11,13 @@ fi
 cp -a /usr/lib/oem-config/inittab /etc/inittab.new
 mv -f /etc/inittab.new /etc/inittab
 
-db_input high oem-config/run-test || [ $? -eq 30 ]
-db_go
-db_get oem-config/run-test
-if [ "$RET" = true ]; then
-	/usr/sbin/oem-config-test
+if type hwdb-gui >/dev/null 2>&1; then
+	db_input high oem-config/run-test || [ $? -eq 30 ]
+	db_go
+	db_get oem-config/run-test
+	if [ "$RET" = true ]; then
+		/usr/sbin/oem-config-test
+	fi
 fi
 
 exit 0
