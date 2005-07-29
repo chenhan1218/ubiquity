@@ -1,3 +1,10 @@
+29-07-2005 Javier Carranza <javier.carranza_@_interactors.coop>
+	* frontend/*:
+		- Added Exceptions to export installer control to backend.
+		- Added splash images and text during installation process.
+		- Added Gnome.py example script to use the module.
+		- Added some documentation.
+
 28-07-2005 Antonio Olmo <aolmo_@_emergya.info>
 	* part/: partitioning stuff.
 	* part/peez2/: partition wizard (currently being tested).

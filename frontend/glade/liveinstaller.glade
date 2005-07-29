@@ -468,7 +468,7 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 		  <child>
 		    <widget class="GtkLabel" id="installing_title">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Guadalinex para el Escritorio</property>
+		      <property name="label" translatable="yes">Guadalinex 2005: Your desktop</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">False</property>
 		      <property name="justify">GTK_JUSTIFY_RIGHT</property>
@@ -498,24 +498,53 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 	      </child>
 
 	      <child>
-		<widget class="GtkLabel" id="installing_text">
+		<widget class="GtkHBox" id="hbox6">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">Enjoy the most powerful desktop from the free software Spanish community.
+		  <property name="homogeneous">False</property>
+		  <property name="spacing">0</property>
+
+		  <child>
+		    <widget class="GtkImage" id="installing_image">
+		      <property name="visible">True</property>
+		      <property name="xalign">0.5</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xpad">0</property>
+		      <property name="ypad">0</property>
+		    </widget>
+		    <packing>
+		      <property name="padding">0</property>
+		      <property name="expand">False</property>
+		      <property name="fill">True</property>
+		    </packing>
+		  </child>
+
+		  <child>
+		    <widget class="GtkTextView" id="installing_text">
+		      <property name="border_width">20</property>
+		      <property name="visible">True</property>
+		      <property name="can_focus">True</property>
+		      <property name="editable">False</property>
+		      <property name="overwrite">False</property>
+		      <property name="accepts_tab">False</property>
+		      <property name="justification">GTK_JUSTIFY_LEFT</property>
+		      <property name="wrap_mode">GTK_WRAP_WORD</property>
+		      <property name="cursor_visible">False</property>
+		      <property name="pixels_above_lines">15</property>
+		      <property name="pixels_below_lines">0</property>
+		      <property name="pixels_inside_wrap">1</property>
+		      <property name="left_margin">10</property>
+		      <property name="right_margin">10</property>
+		      <property name="indent">15</property>
+		      <property name="text" translatable="yes">Enjoy the most powerful desktop from the free software Spanish community.
 
 You will have at your scope the bigger set of office, management, design, education applications and games than you have ever gotten to imagine.</property>
-		  <property name="use_underline">False</property>
-		  <property name="use_markup">False</property>
-		  <property name="justify">GTK_JUSTIFY_CENTER</property>
-		  <property name="wrap">True</property>
-		  <property name="selectable">False</property>
-		  <property name="xalign">0.5</property>
-		  <property name="yalign">0.5</property>
-		  <property name="xpad">0</property>
-		  <property name="ypad">0</property>
-		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-		  <property name="width_chars">-1</property>
-		  <property name="single_line_mode">False</property>
-		  <property name="angle">0</property>
+		    </widget>
+		    <packing>
+		      <property name="padding">5</property>
+		      <property name="expand">True</property>
+		      <property name="fill">True</property>
+		    </packing>
+		  </child>
 		</widget>
 		<packing>
 		  <property name="padding">0</property>
@@ -535,8 +564,9 @@ You will have at your scope the bigger set of office, management, design, educat
 		</widget>
 		<packing>
 		  <property name="padding">0</property>
-		  <property name="expand">False</property>
+		  <property name="expand">True</property>
 		  <property name="fill">False</property>
+		  <property name="pack_type">GTK_PACK_END</property>
 		</packing>
 	      </child>
 	    </widget>
@@ -551,7 +581,7 @@ You will have at your scope the bigger set of office, management, design, educat
 	  <property name="title" translatable="yes">Just enjoy it !!</property>
 	  <property name="text" translatable="yes">The Guadalinex 2005 installation has ended. 
 
-We animated to you to test all the power of the Guadalinex desktop, throws a first sight to the complete selection of applications including in our operating system. 
+We animated to you to test all the power of the Guadalinex desktop, throws a first sight to the complete selection of applications including in our operating system.
 
 Enjoy with all the power and functionality that free software makes you available.</property>
 	  <property name="background_color">#080870702121</property>
