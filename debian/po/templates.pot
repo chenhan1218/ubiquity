@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-29 16:43+0100\n"
+"POT-Creation-Date: 2005-07-29 16:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,13 +26,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../oem-config.templates:3
+#: ../oem-config.templates:10
 msgid "Run a system test?"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../oem-config.templates:3
+#: ../oem-config.templates:10
 msgid ""
 "The system has now been fully installed, and is ready for shipping. The next "
 "time it boots, it will finish off by asking the end user a few questions and "
@@ -41,7 +41,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../oem-config.templates:3
+#: ../oem-config.templates:10
 msgid "Would you like to run a system test now?"
 msgstr ""
 
