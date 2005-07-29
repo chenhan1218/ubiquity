@@ -1,0 +1,21 @@
+#!/bin/sh
+# Prepare /etc/inittab for running oem-config at the next boot, and start
+# the OEM test mode.
+set -e
+
+. /usr/share/debconf/confmodule
+
+if [ -f /etc/inittab.real ]; then
+	mv -f /etc/inittab.real /etc/inittab.oem
+fi
+cp -a /usr/lib/oem-config/inittab /etc/inittab.new
+mv -f /etc/inittab.new /etc/inittab
+
+db_input high oem-config/run-test || [ $? -eq 30 ]
+db_go
+db_get oem-config/run-test
+if [ "$RET" = true ]; then
+	/usr/sbin/oem-config-test
+fi
+
+exit 0

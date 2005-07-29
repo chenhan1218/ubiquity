@@ -1,0 +1,27 @@
+#! /bin/sh
+# Run oem-config on the first boot after shipping to the end user.
+set -e
+
+/usr/sbin/oem-config-dm vt7 :0 /usr/sbin/oem-config
+
+# Put the normal inittab back into place.
+if [ -f /etc/inittab.oem ]; then
+	mv -f /etc/inittab.oem /etc/inittab
+	telinit q >/dev/null
+	clear
+fi
+
+# Start the display manager.
+DMS=
+for dm in xdm gdm kdm; do
+	if test -x "/etc/init.d/$dm"; then
+		DMS="$dm $DMS"
+	fi
+done
+if [ "$DMS" ]; then
+	for dm in $DMS; do
+		"/etc/init.d/$dm" restart || true
+	done
+fi
+
+exit 0

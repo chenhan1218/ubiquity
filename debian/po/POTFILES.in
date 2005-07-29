@@ -1,3 +1,4 @@
+[type: gettext/rfc822deb] oem-config.templates
 [type: gettext/rfc822deb] oem-config-menu.templates
 [type: gettext/rfc822deb] ../menu/timezone.templates
 [type: gettext/rfc822deb] ../menu/passwd.templates

@@ -1,0 +1,8 @@
+Template: oem-config/run-test
+Type: boolean
+_Description: Run a system test?
+ The system has now been fully installed, and is ready for shipping. The
+ next time it boots, it will finish off by asking the end user a few
+ questions and reconfiguring the system accordingly.
+ .
+ Would you like to run a system test now?

@@ -22,9 +22,12 @@ binary-arch: build
 		po2debconf --podir=debian/po $$x \
 			> $(tmp)/usr/lib/oem-config/menu/$${x##*/}; \
 	done
+	dh_install inittab /usr/lib/oem-config/
+	dh_install base-config/* /usr/lib/base-config/menu/
 	po2debconf debian/oem-config-menu.templates \
 		> $(tmp)/usr/share/debconf/templates/oem-config-menu.templates
 	cp debian/lintian-override $(tmp)/usr/share/lintian/overrides/oem-config
+	dh_installdebconf
 	dh_installdocs
 	dh_installchangelogs
 	dh_compress
