@@ -13,8 +13,7 @@ binary-arch: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k
-	dh_installdirs usr/lib/oem-config/menu usr/share/debconf/templates \
-		usr/share/lintian/overrides
+	dh_installdirs usr/lib/oem-config/menu usr/share/lintian/overrides
 	dh_install oem-config oem-config-dm oem-config-test usr/sbin/
 	dh_install *.py /usr/lib/oem-config/
 	dh_install menu/* usr/lib/oem-config/menu/
@@ -24,8 +23,6 @@ binary-arch: build
 	done
 	dh_install inittab /usr/lib/oem-config/
 	dh_install base-config/* /usr/lib/base-config/menu/
-	po2debconf debian/oem-config-menu.templates \
-		> $(tmp)/usr/share/debconf/templates/oem-config-menu.templates
 	cp debian/lintian-override $(tmp)/usr/share/lintian/overrides/oem-config
 	dh_installdebconf
 	dh_installdocs
