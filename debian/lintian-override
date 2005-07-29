@@ -1,2 +1,3 @@
 oem-config: no-debconf-config
 oem-config: debconf-is-not-a-registry ./usr/lib/base-config/menu/oem-config
+oem-config: debconf-is-not-a-registry ./usr/lib/oem-config/menu/timezone
