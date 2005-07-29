@@ -15,7 +15,7 @@ class DM:
 
     def run(self, *program):
         null = open('/dev/null', 'w')
-        logfile = open('/var/log/oem-config.log', 'a')
+        logfile = open('/var/log/oem-config.log', 'w')
 
         server = subprocess.Popen(['X', '-br', '-ac', '-noreset', self.vt, self.display], stdin=null, stdout=logfile, stderr=logfile)
 
