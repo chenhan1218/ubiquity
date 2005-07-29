@@ -149,22 +149,34 @@ class Wizard:
         return items
 
     def run(self):
+        # Get initial language.
+        db = DebconfCommunicator('oem-config')
+        language = db.get('debian-installer/locale')
+        if language != '':
+            os.environ['LANG'] = language
+        language_changed = False
+        db.shutdown()
+
         items = self.get_menu_items()
         index = 0
         while index >= 0 and index < len(items):
             item = items[index]
             self.debug("oem-config: Running menu item %s" % item)
 
-            # Pick the language out of /etc/environment.
-            if os.access('/etc/environment', os.R_OK):
-                language = \
-                    os.popen('. /etc/environment; echo "$LANG"').readline()
-                language = language.strip()
-                if language != '':
-                    os.environ['LANG'] = language
+            if language != '' and language != os.environ['LANG']:
+                os.environ['LANG'] = language
+                language_changed = True
 
             db = DebconfCommunicator('oem-config')
             debconffilter = DebconfFilter(db, self.widgets)
+
+            if language_changed:
+                # The language has just been changed, so we must be about to
+                # re-run localechooser. Stop localechooser from thinking
+                # that the change of language (which will be an incomplete
+                # locale) indicates preseeding.
+                db.set('debian-installer/locale', '')
+                language_changed = False
 
             # Hack to allow a menu item to repeat on backup as long as the
             # value of any one of a named set of questions has changed. This
@@ -188,6 +200,9 @@ class Wizard:
             # custom widgets as required.
             itempath = os.path.join(menudir, item)
             ret = debconffilter.run(itempath)
+
+            language = db.get('debian-installer/locale')
+
             if (ret / 256) == 10:
                 if 'repeat-if-changed' in self.menus[item]:
                     for name in self.menus[item]['repeat-if-changed'].split():
