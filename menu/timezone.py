@@ -30,7 +30,9 @@ class Timezone(WizardStep):
         list_store.clear()
 
         try:
-            choices = self.choices('tzconfig/choose_country_zone/%s' % area)
+            question = 'tzconfig/choose_country_zone/%s' % area
+            choices = self.choices(question)
+            choices_c = self.choices_untranslated(question)
         except debconf.DebconfError:
             if area in self.area_map:
                 area = self.area_map[area]
@@ -40,14 +42,17 @@ class Timezone(WizardStep):
                     if os.path.isfile(os.path.join(root, name)):
                         choices.append(name)
             choices.sort()
+            choices_c = choices
 
-        for choice in choices:
-            list_store.append([unicode(choice)])
+        self.zone_c_map = {}
+        for i in range(len(choices)):
+            list_store.append([choices[i]])
+            self.zone_c_map[choices[i]] = choices_c[i]
 
         if default_zone is None:
             select_zone.set_active(0)
         else:
-            active = _find_in_choices(choices, default_zone)
+            active = _find_in_choices(choices_c, default_zone)
             if active is None:
                 select_zone.set_active(0)
             else:
@@ -56,7 +61,9 @@ class Timezone(WizardStep):
     def prepare(self, db):
         super(Timezone, self).prepare(db)
 
-        self.geographic_area_choices = self.choices('tzconfig/geographic_area')
+        geographic_area_choices = self.choices('tzconfig/geographic_area')
+        geographic_area_choices_c = \
+            self.choices_untranslated('tzconfig/geographic_area')
 
         if os.path.isfile('/etc/timezone'):
             timezone = open('/etc/timezone').readline().strip()
@@ -80,11 +87,14 @@ class Timezone(WizardStep):
         geographic_area.add_attribute(cell, 'text', 0)
         list_store = gtk.ListStore(gobject.TYPE_STRING)
         geographic_area.set_model(list_store)
-        for choice in self.geographic_area_choices:
-            list_store.append([choice])
+        self.area_c_map = {}
+        for i in range(len(geographic_area_choices)):
+            list_store.append([geographic_area_choices[i]])
+            self.area_c_map[geographic_area_choices[i]] = \
+                geographic_area_choices_c[i]
 
         if area is not None:
-            active = _find_in_choices(self.geographic_area_choices, area)
+            active = _find_in_choices(geographic_area_choices_c, area)
             if active is not None:
                 geographic_area.set_active(active)
 
@@ -99,8 +109,9 @@ class Timezone(WizardStep):
         geographic_area.connect('changed', self.area_handler)
 
     def area_handler(self, widget, data=None):
-        area = widget.get_active_text()
-        self.update_zone_list(area)
+        area = unicode(widget.get_active_text())
+        self.update_zone_list(
+            self.translate_to_c('tzconfig/geographic_area', area))
 
     def ok_handler(self, widget, data=None):
         utc = self.glade.get_widget('utc_button').get_active()
@@ -110,7 +121,9 @@ class Timezone(WizardStep):
             self.preseed('tzconfig/gmt', 'false')
 
         area = self.glade.get_widget('geographic_area_combo').get_active_text()
+        area = self.area_c_map[unicode(area)]
         zone = self.glade.get_widget('select_zone_combo').get_active_text()
+        zone = self.zone_c_map[unicode(zone)]
         self.preseed('tzconfig/preseed_zone', '%s/%s' % (area, zone))
 
         super(Timezone, self).ok_handler(widget, data)
