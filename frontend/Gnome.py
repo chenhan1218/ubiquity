@@ -4,20 +4,27 @@
 import gtk.glade
 import gnome.ui
 import gtkmozembed
-from sys import exit
+from sys import exit, path
 from pango import FontDescription
 from gettext import bindtextdomain, textdomain, install
 from locale import setlocale, LC_ALL
 
+PATH = path[0]
+
 # Define glade path
-GLADEDIR = './glade'
+GLADEDIR = PATH + '/glade'
 
 # Define locale path
 LOCALEDIR = GLADEDIR + '/locale'
 
 class Wizard:
-  """FrontendInstaller class to manage druid installer through backend script"""
-  
+  '''
+  This is a wizard interface to interact with the user and the 
+  main program. It has some basic methods:
+  - set_progress()
+  - get_info()
+  - get_partitions()
+  '''
   def __init__(self):
     # set custom language
     self.set_locales()
@@ -49,7 +56,7 @@ class Wizard:
     widget = gtkmozembed.MozEmbed()
     widget.load_url("http://www.gnome.org/")
     widget.get_location()
-    self.main_window.get_widget('vbox1').add(widget)
+    self.main_window.get_widget('browser').add(widget)
     widget.show()
 
   def installer_style(self):
@@ -75,31 +82,63 @@ class Wizard:
     final.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
     final.show()
 
-  def get_username(self):
-    """get text attribute from username widget."""
-    
-    return self.main_window.get_widget('username').get_property('text')
+  def get_info(self):
+    '''get_info() -> [hostname, fullname, name, password]
 
-  def get_password(self):
-    """get text attribute from password widget."""
-    
-    return self.main_window.get_widget('password').get_property('text')
+    Get from the Debconf database the information about
+    hostname and user. Return a list with those values.
+    '''
+    #FIXME: We need here a loop. We've to wait until the user press the 'next' button
+    info = []
+    info.append(self.main_window.get_widget('fullname').get_property('text'))
+    info.append(self.main_window.get_widget('username').get_property('text'))
+    pass1 = self.main_window.get_widget('password').get_property('text')
+    pass2 = self.main_window.get_widget('verify_password').get_property('text')
+    if pass1 == pass2:
+      #FIXME: This is a crappy check. We need use the lib for that.
+      info.append(pass1)
+    else:
+      #FIXME: If the pass is wrong we must warn about it
+      info.append(pass1)
+    info.append(self.main_window.get_widget('hostname').get_property('text'))
+    return info
 
-  def get_hostname(self):
-    """get text attribute from hostname widget."""
-    
-    return self.main_window.get_widget('hostname').get_property('text')
+  def set_progress(self, num, msg="", image=""):
+    '''set_progress(num, msg='') -> none
 
-  def set_progress(self, value, text="", image=""):
+    Put the progress bar in the 'num' percent and if
+    there is any value in 'msg', this method print it.
+    '''
     """ - Set value attribute to progressbar widget.
         - Modifies Splash Ad Images from distro usage.
         - Modifies Ad texts about distro images. """
 
-    self.main_window.get_widget('progressbar').set_percentage(value/100.0)
-    #self.main_window.get_widget('progressbar').set_pulse_step(value/100.0)
-    if ( text != "" ):
-      gtk.TextBuffer.set_text(self.main_window.get_widget('installing_text').get_buffer(), text)
+    self.main_window.get_widget('progressbar').set_percentage(num/100.0)
+    #self.main_window.get_widget('progressbar').set_pulse_step(num/100.0)
+    if ( msg != "" ):
+      gtk.TextBuffer.set_text(self.main_window.get_widget('installing_text').get_buffer(), msg)
       self.main_window.get_widget('installing_image').set_from_file("%s/pixmaps/%s" % (GLADEDIR, image))
+
+  def get_partitions(self):
+    '''get_partitions() -> dict {'mount point' : 'dev'}
+
+    Get the information to be able to partitioning the disk.
+    Partitioning the disk and return a dict with the pairs
+    mount point and device.
+    At least, there must be 2 partitions: / and swap.
+    '''
+    #FIXME: We've to put here the autopartitioning stuff
+    
+    # This is just a example info.
+    # We should take that info from the debconf
+    # Something like:
+    # re = self.db.get('express/mountpoints')
+    # for path, dev in re:
+    #   mountpoints[path] = dev
+    mountpoints = {'/'     : '/dev/hda1',
+                   'swap'  : '/dev/hda2',
+                   '/home' : '/dev/hda3'}
+    return mountpoints
 
   def on_frontend_installer_cancel(self, widget):
     gtk.main_quit()
@@ -107,13 +146,15 @@ class Wizard:
   def on_live_installer_delete_event(self, widget):
     raise Signals("on_live_installer_delete_event")
 
-class Signals(Exception):
-  """Base class for exceptions in this module."""
-
-  def __init__(self, value):
-    self.value = value
-  def __str__(self):
-    return repr(self.value)
-
 if __name__ == '__main__':
-    w = Wizard()
+  w = Wizard()
+  hostname, fullname, name, password = w.get_info()
+  print '''
+  Hostname: %s
+  User Full name: %s
+  Username: %s
+  Password: %s
+  Mountpoints : %s
+  ''' % (hostname, fullname, name, password, w.get_partitions())
+
+# vim:ai:et:sts=2:tw=80:sw=2:
