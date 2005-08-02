@@ -1,3 +1,6 @@
+02-08-2005 Javier Carranza <javier.carranza_@_interactors.coop>
+	* debian/*: ubuntu-express debian package.
+
 29-07-2005 Antonio Olmo <aolmo_@_emergya.info>
 	* ../README.txt: updated.
 	* part/peez2/: customized parted library added, README finished.
