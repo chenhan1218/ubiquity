@@ -13,3 +13,7 @@ _Description: Run a system test?
  questions and reconfiguring the system accordingly.
  .
  Would you like to run a system test now?
+
+Template: base-config/menu/oem-config
+Type: text
+_Description: Prepare for reconfiguration by end user

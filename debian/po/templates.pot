@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-29 16:57+0100\n"
+"POT-Creation-Date: 2005-08-02 15:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,6 +43,12 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:10
 msgid "Would you like to run a system test now?"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:19
+msgid "Prepare for reconfiguration by end user"
 msgstr ""
 
 #. Type: text
