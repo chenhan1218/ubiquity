@@ -1,3 +1,9 @@
+oem-config (0.3) UNRELEASED; urgency=low
+
+  * Actually install /usr/sbin/oem-config-firstboot.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed,  3 Aug 2005 20:13:15 +0100
+
 oem-config (0.2) breezy; urgency=low
 
   * Update GPL notices with the FSF's new address.
