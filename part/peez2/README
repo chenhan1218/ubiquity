@@ -1,7 +1,8 @@
 
-# File "part/peez2/README.txt".
+# File "part/peez2/README".
 # "peez2" brief how-to.
 # Created by Antonio Olmo <aolmo@emergya.info> on 29 july 2005.
+# Last modified on 3 august 2005.
 
 	Description
 	-----------
@@ -27,6 +28,11 @@ peez2_0.7.8.tar.gz:                        whole development tree.
 	Installation
 	------------
 
+    In [3] there is an image of a bootable minimal Linux CD
+("cdlive_pez2.iso") that you can burn to test the software, as it is supposed
+to work on unmounted hard disks. Alternatively, you can try it in your current
+system. Basic installation procedure follow.
+
 1. Install the Debian package:
 	sudo dpkg --install peez2_0.7.8_i386.deb
    Maybe you should also install or update some other packages. Usually these
@@ -38,13 +44,13 @@ peez2_0.7.8.tar.gz:                        whole development tree.
 3. In order to check ext3 partitions with its sparse_super feature enabled,
    you will have to install the modified libpart package as well:
 	sudo dpkg --install libparted1.6-12_1.6.21-1.ext3bug_i386.deb
-   Then, set:
+   and set:
 	export PT_FORCE_EXT3_SPARSE=yes
 
 	Usage
 	-----
 
-    See [2].
+    See [2] (the documentation provided seems unacurate and incomplete).
 
 	References
 	----------

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.23 """
+""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.31 """
 
 # File "validation.py".
 # Validation library.
 # Created by Antonio Olmo <aolmo@emergya.info> on 26 july 2005.
-# Last modified on 29 july 2005.
+# Last modified on 2 august 2005.
 
-from string import whitespace
+from string import whitespace, uppercase
 
 # Index:
 # def check_username (name):
@@ -23,17 +23,26 @@ def check_username (name):
 
         @return:
             - C{0} valid.
-            - C{1} wrong length.
-            - C{2} contains white spaces.
-            - C{3} is already taken or prohibited. """
+            - C{1} contains dots.
+            - C{2} contains uppercase characters.
+            - C{3} wrong length.
+            - C{4} contains white spaces.
+            - C{5} is already taken or prohibited.
+            - C{6} is C{root}. """
 
     result = 0
 
-    if name in invalid_names ():
-        result = 3
+    if 'root' == name:
+        result = 6
+    elif name in invalid_names ():
+        result = 5
     elif len (set (name).intersection (set (whitespace))) > 0:
-        result = 2
+        result = 4
     elif len (name) < 3 or len (name) > 24:
+        result = 3
+    elif len (set (name).intersection (set (uppercase))) > 0:
+        result = 2
+    elif '.' in name:
         result = 1
 
     return result
@@ -86,10 +95,8 @@ def invalid_names ():
 
         @return: a C{set} of prohibited user names. """
 
-    # Minimal set:
-    result = set (['root'])
+    result = set ([])
 
-    # Maybe all current usernames are reserved as well:
     for i in open ('/etc/passwd'):
 
         if ':' in i:
