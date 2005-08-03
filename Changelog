@@ -1,3 +1,8 @@
+03-08-2005 Javier Carranza <javier.carranza_@_interactors.coop>
+	* ../gparted*: gparted package with hacks to embed it into
+	ubuntu-express and Guadalinex live_installer.
+	* frontend/Gnome.py: sockets implementation to join gparted embedding.
+
 02-08-2005 Javier Carranza <javier.carranza_@_interactors.coop>
 	* debian/*: ubuntu-express debian package.
 

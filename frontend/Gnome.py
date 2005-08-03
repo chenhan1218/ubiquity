@@ -5,6 +5,7 @@ import gtk.glade
 import gnome.ui
 import gtkmozembed
 from sys import exit, path
+from posix import execv
 from pango import FontDescription
 from gettext import bindtextdomain, textdomain, install
 from locale import setlocale, LC_ALL
@@ -41,6 +42,9 @@ class Wizard:
     socket = gtk.Socket()
     socket.show()
     self.main_window.get_widget('embedded').add(socket)
+    Wid = str(socket.get_id())
+    args = ["/usr/bin/gparted", Wid]
+    execv("/usr/bin/sudo", args)
     
     # Declare SignalHandler
     self.main_window.signal_autoconnect(self)
