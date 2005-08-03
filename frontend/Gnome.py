@@ -37,6 +37,11 @@ class Wizard:
     # set style
     self.installer_style()
     
+    # plug/socket implementation (Gparted integration)
+    socket = gtk.Socket()
+    socket.show()
+    self.main_window.get_widget('embedded').add(socket)
+    
     # Declare SignalHandler
     self.main_window.signal_autoconnect(self)
     gtk.main()

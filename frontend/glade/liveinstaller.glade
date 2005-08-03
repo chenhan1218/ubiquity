@@ -413,7 +413,7 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 	  <signal name="back" handler="on_step2_back" last_modification_time="Wed, 27 Jul 2005 16:32:37 GMT"/>
 
 	  <child internal-child="vbox">
-	    <widget class="GtkVBox" id="druid-vbox6">
+	    <widget class="GtkVBox" id="embedded">
 	      <property name="border_width">16</property>
 	      <property name="visible">True</property>
 	      <property name="homogeneous">False</property>
