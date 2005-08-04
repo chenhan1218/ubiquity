@@ -68,7 +68,7 @@ class Wizard:
     self.fullname = self.main_window.get_widget('fullname')
     self.username = self.main_window.get_widget('username')
     self.password = self.main_window.get_widget('password')
-    self.verify_password = self.main_window.get_widget('verify_password')
+    self.verified_password = self.main_window.get_widget('verified_password')
     self.hostname = self.main_window.get_widget('hostname')
     
     # set style
@@ -145,7 +145,7 @@ class Wizard:
     info.append(self.fullname.get_property('text'))
     info.append(self.username.get_property('text'))
     pass1 = self.password.get_property('text')
-    pass2 = self.verify_password.get_property('text')
+    pass2 = self.verified_password.get_property('text')
     if pass1 == pass2:
       #FIXME: This is a crappy check. We need use the lib for that.
       info.append(pass1)
