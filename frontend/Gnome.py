@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-# Last modified by Antonio Olmo <aolmo@emergya.info> on 4 august 2005.
-
 import gtk.glade
 import gnome.ui
 import gtkmozembed
@@ -11,13 +9,14 @@ import os.path
 from pango import FontDescription
 from gettext import bindtextdomain, textdomain, install
 from locale import setlocale, LC_ALL
+from lib.part import call_autoparted, call_gparted
+from lib.validation import *
+
+
 # Adding parent directory to the sys.path
 PARENT = os.path.split(path[0])[0]
 if PARENT not in path:
     path.append(PARENT)
-    
-from lib.part import call_autoparted, call_gparted
-from lib.validation import *
 
 PATH = path[0]
 
@@ -26,6 +25,7 @@ GLADEDIR = PATH + '/glade'
 
 # Define locale path
 LOCALEDIR = GLADEDIR + '/locale'
+
 
 class Wizard:
   '''
@@ -37,37 +37,74 @@ class Wizard:
   - get_info()
   - get_partitions()
   '''
-
   
-  def __init__(self):
+  def __init__(self, distro):
     # set custom language
-    self.set_locales()
+    self.set_locales(distro)
     
     # load the interface
     self.main_window = gtk.glade.XML('%s/liveinstaller.glade' % GLADEDIR)
-    self.show_browser()
-    self.show_end()
+    
+    # declare attributes
+    self.distro = distro
+    
+    self.live_installer = self.main_window.get_widget('live_installer')
+    self.browser_vbox = self.main_window.get_widget('browser_vbox')
+    self.embedded = self.main_window.get_widget('embedded')
+    
+    self.installing_text = self.main_window.get_widget('installing_text')
+    self.installing_image = self.main_window.get_widget('installing_image')
+    self.installing_title = self.main_window.get_widget('installing_title')
+    self.progressbar = self.main_window.get_widget('progressbar')
+    
+    self.user_image = self.main_window.get_widget('user_image')
+    self.lock_image = self.main_window.get_widget('lock_image')
+    self.host_image = self.main_window.get_widget('host_image')
+    self.logo_image = self.main_window.get_widget('logo_image')
+    
+    self.final = self.main_window.get_widget('final')
+    
+    self.fullname = self.main_window.get_widget('fullname')
+    self.username = self.main_window.get_widget('username')
+    self.password = self.main_window.get_widget('password')
+    self.verify_password = self.main_window.get_widget('verify_password')
+    self.hostname = self.main_window.get_widget('hostname')
     
     # set style
     self.installer_style()
+    
+    # show interface
+    self.show_browser()
+    self.show_end()
     
     # FIXME: Temporaly call here the gparted
     data = 'foo'
 #    data = call_gparted(self.main_window)
     print data
     
+    # crete socket connection to embed gparted
+    self.create_connection()
+    
     # Declare SignalHandler
     self.main_window.signal_autoconnect(self)
     gtk.main()
 
-  def set_locales(self):
+  def set_locales(self, distro):
     """internationalization config. Use only once."""
     
-    bindtextdomain("Gnome.py", LOCALEDIR )
-    gtk.glade.bindtextdomain("Gnome.py", LOCALEDIR )
+    bindtextdomain("Gnome.py", LOCALEDIR + distro)
+    gtk.glade.bindtextdomain("Gnome.py", LOCALEDIR + distro)
     gtk.glade.textdomain("Gnome.py")
     textdomain("Gnome.py")
-    install("Gnome.py", LOCALEDIR, unicode=1)
+    install("Gnome.py", LOCALEDIR + distro, unicode=1)
+
+  def create_connection(self):
+    # plug/socket implementation (Gparted integration)
+    socket = gtk.Socket()
+    socket.show()
+    self.embedded.add(socket)
+    Wid = str(socket.get_id())
+    subprocess.Popen(['/usr/bin/gparted', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
 
   def show_browser(self):
     """Embed Mozilla widget into Druid."""
@@ -75,31 +112,37 @@ class Wizard:
     widget = gtkmozembed.MozEmbed()
     widget.load_url("http://www.gnome.org/")
     widget.get_location()
-    self.main_window.get_widget('browser').add(widget)
+    self.browser_vbox.add(widget)
     widget.show()
 
   def installer_style(self):
     """Set installer screen styles."""
     
     # set screen styles
-    self.main_window.get_widget('installing_title').modify_font(FontDescription('Helvetica 30'))
-    self.main_window.get_widget('installing_title').modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
-    self.main_window.get_widget('installing_text').modify_font(FontDescription('Helvetica 12'))
-    self.main_window.get_widget('installing_text').modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
+    self.installing_title.modify_font(FontDescription('Helvetica 30'))
+    self.installing_title.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
+    self.installing_text.modify_font(FontDescription('Helvetica 12'))
+    self.installing_text.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
+    
+    # set pixmaps
+    self.logo_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro, "logo.png"))
+    self.user_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro, "users.png"))
+    self.lock_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro, "lockscreen_icon.png"))
+    self.host_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro, "nameresolution_id.png"))
+    self.installing_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro, "snapshot1.png"))
     
     # set fullscreen mode
-    self.main_window.get_widget('live_installer').fullscreen()
-    self.main_window.get_widget('live_installer').show()
+    self.live_installer.fullscreen()
+    self.live_installer.show()
 
   def show_end(self):
     """show and design end page."""
     
-    final = self.main_window.get_widget('final')
-    final.set_bg_color(gtk.gdk.color_parse("#087021"))
-    final.set_logo(gtk.gdk.pixbuf_new_from_file("%s/pixmaps/logo.png" % GLADEDIR))
-    final.modify_font(FontDescription('Helvetica 14'))
-    final.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
-    final.show()
+    self.final.set_bg_color(gtk.gdk.color_parse("#087021"))
+    self.final.set_logo(gtk.gdk.pixbuf_new_from_file("%s/pixmaps/%s/logo.png" % (GLADEDIR, self.distro)))
+    self.final.modify_font(FontDescription('Helvetica 14'))
+    self.final.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
+    self.final.show()
 
   def get_info(self):
     '''get_info() -> [hostname, fullname, name, password]
@@ -109,6 +152,17 @@ class Wizard:
     '''
     #FIXME: We need here a loop. We've to wait until the user press the 'next' button
     info = []
+    #info.append(self.fullname.get_property('text'))
+    info.append(self.username.get_property('text'))
+    pass1 = self.password.get_property('text')
+    pass2 = self.verify_password.get_property('text')
+    if pass1 == pass2:
+      #FIXME: This is a crappy check. We need use the lib for that.
+      info.append(pass1)
+    else:
+      #FIXME: If the pass is wrong we must warn about it
+      info.append(pass1)
+    info.append(self.hostname.get_property('text'))
     while self.step < 1:
       info = self.info
     
@@ -124,11 +178,11 @@ class Wizard:
         - Modifies Splash Ad Images from distro usage.
         - Modifies Ad texts about distro images. """
 
-    self.main_window.get_widget('progressbar').set_percentage(num/100.0)
+    self.progressbar.set_percentage(num/100.0)
     #self.main_window.get_widget('progressbar').set_pulse_step(num/100.0)
     if ( msg != "" ):
-      gtk.TextBuffer.set_text(self.main_window.get_widget('installing_text').get_buffer(), msg)
-      self.main_window.get_widget('installing_image').set_from_file("%s/pixmaps/%s" % (GLADEDIR, image))
+      gtk.TextBuffer.set_text(self.installing_text.get_buffer(), msg)
+      self.installing_image.set_from_file("%s/pixmaps/%s/%s" % (GLADEDIR, self.distro, image))
 
   def get_partitions(self):
     '''get_partitions() -> dict {'mount point' : 'dev'}
@@ -185,7 +239,7 @@ class Wizard:
 
 
 if __name__ == '__main__':
-  w = Wizard()
+  w = Wizard('default')
   [hostname, fullname, name, password] = w.get_info()
   print '''
   Hostname: %s
