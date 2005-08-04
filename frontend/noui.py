@@ -16,6 +16,14 @@ like timezone, keymap and locales.
 '''
 
 import debconf
+import os.path, sys.path
+# Adding parent directory to the sys.path
+PARENT = os.path.split(sys.path[0])[0]
+if PARENT not in sys.path:
+    sys.path.append(PARENT)
+    
+from lib.part import call_autoparted, call_gparted
+
 
 class Wizard:
   '''
@@ -73,6 +81,10 @@ class Wizard:
     mountpoints = {'/'     : '/dev/hda1',
                    'swap'  : '/dev/hda2',
                    '/home' : '/dev/hda3'}
+    mountpoints = call_autoparted()
+    if mountpoints is None:
+      print 'Autopartioning fail!'
+
     return mountpoints
  
 if __name__ == '__main__':

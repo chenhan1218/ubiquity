@@ -149,7 +149,7 @@ class Wizard:
                    '/home' : '/dev/hda3'}
                    
     #mountpoints = call_autoparted()
-    #if mountpoints = null:
+    #if mountpoints is None:
     #    mountpoints = call_graphicparted('/usr/bin/gparted')
 
     return mountpoints

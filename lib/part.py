@@ -5,7 +5,7 @@ import subprocess
 
 def call_autoparted():
   '''call_autoparted() -> dict {'mount point' : 'dev'}
-                       -> null
+                       -> None
   '''
 
   mountpoints = {'/'     : '/dev/hda1',
@@ -16,8 +16,12 @@ def call_autoparted():
 
 def call_gparted(main_window):
   '''call_autoparted() -> dict {'mount point' : 'dev'}
-                       -> null
+                       -> None
   '''
+  mountpoints = {'/'     : '/dev/hda1',
+                 'swap'  : '/dev/hda2',
+                 '/home' : '/dev/hda3'}
+
   # plug/socket implementation (Gparted integration)
   socket = gtk.Socket()
   socket.show()
@@ -25,11 +29,9 @@ def call_gparted(main_window):
   Wid = str(socket.get_id())
   subprocess.Popen(['/usr/local/bin/gparted', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
   
-
-  mountpoints = {'/'     : '/dev/hda1',
-                 'swap'  : '/dev/hda2',
-                 '/home' : '/dev/hda3'}
-                   
+  if stdin is not '':
+    mountpoints = stdin
+  
   return mountpoints
 
 # vim:ai:et:sts=2:tw=80:sw=2:
