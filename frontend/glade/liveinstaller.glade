@@ -125,9 +125,8 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 		      <property name="column_spacing">0</property>
 
 		      <child>
-			<widget class="GtkImage" id="image15">
+			<widget class="GtkImage" id="user_image">
 			  <property name="visible">True</property>
-			  <property name="pixbuf">users.png</property>
 			  <property name="xalign">0.5</property>
 			  <property name="yalign">0.5</property>
 			  <property name="xpad">0</property>
@@ -143,7 +142,7 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 		      </child>
 
 		      <child>
-			<widget class="GtkImage" id="image16">
+			<widget class="GtkImage" id="host_image">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-home</property>
 			  <property name="icon_size">4</property>
@@ -395,9 +394,8 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 		      </child>
 
 		      <child>
-			<widget class="GtkImage" id="image17">
+			<widget class="GtkImage" id="fullname_image">
 			  <property name="visible">True</property>
-			  <property name="pixbuf">users.png</property>
 			  <property name="xalign">0.5</property>
 			  <property name="yalign">0.5</property>
 			  <property name="xpad">0</property>
@@ -413,9 +411,8 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 		      </child>
 
 		      <child>
-			<widget class="GtkImage" id="image18">
+			<widget class="GtkImage" id="lock_image">
 			  <property name="visible">True</property>
-			  <property name="pixbuf">lockscreen_icon.png</property>
 			  <property name="xalign">0.5</property>
 			  <property name="yalign">0.5</property>
 			  <property name="xpad">0</property>
@@ -548,9 +545,8 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 		  <property name="spacing">0</property>
 
 		  <child>
-		    <widget class="GtkImage" id="image6">
+		    <widget class="GtkImage" id="logo_image">
 		      <property name="visible">True</property>
-		      <property name="pixbuf">logo.png</property>
 		      <property name="xalign">0.5</property>
 		      <property name="yalign">0.5</property>
 		      <property name="xpad">20</property>
@@ -604,7 +600,6 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 		  <child>
 		    <widget class="GtkImage" id="installing_image">
 		      <property name="visible">True</property>
-		      <property name="pixbuf">snapshot1.png</property>
 		      <property name="xalign">0.5</property>
 		      <property name="yalign">0.5</property>
 		      <property name="xpad">0</property>
