@@ -6,10 +6,17 @@ import gnome.ui
 import gtkmozembed
 import subprocess
 from sys import exit, path
-#from posix import system
+import os.path
 from pango import FontDescription
 from gettext import bindtextdomain, textdomain, install
 from locale import setlocale, LC_ALL
+# Adding parent directory to the sys.path
+PARENT = os.path.split(path[0])[0]
+if PARENT not in path:
+    path.append(PARENT)
+    
+from lib.part import call_autoparted, call_gparted
+from lib.validation import *
 
 PATH = path[0]
 
@@ -21,12 +28,16 @@ LOCALEDIR = GLADEDIR + '/locale'
 
 class Wizard:
   '''
+  Gnome Frontend
+  
   This is a wizard interface to interact with the user and the 
   main program. It has some basic methods:
   - set_progress()
   - get_info()
   - get_partitions()
   '''
+
+  
   def __init__(self):
     # set custom language
     self.set_locales()
@@ -39,12 +50,9 @@ class Wizard:
     # set style
     self.installer_style()
     
-    # plug/socket implementation (Gparted integration)
-    socket = gtk.Socket()
-    socket.show()
-    self.main_window.get_widget('embedded').add(socket)
-    Wid = str(socket.get_id())
-    subprocess.Popen(['/usr/bin/gparted', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+    # FIXME: Temporaly call here the gparted
+    data = call_gparted(self.main_window)
+    print data
     
     # Declare SignalHandler
     self.main_window.signal_autoconnect(self)
@@ -99,17 +107,9 @@ class Wizard:
     '''
     #FIXME: We need here a loop. We've to wait until the user press the 'next' button
     info = []
-    #info.append(self.main_window.get_widget('fullname').get_property('text'))
-    info.append(self.main_window.get_widget('username').get_property('text'))
-    pass1 = self.main_window.get_widget('password').get_property('text')
-    pass2 = self.main_window.get_widget('verify_password').get_property('text')
-    if pass1 == pass2:
-      #FIXME: This is a crappy check. We need use the lib for that.
-      info.append(pass1)
-    else:
-      #FIXME: If the pass is wrong we must warn about it
-      info.append(pass1)
-    info.append(self.main_window.get_widget('hostname').get_property('text'))
+    while self.step < 1:
+      info = self.info
+    
     return info
 
   def set_progress(self, num, msg="", image=""):
@@ -147,6 +147,11 @@ class Wizard:
     mountpoints = {'/'     : '/dev/hda1',
                    'swap'  : '/dev/hda2',
                    '/home' : '/dev/hda3'}
+                   
+    #mountpoints = call_autoparted()
+    #if mountpoints = null:
+    #    mountpoints = call_graphicparted('/usr/bin/gparted')
+
     return mountpoints
 
   def on_frontend_installer_cancel(self, widget):
@@ -154,6 +159,28 @@ class Wizard:
 
   def on_live_installer_delete_event(self, widget):
     raise Signals("on_live_installer_delete_event")
+
+  def on_step1_next(self, widget, data):
+    self.info = []
+    self.info.append(self.main_window.get_widget('hostname').get_property('text'))
+    self.info.append(self.main_window.get_widget('fullname').get_property('text'))
+    self.info.append(self.main_window.get_widget('username').get_property('text'))
+    pass1 = self.main_window.get_widget('password').get_property('text')
+    pass2 = self.main_window.get_widget('verified_password').get_property('text')
+    check = check_password(pass1, pass2)
+    self.pass_alert = self.main_window.get_widget('pass_alert')
+    print check
+    if  check == 0:
+      self.info.append(pass1)
+    elif check == 1:
+      self.pass_alert.set_text('Wrong size!')
+      self.info.append(pass1)
+    elif check == 2:
+      self.pass_alert.set_text('The passwords doesn\'t match!')
+      self.info.append(pass1)
+
+    self.step = 2
+
 
 if __name__ == '__main__':
   w = Wizard()

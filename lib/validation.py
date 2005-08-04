@@ -55,15 +55,18 @@ def check_password (passwd1, passwd2):
 
         @return:
             - C{0} valid.
-            - C{1} wrong length.
-            - C{2} strings do not match. """
+            - C{1} wrong length. too short.
+            - C{2} wrong length. too long.
+            - C{3} strings do not match. """
 
     result = 0
 
     if passwd1 != passwd2:
-        result = 2
-    elif len (passwd1) < 4 or len (passwd1) > 16:
+        result = 3
+    elif len (passwd1) < 4:
         result = 1
+    elif len (passwd1) > 16:
+        result = 2
 
     return result
 
