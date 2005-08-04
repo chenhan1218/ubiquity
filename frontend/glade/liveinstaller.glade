@@ -429,7 +429,7 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 		      </child>
 
 		      <child>
-			<widget class="GtkEntry" id="verify_password">
+			<widget class="GtkEntry" id="verified_password">
 			  <property name="visible">True</property>
 			  <property name="can_focus">True</property>
 			  <property name="editable">True</property>
