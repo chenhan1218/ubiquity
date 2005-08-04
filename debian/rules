@@ -30,10 +30,11 @@ install:
 
 	for locale in $$(basename $$(ls $(BUILDDIR)/*.mo | sed -e 's/\.mo//g')); do mkdir -p $(CURDIR)/debian/ubuntu-express/usr/share/locale/$$locale/LC_MESSAGES/; cp $(BUILDDIR)/$$locale\.mo $(CURDIR)/debian/ubuntu-express/usr/share/locale/$$locale/LC_MESSAGES/; done
 
-	cp $(CURDIR)/frontend/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/
+	cp $(CURDIR)/frontend/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/UE/
 	cp -r $(CURDIR)/doc/* $(CURDIR)/debian/ubuntu-express/usr/share/doc/ubuntu-express/
-	cp -r $(CURDIR)/lib/validation.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/
+	cp -r $(CURDIR)/lib/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/UE/lib/
 	cp $(CURDIR)/ubuntu-express $(CURDIR)/installer $(CURDIR)/debian/ubuntu-express/usr/bin/
+	find $(CURDIR)/debian/ubuntu-express -iname .svn -type d -exec rm -rf {} \;
 
 # Build architecture-independent files here.
 binary-indep: install
