@@ -1,5 +1,6 @@
 #!/usr/bin/python
-#
+
+# Last modified by Antonio Olmo <aolmo@emergya.info> on 4 august 2005.
 
 import gtk.glade
 import gnome.ui
@@ -51,7 +52,8 @@ class Wizard:
     self.installer_style()
     
     # FIXME: Temporaly call here the gparted
-    data = call_gparted(self.main_window)
+    data = 'foo'
+#    data = call_gparted(self.main_window)
     print data
     
     # Declare SignalHandler
@@ -184,7 +186,7 @@ class Wizard:
 
 if __name__ == '__main__':
   w = Wizard()
-  hostname, fullname, name, password = w.get_info()
+  [hostname, fullname, name, password] = w.get_info()
   print '''
   Hostname: %s
   User Full name: %s

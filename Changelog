@@ -1,3 +1,7 @@
+
+04-08-2005 Antonio Olmo <aolmo_@_emergya.info>
+	Minor changes to make "Gnome.py" executable again.
+
 03-08-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
 	* lib/part.py: Added this new lib for the partitioning stuff.
 	* frontend/glade/liveinstaller.glade: Addes fullname GtkEntry and some fixs.

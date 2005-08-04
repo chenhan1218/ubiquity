@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# Last modified by Antonio Olmo <aolmo@emergya.info> on 4 august 2005.
+
 import gtk
 import subprocess
 
@@ -27,7 +29,17 @@ def call_gparted(main_window):
   socket.show()
   main_window.get_widget('embedded').add(socket)
   Wid = str(socket.get_id())
-  subprocess.Popen(['/usr/local/bin/gparted', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+
+  # TODO: rewrite next block.
+
+  try:
+    subprocess.Popen(['/usr/local/bin/gparted', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+  except:
+
+    try:
+      subprocess.Popen(['/usr/bin/gparted', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+    except:
+      pass
   
   if stdin is not '':
     mountpoints = stdin
