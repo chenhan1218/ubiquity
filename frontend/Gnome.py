@@ -4,8 +4,9 @@
 import gtk.glade
 import gnome.ui
 import gtkmozembed
+import subprocess
 from sys import exit, path
-from posix import execv
+#from posix import system
 from pango import FontDescription
 from gettext import bindtextdomain, textdomain, install
 from locale import setlocale, LC_ALL
@@ -43,8 +44,7 @@ class Wizard:
     socket.show()
     self.main_window.get_widget('embedded').add(socket)
     Wid = str(socket.get_id())
-    args = ["/usr/bin/gparted", Wid]
-    execv("/usr/bin/sudo", args)
+    subprocess.Popen(['/usr/bin/gparted', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
     
     # Declare SignalHandler
     self.main_window.signal_autoconnect(self)
@@ -99,7 +99,7 @@ class Wizard:
     '''
     #FIXME: We need here a loop. We've to wait until the user press the 'next' button
     info = []
-    info.append(self.main_window.get_widget('fullname').get_property('text'))
+    #info.append(self.main_window.get_widget('fullname').get_property('text'))
     info.append(self.main_window.get_widget('username').get_property('text'))
     pass1 = self.main_window.get_widget('password').get_property('text')
     pass2 = self.main_window.get_widget('verify_password').get_property('text')
