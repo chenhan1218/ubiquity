@@ -9,14 +9,15 @@ import os.path
 from pango import FontDescription
 from gettext import bindtextdomain, textdomain, install
 from locale import setlocale, LC_ALL
-from lib.part import call_autoparted, call_gparted
-from lib.validation import *
-
 
 # Adding parent directory to the sys.path
 PARENT = os.path.split(path[0])[0]
 if PARENT not in path:
     path.append(PARENT)
+
+from lib.part import call_autoparted, call_gparted
+from lib.validation import *
+
 
 PATH = path[0]
 
@@ -78,12 +79,9 @@ class Wizard:
     self.show_end()
     
     # FIXME: Temporaly call here the gparted
-    data = 'foo'
-#    data = call_gparted(self.main_window)
-    print data
-    
-    # crete socket connection to embed gparted
-    self.create_connection()
+    #data = 'foo'
+    data = call_gparted(self.main_window)
+    #print data
     
     # Declare SignalHandler
     self.main_window.signal_autoconnect(self)
@@ -97,14 +95,6 @@ class Wizard:
     gtk.glade.textdomain("Gnome.py")
     textdomain("Gnome.py")
     install("Gnome.py", LOCALEDIR + distro, unicode=1)
-
-  def create_connection(self):
-    # plug/socket implementation (Gparted integration)
-    socket = gtk.Socket()
-    socket.show()
-    self.embedded.add(socket)
-    Wid = str(socket.get_id())
-    subprocess.Popen(['/usr/bin/gparted', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
 
   def show_browser(self):
     """Embed Mozilla widget into Druid."""
@@ -152,7 +142,7 @@ class Wizard:
     '''
     #FIXME: We need here a loop. We've to wait until the user press the 'next' button
     info = []
-    #info.append(self.fullname.get_property('text'))
+    info.append(self.fullname.get_property('text'))
     info.append(self.username.get_property('text'))
     pass1 = self.password.get_property('text')
     pass2 = self.verify_password.get_property('text')
@@ -163,8 +153,9 @@ class Wizard:
       #FIXME: If the pass is wrong we must warn about it
       info.append(pass1)
     info.append(self.hostname.get_property('text'))
-    while self.step < 1:
-      info = self.info
+    # FIXME: self.step not declared yet
+    #while self.step < 1:
+    #  info = self.info
     
     return info
 

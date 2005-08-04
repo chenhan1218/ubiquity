@@ -33,16 +33,17 @@ def call_gparted(main_window):
   # TODO: rewrite next block.
 
   try:
-    subprocess.Popen(['/usr/local/bin/gparted', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+    subprocess.Popen(['/usr/bin/gparted', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+    if ( stdin is not '' ):
+      mountpoints = stdin
   except:
 
     try:
-      subprocess.Popen(['/usr/bin/gparted', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+      subprocess.Popen(['/usr/local/bin/gparted', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+      if ( stdin is not '' ):
+        mountpoints = stdin
     except:
       pass
-  
-  if stdin is not '':
-    mountpoints = stdin
   
   return mountpoints
 

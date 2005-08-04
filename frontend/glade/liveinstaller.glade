@@ -37,7 +37,7 @@
 	  <signal name="next" handler="on_welcome_next" last_modification_time="Wed, 27 Jul 2005 16:33:52 GMT"/>
 
 	  <child internal-child="vbox">
-	    <widget class="GtkVBox" id="browser">
+	    <widget class="GtkVBox" id="browser_vbox">
 	      <property name="border_width">16</property>
 	      <property name="visible">True</property>
 	      <property name="homogeneous">False</property>
@@ -429,7 +429,7 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 		      </child>
 
 		      <child>
-			<widget class="GtkEntry" id="verified_password">
+			<widget class="GtkEntry" id="verify_password">
 			  <property name="visible">True</property>
 			  <property name="can_focus">True</property>
 			  <property name="editable">True</property>
