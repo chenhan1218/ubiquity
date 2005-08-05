@@ -90,11 +90,12 @@ class Wizard:
   def set_locales(self, distro):
     """internationalization config. Use only once."""
     
-    bindtextdomain("liveinstaller", LOCALEDIR + distro)
-    gtk.glade.bindtextdomain("liveinstaller", LOCALEDIR + distro)
+    final_localedir = LOCALEDIR + '/' + distro
+    bindtextdomain("liveinstaller", final_localedir)
+    gtk.glade.bindtextdomain("liveinstaller", final_localedir )
     gtk.glade.textdomain("liveinstaller")
     textdomain("liveinstaller")
-    install("liveinstaller", LOCALEDIR + distro, unicode=1)
+    install("liveinstaller", final_localedir, unicode=1)
 
   def show_browser(self):
     """Embed Mozilla widget into Druid."""
