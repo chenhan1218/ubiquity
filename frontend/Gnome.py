@@ -107,7 +107,7 @@ class Wizard:
     
     widget = gtkmozembed.MozEmbed()
     try:
-      widget.load_url("file://" + PATH + '/' + self.distro[0] + "/htmldocs/index.html")
+      widget.load_url("file://" + PATH + '/htmldocs/' + self.distro[0] + '/index.html')
     except:
       widget.load_url("http://www.gnome.org/")
     widget.get_location()
