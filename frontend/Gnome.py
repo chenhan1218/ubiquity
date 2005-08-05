@@ -41,13 +41,19 @@ class Wizard:
   
   def __init__(self, distro):
     # set custom language
-    self.set_locales(distro)
+    self.set_locales(distro[0])
     
     # load the interface
     self.main_window = gtk.glade.XML('%s/liveinstaller.glade' % GLADEDIR)
     
     # declare attributes
     self.distro = distro
+    
+    self.welcome = self.main_window.get_widget('welcome')
+    self.step1 = self.main_window.get_widget('step1')
+    self.step2 = self.main_window.get_widget('step2')
+    self.step3 = self.main_window.get_widget('step3')
+    self.final = self.main_window.get_widget('final')
     
     self.live_installer = self.main_window.get_widget('live_installer')
     self.browser_vbox = self.main_window.get_widget('browser_vbox')
@@ -63,7 +69,6 @@ class Wizard:
     self.host_image = self.main_window.get_widget('host_image')
     self.logo_image = self.main_window.get_widget('logo_image')
     
-    self.final = self.main_window.get_widget('final')
     
     self.fullname = self.main_window.get_widget('fullname')
     self.username = self.main_window.get_widget('username')
@@ -102,7 +107,7 @@ class Wizard:
     
     widget = gtkmozembed.MozEmbed()
     try:
-      widget.load_url("file://" + PATH + self.distro + "/htmldocs/index.html")
+      widget.load_url("file://" + PATH + '/' + self.distro[0] + "/htmldocs/index.html")
     except:
       widget.load_url("http://www.gnome.org/")
     widget.get_location()
@@ -113,17 +118,21 @@ class Wizard:
     """Set installer screen styles."""
     
     # set screen styles
+    self.welcome.set_property('background', self.distro[1])
+    self.step1.set_property('background', self.distro[1])
+    self.step2.set_property('background', self.distro[1])
+    self.step3.set_property('background', self.distro[1])
     self.installing_title.modify_font(FontDescription('Helvetica 30'))
-    self.installing_title.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
+    self.installing_title.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.distro[1]))
     self.installing_text.modify_font(FontDescription('Helvetica 12'))
-    self.installing_text.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
+    self.installing_text.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.distro[1]))
     
     # set pixmaps
-    self.logo_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro, "logo.png"))
-    self.user_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro, "users.png"))
-    self.lock_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro, "lockscreen_icon.png"))
-    self.host_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro, "nameresolution_id.png"))
-    self.installing_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro, "snapshot1.png"))
+    self.logo_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "logo.png"))
+    self.user_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "users.png"))
+    self.lock_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "lockscreen_icon.png"))
+    self.host_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "nameresolution_id.png"))
+    self.installing_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "snapshot1.png"))
     
     # set fullscreen mode
     self.live_installer.fullscreen()
@@ -132,10 +141,10 @@ class Wizard:
   def show_end(self):
     """show and design end page."""
     
-    self.final.set_bg_color(gtk.gdk.color_parse("#087021"))
-    self.final.set_logo(gtk.gdk.pixbuf_new_from_file("%s/pixmaps/%s/logo.png" % (GLADEDIR, self.distro)))
+    self.final.set_bg_color(gtk.gdk.color_parse(self.distro[1]))
+    self.final.set_logo(gtk.gdk.pixbuf_new_from_file("%s/pixmaps/%s/logo.png" % (GLADEDIR, self.distro[0])))
     self.final.modify_font(FontDescription('Helvetica 14'))
-    self.final.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#087021"))
+    self.final.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.distro[1]))
     self.final.show()
 
   def get_info(self):
@@ -177,7 +186,7 @@ class Wizard:
     #self.main_window.get_widget('progressbar').set_pulse_step(num/100.0)
     if ( msg != "" ):
       gtk.TextBuffer.set_text(self.installing_text.get_buffer(), msg)
-      self.installing_image.set_from_file("%s/pixmaps/%s/%s" % (GLADEDIR, self.distro, image))
+      self.installing_image.set_from_file("%s/pixmaps/%s/%s" % (GLADEDIR, self.distro[0], image))
 
   def get_partitions(self):
     '''get_partitions() -> dict {'mount point' : 'dev'}
@@ -234,7 +243,9 @@ class Wizard:
 
 
 if __name__ == '__main__':
-  w = Wizard('default')
+  # Guadalinex HexColor style #087021
+  # Ubuntu HexColor style #9F6C49
+  w = Wizard(['default', '#087021'])
   [hostname, fullname, name, password] = w.get_info()
   print '''
   Hostname: %s

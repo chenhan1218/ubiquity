@@ -7,7 +7,7 @@
 <widget class="GtkWindow" id="live_installer">
   <property name="width_request">800</property>
   <property name="height_request">600</property>
-  <property name="title" translatable="yes">Guadalinex 2005 live installer</property>
+  <property name="title" translatable="yes">Live installer</property>
   <property name="type">GTK_WINDOW_TOPLEVEL</property>
   <property name="window_position">GTK_WIN_POS_CENTER</property>
   <property name="modal">False</property>
@@ -31,9 +31,7 @@
       <child>
 	<widget class="GnomeDruidPageStandard" id="welcome">
 	  <property name="visible">True</property>
-	  <property name="title" translatable="yes">Welcome to Guadalinex</property>
-	  <property name="background">#080870702121</property>
-	  <property name="logo_background">#080870702121</property>
+	  <property name="title" translatable="yes">Welcome</property>
 	  <signal name="next" handler="on_welcome_next" last_modification_time="Wed, 27 Jul 2005 16:33:52 GMT"/>
 
 	  <child internal-child="vbox">
@@ -55,8 +53,6 @@
 	<widget class="GnomeDruidPageStandard" id="step1">
 	  <property name="visible">True</property>
 	  <property name="title" translatable="yes">System Configuration</property>
-	  <property name="background">#080870702121</property>
-	  <property name="logo_background">#080870702121</property>
 	  <signal name="next" handler="on_step1_next" last_modification_time="Wed, 27 Jul 2005 16:33:12 GMT"/>
 	  <signal name="back" handler="on_step1_back" last_modification_time="Wed, 27 Jul 2005 16:33:19 GMT"/>
 
@@ -100,7 +96,7 @@
 			  <property name="left_margin">5</property>
 			  <property name="right_margin">0</property>
 			  <property name="indent">0</property>
-			  <property name="text" translatable="yes">The Guadalinex system needs user and password for its installation.
+			  <property name="text" translatable="yes">The system needs user and password for its installation.
 The first user created  in the system will obtain administration privileges, so after this installation it will be the only one who will be enabled to make tasks of installation or configurations of this system.
 Type your password twice to verify its correct writing.
 The system needs a hostname with which to be able to manage tasks of network and maintenance of system.
@@ -485,8 +481,6 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 	<widget class="GnomeDruidPageStandard" id="step2">
 	  <property name="visible">True</property>
 	  <property name="title" translatable="yes">Partitioning</property>
-	  <property name="background">#080870702121</property>
-	  <property name="logo_background">#080870702121</property>
 	  <signal name="next" handler="on_step2_next" last_modification_time="Wed, 27 Jul 2005 16:32:30 GMT"/>
 	  <signal name="back" handler="on_step2_back" last_modification_time="Wed, 27 Jul 2005 16:32:37 GMT"/>
 
@@ -509,8 +503,6 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 	<widget class="GnomeDruidPageStandard" id="step3">
 	  <property name="visible">True</property>
 	  <property name="title" translatable="yes">Installing...</property>
-	  <property name="background">#080870702121</property>
-	  <property name="logo_background">#080870702121</property>
 	  <signal name="back" handler="on_step3_next" last_modification_time="Wed, 27 Jul 2005 16:32:01 GMT"/>
 	  <signal name="next" handler="on_step3_next" last_modification_time="Wed, 27 Jul 2005 16:32:10 GMT"/>
 
@@ -545,7 +537,7 @@ Assign a name to your computer so it can be easily identifiable in yours domesti
 		  <child>
 		    <widget class="GtkLabel" id="installing_title">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Guadalinex 2005: Your desktop</property>
+		      <property name="label" translatable="yes">Your definitive desktop</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">False</property>
 		      <property name="justify">GTK_JUSTIFY_RIGHT</property>
@@ -636,7 +628,7 @@ You will have at your scope the bigger set of office, management, design, educat
 		  <property name="orientation">GTK_PROGRESS_LEFT_TO_RIGHT</property>
 		  <property name="fraction">0</property>
 		  <property name="pulse_step">0.10000000149</property>
-		  <property name="text" translatable="yes">Guadalinex 2005 progress installation</property>
+		  <property name="text" translatable="yes">Progress installation</property>
 		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
 		</widget>
 		<packing>
@@ -656,13 +648,11 @@ You will have at your scope the bigger set of office, management, design, educat
 	  <property name="visible">True</property>
 	  <property name="position">GNOME_EDGE_FINISH</property>
 	  <property name="title" translatable="yes">Just enjoy it !!</property>
-	  <property name="text" translatable="yes">The Guadalinex 2005 installation has ended. 
+	  <property name="text" translatable="yes">The installation has ended. 
 
-We animated to you to test all the power of the Guadalinex desktop, throws a first sight to the complete selection of applications including in our operating system.
+We animated to you to test all the power of this desktop, throws a first sight to the complete selection of applications including in our operating system.
 
 Enjoy with all the power and functionality that free software makes you available.</property>
-	  <property name="background_color">#080870702121</property>
-	  <property name="logo_background_color">#080870702121</property>
 	  <property name="logo">logo.png</property>
 	  <signal name="finish" handler="on_final_finish" last_modification_time="Wed, 27 Jul 2005 16:32:18 GMT"/>
 	</widget>

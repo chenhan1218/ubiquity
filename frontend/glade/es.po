@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: liveinstaller.glade:10
-msgid "Guadalinex 2005 live installer"
+msgid "Live installer"
 msgstr "Instalador Guadalinex 2005"
 
 #: liveinstaller.glade:34
-msgid "Welcome to Guadalinex"
+msgid "Welcome"
 msgstr "Bienvenido a Guadalinex"
 
 #: liveinstaller.glade:57
@@ -30,7 +30,7 @@ msgstr "Configuración del sistema"
 
 #: liveinstaller.glade:103
 msgid ""
-"The Guadalinex system needs user and password for its installation.\n"
+"The system needs user and password for its installation.\n"
 "The first user created  in the system will obtain administration privileges, "
 "so after this installation it will be the only one who will be enabled to "
 "make tasks of installation or configurations of this system.\n"
@@ -81,7 +81,7 @@ msgid "Installing..."
 msgstr "Instalación..."
 
 #: liveinstaller.glade:548
-msgid "Guadalinex 2005: Your desktop"
+msgid "Your desktop"
 msgstr "Guadalinex 2005: Tu escritorio"
 
 #: liveinstaller.glade:615
@@ -98,7 +98,7 @@ msgstr ""
 "gestión, diseño, educación y juegos que pueda imaginar."
 
 #: liveinstaller.glade:639
-msgid "Guadalinex 2005 progress installation"
+msgid "Progress installation"
 msgstr "Progreso de la instalación de Guadalinex 2005"
 
 #: liveinstaller.glade:658
@@ -107,9 +107,9 @@ msgstr "¡Disfrútala!"
 
 #: liveinstaller.glade:659
 msgid ""
-"The Guadalinex 2005 installation has ended. \n"
+"The installation has ended. \n"
 "\n"
-"We animated to you to test all the power of the Guadalinex desktop, throws a "
+"We animated to you to test all the power of this desktop, throws a "
 "first sight to the complete selection of applications including in our "
 "operating system.\n"
 "\n"

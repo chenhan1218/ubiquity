@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-05 09:00+0200\n"
+"POT-Creation-Date: 2005-08-05 14:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,20 +17,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: liveinstaller.glade:10
-msgid "Guadalinex 2005 live installer"
+msgid "Live installer"
 msgstr ""
 
 #: liveinstaller.glade:34
-msgid "Welcome to Guadalinex"
+msgid "Welcome"
 msgstr ""
 
-#: liveinstaller.glade:57
+#: liveinstaller.glade:55
 msgid "System Configuration"
 msgstr ""
 
-#: liveinstaller.glade:103
+#: liveinstaller.glade:99
 msgid ""
-"The Guadalinex system needs user and password for its installation.\n"
+"The system needs user and password for its installation.\n"
 "The first user created  in the system will obtain administration privileges, "
 "so after this installation it will be the only one who will be enabled to "
 "make tasks of installation or configurations of this system.\n"
@@ -41,39 +41,39 @@ msgid ""
 "domestic network."
 msgstr ""
 
-#: liveinstaller.glade:237
+#: liveinstaller.glade:233
 msgid "Password:"
 msgstr ""
 
-#: liveinstaller.glade:266
+#: liveinstaller.glade:262
 msgid "Verify password:"
 msgstr ""
 
-#: liveinstaller.glade:295
+#: liveinstaller.glade:291
 msgid "Hostname:"
 msgstr ""
 
-#: liveinstaller.glade:324
+#: liveinstaller.glade:320
 msgid "Username:"
 msgstr ""
 
-#: liveinstaller.glade:353
+#: liveinstaller.glade:349
 msgid "Full Name:"
 msgstr ""
 
-#: liveinstaller.glade:487
+#: liveinstaller.glade:483
 msgid "Partitioning"
 msgstr ""
 
-#: liveinstaller.glade:511
+#: liveinstaller.glade:505
 msgid "Installing..."
 msgstr ""
 
-#: liveinstaller.glade:548
-msgid "Guadalinex 2005: Your desktop"
+#: liveinstaller.glade:540
+msgid "Your definitive desktop"
 msgstr ""
 
-#: liveinstaller.glade:615
+#: liveinstaller.glade:607
 msgid ""
 "Enjoy the most powerful desktop from the free software Spanish community.\n"
 "\n"
@@ -81,21 +81,21 @@ msgid ""
 "education applications and games than you have ever gotten to imagine."
 msgstr ""
 
-#: liveinstaller.glade:639
-msgid "Guadalinex 2005 progress installation"
+#: liveinstaller.glade:631
+msgid "Progress installation"
 msgstr ""
 
-#: liveinstaller.glade:658
+#: liveinstaller.glade:650
 msgid "Just enjoy it !!"
 msgstr ""
 
-#: liveinstaller.glade:659
+#: liveinstaller.glade:651
 msgid ""
-"The Guadalinex 2005 installation has ended. \n"
+"The installation has ended. \n"
 "\n"
-"We animated to you to test all the power of the Guadalinex desktop, throws a "
-"first sight to the complete selection of applications including in our "
-"operating system.\n"
+"We animated to you to test all the power of this desktop, throws a first "
+"sight to the complete selection of applications including in our operating "
+"system.\n"
 "\n"
 "Enjoy with all the power and functionality that free software makes you "
 "available."
