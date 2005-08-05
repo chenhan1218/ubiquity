@@ -28,7 +28,7 @@ install:
 	dh_clean -k 
 	dh_installdirs
 
-	for locale in $$(basename $$(ls $(BUILDDIR)/*.mo | sed -e 's/\.mo//g')); do mkdir -p $(CURDIR)/debian/ubuntu-express/usr/share/locale/$$locale/LC_MESSAGES/; cp $(BUILDDIR)/$$locale\.mo $(CURDIR)/debian/ubuntu-express/usr/share/locale/$$locale/LC_MESSAGES/; done
+	for locale in $$(basename $$(ls $(BUILDDIR)/*.mo | sed -e 's/\.mo//g')); do mkdir -p $(CURDIR)/debian/ubuntu-express/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/$$locale\.mo $(CURDIR)/debian/ubuntu-express/usr/share/locale/$$locale/LC_MESSAGES/liveinstaller.mo; done
 
 	cp $(CURDIR)/frontend/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/UE/
 	cp -r $(CURDIR)/doc/* $(CURDIR)/debian/ubuntu-express/usr/share/doc/ubuntu-express/

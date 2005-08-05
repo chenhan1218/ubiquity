@@ -7,7 +7,7 @@ Standards-Version: 3.6.1
 
 Package: ubuntu-express
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python2.4-gnome2-extras, python2.4-glade2, gparted (= 0.0.8+cvs2005061901-0uda1), casper, grub-install | yaboot-install, partman-auto, casper
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python2.4-gnome2-extras, python2.4-glade2, gparted (= 0.0.8+cvs2005061901-0uda1), casper | calzador, grub-install | yaboot-install, partman-auto
 Description: Ubuntu Live installer
  Live installers have featured itself until now by being very
  simple, friendly and graphical.
