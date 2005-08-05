@@ -1,20 +1,27 @@
 #!/usr/bin/python
 
-# Last modified by Antonio Olmo <aolmo@emergya.info> on 4 august 2005.
+# Last modified by Antonio Olmo <aolmo@emergya.info> on 5 august 2005.
 
 import gtk
 import subprocess
+from os import popen4
 
-def call_autoparted():
+def call_autoparted ():
+
   '''call_autoparted() -> dict {'mount point' : 'dev'}
                        -> None
   '''
 
-  mountpoints = {'/'     : '/dev/hda1',
-                 'swap'  : '/dev/hda2',
-                 '/home' : '/dev/hda3'}
-                   
-  return mountpoints
+  result = None
+
+#   La orden necesaria parece 'autopartition'.
+#   Sin órdenes, parte automáticamente.
+#   Si se le pasa un parámetro, éste indica el dispositivo a particionar
+#   automáticamente.
+
+  [input, output] = popen4 ('autopartition')
+
+  return result
 
 def call_gparted(main_window):
   '''call_autoparted() -> dict {'mount point' : 'dev'}
