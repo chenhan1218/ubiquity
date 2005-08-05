@@ -101,7 +101,10 @@ class Wizard:
     """Embed Mozilla widget into Druid."""
     
     widget = gtkmozembed.MozEmbed()
-    widget.load_url("http://www.gnome.org/")
+    try:
+      widget.load_url("file://" + PATH + self.distro + "/htmldocs/index.html")
+    except:
+      widget.load_url("http://www.gnome.org/")
     widget.get_location()
     self.browser_vbox.add(widget)
     widget.show()
