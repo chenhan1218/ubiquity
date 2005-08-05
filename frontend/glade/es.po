@@ -81,7 +81,7 @@ msgid "Installing..."
 msgstr "Instalación..."
 
 #: liveinstaller.glade:548
-msgid "Your desktop"
+msgid "Your definitive desktop"
 msgstr "Guadalinex 2005: Tu escritorio"
 
 #: liveinstaller.glade:615

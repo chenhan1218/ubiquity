@@ -245,7 +245,7 @@ class Wizard:
 if __name__ == '__main__':
   # Guadalinex HexColor style #087021
   # Ubuntu HexColor style #9F6C49
-  w = Wizard(['default', '#087021'])
+  w = Wizard(['ubuntu', '#9F6C49'])
   [hostname, fullname, name, password] = w.get_info()
   print '''
   Hostname: %s
