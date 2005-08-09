@@ -1,10 +1,10 @@
-oem-config (0.5) UNRELEASED; urgency=low
+oem-config (0.5) breezy; urgency=low
 
   * Unset LANGUAGE while running steps; it overrides LANG and thereby causes
     much confusion.
   * Policy version 3.6.2. No changes required.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue,  9 Aug 2005 15:32:39 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue,  9 Aug 2005 16:48:08 +0100
 
 oem-config (0.4) breezy; urgency=low
 
