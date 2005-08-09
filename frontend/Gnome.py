@@ -49,6 +49,9 @@ class Wizard:
     # declare attributes
     self.distro = distro
     
+    self.druid = self.main_window.get_widget('frontend_installer')
+    self.druid.set_buttons_sensitive(0,1,1,1)
+    
     self.welcome = self.main_window.get_widget('welcome')
     self.step1 = self.main_window.get_widget('step1')
     self.step2 = self.main_window.get_widget('step2')
@@ -81,12 +84,9 @@ class Wizard:
     
     # show interface
     self.show_browser()
-    self.show_end()
     
     # FIXME: Temporaly call here the gparted
-    #data = 'foo'
     data = call_gparted(self.main_window)
-    #print data
     
     # Declare SignalHandler
     self.main_window.signal_autoconnect(self)
@@ -122,6 +122,7 @@ class Wizard:
     self.step1.set_property('background', self.distro[1])
     self.step2.set_property('background', self.distro[1])
     self.step3.set_property('background', self.distro[1])
+    self.final.set_property('background', self.distro[1])
     self.installing_title.modify_font(FontDescription('Helvetica 30'))
     self.installing_title.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.distro[1]))
     self.installing_text.modify_font(FontDescription('Helvetica 12'))
@@ -137,15 +138,6 @@ class Wizard:
     # set fullscreen mode
     self.live_installer.fullscreen()
     self.live_installer.show()
-
-  def show_end(self):
-    """show and design end page."""
-    
-    self.final.set_bg_color(gtk.gdk.color_parse(self.distro[1]))
-    self.final.set_logo(gtk.gdk.pixbuf_new_from_file("%s/pixmaps/%s/logo.png" % (GLADEDIR, self.distro[0])))
-    self.final.modify_font(FontDescription('Helvetica 14'))
-    self.final.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.distro[1]))
-    self.final.show()
 
   def get_info(self):
     '''get_info() -> [hostname, fullname, name, password]
@@ -183,7 +175,6 @@ class Wizard:
         - Modifies Ad texts about distro images. """
 
     self.progressbar.set_percentage(num/100.0)
-    #self.main_window.get_widget('progressbar').set_pulse_step(num/100.0)
     if ( msg != "" ):
       gtk.TextBuffer.set_text(self.installing_text.get_buffer(), msg)
       self.installing_image.set_from_file("%s/pixmaps/%s/%s" % (GLADEDIR, self.distro[0], image))
