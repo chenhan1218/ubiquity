@@ -65,7 +65,7 @@ Description: Guadalinex Documentation and help files for Ubuntu Express Live ins
 
 Package: ubuntu-express-frontend-gtk
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python2.4-gnome2-extras, python2.4-glade2, gparted ( 0.0.8+cvs2005061901-0uda1), ubuntu-express-artwork
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python2.4-gnome2-extras, python2.4-glade2, gparted ( 0.0.8+cvs2005061901-0uda1), ubuntu-express-artwork, ubuntu-express-doc
 Provides: ubuntu-express-frontend
 Description: Gtk+ Frontend for Ubuntu Express Live installer
  This package provides a Gtk+ based Ubuntu Express GUI.
