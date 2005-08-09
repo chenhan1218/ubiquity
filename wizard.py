@@ -167,6 +167,7 @@ class Wizard:
         db = DebconfCommunicator('oem-config')
         language = db.get('debian-installer/locale')
         if language != '':
+            self.debug("oem-config: LANG=%s" % language)
             os.environ['LANG'] = language
         language_changed = False
         db.shutdown()
@@ -178,6 +179,7 @@ class Wizard:
             self.debug("oem-config: Running menu item %s" % item)
 
             if language != '' and language != os.environ['LANG']:
+                self.debug("oem-config: LANG=%s" % language)
                 os.environ['LANG'] = language
                 language_changed = True
 
