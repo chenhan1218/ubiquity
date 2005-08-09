@@ -1,3 +1,2 @@
-usr/lib/python2.4/UE/frontend
-usr/lib/python2.4/UE/lib
+usr/lib/python2.4/site-packages/UE/frontend
 usr/share/ubuntu-express/glade
