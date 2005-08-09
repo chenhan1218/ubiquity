@@ -7,7 +7,7 @@ Standards-Version: 3.6.1
 
 Package: ubuntu-express
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python2.4-gnome2-extras, python2.4-glade2, gparted (= 0.0.8+cvs2005061901-0uda1), casper | calzador, grub-install | yaboot-install, partman-auto
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python2.4-gnome2-extras, python2.4-glade2, python-debconf, gparted ( 0.0.8+cvs2005061901-0uda1), yaboot | grub, autopartman, frontend, system-tools-backends, ubuntu-express-artwork, ubuntu-express-doc
 Description: Ubuntu Live installer
  Live installers have featured itself until now by being very
  simple, friendly and graphical.
@@ -26,3 +26,39 @@ Description: Ubuntu Live installer
    * An user has installed Ubuntu from Live version and wants to be able to have
  a configuration file with the chosen options, so in case he needs to reinstall
  or to install in a similar computer, just must get it.
+
+Package: ubuntu-express-ubuntu-artwork
+Architecture: all
+Depends: ${shlibs:Depends}
+Provides: ubuntu-express-artwork
+Description: Ubuntu artwork for Ubuntu Express Live installer
+ This package provides a set of pixmaps, logo images and colormap for window
+ styles and Ubuntu Express UI. All the stuff provide by this package is Ubuntu
+ related.
+
+Package: ubuntu-express-guadalinex-artwork
+Architecture: all
+Depends: ${shlibs:Depends}
+Provides: ubuntu-express-artwork
+Description: Guadalinex artwork for Ubuntu Express Live installer
+ This package provides a set of pixmaps, logo images and colormap for window
+ styles and Ubuntu Express UI. All the stuff provide by this package is
+ Guadalinex related.
+
+Package: ubuntu-express-ubuntu-doc
+Architecture: all
+Depends: ${shlibs:Depends}
+Provides: ubuntu-express-doc
+Description: Ubuntu Documentation and help files for Ubuntu Express Live installer
+ This package provides a set of help files, html pages for the Ubuntu Express
+ UI, text messages for the installer and more stuff related to Ubuntu
+ distribution.
+
+Package: ubuntu-express-guadalinex-doc
+Architecture: all
+Depends: ${shlibs:Depends}
+Provides: ubuntu-express-doc
+Description: Guadalinex Documentation and help files for Ubuntu Express Live installer
+ This package provides a set of help files, html pages for the Ubuntu Express
+ UI, text messages for the installer and more stuff related to Guadalinex
+ distribution.

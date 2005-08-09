@@ -10,8 +10,14 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
-	mkdir $(BUILDDIR)
-	for file in $$(ls $(CURDIR)/frontend/glade/*.po); do msgfmt -o $(BUILDDIR)/es.mo $(CURDIR)/frontend/glade/$$(basename $$file); done
+	mkdir -p $(BUILDDIR)/ubuntu
+	mkdir -p $(BUILDDIR)/guadalinex
+
+	# Ubuntu-doc
+	for file in $$(ls $(CURDIR)/frontend/glade/locale/ubuntu/*.po); do msgfmt -o $(BUILDDIR)/ubuntu/es.mo $(CURDIR)/frontend/glade/locale/ubuntu/$$(basename $$file); done || true
+
+	# Guadalinex-doc
+	for file in $$(ls $(CURDIR)/frontend/glade/locale/guadalinex/*.po); do msgfmt -o $(BUILDDIR)/guadalinex/es.mo $(CURDIR)/frontend/glade/locale/guadalinex/$$(basename $$file); done || true
 
 	touch build-stamp
 
@@ -25,39 +31,52 @@ clean:
 install:
 	dh_testdir
 	dh_testroot
-	dh_clean -k 
-	dh_installdirs
+	dh_clean -k
+	dh_installdirs -A
 
-	for locale in $$(basename $$(ls $(BUILDDIR)/*.mo | sed -e 's/\.mo//g')); do mkdir -p $(CURDIR)/debian/ubuntu-express/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/$$locale\.mo $(CURDIR)/debian/ubuntu-express/usr/share/locale/$$locale/LC_MESSAGES/liveinstaller.mo; done
+	# Ubuntu-doc
+	for locale in $$(find $(BUILDDIR)/ubuntu/ -name \*.mo -exec basename {} \; | sed -e 's/\.mo//g'); do mkdir -p $(CURDIR)/debian/ubuntu-express-ubuntu-artwork/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/ubuntu/$$locale\.mo $(CURDIR)/debian/ubuntu-express-ubuntu-artwork/usr/share/locale/$$locale/LC_MESSAGES/liveinstaller.mo; done
+	cp -r $(CURDIR)/frontend/htmldocs/ubuntu $(CURDIR)/debian/ubuntu-express-ubuntu-doc/usr/share/ubuntu-express/
+
+	# Ubuntu-artwork
+	cp -r $(CURDIR)/frontend/glade/pixmaps/ubuntu $(CURDIR)/debian/ubuntu-express-ubuntu-artwork/usr/share/ubuntu-express/glade/
+
+	# Guadalinex-doc
+	for locale in $$(find $(BUILDDIR)/guadalinex/ -name \*.mo -exec basename {} \; | sed -e 's/\.mo//g'); do mkdir -p $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/guadalinex/$$locale\.mo $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/locale/$$locale/LC_MESSAGES/liveinstaller.mo; done
+	cp -r $(CURDIR)/frontend/htmldocs/guadalinex $(CURDIR)/debian/ubuntu-express-guadalinex-doc/usr/share/ubuntu-express/ 2> /dev/null || true
+
+	# Guadalinex-artwork
+	cp -r $(CURDIR)/frontend/glade/pixmaps/guadalinex $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/ubuntu-express/glade/
 
 	cp $(CURDIR)/frontend/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/UE/
+	cp $(CURDIR)/frontend/glade/liveinstaller.glade* $(CURDIR)/debian/ubuntu-express/usr/share/ubuntu-express/glade/
 	cp -r $(CURDIR)/doc/* $(CURDIR)/debian/ubuntu-express/usr/share/doc/ubuntu-express/
 	cp -r $(CURDIR)/lib/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/UE/lib/
 	cp $(CURDIR)/ubuntu-express $(CURDIR)/installer $(CURDIR)/debian/ubuntu-express/usr/bin/
-	find $(CURDIR)/debian/ubuntu-express -iname .svn -type d -exec rm -rf {} \;
+	rm -rf `find $(CURDIR)/debian/ -name .svn`
 
 # Build architecture-independent files here.
 binary-indep: install
 
 # Build architecture-dependent files here.
 binary-arch: install
-	dh_testdir
-	dh_testroot
+	dh_testdir -A
+	dh_testroot -A
 	dh_installchangelogs Changelog
-	dh_installdocs
-	dh_installexamples
-#	dh_install
-#	dh_installdebconf
-	dh_installman
-	dh_strip
-	dh_compress
-	dh_fixperms
-	dh_python
-	dh_installdeb
-	dh_shlibdeps
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
+	dh_installdocs -A
+#	dh_installexamples -A
+#	dh_install -A
+#	dh_installdebconf -A
+#	dh_installman -A
+	dh_strip -A
+	dh_compress -A
+	dh_fixperms -A
+	dh_python -A
+	dh_installdeb -A
+	dh_shlibdeps -A
+	dh_gencontrol -A
+	dh_md5sums -A
+	dh_builddeb -A
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install
