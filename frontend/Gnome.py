@@ -19,7 +19,8 @@ from lib.part import call_autoparted, call_gparted
 from lib.validation import *
 
 
-PATH = path[0]
+# Define Ubuntu Express global path
+PATH = '/usr/share/ubuntu-express'
 
 # Define glade path
 GLADEDIR = PATH + '/glade'
@@ -66,11 +67,13 @@ class Wizard:
     self.installing_image = self.main_window.get_widget('installing_image')
     self.installing_title = self.main_window.get_widget('installing_title')
     self.progressbar = self.main_window.get_widget('progressbar')
+    self.final_title = self.main_window.get_widget('final_title')
     
     self.user_image = self.main_window.get_widget('user_image')
     self.lock_image = self.main_window.get_widget('lock_image')
     self.host_image = self.main_window.get_widget('host_image')
     self.logo_image = self.main_window.get_widget('logo_image')
+    self.logo_image2 = self.main_window.get_widget('logo_image2')
     
     
     self.fullname = self.main_window.get_widget('fullname')
@@ -127,9 +130,12 @@ class Wizard:
     self.installing_title.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.distro[1]))
     self.installing_text.modify_font(FontDescription('Helvetica 12'))
     self.installing_text.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.distro[1]))
+    self.final_title.modify_font(FontDescription('Helvetica 30'))
+    self.final_title.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.distro[1]))
     
     # set pixmaps
     self.logo_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "logo.png"))
+    self.logo_image2.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "logo.png"))
     self.user_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "users.png"))
     self.lock_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "lockscreen_icon.png"))
     self.host_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "nameresolution_id.png"))

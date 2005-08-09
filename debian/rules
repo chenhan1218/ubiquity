@@ -36,17 +36,17 @@ install:
 
 	# Ubuntu-doc
 	for locale in $$(find $(BUILDDIR)/ubuntu/ -name \*.mo -exec basename {} \; | sed -e 's/\.mo//g'); do mkdir -p $(CURDIR)/debian/ubuntu-express-ubuntu-artwork/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/ubuntu/$$locale\.mo $(CURDIR)/debian/ubuntu-express-ubuntu-artwork/usr/share/locale/$$locale/LC_MESSAGES/liveinstaller.mo; done
-	cp -r $(CURDIR)/frontend/htmldocs/ubuntu $(CURDIR)/debian/ubuntu-express-ubuntu-doc/usr/share/ubuntu-express/
+	cp -r $(CURDIR)/frontend/htmldocs/ubuntu $(CURDIR)/debian/ubuntu-express-ubuntu-doc/usr/share/ubuntu-express/htmldocs/
 
 	# Ubuntu-artwork
-	cp -r $(CURDIR)/frontend/glade/pixmaps/ubuntu $(CURDIR)/debian/ubuntu-express-ubuntu-artwork/usr/share/ubuntu-express/glade/
+	cp -r $(CURDIR)/frontend/glade/pixmaps/ubuntu $(CURDIR)/debian/ubuntu-express-ubuntu-artwork/usr/share/ubuntu-express/glade/pixmaps/
 
 	# Guadalinex-doc
 	for locale in $$(find $(BUILDDIR)/guadalinex/ -name \*.mo -exec basename {} \; | sed -e 's/\.mo//g'); do mkdir -p $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/guadalinex/$$locale\.mo $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/locale/$$locale/LC_MESSAGES/liveinstaller.mo; done
-	cp -r $(CURDIR)/frontend/htmldocs/guadalinex $(CURDIR)/debian/ubuntu-express-guadalinex-doc/usr/share/ubuntu-express/ 2> /dev/null || true
+	cp -r $(CURDIR)/frontend/htmldocs/guadalinex $(CURDIR)/debian/ubuntu-express-guadalinex-doc/usr/share/ubuntu-express/htmldocs/ 2> /dev/null || true
 
 	# Guadalinex-artwork
-	cp -r $(CURDIR)/frontend/glade/pixmaps/guadalinex $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/ubuntu-express/glade/
+	cp -r $(CURDIR)/frontend/glade/pixmaps/guadalinex $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/ubuntu-express/glade/pixmaps/
 
 	# Gtk+ Frontend
 	cp $(CURDIR)/frontend/Gnome.py $(CURDIR)/debian/ubuntu-express-frontend-gtk/usr/lib/python2.4/UE/frontend/
