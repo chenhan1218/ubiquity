@@ -171,10 +171,6 @@ class Wizard:
         language_changed = False
         db.shutdown()
 
-        # LANGUAGE just confuses matters, so unset it.
-        if 'LANGUAGE' in os.environ:
-            del os.environ['LANGUAGE']
-
         items = self.get_menu_items()
         index = 0
         while index >= 0 and index < len(items):
