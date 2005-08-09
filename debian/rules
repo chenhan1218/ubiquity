@@ -14,10 +14,10 @@ build-stamp:
 	mkdir -p $(BUILDDIR)/guadalinex
 
 	# Ubuntu-doc
-	for file in $$(ls $(CURDIR)/frontend/glade/locale/ubuntu/*.po); do msgfmt -o $(BUILDDIR)/ubuntu/es.mo $(CURDIR)/frontend/glade/locale/ubuntu/$$(basename $$file); done || true
+	for file in $$(ls $(CURDIR)/glade/locale/ubuntu/*.po); do msgfmt -o $(BUILDDIR)/ubuntu/es.mo $(CURDIR)/glade/locale/ubuntu/$$(basename $$file); done || true
 
 	# Guadalinex-doc
-	for file in $$(ls $(CURDIR)/frontend/glade/locale/guadalinex/*.po); do msgfmt -o $(BUILDDIR)/guadalinex/es.mo $(CURDIR)/frontend/glade/locale/guadalinex/$$(basename $$file); done || true
+	for file in $$(ls $(CURDIR)/glade/locale/guadalinex/*.po); do msgfmt -o $(BUILDDIR)/guadalinex/es.mo $(CURDIR)/frontend/glade/locale/guadalinex/$$(basename $$file); done || true
 
 	touch build-stamp
 
@@ -36,27 +36,27 @@ install:
 
 	# Ubuntu-doc
 	for locale in $$(find $(BUILDDIR)/ubuntu/ -name \*.mo -exec basename {} \; | sed -e 's/\.mo//g'); do mkdir -p $(CURDIR)/debian/ubuntu-express-ubuntu-artwork/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/ubuntu/$$locale\.mo $(CURDIR)/debian/ubuntu-express-ubuntu-artwork/usr/share/locale/$$locale/LC_MESSAGES/liveinstaller.mo; done
-	cp -r $(CURDIR)/frontend/htmldocs/ubuntu $(CURDIR)/debian/ubuntu-express-ubuntu-doc/usr/share/ubuntu-express/htmldocs/
+	cp -r $(CURDIR)/htmldocs/ubuntu $(CURDIR)/debian/ubuntu-express-ubuntu-doc/usr/share/ubuntu-express/htmldocs/
 
 	# Ubuntu-artwork
-	cp -r $(CURDIR)/frontend/glade/pixmaps/ubuntu $(CURDIR)/debian/ubuntu-express-ubuntu-artwork/usr/share/ubuntu-express/glade/pixmaps/
+	cp -r $(CURDIR)/glade/pixmaps/ubuntu $(CURDIR)/debian/ubuntu-express-ubuntu-artwork/usr/share/ubuntu-express/glade/pixmaps/
 
 	# Guadalinex-doc
 	for locale in $$(find $(BUILDDIR)/guadalinex/ -name \*.mo -exec basename {} \; | sed -e 's/\.mo//g'); do mkdir -p $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/guadalinex/$$locale\.mo $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/locale/$$locale/LC_MESSAGES/liveinstaller.mo; done
-	cp -r $(CURDIR)/frontend/htmldocs/guadalinex $(CURDIR)/debian/ubuntu-express-guadalinex-doc/usr/share/ubuntu-express/htmldocs/ 2> /dev/null || true
+	cp -r $(CURDIR)/htmldocs/guadalinex $(CURDIR)/debian/ubuntu-express-guadalinex-doc/usr/share/ubuntu-express/htmldocs/ 2> /dev/null || true
 
 	# Guadalinex-artwork
-	cp -r $(CURDIR)/frontend/glade/pixmaps/guadalinex $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/ubuntu-express/glade/pixmaps/
+	cp -r $(CURDIR)/glade/pixmaps/guadalinex $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/ubuntu-express/glade/pixmaps/
 
 	# Gtk+ Frontend
-	cp $(CURDIR)/frontend/Gnome.py $(CURDIR)/debian/ubuntu-express-frontend-gtk/usr/lib/python2.4/UE/frontend/
-	cp $(CURDIR)/frontend/glade/liveinstaller.glade* $(CURDIR)/debian/ubuntu-express-frontend-gtk/usr/share/ubuntu-express/glade/
+	cp $(CURDIR)/lib/frontend/Gnome.py $(CURDIR)/debian/ubuntu-express-frontend-gtk/usr/lib/python2.4/site-packages/UE/frontend/
+	cp $(CURDIR)/glade/liveinstaller.glade* $(CURDIR)/debian/ubuntu-express-frontend-gtk/usr/share/ubuntu-express/glade/
 
 	# Ubuntu-express
-	cp $(CURDIR)/frontend/noui.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/UE/frontend/
+	cp $(CURDIR)/lib/frontend/noui.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/UE/frontend/
 	cp -r $(CURDIR)/doc/* $(CURDIR)/debian/ubuntu-express/usr/share/doc/ubuntu-express/
-	cp -r $(CURDIR)/lib/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/UE/
-	cp $(CURDIR)/ubuntu-express $(CURDIR)/installer $(CURDIR)/debian/ubuntu-express/usr/bin/
+	cp -r $(CURDIR)/lib/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/UE/
+	cp $(CURDIR)/installer $(CURDIR)/debian/ubuntu-express/usr/bin/
 	rm -rf `find $(CURDIR)/debian/ -name .svn`
 
 # Build architecture-independent files here.
