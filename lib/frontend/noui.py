@@ -16,13 +16,8 @@ like timezone, keymap and locales.
 '''
 
 import debconf
-import os.path, sys.path
-# Adding parent directory to the sys.path
-PARENT = os.path.split(sys.path[0])[0]
-if PARENT not in sys.path:
-    sys.path.append(PARENT)
     
-from lib.part import call_autoparted, call_gparted
+from UE.part import call_autoparted, call_gparted
 
 
 class Wizard:

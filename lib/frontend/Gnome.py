@@ -4,19 +4,13 @@ import gtk.glade
 import gnome.ui
 import gtkmozembed
 import subprocess
-from sys import exit, path
-import os.path
+from sys import exit
 from pango import FontDescription
 from gettext import bindtextdomain, textdomain, install
 from locale import setlocale, LC_ALL
 
-# Adding parent directory to the sys.path
-PARENT = os.path.split(path[0])[0]
-if PARENT not in path:
-    path.append(PARENT)
-
-from lib.part import call_autoparted, call_gparted
-from lib.validation import *
+from UE.part import call_autoparted, call_gparted
+from UE.validation import *
 
 
 # Define Ubuntu Express global path
