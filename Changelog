@@ -1,3 +1,10 @@
+09-08-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
+	* frontend/Gnome.py: Changed the last page.
+	* frontend/htmldocs/ubuntu/: Changed branded html intro.
+	* frontend/glade/liveinstaller.glade:
+		- Added steps to the title.
+		- Changed final step for a DruidPageStandard.
+		- Some more improvements.	
 
 04-08-2005 Antonio Olmo <aolmo_@_emergya.info>
 	Minor changes to make "Gnome.py" executable again.
