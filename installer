@@ -90,6 +90,7 @@ class Installer:
             self.configure_user(username, password, fullname)
             self.configure_hostname(hostname)
             self.configure_network()
+            self.configure_bootloader()
             self.configure_hardware()
         finally:
             self.unmount_target(mountpoints)
@@ -156,6 +157,12 @@ class Installer:
         '>',self.target + '/tmp/network.xml')
         self.chex('/usr/share/setup-tool-backends/scripts/network-conf','--set',
         '<','/tmp/network.xml')
+    
+    def configure_bootloader(self):
+        self.ex('/usr/share/setup-tool-backends/scripts/boot-conf','--get',
+        '>',self.target + '/tmp/boot.xml')
+        self.chex('/usr/share/setup-tool-backends/scripts/boot-conf','--set',
+        '<','/tmp/boot.xml')
     
     def format_target(self, mountpoints):
         '''format_target(mountpoints) -> bool
