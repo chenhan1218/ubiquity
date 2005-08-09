@@ -7,7 +7,7 @@ Standards-Version: 3.6.1
 
 Package: ubuntu-express
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python2.4-gnome2-extras, python2.4-glade2, python-debconf, gparted ( 0.0.8+cvs2005061901-0uda1), yaboot | grub, autopartman, frontend, system-tools-backends, ubuntu-express-artwork, ubuntu-express-doc
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf, yaboot | grub, autopartman, ubuntu-express-frontend, system-tools-backends, ubuntu-express-doc
 Description: Ubuntu Live installer
  Live installers have featured itself until now by being very
  simple, friendly and graphical.
@@ -62,3 +62,10 @@ Description: Guadalinex Documentation and help files for Ubuntu Express Live ins
  This package provides a set of help files, html pages for the Ubuntu Express
  UI, text messages for the installer and more stuff related to Guadalinex
  distribution.
+
+Package: ubuntu-express-frontend-gtk
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python2.4-gnome2-extras, python2.4-glade2, gparted ( 0.0.8+cvs2005061901-0uda1), ubuntu-express-artwork
+Provides: ubuntu-express-frontend
+Description: Gtk+ Frontend for Ubuntu Express Live installer
+ This package provides a Gtk+ based Ubuntu Express GUI.

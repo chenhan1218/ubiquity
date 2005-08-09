@@ -48,8 +48,12 @@ install:
 	# Guadalinex-artwork
 	cp -r $(CURDIR)/frontend/glade/pixmaps/guadalinex $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/ubuntu-express/glade/
 
-	cp $(CURDIR)/frontend/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/UE/
-	cp $(CURDIR)/frontend/glade/liveinstaller.glade* $(CURDIR)/debian/ubuntu-express/usr/share/ubuntu-express/glade/
+	# Gtk+ Frontend
+	cp $(CURDIR)/frontend/Gnome.py $(CURDIR)/debian/ubuntu-express-frontend-gtk/usr/lib/python2.4/UE/
+	cp $(CURDIR)/frontend/glade/liveinstaller.glade* $(CURDIR)/debian/ubuntu-express-frontend-gtk/usr/share/ubuntu-express/glade/
+
+	# Ubuntu-express
+	cp $(CURDIR)/frontend/noui.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/UE/
 	cp -r $(CURDIR)/doc/* $(CURDIR)/debian/ubuntu-express/usr/share/doc/ubuntu-express/
 	cp -r $(CURDIR)/lib/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/UE/lib/
 	cp $(CURDIR)/ubuntu-express $(CURDIR)/installer $(CURDIR)/debian/ubuntu-express/usr/bin/
