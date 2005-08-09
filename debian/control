@@ -3,7 +3,7 @@ Section: admin
 Priority: extra
 Maintainer: Colin Watson <cjwatson@ubuntu.com>
 Build-Depends-Indep: debhelper (>= 4.0.0), po-debconf, python
-Standards-Version: 3.6.1
+Standards-Version: 3.6.2
 
 Package: oem-config
 Architecture: all
