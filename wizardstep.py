@@ -67,6 +67,14 @@ class WizardStep(object):
                 return choices_c[i]
         raise ValueError, value
 
+    def translate_to_user(self, question, value):
+        choices = self.choices(question)
+        choices_c = self.choices_untranslated(question)
+        for i in range(len(choices_c)):
+            if choices_c[i] == value:
+                return choices[i]
+        raise ValueError, value
+
     def value_index(self, question):
         value = self.db.get(question)
         choices_c = self.choices_untranslated(question)

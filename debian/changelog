@@ -1,3 +1,10 @@
+oem-config (0.4) UNRELEASED; urgency=low
+
+  * Add WizardStep.translate_to_user() method, needed by
+    oem-config-keyboard.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue,  9 Aug 2005 14:48:32 +0100
+
 oem-config (0.3) breezy; urgency=low
 
   * Actually install /usr/sbin/oem-config-firstboot.
