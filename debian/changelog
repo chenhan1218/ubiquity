@@ -1,3 +1,10 @@
+oem-config (0.5) UNRELEASED; urgency=low
+
+  * Unset LANGUAGE while running steps; it overrides LANG and thereby causes
+    much confusion.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue,  9 Aug 2005 15:32:39 +0100
+
 oem-config (0.4) breezy; urgency=low
 
   * Emit a debug message when changing LANG.
