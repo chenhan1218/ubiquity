@@ -81,6 +81,7 @@ class Wizard:
     # set style
     self.installer_style()
     
+  def run(self):
     # show interface
     self.show_browser()
     
@@ -90,6 +91,7 @@ class Wizard:
     # Declare SignalHandler
     self.main_window.signal_autoconnect(self)
     gtk.main()
+
 
   def set_locales(self, distro):
     """internationalization config. Use only once."""
@@ -241,6 +243,7 @@ if __name__ == '__main__':
   # Guadalinex HexColor style #087021
   # Ubuntu HexColor style #9F6C49
   w = Wizard(['ubuntu', '#9F6C49'])
+  w.run()
   [hostname, fullname, name, password] = w.get_info()
   print '''
   Hostname: %s

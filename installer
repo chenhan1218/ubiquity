@@ -61,6 +61,7 @@ class Installer:
 
       timezone, keymap, locales = self.get_locales()
       self.wizard = Gnome.Wizard(['ubuntu', '#9F6C49'])
+      self.wizard.run()
       hostname, fullname, username, password = self.wizard.get_info()
 
       self.install(timezone,keymap,locales,username,password,fullname,hostname)
