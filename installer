@@ -49,8 +49,8 @@ class Installer:
       locales = db.get('locales/default_environment_locale')
       return timezone, keymap, locales
 
-    def frontend(self, type='noui'):
-      '''frontend(type='noui') -> none
+    def frontend(self, type='Gnome'):
+      '''frontend(type='Gnome') -> none
       
       Get the type of frontend to use and load the module for that.
       Get the locales stuff with get_locales() method and ask
@@ -58,7 +58,7 @@ class Installer:
       selected frontend.
       After get everything call to the install() method.
       '''
-      ui = getattr(__import__('frontend.%s' % type), type)
+      ui = getattr(__import__('UE.frontend.%s' % type), type)
 
       timezone, keymap, locales = get_locales()
       self.wizard = ui.Wizard()
