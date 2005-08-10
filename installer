@@ -172,8 +172,8 @@ class Installer:
 
         for entry in proc_file[2:]:
             dev = entry.split()
-                if len(dev[3]) == 4:
-                    parts.append(dev[3])
+            if len(dev[3]) == 4:
+                parts.append(dev[3])
         self.ex('mkdir', TEST)
         for part in parts:
             if self.ex('mount', '/dev/' + part , TEST):
