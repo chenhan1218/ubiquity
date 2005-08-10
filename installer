@@ -41,10 +41,7 @@ class Installer:
             timezone = db.get('tzconfig/choose_country_zone_multiple')
       except:
         timezone = open('/etc/timezone').readline().strip()
-      keymap  = db.get('express/keymap')
-      keymap_sec = db.get('debian-installer/keymap')
-      if keymap != keymap_sec:
-        keymap = keymap_sec
+      keymap = db.get('debian-installer/keymap')
         
       locales = db.get('locales/default_environment_locale')
       return timezone, keymap, locales
@@ -58,10 +55,12 @@ class Installer:
       selected frontend.
       After get everything call to the install() method.
       '''
-      ui = getattr(__import__('UE.frontend.%s' % type), type)
+      #mod = __import__('UE.frontend', 'frontend')
+      #ui = getattr(mod, type)
+      from UE.frontend import Gnome
 
-      timezone, keymap, locales = get_locales()
-      self.wizard = ui.Wizard()
+      timezone, keymap, locales = self.get_locales()
+      self.wizard = Gnome.Wizard(['ubuntu', '#9F6C49'])
       hostname, fullname, username, password = self.wizard.get_info()
 
       self.install(timezone,keymap,locales,username,password,fullname,hostname)
