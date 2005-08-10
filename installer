@@ -19,6 +19,7 @@ import shutil
 import os
 import subprocess
 import debconf
+import UE
 
 class CommandFailed(Exception): pass
 
@@ -35,6 +36,9 @@ class Installer:
       debconf.runFrontEnd()
       db = debconf.Debconf()
 
+      # We get here the current kernel version
+      self.kernel_version = open('/proc/sys/kernel/osrelease').readline().strip()
+      
       try:
         timezone = db.get('express/timezone')
         if timezone == '':
@@ -90,7 +94,7 @@ class Installer:
             self.configure_user(username, password, fullname)
             self.configure_hostname(hostname)
             self.configure_network()
-            self.configure_bootloader()
+            self.configure_bootloader(mountpoints['/'])
             self.configure_hardware()
         finally:
             self.unmount_target(mountpoints)
@@ -141,8 +145,7 @@ class Installer:
         self.chrex('mount', '-t', 'proc', 'proc', '/proc')
         self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
 
-        kernel_version = open('/proc/sys/kernel/osrelease').readline().strip()
-        packages = ['gnome-panel', 'xserver-xorg', 'linux-image-' + kernel_version]
+        packages = ['gnome-panel', 'xserver-xorg', 'linux-image-' + self.kernel_version]
         
         try:
             for package in packages:
@@ -158,12 +161,48 @@ class Installer:
         self.chex('/usr/share/setup-tool-backends/scripts/network-conf','--set',
         '<','/tmp/network.xml')
     
-    def configure_bootloader(self):
+    def configure_bootloader(self, target_dev):
+        # Copying the old boot config
+        files = ['/etc/lilo.conf', '/boot/grub/menu.lst','/etc/grub.conf',
+                 '/boot/grub/grub.conf']
+        TEST = '/mnt/test/'
+        grub_dev = misc.grub_dev(target_dev)
+        proc_file = open('/proc/partitions').readlines()
+        parts = []
+
+        for entry in proc_file[2:]:
+            dev = entry.split()
+                if len(dev[3]) == 4:
+                    parts.append(dev[3])
+        self.ex('mkdir', TEST)
+        for part in parts:
+            if self.ex('mount', '/dev/' + part , TEST):
+                for file in files:
+                    if os.path.exists(TEST + file):
+                        self.ex('cp', TEST + file, self.target + file)
+                        
+                self.ex('umount', TEST)
+
+        # The new boot
+        self.chex('/usr/sbin/mkinitrd')
+        # For the Grub
+        grub_conf = open(self.target + '/boot/grub/menu.lst', 'a')
+        grub_conf.write('''
+title %s
+root (%s)
+kernel (%s)/vmlinuz-%s root=%s ro vga=791 quiet
+initrd (%s)/initrd.img-%s
+savedefault
+boot
+
+''' % ('Ubuntu', grub_dev, grub_dev, self.kernel_version, target_dev, 
+        grub_dev, self.kernel_version) )
+    
         self.ex('/usr/share/setup-tool-backends/scripts/boot-conf','--get',
         '>',self.target + '/tmp/boot.xml')
         self.chex('/usr/share/setup-tool-backends/scripts/boot-conf','--set',
         '<','/tmp/boot.xml')
-    
+
     def format_target(self, mountpoints):
         '''format_target(mountpoints) -> bool
 
@@ -254,6 +293,7 @@ class Installer:
         status = subprocess.call(args)
         if status != 0:
             raise CommandFailed(str(args))
+        return 0
 
     def chrex(self, *args):
         self.ex('chroot', self.target, *args)
