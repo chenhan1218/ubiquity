@@ -56,7 +56,7 @@ install:
 	cp $(CURDIR)/lib/frontend/noui.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/UE/frontend/
 	cp -r $(CURDIR)/doc/* $(CURDIR)/debian/ubuntu-express/usr/share/doc/ubuntu-express/
 	cp -r $(CURDIR)/lib/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/UE/
-	cp $(CURDIR)/installer $(CURDIR)/debian/ubuntu-express/usr/bin/
+	cp $(CURDIR)/ubuntu-express $(CURDIR)/installer $(CURDIR)/debian/ubuntu-express/usr/bin/
 	rm -rf `find $(CURDIR)/debian/ -name .svn`
 
 # Build architecture-independent files here.
