@@ -75,6 +75,7 @@ class Wizard:
     self.logo_image1 = self.main_window.get_widget('logo_image1')
     self.logo_image2 = self.main_window.get_widget('logo_image2')
     self.logo_image3 = self.main_window.get_widget('logo_image3')
+    self.logo_image4 = self.main_window.get_widget('logo_image4')
     
     
     self.fullname = self.main_window.get_widget('fullname')
@@ -128,6 +129,7 @@ class Wizard:
     self.logo_image1.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "logo.png"))
     self.logo_image2.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "logo.png"))
     self.logo_image3.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "logo.png"))
+    self.logo_image4.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "logo.png"))
     self.user_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "users.png"))
     self.lock_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "lockscreen_icon.png"))
     self.host_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "nameresolution_id.png"))

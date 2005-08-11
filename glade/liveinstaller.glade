@@ -963,7 +963,7 @@
 			  <property name="spacing">0</property>
 
 			  <child>
-			    <widget class="GtkImage" id="image2">
+			    <widget class="GtkImage" id="logo_image4">
 			      <property name="visible">True</property>
 			      <property name="xalign">0.5</property>
 			      <property name="yalign">0.5</property>
