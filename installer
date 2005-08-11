@@ -19,6 +19,7 @@ import shutil
 import os
 import subprocess
 import debconf
+from threading import Thread
 import UE
 
 class CommandFailed(Exception): pass
@@ -28,59 +29,62 @@ class Installer:
     target = '/target'
     
     def get_locales(self):
-      '''get_locales() -> timezone, keymap, locales
+        '''get_locales() -> timezone, keymap, locales
 
-      Get the timezone, keymap and locales from the
-      Debconf database and return them.
-      '''
-      debconf.runFrontEnd()
-      db = debconf.Debconf()
+        Get the timezone, keymap and locales from the
+        Debconf database and return them.
+        '''
+        debconf.runFrontEnd()
+        db = debconf.Debconf()
 
-      # We get here the current kernel version
-      self.kernel_version = open('/proc/sys/kernel/osrelease').readline().strip()
-      
-      try:
-        timezone = db.get('express/timezone')
-        if timezone == '':
-            timezone = db.get('tzconfig/choose_country_zone_multiple')
-      except:
-        timezone = open('/etc/timezone').readline().strip()
-      keymap = db.get('debian-installer/keymap')
+        # We get here the current kernel version
+        self.kernel_version = open('/proc/sys/kernel/osrelease').readline().strip()
         
-      locales = db.get('locales/default_environment_locale')
-      return timezone, keymap, locales
+        try:
+          timezone = db.get('express/timezone')
+          if timezone == '':
+              timezone = db.get('tzconfig/choose_country_zone_multiple')
+        except:
+          timezone = open('/etc/timezone').readline().strip()
+        keymap = db.get('debian-installer/keymap')
+          
+        locales = db.get('locales/default_environment_locale')
+        return timezone, keymap, locales
 
     def frontend(self, type='Gnome'):
-      '''frontend(type='Gnome') -> none
-      
-      Get the type of frontend to use and load the module for that.
-      Get the locales stuff with get_locales() method and ask
-      the hostname, fullname, username and  password through the
-      selected frontend.
-      After get everything call to the install() method.
-      '''
-      #mod = __import__('UE.frontend', 'frontend')
-      #ui = getattr(mod, type)
-      from UE.frontend import Gnome
+        '''frontend(type='Gnome') -> none
+        
+        Get the type of frontend to use and load the module for that.
+        Get the locales stuff with get_locales() method and ask
+        the hostname, fullname, username and  password through the
+        selected frontend.
+        After get everything call to the install() method.
+        '''
+        mod = __import__('UE.frontend', globals(), locals() , [type])
+        ui = getattr(mod, type)
 
-      timezone, keymap, locales = self.get_locales()
-      self.wizard = Gnome.Wizard(['ubuntu', '#9F6C49'])
-      self.wizard.run()
-      hostname, fullname, username, password = self.wizard.get_info()
+        distro = os.listdir('/usr/share/ubuntu-express/htmldocs/')[0]
+        self.wizard = ui.Wizard(distro)
+       # child = Thread(target=self.wizard.run())
+       # child.start()
+       # print self.wizard.installation
+       # while self.wizard.is_active() == False:
+       #     pass 
+        self.wizard.run()
+        self.install()
 
-      self.install(timezone,keymap,locales,username,password,fullname,hostname)
-
-    def install(self, timezone, keymap, locales, username, password, fullname, hostname):
-        '''install(timezone, keymap, locales, username, password, fullname,
-        hostname) -> none
+    def install(self):
+        '''install() -> none
 
         Here is all the logic of the program. After get the info from the
         frontend, the program do all it need to install the distro to the
         target(partitioning,formating,copy and postconfig).
         '''
+        timezone, keymap, locales = self.get_locales()
+        hostname, fullname, username, password = self.wizard.get_info()
 	mountpoints = self.wizard.get_partitions()
-        self.format_target(mountpoints)
-        self.mount_target(mountpoints)
+        #self.format_target(mountpoints)
+        #self.mount_target(mountpoints)
         self.mount_source()
         try:
             self.copy_all()
@@ -94,10 +98,11 @@ class Installer:
             self.configure_user(username, password, fullname)
             self.configure_hostname(hostname)
             self.configure_network()
-            self.configure_bootloader(mountpoints['/'])
+            #self.configure_bootloader(mountpoints['/'])
             self.configure_hardware()
         finally:
-            self.unmount_target(mountpoints)
+            #self.unmount_target(mountpoints)
+            pass
 
 
     def configure_fstab(self, mountpoints):
@@ -211,11 +216,22 @@ boot
         The method return true or false depends the result
         of this operation.
         '''
-        #FIXME: create this method
-        pass
+        for path, device in mountpoints.items():
+            if path in ['/']:
+                try:
+                    self.ex('mkfs.ext3','device')
+                except:
+                    return False
+            elif path == 'swap':
+                try:
+                    self.ex('mkswap','device')
+                except:
+                    return False
+        return True
         
     def mount_target(self, mountpoints):
-        os.mkdir(self.target)
+        if not os.path.isdir(self.target):
+            os.mkdir(self.target)
         self.ex('mount', mountpoints['/'], self.target)
 
         for path, device in mountpoints.items():

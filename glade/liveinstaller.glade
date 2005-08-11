@@ -1503,7 +1503,7 @@ In order to work with your new free operative system you need to eject the CDLiv
 
 	  <child>
 	    <widget class="GtkHButtonBox" id="hbuttonbox2">
-	      <property name="border_width">5</property>
+	      <property name="border_width">4</property>
 	      <property name="visible">True</property>
 	      <property name="layout_style">GTK_BUTTONBOX_END</property>
 	      <property name="spacing">0</property>
@@ -1551,7 +1551,7 @@ In order to work with your new free operative system you need to eject the CDLiv
 	      </child>
 	    </widget>
 	    <packing>
-	      <property name="padding">8</property>
+	      <property name="padding">4</property>
 	      <property name="expand">True</property>
 	      <property name="fill">True</property>
 	    </packing>
@@ -1559,8 +1559,8 @@ In order to work with your new free operative system you need to eject the CDLiv
 	</widget>
 	<packing>
 	  <property name="padding">0</property>
-	  <property name="expand">True</property>
-	  <property name="fill">True</property>
+	  <property name="expand">False</property>
+	  <property name="fill">False</property>
 	</packing>
       </child>
     </widget>
