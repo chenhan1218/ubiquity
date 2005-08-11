@@ -231,9 +231,7 @@ class Wizard:
       self.next.set_label('Next')
     elif step == 4:
       self.next.set_label('Next')
-      self.next.connect('clicked', lambda *x: self.on_next_clicked())
-      self.back.hide()
-      self.cancel.hide()
+      self.next.connect('clicked', lambda *x: self.on_next_clicked(widget))
       
     self.steps.prev_page()
 
