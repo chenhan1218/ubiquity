@@ -190,7 +190,7 @@ class Wizard:
     if self.mountpoints is None:
         self.mountpoints = call_gparted(self.main_window)
 
-    self.checked_partitions = True    
+    self.checked_partitions = True
     return self.mountpoints
 
   def images_loop(self):
@@ -220,7 +220,6 @@ class Wizard:
       self.info.append(pass1)
 
 
-
   # Callbacks
   def on_cancel_clicked(self, widget):
     gtk.main_quit()
@@ -239,8 +238,8 @@ class Wizard:
       self.back.show()
       self.next.set_label('Next')
     elif step == 3:
-      self.back.show()
       self.next.set_label('Next')
+      self.back.hide()
       #self.child = Thread(target=self.images_loop())
       #self.child.run()
       self.installation = True
@@ -250,26 +249,31 @@ class Wizard:
       self.next.connect('clicked', lambda *x: gtk.main_quit())
       self.back.set_label('Just Finish')
       self.back.connect('clicked', lambda *x: gtk.main_quit())
+      self.back.show()
       self.cancel.hide()
       
-    self.steps.next_page()
+    if step is not 5:
+      self.steps.next_page()
     
   def on_back_clicked(self, widget):
     step = self.steps.get_current_page()
     if step == 1:
       self.next.set_label('Start')
       self.back.hide()
-    elif step in [2,3]:
+    elif step == 2:
+      self.back.hide()
+    elif step == 3:
       self.back.show()
       self.next.set_label('Next')
     elif step == 4:
       self.next.set_label('Next')
       self.next.connect('clicked', lambda *x: self.on_next_clicked(widget))
-      
-    self.steps.prev_page()
+    
+    if step is not 5:
+      self.steps.prev_page()
 
   def on_live_installer_delete_event(self, widget):
-    raise Signals("on_live_installer_delete_event")
+    gtk.main_quit()
 
 
 if __name__ == '__main__':
