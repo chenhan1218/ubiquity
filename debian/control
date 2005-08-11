@@ -7,7 +7,7 @@ Standards-Version: 3.6.1
 
 Package: ubuntu-express
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf, yaboot | grub, partman, ubuntu-express-frontend, system-tools-backends, ubuntu-express-doc
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf, yaboot | grub, partman-ue, ubuntu-express-frontend, system-tools-backends, ubuntu-express-doc
 Description: Ubuntu Live installer
  Live installers have featured itself until now by being very
  simple, friendly and graphical.
