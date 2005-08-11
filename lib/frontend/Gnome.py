@@ -43,10 +43,15 @@ class Wizard:
     
     # declare attributes
     self.distro = distro
+
+    # Buttons
+    self.cancel = self.main_window.get_widget('cancel')
+    self.back = self.main_window.get_widget('back')
+    self.next = self.main_window.get_widget('next')
+    self.back.hide()
+    self.next.set_label('Start')
     
-    self.druid = self.main_window.get_widget('frontend_installer')
-    self.druid.set_buttons_sensitive(0,1,1,1)
-    
+    self.steps = self.main_window.get_widget('steps')
     self.welcome = self.main_window.get_widget('welcome')
     self.step1 = self.main_window.get_widget('step1')
     self.step2 = self.main_window.get_widget('step2')
@@ -117,19 +122,6 @@ class Wizard:
 
   def installer_style(self):
     """Set installer screen styles."""
-    
-    # set screen styles
-    self.welcome.set_property('background', self.distro[1])
-    self.step1.set_property('background', self.distro[1])
-    self.step2.set_property('background', self.distro[1])
-    self.step3.set_property('background', self.distro[1])
-    self.final.set_property('background', self.distro[1])
-  #  self.installing_title.modify_font(FontDescription('Helvetica 30'))
-  #  self.installing_title.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.distro[1]))
-  #  self.installing_text.modify_font(FontDescription('Helvetica 12'))
-  #  self.installing_text.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.distro[1]))
-  #  self.final_title.modify_font(FontDescription('Helvetica 30'))
-  #  self.final_title.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.distro[1]))
     
     # set pixmaps
     self.logo_image.set_from_file("%s/pixmaps/%s/%s" %(GLADEDIR, self.distro[0], "logo.png"))
@@ -211,8 +203,39 @@ class Wizard:
 
     return mountpoints
 
-  def on_frontend_installer_cancel(self, widget):
+  def on_cancel_clicked(self, widget):
     gtk.main_quit()
+
+  def on_next_clicked(self, widget):
+    step = self.steps.get_current_page()
+    if step == 0:
+      self.next.set_label('Next')
+    elif step in [1,2,3]:
+      self.back.show()
+      self.next.set_label('Next')
+    elif step == 4:
+      self.next.set_label('Finish')
+      self.next.connect('clicked', lambda *x: gtk.main_quit())
+      self.back.hide()
+      self.cancel.hide()
+      
+    self.steps.next_page()
+    
+  def on_back_clicked(self, widget):
+    step = self.steps.get_current_page()
+    if step == 1:
+      self.next.set_label('Start')
+      self.back.hide()
+    elif step in [2,3]:
+      self.back.show()
+      self.next.set_label('Next')
+    elif step == 4:
+      self.next.set_label('Next')
+      self.next.connect('clicked', lambda *x: self.on_next_clicked())
+      self.back.hide()
+      self.cancel.hide()
+      
+    self.steps.prev_page()
 
   def on_live_installer_delete_event(self, widget):
     raise Signals("on_live_installer_delete_event")
