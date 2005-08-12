@@ -75,6 +75,7 @@ class Wizard:
     # define some vars
     self.installation = False
     self.checked_partitions = False
+    self.info = []
     
     # set custom language
     self.set_locales(distro)

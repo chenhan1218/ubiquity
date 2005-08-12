@@ -19,7 +19,6 @@ import shutil
 import os
 import subprocess
 import debconf
-from threading import Thread
 import UE
 
 class CommandFailed(Exception): pass
@@ -65,13 +64,18 @@ class Installer:
 
         distro = os.listdir('/usr/share/ubuntu-express/htmldocs/')[0]
         self.wizard = ui.Wizard(distro)
-       # child = Thread(target=self.wizard.run())
-       # child.start()
-       # print self.wizard.installation
-       # while self.wizard.is_active() == False:
-       #     pass 
-        self.wizard.run()
-        self.install()
+        pid = os.fork()
+        if pid == 0:
+            self.wizard.run()
+            print 'After run()'
+        else:
+            status = self.wizard.is_active()
+            print status
+            while status == False:
+                status = self.wizard.is_active()
+            print status
+            print 'After while'
+            self.install()
 
     def install(self):
         '''install() -> none
