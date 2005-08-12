@@ -7,5 +7,5 @@ def grub_dev(dev):
 		 '6': '5', '7': '6', '8': '7', '9': '8'}
 
 	ext = dev[7:]
-	name = 'hd%s,%s' % (ext[0], ext[1:])
+	name = 'hd%s,%s' % (leter[ext[0]], num[ext[1:]])
 	return name
