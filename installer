@@ -62,16 +62,18 @@ class Installer:
         mod = __import__('UE.frontend', globals(), locals() , [type])
         ui = getattr(mod, type)
 
-        distro = os.listdir('/usr/share/ubuntu-express/htmldocs/')[0]
-        self.wizard = ui.Wizard(distro)
+        self.distro = os.listdir('/usr/share/ubuntu-express/htmldocs/')[0]
+        self.wizard = ui.Wizard(self.distro)
+        foo = False
         pid = os.fork()
         if pid == 0:
             self.wizard.run()
+            foo = True
             print 'After run()'
         else:
             status = self.wizard.is_active()
             print status
-            while status == False:
+            while status == False and foo == False:
                 status = self.wizard.is_active()
             print status
             print 'After while'
@@ -176,6 +178,7 @@ class Installer:
                  '/boot/grub/grub.conf']
         TEST = '/mnt/test/'
         grub_dev = misc.grub_dev(target_dev)
+        distro = self.distro.capitalize()
         proc_file = open('/proc/partitions').readlines()
         parts = []
 
@@ -204,8 +207,26 @@ initrd (%s)/initrd.img-%s
 savedefault
 boot
 
-''' % ('Ubuntu', grub_dev, grub_dev, self.kernel_version, target_dev, 
+''' % (distro, grub_dev, grub_dev, self.kernel_version, target_dev, 
         grub_dev, self.kernel_version) )
+        grub_conf.close()
+
+        # For the Yaboot
+        if not os.path.exists(self.target + '/etc/yaboot.conf'):
+            #FIXME: finish this function
+            #misc.make_yaboot_header(self.target)
+            pass
+        yaboot_conf = open(self.target + '/etc/yaboot.conf', 'a')
+        yaboot_conf.write('''
+mage=/boot/vmlinuz-%s
+    label=%s
+    root=%s
+    initrd=/boot/initrd.img-%s 
+    append="root=%s ro vga=791 quiet"
+    read-only
+
+''' % (self.kernel_version, distro, target_dev, self.kernel_version, target_dev) )
+        yaboot_conf.close()
     
         self.ex('/usr/share/setup-tool-backends/scripts/boot-conf','--get',
         '>',self.target + '/tmp/boot.xml')
