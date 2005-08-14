@@ -33,3 +33,17 @@ magicboot=/usr/lib/yaboot/ofboot
 enablecdboot
 
 ''' % (ofpath, partnr, root, timeout, yaboot_location)
+
+class CommandFailed(Exception): pass
+
+
+def ex(*args):
+  import subprocess
+  status = subprocess.call(args)
+  if status != 0:
+    raise CommandFailed(str(args))
+  return 0
+
+
+
+# vim:ai:et:sts=2:tw=80:sw=2:
