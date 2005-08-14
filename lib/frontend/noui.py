@@ -17,7 +17,7 @@ like timezone, keymap and locales.
 
 import debconf
     
-from UE.part import call_autoparted, call_gparted
+from ue.part import call_autoparted, call_gparted
 
 
 class Wizard:

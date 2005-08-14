@@ -11,8 +11,8 @@ from pango import FontDescription
 from gettext import bindtextdomain, textdomain, install
 from locale import setlocale, LC_ALL
 
-from UE.part import call_autoparted, call_gparted
-from UE.validation import *
+from ue.part import call_autoparted, call_gparted
+from ue.validation import *
 
 
 # Define Ubuntu Express global path
@@ -27,7 +27,7 @@ LOCALEDIR = GLADEDIR + '/locale'
 
 class Wizard:
   '''
-  Gnome Frontend
+  Gtk+ Frontend
   
   This is a wizard interface to interact with the user and the 
   main program. It has some basic methods:
