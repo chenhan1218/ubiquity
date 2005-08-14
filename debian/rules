@@ -49,7 +49,7 @@ install:
 	cp -r $(CURDIR)/glade/pixmaps/guadalinex $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/ubuntu-express/glade/pixmaps/
 
 	# Gtk+ Frontend
-	cp $(CURDIR)/lib/frontend/Gnome.py $(CURDIR)/debian/ubuntu-express-frontend-gtk/usr/lib/python2.4/site-packages/ue/frontend/
+	cp $(CURDIR)/lib/frontend/gtk.py $(CURDIR)/debian/ubuntu-express-frontend-gtk/usr/lib/python2.4/site-packages/ue/frontend/
 	cp $(CURDIR)/glade/liveinstaller.glade* $(CURDIR)/debian/ubuntu-express-frontend-gtk/usr/share/ubuntu-express/glade/
 
 	# Ubuntu-express
