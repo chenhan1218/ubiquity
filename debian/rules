@@ -49,14 +49,14 @@ install:
 	cp -r $(CURDIR)/glade/pixmaps/guadalinex $(CURDIR)/debian/ubuntu-express-guadalinex-artwork/usr/share/ubuntu-express/glade/pixmaps/
 
 	# Gtk+ Frontend
-	cp $(CURDIR)/lib/frontend/Gnome.py $(CURDIR)/debian/ubuntu-express-frontend-gtk/usr/lib/python2.4/site-packages/UE/frontend/
+	cp $(CURDIR)/lib/frontend/Gnome.py $(CURDIR)/debian/ubuntu-express-frontend-gtk/usr/lib/python2.4/site-packages/ue/frontend/
 	cp $(CURDIR)/glade/liveinstaller.glade* $(CURDIR)/debian/ubuntu-express-frontend-gtk/usr/share/ubuntu-express/glade/
 
 	# Ubuntu-express
-	cp $(CURDIR)/lib/frontend/noui.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/UE/frontend/
-	cp $(CURDIR)/lib/frontend/__init__.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/UE/frontend/
+	cp $(CURDIR)/lib/frontend/noui.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/frontend/
+	cp $(CURDIR)/lib/frontend/__init__.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/frontend/
 	cp -r $(CURDIR)/doc/* $(CURDIR)/debian/ubuntu-express/usr/share/doc/ubuntu-express/
-	cp -r $(CURDIR)/lib/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/UE/
+	cp -r $(CURDIR)/lib/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/
 	cp $(CURDIR)/ubuntu-express $(CURDIR)/installer $(CURDIR)/debian/ubuntu-express/usr/bin/
 	rm -rf `find $(CURDIR)/debian/ -name .svn`
 
