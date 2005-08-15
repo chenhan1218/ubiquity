@@ -57,6 +57,7 @@ install:
 	cp $(CURDIR)/lib/frontend/__init__.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/frontend/
 	cp -r $(CURDIR)/doc/* $(CURDIR)/debian/ubuntu-express/usr/share/doc/ubuntu-express/
 	cp -r $(CURDIR)/lib/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/
+	cp -a $(CURDIR)/lib/{*.py,backend} $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/
 	cp $(CURDIR)/ubuntu-express $(CURDIR)/installer $(CURDIR)/debian/ubuntu-express/usr/bin/
 	rm -rf `find $(CURDIR)/debian/ -name .svn`
 
