@@ -1,7 +1,8 @@
 #!/usr/bin/python
 
+import misc
 
-def format_target(self, mountpoints):
+def format_target(mountpoints):
     '''format_target(mountpoints) -> bool
 
     From mountpoints extract the devices to partition 
@@ -12,16 +13,20 @@ def format_target(self, mountpoints):
     for path, device in mountpoints.items():
         if path in ['/']:
             try:
-                self.ex('mkfs.ext3','device')
+                misc.ex('mkfs.ext3','device')
             except:
                 return False
         elif path == 'swap':
             try:
-                self.ex('mkswap','device')
+                misc.ex('mkswap','device')
             except:
                 return False
     return True
 
-
+if __name__ == '__main__':
+  import cPickle
+  file = open('/tmp/vars')
+  mountpoints = cPickle.load(file)
+  format_target(mountpoints)
 
 # vim:ai:et:sts=2:tw=80:sw=2:

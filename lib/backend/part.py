@@ -2,7 +2,6 @@
 
 # Last modified by Antonio Olmo <aolmo@emergya.info> on 5 august 2005.
 
-import gtk
 import subprocess
 from os import popen4
 
@@ -27,6 +26,7 @@ def call_gparted(main_window):
   '''call_autoparted() -> dict {'mount point' : 'dev'}
                        -> None
   '''
+  import gtk
   mountpoints = {'/'     : '/dev/hda1',
                  'swap'  : '/dev/hda2',
                  '/home' : '/dev/hda3'}
