@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import misc
+from ue import misc
 
 def format_target(mountpoints):
     '''format_target(mountpoints) -> bool
@@ -24,9 +24,7 @@ def format_target(mountpoints):
     return True
 
 if __name__ == '__main__':
-  import cPickle
-  file = open('/tmp/vars')
-  mountpoints = cPickle.load(file)
+  mountpoints = get_var()
   format_target(mountpoints)
 
 # vim:ai:et:sts=2:tw=80:sw=2:

@@ -41,6 +41,19 @@ def ex(args):
         raise CommandFailed(str(args))
     return 0
 
+def get_var():
+  import cPickle
+  file = open('/tmp/vars')
+  var = cPickle.load(file)
+  file.close()
+  return var
+  
+def set_var(var):
+  import cPickle
+  file = open('/tmp/vars', 'w')
+  cPickle.dump(var, file, -1)
+  file.close()
+
 class CommandFailed(Exception):
   pass
 
