@@ -19,8 +19,8 @@ import os
 import ue
 from ue import misc
 
-def install(type='gtk'):
-    '''install(type='gtk') -> none
+def install(type='gtkui'):
+    '''install(type='gtkui') -> none
     
     Get the type of frontend to use and load the module for that.
     '''
@@ -40,7 +40,7 @@ def unmount_target(mountpoints):
     misc.ex('umount', target)
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2
+    if len(sys.argv) == 2:
         install(sys.argv[1])
     install()
 

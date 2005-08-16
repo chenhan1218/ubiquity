@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+import pygtk
+pygtk.require('2.0')
+
 import gtk.glade
 import gnome.ui
 import gtkmozembed
@@ -11,7 +14,7 @@ from pango import FontDescription
 from gettext import bindtextdomain, textdomain, install
 from locale import setlocale, LC_ALL
 
-from ue.part import call_autoparted, call_gparted
+from ue.backend.part import call_autoparted, call_gparted
 from ue.validation import *
 
 

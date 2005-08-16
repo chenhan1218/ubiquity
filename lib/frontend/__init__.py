@@ -1,3 +1,3 @@
 #!/usr/bin/python
 
-__all__ = ['gtk', 'noui']
+__all__ = ['gtkui', 'noui']
