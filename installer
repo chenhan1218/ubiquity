@@ -15,83 +15,33 @@ and configure everything.
 '''
 
 import sys
-import shutil
 import os
-import debconf
 import ue
+from ue import misc
 
-class Installer:
-    source = '/source'
-    target = '/target'
+def install(type='gtk'):
+    '''install(type='gtk') -> none
     
-    def frontend(self, type='gtk'):
-        '''frontend(type='gtk') -> none
-        
-        Get the type of frontend to use and load the module for that.
-        Get the locales stuff with get_locales() method and ask
-        the hostname, fullname, username and  password through the
-        selected frontend.
-        After get everything call to the install() method.
-        '''
-        mod = __import__('ue.frontend', globals(), locals() , [type])
-        ui = getattr(mod, type)
+    Get the type of frontend to use and load the module for that.
+    '''
+    mod = __import__('ue.frontend', globals(), locals() , [type])
+    ui = getattr(mod, type)
 
-        self.distro = os.listdir('/usr/share/ubuntu-express/htmldocs/')[0]
-        self.wizard = ui.Wizard(self.distro)
-        foo = False
-        pid = os.fork()
-        if pid == 0:
-            self.wizard.run()
-            foo = True
-            print 'After run()'
-        else:
-            status = self.wizard.is_active()
-            print status
-            while status == False and foo == False:
-                status = self.wizard.is_active()
-            print status
-            print 'After while'
-            self.install()
+    distro = os.listdir('/usr/share/ubuntu-express/htmldocs/')[0]
+    wizard = ui.Wizard(distro)
+    ret = wizard.run()
 
-    def install(self):
-        '''install() -> none
-
-        Here is all the logic of the program. After get the info from the
-        frontend, the program do all it need to install the distro to the
-        target(partitioning,formating,copy and postconfig).
-        '''
-        timezone, keymap, locales = self.get_locales()
-        hostname, fullname, username, password = self.wizard.get_info()
-	mountpoints = self.wizard.get_partitions()
-        #self.format_target(mountpoints)
-        #self.mount_target(mountpoints)
-        self.mount_source()
-        try:
-            self.copy_all()
-        finally:
-            self.unmount_source()
-
-        try:
-            self.configure_fstab(mountpoints)
-            self.configure_timezone(timezone)
-            self.configure_keymap(keymap)
-            self.configure_user(username, password, fullname)
-            self.configure_hostname(hostname)
-            self.configure_network()
-            #self.configure_bootloader(mountpoints['/'])
-            self.configure_hardware()
-        finally:
-            #self.unmount_target(mountpoints)
-            pass
-    def unmount_target(self, mountpoints):
-        for path, device in mountpoints.items():
-            if path in ('/', 'swap'):
-                continue
-            path = os.path.join(self.target, path[1:])
-            self.ex('umount', path)
-        self.ex('umount', self.target)
+def unmount_target(mountpoints):
+    for path, device in mountpoints.items():
+        if path in ('/', 'swap'):
+            continue
+        path = os.path.join(target, path[1:])
+        misc.ex('umount', path)
+    misc.ex('umount', target)
 
 if __name__ == '__main__':
-    Installer().frontend()
+    if len(sys.argv) == 2
+        install(sys.argv[1])
+    install()
 
 # vim:ai:et:sts=4:tw=80:sw=4:
