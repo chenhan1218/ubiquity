@@ -87,11 +87,13 @@ class Wizard:
     self.distro = distro
 
     # Buttons
+    self.help = self.main_window.get_widget('help')
     self.cancel = self.main_window.get_widget('cancel')
     self.back = self.main_window.get_widget('back')
     self.next = self.main_window.get_widget('next')
     self.back.hide()
-    self.next.set_label('Start')
+    self.help.hide()
+    self.next.set_label('gtk-media-next')
     
     self.steps = self.main_window.get_widget('steps')
     
@@ -228,19 +230,16 @@ class Wizard:
   def on_next_clicked(self, widget):
     step = self.steps.get_current_page()
     if step == 0:
-      self.next.set_label('Next')
+      self.next.set_label('gtk-go-forward')
+      self.help.show()
     elif step == 1:
       if not self.checked_partitions:
         self.check_partitions()
       self.info_loop()
       self.back.show()
-      self.next.set_label('Next')
-    elif step == 2:
-      self.back.show()
-      self.next.set_label('Next')
     elif step == 3:
-      self.next.set_label('Next')
       self.back.hide()
+      self.help.hide()
       #self.child = Thread(target=self.images_loop())
       #self.child.run()
       self.installation = True
@@ -258,17 +257,8 @@ class Wizard:
     
   def on_back_clicked(self, widget):
     step = self.steps.get_current_page()
-    if step == 1:
-      self.next.set_label('Start')
+    if step == 2:
       self.back.hide()
-    elif step == 2:
-      self.back.hide()
-    elif step == 3:
-      self.back.show()
-      self.next.set_label('Next')
-    elif step == 4:
-      self.next.set_label('Next')
-      self.next.connect('clicked', lambda *x: self.on_next_clicked(widget))
     
     if step is not 5:
       self.steps.prev_page()
