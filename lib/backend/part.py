@@ -13,6 +13,11 @@ def call_autoparted ():
 
   result = None
 
+  #   Needed command seemed to be 'autopartition'.
+  #   Without args, starts automatically.
+  #   If one argument is added, it targets this device
+  #   to automatically partition.
+  
   [input, output] = popen4 ('autopartition')
 
   return result
