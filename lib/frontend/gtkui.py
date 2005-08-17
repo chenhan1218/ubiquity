@@ -119,7 +119,6 @@ class Wizard:
     self.logo_image3 = self.main_window.get_widget('logo_image3')
     self.logo_image4 = self.main_window.get_widget('logo_image4')
     
-    
     self.fullname = self.main_window.get_widget('fullname')
     self.username = self.main_window.get_widget('username')
     self.password = self.main_window.get_widget('password')
@@ -240,9 +239,11 @@ class Wizard:
         self.check_partitions()
       self.info_loop()
       self.back.show()
+      self.browser_vbox.destroy()
     elif step == 3:
       self.back.hide()
       self.help.hide()
+      self.embedded.destroy()
       #self.child = Thread(target=self.images_loop())
       #self.child.run()
       self.installation = True

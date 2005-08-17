@@ -13,11 +13,6 @@ def call_autoparted ():
 
   result = None
 
-#   La orden necesaria parece 'autopartition'.
-#   Sin órdenes, parte automáticamente.
-#   Si se le pasa un parámetro, éste indica el dispositivo a particionar
-#   automáticamente.
-
   [input, output] = popen4 ('autopartition')
 
   return result
@@ -41,17 +36,15 @@ def call_gparted(main_window):
 
   try:
     subprocess.Popen(['/usr/bin/gparted', '-i', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
-    if ( stdin is not '' ):
-      mountpoints = stdin
   except:
-
     try:
       subprocess.Popen(['/usr/local/bin/gparted', '-i', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
-      if ( stdin is not '' ):
-        mountpoints = stdin
     except:
-      pass
-  
+      main_window.get_widget('embedded').destroy()
+    
+    if ( stdin is not '' ):
+      mountpoints = stdin
+
   return mountpoints
 
 # vim:ai:et:sts=2:tw=80:sw=2:
