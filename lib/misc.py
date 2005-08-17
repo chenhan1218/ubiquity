@@ -39,7 +39,8 @@ def ex(args):
     status = subprocess.call(args)
     if status != 0:
         raise CommandFailed(str(args))
-    return 0
+        return False
+    return True
 
 def get_var():
   import cPickle
@@ -53,6 +54,27 @@ def set_var(var):
   file = open('/tmp/vars', 'w')
   cPickle.dump(var, file, -1)
   file.close()
+
+def log(code, msg, file):
+  import logging
+  logging.basicConfig(level=logging.DEBUG,
+                      format='%(asctime)s %(levelname)-8s %(message)s',
+                      datefmt='%a, %d %b %Y %H:%M:%S',
+                      filename=file,
+                      filemode='a')
+  eval('logging.%s(\'%s\')' % (code,msg))
+
+def pre_log(code, msg=''):
+  log(code, msg, '/var/log/installer')
+  
+def post_log(code, msg=''):
+  log(code, msg, '/target/var/log/installer')
+  
+def get_progress(str):
+  progress[0] = str.split()[:1]
+  progress[1] = str.split()[1:]
+  return progress 
+  
 
 class CommandFailed(Exception):
   pass
