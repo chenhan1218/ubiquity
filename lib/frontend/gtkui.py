@@ -240,7 +240,7 @@ class Wizard:
       self.info_loop()
       self.back.show()
       self.browser_vbox.destroy()
-    elif step == 3:
+    elif step in [2, 3]:
       self.back.hide()
       self.help.hide()
       self.embedded.destroy()
@@ -256,8 +256,13 @@ class Wizard:
       self.back.show()
       self.cancel.hide()
       
-    if step is not 5:
+    if step in [0, 1, 3, 4]:
       self.steps.next_page()
+    elif step == 2:
+      self.steps.set_page(4)
+    
+  def on_gparted_clicked(self, widget):
+    self.steps.next_page()
     
   def on_back_clicked(self, widget):
     step = self.steps.get_current_page()
