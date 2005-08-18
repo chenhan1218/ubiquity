@@ -34,12 +34,16 @@ def make_yaboot_header(target):
     \
     ' % (ofpath, partnr, root, timeout, yaboot_location) )
 
-def ex(args):
+def ex(*args):
     import subprocess
     status = subprocess.call(args)
+    msg = ''
+    for word in args:
+      msg += str(word) + ' '
     if status != 0:
-        raise CommandFailed(str(args))
-        return False
+      pre_log('error', msg)
+      return False
+    pre_log('info', msg)
     return True
 
 def get_var():
@@ -55,28 +59,28 @@ def set_var(var):
   cPickle.dump(var, file, -1)
   file.close()
 
-def log(code, msg, file):
+def pre_log(code, msg=''):
   import logging
   logging.basicConfig(level=logging.DEBUG,
                       format='%(asctime)s %(levelname)-8s %(message)s',
                       datefmt='%a, %d %b %Y %H:%M:%S',
-                      filename=file,
+                      filename='/var/log/installer',
                       filemode='a')
   eval('logging.%s(\'%s\')' % (code,msg))
-
-def pre_log(code, msg=''):
-  log(code, msg, '/var/log/installer')
   
 def post_log(code, msg=''):
-  log(code, msg, '/target/var/log/installer')
+  import logging
+  logging.basicConfig(level=logging.DEBUG,
+                      format='%(asctime)s %(levelname)-8s %(message)s',
+                      datefmt='%a, %d %b %Y %H:%M:%S',
+                      filename='/target/var/log/installer',
+                      filemode='a')
+  eval('logging.%s(\'%s\')' % (code,msg))
   
 def get_progress(str):
   progress[0] = str.split()[:1]
   progress[1] = str.split()[1:]
   return progress 
   
-
-class CommandFailed(Exception):
-  pass
 
 # vim:ai:et:sts=2:tw=80:sw=2:

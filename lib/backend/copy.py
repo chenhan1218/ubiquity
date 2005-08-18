@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import os
+import subprocess
 from ue import misc
 
 
@@ -13,41 +14,46 @@ class Copy:
 
   def run(self):
     print '0 Preparing the target in the disc'
-    if self.mount_target():
-      print '5 Prepared the target in the disc'
-      misc.pre_log('info', 'Mounting target')
-    else:
-      misc.pre_log('error', 'Mounting target')
-      return False
+#    misc.pre_log('info', 'Mounting target')
+#    if self.mount_target():
+#      print '3 Prepared the target in the disc'
+#      misc.pre_log('info', 'Mounted target')
+#    else:
+#      misc.pre_log('error', 'Mounting target')
+#      return False
       
-    print '7 Getting the distro to copy'
+    print '4 Getting the distro to copy'
+    misc.pre_log('info', 'Mounting source')
     if self.mount_source():
-      print '10 Got the distro to copy'
-      misc.pre_log('info', 'Mounting source')
+      print '5 Got the distro to copy'
+      misc.pre_log('info', 'Mounted source')
     else:
       misc.pre_log('error', 'Mounting source')
       return False
       
-    print '12 Copying the distro files to the disc'
+    print '6 Copying the distro files to the disc'
+    misc.pre_log('info', 'Copying distro')
     if self.copy_all():
-      print '85 Copied the distro files to the disc'
-      misc.pre_log('info', 'Copying distro')
+      print '90 Copied the distro files to the disc'
+      misc.pre_log('info', 'Copied distro')
     else:
       misc.pre_log('error', 'Copying distro')
       return False
       
-    print '86 Copying the logs files to the disc'
+    print '91 Copying the logs files to the disc'
+    misc.pre_log('info', 'Copying logs files')
     if self.copy_logs():
-      print '90 Copied the logs files to the disc'
-      misc.post_log('info', 'Copying logs files')
+      print '92 Copied the logs files to the disc'
+      misc.post_log('info', 'Copied logs files')
     else:
       misc.pre_log('error', 'Copying logs files')
       return False
       
-    print '91 Releasing the copied distro image'
-    if self.mount_source():
-      print '92 Released the copied distro image'
-      misc.post_log('info', 'Umounting source')
+    print '93 Releasing the copied distro image'
+    misc.post_log('info', 'Umounting source')
+    if self.unmount_source():
+      print '94 Released the copied distro image'
+      misc.post_log('info', 'Umounted source')
     else:
       misc.post_log('error', 'Umounting source')
       return False
@@ -71,8 +77,26 @@ class Copy:
     files = []
     total_size = 0
     
+    misc.pre_log('info','Recolecting files to copy')
     for dirpath, dirnames, filenames in os.walk(self.source):
       sourcepath = dirpath[len(self.source)+1:]
+      if sourcepath.startswith('etc'):
+        print 7
+      elif sourcepath.startswith('home'):
+        print 8
+      elif sourcepath.startswith('media'):
+        print 10
+      elif sourcepath.startswith('usr/doc'):
+        print 11
+      elif sourcepath.startswith('usr/local'):
+        print 13
+      elif sourcepath.startswith('usr/src'):
+        print 15
+      elif sourcepath.startswith('var/backups'):
+        print 16
+      elif sourcepath.startswith('var/tmp'):
+        print 17
+
 
       for name in dirnames + filenames:
         relpath = os.path.join(sourcepath, name)
@@ -85,6 +109,8 @@ class Copy:
         else:
           files.append((relpath, None))
 
+    misc.pre_log('info','About to start copying')
+
     copy = subprocess.Popen(['cpio', '-d0mp', self.target],
                             cwd=self.source,
                             stdin=subprocess.PIPE)
@@ -95,44 +121,56 @@ class Copy:
       if size is not None:
         copied_bytes += size
       per = (copied_bytes * 100) / total_size
+      # Adjusting the percentage
+      per = (per*73/100)+17
       print per
 
     copy.stdin.close()
     copy.wait()
+    return True
     
   def copy_logs(self):
     try:
-      misc.ex('cp', '-a', '/var/log/installer', os.path.join(self.target,'/var/log/installer'))
+      misc.ex('cp', '-a', '/var/log/installer',
+              os.path.join(self.target,'/var/log/installer'))
     except IOError, error:
       misc.pre_log('error', error)
       return False
+
     return True
 
   def mount_source(self):
     from os import path
+    self.dev = ''
     files = ['/cdrom/casper/filesystem.cloop', '/cdrom/META/META.squashfs']
     for f in files:
       if path.isfile(f) and path.splitext(f)[1] == '.cloop':
     	file = f
-    	self.dev = '/dev/cloop1'
+        self.dev = '/dev/cloop1'
       elif path.isfile(f) and path.splitext(f)[1] == '.squashfs':
     	file = f
     	self.dev = '/dev/loop3'
-      else:
-        return -1			
+
+    if self.dev == '':
+      return False
 
     misc.ex('losetup', self.dev, file)
-    os.mkdir(self.source)
+    if not os.path.isdir(self.source):
+      os.mkdir(self.source)
+      misc.pre_log('info', 'mkdir %s' % self.source)
     misc.ex('mount', self.dev, self.source)
-    return 0
+    return True
 
   def unmount_source(self):
-    misc.ex('umount', self.source)
-    misc.ex('losetup', '-d', self.dev)
+    if not misc.ex('umount', self.source):
+      return False
+    if not misc.ex('losetup', '-d', self.dev):
+      return False
+    return True
 
 
 if __name__ == '__main__':
-  mountpoints = misc.get_vars()
+  mountpoints = misc.get_var()
   copy = Copy(mountpoints)
   copy.run()
 
