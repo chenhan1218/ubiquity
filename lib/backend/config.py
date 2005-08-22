@@ -1,90 +1,22 @@
 #!/usr/bin/python
 
-from ue import misc
+import re
 
 class Config:
 
-  def __init__(self, vars):
+  def __init__(self):
       # We get here the current kernel version
       self.kernel_version = open('/proc/sys/kernel/osrelease').readline().strip()
       self.distro = os.listdir('/usr/share/ubuntu-express/htmldocs/')[0]
       self.target = '/target/'
-      # Getting vars: fullname, username, password, hostname
-      # and mountpoints
-      for var in vars.keys():
-        setattr(self,var,vars[var])
 
   def run(self):
       
     print '92 Configuring the hardware and system'
-    misc.post_log('info', 'Configuring distro')
+    #FIXME: Call all teh methods
     if self.get_locales():
-      print '92 Configured the hardware and system'
-      misc.post_log('info', 'Configured distro')
-      return True
-    else:
-      misc.post_log('error', 'Configuring distro')
-      return False
-    print '93 Configuring the hardware and system'
-    misc.post_log('info', 'Configuring distro')
-    if self.configure_fstab():
-      print '93 Configured the hardware and system'
-      misc.post_log('info', 'Configured distro')
-      return True
-    else:
-      misc.post_log('error', 'Configuring distro')
-      return False
-    print '94 Configuring the hardware and system'
-    misc.post_log('info', 'Configuring distro')
-    if self.configure_timezone():
-      print '94 Configured the hardware and system'
-      misc.post_log('info', 'Configured distro')
-      return True
-    else:
-      misc.post_log('error', 'Configuring distro')
-      return False
-    print '95 Configuring the hardware and system'
-    misc.post_log('info', 'Configuring distro')
-    if self.configure_user():
-      print '95 Configured the hardware and system'
-      misc.post_log('info', 'Configured distro')
-      return True
-    else:
-      misc.post_log('error', 'Configuring distro')
-      return False
-    print '96 Configuring the hardware and system'
-    misc.post_log('info', 'Configuring distro')
-    if self.configure_hostname():
-      print '96 Configured the hardware and system'
-      misc.post_log('info', 'Configured distro')
-      return True
-    else:
-      misc.post_log('error', 'Configuring distro')
-      return False
-    print '97 Configuring the hardware and system'
-    misc.post_log('info', 'Configuring distro')
-    if self.configure_hardware():
-      print '97 Configured the hardware and system'
-      misc.post_log('info', 'Configured distro')
-      return True
-    else:
-      misc.post_log('error', 'Configuring distro')
-      return False
-    print '98 Configuring the hardware and system'
-    misc.post_log('info', 'Configuring distro')
-    if self.configure_network():
-      print '98 Configured the hardware and system'
-      misc.post_log('info', 'Configured distro')
-      return True
-    else:
-      misc.post_log('error', 'Configuring distro')
-      return False
-    print '99 Configuring the hardware and system'
-    misc.post_log('info', 'Configuring distro')
-    if self.configure_bootloader():
       print '100 Configured the hardware and system'
-      misc.post_log('info', 'Configured distro')
-      return True
+      misc.post_log('info', 'Configuring distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
@@ -100,19 +32,19 @@ class Config:
       db = debconf.Debconf()
       
       try:
-        self.timezone = db.get('express/timezone')
-        if self.timezone == '':
-            self.timezone = db.get('tzconfig/choose_country_zone_multiple')
+        timezone = db.get('express/timezone')
+        if timezone == '':
+            timezone = db.get('tzconfig/choose_country_zone_multiple')
       except:
-        self.timezone = open('/etc/timezone').readline().strip()
-      self.keymap = db.get('debian-installer/keymap')
+        timezone = open('/etc/timezone').readline().strip()
+      keymap = db.get('debian-installer/keymap')
         
-      self.locales = db.get('locales/default_environment_locale')
-      return True
+      locales = db.get('locales/default_environment_locale')
+      return timezone, keymap, locales
   
-  def configure_fstab(self):
+  def configure_fstab(self, mountpoints):
       fstab = open(os.path.join(self.target,'etc/fstab'), 'w')
-      for path, device in self.mountpoints.items():
+      for path, device in mountpoints.items():
           if path == '/':
               passno = 1
           else:
@@ -124,31 +56,31 @@ class Config:
           print >>fstab, '%s\t%s\t%s\t%s\t%d\t%d' % (device, path, filesystem, options, 0, passno)
       fstab.close()
   
-  def configure_timezone(self):
+  def configure_timezone(self, timezone):
       # tzsetup ignores us if these exist
       for tzfile in ('etc/timezone', 'etc/localtime'):
           path = os.path.join(self.target, tzfile)
           if os.path.exists(path):
               os.unlink(path)
   
-      self.set_debconf('base-config', 'tzconfig/preseed_zone', self.timezone)
+      self.set_debconf('base-config', 'tzconfig/preseed_zone', timezone)
       self.chrex('tzsetup', '-y')
   
-  def configure_keymap(self):
-      self.set_debconf('debian-installer', 'debian-installer/keymap', self.keymap)
-      self.chrex('install-keymap', self.keymap)
+  def configure_keymap(self, keymap):
+      self.set_debconf('debian-installer', 'debian-installer/keymap', keymap)
+      self.chrex('install-keymap', keymap)
   
-  def configure_user(self):
+  def configure_user(self, username, password, fullname):
       self.chrex('passwd', '-l', 'root')
-      self.set_debconf('passwd', 'passwd/username', self.username)
-      self.set_debconf('passwd', 'passwd/user-fullname', self.fullname)
-      self.set_debconf('passwd', 'passwd/user-password', self.password)
-      self.set_debconf('passwd', 'passwd/user-password-again', self.password)
+      self.set_debconf('passwd', 'passwd/username', username)
+      self.set_debconf('passwd', 'passwd/user-fullname', fullname)
+      self.set_debconf('passwd', 'passwd/user-password', password)
+      self.set_debconf('passwd', 'passwd/user-password-again', password)
       self.reconfigure('passwd')
   
-  def configure_hostname(self):
+  def configure_hostname(self, hostname):
       fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
-      print >>fp, self.hostname
+      print >>fp, hostname
       fp.close()
   
   def configure_hardware(self):
@@ -171,12 +103,11 @@ class Config:
       self.chex('/usr/share/setup-tool-backends/scripts/network-conf','--set',
       '<','/tmp/network.xml')
   
-  def configure_bootloader(self):
+  def configure_bootloader(self, target_dev):
       # Copying the old boot config
       files = ['/etc/lilo.conf', '/boot/grub/menu.lst','/etc/grub.conf',
                '/boot/grub/grub.conf']
       TEST = '/mnt/test/'
-      target_dev = self.mountpoints['/']
       grub_dev = misc.grub_dev(target_dev)
       distro = self.distro.capitalize()
       proc_file = open('/proc/partitions').readlines()
@@ -215,14 +146,33 @@ class Config:
           #misc.make_yaboot_header(self.target)
           pass
       yaboot_conf = open(self.target + '/etc/yaboot.conf', 'a')
+      partition = re.compile(r'[0-9]+$')
       yaboot_conf.write(' \
-      =/boot/vmlinuz-%s \
-      label=%s \
+      ## yaboot.conf generated by the Ubuntu installer \
+      ## \
+      ## run: "man yaboot.conf" for details. Do not make changes until you have!! \
+      ## see also: /usr/share/doc/yaboot/examples for example configurations. \
+      ## \
+      ## For a dual-boot menu, add one or more of: \
+      ## bsd=/dev/hdaX, macos=/dev/hdaY, macosx=/dev/hdaZ \
+      \
+      boot=%s \
+      device=/pci@f4000000/ata-6@d/disk@0: \
+      partition=%s \
       root=%s \
-      initrd=/boot/initrd.img-%s \
-      append="root=%s ro vga=791 quiet" \
-      read-only \
-      ' % (self.kernel_version, distro, target_dev, self.kernel_version, target_dev) )
+      timeout=50 \
+      install=/usr/lib/yaboot/yaboot \
+      magicboot=/usr/lib/yaboot/ofboot \
+      enablecdboot \
+      \
+      default=%s \
+      \
+      image=/boot/vmlinux-%s \
+        label=%s \
+        read-only \
+        initrd=/boot/initrd.img-%s \
+        append="quiet splash" \
+      ' % (boot_partition, partition.search(target_dev).group(), target_dev, distro, self.kernel_version, distro, self.kernel_version) )
   
       yaboot_conf.close()
   
@@ -232,15 +182,7 @@ class Config:
       '<','/tmp/boot.xml')
   
   def chrex(self, *args):
-    msg = ''
-    for word in args:
-      msg += str(word) + ' '
-    if not misc.ex('chroot', self.target, *args):
-      post_log('error', 'chroot' + msg)
-      return False
-    post_log('info', 'chroot' + msg)
-    return True
-
+      misc.ex('chroot', self.target, *args)
   
   def copy_debconf(self, package):
       targetdb = os.path.join(self.target, 'var/cache/debconf/config.dat')
@@ -261,8 +203,7 @@ class Config:
   
 
 if __name__ == '__main__':
-  vars = misc.get_var()
-  config = Config(vars)
+  config = Config()
   config.run()
 
 # vim:ai:et:sts=2:tw=80:sw=2:
