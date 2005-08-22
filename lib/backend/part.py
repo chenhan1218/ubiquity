@@ -27,6 +27,7 @@ def call_gparted(main_window):
                        -> None
   '''
   import gtk
+  import sys
   mountpoints = {'/'     : '/dev/hda1',
                  'swap'  : '/dev/hda2',
                  '/home' : '/dev/hda3'}
@@ -47,8 +48,8 @@ def call_gparted(main_window):
     except:
       main_window.get_widget('embedded').destroy()
     
-    if ( stdin is not '' ):
-      mountpoints = stdin
+    if ( sys.stdin is not '' ):
+      mountpoints = sys.stdin
 
   return mountpoints
 
