@@ -211,18 +211,17 @@ class Config:
   
       # For the Yaboot
       if not os.path.exists(self.target + '/etc/yaboot.conf'):
-          #FIXME: finish this function
-          #misc.make_yaboot_header(self.target)
-          pass
+          misc.make_yaboot_header(self.target, target_dev)
       yaboot_conf = open(self.target + '/etc/yaboot.conf', 'a')
       yaboot_conf.write(' \
-      =/boot/vmlinuz-%s \
-      label=%s \
-      root=%s \
-      initrd=/boot/initrd.img-%s \
-      append="root=%s ro vga=791 quiet" \
-      read-only \
-      ' % (self.kernel_version, distro, target_dev, self.kernel_version, target_dev) )
+      default=%s \
+      \
+      image=/boot/vmlinux-%s \
+        label=%s \
+        read-only \
+        initrd=/boot/initrd.img-%s \
+        append="quiet splash" \
+      ' % (distro, self.kernel_version, distro, self.kernel_version) )
   
       yaboot_conf.close()
   
