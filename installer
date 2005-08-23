@@ -48,7 +48,7 @@ if __name__ == '__main__':
     if not os.path.isfile('/tmp/vars'):
         misc.pre_log('error', 'Vars file no found')
         sys.exit(1)
-    mountpoints = misc.get_var()
+    mountpoints = misc.get_var()['mountpoints']
     unmount_target(mountpoints)
 
 # vim:ai:et:sts=4:tw=80:sw=4:

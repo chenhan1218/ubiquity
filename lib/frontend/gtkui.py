@@ -28,7 +28,14 @@ class Wizard:
     # declare attributes
     self.distro = distro
     self.checked_partitions = False
-    self.info = []
+    self.hostname = ''
+    self.fullname = ''
+    self.name = ''
+    self.password = ''
+    # just for testings
+    self.mountpoints = {'/'     : '/dev/hda1',
+                        'swap'  : '/dev/hda2',
+                        '/home' : '/dev/hda3'}
     self.gparted = False
     PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', distro)
     self.entries = {'hostname' : 0, 'fullname' : 0, 'username' : 0, 'password' : 0, 'verified_password' : 0}
@@ -181,11 +188,15 @@ class Wizard:
     # From Info to Part1
     elif step == 1:
       self.browser_vbox.destroy()
-      self.back.show()
-      if not self.checked_partitions:
-        if not self.check_partitions():
-          return          
-      self.steps.next_page()
+      self.back.hide()
+      self.help.hide()
+      self.gparted_loop()
+      self.steps.set_current_page(3)
+      #self.back.show()
+      #if not self.checked_partitions:
+      #  if not self.check_partitions():
+      #    return          
+      #self.steps.next_page()
     # From Part1 to part2
     elif step == 2 and self.gparted:
       self.back.hide()
