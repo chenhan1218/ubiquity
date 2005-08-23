@@ -142,10 +142,12 @@ class Wizard:
   def set_vars_file(self):
     from ue import misc
     vars = {}
-    attribs = ['hostname','fullname','name','password','mountpoints']
+    attribs = ['hostname','fullname','name','password']
     try:
-      for var in attribs:
-        vars[var] = getattr(self, var)
+      for name in attribs:
+        var = getattr(self, name)
+        vars[name] = var.get_text()
+      vars['mountpoints'] = self.mountpoints
     except:
       pre_log('error', 'Missed attrib to write to /tmp/vars')
       self.quit()      
