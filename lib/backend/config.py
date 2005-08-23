@@ -7,7 +7,7 @@ class Config:
   def __init__(self, vars):
       # We get here the current kernel version
       self.kernel_version = open('/proc/sys/kernel/osrelease').readline().strip()
-      self.distro = os.listdir('/usr/share/ubuntu-express/htmldocs/')[0]
+      self.distro = open('/etc/lsb-release').readline().strip().split('=')[1].lower()
       self.target = '/target/'
       # Getting vars: fullname, username, password, hostname
       # and mountpoints

@@ -27,7 +27,7 @@ def install(type='gtkui'):
     mod = __import__('ue.frontend', globals(), locals() , [type])
     ui = getattr(mod, type)
 
-    distro = os.listdir('/usr/share/ubuntu-express/htmldocs/')[0]
+    distro = open('/etc/lsb-release').readline().strip().split('=')[1].lower()
     wizard = ui.Wizard(distro)
     ret = wizard.run()
 
