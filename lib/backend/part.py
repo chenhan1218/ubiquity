@@ -2,8 +2,7 @@
 
 # Last modified by Antonio Olmo <aolmo@emergya.info> on 5 august 2005.
 
-import subprocess
-from os import popen4
+from subprocess import *
 
 def call_autoparted ():
 
@@ -28,9 +27,6 @@ def call_gparted(main_window):
   '''
   import gtk
   import sys
-  mountpoints = {'/'     : '/dev/hda1',
-                 'swap'  : '/dev/hda2',
-                 '/home' : '/dev/hda3'}
 
   # plug/socket implementation (Gparted integration)
   socket = gtk.Socket()
@@ -41,16 +37,20 @@ def call_gparted(main_window):
   # TODO: rewrite next block.
 
   try:
-    subprocess.Popen(['/usr/bin/gparted', '-i', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+    out = Popen(['/usr/bin/gparted', '-i', Wid], stdin=PIPE, stdout=PIPE,
+                close_fds=True).stdout
   except:
     try:
-      subprocess.Popen(['/usr/local/bin/gparted', '-i', Wid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+      out = Popen(['/usr/local/bin/gparted', '-i', Wid], stdin=PIPE,
+                  stdout=PIPE, close_fds=True).stdout
     except:
       main_window.get_widget('embedded').destroy()
+      return None
     
-    if ( sys.stdin is not '' ):
-      mountpoints = sys.stdin
-
+  #FIXME:We need to know how the mounpoints are showed up
+  # get the output last line 
+  line = out.readlines()[-1].strip()
+  
   return mountpoints
 
 # vim:ai:et:sts=2:tw=80:sw=2:
