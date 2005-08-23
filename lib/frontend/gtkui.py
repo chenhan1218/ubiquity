@@ -31,6 +31,7 @@ class Wizard:
     self.info = []
     self.gparted = False
     PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', distro)
+    self.entries = {'hostname' : 0, 'fullname' : 0, 'username' : 0, 'password' : 0, 'verified_password' : 0}
     
     # set custom language
     self.set_locales()
@@ -127,10 +128,6 @@ class Wizard:
       return True
 
 
-  def info_loop(self):
-    print 'info_loop()'
-
-
   def progress_loop(self):
     # Use get_progress(str) -> [NUM, MSG]
     print 'progress_loop()'
@@ -160,13 +157,25 @@ class Wizard:
   def on_live_installer_delete_event(self, widget):
     self.quit()
 
+  def info_loop(self, widget):
+    counter = 0
+    if (widget.get_text() is not '' ):
+      self.entries[widget.get_name()] = 1
+    else:
+      self.entries[widget.get_name()] = 0
+    for k, v in self.entries.items():
+      if ( v == 1 ):
+        counter+=1
+    if (counter == 5 ):
+      self.next.set_sensitive(True)
+
   def on_next_clicked(self, widget):
     step = self.steps.get_current_page()
     print 'Step_before = ', step
     # From Welcome to Info
     if step == 0:
-      self.info_loop()
       self.next.set_label('gtk-go-forward')
+      self.next.set_sensitive(False)
       self.help.show()
       self.steps.next_page()
     # From Info to Part1

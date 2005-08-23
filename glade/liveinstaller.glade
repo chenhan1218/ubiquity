@@ -353,6 +353,7 @@
 					  <property name="has_frame">True</property>
 					  <property name="invisible_char">*</property>
 					  <property name="activates_default">False</property>
+					  <signal name="changed" handler="info_loop" last_modification_time="Tue, 23 Aug 2005 17:02:20 GMT"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">2</property>
@@ -374,6 +375,7 @@
 					  <property name="has_frame">True</property>
 					  <property name="invisible_char">*</property>
 					  <property name="activates_default">False</property>
+					  <signal name="changed" handler="info_loop" last_modification_time="Tue, 23 Aug 2005 17:02:29 GMT"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">2</property>
@@ -451,6 +453,7 @@
 					  <property name="has_frame">True</property>
 					  <property name="invisible_char">*</property>
 					  <property name="activates_default">False</property>
+					  <signal name="changed" handler="info_loop" last_modification_time="Tue, 23 Aug 2005 17:02:41 GMT"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">2</property>
@@ -472,6 +475,7 @@
 					  <property name="has_frame">True</property>
 					  <property name="invisible_char">*</property>
 					  <property name="activates_default">False</property>
+					  <signal name="changed" handler="info_loop" last_modification_time="Tue, 23 Aug 2005 17:02:51 GMT"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">2</property>
@@ -647,6 +651,7 @@
 					  <property name="has_frame">True</property>
 					  <property name="invisible_char">*</property>
 					  <property name="activates_default">False</property>
+					  <signal name="changed" handler="info_loop" last_modification_time="Tue, 23 Aug 2005 17:03:01 GMT"/>
 					</widget>
 					<packing>
 					  <property name="left_attach">2</property>
