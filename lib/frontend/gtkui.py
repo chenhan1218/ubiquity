@@ -30,7 +30,7 @@ class Wizard:
     self.checked_partitions = False
     self.info = []
     self.gparted = False
-    PIXMAPSDIR = os.path.join(GLADEDIR, distro)
+    PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', distro)
     
     # set custom language
     self.set_locales()
@@ -108,7 +108,17 @@ class Wizard:
     self.mountpoints = None
     self.mountpoints = call_autoparted()
     if self.mountpoints is None:
-      self.mountpoints = call_gparted(self.glade)
+      self.help.hide()
+      self.steps.next_page()
+      self.gparted_loop()
+      return False
+    return True
+
+
+  def gparted_loop(self):
+    print 'gparted_loop()'
+    self.mountpoints = None
+    self.mountpoints = call_gparted(self.embedded)
     if self.mountpoints is None:
       self.checked_partitions = False
       return False
@@ -118,51 +128,77 @@ class Wizard:
 
 
   def info_loop(self):
-    pass
+    print 'info_loop()'
 
 
   def progress_loop(self):
     # Use get_progress(str) -> [NUM, MSG]
-    pass
+    print 'progress_loop()'
 
   def set_vars_file(self):
     from ue import misc
     vars = {}
     attribs = ['hostname','fullname','name','password','mountpoints']
-    for var in attribs:
-      vars[var] = getattr(self, var)
-    misc.set_var(vars)
+    try:
+      for var in attribs:
+        vars[var] = getattr(self, var)
+    except:
+      pre_log('error', 'Missed attrib to write to /tmp/vars')
+      self.quit()      
+    else:
+      print 'Before to write'
+      misc.set_var(vars)
+
+  def quit(self):
+    gtk.main_quit()
  
 
   # Callbacks
   def on_cancel_clicked(self, widget):
-    gtk.main_quit()
+    self.quit()
 
   def on_live_installer_delete_event(self, widget):
-    gtk.main_quit()
+    self.quit()
 
   def on_next_clicked(self, widget):
     step = self.steps.get_current_page()
+    print 'Step_before = ', step
+    # From Welcome to Info
     if step == 0:
+      self.info_loop()
       self.next.set_label('gtk-go-forward')
       self.help.show()
+      self.steps.next_page()
+    # From Info to Part1
     elif step == 1:
       self.browser_vbox.destroy()
-      if not self.checked_partitions:
-        self.check_partitions()
-      self.info_loop()
       self.back.show()
-    elif step == 2:
-      self.embedded.destroy()
+      if not self.checked_partitions:
+        if not self.check_partitions():
+          return          
+      self.steps.next_page()
+    # From Part1 to part2
+    elif step == 2 and self.gparted:
+      self.back.hide()
+      self.help.hide()
+      self.steps.next_page()
+      self.gparted_loop()
+    # From Part1 to Progress
+    elif step == 2 and not self.gparted:
       self.back.hide()
       self.help.hide()
       self.set_vars_file()
+      self.progress_loop()
+      self.steps.set_current_page(4)
+    # From Part2 to Progress
     elif step == 3:
       self.embedded.destroy()
       self.back.hide()
       self.help.hide()
       self.set_vars_file()
       self.progress_loop()
+      self.steps.next_page()
+    # From Progress to Finish
     elif step == 4:
       self.next.set_label('Finish and Reboot')
       self.next.connect('clicked', lambda *x: gtk.main_quit())
@@ -170,13 +206,10 @@ class Wizard:
       self.back.connect('clicked', lambda *x: gtk.main_quit())
       self.back.show()
       self.cancel.hide()
+      self.steps.next_page()
       
-    if step in [0, 1, 3, 4]:
-      self.steps.next_page()
-    elif step == 2 and self.gparted:
-      self.steps.next_page()
-    elif step == 2 and not self.gparted:
-      self.steps.set_current_page(4)
+    step = self.steps.get_current_page()
+    print 'Step_after = ', step
 
   def on_back_clicked(self, widget):
     step = self.steps.get_current_page()

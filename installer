@@ -19,6 +19,8 @@ import os
 import ue
 from ue import misc
 
+TARGET = '/target'
+
 def install(type='gtkui'):
     '''install(type='gtkui') -> none
     
@@ -35,15 +37,18 @@ def unmount_target(mountpoints):
     for path, device in mountpoints.items():
         if path in ('/', 'swap'):
             continue
-        path = os.path.join(target, path[1:])
+        path = os.path.join(TARGET, path[1:])
         misc.ex('umount', path)
-    misc.ex('umount', target)
+    misc.ex('umount', TARGET)
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
         install(sys.argv[1])
     install()
+    if not os.path.isfile('/tmp/vars'):
+        misc.pre_log('error', 'Vars file no found')
+        sys.exit(1)
     mountpoints = misc.get_var()
-    umount_target(mountpoints)
+    unmount_target(mountpoints)
 
 # vim:ai:et:sts=4:tw=80:sw=4:

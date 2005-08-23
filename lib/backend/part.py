@@ -17,11 +17,11 @@ def call_autoparted ():
   #   If one argument is added, it targets this device
   #   to automatically partition.
   
-  [input, output] = popen4 ('autopartition')
+  #[input, output] = popen4 ('autopartition')
 
   return result
 
-def call_gparted(main_window):
+def call_gparted(widget):
   '''call_autoparted() -> dict {'mount point' : 'dev'}
                        -> None
   '''
@@ -31,25 +31,28 @@ def call_gparted(main_window):
   # plug/socket implementation (Gparted integration)
   socket = gtk.Socket()
   socket.show()
-  main_window.get_widget('embedded').add(socket)
+  widget.add(socket)
   Wid = str(socket.get_id())
 
   # TODO: rewrite next block.
+  mountpoints = None
 
   try:
-    out = Popen(['/usr/bin/gparted', '-i', Wid], stdin=PIPE, stdout=PIPE,
-                close_fds=True).stdout
+    Popen(['/usr/bin/gparted', '-i', Wid], stdin=PIPE, stdout=PIPE,
+                close_fds=True)
+    # get the output last line 
+    #line = out.readlines()[-1].strip()
   except:
     try:
       out = Popen(['/usr/local/bin/gparted', '-i', Wid], stdin=PIPE,
                   stdout=PIPE, close_fds=True).stdout
+      # get the output last line 
+      line = out.readlines()[-1].strip()
     except:
-      main_window.get_widget('embedded').destroy()
+      widget.destroy()
       return None
     
   #FIXME:We need to know how the mounpoints are showed up
-  # get the output last line 
-  line = out.readlines()[-1].strip()
   
   return mountpoints
 
