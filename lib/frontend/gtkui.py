@@ -39,8 +39,8 @@ class Wizard:
     self.glade = gtk.glade.XML('%s/liveinstaller.glade' % GLADEDIR)
     
     # get widgets
-    for widget in glade.get_widget_prefix(""):
-      setattr(self, widget, self.glade.get_widget(widget))
+    for widget in self.glade.get_widget_prefix(""):
+      setattr(self, widget.get_name(), widget)
      
     # set initial status
     self.back.hide()
