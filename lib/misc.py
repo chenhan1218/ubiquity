@@ -60,6 +60,21 @@ def ex(*args):
     pre_log('info', msg)
     return True
 
+def ret_ex(*args):
+    import subprocess
+    msg = ''
+    for word in args:
+      msg += str(word) + ' '
+    try:
+      proc = subprocess.Popen(args, shell=True, stdout=PIPE, close_fds=True)
+    except IOError, e:
+      pre_log('error', msg)
+      pre_log('error', "I/O error(%s): %s" % (e.errno, e.strerror))
+      return None
+    else:    
+      pre_log('info', msg)
+      return proc.stdout
+
 def get_var():
   import cPickle
   file = open('/tmp/vars')
@@ -92,9 +107,9 @@ def post_log(code, msg=''):
   eval('logging.%s(\'%s\')' % (code,msg))
   
 def get_progress(str):
-  progress[0] = str.split()[:1]
-  progress[1] = str.split()[1:]
-  return progress 
+  num = int(str.split()[:1])
+  text = ' '.join(str.split()[1:])
+  return num, text
   
 
 # vim:ai:et:sts=2:tw=80:sw=2:
