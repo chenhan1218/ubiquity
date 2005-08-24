@@ -11,7 +11,7 @@ import glob
 
 from gettext import bindtextdomain, textdomain, install
 
-from ue.backend.part import call_autoparted, call_gparted
+from ue.backend import *
 from ue.validation import *
 from ue.misc import *
 
@@ -30,6 +30,7 @@ class Wizard:
     # declare attributes
     self.distro = distro
     self.checked_partitions = False
+    self.pid = False
     self.hostname = ''
     self.fullname = ''
     self.name = ''
@@ -121,7 +122,7 @@ class Wizard:
     #                    '/home' : '/dev/hda3'}
                    
     self.mountpoints = None
-    self.mountpoints = call_autoparted()
+    self.mountpoints = part.call_autoparted()
     if self.mountpoints is None:
       self.help.hide()
       self.steps.next_page()
@@ -131,9 +132,9 @@ class Wizard:
 
 
   def gparted_loop(self):
-    print 'gparted_loop()'
+    pre_log('info', 'gparted_loop()')
     self.mountpoints = None
-    self.mountpoints = call_gparted(self.embedded)
+    self.mountpoints = part.call_gparted(self.embedded)
     if self.mountpoints is None:
       self.checked_partitions = False
       return False
@@ -143,8 +144,32 @@ class Wizard:
 
 
   def progress_loop(self):
-    # Use get_progress(str) -> [NUM, MSG]
-    print 'progress_loop()'
+    pre_log('info', 'progress_loop()')
+    path = os.path.dirname(os.path.realpath(os.curdir))
+    path = os.path.join(path, 'backend')
+    ex(path + 'format.py')
+    self.pid = os.fork()
+    if self.pid == 0:
+      source = ret_ex(path + 'copy.py')
+      io_add_watch(source,IO_IN,self.read_stdout)
+    os.waitpid(self.pid, 0)
+    self.pid = os.fork()
+    if self.pid == 0:
+      source = ret_ex(path + 'config.py')
+      io_add_watch(source,IO_IN,self.read_stdout)
+    os.waitpid(self.pid, 0)
+    
+  def set_progress(self, msg):
+    num , text = get_progress(msg)
+    self.progressbar.set_percentage(num/100.0)
+    self.progressbar.set_text(text)
+    
+  def read_stdout(self, source, condition):
+    msg = source.readline()
+    if msg.startswith('Exit'):
+      return False
+    set_progress(msg)
+    return True
 
   def set_vars_file(self):
     from ue import misc
@@ -159,12 +184,14 @@ class Wizard:
       pre_log('error', 'Missed attrib to write to /tmp/vars')
       self.quit()      
     else:
-      print 'Before to write'
       misc.set_var(vars)
 
   def quit(self):
+    if self.pid:
+      os.kill(self.pid, 9)
     # Tell the user how much time they used
-    print 'You wasted %.2f seconds with this installation' % (time.time()-self.start)
+    post_log('info', 'You wasted %.2f seconds with this installation' %
+                      (time.time()-self.start))
     
     gtk.main_quit()
  
@@ -197,7 +224,7 @@ class Wizard:
 
   def on_next_clicked(self, widget):
     step = self.steps.get_current_page()
-    print 'Step_before = ', step
+    pre_log('info', 'Step_before = %d' % step)
     # From Welcome to Info
     if step == 0:
       self.next.set_label('gtk-go-forward')
@@ -252,7 +279,7 @@ class Wizard:
       self.steps.next_page()
       
     step = self.steps.get_current_page()
-    print 'Step_after = ', step
+    pre_log('info', 'Step_after = %d' % step)
 
   def on_back_clicked(self, widget):
     step = self.steps.get_current_page()
