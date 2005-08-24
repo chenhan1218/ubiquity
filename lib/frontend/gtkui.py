@@ -145,6 +145,7 @@ class Wizard:
 
   def progress_loop(self):
     pre_log('info', 'progress_loop()')
+    self.set_vars_file()
     path = os.path.dirname(os.path.realpath(os.curdir))
     path = os.path.join(path, 'backend')
     ex(path + 'format.py')
@@ -253,7 +254,6 @@ class Wizard:
     elif step == 2 and not self.gparted:
       self.back.hide()
       self.help.hide()
-      self.set_vars_file()
       self.progress_loop()
       # Set timeout objects
       self.timeout_images = gobject.timeout_add(60000, self.images_loop)
@@ -263,7 +263,6 @@ class Wizard:
       self.embedded.destroy()
       self.back.hide()
       self.help.hide()
-      self.set_vars_file()
       self.progress_loop()
       # Set timeout objects
       self.timeout_images = gobject.timeout_add(60000, self.images_loop)
