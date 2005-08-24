@@ -149,7 +149,7 @@ class Wizard:
     # Set timeout objects
     self.timeout_images = gobject.timeout_add(60000, self.images_loop)
     path = os.path.dirname(os.path.realpath(os.curdir))
-    path = os.path.join(path, 'backend')
+    path = os.path.join(path, 'backend/')
     ex(path + 'format.py')
     self.pid = os.fork()
     if self.pid == 0:
