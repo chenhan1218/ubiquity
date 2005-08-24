@@ -263,5 +263,6 @@ if __name__ == '__main__':
   vars = misc.get_var()
   config = Config(vars)
   config.run()
+  print 'Exit'
 
 # vim:ai:et:sts=2:tw=80:sw=2:

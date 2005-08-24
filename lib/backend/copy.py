@@ -14,13 +14,13 @@ class Copy:
 
   def run(self):
     print '0 Preparing the target in the disc'
-#    misc.pre_log('info', 'Mounting target')
-#    if self.mount_target():
-#      print '3 Prepared the target in the disc'
-#      misc.pre_log('info', 'Mounted target')
-#    else:
-#      misc.pre_log('error', 'Mounting target')
-#      return False
+    misc.pre_log('info', 'Mounting target')
+    if self.mount_target():
+      print '3 Prepared the target in the disc'
+      misc.pre_log('info', 'Mounted target')
+    else:
+      misc.pre_log('error', 'Mounting target')
+      return False
       
     print '4 Getting the distro to copy'
     misc.pre_log('info', 'Mounting source')
@@ -173,5 +173,6 @@ if __name__ == '__main__':
   mountpoints = misc.get_var()
   copy = Copy(mountpoints)
   copy.run()
+  print 'Exit'
 
 # vim:ai:et:sts=2:tw=80:sw=2:
