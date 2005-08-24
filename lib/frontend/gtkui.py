@@ -146,31 +146,26 @@ class Wizard:
   def progress_loop(self):
     pre_log('info', 'progress_loop()')
     self.set_vars_file()
+    # Set timeout objects
+    self.timeout_images = gobject.timeout_add(60000, self.images_loop)
     path = os.path.dirname(os.path.realpath(os.curdir))
     path = os.path.join(path, 'backend')
     ex(path + 'format.py')
     self.pid = os.fork()
     if self.pid == 0:
       source = ret_ex(path + 'copy.py')
-      io_add_watch(source,IO_IN,self.read_stdout)
+      gobject.io_add_watch(source,gobject.IO_IN,self.read_stdout)
     os.waitpid(self.pid, 0)
     self.pid = os.fork()
     if self.pid == 0:
       source = ret_ex(path + 'config.py')
-      io_add_watch(source,IO_IN,self.read_stdout)
+      gobject.io_add_watch(source,gobject.IO_IN,self.read_stdout)
     os.waitpid(self.pid, 0)
     
   def set_progress(self, msg):
     num , text = get_progress(msg)
     self.progressbar.set_percentage(num/100.0)
     self.progressbar.set_text(text)
-    
-  def read_stdout(self, source, condition):
-    msg = source.readline()
-    if msg.startswith('Exit'):
-      return False
-    set_progress(msg)
-    return True
 
   def set_vars_file(self):
     from ue import misc
@@ -203,6 +198,13 @@ class Wizard:
 
   def on_live_installer_delete_event(self, widget):
     self.quit()
+    
+  def read_stdout(self, source, condition):
+    msg = source.readline()
+    if msg.startswith('Exit'):
+      return False
+    set_progress(msg)
+    return True
 
   def info_loop(self, widget):
     counter = 0
@@ -255,8 +257,6 @@ class Wizard:
       self.back.hide()
       self.help.hide()
       self.progress_loop()
-      # Set timeout objects
-      self.timeout_images = gobject.timeout_add(60000, self.images_loop)
       self.steps.set_current_page(4)
     # From Part2 to Progress
     elif step == 3:
@@ -264,8 +264,6 @@ class Wizard:
       self.back.hide()
       self.help.hide()
       self.progress_loop()
-      # Set timeout objects
-      self.timeout_images = gobject.timeout_add(60000, self.images_loop)
       self.steps.next_page()
     # From Progress to Finish
     elif step == 4:
