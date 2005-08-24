@@ -24,7 +24,7 @@ def format_target(mountpoints):
     return True
 
 if __name__ == '__main__':
-  mountpoints = get_var()
+  mountpoints = misc.get_var()['mountpoints']
   format_target(mountpoints)
 
 # vim:ai:et:sts=2:tw=80:sw=2:
