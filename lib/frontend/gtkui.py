@@ -6,6 +6,8 @@ pygtk.require('2.0')
 import gtk.glade
 import gtkmozembed
 import os
+import time, gobject
+import glob
 
 from gettext import bindtextdomain, textdomain, install
 
@@ -39,6 +41,13 @@ class Wizard:
     self.gparted = False
     PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', distro)
     self.entries = {'hostname' : 0, 'fullname' : 0, 'username' : 0, 'password' : 0, 'verified_password' : 0}
+    self.install_image = 0
+    self.total_images=glob.glob("%s/snapshot*.png" % PIXMAPSDIR)
+    self.total_messages=open("%s/messages.txt" % PIXMAPSDIR).readlines()
+    
+    # Start a timer to see how long the user runs this program
+    self.start = time.time()
+    
     
     # set custom language
     self.set_locales()
@@ -102,8 +111,6 @@ class Wizard:
     self.browser_vbox.add(widget)
     widget.show()
 
-
-
   # Methods
   def check_partitions(self):
     #FIXME: Check if it's possible to run the partman-auto
@@ -156,6 +163,9 @@ class Wizard:
       misc.set_var(vars)
 
   def quit(self):
+    # Tell the user how much time they used
+    print 'You wasted %.2f seconds with this installation' % (time.time()-self.start)
+    
     gtk.main_quit()
  
 
@@ -177,6 +187,13 @@ class Wizard:
         counter+=1
     if (counter == 5 ):
       self.next.set_sensitive(True)
+
+  def images_loop(self):
+    self.install_image+=1
+    step = self.install_image % len(self.total_images) -1
+    self.installing_image.set_from_file(self.total_images[step])
+    self.installing_text.get_buffer().set_text(self.total_messages[step])
+    return True
 
   def on_next_clicked(self, widget):
     step = self.steps.get_current_page()
@@ -211,6 +228,8 @@ class Wizard:
       self.help.hide()
       self.set_vars_file()
       self.progress_loop()
+      # Set timeout objects
+      self.timeout_images = gobject.timeout_add(60000, self.images_loop)
       self.steps.set_current_page(4)
     # From Part2 to Progress
     elif step == 3:
@@ -219,6 +238,8 @@ class Wizard:
       self.help.hide()
       self.set_vars_file()
       self.progress_loop()
+      # Set timeout objects
+      self.timeout_images = gobject.timeout_add(60000, self.images_loop)
       self.steps.next_page()
     # From Progress to Finish
     elif step == 4:
