@@ -44,7 +44,7 @@
 	      <child>
 		<widget class="GtkLabel" id="label18">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">&lt;span size=&quot;xx-large&quot; foreground=&quot;white&quot; background=&quot;#9F6C49&quot; &gt; &lt;span size=&quot;x-large&quot; foreground=&quot;black&quot; &gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;1. Indentification&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;2. Disk space&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;3. Installation&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;4. Ready!&lt;/span&gt; &lt;/span&gt;</property>
+		  <property name="label" translatable="yes">&lt;span size=&quot;xx-large&quot; foreground=&quot;white&quot; background=&quot;#9F6C49&quot; &gt;  &lt;span size=&quot;x-large&quot; foreground=&quot;black&quot; &gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;1. Indentification&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;2. Disk space&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;3. Installation&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;4. Ready!&lt;/span&gt; &lt;/span&gt;</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">True</property>
 		  <property name="justify">GTK_JUSTIFY_CENTER</property>
@@ -122,7 +122,7 @@
 	      <child>
 		<widget class="GtkLabel" id="title-0">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">&lt;span size=&quot;xx-large&quot; foreground=&quot;white&quot; background=&quot;#9F6C49&quot; &gt; &lt;span size=&quot;x-large&quot;&gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; » &lt;span size=&quot;x-large&quot; foreground=&quot;black&quot;&gt;1. Indentification&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;2. Disk space&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;3. Installation&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;4. Ready!&lt;/span&gt; &lt;/span&gt;</property>
+		  <property name="label" translatable="yes">&lt;span size=&quot;xx-large&quot; foreground=&quot;white&quot; background=&quot;#9F6C49&quot; &gt;  &lt;span size=&quot;x-large&quot;&gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; » &lt;span size=&quot;x-large&quot; foreground=&quot;black&quot;&gt;1. Indentification&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;2. Disk space&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;3. Installation&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;4. Ready!&lt;/span&gt; &lt;/span&gt;</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">True</property>
 		  <property name="justify">GTK_JUSTIFY_CENTER</property>
@@ -782,7 +782,7 @@
 	      <child>
 		<widget class="GtkLabel" id="title-2-1">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">&lt;span size=&quot;xx-large&quot; foreground=&quot;white&quot; background=&quot;#9F6C49&quot; &gt; &lt;span size=&quot;x-large&quot;&gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;1. Indentification&lt;/span&gt; » &lt;span foreground=&quot;black&quot; size=&quot;x-large&quot;&gt;2. Disk space&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;3. Installation&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;4. Ready!&lt;/span&gt; &lt;/span&gt;</property>
+		  <property name="label" translatable="yes">&lt;span size=&quot;xx-large&quot; foreground=&quot;white&quot; background=&quot;#9F6C49&quot; &gt;  &lt;span size=&quot;x-large&quot;&gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;1. Indentification&lt;/span&gt; » &lt;span foreground=&quot;black&quot; size=&quot;x-large&quot;&gt;2. Disk space&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;3. Installation&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;4. Ready!&lt;/span&gt; &lt;/span&gt;</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">True</property>
 		  <property name="justify">GTK_JUSTIFY_CENTER</property>
@@ -991,7 +991,7 @@
 	      <child>
 		<widget class="GtkLabel" id="title-2-2">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">&lt;span size=&quot;xx-large&quot; foreground=&quot;white&quot; background=&quot;#9F6C49&quot; &gt; &lt;span size=&quot;x-large&quot;&gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;1. Indentification&lt;/span&gt; » &lt;span foreground=&quot;black&quot; size=&quot;x-large&quot;&gt;2. Disk space&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;3. Installation&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;4. Ready!&lt;/span&gt; &lt;/span&gt;</property>
+		  <property name="label" translatable="yes">&lt;span size=&quot;xx-large&quot; foreground=&quot;white&quot; background=&quot;#9F6C49&quot; &gt;  &lt;span size=&quot;x-large&quot;&gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;1. Indentification&lt;/span&gt; » &lt;span foreground=&quot;black&quot; size=&quot;x-large&quot;&gt;2. Disk space&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;3. Installation&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;4. Ready!&lt;/span&gt; &lt;/span&gt;</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">True</property>
 		  <property name="justify">GTK_JUSTIFY_CENTER</property>
@@ -1187,7 +1187,7 @@
 	      <child>
 		<widget class="GtkLabel" id="label23">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">&lt;span size=&quot;xx-large&quot; foreground=&quot;white&quot; background=&quot;#9F6C49&quot; &gt; &lt;span size=&quot;x-large&quot;&gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;1. Indentification&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;2. Disk space&lt;/span&gt; » &lt;span foreground=&quot;black&quot; size=&quot;x-large&quot;&gt;3. Installation&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;4. Ready!&lt;/span&gt; &lt;/span&gt;</property>
+		  <property name="label" translatable="yes">&lt;span size=&quot;xx-large&quot; foreground=&quot;white&quot; background=&quot;#9F6C49&quot; &gt;  &lt;span size=&quot;x-large&quot;&gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;1. Indentification&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;2. Disk space&lt;/span&gt; » &lt;span foreground=&quot;black&quot; size=&quot;x-large&quot;&gt;3. Installation&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;4. Ready!&lt;/span&gt; &lt;/span&gt;</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">True</property>
 		  <property name="justify">GTK_JUSTIFY_CENTER</property>
@@ -1388,7 +1388,7 @@ installed.</property>
 	      <child>
 		<widget class="GtkLabel" id="label24">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">&lt;span size=&quot;xx-large&quot; foreground=&quot;white&quot; background=&quot;#9F6C49&quot; &gt; &lt;span size=&quot;x-large&quot;&gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;1. Indentification&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;2. Disk space&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;3. Installation&lt;/span&gt; » &lt;span foreground=&quot;black&quot; size=&quot;x-large&quot;&gt;4. Ready!&lt;/span&gt; &lt;/span&gt;</property>
+		  <property name="label" translatable="yes">&lt;span size=&quot;xx-large&quot; foreground=&quot;white&quot; background=&quot;#9F6C49&quot; &gt;  &lt;span size=&quot;x-large&quot;&gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;1. Indentification&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;2. Disk space&lt;/span&gt; » &lt;span size=&quot;x-large&quot;&gt;3. Installation&lt;/span&gt; » &lt;span foreground=&quot;black&quot; size=&quot;x-large&quot;&gt;4. Ready!&lt;/span&gt; &lt;/span&gt;</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">True</property>
 		  <property name="justify">GTK_JUSTIFY_CENTER</property>
