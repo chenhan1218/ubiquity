@@ -171,6 +171,7 @@ class Wizard:
       source = ret_ex(path + 'config.py')
       gobject.io_add_watch(source,gobject.IO_IN,self.read_stdout)
     os.waitpid(self.pid, 0)
+    self.steps.next_page()
 
 
   def set_progress(self, msg):
@@ -282,6 +283,7 @@ class Wizard:
     elif step == 3:
       self.embedded.destroy()
       self.progress_loop()
+      self.next.set_sensitive(False)
       self.steps.next_page()
     # From Progress to Finish
     elif step == 4:
@@ -289,6 +291,7 @@ class Wizard:
       self.next.connect('clicked', lambda *x: gtk.main_quit())
       self.back.set_label('Just Finish')
       self.back.connect('clicked', lambda *x: gtk.main_quit())
+      self.next.set_sensitive(True)
       self.back.show()
       self.cancel.hide()
       self.steps.next_page()
