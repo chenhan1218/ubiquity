@@ -30,20 +30,20 @@ def check_username (name):
             - C{5} is already taken or prohibited.
             - C{6} is C{root}. """
 
-    result = 0
+    result = [0, 0, 0, 0, 0, 0]
 
     if 'root' == name:
-        result = 6
-    elif name in invalid_names ():
-        result = 5
-    elif len (set (name).intersection (set (whitespace))) > 0:
-        result = 4
-    elif len (name) < 3 or len (name) > 24:
-        result = 3
-    elif len (set (name).intersection (set (uppercase))) > 0:
-        result = 2
-    elif '.' in name:
-        result = 1
+        result[5] = 6
+    if name in invalid_names ():
+        result[4] = 5
+    if len (set (name).intersection (set (whitespace))) > 0:
+        result[3] = 4
+    if len (name) < 3 or len (name) > 24:
+        result[2] = 3
+    if len (set (name).intersection (set (uppercase))) > 0:
+        result[1] = 2
+    if '.' in name:
+        result[0] = 1
 
     return result
 
@@ -59,14 +59,14 @@ def check_password (passwd1, passwd2):
             - C{2} wrong length. too long.
             - C{3} strings do not match. """
 
-    result = 0
+    result = [0, 0, 0]
 
     if passwd1 != passwd2:
-        result = 3
-    elif len (passwd1) < 4:
-        result = 1
-    elif len (passwd1) > 16:
-        result = 2
+        result[2] = 3
+    if len (passwd1) < 4:
+        result[0] = 1
+    if len (passwd1) > 16:
+        result[1] = 2
 
     return result
 
@@ -81,12 +81,12 @@ def check_hostname (name):
             - C{1} wrong length.
             - C{2} contains white spaces. """
 
-    result = 0
+    result = [0, 0]
 
     if len (set (name).intersection (set (whitespace))) > 0:
-        result = 2
-    elif len (name) < 3 or len (name) > 18:
-        result = 1
+        result[1] = 2
+    if len (name) < 3 or len (name) > 18:
+        result[0] = 1
 
     return result
 
