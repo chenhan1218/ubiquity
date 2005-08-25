@@ -49,7 +49,6 @@ class Wizard:
     # Start a timer to see how long the user runs this program
     self.start = time.time()
     
-    
     # set custom language
     self.set_locales()
     
@@ -89,6 +88,7 @@ class Wizard:
     self.glade.signal_autoconnect(self)
     gtk.main()
 
+
   def set_locales(self):
     """internationalization config. Use only once."""
     
@@ -98,6 +98,7 @@ class Wizard:
     gtk.glade.textdomain(domain)
     textdomain(domain)
     install(domain, LOCALEDIR, unicode=1)
+
 
   def show_browser(self):
     """Embed Mozilla widget into a vbox."""
@@ -111,6 +112,7 @@ class Wizard:
     widget.get_location()
     self.browser_vbox.add(widget)
     widget.show()
+
 
   # Methods
   def check_partitions(self):
@@ -161,11 +163,13 @@ class Wizard:
       source = ret_ex(path + 'config.py')
       gobject.io_add_watch(source,gobject.IO_IN,self.read_stdout)
     os.waitpid(self.pid, 0)
-    
+
+
   def set_progress(self, msg):
     num , text = get_progress(msg)
     self.progressbar.set_percentage(num/100.0)
     self.progressbar.set_text(text)
+
 
   def set_vars_file(self):
     from ue import misc
@@ -182,6 +186,7 @@ class Wizard:
     else:
       misc.set_var(vars)
 
+
   def quit(self):
     if self.pid:
       os.kill(self.pid, 9)
@@ -190,21 +195,29 @@ class Wizard:
                       (time.time()-self.start))
     
     gtk.main_quit()
- 
+
 
   # Callbacks
   def on_cancel_clicked(self, widget):
     self.quit()
 
+
   def on_live_installer_delete_event(self, widget):
     self.quit()
-    
+
+
+  def on_key_press (self, widget, event):
+    if ( event.keyval == gtk.gdk.keyval_from_name('Return') ) :
+      self.next.clicked()
+
+
   def read_stdout(self, source, condition):
     msg = source.readline()
     if msg.startswith('Exit'):
       return False
     set_progress(msg)
     return True
+
 
   def info_loop(self, widget):
     counter = 0
@@ -218,12 +231,14 @@ class Wizard:
     if (counter == 5 ):
       self.next.set_sensitive(True)
 
+
   def images_loop(self):
     self.install_image+=1
     step = self.install_image % len(self.total_images) -1
     self.installing_image.set_from_file(self.total_images[step])
     self.installing_text.get_buffer().set_text(self.total_messages[step])
     return True
+
 
   def on_next_clicked(self, widget):
     step = self.steps.get_current_page()
@@ -274,9 +289,10 @@ class Wizard:
       self.back.show()
       self.cancel.hide()
       self.steps.next_page()
-      
+    
     step = self.steps.get_current_page()
     pre_log('info', 'Step_after = %d' % step)
+
 
   def on_back_clicked(self, widget):
     step = self.steps.get_current_page()

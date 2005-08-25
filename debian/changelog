@@ -1,4 +1,14 @@
-ubuntu-express (0.7ubuntu1) unstable; urgency=low
+ubuntu-express (0.9ubuntu1) breezy; urgency=low
+
+  * Backend / frontend connection completed.
+  * Bootloader configuration (final implementations).
+  * gtkui.py module full rewrited.
+  * fixed a lot of bugs.
+  * single backend splitted into several separated backends.
+
+ -- Javier Carranza <javier.carranza@interactors.coop>  Wed, 24 Aug 2005 15:43:53 +0200
+
+ubuntu-express (0.7ubuntu1) breezy; urgency=low
 
   * Druid changed into notepad.
   * Backend and frontend connection.
@@ -7,7 +17,7 @@ ubuntu-express (0.7ubuntu1) unstable; urgency=low
 
  -- Javier Carranza <javier.carranza@interactors.coop>  Tue, 16 Aug 2005 21:02:11 +0200
 
-ubuntu-express (0.4ubuntu2) unstable; urgency=low
+ubuntu-express (0.4ubuntu2) breezy; urgency=low
 
   * Some UI changes.
   * A lot of stuff to get more stabililty between UE modules.
@@ -15,7 +25,7 @@ ubuntu-express (0.4ubuntu2) unstable; urgency=low
 
  -- Javier Carranza <javier.carranza@interactors.coop>  Thu, 11 Aug 2005 11:31:20 +0200
 
-ubuntu-express (0.4ubuntu1) unstable; urgency=low
+ubuntu-express (0.4ubuntu1) breezy; urgency=low
 
   * Initial Release.
 
