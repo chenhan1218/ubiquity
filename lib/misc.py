@@ -107,7 +107,7 @@ def post_log(code, msg=''):
   eval('logging.%s(\'%s\')' % (code,msg))
   
 def get_progress(str):
-  num = int(str.split()[:1])
+  num = int(str.split()[:1][0])
   text = ' '.join(str.split()[1:])
   return num, text
   
