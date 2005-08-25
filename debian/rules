@@ -13,6 +13,7 @@ build-stamp:
 	mkdir -p $(BUILDDIR)/ubuntu
 	mkdir -p $(BUILDDIR)/guadalinex
 
+#FIXME: Here is something wrong. Why es.mo?
 	# Ubuntu-doc
 	for file in $$(ls $(CURDIR)/glade/locale/ubuntu/*.po); do msgfmt -o $(BUILDDIR)/ubuntu/es.mo $(CURDIR)/glade/locale/ubuntu/$$(basename $$file); done || true
 
@@ -56,10 +57,9 @@ install:
 	cp $(CURDIR)/lib/frontend/noui.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/frontend/
 	cp $(CURDIR)/lib/frontend/__init__.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/frontend/
 	cp -r $(CURDIR)/doc/* $(CURDIR)/debian/ubuntu-express/usr/share/doc/ubuntu-express/
-	cp -r $(CURDIR)/lib/*.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/
 	cp -a $(CURDIR)/lib/{*.py,backend} $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/
 	cp $(CURDIR)/ubuntu-express $(CURDIR)/installer $(CURDIR)/debian/ubuntu-express/usr/bin/
-	rm -rf `find $(CURDIR)/debian/ -name .svn`
+	rm -rf `find $(CURDIR)/debian/*/ -name .svn`
 
 # Build architecture-independent files here.
 binary-indep: install
