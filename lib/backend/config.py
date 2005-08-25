@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from ue import misc
+import debconf
 
 class Config:
 

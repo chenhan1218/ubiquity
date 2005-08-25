@@ -66,7 +66,7 @@ def ret_ex(*args):
     for word in args:
       msg += str(word) + ' '
     try:
-      proc = subprocess.Popen(args, shell=True, stdout=PIPE, close_fds=True)
+      proc = subprocess.Popen(args, stdout=PIPE, close_fds=True)
     except IOError, e:
       pre_log('error', msg)
       pre_log('error', "I/O error(%s): %s" % (e.errno, e.strerror))

@@ -73,7 +73,6 @@ class Wizard:
     self.back.hide()
     self.help.hide()
     self.next.set_label('gtk-media-next')
-    self.next.grab_default()
     
     # set pixmaps
     self.logo_image.set_from_file(os.path.join(PIXMAPSDIR, "logo.png"))
@@ -142,14 +141,15 @@ class Wizard:
 
   def gparted_loop(self):
     pre_log('info', 'gparted_loop()')
-    self.mountpoints = None
-    self.mountpoints = part.call_gparted(self.embedded)
+    #self.mountpoints = None
+    #self.mountpoints = part.call_gparted(self.embedded)
+    self.next.set_sensitive(True)
     if self.mountpoints is None:
       self.checked_partitions = False
       return False
     else:
       self.checked_partitions = True
-      self.next.set_sensitive(True)
+      #self.next.set_sensitive(True)
       return True
 
 
@@ -158,8 +158,7 @@ class Wizard:
     self.set_vars_file()
     # Set timeout objects
     self.timeout_images = gobject.timeout_add(60000, self.images_loop)
-    path = os.path.dirname(os.path.realpath(os.curdir))
-    path = os.path.join(path, 'backend/')
+    path = '/usr/lib/python2.4/site-packages/ue/backend/' 
     ex(path + 'format.py')
     self.pid = os.fork()
     if self.pid == 0:
@@ -183,7 +182,7 @@ class Wizard:
   def set_vars_file(self):
     from ue import misc
     vars = {}
-    attribs = ['hostname','fullname','name','password']
+    attribs = ['hostname','fullname','username','password']
     try:
       for name in attribs:
         var = getattr(self, name)
@@ -224,7 +223,7 @@ class Wizard:
     msg = source.readline()
     if msg.startswith('101'):
       return False
-    set_progress(msg)
+    self.set_progress(msg)
     return True
 
 
@@ -272,8 +271,8 @@ class Wizard:
       #self.steps.next_page()
     # From Part1 to part2
     elif step == 2 and self.gparted:
-      self.gparted_loop()
       self.next.set_sensitive(False)
+      self.gparted_loop()
       self.steps.next_page()
     # From Part1 to Progress
     elif step == 2 and not self.gparted:
@@ -282,8 +281,8 @@ class Wizard:
     # From Part2 to Progress
     elif step == 3:
       self.embedded.destroy()
-      self.progress_loop()
       self.next.set_sensitive(False)
+      self.progress_loop()
       self.steps.next_page()
     # From Progress to Finish
     elif step == 4:
