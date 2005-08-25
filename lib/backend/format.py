@@ -13,12 +13,15 @@ def format_target(mountpoints):
     for path, device in mountpoints.items():
         if path in ['/']:
             try:
-                misc.ex('mkfs.ext3','device')
+                print "0 Preparing the disc"
+                misc.ex('mkfs.ext3', device)
+                print "2 Preparing the disc"
             except:
                 return False
         elif path == 'swap':
             try:
-                misc.ex('mkswap','device')
+                misc.ex('mkswap', device)
+                print "3 Preparing the disc"
             except:
                 return False
     return True
