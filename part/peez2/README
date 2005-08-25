@@ -2,7 +2,7 @@
 # File "part/peez2/README".
 # "peez2" brief how-to.
 # Created by Antonio Olmo <aolmo@emergya.info> on 29 july 2005.
-# Last modified on 3 august 2005.
+# Last modified on 25 august 2005.
 
 	Description
 	-----------
@@ -22,43 +22,47 @@ test it only with unmounted hard disks containing no important data.
 	-----
 
 libparted1.6-12_1.6.21-1.ext3bug_i386.deb: customized parted library.
-peez2_0.7.8_i386.deb:                      Debian package.
-peez2_0.7.8.tar.gz:                        whole development tree.
+peez2_1.0.0rc3_i386.deb:                   Debian package.
+peez2_1.0.0rc3.tar.gz:                     whole development tree.
 
 	Installation
 	------------
 
     In [3] there is an image of a bootable minimal Linux CD
 ("cdlive_pez2.iso") that you can burn to test the software, as it is supposed
-to work on unmounted hard disks. Alternatively, you can try it in your current
-system. Basic installation procedure follow.
+to work on unmounted hard disks. (Notice, however, that the peez2 version in
+this CD image is _not_ up-to-date). Alternatively, you can try it in your current
+system. Basic installation procedure follows.
 
 1. Install the Debian package:
-	sudo dpkg --install peez2_0.7.8_i386.deb
+	sudo dpkg --install peez2_1.0.0rc3_i386.deb
    Maybe you should also install or update some other packages. Usually these
    are:
 	libc6    (>= 2.3.2.ds1-21)
 	libntfs5 (>= 1.9.4)
 2. Set "peez2" libraries directory:
 	export LD_LIBRARY=/usr/lib/peez2
-3. In order to check ext3 partitions with its sparse_super feature enabled,
-   you will have to install the modified libpart package as well:
+
+    In order to check ext3 partitions with its sparse_super feature enabled in
+older versions of peez2, you had to install the modified libpart package as
+well:
 	sudo dpkg --install libparted1.6-12_1.6.21-1.ext3bug_i386.deb
-   and set:
+and set:
 	export PT_FORCE_EXT3_SPARSE=yes
 
 	Usage
 	-----
 
-    See [2] (the documentation provided seems unacurate and incomplete).
+    See [2].
 
 	References
 	----------
 
 [1] Main source of information from "Activa Sistemas":
-    http://activasistemas.com/forja/index.php/Análisis_de_particiones_-_peez2
+    http://www.activasistemas.com/forja/index.php/An%E1lisis_de_particiones_-_peez2
 [2] Usage: http://activasistemas.com/forja/index.php/Uso
 [3] Downloads: http://activasistemas.com/forja/files/peez2
+[4] Installation: http://www.activasistemas.com/forja/index.php/Instalaci%F3n
 
 # End of file.
 
