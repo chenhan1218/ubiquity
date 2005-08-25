@@ -216,7 +216,10 @@ class Wizard:
 
   def on_key_press (self, widget, event):
     if ( event.keyval == gtk.gdk.keyval_from_name('Return') ) :
-      self.next.clicked()
+      if ( not self.help.get_property('has-focus')
+        and not self.back.get_property('has-focus')
+        and not self.cancel.get_property('has-focus') ):
+        self.next.clicked()
 
 
   def on_warning_close(self, widget):
