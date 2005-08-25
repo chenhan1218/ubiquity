@@ -35,16 +35,26 @@ class Wizard:
     self.fullname = ''
     self.name = ''
     self.password = ''
-    # just for testings
-    self.mountpoints = {'/'     : '/dev/hda1',
-                        'swap'  : '/dev/hda2',
-                        '/home' : '/dev/hda3'}
     self.gparted = False
-    PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', distro)
-    self.entries = {'hostname' : 0, 'fullname' : 0, 'username' : 0, 'password' : 0, 'verified_password' : 0}
+    self.entries = {
+                    'hostname' : 0,
+                    'fullname' : 0, 
+                    'username' : 0,
+                    'password' : 0,
+                    'verified_password' : 0
+                    }
+    # images stuff
     self.install_image = 0
-    self.total_images=glob.glob("%s/snapshot*.png" % PIXMAPSDIR)
-    self.total_messages=open("%s/messages.txt" % PIXMAPSDIR).readlines()
+    PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', distro)
+    self.total_images   = glob.glob("%s/snapshot*.png" % PIXMAPSDIR)
+    self.total_messages = open("%s/messages.txt" % PIXMAPSDIR).readlines()
+                        
+    # just for testings
+    self.mountpoints = {
+                        '/'     : '/dev/hda1',
+                        'swap'  : '/dev/hda2',
+                        '/home' : '/dev/hda3'
+                        }
     
     # Start a timer to see how long the user runs this program
     self.start = time.time()
@@ -63,6 +73,7 @@ class Wizard:
     self.back.hide()
     self.help.hide()
     self.next.set_label('gtk-media-next')
+    self.next.grab_default()
     
     # set pixmaps
     self.logo_image.set_from_file(os.path.join(PIXMAPSDIR, "logo.png"))
@@ -119,10 +130,6 @@ class Wizard:
     #FIXME: Check if it's possible to run the partman-auto
     # if not, will run the Gparted
     
-    #self.mountpoints = {'/'     : '/dev/hda1',
-    #                    'swap'  : '/dev/hda2',
-    #                    '/home' : '/dev/hda3'}
-                   
     self.mountpoints = None
     self.mountpoints = part.call_autoparted()
     if self.mountpoints is None:
@@ -142,6 +149,7 @@ class Wizard:
       return False
     else:
       self.checked_partitions = True
+      self.next.set_sensitive(True)
       return True
 
 
@@ -251,10 +259,10 @@ class Wizard:
       self.steps.next_page()
     # From Info to Part1
     elif step == 1:
-      self.browser_vbox.destroy()
-      self.back.hide()
-      self.help.hide()
       self.gparted_loop()
+      self.browser_vbox.destroy()
+      self.help.hide()
+      self.next.set_sensitive(False)
       self.steps.set_current_page(3)
       #self.back.show()
       #if not self.checked_partitions:
@@ -263,21 +271,16 @@ class Wizard:
       #self.steps.next_page()
     # From Part1 to part2
     elif step == 2 and self.gparted:
-      self.back.hide()
-      self.help.hide()
-      self.steps.next_page()
       self.gparted_loop()
+      self.next.set_sensitive(False)
+      self.steps.next_page()
     # From Part1 to Progress
     elif step == 2 and not self.gparted:
-      self.back.hide()
-      self.help.hide()
       self.progress_loop()
       self.steps.set_current_page(4)
     # From Part2 to Progress
     elif step == 3:
       self.embedded.destroy()
-      self.back.hide()
-      self.help.hide()
       self.progress_loop()
       self.steps.next_page()
     # From Progress to Finish
