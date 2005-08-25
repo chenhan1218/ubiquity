@@ -195,6 +195,10 @@ class Wizard:
       misc.set_var(vars)
 
 
+  def show_error(self, msg):
+    self.warning_info.set_text(msg)
+    self.warning_dialog.show()
+
   def quit(self):
     if self.pid:
       os.kill(self.pid, 9)
@@ -210,13 +214,13 @@ class Wizard:
     self.quit()
 
 
-  def on_live_installer_delete_event(self, widget):
-    self.quit()
-
-
   def on_key_press (self, widget, event):
     if ( event.keyval == gtk.gdk.keyval_from_name('Return') ) :
       self.next.clicked()
+
+
+  def on_warning_close(self, widget):
+    self.warning_dialog.hide()
 
 
   def read_stdout(self, source, condition):
@@ -259,16 +263,52 @@ class Wizard:
       self.steps.next_page()
     # From Info to Part1
     elif step == 1:
-      self.gparted_loop()
-      self.browser_vbox.destroy()
-      self.help.hide()
-      self.next.set_sensitive(False)
-      self.steps.set_current_page(3)
-      #self.back.show()
-      #if not self.checked_partitions:
-      #  if not self.check_partitions():
-      #    return          
-      #self.steps.next_page()
+      from ue import validation
+      error_msg = ['\n']
+      error = 0
+      for result in validation.check_username(self.username.get_property('text')):
+        if ( result == 1 ):
+          error_msg.append("* username contains dots (they're not allowed).\n")
+          error = 1
+        elif ( result == 2 ):
+          error_msg.append("* username contains uppercase characters (they're not allowed).\n")
+          error = 1
+        elif ( result == 3 ):
+          error_msg.append("* username wrong length (allowed between 3 and 24 chars).\n")
+          error = 1
+        elif ( result == 4 ):
+          error_msg.append("* username contains white spaces (they're not allowed).\n")
+          error = 1
+        elif ( result in [5, 6] ):
+          error_msg.append("* username is already taken or prohibited.\n")
+          error = 1
+      for result in validation.check_password(self.password.get_property('text'), self.verified_password.get_property('text')):
+        if ( result in [1,2] ):
+          error_msg.append("* password wrong length (allowed between 4 and 16 chars).\n")
+          error = 1
+        elif ( result == 3 ):
+          error_msg.append("* passwords don't match.\n")
+          error = 1
+      for result in validation.check_hostname(self.hostname.get_property('text')):
+        if ( result == 1 ):
+          error_msg.append("* hostname wrong length (allowed between 3 and 18 chars).\n")
+          error = 1
+        elif ( result == 2 ):
+          error_msg.append("* hostname contains white spaces (they're not allowed).\n")
+          error = 1
+      if ( error == 1 ):
+        self.show_error(''.join(error_msg))
+      else:
+        self.gparted_loop()
+        self.browser_vbox.destroy()
+        self.help.hide()
+        self.next.set_sensitive(False)
+        self.steps.set_current_page(3)
+        #self.back.show()
+        #if not self.checked_partitions:
+        #  if not self.check_partitions():
+        #    return          
+        #self.steps.next_page()
     # From Part1 to part2
     elif step == 2 and self.gparted:
       self.next.set_sensitive(False)
