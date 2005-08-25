@@ -1,3 +1,13 @@
+ubuntu-express (0.91ubuntu1) breezy; urgency=low
+
+  * Validation module connected with gtk interface (for user and system input 
+    information).
+  * Gtk interface for validation module fully implemented.
+  * fixed several bugs reported from ubuntu-devel list.
+  * snapshots from quickguide updated.
+
+ -- Javier Carranza <javier.carranza@interactors.coop>  Thu, 25 Aug 2005 16:50:48 +0200
+
 ubuntu-express (0.9ubuntu1) breezy; urgency=low
 
   * Backend / frontend connection completed.
