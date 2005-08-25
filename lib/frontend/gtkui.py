@@ -222,7 +222,7 @@ class Wizard:
 
   def read_stdout(self, source, condition):
     msg = source.readline()
-    if msg.startswith('Exit'):
+    if msg.startswith('101'):
       return False
     set_progress(msg)
     return True
