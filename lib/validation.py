@@ -5,7 +5,7 @@
 # File "validation.py".
 # Validation library.
 # Created by Antonio Olmo <aolmo@emergya.info> on 26 july 2005.
-# Last modified on 2 august 2005.
+# Last modified on 26 august 2005.
 
 from string import whitespace, uppercase
 
