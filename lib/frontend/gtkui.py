@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 import pygtk
 pygtk.require('2.0')
@@ -196,7 +197,7 @@ class Wizard:
 
 
   def show_error(self, msg):
-    self.warning_info.set_text(msg)
+    self.warning_info.set_markup(msg)
     self.warning_dialog.show()
 
   def quit(self):
@@ -271,33 +272,33 @@ class Wizard:
       error = 0
       for result in validation.check_username(self.username.get_property('text')):
         if ( result == 1 ):
-          error_msg.append("* username contains dots (they're not allowed).\n")
+          error_msg.append("· <b>username</b> contains dots (they're not allowed).\n")
           error = 1
         elif ( result == 2 ):
-          error_msg.append("* username contains uppercase characters (they're not allowed).\n")
+          error_msg.append("· <b>username</b> contains uppercase characters (they're not allowed).\n")
           error = 1
         elif ( result == 3 ):
-          error_msg.append("* username wrong length (allowed between 3 and 24 chars).\n")
+          error_msg.append("· <b>username</b> wrong length (allowed between 3 and 24 chars).\n")
           error = 1
         elif ( result == 4 ):
-          error_msg.append("* username contains white spaces (they're not allowed).\n")
+          error_msg.append("· <b>username</b> contains white spaces (they're not allowed).\n")
           error = 1
         elif ( result in [5, 6] ):
-          error_msg.append("* username is already taken or prohibited.\n")
+          error_msg.append("· <b>username</b> is already taken or prohibited.\n")
           error = 1
       for result in validation.check_password(self.password.get_property('text'), self.verified_password.get_property('text')):
         if ( result in [1,2] ):
-          error_msg.append("* password wrong length (allowed between 4 and 16 chars).\n")
+          error_msg.append("· <b>password</b> wrong length (allowed between 4 and 16 chars).\n")
           error = 1
         elif ( result == 3 ):
-          error_msg.append("* passwords don't match.\n")
+          error_msg.append("· <b>passwords</b> don't match.\n")
           error = 1
       for result in validation.check_hostname(self.hostname.get_property('text')):
         if ( result == 1 ):
-          error_msg.append("* hostname wrong length (allowed between 3 and 18 chars).\n")
+          error_msg.append("· <b>hostname</b> wrong length (allowed between 3 and 18 chars).\n")
           error = 1
         elif ( result == 2 ):
-          error_msg.append("* hostname contains white spaces (they're not allowed).\n")
+          error_msg.append("· <b>hostname</b> contains white spaces (they're not allowed).\n")
           error = 1
       if ( error == 1 ):
         self.show_error(''.join(error_msg))
