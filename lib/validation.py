@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.31 """
+""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.47 """
 
 # File "validation.py".
 # Validation library.
