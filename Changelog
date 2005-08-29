@@ -1,3 +1,7 @@
+29-08-2005 Antonio Olmo <aolmo_@_emergya.info>
+	* lib/backend/peez2.py: some "peez2" functions finished.
+	* lib/backend/peez2_test.py: for "peez2" library testing purposes.
+
 09-08-2005 Juan Jesus Ojeda Croissier <juanje_@_interactors.coop>
 	* frontend/Gnome.py: Changed the last page.
 	* frontend/htmldocs/ubuntu/: Changed branded html intro.
