@@ -1,4 +1,4 @@
-#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 # Last modified by Antonio Olmo <aolmo@emergya.info> on 5 august 2005.
 
