@@ -5,7 +5,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 august 2005.
-# Last modified on 29 august 2005.
+# Last modified on 2 september 2005.
 
 # TODO: improve "locale" detection.
 
@@ -14,13 +14,16 @@ from popen2 import Popen3
 # Index:
 # def get_drives ():
 # def get_info (drive):
-# def get_commands (drive):
+# def suggest_actions (drive):
+# def get_commands (drive, option):
 # def call_peez2 (args):
 
 locale = 'es'
 binary = 'peez2'
 common_arguments = '2> /dev/null'
-    
+partition_scheme = '256:1536:512'          # A conservative scheme.
+# partition_scheme = '1024:20480:30720'    # A more realistic scheme.
+
 # Function "get_drives" ______________________________________________________
 
 def get_drives ():
@@ -139,20 +142,51 @@ def get_info (drive):
 
     return result
 
+# Function "suggest_actions" _________________________________________________
+
+def suggest_actions (drive):
+
+    """ Get all the possibilities proposed by "peez2", if any. """
+
+    result = None
+
+    lines = call_peez2 ('-a wizard -d ' + drive + ' -s ' +
+                        partition_scheme) ['out']
+
+    for i in lines:
+
+        if 'OO#' == i [:3]:
+            fields = i [3:].split ('#')
+
+            if None == result:
+                result = {}
+
+            result [fields [0]] = [fields [1], fields [2].strip ()]
+
+    return result
+
 # Function "get_commands" ____________________________________________________
 
-def get_commands (drive):
+def get_commands (drive, option = 1):
 
     """ Get the recommended sequence of partitioning commands, if any. """
 
-    result = []
+    result = None
 
-    child = call_peez2 ('-a wizard -i -d ' + drive)
-    # TODO: parse I/O.
-    print child
+    no_options = 0
+    child = call_peez2 ('-a wizard -i -d ' + drive + ' -s ' +
+                        partition_scheme)
 
-    # For every command found:
-    result.append (None)
+    child_out = child ['out']
+    child_in = child ['in']
+
+    for i in child_out:
+
+        if 'OO#' == i [:3]:
+            no_options = no_options + 1
+
+    if option >= 1 and option <= no_options:
+        child_in.write (option)
 
     return result
 
