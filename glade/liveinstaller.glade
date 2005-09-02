@@ -1395,7 +1395,7 @@
 					      <property name="items" translatable="yes">/dev/hda</property>
 					      <property name="add_tearoffs">False</property>
 					      <property name="focus_on_click">True</property>
-					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 07:51:40 GMT"/>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 11:50:03 GMT"/>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>
@@ -1865,7 +1865,9 @@
 /usr
 /var</property>
 					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
 					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:10:17 GMT"/>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>
@@ -1882,7 +1884,9 @@
 /usr
 /var</property>
 					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
 					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:15:30 GMT"/>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>
@@ -1899,7 +1903,9 @@
 /usr
 /var</property>
 					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
 					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:15:41 GMT"/>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>
@@ -1916,7 +1922,9 @@
 /usr
 /var</property>
 					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
 					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:15:52 GMT"/>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>
@@ -1933,7 +1941,9 @@
 /usr
 /var</property>
 					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
 					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:01 GMT"/>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>
@@ -1950,7 +1960,9 @@
 /usr
 /var</property>
 					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
 					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:11 GMT"/>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>
@@ -1967,7 +1979,9 @@
 /usr
 /var</property>
 					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
 					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:21 GMT"/>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>
@@ -1984,7 +1998,9 @@
 /usr
 /var</property>
 					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
 					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:30 GMT"/>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>
@@ -2001,7 +2017,9 @@
 /usr
 /var</property>
 					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
 					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:39 GMT"/>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>
@@ -2018,7 +2036,9 @@
 /usr
 /var</property>
 					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
 					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:48 GMT"/>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>
