@@ -50,11 +50,12 @@ class Wizard:
     self.total_messages = open("%s/messages.txt" % PIXMAPSDIR).readlines()
                         
     # just for testings
-    self.mountpoints = {
-                        '/'     : '/dev/hda1',
-                        'swap'  : '/dev/hda2',
-                        '/home' : '/dev/hda3'
-                        }
+    #self.mountpoints = {
+    #                    '/'     : '/dev/hda1',
+    #                    'swap'  : '/dev/hda2',
+    #                    '/home' : '/dev/hda3'
+    #                    }
+    self.mountpoints = {}
     
     # Start a timer to see how long the user runs this program
     self.start = time.time()
@@ -88,6 +89,12 @@ class Wizard:
     # set fullscreen mode
     self.live_installer.fullscreen()
     self.live_installer.show()
+
+    for widget in [self.partition1, self.partition2, self.partition3,
+    self.partition4, self.partition5, self.partition6, self.partition7,
+    self.partition8, self.partition9, self.partition10 ]:
+      self.show_partitions(widget)
+    self.steps.set_current_page(4)
 
 
   def run(self):
@@ -232,33 +239,54 @@ class Wizard:
 
   def on_list_changed(self, widget):
     if ( widget.get_active_text() is not "" ):
-      if ( widget.get_name() == 'partition1' ):
+      if ( widget.get_name() == 'partition1' or widget.get_name() == 'mountpoint1' ):
         self.partition2.show()
         self.mountpoint2.show()
-      elif ( widget.get_name() == 'partition2' ):
+        if  ( self.partition1.get_active_text() != "" and self.mountpoint1.get_active_text() != "" ):
+          self.mountpoints[self.partition1.get_active_text()] = self.mountpoint1.get_active_text()
+      elif ( widget.get_name() == 'partition2' or widget.get_name() == 'mountpoint2' ):
         self.partition3.show()
         self.mountpoint3.show()
-      elif ( widget.get_name() == 'partition3' ):
+        if  ( self.partition2.get_active_text() != "" and self.mountpoint2.get_active_text() != "" ):
+            self.mountpoints[self.partition2.get_active_text()] = self.mountpoint2.get_active_text()
+      elif ( widget.get_name() == 'partition3' or widget.get_name() == 'mountpoint3' ):
         self.partition4.show()
         self.mountpoint4.show()
-      elif ( widget.get_name() == 'partition4' ):
+        if  ( self.partition3.get_active_text() != "" and self.mountpoint3.get_active_text() != "" ):
+          self.mountpoints[self.partition3.get_active_text()] = self.mountpoint3.get_active_text()
+      elif ( widget.get_name() == 'partition4' or widget.get_name() == 'mountpoint4' ):
         self.partition5.show()
         self.mountpoint5.show()
-      elif ( widget.get_name() == 'partition5' ):
+        if  ( self.partition4.get_active_text() != "" and self.mountpoint4.get_active_text() != "" ):
+          self.mountpoints[self.partition4.get_active_text()] = self.mountpoint4.get_active_text()
+      elif ( widget.get_name() == 'partition5' or widget.get_name() == 'mountpoint5' ):
         self.partition6.show()
         self.mountpoint6.show()
-      elif ( widget.get_name() == 'partition6' ):
+        if  ( self.partition5.get_active_text() != "" and self.mountpoint5.get_active_text() != "" ):
+          self.mountpoints[self.partition5.get_active_text()] = self.mountpoint5.get_active_text()
+      elif ( widget.get_name() == 'partition6' or widget.get_name() == 'mountpoint6' ):
         self.partition7.show()
         self.mountpoint7.show()
-      elif ( widget.get_name() == 'partition7' ):
+        if  ( self.partition6.get_active_text() != "" and self.mountpoint6.get_active_text() != "" ):
+          self.mountpoints[self.partition6.get_active_text()] = self.mountpoint6.get_active_text()
+      elif ( widget.get_name() == 'partition7' or widget.get_name() == 'mountpoint7' ):
         self.partition8.show()
         self.mountpoint8.show()
-      elif ( widget.get_name() == 'partition8' ):
+        if  ( self.partition7.get_active_text() != "" and self.mountpoint7.get_active_text() != "" ):
+          self.mountpoints[self.partition7.get_active_text()] = self.mountpoint7.get_active_text()
+      elif ( widget.get_name() == 'partition8' or widget.get_name() == 'mountpoint8' ):
         self.partition9.show()
         self.mountpoint9.show()
-      elif ( widget.get_name() == 'partition9' ):
+        if  ( self.partition8.get_active_text() != "" and self.mountpoint8.get_active_text() != "" ):
+          self.mountpoints[self.partition8.get_active_text()] = self.mountpoint8.get_active_text()
+      elif ( widget.get_name() == 'partition9' or widget.get_name() == 'mountpoint9' ):
         self.partition10.show()
         self.mountpoint10.show()
+        if  ( self.partition9.get_active_text() != "" and self.mountpoint9.get_active_text() != "" ):
+          self.mountpoints[self.partition9.get_active_text()] = self.mountpoint9.get_active_text()
+      elif ( widget.get_name() == 'partition10' or widget.get_name() == 'mountpoint10' ):
+        if  ( self.partition10.get_active_text() != "" and self.mountpoint10.get_active_text() != "" ):
+          self.mountpoints[self.partition10.get_active_text()] = self.mountpoint10.get_active_text()
 
 
   def on_key_press (self, widget, event):
