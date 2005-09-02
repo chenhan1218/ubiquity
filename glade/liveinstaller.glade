@@ -1859,7 +1859,8 @@
 					  <child>
 					    <widget class="GtkComboBoxEntry" id="mountpoint1">
 					      <property name="visible">True</property>
-					      <property name="items" translatable="yes">/
+					      <property name="items" translatable="yes">swap
+/
 /home
 /boot
 /usr
@@ -1878,7 +1879,8 @@
 
 					  <child>
 					    <widget class="GtkComboBoxEntry" id="mountpoint2">
-					      <property name="items" translatable="yes">/
+					      <property name="items" translatable="yes">swap
+/
 /home
 /boot
 /usr
@@ -1897,7 +1899,8 @@
 
 					  <child>
 					    <widget class="GtkComboBoxEntry" id="mountpoint3">
-					      <property name="items" translatable="yes">/
+					      <property name="items" translatable="yes">swap
+/
 /home
 /boot
 /usr
@@ -1916,7 +1919,8 @@
 
 					  <child>
 					    <widget class="GtkComboBoxEntry" id="mountpoint4">
-					      <property name="items" translatable="yes">/
+					      <property name="items" translatable="yes">swap
+/
 /home
 /boot
 /usr
@@ -1935,7 +1939,8 @@
 
 					  <child>
 					    <widget class="GtkComboBoxEntry" id="mountpoint5">
-					      <property name="items" translatable="yes">/
+					      <property name="items" translatable="yes">swap
+/
 /home
 /boot
 /usr
@@ -1954,7 +1959,8 @@
 
 					  <child>
 					    <widget class="GtkComboBoxEntry" id="mountpoint6">
-					      <property name="items" translatable="yes">/
+					      <property name="items" translatable="yes">swap
+/
 /home
 /boot
 /usr
@@ -1973,7 +1979,8 @@
 
 					  <child>
 					    <widget class="GtkComboBoxEntry" id="mountpoint7">
-					      <property name="items" translatable="yes">/
+					      <property name="items" translatable="yes">swap
+/
 /home
 /boot
 /usr
@@ -1992,7 +1999,8 @@
 
 					  <child>
 					    <widget class="GtkComboBoxEntry" id="mountpoint8">
-					      <property name="items" translatable="yes">/
+					      <property name="items" translatable="yes">swap
+/
 /home
 /boot
 /usr
@@ -2011,7 +2019,8 @@
 
 					  <child>
 					    <widget class="GtkComboBoxEntry" id="mountpoint9">
-					      <property name="items" translatable="yes">/
+					      <property name="items" translatable="yes">swap
+/
 /home
 /boot
 /usr
@@ -2030,7 +2039,8 @@
 
 					  <child>
 					    <widget class="GtkComboBoxEntry" id="mountpoint10">
-					      <property name="items" translatable="yes">/
+					      <property name="items" translatable="yes">swap
+/
 /home
 /boot
 /usr
