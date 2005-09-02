@@ -12,9 +12,9 @@ import glob
 
 from gettext import bindtextdomain, textdomain, install
 
-from ue.backend import *
+from ue.fbackend import *
 from ue.validation import *
-from ue.misc import *
+from ue.fmisc import *
 
 # Define Ubuntu Express global path
 PATH = '/usr/share/ubuntu-express'
@@ -144,6 +144,7 @@ class Wizard:
     pre_log('info', 'gparted_loop()')
     #self.mountpoints = None
     #self.mountpoints = part.call_gparted(self.embedded)
+    output = part.call_gparted(self.embedded)
     self.next.set_sensitive(True)
     if self.mountpoints is None:
       self.checked_partitions = False
@@ -153,13 +154,29 @@ class Wizard:
       #self.next.set_sensitive(True)
       return True
 
+  def get_partitions(self):
+    import re, subprocess
+
+    partition_table_pipe = subprocess.Popen(['/sbin/fdisk', '-l'], stdout=subprocess.PIPE)
+    partition_table = partition_table_pipe.communicate()[0]
+    regex = re.compile(r'/dev/[a-z]+[0-9]+.*')
+    partition = regex.findall(partition_table)
+
+    return partition
+
+  def show_partitions(self, widget):
+    partition_list = self.get_partitions()
+    treelist = gtk.ListStore(gobject.TYPE_STRING)
+    for index in partition_list:
+      treelist.append([index.split()[0]])
+    widget.set_model(treelist)
 
   def progress_loop(self):
     pre_log('info', 'progress_loop()')
     self.set_vars_file()
     # Set timeout objects
     self.timeout_images = gobject.timeout_add(60000, self.images_loop)
-    path = '/usr/lib/python2.4/site-packages/ue/backend/' 
+    path = '/usr/lib/python2.4/site-packages/ue/backend/'
     ex(path + 'format.py')
     self.pid = os.fork()
     if self.pid == 0:
@@ -181,7 +198,7 @@ class Wizard:
 
 
   def set_vars_file(self):
-    from ue import misc
+    from ue import fmisc
     vars = {}
     attribs = ['hostname','fullname','username','password']
     try:
@@ -191,9 +208,9 @@ class Wizard:
       vars['mountpoints'] = self.mountpoints
     except:
       pre_log('error', 'Missed attrib to write to /tmp/vars')
-      self.quit()      
+      self.quit()
     else:
-      misc.set_var(vars)
+      fmisc.set_var(vars)
 
 
   def show_error(self, msg):
@@ -206,13 +223,43 @@ class Wizard:
     # Tell the user how much time they used
     post_log('info', 'You wasted %.2f seconds with this installation' %
                       (time.time()-self.start))
-    
     gtk.main_quit()
 
 
   # Callbacks
   def on_cancel_clicked(self, widget):
     self.quit()
+
+
+  def on_list_changed(self, widget):
+    if ( widget.get_active_text() is not "" ):
+      if ( widget.get_name() == 'partition1' ):
+        self.partition2.show()
+        self.mountpoint2.show()
+      elif ( widget.get_name() == 'partition2' ):
+        self.partition3.show()
+        self.mountpoint3.show()
+      elif ( widget.get_name() == 'partition3' ):
+        self.partition4.show()
+        self.mountpoint4.show()
+      elif ( widget.get_name() == 'partition4' ):
+        self.partition5.show()
+        self.mountpoint5.show()
+      elif ( widget.get_name() == 'partition5' ):
+        self.partition6.show()
+        self.mountpoint6.show()
+      elif ( widget.get_name() == 'partition6' ):
+        self.partition7.show()
+        self.mountpoint7.show()
+      elif ( widget.get_name() == 'partition7' ):
+        self.partition8.show()
+        self.mountpoint8.show()
+      elif ( widget.get_name() == 'partition8' ):
+        self.partition9.show()
+        self.mountpoint9.show()
+      elif ( widget.get_name() == 'partition9' ):
+        self.partition10.show()
+        self.mountpoint10.show()
 
 
   def on_key_press (self, widget, event):
@@ -306,7 +353,7 @@ class Wizard:
         self.gparted_loop()
         self.browser_vbox.destroy()
         self.help.hide()
-        self.next.set_sensitive(False)
+        #self.next.set_sensitive(False)
         self.steps.set_current_page(3)
         #self.back.show()
         #if not self.checked_partitions:
@@ -321,15 +368,32 @@ class Wizard:
     # From Part1 to Progress
     elif step == 2 and not self.gparted:
       self.progress_loop()
-      self.steps.set_current_page(4)
+      self.steps.set_current_page(5)
     # From Part2 to Progress
     elif step == 3:
+      for widget in [self.partition1, self.partition2, self.partition3,
+      self.partition4, self.partition5, self.partition6, self.partition7,
+      self.partition8, self.partition9, self.partition10 ]:
+        self.show_partitions(widget)
+      self.steps.next_page()
+    elif step == 4:
+      error_msg = ['\n']
+      error = 0
+      for result in validation.check_mountpoint(self.mountpoint1.get_active_text()):
+        if ( result[0] is not '/' ):
+           error_msg.append("· <b>mountpoint</b> must start with '/').\n")
+           error = 1
+      if ( error == 1 ):
+        self.show_error(''.join(error_msg))
+      else:
+        self.steps.next_page()
+    elif step == 4:
       self.embedded.destroy()
       self.next.set_sensitive(False)
       self.progress_loop()
       self.steps.next_page()
     # From Progress to Finish
-    elif step == 4:
+    elif step == 5:
       self.next.set_label('Finish and Reboot')
       self.next.connect('clicked', lambda *x: gtk.main_quit())
       self.back.set_label('Just Finish')
