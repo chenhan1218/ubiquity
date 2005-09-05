@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.07 """
+""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.55 """
 
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 august 2005.
-# Last modified on 2 september 2005.
+# Last modified on 5 september 2005.
 
 # TODO: improve "locale" detection.
+# TODO: improve debug and log system.
 
 from popen2 import Popen3
 
@@ -19,6 +20,7 @@ from popen2 import Popen3
 # def call_peez2 (args):
 
 locale = 'es'
+debug = True
 binary = 'peez2'
 common_arguments = '2> /dev/null'
 partition_scheme = '256:1536:512'          # A conservative scheme.
@@ -180,13 +182,23 @@ def get_commands (drive, option = 1):
     child_out = child ['out']
     child_in = child ['in']
 
-    for i in child_out:
+    line = child_out.readline ()
 
-        if 'OO#' == i [:3]:
-            no_options = no_options + 1
+#     while '' != line:
+#         print line
+#         line = child_out.readline ()
+
+#     print child_in.readline ()
+#     print '**********************************'
+
+#     for i in child_out:
+#         print '*' + i + '*'
+
+#         if 'OO#' == i [:3]:
+#             no_options = no_options + 1
 
     if option >= 1 and option <= no_options:
-        child_in.write (option)
+        child_in.write (option + '\n')
 
     return result
 
@@ -196,7 +208,10 @@ def call_peez2 (args = ''):
 
     """ Execute "peez2" with arguments provided, if any. """
 
-    child = Popen3 (binary + ' ' + common_arguments + ' ' + args)
+    if debug:
+        print binary + ' ' + common_arguments + ' ' + args
+
+    child = Popen3 (binary + ' ' + common_arguments + ' ' + args, False, 1048576)
 
     return {'out': child.fromchild,
             'in':  child.tochild,
