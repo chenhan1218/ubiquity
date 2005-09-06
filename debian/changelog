@@ -1,3 +1,10 @@
+ubuntu-express (0.92ubuntu1) breezy; urgency=low
+
+  * Added new mountpoint selector.
+  * Some fixes to make lintian-friendly.
+
+ -- Javier Carranza <javier.carranza@interactors.coop>  Tue, 06 Sep 2005 12:48:23 +0200
+
 ubuntu-express (0.91ubuntu1) breezy; urgency=low
 
   * Validation module connected with gtk interface (for user and system input 

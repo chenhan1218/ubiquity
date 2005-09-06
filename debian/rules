@@ -14,10 +14,10 @@ build-stamp:
 	mkdir -p $(BUILDDIR)/guadalinex
 
 	# Ubuntu-doc
-	for file in $$(ls $(CURDIR)/glade/locale/ubuntu/*.po); do msgfmt -o $$(echo $$(basename $$file) | sed -e 's/\.po$/\.mo/') $(CURDIR)/glade/locale/ubuntu/$$(basename $$file); done || true
+	for file in $$(ls $(CURDIR)/glade/locale/ubuntu/*.po); do msgfmt -o $$(echo $$(basename $$file) | sed -e 's,\.po$$,\.mo,') $(CURDIR)/glade/locale/ubuntu/$$(basename $$file); done || true
 
 	# Guadalinex-doc
-	for file in $$(ls $(CURDIR)/glade/locale/guadalinex/*.po); do msgfmt -o $$(echo $$(basename $$file) | sed -e 's/\.po$/\.mo/') $(CURDIR)/glade/locale/guadalinex/$$(basename $$file); done || true
+	for file in $$(ls $(CURDIR)/glade/locale/guadalinex/*.po); do msgfmt -o $$(echo $$(basename $$file) | sed -e 's,\.po$$,\.mo,') $(CURDIR)/glade/locale/guadalinex/$$(basename $$file); done || true
 
 	touch build-stamp
 
