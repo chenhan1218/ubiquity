@@ -3,35 +3,70 @@
 
 # File "peez2_test.py".
 # Testing the "peez2" library.
-# Created by Antonio Olmo <aolmo@emergya.info> on 29 august 2005.
-# Last modified on 5 sep 2005.
+# Created by Antonio Olmo <aolmo@emergya.info> on 29 aug 2005.
+# Last modified on 6 sep 2005.
 
+from sys import stdout, stderr
 from peez2 import *
 
-# Step 1: retrieve the list of drives.
+parts = partition_scheme.split (':')
+stdout.write ('Numero de particiones deseadas: %i\nTamanos: ' % len (parts))
+
+for i in parts:
+    stdout.write ('%i ' % int (i))
+
+print ''
+
+# Step 1: select one drive, in case there are many:
 drives = get_drives ()
 
-for i in drives:
-    print '%i\t%s\t%i\t%s' % (i ['no'], i ['name'], i ['size'], i ['device'])
+if len (drives) > 1:
 
-# Optional step: retrieve info about the selected drive.
-for i in drives:
-    info = get_info (i ['device'])
+    for i in drives:
+        print '#%i ("%s"), de %s, %s.' % \
+              (i ['no'], i ['name'], \
+               beautify_size (i ['size']), beautify_device (i ['device']))
 
-    print info ['prim']
-    print info ['ext']
-    print info ['logic']
-    print info ['free']
-    print info ['linux']
-    print info ['win']
+    stdout.write ('Seleccionar unidad: ')
+    option = raw_input ().strip ()
 
-    for j in info ['status']:
-        print j
+    while not option.isdigit ():
+        print 'No es válida. Indicar otra vez: '
+        option = raw_input ().strip ()
 
-    if info.has_key ('warn'):
+    unidad = ''
 
-        for j in info ['warn']:
-            print j
+    for i in drives:
+
+        if int (option) == i ['name']:
+            unidad = i ['device']
+
+elif 1 == len (drives):
+    print 'Unidad seleccionada automaticamente: #%i ("%s"), de %s, %s.' % \
+          (drives [0] ['no'], drives [0] ['name'], \
+           beautify_size (drives [0] ['size']), \
+           beautify_device (drives [0] ['device']))
+else:
+    exit ('No se ha encontrado ninguna unidad de disco.')
+
+# # Optional step: retrieve info about the selected drive.
+# for i in drives:
+#     info = get_info (i ['device'])
+
+#     print info ['prim']
+#     print info ['ext']
+#     print info ['logic']
+#     print info ['free']
+#     print info ['linux']
+#     print info ['win']
+
+#     for j in info ['status']:
+#         print j
+
+#     if info.has_key ('warn'):
+
+#         for j in info ['warn']:
+#             print j
 
 # Step 2: retrieve the list of suggested actions to perform.
 actions = suggest_actions ('/dev/hda')
@@ -41,11 +76,11 @@ if None != actions:
     for i in actions.keys ():
         print i, actions [i] [0], actions [i] [1]
 
-print 'Enter selected option: '
+stdout.write ('Enter selected option: ')
 option = raw_input ().strip ()
 
 while not option.isdigit ():
-    print 'Not valid. Enter again: '
+    stdout.write ('Not valid. Enter again: ')
     option = raw_input ().strip ()
 
 # Step 3: retrieve the list of suggested actions to perform.
