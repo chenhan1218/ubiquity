@@ -5,12 +5,12 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 7 sep 2005.
+# Last modified on 8 sep 2005.
 
-# TODO: improve "locale" detection.
 # TODO: improve debug and log system.
 
 from sys    import stderr
+from locale import getdefaultlocale
 from popen2 import Popen3
 
 # Index:
@@ -20,12 +20,41 @@ from popen2 import Popen3
 # def get_commands (drive, option):
 # def call_peez2 (args = '', input = ''):
 
-locale = 'es'
 debug = True
+locale = ''
 binary = 'peez2'
 common_arguments = '2> /dev/null'
 partition_scheme = '256:1536:512'        # A conservative scheme.
 # partition_scheme = '1024:20480:30720'    # A more realistic scheme.
+
+class Peez2:
+
+    """ """
+
+    def __init__ (self):
+
+        """ """
+
+        self.locale = getdefaultlocale ()
+        locale = self.locale [0]
+        self.drives = [{'device': '/dev/hdb',
+                        'label':  'DEBUGGING - JUST A TEST',
+                        'size':   '75 GB'},
+                       {'device': '/dev/sda',
+                        'name':   'DEBUGGING - JUST A TEST',
+                        'size':   '13 GB'},]
+
+# Function "system_analysis" _________________________________________________
+
+def system_analysis ():
+
+    """ """
+
+    result = None
+
+    # TODO
+
+    return result
 
 # Function "get_drives" ______________________________________________________
 
@@ -42,7 +71,7 @@ def get_drives ():
         if 'LD#' == i [:3]:
             fields = i [3:].split ('|')
 
-            if 'es' == locale:
+            if 'es' == locale [:2]:
                 drive = {}
 
                 for j in fields:
@@ -57,7 +86,7 @@ def get_drives ():
                         drive ['size'] = int (j [6:])
 
                 result.append (drive)
-            elif 'en' == locale:
+            elif 'en' == locale [:2]:
                 drive = {}
 
                 for j in fields:
@@ -101,7 +130,7 @@ def get_info (drive):
             if None == result:
                 result = {}
 
-            if 'es' == locale:
+            if 'es' == locale [:2]:
 
                 if 'Particiones primarias totales:' == i [3:33]:
                     result ['prim'] = i [33:-1].strip ()
@@ -122,7 +151,7 @@ def get_info (drive):
 
                     (result ['status']).append (i [15:-1])
 
-            elif 'en' == locale:
+            elif 'en' == locale [:2]:
 
                 if 'Total primary partitions:' == i [3:28]:
                     result ['prim'] = i [28:-1]
@@ -154,7 +183,7 @@ def get_info (drive):
 
             this_part = {'name': fields [0]}
 
-            if 'es' == locale:
+            if 'es' == locale [:2]:
 
                 for j in fields [1:]:
 
@@ -167,7 +196,7 @@ def get_info (drive):
                     elif 'TYPE:' == j [:5]:
                         this_part ['type'] = j [5:].strip ()
 
-            elif 'en' == locale:
+            elif 'en' == locale [:2]:
 
                 for j in fields [1:]:
 
@@ -306,28 +335,28 @@ def beautify_device (device):
 
         if '/dev/hda' == name:
 
-            if 'es' == locale:
+            if 'es' == locale [:2]:
                 result = 'maestro en el bus primario (' + name + ')'
             elif 'en' == device:
                 result = 'primary master'
 
         if '/dev/hdb' == name:
 
-            if 'es' == locale:
+            if 'es' == locale [:2]:
                 result = 'esclavo en el bus primario (' + name + ')'
             elif 'en' == device:
                 result = 'primary slave'
 
         if '/dev/hdc' == name:
 
-            if 'es' == locale:
+            if 'es' == locale [:2]:
                 result = 'maestro en el bus secundario (' + name + ')'
             elif 'en' == device:
                 result = 'secondary master'
 
         if '/dev/hdd' == name:
 
-            if 'es' == locale:
+            if 'es' == locale [:2]:
                 result = 'maestro en el bus secundario (' + name + ')'
             elif 'en' == device:
                 result = 'secondary slave'

@@ -4,10 +4,14 @@
 # File "peez2_test.py".
 # Testing the "peez2" library.
 # Created by Antonio Olmo <aolmo@emergya.info> on 29 aug 2005.
-# Last modified on 6 sep 2005.
+# Last modified on 8 sep 2005.
 
-from sys import stdout, stderr
+from sys import stdout, stderr, exit
 from peez2 import *
+
+peez2 = Peez2 ()
+print peez2.locale, type (peez2.locale)
+print peez2.drives, type (peez2.drives)
 
 parts = partition_scheme.split (':')
 stdout.write ('Numero de particiones deseadas: %i\nTamanos: ' % len (parts))
