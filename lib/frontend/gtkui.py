@@ -94,7 +94,8 @@ class Wizard:
     self.partition4, self.partition5, self.partition6, self.partition7,
     self.partition8, self.partition9, self.partition10 ]:
       self.show_partitions(widget)
-    self.steps.set_current_page(4)
+    #self.steps.set_current_page(3)
+    #self.gparted_loop()
 
 
   def run(self):
@@ -221,7 +222,7 @@ class Wizard:
 
   def show_error(self, msg):
     self.warning_info.set_markup(msg)
-    self.warning_dialog.show()
+    self.warning_image.set_from_icon_name('gtk-dialog-warning', gtk.ICON_SIZE_DIALOG)
 
   def quit(self):
     if self.pid:
