@@ -6,6 +6,8 @@ pygtk.require('2.0')
 import gtk.glade
 import gtkmozembed
 import os
+from sys import stderr
+from ue.backend.peez2 import *
 import time, gobject
 import glob
 
@@ -392,7 +394,7 @@ class Wizard:
         self.browser_vbox.destroy()
         self.help.hide()
         #self.next.set_sensitive(False)
-        self.steps.set_current_page(3)
+        self.steps.set_current_page(2)
         #self.back.show()
         #if not self.checked_partitions:
         #  if not self.check_partitions():
@@ -460,6 +462,15 @@ class Wizard:
     else:
       self.gparted = True
 
+  def on_drive_changed (self, widget):
+
+    """ """
+
+    peez2 = Peez2 ()
+    stderr.write ('%s\n' % str (peez2.locale))
+    stderr.write ('%s\n' % str (type (peez2.locale)))
+    stderr.write ('%s\n' % str (peez2.drives))
+    stderr.write ('%s\n' % str (type (peez2.drives)))
 
 if __name__ == '__main__':
   w = Wizard('ubuntu')

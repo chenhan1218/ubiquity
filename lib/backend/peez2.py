@@ -5,7 +5,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 8 sep 2005.
+# Last modified on 9 sep 2005.
 
 # TODO: improve debug and log system.
 

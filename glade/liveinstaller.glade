@@ -1016,11 +1016,12 @@
 			      </child>
 
 			      <child>
-				<widget class="GtkComboBox" id="combobox1">
+				<widget class="GtkComboBox" id="drive">
 				  <property name="visible">True</property>
 				  <property name="items" translatable="yes">/dev/hda</property>
 				  <property name="add_tearoffs">False</property>
 				  <property name="focus_on_click">True</property>
+				  <signal name="changed" handler="on_drive_changed" last_modification_time="Mon, 12 Sep 2005 16:45:27 GMT"/>
 				</widget>
 				<packing>
 				  <property name="padding">0</property>
@@ -1259,10 +1260,6 @@
 				    </widget>
 				  </child>
 				</widget>
-			      </child>
-
-			      <child>
-				<placeholder/>
 			      </child>
 			    </widget>
 			    <packing>
