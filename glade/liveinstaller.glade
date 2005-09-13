@@ -35,6 +35,7 @@
 	  <property name="tab_pos">GTK_POS_TOP</property>
 	  <property name="scrollable">False</property>
 	  <property name="enable_popup">False</property>
+	  <signal name="switch_page" handler="on_steps_switch_page" last_modification_time="Tue, 13 Sep 2005 17:21:02 GMT"/>
 
 	  <child>
 	    <widget class="GtkVBox" id="step-0">
@@ -1064,7 +1065,6 @@
 				    <widget class="GtkRadioButton" id="freespace">
 				      <property name="visible">True</property>
 				      <property name="sensitive">False</property>
-				      <property name="has_default">True</property>
 				      <property name="label" translatable="yes">Usar el espacio libre</property>
 				      <property name="use_underline">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
@@ -1087,7 +1087,6 @@
 				    <widget class="GtkRadioButton" id="recycle">
 				      <property name="visible">True</property>
 				      <property name="sensitive">False</property>
-				      <property name="has_default">True</property>
 				      <property name="label" translatable="yes">Reutilizar las particiones existentes</property>
 				      <property name="use_underline">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
@@ -1111,7 +1110,6 @@
 				    <widget class="GtkRadioButton" id="manually">
 				      <property name="visible">True</property>
 				      <property name="sensitive">False</property>
-				      <property name="has_default">True</property>
 				      <property name="label" translatable="yes">Particionar a mano</property>
 				      <property name="use_underline">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
@@ -1375,7 +1373,7 @@
 			      <property name="editable">False</property>
 			      <property name="overwrite">False</property>
 			      <property name="accepts_tab">False</property>
-			      <property name="justification">GTK_JUSTIFY_FILL</property>
+			      <property name="justification">GTK_JUSTIFY_LEFT</property>
 			      <property name="wrap_mode">GTK_WRAP_WORD</property>
 			      <property name="cursor_visible">False</property>
 			      <property name="pixels_above_lines">8</property>
@@ -1571,7 +1569,7 @@ Alternatively, it is possible to return to the previous page to select an easier
 			  <property name="editable">False</property>
 			  <property name="overwrite">False</property>
 			  <property name="accepts_tab">False</property>
-			  <property name="justification">GTK_JUSTIFY_FILL</property>
+			  <property name="justification">GTK_JUSTIFY_LEFT</property>
 			  <property name="wrap_mode">GTK_WRAP_WORD</property>
 			  <property name="cursor_visible">False</property>
 			  <property name="pixels_above_lines">8</property>

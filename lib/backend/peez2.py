@@ -57,7 +57,8 @@ class Peez2:
 
     def scan_drives (self):
 
-        """ Retrieve the list of drives in the computer. """
+        """ Retrieve the list of drives in the computer. Devices B{not}
+            beginning with C{/dev/hd} or C{/dev/sd} are ignored. """
 
         result = []
 
@@ -82,7 +83,15 @@ class Peez2:
                         elif 'Total:' == j [:6]:
                             drive ['size'] = int (j [6:])
 
-                    result.append (drive)
+                    if '/dev/hd' == drive ['device'] [:7] or \
+                       '/dev/sd' == drive ['device'] [:7]:
+                        result.append (drive)
+                    else:
+
+                        if debug:
+                            stderr.write ('Ignored drive: "%s".\n' %
+                                          drive ['device'])
+                        
                 elif 'en' == self.locale [:2]:
                     drive = {}
 
@@ -97,7 +106,19 @@ class Peez2:
                         elif 'Total:' == j [:6]:
                             drive ['size'] = int (j [6:])
 
-                    result.append (drive)
+                    if '/dev/hd' == drive ['device'] [:7] or \
+                       '/dev/sd' == drive ['device'] [:7]:
+                        result.append (drive)
+                    else:
+
+                        if debug:
+                            stderr.write ('Ignored drive: "%s".\n' %
+                                          drive ['device'])
+                        
+                else:
+
+                    if debug:
+                        stderr.write ('Wrong locale: "%s".\n' % self.locale)
 
         return result
 
