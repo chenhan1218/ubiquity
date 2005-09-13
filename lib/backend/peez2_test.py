@@ -12,6 +12,8 @@ from peez2 import *
 peez2 = Peez2 ()
 print peez2.locale, type (peez2.locale)
 print peez2.drives, type (peez2.drives)
+tal = peez2.scan_drives ()
+print tal
 
 parts = partition_scheme.split (':')
 stdout.write ('Numero de particiones deseadas: %i\nTamanos: ' % len (parts))

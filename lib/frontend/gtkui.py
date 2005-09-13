@@ -96,9 +96,16 @@ class Wizard:
     self.partition4, self.partition5, self.partition6, self.partition7,
     self.partition8, self.partition9, self.partition10 ]:
       self.show_partitions(widget)
-    #self.steps.set_current_page(3)
-    #self.gparted_loop()
+    self.steps.set_current_page(2)
+    peez2 = Peez2 ()
 
+    for i in peez2.get_drives ():
+      self.drives.append_text ('%s (%s) %s' % (i ['device'], i ['size'], i ['label']))
+
+    if True:
+      self.drives.set_active (0)
+
+    #self.gparted_loop()
 
   def run(self):
     # show interface
@@ -466,11 +473,7 @@ class Wizard:
 
     """ """
 
-    peez2 = Peez2 ()
-    stderr.write ('%s\n' % str (peez2.locale))
-    stderr.write ('%s\n' % str (type (peez2.locale)))
-    stderr.write ('%s\n' % str (peez2.drives))
-    stderr.write ('%s\n' % str (type (peez2.drives)))
+    stderr.write ('on_drive_changed\n')
 
 if __name__ == '__main__':
   w = Wizard('ubuntu')

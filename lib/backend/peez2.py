@@ -5,7 +5,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 9 sep 2005.
+# Last modified on 13 sep 2005.
 
 # TODO: improve debug and log system.
 
@@ -13,15 +13,7 @@ from sys    import stderr
 from locale import getdefaultlocale
 from popen2 import Popen3
 
-# Index:
-# def get_drives ():
-# def get_info (drive):
-# def suggest_actions (drive):
-# def get_commands (drive, option):
-# def call_peez2 (args = '', input = ''):
-
 debug = True
-locale = ''
 binary = 'peez2'
 common_arguments = '2> /dev/null'
 partition_scheme = '256:1536:512'        # A conservative scheme.
@@ -35,14 +27,66 @@ class Peez2:
 
         """ """
 
-        self.locale = getdefaultlocale ()
-        locale = self.locale [0]
+        self.locale = getdefaultlocale () [0]
         self.drives = [{'device': '/dev/hdb',
                         'label':  'DEBUGGING - JUST A TEST',
                         'size':   '75 GB'},
                        {'device': '/dev/sda',
-                        'name':   'DEBUGGING - JUST A TEST',
+                        'label':  'DEBUGGING - JUST A TEST',
                         'size':   '13 GB'},]
+        print self.scan_drives ()
+
+    def get_drives (self):
+
+        """ """
+
+        return self.drives
+
+    def scan_drives (self):
+
+        """ Retrieve the list of drives in the computer. """
+
+        result = []
+
+        lines = call_peez2 () ['out']
+
+        for i in lines:
+
+            if 'LD#' == i [:3]:
+                fields = i [3:].split ('|')
+
+                if 'es' == self.locale [:2]:
+                    drive = {}
+
+                    for j in fields:
+
+                        if 'Medio:' == j [:6]:
+                            drive ['no'] = int (j [6:])
+                        elif 'Modelo:' == j [:7]:
+                            drive ['name'] = j [7:]
+                        elif 'Ruta:' == j [:5]:
+                            drive ['device'] = j [5:]
+                        elif 'Total:' == j [:6]:
+                            drive ['size'] = int (j [6:])
+
+                    result.append (drive)
+                elif 'en' == self.locale [:2]:
+                    drive = {}
+
+                    for j in fields:
+
+                        if 'Media:' == j [:6]:
+                            drive ['no'] = int (j [6:])
+                        elif 'Model:' == j [:6]:
+                            drive ['name'] = j [6:]
+                        elif 'Path:' == j [:5]:
+                            drive ['device'] = j [5:]
+                        elif 'Total:' == j [:6]:
+                            drive ['size'] = int (j [6:])
+
+                    result.append (drive)
+
+        return result
 
 # Function "system_analysis" _________________________________________________
 
@@ -53,54 +97,6 @@ def system_analysis ():
     result = None
 
     # TODO
-
-    return result
-
-# Function "get_drives" ______________________________________________________
-
-def get_drives ():
-
-    """ Retrieve the list of drives in the computer. """
-
-    result = []
-
-    lines = call_peez2 () ['out']
-
-    for i in lines:
-
-        if 'LD#' == i [:3]:
-            fields = i [3:].split ('|')
-
-            if 'es' == locale [:2]:
-                drive = {}
-
-                for j in fields:
-
-                    if 'Medio:' == j [:6]:
-                        drive ['no'] = int (j [6:])
-                    elif 'Modelo:' == j [:7]:
-                        drive ['name'] = j [7:]
-                    elif 'Ruta:' == j [:5]:
-                        drive ['device'] = j [5:]
-                    elif 'Total:' == j [:6]:
-                        drive ['size'] = int (j [6:])
-
-                result.append (drive)
-            elif 'en' == locale [:2]:
-                drive = {}
-
-                for j in fields:
-
-                    if 'Media:' == j [:6]:
-                        drive ['no'] = int (j [6:])
-                    elif 'Model:' == j [:6]:
-                        drive ['name'] = j [6:]
-                    elif 'Path:' == j [:5]:
-                        drive ['device'] = j [5:]
-                    elif 'Total:' == j [:6]:
-                        drive ['size'] = int (j [6:])
-
-                result.append (drive)
 
     return result
 
@@ -130,7 +126,7 @@ def get_info (drive):
             if None == result:
                 result = {}
 
-            if 'es' == locale [:2]:
+            if 'es' == self.locale [:2]:
 
                 if 'Particiones primarias totales:' == i [3:33]:
                     result ['prim'] = i [33:-1].strip ()
@@ -151,7 +147,7 @@ def get_info (drive):
 
                     (result ['status']).append (i [15:-1])
 
-            elif 'en' == locale [:2]:
+            elif 'en' == self.locale [:2]:
 
                 if 'Total primary partitions:' == i [3:28]:
                     result ['prim'] = i [28:-1]
@@ -183,7 +179,7 @@ def get_info (drive):
 
             this_part = {'name': fields [0]}
 
-            if 'es' == locale [:2]:
+            if 'es' == self.locale [:2]:
 
                 for j in fields [1:]:
 
@@ -196,7 +192,7 @@ def get_info (drive):
                     elif 'TYPE:' == j [:5]:
                         this_part ['type'] = j [5:].strip ()
 
-            elif 'en' == locale [:2]:
+            elif 'en' == self.locale [:2]:
 
                 for j in fields [1:]:
 
