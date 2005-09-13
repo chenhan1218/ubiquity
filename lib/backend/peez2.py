@@ -9,11 +9,17 @@
 
 # TODO: improve debug and log system.
 
+# Index:
+# class Peez2:
+# def call_peez2 (args = '', input = ''):
+# def beautify_size (size):
+# def beautify_device (device):
+
 from sys    import stderr
 from locale import getdefaultlocale
 from popen2 import Popen3
 
-debug = True
+debug = False
 binary = 'peez2'
 common_arguments = '2> /dev/null'
 partition_scheme = '256:1536:512'        # A conservative scheme.
@@ -21,26 +27,33 @@ partition_scheme = '256:1536:512'        # A conservative scheme.
 
 class Peez2:
 
-    """ """
+    """ Encapsulates a sequence of operations with "Peez2" partition
+        assistant. """
 
     def __init__ (self):
 
-        """ """
+        """ Detect locale and scan for drives. """
 
         self.locale = getdefaultlocale () [0]
-        self.drives = [{'device': '/dev/hdb',
-                        'label':  'DEBUGGING - JUST A TEST',
-                        'size':   '75 GB'},
-                       {'device': '/dev/sda',
-                        'label':  'DEBUGGING - JUST A TEST',
-                        'size':   '13 GB'},]
-        print self.scan_drives ()
+        self.drives = self.scan_drives ()
 
     def get_drives (self):
 
-        """ """
+        """ Retrieve a list of drives. Each unit is identified by its device
+            name (i.e. "/dev/hda") and has an associated human-readable label
+            (i.e. ""). """
 
-        return self.drives
+        result = []
+
+        for i in self.drives:
+            pretty_device = beautify_device (i ['device'], self.locale)
+            pretty_size = beautify_size (i ['size'])
+            label = '%s, %s, "%s"' % (pretty_size, pretty_device, i ['label'])
+            item = {'id':    i ['device'],
+                    'label': label}
+            result.append (item)
+
+        return result
 
     def scan_drives (self):
 
@@ -63,7 +76,7 @@ class Peez2:
                         if 'Medio:' == j [:6]:
                             drive ['no'] = int (j [6:])
                         elif 'Modelo:' == j [:7]:
-                            drive ['name'] = j [7:]
+                            drive ['label'] = j [7:]
                         elif 'Ruta:' == j [:5]:
                             drive ['device'] = j [5:]
                         elif 'Total:' == j [:6]:
@@ -78,7 +91,7 @@ class Peez2:
                         if 'Media:' == j [:6]:
                             drive ['no'] = int (j [6:])
                         elif 'Model:' == j [:6]:
-                            drive ['name'] = j [6:]
+                            drive ['label'] = j [6:]
                         elif 'Path:' == j [:5]:
                             drive ['device'] = j [5:]
                         elif 'Total:' == j [:6]:
@@ -87,18 +100,6 @@ class Peez2:
                     result.append (drive)
 
         return result
-
-# Function "system_analysis" _________________________________________________
-
-def system_analysis ():
-
-    """ """
-
-    result = None
-
-    # TODO
-
-    return result
 
 # Function "get_info" ________________________________________________________
 
@@ -291,8 +292,8 @@ def call_peez2 (args = '', input = ''):
 
 def beautify_size (size):
 
-    """ Format the size of a drive into a friendly string, i.e. 64424509440
-        will produce '60 GB'. """
+    """ Format the size of a drive into a friendly string, i.e. C{64424509440}
+        will produce I{60 GB}. """
 
     result = None
 
@@ -314,16 +315,17 @@ def beautify_size (size):
 
 # Function "beautify_device" _________________________________________________
 
-def beautify_device (device):
+def beautify_device (device, locale):
 
-    """ Format the name of a device to make it more readable, i.e. '/dev/hdb'
-        will produce 'primary slave' or 'esclavo en el bus primario',
-        depending on the "locale". """
+    """ Format the name of a device to make it more readable, i.e. C{/dev/hdb}
+        will produce I{primary slave (/dev/hdb)} or I{esclavo en el bus
+        primario (dev/hdb)}, depending on the I{locale}. """
 
     result = None
 
     try:
-        name = str (device)
+        name = str (device).strip ()
+        lang = str (locale) [:2]
     except:
         name = ''
 
@@ -331,31 +333,34 @@ def beautify_device (device):
 
         if '/dev/hda' == name:
 
-            if 'es' == locale [:2]:
+            if 'es' == lang:
                 result = 'maestro en el bus primario (' + name + ')'
-            elif 'en' == device:
-                result = 'primary master'
+            elif 'en' == lang:
+                result = 'primary master (' + name + ')'
 
-        if '/dev/hdb' == name:
+        elif '/dev/hdb' == name:
 
-            if 'es' == locale [:2]:
+            if 'es' == lang:
                 result = 'esclavo en el bus primario (' + name + ')'
-            elif 'en' == device:
-                result = 'primary slave'
+            elif 'en' == lang:
+                result = 'primary slave (' + name + ')'
 
-        if '/dev/hdc' == name:
+        elif '/dev/hdc' == name:
 
-            if 'es' == locale [:2]:
+            if 'es' == lang:
                 result = 'maestro en el bus secundario (' + name + ')'
-            elif 'en' == device:
-                result = 'secondary master'
+            elif 'en' == lang:
+                result = 'secondary master (' + name + ')'
 
-        if '/dev/hdd' == name:
+        elif '/dev/hdd' == name:
 
-            if 'es' == locale [:2]:
+            if 'es' == lang:
                 result = 'maestro en el bus secundario (' + name + ')'
-            elif 'en' == device:
-                result = 'secondary slave'
+            elif 'en' == lang:
+                result = 'secondary slave (' + name + ')'
+
+        if None == result:
+            result = name
 
     return result
 

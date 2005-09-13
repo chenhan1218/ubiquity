@@ -100,7 +100,7 @@ class Wizard:
     peez2 = Peez2 ()
 
     for i in peez2.get_drives ():
-      self.drives.append_text ('%s (%s) %s' % (i ['device'], i ['size'], i ['label']))
+      self.drives.append_text ('%s' % i ['label'])
 
     if True:
       self.drives.set_active (0)
