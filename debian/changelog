@@ -1,8 +1,8 @@
-oem-config (0.6) UNRELEASED; urgency=low
+oem-config (0.6) breezy; urgency=low
 
   * Set passwd and timezone window gravity to center.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 14 Sep 2005 13:25:51 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 14 Sep 2005 13:35:58 +0100
 
 oem-config (0.5) breezy; urgency=low
 
