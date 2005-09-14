@@ -6,6 +6,7 @@
         <property name="events"></property>
         <property name="window_position">center-on-parent</property>
         <property name="type_hint">dialog</property>
+        <property name="gravity">center</property>
         <property name="visible">True</property>
         <child internal-child="vbox">
             <widget class="GtkVBox" id="dialog-vbox">
