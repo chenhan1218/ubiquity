@@ -1,75 +1,85 @@
 # -*- coding: utf-8 -*-
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.55 """
+""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.27 """
 
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 13 sep 2005.
+# Last modified on 14 sep 2005.
 
 # TODO: improve debug and log system.
 
 # Index:
 # class Peez2:
-# def call_peez2 (args = '', input = ''):
 # def beautify_size (size):
-# def beautify_device (device):
+# def beautify_device (device, locale):
 
 from sys    import stderr
 from locale import getdefaultlocale
 from popen2 import Popen3
 
-debug = False
-binary = 'peez2'
-common_arguments = '2> /dev/null'
-partition_scheme = '256:1536:512'        # A conservative scheme.
-# partition_scheme = '1024:20480:30720'    # A more realistic scheme.
-
 class Peez2:
 
-    """ Encapsulates a sequence of operations with "Peez2" partition
+    """ Encapsulates a sequence of operations with I{Peez2} partition
         assistant. """
 
-    def __init__ (self):
+    # Initialization _________________________________________________________
+
+    def __init__ (self, binary = 'peez2', common_arguments = '2> /dev/null',
+                  debug = True, partition_scheme = {'swap':  256,
+                                                    'root': 1536,
+                                                    'home':  512}):
 
         """ Detect locale and scan for drives. """
 
-        self.locale = getdefaultlocale () [0]
-        self.drives = self.scan_drives ()
+        # A more realistic scheme: 1024, 20480, 30720.
+
+        self.__binary = binary
+        self.__common_arguments = common_arguments
+        self.__debug = debug
+        self.__partition_scheme = partition_scheme
+        self.__locale = getdefaultlocale () [0]
+        self.__drives = self.__scan_drives ()
+
+    # Public method "get_drives"  ____________________________________________
 
     def get_drives (self):
 
         """ Retrieve a list of drives. Each unit is identified by its device
-            name (i.e. "/dev/hda") and has an associated human-readable label
-            (i.e. ""). """
+            name (i.e. C{/dev/hda}) and has an associated human-readable label
+            (i.e. I{75 GB, maestro en el bus primario (/dev/hda),
+            "ST380011A"}). """
 
         result = []
 
-        for i in self.drives:
-            pretty_device = beautify_device (i ['device'], self.locale)
+        for i in self.__drives:
+            pretty_device = beautify_device (i ['device'], self.__locale)
             pretty_size = beautify_size (i ['size'])
             label = '%s, %s, "%s"' % (pretty_size, pretty_device, i ['label'])
             item = {'id':    i ['device'],
-                    'label': label}
+                    'label': label,
+                    'info':  i ['info']}
             result.append (item)
 
         return result
 
-    def scan_drives (self):
+    # Private method "__scan_drives"  ________________________________________
+
+    def __scan_drives (self):
 
         """ Retrieve the list of drives in the computer. Devices B{not}
             beginning with C{/dev/hd} or C{/dev/sd} are ignored. """
 
         result = []
 
-        lines = call_peez2 () ['out']
+        lines = self.__call_peez2 () ['out']
 
         for i in lines:
 
             if 'LD#' == i [:3]:
                 fields = i [3:].split ('|')
 
-                if 'es' == self.locale [:2]:
+                if 'es' == self.__locale [:2]:
                     drive = {}
 
                     for j in fields:
@@ -85,14 +95,16 @@ class Peez2:
 
                     if '/dev/hd' == drive ['device'] [:7] or \
                        '/dev/sd' == drive ['device'] [:7]:
+                        extended_info = self.__get_info (drive ['device'])
+                        drive ['info'] = extended_info
                         result.append (drive)
                     else:
 
-                        if debug:
-                            stderr.write ('Ignored drive: "%s".\n' %
-                                          drive ['device'])
+                        if self.__debug:
+                            stderr.write ('__scan_drives: drive "' +
+                                          drive ['device'] + '" ignored.\n')
                         
-                elif 'en' == self.locale [:2]:
+                elif 'en' == self.__locale [:2]:
                     drive = {}
 
                     for j in fields:
@@ -109,176 +121,188 @@ class Peez2:
                     if '/dev/hd' == drive ['device'] [:7] or \
                        '/dev/sd' == drive ['device'] [:7]:
                         result.append (drive)
+                        extended_info = self.__get_info (drive ['device'])
+                        drive ['info'] = extended_info
+                        result.append (drive)
                     else:
 
-                        if debug:
-                            stderr.write ('Ignored drive: "%s".\n' %
-                                          drive ['device'])
+                        if self.__debug:
+                            stderr.write ('__scan_drives: drive "' +
+                                          drive ['device'] + '" ignored.\n')
                         
                 else:
 
-                    if debug:
-                        stderr.write ('Wrong locale: "%s".\n' % self.locale)
+                    if self.__debug:
+                        stderr.write ('__scan_drives: locale: "' +
+                                      self.__locale + '" is wrong.\n')
+
+        if self.__debug:
+            dummy_drive = {'device': '/dev/strange',
+                           'label': 'JUST FOR DEBUGGING PURPOSES',
+                           'size': 0,
+                           'no': -1,
+                           'info': {}}
+            result.append (dummy_drive)
 
         return result
 
-# Function "get_info" ________________________________________________________
+    # Private method "__get_info"  ___________________________________________
 
-def get_info (drive):
+    def __get_info (self, drive):
 
-    """ Retrieve information about a drive. """
+        """ Retrieve information about a drive. """
 
-    result = None
+        result = None
 
-    lines = call_peez2 ('-d ' + drive) ['out']
+        lines = self.__call_peez2 ('-d ' + drive) ['out']
 
-    for i in lines:
+        for i in lines:
 
-        if 'AA#' == i [:3]:
+            if 'AA#' == i [:3]:
 
-            if None == result:
-                result = {}
+                if None == result:
+                    result = {}
 
-            if not result.has_key ('warn'):
-                result ['warn'] = []
+                if not result.has_key ('warn'):
+                    result ['warn'] = []
 
-            result ['warn'].append (i [3:-1])
-        elif 'VV#' == i [:3]:
+                result ['warn'].append (i [3:-1])
+            elif 'VV#' == i [:3]:
 
-            if None == result:
-                result = {}
+                if None == result:
+                    result = {}
 
-            if 'es' == self.locale [:2]:
+                if 'es' == self.__locale [:2]:
 
-                if 'Particiones primarias totales:' == i [3:33]:
-                    result ['prim'] = i [33:-1].strip ()
-                elif 'Particiones extendidas:' == i [3:26]:
-                    result ['ext'] = int (i [26:])
-                elif 'Particiones l' == i [3:16] and 'gicas:' == i [17:23]:
-                    result ['logic'] = int (i [23:])
-                elif 'Espacios libres:' == i [3:19]:
-                    result ['free'] = int (i [19:])
-                elif 'Particiones de linux:' == i [3:24]:
-                    result ['linux'] = int (i [24:])
-                elif 'Particiones de Windows(TM):' == i [3:30]:
-                    result ['win'] = int (i [30:])
-                elif 'Disk Status#' == i [3:15]:
+                    if 'Particiones primarias totales:' == i [3:33]:
+                        result ['prim'] = i [33:-1].strip ()
+                    elif 'Particiones extendidas:' == i [3:26]:
+                        result ['ext'] = int (i [26:])
+                    elif 'Particiones l' == i [3:16] and 'gicas:' == i [17:23]:
+                        result ['logic'] = int (i [23:])
+                    elif 'Espacios libres:' == i [3:19]:
+                        result ['free'] = int (i [19:])
+                    elif 'Particiones de linux:' == i [3:24]:
+                        result ['linux'] = int (i [24:])
+                    elif 'Particiones de Windows(TM):' == i [3:30]:
+                        result ['win'] = int (i [30:])
+                    elif 'Disk Status#' == i [3:15]:
 
-                    if not result.has_key ('status'):
-                        result ['status'] = []
+                        if not result.has_key ('status'):
+                            result ['status'] = []
 
-                    (result ['status']).append (i [15:-1])
+                        (result ['status']).append (i [15:-1])
 
-            elif 'en' == self.locale [:2]:
+                elif 'en' == self.__locale [:2]:
 
-                if 'Total primary partitions:' == i [3:28]:
-                    result ['prim'] = i [28:-1]
-                elif 'Total extended partitions:' == i [3:29]:
-                    result ['ext'] = int (i [29:])
-                elif 'Total logical partitions:' == i [3:28]:
-                    result ['logic'] = int (i [28:])
-                elif 'Total free spaces:' == i [3:21]:
-                    result ['free'] = int (i [21:])
-                elif 'Total linux partitions:' == i [3:26]:
-                    result ['linux'] = int (i [26:])
-                elif 'Total win partitions:' == i [3:24]:
-                    result ['win'] = int (i [24:])
-                elif 'Disk Status#' == i [3:15]:
+                    if 'Total primary partitions:' == i [3:28]:
+                        result ['prim'] = i [28:-1]
+                    elif 'Total extended partitions:' == i [3:29]:
+                        result ['ext'] = int (i [29:])
+                    elif 'Total logical partitions:' == i [3:28]:
+                        result ['logic'] = int (i [28:])
+                    elif 'Total free spaces:' == i [3:21]:
+                        result ['free'] = int (i [21:])
+                    elif 'Total linux partitions:' == i [3:26]:
+                        result ['linux'] = int (i [26:])
+                    elif 'Total win partitions:' == i [3:24]:
+                        result ['win'] = int (i [24:])
+                    elif 'Disk Status#' == i [3:15]:
 
-                    if not result.has_key ('status'):
-                        result ['status'] = []
+                        if not result.has_key ('status'):
+                            result ['status'] = []
 
-                    (result ['status']).append (i [15:-1])
+                        (result ['status']).append (i [15:-1])
 
-        elif 'LP#' == i [:3]:
-            fields = i [3:].split ('#')
+            elif 'LP#' == i [:3]:
+                fields = i [3:].split ('#')
 
-            if None == result:
-                result = {}
+                if None == result:
+                    result = {}
 
-            if not result.has_key ('parts'):
-                result ['parts'] = []
+                if not result.has_key ('parts'):
+                    result ['parts'] = []
 
-            this_part = {'name': fields [0]}
+                this_part = {'name': fields [0]}
 
-            if 'es' == self.locale [:2]:
+                if 'es' == self.__locale [:2]:
 
-                for j in fields [1:]:
+                    for j in fields [1:]:
 
-                    if 'GAINED:' == j [:7]:
-                        this_part ['gained'] = int (j [7:].strip ())
-                    elif 'SIZE:' == j [:5]:
-                        this_part ['size'] = int (j [5:].strip ())
-                    elif 'FS:' == j [:3]:
-                        this_part ['fs'] = j [3:].strip ()
-                    elif 'TYPE:' == j [:5]:
-                        this_part ['type'] = j [5:].strip ()
+                        if 'GAINED:' == j [:7]:
+                            this_part ['gained'] = int (j [7:].strip ())
+                        elif 'SIZE:' == j [:5]:
+                            this_part ['size'] = int (j [5:].strip ())
+                        elif 'FS:' == j [:3]:
+                            this_part ['fs'] = j [3:].strip ()
+                        elif 'TYPE:' == j [:5]:
+                            this_part ['type'] = j [5:].strip ()
 
-            elif 'en' == self.locale [:2]:
+                elif 'en' == self.__locale [:2]:
 
-                for j in fields [1:]:
+                    for j in fields [1:]:
 
-                    if 'GAINED:' == j [:7]:
-                        this_part ['gained'] = int (j [7:].strip ())
-                    elif 'SIZE:' == j [:5]:
-                        this_part ['size'] = int (j [5:].strip ())
-                    elif 'FS:' == j [:3]:
-                        this_part ['fs'] = j [3:].strip ()
-                    elif 'TYPE:' == j [:5]:
-                        this_part ['type'] = j [5:].strip ()
+                        if 'GAINED:' == j [:7]:
+                            this_part ['gained'] = int (j [7:].strip ())
+                        elif 'SIZE:' == j [:5]:
+                            this_part ['size'] = int (j [5:].strip ())
+                        elif 'FS:' == j [:3]:
+                            this_part ['fs'] = j [3:].strip ()
+                        elif 'TYPE:' == j [:5]:
+                            this_part ['type'] = j [5:].strip ()
 
-            result ['parts'].append (this_part)
+                result ['parts'].append (this_part)
 
-    return result
+        return result
 
-# Function "suggest_actions" _________________________________________________
+    # TODO method "suggest_actions"  _________________________________________
 
-def suggest_actions (drive):
+    def suggest_actions (self, drive):
 
-    """ Get all the possibilities proposed by "peez2", if any. """
+        """ Get all the possibilities proposed by "peez2", if any. """
 
-    result = None
+        result = None
 
-    lines = call_peez2 ('-a validate -d ' + drive + ' -s ' +
-                        partition_scheme) ['out']
+        lines = self.__call_peez2 ('-a validate -d ' + drive + ' -s ' +
+                            self.__partition_scheme) ['out']
 
-    for i in lines:
+        for i in lines:
 
-        if 'OO#' == i [:3]:
-            fields = i [3:].split ('#')
+            if 'OO#' == i [:3]:
+                fields = i [3:].split ('#')
 
-            if None == result:
-                result = {}
+                if None == result:
+                    result = {}
 
-            result [fields [0]] = [fields [1], fields [2].strip ()]
+                result [fields [0]] = [fields [1], fields [2].strip ()]
 
-    return result
+        return result
 
-# Function "get_commands" ____________________________________________________
+    # TODO method "get_commands" _____________________________________________
 
-def get_commands (drive, option = 1):
+    def get_commands (self, drive, option = 1):
 
-    """ Get the recommended sequence of partitioning commands, if any. """
+        """ Get the recommended sequence of partitioning commands, if any. """
 
-    result = None
+        result = None
 
-    no_options = 0
-    child = call_peez2 ('-a validate -i -d ' + drive + ' -s ' +
-                        partition_scheme, str (option))
+        no_options = 0
+        child = self.__call_peez2 ('-a validate -i -d ' + drive + ' -s ' +
+                            self.__partition_scheme, str (option))
 
-    child_out = child ['out']
-    result = {'commands': '',
-              'metacoms': ''}
-    line = child_out.readline ()
-
-    while '' != line:
-
-        if 'CC#' == line [:3]:
-            result ['commands'] = result ['commands'] + line [3:]
-        elif 'MC#' == line [:3]:
-            result ['metacoms'] = result ['metacoms'] + line [3:]
-
+        child_out = child ['out']
+        result = {'commands': '',
+                  'metacoms': ''}
         line = child_out.readline ()
+
+        while '' != line:
+
+            if 'CC#' == line [:3]:
+                result ['commands'] = result ['commands'] + line [3:]
+            elif 'MC#' == line [:3]:
+                result ['metacoms'] = result ['metacoms'] + line [3:]
+
+            line = child_out.readline ()
 
 #     print child_in.readline ()
 #     print '**********************************'
@@ -286,28 +310,28 @@ def get_commands (drive, option = 1):
 #     for i in child_out:
 #         print '*' + i + '*'
 
-    return result
+        return result
 
-# Function "call_peez2" ______________________________________________________
+    # Private method "__call_peez2" __________________________________________
 
-def call_peez2 (args = '', input = ''):
+    def __call_peez2 (self, args = '', input = ''):
 
-    """ Execute "peez2" with arguments provided, if any. It is also possible
-        to specify an input. """
+        """ Execute I{peez2} with arguments provided, if any. It is also
+            possible to specify an input. """
 
-    command = binary + ' ' + args + ' ' + common_arguments
+        command = self.__binary + ' ' + args + ' ' + self.__common_arguments
 
-    if '' != input:
-        command = 'echo -e "' + input + '" | ' + command
+        if '' != input:
+            command = 'echo -e "' + input + '" | ' + command
 
-    if debug:
-        stderr.write (command + '\n')
+        if self.__debug:
+            stderr.write ('__call_peez2: command "' + command + '" executed.\n')
 
-    child = Popen3 (command, False, 1048576)
+        child = Popen3 (command, False, 1048576)
 
-    return {'out': child.fromchild,
-            'in':  child.tochild,
-            'err': child.childerr}
+        return {'out': child.fromchild,
+                'in':  child.tochild,
+                'err': child.childerr}
 
 # Function "beautify_size" ___________________________________________________
 

@@ -6,7 +6,6 @@ pygtk.require('2.0')
 import gtk.glade
 import gtkmozembed
 import os
-from sys import stderr
 from ue.backend.peez2 import *
 import time, gobject
 import glob
@@ -103,7 +102,7 @@ class Wizard:
     #self.gparted_loop()
 
     # Peez2 stuff initialization:
-    assistant = None
+    self.__assistant = None
 
   def run(self):
     # show interface
@@ -469,18 +468,28 @@ class Wizard:
 
   def on_drives_changed (self, foo):
 
-    """ """
+    """ When a different drive is selected, it is necessary to update the
+        chekboxes to reflect the set of permited operations on the new
+        drive. """
 
-    stderr.write ('on_drive_changed\n')
+    model = self.drives.get_model ()
 
-  def on_steps_switch_page (self, page, page_num, current):
+    if len (model) > 0:
+      current = self.drives.get_active ()
 
-    """ """
+      if -1 != current:
+        message = str (self.__assistant.get_drives () [current] ['info'])
+        self.partition_message.set_text (message)
 
-    if 2 == current: # and None == assistant:
-      assistant = Peez2 ()
+  def on_steps_switch_page (self, foo, bar, current):
 
-      for i in assistant.get_drives ():
+    """ Only to populate the drives combo box the first time that page #2 is
+        shown. """
+
+    if 2 == current and None == self.__assistant:
+      self.__assistant = Peez2 ()
+
+      for i in self.__assistant.get_drives ():
         self.drives.append_text ('%s' % i ['label'])
 
       if True:
