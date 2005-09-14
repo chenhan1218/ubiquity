@@ -21,7 +21,7 @@ from popen2 import Popen3
 class Peez2:
 
     """ Encapsulates a sequence of operations with I{Peez2} partition
-        assistant. """
+        assistant. The partition scheme is expressed in MB (1024 Bytes). """
 
     # Initialization _________________________________________________________
 
@@ -56,9 +56,20 @@ class Peez2:
             pretty_device = beautify_device (i ['device'], self.__locale)
             pretty_size = beautify_size (i ['size'])
             label = '%s, %s, "%s"' % (pretty_size, pretty_device, i ['label'])
-            item = {'id':    i ['device'],
-                    'label': label,
-                    'info':  i ['info']}
+
+            # We are not using a more compact construct below to explicit that
+            #     the same 3 partitions, in the same order, are always used:
+            required_MB = sum (self.__partition_scheme.values ())
+
+            if i ['size'] >= required_MB * 1024 * 1024:
+                enough = True
+            else:
+                enough = False
+
+            item = {'id':           str (i ['device']),
+                    'label':        label,
+                    'info':         i ['info'],
+                    'large_enough': enough}
             result.append (item)
 
         return result
@@ -138,8 +149,8 @@ class Peez2:
 
         if self.__debug:
             dummy_drive = {'device': '/dev/strange',
-                           'label': 'JUST FOR DEBUGGING PURPOSES',
-                           'size': 0,
+                           'label': 'FOR DEBUGGING PURPOSES ONLY',
+                           'size': 1200000000,
                            'no': -1,
                            'info': {}}
             result.append (dummy_drive)
@@ -154,10 +165,17 @@ class Peez2:
 
         result = None
 
-        lines = self.__call_peez2 ('-d ' + drive) ['out']
+        # We are not using a more compact construct below to explicit that the
+        #     same 3 partitions are always used, and in the same order:
+        parts = self.__partition_scheme
+        lines = self.__call_peez2 ('-a validate -d ' + drive + ' -s ' +
+                                   str (parts ['swap']) + ':' +
+                                   str (parts ['root']) + ':' +
+                                   str (parts ['home'])) ['out']
 
         for i in lines:
 
+            # "Aviso":
             if 'AA#' == i [:3]:
 
                 if None == result:
@@ -167,6 +185,7 @@ class Peez2:
                     result ['warn'] = []
 
                 result ['warn'].append (i [3:-1])
+            # "información varia":
             elif 'VV#' == i [:3]:
 
                 if None == result:
@@ -214,6 +233,7 @@ class Peez2:
 
                         (result ['status']).append (i [15:-1])
 
+            # "Listado de particiones":
             elif 'LP#' == i [:3]:
                 fields = i [3:].split ('#')
 
@@ -252,29 +272,28 @@ class Peez2:
                             this_part ['type'] = j [5:].strip ()
 
                 result ['parts'].append (this_part)
-
-        return result
-
-    # TODO method "suggest_actions"  _________________________________________
-
-    def suggest_actions (self, drive):
-
-        """ Get all the possibilities proposed by "peez2", if any. """
-
-        result = None
-
-        lines = self.__call_peez2 ('-a validate -d ' + drive + ' -s ' +
-                            self.__partition_scheme) ['out']
-
-        for i in lines:
-
-            if 'OO#' == i [:3]:
+            # "Opción":
+            elif 'OO#' == i [:3]:
                 fields = i [3:].split ('#')
 
                 if None == result:
                     result = {}
 
-                result [fields [0]] = [fields [1], fields [2].strip ()]
+                if not result.has_key ('opts'):
+                    result ['opts'] = []
+
+                result ['opts'].append (fields)
+            # "Acción 'validate' exitosa":
+            elif 'OK#' == i [:3]:
+                fields = i [3:].split ('#')
+
+                if None == result:
+                    result = {}
+
+                if not result.has_key ('oks'):
+                    result ['oks'] = []
+
+                result ['oks'].append (fields)
 
         return result
 

@@ -478,7 +478,41 @@ class Wizard:
       current = self.drives.get_active ()
 
       if -1 != current:
-        message = str (self.__assistant.get_drives () [current] ['info'])
+        selected_drive = self.__assistant.get_drives () [current]
+
+        if not selected_drive ['large_enough']:
+          self.freespace.set_sensitive (False)
+          self.recycle.set_sensitive (False)
+          self.manually.set_sensitive (False)
+          self.partition_message.set_text ('Not enough space!')
+        else:
+          self.manually.set_sensitive (True)
+
+          if selected_drive.has_key ('info'):
+
+            if selected_drive ['info'].has_key ('linux'):
+
+              if selected_drive ['info'] ['linux'] >= 2:
+                self.recycle.set_sensitive (True)
+
+            if selected_drive ['info'].has_key ('oks'):
+              self.freespace.set_sensitive (True)
+
+        # All options are disabled:
+        self.freespace.set_active (False)
+        self.recycle.set_active (False)
+        self.manually.set_active (False)
+
+        # Only the first possible option (if any) is enabled:
+        if self.freespace.get_property ('sensitive'):
+          self.freespace.set_active (True)
+        elif self.recycle.get_property ('sensitive'):
+          self.recycle.set_active (True)
+        elif self.manually.get_property ('sensitive'):
+          self.manually.set_active (True)
+
+        # Next lines for debugging purposes only:
+        message = str (selected_drive ['info'])
         self.partition_message.set_text (message)
 
   def on_steps_switch_page (self, foo, bar, current):
@@ -487,17 +521,27 @@ class Wizard:
         shown. """
 
     if 2 == current and None == self.__assistant:
+
+      # To set a "bussy mouse":
+#       b = gtk.Button()
+#       watch = gtk.gdk.Cursor (gtk.gdk.WATCH)
+#       gdkwin = b.window
+#       gdkwin.set_cursor (watch)
+#       gtk.gdk.flush ()
+
       self.__assistant = Peez2 ()
 
       for i in self.__assistant.get_drives ():
         self.drives.append_text ('%s' % i ['label'])
 
-      if True:
+      model = self.drives.get_model ()
+
+      if len (model) > 0:
         self.drives.set_active (0)
 
 if __name__ == '__main__':
   w = Wizard('ubuntu')
   w.run()
 
-
 # vim:ai:et:sts=2:tw=80:sw=2:
+
