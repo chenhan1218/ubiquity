@@ -207,11 +207,12 @@ class Peez2:
 
     # Private method "__get_info"  ___________________________________________
 
-    def __get_info (self, drive, minimum_size = None):
+    def __get_info (self, drive, size = None, more_args = ''):
 
-        """ Retrieve information about a C{drive}. If a C{minimum size} (in
-            MB) is given, then options to get this space are parsed as
-            well. """
+        """ Retrieve information about a C{drive}. If a C{size} (in MB) is
+            given, then options to get this space are parsed as well. It is
+            also possible to specify some additional arguments (like C{-j} or
+            C{-x}). """
 
         result = None
 
@@ -219,14 +220,17 @@ class Peez2:
         #     same 3 partitions are always used, and in the same order:
         parts = self.__partition_scheme
 
-        if None != minimum_size:
-            lines = self.__call_peez2 ('-a wizard -d ' + drive + ' -m ' +
-                                       str (minimum_size)) ['out']
+        if '' != more_args:
+            more_args = more_args + ' '
+
+        if None != size:
+            lines = self.__call_peez2 ('-a wizard %s-d %s -m %i -M %i' %
+                                       (more_args, drive, size, size))['out']
         else:
-            lines = self.__call_peez2 ('-a validate -d ' + drive + ' -s ' +
-                                       str (parts ['swap']) + ':' +
-                                       str (parts ['root']) + ':' +
-                                       str (parts ['home'])) ['out']
+            lines = self.__call_peez2 ('-a validate %s-d %s -s %i:%i:%i' %
+                                       (more_args, drive, parts ['swap'],
+                                        parts ['root'],
+                                        parts ['home'])) ['out']
 
         for i in lines:
 
@@ -393,25 +397,28 @@ class Peez2:
                 # 2nd method.
                 no_options = 0
                 required = sum (self.__partition_scheme.values ())
-                options = self.__get_info (drive ['id'], required)
 
-                print options
+                for required in self.__partition_scheme.values ():
+                    options = self.__call_peez2 ('-a wizard %s-d %s -i -m %i -M %i' %
+                                               ('-j ', drive ['id'], required, required), '1\n')['out']
+                    print '\nOptions:\n' + str (options)
 
-                child_out = child ['out']
-                result = {'commands': '',
-                          'metacoms': ''}
-                line = child_out.readline ()
 
-                while '' != line:
+#                options = self.__get_info (drive ['id'], required, '-j')
 
-                    if 'CC#' == line [:3]:
-                        result ['commands'] = result ['commands'] + line [3:]
-                    elif 'MC#' == line [:3]:
-                        result ['metacoms'] = result ['metacoms'] + line [3:]
+#                 child_out = child ['out']
+#                 result = {'commands': '',
+#                           'metacoms': ''}
+#                 line = child_out.readline ()
 
-                    line = child_out.readline ()
+#                 while '' != line:
 
-                print str (result)
+#                     if 'CC#' == line [:3]:
+#                         result ['commands'] = result ['commands'] + line [3:]
+#                     elif 'MC#' == line [:3]:
+#                         result ['metacoms'] = result ['metacoms'] + line [3:]
+
+#                     line = child_out.readline ()
 
         return result
 

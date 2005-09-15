@@ -471,7 +471,8 @@ class Wizard:
 
           if -1 != current:
             selected_drive = self.__assistant.get_drives () [current]
-            self.__assistant.auto_partition (selected_drive, self.partition_bar)
+            part_result = self.__assistant.auto_partition (selected_drive, self.partition_bar)
+            print str (part_result)
 
       elif self.recycle.get_active ():
         pass
@@ -483,7 +484,7 @@ class Wizard:
         self.gparted_loop()
         self.steps.next_page()
       else:
-        self.progress_loop()
+#        self.progress_loop()
         self.steps.set_current_page(5)
 
     # From Part2 to Progress
