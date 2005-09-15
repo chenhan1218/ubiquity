@@ -12,7 +12,10 @@ import glob
 
 from gettext import bindtextdomain, textdomain, install
 
-from ue.fbackend import *
+# Next line changed by A. Olmo on 15 sep 2005:
+# from ue.fbackend import *
+from ue.backend import *
+
 from ue.validation import *
 from ue.fmisc import *
 
@@ -404,15 +407,34 @@ class Wizard:
         #  if not self.check_partitions():
         #    return          
         #self.steps.next_page()
-    # From Part1 to part2
-    elif step == 2 and self.gparted:
-      self.next.set_sensitive(False)
-      self.gparted_loop()
-      self.steps.next_page()
-    # From Part1 to Progress
-    elif step == 2 and not self.gparted:
-      self.progress_loop()
-      self.steps.set_current_page(5)
+    elif 2 == step:
+      self.freespace.set_active (False)
+      self.recycle.set_active (False)
+      self.manually.set_active (False)
+
+      if self.freespace.get_active ():
+        model = self.drives.get_model ()
+
+        if len (model) > 0:
+          current = self.drives.get_active ()
+
+          if -1 != current:
+            selected_drive = self.__assistant.get_drives () [current]
+            self.__assistant.auto_partition (selected_drive ['id'], self.partition_bar)
+
+      elif self.recycle.get_active ():
+        pass
+      elif self.manually.get_active ():
+        pass
+
+      if self.gparted:
+        self.next.set_sensitive(False)
+        self.gparted_loop()
+        self.steps.next_page()
+      else:
+        self.progress_loop()
+        self.steps.set_current_page(5)
+
     # From Part2 to Progress
     elif step == 3:
       for widget in [self.partition1, self.partition2, self.partition3,
@@ -466,6 +488,8 @@ class Wizard:
     else:
       self.gparted = True
 
+  # Public method "on_drives_changed" ________________________________________
+
   def on_drives_changed (self, foo):
 
     """ When a different drive is selected, it is necessary to update the
@@ -503,6 +527,9 @@ class Wizard:
         self.recycle.set_active (False)
         self.manually.set_active (False)
 
+        # "Next" button is sensitive:
+        self.next.set_sensitive (True)
+
         # Only the first possible option (if any) is enabled:
         if self.freespace.get_property ('sensitive'):
           self.freespace.set_active (True)
@@ -510,10 +537,15 @@ class Wizard:
           self.recycle.set_active (True)
         elif self.manually.get_property ('sensitive'):
           self.manually.set_active (True)
+        else:
+          # If no option is possible, "Next" button should not be sensitive:
+          self.next.set_sensitive (False)
 
         # Next lines for debugging purposes only:
         message = str (selected_drive ['info'])
         self.partition_message.set_text (message)
+
+  # Public method "on_steps_switch_page" _____________________________________
 
   def on_steps_switch_page (self, foo, bar, current):
 

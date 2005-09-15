@@ -18,6 +18,7 @@
   <property name="type_hint">GDK_WINDOW_TYPE_HINT_NORMAL</property>
   <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
   <property name="focus_on_map">True</property>
+  <property name="urgency_hint">False</property>
   <signal name="key_press_event" handler="on_key_press" last_modification_time="Wed, 24 Aug 2005 23:04:57 GMT"/>
 
   <child>
@@ -1580,7 +1581,7 @@ Alternatively, it is possible to return to the previous page to select an easier
 			  <property name="indent">0</property>
 			  <property name="text" translatable="yes">Now you should have at least 3 GNU/Linux partitions with space enough. It's time to specify where you want every component to be installed.
 Proceed as follows: select one partition in the column on the left and link it with one mount point on the right. Repeat for every desired partition.
-There are 3 necessary “mount points” – they must be associated with 3 partitions.
+There are 3 necessary “mount points” – they must be associated with 3 partitions. They are “/”, “/home” and “swap”.
 If you kept an intact home partition, you can now link it with the “/home” mount point. It will not be formatted, so data is preserved.</property>
 			</widget>
 			<packing>

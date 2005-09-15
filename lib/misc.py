@@ -110,6 +110,5 @@ def get_progress(str):
   num = int(str.split()[:1][0])
   text = ' '.join(str.split()[1:])
   return num, text
-  
 
 # vim:ai:et:sts=2:tw=80:sw=2:

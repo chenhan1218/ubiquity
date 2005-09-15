@@ -5,7 +5,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 14 sep 2005.
+# Last modified on 15 sep 2005.
 
 # TODO: improve debug and log system.
 
@@ -17,6 +17,10 @@
 from sys    import stderr
 from locale import getdefaultlocale
 from popen2 import Popen3
+from gtk    import ProgressBar
+
+# Next lines for debugging purposes only:
+from time import sleep
 
 class Peez2:
 
@@ -297,39 +301,30 @@ class Peez2:
 
         return result
 
-    # TODO method "get_commands" _____________________________________________
+    # Public method "auto_partition" _________________________________________
 
-    def get_commands (self, drive, option = 1):
+    def auto_partition (self, device, progress_bar = None):
 
-        """ Get the recommended sequence of partitioning commands, if any. """
+        """ Make 3 partitions automatically on the specified C{device}. When
+            C{progress_bar} is not C{None}, it is updated dinamically as the
+            partitioning process goes on. """
 
-        result = None
+        if None != progress_bar:
+            progress_bar.pulse ()
 
-        no_options = 0
-        child = self.__call_peez2 ('-a validate -i -d ' + drive + ' -s ' +
-                            self.__partition_scheme, str (option))
+#         command = self.__binary + ' ' + args + ' ' + self.__common_arguments
 
-        child_out = child ['out']
-        result = {'commands': '',
-                  'metacoms': ''}
-        line = child_out.readline ()
+#         if '' != input:
+#             command = 'echo -e "' + input + '" | ' + command
 
-        while '' != line:
+#         if self.__debug:
+#             stderr.write ('__call_peez2: command "' + command + '" executed.\n')
 
-            if 'CC#' == line [:3]:
-                result ['commands'] = result ['commands'] + line [3:]
-            elif 'MC#' == line [:3]:
-                result ['metacoms'] = result ['metacoms'] + line [3:]
+#         child = Popen3 (command, False, 1048576)
 
-            line = child_out.readline ()
-
-#     print child_in.readline ()
-#     print '**********************************'
-
-#     for i in child_out:
-#         print '*' + i + '*'
-
-        return result
+#         return {'out': child.fromchild,
+#                 'in':  child.tochild,
+#                 'err': child.childerr}
 
     # Private method "__call_peez2" __________________________________________
 
@@ -351,6 +346,40 @@ class Peez2:
         return {'out': child.fromchild,
                 'in':  child.tochild,
                 'err': child.childerr}
+
+#     # Method "get_commands" _____________________________________________
+
+#     def get_commands (self, drive, option = 1):
+
+#         """ Get the recommended sequence of partitioning commands, if any. """
+
+#         result = None
+
+#         no_options = 0
+#         child = self.__call_peez2 ('-a validate -i -d ' + drive + ' -s ' +
+#                             self.__partition_scheme, str (option))
+
+#         child_out = child ['out']
+#         result = {'commands': '',
+#                   'metacoms': ''}
+#         line = child_out.readline ()
+
+#         while '' != line:
+
+#             if 'CC#' == line [:3]:
+#                 result ['commands'] = result ['commands'] + line [3:]
+#             elif 'MC#' == line [:3]:
+#                 result ['metacoms'] = result ['metacoms'] + line [3:]
+
+#             line = child_out.readline ()
+
+# #     print child_in.readline ()
+# #     print '**********************************'
+
+# #     for i in child_out:
+# #         print '*' + i + '*'
+
+#         return result
 
 # Function "beautify_size" ___________________________________________________
 
