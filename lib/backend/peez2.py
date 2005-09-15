@@ -1,6 +1,50 @@
 # -*- coding: utf-8 -*-
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.27 """
+# «peez2» - particionamiento automático a través de la herramienta «Peez2»
+# 
+# Copyright (C) 2005 Junta de Andalucía
+# 
+# Autor/es (Author/s):
+# 
+# - Antonio Olmo Titos <aolmo#emergya._info>
+# 
+# Este fichero es parte del instalador en directo de Guadalinex 2005.
+# 
+# El instalador en directo de Guadalinex 2005 es software libre. Puede
+# redistribuirlo y/o modificarlo bajo los términos de la Licencia Pública
+# General de GNU según es publicada por la Free Software Foundation, bien de la
+# versión 2 de dicha Licencia o bien (según su elección) de cualquier versión
+# posterior. 
+# 
+# El instalador en directo de Guadalinex 2005 se distribuye con la esperanza de
+# que sea útil, pero SIN NINGUNA GARANTÍA, incluso sin la garantía MERCANTIL
+# implícita o sin garantizar la CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase
+# la Licencia Pública General de GNU para más detalles.
+# 
+# Debería haber recibido una copia de la Licencia Pública General junto con el
+# instalador en directo de Guadalinex 2005. Si no ha sido así, escriba a la Free
+# Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301
+# USA.
+# 
+# -------------------------------------------------------------------------
+# 
+# This file is part of Guadalinex 2005 live installer.
+# 
+# Guadalinex 2005 live installer is free software; you can redistribute it
+# and/or modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the License, or
+# at your option) any later version.
+# 
+# Guadalinex 2005 live installer is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+# Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License along with
+# Guadalinex 2005 live installer; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.02 """
 
 # File "peez2.py".
 # Automatic partitioning with "peez2".
@@ -163,19 +207,26 @@ class Peez2:
 
     # Private method "__get_info"  ___________________________________________
 
-    def __get_info (self, drive):
+    def __get_info (self, drive, minimum_size = None):
 
-        """ Retrieve information about a drive. """
+        """ Retrieve information about a C{drive}. If a C{minimum size} (in
+            MB) is given, then options to get this space are parsed as
+            well. """
 
         result = None
 
         # We are not using a more compact construct below to explicit that the
         #     same 3 partitions are always used, and in the same order:
         parts = self.__partition_scheme
-        lines = self.__call_peez2 ('-a validate -d ' + drive + ' -s ' +
-                                   str (parts ['swap']) + ':' +
-                                   str (parts ['root']) + ':' +
-                                   str (parts ['home'])) ['out']
+
+        if None != minimum_size:
+            lines = self.__call_peez2 ('-a wizard -d ' + drive + ' -m ' +
+                                       str (minimum_size)) ['out']
+        else:
+            lines = self.__call_peez2 ('-a validate -d ' + drive + ' -s ' +
+                                       str (parts ['swap']) + ':' +
+                                       str (parts ['root']) + ':' +
+                                       str (parts ['home'])) ['out']
 
         for i in lines:
 
@@ -303,28 +354,66 @@ class Peez2:
 
     # Public method "auto_partition" _________________________________________
 
-    def auto_partition (self, device, progress_bar = None):
+    def auto_partition (self, drive, progress_bar = None):
 
         """ Make 3 partitions automatically on the specified C{device}. When
             C{progress_bar} is not C{None}, it is updated dinamically as the
             partitioning process goes on. """
 
+        result = None
+
         if None != progress_bar:
             progress_bar.pulse ()
+            progress_bar.set_text ('Planning partition...')
 
-#         command = self.__binary + ' ' + args + ' ' + self.__common_arguments
+        # There are 2 ways of making room for the distro:
+        #     1. Making 3 new primary partitions.
+        #     2. Making 3 new logic partitions (in a previous or new extended
+        #        partition).
+        # For now, we always choose the last one.
 
-#         if '' != input:
-#             command = 'echo -e "' + input + '" | ' + command
+        if drive.has_key ('info'):
 
-#         if self.__debug:
-#             stderr.write ('__call_peez2: command "' + command + '" executed.\n')
+            if drive ['info'].has_key ('primary'):
 
-#         child = Popen3 (command, False, 1048576)
+                if drive ['info'] ['primary'] < 2:
+                    # Here we would choose the first method mentioned above.
+                    result = []
 
-#         return {'out': child.fromchild,
-#                 'in':  child.tochild,
-#                 'err': child.childerr}
+                    if self.__debug:
+                        stderr.write ('auto_partition: drive "' +
+                                      drive ['id'] + '" done.\n')
+
+            if None == result:
+
+                if drive ['info'].has_key ('oks'):
+                    # It means that there is free space available
+                    pass
+
+                # 2nd method.
+                no_options = 0
+                required = sum (self.__partition_scheme.values ())
+                options = self.__get_info (drive ['id'], required)
+
+                print options
+
+                child_out = child ['out']
+                result = {'commands': '',
+                          'metacoms': ''}
+                line = child_out.readline ()
+
+                while '' != line:
+
+                    if 'CC#' == line [:3]:
+                        result ['commands'] = result ['commands'] + line [3:]
+                    elif 'MC#' == line [:3]:
+                        result ['metacoms'] = result ['metacoms'] + line [3:]
+
+                    line = child_out.readline ()
+
+                print str (result)
+
+        return result
 
     # Private method "__call_peez2" __________________________________________
 
@@ -346,40 +435,6 @@ class Peez2:
         return {'out': child.fromchild,
                 'in':  child.tochild,
                 'err': child.childerr}
-
-#     # Method "get_commands" _____________________________________________
-
-#     def get_commands (self, drive, option = 1):
-
-#         """ Get the recommended sequence of partitioning commands, if any. """
-
-#         result = None
-
-#         no_options = 0
-#         child = self.__call_peez2 ('-a validate -i -d ' + drive + ' -s ' +
-#                             self.__partition_scheme, str (option))
-
-#         child_out = child ['out']
-#         result = {'commands': '',
-#                   'metacoms': ''}
-#         line = child_out.readline ()
-
-#         while '' != line:
-
-#             if 'CC#' == line [:3]:
-#                 result ['commands'] = result ['commands'] + line [3:]
-#             elif 'MC#' == line [:3]:
-#                 result ['metacoms'] = result ['metacoms'] + line [3:]
-
-#             line = child_out.readline ()
-
-# #     print child_in.readline ()
-# #     print '**********************************'
-
-# #     for i in child_out:
-# #         print '*' + i + '*'
-
-#         return result
 
 # Function "beautify_size" ___________________________________________________
 
