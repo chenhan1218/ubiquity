@@ -1073,6 +1073,7 @@
 				      <property name="active">False</property>
 				      <property name="inconsistent">False</property>
 				      <property name="draw_indicator">True</property>
+				      <signal name="group_changed" handler="on_freespace_group_changed" last_modification_time="Fri, 16 Sep 2005 09:37:33 GMT"/>
 				    </widget>
 				    <packing>
 				      <property name="left_attach">0</property>
@@ -1203,7 +1204,7 @@
 			      <property name="fraction">0</property>
 			      <property name="pulse_step">0.10000000149</property>
 			      <property name="text" translatable="yes"></property>
-			      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+			      <property name="ellipsize">PANGO_ELLIPSIZE_MIDDLE</property>
 			    </widget>
 			    <packing>
 			      <property name="padding">0</property>

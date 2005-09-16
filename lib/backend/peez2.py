@@ -49,7 +49,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 15 sep 2005.
+# Last modified on 16 sep 2005.
 
 # TODO: improve debug and log system.
 
@@ -207,12 +207,13 @@ class Peez2:
 
     # Private method "__get_info"  ___________________________________________
 
-    def __get_info (self, drive, size = None, more_args = ''):
+    def __get_info (self, drive, size = None, more_args = '', input = None):
 
         """ Retrieve information about a C{drive}. If a C{size} (in MB) is
             given, then options to get this space are parsed as well. It is
             also possible to specify some additional arguments (like C{-j} or
-            C{-x}). """
+            C{-x}). C{input} may be a string that will be piped into
+            I{Peez2}. """
 
         result = None
 
@@ -224,13 +225,27 @@ class Peez2:
             more_args = more_args + ' '
 
         if None != size:
-            lines = self.__call_peez2 ('-a wizard %s-d %s -m %i -M %i' %
-                                       (more_args, drive, size, size))['out']
+
+            if None == input:
+                lines = self.__call_peez2 ('-a wizard %s-d %s -m %i -M %i' %
+                                           (more_args, drive, size, size))['out']
+            else:
+                lines = self.__call_peez2 ('-a wizard %s-d %s -m %i -M %i' %
+                                           (more_args, drive, size, size),
+                                           input)['out']
+
         else:
-            lines = self.__call_peez2 ('-a validate %s-d %s -s %i:%i:%i' %
-                                       (more_args, drive, parts ['swap'],
-                                        parts ['root'],
-                                        parts ['home'])) ['out']
+
+            if None == input:
+                lines = self.__call_peez2 ('-a validate %s-d %s -s %i:%i:%i' %
+                                           (more_args, drive, parts ['swap'],
+                                            parts ['root'],
+                                            parts ['home'])) ['out']
+            else:
+                lines = self.__call_peez2 ('-a validate %s-d %s -s %i:%i:%i' %
+                                           (more_args, drive, parts ['swap'],
+                                            parts ['root'], parts ['home']),
+                                           input) ['out']
 
         for i in lines:
 
@@ -353,12 +368,32 @@ class Peez2:
                     result ['oks'] = []
 
                 result ['oks'].append (fields)
+            elif 'CC#' == i [:3]:
+                fields = i [3:].split ('#')
+
+                if None == result:
+                    result = {}
+
+                if not result.has_key ('commands'):
+                    result ['commands'] = []
+
+                result ['commands'].append (fields [1])
+            elif 'MC#' == i [:3]:
+                fields = i [3:].split ('#')
+
+                if None == result:
+                    result = {}
+
+                if not result.has_key ('metacoms'):
+                    result ['metacoms'] = []
+
+                result ['metacoms'].append (fields [1])
 
         return result
 
     # Public method "auto_partition" _________________________________________
 
-    def auto_partition (self, drive, progress_bar = None):
+    def auto_partition (self, drive, progress_bar = None, do_it = False):
 
         """ Make 3 partitions automatically on the specified C{device}. When
             C{progress_bar} is not C{None}, it is updated dinamically as the
@@ -395,30 +430,57 @@ class Peez2:
                     pass
 
                 # 2nd method.
-                no_options = 0
-                required = sum (self.__partition_scheme.values ())
 
                 for required in self.__partition_scheme.values ():
-                    options = self.__call_peez2 ('-a wizard %s-d %s -i -m %i -M %i' %
-                                               ('-j ', drive ['id'], required, required), '1\n')['out']
-                    print '\nOptions:\n' + str (options)
 
+                    if None != progress_bar:
+                        progress_bar.pulse ()
+                        progress_bar.set_text ('Making %i MB partition...' % required)
 
-#                options = self.__get_info (drive ['id'], required, '-j')
+                    info = self.__get_info (drive ['id'], required, '-j')
 
-#                 child_out = child ['out']
-#                 result = {'commands': '',
-#                           'metacoms': ''}
-#                 line = child_out.readline ()
+                    # Now we have to decide which option is better:
+                    options = info ['opts']
 
-#                 while '' != line:
+                    what = -1
+                    i = 1
 
-#                     if 'CC#' == line [:3]:
-#                         result ['commands'] = result ['commands'] + line [3:]
-#                     elif 'MC#' == line [:3]:
-#                         result ['metacoms'] = result ['metacoms'] + line [3:]
+                    while -1 == what and i <= len (options):
 
-#                     line = child_out.readline ()
+                        if 'CR' == options [i - 1] [1] [:2]:
+                            what = i
+
+                        i = i + 1
+
+                    i = 1
+
+                    while -1 == what and i <= len (options):
+
+                        if 'RE' == options [i - 1] [1] [:2]:
+                            what = i
+
+                        i = i + 1
+
+                    if -1 != what:
+                        info = self.__get_info (drive ['id'], required, '-j -i', str (what) + '\n')
+
+                        if info.has_key ('commands'):
+                            c = info ['commands']
+
+                            for i in c:
+
+                                if do_it:
+                                    # TODO: do it, execute commands to make partitions!
+                                    p = Popen3 (i)
+                                else:
+                                    # Just print the commands:
+                                    print i.strip ()
+
+                        if info.has_key ('metacoms'):
+                            mc = info ['metacoms']
+
+                            for i in mc:
+                                print '# ' + i.strip ()
 
         return result
 

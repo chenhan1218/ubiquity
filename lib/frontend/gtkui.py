@@ -49,7 +49,7 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -29.27!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified on 15 sep 2005.
+# Last modified by A. Olmo on 16 sep 2005.
 
 import pygtk
 pygtk.require('2.0')
@@ -470,9 +470,16 @@ class Wizard:
           current = self.drives.get_active ()
 
           if -1 != current:
+
+            # WARNING:
+            # Next variable controls if partitioning is done, or not:
+            # Don't change it unless you know what you are doing!
+            ACTUAL_PARTITIONING = False
+
             selected_drive = self.__assistant.get_drives () [current]
-            part_result = self.__assistant.auto_partition (selected_drive, self.partition_bar)
-            print str (part_result)
+            part_result = self.__assistant.auto_partition (selected_drive,
+                                                           progress_bar = self.partition_bar,
+                                                           do_it = ACTUAL_PARTITIONING)
 
       elif self.recycle.get_active ():
         pass
@@ -613,7 +620,7 @@ class Wizard:
 #       gdkwin.set_cursor (watch)
 #       gtk.gdk.flush ()
 
-      self.__assistant = Peez2 ()
+      self.__assistant = Peez2 (debug = False)
 
       for i in self.__assistant.get_drives ():
         self.drives.append_text ('%s' % i ['label'])
@@ -622,6 +629,21 @@ class Wizard:
 
       if len (model) > 0:
         self.drives.set_active (0)
+
+  # Public method "on_freespace_group_changed" _______________________________
+
+  def on_freespace_group_changed (self):
+
+    """ Update help message when a different radio button is selected. """
+
+    if self.freespace.get_property ('active'):
+      self.partition_message.set_text ('Auto')
+    elif self.recycle.get_property ('active'):
+      self.partition_message.set_text ('Reusar particiones')
+    elif self.manually.get_property ('active'):
+      self.partition_message.set_text ('Manual')
+    else:
+      self.partition_message.set_text ('[Sin selección]')
 
 if __name__ == '__main__':
   w = Wizard('ubuntu')
