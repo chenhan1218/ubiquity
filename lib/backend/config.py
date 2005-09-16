@@ -1,7 +1,8 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 from ue import misc
-import debconf
+import debconf, os
 
 class Config:
 
@@ -17,15 +18,15 @@ class Config:
 
   def run(self):
       
-    print '92 Configuring the hardware and system'
-    misc.post_log('info', 'Configuring distro')
-    if self.get_locales():
-      print '92 Configured the hardware and system'
-      misc.post_log('info', 'Configured distro')
-      return True
-    else:
-      misc.post_log('error', 'Configuring distro')
-      return False
+    #print '92 Configuring the hardware and system'
+    #misc.post_log('info', 'Configuring distro')
+    #if self.get_locales():
+    #  print '92 Configured the hardware and system'
+    #  misc.post_log('info', 'Configured distro')
+    #  return True
+    #else:
+    #  misc.post_log('error', 'Configuring distro')
+    #  return False
     print '93 Configuring the hardware and system'
     misc.post_log('info', 'Configuring distro')
     if self.configure_fstab():
@@ -35,24 +36,24 @@ class Config:
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    print '94 Configuring the hardware and system'
-    misc.post_log('info', 'Configuring distro')
-    if self.configure_timezone():
-      print '94 Configured the hardware and system'
-      misc.post_log('info', 'Configured distro')
-      return True
-    else:
-      misc.post_log('error', 'Configuring distro')
-      return False
-    print '95 Configuring the hardware and system'
-    misc.post_log('info', 'Configuring distro')
-    if self.configure_user():
-      print '95 Configured the hardware and system'
-      misc.post_log('info', 'Configured distro')
-      return True
-    else:
-      misc.post_log('error', 'Configuring distro')
-      return False
+    #print '94 Configuring the hardware and system'
+    #misc.post_log('info', 'Configuring distro')
+    #if self.configure_timezone():
+    #  print '94 Configured the hardware and system'
+    #  misc.post_log('info', 'Configured distro')
+    #  return True
+    #else:
+    #  misc.post_log('error', 'Configuring distro')
+    #  return False
+    #print '95 Configuring the hardware and system'
+    #misc.post_log('info', 'Configuring distro')
+    #if self.configure_user():
+    #  print '95 Configured the hardware and system'
+    #  misc.post_log('info', 'Configured distro')
+    #  return True
+    #else:
+    #  misc.post_log('error', 'Configuring distro')
+    #  return False
     print '96 Configuring the hardware and system'
     misc.post_log('info', 'Configuring distro')
     if self.configure_hostname():
