@@ -57,7 +57,6 @@ pygtk.require('2.0')
 import gtk.glade
 import gtkmozembed
 import os
-from ue.backend.peez2 import *
 import time, gobject
 import glob
 
@@ -211,7 +210,7 @@ class Wizard:
     pre_log('info', 'gparted_loop()')
     #self.mountpoints = None
     #self.mountpoints = part.call_gparted(self.embedded)
-    output = part.call_gparted(self.embedded)
+    self.gparted_pid = part.call_gparted(self.embedded)
     self.next.set_sensitive(True)
     if self.mountpoints is None:
       self.checked_partitions = False
@@ -265,7 +264,7 @@ class Wizard:
 
 
   def set_vars_file(self):
-    from ue import fmisc
+    from ue import misc
     vars = {}
     attribs = ['hostname','fullname','username','password']
     try:
@@ -277,7 +276,7 @@ class Wizard:
       pre_log('error', 'Missed attrib to write to /tmp/vars')
       self.quit()
     else:
-      fmisc.set_var(vars)
+      misc.set_var(vars)
 
 
   def show_error(self, msg):
@@ -410,7 +409,7 @@ class Wizard:
       self.next.set_sensitive(False)
       self.help.show()
       self.steps.next_page()
-    # From Info to Part1
+    # From Info to Peez
     elif step == 1:
       from ue import validation
       error_msg = ['\n']
@@ -458,7 +457,8 @@ class Wizard:
         #  if not self.check_partitions():
         #    return          
         #self.steps.next_page()
-    elif 2 == step:
+    # From Peez to Gparted
+    elif step == 2:
       self.freespace.set_active (False)
       self.recycle.set_active (False)
       self.manually.set_active (False)
@@ -494,29 +494,29 @@ class Wizard:
 #        self.progress_loop()
         self.steps.set_current_page(5)
 
-    # From Part2 to Progress
+    # From Gparted to Mountpoints
     elif step == 3:
       for widget in [self.partition1, self.partition2, self.partition3,
       self.partition4, self.partition5, self.partition6, self.partition7,
       self.partition8, self.partition9, self.partition10 ]:
         self.show_partitions(widget)
       self.steps.next_page()
+    # From Mountpoints to Progress
     elif step == 4:
-      error_msg = ['\n']
-      error = 0
-      for result in validation.check_mountpoint(self.mountpoint1.get_active_text()):
-        if ( result[0] is not '/' ):
-           error_msg.append("· <b>mountpoint</b> must start with '/').\n")
-           error = 1
-      if ( error == 1 ):
-        self.show_error(''.join(error_msg))
-      else:
-        self.steps.next_page()
-    elif step == 4:
+      #error_msg = ['\n']
+      #error = 0
+      #for result in validation.check_mountpoint(self.mountpoint1.get_active_text()):
+      #  if ( result[0] is not '/' ):
+      #     error_msg.append("· <b>mountpoint</b> must start with '/').\n")
+      #     error = 1
+      #if ( error == 1 ):
+      #  self.show_error(''.join(error_msg))
+      #else:
+      self.steps.next_page()
       self.embedded.destroy()
       self.next.set_sensitive(False)
+      os.kill(self.gparted_pid, 9)
       self.progress_loop()
-      self.steps.next_page()
     # From Progress to Finish
     elif step == 5:
       self.next.set_label('Finish and Reboot')
