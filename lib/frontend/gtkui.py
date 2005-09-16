@@ -59,6 +59,7 @@ import gtkmozembed
 import os
 import time, gobject
 import glob
+from ue.backend.peez2 import *
 
 from gettext import bindtextdomain, textdomain, install
 
