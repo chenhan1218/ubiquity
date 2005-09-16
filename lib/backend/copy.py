@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import os
@@ -62,9 +63,9 @@ class Copy:
   def mount_target(self):
     if not os.path.isdir(self.target):
       os.mkdir(self.target)
-    misc.ex('mount', self.mountpoints['/'], self.target)
+    misc.ex('mount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
 
-    for path, device in self.mountpoints.items():
+    for device, path in self.mountpoints.items():
       if path in ('/', 'swap'):
           continue
       path = os.path.join(self.target, path[1:])
@@ -111,21 +112,25 @@ class Copy:
 
     misc.pre_log('info','About to start copying')
 
-    copy = subprocess.Popen(['cpio', '-d0mp', self.target],
+    find = subprocess.Popen(['find', '.', '-type', 'f'],
                             cwd=self.source,
-                            stdin=subprocess.PIPE)
+                            stdout=subprocess.PIPE)
+    copy = subprocess.Popen(['cpio', '-dmp', self.target],
+                            cwd=self.source,
+                            stdin=find.stdout)
 
     copied_bytes = 0
-    for path, size in files:
-      copy.stdin.write(path + '\0')
-      if size is not None:
-        copied_bytes += size
-      per = (copied_bytes * 100) / total_size
-      # Adjusting the percentage
-      per = (per*73/100)+17
-      print per
-
-    copy.stdin.close()
+    #for path, size in files:
+    #  copy.stdin.write(path + '\0')
+    #  misc.pre_log('info', path)
+    #  if size is not None:
+    #    copied_bytes += size
+    #  per = (copied_bytes * 100) / total_size
+    #  # Adjusting the percentage
+    #  per = (per*73/100)+17
+    #  print per
+    #
+    #copy.stdin.close()
     copy.wait()
     return True
     
