@@ -49,7 +49,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 16 sep 2005.
+# Last modified on 19 sep 2005.
 
 # TODO: improve debug and log system.
 
@@ -468,13 +468,12 @@ class Peez2:
                             c = info ['commands']
 
                             for i in c:
+                                # Print the commands:
+                                print i.strip ()
 
                                 if do_it:
                                     # TODO: do it, execute commands to make partitions!
                                     p = Popen3 (i)
-                                else:
-                                    # Just print the commands:
-                                    print i.strip ()
 
                         if info.has_key ('metacoms'):
                             mc = info ['metacoms']

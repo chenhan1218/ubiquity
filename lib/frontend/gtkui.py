@@ -191,21 +191,23 @@ class Wizard:
     self.browser_vbox.add(widget)
     widget.show()
 
-
   # Methods
-  def check_partitions(self):
-    #FIXME: Check if it's possible to run the partman-auto
-    # if not, will run the Gparted
-    
-    self.mountpoints = None
-    self.mountpoints = part.call_autoparted()
-    if self.mountpoints is None:
-      self.help.hide()
-      self.steps.next_page()
-      self.gparted_loop()
-      return False
-    return True
 
+  def check_partitions (self, drive, progress_bar):
+
+    #FIXME: Check if it's possible to run the automatic partition through
+    # "peez2". If not, will run the Gparted
+
+    result = False
+
+    result = part.call_autoparted (self.__assistant, drive, progress_bar)
+
+    if not result:
+      self.help.hide ()
+      self.steps.next_page ()
+      self.gparted_loop ()
+
+    return result
 
   def gparted_loop(self):
     pre_log('info', 'gparted_loop()')
@@ -471,16 +473,8 @@ class Wizard:
           current = self.drives.get_active ()
 
           if -1 != current:
-
-            # WARNING:
-            # Next variable controls if partitioning is done, or not:
-            # Don't change it unless you know what you are doing!
-            ACTUAL_PARTITIONING = False
-
             selected_drive = self.__assistant.get_drives () [current]
-            part_result = self.__assistant.auto_partition (selected_drive,
-                                                           progress_bar = self.partition_bar,
-                                                           do_it = ACTUAL_PARTITIONING)
+            self.check_partitions (selected_drive, self.partition_bar)
 
       elif self.recycle.get_active ():
         pass
@@ -621,7 +615,7 @@ class Wizard:
 #       gdkwin.set_cursor (watch)
 #       gtk.gdk.flush ()
 
-      self.__assistant = Peez2 (debug = False)
+      self.__assistant = Peez2 () # debug = False)
 
       for i in self.__assistant.get_drives ():
         self.drives.append_text ('%s' % i ['label'])
