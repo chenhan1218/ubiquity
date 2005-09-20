@@ -59,16 +59,13 @@ import gtkmozembed
 import os
 import time, gobject
 import glob
-from ue.backend.peez2 import *
 
 from gettext import bindtextdomain, textdomain, install
 
-# Next line changed by A. Olmo on 15 sep 2005:
-# from ue.fbackend import *
 from ue.backend import *
-
 from ue.validation import *
-from ue.fmisc import *
+from ue.misc import *
+from ue.backend.peez2 import *
 
 # Define Ubuntu Express global path
 PATH = '/usr/share/ubuntu-express'
@@ -151,7 +148,7 @@ class Wizard:
       self.show_partitions(widget)
 
     # Next lines for debugging purposes only:
-#    self.steps.set_current_page (2)
+    #self.steps.set_current_page (2)
 
     #self.gparted_loop()
 
