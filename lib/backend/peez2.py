@@ -44,12 +44,12 @@
 # Guadalinex 2005 live installer; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.02 """
+""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.01 """
 
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 19 sep 2005.
+# Last modified on 20 sep 2005.
 
 # TODO: improve debug and log system.
 
@@ -89,6 +89,9 @@ class Peez2:
         self.__locale = getdefaultlocale () [0]
         self.__drives = self.__scan_drives ()
 
+        # Disable this attribute when auto-partitioning is mature enough:
+        self.__ONLY_MANUALLY = True
+
     # Public method "get_drives"  ____________________________________________
 
     def get_drives (self):
@@ -121,6 +124,15 @@ class Peez2:
             result.append (item)
 
         return result
+
+    # Public method "only_manually"  _________________________________________
+
+    def only_manually (self):
+
+        """ Decide if manual partitioning should be the only way
+            available. """
+
+        return self.__ONLY_MANUALLY
 
     # Private method "__scan_drives"  ________________________________________
 

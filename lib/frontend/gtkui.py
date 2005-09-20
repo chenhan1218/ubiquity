@@ -46,10 +46,10 @@
 # Guadalinex 2005 live installer; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: -29.27!!! (bad
+""" U{pylint<http://logilab.org/projects/pylint>} mark: -30.38!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified by A. Olmo on 16 sep 2005.
+# Last modified by A. Olmo on 20 sep 2005.
 
 import pygtk
 pygtk.require('2.0')
@@ -287,8 +287,13 @@ class Wizard:
     if self.pid:
       os.kill(self.pid, 9)
     # Tell the user how much time they used
-    post_log('info', 'You wasted %.2f seconds with this installation' %
+
+    # Next statement changed by A. Olmo on 20 sep 2005:
+##     post_log('info', 'You wasted %.2f seconds with this installation' %
+##                       (time.time()-self.start))
+    pre_log('info', 'You wasted %.2f seconds with this installation' %
                       (time.time()-self.start))
+
     gtk.main_quit()
 
 
@@ -563,15 +568,17 @@ class Wizard:
         else:
           self.manually.set_sensitive (True)
 
-          if selected_drive.has_key ('info'):
+          if not self.__assistant.only_manually ():
 
-            if selected_drive ['info'].has_key ('linux'):
+            if selected_drive.has_key ('info'):
 
-              if selected_drive ['info'] ['linux'] >= 2:
-                self.recycle.set_sensitive (True)
+              if selected_drive ['info'].has_key ('linux'):
 
-            if selected_drive ['info'].has_key ('oks'):
-              self.freespace.set_sensitive (True)
+                if selected_drive ['info'] ['linux'] >= 2:
+                  self.recycle.set_sensitive (True)
+
+              if selected_drive ['info'].has_key ('oks'):
+                self.freespace.set_sensitive (True)
 
         # All options are disabled:
         self.freespace.set_active (False)
@@ -593,8 +600,8 @@ class Wizard:
           self.next.set_sensitive (False)
 
         # Next lines for debugging purposes only:
-        message = str (selected_drive ['info'])
-        self.partition_message.set_text (message)
+##         message = str (selected_drive ['info'])
+##         self.partition_message.set_text (message)
 
   # Public method "on_steps_switch_page" _____________________________________
 
@@ -612,7 +619,7 @@ class Wizard:
 #       gdkwin.set_cursor (watch)
 #       gtk.gdk.flush ()
 
-      self.__assistant = Peez2 () # debug = False)
+      self.__assistant = Peez2 (debug = False)
 
       for i in self.__assistant.get_drives ():
         self.drives.append_text ('%s' % i ['label'])
