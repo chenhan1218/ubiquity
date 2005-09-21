@@ -174,11 +174,12 @@ class Config:
       '<','/tmp/network.xml')
   
   def configure_bootloader(self):
+      import subprocess
       # Copying the old boot config
       files = ['/etc/lilo.conf', '/boot/grub/menu.lst','/etc/grub.conf',
                '/boot/grub/grub.conf']
       TEST = '/mnt/test/'
-      target_dev = self.mountpoints['/']
+      target_dev = self.mountpoints.keys()[self.mountpoints.values().index('/')]
       grub_dev = misc.grub_dev(target_dev)
       distro = self.distro.capitalize()
       proc_file = open('/proc/partitions').readlines()
@@ -196,21 +197,39 @@ class Config:
                       misc.ex('cp', TEST + file, self.target + file)
                       
               misc.ex('umount', TEST)
-  
       # The new boot
       self.chex('/usr/sbin/mkinitrd')
+      misc.ex('mount', '/dev', '--bind', self.target + '/dev')
+      misc.ex('mount', '/proc', '--bind', self.target + '/proc')
+      misc.ex('mount', '/sys', '--bind', self.target + '/sys')
       # For the Grub
       grub_conf = open(self.target + '/boot/grub/menu.lst', 'a')
       grub_conf.write(' \
-      e %s \
-      (%s) \
-      el (%s)/vmlinuz-%s root=%s ro vga=791 quiet \
-      rd (%s)/initrd.img-%s \
+      fallback 0 \
+      timeout 30 \
+      \
+      title %s \
+      root (%s) \
+      kernel (%s)/vmlinuz-%s root=%s ro vga=791 quiet \
+      initrd (%s)/initrd.img-%s \
       default ' % \
       (distro, grub_dev, grub_dev, self.kernel_version, target_dev, grub_dev, self.kernel_version) )
-  
+      
       grub_conf.close()
-  
+
+      grub_conf = open('/tmp/grub.conf', 'a')
+      
+      grub_target_dev = int(target_dev[8:]) -1
+      grub_conf.write(' \
+      root (hd0,%s) \
+      setup (hd0) \
+      quit ' % grub_target_dev)
+      grub_conf.close()
+
+      grub_apply = misc.ex('grub-install' '--root-directory=' + self.target, target_dev)
+      conf = subprocess.Popen(['cat', '/tmp/grub.conf'], stdout=subprocess.PIPE)
+      grub_apply = subprocess.Popen(['chroot', self.target, 'grub', '--batch', '--device-map=/boot/grub/menu.lst'], stdin=find.stdout)
+      
       # For the Yaboot
       if not os.path.exists(self.target + '/etc/yaboot.conf'):
           misc.make_yaboot_header(self.target, target_dev)
@@ -259,7 +278,6 @@ class Config:
   
   def reconfigure(self, package):
           self.chrex('dpkg-reconfigure', '-fnoninteractive', package)
-  
 
 if __name__ == '__main__':
   vars = misc.get_var()
