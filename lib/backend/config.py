@@ -20,18 +20,18 @@ class Config:
   def run(self):
       
     #print '92 Configuring the hardware and system'
-    #misc.post_log('info', 'Configuring distro')
-    #if self.get_locales():
-    #  print '92 Configured the hardware and system'
-    #  misc.post_log('info', 'Configured distro')
-    #  return True
-    #else:
-    #  misc.post_log('error', 'Configuring distro')
-    #  return False
-    print '93 Configuring the hardware and system'
+    misc.post_log('info', 'Configuring distro')
+    if self.get_locales():
+      #print '92 Configured the hardware and system'
+      misc.post_log('info', 'Configured distro')
+      #return True
+    else:
+      misc.post_log('error', 'Configuring distro')
+      return False
+    #print '93 Configuring the hardware and system'
     misc.post_log('info', 'Configuring distro')
     if self.configure_fstab():
-      print '93 Configured the hardware and system'
+      #print '93 Configured the hardware and system'
       misc.post_log('info', 'Configured distro')
       #return True
     else:
@@ -40,21 +40,21 @@ class Config:
     #print '94 Configuring the hardware and system'
     #misc.post_log('info', 'Configuring distro')
     #if self.configure_timezone():
-    #  print '94 Configured the hardware and system'
+    #  #print '94 Configured the hardware and system'
     #  misc.post_log('info', 'Configured distro')
-    #  return True
+    #  #return True
     #else:
     #  misc.post_log('error', 'Configuring distro')
     #  return False
     #print '95 Configuring the hardware and system'
-    #misc.post_log('info', 'Configuring distro')
-    #if self.configure_user():
-    #  print '95 Configured the hardware and system'
-    #  misc.post_log('info', 'Configured distro')
-    #  return True
-    #else:
-    #  misc.post_log('error', 'Configuring distro')
-    #  return False
+    misc.post_log('info', 'Configuring distro')
+    if self.configure_user():
+      #print '95 Configured the hardware and system'
+      misc.post_log('info', 'Configured distro')
+      #return True
+    else:
+      misc.post_log('error', 'Configuring distro')
+      return False
     print '96 Configuring the hardware and system'
     misc.post_log('info', 'Configuring distro')
     if self.configure_hostname():
@@ -207,20 +207,19 @@ class Config:
               misc.ex('umount', TEST)
       # The new boot
       #self.chex('/usr/sbin/mkinitrd')
-      misc.ex('mount', '/dev', '--bind', self.target + '/dev')
       misc.ex('mount', '/proc', '--bind', self.target + '/proc')
       misc.ex('mount', '/sys', '--bind', self.target + '/sys')
       # For the Grub
       grub_conf = open(self.target + '/boot/grub/menu.lst', 'a')
-      grub_conf.write(' \
-      fallback 0 \
-      timeout 30 \
-      \
-      title %s \
-      root (%s) \
-      kernel (%s)/vmlinuz-%s root=%s ro vga=791 quiet \
-      initrd (%s)/initrd.img-%s \
-      default ' % \
+      grub_conf.write('\n \
+fallback 0\n \
+timeout 30\n \
+default 1\n \
+\n \
+title %s\n \
+root (%s)\n \
+kernel (%s)/vmlinuz-%s root=%s ro vga=791 quiet\n \
+initrd (%s)/initrd.img-%s' % \
       (distro, grub_dev, grub_dev, self.kernel_version, target_dev, grub_dev, self.kernel_version) )
       
       grub_conf.close()
@@ -228,10 +227,10 @@ class Config:
       grub_conf = open('/tmp/grub.conf', 'a')
       
       grub_target_dev = int(target_dev[8:]) -1
-      grub_conf.write(' \
-      root (hd0,%s) \
-      setup (hd0) \
-      quit ' % grub_target_dev)
+      grub_conf.write('\n \
+root (hd0,%s)\n \
+setup (hd0)\n \
+quit ' % grub_target_dev)
       grub_conf.close()
 
       misc.ex('grub-install', '--root-directory=' + self.target, target_dev)
@@ -255,10 +254,12 @@ class Config:
   
       #yaboot_conf.close()
   
-      conf = subprocess.Popen(['/usr/share/setup-tool-backends/scripts/boot-conf',
-          '--platform', 'ubuntu-5.04', '--get'], stdout=subprocess.PIPE)
-      subprocess.Popen(['chroot', self.target, '/usr/share/setup-tool-backends/scripts/boot-conf', 
-          '--set'], stdin=conf.stdout)
+      #conf = subprocess.Popen(['/usr/share/setup-tool-backends/scripts/boot-conf',
+      #    '--platform', 'ubuntu-5.04', '--get'], stdout=subprocess.PIPE)
+      #subprocess.Popen(['chroot', self.target, '/usr/share/setup-tool-backends/scripts/boot-conf', 
+      #    '--set'], stdin=conf.stdout)
+      misc.ex('umount', '-f', self.target + '/proc')
+      misc.ex('umount', '-f', self.target + '/sys')
       return True
   
   def chrex(self, *args):

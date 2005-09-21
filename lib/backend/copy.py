@@ -112,7 +112,7 @@ class Copy:
 
     misc.pre_log('info','About to start copying')
 
-    find = subprocess.Popen(['find', '.', '-type', 'f'],
+    find = subprocess.Popen(['find', '.', '!', '-type', 'd'],
                             cwd=self.source,
                             stdout=subprocess.PIPE)
     copy = subprocess.Popen(['cpio', '-dmp', self.target],
