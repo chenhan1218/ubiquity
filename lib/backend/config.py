@@ -179,7 +179,7 @@ class Config:
       conf = subprocess.Popen(['/usr/share/setup-tool-backends/scripts/network-conf',
           '--platform', 'ubuntu-5.04', '--get'], stdout=subprocess.PIPE)
       subprocess.Popen(['chroot', self.target, '/usr/share/setup-tool-backends/scripts/network-conf', 
-          '--set'], stdin=conf.stdout)
+          '--platform', 'ubuntu-5.04', '--set'], stdin=conf.stdout)
       return True
   
   def configure_bootloader(self):
