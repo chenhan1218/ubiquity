@@ -218,8 +218,8 @@ default 1\n \
 \n \
 title %s\n \
 root (%s)\n \
-kernel (%s)/vmlinuz-%s root=%s ro vga=791 quiet\n \
-initrd (%s)/initrd.img-%s' % \
+kernel (%s)/boot/vmlinuz-%s root=%s ro vga=791 quiet\n \
+initrd (%s)/boot/initrd.img-%s' % \
       (distro, grub_dev, grub_dev, self.kernel_version, target_dev, grub_dev, self.kernel_version) )
       
       grub_conf.close()
