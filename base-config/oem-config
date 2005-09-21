@@ -5,11 +5,7 @@ set -e
 
 . /usr/share/debconf/confmodule
 
-if [ -f /etc/inittab.real ]; then
-	mv -f /etc/inittab.real /etc/inittab.oem
-fi
-cp -a /usr/lib/oem-config/inittab /etc/inittab.new
-mv -f /etc/inittab.new /etc/inittab
+update-rc.d oem-config start 12 2 3 4 5 .
 
 if type hwdb-gui >/dev/null 2>&1; then
 	db_input high oem-config/run-test || [ $? -eq 30 ]

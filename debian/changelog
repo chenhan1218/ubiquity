@@ -1,3 +1,12 @@
+oem-config (0.7) UNRELEASED; urgency=low
+
+  * Use an init script and temporary rc.d links to launch
+    oem-config-firstboot on the first boot after installation, rather than a
+    temporary inittab. The latter approach caused base-config to be
+    respawned after exiting.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 21 Sep 2005 12:49:24 +0100
+
 oem-config (0.6) breezy; urgency=low
 
   * Set passwd and timezone window gravity to center.
