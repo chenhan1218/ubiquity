@@ -3,6 +3,7 @@
 
 from ue import misc
 import debconf, os
+import subprocess
 
 class Config:
 
@@ -32,7 +33,7 @@ class Config:
     if self.configure_fstab():
       print '93 Configured the hardware and system'
       misc.post_log('info', 'Configured distro')
-      return True
+      #return True
     else:
       misc.post_log('error', 'Configuring distro')
       return False
@@ -59,7 +60,7 @@ class Config:
     if self.configure_hostname():
       print '96 Configured the hardware and system'
       misc.post_log('info', 'Configured distro')
-      return True
+      #return True
     else:
       misc.post_log('error', 'Configuring distro')
       return False
@@ -68,7 +69,7 @@ class Config:
     if self.configure_hardware():
       print '97 Configured the hardware and system'
       misc.post_log('info', 'Configured distro')
-      return True
+      #return True
     else:
       misc.post_log('error', 'Configuring distro')
       return False
@@ -77,7 +78,7 @@ class Config:
     if self.configure_network():
       print '98 Configured the hardware and system'
       misc.post_log('info', 'Configured distro')
-      return True
+      #return True
     else:
       misc.post_log('error', 'Configuring distro')
       return False
@@ -86,7 +87,7 @@ class Config:
     if self.configure_bootloader():
       print '100 Configured the hardware and system'
       misc.post_log('info', 'Configured distro')
-      return True
+      #return True
     else:
       misc.post_log('error', 'Configuring distro')
       return False
@@ -114,6 +115,7 @@ class Config:
   
   def configure_fstab(self):
       fstab = open(os.path.join(self.target,'etc/fstab'), 'w')
+      print >>fstab, 'proc\t/proc\tproc\tdefaults\t0\t0\nsysfs\t/sys\tsysfs\tdefaults\t0\t0'
       for path, device in self.mountpoints.items():
           if path == '/':
               passno = 1
@@ -125,6 +127,7 @@ class Config:
           
           print >>fstab, '%s\t%s\t%s\t%s\t%d\t%d' % (device, path, filesystem, options, 0, passno)
       fstab.close()
+      return True
   
   def configure_timezone(self):
       # tzsetup ignores us if these exist
@@ -135,10 +138,12 @@ class Config:
   
       self.set_debconf('base-config', 'tzconfig/preseed_zone', self.timezone)
       self.chrex('tzsetup', '-y')
+      return True
   
   def configure_keymap(self):
       self.set_debconf('debian-installer', 'debian-installer/keymap', self.keymap)
       self.chrex('install-keymap', self.keymap)
+      return True
   
   def configure_user(self):
       self.chrex('passwd', '-l', 'root')
@@ -147,11 +152,13 @@ class Config:
       self.set_debconf('passwd', 'passwd/user-password', self.password)
       self.set_debconf('passwd', 'passwd/user-password-again', self.password)
       self.reconfigure('passwd')
+      return True
   
   def configure_hostname(self):
       fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
       print >>fp, self.hostname
       fp.close()
+      return True
   
   def configure_hardware(self):
       self.chrex('mount', '-t', 'proc', 'proc', '/proc')
@@ -166,15 +173,16 @@ class Config:
       finally:
           self.chrex('umount', '/proc')
           self.chrex('umount', '/sys')
+      return True
   
   def configure_network(self):
-      misc.ex('/usr/share/setup-tool-backends/scripts/network-conf','--get',
-      '>',self.target + '/tmp/network.xml')
-      self.chex('/usr/share/setup-tool-backends/scripts/network-conf','--set',
-      '<','/tmp/network.xml')
+      conf = subprocess.Popen(['/usr/share/setup-tool-backends/scripts/network-conf',
+          '--platform', 'ubuntu-5.04', '--get'], stdout=subprocess.PIPE)
+      subprocess.Popen(['chroot', self.target, '/usr/share/setup-tool-backends/scripts/network-conf', 
+          '--set'], stdin=conf.stdout)
+      return True
   
   def configure_bootloader(self):
-      import subprocess
       # Copying the old boot config
       files = ['/etc/lilo.conf', '/boot/grub/menu.lst','/etc/grub.conf',
                '/boot/grub/grub.conf']
@@ -198,7 +206,7 @@ class Config:
                       
               misc.ex('umount', TEST)
       # The new boot
-      self.chex('/usr/sbin/mkinitrd')
+      #self.chex('/usr/sbin/mkinitrd')
       misc.ex('mount', '/dev', '--bind', self.target + '/dev')
       misc.ex('mount', '/proc', '--bind', self.target + '/proc')
       misc.ex('mount', '/sys', '--bind', self.target + '/sys')
@@ -226,39 +234,41 @@ class Config:
       quit ' % grub_target_dev)
       grub_conf.close()
 
-      misc.ex('grub-install' '--root-directory=' + self.target, target_dev)
+      misc.ex('grub-install', '--root-directory=' + self.target, target_dev)
       conf = subprocess.Popen(['cat', '/tmp/grub.conf'], stdout=subprocess.PIPE)
-      grub_apply = subprocess.Popen(['chroot', self.target, 'grub', '--batch', '--device-map=/boot/grub/menu.lst'], stdin=find.stdout)
+      grub_apply = subprocess.Popen(['chroot', self.target, 'grub', '--batch',
+          '--device-map=/boot/grub/menu.lst'], stdin=conf.stdout)
       
       # For the Yaboot
-      if not os.path.exists(self.target + '/etc/yaboot.conf'):
-          misc.make_yaboot_header(self.target, target_dev)
-      yaboot_conf = open(self.target + '/etc/yaboot.conf', 'a')
-      yaboot_conf.write(' \
-      default=%s \
-      \
-      image=/boot/vmlinux-%s \
-        label=%s \
-        read-only \
-        initrd=/boot/initrd.img-%s \
-        append="quiet splash" \
-      ' % (distro, self.kernel_version, distro, self.kernel_version) )
+      #if not os.path.exists(self.target + '/etc/yaboot.conf'):
+      #    misc.make_yaboot_header(self.target, target_dev)
+      #yaboot_conf = open(self.target + '/etc/yaboot.conf', 'a')
+      #yaboot_conf.write(' \
+      #default=%s \
+      #\
+      #image=/boot/vmlinux-%s \
+      #  label=%s \
+      #  read-only \
+      #  initrd=/boot/initrd.img-%s \
+      #  append="quiet splash" \
+      #' % (distro, self.kernel_version, distro, self.kernel_version) )
   
-      yaboot_conf.close()
+      #yaboot_conf.close()
   
-      misc.ex('/usr/share/setup-tool-backends/scripts/boot-conf','--get',
-      '>',self.target + '/tmp/boot.xml')
-      self.chex('/usr/share/setup-tool-backends/scripts/boot-conf','--set',
-      '<','/tmp/boot.xml')
+      conf = subprocess.Popen(['/usr/share/setup-tool-backends/scripts/boot-conf',
+          '--platform', 'ubuntu-5.04', '--get'], stdout=subprocess.PIPE)
+      subprocess.Popen(['chroot', self.target, '/usr/share/setup-tool-backends/scripts/boot-conf', 
+          '--set'], stdin=conf.stdout)
+      return True
   
   def chrex(self, *args):
     msg = ''
     for word in args:
       msg += str(word) + ' '
     if not misc.ex('chroot', self.target, *args):
-      post_log('error', 'chroot' + msg)
+      misc.post_log('error', 'chroot' + msg)
       return False
-    post_log('info', 'chroot' + msg)
+    misc.post_log('info', 'chroot' + msg)
     return True
 
   
