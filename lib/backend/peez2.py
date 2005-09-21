@@ -49,7 +49,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 20 sep 2005.
+# Last modified on 21 sep 2005.
 
 # TODO: improve debug and log system.
 
@@ -117,10 +117,18 @@ class Peez2:
             else:
                 enough = False
 
+##             if i.has_key ('details'):
+##                 linux_parts = 0
+
+##                 for j in i ['details']:
+
+##                     if
+
             item = {'id':           str (i ['device']),
                     'label':        label,
                     'info':         i ['info'],
-                    'large_enough': enough}
+                    'large_enough': enough} # ,
+#                    'linux_before': before}
             result.append (item)
 
         return result
@@ -400,6 +408,28 @@ class Peez2:
                     result ['metacoms'] = []
 
                 result ['metacoms'].append (fields [1])
+
+##         lines = self.__call_peez2 ('-a show -d %s -v' % drive) ['out']
+
+##         for i in lines:
+
+##             # "registro de 'lista de particiones'":
+##             if 'PAV#' == i [:4]:
+##                 fields = i [4:].split ('|')
+
+##                 if None == result:
+##                     result = {}
+
+##                 if not result.has_key ('details'):
+##                     result ['details'] = []
+
+##                 this_part = {'no':    fields [0],
+##                              'type':  fields [1],
+##                              'fs':    fields [2],
+##                              'sec':   fields [3],
+##                              'bytes': int (fields [4]),
+##                              'class': fields [5]}
+##                 result ['details'].append (this_part)
 
         return result
 

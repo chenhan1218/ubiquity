@@ -49,7 +49,7 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -30.38!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified by A. Olmo on 20 sep 2005.
+# Last modified by A. Olmo on 21 sep 2005.
 
 import pygtk
 pygtk.require('2.0')
@@ -483,7 +483,7 @@ class Wizard:
       elif self.manually.get_active ():
         pass
 
-      if self.gparted:
+      if True: # self.gparted:
         self.next.set_sensitive(False)
         self.gparted_loop()
         self.steps.next_page()
