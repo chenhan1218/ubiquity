@@ -87,10 +87,10 @@ def call_gparted(widget):
   Wid = str(socket.get_id())
 
   # TODO: rewrite next block.
-  mountpoints = None
+  #mountpoints = None
 
   try:
-    Popen(['/usr/bin/gparted', '-i', Wid], stdin=PIPE, stdout=PIPE,
+    out = Popen(['/usr/bin/gparted', '-i', Wid], stdin=PIPE, stdout=PIPE,
                 close_fds=True)
     # get the output last line 
     #line = out.readlines()[-1].strip()
@@ -106,7 +106,7 @@ def call_gparted(widget):
     
   #FIXME:We need to know how the mounpoints are showed up
   
-  return mountpoints
+  return out.pid
 
 # vim:ai:et:sts=2:tw=80:sw=2:
 
