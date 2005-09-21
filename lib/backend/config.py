@@ -226,7 +226,7 @@ class Config:
       quit ' % grub_target_dev)
       grub_conf.close()
 
-      grub_apply = misc.ex('grub-install' '--root-directory=' + self.target, target_dev)
+      misc.ex('grub-install' '--root-directory=' + self.target, target_dev)
       conf = subprocess.Popen(['cat', '/tmp/grub.conf'], stdout=subprocess.PIPE)
       grub_apply = subprocess.Popen(['chroot', self.target, 'grub', '--batch', '--device-map=/boot/grub/menu.lst'], stdin=find.stdout)
       
