@@ -158,7 +158,10 @@ class Config:
       self.set_debconf('passwd', 'passwd/user-password-again', self.password)
       self.reconfigure('passwd')
       self.chrex('useradd', '-u', '1001', '-d', '/home/' + self.username, '-s',
-          '/bin/bash', '-c', self.fullname, '-p', self.password, self.username)
+          '/bin/bash', '-c', self.fullname, self.username)
+      passwd = subprocess.Popen(['echo', self.username + ':' + self.password],
+          stdout=subprocess.PIPE)
+      subprocess.Popen(['chroot', self.target, 'chpasswd', '--md5' stdin=passwd.stdout)
       return True
   
   def configure_hostname(self):
