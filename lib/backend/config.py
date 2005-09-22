@@ -116,7 +116,7 @@ class Config:
   def configure_fstab(self):
       fstab = open(os.path.join(self.target,'etc/fstab'), 'w')
       print >>fstab, 'proc\t/proc\tproc\tdefaults\t0\t0\nsysfs\t/sys\tsysfs\tdefaults\t0\t0'
-      for device, pàth in self.mountpoints.items():
+      for device, path in self.mountpoints.items():
           if path == '/':
               passno = 1
           else:
