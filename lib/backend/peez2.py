@@ -130,7 +130,22 @@ class Peez2:
                         linux_space.append (int (j ['bytes']))
 
                 if len (linux_space) > 2:
-                    before = True
+                    linux_space.sort ()
+                    required = self.__partition_scheme.values ()
+                    required_bytes = [j * 1024 * 1024 for j in required]
+                    required_bytes.sort ()
+                    l = 0
+                    r = 0
+
+                    while r < len (required_bytes) and l < len (linux_space):
+
+                        if linux_space [l] >= required_bytes [r]:
+                            r = r + 1
+
+                        l = l + 1
+
+                    if r >= len (required_bytes):
+                        before = True
 
             item = {'id':           str (i ['device']),
                     'label':        label,
