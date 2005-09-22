@@ -87,7 +87,7 @@ class Wizard:
     self.fullname = ''
     self.name = ''
     self.password = ''
-    self.gparted = False
+    self.gparted = True
     self.entries = {
                     'hostname' : 0,
                     'fullname' : 0, 
@@ -149,8 +149,6 @@ class Wizard:
 
     # Next lines for debugging purposes only:
     #self.steps.set_current_page (2)
-
-    #self.gparted_loop()
 
     # Peez2 stuff initialization:
     self.__assistant = None
@@ -254,6 +252,13 @@ class Wizard:
       source = ret_ex(path + 'config.py')
       gobject.io_add_watch(source,gobject.IO_IN,self.read_stdout)
     os.waitpid(self.pid, 0)
+    self.next.set_label('Finish and Reboot')
+    self.next.connect('clicked', lambda *x: gtk.main_quit())
+    self.back.set_label('Just Finish')
+    self.back.connect('clicked', lambda *x: gtk.main_quit())
+    self.next.set_sensitive(True)
+    self.back.show()
+    self.cancel.hide()
     self.steps.next_page()
 
 
@@ -452,7 +457,6 @@ class Wizard:
       if ( error == 1 ):
         self.show_error(''.join(error_msg))
       else:
-        self.gparted_loop()
         self.browser_vbox.destroy()
         self.help.hide()
         #self.next.set_sensitive(False)
@@ -515,15 +519,15 @@ class Wizard:
       os.kill(self.gparted_pid, 9)
       self.progress_loop()
     # From Progress to Finish
-    elif step == 5:
-      self.next.set_label('Finish and Reboot')
-      self.next.connect('clicked', lambda *x: gtk.main_quit())
-      self.back.set_label('Just Finish')
-      self.back.connect('clicked', lambda *x: gtk.main_quit())
-      self.next.set_sensitive(True)
-      self.back.show()
-      self.cancel.hide()
-      self.steps.next_page()
+    #elif step == 5:
+    #  self.next.set_label('Finish and Reboot')
+    #  self.next.connect('clicked', lambda *x: gtk.main_quit())
+    #  self.back.set_label('Just Finish')
+    #  self.back.connect('clicked', lambda *x: gtk.main_quit())
+    #  self.next.set_sensitive(True)
+    #  self.back.show()
+    #  self.cancel.hide()
+    #  self.steps.next_page()
     
     step = self.steps.get_current_page()
     pre_log('info', 'Step_after = %d' % step)
