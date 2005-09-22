@@ -161,7 +161,7 @@ class Config:
           '/bin/bash', '-c', self.fullname, self.username)
       passwd = subprocess.Popen(['echo', self.username + ':' + self.password],
           stdout=subprocess.PIPE)
-      subprocess.Popen(['chroot', self.target, 'chpasswd', '--md5' stdin=passwd.stdout)
+      subprocess.Popen(['chroot', self.target, 'chpasswd', '--md5'], stdin=passwd.stdout)
       return True
   
   def configure_hostname(self):
