@@ -152,6 +152,8 @@ class Config:
       self.set_debconf('passwd', 'passwd/user-password', self.password)
       self.set_debconf('passwd', 'passwd/user-password-again', self.password)
       self.reconfigure('passwd')
+      self.chrex('useradd', '-u', '1001', '-d', '/home/' + self.username, '-s',
+          '/bin/bash', '-c', self.fullname, '-p', self.password, self.username)
       return True
   
   def configure_hostname(self):
