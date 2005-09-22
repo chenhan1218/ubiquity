@@ -136,8 +136,8 @@ class Copy:
     
   def copy_logs(self):
     try:
-      misc.ex('cp', '-a', '/var/log/installer',
-              os.path.join(self.target,'/var/log/installer'))
+      misc.ex('cp', '-a', '/var/log/guadalinex-installer',
+              os.path.join(self.target,'/var/log/guadalinex-installer'))
     except IOError, error:
       misc.pre_log('error', error)
       return False
