@@ -116,14 +116,19 @@ class Config:
   def configure_fstab(self):
       fstab = open(os.path.join(self.target,'etc/fstab'), 'w')
       print >>fstab, 'proc\t/proc\tproc\tdefaults\t0\t0\nsysfs\t/sys\tsysfs\tdefaults\t0\t0'
-      for path, device in self.mountpoints.items():
+      for device, pàth in self.mountpoints.items():
           if path == '/':
               passno = 1
           else:
               passno = 2
-  
-          filesystem = 'ext3'
-          options = 'defaults'
+          
+          if path is not 'swap':
+            filesystem = 'ext3'
+            options = 'defaults'
+          else:
+            filesystem = 'swap'
+            options = 'sw'
+            path = 'none'
           
           print >>fstab, '%s\t%s\t%s\t%s\t%d\t%d' % (device, path, filesystem, options, 0, passno)
       fstab.close()
