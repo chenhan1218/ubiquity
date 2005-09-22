@@ -49,7 +49,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 21 sep 2005.
+# Last modified on 22 sep 2005.
 
 # TODO: improve debug and log system.
 
@@ -62,6 +62,7 @@ from sys    import stderr
 from locale import getdefaultlocale
 from popen2 import Popen3
 from gtk    import ProgressBar
+from string import lower
 
 # Next lines for debugging purposes only:
 from time import sleep
@@ -117,18 +118,25 @@ class Peez2:
             else:
                 enough = False
 
-##             if i.has_key ('details'):
-##                 linux_parts = 0
+            before = False
 
-##                 for j in i ['details']:
+            if i.has_key ('details'):
+                linux_parts = 0
+                linux_space = []
 
-##                     if
+                for j in i ['details']:
+
+                    if 'linux' in j ['class'].lower ():
+                        linux_space.append (int (j ['bytes']))
+
+                if len (linux_space) > 2:
+                    before = True
 
             item = {'id':           str (i ['device']),
                     'label':        label,
                     'info':         i ['info'],
-                    'large_enough': enough} # ,
-#                    'linux_before': before}
+                    'large_enough': enough,
+                    'linux_before': before}
             result.append (item)
 
         return result
@@ -409,27 +417,27 @@ class Peez2:
 
                 result ['metacoms'].append (fields [1])
 
-##         lines = self.__call_peez2 ('-a show -d %s -v' % drive) ['out']
+        lines = self.__call_peez2 ('-a show -d %s -v' % drive) ['out']
 
-##         for i in lines:
+        for i in lines:
 
-##             # "registro de 'lista de particiones'":
-##             if 'PAV#' == i [:4]:
-##                 fields = i [4:].split ('|')
+            # "registro de 'lista de particiones'":
+            if 'PAV#' == i [:4]:
+                fields = i [4:].split ('|')
 
-##                 if None == result:
-##                     result = {}
+                if None == result:
+                    result = {}
 
-##                 if not result.has_key ('details'):
-##                     result ['details'] = []
+                if not result.has_key ('details'):
+                    result ['details'] = []
 
-##                 this_part = {'no':    fields [0],
-##                              'type':  fields [1],
-##                              'fs':    fields [2],
-##                              'sec':   fields [3],
-##                              'bytes': int (fields [4]),
-##                              'class': fields [5]}
-##                 result ['details'].append (this_part)
+                this_part = {'no':    fields [0],
+                             'type':  fields [1],
+                             'fs':    fields [2],
+                             'sec':   fields [3],
+                             'bytes': int (fields [4]),
+                             'class': fields [5]}
+                result ['details'].append (this_part)
 
         return result
 

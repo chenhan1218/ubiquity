@@ -1090,6 +1090,7 @@
 				    <widget class="GtkRadioButton" id="freespace">
 				      <property name="visible">True</property>
 				      <property name="sensitive">False</property>
+				      <property name="tooltip" translatable="yes">Esta opción está en desarrollo actualmente</property>
 				      <property name="label" translatable="yes">Usar el espacio libre</property>
 				      <property name="use_underline">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
@@ -1137,8 +1138,8 @@
 				    <widget class="GtkRadioButton" id="manually">
 				      <property name="visible">True</property>
 				      <property name="sensitive">False</property>
-				      <property name="tooltip" translatable="yes">Esta opción está en desarrollo actualmente</property>
-				      <property name="label" translatable="yes">Reutilizar las particiones existentes</property>
+				      <property name="tooltip" translatable="yes">Mediante esta opción podrá crear, redimensionar y destruir las particiones actuales de su disco duro con entera libertad</property>
+				      <property name="label" translatable="yes">Particionar a mano</property>
 				      <property name="use_underline">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
 				      <property name="focus_on_click">True</property>
