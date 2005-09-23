@@ -538,7 +538,7 @@ class Wizard:
     if step == 2:
       self.back.hide()
     
-    if step is not 5:
+    if step is not 6:
       self.steps.prev_page()
 
 
