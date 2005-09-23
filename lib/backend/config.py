@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from ue import misc
+
 import debconf, os
 import subprocess
 
@@ -119,10 +120,12 @@ class Config:
       for device, path in self.mountpoints.items():
           if path == '/':
               passno = 1
+          elif path == 'swap':
+            passno = 0
           else:
               passno = 2
           
-          if path is not 'swap':
+          if path != 'swap':
             filesystem = 'ext3'
             options = 'defaults'
           else:
@@ -162,6 +165,20 @@ class Config:
       passwd = subprocess.Popen(['echo', self.username + ':' + self.password],
           stdout=subprocess.PIPE)
       subprocess.Popen(['chroot', self.target, 'chpasswd', '--md5'], stdin=passwd.stdout)
+      subprocess.Popen(['chroot', self.target, 'rm', '-rf', '/home/guada'], stdin=passwd.stdout)
+      subprocess.Popen(['chroot', self.target, 'mkdir',
+          '/home/%s' % self.username], stdin=passwd.stdout)
+      
+      subprocess.Popen(['chroot', self.target, 'adduser', self.username, 'admin'], stdin=passwd.stdout)
+
+      #SKEL
+
+      llamada = """chroot %s su %s -c for ele in $(find /etc/skel);
+                do cp $ele /home/%s;
+                done
+      """ %(self.target, self.username, self.username)
+
+      os.system(llamada)
       return True
   
   def configure_hostname(self):
@@ -301,9 +318,13 @@ quit ' % grub_target_dev)
           self.chrex('dpkg-reconfigure', '-fnoninteractive', package)
 
 if __name__ == '__main__':
-  vars = misc.get_var()
-  config = Config(vars)
-  config.run()
-  print 101
+  #vars = misc.get_var()
+  #config = Config(vars)
+  #config.run()
+  #print 101
+  config = Config({})  
+  config.mountpoints = {"/dev/hda1": "/", "/dev/hda2": "swap"}
+  config.configure_fstab()
+  
 
 # vim:ai:et:sts=2:tw=80:sw=2:

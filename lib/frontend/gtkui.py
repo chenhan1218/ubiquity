@@ -289,15 +289,19 @@ class Wizard:
       print "config main_iteration"
       time.sleep(0.5)
     
+    ex("umount -f " + self.target)
     self.next.set_label('Finish and Reboot')
-    #self.next.connect('clicked', lambda *x: gtk.main_quit())
+    self.next.connect('clicked', self.__reboot)
     self.back.set_label('Just Finish')
-    #self.back.connect('clicked', lambda *x: gtk.main_quit())
+    self.back.connect('clicked', gtk.main_quit)
     self.next.set_sensitive(True)
     self.back.show()
     self.cancel.hide()
     self.steps.next_page()
 
+  def __reboot(self, *args):
+    os.system("reboot")
+    gtk.main_quit()
 
   def set_progress(self, msg):
     num , text = get_progress(msg)

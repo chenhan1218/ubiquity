@@ -74,6 +74,24 @@ class Copy:
         return False
     return True
 
+  def umount_target(self):
+    if not os.path.isdir(self.target):
+      os.mkdir(self.target)
+    misc.ex('umount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
+
+    ordered_list = []
+    for device, path in self.mountpoints.items():
+      if path in ('swap',):
+          continue
+
+      path = os.path.join(self.target, path[1:])
+      ordered_list.append((len(path), device, path))
+
+    ordered_list.reverse()
+    for length, device, path in  ordered_list:
+      misc.ex('umount -f', device, path):
+    return True
+
   def copy_all(self, queue):
     files = []
     total_size = 0
