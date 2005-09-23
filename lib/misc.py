@@ -90,20 +90,28 @@ def set_var(var):
   file.close()
 
 def pre_log(code, msg=''):
+
+  distro = open ('/etc/lsb-release').readline ().strip ().split ('=') [1].lower ()
+  log_file = '/var/log/' + distro + '-express'
+
   import logging
   logging.basicConfig(level=logging.DEBUG,
                       format='%(asctime)s %(levelname)-8s %(message)s',
                       datefmt='%a, %d %b %Y %H:%M:%S',
-                      filename='/var/log/guadalinex-installer',
+                      filename = log_file,
                       filemode='a')
   eval('logging.%s(\'%s\')' % (code,msg))
   
 def post_log(code, msg=''):
+
+  distro = open ('/etc/lsb-release').readline ().strip ().split ('=') [1].lower ()
+  log_file = '/target/var/log/' + distro + '-express'
+
   import logging
   logging.basicConfig(level=logging.DEBUG,
                       format='%(asctime)s %(levelname)-8s %(message)s',
                       datefmt='%a, %d %b %Y %H:%M:%S',
-                      filename='/target/var/log/guadalinex-installer',
+                      filename = log_file,
                       filemode='a')
   eval('logging.%s(\'%s\')' % (code,msg))
   

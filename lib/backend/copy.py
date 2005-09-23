@@ -135,9 +135,13 @@ class Copy:
     return True
     
   def copy_logs(self):
+
+    distro = open ('/etc/lsb-release').readline ().strip ().split ('=') [1].lower ()
+    log_file = '/var/log/' + distro + '-express'
+
     try:
-      misc.ex('cp', '-a', '/var/log/guadalinex-installer',
-              os.path.join(self.target,'/var/log/guadalinex-installer'))
+      misc.ex('cp', '-a', log_file,
+              os.path.join(self.target, log_file))
     except IOError, error:
       misc.pre_log('error', error)
       return False

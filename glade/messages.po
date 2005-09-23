@@ -203,7 +203,7 @@ msgstr ""
 #: liveinstaller.glade:2502
 msgid ""
 "<span size=\"xx-large\">Introducing your forthcoming free desktop</span>"
-msgstr ""
+msgstr "<span size=\"xx-large\">Bienvenido a su nuevo escritorio libre.</span>"
 
 #: liveinstaller.glade:2569
 msgid ""
