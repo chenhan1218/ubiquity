@@ -9,6 +9,7 @@
 # - Javier Carranza <javier.carranza#interactors._coop>
 # - Juan Jesús Ojeda Croissier <juanje#interactors._coop>
 # - Antonio Olmo Titos <aolmo#emergya._info>
+# - Gumer Coronel Pérez <gcoronel#emergya.info>
 # 
 # Este fichero es parte del instalador en directo de Guadalinex 2005.
 # 
@@ -59,8 +60,11 @@ import gtkmozembed
 import os
 import time, gobject
 import glob
+import thread
 
 from gettext import bindtextdomain, textdomain, install
+from Queue import Queue
+
 
 from ue.backend import *
 from ue.validation import *
@@ -241,21 +245,54 @@ class Wizard:
     # Set timeout objects
     self.timeout_images = gobject.timeout_add(60000, self.images_loop)
     path = '/usr/lib/python2.4/site-packages/ue/backend/'
-    ex(path + 'format.py')
-    self.pid = os.fork()
-    if self.pid == 0:
-      source = ret_ex(path + 'copy.py')
-      gobject.io_add_watch(source,gobject.IO_IN,self.read_stdout)
-    os.waitpid(self.pid, 0)
+
+    def format_thread(queue):
+      ex(path + 'format.py')
+      queue.put(None)
+
+    queue = Queue()
+    thread.start_new_thread(format_thread, (queue,))
+    while queue.empty():
+      while gtk.events_pending():
+        gtk.main_iteration()
+      print "format main_iteration"
+      time.sleep(0.5)
+
+
+    def wait_thread(queue):
+      mountpoints = get_var()['mountpoints']
+      cp = copy.Copy(mountpoints)
+      cp.run(queue)
+      queue.put('101')
+
+    queue = Queue()
+    thread.start_new_thread(wait_thread, (queue,))
+    while True:
+      msg = str(queue.get())
+      print "############## wait_thread", str(msg)
+      if msg.startswith('101'):
+        break
+      self.set_progress(msg)
+      while gtk.events_pending():
+        gtk.main_iteration()
+
     self.pid = os.fork()
     if self.pid == 0:
       source = ret_ex(path + 'config.py')
       gobject.io_add_watch(source,gobject.IO_IN,self.read_stdout)
-    os.waitpid(self.pid, 0)
+
+    queue = Queue()
+    thread.start_new_thread(wait_thread, (queue,))
+    while queue.empty():
+      while gtk.events_pending():
+        gtk.main_iteration()
+      print "config main_iteration"
+      time.sleep(0.5)
+    
     self.next.set_label('Finish and Reboot')
-    self.next.connect('clicked', lambda *x: gtk.main_quit())
+    #self.next.connect('clicked', lambda *x: gtk.main_quit())
     self.back.set_label('Just Finish')
-    self.back.connect('clicked', lambda *x: gtk.main_quit())
+    #self.back.connect('clicked', lambda *x: gtk.main_quit())
     self.next.set_sensitive(True)
     self.back.show()
     self.cancel.hide()
@@ -382,8 +419,11 @@ class Wizard:
 
 
   def read_stdout(self, source, condition):
+    print "############################################" 
     msg = source.readline()
+    print "############################################", msg
     if msg.startswith('101'):
+      print "read_stdout finished"
       return False
     self.set_progress(msg)
     return True
@@ -514,6 +554,10 @@ class Wizard:
       #  self.show_error(''.join(error_msg))
       #else:
       self.steps.next_page()
+
+      while gtk.events_pending():
+        gtk.main_iteration()
+
       self.embedded.destroy()
       self.next.set_sensitive(False)
       os.kill(self.gparted_pid, 9)
