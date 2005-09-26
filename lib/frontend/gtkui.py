@@ -244,6 +244,7 @@ class Wizard:
     self.set_vars_file()
     # Set timeout objects
     self.timeout_images = gobject.timeout_add(60000, self.images_loop)
+    self.images_loop()
     path = '/usr/lib/python2.4/site-packages/ue/backend/'
 
     def format_thread(queue):
@@ -423,9 +424,7 @@ class Wizard:
 
 
   def read_stdout(self, source, condition):
-    print "############################################" 
     msg = source.readline()
-    print "############################################", msg
     if msg.startswith('101'):
       print "read_stdout finished"
       return False
@@ -470,33 +469,33 @@ class Wizard:
       error = 0
       for result in validation.check_username(self.username.get_property('text')):
         if ( result == 1 ):
-          error_msg.append("· <b>username</b> contains dots (they're not allowed).\n")
+          error_msg.append("· El <b>nombre de usuario</b> contiene puntos (no están permitidos).\n")
           error = 1
         elif ( result == 2 ):
-          error_msg.append("· <b>username</b> contains uppercase characters (they're not allowed).\n")
+          error_msg.append("· El <b>nombre de usuario</b> contiene mayúsculas (no están permitidas).\n")
           error = 1
         elif ( result == 3 ):
-          error_msg.append("· <b>username</b> wrong length (allowed between 3 and 24 chars).\n")
+          error_msg.append("· El <b>nombre de usuario</b> tiene tamaño incorrecto (permitido entre 3 y 24 caracteres).\n")
           error = 1
         elif ( result == 4 ):
-          error_msg.append("· <b>username</b> contains white spaces (they're not allowed).\n")
+          error_msg.append("· El <b>nombre de usuario</b> contiene espacios en blanco (no están permitidos).\n")
           error = 1
         elif ( result in [5, 6] ):
-          error_msg.append("· <b>username</b> is already taken or prohibited.\n")
+          error_msg.append("· El <b>nombre de usuario</b> ya está en uso o está prohibido.\n")
           error = 1
       for result in validation.check_password(self.password.get_property('text'), self.verified_password.get_property('text')):
         if ( result in [1,2] ):
-          error_msg.append("· <b>password</b> wrong length (allowed between 4 and 16 chars).\n")
+          error_msg.append("· La <b>contraseña</b> tiene tamaño incorrecto (permitido entre 4 y 16 caracteres).\n")
           error = 1
         elif ( result == 3 ):
-          error_msg.append("· <b>passwords</b> don't match.\n")
+          error_msg.append("· Las <b>contraseñas</b> no coinciden.\n")
           error = 1
       for result in validation.check_hostname(self.hostname.get_property('text')):
         if ( result == 1 ):
-          error_msg.append("· <b>hostname</b> wrong length (allowed between 3 and 18 chars).\n")
+          error_msg.append("· El <b>nombre del equipo</b> tiene tamaño incorrecto (permitido entre 3 y 18 caracteres).\n")
           error = 1
         elif ( result == 2 ):
-          error_msg.append("· <b>hostname</b> contains white spaces (they're not allowed).\n")
+          error_msg.append("· El <b>nombre del equipo</b> contiene espacios en blanco (no están permitidos).\n")
           error = 1
       if ( error == 1 ):
         self.show_error(''.join(error_msg))
@@ -616,7 +615,7 @@ class Wizard:
           self.freespace.set_sensitive (False)
           self.recycle.set_sensitive (False)
           self.manually.set_sensitive (False)
-          self.partition_message.set_text ('Not enough space!')
+          self.partition_message.set_text ('¡ No hay espacio suficiente !')
         else:
           self.manually.set_sensitive (True)
 
