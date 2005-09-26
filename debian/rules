@@ -61,7 +61,7 @@ install:
 	cp -r $(CURDIR)/doc/* $(CURDIR)/debian/ubuntu-express/usr/share/doc/ubuntu-express/
 	cp -a $(CURDIR)/lib/{*.py,backend} $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/
 	cp $(CURDIR)/ubuntu-express $(CURDIR)/installer $(CURDIR)/debian/ubuntu-express/usr/bin/
-	cp $(CURDIR)/ubuntu-express.desktop $(CURDIR)/debian/ubuntu-express/usr/share/applications/
+	cp $(CURDIR)/debian/ubuntu-express.desktop $(CURDIR)/debian/ubuntu-express/usr/share/applications/
 	rm -rf `find $(CURDIR)/debian/ -mindepth 2 -type d -name .svn`
 
 # Build architecture-independent files here.
