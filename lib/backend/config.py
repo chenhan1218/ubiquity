@@ -245,7 +245,7 @@ default 1\n \
 \n \
 title %s\n \
 root (%s)\n \
-kernel (%s)/boot/vmlinuz-%s root=%s ro vga=791 quiet\n \
+kernel (%s)/boot/vmlinuz-%s root=%s ro splash quiet\n \
 initrd (%s)/boot/initrd.img-%s' % \
       (distro, grub_dev, grub_dev, self.kernel_version, target_dev, grub_dev, self.kernel_version) )
       
