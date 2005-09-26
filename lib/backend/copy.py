@@ -62,21 +62,33 @@ class Copy:
 
   def mount_target(self):
     if not os.path.isdir(self.target):
-      os.mkdir(self.target)
-    misc.ex('mount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
+      try:
+        os.mkdir(self.target)
+      except Exception, e:
+        print e
+    try:
+      misc.ex('mount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
+    except Exception, e:
+      misc.ex('mkfs.ext3', self.mountpoints.keys()[self.mountpoints.values().index('/')])
+      misc.ex('mount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
 
     for device, path in self.mountpoints.items():
       if path in ('/', 'swap'):
           continue
       path = os.path.join(self.target, path[1:])
       os.mkdir(path)
-      if not misc.ex('mount', device, path):
-        return False
+      try:
+        misc.ex('mount', device, path)
+      except Exception, e:
+        print e
     return True
 
   def umount_target(self):
     if not os.path.isdir(self.target):
-      os.mkdir(self.target)
+      try:
+        os.mkdir(self.target)
+      except Exception, e:
+        print e
     misc.ex('umount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
 
     ordered_list = []
@@ -180,9 +192,15 @@ class Copy:
 
     misc.ex('losetup', self.dev, file)
     if not os.path.isdir(self.source):
-      os.mkdir(self.source)
+      try:
+        os.mkdir(self.source)
+      except Exception, e:
+        print e
       misc.pre_log('info', 'mkdir %s' % self.source)
-    misc.ex('mount', self.dev, self.source)
+    try:
+      misc.ex('mount', self.dev, self.source)
+    except Exception, e:
+      print e
     return True
 
   def unmount_source(self):

@@ -332,7 +332,10 @@ class Wizard:
 
   def quit(self):
     if self.pid:
-      os.kill(self.pid, 9)
+      try:
+        os.kill(self.pid, 9)
+      except Exception, e:
+        print e
     # Tell the user how much time they used
 
     # Next statement changed by A. Olmo on 20 sep 2005:
@@ -563,7 +566,10 @@ class Wizard:
 
       self.embedded.destroy()
       self.next.set_sensitive(False)
-      os.kill(self.gparted_pid, 9)
+      try:
+        os.kill(self.gparted_pid, 9)
+      except Exception, e:
+        print e
       self.progress_loop()
     # From Progress to Finish
     #elif step == 5:
