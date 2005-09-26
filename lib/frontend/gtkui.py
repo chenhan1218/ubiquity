@@ -99,6 +99,48 @@ class Wizard:
                     'password' : 0,
                     'verified_password' : 0
                     }
+    self.part_labels = {
+                    '/dev/hda1' : 'Partición 1 Disco IDE/ATA 1 (Primaria) [hda1]',
+                    '/dev/hda2' : 'Partición 2 Disco IDE/ATA 1 (Primaria) [hda2]',
+                    '/dev/hda3' : 'Partición 3 Disco IDE/ATA 1 (Primaria) [hda3]',
+                    '/dev/hda4' : 'Partición 4 Disco IDE/ATA 1 (Primaria) [hda4]',
+                    '/dev/hda5' : 'Partición 5 Disco IDE/ATA 1 (Lógica) [hda5]',
+                    '/dev/hda6' : 'Partición 6 Disco IDE/ATA 1 (Lógica) [hda6]',
+                    '/dev/hda7' : 'Partición 7 Disco IDE/ATA 1 (Lógica) [hda7]',
+                    '/dev/hda8' : 'Partición 8 Disco IDE/ATA 1 (Lógica) [hda8]',
+                    '/dev/hda9' : 'Partición 9 Disco IDE/ATA 1 (Lógica) [hda9]',
+                    '/dev/hda10' : 'Partición 10 Disco IDE/ATA 1 (Lógica) [hda10]',
+                    '/dev/hdb1' : 'Partición 1 Disco IDE/ATA 2 (Primaria) [hdb1]',
+                    '/dev/hdb2' : 'Partición 2 Disco IDE/ATA 2 (Primaria) [hdb2]',
+                    '/dev/hdb3' : 'Partición 3 Disco IDE/ATA 2 (Primaria) [hdb3]',
+                    '/dev/hdb4' : 'Partición 4 Disco IDE/ATA 2 (Primaria) [hdb4]',
+                    '/dev/hdb5' : 'Partición 5 Disco IDE/ATA 2 (Lógica) [hdb5]',
+                    '/dev/hdb6' : 'Partición 6 Disco IDE/ATA 2 (Lógica) [hdb6]',
+                    '/dev/hdb7' : 'Partición 7 Disco IDE/ATA 2 (Lógica) [hdb7]',
+                    '/dev/hdb8' : 'Partición 8 Disco IDE/ATA 2 (Lógica) [hdb8]',
+                    '/dev/hdb9' : 'Partición 9 Disco IDE/ATA 2 (Lógica) [hdb9]',
+                    '/dev/hdb10' : 'Partición 10 Disco IDE/ATA 2 (Lógica) [hdb10]',
+                    '/dev/sda1' : 'Partición 1 Disco USB/SCSI/SATA 1 (Primaria) [sda1]',
+                    '/dev/sda2' : 'Partición 2 Disco USB/SCSI/SATA 1 (Primaria) [sda2]',
+                    '/dev/sda3' : 'Partición 3 Disco USB/SCSI/SATA 1 (Primaria) [sda3]',
+                    '/dev/sda4' : 'Partición 4 Disco USB/SCSI/SATA 1 (Primaria) [sda4]',
+                    '/dev/sda5' : 'Partición 5 Disco USB/SCSI/SATA 1 (Lógica) [sda5]',
+                    '/dev/sda6' : 'Partición 6 Disco USB/SCSI/SATA 1 (Lógica) [sda6]',
+                    '/dev/sda7' : 'Partición 7 Disco USB/SCSI/SATA 1 (Lógica) [sda7]',
+                    '/dev/sda8' : 'Partición 8 Disco USB/SCSI/SATA 1 (Lógica) [sda8]',
+                    '/dev/sda9' : 'Partición 9 Disco USB/SCSI/SATA 1 (Lógica) [sda9]',
+                    '/dev/sda10' : 'Partición 10 Disco USB/SCSI/SATA 1 (Lógica) [sda10]',
+                    '/dev/sdb1' : 'Partición 1 Disco USB/SCSI/SATA 2 (Primaria) [sdb1]',
+                    '/dev/sdb2' : 'Partición 2 Disco USB/SCSI/SATA 2 (Primaria) [sdb2]',
+                    '/dev/sdb3' : 'Partición 3 Disco USB/SCSI/SATA 2 (Primaria) [sdb3]',
+                    '/dev/sdb4' : 'Partición 4 Disco USB/SCSI/SATA 2 (Primaria) [sdb4]',
+                    '/dev/sdb5' : 'Partición 5 Disco USB/SCSI/SATA 2 (Lógica) [sdb5]',
+                    '/dev/sdb6' : 'Partición 6 Disco USB/SCSI/SATA 2 (Lógica) [sdb6]',
+                    '/dev/sdb7' : 'Partición 7 Disco USB/SCSI/SATA 2 (Lógica) [sdb7]',
+                    '/dev/sdb8' : 'Partición 8 Disco USB/SCSI/SATA 2 (Lógica) [sdb8]',
+                    '/dev/sdb9' : 'Partición 9 Disco USB/SCSI/SATA 2 (Lógica) [sdb9]',
+                    '/dev/sdb10' : 'Partición 10 Disco USB/SCSI/SATA 2 (Lógica) [sdb10]',
+                    }
     # images stuff
     self.install_image = 0
     PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', distro)
@@ -236,7 +278,7 @@ class Wizard:
     partition_list = self.get_partitions()
     treelist = gtk.ListStore(gobject.TYPE_STRING)
     for index in partition_list:
-      treelist.append([index.split()[0]])
+      treelist.append([self.part_labels[index.split()[0]]])
     widget.set_model(treelist)
 
   def progress_loop(self):
@@ -289,8 +331,6 @@ class Wizard:
         gtk.main_iteration()
       print "config main_iteration"
       time.sleep(0.5)
-    
-#    ex("umount -f " + self.target)
     self.next.set_label('Finish and Reboot')
     self.next.connect('clicked', self.__reboot)
     self.back.set_label('Just Finish')
