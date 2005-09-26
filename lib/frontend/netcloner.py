@@ -74,11 +74,12 @@ class Wizard:
       self.show_error(''.join(error_msg))
     result = validation.check_mountpoint(self.mountpoint1.get_active_text())
     if ( result[0] is not '/' ):
-       error_msg.append("· <b>mountpoint</b> must start with '/').\n")
+       error_msg.append("· mountpoint must start with '/').\n")
        error = 1
     if ( error == 1 ):
       self.show_error(''.join(error_msg))
     self.progress_loop()
+    self.clean_up()
 
 
   def set_locales(self):
@@ -109,10 +110,14 @@ class Wizard:
     self.steps.next_page()
 
 
+  def clean_up(self):
+    ex('rm','-f','/cdrom/META/META.squashfs')
+    post_log('info','Cleaned up')
+
+
   def set_progress(self, msg):
     num , text = get_progress(msg)
-    self.progressbar.set_percentage(num/100.0)
-    self.progressbar.set_text(text)
+    post_log('%d: %s' % (set_percentage(num/100.0), set_text(text))
     
   def parse(name, dict):
     for line in open(name).readlines():
@@ -122,6 +127,12 @@ class Wizard:
       for word in line.split():
         if '=' in word:
           name, val = word.split('=', 1)
+          if name == 'mountpoints':
+            mountpoints = {}
+            for each in val.split(';'):
+              mountpoint, device = each.split(':')
+              mountpoints[mountpoint] = device
+            val = mountpoints
           dict[name] = val
  
  
