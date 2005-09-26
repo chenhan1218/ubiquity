@@ -89,7 +89,7 @@ class Copy:
 
     ordered_list.reverse()
     for length, device, path in  ordered_list:
-      misc.ex('umount -f', device, path):
+      misc.ex('umount -f', device, path)
     return True
 
   def copy_all(self, queue):
