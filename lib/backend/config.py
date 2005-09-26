@@ -237,7 +237,7 @@ class Config:
       misc.ex('mount', '/proc', '--bind', self.target + '/proc')
       misc.ex('mount', '/sys', '--bind', self.target + '/sys')
       # For the Grub
-      grub_conf = open(self.target + '/boot/grub/menu.lst', 'a')
+      grub_conf = open(self.target + '/boot/grub/menu.lst', 'w')
       grub_conf.write('\n \
 fallback 0\n \
 timeout 30\n \
@@ -251,7 +251,7 @@ initrd (%s)/boot/initrd.img-%s' % \
       
       grub_conf.close()
 
-      grub_conf = open('/tmp/grub.conf', 'a')
+      grub_conf = open('/tmp/grub.conf', 'w')
       
       grub_target_dev = int(target_dev[8:]) -1
       grub_conf.write('\n \
