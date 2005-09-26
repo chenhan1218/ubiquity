@@ -290,7 +290,7 @@ class Wizard:
       print "config main_iteration"
       time.sleep(0.5)
     
-    ex("umount -f " + self.target)
+    ex("umount -f " + self.mountpoints.keys()[self.mountpoints.values().index('/'))
     self.next.set_label('Finish and Reboot')
     self.next.connect('clicked', self.__reboot)
     self.back.set_label('Just Finish')
