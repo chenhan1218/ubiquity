@@ -97,7 +97,7 @@ def call_gparted(widget):
   except:
     try:
       out = Popen(['/usr/local/bin/gparted', '-i', Wid], stdin=PIPE,
-                  stdout=PIPE, close_fds=True).stdout
+                  stdout=PIPE, close_fds=True)
       # get the output last line 
       line = out.readlines()[-1].strip()
     except:
