@@ -249,7 +249,7 @@ msgstr "2-3"
 msgid ""
 "<span size=\"xx-large\" foreground=\"white\" background=\"#9F6C49\" >  <span "
 "size=\"x-large\"><b>0. Intro</b></span> » <span size=\"x-large\">1. "
-"Identification</span> » <span size=\"x-large\">2. Disck space</span> » <span "
+"Identification</span> » <span size=\"x-large\">2. Disk space</span> » <span "
 "foreground=\"black\" size=\"x-large\">3. Installation</span> » <span size="
 "\"x-large\">4. Ready!</span> </span>"
 msgstr ""
@@ -261,8 +261,9 @@ msgstr ""
 
 #: liveinstaller.glade:2502
 msgid ""
-"<span size=\"xx-large\">Cómo será su nuevo escritorio libre</span>"
+"<span size=\"xx-large\">Introducing your forthcoming free desktop</span>"
 msgstr ""
+"<span size=\"xx-large\">Cómo será su nuevo escritorio libre</span>"
 
 #: liveinstaller.glade:2569
 msgid ""
@@ -272,7 +273,7 @@ msgid ""
 "installed."
 msgstr ""
 "Por favor, espere mientras se instala\n"
-"su nuevo sistema operativo y más de nnn\n"
+"su nuevo sistema operativo y más de 2000\n"
 "programas libres y gratuitos."
 
 #: liveinstaller.glade:2594
