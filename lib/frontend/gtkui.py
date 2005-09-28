@@ -304,14 +304,20 @@ class Wizard:
         gtk.main_iteration()
 
     def wait_thread(queue):
-      source = ret_ex(path + 'config.py')
+      mountpoints = get_var()['mountpoints']
+      cf = config.Config(mountpoints)
+      cf.run()
+      queue.put('101')
 
     queue = Queue()
     thread.start_new_thread(wait_thread, (queue,))
-    while queue.empty():
+    while True:
+      msg = str(queue.get())
+      if msg.startswith('101'):
+        break
+      self.set_progress(msg)
       while gtk.events_pending():
         gtk.main_iteration()
-      time.sleep(0.5)
 
     self.next.set_label('Finish and Reboot')
     self.next.connect('clicked', lambda *x: self.__reboot())
