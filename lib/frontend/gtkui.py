@@ -274,14 +274,14 @@ class Wizard:
     self.images_loop()
     path = '/usr/lib/python2.4/site-packages/ue/backend/'
 
-    def format_thread(queue):
+    def wait_thread(queue):
       mountpoints = get_var()['mountpoints']
       ft = format.Format(mountpoints)
       ft.format_target(queue)
       queue.put(None)
 
     queue = Queue()
-    thread.start_new_thread(format_thread, (queue,))
+    thread.start_new_thread(wait_thread, (queue,))
     while queue.empty():
       while gtk.events_pending():
         gtk.main_iteration()

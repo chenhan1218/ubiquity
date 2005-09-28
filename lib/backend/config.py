@@ -323,13 +323,10 @@ quit ' % grub_target_dev)
           self.chrex('dpkg-reconfigure', '-fnoninteractive', package)
 
 if __name__ == '__main__':
-  #vars = misc.get_var()
-  #config = Config(vars)
-  #config.run()
-  #print 101
-  config = Config({})  
-  config.mountpoints = {"/dev/hda1": "/", "/dev/hda2": "swap"}
-  config.configure_fstab()
+  vars = misc.get_var()
+  config = Config(vars)
+  config.run()
+  print 101
   
 
 # vim:ai:et:sts=2:tw=80:sw=2:
