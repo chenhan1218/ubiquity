@@ -1,51 +1,52 @@
 # -*- coding: utf-8 -*-
-
+#
 # «gtkui» - interfaz de usuario GTK
-# 
+#
 # Copyright (C) 2005 Junta de Andalucía
-# 
-# Autor/es (Author/s):
-# 
+#
+# Autores (Authors):
+#
 # - Javier Carranza <javier.carranza#interactors._coop>
 # - Juan Jesús Ojeda Croissier <juanje#interactors._coop>
 # - Antonio Olmo Titos <aolmo#emergya._info>
-# - Gumer Coronel Pérez <gcoronel#emergya.info>
-# 
+# - Gumer Coronel Pérez <gcoronel#emergya._info>
+#
 # Este fichero es parte del instalador en directo de Guadalinex 2005.
-# 
+#
 # El instalador en directo de Guadalinex 2005 es software libre. Puede
 # redistribuirlo y/o modificarlo bajo los términos de la Licencia Pública
 # General de GNU según es publicada por la Free Software Foundation, bien de la
 # versión 2 de dicha Licencia o bien (según su elección) de cualquier versión
-# posterior. 
-# 
+# posterior.
+#
 # El instalador en directo de Guadalinex 2005 se distribuye con la esperanza de
 # que sea útil, pero SIN NINGUNA GARANTÍA, incluso sin la garantía MERCANTIL
 # implícita o sin garantizar la CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase
 # la Licencia Pública General de GNU para más detalles.
-# 
+#
 # Debería haber recibido una copia de la Licencia Pública General junto con el
 # instalador en directo de Guadalinex 2005. Si no ha sido así, escriba a la Free
 # Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301
 # USA.
-# 
+#
 # -------------------------------------------------------------------------
-# 
+#
 # This file is part of Guadalinex 2005 live installer.
-# 
+#
 # Guadalinex 2005 live installer is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
 # published by the Free Software Foundation; either version 2 of the License, or
 # at your option) any later version.
-# 
+#
 # Guadalinex 2005 live installer is distributed in the hope that it will be
 # useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
 # Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License along with
 # Guadalinex 2005 live installer; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+##################################################################################
 
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -30.38!!! (bad
     indentation and accesses to undefined members) """
@@ -64,7 +65,6 @@ import thread
 
 from gettext import bindtextdomain, textdomain, install
 from Queue import Queue
-
 
 from ue.backend import *
 from ue.validation import *
@@ -85,13 +85,13 @@ class Wizard:
   def __init__(self, distro):
     # declare attributes
     self.distro = distro
-    self.checked_partitions = False
     self.pid = False
     self.hostname = ''
     self.fullname = ''
     self.name = ''
     self.password = ''
     self.gparted = True
+    self.mountpoints = {}
     self.entries = {
                     'hostname' : 0,
                     'fullname' : 0, 
@@ -146,14 +146,6 @@ class Wizard:
     PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', distro)
     self.total_images   = glob.glob("%s/snapshot*.png" % PIXMAPSDIR)
     self.total_messages = open("%s/messages.txt" % PIXMAPSDIR).readlines()
-                        
-    # just for testings
-    #self.mountpoints = {
-    #                    '/'     : '/dev/hda1',
-    #                    'swap'  : '/dev/hda2',
-    #                    '/home' : '/dev/hda3'
-    #                    }
-    self.mountpoints = {}
     
     # Start a timer to see how long the user runs this program
     self.start = time.time()
@@ -193,11 +185,9 @@ class Wizard:
     self.partition8, self.partition9, self.partition10 ]:
       self.show_partitions(widget)
 
-    # Next lines for debugging purposes only:
-    #self.steps.set_current_page (2)
-
     # Peez2 stuff initialization:
     self.__assistant = None
+
 
   def run(self):
     # show interface
@@ -232,6 +222,7 @@ class Wizard:
     self.browser_vbox.add(widget)
     widget.show()
 
+
   # Methods
 
   def check_partitions (self, drive, progress_bar):
@@ -250,19 +241,11 @@ class Wizard:
 
     return result
 
+
   def gparted_loop(self):
     pre_log('info', 'gparted_loop()')
-    #self.mountpoints = None
-    #self.mountpoints = part.call_gparted(self.embedded)
     self.gparted_pid = part.call_gparted(self.embedded)
-    self.next.set_sensitive(True)
-    if self.mountpoints is None:
-      self.checked_partitions = False
-      return False
-    else:
-      self.checked_partitions = True
-      #self.next.set_sensitive(True)
-      return True
+
 
   def get_partitions(self):
     import re, subprocess
@@ -274,12 +257,14 @@ class Wizard:
 
     return partition
 
+
   def show_partitions(self, widget):
     partition_list = self.get_partitions()
     treelist = gtk.ListStore(gobject.TYPE_STRING)
     for index in partition_list:
       treelist.append([self.part_labels[index.split()[0]]])
     widget.set_model(treelist)
+
 
   def progress_loop(self):
     pre_log('info', 'progress_loop()')
@@ -298,9 +283,7 @@ class Wizard:
     while queue.empty():
       while gtk.events_pending():
         gtk.main_iteration()
-      print "format main_iteration"
       time.sleep(0.5)
-
 
     def wait_thread(queue):
       mountpoints = get_var()['mountpoints']
@@ -312,7 +295,6 @@ class Wizard:
     thread.start_new_thread(wait_thread, (queue,))
     while True:
       msg = str(queue.get())
-      print "############## wait_thread", str(msg)
       if msg.startswith('101'):
         break
       self.set_progress(msg)
@@ -329,7 +311,6 @@ class Wizard:
     while queue.empty():
       while gtk.events_pending():
         gtk.main_iteration()
-      print "config main_iteration"
       time.sleep(0.5)
     self.next.set_label('Finish and Reboot')
     self.next.connect('clicked', self.__reboot)
@@ -340,9 +321,11 @@ class Wizard:
     self.cancel.hide()
     self.steps.next_page()
 
+
   def __reboot(self, *args):
     os.system("reboot")
     gtk.main_quit()
+
 
   def set_progress(self, msg):
     num , text = get_progress(msg)
@@ -370,6 +353,7 @@ class Wizard:
     self.warning_info.set_markup(msg)
     self.warning_image.set_from_icon_name('gtk-dialog-warning', gtk.ICON_SIZE_DIALOG)
 
+
   def quit(self):
     if self.pid:
       try:
@@ -377,10 +361,9 @@ class Wizard:
       except Exception, e:
         print e
     # Tell the user how much time they used
-
     # Next statement changed by A. Olmo on 20 sep 2005:
-##     post_log('info', 'You wasted %.2f seconds with this installation' %
-##                       (time.time()-self.start))
+    #post_log('info', 'You wasted %.2f seconds with this installation' %
+    #                  (time.time()-self.start))
     pre_log('info', 'You wasted %.2f seconds with this installation' %
                       (time.time()-self.start))
 
@@ -545,13 +528,7 @@ class Wizard:
       else:
         self.browser_vbox.destroy()
         self.help.hide()
-        #self.next.set_sensitive(False)
-        self.steps.set_current_page(2)
-        #self.back.show()
-        #if not self.checked_partitions:
-        #  if not self.check_partitions():
-        #    return          
-        #self.steps.next_page()
+        self.steps.next_page()
     # From Peez to Gparted
     elif step == 2:
       self.freespace.set_active (False)
@@ -578,7 +555,6 @@ class Wizard:
         self.gparted_loop()
         self.steps.next_page()
       else:
-#        self.progress_loop()
         self.steps.set_current_page(5)
 
     # From Gparted to Mountpoints
@@ -611,16 +587,6 @@ class Wizard:
       except Exception, e:
         print e
       self.progress_loop()
-    # From Progress to Finish
-    #elif step == 5:
-    #  self.next.set_label('Finish and Reboot')
-    #  self.next.connect('clicked', lambda *x: gtk.main_quit())
-    #  self.back.set_label('Just Finish')
-    #  self.back.connect('clicked', lambda *x: gtk.main_quit())
-    #  self.next.set_sensitive(True)
-    #  self.back.show()
-    #  self.cancel.hide()
-    #  self.steps.next_page()
     
     step = self.steps.get_current_page()
     pre_log('info', 'Step_after = %d' % step)
@@ -641,8 +607,8 @@ class Wizard:
     else:
       self.gparted = True
 
-  # Public method "on_drives_changed" ________________________________________
 
+  # Public method "on_drives_changed" ________________________________________
   def on_drives_changed (self, foo):
 
     """ When a different drive is selected, it is necessary to update the
@@ -705,8 +671,8 @@ class Wizard:
 ##         message = str (selected_drive ['info'])
 ##         self.partition_message.set_text (message)
 
-  # Public method "on_steps_switch_page" _____________________________________
 
+  # Public method "on_steps_switch_page" _____________________________________
   def on_steps_switch_page (self, foo, bar, current):
 
     """ Only to populate the drives combo box the first time that page #2 is
@@ -731,8 +697,8 @@ class Wizard:
       if len (model) > 0:
         self.drives.set_active (0)
 
-  # Public method "on_freespace_group_changed" _______________________________
 
+  # Public method "on_freespace_group_changed" _______________________________
   def on_freespace_group_changed (self):
 
     """ Update help message when a different radio button is selected. """
@@ -746,9 +712,9 @@ class Wizard:
     else:
       self.partition_message.set_text ('[Sin selección]')
 
+
 if __name__ == '__main__':
   w = Wizard('ubuntu')
   w.run()
 
 # vim:ai:et:sts=2:tw=80:sw=2:
-
