@@ -536,7 +536,7 @@ class Peez2:
 
                             for i in c:
                                 # Print the commands:
-                                print i.strip ()
+                                stderr.write ('Command: ' + i.strip ())
 
                                 if do_it:
                                     # TODO: do it, execute commands to make partitions!
@@ -546,7 +546,7 @@ class Peez2:
                             mc = info ['metacoms']
 
                             for i in mc:
-                                print '# ' + i.strip ()
+                                stderr.write ('# ' + i.strip ())
 
         return result
 
