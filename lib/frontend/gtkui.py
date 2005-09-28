@@ -51,8 +51,9 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -30.38!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified by A. Olmo on 27 sep 2005.
+# Last modified by A. Olmo on 28 sep 2005.
 
+from sys import stderr
 import pygtk
 pygtk.require('2.0')
 
@@ -553,15 +554,15 @@ class Wizard:
             self.check_partitions (selected_drive, self.partition_bar)
 
       elif self.recycle.get_active ():
-        pass
-      elif self.manually.get_active ():
-        pass
-
-      if True: # self.gparted:
-        self.gparted_loop()
-        self.steps.next_page()
+        # TODO: copy mount points from selected drive object.
+        self.steps.set_current_page(6)
       else:
-        self.steps.set_current_page(5)
+
+        if self.gparted:
+          self.gparted_loop()
+          self.steps.next_page()
+        else:
+          self.steps.set_current_page(5)
 
     # From Gparted to Mountpoints
     elif step == 3:
@@ -651,7 +652,7 @@ class Wizard:
 
             if selected_drive.has_key ('linux_before'):
 
-              if selected_drive ['linux_before']:
+              if selected_drive ['linux_before'] is not None:
                 self.recycle.set_sensitive (True)
 
         # All options are disabled:

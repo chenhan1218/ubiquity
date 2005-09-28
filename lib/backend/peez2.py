@@ -105,6 +105,10 @@ class Peez2:
         result = []
 
         for i in self.__drives:
+
+            # DEBUG
+            stderr.write ('--> drive: ' + str (i) + '\n\n')
+
             pretty_device = beautify_device (i ['device'], self.__locale)
             pretty_size = beautify_size (i ['size'])
             label = '%s, %s, "%s"' % (pretty_size, pretty_device, i ['label'])
@@ -118,13 +122,16 @@ class Peez2:
             else:
                 enough = False
 
-            before = False
+            before = None
 
             if i.has_key ('details'):
                 linux_parts = 0
                 linux_space = []
 
                 for j in i ['details']:
+
+                    # DEBUG
+                    stderr.write ('--> details: ' + str (i ['details']) + '\n\n')
 
                     if 'linux' in j ['class'].lower ():
                         linux_space.append (int (j ['bytes']))
@@ -145,7 +152,11 @@ class Peez2:
                         l = l + 1
 
                     if r >= len (required_bytes):
-                        before = True
+
+                        # TEMPORARY, FOR DEBUGGING PURPOSES ONLY:
+                        before = ['/dev/hda1': '/',
+                                  '/dev/hda2': '/home',
+                                  '/dev/hda3': 'swap']
 
             item = {'id':           str (i ['device']),
                     'label':        label,
@@ -536,7 +547,7 @@ class Peez2:
 
                             for i in c:
                                 # Print the commands:
-                                stderr.write ('Command: ' + i.strip ())
+                                stderr.write ('Command: ' + i)
 
                                 if do_it:
                                     # TODO: do it, execute commands to make partitions!
@@ -546,7 +557,7 @@ class Peez2:
                             mc = info ['metacoms']
 
                             for i in mc:
-                                stderr.write ('# ' + i.strip ())
+                                stderr.write ('# ' + i)
 
         return result
 
