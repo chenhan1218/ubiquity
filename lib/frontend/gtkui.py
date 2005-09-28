@@ -51,7 +51,7 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -30.38!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified by A. Olmo on 22 sep 2005.
+# Last modified by A. Olmo on 27 sep 2005.
 
 import pygtk
 pygtk.require('2.0')
@@ -687,7 +687,7 @@ class Wizard:
 #       gdkwin.set_cursor (watch)
 #       gtk.gdk.flush ()
 
-      self.__assistant = Peez2 (debug = False)
+      self.__assistant = Peez2 () # debug = False)
 
       for i in self.__assistant.get_drives ():
         self.drives.append_text ('%s' % i ['label'])
