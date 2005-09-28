@@ -121,7 +121,8 @@ class Config:
           if path == '/':
               passno = 1
           elif path == 'swap':
-            passno = 0
+              swap = 1
+              passno = 0
           else:
               passno = 2
           
@@ -134,6 +135,8 @@ class Config:
             path = 'none'
           
           print >>fstab, '%s\t%s\t%s\t%s\t%d\t%d' % (device, path, filesystem, options, 0, passno)
+      if ( swap != 1 ):
+        print >>fstab, '/swapfile\tnone\tswap\tsw\t0\t0'
       fstab.close()
       return True
   
