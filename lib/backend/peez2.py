@@ -502,7 +502,9 @@ class Peez2:
                         progress_bar.pulse ()
                         progress_bar.set_text ('Making %i MB partition...' % required)
 
-                    info = self.__get_info (drive ['id'], required, '-j')
+#                    stderr.write (str (drive))
+
+                    info = self.__get_info (drive ['id'], required) # , '-j')
 
                     # Now we have to decide which option is better:
                     options = info ['opts']
