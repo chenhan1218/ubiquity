@@ -137,6 +137,8 @@ class Config:
           print >>fstab, '%s\t%s\t%s\t%s\t%d\t%d' % (device, path, filesystem, options, 0, passno)
       if ( swap != 1 ):
         print >>fstab, '/swapfile\tnone\tswap\tsw\t0\t0'
+        os.system("dd if=/dev/zero of=%s/swapfile bs=1024 count=262144" % self.target)
+        os.system("mkswap %s/swapfile" % self.target)
       fstab.close()
       return True
   
