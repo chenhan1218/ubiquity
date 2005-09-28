@@ -31,7 +31,13 @@ def install(type='gtkui'):
 
     distro = open('/etc/lsb-release').readline().strip().split('=')[1].lower()
     wizard = ui.Wizard(distro)
+    if ( type == 'gtkui' ):
+        os.system('gconftool-2 --set /apps/panel/toplevels/top_panel/auto_hide_size --type int 0')
+        os.system('gconftool-2 --set /apps/panel/toplevels/top_panel/auto_hide --type boolean true')
     ret = wizard.run()
+    if ( type == 'gtkui' ):
+        os.system('gconftool-2 --set /apps/panel/toplevels/top_panel/auto_hide_size --type int 6')
+        os.system('gconftool-2 --set /apps/panel/toplevels/top_panel/auto_hide --type boolean false')
 
 def unmount_target(mountpoints):
     for path, device in mountpoints.items():

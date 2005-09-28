@@ -1,7 +1,3 @@
 #!/bin/sh
 
-gconftool-2 --set /apps/panel/toplevels/top_panel/auto_hide_size --type int 0
-gconftool-2 --set /apps/panel/toplevels/top_panel/auto_hide --type boolean true
 exec /usr/bin/gksudo /usr/bin/installer
-gconftool-2 --set /apps/panel/toplevels/top_panel/auto_hide_size --type int 6
-gconftool-2 --set /apps/panel/toplevels/top_panel/auto_hide --type boolean false
