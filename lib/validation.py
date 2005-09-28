@@ -88,8 +88,9 @@ def check_username (name):
         result[2] = 3
     if len (set (name).intersection (set (uppercase))) > 0:
         result[1] = 2
-    if '.' in name:
-        result[0] = 1
+    # Commented on demmand
+    # if '.' in name:
+    #     result[0] = 1
 
     return result
 
