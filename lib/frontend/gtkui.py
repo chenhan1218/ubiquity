@@ -275,7 +275,9 @@ class Wizard:
     path = '/usr/lib/python2.4/site-packages/ue/backend/'
 
     def format_thread(queue):
-      ex(path + 'format.py')
+      mountpoints = get_var()['mountpoints']
+      ft = format.Format(mountpoints)
+      ft.format_target(queue)
       queue.put(None)
 
     queue = Queue()
@@ -301,10 +303,8 @@ class Wizard:
       while gtk.events_pending():
         gtk.main_iteration()
 
-    self.pid = os.fork()
-    if self.pid == 0:
+    def wait_thread(queue):
       source = ret_ex(path + 'config.py')
-      gobject.io_add_watch(source,gobject.IO_IN,self.read_stdout)
 
     queue = Queue()
     thread.start_new_thread(wait_thread, (queue,))
@@ -312,10 +312,11 @@ class Wizard:
       while gtk.events_pending():
         gtk.main_iteration()
       time.sleep(0.5)
+
     self.next.set_label('Finish and Reboot')
-    self.next.connect('clicked', self.__reboot)
+    self.next.connect('clicked', lambda *x: self.__reboot())
     self.back.set_label('Just Finish')
-    self.back.connect('clicked', gtk.main_quit)
+    self.back.connect('clicked', lambda *x: gtk.main_quit())
     self.next.set_sensitive(True)
     self.back.show()
     self.cancel.hide()
@@ -382,59 +383,59 @@ class Wizard:
       self.mountpoint1.get_active_text() != "" ):
         self.partition2.show()
         self.mountpoint2.show()
-        self.mountpoints[self.partition1.get_active_text()] = self.mountpoint1.get_active_text()
+        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition1.get_active_text())]] = self.mountpoint1.get_active_text()
       elif ( widget.get_name() in ['partition2', 'mountpoint2'] and
       self.partition2.get_active_text() != "" and
       self.mountpoint2.get_active_text() != "" ):
         self.partition3.show()
         self.mountpoint3.show()
-        self.mountpoints[self.partition2.get_active_text()] = self.mountpoint2.get_active_text()
+        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition2.get_active_text())]] = self.mountpoint2.get_active_text()
       elif ( widget.get_name() in ['partition3', 'mountpoint3'] and
       self.partition3.get_active_text() != "" and
       self.mountpoint3.get_active_text() != "" ):
         self.partition4.show()
         self.mountpoint4.show()
-        self.mountpoints[self.partition3.get_active_text()] = self.mountpoint3.get_active_text()
+        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition3.get_active_text())]] = self.mountpoint3.get_active_text()
       elif ( widget.get_name() in ['partition4', 'mountpoint4'] and
       self.partition4.get_active_text() != "" and
       self.mountpoint4.get_active_text() != "" ):
         self.partition5.show()
         self.mountpoint5.show()
-        self.mountpoints[self.partition4.get_active_text()] = self.mountpoint4.get_active_text()
+        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition4.get_active_text())]] = self.mountpoint4.get_active_text()
       elif ( widget.get_name() in ['partition5', 'mountpoint5'] and
       self.partition5.get_active_text() != "" and
       self.mountpoint5.get_active_text() != "" ):
         self.partition6.show()
         self.mountpoint6.show()
-        self.mountpoints[self.partition5.get_active_text()] = self.mountpoint5.get_active_text()
+        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition5.get_active_text())]] = self.mountpoint5.get_active_text()
       elif ( widget.get_name() in ['partition6', 'mountpoint6'] and
       self.partition6.get_active_text() != "" and
       self.mountpoint6.get_active_text() != "" ):
         self.partition7.show()
         self.mountpoint7.show()
-        self.mountpoints[self.partition6.get_active_text()] = self.mountpoint6.get_active_text()
+        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition6.get_active_text())]] = self.mountpoint6.get_active_text()
       elif ( widget.get_name() in ['partition7', 'mountpoint7'] and
       self.partition7.get_active_text() != "" and
       self.mountpoint7.get_active_text() != "" ):
         self.partition8.show()
         self.mountpoint8.show()
-        self.mountpoints[self.partition7.get_active_text()] = self.mountpoint7.get_active_text()
+        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition7.get_active_text())]] = self.mountpoint7.get_active_text()
       elif ( widget.get_name() in ['partition8', 'mountpoint8'] and
       self.partition8.get_active_text() != "" and
       self.mountpoint8.get_active_text() != "" ):
         self.partition9.show()
         self.mountpoint9.show()
-        self.mountpoints[self.partition8.get_active_text()] = self.mountpoint8.get_active_text()
+        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition8.get_active_text())]] = self.mountpoint8.get_active_text()
       elif ( widget.get_name() in ['partition9', 'mountpoint9'] and
       self.partition9.get_active_text() != "" and
       self.mountpoint9.get_active_text() != "" ):
         self.partition10.show()
         self.mountpoint10.show()
-        self.mountpoints[self.partition9.get_active_text()] = self.mountpoint9.get_active_text()
+        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition9.get_active_text())]] = self.mountpoint9.get_active_text()
       elif ( widget.get_name() in ['partition10', 'mountpoint10'] and
       self.partition10.get_active_text() != "" and
       self.mountpoint10.get_active_text() != "" ):
-        self.mountpoints[self.partition10.get_active_text()] = self.mountpoint10.get_active_text()
+        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition10.get_active_text())]] = self.mountpoint1o.get_active_text()
 
 
   def on_key_press (self, widget, event):
@@ -551,7 +552,6 @@ class Wizard:
         pass
 
       if True: # self.gparted:
-        self.next.set_sensitive(False)
         self.gparted_loop()
         self.steps.next_page()
       else:

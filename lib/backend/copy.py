@@ -76,7 +76,10 @@ class Copy:
       if path in ('/', 'swap'):
           continue
       path = os.path.join(self.target, path[1:])
-      os.mkdir(path)
+      try:
+        os.mkdir(path)
+      except Exception, e:
+        print e
       try:
         misc.ex('mount', device, path)
       except Exception, e:
@@ -150,12 +153,12 @@ class Copy:
     for path, size in files:
       copy.stdin.write(path + '\0')
       misc.pre_log('info', path)
-      if size is not None:
+      if ( size != None ):
         copied_bytes += size
       per = (copied_bytes * 100) / total_size
       # Adjusting the percentage
       per = (per*73/100)+17
-      queue.put("Copiando /%s" % path)
+      queue.put("%s Copiando %s%% [/%s]" % (per, per, path))
     
     copy.stdin.close()
     copy.wait()

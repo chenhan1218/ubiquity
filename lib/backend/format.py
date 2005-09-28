@@ -3,29 +3,35 @@
 
 from ue import misc
 
-def format_target (mountpoints):
-  '''format_target(mountpoints) -> bool
+class Format:
+
+  def __init__(self, mountpoints):
+    self.mountpoints = mountpoints
+
+
+  def format_target (self, queue):
+    '''format_target(queue) -> bool
   
-  From mountpoints extract the devices to partition 
-  and do it.
-  The method return true or false depends the result
-  of this operation.
-  '''
-  for device, path in mountpoints.items():
-    if path in ['/']:
-      try:
-        print "0 Preparing the disc"
-        misc.ex('mkfs.ext3', device)
-        print "2 Preparing the disc"
-      except:
-        return False
-    elif path == 'swap':
-      try:
-        misc.ex('mkswap', device)
-        print "3 Preparing the disc"
-      except:
-        return False
-  return True
+    From mountpoints extract the devices to partition 
+    and do it.
+    The method return true or false depends the result
+    of this operation.
+    '''
+    for device, path in self.mountpoints.items():
+      if path in ['/']:
+        try:
+          queue.put( "1 Formateando partición raíz" )
+          misc.ex('mkfs.ext3', device)
+          queue.put( "2 Partición raíz lista" )
+        except:
+          return False
+      elif path == 'swap':
+        try:
+          queue.put( "3 Preparando partición swap" )
+          misc.ex('mkswap', device)
+          queue.put( "3 Partición swap lista" )
+        except:
+          return False
 
 if __name__ == '__main__':
   mountpoints = misc.get_var()['mountpoints']
