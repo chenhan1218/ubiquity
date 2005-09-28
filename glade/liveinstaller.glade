@@ -1676,6 +1676,245 @@ If you kept an intact home partition, you can now link it with the “/home” m
 				      <property name="spacing">0</property>
 
 				      <child>
+					<widget class="GtkVBox" id="vbox18">
+					  <property name="visible">True</property>
+					  <property name="homogeneous">False</property>
+					  <property name="spacing">5</property>
+
+					  <child>
+					    <widget class="GtkLabel" id="label29">
+					      <property name="visible">True</property>
+					      <property name="label" translatable="yes">&lt;b&gt;Mountpoint&lt;/b&gt;</property>
+					      <property name="use_underline">False</property>
+					      <property name="use_markup">True</property>
+					      <property name="justify">GTK_JUSTIFY_LEFT</property>
+					      <property name="wrap">False</property>
+					      <property name="selectable">False</property>
+					      <property name="xalign">0.5</property>
+					      <property name="yalign">0.5</property>
+					      <property name="xpad">0</property>
+					      <property name="ypad">0</property>
+					      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+					      <property name="width_chars">-1</property>
+					      <property name="single_line_mode">False</property>
+					      <property name="angle">0</property>
+					    </widget>
+					    <packing>
+					      <property name="padding">0</property>
+					      <property name="expand">False</property>
+					      <property name="fill">False</property>
+					    </packing>
+					  </child>
+
+					  <child>
+					    <widget class="GtkComboBoxEntry" id="mountpoint1">
+					      <property name="visible">True</property>
+					      <property name="items" translatable="yes">swap
+/
+/home
+/boot
+/usr
+/var</property>
+					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
+					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:10:17 GMT"/>
+					    </widget>
+					    <packing>
+					      <property name="padding">0</property>
+					      <property name="expand">False</property>
+					      <property name="fill">True</property>
+					    </packing>
+					  </child>
+
+					  <child>
+					    <widget class="GtkComboBoxEntry" id="mountpoint2">
+					      <property name="items" translatable="yes">swap
+/
+/home
+/boot
+/usr
+/var</property>
+					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
+					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:15:30 GMT"/>
+					    </widget>
+					    <packing>
+					      <property name="padding">5</property>
+					      <property name="expand">False</property>
+					      <property name="fill">True</property>
+					    </packing>
+					  </child>
+
+					  <child>
+					    <widget class="GtkComboBoxEntry" id="mountpoint3">
+					      <property name="items" translatable="yes">swap
+/
+/home
+/boot
+/usr
+/var</property>
+					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
+					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:15:41 GMT"/>
+					    </widget>
+					    <packing>
+					      <property name="padding">0</property>
+					      <property name="expand">False</property>
+					      <property name="fill">True</property>
+					    </packing>
+					  </child>
+
+					  <child>
+					    <widget class="GtkComboBoxEntry" id="mountpoint4">
+					      <property name="items" translatable="yes">swap
+/
+/home
+/boot
+/usr
+/var</property>
+					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
+					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:15:52 GMT"/>
+					    </widget>
+					    <packing>
+					      <property name="padding">2</property>
+					      <property name="expand">False</property>
+					      <property name="fill">True</property>
+					    </packing>
+					  </child>
+
+					  <child>
+					    <widget class="GtkComboBoxEntry" id="mountpoint5">
+					      <property name="items" translatable="yes">swap
+/
+/home
+/boot
+/usr
+/var</property>
+					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
+					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:01 GMT"/>
+					    </widget>
+					    <packing>
+					      <property name="padding">2</property>
+					      <property name="expand">False</property>
+					      <property name="fill">True</property>
+					    </packing>
+					  </child>
+
+					  <child>
+					    <widget class="GtkComboBoxEntry" id="mountpoint6">
+					      <property name="items" translatable="yes">swap
+/
+/home
+/boot
+/usr
+/var</property>
+					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
+					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:11 GMT"/>
+					    </widget>
+					    <packing>
+					      <property name="padding">2</property>
+					      <property name="expand">False</property>
+					      <property name="fill">True</property>
+					    </packing>
+					  </child>
+
+					  <child>
+					    <widget class="GtkComboBoxEntry" id="mountpoint7">
+					      <property name="items" translatable="yes">swap
+/
+/home
+/boot
+/usr
+/var</property>
+					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
+					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:21 GMT"/>
+					    </widget>
+					    <packing>
+					      <property name="padding">2</property>
+					      <property name="expand">False</property>
+					      <property name="fill">True</property>
+					    </packing>
+					  </child>
+
+					  <child>
+					    <widget class="GtkComboBoxEntry" id="mountpoint8">
+					      <property name="items" translatable="yes">swap
+/
+/home
+/boot
+/usr
+/var</property>
+					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
+					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:30 GMT"/>
+					    </widget>
+					    <packing>
+					      <property name="padding">2</property>
+					      <property name="expand">False</property>
+					      <property name="fill">True</property>
+					    </packing>
+					  </child>
+
+					  <child>
+					    <widget class="GtkComboBoxEntry" id="mountpoint9">
+					      <property name="items" translatable="yes">swap
+/
+/home
+/boot
+/usr
+/var</property>
+					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
+					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:39 GMT"/>
+					    </widget>
+					    <packing>
+					      <property name="padding">2</property>
+					      <property name="expand">False</property>
+					      <property name="fill">True</property>
+					    </packing>
+					  </child>
+
+					  <child>
+					    <widget class="GtkComboBoxEntry" id="mountpoint10">
+					      <property name="items" translatable="yes">swap
+/
+/home
+/boot
+/usr
+/var</property>
+					      <property name="add_tearoffs">False</property>
+					      <property name="has_frame">True</property>
+					      <property name="focus_on_click">True</property>
+					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:48 GMT"/>
+					    </widget>
+					    <packing>
+					      <property name="padding">3</property>
+					      <property name="expand">False</property>
+					      <property name="fill">True</property>
+					    </packing>
+					  </child>
+					</widget>
+					<packing>
+					  <property name="padding">20</property>
+					  <property name="expand">True</property>
+					  <property name="fill">True</property>
+					</packing>
+				      </child>
+
+				      <child>
 					<widget class="GtkVBox" id="vbox17">
 					  <property name="visible">True</property>
 					  <property name="homogeneous">False</property>
@@ -1839,533 +2078,6 @@ If you kept an intact home partition, you can now link it with the “/home” m
 					      <property name="add_tearoffs">False</property>
 					      <property name="focus_on_click">True</property>
 					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 07:51:40 GMT"/>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">True</property>
-					    </packing>
-					  </child>
-					</widget>
-					<packing>
-					  <property name="padding">20</property>
-					  <property name="expand">True</property>
-					  <property name="fill">True</property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkVBox" id="vbox19">
-					  <property name="visible">True</property>
-					  <property name="homogeneous">False</property>
-					  <property name="spacing">0</property>
-
-					  <child>
-					    <widget class="GtkLabel" id="label30">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes">&lt;b&gt;Partition type&lt;/b&gt;</property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">True</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">False</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-					      <property name="width_chars">-1</property>
-					      <property name="single_line_mode">False</property>
-					      <property name="angle">0</property>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">False</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkLabel" id="type1">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes"></property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">True</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">True</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-					      <property name="width_chars">-1</property>
-					      <property name="single_line_mode">False</property>
-					      <property name="angle">0</property>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">False</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkLabel" id="type2">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes"></property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">True</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">True</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-					      <property name="width_chars">-1</property>
-					      <property name="single_line_mode">False</property>
-					      <property name="angle">0</property>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">False</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkLabel" id="type3">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes"></property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">True</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">True</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-					      <property name="width_chars">-1</property>
-					      <property name="single_line_mode">False</property>
-					      <property name="angle">0</property>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">False</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkLabel" id="type4">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes"></property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">True</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">True</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-					      <property name="width_chars">-1</property>
-					      <property name="single_line_mode">False</property>
-					      <property name="angle">0</property>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">False</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkLabel" id="type5">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes"></property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">True</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">True</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-					      <property name="width_chars">-1</property>
-					      <property name="single_line_mode">False</property>
-					      <property name="angle">0</property>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">False</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkLabel" id="type6">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes"></property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">True</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">True</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-					      <property name="width_chars">-1</property>
-					      <property name="single_line_mode">False</property>
-					      <property name="angle">0</property>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">False</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkLabel" id="type7">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes"></property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">True</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">True</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-					      <property name="width_chars">-1</property>
-					      <property name="single_line_mode">False</property>
-					      <property name="angle">0</property>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">False</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkLabel" id="type8">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes"></property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">True</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">True</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-					      <property name="width_chars">-1</property>
-					      <property name="single_line_mode">False</property>
-					      <property name="angle">0</property>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">False</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkLabel" id="type9">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes"></property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">True</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">True</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-					      <property name="width_chars">-1</property>
-					      <property name="single_line_mode">False</property>
-					      <property name="angle">0</property>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">False</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkLabel" id="type10">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes"></property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">True</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">True</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-					      <property name="width_chars">-1</property>
-					      <property name="single_line_mode">False</property>
-					      <property name="angle">0</property>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">False</property>
-					    </packing>
-					  </child>
-					</widget>
-					<packing>
-					  <property name="padding">20</property>
-					  <property name="expand">True</property>
-					  <property name="fill">True</property>
-					</packing>
-				      </child>
-
-				      <child>
-					<widget class="GtkVBox" id="vbox18">
-					  <property name="visible">True</property>
-					  <property name="homogeneous">False</property>
-					  <property name="spacing">5</property>
-
-					  <child>
-					    <widget class="GtkLabel" id="label29">
-					      <property name="visible">True</property>
-					      <property name="label" translatable="yes">&lt;b&gt;Mountpoint&lt;/b&gt;</property>
-					      <property name="use_underline">False</property>
-					      <property name="use_markup">True</property>
-					      <property name="justify">GTK_JUSTIFY_LEFT</property>
-					      <property name="wrap">False</property>
-					      <property name="selectable">False</property>
-					      <property name="xalign">0.5</property>
-					      <property name="yalign">0.5</property>
-					      <property name="xpad">0</property>
-					      <property name="ypad">0</property>
-					      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-					      <property name="width_chars">-1</property>
-					      <property name="single_line_mode">False</property>
-					      <property name="angle">0</property>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">False</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkComboBoxEntry" id="mountpoint1">
-					      <property name="visible">True</property>
-					      <property name="items" translatable="yes">swap
-/
-/home
-/boot
-/usr
-/var</property>
-					      <property name="add_tearoffs">False</property>
-					      <property name="has_frame">True</property>
-					      <property name="focus_on_click">True</property>
-					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:10:17 GMT"/>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">True</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkComboBoxEntry" id="mountpoint2">
-					      <property name="items" translatable="yes">swap
-/
-/home
-/boot
-/usr
-/var</property>
-					      <property name="add_tearoffs">False</property>
-					      <property name="has_frame">True</property>
-					      <property name="focus_on_click">True</property>
-					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:15:30 GMT"/>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">True</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkComboBoxEntry" id="mountpoint3">
-					      <property name="items" translatable="yes">swap
-/
-/home
-/boot
-/usr
-/var</property>
-					      <property name="add_tearoffs">False</property>
-					      <property name="has_frame">True</property>
-					      <property name="focus_on_click">True</property>
-					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:15:41 GMT"/>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">True</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkComboBoxEntry" id="mountpoint4">
-					      <property name="items" translatable="yes">swap
-/
-/home
-/boot
-/usr
-/var</property>
-					      <property name="add_tearoffs">False</property>
-					      <property name="has_frame">True</property>
-					      <property name="focus_on_click">True</property>
-					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:15:52 GMT"/>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">True</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkComboBoxEntry" id="mountpoint5">
-					      <property name="items" translatable="yes">swap
-/
-/home
-/boot
-/usr
-/var</property>
-					      <property name="add_tearoffs">False</property>
-					      <property name="has_frame">True</property>
-					      <property name="focus_on_click">True</property>
-					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:01 GMT"/>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">True</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkComboBoxEntry" id="mountpoint6">
-					      <property name="items" translatable="yes">swap
-/
-/home
-/boot
-/usr
-/var</property>
-					      <property name="add_tearoffs">False</property>
-					      <property name="has_frame">True</property>
-					      <property name="focus_on_click">True</property>
-					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:11 GMT"/>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">True</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkComboBoxEntry" id="mountpoint7">
-					      <property name="items" translatable="yes">swap
-/
-/home
-/boot
-/usr
-/var</property>
-					      <property name="add_tearoffs">False</property>
-					      <property name="has_frame">True</property>
-					      <property name="focus_on_click">True</property>
-					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:21 GMT"/>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">True</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkComboBoxEntry" id="mountpoint8">
-					      <property name="items" translatable="yes">swap
-/
-/home
-/boot
-/usr
-/var</property>
-					      <property name="add_tearoffs">False</property>
-					      <property name="has_frame">True</property>
-					      <property name="focus_on_click">True</property>
-					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:30 GMT"/>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">True</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkComboBoxEntry" id="mountpoint9">
-					      <property name="items" translatable="yes">swap
-/
-/home
-/boot
-/usr
-/var</property>
-					      <property name="add_tearoffs">False</property>
-					      <property name="has_frame">True</property>
-					      <property name="focus_on_click">True</property>
-					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:39 GMT"/>
-					    </widget>
-					    <packing>
-					      <property name="padding">0</property>
-					      <property name="expand">False</property>
-					      <property name="fill">True</property>
-					    </packing>
-					  </child>
-
-					  <child>
-					    <widget class="GtkComboBoxEntry" id="mountpoint10">
-					      <property name="items" translatable="yes">swap
-/
-/home
-/boot
-/usr
-/var</property>
-					      <property name="add_tearoffs">False</property>
-					      <property name="has_frame">True</property>
-					      <property name="focus_on_click">True</property>
-					      <signal name="changed" handler="on_list_changed" last_modification_time="Fri, 02 Sep 2005 12:16:48 GMT"/>
 					    </widget>
 					    <packing>
 					      <property name="padding">0</property>
