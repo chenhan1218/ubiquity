@@ -160,11 +160,11 @@ class Config:
   
   def configure_user(self):
       self.chrex('passwd', '-l', 'root')
-      self.set_debconf('passwd', 'passwd/username', self.username)
-      self.set_debconf('passwd', 'passwd/user-fullname', self.fullname)
-      self.set_debconf('passwd', 'passwd/user-password', self.password)
-      self.set_debconf('passwd', 'passwd/user-password-again', self.password)
-      self.reconfigure('passwd')
+      #self.set_debconf('passwd', 'passwd/username', self.username)
+      #self.set_debconf('passwd', 'passwd/user-fullname', self.fullname)
+      #self.set_debconf('passwd', 'passwd/user-password', self.password)
+      #self.set_debconf('passwd', 'passwd/user-password-again', self.password)
+      #self.reconfigure('passwd')
       self.chrex('useradd', '-u', '1001', '-d', '/home/' + self.username, '-s',
           '/bin/bash', '-c', self.fullname, self.username)
       passwd = subprocess.Popen(['echo', self.username + ':' + self.password],

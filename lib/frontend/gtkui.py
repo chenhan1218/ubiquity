@@ -304,8 +304,8 @@ class Wizard:
         gtk.main_iteration()
 
     def wait_thread(queue):
-      mountpoints = get_var()['mountpoints']
-      cf = config.Config(mountpoints)
+      vars = get_var()
+      cf = config.Config(vars)
       cf.run()
       queue.put('101')
 
