@@ -606,14 +606,14 @@ class Wizard:
             os.kill(self.gparted_pid, 9)
           except Exception, e:
             print e
+
+          self.progress_loop()
         else:
           self.msg_error2.show()
           self.img_error2.show()
       except Exception, e:
         self.msg_error2.show()
         self.img_error2.show()
-        
-        self.progress_loop()
     
     step = self.steps.get_current_page()
     pre_log('info', 'Step_after = %d' % step)
