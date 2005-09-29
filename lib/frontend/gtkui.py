@@ -303,12 +303,11 @@ class Wizard:
       self.set_progress(msg)
       while gtk.events_pending():
         gtk.main_iteration()
-#      time.sleep(0.5)
 
     def wait_thread(queue):
       vars = get_var()
       cf = config.Config(vars)
-      cf.run()
+      cf.run(queue)
       queue.put('101')
 
     queue = Queue()
@@ -320,12 +319,11 @@ class Wizard:
       self.set_progress(msg)
       while gtk.events_pending():
         gtk.main_iteration()
-#      time.sleep(0.5)
 
     self.next.set_label('Finish and Reboot')
-    self.next.connect('clicked', lambda *x: self.__reboot())
+    self.next.connect('clicked', self.__reboot)
     self.back.set_label('Just Finish')
-    self.back.connect('clicked', lambda *x: self.quit())
+    self.back.connect('clicked', self.quit)
     self.next.set_sensitive(True)
     self.back.show()
     self.cancel.hide()

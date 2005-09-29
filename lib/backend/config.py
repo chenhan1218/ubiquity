@@ -178,12 +178,12 @@ class Config:
 
       #SKEL
 
-      llamada = """chroot %s su %s -c for ele in $(find /etc/skel);
-                do cp $ele /home/%s;
-                done
-      """ %(self.target, self.username, self.username)
+      #llamada = """chroot %s su %s -c for ele in $(find /etc/skel);
+      #          do cp $ele /home/%s;
+      #          done
+      #""" %(self.target, self.username, self.username)
 
-      os.system(llamada)
+      #os.system(llamada)
       return True
   
   def configure_hostname(self):
