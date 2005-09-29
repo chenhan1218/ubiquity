@@ -594,18 +594,21 @@ class Wizard:
       #  self.show_error(''.join(error_msg))
       #else:
       try:
-        test = self.mountpoints.values().index('/')
-        self.steps.next_page()
+        if ( self.mountpoints.keys()[self.mountpoints.values().index('/')] != None ):
+          self.steps.next_page()
 
-        while gtk.events_pending():
-          gtk.main_iteration()
+          while gtk.events_pending():
+            gtk.main_iteration()
 
-        self.embedded.destroy()
-        self.next.set_sensitive(False)
-        try:
-          os.kill(self.gparted_pid, 9)
-        except Exception, e:
-          print e
+          self.embedded.destroy()
+          self.next.set_sensitive(False)
+          try:
+            os.kill(self.gparted_pid, 9)
+          except Exception, e:
+            print e
+        else:
+          self.msg_error2.show()
+          self.img_error2.show()
       except Exception, e:
         self.msg_error2.show()
         self.img_error2.show()
