@@ -23,14 +23,16 @@ class Format:
           queue.put( "1 Formateando partición raíz" )
           misc.ex('mkfs.ext3', device)
           queue.put( "2 Partición raíz lista" )
-        except:
+        except Exception, e:
+          print e
           return False
       elif path == 'swap':
         try:
           queue.put( "3 Preparando partición swap" )
           misc.ex('mkswap', device)
           queue.put( "3 Partición swap lista" )
-        except:
+        except Exception, e:
+          print e
           return False
 
 if __name__ == '__main__':

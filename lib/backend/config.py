@@ -18,77 +18,69 @@ class Config:
       for var in vars.keys():
         setattr(self,var,vars[var])
 
-  def run(self):
+  def run(self, queue):
       
-    #print '92 Configuring the hardware and system'
+    queue.put('92 Configuring the hardware and system')
     misc.post_log('info', 'Configuring distro')
     if self.get_locales():
-      #print '92 Configured the hardware and system'
+      queue.put('92 Configured the hardware and system')
       misc.post_log('info', 'Configured distro')
-      #return True
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    #print '93 Configuring the hardware and system'
+    queue.put('93 Configuring the hardware and system')
     misc.post_log('info', 'Configuring distro')
     if self.configure_fstab():
-      #print '93 Configured the hardware and system'
+      queue.put('93 Configured the hardware and system')
       misc.post_log('info', 'Configured distro')
-      #return True
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    #print '94 Configuring the hardware and system'
+    #queue.put('94 Configuring the hardware and system')
     #misc.post_log('info', 'Configuring distro')
     #if self.configure_timezone():
-    #  #print '94 Configured the hardware and system'
+    #  queue.put('94 Configured the hardware and system')
     #  misc.post_log('info', 'Configured distro')
-    #  #return True
     #else:
     #  misc.post_log('error', 'Configuring distro')
     #  return False
-    #print '95 Configuring the hardware and system'
+    queue.put('95 Configuring the hardware and system')
     misc.post_log('info', 'Configuring distro')
     if self.configure_user():
-      #print '95 Configured the hardware and system'
+      queue.put('95 Configured the hardware and system')
       misc.post_log('info', 'Configured distro')
-      #return True
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    print '96 Configuring the hardware and system'
+    queue.put('96 Configuring the hardware and system')
     misc.post_log('info', 'Configuring distro')
     if self.configure_hostname():
-      print '96 Configured the hardware and system'
+      queue.put('96 Configured the hardware and system')
       misc.post_log('info', 'Configured distro')
-      #return True
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    print '97 Configuring the hardware and system'
+    queue.put('97 Configuring the hardware and system')
     misc.post_log('info', 'Configuring distro')
     if self.configure_hardware():
-      print '97 Configured the hardware and system'
+      queue.put('97 Configured the hardware and system')
       misc.post_log('info', 'Configured distro')
-      #return True
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    print '98 Configuring the hardware and system'
+    queue.put('98 Configuring the hardware and system')
     misc.post_log('info', 'Configuring distro')
     if self.configure_network():
-      print '98 Configured the hardware and system'
+      queue.put('98 Configured the hardware and system')
       misc.post_log('info', 'Configured distro')
-      #return True
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    print '99 Configuring the hardware and system'
+    queue.put('99 Configuring the hardware and system')
     misc.post_log('info', 'Configuring distro')
     if self.configure_bootloader():
-      print '100 Configured the hardware and system'
+      queue.put('100 Configured the hardware and system')
       misc.post_log('info', 'Configured distro')
-      #return True
     else:
       misc.post_log('error', 'Configuring distro')
       return False
