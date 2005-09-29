@@ -162,11 +162,10 @@ class Config:
       passwd = subprocess.Popen(['echo', self.username + ':' + self.password],
           stdout=subprocess.PIPE)
       subprocess.Popen(['chroot', self.target, 'chpasswd', '--md5'], stdin=passwd.stdout)
-      subprocess.Popen(['chroot', self.target, 'rm', '-rf', '/home/guada'], stdin=passwd.stdout)
-      subprocess.Popen(['chroot', self.target, 'mkdir',
-          '/home/%s' % self.username], stdin=passwd.stdout)
-      
-      subprocess.Popen(['chroot', self.target, 'adduser', self.username, 'admin'], stdin=passwd.stdout)
+      self.chrex('rm', '-rf', '/home/guada')
+      self.chrex('mkdir', '/home/%s' % self.username)
+      self.chrex('chown', self.username, '/home/%s' % self.username)
+      self.chrex('adduser', self.username, 'admin')
 
       #SKEL
 
