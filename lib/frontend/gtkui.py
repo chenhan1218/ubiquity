@@ -313,7 +313,10 @@ class Wizard:
     queue = Queue()
     thread.start_new_thread(wait_thread, (queue,))
     while True:
-      msg = str(queue.get())
+
+      # Next line commented by A. Olmo on 29 sep 2005:
+#      msg = str(queue.get())
+
       if msg.startswith('101'):
         break
       self.set_progress(msg)
