@@ -303,7 +303,7 @@ class Wizard:
       self.set_progress(msg)
       while gtk.events_pending():
         gtk.main_iteration()
-      time.sleep(0.5)
+#      time.sleep(0.5)
 
     def wait_thread(queue):
       vars = get_var()
@@ -320,7 +320,7 @@ class Wizard:
       self.set_progress(msg)
       while gtk.events_pending():
         gtk.main_iteration()
-      time.sleep(0.5)
+#      time.sleep(0.5)
 
     self.next.set_label('Finish and Reboot')
     self.next.connect('clicked', lambda *x: self.__reboot())
@@ -569,7 +569,7 @@ class Wizard:
         self.steps.set_current_page(6)
       else:
 
-        if self.gparted:
+        if True: # self.gparted:
           self.gparted_loop()
           self.steps.next_page()
         else:

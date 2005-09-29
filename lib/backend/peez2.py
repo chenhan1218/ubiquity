@@ -49,7 +49,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 28 sep 2005.
+# Last modified on 29 sep 2005.
 
 # TODO: improve debug and log system.
 
@@ -123,10 +123,12 @@ class Peez2:
                 enough = False
 
             before = None
+            associations = []
 
             if i.has_key ('details'):
                 linux_parts = 0
                 linux_space = []
+                linux_names = []
 
                 for j in i ['details']:
 
@@ -135,10 +137,13 @@ class Peez2:
 
                     if 'linux' in j ['class'].lower ():
                         linux_space.append (int (j ['bytes']))
+                        linux_names.append (i ['device'] + j ['no'])
 
                 if len (linux_space) > 2:
                     linux_space.sort ()
-                    required = self.__partition_scheme.values ()
+                    parts = self.__partition_scheme
+                    required = [parts ['swap'], parts ['root'], parts ['home']]
+                    mountpoints = self.__partition_scheme.keys ()
                     required_bytes = [j * 1024 * 1024 for j in required]
                     required_bytes.sort ()
                     l = 0
@@ -147,6 +152,7 @@ class Peez2:
                     while r < len (required_bytes) and l < len (linux_space):
 
                         if linux_space [l] >= required_bytes [r]:
+                            associations [linux_names [l]] = [mountpoints [r]]
                             r = r + 1
 
                         l = l + 1
@@ -154,9 +160,9 @@ class Peez2:
                     if r >= len (required_bytes):
 
                         # TEMPORARY, FOR DEBUGGING PURPOSES ONLY:
-                        before = ['/dev/hda1': '/',
+                        before = {'/dev/hda1': '/',
                                   '/dev/hda2': '/home',
-                                  '/dev/hda3': 'swap']
+                                  '/dev/hda3': 'swap'}
 
             item = {'id':           str (i ['device']),
                     'label':        label,
@@ -513,7 +519,7 @@ class Peez2:
                         progress_bar.pulse ()
                         progress_bar.set_text ('Making %i MB partition...' % required)
 
-#                    stderr.write (str (drive))
+                    stderr.write ('____________\n' + str (drive) + '\n___________________________\n')
 
                     info = self.__get_info (drive ['id'], required) # , '-j')
 
@@ -550,7 +556,7 @@ class Peez2:
                                 stderr.write ('Command: ' + i)
 
                                 if do_it:
-                                    # TODO: do it, execute commands to make partitions!
+                                    # Do it! Execute commands to make partitions!
                                     p = Popen3 (i)
 
                         if info.has_key ('metacoms'):
