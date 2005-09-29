@@ -386,63 +386,63 @@ class Wizard:
   def on_list_changed(self, widget):
     if ( widget.get_active_text() is not "" ):
       if ( widget.get_name() in ['partition1', 'mountpoint1'] and
-      self.partition1.get_active_text() != "" and
+      self.partition1.get_active_text() != None and
       self.mountpoint1.get_active_text() != "" ):
         self.partition2.show()
         self.mountpoint2.show()
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition1.get_active_text())]] = self.mountpoint1.get_active_text()
       elif ( widget.get_name() in ['partition2', 'mountpoint2'] and
-      self.partition2.get_active_text() != "" and
+      self.partition2.get_active_text() != None and
       self.mountpoint2.get_active_text() != "" ):
         self.partition3.show()
         self.mountpoint3.show()
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition2.get_active_text())]] = self.mountpoint2.get_active_text()
       elif ( widget.get_name() in ['partition3', 'mountpoint3'] and
-      self.partition3.get_active_text() != "" and
+      self.partition3.get_active_text() != None and
       self.mountpoint3.get_active_text() != "" ):
         self.partition4.show()
         self.mountpoint4.show()
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition3.get_active_text())]] = self.mountpoint3.get_active_text()
       elif ( widget.get_name() in ['partition4', 'mountpoint4'] and
-      self.partition4.get_active_text() != "" and
+      self.partition4.get_active_text() != None and
       self.mountpoint4.get_active_text() != "" ):
         self.partition5.show()
         self.mountpoint5.show()
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition4.get_active_text())]] = self.mountpoint4.get_active_text()
       elif ( widget.get_name() in ['partition5', 'mountpoint5'] and
-      self.partition5.get_active_text() != "" and
+      self.partition5.get_active_text() != None and
       self.mountpoint5.get_active_text() != "" ):
         self.partition6.show()
         self.mountpoint6.show()
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition5.get_active_text())]] = self.mountpoint5.get_active_text()
       elif ( widget.get_name() in ['partition6', 'mountpoint6'] and
-      self.partition6.get_active_text() != "" and
+      self.partition6.get_active_text() != None and
       self.mountpoint6.get_active_text() != "" ):
         self.partition7.show()
         self.mountpoint7.show()
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition6.get_active_text())]] = self.mountpoint6.get_active_text()
       elif ( widget.get_name() in ['partition7', 'mountpoint7'] and
-      self.partition7.get_active_text() != "" and
+      self.partition7.get_active_text() != None and
       self.mountpoint7.get_active_text() != "" ):
         self.partition8.show()
         self.mountpoint8.show()
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition7.get_active_text())]] = self.mountpoint7.get_active_text()
       elif ( widget.get_name() in ['partition8', 'mountpoint8'] and
-      self.partition8.get_active_text() != "" and
+      self.partition8.get_active_text() != None and
       self.mountpoint8.get_active_text() != "" ):
         self.partition9.show()
         self.mountpoint9.show()
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition8.get_active_text())]] = self.mountpoint8.get_active_text()
       elif ( widget.get_name() in ['partition9', 'mountpoint9'] and
-      self.partition9.get_active_text() != "" and
+      self.partition9.get_active_text() != None and
       self.mountpoint9.get_active_text() != "" ):
         self.partition10.show()
         self.mountpoint10.show()
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition9.get_active_text())]] = self.mountpoint9.get_active_text()
       elif ( widget.get_name() in ['partition10', 'mountpoint10'] and
-      self.partition10.get_active_text() != "" and
+      self.partition10.get_active_text() != None and
       self.mountpoint10.get_active_text() != "" ):
-        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition10.get_active_text())]] = self.mountpoint1o.get_active_text()
+        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition10.get_active_text())]] = self.mountpoint10.get_active_text()
 
 
   def on_key_press (self, widget, event):
