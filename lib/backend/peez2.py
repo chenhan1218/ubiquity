@@ -44,7 +44,7 @@
 # Guadalinex 2005 live installer; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.01 """
+""" U{pylint<http://logilab.org/projects/pylint>} mark: 8.75 """
 
 # File "peez2.py".
 # Automatic partitioning with "peez2".
@@ -255,14 +255,6 @@ class Peez2:
                         stderr.write ('__scan_drives: locale: "' +
                                       self.__locale + '" is wrong.\n')
 
-        if self.__debug:
-            dummy_drive = {'device': '/dev/strange',
-                           'label': 'FOR DEBUGGING PURPOSES ONLY',
-                           'size': 1200000000,
-                           'no': -1,
-                           'info': {}}
-            result.append (dummy_drive)
-
         return result
 
     # Private method "__get_info"  ___________________________________________
@@ -277,12 +269,17 @@ class Peez2:
 
         result = None
 
+        verbose_flat = True
+
         # We are not using a more compact construct below to explicit that the
         #     same 3 partitions are always used, and in the same order:
         parts = self.__partition_scheme
 
         if '' != more_args:
             more_args = more_args + ' '
+
+        if verbose_flat:
+            more_args = more_args + '-v '
 
         if None != size:
 
@@ -521,8 +518,24 @@ class Peez2:
 
                     stderr.write ('____________\n' + str (drive) + '\n___________________________\n')
 
-                    info = self.__get_info (drive ['id'], required) # , '-j')
+                    # TODO: improve this algorithm, that decides whether primary
+                    #       or extended partitions should be created:
 
+                    if drive.has_key ('info'):
+
+                        if drive ['info'].has_key ('ext'):
+
+                            if drive ['info'] ['ext'] > 0:
+                                info = self.__get_info (drive ['id'], required, '-j')
+                            else:
+                                info = self.__get_info (drive ['id'], required)
+
+                        else:
+                            info = self.__get_info (drive ['id'], required)
+                            
+                    else:
+                        info = self.__get_info (drive ['id'], required)
+                            
                     # Now we have to decide which option is better:
                     options = info ['opts']
 

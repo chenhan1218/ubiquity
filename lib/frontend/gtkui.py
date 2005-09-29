@@ -48,10 +48,10 @@
 # Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ##################################################################################
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: -30.38!!! (bad
+""" U{pylint<http://logilab.org/projects/pylint>} mark: -28.39!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified by A. Olmo on 28 sep 2005.
+# Last modified by A. Olmo on 29 sep 2005.
 
 from sys import stderr
 import pygtk
@@ -548,6 +548,10 @@ class Wizard:
         self.steps.next_page()
     # From Peez to Gparted
     elif step == 2:
+
+      while gtk.events_pending ():
+        gtk.main_iteration ()
+
       self.freespace.set_active (False)
       self.recycle.set_active (False)
       self.manually.set_active (False)
@@ -711,6 +715,9 @@ class Wizard:
 #       gdkwin = b.window
 #       gdkwin.set_cursor (watch)
 #       gtk.gdk.flush ()
+
+##       while gtk.events_pending ():
+##         gtk.main_iteration ()
 
       self.__assistant = Peez2 () # debug = False)
 
