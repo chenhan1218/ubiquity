@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec /usr/bin/gksudo /usr/bin/installer
+grep "casper-snapshot" /etc/mtab > /dev/null && ( /usr/bin/gksudo /usr/bin/installer & ) || ( zenity --info --text "Sólo puede lanzar el instalador Live desde una sesión en CDLive" )
