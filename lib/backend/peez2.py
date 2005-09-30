@@ -49,7 +49,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 29 sep 2005.
+# Last modified on 30 sep 2005.
 
 # TODO: improve debug and log system.
 
@@ -91,7 +91,7 @@ class Peez2:
         self.__drives = self.__scan_drives ()
 
         # Disable this attribute when auto-partitioning is mature enough:
-        self.__ONLY_MANUALLY = False
+        self.__ONLY_MANUALLY = True
 
     # Public method "get_drives" _____________________________________________
 

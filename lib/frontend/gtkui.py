@@ -51,7 +51,7 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -28.39!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified by A. Olmo on 29 sep 2005.
+# Last modified by A. Olmo on 30 sep 2005.
 
 from sys import stderr
 import pygtk
@@ -656,7 +656,15 @@ class Wizard:
           self.freespace.set_sensitive (False)
           self.recycle.set_sensitive (False)
           self.manually.set_sensitive (False)
-          self.partition_message.set_text ('¡ No hay espacio suficiente !')
+##           self.partition_message.set_text (
+##             'El disco duro que ha seleccionado es demasiado pequeño para ' +
+##             'instalar el sistema en él.\n\nPor favor, seleccione un disco ' +
+##             'duro de más capacidad.')
+#          self.partition_message.set_use_markup (True)
+          self.partition_message.set_markup (
+            '<span>El disco duro que ha seleccionado es <b>demasiado ' +
+            'pequeño</b> para instalar el sistema en él.\n\nPor favor, ' +
+            'seleccione un disco duro de más capacidad.</span>')
         else:
           self.manually.set_sensitive (True)
 
@@ -700,6 +708,10 @@ class Wizard:
 ##         message = str (selected_drive ['info'])
 ##         self.partition_message.set_text (message)
 
+    if selected_drive ['large_enough']:
+      self.on_freespace_toggled (self.freespace)
+      self.on_recycle_toggled (self.recycle)
+      self.on_manually_toggled (self.manually)
 
   # Public method "on_steps_switch_page" _____________________________________
   def on_steps_switch_page (self, foo, bar, current):
@@ -729,24 +741,80 @@ class Wizard:
       if len (model) > 0:
         self.drives.set_active (0)
 
+  # Public method "on_freespace_toggled" _____________________________________
+  def on_freespace_toggled (self, widget):
 
-  # Public method "on_freespace_group_changed" _______________________________
-  def on_freespace_group_changed (self):
+    """ Update help message when this radio button is selected. """
 
-    """ Update help message when a different radio button is selected. """
+    if self.freespace.get_active ():
+##       self.partition_message.set_text (
+##         'Se crearán 3 particiones nuevas en su disco duro y ' +
+##         'se instalará ahí el sistema. En la mayoría de los casos, los datos ' +
+##         'que haya ya en el disco duro ' +
+##         'no se destruirán.\n\nNota: en algunos casos, es posible que ' +
+##         'se produzca una pérdida de datos si es necesario cambiar el ' +
+##         'tamaño de las particiones existentes para conseguir espacio para ' +
+##         'las nuevas.')
 
-    if self.freespace.get_property ('active'):
-      self.partition_message.set_text ('Auto')
-    elif self.recycle.get_property ('active'):
-      self.partition_message.set_text ('Reusar particiones')
-    elif self.manually.get_property ('active'):
-      self.partition_message.set_text ('Manual')
-    else:
-      self.partition_message.set_text ('[Sin selección]')
+#      self.partition_message.set_use_markup (True)
+      self.partition_message.set_markup (
+        '<span>Se crearán 3 particiones <b>nuevas</b> en su disco duro y ' +
+        'se instalará ahí el sistema. En la mayoría de los casos, los datos ' +
+        'que haya ya en el disco duro ' +
+        'no se destruirán.\n\nNota: en algunos casos, <b>es posible que ' +
+        'se produzca una pérdida de datos</b> si es necesario cambiar el ' +
+        'tamaño de las particiones existentes para conseguir espacio para ' +
+        'las nuevas.</span>')
 
+  # Public method "on_recycle_toggled" _______________________________________
+  def on_recycle_toggled (self, widget):
+
+    """ Update help message when this radio button is selected. """
+
+    if self.recycle.get_active ():
+##       self.partition_message.set_text (
+##         'Se ha detectado un sistema GNU/Linux instalado ya en este ' +
+##         'disco duro. Se van a usar esas mismas particiones para el nuevo ' +
+##         'sistema, reemplazando al anterior.\n\nTenga en cuenta que ' +
+##         'todos los datos que hubiese en ese sistema Linux previo se ' +
+##         'perderán irremisiblemente.')
+
+#      self.partition_message.set_use_markup (True)
+      self.partition_message.set_markup (
+        '<span>Se ha detectado un sistema GNU/Linux instalado ya en este ' +
+        'disco duro. Se van a usar esas mismas particiones para el nuevo ' +
+        'sistema, <b>reemplazando</b> al anterior.\n\nTenga en cuenta que ' +
+        '<b>todos los datos que hubiese en ese sistema Linux previo se ' +
+        'perderán irremisiblemente</b>.</span>')
+
+  # Public method "on_manually_toggled" ______________________________________
+  def on_manually_toggled (self, widget):
+
+    """ Update help message when this radio button is selected. """
+
+    if self.manually.get_active ():
+##       self.partition_message.set_text (
+##         'Use este método de particionado si desea total libertad ' +
+##         'para decidir dónde instalar cada componente del sistema. Podrá ' +
+##         'crear, destruir y redimensionar cualquier partición para que cada ' +
+##         'parte ocupe el espacio que quiera.\n\nAtención: las ' +
+##         'operaciones que haga con el disco duro pueden suponer la pérdida ' +
+##         'de todos los datos, así que continúe por aquí únicamente si ya ' +
+##         'tiene experiencia particionando de forma manual.')
+
+#      self.partition_message.set_use_markup (True)
+      self.partition_message.set_markup (
+        '<span>Use este método de particionado si desea total libertad ' +
+        'para decidir dónde instalar cada componente del sistema. Podrá ' +
+        'crear, destruir y redimensionar cualquier partición para que cada ' +
+        'parte ocupe el espacio que quiera.\n\n<b>Atención:</b> las ' +
+        'operaciones que haga con el disco duro pueden suponer la <b>pérdida ' +
+        'de todos los datos</b>, así que continúe por aquí únicamente si ya ' +
+        'tiene experiencia particionando de forma manual.</span>')
 
 if __name__ == '__main__':
   w = Wizard('ubuntu')
   w.run()
 
 # vim:ai:et:sts=2:tw=80:sw=2:
+

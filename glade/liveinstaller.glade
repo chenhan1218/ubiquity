@@ -1091,6 +1091,7 @@
 				      <property name="visible">True</property>
 				      <property name="sensitive">False</property>
 				      <property name="tooltip" translatable="yes">Seleccione esta opción para usar el espacio libre que hay en su disco duro, sin perder los datos que ya contiene</property>
+				      <property name="can_focus">True</property>
 				      <property name="label" translatable="yes">Usar el espacio libre</property>
 				      <property name="use_underline">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
@@ -1098,7 +1099,7 @@
 				      <property name="active">False</property>
 				      <property name="inconsistent">False</property>
 				      <property name="draw_indicator">True</property>
-				      <signal name="group_changed" handler="on_freespace_group_changed" last_modification_time="Fri, 16 Sep 2005 09:37:33 GMT"/>
+				      <signal name="toggled" handler="on_freespace_toggled" last_modification_time="Fri, 30 Sep 2005 10:58:19 GMT"/>
 				    </widget>
 				    <packing>
 				      <property name="left_attach">0</property>
@@ -1115,6 +1116,7 @@
 				      <property name="visible">True</property>
 				      <property name="sensitive">False</property>
 				      <property name="tooltip" translatable="yes">Con este método se aprovecharán las particiones GNU/Linux que hay en el disco duro, reemplazando el sistema anterior</property>
+				      <property name="can_focus">True</property>
 				      <property name="label" translatable="yes">Reutilizar las particiones existentes</property>
 				      <property name="use_underline">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
@@ -1123,6 +1125,7 @@
 				      <property name="inconsistent">False</property>
 				      <property name="draw_indicator">True</property>
 				      <property name="group">freespace</property>
+				      <signal name="toggled" handler="on_recycle_toggled" last_modification_time="Fri, 30 Sep 2005 10:50:01 GMT"/>
 				    </widget>
 				    <packing>
 				      <property name="left_attach">0</property>
@@ -1139,6 +1142,7 @@
 				      <property name="visible">True</property>
 				      <property name="sensitive">False</property>
 				      <property name="tooltip" translatable="yes">Particionamiento avanzado: mediante esta opción podrá crear, redimensionar y destruir las particiones actuales de su disco duro con entera libertad</property>
+				      <property name="can_focus">True</property>
 				      <property name="label" translatable="yes">Particionar a mano</property>
 				      <property name="use_underline">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
@@ -1147,6 +1151,7 @@
 				      <property name="inconsistent">False</property>
 				      <property name="draw_indicator">True</property>
 				      <property name="group">freespace</property>
+				      <signal name="toggled" handler="on_manually_toggled" last_modification_time="Fri, 30 Sep 2005 10:50:09 GMT"/>
 				    </widget>
 				    <packing>
 				      <property name="left_attach">0</property>
@@ -1198,7 +1203,7 @@
 				  <child>
 				    <widget class="GtkLabel" id="partition_message">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">&lt;span&gt;&lt;/span&gt;</property>
+				      <property name="label" translatable="yes"></property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">True</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
