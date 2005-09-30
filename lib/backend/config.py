@@ -20,66 +20,66 @@ class Config:
 
   def run(self, queue):
       
-    #queue.put('92 Configuring the hardware and system')
+    #queue.put('92 92% Configurando sistema locales')
     #misc.post_log('info', 'Configuring distro')
     #if self.get_locales():
-    #  queue.put('92 Configured the hardware and system')
+    #  queue.put('92 92% Sistema locales configurado')
     #  misc.post_log('info', 'Configured distro')
     #else:
     #  misc.post_log('error', 'Configuring distro')
     #  return False
-    queue.put('93 Configuring the hardware and system')
+    queue.put('93 93% Configurando sistema de particiones en disco')
     misc.post_log('info', 'Configuring distro')
     if self.configure_fstab():
-      queue.put('93 Configured the hardware and system')
+      queue.put('93 93% Sistema de particiones en disco configurado')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    #queue.put('94 Configuring the hardware and system')
+    #queue.put('94 94% Configurando zona horaria')
     #misc.post_log('info', 'Configuring distro')
     #if self.configure_timezone():
-    #  queue.put('94 Configured the hardware and system')
+    #  queue.put('94 94% Zona horaria configurada')
     #  misc.post_log('info', 'Configured distro')
     #else:
     #  misc.post_log('error', 'Configuring distro')
     #  return False
-    queue.put('95 Configuring the hardware and system')
+    queue.put('95 95% Creando usuario')
     misc.post_log('info', 'Configuring distro')
     if self.configure_user():
-      queue.put('95 Configured the hardware and system')
+      queue.put('95 95% Usuario creado')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    queue.put('96 Configuring the hardware and system')
+    queue.put('96 96% Bautizando ordenador')
     misc.post_log('info', 'Configuring distro')
     if self.configure_hostname():
-      queue.put('96 Configured the hardware and system')
+      queue.put('96 96% Ordenador bautizado')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    queue.put('97 Configuring the hardware and system')
+    queue.put('97 97% Configurando hardware')
     misc.post_log('info', 'Configuring distro')
     if self.configure_hardware():
-      queue.put('97 Configured the hardware and system')
+      queue.put('97 97% Hardware configurado')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    queue.put('98 Configuring the hardware and system')
+    queue.put('98 98% Configurando red')
     misc.post_log('info', 'Configuring distro')
     if self.configure_network():
-      queue.put('98 Configured the hardware and system')
+      queue.put('98 98% Red configurada')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    queue.put('99 Configuring the hardware and system')
+    queue.put('99 99% Configurando sistema de arranque')
     misc.post_log('info', 'Configuring distro')
     if self.configure_bootloader():
-      queue.put('100 Configured the hardware and system')
+      queue.put('100 100% Instalación finalizada')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
