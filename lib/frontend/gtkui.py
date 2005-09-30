@@ -313,10 +313,7 @@ class Wizard:
     queue = Queue()
     thread.start_new_thread(wait_thread, (queue,))
     while True:
-
-      # Next line commented by A. Olmo on 29 sep 2005:
-#      msg = str(queue.get())
-
+      msg = str(queue.get())
       if msg.startswith('101'):
         break
       self.set_progress(msg)
@@ -326,7 +323,7 @@ class Wizard:
     self.next.set_label('Finish and Reboot')
     self.next.connect('clicked', self.__reboot)
     self.back.set_label('Just Finish')
-    self.back.connect('clicked', self.quit)
+    self.back.connect('clicked', gtk.main_quit)
     self.next.set_sensitive(True)
     self.back.show()
     self.cancel.hide()
