@@ -731,7 +731,7 @@ class Wizard:
 ##       while gtk.events_pending ():
 ##         gtk.main_iteration ()
 
-      self.__assistant = Peez2 () # debug = False)
+      self.__assistant = Peez2 (debug = False)
 
       for i in self.__assistant.get_drives ():
         self.drives.append_text ('%s' % i ['label'])
