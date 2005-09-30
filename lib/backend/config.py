@@ -11,6 +11,8 @@ class Config:
   def __init__(self, vars):
       # We get here the current kernel version
       self.kernel_version = open('/proc/sys/kernel/osrelease').readline().strip()
+      # FIXME: Hack (current kernel loaded on liveCD doesn't work on installed systems)
+      self.kernel_version = '2.6.12-8-386'
       self.distro = open('/etc/lsb-release').readline().strip().split('=')[1].lower()
       self.target = '/target/'
       # Getting vars: fullname, username, password, hostname
