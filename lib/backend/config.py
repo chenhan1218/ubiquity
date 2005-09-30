@@ -20,14 +20,14 @@ class Config:
 
   def run(self, queue):
       
-    queue.put('92 Configuring the hardware and system')
-    misc.post_log('info', 'Configuring distro')
-    if self.get_locales():
-      queue.put('92 Configured the hardware and system')
-      misc.post_log('info', 'Configured distro')
-    else:
-      misc.post_log('error', 'Configuring distro')
-      return False
+    #queue.put('92 Configuring the hardware and system')
+    #misc.post_log('info', 'Configuring distro')
+    #if self.get_locales():
+    #  queue.put('92 Configured the hardware and system')
+    #  misc.post_log('info', 'Configured distro')
+    #else:
+    #  misc.post_log('error', 'Configuring distro')
+    #  return False
     queue.put('93 Configuring the hardware and system')
     misc.post_log('info', 'Configuring distro')
     if self.configure_fstab():
@@ -256,7 +256,10 @@ setup (hd0)\n \
 quit ' % grub_target_dev)
       grub_conf.close()
 
-      misc.ex('grub-install', '--root-directory=' + self.target, target_dev)
+      try:
+        misc.ex('grub-install', '--root-directory=' + self.target, target_dev)
+      except Exception, e:
+        print e
       conf = subprocess.Popen(['cat', '/tmp/grub.conf'], stdout=subprocess.PIPE)
       grub_apply = subprocess.Popen(['chroot', self.target, 'grub', '--batch',
           '--device-map=/boot/grub/menu.lst'], stdin=conf.stdout)
