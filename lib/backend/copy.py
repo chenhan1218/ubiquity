@@ -3,6 +3,7 @@
 
 import os
 import subprocess
+import time
 from ue import misc
 
 
@@ -32,7 +33,7 @@ class Copy:
       misc.pre_log('error', 'Mounting source')
       return False
       
-    queue.put( '6 Copiando los ficheros a disco')
+    queue.put( '6 Preparando la copia a disco')
     misc.pre_log('info', 'Copying distro')
     if self.copy_all(queue):
       queue.put( '90 Ficheros copiados')
@@ -149,7 +150,7 @@ class Copy:
         cwd = self.source,
         stdin = subprocess.PIPE)
 
-    copied_bytes, counter = 0, 0
+    copied_bytes, counter, time_start = 0, 0, time.time()
     for path, size in files:
       copy.stdin.write(path + '\0')
       misc.pre_log('info', path)
@@ -158,9 +159,14 @@ class Copy:
       per = (copied_bytes * 100) / total_size
       # Adjusting the percentage
       per = (per*73/100)+17
-      if ( counter != per ):
+      if ( counter != per and per != 17):
+        time_left = (time.time()-time_start)*73/(counter - 17)
+        minutes, seconds = time_left/60, time_left - int(time_left/60)*60
         counter = per
-        queue.put("%s Copiando %s%% [/%s]" % (per, per, path))
+        queue.put("%s Copiando %s%% - Queda %02d:%02d - [%s]" % (per, per, minutes, seconds, path))
+      elif ( counter != per and per == 17 ):
+        counter = per
+        queue.put("%s Copiando %s%% - [%s]" % (per, per, path))
     
     copy.stdin.close()
     copy.wait()
