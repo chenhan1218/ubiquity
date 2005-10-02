@@ -161,7 +161,7 @@ class Copy:
       per = (per*73/100)+17
       if ( counter != per and per >= 26):
         counter = per
-        time_left = (time.time()-time_start)*65/(counter - 25)
+        time_left = (time.time()-time_start)*65/(counter - 25) - (time.time()-time_start)
         minutes, seconds = time_left/60, time_left - int(time_left/60)*60
         queue.put("%s Copiando %s%% - Queda %02d:%02d - [%s]" % (per, per, minutes, seconds, path))
       elif ( counter != per and per < 26 ):
