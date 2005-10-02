@@ -149,7 +149,7 @@ class Copy:
         cwd = self.source,
         stdin = subprocess.PIPE)
 
-    copied_bytes = 0
+    copied_bytes, counter = 0, 0
     for path, size in files:
       copy.stdin.write(path + '\0')
       misc.pre_log('info', path)
@@ -158,7 +158,9 @@ class Copy:
       per = (copied_bytes * 100) / total_size
       # Adjusting the percentage
       per = (per*73/100)+17
-      queue.put("%s Copiando %s%% [/%s]" % (per, per, path))
+      if ( counter != per ):
+        counter = per
+        queue.put("%s Copiando %s%% [/%s]" % (per, per, path))
     
     copy.stdin.close()
     copy.wait()

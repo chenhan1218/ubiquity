@@ -86,6 +86,7 @@ class Config:
     else:
       misc.post_log('error', 'Configuring distro')
       return False
+    ex('umount' + self.target)
 
 
   def get_locales(self):
