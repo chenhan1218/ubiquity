@@ -164,7 +164,7 @@ class Wizard:
     # set initial status
     self.back.hide()
     self.help.hide()
-    self.next.set_label('gtk-media-next')
+    self.next.set_label('gtk-go-forward')
     
     # set pixmaps
     self.logo_image.set_from_file(os.path.join(PIXMAPSDIR, "logo.png"))
@@ -360,6 +360,7 @@ class Wizard:
   def show_error(self, msg):
     self.warning_info.set_markup(msg)
     self.warning_image.set_from_icon_name('gtk-dialog-warning', gtk.ICON_SIZE_DIALOG)
+    self.help.show()
 
 
   def quit(self):
@@ -369,9 +370,6 @@ class Wizard:
       except Exception, e:
         print e
     # Tell the user how much time they used
-    # Next statement changed by A. Olmo on 20 sep 2005:
-    #post_log('info', 'You wasted %.2f seconds with this installation' %
-    #                  (time.time()-self.start))
     pre_log('info', 'You wasted %.2f seconds with this installation' %
                       (time.time()-self.start))
 
@@ -380,7 +378,19 @@ class Wizard:
 
   # Callbacks
   def on_cancel_clicked(self, widget):
+    self.warning_dialog.show()
+
+
+  def on_cancelbutton_clicked(self, widget):
+    self.warning_dialog.hide()
+
+
+  def on_okbutton_clicked(self, widget):
     self.quit()
+
+
+  def on_warning_dialog_close(self, widget):
+    self.warning_dialog.hide()
 
 
   def on_list_changed(self, widget):
@@ -462,10 +472,6 @@ class Wizard:
         self.next.clicked()
 
 
-  def on_warning_close(self, widget):
-    self.warning_dialog.hide()
-
-
   def read_stdout(self, source, condition):
     msg = source.readline()
     if msg.startswith('101'):
@@ -496,6 +502,13 @@ class Wizard:
     return True
 
 
+  def on_help_clicked(self, widget):
+    if ( self.steps.get_current_page() == 1 ):
+      msg = "<span>Es necesario que introduzca su <b>nombre de usuario</b> para el sistema, su <b>nombre completo</b> para generar una ficha de usuario, así como el <b>nombre de máquina</b> con el que quiera bautizar su equipo. Deberá teclear la contraseña de usuario en dos ocasiones.</span>"
+      self.warning_info.set_markup(msg)
+      self.warning_image.set_from_icon_name('gtk-dialog-info', gtk.ICON_SIZE_DIALOG)
+      self.help.hide()
+
   def on_next_clicked(self, widget):
     step = self.steps.get_current_page()
     pre_log('info', 'Step_before = %d' % step)
@@ -503,7 +516,6 @@ class Wizard:
     if step == 0:
       self.next.set_label('gtk-go-forward')
       self.next.set_sensitive(False)
-      self.help.show()
       self.steps.next_page()
     # From Info to Peez
     elif step == 1:
@@ -544,6 +556,7 @@ class Wizard:
         self.show_error(''.join(error_msg))
       else:
         self.browser_vbox.destroy()
+        self.back.show()
         self.help.hide()
         self.steps.next_page()
     # From Peez to Gparted
@@ -586,17 +599,9 @@ class Wizard:
       self.steps.next_page()
     # From Mountpoints to Progress
     elif step == 4:
-      #error_msg = ['\n']
-      #error = 0
-      #for result in validation.check_mountpoint(self.mountpoint1.get_active_text()):
-      #  if ( result[0] is not '/' ):
-      #     error_msg.append("· <b>mountpoint</b> must start with '/').\n")
-      #     error = 1
-      #if ( error == 1 ):
-      #  self.show_error(''.join(error_msg))
-      #else:
       try:
         if ( self.mountpoints.keys()[self.mountpoints.values().index('/')] != None ):
+          self.back.hide()
           self.steps.next_page()
 
           while gtk.events_pending():
