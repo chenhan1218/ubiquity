@@ -136,7 +136,12 @@ class Peez2:
                         stderr.write ('get_drives: drive details follows.\n' +
                                       str (i ['details']) + '\n')
 
-                    if 'linux' in j ['class'].lower ():
+                    if 'linux' in j ['class'].lower () or \
+                           'swap' in j ['class'].lower () or \
+                           'linux' in j ['fs'].lower () or \
+                           'swap' in j ['fs'].lower () or \
+                           'ext2' in j ['fs'].lower () or \
+                           'ext3' in j ['fs'].lower ():
                         linux_space.append (int (j ['bytes']))
                         linux_names.append (i ['device'] + j ['no'])
 
@@ -169,10 +174,10 @@ class Peez2:
                                   '/dev/hda2': '/home',
                                   '/dev/hda3': 'swap'}
 
-            # TEMPORARY, FOR DEBUGGING PURPOSES ONLY:
-            before = {'/dev/hda1': '/',
-                      '/dev/hda2': '/home',
-                      '/dev/hda3': 'swap'}
+##             # TEMPORARY, FOR DEBUGGING PURPOSES ONLY:
+##             before = {'/dev/hda1': '/',
+##                       '/dev/hda2': '/home',
+##                       '/dev/hda3': 'swap'}
 
             item = {'id':           str (i ['device']),
                     'label':        label,
