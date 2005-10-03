@@ -808,8 +808,13 @@ class Wizard:
           where = '\n\nSe usarán las siguientes particiones:\n'
 
           for i in associations.keys ():
-            where.append ('\n\t<tt>' + i + '</tt> para <tt>' + \
-                          associations [i] + '</tt>')
+
+            if i in self.part_labels:
+              where.append ('\n\t' + part_labels [i] + ' para <tt>' + \
+                            associations [i] + '</tt>')
+            else:
+              where.append ('\n\t<tt>' + i + '</tt> para <tt>' + \
+                            associations [i] + '</tt>')
 
       else:
         where = ''
