@@ -575,6 +575,10 @@ class Wizard:
           self.mountpoints = selected_drive ['linux_before']
           self.steps.set_current_page(5)
 
+          while gtk.events_pending():
+            gtk.main_iteration()
+
+          self.progress_loop()
       else:
 
         if self.gparted:
@@ -662,7 +666,6 @@ class Wizard:
 
     step = self.steps.get_current_page()
     pre_log('info', 'Step_after = %d' % step)
-
 
   def on_back_clicked(self, widget):
     step = self.steps.get_current_page()
@@ -798,6 +801,7 @@ class Wizard:
     """ Update help message when this radio button is selected. """
 
     if self.recycle.get_active ():
+      model = self.drives.get_model ()
 
       if len (model) > 0:
         current = self.drives.get_active ()
@@ -810,11 +814,11 @@ class Wizard:
           for i in associations.keys ():
 
             if i in self.part_labels:
-              where.append ('\n\t' + part_labels [i] + ' para <tt>' + \
-                            associations [i] + '</tt>')
+              where = where + '\n\t' + self.part_labels [i] + ' para <tt>' + \
+                      associations [i] + '</tt>'
             else:
-              where.append ('\n\t<tt>' + i + '</tt> para <tt>' + \
-                            associations [i] + '</tt>')
+              where = where + '\n\t<tt>' + i + '</tt> para <tt>' + \
+                      associations [i] + '</tt>'
 
       else:
         where = ''
