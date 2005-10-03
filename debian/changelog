@@ -1,10 +1,10 @@
-oem-config (0.8) UNRELEASED; urgency=low
+oem-config (0.8) breezy; urgency=low
 
   * Remove the temporary OEM configuration user before running oem-config.
   * Reset passwd/user-uid before running oem-config, so that the new user is
     created at uid 1000 rather than 29999.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon,  3 Oct 2005 10:38:53 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  3 Oct 2005 13:04:42 +0100
 
 oem-config (0.7) breezy; urgency=low
 
