@@ -786,6 +786,9 @@ class Wizard:
     """ Update help message when this radio button is selected. """
 
     if self.freespace.get_active ():
+      self.confirmation_checkbutton.hide ()
+      self.confirmation_checkbutton.set_active (False)
+      self.next.set_sensitive (True)
       self.partition_message.set_markup (
         '<span>Se crearán 3 particiones <b>nuevas</b> en su disco duro y ' +
         'se instalará ahí el sistema. En la mayoría de los casos, los datos ' +
@@ -801,6 +804,9 @@ class Wizard:
     """ Update help message when this radio button is selected. """
 
     if self.recycle.get_active ():
+      self.confirmation_checkbutton.show ()
+      self.confirmation_checkbutton.set_active (False)
+      self.next.set_sensitive (False)
       model = self.drives.get_model ()
 
       if len (model) > 0:
@@ -836,6 +842,9 @@ class Wizard:
     """ Update help message when this radio button is selected. """
 
     if self.manually.get_active ():
+      self.confirmation_checkbutton.hide ()
+      self.confirmation_checkbutton.set_active (False)
+      self.next.set_sensitive (True)
       self.partition_message.set_markup (
         '<span>Use este método de particionado si desea total libertad ' +
         'para decidir dónde instalar cada componente del sistema. Podrá ' +
@@ -844,6 +853,17 @@ class Wizard:
         'operaciones que haga con el disco duro pueden suponer la <b>pérdida ' +
         'de todos los datos</b>, así que continúe por aquí únicamente si ya ' +
         'tiene experiencia particionando de forma manual.</span>')
+
+  # Public method "on_confirmation_checkbutton_toggled" ______________________
+  def on_confirmation_checkbutton_toggled (self, widget):
+
+    """ Changes "active" property of "next" button when this check box is
+        changed. """
+
+    if self.confirmation_checkbutton.get_active ():
+      self.next.set_sensitive (True)
+    else:
+      self.next.set_sensitive (False)
 
 if __name__ == '__main__':
   w = Wizard('ubuntu')
