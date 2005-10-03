@@ -51,7 +51,7 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -28.39!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified by A. Olmo on 30 sep 2005.
+# Last modified by A. Olmo on 3 oct 2005.
 
 from sys import stderr
 import pygtk
@@ -662,13 +662,13 @@ class Wizard:
           self.recycle.set_sensitive (False)
           self.manually.set_sensitive (False)
 ##           self.partition_message.set_text (
-##             'El disco duro que ha seleccionado es demasiado pequeño para ' +
+##             'La unidad que ha seleccionado es demasiado pequeña para ' +
 ##             'instalar el sistema en él.\n\nPor favor, seleccione un disco ' +
 ##             'duro de más capacidad.')
 #          self.partition_message.set_use_markup (True)
           self.partition_message.set_markup (
-            '<span>El disco duro que ha seleccionado es <b>demasiado ' +
-            'pequeño</b> para instalar el sistema en él.\n\nPor favor, ' +
+            '<span>La unidad que ha seleccionado es <b>demasiado ' +
+            'pequeña</b> para instalar el sistema en él.\n\nPor favor, ' +
             'seleccione un disco duro de más capacidad.</span>')
         else:
           self.manually.set_sensitive (True)
