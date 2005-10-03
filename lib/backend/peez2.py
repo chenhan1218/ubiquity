@@ -125,6 +125,8 @@ class Peez2:
             before = None
             associations = []
 
+            stderr.write (i ['details'] + '\n\n\n')
+
             if i.has_key ('details'):
                 linux_parts = 0
                 linux_space = []
@@ -144,6 +146,9 @@ class Peez2:
                            'ext3' in j ['fs'].lower ():
                         linux_space.append (int (j ['bytes']))
                         linux_names.append (i ['device'] + j ['no'])
+
+                stderr.write (linux_space + '\n')
+                stderr.write (linux_names + '\n')
 
                 if len (linux_space) > 2:
                     linux_space.sort ()
