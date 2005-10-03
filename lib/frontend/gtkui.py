@@ -580,9 +580,9 @@ class Wizard:
             selected_drive = self.__assistant.get_drives () [current]
             self.check_partitions (selected_drive, self.partition_bar)
 
-      elif True: # self.recycle.get_active ():
+      elif self.recycle.get_active ():
         # TODO: copy mount points from selected drive object.
-        self.steps.set_current_page(6)
+        self.steps.set_current_page(5)
       else:
 
         if self.gparted:
