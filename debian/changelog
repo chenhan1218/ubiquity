@@ -1,3 +1,9 @@
+oem-config (0.8) UNRELEASED; urgency=low
+
+  * Remove the temporary OEM configuration user before running oem-config.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  3 Oct 2005 10:38:53 +0100
+
 oem-config (0.7) breezy; urgency=low
 
   * Use an init script and temporary rc.d links to launch

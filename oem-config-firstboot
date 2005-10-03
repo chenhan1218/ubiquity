@@ -2,6 +2,9 @@
 # Run oem-config on the first boot after shipping to the end user.
 set -e
 
+# Remove the temporary OEM configuration user, if possible.
+deluser --remove-home oem || true
+
 /usr/sbin/oem-config-dm vt7 :0 /usr/sbin/oem-config
 
 exit 0
