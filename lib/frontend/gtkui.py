@@ -385,7 +385,7 @@ class Wizard:
     self.warning_dialog.hide()
 
 
-  def on_okbutton_clicked(self, widget):
+  def on_exitbutton_clicked(self, widget):
     self.quit()
 
 
