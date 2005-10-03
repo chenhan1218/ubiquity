@@ -169,10 +169,10 @@ class Peez2:
                                   '/dev/hda2': '/home',
                                   '/dev/hda3': 'swap'}
 
-                # TEMPORARY, FOR DEBUGGING PURPOSES ONLY:
-                before = {'/dev/hda1': '/',
-                          '/dev/hda2': '/home',
-                          '/dev/hda3': 'swap'}
+            # TEMPORARY, FOR DEBUGGING PURPOSES ONLY:
+            before = {'/dev/hda1': '/',
+                      '/dev/hda2': '/home',
+                      '/dev/hda3': 'swap'}
 
             item = {'id':           str (i ['device']),
                     'label':        label,
