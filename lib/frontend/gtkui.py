@@ -246,6 +246,7 @@ class Wizard:
   def gparted_loop(self):
     pre_log('info', 'gparted_loop()')
     self.gparted_pid = part.call_gparted(self.embedded)
+    self.gparted = False
 
 
   def get_partitions(self):
@@ -584,11 +585,9 @@ class Wizard:
         self.steps.set_current_page(6)
       else:
 
-        if True:
+        if self.gparted:
           self.gparted_loop()
-          self.steps.next_page()
-        else:
-          self.steps.set_current_page(5)
+        self.steps.next_page()
 
     # From Gparted to Mountpoints
     elif step == 3:
@@ -599,29 +598,40 @@ class Wizard:
       self.steps.next_page()
     # From Mountpoints to Progress
     elif step == 4:
-      try:
-        if ( self.mountpoints.keys()[self.mountpoints.values().index('/')] != None ):
-          self.back.hide()
-          self.steps.next_page()
+      error = 0
+      check = check_mountpoint(self.mountpoints)
+      error_msg = ['\n']
+      if ( check[0] == 1 ):
+        error_msg.append('No se encuentra punto de montaje "/"')
+        error = 1
+      elif ( check[1] == 1 ):
+        error_msg.append('Dispositivos duplicados')
+        error = 1
+      elif ( check[2] == 1 ):
+        error_msg.append('Puntos de montaje duplicados')
+        error = 1
 
-          while gtk.events_pending():
-            gtk.main_iteration()
-
-          self.embedded.destroy()
-          self.next.set_sensitive(False)
-          try:
-            os.kill(self.gparted_pid, 9)
-          except Exception, e:
-            print e
-
-          self.progress_loop()
-        else:
-          self.msg_error2.show()
-          self.img_error2.show()
-      except Exception, e:
+      if ( error == 1 ):
+        self.msg_error2.set_text(''.join(error_msg))
         self.msg_error2.show()
         self.img_error2.show()
-    
+      else:
+        self.back.hide()
+        self.steps.next_page()
+
+        while gtk.events_pending():
+          gtk.main_iteration()
+
+        self.embedded.destroy()
+        self.next.set_sensitive(False)
+
+        try:
+          os.kill(self.gparted_pid, 9)
+        except Exception, e:
+          print e
+
+        self.progress_loop()
+
     step = self.steps.get_current_page()
     pre_log('info', 'Step_after = %d' % step)
 

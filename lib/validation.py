@@ -154,5 +154,30 @@ def invalid_names ():
 
     return result
 
+def check_mountpoint (mountpoints):
+
+    """ Check the correctness of a proposed set of mountpoints.
+
+        @return:
+            - C{0} valid.
+            - C{1} Doesn't exist root path.
+            - C{2} Path duplicated.
+            - C{3} Device duplicated. """
+
+    result = [0, 0, 0]
+    
+    for j, k in mountpoints.items():
+      if k == '/':
+        root = 1
+      if ( mountpoints.keys().count(j) > 1 ):
+        result[2] = 1
+      if ( mountpoints.values().count(k) > 1 ):
+        result[1] = 1
+
+    if ( root != 1 ):
+      result[0] = 1
+
+    return result
+      
 # End of file.
 
