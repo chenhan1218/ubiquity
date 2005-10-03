@@ -49,7 +49,7 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -6.50!! (bad
     indentation) """
 
-# Last modified by A. Olmo on 19 sep 2005.
+# Last modified by A. Olmo on 3 oct 2005.
 
 from subprocess import *
 
@@ -64,7 +64,7 @@ def call_autoparted (assistant, drive, partition_bar = None):
   # WARNING:
   # Next variable controls if partitioning is done, or not:
   # Don't change it unless you know what you are doing!
-  ACTUAL_PARTITIONING = False
+  ACTUAL_PARTITIONING = True
 
   part_result = assistant.auto_partition (drive,
                                           progress_bar = partition_bar,

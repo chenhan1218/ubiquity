@@ -49,7 +49,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 30 sep 2005.
+# Last modified on 3 oct 2005.
 
 # TODO: improve debug and log system.
 
@@ -91,7 +91,7 @@ class Peez2:
         self.__drives = self.__scan_drives ()
 
         # Disable this attribute when auto-partitioning is mature enough:
-        self.__ONLY_MANUALLY = True
+        self.__ONLY_MANUALLY = False
 
     # Public method "get_drives" _____________________________________________
 
@@ -106,8 +106,8 @@ class Peez2:
 
         for i in self.__drives:
 
-            # DEBUG
-            stderr.write ('--> drive: ' + str (i) + '\n\n')
+            if self.__debug:
+                stderr.write ('get_drives: drive follows.\n' + str (i) + '\n')
 
             pretty_device = beautify_device (i ['device'], self.__locale)
             pretty_size = beautify_size (i ['size'])
@@ -132,8 +132,9 @@ class Peez2:
 
                 for j in i ['details']:
 
-                    # DEBUG
-                    stderr.write ('--> details: ' + str (i ['details']) + '\n\n')
+                    if self.__debug:
+                        stderr.write ('get_drives: drive details follows.\n' +
+                                      str (i ['details']) + '\n')
 
                     if 'linux' in j ['class'].lower ():
                         linux_space.append (int (j ['bytes']))
@@ -158,11 +159,20 @@ class Peez2:
                         l = l + 1
 
                     if r >= len (required_bytes):
+                        print r
+                        print l
+                        print associations
+                        print before
 
                         # TEMPORARY, FOR DEBUGGING PURPOSES ONLY:
                         before = {'/dev/hda1': '/',
                                   '/dev/hda2': '/home',
                                   '/dev/hda3': 'swap'}
+
+                # TEMPORARY, FOR DEBUGGING PURPOSES ONLY:
+                before = {'/dev/hda1': '/',
+                          '/dev/hda2': '/home',
+                          '/dev/hda3': 'swap'}
 
             item = {'id':           str (i ['device']),
                     'label':        label,
@@ -173,7 +183,7 @@ class Peez2:
 
         return result
 
-    # Public method "only_manually"  _________________________________________
+    # Public method "only_manually" __________________________________________
 
     def only_manually (self):
 
@@ -182,7 +192,7 @@ class Peez2:
 
         return self.__ONLY_MANUALLY
 
-    # Private method "__scan_drives"  ________________________________________
+    # Private method "__scan_drives" _________________________________________
 
     def __scan_drives (self):
 
@@ -257,7 +267,7 @@ class Peez2:
 
         return result
 
-    # Private method "__get_info"  ___________________________________________
+    # Private method "__get_info" ____________________________________________
 
     def __get_info (self, drive, size = None, more_args = '', input = None):
 
@@ -516,10 +526,13 @@ class Peez2:
                         progress_bar.pulse ()
                         progress_bar.set_text ('Making %i MB partition...' % required)
 
-                    stderr.write ('____________\n' + str (drive) + '\n___________________________\n')
+                    stderr.write ('auto_partition: ' + str (drive) + '\n')
 
                     # TODO: improve this algorithm, that decides whether primary
                     #       or extended partitions should be created:
+
+                    if self.__debug:
+                        stderr.write ()
 
                     if drive.has_key ('info'):
 

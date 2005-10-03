@@ -90,8 +90,8 @@ class Wizard:
     self.hostname = ''
     self.fullname = ''
     self.name = ''
-    self.password = ''
     self.gparted = True
+    self.password = ''
     self.mountpoints = {}
     self.entries = {
                     'hostname' : 0,
@@ -579,12 +579,12 @@ class Wizard:
             selected_drive = self.__assistant.get_drives () [current]
             self.check_partitions (selected_drive, self.partition_bar)
 
-      elif self.recycle.get_active ():
+      elif True: # self.recycle.get_active ():
         # TODO: copy mount points from selected drive object.
         self.steps.set_current_page(6)
       else:
 
-        if True: # self.gparted:
+        if True:
           self.gparted_loop()
           self.steps.next_page()
         else:
@@ -634,14 +634,6 @@ class Wizard:
     if step is not 6:
       self.steps.prev_page()
 
-
-  def on_gparted_clicked(self, widget):
-    if self.gparted:
-      self.gparted = False
-    else:
-      self.gparted = True
-
-
   # Public method "on_drives_changed" ________________________________________
   def on_drives_changed (self, foo):
 
@@ -686,6 +678,7 @@ class Wizard:
 ##                   self.recycle.set_sensitive (True)
 
             if selected_drive.has_key ('linux_before'):
+              print selected_drive ['linux_before']
 
               if selected_drive ['linux_before'] is not None:
                 self.recycle.set_sensitive (True)
