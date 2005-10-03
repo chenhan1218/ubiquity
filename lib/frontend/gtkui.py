@@ -556,20 +556,25 @@ class Wizard:
       self.freespace.set_active (False)
       self.recycle.set_active (False)
       self.manually.set_active (False)
+      model = self.drives.get_model ()
+
+      if len (model) > 0:
+        current = self.drives.get_active ()
+
+        if -1 != current:
+          selected_drive = self.__assistant.get_drives () [current]
 
       if self.freespace.get_active ():
-        model = self.drives.get_model ()
 
-        if len (model) > 0:
-          current = self.drives.get_active ()
-
-          if -1 != current:
-            selected_drive = self.__assistant.get_drives () [current]
-            self.check_partitions (selected_drive, self.partition_bar)
+        if -1 != current:
+          self.check_partitions (selected_drive, self.partition_bar)
 
       elif self.recycle.get_active ():
-        # TODO: copy mount points from selected drive object.
-        self.steps.set_current_page(5)
+
+        if -1 != current:
+          self.mountpoints = selected_drive ['linux_before']
+          self.steps.set_current_page(5)
+
       else:
 
         if self.gparted:
@@ -778,16 +783,6 @@ class Wizard:
     """ Update help message when this radio button is selected. """
 
     if self.freespace.get_active ():
-##       self.partition_message.set_text (
-##         'Se crearán 3 particiones nuevas en su disco duro y ' +
-##         'se instalará ahí el sistema. En la mayoría de los casos, los datos ' +
-##         'que haya ya en el disco duro ' +
-##         'no se destruirán.\n\nNota: en algunos casos, es posible que ' +
-##         'se produzca una pérdida de datos si es necesario cambiar el ' +
-##         'tamaño de las particiones existentes para conseguir espacio para ' +
-##         'las nuevas.')
-
-#      self.partition_message.set_use_markup (True)
       self.partition_message.set_markup (
         '<span>Se crearán 3 particiones <b>nuevas</b> en su disco duro y ' +
         'se instalará ahí el sistema. En la mayoría de los casos, los datos ' +
@@ -803,20 +798,28 @@ class Wizard:
     """ Update help message when this radio button is selected. """
 
     if self.recycle.get_active ():
-##       self.partition_message.set_text (
-##         'Se ha detectado un sistema GNU/Linux instalado ya en este ' +
-##         'disco duro. Se van a usar esas mismas particiones para el nuevo ' +
-##         'sistema, reemplazando al anterior.\n\nTenga en cuenta que ' +
-##         'todos los datos que hubiese en ese sistema Linux previo se ' +
-##         'perderán irremisiblemente.')
 
-#      self.partition_message.set_use_markup (True)
+      if len (model) > 0:
+        current = self.drives.get_active ()
+
+        if -1 != current:
+          selected_drive = self.__assistant.get_drives () [current]
+          associations = selected_drive ['linux_before']
+          where = '\n\nSe usarán las siguientes particiones:\n'
+
+          for i in associations.keys ():
+            where.append ('\n\t<tt>' + i + '</tt> para <tt>' + \
+                          associations [i] + '</tt>')
+
+      else:
+        where = ''
+
       self.partition_message.set_markup (
         '<span>Se ha detectado un sistema GNU/Linux instalado ya en este ' +
         'disco duro. Se van a usar esas mismas particiones para el nuevo ' +
         'sistema, <b>reemplazando</b> al anterior.\n\nTenga en cuenta que ' +
         '<b>todos los datos que hubiese en ese sistema Linux previo se ' +
-        'perderán irremisiblemente</b>.</span>')
+        'perderán irremisiblemente</b>.' + where + '</span>')
 
   # Public method "on_manually_toggled" ______________________________________
   def on_manually_toggled (self, widget):
@@ -824,16 +827,6 @@ class Wizard:
     """ Update help message when this radio button is selected. """
 
     if self.manually.get_active ():
-##       self.partition_message.set_text (
-##         'Use este método de particionado si desea total libertad ' +
-##         'para decidir dónde instalar cada componente del sistema. Podrá ' +
-##         'crear, destruir y redimensionar cualquier partición para que cada ' +
-##         'parte ocupe el espacio que quiera.\n\nAtención: las ' +
-##         'operaciones que haga con el disco duro pueden suponer la pérdida ' +
-##         'de todos los datos, así que continúe por aquí únicamente si ya ' +
-##         'tiene experiencia particionando de forma manual.')
-
-#      self.partition_message.set_use_markup (True)
       self.partition_message.set_markup (
         '<span>Use este método de particionado si desea total libertad ' +
         'para decidir dónde instalar cada componente del sistema. Podrá ' +

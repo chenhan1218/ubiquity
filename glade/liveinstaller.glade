@@ -30,7 +30,8 @@
       <child>
 	<widget class="GtkNotebook" id="steps">
 	  <property name="visible">True</property>
-	  <property name="show_tabs">False</property>
+	  <property name="can_focus">True</property>
+	  <property name="show_tabs">True</property>
 	  <property name="show_border">True</property>
 	  <property name="tab_pos">GTK_POS_TOP</property>
 	  <property name="scrollable">False</property>
@@ -978,7 +979,7 @@
 		      <child>
 			<widget class="GtkVBox" id="vbox20">
 			  <property name="visible">True</property>
-			  <property name="homogeneous">True</property>
+			  <property name="homogeneous">False</property>
 			  <property name="spacing">0</property>
 
 			  <child>
@@ -1242,6 +1243,7 @@
 			      <property name="padding">0</property>
 			      <property name="expand">False</property>
 			      <property name="fill">False</property>
+			      <property name="pack_type">GTK_PACK_END</property>
 			    </packing>
 			  </child>
 			</widget>

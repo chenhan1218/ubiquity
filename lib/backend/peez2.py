@@ -122,21 +122,18 @@ class Peez2:
             else:
                 enough = False
 
-            before = None
-            associations = []
+            associations = {}
 
-            stderr.write (i ['details'] + '\n\n\n')
-
-            if i.has_key ('details'):
+            if i ['info'].has_key ('details'):
                 linux_parts = 0
                 linux_space = []
                 linux_names = []
 
-                for j in i ['details']:
+                for j in i ['info'] ['details']:
 
                     if self.__debug:
                         stderr.write ('get_drives: drive details follows.\n' +
-                                      str (i ['details']) + '\n')
+                                      str (j) + '\n')
 
                     if 'linux' in j ['class'].lower () or \
                            'swap' in j ['class'].lower () or \
@@ -147,8 +144,8 @@ class Peez2:
                         linux_space.append (int (j ['bytes']))
                         linux_names.append (i ['device'] + j ['no'])
 
-                stderr.write (linux_space + '\n')
-                stderr.write (linux_names + '\n')
+                stderr.write (str (linux_space) + '\n')
+                stderr.write (str (linux_names) + '\n')
 
                 if len (linux_space) > 2:
                     linux_space.sort ()
@@ -163,32 +160,19 @@ class Peez2:
                     while r < len (required_bytes) and l < len (linux_space):
 
                         if linux_space [l] >= required_bytes [r]:
-                            associations [linux_names [l]] = [mountpoints [r]]
+                            associations [linux_names [l]] = mountpoints [r]
                             r = r + 1
 
                         l = l + 1
 
-                    if r >= len (required_bytes):
-                        print r
-                        print l
-                        print associations
-                        print before
-
-                        # TEMPORARY, FOR DEBUGGING PURPOSES ONLY:
-                        before = {'/dev/hda1': '/',
-                                  '/dev/hda2': '/home',
-                                  '/dev/hda3': 'swap'}
-
-##             # TEMPORARY, FOR DEBUGGING PURPOSES ONLY:
-##             before = {'/dev/hda1': '/',
-##                       '/dev/hda2': '/home',
-##                       '/dev/hda3': 'swap'}
+                    if r < len (required_bytes):
+                        associations = None
 
             item = {'id':           str (i ['device']),
                     'label':        label,
                     'info':         i ['info'],
                     'large_enough': enough,
-                    'linux_before': before}
+                    'linux_before': associations}
             result.append (item)
 
         return result
