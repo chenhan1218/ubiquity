@@ -166,17 +166,26 @@ class Config:
       subprocess.Popen(['chroot', self.target, 'chpasswd', '--md5'], stdin=passwd.stdout)
       self.chrex('rm', '-rf', '/home/guada')
       self.chrex('mkdir', '/home/%s' % self.username)
-      self.chrex('chown', self.username, '/home/%s' % self.username)
       self.chrex('adduser', self.username, 'admin')
+      try:
+        self.chrex('/usr/local/sbin/adduser.local')
+      except Exception, e:
+        print e
 
       #SKEL
 
-      #llamada = """chroot %s su %s -c for ele in $(find /etc/skel);
-      #          do cp $ele /home/%s;
-      #          done
-      #""" %(self.target, self.username, self.username)
-
-      #os.system(llamada)
+      def visit (arg, dirname, names):
+        for name in names:
+          oldname = os.path.join (dirname, name)
+          newname = os.path.join ('/home/%s/' % self.username, name)
+          if ( os.path.isdir(oldname) ):
+            os.mkdir(newname)
+          else:
+            os.system('cp ' + oldname + ' ' + newname)
+      
+      os.path.walk('/etc/skel/', visit, None)
+      self.chrex('chown', '-R', self.username, '/home/%s' % self.username)
+      
       return True
   
   def configure_hostname(self):

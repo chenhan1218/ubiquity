@@ -749,12 +749,15 @@ class Wizard:
           error = 1
           break
           
-      for check in check_mountpoint(self.mountpoints):
+      for check in check_mountpoint(self.mountpoints, self.size):
         if ( check == 1 ):
           error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
           error = 1
         elif ( check == 2 ):
           error_msg.append("· Puntos de montaje duplicados.\n\n")
+          error = 1
+        elif ( check == 3 ):
+          error_msg.append("· Tamaño insufuciente para la partición '/'.\n\n")
           error = 1
 
       if ( error == 1 ):
