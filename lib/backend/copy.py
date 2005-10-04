@@ -1,11 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# Last modified by A. Olmo on 4 oct 2005.
+
 import os
 import subprocess
 import time
 from ue import misc
-
+from sys import stderr
 
 class Copy:
 
@@ -62,6 +64,9 @@ class Copy:
      
 
   def mount_target(self):
+
+#    stderr.write ('PuntosDeMontaje: ' + str (self.mountpoints) + '\n')
+
     if not os.path.isdir(self.target):
       try:
         os.mkdir(self.target)
@@ -228,3 +233,4 @@ if __name__ == '__main__':
   copy.run()
 
 # vim:ai:et:sts=2:tw=80:sw=2:
+

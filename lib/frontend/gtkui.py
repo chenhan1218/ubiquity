@@ -51,7 +51,7 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -28.39!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified by A. Olmo on 3 oct 2005.
+# Last modified by A. Olmo on 4 oct 2005.
 
 from sys import stderr
 import pygtk
@@ -937,10 +937,10 @@ class Wizard:
           for i in associations.keys ():
 
             if i in self.part_labels:
-              where = where + '\n\t' + self.part_labels [i] + ' para <tt>' + \
-                      associations [i] + '</tt>'
+              where = where + '\n<big>' + self.part_labels [i] +\
+                      '</big> para <tt>' + associations [i] + '</tt>'
             else:
-              where = where + '\n\t<tt>' + i + '</tt> para <tt>' + \
+              where = where + '\n<big><tt>' + i + '</tt></big> para <tt>' + \
                       associations [i] + '</tt>'
 
       else:

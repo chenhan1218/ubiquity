@@ -152,6 +152,20 @@ class Peez2:
                     parts = self.__partition_scheme
                     required = [parts ['swap'], parts ['root'], parts ['home']]
                     mountpoints = self.__partition_scheme.keys ()
+
+                    # During formatting and copying, "root" is known as "/",
+                    # so it is necessary to change it before passing mount
+                    # point associations to the backend:
+
+                    j = 0
+
+                    while j < len (mountpoints):
+
+                        if 'root' == mountpoints [j].lower ():
+                            mountpoints [j] = '/'
+
+                        j = j + 1
+
                     required_bytes = [j * 1024 * 1024 for j in required]
                     required_bytes.sort ()
                     l = 0
