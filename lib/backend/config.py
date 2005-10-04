@@ -177,7 +177,7 @@ class Config:
       def visit (arg, dirname, names):
         for name in names:
           oldname = os.path.join (dirname, name)
-          newname = os.path.join ('/home/%s/' % self.username, name)
+          newname = os.path.join (self.target, '/home/%s/' % self.username, name)
           if ( os.path.isdir(oldname) ):
             os.mkdir(newname)
           else:
