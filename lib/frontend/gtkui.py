@@ -179,6 +179,7 @@ class Wizard:
     
     # set fullscreen mode
     self.live_installer.fullscreen()
+    self.live_installer.set_keep_above(True)
     self.live_installer.show()
 
     for widget in [self.partition1, self.partition2, self.partition3,
@@ -258,6 +259,17 @@ class Wizard:
     partition = regex.findall(partition_table)
 
     return partition
+
+
+  def get_sizes(self):
+    temp = open('/proc/partitions').readlines()
+    size = {}
+    for line in temp:
+      try:
+        size[line.split()[3]] = line.split()[2]
+      except:
+        continue
+    return size
 
 
   def show_partitions(self, widget):
@@ -396,60 +408,161 @@ class Wizard:
 
   def on_list_changed(self, widget):
     if ( widget.get_active_text() is not "" ):
-      if ( widget.get_name() in ['partition1', 'mountpoint1'] and
-      self.partition1.get_active_text() != None and
-      self.mountpoint1.get_active_text() != "" ):
-        if ( len(self.get_partitions()) >= 2 ):
-          self.partition2.show()
-          self.mountpoint2.show()
-      elif ( widget.get_name() in ['partition2', 'mountpoint2'] and
-      self.partition2.get_active_text() != None and
-      self.mountpoint2.get_active_text() != "" ):
-        if ( len(self.get_partitions()) >= 3 ):
-          self.partition3.show()
-          self.mountpoint3.show()
-      elif ( widget.get_name() in ['partition3', 'mountpoint3'] and
-      self.partition3.get_active_text() != None and
-      self.mountpoint3.get_active_text() != "" ):
-        if ( len(self.get_partitions()) >= 4 ):
-          self.partition4.show()
-          self.mountpoint4.show()
-      elif ( widget.get_name() in ['partition4', 'mountpoint4'] and
-      self.partition4.get_active_text() != None and
-      self.mountpoint4.get_active_text() != "" ):
-        if ( len(self.get_partitions()) >= 5 ):
-          self.partition5.show()
-          self.mountpoint5.show()
-      elif ( widget.get_name() in ['partition5', 'mountpoint5'] and
-      self.partition5.get_active_text() != None and
-      self.mountpoint5.get_active_text() != "" ):
-        if ( len(self.get_partitions()) >= 6 ):
-          self.partition6.show()
-          self.mountpoint6.show()
-      elif ( widget.get_name() in ['partition6', 'mountpoint6'] and
-      self.partition6.get_active_text() != None and
-      self.mountpoint6.get_active_text() != "" ):
-        if ( len(self.get_partitions()) >= 7 ):
-          self.partition7.show()
-          self.mountpoint7.show()
-      elif ( widget.get_name() in ['partition7', 'mountpoint7'] and
-      self.partition7.get_active_text() != None and
-      self.mountpoint7.get_active_text() != "" ):
-        if ( len(self.get_partitions()) >= 8 ):
-          self.partition8.show()
-          self.mountpoint8.show()
-      elif ( widget.get_name() in ['partition8', 'mountpoint8'] and
-      self.partition8.get_active_text() != None and
-      self.mountpoint8.get_active_text() != "" ):
-        if ( len(self.get_partitions()) >= 9 ):
-          self.partition9.show()
-          self.mountpoint9.show()
-      elif ( widget.get_name() in ['partition9', 'mountpoint9'] and
-      self.partition9.get_active_text() != None and
-      self.mountpoint9.get_active_text() != "" ):
-        if ( len(self.get_partitions()) >= 10 ):
-          self.partition10.show()
-          self.mountpoint10.show()
+      if ( widget.get_name() in ['partition1', 'mountpoint1']):
+        if ( self.partition1.get_active_text() != None and
+        self.mountpoint1.get_active_text() != "" ):
+          if ( len(self.get_partitions()) >= 2 ):
+            self.partition2.show()
+            self.mountpoint2.show()
+            self.size2.show()
+        if ( self.partition1.get_active_text() != None ):
+          size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(self.partition1.get_active_text())].split('/')[2]])
+          if ( size > 1048576 ):
+            msg = '%.0f Gb' % (size/1024/1024)
+          elif ( size > 1024 and size < 1048576 ):
+            msg = '%.0f Mb' % (size/1024)
+          else:
+            msg = '%.0f Kb' % size
+          self.size1.set_text(msg)
+      elif ( widget.get_name() in ['partition2', 'mountpoint2']):
+        if ( self.partition2.get_active_text() != None and
+        self.mountpoint2.get_active_text() != "" ):
+          if ( len(self.get_partitions()) >= 3 ):
+            self.partition3.show()
+            self.mountpoint3.show()
+            self.size3.show()
+        if ( self.partition2.get_active_text() != None ):
+          size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(self.partition2.get_active_text())].split('/')[2]])
+          if ( size > 1048576 ):
+            msg = '%.0f Gb' % (size/1024/1024)
+          elif ( size > 1024 and size < 1048576 ):
+            msg = '%.0f Mb' % (size/1024)
+          else:
+            msg = '%.0f Kb' % size
+          self.size2.set_text(msg)
+      elif ( widget.get_name() in ['partition3', 'mountpoint3']):
+        if ( self.partition3.get_active_text() != None and
+        self.mountpoint3.get_active_text() != "" ):
+          if ( len(self.get_partitions()) >= 4 ):
+            self.partition4.show()
+            self.mountpoint4.show()
+            self.size4.show()
+        if ( self.partition3.get_active_text() != None ):
+          size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(self.partition3.get_active_text())].split('/')[2]])
+          if ( size > 1048576 ):
+            msg = '%.0f Gb' % (size/1024/1024)
+          elif ( size > 1024 and size < 1048576 ):
+            msg = '%.0f Mb' % (size/1024)
+          else:
+            msg = '%.0f Kb' % size
+          self.size3.set_text(msg)
+      elif ( widget.get_name() in ['partition4', 'mountpoint4']):
+        if ( self.partition4.get_active_text() != None and
+        self.mountpoint4.get_active_text() != "" ):
+          if ( len(self.get_partitions()) >= 5 ):
+            self.partition5.show()
+            self.mountpoint5.show()
+            self.size5.show()
+        if ( self.partition4.get_active_text() != None ):
+          size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(self.partition4.get_active_text())].split('/')[2]])
+          if ( size > 1048576 ):
+            msg = '%.0f Gb' % (size/1024/1024)
+          elif ( size > 1024 and size < 1048576 ):
+            msg = '%.0f Mb' % (size/1024)
+          else:
+            msg = '%.0f Kb' % size
+          self.size4.set_text(msg)
+      elif ( widget.get_name() in ['partition5', 'mountpoint5']):
+        if ( self.partition5.get_active_text() != None and
+        self.mountpoint5.get_active_text() != "" ):
+          if ( len(self.get_partitions()) >= 6 ):
+            self.partition6.show()
+            self.mountpoint6.show()
+            self.size6.show()
+        if ( self.partition5.get_active_text() != None ):
+          size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(self.partition5.get_active_text())].split('/')[2]])
+          if ( size > 1048576 ):
+            msg = '%.0f Gb' % (size/1024/1024)
+          elif ( size > 1024 and size < 1048576 ):
+            msg = '%.0f Mb' % (size/1024)
+          else:
+            msg = '%.0f Kb' % size
+          self.size5.set_text(msg)
+      elif ( widget.get_name() in ['partition6', 'mountpoint6']):
+        if ( self.partition6.get_active_text() != None and
+        self.mountpoint6.get_active_text() != "" ):
+          if ( len(self.get_partitions()) >= 7 ):
+            self.partition7.show()
+            self.mountpoint7.show()
+            self.size7.show()
+        if ( self.partition6.get_active_text() != None ):
+          size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(self.partition6.get_active_text())].split('/')[2]])
+          if ( size > 1048576 ):
+            msg = '%.0f Gb' % (size/1024/1024)
+          elif ( size > 1024 and size < 1048576 ):
+            msg = '%.0f Mb' % (size/1024)
+          else:
+            msg = '%.0f Kb' % size
+          self.size6.set_text(msg)
+      elif ( widget.get_name() in ['partition7', 'mountpoint7']):
+        if ( self.partition7.get_active_text() != None and
+        self.mountpoint7.get_active_text() != "" ):
+          if ( len(self.get_partitions()) >= 8 ):
+            self.partition8.show()
+            self.mountpoint8.show()
+            self.size8.show()
+        if ( self.partition7.get_active_text() != None ):
+          size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(self.partition7.get_active_text())].split('/')[2]])
+          if ( size > 1048576 ):
+            msg = '%.0f Gb' % (size/1024/1024)
+          elif ( size > 1024 and size < 1048576 ):
+            msg = '%.0f Mb' % (size/1024)
+          else:
+            msg = '%.0f Kb' % size
+          self.size7.set_text(msg)
+      elif ( widget.get_name() in ['partition8', 'mountpoint8']):
+        if ( self.partition8.get_active_text() != None and
+        self.mountpoint8.get_active_text() != "" ):
+          if ( len(self.get_partitions()) >= 9 ):
+            self.partition9.show()
+            self.mountpoint9.show()
+            self.size9.show()
+        if ( self.partition8.get_active_text() != None ):
+          size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(self.partition8.get_active_text())].split('/')[2]])
+          if ( size > 1048576 ):
+            msg = '%.0f Gb' % (size/1024/1024)
+          elif ( size > 1024 and size < 1048576 ):
+            msg = '%.0f Mb' % (size/1024)
+          else:
+            msg = '%.0f Kb' % size
+          self.size8.set_text(msg)
+      elif ( widget.get_name() in ['partition9', 'mountpoint9']):
+        if ( self.partition9.get_active_text() != None and
+        self.mountpoint9.get_active_text() != "" ):
+          if ( len(self.get_partitions()) >= 10 ):
+            self.partition10.show()
+            self.mountpoint10.show()
+            self.size10.show()
+        if ( self.partition9.get_active_text() != None ):
+          size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(self.partition9.get_active_text())].split('/')[2]])
+          if ( size > 1048576 ):
+            msg = '%.0f Gb' % (size/1024/1024)
+          elif ( size > 1024 and size < 1048576 ):
+            msg = '%.0f Mb' % (size/1024)
+          else:
+            msg = '%.0f Kb' % size
+          self.size9.set_text(msg)
+      elif ( widget.get_name() in ['partition10', 'mountpoint10']):
+        self.size10.set_text(self.size[self.part_labels.keys()[self.part_labels.values().index(self.partition10.get_active_text())].split('/')[2]])
+        if ( self.partition10.get_active_text() != None ):
+          size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(self.partition10.get_active_text())].split('/')[2]])
+          if ( size > 1048576 ):
+            msg = '%.0f Gb' % (size/1024/1024)
+          elif ( size > 1024 and size < 1048576 ):
+            msg = '%.0f Mb' % (size/1024)
+          else:
+            msg = '%.0f Kb' % size
+          self.size10.set_text(msg)
 
 
   def on_key_press (self, widget, event):
@@ -591,6 +704,7 @@ class Wizard:
       self.partition4, self.partition5, self.partition6, self.partition7,
       self.partition8, self.partition9, self.partition10 ]:
         self.show_partitions(widget)
+      self.size = self.get_sizes()
       self.steps.next_page()
     # From Mountpoints to Progress
     elif step == 4:
