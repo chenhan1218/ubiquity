@@ -304,15 +304,15 @@ msgstr "<span size=\"xx-large\">¡Felicidades!</span>"
 
 #: liveinstaller.glade:2735
 msgid ""
-"<span size=\"large\">The installation has been successfully completed.\n"
-"\n"
+"The installation has been successfully completed.\n"
+ "\n"
 "In order to work with your new free operative system you need to eject the "
-"CDLive and reboot your computer.</span>"
+"CDLive and reboot your computer."
 msgstr ""
-"<span size=\"large\">El proceso de instalación se ha completado..\n"
+"El proceso de instalación se ha completado..\n"
 "\n"
-"Para utilizar su nuevo sistema operativo libre es necesario extraer el"
-"CDLive y reiniciar su ordenador.</span>"
+"Para utilizar su nuevo sistema operativo libre es necesario extraer el "
+"CDLive y reiniciar su ordenador."
 
 #: liveinstaller.glade:2775
 msgid "Ready"
