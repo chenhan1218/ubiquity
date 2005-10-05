@@ -91,9 +91,7 @@ def check_username (name):
         result[1] = 2
         
     regex = re.compile(r'^[a-zA-Z0-9.]+$')
-    try:
-      regex.search(name)
-    except:
+    if not regex.search(name):
       result[0] = 1
 
     return result
@@ -134,7 +132,7 @@ def check_hostname (name):
             - C{3} contains invalid characters."""
 
     import re
-    result = [0, 0]
+    result = [0, 0, 0]
 
     if len (set (name).intersection (set (whitespace))) > 0:
         result[1] = 2
@@ -142,9 +140,7 @@ def check_hostname (name):
         result[0] = 1
 
     regex = re.compile(r'^[a-zA-Z0-9]+$')
-    try:
-      regex.search(name)
-    except:
+    if not regex.search(name):
       result[2] = 3
 
     return result
@@ -177,7 +173,7 @@ def check_mountpoint (mountpoints, size):
             - C{3} Contains invalid characters."""
 
     import re
-    result = [0, 0, 0]
+    result = [0, 0, 0, 0]
     root = 0
     
     for j, k in mountpoints.items():
@@ -188,9 +184,7 @@ def check_mountpoint (mountpoints, size):
       if ( mountpoints.values().count(k) > 1 ):
         result[1] = 2
       regex = re.compile(r'^[a-zA-Z0-9/]+$')
-      try:
-        regex.search(name)
-      except:
+      if not regex.search(name):
         result[3] = 4
 
     if ( root != 1 ):
