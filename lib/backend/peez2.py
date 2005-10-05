@@ -156,6 +156,7 @@ class Peez2:
                     mountpoints = self.__partition_scheme.keys ()
 
                     # During formatting and copying, "root" is known as "/",
+                    # and "home" is known as "/home",
                     # so it is necessary to change it before passing mount
                     # point associations to the backend:
 
@@ -165,6 +166,8 @@ class Peez2:
 
                         if 'root' == mountpoints [j].lower ():
                             mountpoints [j] = '/'
+                        elif 'home' == mountpoints [j].lower ():
+                            mountpoints [j] = '/home'
 
                         j = j + 1
 
