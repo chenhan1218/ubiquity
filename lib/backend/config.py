@@ -174,16 +174,26 @@ class Config:
 
       #SKEL
 
-      def visit (arg, dirname, names):
-        for name in names:
-          oldname = os.path.join (dirname, name)
-          newname = os.path.join (self.target, '/home/%s/' % self.username, name)
-          if ( os.path.isdir(oldname) ):
-            os.mkdir(newname)
-          else:
-            os.system('cp ' + oldname + ' ' + newname)
+      #def visit (arg, dirname, names):
+      #  print '----------> ' + str (arg) + '\t' + str (dirname) + '\t' + str (names)
+      #  for name in names:
+      #    oldname = os.path.join (dirname, name)
+      #    newname = os.path.join (self.target, 'home/%s/' % self.username, name)
+      #    print self.target
+      #    print "***" +  newname
+      #    if ( os.path.isdir(oldname) ):
+      #      #newname = '/tmp/Desktop'
+      #      print newname
+      #      #os.mkdir(newname)
+      #      self.chrex('mkdir', newname)
+      #    else:
+      #      print 'cp ' + oldname + ' ' + newname
+      #      os.system('cp ' + oldname + ' ' + newname)
+      #
+      #os.path.walk('/etc/skel/', visit, None)
       
-      os.path.walk('/etc/skel/', visit, None)
+      os.system ("cp -a /etc/skel/* " + os.path.join (self.target, 'home/%s' % self.username))
+      os.system ("cp -a /etc/skel/.[0-Z]* " + os.path.join (self.target, 'home/%s' % self.username))
       self.chrex('chown', '-R', self.username, '/home/%s' % self.username)
       
       return True
@@ -328,9 +338,11 @@ quit ' % grub_target_dev)
           self.chrex('dpkg-reconfigure', '-fnoninteractive', package)
 
 if __name__ == '__main__':
+  from Queue import Queue
+  queue = Queue ()
   vars = misc.get_var()
   config = Config(vars)
-  config.run()
+  config.run(queue)
   print 101
   
 
