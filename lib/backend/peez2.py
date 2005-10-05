@@ -467,8 +467,12 @@ class Peez2:
                 result ['metacoms'].append (fields [1])
 
         lines = self.__call_peez2 ('-a show -d %s -v' % drive) ['out']
+        string_of_lines = ''
 
         for i in lines:
+            string_of_lines = string_of_lines + i
+
+        for i in string_of_lines:
 
             # "registro de 'lista de particiones'":
             if 'PAV#' == i [:4]:
@@ -477,7 +481,7 @@ class Peez2:
                 next = i [4:].find ('PAV#')
 
                 if next > -1:
-                    lines.append (i [4:] [next:])
+                    string_of_lines.append (i [4:] [next:])
                     this_one = i [4:] [:next]
                 else:
                     this_one = i [4:]
