@@ -51,7 +51,7 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -28.39!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified by A. Olmo on 4 oct 2005.
+# Last modified by A. Olmo on 5 oct 2005.
 
 from sys import stderr
 import pygtk
@@ -791,6 +791,7 @@ class Wizard:
     pre_log('info', 'Step_after = %d' % step)
 
   def on_back_clicked(self, widget):
+    self.next.set_sensitive(True)
     step = self.steps.get_current_page()
     if step == 2:
       self.back.hide()
@@ -938,16 +939,19 @@ class Wizard:
         if -1 != current:
           selected_drive = self.__assistant.get_drives () [current]
           associations = selected_drive ['linux_before']
-          where = '\n\nSe usarán las siguientes particiones:\n'
+          where = '\n\n<span foreground="#800000">Se usarán las ' + \
+                  'siguientes particiones:\n'
 
           for i in associations.keys ():
 
             if i in self.part_labels:
-              where = where + '\n<big>' + self.part_labels [i] +\
-                      '</big> para <tt>' + associations [i] + '</tt>'
+              where = where + '\n' + self.part_labels [i] +\
+                      ' para <tt>' + associations [i] + '</tt>'
             else:
-              where = where + '\n<big><tt>' + i + '</tt></big> para <tt>' + \
+              where = where + '\n<tt>' + i + '</tt> para <tt>' + \
                       associations [i] + '</tt>'
+
+          where = where + '</span>'
 
       else:
         where = ''
