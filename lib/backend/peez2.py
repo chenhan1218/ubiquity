@@ -137,6 +137,7 @@ class Peez2:
 
                     if 'linux' in j ['class'].lower () or \
                            'swap' in j ['class'].lower () or \
+                           'nofs' in j ['class'].lower () or \
                            'linux' in j ['fs'].lower () or \
                            'swap' in j ['fs'].lower () or \
                            'ext2' in j ['fs'].lower () or \
@@ -471,7 +472,17 @@ class Peez2:
 
             # "registro de 'lista de particiones'":
             if 'PAV#' == i [:4]:
-                fields = i [4:].split ('|')
+
+                # This patch temporarily solves Peez2 output bug:
+                next = i [4:].find ('PAV#')
+
+                if next > -1:
+                    lines.append (i [4:] [next:])
+                    this_one = i [4:] [:next]
+                else:
+                    this_one = i [4:]
+
+                fields = this_one.split ('|')
 
                 if None == result:
                     result = {}
