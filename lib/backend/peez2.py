@@ -181,7 +181,15 @@ class Peez2:
 
                         l = l + 1
 
-                    if r >= len (required_bytes):
+                    if self.__debug:
+                        stderr.write ('get_drives: associations: "' + \
+                                      str (associations) + '"\n')
+                        stderr.write ('get_drives: r: ' + str (r) + '"\n')
+                        stderr.write ('get_drives: required_bytes: ' + str (required_bytes) + '"\n')
+                        stderr.write ('get_drives: r >= len (required_bytes)?' + \
+                                      str (r >= len (required_bytes)) + '"\n')
+
+                    if r < len (required_bytes):
                         associations = None
 
             item = {'id':           str (i ['device']),
@@ -472,35 +480,54 @@ class Peez2:
         for i in lines:
             string_of_lines = string_of_lines + i
 
+        string_of_lines = string_of_lines.split ('\n')
+
+##         if self.__debug:
+##             stderr.write ('__get_info: string_of_lines "' + \
+##                           string_of_lines + '"\n')
+
         for i in string_of_lines:
 
+##             if self.__debug:
+##                 stderr.write ('__get_info: line "' + i + '"\n')
+
             # "registro de 'lista de particiones'":
-            if 'PAV#' == i [:4]:
+            if 'PAV' == i [:3] or 'PAH' == i [:3]:
 
                 # This patch temporarily solves Peez2 output bug:
-                next = i [4:].find ('PAV#')
+                next = i [3:].find ('PAV')
+                other_next = i [3:].find ('PAH')
+
+                if other_next < next and other_next > -1:
+                    next = other_next
 
                 if next > -1:
-                    string_of_lines.append (i [4:] [next:])
+                    string_of_lines.append (i [3:] [next:])
                     this_one = i [4:] [:next]
                 else:
                     this_one = i [4:]
 
-                fields = this_one.split ('|')
+                if 'PAV#' == i [:4]:
 
-                if None == result:
-                    result = {}
+                    fields = this_one.split ('|')
 
-                if not result.has_key ('details'):
-                    result ['details'] = []
+                    if None == result:
+                        result = {}
 
-                this_part = {'no':    fields [0],
-                             'type':  fields [1],
-                             'fs':    fields [2],
-                             'sec':   fields [3],
-                             'bytes': int (fields [4]),
-                             'class': fields [5]}
-                result ['details'].append (this_part)
+                    if not result.has_key ('details'):
+                        result ['details'] = []
+
+                    this_part = {'no':    fields [0],
+                                 'type':  fields [1],
+                                 'fs':    fields [2],
+                                 'sec':   fields [3],
+                                 'bytes': int (fields [4]),
+                                 'class': fields [5]}
+                    result ['details'].append (this_part)
+
+        if self.__debug and result.has_key ('details'):
+            stderr.write ('__get_info: details "' + \
+                          str (result ['details']) + '"\n')
 
         return result
 

@@ -690,6 +690,7 @@ class Wizard:
 
         if -1 != current:
           self.mountpoints = selected_drive ['linux_before']
+          stderr.write ('\n\n' + str (self.mountpoints) + '\n\n')
           self.steps.set_current_page(5)
 
           while gtk.events_pending():
