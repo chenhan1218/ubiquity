@@ -164,7 +164,7 @@ class Copy:
       per = (copied_bytes * 100) / total_size
       # Adjusting the percentage
       per = (per*73/100)+17
-      if ( counter != per and per >= 33 ):
+      if ( counter != per and per == 33 ):
         time_start = time.time()
       if ( counter != per and per >= 35 ):
         counter = per
