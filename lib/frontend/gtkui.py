@@ -659,6 +659,7 @@ class Wizard:
       if ( error == 1 ):
         self.show_error(''.join(error_msg))
       else:
+        self.on_recycle_toggled (self.recycle)
         self.browser_vbox.destroy()
         self.back.show()
         self.help.hide()
@@ -843,7 +844,6 @@ class Wizard:
 ##                   self.recycle.set_sensitive (True)
 
             if selected_drive.has_key ('linux_before'):
-              print selected_drive ['linux_before']
 
               if selected_drive ['linux_before'] is not None:
                 self.recycle.set_sensitive (True)
@@ -894,6 +894,11 @@ class Wizard:
 ##       while gtk.events_pending ():
 ##         gtk.main_iteration ()
 
+      # To change its colour to red:
+##       my_visual = gtk.gdk.Visual (24, gtk.gdk.VISUAL_TRUE_COLOR)
+##       my_colormap = gtk.gdk.Colormap (my_visual, True)
+##       self.confirmation_checkbutton.set_colormap (my_colormap)
+
       self.__assistant = Peez2 () # debug = False)
 
       for i in self.__assistant.get_drives ():
@@ -939,7 +944,7 @@ class Wizard:
         if -1 != current:
           selected_drive = self.__assistant.get_drives () [current]
           associations = selected_drive ['linux_before']
-          where = '\n\n<span foreground="#800000">Se usarán las ' + \
+          where = '<span foreground="#800000"><b>\n\nSe usarán las ' + \
                   'siguientes particiones:\n'
 
           for i in associations.keys ():
@@ -951,8 +956,7 @@ class Wizard:
               where = where + '\n<tt>' + i + '</tt> para <tt>' + \
                       associations [i] + '</tt>'
 
-          where = where + '</span>'
-
+          where = where + '</b></span>'
       else:
         where = ''
 
@@ -961,7 +965,7 @@ class Wizard:
         'disco duro. Se van a usar esas mismas particiones para el nuevo ' +
         'sistema, <b>reemplazando</b> al anterior.\n\nTenga en cuenta que ' +
         '<b>todos los datos que hubiese en ese sistema Linux previo se ' +
-        'perderán irremisiblemente</b>.' + where + '</span>')
+        'perderán irremisiblemente</b>.</span>' + where)
 
   # Public method "on_manually_toggled" ______________________________________
   def on_manually_toggled (self, widget):

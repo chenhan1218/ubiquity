@@ -49,7 +49,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 3 oct 2005.
+# Last modified on 5 oct 2005.
 
 # TODO: improve debug and log system.
 
@@ -122,7 +122,7 @@ class Peez2:
             else:
                 enough = False
 
-            associations = {}
+            associations = None
 
             if i ['info'].has_key ('details'):
                 linux_parts = 0
@@ -148,6 +148,7 @@ class Peez2:
                 stderr.write (str (linux_names) + '\n')
 
                 if len (linux_space) > 2:
+                    associations = {}
                     linux_space.sort ()
                     parts = self.__partition_scheme
                     required = [parts ['swap'], parts ['root'], parts ['home']]
@@ -179,7 +180,7 @@ class Peez2:
 
                         l = l + 1
 
-                    if r < len (required_bytes):
+                    if r >= len (required_bytes):
                         associations = None
 
             item = {'id':           str (i ['device']),
@@ -539,8 +540,8 @@ class Peez2:
                     # TODO: improve this algorithm, that decides whether primary
                     #       or extended partitions should be created:
 
-                    if self.__debug:
-                        stderr.write ()
+##                     if self.__debug:
+##                         stderr.write ()
 
                     if drive.has_key ('info'):
 
