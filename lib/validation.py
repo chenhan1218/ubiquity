@@ -69,13 +69,14 @@ def check_username (name):
 
         @return:
             - C{0} valid.
-            - C{1} contains dots.
+            - C{1} contains invalid characters.
             - C{2} contains uppercase characters.
             - C{3} wrong length.
             - C{4} contains white spaces.
             - C{5} is already taken or prohibited.
             - C{6} is C{root}. """
 
+    import re
     result = [0, 0, 0, 0, 0, 0]
 
     if 'root' == name:
@@ -88,9 +89,12 @@ def check_username (name):
         result[2] = 3
     if len (set (name).intersection (set (uppercase))) > 0:
         result[1] = 2
-    # Commented on demmand
-    # if '.' in name:
-    #     result[0] = 1
+        
+    regex = re.compile(r'^[a-zA-Z0-9.]+$')
+    try:
+      regex.search(name)
+    except:
+      result[0] = 1
 
     return result
 
@@ -126,14 +130,22 @@ def check_hostname (name):
         @return:
             - C{0} valid.
             - C{1} wrong length.
-            - C{2} contains white spaces. """
+            - C{2} contains white spaces.
+            - C{3} contains invalid characters."""
 
+    import re
     result = [0, 0]
 
     if len (set (name).intersection (set (whitespace))) > 0:
         result[1] = 2
     if len (name) < 3 or len (name) > 18:
         result[0] = 1
+
+    regex = re.compile(r'^[a-zA-Z0-9]+$')
+    try:
+      regex.search(name)
+    except:
+      result[2] = 3
 
     return result
 
@@ -160,9 +172,11 @@ def check_mountpoint (mountpoints, size):
 
         @return:
             - C{0} Doesn't exist root path.
-            - C{1} Path duplicated. 
-            - C{2} Size incorrect."""
+            - C{1} Path duplicated.
+            - C{2} Size incorrect.
+            - C{3} Contains invalid characters."""
 
+    import re
     result = [0, 0, 0]
     root = 0
     
@@ -173,6 +187,11 @@ def check_mountpoint (mountpoints, size):
           result[2] = 3
       if ( mountpoints.values().count(k) > 1 ):
         result[1] = 2
+      regex = re.compile(r'^[a-zA-Z0-9/]+$')
+      try:
+        regex.search(name)
+      except:
+        result[3] = 4
 
     if ( root != 1 ):
       result[0] = 1

@@ -155,7 +155,7 @@ class Copy:
         cwd = self.source,
         stdin = subprocess.PIPE)
 
-    copied_bytes, counter, time_start = 0, 0, time.time()
+    copied_bytes, counter = 0, 0
     for path, size in files:
       copy.stdin.write(path + '\0')
       misc.pre_log('info', path)
@@ -164,12 +164,14 @@ class Copy:
       per = (copied_bytes * 100) / total_size
       # Adjusting the percentage
       per = (per*73/100)+17
-      if ( counter != per and per >= 26):
+      if ( counter != per and per >= 33 ):
+        time_start = time.time()
+      if ( counter != per and per >= 35 ):
         counter = per
-        time_left = (time.time()-time_start)*65/(counter - 25) - (time.time()-time_start)
+        time_left = (time.time()-time_start)*57/(counter - 33) - (time.time()-time_start)
         minutes, seconds = time_left/60, time_left - int(time_left/60)*60
         queue.put("%s Copiando %s%% - Queda %02d:%02d - [%s]" % (per, per, minutes, seconds, path))
-      elif ( counter != per and per < 26 ):
+      elif ( counter != per and per < 35 ):
         counter = per
         queue.put("%s Copiando %s%% - [%s]" % (per, per, path))
     

@@ -625,7 +625,7 @@ class Wizard:
       error = 0
       for result in validation.check_username(self.username.get_property('text')):
         if ( result == 1 ):
-          error_msg.append("· El <b>nombre de usuario</b> contiene puntos (no están permitidos).\n")
+          error_msg.append("· El <b>nombre de usuario</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
           error = 1
         elif ( result == 2 ):
           error_msg.append("· El <b>nombre de usuario</b> contiene mayúsculas (no están permitidas).\n")
@@ -652,6 +652,9 @@ class Wizard:
           error = 1
         elif ( result == 2 ):
           error_msg.append("· El <b>nombre del equipo</b> contiene espacios en blanco (no están permitidos).\n")
+          error = 1
+        elif ( result == 3 ):
+          error_msg.append("· El <b>nombre del equipo</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
           error = 1
       if ( error == 1 ):
         self.show_error(''.join(error_msg))
@@ -758,6 +761,9 @@ class Wizard:
           error = 1
         elif ( check == 3 ):
           error_msg.append("· Tamaño insufuciente para la partición '/'.\n\n")
+          error = 1
+        elif ( check == 4 ):
+          error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
           error = 1
 
       if ( error == 1 ):
