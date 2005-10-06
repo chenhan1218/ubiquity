@@ -51,7 +51,7 @@
 # File "validation.py".
 # Validation library.
 # Created by Antonio Olmo <aolmo@emergya.info> on 26 jul 2005.
-# Last modified on 15 sep 2005.
+# Last modified on 6 oct 2005.
 
 from string import whitespace, uppercase
 
@@ -183,9 +183,15 @@ def check_mountpoint (mountpoints, size):
           result[2] = 3
       if ( mountpoints.values().count(k) > 1 ):
         result[1] = 2
-      regex = re.compile(r'^[a-zA-Z0-9/]+$')
-      if not regex.search(name):
-        result[3] = 4
+
+      # Validation temporarily disabled:
+##       regex = re.compile(r'^[a-zA-Z0-9/]+$')
+
+##       # It should be "j" instead of "name"!
+## ##       if not regex.search(name):
+##       if not regex.search (j):
+
+##         result[3] = 4
 
     if ( root != 1 ):
       result[0] = 1
