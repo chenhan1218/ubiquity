@@ -815,7 +815,7 @@ class Wizard:
           error_msg.append("· Puntos de montaje duplicados.\n\n")
           error = 1
         elif ( check == 3 ):
-          error_msg.append("· Tamaño insufuciente para la partición '/'.\n\n")
+          error_msg.append("· Tamaño insuficiente para la partición '/'.\n\n")
           error = 1
         elif ( check == 4 ):
           error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
@@ -1006,7 +1006,7 @@ class Wizard:
           for i in associations.keys ():
 
             if i in self.part_labels:
-              where = where + '\n' + self.part_labels [i] +\
+              where = where + '\n· ' + self.part_labels [i] +\
                       ' para <tt>' + associations [i] + '</tt>'
             else:
               where = where + '\n<tt>' + i + '</tt> para <tt>' + \

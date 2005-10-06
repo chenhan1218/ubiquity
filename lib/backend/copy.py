@@ -87,7 +87,14 @@ class Copy:
       except Exception, e:
         print e
       try:
-        misc.ex('mount', device, path)
+        result = misc.ex ('mount', device, path)
+
+        if not result:
+          # TODO: check that this partition is actually mounted.
+          #       otherwise, try to mount it again, or abort the
+          #       installation.
+          pass
+
       except Exception, e:
         print e
     return True
