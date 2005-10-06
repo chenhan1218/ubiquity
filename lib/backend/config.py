@@ -12,7 +12,7 @@ class Config:
       # We get here the current kernel version
       self.kernel_version = open('/proc/sys/kernel/osrelease').readline().strip()
       # FIXME: Hack (current kernel loaded on liveCD doesn't work on installed systems)
-      self.kernel_version = '2.6.12-8-386'
+      self.kernel_version = '2.6.12-9-386'
       self.distro = open('/etc/lsb-release').readline().strip().split('=')[1].lower()
       self.target = '/target/'
       # Getting vars: fullname, username, password, hostname
@@ -175,19 +175,14 @@ class Config:
       #SKEL
 
       #def visit (arg, dirname, names):
-      #  print '----------> ' + str (arg) + '\t' + str (dirname) + '\t' + str (names)
       #  for name in names:
       #    oldname = os.path.join (dirname, name)
-      #    newname = os.path.join (self.target, 'home/%s/' % self.username, name)
-      #    print self.target
-      #    print "***" +  newname
+      #    for pattern in str(dirname).split('/')[2:]:
+      #      dir = os.path.join('', pattern)
+      #    newname = os.path.join (self.target, '/home/%s/' % self.username, dir, name)
       #    if ( os.path.isdir(oldname) ):
-      #      #newname = '/tmp/Desktop'
-      #      print newname
-      #      #os.mkdir(newname)
-      #      self.chrex('mkdir', newname)
+      #      os.mkdir(newname)
       #    else:
-      #      print 'cp ' + oldname + ' ' + newname
       #      os.system('cp ' + oldname + ' ' + newname)
       #
       #os.path.walk('/etc/skel/', visit, None)
@@ -263,7 +258,8 @@ default 1\n \
 title %s\n \
 root (%s)\n \
 kernel (%s)/boot/vmlinuz-%s root=%s ro splash quiet\n \
-initrd (%s)/boot/initrd.img-%s' % \
+initrd (%s)/boot/initrd.img-%s\n \
+' % \
       (distro, grub_dev, grub_dev, self.kernel_version, target_dev, grub_dev, self.kernel_version) )
       
       grub_conf.close()
@@ -283,7 +279,8 @@ quit ' % grub_target_dev)
         print e
       conf = subprocess.Popen(['cat', '/tmp/grub.conf'], stdout=subprocess.PIPE)
       grub_apply = subprocess.Popen(['chroot', self.target, 'grub', '--batch',
-          '--device-map=/boot/grub/menu.lst'], stdin=conf.stdout)
+          '--device-map=/boot/grub/device.map',
+          '--config-file=/boot/grub/menu.lst', stdin=conf.stdout)
       
       # For the Yaboot
       #if not os.path.exists(self.target + '/etc/yaboot.conf'):
