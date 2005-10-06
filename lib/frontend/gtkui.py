@@ -147,25 +147,25 @@ class Wizard:
     PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', distro)
     self.total_images   = glob.glob("%s/snapshot*.png" % PIXMAPSDIR)
     self.total_messages = open("%s/messages.txt" % PIXMAPSDIR).readlines()
-    
+
     # Start a timer to see how long the user runs this program
     self.start = time.time()
-    
+
     # set custom language
     self.set_locales()
-    
+
     # load the interface
     self.glade = gtk.glade.XML('%s/liveinstaller.glade' % GLADEDIR)
-    
+
     # get widgets
     for widget in self.glade.get_widget_prefix(""):
       setattr(self, widget.get_name(), widget)
-     
+
     # set initial status
     self.back.hide()
     self.help.hide()
     self.next.set_label('gtk-go-forward')
-    
+
     # set pixmaps
     self.logo_image.set_from_file(os.path.join(PIXMAPSDIR, "logo.png"))
     self.logo_image1.set_from_file(os.path.join(PIXMAPSDIR, "logo.png"))
@@ -176,7 +176,7 @@ class Wizard:
     self.lock_image.set_from_file(os.path.join(PIXMAPSDIR, "lockscreen_icon.png"))
     self.host_image.set_from_file(os.path.join(PIXMAPSDIR, "nameresolution_id.png"))
     self.installing_image.set_from_file(os.path.join(PIXMAPSDIR, "snapshot1.png"))
-    
+
     # set fullscreen mode
     self.live_installer.fullscreen()
     self.live_installer.set_keep_above(True)
@@ -194,7 +194,7 @@ class Wizard:
   def run(self):
     # show interface
     self.show_browser()
-    
+
     # Declare SignalHandler
     self.glade.signal_autoconnect(self)
     gtk.main()
@@ -202,7 +202,7 @@ class Wizard:
 
   def set_locales(self):
     """internationalization config. Use only once."""
-    
+
     domain = self.distro + '-installer'
     bindtextdomain(domain, LOCALEDIR)
     gtk.glade.bindtextdomain(domain, LOCALEDIR )
@@ -213,7 +213,7 @@ class Wizard:
 
   def show_browser(self):
     """Embed Mozilla widget into a vbox."""
-    
+
     widget = gtkmozembed.MozEmbed()
     local_uri = os.path.join(PATH, 'htmldocs/', self.distro, 'index.html')
     try:
@@ -250,7 +250,7 @@ class Wizard:
     self.gparted = False
 
 
-  def get_partitions(self):
+  def get_partitions():
     import re, subprocess
 
     partition_table_pipe = subprocess.Popen(['/sbin/fdisk', '-l'], stdout=subprocess.PIPE)
@@ -261,19 +261,64 @@ class Wizard:
     return partition
 
 
-  def get_sizes(self):
+  def get_sizes():
     temp = open('/proc/partitions').readlines()
     size = {}
     for line in temp:
       try:
-        size[line.split()[3]] = line.split()[2]
+        size[line.split()[3]] = int(line.split()[2])
       except:
         continue
     return size
 
 
+  def get_default_partition_selection():
+    import re, subprocess
+    size_ordered, device_list, selection = [], {}, {}
+    partition_list = get_partitions()
+    for devices in partition_list:
+      filesystem_pipe = subprocess.Popen(['file', '-s', devices.split()[0]], stdout=subprocess.PIPE)
+      filesystem = filesystem_pipe.communicate()[0]
+      if re.match('.*((ext3)|(swap)).*', filesystem, re.I):
+        if filesystem.split()[4] == 'ext3' :
+          device_list[devices.split()[0]] = 'ext3'
+        else:
+          device_list[devices.split()[0]] = 'swap'
+
+    size = get_sizes()
+    [size_ordered.append(value) for value in size.values() if not size_ordered.count(value)]
+    size_ordered.sort()
+    size_ordered.reverse()
+
+    if len(device_list.items()) == 0:
+      self.next.set_sensitive(False)
+    else:
+      root, swap, home = 0, 0, 0
+      for index in size_ordered:
+        partition = size.keys()[size.values().index(index)]
+        try:
+          fs = device_list['/dev/%s' % partition]
+        except:
+          continue
+        if ( swap == 1 and root == 1 and home == 1 ):
+          break
+        elif ( fs == 'ext3' ):
+          if ( root == 1 and home == 0 ):
+            selection['/'] = '/dev/%s' % partition
+            home = 1
+          elif ( root == 0 ):
+            selection['/home'] = '/dev/%s' % partition
+            root = 1
+        elif ( fs == 'swap' ):
+          selection['swap'] = '/dev/%s' % partition
+          swap = 1
+        else:
+          continue
+    return selection
+
+
   def show_partitions(self, widget):
-    partition_list = self.get_partitions()
+    partition_list = get_partitions()
     treelist = gtk.ListStore(gobject.TYPE_STRING)
     for index in partition_list:
       treelist.append([self.part_labels[index.split()[0]]])
@@ -411,7 +456,7 @@ class Wizard:
       if ( widget.get_name() in ['partition1', 'mountpoint1']):
         if ( self.partition1.get_active_text() != None and
         self.mountpoint1.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 2 ):
+          if ( len(get_partitions()) >= 2 ):
             self.partition2.show()
             self.mountpoint2.show()
             self.size2.show()
@@ -427,7 +472,7 @@ class Wizard:
       elif ( widget.get_name() in ['partition2', 'mountpoint2']):
         if ( self.partition2.get_active_text() != None and
         self.mountpoint2.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 3 ):
+          if ( len(get_partitions()) >= 3 ):
             self.partition3.show()
             self.mountpoint3.show()
             self.size3.show()
@@ -443,7 +488,7 @@ class Wizard:
       elif ( widget.get_name() in ['partition3', 'mountpoint3']):
         if ( self.partition3.get_active_text() != None and
         self.mountpoint3.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 4 ):
+          if ( len(get_partitions()) >= 4 ):
             self.partition4.show()
             self.mountpoint4.show()
             self.size4.show()
@@ -459,7 +504,7 @@ class Wizard:
       elif ( widget.get_name() in ['partition4', 'mountpoint4']):
         if ( self.partition4.get_active_text() != None and
         self.mountpoint4.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 5 ):
+          if ( len(get_partitions()) >= 5 ):
             self.partition5.show()
             self.mountpoint5.show()
             self.size5.show()
@@ -475,7 +520,7 @@ class Wizard:
       elif ( widget.get_name() in ['partition5', 'mountpoint5']):
         if ( self.partition5.get_active_text() != None and
         self.mountpoint5.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 6 ):
+          if ( len(get_partitions()) >= 6 ):
             self.partition6.show()
             self.mountpoint6.show()
             self.size6.show()
@@ -491,7 +536,7 @@ class Wizard:
       elif ( widget.get_name() in ['partition6', 'mountpoint6']):
         if ( self.partition6.get_active_text() != None and
         self.mountpoint6.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 7 ):
+          if ( len(get_partitions()) >= 7 ):
             self.partition7.show()
             self.mountpoint7.show()
             self.size7.show()
@@ -507,7 +552,7 @@ class Wizard:
       elif ( widget.get_name() in ['partition7', 'mountpoint7']):
         if ( self.partition7.get_active_text() != None and
         self.mountpoint7.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 8 ):
+          if ( len(get_partitions()) >= 8 ):
             self.partition8.show()
             self.mountpoint8.show()
             self.size8.show()
@@ -523,7 +568,7 @@ class Wizard:
       elif ( widget.get_name() in ['partition8', 'mountpoint8']):
         if ( self.partition8.get_active_text() != None and
         self.mountpoint8.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 9 ):
+          if ( len(get_partitions()) >= 9 ):
             self.partition9.show()
             self.mountpoint9.show()
             self.size9.show()
@@ -539,7 +584,7 @@ class Wizard:
       elif ( widget.get_name() in ['partition9', 'mountpoint9']):
         if ( self.partition9.get_active_text() != None and
         self.mountpoint9.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 10 ):
+          if ( len(get_partitions()) >= 10 ):
             self.partition10.show()
             self.mountpoint10.show()
             self.size10.show()
@@ -709,7 +754,15 @@ class Wizard:
       self.partition4, self.partition5, self.partition6, self.partition7,
       self.partition8, self.partition9, self.partition10 ]:
         self.show_partitions(widget)
-      self.size = self.get_sizes()
+      self.size = get_sizes()
+      self.default_partition_selection = get_default_partition_selection()
+      if len(self.default_partition_selection.items()) == 0:
+        self.next.set_sensitive(False)
+      else:
+        for j, k in self.default_partition_selection.items():
+          self.size.sort()
+          self.size[j.split('/')[2]]
+        
       self.steps.next_page()
     # From Mountpoints to Progress
     elif step == 4:
@@ -744,16 +797,16 @@ class Wizard:
       if ( self.mountpoint10.get_active_text() != "" and self.partition10.get_active_text() != None ):
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition10.get_active_text())]] = self.mountpoint10.get_active_text()
         list.append(self.partition10.get_active_text())
-    
+
       error_msg = ['\n']
       error = 0
-      
+
       for check in list:
         if ( list.count(check) > 1 ):
           error_msg.append("· Dispositivos duplicados.\n\n")
           error = 1
           break
-          
+
       for check in check_mountpoint(self.mountpoints, self.size):
         if ( check == 1 ):
           error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
@@ -797,7 +850,7 @@ class Wizard:
     step = self.steps.get_current_page()
     if step == 2:
       self.back.hide()
-    
+
     if step is not 6:
       self.steps.prev_page()
 
@@ -1004,4 +1057,3 @@ if __name__ == '__main__':
   w.run()
 
 # vim:ai:et:sts=2:tw=80:sw=2:
-
