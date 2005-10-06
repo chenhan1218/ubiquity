@@ -280,7 +280,7 @@ quit ' % grub_target_dev)
       conf = subprocess.Popen(['cat', '/tmp/grub.conf'], stdout=subprocess.PIPE)
       grub_apply = subprocess.Popen(['chroot', self.target, 'grub', '--batch',
           '--device-map=/boot/grub/device.map',
-          '--config-file=/boot/grub/menu.lst', stdin=conf.stdout)
+          '--config-file=/boot/grub/menu.lst'], stdin=conf.stdout)
       
       # For the Yaboot
       #if not os.path.exists(self.target + '/etc/yaboot.conf'):
