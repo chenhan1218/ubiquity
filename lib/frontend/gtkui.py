@@ -51,7 +51,7 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -28.39!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified by A. Olmo on 5 oct 2005.
+# Last modified by A. Olmo on 6 oct 2005.
 
 from sys import stderr
 import pygtk
@@ -837,7 +837,9 @@ class Wizard:
             if selected_drive.has_key ('info'):
 
               if selected_drive ['info'].has_key ('oks'):
-                self.freespace.set_sensitive (True)
+                # "Freespace" method temporarily disabled:
+                pass
+#                self.freespace.set_sensitive (True)
 
 ##               if selected_drive ['info'].has_key ('linux'):
 
