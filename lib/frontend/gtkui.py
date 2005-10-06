@@ -272,9 +272,9 @@ class Wizard:
     return size
 
 
-  def get_default_partition_selection():
+  def get_filesystems():
     import re, subprocess
-    size_ordered, device_list, selection = [], {}, {}
+    device_list, selection = {}, {}
     partition_list = get_partitions()
     for devices in partition_list:
       filesystem_pipe = subprocess.Popen(['file', '-s', devices.split()[0]], stdout=subprocess.PIPE)
@@ -284,11 +284,18 @@ class Wizard:
           device_list[devices.split()[0]] = 'ext3'
         else:
           device_list[devices.split()[0]] = 'swap'
+    return device_list
 
+
+  def get_default_partition_selection():
     size = get_sizes()
-    [size_ordered.append(value) for value in size.values() if not size_ordered.count(value)]
+    size_ordered = []
+    for value in size.values():
+      if not size_ordered.count(value):
+        size_ordered.append(value)
     size_ordered.sort()
     size_ordered.reverse()
+    device_list = get_filesystems()
 
     if len(device_list.items()) == 0:
       self.next.set_sensitive(False)
