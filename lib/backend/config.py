@@ -20,8 +20,9 @@ class Config:
       for var in vars.keys():
         setattr(self,var,vars[var])
 
+
   def run(self, queue):
-      
+
     #queue.put('92 92% Configurando sistema locales')
     #misc.post_log('info', 'Configuring distro')
     #if self.get_locales():
@@ -90,13 +91,13 @@ class Config:
 
   def get_locales(self):
       '''get_locales() -> timezone, keymap, locales
-      
+
       Get the timezone, keymap and locales from the
       Debconf database and return them.
       '''
       debconf.runFrontEnd()
       db = debconf.Debconf()
-      
+
       try:
         self.timezone = db.get('express/timezone')
         if self.timezone == '':
@@ -104,10 +105,11 @@ class Config:
       except:
         self.timezone = open('/etc/timezone').readline().strip()
       self.keymap = db.get('debian-installer/keymap')
-        
+
       self.locales = db.get('locales/default_environment_locale')
       return True
-  
+
+
   def configure_fstab(self):
       fstab = open(os.path.join(self.target,'etc/fstab'), 'w')
       print >>fstab, 'proc\t/proc\tproc\tdefaults\t0\t0\nsysfs\t/sys\tsysfs\tdefaults\t0\t0'
@@ -119,7 +121,7 @@ class Config:
               passno = 0
           else:
               passno = 2
-          
+
           if path != 'swap':
             filesystem = 'ext3'
             options = 'defaults'
@@ -127,7 +129,7 @@ class Config:
             filesystem = 'swap'
             options = 'sw'
             path = 'none'
-          
+
           print >>fstab, '%s\t%s\t%s\t%s\t%d\t%d' % (device, path, filesystem, options, 0, passno)
       if ( swap != 1 ):
         print >>fstab, '/swapfile\tnone\tswap\tsw\t0\t0'
@@ -135,23 +137,26 @@ class Config:
         os.system("mkswap %s/swapfile" % self.target)
       fstab.close()
       return True
-  
+
+
   def configure_timezone(self):
       # tzsetup ignores us if these exist
       for tzfile in ('etc/timezone', 'etc/localtime'):
           path = os.path.join(self.target, tzfile)
           if os.path.exists(path):
               os.unlink(path)
-  
+
       self.set_debconf('base-config', 'tzconfig/preseed_zone', self.timezone)
       self.chrex('tzsetup', '-y')
       return True
-  
+
+
   def configure_keymap(self):
       self.set_debconf('debian-installer', 'debian-installer/keymap', self.keymap)
       self.chrex('install-keymap', self.keymap)
       return True
-  
+
+
   def configure_user(self):
       self.chrex('passwd', '-l', 'root')
       #self.set_debconf('passwd', 'passwd/username', self.username)
@@ -174,37 +179,39 @@ class Config:
 
       #SKEL
 
-      #def visit (arg, dirname, names):
-      #  for name in names:
-      #    oldname = os.path.join (dirname, name)
-      #    for pattern in str(dirname).split('/')[2:]:
-      #      dir = os.path.join('', pattern)
-      #    newname = os.path.join (self.target, '/home/%s/' % self.username, dir, name)
-      #    if ( os.path.isdir(oldname) ):
-      #      os.mkdir(newname)
-      #    else:
-      #      os.system('cp ' + oldname + ' ' + newname)
-      #
-      #os.path.walk('/etc/skel/', visit, None)
-      
-      os.system ("cp -a /etc/skel/* " + os.path.join (self.target, 'home/%s' % self.username))
-      os.system ("cp -a /etc/skel/.[0-Z]* " + os.path.join (self.target, 'home/%s' % self.username))
+      def visit (arg, dirname, names):
+        for name in names:
+          oldname = os.path.join (dirname, name)
+          for pattern in str(dirname).split('/')[2:]:
+            dir = os.path.join('', pattern)
+          newname = os.path.join (self.target, '/home/%s/' % self.username, dir, name)
+          if ( os.path.isdir(oldname) ):
+            os.mkdir(newname)
+          else:
+            os.system('cp ' + oldname + ' ' + newname)
+
+      os.path.walk('/etc/skel/', visit, None)
+
+      #os.system ("cp -a /etc/skel/* " + os.path.join (self.target, 'home/%s' % self.username))
+      #os.system ("cp -a /etc/skel/.[0-Z]* " + os.path.join (self.target, 'home/%s' % self.username))
       self.chrex('chown', '-R', self.username, '/home/%s' % self.username)
-      
+
       return True
-  
+
+
   def configure_hostname(self):
       fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
       print >>fp, self.hostname
       fp.close()
       return True
-  
+
+
   def configure_hardware(self):
       self.chrex('mount', '-t', 'proc', 'proc', '/proc')
       self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
-  
+
       packages = ['gnome-panel', 'xserver-xorg', 'linux-image-' + self.kernel_version]
-      
+
       try:
           for package in packages:
               self.copy_debconf(package)
@@ -213,14 +220,16 @@ class Config:
           self.chrex('umount', '/proc')
           self.chrex('umount', '/sys')
       return True
-  
+
+
   def configure_network(self):
       conf = subprocess.Popen(['/usr/share/setup-tool-backends/scripts/network-conf',
           '--platform', 'ubuntu-5.04', '--get'], stdout=subprocess.PIPE)
       subprocess.Popen(['chroot', self.target, '/usr/share/setup-tool-backends/scripts/network-conf', 
           '--platform', 'ubuntu-5.04', '--set'], stdin=conf.stdout)
       return True
-  
+
+
   def configure_bootloader(self):
       # Copying the old boot config
       files = ['/etc/lilo.conf', '/boot/grub/menu.lst','/etc/grub.conf',
@@ -231,7 +240,7 @@ class Config:
       distro = self.distro.capitalize()
       proc_file = open('/proc/partitions').readlines()
       parts = []
-  
+
       for entry in proc_file[2:]:
           dev = entry.split()
           if len(dev[3]) == 4:
@@ -242,7 +251,7 @@ class Config:
               for file in files:
                   if os.path.exists(TEST + file):
                       misc.ex('cp', TEST + file, self.target + file)
-                      
+
               misc.ex('umount', TEST)
       # The new boot
       #self.chex('/usr/sbin/mkinitrd')
@@ -261,27 +270,26 @@ kernel (%s)/boot/vmlinuz-%s root=%s ro splash quiet\n \
 initrd (%s)/boot/initrd.img-%s\n \
 ' % \
       (distro, grub_dev, grub_dev, self.kernel_version, target_dev, grub_dev, self.kernel_version) )
-      
-      grub_conf.close()
 
-      grub_conf = open('/tmp/grub.conf', 'w')
-      
-      grub_target_dev = int(target_dev[8:]) -1
-      grub_conf.write('\n \
-root (hd0,%s)\n \
-setup (hd0)\n \
-quit ' % grub_target_dev)
       grub_conf.close()
 
       try:
         misc.ex('grub-install', '--root-directory=' + self.target, target_dev)
       except Exception, e:
-        print e
-      conf = subprocess.Popen(['cat', '/tmp/grub.conf'], stdout=subprocess.PIPE)
-      grub_apply = subprocess.Popen(['chroot', self.target, 'grub', '--batch',
+        grub_conf = open('/tmp/grub.conf', 'w')
+
+        grub_target_dev = int(target_dev[8:]) -1
+        grub_conf.write('\n \
+root (hd0,%s)\n \
+setup (hd0)\n \
+quit ' % grub_target_dev)
+        grub_conf.close()
+
+        conf = subprocess.Popen(['cat', '/tmp/grub.conf'], stdout=subprocess.PIPE)
+        grub_apply = subprocess.Popen(['chroot', self.target, 'grub', '--batch',
           '--device-map=/boot/grub/device.map',
           '--config-file=/boot/grub/menu.lst'], stdin=conf.stdout)
-      
+
       # For the Yaboot
       #if not os.path.exists(self.target + '/etc/yaboot.conf'):
       #    misc.make_yaboot_header(self.target, target_dev)
@@ -295,9 +303,9 @@ quit ' % grub_target_dev)
       #  initrd=/boot/initrd.img-%s \
       #  append="quiet splash" \
       #' % (distro, self.kernel_version, distro, self.kernel_version) )
-  
+
       #yaboot_conf.close()
-  
+
       #conf = subprocess.Popen(['/usr/share/setup-tool-backends/scripts/boot-conf',
       #    '--platform', 'ubuntu-5.04', '--get'], stdout=subprocess.PIPE)
       #subprocess.Popen(['chroot', self.target, '/usr/share/setup-tool-backends/scripts/boot-conf', 
@@ -305,7 +313,8 @@ quit ' % grub_target_dev)
       misc.ex('umount', '-f', self.target + '/proc')
       misc.ex('umount', '-f', self.target + '/sys')
       return True
-  
+
+
   def chrex(self, *args):
     msg = ''
     for word in args:
@@ -316,12 +325,13 @@ quit ' % grub_target_dev)
     misc.post_log('info', 'chroot' + msg)
     return True
 
-  
+
   def copy_debconf(self, package):
       targetdb = os.path.join(self.target, 'var/cache/debconf/config.dat')
       misc.ex('debconf-copydb', 'configdb', 'targetdb', '-p', '^%s/' % package,
               '--config=Name:targetdb', '--config=Driver:File','--config=Filename:' + targetdb)
-  
+
+
   def set_debconf(self, owner, question, value):
       dccomm = subprocess.Popen(['chroot', self.target, 'debconf-communicate', '-fnoninteractive', owner],
                                 stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
@@ -330,9 +340,11 @@ quit ' % grub_target_dev)
       dc.fset(question, 'seen', 'true')
       dccomm.stdin.close()
       dccomm.wait()
-  
+
+
   def reconfigure(self, package):
           self.chrex('dpkg-reconfigure', '-fnoninteractive', package)
+
 
 if __name__ == '__main__':
   from Queue import Queue
@@ -341,6 +353,5 @@ if __name__ == '__main__':
   config = Config(vars)
   config.run(queue)
   print 101
-  
 
 # vim:ai:et:sts=2:tw=80:sw=2:

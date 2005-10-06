@@ -183,15 +183,9 @@ def check_mountpoint (mountpoints, size):
           result[2] = 3
       if ( mountpoints.values().count(k) > 1 ):
         result[1] = 2
-
-      # Validation temporarily disabled:
-##       regex = re.compile(r'^[a-zA-Z0-9/]+$')
-
-##       # It should be "j" instead of "name"!
-## ##       if not regex.search(name):
-##       if not regex.search (j):
-
-##         result[3] = 4
+      regex = re.compile(r'^[a-zA-Z0-9/]+$')
+      if not regex.search(k):
+        result[3] = 4
 
     if ( root != 1 ):
       result[0] = 1
@@ -199,4 +193,3 @@ def check_mountpoint (mountpoints, size):
     return result
       
 # End of file.
-
