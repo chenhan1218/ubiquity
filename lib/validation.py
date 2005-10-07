@@ -46,14 +46,15 @@
 # Guadalinex 2005 live installer; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: 9.21 """
+""" U{pylint<http://logilab.org/projects/pylint>} mark: 6.67 """
 
 # File "validation.py".
 # Validation library.
 # Created by Antonio Olmo <aolmo#emergya._info> on 26 jul 2005.
-# Last modified on 6 oct 2005.
+# Last modified on 7 oct 2005.
 
-from string import whitespace, uppercase
+from string      import whitespace, uppercase
+from ue.settings import *
 
 # Index:
 # def check_username (name):
@@ -179,8 +180,12 @@ def check_mountpoint (mountpoints, size):
     for j, k in mountpoints.items():
       if k == '/':
         root = 1
-        if float(size[j.split('/')[2]]) < 2097152:
+        # Previous fixed minimum value here was 2097152.
+        root_minimum_KB = MINIMAL_PARTITION_SCHEME ['root'] * 1024
+
+        if float(size[j.split('/')[2]]) < root_minimum_KB:
           result[2] = 3
+
       if ( mountpoints.values().count(k) > 1 ):
         result[1] = 2
       regex = re.compile(r'^[a-zA-Z0-9/]+$')
