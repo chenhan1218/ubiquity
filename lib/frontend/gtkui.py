@@ -615,6 +615,9 @@ class Wizard:
 
 
   def on_key_press (self, widget, event):
+    """capture return key on live installer to go to next
+    screen only if Next button has the focus."""
+
     if ( event.keyval == gtk.gdk.keyval_from_name('Return') ) :
       if ( not self.help.get_property('has-focus')
         and not self.back.get_property('has-focus')
@@ -623,6 +626,9 @@ class Wizard:
 
 
   def read_stdout(self, source, condition):
+    """read msgs from queues to set progress on progress bar label.
+    The '101' message finishes this process returning False."""
+
     msg = source.readline()
     if msg.startswith('101'):
       print "read_stdout finished"
@@ -673,6 +679,7 @@ class Wizard:
       self.next.set_sensitive(False)
       self.steps.next_page()
     # From Info to Peez
+    # Validation stuff
     elif step == 1:
       from ue import validation
       error_msg = ['\n']
@@ -759,13 +766,16 @@ class Wizard:
 
     # From Gparted to Mountpoints
     elif step == 3:
+      # Setting items into partition Comboboxes
       for widget in [self.partition1, self.partition2, self.partition3,
       self.partition4, self.partition5, self.partition6, self.partition7,
       self.partition8, self.partition9, self.partition10 ]:
         self.show_partitions(widget)
       self.size = self.get_sizes()
-      
+
       self.default_partition_selection = self.get_default_partition_selection(self.size)
+
+      # Setting a default partition preselection
       if len(self.default_partition_selection.items()) == 0:
         self.next.set_sensitive(False)
       else:
@@ -796,6 +806,9 @@ class Wizard:
       self.steps.next_page()
     # From Mountpoints to Progress
     elif step == 4:
+
+      # creating self.mountpoints list only if the pairs device:mountpoint are
+      # selected
       list = []
       if ( self.mountpoint1.get_active_text() != "" and self.partition1.get_active_text() != None ):
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition1.get_active_text())]] = self.mountpoint1.get_active_text()
@@ -828,6 +841,7 @@ class Wizard:
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition10.get_active_text())]] = self.mountpoint10.get_active_text()
         list.append(self.partition10.get_active_text())
 
+      # Validating self.mountpoints
       error_msg = ['\n']
       error = 0
 
@@ -862,6 +876,7 @@ class Wizard:
         while gtk.events_pending():
           gtk.main_iteration()
 
+        # Destroy gparted to release mem
         self.embedded.destroy()
         self.next.set_sensitive(False)
 
