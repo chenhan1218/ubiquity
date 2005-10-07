@@ -63,7 +63,7 @@ LARGER_PARTITION_SCHEME = {'swap':  1024,
 
 # WARNING: next variable controls whether partitioning will be actually
 #          performed, or not. Enable it at your own risk!
-ACTUAL_PARTITIONING = False
+ACTUAL_PARTITIONING = True
 
 # End of file.
 

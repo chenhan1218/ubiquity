@@ -48,10 +48,10 @@
 # Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ##################################################################################
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: -28.39!!! (bad
+""" U{pylint<http://logilab.org/projects/pylint>} mark: -28.40!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified by A. Olmo on 6 oct 2005.
+# Last modified by A. Olmo on 7 oct 2005.
 
 from sys import stderr
 import pygtk
@@ -918,11 +918,6 @@ class Wizard:
           self.freespace.set_sensitive (False)
           self.recycle.set_sensitive (False)
           self.manually.set_sensitive (False)
-##           self.partition_message.set_text (
-##             'La unidad que ha seleccionado es demasiado pequeña para ' +
-##             'instalar el sistema en él.\n\nPor favor, seleccione un disco ' +
-##             'duro de más capacidad.')
-#          self.partition_message.set_use_markup (True)
           self.partition_message.set_markup (
             '<span>La unidad que ha seleccionado es <b>demasiado ' +
             'pequeña</b> para instalar el sistema en él.\n\nPor favor, ' +
@@ -935,14 +930,7 @@ class Wizard:
             if selected_drive.has_key ('info'):
 
               if selected_drive ['info'].has_key ('oks'):
-                # "Freespace" method temporarily disabled:
-                pass
-#                self.freespace.set_sensitive (True)
-
-##               if selected_drive ['info'].has_key ('linux'):
-
-##                 if selected_drive ['info'] ['linux'] >= 2:
-##                   self.recycle.set_sensitive (True)
+                self.freespace.set_sensitive (True)
 
             if selected_drive.has_key ('linux_before'):
 
