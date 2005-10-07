@@ -771,42 +771,21 @@ class Wizard:
             self.mountpoint1.set_active(mp[j])
             self.partition2.show()
             self.mountpoint2.show()
-            size = float(self.size[k.split('/')[2]])
-            if ( size > 1048576 ):
-              msg = '%.0f Gb' % (size/1024/1024)
-            elif ( size > 1024 and size < 1048576 ):
-              msg = '%.0f Mb' % (size/1024)
-            else:
-              msg = '%.0f Kb' % size
-            self.size1.set_text(msg)
+            self.size1.set_text(self.set_size_msg(k))
             count += 1
           elif ( count == 1 ):
             self.partition2.set_active(self.partitions.index(k))
             self.mountpoint2.set_active(mp[j])
             self.partition3.show()
             self.mountpoint3.show()
-            size = float(self.size[k.split('/')[2]])
-            if ( size > 1048576 ):
-              msg = '%.0f Gb' % (size/1024/1024)
-            elif ( size > 1024 and size < 1048576 ):
-              msg = '%.0f Mb' % (size/1024)
-            else:
-              msg = '%.0f Kb' % size
-            self.size2.set_text(msg)
+            self.size2.set_text(self.set_size_msg(k))
             count += 1
           elif ( count == 2 ):
             self.partition3.set_active(self.partitions.index(k))
             self.mountpoint3.set_active(mp[j])
             self.partition4.show()
             self.mountpoint4.show()
-            size = float(self.size[k.split('/')[2]])
-            if ( size > 1048576 ):
-              msg = '%.0f Gb' % (size/1024/1024)
-            elif ( size > 1024 and size < 1048576 ):
-              msg = '%.0f Mb' % (size/1024)
-            else:
-              msg = '%.0f Kb' % size
-            self.size3.set_text(msg)
+            self.size3.set_text(self.set_size_msg(k))
       
       self.steps.next_page()
     # From Mountpoints to Progress
