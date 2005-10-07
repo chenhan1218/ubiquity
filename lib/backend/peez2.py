@@ -44,12 +44,12 @@
 # Guadalinex 2005 live installer; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: 8.75 """
+""" U{pylint<http://logilab.org/projects/pylint>} mark: 8.87 """
 
 # File "peez2.py".
 # Automatic partitioning with "peez2".
-# Created by Antonio Olmo <aolmo@emergya.info> on 25 aug 2005.
-# Last modified on 5 oct 2005.
+# Created by Antonio Olmo <aolmo#emergya._info> on 25 aug 2005.
+# Last modified on 7 oct 2005.
 
 # TODO: improve debug and log system.
 
@@ -58,30 +58,85 @@
 # def beautify_size (size):
 # def beautify_device (device, locale):
 
-from sys    import stderr
-from locale import getdefaultlocale
-from popen2 import Popen3
-from gtk    import ProgressBar
-from string import lower
-
-# Next lines for debugging purposes only:
-from time import sleep
+from sys         import stderr
+from locale      import getdefaultlocale
+from popen2      import Popen3
+from gtk         import ProgressBar
+from string      import lower
+from ue.settings import *
 
 class Peez2:
 
     """ Encapsulates a sequence of operations with I{Peez2} partition
-        assistant. The partition scheme is expressed in MB (1024 Bytes). """
+        assistant. The partition scheme is expressed in MB (1024 Bytes).
+
+        Data structures about three different drives follow. The first one is
+        a hard drive::
+
+            {'device': '/dev/hda',
+             'info':   {'status':   ['STATUS #FRE|FRC|CLN|JLOG|LIN|WIN|FUL|UNP|UNK',
+                                     'VALUE  # 1 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0'],
+                        'oks':      [['FREESPACE\\n']],
+                        'prim':     '3 + 0 (3)',
+                        'win':      0,
+                        'free':     1,
+                        'ext':      0,
+                        'metacoms': ['4\\n',
+                                     '5',
+                                     '6',
+                                     '7'],
+                        'linux':    1,
+                        'details':  [{'fs':    'ext3',
+                                      'no':    '1',
+                                      'bytes': 2146765824,
+                                      'sec':   '63sec - 4192964sec',
+                                      'type':  '0x0:Particion Primaria     ',
+                                      'class': 'Type Generic Linux\\n'},
+                                     {'fs':    'NOSF',
+                                      'no':    '2',
+                                      'bytes': 2146798080,
+                                      'sec':   '4192965sec - 8385929sec',
+                                      'type':  '0x0:Particion Primaria     ',
+                                      'class': 'PAV#3'}]},
+             'label':  'ST340014A',
+             'size':   40020664320L,
+             'no':     0}
+
+        This one is a CD-ROM drive::
+
+            {'device': '/dev/hdc',
+             'info':   {'warn':   ['Disco vacio sin tabla e particiones o disco no reconocido',
+                                   'UNKNOW LAYOUT'],
+                        'status': ['STATUS #FRE|FRC|CLN|JLOG|LIN|WIN|FUL|UNP|UNK',
+                                   'VALUE  # 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0'],
+                        'opts':   [['1',
+                                    'CR',
+                                    'Nueva partici\xc3\xb3n. Ocupar todo el espacio \\n'],
+                                   ['2',
+                                    'CR',
+                                    'Nueva partici\xc3\xb3n. Dejar espacio libre \\n']]},
+             'label':  'HL-DT-STDVD-ROM GDR8163B',
+             'size':   575959040,
+             'no':     1}
+
+        This is only an example for testing purposes::
+
+            {'device': '/dev/strange',
+             'info':   {},
+             'size':   1200000000,
+             'no':     -1,
+             'label':  'FOR DEBUGGING PURPOSES ONLY'}
+
+        """
+
 
     # Initialization _________________________________________________________
 
     def __init__ (self, binary = 'peez2', common_arguments = '2> /dev/null',
-                  debug = True, partition_scheme = {'swap':  256,
-                                                    'root': 1536,
-                                                    'home':  512}):
+                  debug = DEBUGGING_STATUS,
+                  partition_scheme = MINIMAL_PARTITION_SCHEME):
 
         """ Detect locale and scan for drives. """
-
-        # A more realistic scheme: 1024, 20480, 30720.
 
         self.__binary = binary
         self.__common_arguments = common_arguments
@@ -536,7 +591,8 @@ class Peez2:
 
     # Public method "auto_partition" _________________________________________
 
-    def auto_partition (self, drive, progress_bar = None, do_it = False):
+    def auto_partition (self, drive, progress_bar = None,
+                        do_it = ACTUAL_PARTITIONING):
 
         """ Make 3 partitions automatically on the specified C{device}. When
             C{progress_bar} is not C{None}, it is updated dinamically as the

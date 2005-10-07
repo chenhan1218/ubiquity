@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Last modified by Antonio Olmo <aolmo@emergya.info> on 5 august 2005.
+# Last modified by Antonio Olmo <aolmo#emergya._info> on 5 august 2005.
 
 from subprocess import *
 

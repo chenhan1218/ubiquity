@@ -50,7 +50,7 @@
 
 # File "validation.py".
 # Validation library.
-# Created by Antonio Olmo <aolmo@emergya.info> on 26 jul 2005.
+# Created by Antonio Olmo <aolmo#emergya._info> on 26 jul 2005.
 # Last modified on 6 oct 2005.
 
 from string import whitespace, uppercase

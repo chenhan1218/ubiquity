@@ -46,8 +46,65 @@
 
 <hr/>
 
-Encapsulates a sequence of operations with <i>Peez2</i> partition 
-assistant.
+<p>Encapsulates a sequence of operations with <i>Peez2</i> partition 
+assistant. The partition scheme is expressed in MB (1024 Bytes).</p>
+Data structures about three different drives follow. The first one is 
+a hard drive:
+<pre class="literalblock">
+   {'device': '/dev/hda',
+    'info':   {'status':   ['STATUS #FRE|FRC|CLN|JLOG|LIN|WIN|FUL|UNP|UNK',
+                            'VALUE  # 1 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0'],
+               'oks':      [['FREESPACE\n']],
+               'prim':     '3 + 0 (3)',
+               'win':      0,
+               'free':     1,
+               'ext':      0,
+               'metacoms': ['4\n',
+                            '5',
+                            '6',
+                            '7'],
+               'linux':    1,
+               'details':  [{'fs':    'ext3',
+                             'no':    '1',
+                             'bytes': 2146765824,
+                             'sec':   '63sec - 4192964sec',
+                             'type':  '0x0:Particion Primaria     ',
+                             'class': 'Type Generic Linux\n'},
+                            {'fs':    'NOSF',
+                             'no':    '2',
+                             'bytes': 2146798080,
+                             'sec':   '4192965sec - 8385929sec',
+                             'type':  '0x0:Particion Primaria     ',
+                             'class': 'PAV#3'}]},
+    'label':  'ST340014A',
+    'size':   40020664320L,
+    'no':     0}
+</pre>
+This one is a CD-ROM drive:
+<pre class="literalblock">
+   {'device': '/dev/hdc',
+    'info':   {'warn':   ['Disco vacio sin tabla e particiones o disco no reconocido',
+                          'UNKNOW LAYOUT'],
+               'status': ['STATUS #FRE|FRC|CLN|JLOG|LIN|WIN|FUL|UNP|UNK',
+                          'VALUE  # 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0'],
+               'opts':   [['1',
+                           'CR',
+                           'Nueva partición. Ocupar todo el espacio \n'],
+                          ['2',
+                           'CR',
+                           'Nueva partición. Dejar espacio libre \n']]},
+    'label':  'HL-DT-STDVD-ROM GDR8163B',
+    'size':   575959040,
+    'no':     1}
+</pre>
+This is only an example for testing purposes:
+<pre class="literalblock">
+   {'device': '/dev/strange',
+    'info':   {},
+    'size':   1200000000,
+    'no':     -1,
+    'label':  'FOR DEBUGGING PURPOSES ONLY'}
+</pre>
 <hr/>
 
 
@@ -71,28 +128,32 @@ Detect locale and scan for drives.</td></tr>
 Execute <i>peez2</i> with arguments provided, if any.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
   <td><code><span class="summary-sig"><a href="../private/lib.backend.peez2.Peez2-class.html#__get_info" class="summary-sig-name"><code>__get_info</code></a>(<span class=summary-sig-arg>self</span>,
-          <span class=summary-sig-arg>drive</span>)</span></code>
+          <span class=summary-sig-arg>drive</span>,
+          <span class=summary-sig-arg>size</span>,
+          <span class=summary-sig-arg>more_args</span>,
+          <span class=summary-sig-arg>input</span>)</span></code>
 <br />
-Retrieve information about a drive.</td></tr>
+Retrieve information about a <code>drive</code>.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
   <td><code><span class="summary-sig"><a href="../private/lib.backend.peez2.Peez2-class.html#__scan_drives" class="summary-sig-name"><code>__scan_drives</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
 <br />
 Retrieve the list of drives in the computer.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><span class="summary-sig"><a href="../private/lib.backend.peez2.Peez2-class.html#get_commands" class="summary-sig-name"><code>get_commands</code></a>(<span class=summary-sig-arg>self</span>,
+  <td><code><span class="summary-sig"><a href="../private/lib.backend.peez2.Peez2-class.html#auto_partition" class="summary-sig-name"><code>auto_partition</code></a>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>drive</span>,
-          <span class=summary-sig-arg>option</span>)</span></code>
+          <span class=summary-sig-arg>progress_bar</span>,
+          <span class=summary-sig-arg>do_it</span>)</span></code>
 <br />
-Get the recommended sequence of partitioning commands, if any.</td></tr>
+Make 3 partitions automatically on the specified 
+<code>device</code>.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
   <td><code><span class="summary-sig"><a href="../private/lib.backend.peez2.Peez2-class.html#get_drives" class="summary-sig-name"><code>get_drives</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
 <br />
 Retrieve a list of drives.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><span class="summary-sig"><a href="../private/lib.backend.peez2.Peez2-class.html#suggest_actions" class="summary-sig-name"><code>suggest_actions</code></a>(<span class=summary-sig-arg>self</span>,
-          <span class=summary-sig-arg>drive</span>)</span></code>
+  <td><code><span class="summary-sig"><a href="../private/lib.backend.peez2.Peez2-class.html#only_manually" class="summary-sig-name"><code>only_manually</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
 <br />
-Get all the possibilities proposed by &quot;peez2&quot;, if any.</td></tr>
+Decide if manual partitioning should be the only way available.</td></tr>
 </table><br />
 
 
@@ -131,9 +192,16 @@ Get all the possibilities proposed by &quot;peez2&quot;, if any.</td></tr>
 <a name="__get_info"></a>
 <table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
   <h3><span class="sig"><span class="sig-name">__get_info</span>(<span class=sig-arg>self</span>,
-          <span class=sig-arg>drive</span>)</span>
+          <span class=sig-arg>drive</span>,
+          <span class=sig-arg>size</span>=<span class=sig-default>None</span>,
+          <span class=sig-arg>more_args</span>=<span class=sig-default>''</span>,
+          <span class=sig-arg>input</span>=<span class=sig-default>None</span>)</span>
   </h3>
-  Retrieve information about a drive.
+  Retrieve information about a <code>drive</code>. If a 
+  <code>size</code> (in MB) is given, then options to get this space are 
+  parsed as well. It is also possible to specify some additional 
+  arguments (like <code>-j</code> or <code>-x</code>). <code>input</code> 
+  may be a string that will be piped into <i>Peez2</i>.
   <dl><dt></dt><dd>
   </dd></dl>
 </td></tr></table>
@@ -149,13 +217,17 @@ Get all the possibilities proposed by &quot;peez2&quot;, if any.</td></tr>
   </dd></dl>
 </td></tr></table>
 
-<a name="get_commands"></a>
+<a name="auto_partition"></a>
 <table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
-  <h3><span class="sig"><span class="sig-name">get_commands</span>(<span class=sig-arg>self</span>,
+  <h3><span class="sig"><span class="sig-name">auto_partition</span>(<span class=sig-arg>self</span>,
           <span class=sig-arg>drive</span>,
-          <span class=sig-arg>option</span>=<span class=sig-default>1</span>)</span>
+          <span class=sig-arg>progress_bar</span>=<span class=sig-default>None</span>,
+          <span class=sig-arg>do_it</span>=<span class=sig-default>False</span>)</span>
   </h3>
-  Get the recommended sequence of partitioning commands, if any.
+  Make 3 partitions automatically on the specified 
+  <code>device</code>. When <code>progress_bar</code> is not 
+  <code>None</code>, it is updated dinamically as the partitioning 
+  process goes on.
   <dl><dt></dt><dd>
   </dd></dl>
 </td></tr></table>
@@ -172,12 +244,11 @@ Get all the possibilities proposed by &quot;peez2&quot;, if any.</td></tr>
   </dd></dl>
 </td></tr></table>
 
-<a name="suggest_actions"></a>
+<a name="only_manually"></a>
 <table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
-  <h3><span class="sig"><span class="sig-name">suggest_actions</span>(<span class=sig-arg>self</span>,
-          <span class=sig-arg>drive</span>)</span>
+  <h3><span class="sig"><span class="sig-name">only_manually</span>(<span class=sig-arg>self</span>)</span>
   </h3>
-  Get all the possibilities proposed by &quot;peez2&quot;, if any.
+  Decide if manual partitioning should be the only way available.
   <dl><dt></dt><dd>
   </dd></dl>
 </td></tr></table>
@@ -203,7 +274,7 @@ Get all the possibilities proposed by &quot;peez2&quot;, if any.</td></tr>
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr>
-    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Wed Sep 14 14:46:44 2005</font></td>
+    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Fri Oct  7 13:20:54 2005</font></td>
     <td align="right"><a href="http://epydoc.sourceforge.net"
                       ><font size="-2">http://epydoc.sf.net</font></a></td>
   </tr>
