@@ -287,7 +287,13 @@ class Wizard:
     """return a string message with size value about
     the partition target by widget argument."""
 
-    size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(widget.get_active_text())].split('/')[2]])
+    import types
+
+    if ( type(widget) == types.StringType ):
+      size = float(self.size[widget.split('/')[2]])
+    else:
+      size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(widget.get_active_text())].split('/')[2]])
+
     if ( size > 1048576 ):
       msg = '%.0f Gb' % (size/1024/1024)
     elif ( size > 1024 and size < 1048576 ):
