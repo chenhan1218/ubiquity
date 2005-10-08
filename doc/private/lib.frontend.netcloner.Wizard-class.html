@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>lib.misc</title>
+  <title>lib.frontend.netcloner.Wizard</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css"></link>
 </head>
 <body bgcolor="white" text="black" link="blue" vlink="#204080"
@@ -30,54 +30,85 @@
     <td width="100%">
       <font size="-1"><b class="breadcrumbs">
         <a href="lib-module.html">Package&nbsp;lib</a> ::
-        Module&nbsp;misc
+        <a href="../private/lib.frontend-module.html">Package&nbsp;frontend</a> ::
+        <a href="../private/lib.frontend.netcloner-module.html">Module&nbsp;netcloner</a> ::
+        Class&nbsp;Wizard
       </b></font></br>
     </td>
     <td><table cellpadding="0" cellspacing="0">
-      <tr><td align="right"><font size="-2">[<a href="../private/lib.misc-module.html">show&nbsp;private</a>&nbsp;|&nbsp;hide&nbsp;private]</font></td></tr>
-      <tr><td align="right"><font size="-2">[<a href="frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="lib.misc-module.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
+      <tr><td align="right"><font size="-2">[<b>show&nbsp;private</b>&nbsp;|&nbsp;hide&nbsp;private]</font></td></tr>
+      <tr><td align="right"><font size="-2">[<a href="frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="../private/lib.frontend.netcloner.Wizard-class.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
     </table></td>
 </tr></table>
 
-<!-- =========== START OF MODULE DESCRIPTION =========== -->
-<h2 class="module">Module lib.misc</h2>
+<!-- =========== START OF CLASS DESCRIPTION =========== -->
+<h2 class="class">Class Wizard</h2>
+
+<hr/>
 
 
-<!-- =========== START OF FUNCTION SUMMARY =========== -->
+<!-- =========== START OF METHOD SUMMARY =========== -->
 <table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
 <tr bgcolor="#70b0f0" class="summary">
-  <th colspan="2">Function Summary</th></tr>
+  <th colspan="2">Method Summary</th></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="ex"></a><span class="summary-sig"><span class="summary-sig-name">ex</span>(<span class="summary-sig-vararg">*args</span>)</span></code>
+  <td><code><a name="__init__"></a><span class="summary-sig"><span class="summary-sig-name">__init__</span>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>distro</span>)</span></code>
 </td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="get_progress"></a><span class="summary-sig"><span class="summary-sig-name">get_progress</span>(<span class=summary-sig-arg>str</span>)</span></code>
+  <td><code><a name="clean_up"></a><span class="summary-sig"><span class="summary-sig-name">clean_up</span>(<span class=summary-sig-arg>self</span>)</span></code>
 </td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="get_var"></a><span class="summary-sig"><span class="summary-sig-name">get_var</span>()</span></code>
+  <td><code><a name="parse"></a><span class="summary-sig"><span class="summary-sig-name">parse</span>(<span class=summary-sig-arg>name</span>,
+          <span class=summary-sig-arg>dict</span>)</span></code>
 </td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="grub_dev"></a><span class="summary-sig"><span class="summary-sig-name">grub_dev</span>(<span class=summary-sig-arg>dev</span>)</span></code>
+  <td><code><a name="progress_loop"></a><span class="summary-sig"><span class="summary-sig-name">progress_loop</span>(<span class=summary-sig-arg>self</span>)</span></code>
 </td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="make_yaboot_header"></a><span class="summary-sig"><span class="summary-sig-name">make_yaboot_header</span>(<span class=summary-sig-arg>target</span>,
-          <span class=summary-sig-arg>target_dev</span>)</span></code>
+  <td><code><a name="quit"></a><span class="summary-sig"><span class="summary-sig-name">quit</span>(<span class=summary-sig-arg>self</span>)</span></code>
 </td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="post_log"></a><span class="summary-sig"><span class="summary-sig-name">post_log</span>(<span class=summary-sig-arg>code</span>,
+  <td><code><a name="read_stdout"></a><span class="summary-sig"><span class="summary-sig-name">read_stdout</span>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>source</span>,
+          <span class=summary-sig-arg>condition</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="run"></a><span class="summary-sig"><span class="summary-sig-name">run</span>(<span class=summary-sig-arg>self</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="../private/lib.frontend.netcloner.Wizard-class.html#set_locales" class="summary-sig-name"><code>set_locales</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+internationalization config.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="set_progress"></a><span class="summary-sig"><span class="summary-sig-name">set_progress</span>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>msg</span>)</span></code>
 </td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="pre_log"></a><span class="summary-sig"><span class="summary-sig-name">pre_log</span>(<span class=summary-sig-arg>code</span>,
+  <td><code><a name="set_vars_file"></a><span class="summary-sig"><span class="summary-sig-name">set_vars_file</span>(<span class=summary-sig-arg>self</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="show_error"></a><span class="summary-sig"><span class="summary-sig-name">show_error</span>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>msg</span>)</span></code>
-</td></tr>
-<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="ret_ex"></a><span class="summary-sig"><span class="summary-sig-name">ret_ex</span>(<span class="summary-sig-vararg">*args</span>)</span></code>
-</td></tr>
-<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="set_var"></a><span class="summary-sig"><span class="summary-sig-name">set_var</span>(<span class=summary-sig-arg>var</span>)</span></code>
 </td></tr>
 </table><br />
+
+
+<!-- =========== START OF METHOD DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Method Details</th></tr>
+</table>
+
+<a name="set_locales"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">set_locales</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  internationalization config. Use only once.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+<br />
 
 
 <!-- =========== START OF NAVBAR =========== -->

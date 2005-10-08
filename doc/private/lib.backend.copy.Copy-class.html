@@ -52,33 +52,128 @@
 <tr bgcolor="#70b0f0" class="summary">
   <th colspan="2">Method Summary</th></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="__init__"></a><span class="summary-sig"><span class="summary-sig-name">__init__</span>(<span class=summary-sig-arg>self</span>,
+  <td><code><span class="summary-sig"><a href="../private/lib.backend.copy.Copy-class.html#__init__" class="summary-sig-name"><code>__init__</code></a>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>mountpoints</span>)</span></code>
-</td></tr>
+<br />
+Initial attributes.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="copy_all"></a><span class="summary-sig"><span class="summary-sig-name">copy_all</span>(<span class=summary-sig-arg>self</span>,
+  <td><code><span class="summary-sig"><a href="../private/lib.backend.copy.Copy-class.html#copy_all" class="summary-sig-name"><code>copy_all</code></a>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>queue</span>)</span></code>
-</td></tr>
+<br />
+Core copy process.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="copy_logs"></a><span class="summary-sig"><span class="summary-sig-name">copy_logs</span>(<span class=summary-sig-arg>self</span>)</span></code>
-</td></tr>
+  <td><code><span class="summary-sig"><a href="../private/lib.backend.copy.Copy-class.html#copy_logs" class="summary-sig-name"><code>copy_logs</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+copy logs files into installed system.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="mount_source"></a><span class="summary-sig"><span class="summary-sig-name">mount_source</span>(<span class=summary-sig-arg>self</span>)</span></code>
-</td></tr>
+  <td><code><span class="summary-sig"><a href="../private/lib.backend.copy.Copy-class.html#mount_source" class="summary-sig-name"><code>mount_source</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+mounting loop system from cloop or squashfs system.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="mount_target"></a><span class="summary-sig"><span class="summary-sig-name">mount_target</span>(<span class=summary-sig-arg>self</span>)</span></code>
-</td></tr>
+  <td><code><span class="summary-sig"><a href="../private/lib.backend.copy.Copy-class.html#mount_target" class="summary-sig-name"><code>mount_target</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+mount selected partitions on /target .</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="run"></a><span class="summary-sig"><span class="summary-sig-name">run</span>(<span class=summary-sig-arg>self</span>,
+  <td><code><span class="summary-sig"><a href="../private/lib.backend.copy.Copy-class.html#run" class="summary-sig-name"><code>run</code></a>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>queue</span>)</span></code>
-</td></tr>
+<br />
+Run the copy stage.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="umount_target"></a><span class="summary-sig"><span class="summary-sig-name">umount_target</span>(<span class=summary-sig-arg>self</span>)</span></code>
-</td></tr>
+  <td><code><span class="summary-sig"><a href="../private/lib.backend.copy.Copy-class.html#umount_target" class="summary-sig-name"><code>umount_target</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+unmounting selected partitions.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="unmount_source"></a><span class="summary-sig"><span class="summary-sig-name">unmount_source</span>(<span class=summary-sig-arg>self</span>)</span></code>
-</td></tr>
+  <td><code><span class="summary-sig"><a href="../private/lib.backend.copy.Copy-class.html#unmount_source" class="summary-sig-name"><code>unmount_source</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+unmounting loop system from cloop or squashfs system.</td></tr>
 </table><br />
+
+
+<!-- =========== START OF METHOD DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Method Details</th></tr>
+</table>
+
+<a name="__init__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__init__</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>mountpoints</span>)</span>
+    <br /><i>(Constructor)</i>
+  </h3>
+  Initial attributes.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="copy_all"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">copy_all</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>queue</span>)</span>
+  </h3>
+  Core copy process. This is the most important step of this stage. It 
+  clones live filesystem into a local partition in the selected hard 
+  disk.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="copy_logs"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">copy_logs</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  copy logs files into installed system.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="mount_source"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">mount_source</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  mounting loop system from cloop or squashfs system.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="mount_target"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">mount_target</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  mount selected partitions on /target .
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="run"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">run</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>queue</span>)</span>
+  </h3>
+  Run the copy stage. This is the second step from the installation 
+  process.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="umount_target"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">umount_target</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  unmounting selected partitions.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="unmount_source"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">unmount_source</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  unmounting loop system from cloop or squashfs system.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+<br />
 
 
 <!-- =========== START OF NAVBAR =========== -->
@@ -100,7 +195,7 @@
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr>
-    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Fri Oct  7 13:20:53 2005</font></td>
+    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Sat Oct  8 16:45:48 2005</font></td>
     <td align="right"><a href="http://epydoc.sourceforge.net"
                       ><font size="-2">http://epydoc.sf.net</font></a></td>
   </tr>

@@ -12,15 +12,15 @@ from sys import stderr
 class Copy:
 
   def __init__(self, mountpoints):
-  """Initial attributes."""
+    """Initial attributes."""
 
     self.source = '/source'
     self.target = '/target'
     self.mountpoints = mountpoints
 
   def run(self, queue):
-  """Run the copy stage. This is the second step from the installation
-  process."""
+    """Run the copy stage. This is the second step from the installation
+    process."""
 
     queue.put( '3 Preparando el directorio de instalación')
     misc.pre_log('info', 'Mounting target')
@@ -69,7 +69,7 @@ class Copy:
 
 
   def mount_target(self):
-  """mount selected partitions on /target ."""
+    """mount selected partitions on /target ."""
 
 #    stderr.write ('PuntosDeMontaje: ' + str (self.mountpoints) + '\n')
 
@@ -105,7 +105,7 @@ class Copy:
     return True
 
   def umount_target(self):
-  """unmounting selected partitions."""
+    """unmounting selected partitions."""
 
     if not os.path.isdir(self.target):
       try:
@@ -128,8 +128,8 @@ class Copy:
     return True
 
   def copy_all(self, queue):
-  """Core copy process. This is the most important step of this stage. It clones
-  live filesystem into a local partition in the selected hard disk."""
+    """Core copy process. This is the most important step of this stage. It clones
+    live filesystem into a local partition in the selected hard disk."""
 
     files = []
     total_size = 0
@@ -198,7 +198,7 @@ class Copy:
 
 
   def copy_logs(self):
-  """copy logs files into installed system."""
+    """copy logs files into installed system."""
 
     distro = open ('/etc/lsb-release').readline ().strip ().split ('=') [1].lower ()
     log_file = '/var/log/' + distro + '-express'
@@ -214,7 +214,7 @@ class Copy:
 
 
   def mount_source(self):
-  """mounting loop system from cloop or squashfs system."""
+    """mounting loop system from cloop or squashfs system."""
 
     from os import path
     self.dev = ''
@@ -245,7 +245,7 @@ class Copy:
 
 
   def unmount_source(self):
-  """unmounting loop system from cloop or squashfs system."""
+    """unmounting loop system from cloop or squashfs system."""
 
     if not misc.ex('umount', self.source):
       return False

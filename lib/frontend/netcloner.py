@@ -117,8 +117,9 @@ class Wizard:
 
   def set_progress(self, msg):
     num , text = get_progress(msg)
-    post_log('%d: %s' % (set_percentage(num/100.0), set_text(text))
-    
+    post_log('%d: %s' % (set_percentage(num/100.0), set_text(text)))
+
+
   def parse(name, dict):
     for line in open(name).readlines():
       line = line.strip()

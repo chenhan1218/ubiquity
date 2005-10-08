@@ -6,7 +6,7 @@ from ue import misc
 class Format:
 
   def __init__(self, mountpoints):
-  """Initial attributes."""
+    """Initial attributes."""
 
     self.mountpoints = mountpoints
 
