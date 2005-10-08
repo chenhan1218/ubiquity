@@ -177,11 +177,15 @@ def check_mountpoint (mountpoints, size):
     result = [0, 0, 0, 0]
     root = 0
     
+    try:
+      swap = mountpoints.values().index('swap')
+      root_minimum_KB = MINIMAL_PARTITION_SCHEME ['root'] * 1024
+    except:
+      root_minimum_KB = MINIMAL_PARTITION_SCHEME ['root'] * 1024 + 256*1024
+    
     for j, k in mountpoints.items():
       if k == '/':
         root = 1
-        # Previous fixed minimum value here was 2097152.
-        root_minimum_KB = MINIMAL_PARTITION_SCHEME ['root'] * 1024
 
         if float(size[j.split('/')[2]]) < root_minimum_KB:
           result[2] = 3

@@ -859,7 +859,11 @@ class Wizard:
           error_msg.append("· Puntos de montaje duplicados.\n\n")
           error = 1
         elif ( check == 3 ):
-          error_msg.append("· Tamaño insuficiente para la partición '/'.\n\n")
+          try:
+            swap = self.mountpoints.values().index('swap')
+            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
+          except:
+            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + 256*1024))
           error = 1
         elif ( check == 4 ):
           error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
