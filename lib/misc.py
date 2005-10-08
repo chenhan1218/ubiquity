@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 
 def grub_dev(dev):
-	leter = {'a': '0', 'b': '1', 'c': '2', 'd': '3', 'e': '4',
-		 'f': '5', 'g': '6', 'h': '7', 'i': '8'}
-	num   = {'1': '0', '2': '1', '3': '2', '4': '3', '5': '4',
-		 '6': '5', '7': '6', '8': '7', '9': '8'}
+    leter = {'a': '0', 'b': '1', 'c': '2', 'd': '3', 'e': '4',
+          'f': '5', 'g': '6', 'h': '7', 'i': '8'}
+    num   = {'1': '0', '2': '1', '3': '2', '4': '3', '5': '4',
+          '6': '5', '7': '6', '8': '7', '9': '8'}
 
-	ext = dev[7:]
-	name = 'hd%s,%s' % (leter[ext[0]], num[ext[1:]])
-	return name
+    ext = dev[7:]
+    name = 'hd%s,%s' % (leter[ext[0]], num[ext[1:]])
+    return name
 
 def make_yaboot_header(target, target_dev):
     import os, re
@@ -72,7 +72,7 @@ def ret_ex(*args):
       pre_log('error', msg)
       pre_log('error', "I/O error(%s): %s" % (e.errno, e.strerror))
       return None
-    else:    
+    else:
       pre_log('info', msg)
       return proc.stdout
 
@@ -82,7 +82,7 @@ def get_var():
   var = cPickle.load(file)
   file.close()
   return var
-  
+
 def set_var(var):
   import cPickle
   file = open('/tmp/vars', 'w')
@@ -101,7 +101,7 @@ def pre_log(code, msg=''):
                       filename = log_file,
                       filemode='a')
   eval('logging.%s(\'%s\')' % (code,msg))
-  
+
 def post_log(code, msg=''):
 
   distro = open ('/etc/lsb-release').readline ().strip ().split ('=') [1].lower ()

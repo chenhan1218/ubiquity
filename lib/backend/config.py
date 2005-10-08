@@ -309,11 +309,10 @@ initrd (%s)/boot/initrd.img-%s\n \
     except Exception, e:
       grub_conf = open('/tmp/grub.conf', 'w')
 
-      grub_target_dev = int(target_dev[8:]) -1
       grub_conf.write('\n \
-root (hd0,%s)\n \
-setup (hd0)\n \
-quit ' % grub_target_dev)
+root (%s)\n \
+setup (%s)\n \
+quit ' % grub_dev, grub_dev[:3])
       grub_conf.close()
 
       conf = subprocess.Popen(['cat', '/tmp/grub.conf'], stdout=subprocess.PIPE)
