@@ -12,11 +12,16 @@ from sys import stderr
 class Copy:
 
   def __init__(self, mountpoints):
+  """Initial attributes."""
+
     self.source = '/source'
     self.target = '/target'
     self.mountpoints = mountpoints
 
   def run(self, queue):
+  """Run the copy stage. This is the second step from the installation
+  process."""
+
     queue.put( '3 Preparando el directorio de instalación')
     misc.pre_log('info', 'Mounting target')
     if self.mount_target():
@@ -25,7 +30,7 @@ class Copy:
     else:
       misc.pre_log('error', 'Mounting target')
       return False
-      
+
     queue.put( '4 Obteniendo la distribución a copiar')
     misc.pre_log('info', 'Mounting source')
     if self.mount_source():
@@ -34,7 +39,7 @@ class Copy:
     else:
       misc.pre_log('error', 'Mounting source')
       return False
-      
+
     queue.put( '6 Preparando la copia a disco')
     misc.pre_log('info', 'Copying distro')
     if self.copy_all(queue):
@@ -43,7 +48,7 @@ class Copy:
     else:
       misc.pre_log('error', 'Copying distro')
       return False
-      
+
     queue.put( '91 Copiando registros de instalación al disco')
     misc.pre_log('info', 'Copying logs files')
     if self.copy_logs():
@@ -52,7 +57,7 @@ class Copy:
     else:
       misc.pre_log('error', 'Copying logs files')
       return False
-      
+
     queue.put( '93 Desmontando la imagen original de la copia')
     misc.post_log('info', 'Umounting source')
     if self.unmount_source():
@@ -61,17 +66,16 @@ class Copy:
     else:
       misc.post_log('error', 'Umounting source')
       return False
-     
+
 
   def mount_target(self):
+  """mount selected partitions on /target ."""
 
 #    stderr.write ('PuntosDeMontaje: ' + str (self.mountpoints) + '\n')
 
-    if not os.path.isdir(self.target):
-      try:
-        os.mkdir(self.target)
-      except Exception, e:
-        print e
+    if not os.path.isdir(self.target) and not os.path.isfile(self.target):
+      os.mkdir(self.target)
+
     try:
       misc.ex('mount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
     except Exception, e:
@@ -82,10 +86,11 @@ class Copy:
       if path in ('/', 'swap'):
           continue
       path = os.path.join(self.target, path[1:])
-      try:
+      if not os.path.isdir(path) and not os.path.isfile(path):
         os.mkdir(path)
-      except Exception, e:
-        print e
+      else:
+        misc.pre_log('error', 'Problemas al crear %s' % path)
+
       try:
         result = misc.ex ('mount', device, path)
 
@@ -100,6 +105,8 @@ class Copy:
     return True
 
   def umount_target(self):
+  """unmounting selected partitions."""
+
     if not os.path.isdir(self.target):
       try:
         os.mkdir(self.target)
@@ -121,9 +128,12 @@ class Copy:
     return True
 
   def copy_all(self, queue):
+  """Core copy process. This is the most important step of this stage. It clones
+  live filesystem into a local partition in the selected hard disk."""
+
     files = []
     total_size = 0
-    
+
     misc.pre_log('info','Recolecting files to copy')
     for dirpath, dirnames, filenames in os.walk(self.source):
       sourcepath = dirpath[len(self.source)+1:]
@@ -181,12 +191,14 @@ class Copy:
       elif ( counter != per and per < 35 ):
         counter = per
         queue.put("%s Copiando %s%% - [%s]" % (per, per, path))
-    
+
     copy.stdin.close()
     copy.wait()
     return True
-    
+
+
   def copy_logs(self):
+  """copy logs files into installed system."""
 
     distro = open ('/etc/lsb-release').readline ().strip ().split ('=') [1].lower ()
     log_file = '/var/log/' + distro + '-express'
@@ -200,17 +212,20 @@ class Copy:
 
     return True
 
+
   def mount_source(self):
+  """mounting loop system from cloop or squashfs system."""
+
     from os import path
     self.dev = ''
     files = ['/cdrom/casper/filesystem.cloop', '/cdrom/META/META.squashfs']
     for f in files:
       if path.isfile(f) and path.splitext(f)[1] == '.cloop':
-    	file = f
+        file = f
         self.dev = '/dev/cloop1'
       elif path.isfile(f) and path.splitext(f)[1] == '.squashfs':
-    	file = f
-    	self.dev = '/dev/loop3'
+        file = f
+        self.dev = '/dev/loop3'
 
     if self.dev == '':
       return False
@@ -228,7 +243,10 @@ class Copy:
       print e
     return True
 
+
   def unmount_source(self):
+  """unmounting loop system from cloop or squashfs system."""
+
     if not misc.ex('umount', self.source):
       return False
     if not misc.ex('losetup', '-d', self.dev):
@@ -242,4 +260,3 @@ if __name__ == '__main__':
   copy.run()
 
 # vim:ai:et:sts=2:tw=80:sw=2:
-

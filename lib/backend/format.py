@@ -6,17 +6,20 @@ from ue import misc
 class Format:
 
   def __init__(self, mountpoints):
+  """Initial attributes."""
+
     self.mountpoints = mountpoints
 
 
   def format_target (self, queue):
     '''format_target(queue) -> bool
-  
+
     From mountpoints extract the devices to partition 
     and do it.
     The method return true or false depends the result
     of this operation.
     '''
+
     for device, path in self.mountpoints.items():
       if path in ['/']:
         try:

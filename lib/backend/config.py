@@ -9,6 +9,8 @@ import subprocess
 class Config:
 
   def __init__(self, vars):
+  """Initial attributes."""
+
       # We get here the current kernel version
       self.kernel_version = open('/proc/sys/kernel/osrelease').readline().strip()
       # FIXME: Hack (current kernel loaded on liveCD doesn't work on installed systems)
@@ -22,6 +24,8 @@ class Config:
 
 
   def run(self, queue):
+  """Run configuration stage. These are the last steps to launch in live
+  installer."""
 
     #queue.put('92 92% Configurando sistema locales')
     #misc.post_log('info', 'Configuring distro')
@@ -90,11 +94,11 @@ class Config:
 
 
   def get_locales(self):
-      '''get_locales() -> timezone, keymap, locales
+  """set timezone and keymap attributes from debconf. It uses the same values
+  the user have selected on live system.
 
-      Get the timezone, keymap and locales from the
-      Debconf database and return them.
-      '''
+  get_locales() -> timezone, keymap, locales"""
+
       debconf.runFrontEnd()
       db = debconf.Debconf()
 
@@ -111,6 +115,11 @@ class Config:
 
 
   def configure_fstab(self):
+  """create and configure /etc/fstab depending on our installation selections.
+  It creates a swapfile instead of swap partition if it isn't defined along the
+  installation process. """
+
+      swap = 0
       fstab = open(os.path.join(self.target,'etc/fstab'), 'w')
       print >>fstab, 'proc\t/proc\tproc\tdefaults\t0\t0\nsysfs\t/sys\tsysfs\tdefaults\t0\t0'
       for device, path in self.mountpoints.items():
@@ -131,6 +140,8 @@ class Config:
             path = 'none'
 
           print >>fstab, '%s\t%s\t%s\t%s\t%d\t%d' % (device, path, filesystem, options, 0, passno)
+
+      # if swap partition isn't defined, we create a swapfile
       if ( swap != 1 ):
         print >>fstab, '/swapfile\tnone\tswap\tsw\t0\t0'
         os.system("dd if=/dev/zero of=%s/swapfile bs=1024 count=262144" % self.target)
@@ -140,6 +151,8 @@ class Config:
 
 
   def configure_timezone(self):
+  """set timezone on installed system (which was obtained from get_locales)."""
+
       # tzsetup ignores us if these exist
       for tzfile in ('etc/timezone', 'etc/localtime'):
           path = os.path.join(self.target, tzfile)
@@ -152,12 +165,18 @@ class Config:
 
 
   def configure_keymap(self):
+  """set keymap on installed system (which was obtained from get_locales)."""
+
       self.set_debconf('debian-installer', 'debian-installer/keymap', self.keymap)
       self.chrex('install-keymap', self.keymap)
       return True
 
 
   def configure_user(self):
+  """create the user selected along the installation process into the installed
+  system. Default user from live system is deleted and skel for this new user is
+  copied to $HOME."""
+
       self.chrex('passwd', '-l', 'root')
       #self.set_debconf('passwd', 'passwd/username', self.username)
       #self.set_debconf('passwd', 'passwd/user-fullname', self.fullname)
@@ -177,7 +196,7 @@ class Config:
       except Exception, e:
         print e
 
-      #SKEL
+      # Copying skel
 
       def visit (arg, dirname, names):
         for name in names:
@@ -200,6 +219,9 @@ class Config:
 
 
   def configure_hostname(self):
+  """setting hostname into installed system from data got along the installation
+  process."""
+
       fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
       print >>fp, self.hostname
       fp.close()
@@ -207,6 +229,10 @@ class Config:
 
 
   def configure_hardware(self):
+  """reconfiguring several packages which depends on the hardware system in
+  which has been installed on and need some automatic configurations to get
+  work."""
+
       self.chrex('mount', '-t', 'proc', 'proc', '/proc')
       self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
 
@@ -223,6 +249,9 @@ class Config:
 
 
   def configure_network(self):
+  """setting network configuration into installed system from live system data. It's
+  provdided by setup-tool-backends."""
+
       conf = subprocess.Popen(['/usr/share/setup-tool-backends/scripts/network-conf',
           '--platform', 'ubuntu-5.04', '--get'], stdout=subprocess.PIPE)
       subprocess.Popen(['chroot', self.target, '/usr/share/setup-tool-backends/scripts/network-conf', 
@@ -231,7 +260,8 @@ class Config:
 
 
   def configure_bootloader(self):
-      # Copying the old boot config
+  """configuring and installing boot loader into installed hardware system."""
+
       files = ['/etc/lilo.conf', '/boot/grub/menu.lst','/etc/grub.conf',
                '/boot/grub/grub.conf']
       TEST = '/mnt/test/'
@@ -257,6 +287,7 @@ class Config:
       #self.chex('/usr/sbin/mkinitrd')
       misc.ex('mount', '/proc', '--bind', self.target + '/proc')
       misc.ex('mount', '/sys', '--bind', self.target + '/sys')
+
       # For the Grub
       grub_conf = open(self.target + '/boot/grub/menu.lst', 'w')
       grub_conf.write('\n \
@@ -316,6 +347,8 @@ quit ' % grub_target_dev)
 
 
   def chrex(self, *args):
+  """executes commands on chroot system (provided by *args)."""
+
     msg = ''
     for word in args:
       msg += str(word) + ' '
@@ -327,6 +360,8 @@ quit ' % grub_target_dev)
 
 
   def copy_debconf(self, package):
+  """setting debconf database into installed system."""
+
       targetdb = os.path.join(self.target, 'var/cache/debconf/config.dat')
       misc.ex('debconf-copydb', 'configdb', 'targetdb', '-p', '^%s/' % package,
               '--config=Name:targetdb', '--config=Driver:File','--config=Filename:' + targetdb)
@@ -343,6 +378,9 @@ quit ' % grub_target_dev)
 
 
   def reconfigure(self, package):
+  """executes a dpkg-reconfigure into installed system to each package which
+  provided by args."""
+
           self.chrex('dpkg-reconfigure', '-fnoninteractive', package)
 
 
