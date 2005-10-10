@@ -76,12 +76,7 @@ class Copy:
     if not os.path.isdir(self.target) and not os.path.isfile(self.target):
       os.mkdir(self.target)
 
-    try:
-      misc.ex('mount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
-    except Exception, e:
-      misc.ex('mkfs.ext3', self.mountpoints.keys()[self.mountpoints.values().index('/')])
-      time.sleep(5)
-      misc.ex('mount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
+    misc.ex('mount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
 
     for device, path in self.mountpoints.items():
       if path in ('/', 'swap'):
@@ -92,17 +87,10 @@ class Copy:
       else:
         misc.pre_log('error', 'Problemas al crear %s' % path)
 
-      try:
-        result = misc.ex ('mount', device, path)
+      if not misc.ex ('mount', device, path):
+        misc.ex('mkfs.ext3',device)
+        misc.ex ('mount', device, path)
 
-        if not result:
-          # TODO: check that this partition is actually mounted.
-          #       otherwise, try to mount it again, or abort the
-          #       installation.
-          pass
-
-      except Exception, e:
-        print e
     return True
 
   def umount_target(self):

@@ -392,12 +392,15 @@ class Wizard:
       mountpoints = get_var()['mountpoints']
       ft = format.Format(mountpoints)
       ft.format_target(queue)
-      time.sleep(5)
-      queue.put(None)
+      queue.put('101')
 
     queue = Queue()
     thread.start_new_thread(wait_thread, (queue,))
-    while queue.empty():
+    while True:
+      msg = str(queue.get())
+      if msg.startswith('101'):
+        break
+      self.set_progress(msg)
       while gtk.events_pending():
         gtk.main_iteration()
       time.sleep(0.5)
@@ -813,33 +816,43 @@ class Wizard:
       list = []
       if ( self.mountpoint1.get_active_text() != "" and self.partition1.get_active_text() != None ):
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition1.get_active_text())]] = self.mountpoint1.get_active_text()
-        list.append(self.partition1.get_active_text())
       if ( self.mountpoint2.get_active_text() != "" and self.partition2.get_active_text() != None ):
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition2.get_active_text())]] = self.mountpoint2.get_active_text()
-        list.append(self.partition2.get_active_text())
       if ( self.mountpoint3.get_active_text() != "" and self.partition3.get_active_text() != None ):
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition3.get_active_text())]] = self.mountpoint3.get_active_text()
-        list.append(self.partition3.get_active_text())
       if ( self.mountpoint4.get_active_text() != "" and self.partition4.get_active_text() != None ):
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition4.get_active_text())]] = self.mountpoint4.get_active_text()
-        list.append(self.partition4.get_active_text())
       if ( self.mountpoint5.get_active_text() != "" and self.partition5.get_active_text() != None ):
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition5.get_active_text())]] = self.mountpoint5.get_active_text()
-        list.append(self.partition5.get_active_text())
       if ( self.mountpoint6.get_active_text() != "" and self.partition6.get_active_text() != None ):
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition6.get_active_text())]] = self.mountpoint6.get_active_text()
-        list.append(self.partition6.get_active_text())
       if ( self.mountpoint7.get_active_text() != "" and self.partition7.get_active_text() != None ):
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition7.get_active_text())]] = self.mountpoint7.get_active_text()
-        list.append(self.partition7.get_active_text())
       if ( self.mountpoint8.get_active_text() != "" and self.partition8.get_active_text() != None ):
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition8.get_active_text())]] = self.mountpoint8.get_active_text()
-        list.append(self.partition8.get_active_text())
       if ( self.mountpoint9.get_active_text() != "" and self.partition9.get_active_text() != None ):
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition9.get_active_text())]] = self.mountpoint9.get_active_text()
-        list.append(self.partition9.get_active_text())
       if ( self.mountpoint10.get_active_text() != "" and self.partition10.get_active_text() != None ):
         self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition10.get_active_text())]] = self.mountpoint10.get_active_text()
+      if ( self.partition1.get_active_text() != None ):
+        list.append(self.partition1.get_active_text())
+      elif ( self.partition2.get_active_text() != None ):
+        list.append(self.partition2.get_active_text())
+      elif ( self.partition3.get_active_text() != None ):
+        list.append(self.partition3.get_active_text())
+      elif ( self.partition4.get_active_text() != None ):
+        list.append(self.partition4.get_active_text())
+      elif ( self.partition5.get_active_text() != None ):
+        list.append(self.partition5.get_active_text())
+      elif ( self.partition6.get_active_text() != None ):
+        list.append(self.partition6.get_active_text())
+      elif ( self.partition7.get_active_text() != None ):
+        list.append(self.partition7.get_active_text())
+      elif ( self.partition8.get_active_text() != None ):
+        list.append(self.partition8.get_active_text())
+      elif ( self.partition9.get_active_text() != None ):
+        list.append(self.partition9.get_active_text())
+      elif ( self.partition10.get_active_text() != None ):
         list.append(self.partition10.get_active_text())
 
       # Validating self.mountpoints
