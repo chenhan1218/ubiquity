@@ -203,7 +203,7 @@ class Config:
         oldname = os.path.join (dirname, name)
         for pattern in str(dirname).split('/')[2:]:
           dir = os.path.join('', pattern)
-        newname = os.path.join (self.target, '/home/%s/' % self.username, dir, name)
+        newname = os.path.join (self.target, 'home/%s/' % self.username, dir, name)
         if ( os.path.isdir(oldname) ):
           os.mkdir(newname)
         else:
