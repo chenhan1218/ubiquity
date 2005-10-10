@@ -59,26 +59,26 @@ class Config:
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    queue.put('96 96% Bautizando ordenador')
-    misc.post_log('info', 'Configuring distro')
-    if self.configure_hostname():
-      queue.put('96 96% Ordenador bautizado')
-      misc.post_log('info', 'Configured distro')
-    else:
-      misc.post_log('error', 'Configuring distro')
-      return False
-    queue.put('97 97% Configurando hardware')
+    queue.put('96 96% Configurando hardware')
     misc.post_log('info', 'Configuring distro')
     if self.configure_hardware():
-      queue.put('97 97% Hardware configurado')
+      queue.put('96 96% Hardware configurado')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    queue.put('98 98% Configurando red')
+    queue.put('97 97% Configurando red')
     misc.post_log('info', 'Configuring distro')
     if self.configure_network():
-      queue.put('98 98% Red configurada')
+      queue.put('97 97% Red configurada')
+      misc.post_log('info', 'Configured distro')
+    else:
+      misc.post_log('error', 'Configuring distro')
+      return False
+    queue.put('98 98% Bautizando ordenador')
+    misc.post_log('info', 'Configuring distro')
+    if self.configure_hostname():
+      queue.put('98 98% Ordenador bautizado')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
