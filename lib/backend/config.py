@@ -211,8 +211,6 @@ class Config:
 
     os.path.walk('/etc/skel/', visit, None)
 
-    #os.system ("cp -a /etc/skel/* " + os.path.join (self.target, 'home/%s' % self.username))
-    #os.system ("cp -a /etc/skel/.[0-Z]* " + os.path.join (self.target, 'home/%s' % self.username))
     self.chrex('chown', '-R', self.username, '/home/%s' % self.username)
 
     return True
@@ -304,17 +302,18 @@ initrd (%s)/boot/initrd.img-%s\n \
 
     grub_conf.close()
 
-    if not misc.ex('grub-install', '--root-directory=' + self.target, target_dev):
-      grub_conf = open('/tmp/grub.conf', 'w')
+    misc.ex('grub-install', '--root-directory=' + self.target, target_dev)
+    grub_conf = open('/tmp/grub.conf', 'w')
 
-      grub_conf.write('\n \
+    grub_conf.write('\n \
 root (%s)\n \
 setup (%s)\n \
-quit ' % grub_dev, grub_dev[:3])
-      grub_conf.close()
+quit \n \
+' % (grub_dev, grub_dev[:3]))
+    grub_conf.close()
 
-      conf = subprocess.Popen(['cat', '/tmp/grub.conf'], stdout=subprocess.PIPE)
-      grub_apply = subprocess.Popen(['chroot', self.target, 'grub', '--batch',
+    conf = subprocess.Popen(['cat', '/tmp/grub.conf'], stdout=subprocess.PIPE)
+    grub_apply = subprocess.Popen(['chroot', self.target, 'grub', '--batch',
         '--device-map=/boot/grub/device.map',
         '--config-file=/boot/grub/menu.lst'], stdin=conf.stdout)
 
