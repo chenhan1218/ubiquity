@@ -392,6 +392,7 @@ class Wizard:
       mountpoints = get_var()['mountpoints']
       ft = format.Format(mountpoints)
       ft.format_target(queue)
+      time.sleep(5)
       queue.put(None)
 
     queue = Queue()

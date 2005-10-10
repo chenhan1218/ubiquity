@@ -80,6 +80,7 @@ class Copy:
       misc.ex('mount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
     except Exception, e:
       misc.ex('mkfs.ext3', self.mountpoints.keys()[self.mountpoints.values().index('/')])
+      time.sleep(5)
       misc.ex('mount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
 
     for device, path in self.mountpoints.items():
