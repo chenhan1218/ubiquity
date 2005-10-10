@@ -101,7 +101,7 @@ class Copy:
         os.mkdir(self.target)
       except Exception, e:
         print e
-    misc.ex('umount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
+    misc.ex('umount', self.mountpoints.keys()[self.mountpoints.values().index('/')])
 
     ordered_list = []
     for device, path in self.mountpoints.items():
@@ -113,7 +113,7 @@ class Copy:
 
     ordered_list.reverse()
     for length, device, path in  ordered_list:
-      misc.ex('umount -f', device, path)
+      misc.ex('umount -f', device)
     return True
 
   def copy_all(self, queue):
@@ -192,12 +192,8 @@ class Copy:
     distro = open ('/etc/lsb-release').readline ().strip ().split ('=') [1].lower ()
     log_file = '/var/log/' + distro + '-express'
 
-    try:
-      misc.ex('cp', '-a', log_file,
-              os.path.join(self.target, log_file))
-    except IOError, error:
+    if not misc.ex('cp', '-a', log_file, os.path.join(self.target, log_file)):
       misc.pre_log('error', error)
-      return False
 
     return True
 

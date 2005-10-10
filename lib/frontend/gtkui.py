@@ -724,12 +724,17 @@ class Wizard:
       if ( error == 1 ):
         self.show_error(''.join(error_msg))
       else:
+
+        # trunks Modification Oct. 10 - 2005
+        # Disabled on demmand
+        self.freespace.set_active (False)
+
         self.on_recycle_toggled (self.recycle)
         self.browser_vbox.destroy()
         self.back.show()
         self.help.hide()
         self.steps.next_page()
-    # From Peez to Gparted
+    # From Peez to {Gparted, Progress}
     elif step == 2:
 
       while gtk.events_pending ():
@@ -761,6 +766,7 @@ class Wizard:
           while gtk.events_pending():
             gtk.main_iteration()
 
+          self.back.hide()
           self.progress_loop()
       else:
 
