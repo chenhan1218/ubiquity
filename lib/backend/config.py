@@ -304,9 +304,7 @@ initrd (%s)/boot/initrd.img-%s\n \
 
     grub_conf.close()
 
-    try:
-      misc.ex('grub-install', '--root-directory=' + self.target, target_dev)
-    except Exception, e:
+    if not misc.ex('grub-install', '--root-directory=' + self.target, target_dev):
       grub_conf = open('/tmp/grub.conf', 'w')
 
       grub_conf.write('\n \
