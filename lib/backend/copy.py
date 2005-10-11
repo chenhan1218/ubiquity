@@ -96,13 +96,6 @@ class Copy:
   def umount_target(self):
     """umounting selected partitions."""
 
-    if not os.path.isdir(self.target):
-      try:
-        os.mkdir(self.target)
-      except Exception, e:
-        print e
-    misc.ex('umount', self.mountpoints.keys()[self.mountpoints.values().index('/')])
-
     ordered_list = []
     for device, path in self.mountpoints.items():
       if path in ('swap',):
@@ -113,7 +106,10 @@ class Copy:
 
     ordered_list.reverse()
     for length, device, path in  ordered_list:
-      misc.ex('umount -f', device)
+      try:
+        misc.ex('umount', '-f', os.path.join(self.target, path))
+      except Exception, e:
+        print e
     return True
 
   def copy_all(self, queue):

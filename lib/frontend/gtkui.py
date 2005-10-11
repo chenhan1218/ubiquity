@@ -437,7 +437,8 @@ class Wizard:
       while gtk.events_pending():
         gtk.main_iteration()
 
-    copy.Copy.umount_target(self)
+    umount = copy.Copy(self.mountpoints)
+    umount.umount_target()
     self.next.set_label('Reiniciar el ordenador')
     self.next.connect('clicked', self.__reboot)
     self.back.set_label('Salir')
