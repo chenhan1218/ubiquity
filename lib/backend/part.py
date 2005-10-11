@@ -49,7 +49,7 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -6.50!! (bad
     indentation) """
 
-# Last modified by A. Olmo on 3 oct 2005.
+# Last modified by A. Olmo on 11 oct 2005.
 
 from subprocess import *
 
@@ -59,18 +59,7 @@ def call_autoparted (assistant, drive, partition_bar = None):
       @return: a dictionary containing a device for each mount point (i.e.
       C{{'/dev/hda5': '/', '/dev/hda7': '/home', '/dev/hda6': 'swap'}}). """
 
-  result = None
-
-  # WARNING:
-  # Next variable controls if partitioning is done, or not:
-  # Don't change it unless you know what you are doing!
-  ACTUAL_PARTITIONING = True
-
-  part_result = assistant.auto_partition (drive,
-                                          progress_bar = partition_bar,
-                                          do_it = ACTUAL_PARTITIONING)
-
-  return result
+  return assistant.auto_partition (drive, progress_bar = partition_bar)
 
 def call_gparted(widget):
 

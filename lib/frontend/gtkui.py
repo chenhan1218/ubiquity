@@ -93,7 +93,10 @@ class Wizard:
     self.gparted = True
     self.password = ''
     self.mountpoints = {}
+
+    # To get a "busy mouse":
     self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
+
     self.entries = {
                     'hostname' : 0,
                     'fullname' : 0,
@@ -192,9 +195,6 @@ class Wizard:
     # Peez2 stuff initialization:
     self.__assistant = None
 
-    # To get a "busy mouse":
-    self.watch = gtk.gdk.Cursor (gtk.gdk.WATCH)
-
   def run(self):
     """run the interface."""
 
@@ -239,17 +239,7 @@ class Wizard:
     #FIXME: Check if it's possible to run the automatic partition through
     # "peez2". If not, will run the Gparted
 
-    result = False
-
-    result = part.call_autoparted (self.__assistant, drive, progress_bar)
-
-    if not result:
-      self.help.hide ()
-      self.steps.next_page ()
-      self.gparted_loop ()
-
-    return result
-
+    return part.call_autoparted (self.__assistant, drive, progress_bar)
 
   def gparted_loop(self):
     """call gparted and embed it into glade interface."""
@@ -765,10 +755,20 @@ class Wizard:
           # To set a "busy mouse":
           self.live_installer.window.set_cursor (self.watch)
 
-          self.check_partitions (selected_drive, self.partition_bar)
+          where = self.check_partitions (selected_drive, self.partition_bar)
 
-          # To get normal mouse again:
+          # To set normal mouse again:
           self.live_installer.window.set_cursor (None)
+
+          self.mountpoints = selected_drive ['linux_before']
+          stderr.write ('\n\n' + str (self.mountpoints) + '\n\n')
+          self.steps.set_current_page(5)
+
+          while gtk.events_pending():
+            gtk.main_iteration()
+
+          self.back.hide()
+          self.progress_loop()
 
       elif self.recycle.get_active ():
 
@@ -1025,7 +1025,7 @@ class Wizard:
 
       self.__assistant = Peez2 () # debug = False)
 
-      # To get normal mouse again:
+      # To set a normal mouse again:
       self.live_installer.window.set_cursor (None)
 
       for i in self.__assistant.get_drives ():

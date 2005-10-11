@@ -24,9 +24,9 @@ class Wizard:
   '''
   This is a wizard interface to interact with the user and the 
   main program. It has some basic methods:
-  - set_progress()
-  - get_info()
-  - get_partitions()
+   - set_progress()
+   - get_info()
+   - get_partitions()
   '''
   def __init__(self):
     debconf.runFrontEnd()

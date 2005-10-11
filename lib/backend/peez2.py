@@ -533,6 +533,13 @@ class Peez2:
                     result ['metacoms'] = []
 
                 result ['metacoms'].append (fields [1])
+            elif 'OD#' == i [:3]:
+
+                if None == result:
+                    result = {}
+
+                if not result.has_key ('dest'):
+                    result ['dest'] = i [3:]
 
         lines = self.__call_peez2 ('-a show -d %s -v' % drive) ['out']
         string_of_lines = ''
@@ -610,7 +617,6 @@ class Peez2:
         #     1. Making 3 new primary partitions.
         #     2. Making 3 new logic partitions (in a previous or new extended
         #        partition).
-        # For now, we always choose the last one.
 
         if drive.has_key ('info'):
 
@@ -618,116 +624,114 @@ class Peez2:
 
                 if drive ['info'] ['primary'] < 2:
                     # Here we would choose the first method mentioned above.
-                    result = []
-
-                    if self.__debug:
-                        stderr.write ('auto_partition: drive "' +
-                                      drive ['id'] + '" done.\n')
-
-            if None == result:
-
-                if drive ['info'].has_key ('oks'):
-                    # It means that there is free space available
                     pass
 
-                # 2nd method.
+            if drive ['info'].has_key ('oks'):
+                # It means that there is free space available
+                pass
 
-                for required in self.__partition_scheme.values ():
+            # 2nd method.
 
-                    if None != progress_bar:
-                        progress_bar.pulse ()
-                        progress_bar.set_text ('Making %i MB partition...' % required)
+            for part in self.__partition_scheme.keys ():
+                required = self.__partition_scheme [part]
 
-                    if self.__debug:
-                        stderr.write ('auto_partition: ' + str (drive) + '\n')
+                if None != progress_bar:
+                    progress_bar.pulse ()
+                    progress_bar.set_text ('Making %i MB partition...' % required)
 
-                    # TODO: improve this algorithm, that decides whether primary
-                    #       or extended partitions should be created:
+                if self.__debug:
+                    stderr.write ('auto_partition: ' + str (drive) + '\n')
+
+                # TODO: improve this algorithm, that decides whether primary
+                #       or extended partitions should be created:
 
 ##                     if self.__debug:
 ##                         stderr.write ()
+
+                if drive.has_key ('info'):
+
+                    if drive ['info'].has_key ('ext'):
+
+                        if drive ['info'] ['ext'] > 0:
+                            info = self.__get_info (drive ['id'], required, '-j')
+                        else:
+                            info = self.__get_info (drive ['id'], required)
+
+                    else:
+                        info = self.__get_info (drive ['id'], required)
+
+                else:
+                    info = self.__get_info (drive ['id'], required)
+
+                # Now we have to decide which option is better:
+                options = info ['opts']
+
+                what = -1
+                i = 1
+
+                while -1 == what and i <= len (options):
+
+                    if 'CR' == options [i - 1] [1] [:2]:
+                        what = i
+
+                    i = i + 1
+
+                i = 1
+
+                while -1 == what and i <= len (options):
+
+                    if 'RE' == options [i - 1] [1] [:2]:
+                        what = i
+
+                    i = i + 1
+
+                if -1 != what:
+                    # TODO: improve this algorithm:
 
                     if drive.has_key ('info'):
 
                         if drive ['info'].has_key ('ext'):
 
                             if drive ['info'] ['ext'] > 0:
-                                info = self.__get_info (drive ['id'], required, '-j')
-                            else:
-                                info = self.__get_info (drive ['id'], required)
-
-                        else:
-                            info = self.__get_info (drive ['id'], required)
-                            
-                    else:
-                        info = self.__get_info (drive ['id'], required)
-                            
-                    # Now we have to decide which option is better:
-                    options = info ['opts']
-
-                    what = -1
-                    i = 1
-
-                    while -1 == what and i <= len (options):
-
-                        if 'CR' == options [i - 1] [1] [:2]:
-                            what = i
-
-                        i = i + 1
-
-                    i = 1
-
-                    while -1 == what and i <= len (options):
-
-                        if 'RE' == options [i - 1] [1] [:2]:
-                            what = i
-
-                        i = i + 1
-
-                    if -1 != what:
-                        # TODO: improve this algorithm:
-
-                        if drive.has_key ('info'):
-
-                            if drive ['info'].has_key ('ext'):
-
-                                if drive ['info'] ['ext'] > 0:
-                                    info = self.__get_info (drive ['id'],
-                                        required, '-j -i', str (what) + '\n')
-                                else:
-                                    info = self.__get_info (drive ['id'],
-                                        required, '-i', str (what) + '\n')
-
+                                info = self.__get_info (drive ['id'],
+                                    required, '-j -i', str (what) + '\n')
                             else:
                                 info = self.__get_info (drive ['id'],
                                     required, '-i', str (what) + '\n')
 
                         else:
-                            info = self.__get_info (drive ['id'], required,
-                                                    '-i', str (what) + '\n')
+                            info = self.__get_info (drive ['id'],
+                                required, '-i', str (what) + '\n')
 
-                        if info.has_key ('commands'):
-                            c = info ['commands']
+                    else:
+                        info = self.__get_info (drive ['id'], required,
+                                                '-i', str (what) + '\n')
 
-                            for i in c:
+                    if info.has_key ('commands'):
+                        c = info ['commands']
 
-                                # Print the commands:
-                                if self.__debug:
-                                    stderr.write ('Command: ' + i)
-                                    p = Popen3 ('echo "' + i +
-                                                '" >> /var/log/ue-commands\n')
+                        for i in c:
 
-                                if do_it:
-                                    # Do it! Execute commands to make partitions!
-                                    p = Popen3 (i)
+                            # Print the commands:
+                            if self.__debug:
+                                stderr.write ('Command: ' + i)
+                                p = Popen3 ('echo "' + i +
+                                            '" >> /var/log/ue-commands')
 
-                        if info.has_key ('metacoms'):
-                            mc = info ['metacoms']
+                            if do_it:
+                                # Do it! Execute commands to make partitions!
+                                p = Popen3 (i)
 
-                            for i in mc:
+                    if info.has_key ('metacoms'):
+                        mc = info ['metacoms']
 
-                                if self.__debug:
-                                    stderr.write ('# ' + i)
+                        for i in mc:
+
+                            if self.__debug:
+                                stderr.write ('# ' + i)
+
+                    if info.has_key ('dest'):
+                        result [info ['dest']] = part
 
         return result
 
