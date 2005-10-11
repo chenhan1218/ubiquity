@@ -59,6 +59,14 @@ class WizardStep(object):
         choices = unicode(self.db.metaget(question, 'choices'))
         return self.split_choices(choices)
 
+    def description(self, question):
+        return unicode(self.db.metaget(question, 'description'))
+
+    def translate_labels(self, questions):
+        for label in questions:
+            widget = self.glade.get_widget(label)
+            widget.set_label(self.description(questions[label]))
+
     def translate_to_c(self, question, value):
         choices = self.choices(question)
         choices_c = self.choices_untranslated(question)

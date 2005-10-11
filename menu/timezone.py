@@ -75,6 +75,12 @@ class Timezone(WizardStep):
     def prepare(self, db):
         super(Timezone, self).prepare(db)
 
+        label_qs = {}
+        label_qs['utc_button'] = 'tzconfig/gmt'
+        label_qs['geographic_area_label'] = 'tzconfig/geographic_area'
+        label_qs['select_zone_label'] = 'tzconfig/select_zone'
+        self.translate_labels(label_qs)
+
         geographic_area_choices = self.choices('tzconfig/geographic_area')
         geographic_area_choices_c = \
             self.choices_untranslated('tzconfig/geographic_area')

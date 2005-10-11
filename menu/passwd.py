@@ -25,6 +25,13 @@ class Password(WizardStep):
     def prepare(self, db):
         super(Password, self).prepare(db)
 
+        label_qs = {}
+        label_qs['user_fullname_label'] = 'passwd/user-fullname'
+        label_qs['user_name_label'] = 'passwd/username'
+        label_qs['user_password_label'] = 'passwd/user-password'
+        label_qs['user_password_confirm_label'] = 'passwd/user-password-again'
+        self.translate_labels(label_qs)
+
         # TODO: skip this if there's already a user configured, or re-ask
         # and create a new one, or what?
 
