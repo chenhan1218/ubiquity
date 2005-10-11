@@ -62,6 +62,10 @@ class WizardStep(object):
     def description(self, question):
         return unicode(self.db.metaget(question, 'description'))
 
+    def translate_title(self, question):
+        widget = self.glade.get_widget('dialog')
+        widget.set_title(self.description(question))
+
     def translate_labels(self, questions):
         for label in questions:
             widget = self.glade.get_widget(label)

@@ -11,6 +11,9 @@ oem-config (0.9) UNRELEASED; urgency=low
     themselves rather than debian-installer/dummy (although it's a bug
     somewhere in preseeding that they're left this way) so that we get
     useful translated descriptions for them.
+  * Set title of timezone window to the translated description of
+    tzconfig/title. Unfortunately this is too hard to do for the passwd
+    window at present.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Oct 2005 12:05:34 +0100
 
