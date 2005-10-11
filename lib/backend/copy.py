@@ -170,16 +170,19 @@ class Copy:
       per = (copied_bytes * 100) / total_size
       # Adjusting the percentage
       per = (per*73/100)+17
-      if ( counter != per and per < 35 ):
-        # We start the counter until 34
+      if ( counter != per and per < 34 ):
+        # We start the counter until 33
         time_start = time.time()
         counter = per
         queue.put("%s Copiando %s%% - [%s]" % (per, per, path))
-      elif ( counter != per and per >= 35 ):
+      elif ( counter != per and per >= 40 ):
         counter = per
         time_left = (time.time()-time_start)*57/(counter - 33) - (time.time()-time_start)
         minutes, seconds = time_left/60, time_left - int(time_left/60)*60
         queue.put("%s Copiando %s%% - Queda %02d:%02d - [%s]" % (per, per, minutes, seconds, path))
+      elif ( counter != per ):
+        counter = per
+        queue.put("%s Copiando %s%% - [%s]" % (per, per, path))
 
     copy.stdin.close()
     copy.wait()

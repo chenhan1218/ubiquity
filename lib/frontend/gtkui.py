@@ -663,7 +663,7 @@ class Wizard:
     self.install_image+=1
     step = self.install_image % len(self.total_images) -1
     self.installing_image.set_from_file(self.total_images[step])
-    self.installing_text.get_buffer().set_text(self.total_messages[step])
+    self.installing_text.set_markup('<span foreground="#087021"><b>%s</b></span>' % self.total_messages[step])
     return True
 
 

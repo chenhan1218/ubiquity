@@ -1,7 +1,7 @@
 Guadalinex 2005 se basa en la distribución GNU/Linux Ubuntu Breezy y en el escritorio GNOME 2.12, dos puntales internacionales del software libre. Guadalinex es mucho más que un CD. En www.guadalinex.org encontrará una comunidad de usuarios y desarrolladores que le asistirá en sus dudas y en la que podrá participar tan activamente como desee.
-Puede bajar fotos de su cámara digital, música de su reproductor mp3 o archivos de su memoria USB simplemente conectando los dispositivos a su ordenador.
-TheGimp es un poderoso programa de tratamiento de imagen digital. Combínelo con el programa de imagen vectorial Inkscape para dar rienda suelta a su creatividad.
-Importe las canciones de sus CDs, organícelas por autores y géneros, puntúelas, compártalas. También puede crear su propia música. 
+Puede bajar fotos de su cámara digital, grabar música en su reproductor mp3 o gestionar su memoria USB simplemente conectando los dispositivos a su ordenador.
+TheGimp es un poderoso programa de tratamiento de imagen digital. Combínelo con el programa de imagen vectorial Inkscape para poder dar rienda suelta a su creatividad.
+Importe las canciones de sus CDs, organícelas por autores y géneros, puntúelas, compártalas. También puede crear su propia música.
 Con OpenOffice.org puede crear textos, hojas de cálculo, diagramas y presentaciones que podrá exportar a formatos como HTML o Flash.
 El escritorio GNOME 2.12 convierte el trabajo diario, la administración y personalización de su ordenador en una tarea a golpe de ratón y sin complicaciones.
 Además de los programas de este CD, tiene a su disposición miles de programas que puede bajar vía Internet de forma libre y gratuita, e instalar de forma sencilla. El software libre ofrece una amplia gama de programas educativos que van desde juegos didácticos a aplicaciones científicas, además de herramientas de soporte como diccionarios, calculadoras... Puede actualizar periódicamente sus programas vía Internet, manteniendo su software al día con un solo clic.
