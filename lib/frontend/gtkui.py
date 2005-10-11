@@ -755,7 +755,14 @@ class Wizard:
       if self.freespace.get_active ():
 
         if -1 != current:
+
+          # To set a "busy mouse":
+          self.live_installer.window.set_cursor (watch)
+
           self.check_partitions (selected_drive, self.partition_bar)
+
+          # To get normal mouse again:
+          self.live_installer.window.set_cursor (None)
 
       elif self.recycle.get_active ():
 
@@ -952,13 +959,12 @@ class Wizard:
 
           if not self.__assistant.only_manually ():
 
-            if selected_drive.has_key ('info'):
+#             if selected_drive.has_key ('info'):
 
-              if selected_drive ['info'].has_key ('oks'):
+#               if selected_drive ['info'].has_key ('oks'):
+#                 self.freespace.set_sensitive (True)
 
-                # Next line commented out by A. Olmo on 11 oct 2005:
-##                 self.freespace.set_sensitive (True)
-                pass
+            self.freespace.set_sensitive (True)            
 
             if selected_drive.has_key ('linux_before'):
 
@@ -1001,22 +1007,16 @@ class Wizard:
 
     if 2 == current and None == self.__assistant:
 
-      # To set a "bussy mouse":
-#       b = gtk.Button()
-#       watch = gtk.gdk.Cursor (gtk.gdk.WATCH)
-#       gdkwin = b.window
-#       gdkwin.set_cursor (watch)
-#       gtk.gdk.flush ()
+      # To set a "busy mouse":
+      self.live_installer.window.set_cursor (watch)
 
 ##       while gtk.events_pending ():
 ##         gtk.main_iteration ()
 
-      # To change its colour to red:
-##       my_visual = gtk.gdk.Visual (24, gtk.gdk.VISUAL_TRUE_COLOR)
-##       my_colormap = gtk.gdk.Colormap (my_visual, True)
-##       self.confirmation_checkbutton.set_colormap (my_colormap)
-
       self.__assistant = Peez2 () # debug = False)
+
+      # To get normal mouse again:
+      self.live_installer.window.set_cursor (None)
 
       for i in self.__assistant.get_drives ():
         self.drives.append_text ('%s' % i ['label'])
