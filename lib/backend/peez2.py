@@ -685,7 +685,26 @@ class Peez2:
                         i = i + 1
 
                     if -1 != what:
-                        info = self.__get_info (drive ['id'], required, '-j -i', str (what) + '\n')
+                        # TODO: improve this algorithm:
+
+                        if drive.has_key ('info'):
+
+                            if drive ['info'].has_key ('ext'):
+
+                                if drive ['info'] ['ext'] > 0:
+                                    info = self.__get_info (drive ['id'],
+                                        required, '-j -i', str (what) + '\n')
+                                else:
+                                    info = self.__get_info (drive ['id'],
+                                        required, '-i', str (what) + '\n')
+
+                            else:
+                                info = self.__get_info (drive ['id'],
+                                    required, '-i', str (what) + '\n')
+
+                        else:
+                            info = self.__get_info (drive ['id'], required,
+                                                    '-i', str (what) + '\n')
 
                         if info.has_key ('commands'):
                             c = info ['commands']
@@ -695,6 +714,8 @@ class Peez2:
                                 # Print the commands:
                                 if self.__debug:
                                     stderr.write ('Command: ' + i)
+                                    p = Popen3 ('echo "' + i +
+                                                '" >> /var/log/ue-commands\n')
 
                                 if do_it:
                                     # Do it! Execute commands to make partitions!

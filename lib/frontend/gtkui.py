@@ -190,6 +190,8 @@ class Wizard:
     # Peez2 stuff initialization:
     self.__assistant = None
 
+    # To get a "busy mouse":
+    self.watch = gtk.gdk.Cursor (gtk.gdk.WATCH)
 
   def run(self):
     """run the interface."""
@@ -757,7 +759,7 @@ class Wizard:
         if -1 != current:
 
           # To set a "busy mouse":
-          self.live_installer.window.set_cursor (watch)
+          self.live_installer.window.set_cursor (self.watch)
 
           self.check_partitions (selected_drive, self.partition_bar)
 
@@ -1008,7 +1010,7 @@ class Wizard:
     if 2 == current and None == self.__assistant:
 
       # To set a "busy mouse":
-      self.live_installer.window.set_cursor (watch)
+      self.live_installer.window.set_cursor (self.watch)
 
 ##       while gtk.events_pending ():
 ##         gtk.main_iteration ()

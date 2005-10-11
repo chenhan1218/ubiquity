@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>lib.backend.config</title>
+  <title>lib.frontend.noui</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css"></link>
 </head>
 <body bgcolor="white" text="black" link="blue" vlink="#204080"
@@ -30,27 +30,38 @@
     <td width="100%">
       <font size="-1"><b class="breadcrumbs">
         <a href="lib-module.html">Package&nbsp;lib</a> ::
-        <a href="../private/lib.backend-module.html">Package&nbsp;backend</a> ::
-        Module&nbsp;config
+        <a href="../private/lib.frontend-module.html">Package&nbsp;frontend</a> ::
+        Module&nbsp;noui
       </b></font></br>
     </td>
     <td><table cellpadding="0" cellspacing="0">
       <tr><td align="right"><font size="-2">[<b>show&nbsp;private</b>&nbsp;|&nbsp;hide&nbsp;private]</font></td></tr>
-      <tr><td align="right"><font size="-2">[<a href="frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="../private/lib.backend.config-module.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
+      <tr><td align="right"><font size="-2">[<a href="frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="../private/lib.frontend.noui-module.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
     </table></td>
 </tr></table>
 
 <!-- =========== START OF MODULE DESCRIPTION =========== -->
-<h2 class="module">Module lib.backend.config</h2>
+<h2 class="module">Module lib.frontend.noui</h2>
 
+<p>Noui Frontend</p>
+<p>Noui frontend implementation for the installer This UI implementation 
+consist actually in no UI at all. It means it's a no interactive method 
+to get the answers. We don't ask because the answers already exists.</p>
+To do that we need to preseed the answers. We'll use a new debconf 
+package called &quot;express&quot; for this prupose. We'll take some 
+answers form the express package and others from the system. It's because 
+of the user could change some stuff like timezone, keymap and 
+locales.
+<hr/>
 
 <!-- =========== START OF CLASSES =========== -->
 <table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
 <tr bgcolor="#70b0f0" class="summary">
   <th colspan="2">Classes</th></tr>
 <tr><td width="15%">
-  <b><a href="../private/lib.backend.config.Config-class.html"><code>Config</code></a></b></td>
-  <td>&nbsp;</td></tr>
+  <b><a href="../private/lib.frontend.noui.Wizard-class.html"><code>Wizard</code></a></b></td>
+  <td>This is a wizard interface to interact with the user and the 
+main program.</td></tr>
 </table><br />
 
 

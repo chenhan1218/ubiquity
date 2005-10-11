@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 Noui Frontend
 
 Noui frontend implementation for the installer
@@ -13,11 +13,11 @@ package called "express" for this prupose.
 We'll take some answers form the express package and others from 
 the system. It's because of the user could change some stuff
 like timezone, keymap and locales.
-'''
+"""
 
 import debconf
     
-from ue.part import call_autoparted, call_gparted
+from ue.backend.part import call_autoparted, call_gparted
 
 
 class Wizard:
