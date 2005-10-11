@@ -67,9 +67,9 @@ class WizardStep(object):
         widget.set_title(self.description(question))
 
     def translate_labels(self, questions):
-        for label in questions:
+        for label, question in questions.items():
             widget = self.glade.get_widget(label)
-            widget.set_label(self.description(questions[label]))
+            widget.set_label(self.description(question))
 
     def translate_to_c(self, question, value):
         choices = self.choices(question)
