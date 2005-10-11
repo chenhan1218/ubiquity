@@ -361,7 +361,7 @@ class Wizard:
     """write all values in this widget (GtkComboBox) from local
     partitions values."""
 
-    self.partitions = ['']
+    self.partitions = []
     partition_list = self.get_partitions()
     treelist = gtk.ListStore(gobject.TYPE_STRING)
     for index in partition_list:
@@ -437,6 +437,7 @@ class Wizard:
       while gtk.events_pending():
         gtk.main_iteration()
 
+    copy.Copy.umount_target(self)
     self.next.set_label('Reiniciar el ordenador')
     self.next.connect('clicked', self.__reboot)
     self.back.set_label('Salir')

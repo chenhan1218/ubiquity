@@ -94,7 +94,7 @@ class Copy:
     return True
 
   def umount_target(self):
-    """unmounting selected partitions."""
+    """umounting selected partitions."""
 
     if not os.path.isdir(self.target):
       try:
