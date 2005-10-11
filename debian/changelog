@@ -18,6 +18,8 @@ oem-config (0.9) UNRELEASED; urgency=low
     to exit unnecessarily. If we have to, then print an error message with
     instructions and drop the user to a shell, since that's better than a
     login prompt with no users.
+  * Reload /var/lib/dpkg/info/base-config.templates for timezone question;
+    for some reason the translations seem to be getting lost from it.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Oct 2005 12:05:34 +0100
 

@@ -1,2 +1,3 @@
 Order: 30
 Asks: ^tzconfig/
+Extra-Templates: /var/lib/dpkg/info/base-config.templates
