@@ -8,6 +8,14 @@ if getent passwd oem >/dev/null; then
 fi
 # Revert to creating a user at uid 1000.
 echo RESET passwd/user-uid | debconf-communicate >/dev/null
+# These two templates have been preseeded, which does nasty things to their
+# templates. It's probably a bug in cdebconf's debconf-copydb that they end
+# up still registered to debian-installer/dummy at this point, but let's
+# just work around it for now so that we get sensible translated
+# descriptions.
+for q in passwd/user-fullname passwd/username; do
+	echo REGISTER "$q" "$q" | debconf-communicate oem-config >/dev/null
+done
 
 /usr/sbin/oem-config-dm vt7 :0 /usr/sbin/oem-config
 

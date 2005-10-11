@@ -7,6 +7,10 @@ oem-config (0.9) UNRELEASED; urgency=low
   * Set labels in passwd and timezone windows to the translated descriptions
     of the same questions in the installer; sync text of passwd labels with
     the text in passwd.templates (Ubuntu #17366).
+  * Re-register passwd/user-fullname and passwd/username templates to
+    themselves rather than debian-installer/dummy (although it's a bug
+    somewhere in preseeding that they're left this way) so that we get
+    useful translated descriptions for them.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Oct 2005 12:05:34 +0100
 
