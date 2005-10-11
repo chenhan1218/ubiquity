@@ -1,6 +1,7 @@
 oem-config (0.9) UNRELEASED; urgency=low
 
   * Quieten output from deluser.
+  * Quieten output from debconf-communicate while resetting passwd/user-uid.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Oct 2005 12:05:34 +0100
 
