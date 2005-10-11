@@ -2672,7 +2672,7 @@ If you kept an intact home partition, you can now link it with the “/home” m
 			<packing>
 			  <property name="padding">0</property>
 			  <property name="expand">True</property>
-			  <property name="fill">True</property>
+			  <property name="fill">False</property>
 			</packing>
 		      </child>
 		    </widget>

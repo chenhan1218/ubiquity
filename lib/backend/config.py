@@ -234,7 +234,8 @@ class Config:
     self.chrex('mount', '-t', 'proc', 'proc', '/proc')
     self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
 
-    packages = ['gnome-panel', 'xserver-xorg', 'linux-image-' + self.kernel_version]
+    misc.ex('cp', '/etc/X11/xorg.conf', os.path.join(self.target, 'etc/X11/xorg.conf') )
+    packages = ['gnome-panel', 'linux-image-' + self.kernel_version]
 
     try:
         for package in packages:
