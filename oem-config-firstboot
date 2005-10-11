@@ -17,7 +17,7 @@ for q in passwd/user-fullname passwd/username; do
 	echo REGISTER "$q" "$q" | debconf-communicate oem-config >/dev/null
 done
 
-for try in $(seq 1 10); do
+for try in $(seq 1 5); do
 	CODE=0
 	/usr/sbin/oem-config-dm vt7 :0 /usr/sbin/oem-config || CODE=$?
 	if [ "$CODE" -eq 0 ]; then
