@@ -22,9 +22,6 @@ case $1 in
 		# Reconfigure the system (starts a temporary display
 		# manager).
 		oem-config-firstboot </dev/console >/dev/console 2>&1
-
-		# Don't run again.
-		update-rc.d -f oem-config remove >/dev/null 2>&1
 		;;
 esac
 

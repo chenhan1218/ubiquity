@@ -37,8 +37,6 @@ menu_line_re = re.compile(r'(.*?): (.*)')
 
 from menu.timezone import *
 
-class WizardException(Exception): pass
-
 class Wizard:
     def __init__(self, includes=None, excludes=None):
         if 'OEM_CONFIG_DEBUG' in os.environ:
@@ -245,7 +243,11 @@ class Wizard:
                 db.shutdown()
                 continue
             elif ret != 0:
-                raise WizardException, "Menu item %s exited %d" % (item, ret)
+                # TODO: We should pop up a more visible error message here,
+                # but it's too late to add UI for that. For now, we continue
+                # because oem-config really wants to finish so that you get
+                # a non-system user created.
+                print >>sys.stderr, "Menu item %s exited %d" % (item, ret)
 
             db.shutdown()
 
@@ -256,6 +258,11 @@ class Wizard:
 
             index += 1
 
+        if index >= 0:
+            return 0
+        else:
+            return 10
+
 if __name__ == '__main__':
     parser = optparse.OptionParser()
     parser.add_option('-i', '--include', action='append', metavar='ITEM',
@@ -265,4 +272,4 @@ if __name__ == '__main__':
     (options, args) = parser.parse_args()
 
     wizard = Wizard(includes=options.include, excludes=options.exclude)
-    wizard.run()
+    sys.exit(wizard.run())

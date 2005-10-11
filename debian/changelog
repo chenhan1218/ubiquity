@@ -14,6 +14,10 @@ oem-config (0.9) UNRELEASED; urgency=low
   * Set title of timezone window to the translated description of
     tzconfig/title. Unfortunately this is too hard to do for the passwd
     window at present.
+  * Exiting oem-config can leave you without a configured user, so try not
+    to exit unnecessarily. If we have to, then print an error message with
+    instructions and drop the user to a shell, since that's better than a
+    login prompt with no users.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Oct 2005 12:05:34 +0100
 

@@ -37,12 +37,17 @@ class DM:
         wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
-        greeter.wait()
+        ret = greeter.wait()
 
         os.kill(wm.pid, signal.SIGTERM)
         wm.wait()
         os.kill(server.pid, signal.SIGTERM)
         server.wait()
+
+        if ret is not None and ret >= 0:
+            return ret
+        else:
+            return 1
 
 if len(sys.argv) < 3:
     sys.stderr.write('Usage: oem-config-dm <vt[1-N]> <:[0-N]> <program> [<arguments>]\n')
@@ -50,4 +55,4 @@ if len(sys.argv) < 3:
 
 vt, display = sys.argv[1:3]
 dm = DM(vt, display)
-dm.run(*sys.argv[3:])
+sys.exit(dm.run(*sys.argv[3:]))

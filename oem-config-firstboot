@@ -17,6 +17,34 @@ for q in passwd/user-fullname passwd/username; do
 	echo REGISTER "$q" "$q" | debconf-communicate oem-config >/dev/null
 done
 
-/usr/sbin/oem-config-dm vt7 :0 /usr/sbin/oem-config
+for try in $(seq 1 10); do
+	CODE=0
+	/usr/sbin/oem-config-dm vt7 :0 /usr/sbin/oem-config || CODE=$?
+	if [ "$CODE" -eq 0 ]; then
+		# Don't run again.
+		update-rc.d -f oem-config remove >/dev/null 2>&1
+		exit 0
+	fi
+done
 
-exit 0
+# Panic. At this point, probably the best thing we can do is drop to a shell
+# so that the user has some hope of fixing things up.
+cat <<EOF
+ERROR: The OEM installer failed. Your system may not be usable yet. Please
+report this as a bug to your vendor.
+
+To create a user so that you can use your new system normally, type:
+
+    adduser USERNAME
+
+... replacing USERNAME with the username you would like to use (your first
+name in lower case is normally a reasonable choice), and follow the prompts.
+If this succeeds, type 'exit' to reboot the system.
+
+EOF
+bash
+
+# Don't run again.
+update-rc.d -f oem-config remove >/dev/null 2>&1
+
+reboot
