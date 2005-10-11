@@ -1,3 +1,9 @@
+oem-config (0.9) UNRELEASED; urgency=low
+
+  * Quieten output from deluser.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Oct 2005 12:05:34 +0100
+
 oem-config (0.8) breezy; urgency=low
 
   * Remove the temporary OEM configuration user before running oem-config.

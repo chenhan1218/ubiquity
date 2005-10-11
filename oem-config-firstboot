@@ -3,7 +3,7 @@
 set -e
 
 # Remove the temporary OEM configuration user, if possible.
-deluser --remove-home oem || true
+deluser --quiet --remove-home oem || true
 # Revert to creating a user at uid 1000.
 echo RESET passwd/user-uid | debconf-communicate
 
