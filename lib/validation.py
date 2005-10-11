@@ -51,7 +51,7 @@
 # File "validation.py".
 # Validation library.
 # Created by Antonio Olmo <aolmo#emergya._info> on 26 jul 2005.
-# Last modified on 7 oct 2005.
+# Last modified on 11 oct 2005.
 
 from string      import whitespace, uppercase
 from ue.settings import *
@@ -177,11 +177,11 @@ def check_mountpoint (mountpoints, size):
     result = [0, 0, 0, 0]
     root = 0
     
-    try:
-      swap = mountpoints.values().index('swap')
+    if mountpoints.has_key ('swap'):
       root_minimum_KB = MINIMAL_PARTITION_SCHEME ['root'] * 1024
-    except:
-      root_minimum_KB = MINIMAL_PARTITION_SCHEME ['root'] * 1024 + 256*1024
+    else:
+      root_minimum_KB = (MINIMAL_PARTITION_SCHEME ['root'] +
+                         MINIMAL_PARTITION_SCHEME ['swap']) * 1024
     
     for j, k in mountpoints.items():
       if k == '/':
@@ -202,3 +202,4 @@ def check_mountpoint (mountpoints, size):
     return result
       
 # End of file.
+

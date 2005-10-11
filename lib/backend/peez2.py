@@ -49,7 +49,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo#emergya._info> on 25 aug 2005.
-# Last modified on 7 oct 2005.
+# Last modified on 11 oct 2005.
 
 # TODO: improve debug and log system.
 
@@ -200,20 +200,22 @@ class Peez2:
                         linux_space.append (int (j ['bytes']))
                         linux_names.append (i ['device'] + j ['no'])
 
-                stderr.write (str (linux_space) + '\n')
-                stderr.write (str (linux_names) + '\n')
-
-                if len (linux_space) > 2:
+                if len (linux_space) > 1:
                     associations = {}
                     linux_space.sort ()
                     parts = self.__partition_scheme
-                    required = [parts ['swap'], parts ['root'], parts ['home']]
-                    mountpoints = self.__partition_scheme.keys ()
+
+                    if len (linux_space) is 2:
+                        required = [parts ['root'], parts ['home']]
+                        mountpoints = ['root', 'home']
+                    else:
+                        required = parts.values ()
+                        mountpoints = parts.keys ()
 
                     # During formatting and copying, "root" is known as "/",
-                    # and "home" is known as "/home",
-                    # so it is necessary to change it before passing mount
-                    # point associations to the backend:
+                    # and "home" is known as "/home", so it is necessary to
+                    # change them before passing mount point associations to
+                    # the backend:
 
                     j = 0
 
@@ -636,7 +638,8 @@ class Peez2:
                         progress_bar.pulse ()
                         progress_bar.set_text ('Making %i MB partition...' % required)
 
-                    stderr.write ('auto_partition: ' + str (drive) + '\n')
+                    if self.__debug:
+                        stderr.write ('auto_partition: ' + str (drive) + '\n')
 
                     # TODO: improve this algorithm, that decides whether primary
                     #       or extended partitions should be created:
@@ -688,8 +691,10 @@ class Peez2:
                             c = info ['commands']
 
                             for i in c:
+
                                 # Print the commands:
-                                stderr.write ('Command: ' + i)
+                                if self.__debug:
+                                    stderr.write ('Command: ' + i)
 
                                 if do_it:
                                     # Do it! Execute commands to make partitions!
@@ -699,7 +704,9 @@ class Peez2:
                             mc = info ['metacoms']
 
                             for i in mc:
-                                stderr.write ('# ' + i)
+
+                                if self.__debug:
+                                    stderr.write ('# ' + i)
 
         return result
 
