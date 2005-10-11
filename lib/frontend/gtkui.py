@@ -93,6 +93,7 @@ class Wizard:
     self.gparted = True
     self.password = ''
     self.mountpoints = {}
+    self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
     self.entries = {
                     'hostname' : 0,
                     'fullname' : 0,
@@ -181,6 +182,7 @@ class Wizard:
     self.live_installer.fullscreen()
     self.live_installer.set_keep_above(True)
     self.live_installer.show()
+    self.live_installer.window.set_cursor(self.watch)
 
     for widget in [self.partition1, self.partition2, self.partition3,
     self.partition4, self.partition5, self.partition6, self.partition7,
@@ -227,6 +229,7 @@ class Wizard:
     widget.get_location()
     self.browser_vbox.add(widget)
     widget.show()
+    self.live_installer.window.set_cursor(None)
 
 
   # Methods
@@ -368,7 +371,7 @@ class Wizard:
     """write all values in this widget (GtkComboBox) from local
     partitions values."""
 
-    self.partitions = []
+    self.partitions = ['']
     partition_list = self.get_partitions()
     treelist = gtk.ListStore(gobject.TYPE_STRING)
     for index in partition_list:
@@ -386,6 +389,7 @@ class Wizard:
     # Set timeout objects
     self.timeout_images = gobject.timeout_add(60000, self.images_loop)
     self.images_loop()
+    self.live_installer.window.set_cursor(None)
     path = '/usr/lib/python2.4/site-packages/ue/backend/'
 
     def wait_thread(queue):
@@ -805,24 +809,27 @@ class Wizard:
           if ( count == 0 ):
             self.partition1.set_active(self.partitions.index(k))
             self.mountpoint1.set_active(mp[j])
-            self.partition2.show()
-            self.mountpoint2.show()
             self.size1.set_text(self.set_size_msg(k))
+            if ( len(self.get_partitions()) > 1 ):
+              self.partition2.show()
+              self.mountpoint2.show()
             count += 1
           elif ( count == 1 ):
             self.partition2.set_active(self.partitions.index(k))
             self.mountpoint2.set_active(mp[j])
-            self.partition3.show()
-            self.mountpoint3.show()
             self.size2.set_text(self.set_size_msg(k))
+            if ( len(self.get_partitions()) > 2 ):
+              self.partition3.show()
+              self.mountpoint3.show()
             count += 1
           elif ( count == 2 ):
             self.partition3.set_active(self.partitions.index(k))
             self.mountpoint3.set_active(mp[j])
-            self.partition4.show()
-            self.mountpoint4.show()
             self.size3.set_text(self.set_size_msg(k))
-      
+            if ( len(self.get_partitions()) > 3 ):
+              self.partition4.show()
+              self.mountpoint4.show()
+
       self.steps.next_page()
     # From Mountpoints to Progress
     elif step == 4:
@@ -906,6 +913,7 @@ class Wizard:
       else:
         self.back.hide()
         self.steps.next_page()
+        self.live_installer.window.set_cursor(self.watch)
 
         while gtk.events_pending():
           gtk.main_iteration()

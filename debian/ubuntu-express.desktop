@@ -11,3 +11,4 @@ Icon=gnome-settings-default-applications
 Terminal=false
 Type=Application
 Categories=GTK;System
+StartupNotify=true
