@@ -51,7 +51,7 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -28.40!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified by A. Olmo on 7 oct 2005.
+# Last modified by A. Olmo on 11 oct 2005.
 
 from sys import stderr
 import pygtk
@@ -725,11 +725,12 @@ class Wizard:
         self.show_error(''.join(error_msg))
       else:
 
-        # trunks Modification Oct. 10 - 2005
-        # Disabled on demmand
-        self.freespace.set_active (False)
+        # Next 4 lines commented out by A. Olmo on 11 oct 2005:
+##         # trunks Modification Oct. 10 - 2005
+##         # Disabled on demmand
+##         self.freespace.set_active (False)
+##         self.on_recycle_toggled (self.recycle)
 
-        self.on_recycle_toggled (self.recycle)
         self.browser_vbox.destroy()
         self.back.show()
         self.help.hide()
@@ -954,7 +955,10 @@ class Wizard:
             if selected_drive.has_key ('info'):
 
               if selected_drive ['info'].has_key ('oks'):
-                self.freespace.set_sensitive (True)
+
+                # Next line commented out by A. Olmo on 11 oct 2005:
+##                 self.freespace.set_sensitive (True)
+                pass
 
             if selected_drive.has_key ('linux_before'):
 
