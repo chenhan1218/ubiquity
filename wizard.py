@@ -144,6 +144,12 @@ class Wizard:
 
         db.shutdown()
 
+        # Get the list of supported locales.
+        self.supported_locales = {}
+        for line in open('/usr/share/i18n/SUPPORTED'):
+            (locale, charset) = line.split(None, 1)
+            self.supported_locales[locale] = charset
+
     def debug(self, message):
         if self.debug_enabled:
             print >>sys.stderr, message
@@ -166,6 +172,8 @@ class Wizard:
         # Get initial language.
         db = DebconfCommunicator('oem-config')
         language = db.get('debian-installer/locale')
+        if language not in self.supported_locales:
+            language = db.get('debian-installer/fallbacklocale')
         if language != '':
             self.debug("oem-config: LANG=%s" % language)
             os.environ['LANG'] = language
@@ -222,6 +230,8 @@ class Wizard:
             ret = debconffilter.run(itempath)
 
             language = db.get('debian-installer/locale')
+            if language not in self.supported_locales:
+                language = db.get('debian-installer/fallbacklocale')
 
             if (ret / 256) == 10:
                 if 'repeat-if-changed' in self.menus[item]:
