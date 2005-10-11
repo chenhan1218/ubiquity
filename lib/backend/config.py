@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from ue import misc
+from ue import misc, settings
 
 import debconf, os
 import subprocess
@@ -144,7 +144,7 @@ class Config:
     # if swap partition isn't defined, we create a swapfile
     if ( swap != 1 ):
       print >>fstab, '/swapfile\tnone\tswap\tsw\t0\t0'
-      os.system("dd if=/dev/zero of=%s/swapfile bs=1024 count=262144" % self.target)
+      os.system("dd if=/dev/zero of=%s/swapfile bs=1024 count=%d" % (self.target, MINIMAL_PARTITION_SCHEME ['swap'] * 1024) )
       os.system("mkswap %s/swapfile" % self.target)
     fstab.close()
     return True
