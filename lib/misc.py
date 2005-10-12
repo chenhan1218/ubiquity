@@ -120,4 +120,44 @@ def get_progress(str):
   text = ' '.join(str.split()[1:])
   return num, text
 
+# Grub stuff
+
+def lilo_entries(file):
+    global default
+    lines = []
+    for line in file:
+    	if line.startswith('default='):
+			default = line.split('=')[1]
+        elif line.startswith('image') or line.startswith('other'):
+            yield lines
+            lines = [line]
+        elif not line.startswith('#'):
+            lines.append(line)
+    yield lines
+
+def grub_entries(file):
+    lines = []
+    for line in file:
+        if line.startswith('title'):
+            yield lines
+            lines = [line]
+        elif not line.startswith('#'):
+            lines.append(line)
+    yield lines
+
+# FIXME: Just as examples
+# FIXME: Put a prefix path 
+def print_grub_entries():
+	lines = open('/boot/grub/menu.lst').readlines()
+	for i in grub_entries(lines):
+	    print ''.join(i)
+
+# FIXME: Put a prefix path
+def print_lilo_entries()
+	lines = open('/etc/lilo.conf').readlines()
+	for i in lilo_entries(lines):
+	    for j in i:
+	        print j,
+
+
 # vim:ai:et:sts=2:tw=80:sw=2:
