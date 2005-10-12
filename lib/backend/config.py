@@ -288,12 +288,16 @@ class Config:
     misc.ex('mount', '/sys', '--bind', self.target + '/sys')
 
     # For the Grub
-    grub_conf = open(self.target + '/boot/grub/menu.lst', 'w')
-    grub_conf.write('\n \
+    if os.path.exists(self.target + '/boot/grub/menu.lst'):
+      grub_conf = open(self.target + '/boot/grub/menu.lst', 'a')
+    else:
+      grub_conf = open(self.target + '/boot/grub/menu.lst', 'w')
+      grub_conf.write('\n \
 fallback 0\n \
 timeout 30\n \
 default 1\n \
-\n \
+\n')
+    grub_conf.write('\n \
 title %s\n \
 root (%s)\n \
 kernel (%s)/boot/vmlinuz-%s root=%s ro splash quiet\n \
