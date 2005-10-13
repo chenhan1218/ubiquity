@@ -153,7 +153,7 @@ def print_grub_entries():
 	    print ''.join(i)
 
 # FIXME: Put a prefix path
-def print_lilo_entries()
+def print_lilo_entries():
 	lines = open('/etc/lilo.conf').readlines()
 	for i in lilo_entries(lines):
 	    for j in i:
