@@ -49,7 +49,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo#emergya._info> on 25 aug 2005.
-# Last modified on 11 oct 2005.
+# Last modified on 13 oct 2005.
 
 # TODO: improve debug and log system.
 
@@ -613,55 +613,40 @@ class Peez2:
             progress_bar.pulse ()
             progress_bar.set_text ('Planning partition...')
 
-        # There are 2 ways of making room for the distro:
-        #     1. Making 3 new primary partitions.
-        #     2. Making 3 new logic partitions (in a previous or new extended
-        #        partition).
-
         if drive.has_key ('info'):
 
             if drive ['info'].has_key ('primary'):
 
                 if drive ['info'] ['primary'] < 2:
-                    # Here we would choose the first method mentioned above.
+                    # Make 3 new primary partitions?
                     pass
 
-            if drive ['info'].has_key ('oks'):
-                # It means that there is free space available
-                pass
+            components = self.__partition_scheme.keys ()
+            extended = 0
 
-            # 2nd method.
-
-            for part in self.__partition_scheme.keys ():
+            for part in components:
                 required = self.__partition_scheme [part]
 
                 if None != progress_bar:
                     progress_bar.pulse ()
                     progress_bar.set_text ('Making %i MB partition...' % required)
 
-                if self.__debug:
-                    stderr.write ('auto_partition: ' + str (drive) + '\n')
-
-                # TODO: improve this algorithm, that decides whether primary
-                #       or extended partitions should be created:
-
-##                     if self.__debug:
-##                         stderr.write ()
-
-                if drive.has_key ('info'):
+                if extended > 3:
+                    info = self.__get_info (drive ['id'], required, '-j')
+                elif drive.has_key ('info'):
 
                     if drive ['info'].has_key ('ext'):
 
                         if drive ['info'] ['ext'] > 0:
+                            extended = 4
                             info = self.__get_info (drive ['id'], required, '-j')
-                        else:
-                            info = self.__get_info (drive ['id'], required)
 
-                    else:
-                        info = self.__get_info (drive ['id'], required)
-
-                else:
-                    info = self.__get_info (drive ['id'], required)
+                elif extended < 3:
+                    # It is necessary to create an extended partition:
+                    required = int (sum (self.__partition_scheme.values ()) * 1.1)
+                    info = self.__get_info (drive ['id'], required, '-x')
+                    components.append (part)
+                    extended = extended + 1
 
                 # Now we have to decide which option is better:
                 options = info ['opts']
@@ -686,26 +671,13 @@ class Peez2:
                     i = i + 1
 
                 if -1 != what:
-                    # TODO: improve this algorithm:
 
-                    if drive.has_key ('info'):
-
-                        if drive ['info'].has_key ('ext'):
-
-                            if drive ['info'] ['ext'] > 0:
-                                info = self.__get_info (drive ['id'],
-                                    required, '-j -i', str (what) + '\n')
-                            else:
-                                info = self.__get_info (drive ['id'],
-                                    required, '-i', str (what) + '\n')
-
-                        else:
-                            info = self.__get_info (drive ['id'],
-                                required, '-i', str (what) + '\n')
-
+                    if extended < 4:
+                        info = self.__get_info (drive ['id'], required,
+                                                '-x -i', str (what) + '\n')
                     else:
                         info = self.__get_info (drive ['id'], required,
-                                                '-i', str (what) + '\n')
+                                                '-j -i', str (what) + '\n')
 
                     if info.has_key ('commands'):
                         c = info ['commands']
