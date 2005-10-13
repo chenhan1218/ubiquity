@@ -148,6 +148,10 @@ class Peez2:
         # Disable this attribute when auto-partitioning is mature enough:
         self.__ONLY_MANUALLY = False
 
+        # Every partitioning command executed will be also written here:
+        Popen3 ('rm /tmp/guadalinex-express.commands')
+
+
     # Public method "get_drives" _____________________________________________
 
     def get_drives (self):
@@ -240,14 +244,6 @@ class Peez2:
                             r = r + 1
 
                         l = l + 1
-
-                    if self.__debug:
-                        stderr.write ('get_drives: associations: "' + \
-                                      str (associations) + '"\n')
-                        stderr.write ('get_drives: r: ' + str (r) + '"\n')
-                        stderr.write ('get_drives: required_bytes: ' + str (required_bytes) + '"\n')
-                        stderr.write ('get_drives: r >= len (required_bytes)?' + \
-                                      str (r >= len (required_bytes)) + '"\n')
 
                     if r < len (required_bytes):
                         associations = None
@@ -357,17 +353,14 @@ class Peez2:
 
         result = None
 
-        verbose_flat = True
-
-        # We are not using a more compact construct below to explicit that the
-        #     same 3 partitions are always used, and in the same order:
+        # We are not using a more compact construct below to reflect that the
+        # same 3 partitions are always used, and in the same order:
         parts = self.__partition_scheme
 
         if '' != more_args:
             more_args = more_args + ' '
 
-        if verbose_flat:
-            more_args = more_args + '-v '
+        more_args = more_args + '-v '
 
         if None != size:
 
@@ -549,14 +542,7 @@ class Peez2:
 
         string_of_lines = string_of_lines.split ('\n')
 
-##         if self.__debug:
-##             stderr.write ('__get_info: string_of_lines "' + \
-##                           string_of_lines + '"\n')
-
         for i in string_of_lines:
-
-##             if self.__debug:
-##                 stderr.write ('__get_info: line "' + i + '"\n')
 
             # "registro de 'lista de particiones'":
             if 'PAV' == i [:3] or 'PAH' == i [:3]:
@@ -641,7 +627,7 @@ class Peez2:
                             extended = 4
                             info = self.__get_info (drive ['id'], required, '-j')
 
-                elif extended < 3:
+                if extended < 3:
                     # It is necessary to create an extended partition:
                     required = int (sum (self.__partition_scheme.values ()) * 1.1)
                     info = self.__get_info (drive ['id'], required, '-x')
@@ -649,7 +635,13 @@ class Peez2:
                     extended = extended + 1
 
                 # Now we have to decide which option is better:
-                options = info ['opts']
+                try:
+                    options = info ['opts']
+                except:
+
+                    if self.__debug:
+                        stderr.write ('auto_partition: inf contains "' +
+                                      str (info) + '".\n')
 
                 what = -1
                 i = 1
@@ -682,13 +674,18 @@ class Peez2:
                     if info.has_key ('commands'):
                         c = info ['commands']
 
+                    if self.__debug:
+                        Popen3 ('echo "Creando ' + str (part) +
+                                '..." >> /tmp/guadalinex-express.commands')
+
                         for i in c:
 
                             # Print the commands:
                             if self.__debug:
-                                stderr.write ('Command: ' + i)
-                                p = Popen3 ('echo "' + i +
-                                            '" >> /var/log/ue-commands')
+                                stderr.write ('auto_partition: command: "' +
+                                              i.strip () + '" executed.\n')
+                                Popen3 ('echo "' + i.strip () +
+                                        '" >> /tmp/guadalinex-express.commands')
 
                             if do_it:
                                 # Do it! Execute commands to make partitions!
@@ -702,8 +699,8 @@ class Peez2:
                             if self.__debug:
                                 stderr.write ('# ' + i)
 
-                    if info.has_key ('dest'):
-                        result [info ['dest']] = part
+                    if info.has_key ('dest') and extended > 3:
+                        result [info ['dest']] = part.strip ()
 
         return result
 
