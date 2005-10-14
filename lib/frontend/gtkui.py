@@ -309,10 +309,10 @@ class Wizard:
     for devices in partition_list:
       filesystem_pipe = subprocess.Popen(['file', '-s', devices.split()[0]], stdout=subprocess.PIPE)
       filesystem = filesystem_pipe.communicate()[0]
-      if re.match('.*((ext3)|(swap)).*', filesystem, re.I):
-        if filesystem.split()[4] == 'ext3' :
+      if re.match('.*((ext3)|(swap)|(extended)|(data)).*', filesystem, re.I):
+        if 'ext3' in filesystem.split() or 'data' in filesystem.split() or 'extended' in filesystem.split():
           device_list[devices.split()[0]] = 'ext3'
-        else:
+        elif 'swap' in filesystem.split():
           device_list[devices.split()[0]] = 'swap'
     return device_list
 
@@ -334,15 +334,15 @@ class Wizard:
 
     if ( len(device_list.items()) != 0 ):
       root, swap, home = 0, 0, 0
-      for index in size_ordered:
-        partition = size.keys()[size.values().index(index)]
+      for size_selected in size_ordered:
+        partition = size.keys()[size.values().index(size_selected)]
         try:
           fs = device_list['/dev/%s' % partition]
         except:
           continue
         if ( swap == 1 and root == 1 and home == 1 ):
           break
-        elif ( fs == 'ext3' ):
+        elif ( fs == 'ext3' and size_selected > 1024):
           if ( root == 1 and home == 0 ):
             selection['/home'] = '/dev/%s' % partition
             home = 1
@@ -793,9 +793,7 @@ class Wizard:
     # From Gparted to Mountpoints
     elif step == 3:
       # Setting items into partition Comboboxes
-      for widget in [self.partition1, self.partition2, self.partition3,
-      self.partition4, self.partition5, self.partition6, self.partition7,
-      self.partition8, self.partition9, self.partition10 ]:
+      for widget in self.live_installer.get_widget('vbox_partitions').get_children()[1:]:
         self.show_partitions(widget)
       self.size = self.get_sizes()
 
@@ -836,53 +834,29 @@ class Wizard:
     # From Mountpoints to Progress
     elif step == 4:
 
-      # creating self.mountpoints list only if the pairs device:mountpoint are
-      # selected
-      list = []
-      if ( self.mountpoint1.get_active_text() != "" and self.partition1.get_active_text() != None ):
-        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition1.get_active_text())]] = self.mountpoint1.get_active_text()
-      if ( self.mountpoint2.get_active_text() != "" and self.partition2.get_active_text() != None ):
-        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition2.get_active_text())]] = self.mountpoint2.get_active_text()
-      if ( self.mountpoint3.get_active_text() != "" and self.partition3.get_active_text() != None ):
-        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition3.get_active_text())]] = self.mountpoint3.get_active_text()
-      if ( self.mountpoint4.get_active_text() != "" and self.partition4.get_active_text() != None ):
-        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition4.get_active_text())]] = self.mountpoint4.get_active_text()
-      if ( self.mountpoint5.get_active_text() != "" and self.partition5.get_active_text() != None ):
-        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition5.get_active_text())]] = self.mountpoint5.get_active_text()
-      if ( self.mountpoint6.get_active_text() != "" and self.partition6.get_active_text() != None ):
-        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition6.get_active_text())]] = self.mountpoint6.get_active_text()
-      if ( self.mountpoint7.get_active_text() != "" and self.partition7.get_active_text() != None ):
-        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition7.get_active_text())]] = self.mountpoint7.get_active_text()
-      if ( self.mountpoint8.get_active_text() != "" and self.partition8.get_active_text() != None ):
-        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition8.get_active_text())]] = self.mountpoint8.get_active_text()
-      if ( self.mountpoint9.get_active_text() != "" and self.partition9.get_active_text() != None ):
-        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition9.get_active_text())]] = self.mountpoint9.get_active_text()
-      if ( self.mountpoint10.get_active_text() != "" and self.partition10.get_active_text() != None ):
-        self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(self.partition10.get_active_text())]] = self.mountpoint10.get_active_text()
-      if ( self.partition1.get_active_text() != None ):
-        list.append(self.partition1.get_active_text())
-      elif ( self.partition2.get_active_text() != None ):
-        list.append(self.partition2.get_active_text())
-      elif ( self.partition3.get_active_text() != None ):
-        list.append(self.partition3.get_active_text())
-      elif ( self.partition4.get_active_text() != None ):
-        list.append(self.partition4.get_active_text())
-      elif ( self.partition5.get_active_text() != None ):
-        list.append(self.partition5.get_active_text())
-      elif ( self.partition6.get_active_text() != None ):
-        list.append(self.partition6.get_active_text())
-      elif ( self.partition7.get_active_text() != None ):
-        list.append(self.partition7.get_active_text())
-      elif ( self.partition8.get_active_text() != None ):
-        list.append(self.partition8.get_active_text())
-      elif ( self.partition9.get_active_text() != None ):
-        list.append(self.partition9.get_active_text())
-      elif ( self.partition10.get_active_text() != None ):
-        list.append(self.partition10.get_active_text())
-
       # Validating self.mountpoints
       error_msg = ['\n']
       error = 0
+      
+      # creating self.mountpoints list only if the pairs device:mountpoint are
+      # selected
+      list = []
+      list_partitions = []
+      list_mountpoints = []
+      for widget in self.live_installer.get_widget('vbox_partitions').get_children()[1:]:
+        list_partitions.append(widget)
+      for widget in self.live_installer.get_widget('vbox_mountpoints').get_children()[1:]:
+        list_mountpoints.append(widget)
+      dev_mnt = dict( [ (list_partitions[i], list_mountpoints[i]) for i in range(0,len(list_partitions)) ] )
+
+      for dev, mnt in dev_mnt.items():
+        if ( dev.get_active_text() != "" and mnt_get_active_text() != None ):
+          self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(dev.get_active_text())]] = mnt_get_active_text()
+        if ( dev.get_active_text() != None ):
+          list.append(dev.get_active_text())
+          if ( mnt_get_active_text() == "" and error != 1):
+            error_msg.append("· Punto de montaje vacío.\n\n")
+            error = 1
 
       for check in list:
         if ( list.count(check) > 1 ):
@@ -900,9 +874,9 @@ class Wizard:
         elif ( check == 3 ):
           try:
             swap = self.mountpoints.values().index('swap')
-            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
+            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
           except:
-            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + 256*1024))
+            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
           error = 1
         elif ( check == 4 ):
           error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
