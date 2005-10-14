@@ -51,8 +51,6 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -28.40!!! (bad
     indentation and accesses to undefined members) """
 
-# Last modified by A. Olmo on 11 oct 2005.
-
 from sys import stderr
 import pygtk
 pygtk.require('2.0')
@@ -81,6 +79,7 @@ GLADEDIR = os.path.join(PATH, 'glade')
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
+
 class Wizard:
 
   def __init__(self, distro):
@@ -105,6 +104,7 @@ class Wizard:
                     'verified_password' : 0
                     }
     self.part_labels = {
+                    ' ' : ' ',
                     '/dev/hda1' : 'Partición 1 Disco IDE/ATA 1 (Primaria) [hda1]',
                     '/dev/hda2' : 'Partición 2 Disco IDE/ATA 1 (Primaria) [hda2]',
                     '/dev/hda3' : 'Partición 3 Disco IDE/ATA 1 (Primaria) [hda3]',
@@ -144,7 +144,7 @@ class Wizard:
                     '/dev/sdb7' : 'Partición 7 Disco USB/SCSI/SATA 2 (Lógica) [sdb7]',
                     '/dev/sdb8' : 'Partición 8 Disco USB/SCSI/SATA 2 (Lógica) [sdb8]',
                     '/dev/sdb9' : 'Partición 9 Disco USB/SCSI/SATA 2 (Lógica) [sdb9]',
-                    '/dev/sdb10' : 'Partición 10 Disco USB/SCSI/SATA 2 (Lógica) [sdb10]',
+                    '/dev/sdb10' : 'Partición 10 Disco USB/SCSI/SATA 2 (Lógica) [sdb10]'
                     }
     # images stuff
     self.install_image = 0
@@ -187,13 +187,9 @@ class Wizard:
     self.live_installer.show()
     self.live_installer.window.set_cursor(self.watch)
 
-    for widget in [self.partition1, self.partition2, self.partition3,
-    self.partition4, self.partition5, self.partition6, self.partition7,
-    self.partition8, self.partition9, self.partition10 ]:
-      self.show_partitions(widget)
-
     # Peez2 stuff initialization:
     self.__assistant = None
+
 
   def run(self):
     """run the interface."""
@@ -240,6 +236,7 @@ class Wizard:
     # "peez2". If not, will run the Gparted
 
     return part.call_autoparted (self.__assistant, drive, progress_bar)
+
 
   def gparted_loop(self):
     """call gparted and embed it into glade interface."""
@@ -364,6 +361,7 @@ class Wizard:
     self.partitions = []
     partition_list = self.get_partitions()
     treelist = gtk.ListStore(gobject.TYPE_STRING)
+    treelist.append([' '])
     for index in partition_list:
       treelist.append([self.part_labels[index.split()[0]]])
       self.partitions.append(index.split()[0])
@@ -529,91 +527,34 @@ class Wizard:
     on mountpoint screen. Also size label associated to partition combobox
     is changed dinamically to shows the size partition."""
 
-    if ( widget.get_active_text() is not "" ):
-      if ( widget.get_name() in ['partition1', 'mountpoint1']):
-        if ( self.partition1.get_active_text() != None and
-        self.mountpoint1.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 2 ):
-            self.partition2.show()
-            self.mountpoint2.show()
-            self.size2.show()
-        if ( self.partition1.get_active_text() != None ):
-          self.size1.set_text(self.set_size_msg(self.partition1))
-      elif ( widget.get_name() in ['partition2', 'mountpoint2']):
-        if ( self.partition2.get_active_text() != None and
-        self.mountpoint2.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 3 ):
-            self.partition3.show()
-            self.mountpoint3.show()
-            self.size3.show()
-        if ( self.partition2.get_active_text() != None ):
-          self.size2.set_text(self.set_size_msg(self.partition2))
-      elif ( widget.get_name() in ['partition3', 'mountpoint3']):
-        if ( self.partition3.get_active_text() != None and
-        self.mountpoint3.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 4 ):
-            self.partition4.show()
-            self.mountpoint4.show()
-            self.size4.show()
-        if ( self.partition3.get_active_text() != None ):
-          self.size3.set_text(self.set_size_msg(self.partition3))
-      elif ( widget.get_name() in ['partition4', 'mountpoint4']):
-        if ( self.partition4.get_active_text() != None and
-        self.mountpoint4.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 5 ):
-            self.partition5.show()
-            self.mountpoint5.show()
-            self.size5.show()
-        if ( self.partition4.get_active_text() != None ):
-          self.size4.set_text(self.set_size_msg(self.partition4))
-      elif ( widget.get_name() in ['partition5', 'mountpoint5']):
-        if ( self.partition5.get_active_text() != None and
-        self.mountpoint5.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 6 ):
-            self.partition6.show()
-            self.mountpoint6.show()
-            self.size6.show()
-        if ( self.partition5.get_active_text() != None ):
-          self.size5.set_text(self.set_size_msg(self.partition5))
-      elif ( widget.get_name() in ['partition6', 'mountpoint6']):
-        if ( self.partition6.get_active_text() != None and
-        self.mountpoint6.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 7 ):
-            self.partition7.show()
-            self.mountpoint7.show()
-            self.size7.show()
-        if ( self.partition6.get_active_text() != None ):
-          self.size6.set_text(self.set_size_msg(self.partition6))
-      elif ( widget.get_name() in ['partition7', 'mountpoint7']):
-        if ( self.partition7.get_active_text() != None and
-        self.mountpoint7.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 8 ):
-            self.partition8.show()
-            self.mountpoint8.show()
-            self.size8.show()
-        if ( self.partition7.get_active_text() != None ):
-          self.size7.set_text(self.set_size_msg(self.partition7))
-      elif ( widget.get_name() in ['partition8', 'mountpoint8']):
-        if ( self.partition8.get_active_text() != None and
-        self.mountpoint8.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 9 ):
-            self.partition9.show()
-            self.mountpoint9.show()
-            self.size9.show()
-        if ( self.partition8.get_active_text() != None ):
-          self.size8.set_text(self.set_size_msg(self.partition8))
-      elif ( widget.get_name() in ['partition9', 'mountpoint9']):
-        if ( self.partition9.get_active_text() != None and
-        self.mountpoint9.get_active_text() != "" ):
-          if ( len(self.get_partitions()) >= 10 ):
-            self.partition10.show()
-            self.mountpoint10.show()
-            self.size10.show()
-        if ( self.partition9.get_active_text() != None ):
-          self.size9.set_text(self.set_size_msg(self.partition9))
-      elif ( widget.get_name() in ['partition10', 'mountpoint10']):
-        if ( self.partition10.get_active_text() != None ):
-          self.size10.set_text(self.set_size_msg(self.partition10))
+    list_partitions, list_mountpoints, list_sizes, list_partitions_labels, list_mountpoints_labels, list_sizes_labels = [], [], [], [], [], []
+
+    for widget_it in self.glade.get_widget('vbox_partitions').get_children()[1:]:
+      list_partitions.append(widget_it)
+      list_partitions_labels.append(widget_it.get_name())
+    for widget_it in self.glade.get_widget('vbox_mountpoints').get_children()[1:]:
+      list_mountpoints.append(widget_it)
+      list_mountpoints_labels.append(widget_it.get_name())
+    for widget_it in self.glade.get_widget('vbox_sizes').get_children()[1:]:
+      list_sizes.append(widget_it)
+      list_sizes_labels.append(widget_it.get_name())
+
+    if ( widget.get_active_text() not in ['', None] ):
+      try:
+        index = list_partitions_labels.index(widget.get_name())
+      except:
+        index = list_mountpoints_labels.index(widget.get_name())
+
+      if ( list_partitions[index].get_active_text() != None and
+           list_mountpoints[index].get_active_text() != "" and
+           len(self.get_partitions()) >= index+1 ):
+        list_partitions[index+1].show()
+        list_mountpoints[index+1].show()
+        list_sizes[index+1].show()
+      if ( list_partitions[index].get_active_text() == ' ' ):
+        list_sizes[index].set_text('')
+      elif ( list_partitions[index].get_active_text() != None ):
+        list_sizes[index].set_text(self.set_size_msg(list_partitions[index]))
 
 
   def on_key_press (self, widget, event):
@@ -672,6 +613,7 @@ class Wizard:
       self.warning_image.set_from_icon_name('gtk-dialog-info', gtk.ICON_SIZE_DIALOG)
       self.help.hide()
 
+
   def on_next_clicked(self, widget):
     step = self.steps.get_current_page()
     pre_log('info', 'Step_before = %d' % step)
@@ -719,7 +661,7 @@ class Wizard:
         elif ( result == 3 ):
           error_msg.append("· El <b>nombre del equipo</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
           error = 1
-      if ( error == 1 ):
+      if ( error != 0 ):
         self.show_error(''.join(error_msg))
       else:
 
@@ -793,7 +735,7 @@ class Wizard:
     # From Gparted to Mountpoints
     elif step == 3:
       # Setting items into partition Comboboxes
-      for widget in self.live_installer.get_widget('vbox_partitions').get_children()[1:]:
+      for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
         self.show_partitions(widget)
       self.size = self.get_sizes()
 
@@ -843,29 +785,31 @@ class Wizard:
       list = []
       list_partitions = []
       list_mountpoints = []
-      for widget in self.live_installer.get_widget('vbox_partitions').get_children()[1:]:
+      for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
         list_partitions.append(widget)
-      for widget in self.live_installer.get_widget('vbox_mountpoints').get_children()[1:]:
+      for widget in self.glade.get_widget('vbox_mountpoints').get_children()[1:]:
         list_mountpoints.append(widget)
-      dev_mnt = dict( [ (list_partitions[i], list_mountpoints[i]) for i in range(0,len(list_partitions)) ] )
+      if ( len(list_partitions) == len(list_mountpoints) ):
+        dev_mnt = dict( [ (list_partitions[i], list_mountpoints[i]) for i in range(0,len(list_partitions)) ] )
 
-      for dev, mnt in dev_mnt.items():
-        if ( dev.get_active_text() != "" and mnt_get_active_text() != None ):
-          self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(dev.get_active_text())]] = mnt_get_active_text()
-        if ( dev.get_active_text() != None ):
-          list.append(dev.get_active_text())
-          if ( mnt_get_active_text() == "" and error != 1):
-            error_msg.append("· Punto de montaje vacío.\n\n")
+        for dev, mnt in dev_mnt.items():
+          if ( dev.get_active_text() != "" and mnt_get_active_text() != None ):
+            self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(dev.get_active_text())]] = mnt_get_active_text()
+      else:
+        for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
+          if ( widget.get_active_text() != None ):
+            list.append(widget.get_active_text())
+        for check in list:
+          if ( list.count(check) > 1 ):
+            error_msg.append("· Dispositivos duplicados.\n\n")
             error = 1
-
-      for check in list:
-        if ( list.count(check) > 1 ):
-          error_msg.append("· Dispositivos duplicados.\n\n")
-          error = 1
-          break
+            break
+        if ( error != 1 ):
+          error_msg.append("· Punto de montaje vacío.\n\n")
+          error = 2
 
       for check in check_mountpoint(self.mountpoints, self.size):
-        if ( check == 1 ):
+        if ( check == 1 and error != 2 ):
           error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
           error = 1
         elif ( check == 2 ):
@@ -882,7 +826,7 @@ class Wizard:
           error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
           error = 1
 
-      if ( error == 1 ):
+      if ( error != 0 ):
         self.msg_error2.set_text(''.join(error_msg))
         self.msg_error2.show()
         self.img_error2.show()
@@ -908,6 +852,7 @@ class Wizard:
     step = self.steps.get_current_page()
     pre_log('info', 'Step_after = %d' % step)
 
+
   def on_back_clicked(self, widget):
     self.next.set_sensitive(True)
     step = self.steps.get_current_page()
@@ -916,6 +861,7 @@ class Wizard:
 
     if step is not 6:
       self.steps.prev_page()
+
 
   # Public method "on_drives_changed" ________________________________________
   def on_drives_changed (self, foo):
@@ -985,6 +931,7 @@ class Wizard:
       self.on_recycle_toggled (self.recycle)
       self.on_manually_toggled (self.manually)
 
+
   # Public method "on_steps_switch_page" _____________________________________
   def on_steps_switch_page (self, foo, bar, current):
 
@@ -1012,6 +959,7 @@ class Wizard:
       if len (model) > 0:
         self.drives.set_active (0)
 
+
   # Public method "on_freespace_toggled" _____________________________________
   def on_freespace_toggled (self, widget):
 
@@ -1029,6 +977,7 @@ class Wizard:
         'se produzca una pérdida de datos</b> si es necesario cambiar el ' +
         'tamaño de las particiones existentes para conseguir espacio para ' +
         'las nuevas.</span>')
+
 
   # Public method "on_recycle_toggled" _______________________________________
   def on_recycle_toggled (self, widget):
@@ -1070,6 +1019,7 @@ class Wizard:
         '<b>todos los datos que hubiese en ese sistema Linux previo se ' +
         'perderán irremisiblemente</b>.</span>' + where)
 
+
   # Public method "on_manually_toggled" ______________________________________
   def on_manually_toggled (self, widget):
 
@@ -1087,6 +1037,7 @@ class Wizard:
         'operaciones que haga con el disco duro pueden suponer la <b>pérdida ' +
         'de todos los datos</b>, así que continúe por aquí únicamente si ya ' +
         'tiene experiencia particionando de forma manual.</span>')
+
 
   # Public method "on_confirmation_checkbutton_toggled" ______________________
   def on_confirmation_checkbutton_toggled (self, widget):
