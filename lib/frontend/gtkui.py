@@ -85,7 +85,7 @@ class Wizard:
   def __init__(self, distro):
     # declare attributes
     self.distro = distro
-    self.pid = False
+    # self.pid = False
     self.hostname = ''
     self.fullname = ''
     self.name = ''
@@ -96,6 +96,7 @@ class Wizard:
     # To get a "busy mouse":
     self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
 
+    # useful dicts to manage UI data
     self.entries = {
                     'hostname' : 0,
                     'fullname' : 0,
@@ -146,6 +147,7 @@ class Wizard:
                     '/dev/sdb9' : 'Partición 9 Disco USB/SCSI/SATA 2 (Lógica) [sdb9]',
                     '/dev/sdb10' : 'Partición 10 Disco USB/SCSI/SATA 2 (Lógica) [sdb10]'
                     }
+
     # images stuff
     self.install_image = 0
     PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', distro)
@@ -165,7 +167,7 @@ class Wizard:
     for widget in self.glade.get_widget_prefix(""):
       setattr(self, widget.get_name(), widget)
 
-    # set initial status
+    # set initial bottom bar status
     self.back.hide()
     self.help.hide()
     self.next.set_label('gtk-go-forward')
@@ -199,6 +201,8 @@ class Wizard:
 
     # Declare SignalHandler
     self.glade.signal_autoconnect(self)
+
+    # Start the interface
     gtk.main()
 
 
@@ -218,6 +222,9 @@ class Wizard:
 
     widget = gtkmozembed.MozEmbed()
     local_uri = os.path.join(PATH, 'htmldocs/', self.distro, 'index.html')
+
+    # Loading branding if htmldocs/ brand exists. In other hand Ubuntu Project
+    #   website is loaded
     try:
       widget.load_url("file://" + local_uri)
     except:
@@ -225,6 +232,8 @@ class Wizard:
     widget.get_location()
     self.browser_vbox.add(widget)
     widget.show()
+
+    # Setting Normal mouse cursor
     self.live_installer.window.set_cursor(None)
 
 
@@ -248,23 +257,11 @@ class Wizard:
     self.gparted = False
 
 
-  def get_partitions(self):
-    """return an array with fdisk output related to partition data."""
-
-    import re, subprocess
-
-    partition_table_pipe = subprocess.Popen(['/sbin/fdisk', '-l'], stdout=subprocess.PIPE)
-    partition_table = partition_table_pipe.communicate()[0]
-    regex = re.compile(r'/dev/[a-z]+[0-9]+.*')
-    partition = regex.findall(partition_table)
-
-    return partition
-
-
   def get_sizes(self):
     """return a dictionary with skeleton { partition : size }
     from /proc/partitions ."""
 
+    # parsing /proc/partitions and getting size data
     temp = open('/proc/partitions').readlines()
     size = {}
     for line in temp:
@@ -281,11 +278,13 @@ class Wizard:
 
     import types
 
+    # widget is studied in a different manner depending on object type
     if ( type(widget) == types.StringType ):
       size = float(self.size[widget.split('/')[2]])
     else:
       size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(widget.get_active_text())].split('/')[2]])
 
+    # building size_msg
     if ( size > 1048576 ):
       msg = '%.0f Gb' % (size/1024/1024)
     elif ( size > 1024 and size < 1048576 ):
@@ -295,6 +294,20 @@ class Wizard:
     return msg
 
 
+  def get_partitions(self):
+    """return an array with fdisk output related to partition data."""
+
+    import re, subprocess
+
+    # parsing fdisk output
+    partition_table_pipe = subprocess.Popen(['/sbin/fdisk', '-l'], stdout=subprocess.PIPE)
+    partition_table = partition_table_pipe.communicate()[0]
+    regex = re.compile(r'/dev/[a-z]+[0-9]+.*')
+    partition = regex.findall(partition_table)
+
+    return partition
+
+
   def get_filesystems(self):
     """return a dictionary with a skeleton { device : filesystem }
     with data from local hard disks. Only swap and ext3 filesystems
@@ -302,6 +315,9 @@ class Wizard:
 
     import re, subprocess
     device_list = {}
+
+    # building device_list dicts from "file -s" output from get_partitions
+    #   returned list (only devices formatted as ext3 or swap are parsed).
     partition_list = self.get_partitions()
     for devices in partition_list:
       filesystem_pipe = subprocess.Popen(['file', '-s', devices.split()[0]], stdout=subprocess.PIPE)
@@ -321,14 +337,21 @@ class Wizard:
     fs will be selected as /home, and the first partition it finds as swap
     will be marked as the swap selection."""
 
+    # ordering a list from size dict ( { device : size } ), from higher to lower
     size_ordered, selection = [], {}
     for value in size.values():
       if not size_ordered.count(value):
         size_ordered.append(value)
     size_ordered.sort()
     size_ordered.reverse()
+
+    # getting filesystem dict ( { device : fs } )
     device_list = self.get_filesystems()
 
+    # building an initial mountpoint preselection dict. Assigning only preferred
+    #   partitions for each mountpoint (highest ext3 partition to '/', the
+    #   second highest ext3 partition to '/home' and the first swap partition to
+    #   swap).
     if ( len(device_list.items()) != 0 ):
       root, swap, home = 0, 0, 0
       for size_selected in size_ordered:
@@ -358,9 +381,12 @@ class Wizard:
     """write all values in this widget (GtkComboBox) from local
     partitions values."""
 
+    # setting GtkComboBox partition values from get_partition return.
     self.partitions = []
     partition_list = self.get_partitions()
     treelist = gtk.ListStore(gobject.TYPE_STRING)
+
+    # the first element is empty to allow deselect a preselected device
     treelist.append([' '])
     for index in partition_list:
       treelist.append([self.part_labels[index.split()[0]]])
@@ -373,11 +399,17 @@ class Wizard:
     core install process."""
 
     pre_log('info', 'progress_loop()')
+
+    # saving UI input data to vars file
     self.set_vars_file()
-    # Set timeout objects
+    
+    # Set timeout objects (to get animated images on installing screen)
     self.timeout_images = gobject.timeout_add(60000, self.images_loop)
+    # first image iteration
     self.images_loop()
+    # Setting Normal cursor
     self.live_installer.window.set_cursor(None)
+
     path = '/usr/lib/python2.4/site-packages/ue/backend/'
 
     def wait_thread(queue):
@@ -388,13 +420,18 @@ class Wizard:
       ft.format_target(queue)
       queue.put('101')
 
+    # Starting format process
     queue = Queue()
     thread.start_new_thread(wait_thread, (queue,))
+
+    # setting progress bar status while format process is running
     while True:
       msg = str(queue.get())
+      # format process is ended when '101' is pushed
       if msg.startswith('101'):
         break
       self.set_progress(msg)
+      # refreshing UI
       while gtk.events_pending():
         gtk.main_iteration()
       time.sleep(0.5)
@@ -407,13 +444,18 @@ class Wizard:
       cp.run(queue)
       queue.put('101')
 
+    # Starting copy process
     queue = Queue()
     thread.start_new_thread(wait_thread, (queue,))
+
+    # setting progress bar status while copy process is running
     while True:
       msg = str(queue.get())
+      # copy process is ended when '101' is pushed
       if msg.startswith('101'):
         break
       self.set_progress(msg)
+      # refreshing UI
       while gtk.events_pending():
         gtk.main_iteration()
 
@@ -425,18 +467,26 @@ class Wizard:
       cf.run(queue)
       queue.put('101')
 
+    # Starting config process
     queue = Queue()
     thread.start_new_thread(wait_thread, (queue,))
+
+    # setting progress bar status while config process is running
     while True:
       msg = str(queue.get())
+      # config process is ended when '101' is pushed
       if msg.startswith('101'):
         break
       self.set_progress(msg)
+      # refreshing UI
       while gtk.events_pending():
         gtk.main_iteration()
 
+    # umounting self.mountpoints (mounpoints user selection)
     umount = copy.Copy(self.mountpoints)
     umount.umount_target()
+
+    # setting new button labels and status from bottom bar
     self.next.set_label('Reiniciar el ordenador')
     self.next.connect('clicked', self.__reboot)
     self.back.set_label('Salir')
@@ -493,15 +543,17 @@ class Wizard:
   def quit(self):
     """quit installer cleanly."""
 
-    if self.pid:
-      try:
-        os.kill(self.pid, 9)
-      except Exception, e:
-        print e
+    # Ask for Juanje why this is defined
+    #if self.pid:
+    #  try:
+    #    os.kill(self.pid, 9)
+    #  except Exception, e:
+    #    print e
+    
     # Tell the user how much time they used
     pre_log('info', 'You wasted %.2f seconds with this installation' %
                       (time.time()-self.start))
-
+    # exiting from application
     gtk.main_quit()
 
 
@@ -529,6 +581,7 @@ class Wizard:
 
     list_partitions, list_mountpoints, list_sizes, list_partitions_labels, list_mountpoints_labels, list_sizes_labels = [], [], [], [], [], []
 
+    # building widget and name_widget lists to query and modifying original widget status
     for widget_it in self.glade.get_widget('vbox_partitions').get_children()[1:]:
       list_partitions.append(widget_it)
       list_partitions_labels.append(widget_it.get_name())
@@ -539,6 +592,8 @@ class Wizard:
       list_sizes.append(widget_it)
       list_sizes_labels.append(widget_it.get_name())
 
+    # showing new partition and mountpoint widgets if they are needed. Assigning
+    #   new value to size gtklabel.
     if ( widget.get_active_text() not in ['', None] ):
       try:
         index = list_partitions_labels.index(widget.get_name())
@@ -561,6 +616,7 @@ class Wizard:
     """capture return key on live installer to go to next
     screen only if Next button has the focus."""
 
+    # mapping enter key to get more usability
     if ( event.keyval == gtk.gdk.keyval_from_name('Return') ) :
       if ( not self.help.get_property('has-focus')
         and not self.back.get_property('has-focus')
@@ -568,9 +624,29 @@ class Wizard:
         self.next.clicked()
 
 
+  def info_loop(self, widget):
+    """check if all entries from Identification screen are filled. Callback
+    defined in glade file."""
+
+    # each entry is saved as 1 when it's filled and as 0 when it's empty. This
+    #   callback is launched when these widgets are modified.
+    counter = 0
+    if ( widget.get_text() is not '' ):
+      self.entries[widget.get_name()] = 1
+    else:
+      self.entries[widget.get_name()] = 0
+
+    # Counting how many entries are filled.
+    for k, v in self.entries.items():
+      if ( v == 1 ):
+        counter+=1
+    if (counter == 5 ):
+      self.next.set_sensitive(True)
+
+
   def read_stdout(self, source, condition):
     """read msgs from queues to set progress on progress bar label.
-    The '101' message finishes this process returning False."""
+    '101' message finishes this process returning False."""
 
     msg = source.readline()
     if msg.startswith('101'):
@@ -578,21 +654,6 @@ class Wizard:
       return False
     self.set_progress(msg)
     return True
-
-
-  def info_loop(self, widget):
-    """check if all entries from Identification screen are filled."""
-
-    counter = 0
-    if (widget.get_text() is not '' ):
-      self.entries[widget.get_name()] = 1
-    else:
-      self.entries[widget.get_name()] = 0
-    for k, v in self.entries.items():
-      if ( v == 1 ):
-        counter+=1
-    if (counter == 5 ):
-      self.next.set_sensitive(True)
 
 
   def images_loop(self):
@@ -607,6 +668,8 @@ class Wizard:
 
 
   def on_help_clicked(self, widget):
+    """show help message when help button is clicked."""
+
     if ( self.steps.get_current_page() == 1 ):
       msg = "<span>Es necesario que introduzca su <b>nombre de usuario</b> para el sistema, su <b>nombre completo</b> para generar una ficha de usuario, así como el <b>nombre de máquina</b> con el que quiera bautizar su equipo. Deberá teclear la contraseña de usuario en dos ocasiones.</span>"
       self.warning_info.set_markup(msg)
@@ -615,19 +678,26 @@ class Wizard:
 
 
   def on_next_clicked(self, widget):
+    """Callback to control the installation process between steps."""
+
+    # setting actual step
     step = self.steps.get_current_page()
     pre_log('info', 'Step_before = %d' % step)
+
     # From Welcome to Info
     if step == 0:
       self.next.set_label('gtk-go-forward')
       self.next.set_sensitive(False)
       self.steps.next_page()
+
     # From Info to Peez
     # Validation stuff
     elif step == 1:
       from ue import validation
       error_msg = ['\n']
       error = 0
+
+      # checking username entry
       for result in validation.check_username(self.username.get_property('text')):
         if ( result == 1 ):
           error_msg.append("· El <b>nombre de usuario</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
@@ -644,6 +714,8 @@ class Wizard:
         elif ( result in [5, 6] ):
           error_msg.append("· El <b>nombre de usuario</b> ya está en uso o está prohibido.\n")
           error = 1
+
+      # checking password entry
       for result in validation.check_password(self.password.get_property('text'), self.verified_password.get_property('text')):
         if ( result in [1,2] ):
           error_msg.append("· La <b>contraseña</b> tiene tamaño incorrecto (permitido entre 4 y 16 caracteres).\n")
@@ -651,6 +723,8 @@ class Wizard:
         elif ( result == 3 ):
           error_msg.append("· Las <b>contraseñas</b> no coinciden.\n")
           error = 1
+
+      # checking hostname entry
       for result in validation.check_hostname(self.hostname.get_property('text')):
         if ( result == 1 ):
           error_msg.append("· El <b>nombre del equipo</b> tiene tamaño incorrecto (permitido entre 3 y 18 caracteres).\n")
@@ -661,20 +735,17 @@ class Wizard:
         elif ( result == 3 ):
           error_msg.append("· El <b>nombre del equipo</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
           error = 1
+
+      # showing warning message is error is set
       if ( error != 0 ):
         self.show_error(''.join(error_msg))
       else:
-
-        # Next 4 lines commented out by A. Olmo on 11 oct 2005:
-##         # trunks Modification Oct. 10 - 2005
-##         # Disabled on demmand
-##         self.freespace.set_active (False)
-##         self.on_recycle_toggled (self.recycle)
-
+        # showing next step and destroying mozembed widget to release memory
         self.browser_vbox.destroy()
         self.back.show()
         self.help.hide()
         self.steps.next_page()
+
     # From Peez to {Gparted, Progress}
     elif step == 2:
 
@@ -739,6 +810,7 @@ class Wizard:
         self.show_partitions(widget)
       self.size = self.get_sizes()
 
+      # building mountpoints preselection
       self.default_partition_selection = self.get_default_partition_selection(self.size)
 
       # Setting a default partition preselection
@@ -747,6 +819,9 @@ class Wizard:
       else:
         count = 0
         mp = { 'swap' : 0, '/' : 1, '/home' : 2 }
+
+        # Setting default preselection values into ComboBox widgets and setting
+        #   size values. In addition, next row is showed if they're validated.
         for j, k in self.default_partition_selection.items():
           if ( count == 0 ):
             self.partition1.set_active(self.partitions.index(k))
@@ -773,43 +848,56 @@ class Wizard:
               self.mountpoint4.show()
 
       self.steps.next_page()
+
     # From Mountpoints to Progress
     elif step == 4:
 
       # Validating self.mountpoints
       error_msg = ['\n']
       error = 0
-      
-      # creating self.mountpoints list only if the pairs device:mountpoint are
-      # selected
+
+      # creating self.mountpoints list only if the pairs { device : mountpoint } are
+      #   selected.
       list = []
       list_partitions = []
       list_mountpoints = []
+
+      # building widget lists to build dev_mnt dict ( { device : mountpoint } )
       for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
         list_partitions.append(widget)
       for widget in self.glade.get_widget('vbox_mountpoints').get_children()[1:]:
         list_mountpoints.append(widget)
+      # Only if partitions cout or mountpoints count selected are the same,
+      #   dev_mnt is built.
       if ( len(list_partitions) == len(list_mountpoints) ):
         dev_mnt = dict( [ (list_partitions[i], list_mountpoints[i]) for i in range(0,len(list_partitions)) ] )
 
         for dev, mnt in dev_mnt.items():
           if ( dev.get_active_text() != "" and mnt_get_active_text() != None ):
             self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(dev.get_active_text())]] = mnt_get_active_text()
-      else:
-        for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
-          if ( widget.get_active_text() != None ):
-            list.append(widget.get_active_text())
-        for check in list:
-          if ( list.count(check) > 1 ):
-            error_msg.append("· Dispositivos duplicados.\n\n")
-            error = 1
-            break
-        if ( error != 1 ):
-          error_msg.append("· Punto de montaje vacío.\n\n")
-          error = 2
 
+      # Processing validation stuff
+      elif ( len(list_partitions) > len(list_mountpoints) ):
+        error_msg.append("· Punto de montaje vacío.\n\n")
+        error = 1
+      elif ( len(list_partitions) < len(list_mountpoints) ):
+        error_msg.append("· Partición sin seleccionar.\n\n")
+        error = 1
+
+      # Checking duplicated devices
+      for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
+        if ( widget.get_active_text() != None ):
+          list.append(widget.get_active_text())
+
+      for check in list:
+        if ( list.count(check) > 1 ):
+          error_msg.append("· Dispositivos duplicados.\n\n")
+          error = 1
+          break
+
+      # Processing more validation stuff
       for check in check_mountpoint(self.mountpoints, self.size):
-        if ( check == 1 and error != 2 ):
+        if ( check == 1 ):
           error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
           error = 1
         elif ( check == 2 ):
@@ -826,6 +914,7 @@ class Wizard:
           error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
           error = 1
 
+      # showing warning messages
       if ( error != 0 ):
         self.msg_error2.set_text(''.join(error_msg))
         self.msg_error2.show()
@@ -833,20 +922,24 @@ class Wizard:
       else:
         self.back.hide()
         self.steps.next_page()
+        # setting busy mouse cursor
         self.live_installer.window.set_cursor(self.watch)
 
+        # refreshing UI
         while gtk.events_pending():
           gtk.main_iteration()
 
-        # Destroy gparted to release mem
+        # Destroy gparted tree widgets
         self.embedded.destroy()
         self.next.set_sensitive(False)
 
+        # killing gparted to release mem
         try:
           os.kill(self.gparted_pid, 9)
         except Exception, e:
           print e
 
+        # Starting installation core process
         self.progress_loop()
 
     step = self.steps.get_current_page()
@@ -854,8 +947,13 @@ class Wizard:
 
 
   def on_back_clicked(self, widget):
+    """Callback to set previous screen."""
+
+    # Enabling next button
     self.next.set_sensitive(True)
+    # Setting actual step
     step = self.steps.get_current_page()
+
     if step == 2:
       self.back.hide()
 
