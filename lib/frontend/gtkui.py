@@ -308,33 +308,6 @@ class Wizard:
     return partition
 
 
-  def get_filesystems(self):
-    """return a dictionary with a skeleton { device : filesystem }
-    with data from local hard disks. Only swap and ext3 filesystems
-    are available."""
-
-    import re, subprocess
-    device_list = {}
-
-    # building device_list dicts from "file -s" output from get_partitions
-    #   returned list (only devices formatted as ext3, fat, ntfs or swap are
-    #   parsed).
-    partition_list = self.get_partitions()
-    for devices in partition_list:
-      filesystem_pipe = subprocess.Popen(['file', '-s', devices.split()[0]], stdout=subprocess.PIPE)
-      filesystem = filesystem_pipe.communicate()[0]
-      if re.match('.*((ext3)|(swap)|(extended)|(data)).*', filesystem, re.I):
-        if 'ext3' in filesystem.split() or 'data' in filesystem.split() or 'extended' in filesystem.split():
-          device_list[devices.split()[0]] = 'ext3'
-        elif 'swap' in filesystem.split():
-          device_list[devices.split()[0]] = 'swap'
-        elif 'FAT' in filesystem.spli():
-          device_list[devices.split()[0]] = 'vfat'
-        elif 'NTFS' in filesystem.spli():
-          device_list[devices.split()[0]] = 'ntfs'
-    return device_list
-
-
   def get_default_partition_selection(self, size):
     """return a dictionary with a skeleton { mountpoint : device }
     as a default partition selection. The first partition with max size
@@ -351,7 +324,7 @@ class Wizard:
     size_ordered.reverse()
 
     # getting filesystem dict ( { device : fs } )
-    device_list = self.get_filesystems()
+    device_list = get_filesystems()
 
     # building an initial mountpoint preselection dict. Assigning only preferred
     #   partitions for each mountpoint (highest ext3 partition to '/', the
