@@ -294,20 +294,6 @@ class Wizard:
     return msg
 
 
-  def get_partitions(self):
-    """return an array with fdisk output related to partition data."""
-
-    import re, subprocess
-
-    # parsing fdisk output
-    partition_table_pipe = subprocess.Popen(['/sbin/fdisk', '-l'], stdout=subprocess.PIPE)
-    partition_table = partition_table_pipe.communicate()[0]
-    regex = re.compile(r'/dev/[a-z]+[0-9]+.*')
-    partition = regex.findall(partition_table)
-
-    return partition
-
-
   def get_default_partition_selection(self, size):
     """return a dictionary with a skeleton { mountpoint : device }
     as a default partition selection. The first partition with max size
@@ -361,7 +347,7 @@ class Wizard:
 
     # setting GtkComboBox partition values from get_partition return.
     self.partitions = []
-    partition_list = self.get_partitions()
+    partition_list = get_partitions()
     treelist = gtk.ListStore(gobject.TYPE_STRING)
 
     # the first element is empty to allow deselect a preselected device
@@ -580,7 +566,7 @@ class Wizard:
 
       if ( list_partitions[index].get_active_text() != None and
            list_mountpoints[index].get_active_text() != "" and
-           len(self.get_partitions()) >= index+1 ):
+           len(get_partitions()) >= index+1 ):
         list_partitions[index+1].show()
         list_mountpoints[index+1].show()
         list_sizes[index+1].show()
@@ -805,7 +791,7 @@ class Wizard:
             self.partition1.set_active(self.partitions.index(k))
             self.mountpoint1.set_active(mp[j])
             self.size1.set_text(self.set_size_msg(k))
-            if ( len(self.get_partitions()) > 1 ):
+            if ( len(get_partitions()) > 1 ):
               self.partition2.show()
               self.mountpoint2.show()
             count += 1
@@ -813,7 +799,7 @@ class Wizard:
             self.partition2.set_active(self.partitions.index(k))
             self.mountpoint2.set_active(mp[j])
             self.size2.set_text(self.set_size_msg(k))
-            if ( len(self.get_partitions()) > 2 ):
+            if ( len(get_partitions()) > 2 ):
               self.partition3.show()
               self.mountpoint3.show()
             count += 1
@@ -821,7 +807,7 @@ class Wizard:
             self.partition3.set_active(self.partitions.index(k))
             self.mountpoint3.set_active(mp[j])
             self.size3.set_text(self.set_size_msg(k))
-            if ( len(self.get_partitions()) > 3 ):
+            if ( len(get_partitions()) > 3 ):
               self.partition4.show()
               self.mountpoint4.show()
 

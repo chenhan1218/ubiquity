@@ -145,9 +145,9 @@ class Config:
       if ( fs in ['vfat', 'ntfs'] ):
         passno = 2
         if fs == 'vfat' :
-          options = 'defaults,users,sync,auto,umask=022'
+          options = 'rw,exec,users,sync,noauto,umask=022'
         else:
-          options = 'utf8,auto,user,exec,uid=1000,gid=1000'
+          options = 'utf8,noauto,user,exec,uid=1000,gid=1000'
         path = '/media/Windows%d' % counter
         os.mkdir(os.path.join(self.target, path[1:]))
         counter += 1

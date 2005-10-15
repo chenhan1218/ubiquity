@@ -130,7 +130,21 @@ def get_progress(str):
   return num, text
 
 
-def get_filesystems(self):
+def get_partitions():
+  """return an array with fdisk output related to partition data."""
+
+  import re, subprocess
+
+  # parsing fdisk output
+  partition_table_pipe = subprocess.Popen(['/sbin/fdisk', '-l'], stdout=subprocess.PIPE)
+  partition_table = partition_table_pipe.communicate()[0]
+  regex = re.compile(r'/dev/[a-z]+[0-9]+.*')
+  partition = regex.findall(partition_table)
+
+  return partition
+
+
+def get_filesystems():
   """return a dictionary with a skeleton { device : filesystem }
   with data from local hard disks. Only swap and ext3 filesystems
   are available."""
@@ -141,7 +155,7 @@ def get_filesystems(self):
   # building device_list dicts from "file -s" output from get_partitions
   #   returned list (only devices formatted as ext3, fat, ntfs or swap are
   #   parsed).
-  partition_list = self.get_partitions()
+  partition_list = get_partitions()
   for devices in partition_list:
     filesystem_pipe = subprocess.Popen(['file', '-s', devices.split()[0]], stdout=subprocess.PIPE)
     filesystem = filesystem_pipe.communicate()[0]
