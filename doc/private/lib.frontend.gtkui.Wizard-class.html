@@ -100,9 +100,10 @@ screen about the install process.</td></tr>
 <br />
 check if all entries from Identification screen are filled.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="on_back_clicked"></a><span class="summary-sig"><span class="summary-sig-name">on_back_clicked</span>(<span class=summary-sig-arg>self</span>,
+  <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#on_back_clicked" class="summary-sig-name"><code>on_back_clicked</code></a>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>widget</span>)</span></code>
-</td></tr>
+<br />
+Callback to set previous screen.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
   <td><code><a name="on_cancel_clicked"></a><span class="summary-sig"><span class="summary-sig-name">on_cancel_clicked</span>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>widget</span>)</span></code>
@@ -133,9 +134,10 @@ chekboxes to reflect the set of permited operations on the new drive.</td></tr>
 <br />
 Update help message when this radio button is selected.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="on_help_clicked"></a><span class="summary-sig"><span class="summary-sig-name">on_help_clicked</span>(<span class=summary-sig-arg>self</span>,
+  <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#on_help_clicked" class="summary-sig-name"><code>on_help_clicked</code></a>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>widget</span>)</span></code>
-</td></tr>
+<br />
+show help message when help button is clicked.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
   <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#on_key_press" class="summary-sig-name"><code>on_key_press</code></a>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>widget</span>,
@@ -155,9 +157,10 @@ mountpoint screen.</td></tr>
 <br />
 Update help message when this radio button is selected.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="on_next_clicked"></a><span class="summary-sig"><span class="summary-sig-name">on_next_clicked</span>(<span class=summary-sig-arg>self</span>,
+  <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#on_next_clicked" class="summary-sig-name"><code>on_next_clicked</code></a>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>widget</span>)</span></code>
-</td></tr>
+<br />
+Callback to control the installation process between steps.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
   <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#on_recycle_toggled" class="summary-sig-name"><code>on_recycle_toggled</code></a>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>widget</span>)</span></code>
@@ -317,7 +320,18 @@ values.</td></tr>
   <h3><span class="sig"><span class="sig-name">info_loop</span>(<span class=sig-arg>self</span>,
           <span class=sig-arg>widget</span>)</span>
   </h3>
-  check if all entries from Identification screen are filled.
+  check if all entries from Identification screen are filled. Callback 
+  defined in glade file.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="on_back_clicked"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">on_back_clicked</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>widget</span>)</span>
+  </h3>
+  Callback to set previous screen.
   <dl><dt></dt><dd>
   </dd></dl>
 </td></tr></table>
@@ -355,6 +369,16 @@ values.</td></tr>
   </dd></dl>
 </td></tr></table>
 
+<a name="on_help_clicked"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">on_help_clicked</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>widget</span>)</span>
+  </h3>
+  show help message when help button is clicked.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
 <a name="on_key_press"></a>
 <table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
   <h3><span class="sig"><span class="sig-name">on_key_press</span>(<span class=sig-arg>self</span>,
@@ -385,6 +409,16 @@ values.</td></tr>
           <span class=sig-arg>widget</span>)</span>
   </h3>
   Update help message when this radio button is selected.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="on_next_clicked"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">on_next_clicked</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>widget</span>)</span>
+  </h3>
+  Callback to control the installation process between steps.
   <dl><dt></dt><dd>
   </dd></dl>
 </td></tr></table>
@@ -437,8 +471,8 @@ values.</td></tr>
           <span class=sig-arg>source</span>,
           <span class=sig-arg>condition</span>)</span>
   </h3>
-  read msgs from queues to set progress on progress bar label. The 
-  '101' message finishes this process returning False.
+  read msgs from queues to set progress on progress bar label. '101' 
+  message finishes this process returning False.
   <dl><dt></dt><dd>
   </dd></dl>
 </td></tr></table>
@@ -544,7 +578,7 @@ values.</td></tr>
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr>
-    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Tue Oct 11 20:12:02 2005</font></td>
+    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Sat Oct 15 00:59:22 2005</font></td>
     <td align="right"><a href="http://epydoc.sourceforge.net"
                       ><font size="-2">http://epydoc.sf.net</font></a></td>
   </tr>

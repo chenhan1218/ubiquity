@@ -1655,7 +1655,7 @@ If you kept an intact home partition, you can now link it with the “/home” m
 		      </child>
 
 		      <child>
-			<widget class="GtkVBox" id="vbox_mountpoints">
+			<widget class="GtkVBox" id="vbox18">
 			  <property name="visible">True</property>
 			  <property name="homogeneous">False</property>
 			  <property name="spacing">0</property>
@@ -1686,7 +1686,7 @@ If you kept an intact home partition, you can now link it with the “/home” m
 				      <property name="spacing">0</property>
 
 				      <child>
-					<widget class="GtkVBox" id="vbox18">
+					<widget class="GtkVBox" id="vbox_mountpoints">
 					  <property name="visible">True</property>
 					  <property name="homogeneous">False</property>
 					  <property name="spacing">5</property>
@@ -1925,7 +1925,7 @@ If you kept an intact home partition, you can now link it with the “/home” m
 				      </child>
 
 				      <child>
-					<widget class="GtkVBox" id="vbox21">
+					<widget class="GtkVBox" id="vbox_sizes">
 					  <property name="visible">True</property>
 					  <property name="homogeneous">False</property>
 					  <property name="spacing">0</property>
