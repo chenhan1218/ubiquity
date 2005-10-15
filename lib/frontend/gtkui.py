@@ -317,7 +317,8 @@ class Wizard:
     device_list = {}
 
     # building device_list dicts from "file -s" output from get_partitions
-    #   returned list (only devices formatted as ext3 or swap are parsed).
+    #   returned list (only devices formatted as ext3, fat, ntfs or swap are
+    #   parsed).
     partition_list = self.get_partitions()
     for devices in partition_list:
       filesystem_pipe = subprocess.Popen(['file', '-s', devices.split()[0]], stdout=subprocess.PIPE)
@@ -327,6 +328,10 @@ class Wizard:
           device_list[devices.split()[0]] = 'ext3'
         elif 'swap' in filesystem.split():
           device_list[devices.split()[0]] = 'swap'
+        elif 'FAT' in filesystem.spli():
+          device_list[devices.split()[0]] = 'vfat'
+        elif 'NTFS' in filesystem.spli():
+          device_list[devices.split()[0]] = 'ntfs'
     return device_list
 
 

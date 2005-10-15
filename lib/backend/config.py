@@ -125,21 +125,34 @@ class Config:
     for device, path in self.mountpoints.items():
         if path == '/':
             passno = 1
+            options = 'defaults,errors=remount-ro'
+            filesystem = 'ext3'
         elif path == 'swap':
             swap = 1
             passno = 0
+            filesystem = 'swap'
+            options = 'sw'
+            path = 'none'
         else:
             passno = 2
-
-        if path != 'swap':
-          filesystem = 'ext3'
-          options = 'defaults'
-        else:
-          filesystem = 'swap'
-          options = 'sw'
-          path = 'none'
+            filesystem = 'ext3'
+            options = 'defaults'
 
         print >>fstab, '%s\t%s\t%s\t%s\t%d\t%d' % (device, path, filesystem, options, 0, passno)
+
+    counter = 1
+    for device, fs in misc.get_filesystem():
+      if ( fs in ['vfat', 'ntfs'] ):
+        passno = 2
+        if fs == 'vfat' :
+          options = 'defaults,users,sync,auto,umask=022'
+        else:
+          options = 'utf8,auto,user,exec,uid=1000,gid=1000'
+        path = '/media/Windows%d' % counter
+        os.mkdir(os.path.join(self.target, path[1:]))
+        counter += 1
+
+        print >>fstab, '%s\t%s\t%s\t%s\t%d\t%d' % (device, path, fs, options, 0, passno)
 
     # if swap partition isn't defined, we create a swapfile
     if ( swap != 1 ):
