@@ -8,7 +8,7 @@ Standards-Version: 3.6.2.1
 Package: ubuntu-express
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf, yaboot | grub, ubuntu-express-frontend, system-tools-backends, ubuntu-express-doc
-Recommends: partman-ue, gparted
+Recommends: gparted, peez2
 Description: Ubuntu Live installer
  Live installers have featured itself until now by being very
  simple, friendly and graphical.
