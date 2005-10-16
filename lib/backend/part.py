@@ -92,9 +92,9 @@ def call_gparted(widget):
     except:
       widget.destroy()
       return None
-    
+
   #FIXME:We need to know how the mounpoints are showed up
-  
+
   return out.pid
 
 # vim:ai:et:sts=2:tw=80:sw=2:

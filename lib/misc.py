@@ -3,6 +3,8 @@
 
 
 def grub_dev(dev):
+    """returns a device name in grub mode from a unix device name."""
+
     leter = {'a': '0', 'b': '1', 'c': '2', 'd': '3', 'e': '4',
           'f': '5', 'g': '6', 'h': '7', 'i': '8'}
     num   = {'1': '0', '2': '1', '3': '2', '4': '3', '5': '4',
@@ -14,6 +16,8 @@ def grub_dev(dev):
 
 
 def make_yaboot_header(target, target_dev):
+    """builds yaboot header config-file."""
+
     import os, re
 
     yaboot_conf = open(target + '/etc/yaboot.conf', 'w')
@@ -53,6 +57,8 @@ def make_yaboot_header(target, target_dev):
 
 
 def ex(*args):
+    """runs args* in shell mode. Output status is taken."""
+
     import subprocess
     status = subprocess.call(args)
     msg = ''
@@ -82,6 +88,8 @@ def ret_ex(*args):
 
 
 def get_var():
+  """gets install input data from vars file."""
+
   import cPickle
   file = open('/tmp/vars')
   var = cPickle.load(file)
@@ -90,6 +98,8 @@ def get_var():
 
 
 def set_var(var):
+  """sets install input data into a vars file."""
+
   import cPickle
   file = open('/tmp/vars', 'w')
   cPickle.dump(var, file, -1)
@@ -97,6 +107,7 @@ def set_var(var):
 
 
 def pre_log(code, msg=''):
+  """logs install messages into /var/log on live filesystem."""
 
   distro = open ('/etc/lsb-release').readline ().strip ().split ('=') [1].lower ()
   log_file = '/var/log/' + distro + '-express'
@@ -111,6 +122,7 @@ def pre_log(code, msg=''):
 
 
 def post_log(code, msg=''):
+  """logs install messages into /var/log on installed filesystem."""
 
   distro = open ('/etc/lsb-release').readline ().strip ().split ('=') [1].lower ()
   log_file = '/target/var/log/' + distro + '-express'
@@ -125,13 +137,15 @@ def post_log(code, msg=''):
 
 
 def get_progress(str):
+  """gets progress percentaje of installing process from progress bar message."""
+
   num = int(str.split()[:1][0])
   text = ' '.join(str.split()[1:])
   return num, text
 
 
 def get_partitions():
-  """return an array with fdisk output related to partition data."""
+  """returns an array with fdisk output related to partition data."""
 
   import re, subprocess
 
@@ -145,7 +159,7 @@ def get_partitions():
 
 
 def get_filesystems():
-  """return a dictionary with a skeleton { device : filesystem }
+  """returns a dictionary with a skeleton { device : filesystem }
   with data from local hard disks. Only swap and ext3 filesystems
   are available."""
 
