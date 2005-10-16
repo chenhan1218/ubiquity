@@ -1,3 +1,14 @@
+ubuntu-express (0.98ubuntu1) breezy; urgency=low
+
+  * Added mountpoints validation and mountpoints preselection.
+  * Added remaining time to progress bar.
+  * Added a lot of source documentation and epydoc output fully updated.
+  * Added peez2 autopartitioning (using freespace and reusing linux filesystems
+    partition algorithms implemented).
+  * A lot of bugfixes.
+
+ -- Javier Carranza <javier.carranza@interactors.coop>  Sun, 16 Oct 2005 11:05:34 +0200
+
 ubuntu-express (0.92ubuntu1) breezy; urgency=low
 
   * Added new mountpoint selector.
