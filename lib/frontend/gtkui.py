@@ -366,7 +366,7 @@ class Wizard:
 
     # saving UI input data to vars file
     self.set_vars_file()
-    
+
     # Set timeout objects (to get animated images on installing screen)
     self.timeout_images = gobject.timeout_add(60000, self.images_loop)
     # first image iteration
@@ -788,7 +788,7 @@ class Wizard:
         #   size values. In addition, next row is showed if they're validated.
         for j, k in self.default_partition_selection.items():
           if ( count == 0 ):
-            self.partition1.set_active(self.partitions.index(k))
+            self.partition1.set_active(self.partitions.index(k)+1)
             self.mountpoint1.set_active(mp[j])
             self.size1.set_text(self.set_size_msg(k))
             if ( len(get_partitions()) > 1 ):
@@ -796,7 +796,7 @@ class Wizard:
               self.mountpoint2.show()
             count += 1
           elif ( count == 1 ):
-            self.partition2.set_active(self.partitions.index(k))
+            self.partition2.set_active(self.partitions.index(k)+1)
             self.mountpoint2.set_active(mp[j])
             self.size2.set_text(self.set_size_msg(k))
             if ( len(get_partitions()) > 2 ):
@@ -804,7 +804,7 @@ class Wizard:
               self.mountpoint3.show()
             count += 1
           elif ( count == 2 ):
-            self.partition3.set_active(self.partitions.index(k))
+            self.partition3.set_active(self.partitions.index(k)+1)
             self.mountpoint3.set_active(mp[j])
             self.size3.set_text(self.set_size_msg(k))
             if ( len(get_partitions()) > 3 ):
@@ -837,8 +837,8 @@ class Wizard:
         dev_mnt = dict( [ (list_partitions[i], list_mountpoints[i]) for i in range(0,len(list_partitions)) ] )
 
         for dev, mnt in dev_mnt.items():
-          if ( dev.get_active_text() != "" and mnt_get_active_text() != None ):
-            self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(dev.get_active_text())]] = mnt_get_active_text()
+          if ( dev.get_active_text() != None and mnt.get_active_text() != "" ):
+            self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(dev.get_active_text())]] = mnt.get_active_text()
 
       # Processing validation stuff
       elif ( len(list_partitions) > len(list_mountpoints) ):
