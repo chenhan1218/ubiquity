@@ -246,7 +246,6 @@ class Wizard:
 
     return part.call_autoparted (self.__assistant, drive, progress_bar)
 
-
   def gparted_loop(self):
     """call gparted and embed it into glade interface."""
 
@@ -739,7 +738,7 @@ class Wizard:
           # To set normal mouse again:
           self.live_installer.window.set_cursor (None)
 
-          self.mountpoints = selected_drive ['linux_before']
+          self.mountpoints = where
           stderr.write ('\n\n' + str (self.mountpoints) + '\n\n')
           self.steps.set_current_page(5)
 

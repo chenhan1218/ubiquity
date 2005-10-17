@@ -8,7 +8,7 @@
 # 
 # - Antonio Olmo Titos <aolmo#emergya._info>
 # 
-# Este fichero es parte del instalador en directo de Guadalinex 2005.
+
 # 
 # El instalador en directo de Guadalinex 2005 es software libre. Puede
 # redistribuirlo y/o modificarlo bajo los términos de la Licencia Pública
@@ -532,7 +532,7 @@ class Peez2:
                     result ['metacoms'] = []
 
                 result ['metacoms'].append (fields [1])
-            elif 'OD#' == i [:3]:
+            elif 'OD#' == i [:3] and after_menu:
 
                 if None == result:
                     result = {}
@@ -733,14 +733,26 @@ class Peez2:
                         if result is None:
                             result = {}
 
-                        result [info ['dest']] = part.strip ()
+                        result [(info ['dest']).strip ()] = part.strip ()
 
                         if self.__debug:
                             stderr.write (str (part.strip ()) + \
                                           ' added as ' + \
-                                          str (info ['dest']) + '\n')
+                                          str ((info ['dest']).strip ()) + '\n')
                     else:
                         extended = extended + 1
+
+        # During formatting and copying, "root" is known as "/",
+        # and "home" is known as "/home", so it is necessary to
+        # change them before passing mount point associations to
+        # the backend:
+
+        for i in result.keys ():
+
+            if 'root' == result [i].lower ():
+                result [i] = '/'
+            elif 'home' == result [i].lower ():
+                result [i] = '/home'
 
         return result
 
