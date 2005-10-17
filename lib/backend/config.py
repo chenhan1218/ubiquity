@@ -201,6 +201,7 @@ class Config:
     passwd = subprocess.Popen(['echo', self.username + ':' + self.password],
         stdout=subprocess.PIPE)
     subprocess.Popen(['chroot', self.target, 'chpasswd', '--md5'], stdin=passwd.stdout)
+    self.chrex('deluser', 'guada')
     self.chrex('rm', '-rf', '/home/guada')
     self.chrex('mkdir', '/home/%s' % self.username)
     self.chrex('adduser', self.username, 'admin')
