@@ -1079,7 +1079,7 @@ class Wizard:
         'disco duro. Se van a usar esas mismas particiones para el nuevo ' +
         'sistema, <b>reemplazando</b> al anterior.\n\nTenga en cuenta que ' +
         '<b>todos los datos que hubiese en ese sistema Linux previo se ' +
-        'perderán irremisiblemente</b>.</span>' + where)
+        'perderán de manera irreversible</b>.</span>' + where)
 
 
   # Public method "on_manually_toggled" ______________________________________

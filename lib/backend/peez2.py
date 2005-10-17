@@ -49,7 +49,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo#emergya._info> on 25 aug 2005.
-# Last modified on 13 oct 2005.
+# Last modified on 17 oct 2005.
 
 # TODO: improve debug and log system.
 
@@ -149,8 +149,8 @@ class Peez2:
         self.__ONLY_MANUALLY = False
 
         # Every partitioning command executed will be also written here:
-        Popen3 ('rm /tmp/guadalinex-express.commands')
-
+        p = Popen3 ('rm /tmp/guadalinex-express.commands')
+        p.wait ()
 
     # Public method "get_drives" _____________________________________________
 
@@ -617,19 +617,22 @@ class Peez2:
                     progress_bar.pulse ()
                     progress_bar.set_text ('Making %i MB partition...' % required)
 
-                if extended > 3:
+                if extended > 1:
+                    stderr.write ('-- 1 --\n')
                     info = self.__get_info (drive ['id'], required, '-j')
                 elif drive.has_key ('info'):
+                    stderr.write ('-- 2 --\n')
 
                     if drive ['info'].has_key ('ext'):
 
                         if drive ['info'] ['ext'] > 0:
-                            extended = 4
+                            extended = 2
                             info = self.__get_info (drive ['id'], required, '-j')
 
-                if extended < 3:
+                if extended < 1:
+                    stderr.write ('-- 3 --\n')
                     # It is necessary to create an extended partition:
-                    required = int (sum (self.__partition_scheme.values ()) * 1.1)
+                    required = int (sum (self.__partition_scheme.values ()) * 1.25)
                     info = self.__get_info (drive ['id'], required, '-x')
                     components.append (part)
                     extended = extended + 1
@@ -637,10 +640,13 @@ class Peez2:
                 # Now we have to decide which option is better:
                 try:
                     options = info ['opts']
+
+                    stderr.write (str (options) + '\n')
+
                 except:
 
                     if self.__debug:
-                        stderr.write ('auto_partition: inf contains "' +
+                        stderr.write ('auto_partition: info contains "' +
                                       str (info) + '".\n')
 
                 what = -1
@@ -664,9 +670,10 @@ class Peez2:
 
                 if -1 != what:
 
-                    if extended < 4:
+                    if extended < 2:
                         info = self.__get_info (drive ['id'], required,
                                                 '-x -i', str (what) + '\n')
+                        extended = extended + 1
                     else:
                         info = self.__get_info (drive ['id'], required,
                                                 '-j -i', str (what) + '\n')
@@ -674,22 +681,30 @@ class Peez2:
                     if info.has_key ('commands'):
                         c = info ['commands']
 
+                        stderr.write ('--> c --> ' + str (c) + '\n')
+
                     if self.__debug:
-                        Popen3 ('echo "Creando ' + str (part) +
+                        p = Popen3 ('echo "Creando ' + str (part) +
                                 '..." >> /tmp/guadalinex-express.commands')
+                        p.wait ()
 
-                        for i in c:
+                    for i in c:
 
-                            # Print the commands:
-                            if self.__debug:
-                                stderr.write ('auto_partition: command: "' +
-                                              i.strip () + '" executed.\n')
-                                Popen3 ('echo "' + i.strip () +
-                                        '" >> /tmp/guadalinex-express.commands')
+                        # Print the commands:
+                        if self.__debug:
+                            stderr.write ('auto_partition: command: "' +
+                                          i.strip () + '" executed.\n')
+                            p = Popen3 ('echo "' + i.strip () +
+                                    '" >> /tmp/guadalinex-express.commands')
+                            p.wait ()
 
-                            if do_it:
-                                # Do it! Execute commands to make partitions!
-                                p = Popen3 (i)
+                        if do_it:
+                            # Do it! Execute commands to make partitions!
+                            p = Popen3 (i)
+                            p.wait ()
+                            # Let the system be aware of the change:
+                            p = Popen3 ('sleep 2')
+                            p.wait ()
 
                     if info.has_key ('metacoms'):
                         mc = info ['metacoms']
@@ -699,7 +714,11 @@ class Peez2:
                             if self.__debug:
                                 stderr.write ('# ' + i)
 
-                    if info.has_key ('dest') and extended > 3:
+                    if info.has_key ('dest') and extended > 1:
+
+                        if result is None:
+                            result = {}
+
                         result [info ['dest']] = part.strip ()
 
         return result
@@ -720,6 +739,7 @@ class Peez2:
             stderr.write ('__call_peez2: command "' + command + '" executed.\n')
 
         child = Popen3 (command, False, 1048576)
+#        child.wait ()
 
         return {'out': child.fromchild,
                 'in':  child.tochild,
