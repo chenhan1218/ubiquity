@@ -165,8 +165,8 @@ class Peez2:
 
         for i in self.__drives:
 
-            if self.__debug:
-                stderr.write ('get_drives: drive follows.\n' + str (i) + '\n')
+##             if self.__debug:
+##                 stderr.write ('get_drives: drive follows.\n' + str (i) + '\n')
 
             pretty_device = beautify_device (i ['device'], self.__locale)
             pretty_size = beautify_size (i ['size'])
@@ -190,9 +190,9 @@ class Peez2:
 
                 for j in i ['info'] ['details']:
 
-                    if self.__debug:
-                        stderr.write ('get_drives: drive details follows.\n' +
-                                      str (j) + '\n')
+##                     if self.__debug:
+##                         stderr.write ('get_drives: drive details follows.\n' +
+##                                       str (j) + '\n')
 
                     if 'linux' in j ['class'].lower () or \
                            'swap' in j ['class'].lower () or \
@@ -385,10 +385,16 @@ class Peez2:
                                             parts ['root'], parts ['home']),
                                            input) ['out']
 
+        after_menu = False
+
         for i in lines:
 
+            # This case temporarily solves last "Peez2" bug:
+            if i.startswith ('Please select a choice:') or \
+               i.startswith ('Por favor, seleccione una opc'):
+                after_menu = True
             # "Aviso":
-            if 'AA#' == i [:3]:
+            elif 'AA#' == i [:3]:
 
                 if None == result:
                     result = {}
@@ -506,7 +512,7 @@ class Peez2:
                     result ['oks'] = []
 
                 result ['oks'].append (fields)
-            elif 'CC#' == i [:3]:
+            elif 'CC#' == i [:3] and after_menu:
                 fields = i [3:].split ('#')
 
                 if None == result:
@@ -548,6 +554,7 @@ class Peez2:
             if 'PAV' == i [:3] or 'PAH' == i [:3]:
 
                 # This patch temporarily solves Peez2 output bug:
+                # TODO: remove this patch?
                 next = i [3:].find ('PAV')
                 other_next = i [3:].find ('PAH')
 
@@ -578,9 +585,9 @@ class Peez2:
                                  'class': fields [5]}
                     result ['details'].append (this_part)
 
-        if self.__debug and result.has_key ('details'):
-            stderr.write ('__get_info: details "' + \
-                          str (result ['details']) + '"\n')
+##         if self.__debug and result.has_key ('details'):
+##             stderr.write ('__get_info: details "' + \
+##                           str (result ['details']) + '"\n')
 
         return result
 
@@ -631,8 +638,9 @@ class Peez2:
 
                 if extended < 1:
                     stderr.write ('-- 3 --\n')
-                    # It is necessary to create an extended partition:
-                    required = int (sum (self.__partition_scheme.values ()) * 1.25)
+                    # It is necessary to create an extended partition
+                    # (with 10% more space):
+                    required = int (sum (self.__partition_scheme.values ()) * 1.1)
                     info = self.__get_info (drive ['id'], required, '-x')
                     components.append (part)
                     extended = extended + 1
@@ -670,6 +678,9 @@ class Peez2:
 
                 if -1 != what:
 
+                    if info.has_key ('commands'):
+                        stderr.write ('========= ' + str (info ['commands']) + '\n\n')
+                    
                     if extended < 2:
                         info = self.__get_info (drive ['id'], required,
                                                 '-x -i', str (what) + '\n')
@@ -677,6 +688,9 @@ class Peez2:
                     else:
                         info = self.__get_info (drive ['id'], required,
                                                 '-j -i', str (what) + '\n')
+
+                    if info.has_key ('commands'):
+                        stderr.write ('========= ' + str (info ['commands']) + '\n\n')
 
                     if info.has_key ('commands'):
                         c = info ['commands']
@@ -703,7 +717,7 @@ class Peez2:
                             p = Popen3 (i)
                             p.wait ()
                             # Let the system be aware of the change:
-                            p = Popen3 ('sleep 2')
+                            p = Popen3 ('sleep 5')
                             p.wait ()
 
                     if info.has_key ('metacoms'):
@@ -714,12 +728,19 @@ class Peez2:
                             if self.__debug:
                                 stderr.write ('# ' + i)
 
-                    if info.has_key ('dest') and extended > 1:
+                    if info.has_key ('dest') and extended is not 2:
 
                         if result is None:
                             result = {}
 
                         result [info ['dest']] = part.strip ()
+
+                        if self.__debug:
+                            stderr.write (str (part.strip ()) + \
+                                          ' added as ' + \
+                                          str (info ['dest']) + '\n')
+                    else:
+                        extended = extended + 1
 
         return result
 
