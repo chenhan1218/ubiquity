@@ -141,7 +141,7 @@ class Config:
         print >>fstab, '%s\t%s\t%s\t%s\t%d\t%d' % (device, path, filesystem, options, 0, passno)
 
     counter = 1
-    for device, fs in misc.get_filesystems():
+    for device, fs in misc.get_filesystems().items():
       if ( fs in ['vfat', 'ntfs'] ):
         passno = 2
         if fs == 'vfat' :
