@@ -1213,17 +1213,42 @@
 			      </child>
 
 			      <child>
-				<widget class="GtkCheckButton" id="confirmation_checkbutton">
-				  <property name="tooltip" translatable="yes">Marque esta casilla para confirmar que desea reemplazar los datos de estas tres particiones</property>
-				  <property name="can_focus">True</property>
-				  <property name="label" translatable="yes">Confirmar el uso de estas particiones</property>
-				  <property name="use_underline">True</property>
-				  <property name="relief">GTK_RELIEF_NORMAL</property>
-				  <property name="focus_on_click">True</property>
-				  <property name="active">False</property>
-				  <property name="inconsistent">False</property>
-				  <property name="draw_indicator">True</property>
-				  <signal name="toggled" handler="on_confirmation_checkbutton_toggled" last_modification_time="Mon, 03 Oct 2005 15:54:46 GMT"/>
+				<placeholder/>
+			      </child>
+
+			      <child>
+				<widget class="GtkVBox" id="vbox21">
+				  <property name="visible">True</property>
+				  <property name="homogeneous">False</property>
+				  <property name="spacing">0</property>
+
+				  <child>
+				    <placeholder/>
+				  </child>
+
+				  <child>
+				    <widget class="GtkCheckButton" id="confirmation_checkbutton">
+				      <property name="tooltip" translatable="yes">Marque esta casilla para confirmar que desea reemplazar los datos de estas tres particiones</property>
+				      <property name="can_focus">True</property>
+				      <property name="label" translatable="yes">Confirmar el uso de estas particiones</property>
+				      <property name="use_underline">True</property>
+				      <property name="relief">GTK_RELIEF_NORMAL</property>
+				      <property name="focus_on_click">True</property>
+				      <property name="active">False</property>
+				      <property name="inconsistent">False</property>
+				      <property name="draw_indicator">True</property>
+				      <signal name="toggled" handler="on_confirmation_checkbutton_toggled" last_modification_time="Mon, 03 Oct 2005 15:54:46 GMT"/>
+				    </widget>
+				    <packing>
+				      <property name="padding">0</property>
+				      <property name="expand">False</property>
+				      <property name="fill">False</property>
+				    </packing>
+				  </child>
+
+				  <child>
+				    <placeholder/>
+				  </child>
 				</widget>
 				<packing>
 				  <property name="padding">0</property>

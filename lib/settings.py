@@ -50,11 +50,12 @@
 # File "settings.py".
 # Global settings.
 # Created by Antonio Olmo <aolmo#emergya._info> on 7 oct 2005.
+# Last modified on 18 oct 2005.
 
 DEBUGGING_STATUS = True
 
-MINIMAL_PARTITION_SCHEME = {'swap':  256,
-                            'root': 1536,
+MINIMAL_PARTITION_SCHEME = {'swap':  205,
+                            'root': 2355,
                             'home':  512}
 
 LARGER_PARTITION_SCHEME = {'swap':  1024,

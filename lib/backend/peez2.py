@@ -49,7 +49,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo#emergya._info> on 25 aug 2005.
-# Last modified on 17 oct 2005.
+# Last modified on 18 oct 2005.
 
 # TODO: improve debug and log system.
 
@@ -172,6 +172,8 @@ class Peez2:
             pretty_size = beautify_size (i ['size'])
             label = '%s, %s, "%s"' % (pretty_size, pretty_device, i ['label'])
 
+            # First, check that there is room enough for three new partitions:
+
             # We are not using a more compact construct below to explicit that
             #     the same 3 partitions, in the same order, are always used:
             required_MB = sum (self.__partition_scheme.values ())
@@ -181,18 +183,101 @@ class Peez2:
             else:
                 enough = False
 
-            associations = None
+##             if i ['info'].has_key ('details'):
+##                 linux_parts = 0
+##                 linux_space = []
+##                 linux_names = []
+##                 linux_assoc = {}
 
-            if i ['info'].has_key ('details'):
-                linux_parts = 0
-                linux_space = []
-                linux_names = []
-
-                for j in i ['info'] ['details']:
+##                 for j in i ['info'] ['details']:
 
 ##                     if self.__debug:
 ##                         stderr.write ('get_drives: drive details follows.\n' +
 ##                                       str (j) + '\n')
+
+##                     if 'linux' in j ['class'].lower () or \
+##                            'swap' in j ['class'].lower () or \
+##                            'nofs' in j ['class'].lower () or \
+##                            'linux' in j ['fs'].lower () or \
+##                            'swap' in j ['fs'].lower () or \
+##                            'ext2' in j ['fs'].lower () or \
+##                            'ext3' in j ['fs'].lower ():
+##                         linux_space.append (int (j ['bytes']))
+##                         linux_names.append (i ['device'] + j ['no'])
+##                         linux_assoc [str (int (j ['bytes']))] = i ['device'] + j ['no']
+
+##                 if len (linux_space) > 1:
+##                     associations = {}
+##                     linux_space.sort ()
+##                     parts = self.__partition_scheme
+
+##                     if len (linux_space) is 2:
+##                         required = [parts ['root'] + parts ['swap'], parts ['home']]
+##                         mountpoints = ['root', 'home']
+##                     else:
+##                         required = parts.values ()
+##                         mountpoints = parts.keys ()
+
+##                     # During formatting and copying, "root" is known as "/",
+##                     # and "home" is known as "/home", so it is necessary to
+##                     # change them before passing mount point associations to
+##                     # the backend:
+
+##                     j = 0
+
+##                     while j < len (mountpoints):
+
+##                         if 'root' == mountpoints [j].lower ():
+##                             mountpoints [j] = '/'
+##                         elif 'home' == mountpoints [j].lower ():
+##                             mountpoints [j] = '/home'
+
+##                         j = j + 1
+
+##                     required_bytes = [j * 1024 * 1024 for j in required]
+##                     required_bytes.sort ()
+##                     l = 0
+##                     r = 0
+
+##                     if self.__debug:
+##                         stderr.write ('get_drives: required_bytes = "' + \
+##                                       str (required_bytes) + '".\n')
+##                         stderr.write ('get_drives: linux_space = "' + \
+##                                       str (linux_space) + '".\n')
+##                         stderr.write ('get_drives: linux_names = "' + \
+##                                       str (linux_names) + '".\n')
+
+##                     while r < len (required_bytes) and l < len (linux_space):
+
+##                         if linux_space [l] >= required_bytes [r]:
+
+##                             stderr.write ('get_drives: ' + str (linux_space [l]) + \
+##                                           ' --> ' + str (required_bytes [r]) + '.\n')
+
+##                             if linux_assoc.has_key (str (linux_space [l])):
+##                                 the_one = linux_assoc [str (linux_space [l])]
+##                                 linux_assoc.pop (str (linux_space [l]))
+##                             else:
+##                                 the_one = linux_names [l]
+
+## #                            associations [linux_names [l]] = the_one
+##                             associations [the_one] = mountpoints [r]
+##                             r = r + 1
+
+##                         l = l + 1
+
+            # Second, check if there was a previous Linux system,
+            #     with enough partitions, and enough space:
+
+            associations = None
+
+            if i ['info'].has_key ('details'):
+                actual_sizes = []    # Sizes of actual Linux partitions.
+                actual = {}          # Association between sizes and devices.
+
+                # Populate actual data:
+
+                for j in i ['info'] ['details']:
 
                     if 'linux' in j ['class'].lower () or \
                            'swap' in j ['class'].lower () or \
@@ -201,52 +286,81 @@ class Peez2:
                            'swap' in j ['fs'].lower () or \
                            'ext2' in j ['fs'].lower () or \
                            'ext3' in j ['fs'].lower ():
-                        linux_space.append (int (j ['bytes']))
-                        linux_names.append (i ['device'] + j ['no'])
+                        actual_sizes.append (int (j ['bytes']))
 
-                if len (linux_space) > 1:
-                    associations = {}
-                    linux_space.sort ()
+                        if actual.has_key (str (int (j ['bytes']))):
+                            (actual [str (int (j ['bytes']))]).append (i ['device'] + j ['no'])
+                        else:
+                            actual [str (int (j ['bytes']))] = [i ['device'] + j ['no']]
+
+                # Array of sizes must be ordered:
+                actual_sizes.sort ()
+
+                # It is necessary to find at least two partitions:
+                if len (actual_sizes) > 1:
                     parts = self.__partition_scheme
+                    desired_sizes = []
+                    desired = {}
 
                     if len (linux_space) is 2:
-                        required = [parts ['root'], parts ['home']]
-                        mountpoints = ['root', 'home']
+                        # There are two partitions, so swap will be
+                        #     in a file in root partition:
+                        desired_sizes = [(parts ['root'] + parts ['swap']) * 1024 * 1024,
+                                         (parts ['home']) * 1024 * 1024]
+
+                        if parts ['root'] + parts ['swap'] == parts ['home']:
+                            desired = {str ((parts ['home']) * 1024 * 1024): ['root', 'home']}
+                        else:
+                            desired = {str ((parts ['root'] + parts ['swap']) * 1024 * 1024): ['root'],
+                                       str (parts ['home']): ['home']}
+
                     else:
-                        required = parts.values ()
+                        # Three or more Linux partitions
+                        #     (let us be verbose for the sake of correction):
                         mountpoints = parts.keys ()
 
-                    # During formatting and copying, "root" is known as "/",
-                    # and "home" is known as "/home", so it is necessary to
-                    # change them before passing mount point associations to
-                    # the backend:
+                        for i in mountpoints:
+                            desired_sizes.append (parts [i])
 
-                    j = 0
+                            if desired.has_key (str (parts [i])):
+                                (desired [str (parts [i])]).append (i)
+                            else:
+                                desired [str (parts [i])] = [i]
 
-                    while j < len (mountpoints):
+                    # This array must be ordered as well:
+                    desired_sizes.sort ()
 
-                        if 'root' == mountpoints [j].lower ():
-                            mountpoints [j] = '/'
-                        elif 'home' == mountpoints [j].lower ():
-                            mountpoints [j] = '/home'
-
-                        j = j + 1
-
-                    required_bytes = [j * 1024 * 1024 for j in required]
-                    required_bytes.sort ()
+                    associations = {}
                     l = 0
                     r = 0
 
-                    while r < len (required_bytes) and l < len (linux_space):
+                    while r < len (desired_sizes) and l < len (actual_sizes):
 
-                        if linux_space [l] >= required_bytes [r]:
-                            associations [linux_names [l]] = mountpoints [r]
+                        if actual_sizes [l] >= desired_sizes [r]:
+                            associations [actual [actual_sizes [l]] [0]] = \
+                                         desired [desired_sizes [r] [0]]
                             r = r + 1
 
                         l = l + 1
 
-                    if r < len (required_bytes):
+                    if r < len (desired_sizes):
                         associations = None
+                    else:
+                        # During formatting and copying, "root" is known as "/",
+                        # and "home" is known as "/home", so it is necessary to
+                        # change them before passing mount point associations to
+                        # the backend:
+
+                        for j in associations.keys ():
+
+                            if 'root' == associations [j].lower ():
+                                associations [j] = '/'
+                            elif 'home' == associations [j].lower ():
+                                associations [j] = '/home'
+
+                    if self.__debug:
+                        stderr.write ('get_drives: associations = "' + \
+                                      str (associations) + '".\n')
 
             item = {'id':           str (i ['device']),
                     'label':        label,
@@ -808,8 +922,8 @@ def beautify_size (size):
 def beautify_device (device, locale):
 
     """ Format the name of a device to make it more readable, i.e. C{/dev/hdb}
-        will produce I{primary slave (/dev/hdb)} or I{esclavo en el bus
-        primario (dev/hdb)}, depending on the I{locale}. """
+        will produce I{primary slave (/dev/hdb)}, I{esclavo en el bus
+        primario (dev/hdb)}, etc. depending on the I{locale}. """
 
     result = None
 
