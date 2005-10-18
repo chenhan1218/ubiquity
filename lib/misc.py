@@ -178,9 +178,9 @@ def get_filesystems():
         device_list[devices.split()[0]] = 'ext3'
       elif 'swap' in filesystem.split():
         device_list[devices.split()[0]] = 'swap'
-      elif 'FAT' in filesystem.spli():
+      elif 'FAT' in filesystem.split():
         device_list[devices.split()[0]] = 'vfat'
-      elif 'NTFS' in filesystem.spli():
+      elif 'NTFS' in filesystem.split():
         device_list[devices.split()[0]] = 'ntfs'
   return device_list
 

@@ -832,9 +832,11 @@ class Wizard:
 
       # building widget lists to build dev_mnt dict ( { device : mountpoint } )
       for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
-        list_partitions.append(widget)
+        if widget.get_active_text() not in [None, ' ']:
+          list_partitions.append(widget)
       for widget in self.glade.get_widget('vbox_mountpoints').get_children()[1:]:
-        list_mountpoints.append(widget)
+        if widget.get_active_text() != "":
+          list_mountpoints.append(widget)
       # Only if partitions cout or mountpoints count selected are the same,
       #   dev_mnt is built.
       if ( len(list_partitions) == len(list_mountpoints) ):
@@ -843,6 +845,7 @@ class Wizard:
         for dev, mnt in dev_mnt.items():
           if ( dev.get_active_text() != None and mnt.get_active_text() != "" ):
             self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(dev.get_active_text())]] = mnt.get_active_text()
+      print self.mountpoints
 
       # Processing validation stuff
       elif ( len(list_partitions) > len(list_mountpoints) ):
@@ -864,23 +867,24 @@ class Wizard:
           break
 
       # Processing more validation stuff
-      for check in check_mountpoint(self.mountpoints, self.size):
-        if ( check == 1 ):
-          error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
-          error = 1
-        elif ( check == 2 ):
-          error_msg.append("· Puntos de montaje duplicados.\n\n")
-          error = 1
-        elif ( check == 3 ):
-          try:
-            swap = self.mountpoints.values().index('swap')
-            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
-          except:
-            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
-          error = 1
-        elif ( check == 4 ):
-          error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
-          error = 1
+      if ( len(self.mountpoints) > 0 ):
+        for check in check_mountpoint(self.mountpoints, self.size):
+          if ( check == 1 ):
+            error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
+            error = 1
+          elif ( check == 2 ):
+            error_msg.append("· Puntos de montaje duplicados.\n\n")
+            error = 1
+          elif ( check == 3 ):
+            try:
+              swap = self.mountpoints.values().index('swap')
+              error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
+            except:
+              error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
+            error = 1
+          elif ( check == 4 ):
+            error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
+            error = 1
 
       # showing warning messages
       if ( error != 0 ):
