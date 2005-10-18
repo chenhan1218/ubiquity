@@ -708,6 +708,11 @@ class Wizard:
         self.back.show()
         self.help.hide()
         self.steps.next_page()
+        # To disable peez2 utility, you must comment the line above
+        # this one and uncoment the three below lines.
+        # if self.gparted:
+        #   gparted_loop()
+        # self.steps.set_current_page(3)
 
     # From Peez to {Gparted, Progress}
     elif step == 2:
