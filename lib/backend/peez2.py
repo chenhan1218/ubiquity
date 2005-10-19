@@ -60,7 +60,7 @@
 # def beautify_device (device, locale):
 
 from sys         import stderr
-from locale      import getdefaultlocale, setlocale, resetlocale, LC_ALL
+from locale      import getdefaultlocale
 from popen2      import Popen3
 from gtk         import ProgressBar
 from string      import lower
@@ -184,89 +184,6 @@ class Peez2:
             else:
                 enough = False
 
-##             if i ['info'].has_key ('details'):
-##                 linux_parts = 0
-##                 linux_space = []
-##                 linux_names = []
-##                 linux_assoc = {}
-
-##                 for j in i ['info'] ['details']:
-
-##                     if self.__debug:
-##                         stderr.write ('get_drives: drive details follows.\n' +
-##                                       str (j) + '\n')
-
-##                     if 'linux' in j ['class'].lower () or \
-##                            'swap' in j ['class'].lower () or \
-##                            'nofs' in j ['class'].lower () or \
-##                            'linux' in j ['fs'].lower () or \
-##                            'swap' in j ['fs'].lower () or \
-##                            'ext2' in j ['fs'].lower () or \
-##                            'ext3' in j ['fs'].lower ():
-##                         linux_space.append (int (j ['bytes']))
-##                         linux_names.append (i ['device'] + j ['no'])
-##                         linux_assoc [str (int (j ['bytes']))] = i ['device'] + j ['no']
-
-##                 if len (linux_space) > 1:
-##                     associations = {}
-##                     linux_space.sort ()
-##                     parts = self.__partition_scheme
-
-##                     if len (linux_space) is 2:
-##                         required = [parts ['root'] + parts ['swap'], parts ['home']]
-##                         mountpoints = ['root', 'home']
-##                     else:
-##                         required = parts.values ()
-##                         mountpoints = parts.keys ()
-
-##                     # During formatting and copying, "root" is known as "/",
-##                     # and "home" is known as "/home", so it is necessary to
-##                     # change them before passing mount point associations to
-##                     # the backend:
-
-##                     j = 0
-
-##                     while j < len (mountpoints):
-
-##                         if 'root' == mountpoints [j].lower ():
-##                             mountpoints [j] = '/'
-##                         elif 'home' == mountpoints [j].lower ():
-##                             mountpoints [j] = '/home'
-
-##                         j = j + 1
-
-##                     required_bytes = [j * 1024 * 1024 for j in required]
-##                     required_bytes.sort ()
-##                     l = 0
-##                     r = 0
-
-##                     if self.__debug:
-##                         stderr.write ('get_drives: required_bytes = "' + \
-##                                       str (required_bytes) + '".\n')
-##                         stderr.write ('get_drives: linux_space = "' + \
-##                                       str (linux_space) + '".\n')
-##                         stderr.write ('get_drives: linux_names = "' + \
-##                                       str (linux_names) + '".\n')
-
-##                     while r < len (required_bytes) and l < len (linux_space):
-
-##                         if linux_space [l] >= required_bytes [r]:
-
-##                             stderr.write ('get_drives: ' + str (linux_space [l]) + \
-##                                           ' --> ' + str (required_bytes [r]) + '.\n')
-
-##                             if linux_assoc.has_key (str (linux_space [l])):
-##                                 the_one = linux_assoc [str (linux_space [l])]
-##                                 linux_assoc.pop (str (linux_space [l]))
-##                             else:
-##                                 the_one = linux_names [l]
-
-## #                            associations [linux_names [l]] = the_one
-##                             associations [the_one] = mountpoints [r]
-##                             r = r + 1
-
-##                         l = l + 1
-
             # Second, check if there was a previous Linux system,
             #     with enough partitions, and enough space:
 
@@ -320,13 +237,13 @@ class Peez2:
                         #     (let us be verbose for the sake of correction):
                         mountpoints = parts.keys ()
 
-                        for i in mountpoints:
-                            desired_sizes.append (parts [i])
+                        for k in mountpoints:
+                            desired_sizes.append (parts [k])
 
-                            if desired.has_key (str (parts [i])):
-                                (desired [str (parts [i])]).append (i)
+                            if desired.has_key (str (parts [k])):
+                                (desired [str (parts [k])]).append (k)
                             else:
-                                desired [str (parts [i])] = [i]
+                                desired [str (parts [k])] = [k]
 
                     # This array must be ordered as well:
                     desired_sizes.sort ()
@@ -338,8 +255,11 @@ class Peez2:
                     while r < len (desired_sizes) and l < len (actual_sizes):
 
                         if actual_sizes [l] >= desired_sizes [r]:
-                            associations [actual [actual_sizes [l]] [0]] = \
-                                         desired [desired_sizes [r] [0]]
+##                             stderr.write (str (actual))
+##                             stderr.write (str (actual_sizes))
+##                             stderr.write (str (associations))
+                            associations [actual [str (actual_sizes [l])] [0]] = \
+                                         desired [str (desired_sizes [r])] [0]
                             r = r + 1
 
                         l = l + 1
@@ -411,7 +331,6 @@ class Peez2:
 
                 if '/dev/hd' == drive ['device'] [:7] or \
                        '/dev/sd' == drive ['device'] [:7]:
-                    result.append (drive)
                     extended_info = self.__get_info (drive ['device'])
                     drive ['info'] = extended_info
                     result.append (drive)
@@ -669,10 +588,8 @@ class Peez2:
                     progress_bar.set_text ('Making %i MB partition...' % required)
 
                 if extended > 1:
-                    stderr.write ('-- 1 --\n')
                     info = self.__get_info (drive ['id'], required, '-j')
                 elif drive.has_key ('info'):
-                    stderr.write ('-- 2 --\n')
 
                     if drive ['info'].has_key ('ext'):
 
@@ -681,7 +598,6 @@ class Peez2:
                             info = self.__get_info (drive ['id'], required, '-j')
 
                 if extended < 1:
-                    stderr.write ('-- 3 --\n')
                     # It is necessary to create an extended partition
                     # (with 10% more space):
                     required = int (sum (self.__partition_scheme.values ()) * 1.1)
@@ -692,8 +608,6 @@ class Peez2:
                 # Now we have to decide which option is better:
                 try:
                     options = info ['opts']
-
-                    stderr.write (str (options) + '\n')
 
                 except:
 
@@ -721,9 +635,6 @@ class Peez2:
                     i = i + 1
 
                 if -1 != what:
-
-                    if info.has_key ('commands'):
-                        stderr.write ('========= ' + str (info ['commands']) + '\n\n')
                     
                     if extended < 2:
                         info = self.__get_info (drive ['id'], required,
@@ -734,12 +645,7 @@ class Peez2:
                                                 '-j -i', str (what) + '\n')
 
                     if info.has_key ('commands'):
-                        stderr.write ('========= ' + str (info ['commands']) + '\n\n')
-
-                    if info.has_key ('commands'):
                         c = info ['commands']
-
-                        stderr.write ('--> c --> ' + str (c) + '\n')
 
                     if self.__debug:
                         p = Popen3 ('echo "Creando ' + str (part) +
@@ -812,13 +718,13 @@ class Peez2:
         if '' != input:
             command = 'echo -e "' + input + '" | ' + command
 
+        command = 'LANGUAGE=C ' + command
+
         if self.__debug:
             stderr.write ('__call_peez2: command "' + command + '" executed.\n')
 
-        setlocale (LC_ALL, 'C')
         child = Popen3 (command, False, 1048576)
 #        child.wait ()
-        resetlocale ()
 
         return {'out': child.fromchild,
                 'in':  child.tochild,
