@@ -319,9 +319,9 @@ class Config:
 
     # For the Grub
     first_elem = []
-    first_elem.append('fallback 0\n')
+    first_elem.append('fallback 1\n')
     first_elem.append('timeout 30\n')
-    first_elem.append('default 1\n')
+    first_elem.append('default 0\n')
     first_elem.append('\n')
     #first_elem.append('\n')
     #first_elem.append('title %s, memtest86+\n' % distro)
@@ -332,13 +332,13 @@ class Config:
     first_elem.append('root (%s)\n' % grub_dev)
     first_elem.append('kernel (%s)/boot/vmlinuz-%s root=%s ro splash quiet\n' % (grub_dev, self.kernel_version, target_dev))
     first_elem.append('initrd (%s)/boot/initrd.img-%s\n' % (grub_dev, self.kernel_version))
-    first_elem.append('savedefault\n')
+#    first_elem.append('savedefault\n')
     first_elem.append('\n')
     first_elem.append('title %s, Kernel %s (a prueba de fallos)\n' % (self.distro.capitalize(), self.kernel_version))
     first_elem.append('root (%s)\n' % grub_dev)
     first_elem.append('kernel (%s)/boot/vmlinuz-%s root=%s ro single\n' % (grub_dev, self.kernel_version, target_dev))
     first_elem.append('initrd (%s)/boot/initrd.img-%s\n' % (grub_dev, self.kernel_version))
-    first_elem.append('savedefault\n')
+#    first_elem.append('savedefault\n')
     first_elem.append('\n')
 
     grub_conf.reverse()
