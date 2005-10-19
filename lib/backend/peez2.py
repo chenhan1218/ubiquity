@@ -7,9 +7,10 @@
 # Autor/es (Author/s):
 # 
 # - Antonio Olmo Titos <aolmo#emergya._info>
+# - Mantas Kriauciunas <mantas#akl._lt>
 # 
-
-# 
+# Este fichero es parte del instalador en directo de Guadalinex 2005.
+#
 # El instalador en directo de Guadalinex 2005 es software libre. Puede
 # redistribuirlo y/o modificarlo bajo los términos de la Licencia Pública
 # General de GNU según es publicada por la Free Software Foundation, bien de la
@@ -49,7 +50,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo#emergya._info> on 25 aug 2005.
-# Last modified on 18 oct 2005.
+# Last modified by A. Olmo on 19 oct 2005.
 
 # TODO: improve debug and log system.
 
@@ -59,7 +60,7 @@
 # def beautify_device (device, locale):
 
 from sys         import stderr
-from locale      import getdefaultlocale
+from locale      import getdefaultlocale, setlocale, resetlocale, LC_ALL
 from popen2      import Popen3
 from gtk         import ProgressBar
 from string      import lower
@@ -302,7 +303,7 @@ class Peez2:
                     desired_sizes = []
                     desired = {}
 
-                    if len (linux_space) is 2:
+                    if len (actual_sizes) is 2:
                         # There are two partitions, so swap will be
                         #     in a file in root partition:
                         desired_sizes = [(parts ['root'] + parts ['swap']) * 1024 * 1024,
@@ -395,63 +396,30 @@ class Peez2:
 
             if 'LD#' == i [:3]:
                 fields = i [3:].split ('|')
+                drive = {}
 
-                if 'es' == self.__locale [:2]:
-                    drive = {}
+                for j in fields:
 
-                    for j in fields:
+                    if 'Media:' == j [:6]:
+                        drive ['no'] = int (j [6:])
+                    elif 'Model:' == j [:6]:
+                        drive ['label'] = j [6:]
+                    elif 'Path:' == j [:5]:
+                        drive ['device'] = j [5:]
+                    elif 'Total:' == j [:6]:
+                        drive ['size'] = int (j [6:])
 
-                        if 'Medio:' == j [:6]:
-                            drive ['no'] = int (j [6:])
-                        elif 'Modelo:' == j [:7]:
-                            drive ['label'] = j [7:]
-                        elif 'Ruta:' == j [:5]:
-                            drive ['device'] = j [5:]
-                        elif 'Total:' == j [:6]:
-                            drive ['size'] = int (j [6:])
-
-                    if '/dev/hd' == drive ['device'] [:7] or \
+                if '/dev/hd' == drive ['device'] [:7] or \
                        '/dev/sd' == drive ['device'] [:7]:
-                        extended_info = self.__get_info (drive ['device'])
-                        drive ['info'] = extended_info
-                        result.append (drive)
-                    else:
-
-                        if self.__debug:
-                            stderr.write ('__scan_drives: drive "' +
-                                          drive ['device'] + '" ignored.\n')
-                        
-                elif 'en' == self.__locale [:2]:
-                    drive = {}
-
-                    for j in fields:
-
-                        if 'Media:' == j [:6]:
-                            drive ['no'] = int (j [6:])
-                        elif 'Model:' == j [:6]:
-                            drive ['label'] = j [6:]
-                        elif 'Path:' == j [:5]:
-                            drive ['device'] = j [5:]
-                        elif 'Total:' == j [:6]:
-                            drive ['size'] = int (j [6:])
-
-                    if '/dev/hd' == drive ['device'] [:7] or \
-                       '/dev/sd' == drive ['device'] [:7]:
-                        result.append (drive)
-                        extended_info = self.__get_info (drive ['device'])
-                        drive ['info'] = extended_info
-                        result.append (drive)
-                    else:
-
-                        if self.__debug:
-                            stderr.write ('__scan_drives: drive "' +
-                                          drive ['device'] + '" ignored.\n')
-                        
+                    result.append (drive)
+                    extended_info = self.__get_info (drive ['device'])
+                    drive ['info'] = extended_info
+                    result.append (drive)
                 else:
 
                     if self.__debug:
-                        stderr.write ('__scan_drives: locale: "' +
-                                      self.__locale + '" is wrong.\n')
+                        stderr.write ('__scan_drives: drive "' +
+                                      drive ['device'] + '" ignored.\n')
 
         return result
 
@@ -523,47 +491,24 @@ class Peez2:
                 if None == result:
                     result = {}
 
-                if 'es' == self.__locale [:2]:
+                if 'Total primary partitions:' == i [3:28]:
+                    result ['prim'] = i [28:-1]
+                elif 'Total extended partitions:' == i [3:29]:
+                    result ['ext'] = int (i [29:])
+                elif 'Total logical partitions:' == i [3:28]:
+                    result ['logic'] = int (i [28:])
+                elif 'Total free spaces:' == i [3:21]:
+                    result ['free'] = int (i [21:])
+                elif 'Total linux partitions:' == i [3:26]:
+                    result ['linux'] = int (i [26:])
+                elif 'Total win partitions:' == i [3:24]:
+                    result ['win'] = int (i [24:])
+                elif 'Disk Status#' == i [3:15]:
 
-                    if 'Particiones primarias totales:' == i [3:33]:
-                        result ['prim'] = i [33:-1].strip ()
-                    elif 'Particiones extendidas:' == i [3:26]:
-                        result ['ext'] = int (i [26:])
-                    elif 'Particiones l' == i [3:16] and 'gicas:' == i [17:23]:
-                        result ['logic'] = int (i [23:])
-                    elif 'Espacios libres:' == i [3:19]:
-                        result ['free'] = int (i [19:])
-                    elif 'Particiones de linux:' == i [3:24]:
-                        result ['linux'] = int (i [24:])
-                    elif 'Particiones de Windows(TM):' == i [3:30]:
-                        result ['win'] = int (i [30:])
-                    elif 'Disk Status#' == i [3:15]:
+                    if not result.has_key ('status'):
+                        result ['status'] = []
 
-                        if not result.has_key ('status'):
-                            result ['status'] = []
-
-                        (result ['status']).append (i [15:-1])
-
-                elif 'en' == self.__locale [:2]:
-
-                    if 'Total primary partitions:' == i [3:28]:
-                        result ['prim'] = i [28:-1]
-                    elif 'Total extended partitions:' == i [3:29]:
-                        result ['ext'] = int (i [29:])
-                    elif 'Total logical partitions:' == i [3:28]:
-                        result ['logic'] = int (i [28:])
-                    elif 'Total free spaces:' == i [3:21]:
-                        result ['free'] = int (i [21:])
-                    elif 'Total linux partitions:' == i [3:26]:
-                        result ['linux'] = int (i [26:])
-                    elif 'Total win partitions:' == i [3:24]:
-                        result ['win'] = int (i [24:])
-                    elif 'Disk Status#' == i [3:15]:
-
-                        if not result.has_key ('status'):
-                            result ['status'] = []
-
-                        (result ['status']).append (i [15:-1])
+                    (result ['status']).append (i [15:-1])
 
             # "Listado de particiones":
             elif 'LP#' == i [:3]:
@@ -577,31 +522,16 @@ class Peez2:
 
                 this_part = {'name': fields [0]}
 
-                if 'es' == self.__locale [:2]:
+                for j in fields [1:]:
 
-                    for j in fields [1:]:
-
-                        if 'GAINED:' == j [:7]:
-                            this_part ['gained'] = int (j [7:].strip ())
-                        elif 'SIZE:' == j [:5]:
-                            this_part ['size'] = int (j [5:].strip ())
-                        elif 'FS:' == j [:3]:
-                            this_part ['fs'] = j [3:].strip ()
-                        elif 'TYPE:' == j [:5]:
-                            this_part ['type'] = j [5:].strip ()
-
-                elif 'en' == self.__locale [:2]:
-
-                    for j in fields [1:]:
-
-                        if 'GAINED:' == j [:7]:
-                            this_part ['gained'] = int (j [7:].strip ())
-                        elif 'SIZE:' == j [:5]:
-                            this_part ['size'] = int (j [5:].strip ())
-                        elif 'FS:' == j [:3]:
-                            this_part ['fs'] = j [3:].strip ()
-                        elif 'TYPE:' == j [:5]:
-                            this_part ['type'] = j [5:].strip ()
+                    if 'GAINED:' == j [:7]:
+                        this_part ['gained'] = int (j [7:].strip ())
+                    elif 'SIZE:' == j [:5]:
+                        this_part ['size'] = int (j [5:].strip ())
+                    elif 'FS:' == j [:3]:
+                        this_part ['fs'] = j [3:].strip ()
+                    elif 'TYPE:' == j [:5]:
+                        this_part ['type'] = j [5:].strip ()
 
                 result ['parts'].append (this_part)
             # "Opción":
@@ -885,8 +815,10 @@ class Peez2:
         if self.__debug:
             stderr.write ('__call_peez2: command "' + command + '" executed.\n')
 
+        setlocale (LC_ALL, 'C')
         child = Popen3 (command, False, 1048576)
 #        child.wait ()
+        resetlocale ()
 
         return {'out': child.fromchild,
                 'in':  child.tochild,
