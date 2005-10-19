@@ -5,13 +5,13 @@
 def grub_dev(dev):
     """returns a device name in grub mode from a unix device name."""
 
-    leter = {'a': '0', 'b': '1', 'c': '2', 'd': '3', 'e': '4',
+    letter = {'a': '0', 'b': '1', 'c': '2', 'd': '3', 'e': '4',
           'f': '5', 'g': '6', 'h': '7', 'i': '8'}
     num   = {'1': '0', '2': '1', '3': '2', '4': '3', '5': '4',
           '6': '5', '7': '6', '8': '7', '9': '8'}
 
     ext = dev[7:]
-    name = 'hd%s,%s' % (leter[ext[0]], num[ext[1:]])
+    name = 'hd%s,%s' % (letter[ext[0]], num[ext[1:]])
     return name
 
 
@@ -209,22 +209,5 @@ def grub_entries(file):
         elif not line.startswith('#'):
             lines.append(line)
     yield lines
-
-
-# FIXME: Just as examples
-# FIXME: Put a prefix path 
-def print_grub_entries():
-  lines = open('/boot/grub/menu.lst').readlines()
-  for i in grub_entries(lines):
-    print ''.join(i)
-
-
-# FIXME: Put a prefix path
-def print_lilo_entries():
-  lines = open('/etc/lilo.conf').readlines()
-  for i in lilo_entries(lines):
-    for j in i:
-      print j
-
 
 # vim:ai:et:sts=2:tw=80:sw=2:

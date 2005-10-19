@@ -282,7 +282,15 @@ class Config:
     grub_dev = misc.grub_dev(target_dev)
     distro = self.distro.capitalize()
     proc_file = open('/proc/partitions').readlines()
-    parts = []
+    parts, grub_conf = [], []
+
+    #if os.path.exists(target + '/boot/grub/menu.lst'):
+    #  grub_file = open(os.path.join(target, 'boot/grub/menu.lst'), 'r')
+    #  it = grub_entries(grub_file)
+    #  for i_index, i in enumerate(it):
+    #    if ( ''.join(i).startswith('title') ):
+    #      #i[1] = 'root\t\t(%s)\n' % grub_dev
+    #      grub_conf.append(i)
 
     for entry in proc_file[2:]:
         dev = entry.split()
@@ -293,8 +301,13 @@ class Config:
         if misc.ex('mount', '/dev/' + part , TEST):
             for file in files:
                 if os.path.exists(TEST + file):
-                    misc.ex('cp', TEST + file, self.target + file)
+                    grub_file = open(os.path.join(TEST, file))
+                    it = misc.grub_entries(grub_file)
+                    for i_index, i in enumerate(it):
+                      if ( ''.join(i).startswith('title') ):
+                        grub_conf.append(i)
 
+            grub_file.close()
             misc.ex('umount', TEST)
     # The new boot
     #self.chex('/usr/sbin/mkinitrd')
@@ -302,24 +315,32 @@ class Config:
     misc.ex('mount', '/sys', '--bind', self.target + '/sys')
 
     # For the Grub
-    if os.path.exists(self.target + '/boot/grub/menu.lst'):
-      grub_conf = open(self.target + '/boot/grub/menu.lst', 'a')
-    else:
-      grub_conf = open(self.target + '/boot/grub/menu.lst', 'w')
-      grub_conf.write('\n \
-fallback 0\n \
-timeout 30\n \
-default 1\n \
-\n')
-    grub_conf.write('\n \
-title %s\n \
-root (%s)\n \
-kernel (%s)/boot/vmlinuz-%s root=%s ro splash quiet\n \
-initrd (%s)/boot/initrd.img-%s\n \
-' % \
-    (distro, grub_dev, grub_dev, self.kernel_version, target_dev, grub_dev, self.kernel_version) )
+    first_elem = []
+    first_elem.append('fallback 0\n')
+    first_elem.append('timeout 30\n')
+    first_elem.append('default 1\n')
+    first_elem.append('\n')
+    #first_elem.append('\n')
+    #first_elem.append('title %s, memtest86+\n' % distro)
+    #first_elem.append('root (%s)\n' % grub_dev)
+    #first_elem.append('kernel (%s)/boot/memtest86+.bin\n' % grub_dev)
+    #first_elem.append('\n')
+    first_elem.append('title %s, kernel %s\n' % (self.distro, self.kernel_version))
+    first_elem.append('root (%s)\n' % grub_dev)
+    first_elem.append('kernel (%s)/boot/vmlinuz-%s root=%s ro splash quiet\n' % (grub_dev, self.kernel_version, target_dev))
+    first_elem.append('initrd (%s)/boot/initrd.img-%s\n' % (grub_dev, self.kernel_version))
+    first_elem.append('savedefault\n')
+    first_elem.append('\n')
 
-    grub_conf.close()
+    grub_conf.reverse()
+    grub_conf.append(first_elem)
+    grub_conf.reverse()
+
+    menu = open(os.path.join(target + '/boot/grub/menu.lst'), 'w')
+    for list_a in grub_conf:
+      for elem in list_a:
+        menu.write(''.join(elem))
+    menu.close()
 
     misc.ex('grub-install', '--root-directory=' + self.target, target_dev)
     grub_conf = open('/tmp/grub.conf', 'w')
