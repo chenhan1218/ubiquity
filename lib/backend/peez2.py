@@ -714,11 +714,10 @@ class Peez2:
             possible to specify an input. """
 
         command = self.__binary + ' ' + args + ' ' + self.__common_arguments
+        command = 'LANGUAGE=C ' + command
 
         if '' != input:
             command = 'echo -e "' + input + '" | ' + command
-
-        command = 'LANGUAGE=C ' + command
 
         if self.__debug:
             stderr.write ('__call_peez2: command "' + command + '" executed.\n')
