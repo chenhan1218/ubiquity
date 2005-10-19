@@ -301,13 +301,16 @@ class Config:
         if misc.ex('mount', '/dev/' + part , TEST):
             for file in files:
                 if os.path.exists(TEST + file):
+                  try:
                     grub_file = open(os.path.join(TEST, file))
                     it = misc.grub_entries(grub_file)
+                    grub_file.close()
                     for i_index, i in enumerate(it):
                       if ( ''.join(i).startswith('title') ):
                         grub_conf.append(i)
+                  except:
+                    continue
 
-            grub_file.close()
             misc.ex('umount', TEST)
     # The new boot
     #self.chex('/usr/sbin/mkinitrd')
@@ -336,7 +339,7 @@ class Config:
     grub_conf.append(first_elem)
     grub_conf.reverse()
 
-    menu = open(os.path.join(target + '/boot/grub/menu.lst'), 'w')
+    menu = open(os.path.join(self.target + '/boot/grub/menu.lst'), 'w')
     for list_a in grub_conf:
       for elem in list_a:
         menu.write(''.join(elem))
