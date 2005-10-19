@@ -845,10 +845,9 @@ class Wizard:
         for dev, mnt in dev_mnt.items():
           if ( dev.get_active_text() != None and mnt.get_active_text() != "" ):
             self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(dev.get_active_text())]] = mnt.get_active_text()
-      print self.mountpoints
 
       # Processing validation stuff
-      if ( len(list_partitions) > len(list_mountpoints) ):
+      elif ( len(list_partitions) > len(list_mountpoints) ):
         error_msg.append("· Punto de montaje vacío.\n\n")
         error = 1
       elif ( len(list_partitions) < len(list_mountpoints) ):
