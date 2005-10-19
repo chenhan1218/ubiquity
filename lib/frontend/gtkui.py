@@ -848,7 +848,7 @@ class Wizard:
       print self.mountpoints
 
       # Processing validation stuff
-      elif ( len(list_partitions) > len(list_mountpoints) ):
+      if ( len(list_partitions) > len(list_mountpoints) ):
         error_msg.append("· Punto de montaje vacío.\n\n")
         error = 1
       elif ( len(list_partitions) < len(list_mountpoints) ):
