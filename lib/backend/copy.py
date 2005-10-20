@@ -198,9 +198,8 @@ class Copy:
     distro = open ('/etc/lsb-release').readline ().strip ().split ('=') [1].lower ()
     log_file = '/var/log/' + distro + '-express'
 
-    if not misc.ex('cp', '-a', log_file, os.path.join(self.target, log_file)):
+    if not misc.ex('cp', '-a', log_file, os.path.join(self.target, log_file[1:])):
       misc.pre_log('error', 'No se pudieron copiar los registros de instalación')
-
 
     return True
 
