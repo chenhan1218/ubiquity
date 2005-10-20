@@ -49,17 +49,17 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -6.50!! (bad
     indentation) """
 
-# Last modified by A. Olmo on 11 oct 2005.
+# Last modified by A. Olmo on 20 oct 2005.
 
 from subprocess import *
 
-def call_autoparted (assistant, drive, partition_bar = None):
+def call_autoparted (assistant, drive, progress = None):
 
   """ Perform automatic partition.
       @return: a dictionary containing a device for each mount point (i.e.
       C{{'/dev/hda5': '/', '/dev/hda7': '/home', '/dev/hda6': 'swap'}}). """
 
-  return assistant.auto_partition (drive, progress_bar = partition_bar)
+  return assistant.auto_partition (drive, steps = progress)
 
 def call_gparted(widget):
 
