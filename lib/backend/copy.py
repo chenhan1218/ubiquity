@@ -182,6 +182,10 @@ class Copy:
 
     copy.stdin.close()
     copy.wait()
+
+    # Removing Ubuntu Express icon from menu
+    misc.ex('rm', '-f', os.path.join(self.target, 'usr/share/applications/ubuntu-express.desktop'))
+
     return True
 
 
@@ -193,6 +197,7 @@ class Copy:
 
     if not misc.ex('cp', '-a', log_file, os.path.join(self.target, log_file)):
       misc.pre_log('error', 'No se pudieron copiar los registros de instalación')
+
 
     return True
 
