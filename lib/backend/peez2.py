@@ -50,7 +50,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo#emergya._info> on 25 aug 2005.
-# Last modified by A. Olmo on 19 oct 2005.
+# Last modified by A. Olmo on 20 oct 2005.
 
 # TODO: improve debug and log system.
 
@@ -556,7 +556,7 @@ class Peez2:
 
     # Public method "auto_partition" _________________________________________
 
-    def auto_partition (self, drive, progress_bar = None,
+    def auto_partition (self, drive, steps = None, \
                         do_it = ACTUAL_PARTITIONING):
 
         """ Make 3 partitions automatically on the specified C{device}. When
@@ -565,9 +565,8 @@ class Peez2:
 
         result = None
 
-        if None != progress_bar:
-            progress_bar.pulse ()
-            progress_bar.set_text ('Planning partition...')
+        if steps is not None:
+            steps.put ('Iniciando el proceso de particionado automático...')
 
         if drive.has_key ('info'):
 
@@ -583,10 +582,6 @@ class Peez2:
             for part in components:
                 required = self.__partition_scheme [part]
 
-                if None != progress_bar:
-                    progress_bar.pulse ()
-                    progress_bar.set_text ('Making %i MB partition...' % required)
-
                 if extended > 1:
                     info = self.__get_info (drive ['id'], required, '-j')
                 elif drive.has_key ('info'):
@@ -601,9 +596,21 @@ class Peez2:
                     # It is necessary to create an extended partition
                     # (with 10% more space):
                     required = int (sum (self.__partition_scheme.values ()) * 1.1)
+
+                    if steps is not None:
+                        steps.put ('Creando una partición extendida de %s)...' % \
+                                   beautify_size (int (required) * 1024 * 1024))
+
                     info = self.__get_info (drive ['id'], required, '-x')
                     components.append (part)
                     extended = extended + 1
+                else:
+
+                    if steps is not None:
+                        steps.put ('Creando una partición lógica de %s)...' % \
+                                   beautify_size (int (required) * 1024 * 1024))
+
+
 
                 # Now we have to decide which option is better:
                 try:
@@ -666,7 +673,7 @@ class Peez2:
                             # Do it! Execute commands to make partitions!
                             p = Popen3 (i)
                             p.wait ()
-                            # Let the system be aware of the change:
+                            # Let the system be aware of the changes:
                             p = Popen3 ('sleep 5')
                             p.wait ()
 
@@ -696,6 +703,9 @@ class Peez2:
         # and "home" is known as "/home", so it is necessary to
         # change them before passing mount point associations to
         # the backend:
+
+        if steps is not None:
+            steps.put ('Terminando el proceso de particionado...')
 
         for i in result.keys ():
 
