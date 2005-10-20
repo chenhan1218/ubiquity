@@ -345,12 +345,15 @@ class Config:
     grub_conf.append(first_elem)
     grub_conf.reverse()
 
+    if not os.path.exists(self.target + '/boot/grub'):
+      os.mkdir(self.target + '/boot/grub')
     menu = open(os.path.join(self.target + '/boot/grub/menu.lst'), 'w')
     for list_a in grub_conf:
       for elem in list_a:
         menu.write(''.join(elem))
     menu.close()
 
+    misc.ex('mount', '/dev', '--bind', self.target + '/dev')
     misc.ex('grub-install', '--root-directory=' + self.target, target_dev)
     grub_conf = open('/tmp/grub.conf', 'w')
 
@@ -388,6 +391,7 @@ quit \n \
     #    '--set'], stdin=conf.stdout)
     misc.ex('umount', '-f', self.target + '/proc')
     misc.ex('umount', '-f', self.target + '/sys')
+    misc.ex('umount', '-f', self.target + '/dev')
     return True
 
 
