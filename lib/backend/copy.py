@@ -118,26 +118,29 @@ class Copy:
 
     files = []
     total_size = 0
+    oldsourcepath = ''
 
     misc.pre_log('info','Recolecting files to copy')
     for dirpath, dirnames, filenames in os.walk(self.source):
       sourcepath = dirpath[len(self.source)+1:]
-      if sourcepath.startswith('etc'):
-        queue.put( '7 Recorriendo /etc' )
-      elif sourcepath.startswith('home'):
-        queue.put( '8 Recorriendo /home' )
-      elif sourcepath.startswith('media'):
-        queue.put( '10 Recorriendo /media' )
-      elif sourcepath.startswith('usr/doc'):
-        queue.put( '11 Recorriendo /usr/doc' )
-      elif sourcepath.startswith('usr/local'):
-        queue.put( '13 Recorriendo /usr/local' )
-      elif sourcepath.startswith('usr/src'):
-        queue.put( '15 Recorriendo /usr/src' )
-      elif sourcepath.startswith('var/backups'):
-        queue.put( '16 Recorriendo /var/backups' )
-      elif sourcepath.startswith('var/tmp'):
-        queue.put( '17 Recorriendo /var/tmp' )
+      if ( oldsourcepath != sourcepath )
+        if sourcepath.startswith('etc'):
+          queue.put( '7 Recorriendo /etc' )
+        elif sourcepath.startswith('home'):
+          queue.put( '8 Recorriendo /home' )
+        elif sourcepath.startswith('media'):
+          queue.put( '10 Recorriendo /media' )
+        elif sourcepath.startswith('usr/doc'):
+          queue.put( '11 Recorriendo /usr/doc' )
+        elif sourcepath.startswith('usr/local'):
+          queue.put( '13 Recorriendo /usr/local' )
+        elif sourcepath.startswith('usr/src'):
+          queue.put( '15 Recorriendo /usr/src' )
+        elif sourcepath.startswith('var/backups'):
+          queue.put( '16 Recorriendo /var/backups' )
+        elif sourcepath.startswith('var/tmp'):
+          queue.put( '17 Recorriendo /var/tmp' )
+        oldsourcepath = sourcepath
 
 
       for name in dirnames + filenames:

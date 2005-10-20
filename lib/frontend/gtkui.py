@@ -92,6 +92,7 @@ class Wizard:
     self.gparted = True
     self.password = ''
     self.mountpoints = {}
+    self.remainder = 0
 
     # To get a "busy mouse":
     self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
@@ -359,10 +360,6 @@ class Wizard:
     # saving UI input data to vars file
     self.set_vars_file()
 
-    # Set timeout objects (to get animated images on installing screen)
-    self.timeout_images = gobject.timeout_add(60000, self.images_loop)
-    # first image iteration
-    self.images_loop()
     # Setting Normal cursor
     self.live_installer.window.set_cursor(None)
 
@@ -464,6 +461,9 @@ class Wizard:
     """set values on progress bar widget."""
 
     num , text = get_progress(msg)
+    if ( num % 100/len(self.total_images) > self.remainder ):
+      self.images_loop()
+    self.remainder = num % 100/len(self.total_images)
     self.progressbar.set_fraction (num / 100.0)
     self.progressbar.set_text(text)
 
@@ -612,8 +612,7 @@ class Wizard:
 
 
   def images_loop(self):
-    """create a timeout object to get looping images and text
-    on installing screen about the install process."""
+    """looping images and text on installing screen about the install process."""
 
     self.install_image+=1
     step = self.install_image % len(self.total_images) -1

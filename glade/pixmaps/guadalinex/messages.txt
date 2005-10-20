@@ -4,8 +4,9 @@ TheGimp es un poderoso programa de tratamiento de imagen digital. Combínelo con
 Importe las canciones de sus CDs, organícelas por autores y géneros, puntúelas, compártalas. También puede crear su propia música.
 Con OpenOffice.org puede crear textos, hojas de cálculo, diagramas y presentaciones que podrá exportar a formatos como HTML o Flash.
 El escritorio GNOME 2.12 convierte el trabajo diario, la administración y personalización de su ordenador en una tarea a golpe de ratón y sin complicaciones.
-Además de los programas de este CD, tiene a su disposición miles de programas que puede bajar vía Internet de forma libre y gratuita, e instalar de forma sencilla. El software libre ofrece una amplia gama de programas educativos que van desde juegos didácticos a aplicaciones científicas, además de herramientas de soporte como diccionarios, calculadoras... Puede actualizar periódicamente sus programas vía Internet, manteniendo su software al día con un solo clic.
+Además de los programas de este CD, tiene a su disposición miles de programas que puede bajar vía Internet de forma libre y gratuita, e instalar de forma sencilla. El software libre ofrece una amplia gama de programas educativos que van desde juegos didácticos a aplicaciones científicas, además de herramientas de soporte como diccionarios, calculadoras...
+Puede actualizar periódicamente sus programas vía Internet, manteniendo su software al día con un solo clic.
 Desde las opciones de administración puede configurar la conexión a Internet, una red local, una impresora...
-Navegue por Internet con Mozilla Firefox, ahórrese las molestas ventanas pop-up no deseadas, infórmese mediante enlaces automáticos a los titulares sus fuentes de noticias preferidas. 
+Navegue por Internet con Mozilla Firefox, ahórrese las molestas ventanas pop-up no deseadas, infórmese mediante enlaces automáticos a los titulares sus fuentes de noticias preferidas.
 Gestione su correo electrónico con Mozilla Thunderbird o Evolution, con filtrado de spam automático y sin miedo a ser víctima de los virus.
 Lleve los números de la casa o su empresa a través de herramientas contables.

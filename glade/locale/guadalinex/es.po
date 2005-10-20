@@ -273,7 +273,7 @@ msgid ""
 "installed."
 msgstr ""
 "Por favor, espere mientras se instala\n"
-"su nuevo sistema operativo y más de 2000\n"
+"su nuevo sistema operativo y más de 2000 \n"
 "programas libres y gratuitos."
 
 #: liveinstaller.glade:2594
