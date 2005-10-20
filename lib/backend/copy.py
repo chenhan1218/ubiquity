@@ -123,7 +123,7 @@ class Copy:
     misc.pre_log('info','Recolecting files to copy')
     for dirpath, dirnames, filenames in os.walk(self.source):
       sourcepath = dirpath[len(self.source)+1:]
-      if ( oldsourcepath != sourcepath )
+      if ( oldsourcepath.split('/')[0] != sourcepath.split('/')[0] )
         if sourcepath.startswith('etc'):
           queue.put( '7 Recorriendo /etc' )
         elif sourcepath.startswith('home'):

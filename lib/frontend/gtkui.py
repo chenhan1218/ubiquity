@@ -360,6 +360,8 @@ class Wizard:
     # saving UI input data to vars file
     self.set_vars_file()
 
+    # first image iteration
+    self.images_loop()
     # Setting Normal cursor
     self.live_installer.window.set_cursor(None)
 
@@ -461,9 +463,9 @@ class Wizard:
     """set values on progress bar widget."""
 
     num , text = get_progress(msg)
-    if ( num % 100/len(self.total_images) > self.remainder ):
+    if ( num % (100/len(self.total_images)) < self.remainder ):
       self.images_loop()
-    self.remainder = num % 100/len(self.total_images)
+    self.remainder = num % (100/len(self.total_images))
     self.progressbar.set_fraction (num / 100.0)
     self.progressbar.set_text(text)
 
