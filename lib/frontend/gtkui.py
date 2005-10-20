@@ -239,13 +239,6 @@ class Wizard:
 
   # Methods
 
-  def check_partitions (self, drive, progress_bar):
-
-    #FIXME: Check if it's possible to run the automatic partition through
-    # "peez2". If not, will run the Gparted
-
-    return part.call_autoparted (self.__assistant, drive, progress_bar)
-
   def gparted_loop(self):
     """call gparted and embed it into glade interface."""
 
@@ -389,7 +382,7 @@ class Wizard:
 
     # setting progress bar status while format process is running
     while True:
-      msg = str(queue.get())
+      msg = str (queue.get ())
       # format process is ended when '101' is pushed
       if msg.startswith('101'):
         break
@@ -471,7 +464,7 @@ class Wizard:
     """set values on progress bar widget."""
 
     num , text = get_progress(msg)
-    self.progressbar.set_percentage(num/100.0)
+    self.progressbar.set_fraction (num / 100.0)
     self.progressbar.set_text(text)
 
 
@@ -606,7 +599,6 @@ class Wizard:
     if (counter == 5 ):
       self.next.set_sensitive(True)
 
-
   def read_stdout(self, source, condition):
     """read msgs from queues to set progress on progress bar label.
     '101' message finishes this process returning False."""
@@ -732,16 +724,27 @@ class Wizard:
           selected_drive = self.__assistant.get_drives () [current]
 
       if self.freespace.get_active ():
+        self.partition_bar.show ()
 
         if -1 != current:
+          progress = Queue ()
+          thread.start_new_thread (launch_autoparted, (
+            self, self.__assistant, selected_drive, progress))
+          msg = str (progress.get ())
 
-          # To set a "busy mouse":
-          self.live_installer.window.set_cursor (self.watch)
+          while msg is not '':
+            field = msg.split ('|')
+            self.partition_bar.set_fraction (float (field [0]))
+            self.partition_bar.set_text (str (field [1]))
+            msg = str (progress.get ())
 
-          where = self.check_partitions (selected_drive, self.partition_bar)
+            while gtk.events_pending ():
+              gtk.main_iteration ()
 
-          # To set normal mouse again:
-          self.live_installer.window.set_cursor (None)
+            time.sleep (0.5)
+
+          self.partition_bar.set_fraction (1.0)
+          self.partition_bar.set_text ('')
 
           self.mountpoints = where
           stderr.write ('\n\n' + str (self.mountpoints) + '\n\n')
@@ -931,7 +934,6 @@ class Wizard:
     if step is not 6:
       self.steps.prev_page()
 
-
   # Public method "on_drives_changed" ________________________________________
   def on_drives_changed (self, foo):
 
@@ -1119,8 +1121,25 @@ class Wizard:
     else:
       self.next.set_sensitive (False)
 
+# Function "launch_autoparted" _______________________________________________
+def launch_autoparted (wizard, assistant, drive, progress):
+
+  """ Start auto-partitioning process in a separate thread. """
+
+  result = None
+
+  # To set a "busy mouse":
+  wizard.live_installer.window.set_cursor (wizard.watch)
+
+  result = part.call_autoparted (assistant, drive, progress)
+  progress.put ('')
+
+  # To set normal mouse again:
+  wizard.live_installer.window.set_cursor (None)
+
+  return result
+
 if __name__ == '__main__':
   w = Wizard('ubuntu')
   w.run()
 
-# vim:ai:et:sts=2:tw=80:sw=2:
