@@ -729,8 +729,10 @@ class Wizard:
 
         if -1 != current:
           progress = Queue ()
+          returned = None
           thread.start_new_thread (launch_autoparted, (
-            self, self.__assistant, selected_drive, progress))
+            self, self.__assistant, selected_drive, returned, progress))
+          where = returned
           msg = str (progress.get ())
 
           while msg is not '':
@@ -1123,7 +1125,7 @@ class Wizard:
       self.next.set_sensitive (False)
 
 # Function "launch_autoparted" _______________________________________________
-def launch_autoparted (wizard, assistant, drive, progress):
+def launch_autoparted (wizard, assistant, drive, returned, progress):
 
   """ Start auto-partitioning process in a separate thread. """
 
@@ -1132,13 +1134,11 @@ def launch_autoparted (wizard, assistant, drive, progress):
   # To set a "busy mouse":
   wizard.live_installer.window.set_cursor (wizard.watch)
 
-  result = part.call_autoparted (assistant, drive, progress)
+  returned = part.call_autoparted (assistant, drive, progress)
   progress.put ('')
 
   # To set normal mouse again:
   wizard.live_installer.window.set_cursor (None)
-
-  return result
 
 if __name__ == '__main__':
   w = Wizard('ubuntu')

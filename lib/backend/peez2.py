@@ -566,7 +566,10 @@ class Peez2:
         result = None
 
         if steps is not None:
-            steps.put ('Iniciando el proceso de particionado automático...')
+            status = 0.1
+            steps.put ('%f|Iniciando el proceso de particionado automático...' %
+                       status)
+            status = status + 0.1
 
         if drive.has_key ('info'):
 
@@ -598,8 +601,9 @@ class Peez2:
                     required = int (sum (self.__partition_scheme.values ()) * 1.1)
 
                     if steps is not None:
-                        steps.put ('Creando una partición extendida de %s)...' % \
-                                   beautify_size (int (required) * 1024 * 1024))
+                        steps.put ('%f|Creando una partición extendida de %s...' % \
+                                   (status, beautify_size (int (required) * 1024 * 1024)))
+                        status = status + 0.1
 
                     info = self.__get_info (drive ['id'], required, '-x')
                     components.append (part)
@@ -607,10 +611,9 @@ class Peez2:
                 else:
 
                     if steps is not None:
-                        steps.put ('Creando una partición lógica de %s)...' % \
-                                   beautify_size (int (required) * 1024 * 1024))
-
-
+                        steps.put ('%f|Creando una partición lógica de %s...' % \
+                                   (status, beautify_size (int (required) * 1024 * 1024)))
+                        status = status + 0.1
 
                 # Now we have to decide which option is better:
                 try:
@@ -647,9 +650,11 @@ class Peez2:
                         info = self.__get_info (drive ['id'], required,
                                                 '-x -i', str (what) + '\n')
                         extended = extended + 1
+                        type = 'extendida'
                     else:
                         info = self.__get_info (drive ['id'], required,
                                                 '-j -i', str (what) + '\n')
+                        type = 'lógica'
 
                     if info.has_key ('commands'):
                         c = info ['commands']
@@ -659,7 +664,14 @@ class Peez2:
                                 '..." >> /tmp/guadalinex-express.commands')
                         p.wait ()
 
+                    subprogress = 0.2 / (len (c) + 1)
+
                     for i in c:
+
+                        if steps is not None:
+                            steps.put ('%f|Creando una partición %s de %s...' % \
+                                       (status, type, beautify_size (int (required) * 1024 * 1024)))
+                            status = status + subprogress
 
                         # Print the commands:
                         if self.__debug:
@@ -705,7 +717,8 @@ class Peez2:
         # the backend:
 
         if steps is not None:
-            steps.put ('Terminando el proceso de particionado...')
+            steps.put ('%f|Terminando el proceso de particionado...' %
+                       status)
 
         for i in result.keys ():
 
