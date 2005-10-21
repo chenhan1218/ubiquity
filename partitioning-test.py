@@ -56,10 +56,10 @@ if len (available_methods) > 1:
     i = 0
 
     while i < len (available_methods):
-        stderr.write ('\t%i - %s\n' % (i, available_drives [i] ['label']))
+        stderr.write ('\t%i - %s\n' % (i, available_methods [i] [0]))
         i = i + 1
 
-    selected_drive = int (stdin.readline ().strip ())
+    selected_method = int (stdin.readline ().strip ())
 else:
     selected_method = 0
     stderr.write ('(Selected method is "%s".)\n' % \
@@ -75,7 +75,7 @@ if method is None:
 
     if 'yes' == str (stdin.readline ().strip ()).lower ():
         stderr.write ('Performing partitining, please wait...\n')
-        result = assistant.auto_partition (drive ['id'], do_it = ACTUAL_PARTITIONING):
+        result = assistant.auto_partition (drive, do_it = ACTUAL_PARTITIONING)
 
         if result is None:
             stderr.write ('Something failed!\n')
