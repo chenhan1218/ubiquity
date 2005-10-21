@@ -50,7 +50,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo#emergya._info> on 25 aug 2005.
-# Last modified by A. Olmo on 20 oct 2005.
+# Last modified by A. Olmo on 21 oct 2005.
 
 # TODO: improve debug and log system.
 
@@ -62,7 +62,6 @@
 from sys         import stderr
 from locale      import getdefaultlocale
 from popen2      import Popen3
-from gtk         import ProgressBar
 from string      import lower
 from ue.settings import *
 
@@ -150,7 +149,8 @@ class Peez2:
         self.__ONLY_MANUALLY = False
 
         # Every partitioning command executed will be also written here:
-        p = Popen3 ('rm /tmp/guadalinex-express.commands')
+        p = Popen3 ('if [ -e /tmp/guadalinex-express.commands ]; ' + \
+                    'then rm /tmp/guadalinex-express.commands; fi')
         p.wait ()
 
     # Public method "get_drives" _____________________________________________
@@ -167,7 +167,7 @@ class Peez2:
         for i in self.__drives:
 
 ##             if self.__debug:
-##                 stderr.write ('get_drives: drive follows.\n' + str (i) + '\n')
+##                 stderr.write ('__get_drives: drive follows.\n' + str (i) + '\n')
 
             pretty_device = beautify_device (i ['device'], self.__locale)
             pretty_size = beautify_size (i ['size'])
@@ -280,7 +280,7 @@ class Peez2:
                                 associations [j] = '/home'
 
                     if self.__debug:
-                        stderr.write ('get_drives: associations = "' + \
+                        stderr.write ('__get_drives: associations = "' + \
                                       str (associations) + '".\n')
 
             item = {'id':           str (i ['device']),
