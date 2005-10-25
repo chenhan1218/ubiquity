@@ -50,7 +50,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo#emergya._info> on 25 aug 2005.
-# Last modified by A. Olmo on 21 oct 2005.
+# Last modified by A. Olmo on 25 oct 2005.
 
 # TODO: improve debug and log system.
 
@@ -230,7 +230,7 @@ class Peez2:
                             desired = {str ((parts ['home']) * 1024 * 1024): ['root', 'home']}
                         else:
                             desired = {str ((parts ['root'] + parts ['swap']) * 1024 * 1024): ['root'],
-                                       str (parts ['home']): ['home']}
+                                       str ((parts ['home']) * 1024 * 1024): ['home']}
 
                     else:
                         # Three or more Linux partitions
@@ -659,11 +659,9 @@ class Peez2:
                     if info.has_key ('commands'):
                         c = info ['commands']
 
-                    if self.__debug:
-                        p = Popen3 ('echo "Creando ' + str (part) +
+                    p = Popen3 ('echo "Creando ' + str (part) +
                                 '..." >> /tmp/guadalinex-express.commands')
-                        p.wait ()
-
+                    p.wait ()
                     subprogress = 0.2 / (len (c) + 1)
 
                     for i in c:
@@ -677,17 +675,20 @@ class Peez2:
                         if self.__debug:
                             stderr.write ('auto_partition: command: "' +
                                           i.strip () + '" executed.\n')
-                            p = Popen3 ('echo "' + i.strip () +
+
+                        p = Popen3 ('echo "' + i.strip () +
                                     '" >> /tmp/guadalinex-express.commands')
-                            p.wait ()
+                        p.wait ()
 
                         if do_it:
                             # Do it! Execute commands to make partitions!
                             p = Popen3 (i)
                             p.wait ()
+
                             # Let the system be aware of the changes:
-                            p = Popen3 ('sleep 5')
-                            p.wait ()
+                            if 'parted' in i:
+                                p = Popen3 ('sleep 5')
+                                p.wait ()
 
                     if info.has_key ('metacoms'):
                         mc = info ['metacoms']
