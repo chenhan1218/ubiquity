@@ -60,6 +60,9 @@
 # def beautify_device (device, locale):
 
 from sys         import stderr
+from zlib        import crc32
+from time        import sleep
+from os.path     import exists
 from locale      import getdefaultlocale
 from popen2      import Popen3
 from string      import lower
@@ -618,7 +621,6 @@ class Peez2:
                 # Now we have to decide which option is better:
                 try:
                     options = info ['opts']
-
                 except:
 
                     if self.__debug:
@@ -682,13 +684,29 @@ class Peez2:
 
                         if do_it:
                             # Do it! Execute commands to make partitions!
+
+                            if 'parted' in i and exists ('/proc/partitions'):
+                                partitions_file = file ('/proc/partitions')
+                                previous_partitions = partitions_file.read ()
+                                partitions_file.close ()
+                                previous_checksum = crc32 (previous_partitions)
+
+                            # Execute the command:
                             p = Popen3 (i)
                             p.wait ()
 
                             # Let the system be aware of the changes:
-                            if 'parted' in i:
-                                p = Popen3 ('sleep 5')
-                                p.wait ()
+                            if 'parted' in i and exists ('/proc/partitions'):
+                                current_checksum = -1
+
+                                while current_checksum is previous_checksum:
+                                    sleep (1)
+                                    partitions_file = file ('/proc/partitions')
+                                    current_partitions = partitions_file.read ()
+                                    partitions_file.close ()
+                                    current_checksum = crc32 (current_partitions)
+
+                            sleep (1)
 
                     if info.has_key ('metacoms'):
                         mc = info ['metacoms']
