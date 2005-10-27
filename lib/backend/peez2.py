@@ -50,7 +50,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo#emergya._info> on 25 aug 2005.
-# Last modified by A. Olmo on 25 oct 2005.
+# Last modified by A. Olmo on 27 oct 2005.
 
 # TODO: improve debug and log system.
 
@@ -685,7 +685,7 @@ class Peez2:
                         if do_it:
                             # Do it! Execute commands to make partitions!
 
-                            if 'parted' in i and exists ('/proc/partitions'):
+                            if 'parted ' in i and exists ('/proc/partitions'):
                                 partitions_file = file ('/proc/partitions')
                                 previous_partitions = partitions_file.read ()
                                 partitions_file.close ()
@@ -696,8 +696,8 @@ class Peez2:
                             p.wait ()
 
                             # Let the system be aware of the changes:
-                            if 'parted' in i and exists ('/proc/partitions'):
-                                current_checksum = -1
+                            if 'parted ' in i and exists ('/proc/partitions'):
+                                current_checksum = previous_checksum
 
                                 while current_checksum is previous_checksum:
                                     sleep (1)
@@ -716,7 +716,7 @@ class Peez2:
                             if self.__debug:
                                 stderr.write ('# ' + i)
 
-                    if info.has_key ('dest') and extended is not 2:
+                    if info.has_key ('dest') and extended > 1:
 
                         if result is None:
                             result = {}
