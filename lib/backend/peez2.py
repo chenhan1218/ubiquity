@@ -583,49 +583,70 @@ class Peez2:
                     pass
 
             components = self.__partition_scheme.keys ()
-            extended = 0
+            stop = False
+            # We suppose that there is no extended partition:
+            ext_part = False
+            # Initially, every new partition will be logical:
+            try_primary = False
+
+            if drive.has_key ('info'):
+
+                if drive ['info'].has_key ('ext'):
+
+                    if drive ['info'] ['ext'] > 0:
+                        # Actually, there is already an extended partition:
+                        ext_part = True
 
             for part in components:
-                required = self.__partition_scheme [part]
 
-                if extended > 1:
-                    info = self.__get_info (drive ['id'], required, '-j')
-                elif drive.has_key ('info'):
-
-                    if drive ['info'].has_key ('ext'):
-
-                        if drive ['info'] ['ext'] > 0:
-                            extended = 2
-                            info = self.__get_info (drive ['id'], required, '-j')
-
-                if extended < 1:
-                    # It is necessary to create an extended partition
-                    # (with 10% more space):
-                    required = int (sum (self.__partition_scheme.values ()) * 1.1)
-
-                    if steps is not None:
-                        steps.put ('%f|Creando una partición extendida de %s...' % \
-                                   (status, beautify_size (int (required) * 1024 * 1024)))
-                        status = status + 0.1
-
-                    info = self.__get_info (drive ['id'], required, '-x')
-                    components.append (part)
-                    extended = extended + 1
-                else:
-
-                    if steps is not None:
-                        steps.put ('%f|Creando una partición lógica de %s...' % \
-                                   (status, beautify_size (int (required) * 1024 * 1024)))
-                        status = status + 0.1
-
-                # Now we have to decide which option is better:
-                try:
-                    options = info ['opts']
-                except:
+                if stop:
 
                     if self.__debug:
-                        stderr.write ('auto_partition: info contains "' +
-                                      str (info) + '".\n')
+                        stderr.write ('auto_partition: stopped!\n')
+
+                    break
+
+                if try_primary:
+                    # Create a primary partition:
+                    required = int (round (self.__partition_scheme [part]) * 1.02)
+                    info = self.__get_info (drive ['id'], required)
+                    type = 'primaria'
+                else:
+
+                    if ext_part:
+                        # A new logical partition is created. It has 2% more space
+                        # so "recycle" partitioning method is enabled if user
+                        # decides to reinstall in the same drive:
+                        required = int (round (self.__partition_scheme [part]) * 1.02)
+                        info = self.__get_info (drive ['id'], required, '-j')
+                        type = 'lógica'
+                    else:
+                        # It is necessary to create an extended partition
+                        # (with 8% more space -- 6% of 3 partitions and 2% more to be sure):
+                        required = int (round (sum (self.__partition_scheme.values ()) * 1.08))
+                        info = self.__get_info (drive ['id'], required, '-x')
+                        components.append (part)
+                        type = 'extendida'
+
+                if steps is not None:
+                    steps.put ('%f|Creando una partición %s de %s...' % \
+                               (status, type, beautify_size (int (required) * 1024 * 1024)))
+                    status = status + 0.1
+
+                # Now we have to decide which option is better:
+                if info.has_key ('opts'):
+                    options = info ['opts']
+                else:
+
+                    if try_primary:
+                        # Definitively, no more partitions can be created.
+                        # Stop partitioning:
+                        stop = True
+                    else:
+                        # Next partitions should be primary, or not be at all:
+                        components.append (part)
+                        try_primary = True
+                        continue
 
                 what = -1
                 i = 1
@@ -647,16 +668,19 @@ class Peez2:
                     i = i + 1
 
                 if -1 != what:
-                    
-                    if extended < 2:
+
+                    if try_primary:
                         info = self.__get_info (drive ['id'], required,
-                                                '-x -i', str (what) + '\n')
-                        extended = extended + 1
-                        type = 'extendida'
+                                                '-i', str (what) + '\n')
+
                     else:
-                        info = self.__get_info (drive ['id'], required,
-                                                '-j -i', str (what) + '\n')
-                        type = 'lógica'
+                    
+                        if not ext_part:
+                            info = self.__get_info (drive ['id'], required,
+                                                    '-x -i', str (what) + '\n')
+                        else:
+                            info = self.__get_info (drive ['id'], required,
+                                                    '-j -i', str (what) + '\n')
 
                     if info.has_key ('commands'):
                         c = info ['commands']
@@ -706,7 +730,7 @@ class Peez2:
                                     partitions_file.close ()
                                     current_checksum = crc32 (current_partitions)
 
-                            sleep (1)
+                            sleep (5)
 
                     if info.has_key ('metacoms'):
                         mc = info ['metacoms']
@@ -716,19 +740,27 @@ class Peez2:
                             if self.__debug:
                                 stderr.write ('# ' + i)
 
-                    if info.has_key ('dest') and extended > 1:
+                    if self.__debug:
+                        stderr.write ("info.has_key ('dest') = " +
+                                      str (info.has_key ('dest')) +
+                                      '; ext_part = ' + str (ext_part) + '.\n')
 
-                        if result is None:
-                            result = {}
+                    if ext_part:
 
-                        result [(info ['dest']).strip ()] = part.strip ()
+                        if info.has_key ('dest'):
 
-                        if self.__debug:
-                            stderr.write (str (part.strip ()) + \
-                                          ' added as ' + \
-                                          str ((info ['dest']).strip ()) + '\n')
+                            if result is None:
+                                result = {}
+
+                            result [(info ['dest']).strip ()] = part.strip ()
+
+                            if self.__debug:
+                                stderr.write (str (part.strip ()) + \
+                                              ' added as ' + \
+                                              str ((info ['dest']).strip ()) + '\n')
+
                     else:
-                        extended = extended + 1
+                        ext_part = True
 
         # During formatting and copying, "root" is known as "/",
         # and "home" is known as "/home", so it is necessary to
