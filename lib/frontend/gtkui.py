@@ -161,6 +161,9 @@ class Wizard:
     # set custom language
     self.set_locales()
 
+    # If automatic partitioning fails, it may be disabled toggling on this variable:
+    self.discard_automatic_partitioning = False
+
     # load the interface
     self.glade = gtk.glade.XML('%s/liveinstaller.glade' % GLADEDIR)
 
@@ -743,11 +746,16 @@ class Wizard:
 
             time.sleep (0.5)
 
-          self.partition_bar.set_fraction (1.0)
-          self.partition_bar.set_text ('')
           self.mountpoints = progress.get ()
-          stderr.write ('\n\n' + str (self.mountpoints) + '\n\n')
-          self.steps.set_current_page(5)
+          self.partition_bar.set_text ('')
+
+          if self.mountpoints is 'STOPPED':
+            self.partition_bar.set_fraction (0.0)
+            self.abort_dialog.show ()
+#            self.steps.set_current_page(2)
+          else:
+            self.partition_bar.set_fraction (1.0)
+            self.steps.set_current_page(5)
 
           while gtk.events_pending():
             gtk.main_iteration()
@@ -961,12 +969,8 @@ class Wizard:
 
           if not self.__assistant.only_manually ():
 
-#             if selected_drive.has_key ('info'):
-
-#               if selected_drive ['info'].has_key ('oks'):
-#                 self.freespace.set_sensitive (True)
-
-            self.freespace.set_sensitive (True)            
+            if not self.discard_automatic_partitioning:
+              self.freespace.set_sensitive (True)            
 
             if selected_drive.has_key ('linux_before'):
 
@@ -1040,7 +1044,8 @@ class Wizard:
       self.confirmation_checkbutton.set_active (False)
       self.next.set_sensitive (True)
       self.partition_message.set_markup (
-        '<span>Se crearán 3 particiones <b>nuevas</b> en su disco duro y ' +
+        '<span><b>Este método de particionado es EXPERIMENTAL.</b>\n\n' +
+        'Se crearán 3 particiones <b>nuevas</b> en su disco duro y ' +
         'se instalará ahí el sistema. En la mayoría de los casos, los datos ' +
         'que haya ya en el disco duro ' +
         'no se destruirán.\n\nNota: en algunos casos, <b>es posible que ' +
@@ -1112,13 +1117,23 @@ class Wizard:
   # Public method "on_confirmation_checkbutton_toggled" ______________________
   def on_confirmation_checkbutton_toggled (self, widget):
 
-    """ Changes "active" property of "next" button when this check box is
+    """ Change "active" property of "next" button when this check box is
         changed. """
 
     if self.confirmation_checkbutton.get_active ():
       self.next.set_sensitive (True)
     else:
       self.next.set_sensitive (False)
+
+  # Public method "on_abort_ok_button_clicked" _______________________________
+  def on_abort_ok_button_clicked (self, widget):
+
+    """ Disable automatic partitioning, reset partitioning method step and
+        close current dialog. """
+
+    self.discard_automatic_partitioning = True
+    self.on_drives_changed (self.drives)
+    self.warning_dialog.hide ()
 
 # Function "launch_autoparted" _______________________________________________
 def launch_autoparted (wizard, assistant, drive, progress):

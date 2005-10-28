@@ -50,7 +50,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo#emergya._info> on 25 aug 2005.
-# Last modified by A. Olmo on 27 oct 2005.
+# Last modified by A. Olmo on 28 oct 2005.
 
 # TODO: improve debug and log system.
 
@@ -241,12 +241,12 @@ class Peez2:
                         mountpoints = parts.keys ()
 
                         for k in mountpoints:
-                            desired_sizes.append (parts [k])
+                            desired_sizes.append (parts [k] * 1024 * 1024)
 
-                            if desired.has_key (str (parts [k])):
-                                (desired [str (parts [k])]).append (k)
+                            if desired.has_key (str (parts [k] * 1024 * 1024)):
+                                (desired [str (parts [k] * 1024 * 1024)]).append (k)
                             else:
-                                desired [str (parts [k])] = [k]
+                                desired [str (parts [k] * 1024 * 1024)] = [k]
 
                     # This array must be ordered as well:
                     desired_sizes.sort ()
@@ -255,14 +255,34 @@ class Peez2:
                     l = 0
                     r = 0
 
+                    if self.__debug:
+                        stderr.write ('__get_drives: actual = "' + str (actual) + '.\n')
+                        stderr.write ('__get_drives: actual_sizes = "' + str (actual_sizes) + '.\n')
+                        stderr.write ('__get_drives: desired = "' + str (desired) + '.\n')
+                        stderr.write ('__get_drives: desired_sizes = "' + str (desired_sizes) + '.\n')
+
                     while r < len (desired_sizes) and l < len (actual_sizes):
 
+                        if self.__debug:
+                            stderr.write ('__get_drives: r = ' + str (r) +
+                                          '; l = ' + str (l) + '.\n')
+
                         if actual_sizes [l] >= desired_sizes [r]:
-##                             stderr.write (str (actual))
-##                             stderr.write (str (actual_sizes))
-##                             stderr.write (str (associations))
+
+                            if self.__debug:
+                                stderr.write ('__get_drives: ' +
+                                              str (actual_sizes [l]) +
+                                              ' >= ' + str (desired_sizes [r]) + '.\n')
+
                             associations [actual [str (actual_sizes [l])] [0]] = \
                                          desired [str (desired_sizes [r])] [0]
+
+                            if self.__debug:
+                                stderr.write ('__get_drives: associations [' +
+                                              str (actual [str (actual_sizes [l])] [0]) +
+                                              '] = desired [' + str (desired_sizes [r]) +
+                                              '] [0].\n')
+
                             r = r + 1
 
                         l = l + 1
@@ -599,12 +619,8 @@ class Peez2:
 
             for part in components:
 
-                if stop:
-
-                    if self.__debug:
-                        stderr.write ('auto_partition: stopped!\n')
-
-                    break
+                if self.__debug:
+                    stderr.write ('auto_partition: part = "' + str (part) + '".\n')
 
                 if try_primary:
                     # Create a primary partition:
@@ -635,15 +651,31 @@ class Peez2:
 
                 # Now we have to decide which option is better:
                 if info.has_key ('opts'):
+
+                    if self.__debug:
+                        stderr.write ('auto_partition: has_key ("opts").\n')
+
                     options = info ['opts']
                 else:
+
+                    if self.__debug:
+                        stderr.write ('auto_partition: NO has_key ("opts").\n')
 
                     if try_primary:
                         # Definitively, no more partitions can be created.
                         # Stop partitioning:
+
+                        if self.__debug:
+                            stderr.write ('auto_partition: stopped!\n')
+
                         stop = True
+                        break
                     else:
                         # Next partitions should be primary, or not be at all:
+
+                        if self.__debug:
+                            stderr.write ('auto_partition: switching to primary.\n')
+
                         components.append (part)
                         try_primary = True
                         continue
@@ -771,12 +803,19 @@ class Peez2:
             steps.put ('%f|Terminando el proceso de particionado...' %
                        status)
 
-        for i in result.keys ():
+        if stop:
+            result = 'STOPPED'
+        else:
 
-            if 'root' == result [i].lower ():
-                result [i] = '/'
-            elif 'home' == result [i].lower ():
-                result [i] = '/home'
+            for i in result.keys ():
+
+                if 'root' == result [i].lower ():
+                    result [i] = '/'
+                elif 'home' == result [i].lower ():
+                    result [i] = '/home'
+
+        if self.__debug:
+            stderr.write ('auto_partition: result = "' + str (result) + '".\n')
 
         return result
 
