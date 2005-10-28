@@ -699,7 +699,31 @@ class Peez2:
 
                     i = i + 1
 
-                if -1 != what:
+                if what is -1:
+
+                    if self.__debug:
+                        stderr.write ('auto_partition: there are no valid options.\n')
+
+                    if try_primary:
+                        # Definitively, no more partitions can be created.
+                        # Stop partitioning:
+
+                        if self.__debug:
+                            stderr.write ('auto_partition: stopped!\n')
+
+                        stop = True
+                        break
+                    else:
+                        # Next partitions should be primary, or not be at all:
+
+                        if self.__debug:
+                            stderr.write ('auto_partition: switching to primary.\n')
+
+                        components.append (part)
+                        try_primary = True
+                        continue
+
+                else:
 
                     if try_primary:
                         info = self.__get_info (drive ['id'], required,

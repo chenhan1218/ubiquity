@@ -750,18 +750,22 @@ class Wizard:
           self.partition_bar.set_text ('')
 
           if self.mountpoints is 'STOPPED':
+            self.mountpoints = None
             self.partition_bar.set_fraction (0.0)
+            self.discard_automatic_partitioning = True
+            self.freespace.set_sensitive (False)
+            self.on_drives_changed (None)
             self.abort_dialog.show ()
 #            self.steps.set_current_page(2)
           else:
             self.partition_bar.set_fraction (1.0)
             self.steps.set_current_page(5)
 
-          while gtk.events_pending():
-            gtk.main_iteration()
+            while gtk.events_pending():
+              gtk.main_iteration()
 
-          self.back.hide()
-          self.progress_loop()
+            self.back.hide()
+            self.progress_loop()
 
       elif self.recycle.get_active ():
 
@@ -970,7 +974,7 @@ class Wizard:
           if not self.__assistant.only_manually ():
 
             if not self.discard_automatic_partitioning:
-              self.freespace.set_sensitive (True)            
+              self.freespace.set_sensitive (True)
 
             if selected_drive.has_key ('linux_before'):
 
@@ -1125,15 +1129,22 @@ class Wizard:
     else:
       self.next.set_sensitive (False)
 
+##   # Public method "on_abort_dialog_close" ____________________________________
+##   def on_abort_dialog_close (self, widget):
+
+##     """ Disable automatic partitioning and reset partitioning method step. """
+
+##     stderr.write ('\non_abort_dialog_close.\n\n')
+
+##     self.discard_automatic_partitioning = True
+##     self.on_drives_changed (None)
+
   # Public method "on_abort_ok_button_clicked" _______________________________
   def on_abort_ok_button_clicked (self, widget):
 
-    """ Disable automatic partitioning, reset partitioning method step and
-        close current dialog. """
+    """ Close this dialog. """
 
-    self.discard_automatic_partitioning = True
-    self.on_drives_changed (self.drives)
-    self.warning_dialog.hide ()
+    self.abort_dialog.hide ()
 
 # Function "launch_autoparted" _______________________________________________
 def launch_autoparted (wizard, assistant, drive, progress):
