@@ -156,9 +156,9 @@ def invalid_names ():
 
     result = set ([])
 
-    for i in open ('/source/etc/passwd'):
+    for i in open ('/etc/passwd'):
 
-        if ':' in i:
+        if ':' in i and '1000:1000' not in i:
             result.add (i [: i.find (':')])
 
     return result
