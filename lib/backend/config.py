@@ -196,19 +196,23 @@ class Config:
     #self.set_debconf('passwd', 'passwd/user-password', self.password)
     #self.set_debconf('passwd', 'passwd/user-password-again', self.password)
     #self.reconfigure('passwd')
-    self.chrex('useradd', '-u', '1001', '-d', '/home/' + self.username, '-s',
+
+    # Only for Guadalinex
+    self.chrex('deluser', 'guada')
+    self.chrex('rm', '-rf', '/home/guada')
+    self.chrex('delgroup', 'guada')
+
+    self.chrex('useradd', '-u', '1000', '-d', '/home/' + self.username, '-s',
         '/bin/bash', '-c', self.fullname, self.username)
     passwd = subprocess.Popen(['echo', self.username + ':' + self.password],
         stdout=subprocess.PIPE)
     subprocess.Popen(['chroot', self.target, 'chpasswd', '--md5'], stdin=passwd.stdout)
-    self.chrex('deluser', 'guada')
-    self.chrex('rm', '-rf', '/home/guada')
     self.chrex('mkdir', '/home/%s' % self.username)
-    self.chrex('adduser', self.username, 'admin')
     try:
       self.chrex('/usr/local/sbin/adduser.local')
     except Exception, e:
-      print e
+      for group in GROUPS:
+        self.chrex('adduser', self.username, group)
 
     # Copying skel
 
@@ -332,13 +336,11 @@ class Config:
     first_elem.append('root (%s)\n' % grub_dev)
     first_elem.append('kernel (%s)/boot/vmlinuz-%s root=%s ro splash quiet\n' % (grub_dev, self.kernel_version, target_dev))
     first_elem.append('initrd (%s)/boot/initrd.img-%s\n' % (grub_dev, self.kernel_version))
-#    first_elem.append('savedefault\n')
     first_elem.append('\n')
     first_elem.append('title %s, Kernel %s (a prueba de fallos)\n' % (self.distro.capitalize(), self.kernel_version))
     first_elem.append('root (%s)\n' % grub_dev)
     first_elem.append('kernel (%s)/boot/vmlinuz-%s root=%s ro single\n' % (grub_dev, self.kernel_version, target_dev))
     first_elem.append('initrd (%s)/boot/initrd.img-%s\n' % (grub_dev, self.kernel_version))
-#    first_elem.append('savedefault\n')
     first_elem.append('\n')
 
     grub_conf.reverse()

@@ -66,5 +66,9 @@ LARGER_PARTITION_SCHEME = {'swap':  1024,
 #          performed, or not. Enable it at your own risk!
 ACTUAL_PARTITIONING = True
 
+# Groups in which the installation user will be added in case adduser.local
+# doesn't exist in sources
+GROUPS = ['adm', 'dialout', 'cdrom', 'floppy', 'audio', 'dip', 'video', 'plugdev', 'lpadmin', 'scanner', 'admin']
+
 # End of file.
 
