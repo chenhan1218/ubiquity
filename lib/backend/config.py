@@ -202,7 +202,7 @@ class Config:
     self.chrex('rm', '-rf', '/home/guada')
     self.chrex('delgroup', 'guada')
 
-    self.chrex('useradd', '-u', '1000', '-d', '/home/' + self.username, '-s',
+    self.chrex('useradd', '-u', '1000', '-d', '/home/' + self.username, '-m', '-s',
         '/bin/bash', '-c', self.fullname, self.username)
     passwd = subprocess.Popen(['echo', self.username + ':' + self.password],
         stdout=subprocess.PIPE)
@@ -215,19 +215,19 @@ class Config:
         self.chrex('adduser', self.username, group)
 
     # Copying skel
-
-    def visit (arg, dirname, names):
-      for name in names:
-        oldname = os.path.join (dirname, name)
-        for pattern in str(dirname).split('/')[2:]:
-          dir = os.path.join('', pattern)
-        newname = os.path.join (self.target, 'home/%s/' % self.username, dir, name)
-        if ( os.path.isdir(oldname) ):
-          os.mkdir(newname)
-        else:
-          os.system('cp ' + oldname + ' ' + newname)
-
-    os.path.walk('/etc/skel/', visit, None)
+    #
+    #def visit (arg, dirname, names):
+    #  for name in names:
+    #    oldname = os.path.join (dirname, name)
+    #    for pattern in str(dirname).split('/')[2:]:
+    #      dir = os.path.join('', pattern)
+    #    newname = os.path.join (self.target, 'home/%s/' % self.username, dir, name)
+    #    if ( os.path.isdir(oldname) ):
+    #      os.mkdir(newname)
+    #    else:
+    #      os.system('cp ' + oldname + ' ' + newname)
+    #
+    #os.path.walk('/etc/skel/', visit, None)
 
     self.chrex('chown', '-R', self.username, '/home/%s' % self.username)
 
