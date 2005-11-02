@@ -8,6 +8,12 @@ Ha de desmontarlas usted mismo antes de proseguir con la instalación."
 	exit 1
 }
 
+info() {
+	zenity --info --text "Se va a proceder a desmontar las unidades de disco locales para llevar a cabo un proceso de instalación limpio."
+}
+
+info
+
 for dev_array in $( cat /proc/mounts | cut -d" " -f1 | sort | uniq )
 	do dev="$( echo $dev_array | grep ^/dev/[hs]d[a-z][0-9]*$ )"
 	[ ! -z "$dev" ] && sudo umount -f $dev 2> /dev/null || warning
