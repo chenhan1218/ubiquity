@@ -16,7 +16,7 @@ info
 
 for dev_array in $( cat /proc/mounts | cut -d" " -f1 | sort | uniq )
 	do dev="$( echo $dev_array | grep ^/dev/[hs]d[a-z][0-9]*$ )"
-	[ ! -z "$dev" ] && sudo umount -f $dev 2> /dev/null || warning
+	[ ! -z "$dev" ] && ( sudo umount -f $dev 2> /dev/null || warning )
 done
 
 for dev_array in $( cat /proc/swaps | cut -d" " -f1 )
