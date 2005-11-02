@@ -50,7 +50,7 @@
 # File "peez2.py".
 # Automatic partitioning with "peez2".
 # Created by Antonio Olmo <aolmo#emergya._info> on 25 aug 2005.
-# Last modified by A. Olmo on 28 oct 2005.
+# Last modified by A. Olmo on 2 nov 2005.
 
 # TODO: improve debug and log system.
 
@@ -71,7 +71,7 @@ from ue.settings import *
 class Peez2:
 
     """ Encapsulates a sequence of operations with I{Peez2} partition
-        assistant. The partition scheme is expressed in MB (1024 Bytes).
+        assistant. The partition scheme is expressed in MB (2^20 bytes).
 
         Data structures about three different drives follow. The first one is
         a hard drive::

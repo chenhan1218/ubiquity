@@ -974,6 +974,9 @@ class Wizard:
           if not self.__assistant.only_manually ():
 
             if not self.discard_automatic_partitioning:
+
+##               if selected_drive.has_key (''):
+
               self.freespace.set_sensitive (True)
 
             if selected_drive.has_key ('linux_before'):

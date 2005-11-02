@@ -61,25 +61,11 @@
 <br />
 reboot the system after installing process.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><a name="check_partitions"></a><span class="summary-sig"><span class="summary-sig-name">check_partitions</span>(<span class=summary-sig-arg>self</span>,
-          <span class=summary-sig-arg>drive</span>,
-          <span class=summary-sig-arg>progress_bar</span>)</span></code>
-</td></tr>
-<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
   <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#get_default_partition_selection" class="summary-sig-name"><code>get_default_partition_selection</code></a>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>size</span>)</span></code>
 <br />
 return a dictionary with a skeleton { mountpoint : device } as a 
 default partition selection.</td></tr>
-<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#get_filesystems" class="summary-sig-name"><code>get_filesystems</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
-<br />
-return a dictionary with a skeleton { device : filesystem } with data 
-from local hard disks.</td></tr>
-<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
-  <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#get_partitions" class="summary-sig-name"><code>get_partitions</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
-<br />
-return an array with fdisk output related to partition data.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
   <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#get_sizes" class="summary-sig-name"><code>get_sizes</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
 <br />
@@ -92,13 +78,18 @@ call gparted and embed it into glade interface.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
   <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#images_loop" class="summary-sig-name"><code>images_loop</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
 <br />
-create a timeout object to get looping images and text on installing 
-screen about the install process.</td></tr>
+looping images and text on installing screen about the install 
+process.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
   <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#info_loop" class="summary-sig-name"><code>info_loop</code></a>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>widget</span>)</span></code>
 <br />
 check if all entries from Identification screen are filled.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#on_abort_ok_button_clicked" class="summary-sig-name"><code>on_abort_ok_button_clicked</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>widget</span>)</span></code>
+<br />
+Close this dialog.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
   <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#on_back_clicked" class="summary-sig-name"><code>on_back_clicked</code></a>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>widget</span>)</span></code>
@@ -116,7 +107,7 @@ Callback to set previous screen.</td></tr>
   <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#on_confirmation_checkbutton_toggled" class="summary-sig-name"><code>on_confirmation_checkbutton_toggled</code></a>(<span class=summary-sig-arg>self</span>,
           <span class=summary-sig-arg>widget</span>)</span></code>
 <br />
-Changes &quot;active&quot; property of &quot;next&quot; button when 
+Change &quot;active&quot; property of &quot;next&quot; button when 
 this check box is changed.</td></tr>
 <tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
   <td><code><span class="summary-sig"><a href="../private/lib.frontend.gtkui.Wizard-class.html#on_drives_changed" class="summary-sig-name"><code>on_drives_changed</code></a>(<span class=summary-sig-arg>self</span>,
@@ -266,26 +257,6 @@ values.</td></tr>
   </dd></dl>
 </td></tr></table>
 
-<a name="get_filesystems"></a>
-<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
-  <h3><span class="sig"><span class="sig-name">get_filesystems</span>(<span class=sig-arg>self</span>)</span>
-  </h3>
-  return a dictionary with a skeleton { device : filesystem } with 
-  data from local hard disks. Only swap and ext3 filesystems are 
-  available.
-  <dl><dt></dt><dd>
-  </dd></dl>
-</td></tr></table>
-
-<a name="get_partitions"></a>
-<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
-  <h3><span class="sig"><span class="sig-name">get_partitions</span>(<span class=sig-arg>self</span>)</span>
-  </h3>
-  return an array with fdisk output related to partition data.
-  <dl><dt></dt><dd>
-  </dd></dl>
-</td></tr></table>
-
 <a name="get_sizes"></a>
 <table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
   <h3><span class="sig"><span class="sig-name">get_sizes</span>(<span class=sig-arg>self</span>)</span>
@@ -309,8 +280,8 @@ values.</td></tr>
 <table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
   <h3><span class="sig"><span class="sig-name">images_loop</span>(<span class=sig-arg>self</span>)</span>
   </h3>
-  create a timeout object to get looping images and text on installing 
-  screen about the install process.
+  looping images and text on installing screen about the install 
+  process.
   <dl><dt></dt><dd>
   </dd></dl>
 </td></tr></table>
@@ -322,6 +293,16 @@ values.</td></tr>
   </h3>
   check if all entries from Identification screen are filled. Callback 
   defined in glade file.
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="on_abort_ok_button_clicked"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">on_abort_ok_button_clicked</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>widget</span>)</span>
+  </h3>
+  Close this dialog.
   <dl><dt></dt><dd>
   </dd></dl>
 </td></tr></table>
@@ -341,7 +322,7 @@ values.</td></tr>
   <h3><span class="sig"><span class="sig-name">on_confirmation_checkbutton_toggled</span>(<span class=sig-arg>self</span>,
           <span class=sig-arg>widget</span>)</span>
   </h3>
-  Changes &quot;active&quot; property of &quot;next&quot; button when 
+  Change &quot;active&quot; property of &quot;next&quot; button when 
   this check box is changed.
   <dl><dt></dt><dd>
   </dd></dl>
@@ -578,7 +559,7 @@ values.</td></tr>
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr>
-    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Sat Oct 15 00:59:22 2005</font></td>
+    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Wed Nov  2 16:54:28 2005</font></td>
     <td align="right"><a href="http://epydoc.sourceforge.net"
                       ><font size="-2">http://epydoc.sf.net</font></a></td>
   </tr>
