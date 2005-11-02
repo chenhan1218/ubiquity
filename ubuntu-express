@@ -1,3 +1,21 @@
 #!/bin/sh
 
+warning() {
+	zenity --info --text "No fue posible desmontar alguna de las unidades de disco.
+
+Ha de desmontarlas usted mismo antes de proseguir con la instalación."
+
+	exit 1
+}
+
+for dev_array in $( cat /proc/mounts | cut -d" " -f1 | sort | uniq )
+	do dev="$( echo $dev_array | grep ^/dev/[hs]d[a-z][0-9]*$ )"
+	[ ! -z "$dev" ] && sudo umount -f $dev 2> /dev/null || warning
+done
+
+for dev_array in $( cat /proc/swaps | cut -d" " -f1 )
+	do dev="$( echo $dev_array | grep ^/dev/[hs]d[a-z][0-9]*$ )"
+	[ ! -z "$dev" ] && sudo swapoff $dev
+done
+
 /usr/bin/gksudo /usr/bin/installer &
