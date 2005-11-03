@@ -20,7 +20,7 @@ umount_units() {
 	for dev_array in $( cat /proc/mounts | grep -v iso9660 | cut -d" " -f1 | sort | uniq )
 	do
 		dev="$( echo $dev_array | grep ^/dev/[hs]d[a-z][0-9]*$ )"
-		if [ ! -z "$dev" ]; then echo sudo umount -f $dev 2> /dev/null || break; fi
+		if [ ! -z "$dev" ]; then sudo umount -f $dev 2> /dev/null || break; fi
 	done
 
 	[ $? == 1 ] && warning && return 1 || return 0
@@ -30,7 +30,7 @@ umount_swaps() {
 	for dev_array in $( cat /proc/swaps | cut -d" " -f1 )
 	do
 		dev="$( echo $dev_array | grep ^/dev/[hs]d[a-z][0-9]*$ )"
-		if [ ! -z "$dev" ]; then echo sudo swapoff $dev || break; fi
+		if [ ! -z "$dev" ]; then sudo swapoff $dev || break; fi
 	done
 
 	[ $? == 1 ] && warning_swap && return 1 || return 0
