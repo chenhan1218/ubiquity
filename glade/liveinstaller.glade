@@ -1228,9 +1228,9 @@
 
 				  <child>
 				    <widget class="GtkCheckButton" id="confirmation_checkbutton">
-				      <property name="tooltip" translatable="yes">Marque esta casilla para confirmar que desea reemplazar los datos de estas tres particiones</property>
+				      <property name="tooltip" translatable="yes">Marque esta casilla para confirmar la operación</property>
 				      <property name="can_focus">True</property>
-				      <property name="label" translatable="yes">Confirmar el uso de estas particiones</property>
+				      <property name="label" translatable="yes">Confirmar el particionado automático</property>
 				      <property name="use_underline">True</property>
 				      <property name="relief">GTK_RELIEF_NORMAL</property>
 				      <property name="focus_on_click">True</property>

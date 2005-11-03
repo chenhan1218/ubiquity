@@ -1047,9 +1047,9 @@ class Wizard:
     """ Update help message when this radio button is selected. """
 
     if self.freespace.get_active ():
-      self.confirmation_checkbutton.hide ()
+      self.confirmation_checkbutton.show ()
       self.confirmation_checkbutton.set_active (False)
-      self.next.set_sensitive (True)
+      self.next.set_sensitive (False)
       self.partition_message.set_markup (
         '<span><b>Este método de particionado es EXPERIMENTAL.</b>\n\n' +
         'Se crearán 3 particiones <b>nuevas</b> en su disco duro y ' +
