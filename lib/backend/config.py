@@ -209,6 +209,7 @@ class Config:
     subprocess.Popen(['chroot', self.target, 'chpasswd', '--md5'], stdin=passwd.stdout)
     self.chrex('mkdir', '/home/%s' % self.username)
     try:
+      self.chrex('adduser', self.username, 'admin')
       self.chrex('/usr/local/sbin/adduser.local', self.username)
     except Exception, e:
       for group in GROUPS:
