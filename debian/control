@@ -72,3 +72,10 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python2.4-gnome2
 Provides: ubuntu-express-frontend
 Description: Gtk+ Frontend for Ubuntu Express Live installer
  This package provides a Gtk+ based Ubuntu Express GUI.
+
+Package: ubuntu-express-frontend-cloner
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubuntu-express-artwork, ubuntu-express-doc
+Provides: ubuntu-express-frontend
+Description: Network Cloner Frontend for Ubuntu Express Live installer
+ This package provides a Ubuntu Express GUI non interactive which will install the system from a server.
