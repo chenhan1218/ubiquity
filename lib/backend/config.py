@@ -124,19 +124,11 @@ class Config:
     print >>fstab, 'proc\t/proc\tproc\tdefaults\t0\t0\nsysfs\t/sys\tsysfs\tdefaults\t0\t0'
     for device, path in self.mountpoints.items():
         if path == '/':
-            passno = 1
-            options = 'defaults,errors=remount-ro'
-            filesystem = 'ext3'
+            passno, options, filesystem = 1, 'defaults,errors=remount-ro', 'ext3'
         elif path == 'swap':
-            swap = 1
-            passno = 0
-            filesystem = 'swap'
-            options = 'sw'
-            path = 'none'
+            swap, passno, filesystem, options, path = 1, 0, 'swap', 'sw', 'none'
         else:
-            passno = 2
-            filesystem = 'ext3'
-            options = 'defaults'
+            passno, filesystem, options = 2, 'ext3', 'defaults'
 
         print >>fstab, '%s\t%s\t%s\t%s\t%d\t%d' % (device, path, filesystem, options, 0, passno)
 
@@ -327,6 +319,7 @@ class Config:
     first_elem.append('fallback 1\n')
     first_elem.append('timeout 30\n')
     first_elem.append('default 0\n')
+    first_elem.append('splashimage=(%s)/boot/grub/splash.xpm.gz\n' % grub_dev)
     first_elem.append('\n')
     #first_elem.append('\n')
     #first_elem.append('title %s, memtest86+\n' % distro)

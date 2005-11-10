@@ -60,7 +60,7 @@ class Copy:
 
     queue.put( '93 Desmontando la imagen original de la copia')
     misc.post_log('info', 'Umounting source')
-    if self.unmount_source():
+    if self.umount_source():
       queue.put( '94 Imagen de la copia desmontada')
       misc.post_log('info', 'Umounted source')
     else:
@@ -208,15 +208,26 @@ class Copy:
     """mounting loop system from cloop or squashfs system."""
 
     from os import path
+
     self.dev = ''
+
+    # Autodetection on unionfs systems
+    file = open('/etc/mtab').readlines()
+    for line in f:
+      if ( line.split()[2] == 'squashfs' ):
+        misc.ex('mount', '--bind', line.split()[1], self.source)
+        return True
+
+    # Manual Detection on non unionfs systems
     files = ['/cdrom/casper/filesystem.cloop', '/cdrom/META/META.squashfs']
-    for f in files:
+
+    for file in files:
       if path.isfile(f) and path.splitext(f)[1] == '.cloop':
-        file = f
         self.dev = '/dev/cloop1'
+        break
       elif path.isfile(f) and path.splitext(f)[1] == '.squashfs':
-        file = f
         self.dev = '/dev/loop3'
+        break
 
     if self.dev == '':
       return False
@@ -235,12 +246,12 @@ class Copy:
     return True
 
 
-  def unmount_source(self):
-    """unmounting loop system from cloop or squashfs system."""
+  def umount_source(self):
+    """umounting loop system from cloop or squashfs system."""
 
     if not misc.ex('umount', self.source):
       return False
-    if not misc.ex('losetup', '-d', self.dev):
+    if ( not misc.ex('losetup', '-d', self.dev) and self.dev != '' ):
       return False
     return True
 

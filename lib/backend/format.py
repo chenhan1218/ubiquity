@@ -33,6 +33,7 @@ class Format:
         try:
           queue.put( "3 Preparando partición swap" )
           misc.ex('mkswap', device)
+          misc.ex('swapon', device)
           queue.put( "3 Partición swap lista" )
         except Exception, e:
           print e
