@@ -221,10 +221,16 @@ class Copy:
     from os import path
 
     self.dev = ''
+    if not os.path.isdir(self.source):
+      try:
+        os.mkdir(self.source)
+      except Exception, e:
+        print e
+      misc.pre_log('info', 'mkdir %s' % self.source)
 
     # Autodetection on unionfs systems
     file = open('/etc/mtab').readlines()
-    for line in f:
+    for line in file:
       if ( line.split()[2] == 'squashfs' ):
         misc.ex('mount', '--bind', line.split()[1], self.source)
         return True
@@ -244,12 +250,6 @@ class Copy:
       return False
 
     misc.ex('losetup', self.dev, file)
-    if not os.path.isdir(self.source):
-      try:
-        os.mkdir(self.source)
-      except Exception, e:
-        print e
-      misc.pre_log('info', 'mkdir %s' % self.source)
     try:
       misc.ex('mount', self.dev, self.source)
     except Exception, e:

@@ -61,7 +61,7 @@ from ue.settings import *
 # def check_password (passwd1, passwd2):
 # def check_hostname (name):
 # def invalid_names ():
-    
+
 # Function "check_username" __________________________________________________
 
 def check_username (name):
@@ -90,7 +90,7 @@ def check_username (name):
         result[2] = 3
     if len (set (name).intersection (set (uppercase))) > 0:
         result[1] = 2
-        
+
     regex = re.compile(r'^[a-zA-Z0-9.]+$')
     if not regex.search(name):
       result[0] = 1
@@ -176,13 +176,13 @@ def check_mountpoint (mountpoints, size):
     import re
     result = [0, 0, 0, 0]
     root = 0
-    
+
     if mountpoints.has_key ('swap'):
       root_minimum_KB = MINIMAL_PARTITION_SCHEME ['root'] * 1024
     else:
       root_minimum_KB = (MINIMAL_PARTITION_SCHEME ['root'] +
                          MINIMAL_PARTITION_SCHEME ['swap']) * 1024
-    
+ 
     for j, k in mountpoints.items():
       if k == '/':
         root = 1
@@ -192,7 +192,7 @@ def check_mountpoint (mountpoints, size):
 
       if ( mountpoints.values().count(k) > 1 ):
         result[1] = 2
-      regex = re.compile(r'^[a-zA-Z0-9/]+$')
+      regex = re.compile(r'^[a-zA-Z0-9/\-\_\+]+$')
       if not regex.search(k):
         result[3] = 4
 
@@ -200,6 +200,6 @@ def check_mountpoint (mountpoints, size):
       result[0] = 1
 
     return result
-      
+
 # End of file.
 
