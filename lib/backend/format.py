@@ -22,22 +22,15 @@ class Format:
 
     for device, path in self.mountpoints.items():
       if path in ['/']:
-        try:
-          queue.put( "1 Formateando partición raíz" )
-          misc.ex('mkfs.ext3', device)
-          queue.put( "2 Partición raíz lista" )
-        except Exception, e:
-          print e
+        queue.put( "1 Formateando partición raíz" )
+        if not misc.ex('mkfs.ext3', device):
           return False
+        queue.put( "2 Partición raíz lista" )
       elif path == 'swap':
-        try:
-          queue.put( "3 Preparando partición swap" )
-          misc.ex('mkswap', device)
-          misc.ex('swapon', device)
-          queue.put( "3 Partición swap lista" )
-        except Exception, e:
-          print e
+        queue.put( "3 Preparando partición swap" )
+        if not misc.ex('mkswap', device):
           return False
+        queue.put( "3 Partición swap lista" )
 
 if __name__ == '__main__':
   mountpoints = misc.get_var()['mountpoints']

@@ -79,8 +79,10 @@ class Copy:
     misc.ex('mount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
 
     for device, path in self.mountpoints.items():
-      if path in ('/', 'swap'):
+      if ( path == '/' ):
           continue
+      elif ( path ==  'swap' ):
+          misc.ex('swapon', device)
       path = os.path.join(self.target, path[1:])
       if not os.path.isdir(path) and not os.path.isfile(path):
         os.mkdir(path)
@@ -91,7 +93,16 @@ class Copy:
         misc.ex('mkfs.ext3',device)
         misc.ex ('mount', device, path)
 
-    return True
+    try:
+      if ( self.mountpoints.values().index('swap') >= 0 ):
+        return True
+    except:
+      # If swap partition isn't defined, we create a swapfile
+      os.system("dd if=/dev/zero of=%s/swapfile bs=1024 count=%d" % (self.target, MINIMAL_PARTITION_SCHEME ['swap'] * 1024) )
+      os.system("mkswap %s/swapfile" % self.target)
+      os.system("swapon %s/swapfile" % self.target)
+      return True
+
 
   def umount_target(self):
     """umounting selected partitions."""
