@@ -92,7 +92,7 @@ class Wizard:
     self.gparted = True
     self.password = ''
     self.mountpoints = {}
-    self.part_labels = {}
+    self.part_labels = {' ' : ' '}
     self.remainder = 0
 
     # To get a "busy mouse":
