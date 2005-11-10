@@ -92,6 +92,7 @@ class Wizard:
     self.gparted = True
     self.password = ''
     self.mountpoints = {}
+    self.part_labels = {}
     self.remainder = 0
 
     # To get a "busy mouse":
@@ -104,49 +105,6 @@ class Wizard:
                     'username' : 0,
                     'password' : 0,
                     'verified_password' : 0
-                    }
-    self.part_labels = {
-                    ' ' : ' ',
-                    '/dev/hda1' : 'Partición 1 Disco IDE/ATA 1 (Primaria) [hda1]',
-                    '/dev/hda2' : 'Partición 2 Disco IDE/ATA 1 (Primaria) [hda2]',
-                    '/dev/hda3' : 'Partición 3 Disco IDE/ATA 1 (Primaria) [hda3]',
-                    '/dev/hda4' : 'Partición 4 Disco IDE/ATA 1 (Primaria) [hda4]',
-                    '/dev/hda5' : 'Partición 5 Disco IDE/ATA 1 (Lógica) [hda5]',
-                    '/dev/hda6' : 'Partición 6 Disco IDE/ATA 1 (Lógica) [hda6]',
-                    '/dev/hda7' : 'Partición 7 Disco IDE/ATA 1 (Lógica) [hda7]',
-                    '/dev/hda8' : 'Partición 8 Disco IDE/ATA 1 (Lógica) [hda8]',
-                    '/dev/hda9' : 'Partición 9 Disco IDE/ATA 1 (Lógica) [hda9]',
-                    '/dev/hda10' : 'Partición 10 Disco IDE/ATA 1 (Lógica) [hda10]',
-                    '/dev/hdb1' : 'Partición 1 Disco IDE/ATA 2 (Primaria) [hdb1]',
-                    '/dev/hdb2' : 'Partición 2 Disco IDE/ATA 2 (Primaria) [hdb2]',
-                    '/dev/hdb3' : 'Partición 3 Disco IDE/ATA 2 (Primaria) [hdb3]',
-                    '/dev/hdb4' : 'Partición 4 Disco IDE/ATA 2 (Primaria) [hdb4]',
-                    '/dev/hdb5' : 'Partición 5 Disco IDE/ATA 2 (Lógica) [hdb5]',
-                    '/dev/hdb6' : 'Partición 6 Disco IDE/ATA 2 (Lógica) [hdb6]',
-                    '/dev/hdb7' : 'Partición 7 Disco IDE/ATA 2 (Lógica) [hdb7]',
-                    '/dev/hdb8' : 'Partición 8 Disco IDE/ATA 2 (Lógica) [hdb8]',
-                    '/dev/hdb9' : 'Partición 9 Disco IDE/ATA 2 (Lógica) [hdb9]',
-                    '/dev/hdb10' : 'Partición 10 Disco IDE/ATA 2 (Lógica) [hdb10]',
-                    '/dev/sda1' : 'Partición 1 Disco USB/SCSI/SATA 1 (Primaria) [sda1]',
-                    '/dev/sda2' : 'Partición 2 Disco USB/SCSI/SATA 1 (Primaria) [sda2]',
-                    '/dev/sda3' : 'Partición 3 Disco USB/SCSI/SATA 1 (Primaria) [sda3]',
-                    '/dev/sda4' : 'Partición 4 Disco USB/SCSI/SATA 1 (Primaria) [sda4]',
-                    '/dev/sda5' : 'Partición 5 Disco USB/SCSI/SATA 1 (Lógica) [sda5]',
-                    '/dev/sda6' : 'Partición 6 Disco USB/SCSI/SATA 1 (Lógica) [sda6]',
-                    '/dev/sda7' : 'Partición 7 Disco USB/SCSI/SATA 1 (Lógica) [sda7]',
-                    '/dev/sda8' : 'Partición 8 Disco USB/SCSI/SATA 1 (Lógica) [sda8]',
-                    '/dev/sda9' : 'Partición 9 Disco USB/SCSI/SATA 1 (Lógica) [sda9]',
-                    '/dev/sda10' : 'Partición 10 Disco USB/SCSI/SATA 1 (Lógica) [sda10]',
-                    '/dev/sdb1' : 'Partición 1 Disco USB/SCSI/SATA 2 (Primaria) [sdb1]',
-                    '/dev/sdb2' : 'Partición 2 Disco USB/SCSI/SATA 2 (Primaria) [sdb2]',
-                    '/dev/sdb3' : 'Partición 3 Disco USB/SCSI/SATA 2 (Primaria) [sdb3]',
-                    '/dev/sdb4' : 'Partición 4 Disco USB/SCSI/SATA 2 (Primaria) [sdb4]',
-                    '/dev/sdb5' : 'Partición 5 Disco USB/SCSI/SATA 2 (Lógica) [sdb5]',
-                    '/dev/sdb6' : 'Partición 6 Disco USB/SCSI/SATA 2 (Lógica) [sdb6]',
-                    '/dev/sdb7' : 'Partición 7 Disco USB/SCSI/SATA 2 (Lógica) [sdb7]',
-                    '/dev/sdb8' : 'Partición 8 Disco USB/SCSI/SATA 2 (Lógica) [sdb8]',
-                    '/dev/sdb9' : 'Partición 9 Disco USB/SCSI/SATA 2 (Lógica) [sdb9]',
-                    '/dev/sdb10' : 'Partición 10 Disco USB/SCSI/SATA 2 (Lógica) [sdb10]'
                     }
 
     # images stuff
@@ -203,6 +161,11 @@ class Wizard:
     # show interface
     self.show_browser()
 
+    # Resizing labels according to screen resolution
+    #for widget in self.glade.get_widget_prefix(""):
+    #  if widget.__class__ == gtk.Label and widget.get_name()[-6:-1] == 'label':
+    #    self.resize_text(widget, widget.get_name()[-1:])
+
     # Declare SignalHandler
     self.glade.signal_autoconnect(self)
 
@@ -239,6 +202,20 @@ class Wizard:
 
     # Setting Normal mouse cursor
     self.live_installer.window.set_cursor(None)
+
+
+  #def resize_text (self, widget, type):
+  #  """set different text sizes from screen resolution."""
+
+  #  width, height = self.live_installer.get_size()
+  #  if ( width >= 1200 ):
+  #    text = widget.get_text()
+  #    if ( type == '1' ):
+  #      widget.set_markup('<big>' + text + '</big>')
+  #    elif ( type == '2' ):
+  #      widget.set_markup('<big><b>' + text + '</b></big>')
+  #    elif ( type == '3' ):
+  #      widget.set_markup('<span font_desc="22">' + text + '</span>')
 
 
   # Methods
@@ -341,6 +318,8 @@ class Wizard:
     """write all values in this widget (GtkComboBox) from local
     partitions values."""
 
+    from ue import misc
+
     # setting GtkComboBox partition values from get_partition return.
     self.partitions = []
     partition_list = get_partitions()
@@ -349,6 +328,7 @@ class Wizard:
     # the first element is empty to allow deselect a preselected device
     treelist.append([' '])
     for index in partition_list:
+      self.part_labels[index.split()[0]] = misc.part_label(index.split()[0])
       treelist.append([self.part_labels[index.split()[0]]])
       self.partitions.append(index.split()[0])
     widget.set_model(treelist)
@@ -510,7 +490,7 @@ class Wizard:
     #    os.kill(self.pid, 9)
     #  except Exception, e:
     #    print e
-    
+
     # Tell the user how much time they used
     pre_log('info', 'You wasted %.2f seconds with this installation' %
                       (time.time()-self.start))
@@ -556,9 +536,9 @@ class Wizard:
     # showing new partition and mountpoint widgets if they are needed. Assigning
     #   new value to size gtklabel.
     if ( widget.get_active_text() not in ['', None] ):
-      try:
+      if ( widget.__class__ == gtk.ComboBox ):
         index = list_partitions_labels.index(widget.get_name())
-      except:
+      elif ( widget.__class__ == gtk.ComboBoxEntry ):
         index = list_mountpoints_labels.index(widget.get_name())
 
       if ( list_partitions[index].get_active_text() != None and
