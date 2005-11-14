@@ -208,7 +208,7 @@ class Wizard:
     """set different text sizes from screen resolution."""
 
     width, height = self.live_installer.get_size()
-    if ( width >= 1200 ):
+    if ( width >= 900 ):
       text = widget.get_text()
       if ( type == '1' ):
         widget.set_markup('<big>' + text + '</big>')
