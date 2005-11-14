@@ -162,9 +162,9 @@ class Wizard:
     self.show_browser()
 
     # Resizing labels according to screen resolution
-    #for widget in self.glade.get_widget_prefix(""):
-    #  if widget.__class__ == gtk.Label and widget.get_name()[-6:-1] == 'label':
-    #    self.resize_text(widget, widget.get_name()[-1:])
+    for widget in self.glade.get_widget_prefix(""):
+      if widget.__class__ == gtk.Label and widget.get_name()[-6:-1] == 'label':
+        self.resize_text(widget, widget.get_name()[-1:])
 
     # Declare SignalHandler
     self.glade.signal_autoconnect(self)
@@ -204,18 +204,18 @@ class Wizard:
     self.live_installer.window.set_cursor(None)
 
 
-  #def resize_text (self, widget, type):
-  #  """set different text sizes from screen resolution."""
+  def resize_text (self, widget, type):
+    """set different text sizes from screen resolution."""
 
-  #  width, height = self.live_installer.get_size()
-  #  if ( width >= 1200 ):
-  #    text = widget.get_text()
-  #    if ( type == '1' ):
-  #      widget.set_markup('<big>' + text + '</big>')
-  #    elif ( type == '2' ):
-  #      widget.set_markup('<big><b>' + text + '</b></big>')
-  #    elif ( type == '3' ):
-  #      widget.set_markup('<span font_desc="22">' + text + '</span>')
+    width, height = self.live_installer.get_size()
+    if ( width >= 1200 ):
+      text = widget.get_text()
+      if ( type == '1' ):
+        widget.set_markup('<big>' + text + '</big>')
+      elif ( type == '2' ):
+        widget.set_markup('<big><b>' + text + '</b></big>')
+      elif ( type == '3' ):
+        widget.set_markup('<span font_desc="22">' + text + '</span>')
 
 
   # Methods
