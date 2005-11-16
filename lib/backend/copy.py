@@ -93,7 +93,7 @@ class Copy:
         misc.ex('mkfs.ext3',device)
         misc.ex ('mount', device, path)
 
-    if ( 'swap' in self.mountpoints.values() ):
+    if ( 'swap' not in self.mountpoints.values() ):
       # If swap partition isn't defined, we create a swapfile
       os.system("dd if=/dev/zero of=%s/swapfile bs=1024 count=%d" % (self.target, MINIMAL_PARTITION_SCHEME ['swap'] * 1024) )
       os.system("mkswap %s/swapfile" % self.target)
