@@ -177,7 +177,7 @@ def check_mountpoint (mountpoints, size):
     result = [0, 0, 0, 0]
     root = 0
 
-    if mountpoints.has_value ('swap'):
+    if 'swap' in mountpoints.values():
       root_minimum_KB = MINIMAL_PARTITION_SCHEME ['root'] * 1024
     else:
       root_minimum_KB = (MINIMAL_PARTITION_SCHEME ['root'] +
