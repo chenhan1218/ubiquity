@@ -207,8 +207,8 @@ class Wizard:
   def resize_text (self, widget, type):
     """set different text sizes from screen resolution."""
 
-    width, height = self.live_installer.get_size()
-    if ( width >= 900 ):
+    import gtk.gdk
+    if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
       text = widget.get_text()
       if ( type == '1' ):
         widget.set_markup('<big>' + text + '</big>')
