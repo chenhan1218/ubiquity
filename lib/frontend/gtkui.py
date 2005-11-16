@@ -56,9 +56,8 @@ import pygtk
 pygtk.require('2.0')
 
 import gtk.glade
-import gtkmozembed
 import os
-import time, gobject
+import time
 import glob
 import thread
 
@@ -85,7 +84,6 @@ class Wizard:
   def __init__(self, distro):
     # declare attributes
     self.distro = distro
-    # self.pid = False
     self.hostname = ''
     self.fullname = ''
     self.name = ''
@@ -94,6 +92,9 @@ class Wizard:
     self.mountpoints = {}
     self.part_labels = {' ' : ' '}
     self.remainder = 0
+
+    # Peez2 stuff initialization:
+    self.__assistant = None
 
     # To get a "busy mouse":
     self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
@@ -151,9 +152,6 @@ class Wizard:
     self.live_installer.show()
     self.live_installer.window.set_cursor(self.watch)
 
-    # Peez2 stuff initialization:
-    self.__assistant = None
-
 
   def run(self):
     """run the interface."""
@@ -190,6 +188,8 @@ class Wizard:
   def show_browser(self):
     """Embed Mozilla widget into a vbox."""
 
+    import gtkmozembed
+
     widget = gtkmozembed.MozEmbed()
     local_uri = os.path.join(PATH, 'htmldocs/', self.distro, 'index.html')
 
@@ -215,7 +215,7 @@ class Wizard:
     else:
       msg = widget.get_text()
 
-    if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 800 ):
+    if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
       if ( type == '1' ):
         msg = '<big>' + msg + '</big>'
       elif ( type == '2' ):
@@ -327,6 +327,7 @@ class Wizard:
     partitions values."""
 
     from ue import misc
+    import gobject
 
     # setting GtkComboBox partition values from get_partition return.
     self.partitions = []
@@ -492,13 +493,6 @@ class Wizard:
   def quit(self):
     """quit installer cleanly."""
 
-    # Ask for Juanje why this is defined
-    #if self.pid:
-    #  try:
-    #    os.kill(self.pid, 9)
-    #  except Exception, e:
-    #    print e
-
     # Tell the user how much time they used
     pre_log('info', 'You wasted %.2f seconds with this installation' %
                       (time.time()-self.start))
@@ -642,128 +636,125 @@ class Wizard:
       self.steps.next_page()
 
     # From Info to Peez
-    # Validation stuff
     elif step == 1:
-      from ue import validation
-      error_msg = ['\n']
-      error = 0
-
-      # checking username entry
-      for result in validation.check_username(self.username.get_property('text')):
-        if ( result == 1 ):
-          error_msg.append("· El <b>nombre de usuario</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
-          error = 1
-        elif ( result == 2 ):
-          error_msg.append("· El <b>nombre de usuario</b> contiene mayúsculas (no están permitidas).\n")
-          error = 1
-        elif ( result == 3 ):
-          error_msg.append("· El <b>nombre de usuario</b> tiene tamaño incorrecto (permitido entre 3 y 24 caracteres).\n")
-          error = 1
-        elif ( result == 4 ):
-          error_msg.append("· El <b>nombre de usuario</b> contiene espacios en blanco (no están permitidos).\n")
-          error = 1
-        elif ( result in [5, 6] ):
-          error_msg.append("· El <b>nombre de usuario</b> ya está en uso o está prohibido.\n")
-          error = 1
-
-      # checking password entry
-      for result in validation.check_password(self.password.get_property('text'), self.verified_password.get_property('text')):
-        if ( result in [1,2] ):
-          error_msg.append("· La <b>contraseña</b> tiene tamaño incorrecto (permitido entre 4 y 16 caracteres).\n")
-          error = 1
-        elif ( result == 3 ):
-          error_msg.append("· Las <b>contraseñas</b> no coinciden.\n")
-          error = 1
-
-      # checking hostname entry
-      for result in validation.check_hostname(self.hostname.get_property('text')):
-        if ( result == 1 ):
-          error_msg.append("· El <b>nombre del equipo</b> tiene tamaño incorrecto (permitido entre 3 y 18 caracteres).\n")
-          error = 1
-        elif ( result == 2 ):
-          error_msg.append("· El <b>nombre del equipo</b> contiene espacios en blanco (no están permitidos).\n")
-          error = 1
-        elif ( result == 3 ):
-          error_msg.append("· El <b>nombre del equipo</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
-          error = 1
-
-      # showing warning message is error is set
-      if ( error != 0 ):
-        self.show_error(''.join(self.resize_text(error_msg, '1')))
-      else:
-        # showing next step and destroying mozembed widget to release memory
-        self.browser_vbox.destroy()
-        self.back.show()
-        self.help.hide()
-        self.steps.next_page()
-        # To disable peez2 utility, you must comment the line above
-        # this one and uncoment the three below lines.
-        # if self.gparted:
-        #   self.gparted_loop()
-        # self.steps.set_current_page(3)
-
+      self.info_to_peez()
     # From Peez to {Gparted, Progress}
     elif step == 2:
+      self.peez2()
+    # From Gparted to Mountpoints
+    elif step == 3:
+      self.gparted_to_mountpoints()
+    # From Mountpoints to Progress
+    elif step == 4:
+      self.mountpoints_to_progress()
 
-      while gtk.events_pending ():
-        gtk.main_iteration ()
+    step = self.steps.get_current_page()
+    pre_log('info', 'Step_after = %d' % step)
 
-      self.freespace.set_active (False)
-      self.recycle.set_active (False)
-      self.manually.set_active (False)
-      model = self.drives.get_model ()
 
-      if len (model) > 0:
-        current = self.drives.get_active ()
+  def info_to_peez (self):
+    """Processing info to peez step tasks."""
 
-        if -1 != current:
-          selected_drive = self.__assistant.get_drives () [current]
+    from ue import validation
+    error_msg = ['\n']
+    error = 0
 
-      if self.freespace.get_active ():
-        self.partition_bar.show ()
+    # Validation stuff
 
-        if -1 != current:
-          progress = Queue ()
-          thread.start_new_thread (launch_autoparted, (self, self.__assistant, selected_drive, progress))
+    # checking username entry
+    for result in validation.check_username(self.username.get_property('text')):
+      if ( result == 1 ):
+        error_msg.append("· El <b>nombre de usuario</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
+      elif ( result == 2 ):
+        error_msg.append("· El <b>nombre de usuario</b> contiene mayúsculas (no están permitidas).\n")
+      elif ( result == 3 ):
+        error_msg.append("· El <b>nombre de usuario</b> tiene tamaño incorrecto (permitido entre 3 y 24 caracteres).\n")
+      elif ( result == 4 ):
+        error_msg.append("· El <b>nombre de usuario</b> contiene espacios en blanco (no están permitidos).\n")
+      elif ( result in [5, 6] ):
+        error_msg.append("· El <b>nombre de usuario</b> ya está en uso o está prohibido.\n")
+
+    # checking password entry
+    for result in validation.check_password(self.password.get_property('text'), self.verified_password.get_property('text')):
+      if ( result in [1,2] ):
+        error_msg.append("· La <b>contraseña</b> tiene tamaño incorrecto (permitido entre 4 y 16 caracteres).\n")
+      elif ( result == 3 ):
+        error_msg.append("· Las <b>contraseñas</b> no coinciden.\n")
+
+    # checking hostname entry
+    for result in validation.check_hostname(self.hostname.get_property('text')):
+      if ( result == 1 ):
+        error_msg.append("· El <b>nombre del equipo</b> tiene tamaño incorrecto (permitido entre 3 y 18 caracteres).\n")
+      elif ( result == 2 ):
+        error_msg.append("· El <b>nombre del equipo</b> contiene espacios en blanco (no están permitidos).\n")
+      elif ( result == 3 ):
+        error_msg.append("· El <b>nombre del equipo</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
+
+    # showing warning message is error is set
+    if ( len(error_msg) > 1 ):
+      self.show_error(''.join(self.resize_text(error_msg, '1')))
+    else:
+      # showing next step and destroying mozembed widget to release memory
+      self.browser_vbox.destroy()
+      self.back.show()
+      self.help.hide()
+      self.steps.next_page()
+      # To disable peez2 utility, you must comment the line above
+      # this one and uncoment the three below lines.
+      # if self.gparted:
+      #   self.gparted_loop()
+      # self.steps.set_current_page(3)
+
+
+  def peez2(self):
+    """Processing peez to {gparted, progress} step tasks."""
+
+    while gtk.events_pending ():
+      gtk.main_iteration ()
+
+    self.freespace.set_active (False)
+    self.recycle.set_active (False)
+    self.manually.set_active (False)
+    model = self.drives.get_model ()
+
+    if len (model) > 0:
+      current = self.drives.get_active ()
+
+      if -1 != current:
+        selected_drive = self.__assistant.get_drives () [current]
+
+    if self.freespace.get_active ():
+      self.partition_bar.show ()
+
+      if -1 != current:
+        progress = Queue ()
+        thread.start_new_thread (launch_autoparted, (self, self.__assistant, selected_drive, progress))
+        msg = str (progress.get ())
+
+        while msg is not '':
+          field = msg.split ('|')
+          self.partition_bar.set_fraction (float (field [0]))
+          self.partition_bar.set_text (str (field [1]))
           msg = str (progress.get ())
 
-          while msg is not '':
-            field = msg.split ('|')
-            self.partition_bar.set_fraction (float (field [0]))
-            self.partition_bar.set_text (str (field [1]))
-            msg = str (progress.get ())
+          while gtk.events_pending ():
+            gtk.main_iteration ()
 
-            while gtk.events_pending ():
-              gtk.main_iteration ()
+          time.sleep (0.5)
 
-            time.sleep (0.5)
+        self.mountpoints = progress.get ()
+        self.partition_bar.set_text ('')
 
-          self.mountpoints = progress.get ()
-          self.partition_bar.set_text ('')
-
-          if self.mountpoints is 'STOPPED':
-            self.mountpoints = None
-            self.partition_bar.set_fraction (0.0)
-            self.discard_automatic_partitioning = True
-            self.freespace.set_sensitive (False)
-            self.on_drives_changed (None)
-            self.abort_dialog.show ()
-#            self.steps.set_current_page(2)
-          else:
-            self.partition_bar.set_fraction (1.0)
-            self.steps.set_current_page(5)
-
-            while gtk.events_pending():
-              gtk.main_iteration()
-
-            self.back.hide()
-            self.progress_loop()
-
-      elif self.recycle.get_active ():
-
-        if -1 != current:
-          self.mountpoints = selected_drive ['linux_before']
-          stderr.write ('\n\n' + str (self.mountpoints) + '\n\n')
+        if self.mountpoints is 'STOPPED':
+          self.mountpoints = None
+          self.partition_bar.set_fraction (0.0)
+          self.discard_automatic_partitioning = True
+          self.freespace.set_sensitive (False)
+          self.on_drives_changed (None)
+          self.abort_dialog.show ()
+#          self.steps.set_current_page(2)
+        else:
+          self.partition_bar.set_fraction (1.0)
           self.steps.set_current_page(5)
 
           while gtk.events_pending():
@@ -771,156 +762,161 @@ class Wizard:
 
           self.back.hide()
           self.progress_loop()
-      else:
 
-        if self.gparted:
-          self.gparted_loop()
-        self.steps.next_page()
+    elif self.recycle.get_active ():
 
-    # From Gparted to Mountpoints
-    elif step == 3:
-      # Setting items into partition Comboboxes
-      for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
-        self.show_partitions(widget)
-      self.size = self.get_sizes()
+      if -1 != current:
+        self.mountpoints = selected_drive ['linux_before']
+        stderr.write ('\n\n' + str (self.mountpoints) + '\n\n')
+        self.steps.set_current_page(5)
 
-      # building mountpoints preselection
-      self.default_partition_selection = self.get_default_partition_selection(self.size)
-
-      # Setting a default partition preselection
-      if len(self.default_partition_selection.items()) == 0:
-        self.next.set_sensitive(False)
-      else:
-        count = 0
-        mp = { 'swap' : 0, '/' : 1, '/home' : 2 }
-
-        # Setting default preselection values into ComboBox widgets and setting
-        #   size values. In addition, next row is showed if they're validated.
-        for j, k in self.default_partition_selection.items():
-          if ( count == 0 ):
-            self.partition1.set_active(self.partitions.index(k)+1)
-            self.mountpoint1.set_active(mp[j])
-            self.size1.set_text(self.set_size_msg(k))
-            if ( len(get_partitions()) > 1 ):
-              self.partition2.show()
-              self.mountpoint2.show()
-            count += 1
-          elif ( count == 1 ):
-            self.partition2.set_active(self.partitions.index(k)+1)
-            self.mountpoint2.set_active(mp[j])
-            self.size2.set_text(self.set_size_msg(k))
-            if ( len(get_partitions()) > 2 ):
-              self.partition3.show()
-              self.mountpoint3.show()
-            count += 1
-          elif ( count == 2 ):
-            self.partition3.set_active(self.partitions.index(k)+1)
-            self.mountpoint3.set_active(mp[j])
-            self.size3.set_text(self.set_size_msg(k))
-            if ( len(get_partitions()) > 3 ):
-              self.partition4.show()
-              self.mountpoint4.show()
-
-      self.steps.next_page()
-
-    # From Mountpoints to Progress
-    elif step == 4:
-
-      # Validating self.mountpoints
-      error_msg = ['\n']
-      error = 0
-
-      # creating self.mountpoints list only if the pairs { device : mountpoint } are
-      #   selected.
-      list = []
-      list_partitions = []
-      list_mountpoints = []
-
-      # building widget lists to build dev_mnt dict ( { device : mountpoint } )
-      for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
-        if widget.get_active_text() not in [None, ' ']:
-          list_partitions.append(widget)
-      for widget in self.glade.get_widget('vbox_mountpoints').get_children()[1:]:
-        if widget.get_active_text() != "":
-          list_mountpoints.append(widget)
-      # Only if partitions cout or mountpoints count selected are the same,
-      #   dev_mnt is built.
-      if ( len(list_partitions) == len(list_mountpoints) ):
-        dev_mnt = dict( [ (list_partitions[i], list_mountpoints[i]) for i in range(0,len(list_partitions)) ] )
-
-        for dev, mnt in dev_mnt.items():
-          if ( dev.get_active_text() != None and mnt.get_active_text() != "" ):
-            self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(dev.get_active_text())]] = mnt.get_active_text()
-
-      # Processing validation stuff
-      elif ( len(list_partitions) > len(list_mountpoints) ):
-        error_msg.append("· Punto de montaje vacío.\n\n")
-        error = 1
-      elif ( len(list_partitions) < len(list_mountpoints) ):
-        error_msg.append("· Partición sin seleccionar.\n\n")
-        error = 1
-
-      # Checking duplicated devices
-      for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
-        if ( widget.get_active_text() != None ):
-          list.append(widget.get_active_text())
-
-      for check in list:
-        if ( list.count(check) > 1 ):
-          error_msg.append("· Dispositivos duplicados.\n\n")
-          error = 1
-          break
-
-      # Processing more validation stuff
-      if ( len(self.mountpoints) > 0 ):
-        for check in check_mountpoint(self.mountpoints, self.size):
-          if ( check == 1 ):
-            error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
-            error = 1
-          elif ( check == 2 ):
-            error_msg.append("· Puntos de montaje duplicados.\n\n")
-            error = 1
-          elif ( check == 3 ):
-            try:
-              swap = self.mountpoints.values().index('swap')
-              error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
-            except:
-              error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
-            error = 1
-          elif ( check == 4 ):
-            error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
-            error = 1
-
-      # showing warning messages
-      if ( error != 0 ):
-        self.msg_error2.set_text(''.join(self.resize_text(error_msg, '1')))
-        self.msg_error2.show()
-        self.img_error2.show()
-      else:
-        self.back.hide()
-        self.steps.next_page()
-        # setting busy mouse cursor
-        self.live_installer.window.set_cursor(self.watch)
-
-        # refreshing UI
         while gtk.events_pending():
           gtk.main_iteration()
 
-        # Destroy gparted tree widgets
-        self.embedded.destroy()
-        self.next.set_sensitive(False)
-
-        # killing gparted to release mem
-        try:
-          os.kill(self.gparted_pid, 9)
-        except Exception, e:
-          print e
-
-        # Starting installation core process
+        self.back.hide()
         self.progress_loop()
+    else:
 
-    step = self.steps.get_current_page()
-    pre_log('info', 'Step_after = %d' % step)
+      if self.gparted:
+        self.gparted_loop()
+      self.steps.next_page()
+
+
+  def gparted_to_mountpoints(self):
+    """Processing gparted to mountpoints step tasks."""
+
+    # Setting items into partition Comboboxes
+    for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
+      self.show_partitions(widget)
+    self.size = self.get_sizes()
+
+    # building mountpoints preselection
+    self.default_partition_selection = self.get_default_partition_selection(self.size)
+
+    # Setting a default partition preselection
+    if len(self.default_partition_selection.items()) == 0:
+      self.next.set_sensitive(False)
+    else:
+      count = 0
+      mp = { 'swap' : 0, '/' : 1, '/home' : 2 }
+
+      # Setting default preselection values into ComboBox widgets and setting
+      #   size values. In addition, next row is showed if they're validated.
+      for j, k in self.default_partition_selection.items():
+        if ( count == 0 ):
+          self.partition1.set_active(self.partitions.index(k)+1)
+          self.mountpoint1.set_active(mp[j])
+          self.size1.set_text(self.set_size_msg(k))
+          if ( len(get_partitions()) > 1 ):
+            self.partition2.show()
+            self.mountpoint2.show()
+          count += 1
+        elif ( count == 1 ):
+          self.partition2.set_active(self.partitions.index(k)+1)
+          self.mountpoint2.set_active(mp[j])
+          self.size2.set_text(self.set_size_msg(k))
+          if ( len(get_partitions()) > 2 ):
+            self.partition3.show()
+            self.mountpoint3.show()
+          count += 1
+        elif ( count == 2 ):
+          self.partition3.set_active(self.partitions.index(k)+1)
+          self.mountpoint3.set_active(mp[j])
+          self.size3.set_text(self.set_size_msg(k))
+          if ( len(get_partitions()) > 3 ):
+            self.partition4.show()
+            self.mountpoint4.show()
+
+    self.steps.next_page()
+
+
+  def mountpoints_to_progress(self):
+    """Processing mountpoints to progress step tasks."""
+
+    # Validating self.mountpoints
+    error_msg = ['\n']
+
+    # creating self.mountpoints list only if the pairs { device : mountpoint } are
+    #   selected.
+    list = []
+    list_partitions = []
+    list_mountpoints = []
+
+    # building widget lists to build dev_mnt dict ( { device : mountpoint } )
+    for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
+      if widget.get_active_text() not in [None, ' ']:
+        list_partitions.append(widget)
+    for widget in self.glade.get_widget('vbox_mountpoints').get_children()[1:]:
+      if widget.get_active_text() != "":
+        list_mountpoints.append(widget)
+    # Only if partitions cout or mountpoints count selected are the same,
+    #   dev_mnt is built.
+    if ( len(list_partitions) == len(list_mountpoints) ):
+      dev_mnt = dict( [ (list_partitions[i], list_mountpoints[i]) for i in range(0,len(list_partitions)) ] )
+
+      for dev, mnt in dev_mnt.items():
+        if ( dev.get_active_text() != None and mnt.get_active_text() != "" ):
+          self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(dev.get_active_text())]] = mnt.get_active_text()
+
+    # Processing validation stuff
+    elif ( len(list_partitions) > len(list_mountpoints) ):
+      error_msg.append("· Punto de montaje vacío.\n\n")
+    elif ( len(list_partitions) < len(list_mountpoints) ):
+      error_msg.append("· Partición sin seleccionar.\n\n")
+
+    # Checking duplicated devices
+    for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
+      if ( widget.get_active_text() != None ):
+        list.append(widget.get_active_text())
+
+    for check in list:
+      if ( list.count(check) > 1 ):
+        error_msg.append("· Dispositivos duplicados.\n\n")
+        break
+
+    # Processing more validation stuff
+    if ( len(self.mountpoints) > 0 ):
+      for check in check_mountpoint(self.mountpoints, self.size):
+        if ( check == 1 ):
+          error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
+        elif ( check == 2 ):
+          error_msg.append("· Puntos de montaje duplicados.\n\n")
+        elif ( check == 3 ):
+          try:
+            swap = self.mountpoints.values().index('swap')
+            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
+          except:
+            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
+        elif ( check == 4 ):
+          error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
+
+    # showing warning messages
+    if ( len(error_msg) > 1 ):
+      self.msg_error2.set_text(''.join(self.resize_text(error_msg, '1')))
+      self.msg_error2.show()
+      self.img_error2.show()
+    else:
+      self.back.hide()
+      self.steps.next_page()
+      # setting busy mouse cursor
+      self.live_installer.window.set_cursor(self.watch)
+
+      # refreshing UI
+      while gtk.events_pending():
+        gtk.main_iteration()
+
+      # Destroy gparted tree widgets
+      self.embedded.destroy()
+      self.next.set_sensitive(False)
+
+      # killing gparted to release mem
+      try:
+        os.kill(self.gparted_pid, 9)
+      except Exception, e:
+        print e
+
+      # Starting installation core process
+      self.progress_loop()
 
 
   def on_back_clicked(self, widget):
