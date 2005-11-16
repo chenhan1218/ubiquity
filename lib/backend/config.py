@@ -273,119 +273,32 @@ class Config:
   def configure_bootloader(self):
     """configuring and installing boot loader into installed hardware system."""
 
-    files = ['/etc/lilo.conf', '/boot/grub/menu.lst','/etc/grub.conf',
-             '/boot/grub/grub.conf']
-    TEST = '/mnt/test/'
+    import re
+
     target_dev = self.mountpoints.keys()[self.mountpoints.values().index('/')]
-    grub_dev = misc.grub_dev(target_dev)
     distro = self.distro.capitalize()
-    proc_file = open('/proc/partitions').readlines()
-    parts, grub_conf = [], []
 
-    #if os.path.exists(target + '/boot/grub/menu.lst'):
-    #  grub_file = open(os.path.join(target, 'boot/grub/menu.lst'), 'r')
-    #  it = grub_entries(grub_file)
-    #  for i_index, i in enumerate(it):
-    #    if ( ''.join(i).startswith('title') ):
-    #      #i[1] = 'root\t\t(%s)\n' % grub_dev
-    #      grub_conf.append(i)
-
-    for entry in proc_file[2:]:
-        dev = entry.split()
-        if len(dev[3]) == 4:
-            parts.append(dev[3])
-    misc.ex('mkdir', TEST)
-    for part in parts:
-        if misc.ex('mount', '/dev/' + part , TEST):
-            for file in files:
-                if os.path.exists(TEST + file):
-                  try:
-                    grub_file = open(os.path.join(TEST, file))
-                    it = misc.grub_entries(grub_file)
-                    grub_file.close()
-                    for i_index, i in enumerate(it):
-                      if ( ''.join(i).startswith('title') ):
-                        grub_conf.append(i)
-                  except:
-                    continue
-
-            misc.ex('umount', TEST)
-    # The new boot
-    #self.chex('/usr/sbin/mkinitrd')
     misc.ex('mount', '/proc', '--bind', self.target + '/proc')
     misc.ex('mount', '/sys', '--bind', self.target + '/sys')
-
-    # For the Grub
-    first_elem = []
-    first_elem.append('fallback 1\n')
-    first_elem.append('timeout 30\n')
-    first_elem.append('default 0\n')
-    first_elem.append('splashimage=(%s)/boot/grub/splash.xpm.gz\n' % grub_dev)
-    first_elem.append('\n')
-    #first_elem.append('\n')
-    #first_elem.append('title %s, memtest86+\n' % distro)
-    #first_elem.append('root (%s)\n' % grub_dev)
-    #first_elem.append('kernel (%s)/boot/memtest86+.bin\n' % grub_dev)
-    #first_elem.append('\n')
-    first_elem.append('title %s, Kernel %s\n' % (self.distro.capitalize(), self.kernel_version))
-    first_elem.append('root (%s)\n' % grub_dev)
-    first_elem.append('kernel (%s)/boot/vmlinuz-%s root=%s ro splash quiet\n' % (grub_dev, self.kernel_version, target_dev))
-    first_elem.append('initrd (%s)/boot/initrd.img-%s\n' % (grub_dev, self.kernel_version))
-    first_elem.append('\n')
-    first_elem.append('title %s, Kernel %s (a prueba de fallos)\n' % (self.distro.capitalize(), self.kernel_version))
-    first_elem.append('root (%s)\n' % grub_dev)
-    first_elem.append('kernel (%s)/boot/vmlinuz-%s root=%s ro single\n' % (grub_dev, self.kernel_version, target_dev))
-    first_elem.append('initrd (%s)/boot/initrd.img-%s\n' % (grub_dev, self.kernel_version))
-    first_elem.append('\n')
-
-    grub_conf.reverse()
-    grub_conf.append(first_elem)
-    grub_conf.reverse()
+    misc.ex('mount', '/dev', '--bind', self.target + '/dev')
 
     if not os.path.exists(self.target + '/boot/grub'):
-      os.mkdir(self.target + '/boot/grub')
-    menu = open(os.path.join(self.target + '/boot/grub/menu.lst'), 'w')
-    for list_a in grub_conf:
-      for elem in list_a:
-        menu.write(''.join(elem))
-    menu.close()
+          os.mkdir(self.target + '/boot/grub')
 
-    misc.ex('mount', '/dev', '--bind', self.target + '/dev')
-    misc.ex('grub-install', '--root-directory=' + self.target, target_dev)
-    grub_conf = open('/tmp/grub.conf', 'w')
+    #/target/etc/mtab creation - temporary bugfix for buggy grub-install
+    mtab = open(os.path.join(self.target,'etc/mtab'), 'w')
+    print >>mtab, '%s\t%s\t%s\t%s\t%s' % (target_dev, '/', 'auto', 'defaults', '0 0')
+    mtab.close()
 
-    grub_conf.write('\n \
-root (%s)\n \
-setup (%s)\n \
-quit \n \
-' % (grub_dev, grub_dev[:3]))
-    grub_conf.close()
+    #grub-install it's enough, because it calls grub-shell with setup command
+    device_regex = re.compile(r'/dev/[a-z]+')
+    device = device_regex.search(target_dev).group()
+    if not os.path.exists ( device ) or os.path.isdir ( device ):
+      device = target_dev
+    self.chrex('grub-install', device )
 
-    conf = subprocess.Popen(['cat', '/tmp/grub.conf'], stdout=subprocess.PIPE)
-    grub_apply = subprocess.Popen(['chroot', self.target, 'grub', '--batch',
-        '--device-map=/boot/grub/device.map',
-        '--config-file=/boot/grub/menu.lst'], stdin=conf.stdout)
-
-    # For the Yaboot
-    #if not os.path.exists(self.target + '/etc/yaboot.conf'):
-    #    misc.make_yaboot_header(self.target, target_dev)
-    #yaboot_conf = open(self.target + '/etc/yaboot.conf', 'a')
-    #yaboot_conf.write(' \
-    #default=%s \
-    #\
-    #image=/boot/vmlinux-%s \
-    #  label=%s \
-    #  read-only \
-    #  initrd=/boot/initrd.img-%s \
-    #  append="quiet splash" \
-    #' % (distro, self.kernel_version, distro, self.kernel_version) )
-
-    #yaboot_conf.close()
-
-    #conf = subprocess.Popen(['/usr/share/setup-tool-backends/scripts/boot-conf',
-    #    '--platform', 'ubuntu-5.04', '--get'], stdout=subprocess.PIPE)
-    #subprocess.Popen(['chroot', self.target, '/usr/share/setup-tool-backends/scripts/boot-conf', 
-    #    '--set'], stdin=conf.stdout)
+    # creates grub menu.lst on target
+    self.chrex('update-grub', '-y')
     misc.ex('umount', '-f', self.target + '/proc')
     misc.ex('umount', '-f', self.target + '/sys')
     misc.ex('umount', '-f', self.target + '/dev')
