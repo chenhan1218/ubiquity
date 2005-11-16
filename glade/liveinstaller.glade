@@ -3256,7 +3256,7 @@ In order to work with your new free operative system you need to eject the CDLiv
 		  <property name="right_padding">0</property>
 
 		  <child>
-		    <widget class="GtkLabel" id="label42">
+		    <widget class="GtkLabel" id="warning_dialog_label1">
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">¿Desea salir verdaderamente del instalador de Guadalinex 2005?</property>
 		      <property name="use_underline">False</property>
@@ -3278,7 +3278,7 @@ In order to work with your new free operative system you need to eject the CDLiv
 	      </child>
 
 	      <child>
-		<widget class="GtkLabel" id="label41">
+		<widget class="GtkLabel" id="warning_dialog_label2">
 		  <property name="visible">True</property>
 		  <property name="label" translatable="yes">&lt;b&gt;Instalador de Guadalinex 2005&lt;/b&gt;</property>
 		  <property name="use_underline">False</property>
@@ -3413,7 +3413,7 @@ In order to work with your new free operative system you need to eject the CDLiv
 		  <property name="right_padding">0</property>
 
 		  <child>
-		    <widget class="GtkLabel" id="label44">
+		    <widget class="GtkLabel" id="abort_dialog_label1">
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">No es posible particionar automáticamente esta unidad. Tendrá que seleccionar otra forma de particionado.</property>
 		      <property name="use_underline">False</property>
@@ -3435,7 +3435,7 @@ In order to work with your new free operative system you need to eject the CDLiv
 	      </child>
 
 	      <child>
-		<widget class="GtkLabel" id="label45">
+		<widget class="GtkLabel" id="abort_dialog_label2">
 		  <property name="visible">True</property>
 		  <property name="label" translatable="yes">&lt;b&gt;Instalador de Guadalinex 2005&lt;/b&gt;</property>
 		  <property name="use_underline">False</property>

@@ -164,7 +164,9 @@ class Wizard:
     # Resizing labels according to screen resolution
     for widget in self.glade.get_widget_prefix(""):
       if widget.__class__ == gtk.Label and widget.get_name()[-6:-1] == 'label':
-        self.resize_text(widget, widget.get_name()[-1:])
+        msg = self.resize_text(widget, widget.get_name()[-1:])
+        if ( msg != "" ):
+          widget.set_markup(msg)
     self.on_help_clicked(self.warning_info)
 
     # Declare SignalHandler
@@ -208,14 +210,22 @@ class Wizard:
   def resize_text (self, widget, type):
     """set different text sizes from screen resolution."""
 
-    if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
-      text = widget.get_text()
+    if widget.__class__ == str :
+      msg = widget
+    else:
+      msg = widget.get_text()
+
+    if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 800 ):
       if ( type == '1' ):
-        widget.set_markup('<big>' + text + '</big>')
+        msg = '<big>' + msg + '</big>'
       elif ( type == '2' ):
-        widget.set_markup('<big><b>' + text + '</b></big>')
+        msg = '<big><b>' + msg + '</b></big>'
       elif ( type == '3' ):
-        widget.set_markup('<span font_desc="22">' + text + '</span>')
+        msg = '<span font_desc="22">' + msg + '</span>'
+    else:
+      msg = ''
+
+    return msg
 
 
   # Methods
@@ -249,10 +259,8 @@ class Wizard:
     """return a string message with size value about
     the partition target by widget argument."""
 
-    import types
-
     # widget is studied in a different manner depending on object type
-    if ( type(widget) == types.StringType ):
+    if widget.__class__ == str :
       size = float(self.size[widget.split('/')[2]])
     else:
       size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(widget.get_active_text())].split('/')[2]])
@@ -476,8 +484,6 @@ class Wizard:
     """show warning message on Identification screen where validation
     doesn't work properly."""
 
-    if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
-      msg = '<big>' + msg + '</big>'
     self.warning_info.set_markup(msg)
     self.warning_image.set_from_icon_name('gtk-dialog-warning', gtk.ICON_SIZE_DIALOG)
     self.help.show()
@@ -612,10 +618,12 @@ class Wizard:
     """show help message when help button is clicked."""
 
     if ( self.steps.get_current_page() in [0, 1] ):
-      msg = "<span>Es necesario que introduzca su <b>nombre de usuario</b> para el sistema, su <b>nombre completo</b> para generar una ficha de usuario, así como el <b>nombre de máquina</b> con el que quiera bautizar su equipo. Deberá teclear la contraseña de usuario en dos ocasiones.</span>"
-      if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
-        msg = '<big>' + msg + '</big>'
-      self.warning_info.set_markup(msg)
+      text = "<span>Es necesario que introduzca su <b>nombre de usuario</b> para el sistema, su <b>nombre completo</b> para generar una ficha de usuario, así como el <b>nombre de máquina</b> con el que quiera bautizar su equipo. Deberá teclear la contraseña de usuario en dos ocasiones.</span>"
+      msg = self.resize_text(text, '1')
+      if msg != '' :
+        self.warning_info.set_markup(msg)
+      else:
+        self.warning_info.set_markup(text)
       self.warning_image.set_from_icon_name('gtk-dialog-info', gtk.ICON_SIZE_DIALOG)
       self.help.hide()
 
@@ -681,7 +689,7 @@ class Wizard:
 
       # showing warning message is error is set
       if ( error != 0 ):
-        self.show_error(''.join(error_msg))
+        self.show_error(''.join(self.resize_text(error_msg, '1')))
       else:
         # showing next step and destroying mozembed widget to release memory
         self.browser_vbox.destroy()
@@ -885,7 +893,7 @@ class Wizard:
 
       # showing warning messages
       if ( error != 0 ):
-        self.msg_error2.set_text(''.join(error_msg))
+        self.msg_error2.set_text(''.join(self.resize_text(error_msg, '1')))
         self.msg_error2.show()
         self.img_error2.show()
       else:
@@ -948,10 +956,10 @@ class Wizard:
           self.freespace.set_sensitive (False)
           self.recycle.set_sensitive (False)
           self.manually.set_sensitive (False)
-          self.partition_message.set_markup (
+          self.partition_message.set_markup (self.resize_text(
             '<span>La unidad que ha seleccionado es <b>demasiado ' +
             'pequeña</b> para instalar el sistema en él.\n\nPor favor, ' +
-            'seleccione un disco duro de más capacidad.</span>')
+            'seleccione un disco duro de más capacidad.</span>'), '1')
         else:
           self.manually.set_sensitive (True)
 
@@ -1034,7 +1042,7 @@ class Wizard:
       self.confirmation_checkbutton.show ()
       self.confirmation_checkbutton.set_active (False)
       self.next.set_sensitive (False)
-      self.partition_message.set_markup (
+      self.partition_message.set_markup (self.resize_text(
         '<span><b>Este método de particionado es EXPERIMENTAL.</b>\n\n' +
         'Se crearán 3 particiones <b>nuevas</b> en su disco duro y ' +
         'se instalará ahí el sistema. En la mayoría de los casos, los datos ' +
@@ -1042,7 +1050,7 @@ class Wizard:
         'no se destruirán.\n\nNota: en algunos casos, <b>es posible que ' +
         'se produzca una pérdida de datos</b> si es necesario cambiar el ' +
         'tamaño de las particiones existentes para conseguir espacio para ' +
-        'las nuevas.</span>')
+        'las nuevas.</span>'), '1')
 
 
   # Public method "on_recycle_toggled" _______________________________________
@@ -1078,12 +1086,12 @@ class Wizard:
       else:
         where = ''
 
-      self.partition_message.set_markup (
+      self.partition_message.set_markup (self.resize_text(
         '<span>Se ha detectado un sistema GNU/Linux instalado ya en este ' +
         'disco duro. Se van a usar esas mismas particiones para el nuevo ' +
         'sistema, <b>reemplazando</b> al anterior.\n\nTenga en cuenta que ' +
         '<b>todos los datos que hubiese en ese sistema Linux previo se ' +
-        'perderán de manera irreversible</b>.</span>' + where)
+        'perderán de manera irreversible</b>.</span>' + where), '1')
 
 
   # Public method "on_manually_toggled" ______________________________________
@@ -1095,14 +1103,14 @@ class Wizard:
       self.confirmation_checkbutton.hide ()
       self.confirmation_checkbutton.set_active (False)
       self.next.set_sensitive (True)
-      self.partition_message.set_markup (
+      self.partition_message.set_markup (self.resize_text(
         '<span>Use este método de particionado si desea total libertad ' +
         'para decidir dónde instalar cada componente del sistema. Podrá ' +
         'crear, destruir y redimensionar cualquier partición para que cada ' +
         'parte ocupe el espacio que quiera.\n\n<b>Atención:</b> las ' +
         'operaciones que haga con el disco duro pueden suponer la <b>pérdida ' +
         'de todos los datos</b>, así que continúe por aquí únicamente si ya ' +
-        'tiene experiencia particionando de forma manual.</span>')
+        'tiene experiencia particionando de forma manual.</span>'), '1')
 
 
   # Public method "on_confirmation_checkbutton_toggled" ______________________
