@@ -165,6 +165,7 @@ class Wizard:
     for widget in self.glade.get_widget_prefix(""):
       if widget.__class__ == gtk.Label and widget.get_name()[-6:-1] == 'label':
         self.resize_text(widget, widget.get_name()[-1:])
+    self.on_help_clicked(self.warning_info)
 
     # Declare SignalHandler
     self.glade.signal_autoconnect(self)
@@ -207,7 +208,6 @@ class Wizard:
   def resize_text (self, widget, type):
     """set different text sizes from screen resolution."""
 
-    import gtk.gdk
     if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
       text = widget.get_text()
       if ( type == '1' ):
@@ -476,6 +476,8 @@ class Wizard:
     """show warning message on Identification screen where validation
     doesn't work properly."""
 
+    if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
+      msg = '<big>' + msg + '</big>'
     self.warning_info.set_markup(msg)
     self.warning_image.set_from_icon_name('gtk-dialog-warning', gtk.ICON_SIZE_DIALOG)
     self.help.show()
@@ -609,8 +611,10 @@ class Wizard:
   def on_help_clicked(self, widget):
     """show help message when help button is clicked."""
 
-    if ( self.steps.get_current_page() == 1 ):
+    if ( self.steps.get_current_page() in [0, 1] ):
       msg = "<span>Es necesario que introduzca su <b>nombre de usuario</b> para el sistema, su <b>nombre completo</b> para generar una ficha de usuario, así como el <b>nombre de máquina</b> con el que quiera bautizar su equipo. Deberá teclear la contraseña de usuario en dos ocasiones.</span>"
+      if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
+        msg = '<big>' + msg + '</big>'
       self.warning_info.set_markup(msg)
       self.warning_image.set_from_icon_name('gtk-dialog-info', gtk.ICON_SIZE_DIALOG)
       self.help.hide()
