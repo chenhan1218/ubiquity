@@ -195,9 +195,6 @@ class Copy:
     copy.stdin.close()
     copy.wait()
 
-    # Removing Ubuntu Express icon from menu
-    misc.ex('rm', '-f', os.path.join(self.target, 'usr/share/applications/ubuntu-express.desktop'))
-
     return True
 
 
