@@ -167,12 +167,12 @@ def get_progress(str):
 def get_partitions():
   """returns an array with fdisk output related to partition data."""
 
-  import re, subprocess
+  import re
 
-  # parsing fdisk output
-  partition_table_pipe = subprocess.Popen(['/sbin/fdisk', '-l'], stdout=subprocess.PIPE)
-  partition_table = partition_table_pipe.communicate()[0]
-  regex = re.compile(r'/dev/[a-z]+[0-9]+.*')
+  # parsing partitions from the procfs
+  # attetion with the output format. the partitions list is without '/dev/'
+  partition_table = open('/proc/partitions').read()
+  regex = re.compile('[sh]d[a-g][0-9]+')
   partition = regex.findall(partition_table)
 
   return partition
@@ -190,18 +190,19 @@ def get_filesystems():
   #   returned list (only devices formatted as ext3, fat, ntfs or swap are
   #   parsed).
   partition_list = get_partitions()
-  for devices in partition_list:
-    filesystem_pipe = subprocess.Popen(['file', '-s', devices.split()[0]], stdout=subprocess.PIPE)
+  for device in partition_list:
+    device = '/dev/' + device
+    filesystem_pipe = subprocess.Popen(['file', '-s', device], stdout=subprocess.PIPE)
     filesystem = filesystem_pipe.communicate()[0]
     if re.match('.*((ext3)|(swap)|(extended)|(data)).*', filesystem, re.I):
       if 'ext3' in filesystem.split() or 'data' in filesystem.split() or 'extended' in filesystem.split():
-        device_list[devices.split()[0]] = 'ext3'
+        device_list[device] = 'ext3'
       elif 'swap' in filesystem.split():
-        device_list[devices.split()[0]] = 'swap'
+        device_list[device] = 'swap'
       elif 'FAT' in filesystem.split():
-        device_list[devices.split()[0]] = 'vfat'
+        device_list[device] = 'vfat'
       elif 'NTFS' in filesystem.split():
-        device_list[devices.split()[0]] = 'ntfs'
+        device_list[device] = 'ntfs'
   return device_list
 
 

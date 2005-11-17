@@ -337,9 +337,10 @@ class Wizard:
     # the first element is empty to allow deselect a preselected device
     treelist.append([' '])
     for index in partition_list:
-      self.part_labels[index.split()[0]] = misc.part_label(index.split()[0])
-      treelist.append([self.part_labels[index.split()[0]]])
-      self.partitions.append(index.split()[0])
+      index = '/dev/' + index
+      self.part_labels[index] = misc.part_label(index)
+      treelist.append([self.part_labels[index]])
+      self.partitions.append(index)
     widget.set_model(treelist)
 
 
