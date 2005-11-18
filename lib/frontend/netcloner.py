@@ -126,7 +126,7 @@ class Wizard:
     return True
 
 
-  def parse(name, dict):
+  def parse(self,name, dict):
     for line in open(name).readlines():
       line = line.strip()
       if line[0] == '#':
