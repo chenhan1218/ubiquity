@@ -10,6 +10,9 @@ from ue.backend import *
 from ue.validation import *
 from ue.misc import *
 
+from Queue import Queue
+import thread
+
 # Define Ubuntu Express global path
 PATH = '/usr/share/ubuntu-express'
 
@@ -95,21 +98,46 @@ class Wizard:
 
   # Methods
   def progress_loop(self):
-    pre_log('info', 'progress_loop()')
-    self.set_vars_file()
-    # Set timeout objects
-    path = '/usr/lib/python2.4/site-packages/ue/backend/'
-    self.pid = os.fork()
-    if self.pid == 0:
-      source = ret_ex(path + 'copy.py')
-      gobject.io_add_watch(source,gobject.IO_IN,self.read_stdout)
-    os.waitpid(self.pid, 0)
-    self.pid = os.fork()
-    if self.pid == 0:
-      source = ret_ex(path + 'config.py')
-      gobject.io_add_watch(source,gobject.IO_IN,self.read_stdout)
-    os.waitpid(self.pid, 0)
-    self.steps.next_page()
+
+    mountpoints = self.info['mountpoints']
+    def copy_thread(queue):
+      """copy thread for copy process."""
+      pre_log('info', 'Copying the system...')
+      cp = copy.Copy(mountpoints)
+      if not cp.run(queue):
+        pre_log('error','fail the copy fase')
+        self.quit()
+      else:
+        pre_log('info', 'Copy: ok')
+      queue.put('101')
+      
+    def config_thread(queue):
+      """config thread for config process."""
+      pre_log('info', 'Configuring the system...')
+      cf = config.Config(self.info)
+      if not cp.run(queue):
+        pre_log('error','fail the configure fase')
+        self.quit()
+      else:
+        pre_log('info', 'Configure: ok')
+      queue.put('101')
+
+    for thread in ['copy_thread','config_thread']:
+      # Starting config process
+      queue = Queue()
+      thread.start_new_thread(thread, (queue,))
+      
+      # setting progress bar status while config process is running
+      while True:
+        msg = str(queue.get())
+        # config process is ended when '101' is pushed
+        if msg.startswith('101'):
+          break
+        self.set_progress(msg)
+
+    # umounting self.mountpoints (mounpoints user selection)
+    umount = copy.Copy(mountpoints)
+    umount.umount_target()
 
 
   def clean_up(self):
