@@ -57,6 +57,7 @@ install:
 
 	# Network Cloner Frontend
 	cp $(CURDIR)/lib/frontend/netcloner.py $(CURDIR)/debian/ubuntu-express-frontend-cloner/usr/lib/python2.4/site-packages/ue/frontend/
+	cp $(CURDIR)/netcloner $(CURDIR)/debian/ubuntu-express-frontend-cloner/usr/sbin/
 
 	# Ubuntu-express
 	cp $(CURDIR)/lib/frontend/noui.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/frontend/
