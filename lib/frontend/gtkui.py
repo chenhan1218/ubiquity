@@ -635,7 +635,6 @@ class Wizard:
       self.next.set_label('gtk-go-forward')
       self.next.set_sensitive(False)
       self.steps.next_page()
-
     # From Info to Peez
     elif step == 1:
       self.info_to_peez()

@@ -224,7 +224,7 @@ class Copy:
       misc.pre_log('info', 'mkdir %s' % self.source)
 
     # Autodetection on unionfs systems
-    file = open('/etc/mtab').readlines()
+    file = open('/proc/mounts').readlines()
     for line in file:
       if ( line.split()[2] == 'squashfs' ):
         misc.ex('mount', '--bind', line.split()[1], self.source)
@@ -234,10 +234,10 @@ class Copy:
     files = ['/cdrom/casper/filesystem.cloop', '/cdrom/META/META.squashfs']
 
     for file in files:
-      if path.isfile(f) and path.splitext(f)[1] == '.cloop':
+      if path.isfile(file) and path.splitext(file)[1] == '.cloop':
         self.dev = '/dev/cloop1'
         break
-      elif path.isfile(f) and path.splitext(f)[1] == '.squashfs':
+      elif path.isfile(file) and path.splitext(file)[1] == '.squashfs':
         self.dev = '/dev/loop3'
         break
 
