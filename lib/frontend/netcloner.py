@@ -76,8 +76,7 @@ class Wizard:
       error = 1
     if ( error == 1 ):
       self.show_error(''.join(error_msg))
-    result = validation.check_mountpoint(self.mountpoint1.get_active_text())
-    if ( result[0] is not '/' ):
+    if ( '/' not in self.info['mountpoints'].keys() ):
        error_msg.append("· mountpoint must start with '/').\n")
        error = 1
     if ( error == 1 ):
@@ -164,7 +163,7 @@ class Wizard:
           name, val = word.split('=', 1)
           if name == 'mountpoints':
             mountpoints = {}
-            for each in val.split(';'):
+            for each in val.split('-'):
               mountpoint, device = each.split(':')
               mountpoints[mountpoint] = device
             val = mountpoints
