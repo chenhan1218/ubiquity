@@ -98,7 +98,12 @@ class Wizard:
   # Methods
   def progress_loop(self):
 
-    mountpoints = self.info['mountpoints']
+    #XXX: The worst hack ever, but it's to change once here or a lot everywhere
+    mountpoints = {}
+    mpoints = self.info['mountpoints']
+    for point in mpoints:
+      mountpoints[mpoints[point]] = point
+
     def copy_thread(queue):
       """copy thread for copy process."""
       pre_log('info', 'Copying the system...')
@@ -121,10 +126,10 @@ class Wizard:
         pre_log('info', 'Configure: ok')
       queue.put('101')
 
-    for thread in ['copy_thread','config_thread']:
+    for function in [copy_thread,config_thread]:
       # Starting config process
       queue = Queue()
-      thread.start_new_thread(thread, (queue,))
+      thread.start_new_thread(function, (queue,))
       
       # setting progress bar status while config process is running
       while True:
@@ -148,7 +153,8 @@ class Wizard:
     num , text = get_progress(msg)
     if num == self.per:
       return True
-    post_log('%d: %s' % (set_percentage(num/100.0), set_text(text)))
+    post_log('info','%d: %s' % ((num/100.0), text))
+    print '%d: %s' % ((num/100.0), text)
     self.per = num
     return True
 
