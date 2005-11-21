@@ -91,7 +91,7 @@ class Copy:
       else:
         misc.pre_log('error', 'Problemas al crear %s' % path)
 
-      if not misc.ex ('mount', device, path):
+      if not misc.ex ('mount', '-t', 'ext3', device, path):
         misc.ex('mkfs.ext3',device)
         misc.ex('mount', device, path)
 
