@@ -149,7 +149,7 @@ class Config:
     # if swap partition isn't defined, we create a swapfile
     if ( swap != 1 ):
       print >>fstab, '/swapfile\tnone\tswap\tsw\t0\t0'
-      os.system("dd if=/dev/zero of=%s/swapfile bs=1024 count=%d" % (self.target, MINIMAL_PARTITION_SCHEME ['swap'] * 1024) )
+      os.system("dd if=/dev/zero of=%s/swapfile bs=1024 count=%d" % (self.target, settings.MINIMAL_PARTITION_SCHEME ['swap'] * 1024) )
       os.system("mkswap %s/swapfile" % self.target)
 
     fstab.close()
