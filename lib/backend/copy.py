@@ -83,7 +83,7 @@ class Copy:
       if ( path == '/' ):
           continue
       elif ( path ==  'swap' ):
-          misc.ex('swapon', device)
+          os.system('swapon %s' % device)
           continue
       path = os.path.join(self.target, path[1:])
       if not os.path.isdir(path) and not os.path.isfile(path):
