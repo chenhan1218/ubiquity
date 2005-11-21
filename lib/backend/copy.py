@@ -17,6 +17,7 @@ class Copy:
     self.source = '/source'
     self.target = '/target'
     self.mountpoints = mountpoints
+    self.unionfs = False
 
   def run(self, queue):
     """Run the copy stage. This is the second step from the installation
@@ -229,6 +230,7 @@ class Copy:
     for line in file:
       if ( line.split()[2] == 'squashfs' ):
         misc.ex('mount', '--bind', line.split()[1], self.source)
+        self.unionfs = True
         return True
 
     # Manual Detection on non unionfs systems
@@ -258,6 +260,8 @@ class Copy:
 
     if not misc.ex('umount', self.source):
       return False
+    if self.unionfs:
+      return True
     if ( not misc.ex('losetup', '-d', self.dev) and self.dev != '' ):
       return False
     return True
