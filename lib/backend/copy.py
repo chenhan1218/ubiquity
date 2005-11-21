@@ -83,6 +83,7 @@ class Copy:
           continue
       elif ( path ==  'swap' ):
           misc.ex('swapon', device)
+          continue
       path = os.path.join(self.target, path[1:])
       if not os.path.isdir(path) and not os.path.isfile(path):
         os.mkdir(path)
@@ -91,7 +92,7 @@ class Copy:
 
       if not misc.ex ('mount', device, path):
         misc.ex('mkfs.ext3',device)
-        misc.ex ('mount', device, path)
+        misc.ex('mount', device, path)
 
     if ( 'swap' not in self.mountpoints.values() ):
       # If swap partition isn't defined, we create a swapfile
