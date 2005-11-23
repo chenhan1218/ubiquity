@@ -80,15 +80,22 @@ def ex(*args):
     """runs args* in shell mode. Output status is taken."""
 
     import subprocess
-    status = subprocess.call(args)
     msg = ''
     for word in args:
       msg += str(word) + ' '
-    if status != 0:
+      
+    try:
+      status = subprocess.call(args)
+    except IOError, e:
       pre_log('error', msg)
+      pre_log('error', "OS error(%s): %s" % (e.errno, e.strerror))
       return False
-    pre_log('info', msg)
-    return True
+    else:
+      if status != 0:
+        pre_log('error', msg)
+        return False
+      pre_log('info', msg)
+      return True
 
 
 def ret_ex(*args):
