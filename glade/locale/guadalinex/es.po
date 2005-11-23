@@ -54,23 +54,23 @@ msgstr ""
 
 #: liveinstaller.glade:186
 msgid "<span size=\"xx-large\">Identify yourself and your computer</span>"
-msgstr "<span size=\"xx-large\">Identifíquese y bautice a su ordenador</span>"
+msgstr "<span size=\"xx-large\">Identifíquese y ponga nombre a su ordenador</span>"
 
 #: liveinstaller.glade:269
 msgid "Real Name:"
-msgstr "Nombre completo"
+msgstr "Nombre completo: "
 
 #: liveinstaller.glade:297
 msgid "Username:"
-msgstr "Usuario"
+msgstr "Usuario: "
 
 #: liveinstaller.glade:369
 msgid "Password:"
-msgstr "Contraseña"
+msgstr "Contraseña: "
 
 #: liveinstaller.glade:397
 msgid "Verify password:"
-msgstr "Verifique contraseña"
+msgstr "Verifique contraseña: "
 
 #: liveinstaller.glade:518
 msgid "<b>Personal data</b>"
@@ -78,7 +78,7 @@ msgstr "<b>Datos personales</b>"
 
 #: liveinstaller.glade:595
 msgid "Hostname:"
-msgstr "Nombre"
+msgstr "Nombre: "
 
 #: liveinstaller.glade:676
 msgid "<b>Computer data</b>"
@@ -119,7 +119,7 @@ msgstr ""
 msgid ""
 "<span size=\"xx-large\">Please prepare some space for you new system</span>"
 msgstr ""
-"<span size=\"xx-large\">Haga espacio para su nuevo sistema</span>"
+"<span size=\"xx-large\">¿Donde ubicar Guadalinex?</span>"
 
 #: liveinstaller.glade:997
 msgid "<b>Unidades de disco</b>"
@@ -161,14 +161,14 @@ msgid ""
 msgstr ""
 "Con este particionador manual puede crear, borrar y redimensionar "
 "particiones. No se lo tome a la ligera: su uso indebido puede conllevar la "
-"eliminación de datos existentes en el disco duro.\n"
+"eliminación de datos valiosos existentes en el disco duro.\n"
 "El nuevo sistema necesita tres particiones, que puede obtener de su espacio "
 "libre de disco o de particiones ya existentes:\n"
 "· La partición raíz (\"/\"), donde el nuevo sistema será instalado. Requiere un"
 " mínimo de 1,5Gb.\n"
 "· La partición /swap, utilizada por el sistema para su propio funcionamiento. "
 "Tiene suficiente con 256Mb.\n"
-"· La partición /home, donde se ubican los documentos y ficheros de los "
+"· La partición /home es donde se ubican los documentos y ficheros de los "
 "usuarios. El mínimo recomendado es de 500Mb y cuanto más espacio le pueda "
 "asignar, mejor. Si ya tiene una partición /home de otro sistema Linux puede "
 "conservarla para el nuevo sistema, sin necesidad de cambio alguno.\n"
