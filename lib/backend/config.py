@@ -298,7 +298,7 @@ class Config:
     self.chrex('grub-install', device )
 
     # creates grub menu.lst on target
-    self.chrex ('rm', '-f', self.target + '/boot/grub/menu.lst')
+    self.chrex ('rm', '-f', '/boot/grub/menu.lst')
     self.chrex('update-grub', '-y')
     misc.ex('umount', '-f', self.target + '/proc')
     misc.ex('umount', '-f', self.target + '/sys')
