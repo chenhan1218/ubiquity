@@ -955,7 +955,7 @@ class Wizard:
           self.partition_message.set_markup (self.resize_text(
             '<span>La unidad que ha seleccionado es <b>demasiado ' +
             'pequeña</b> para instalar el sistema en él.\n\nPor favor, ' +
-            'seleccione un disco duro de más capacidad.</span>'), '1')
+            'seleccione un disco duro de más capacidad.</span>', '1'))
         else:
           self.manually.set_sensitive (True)
 
@@ -1046,7 +1046,7 @@ class Wizard:
         'no se destruirán.\n\nNota: en algunos casos, <b>es posible que ' +
         'se produzca una pérdida de datos</b> si es necesario cambiar el ' +
         'tamaño de las particiones existentes para conseguir espacio para ' +
-        'las nuevas.</span>'), '1')
+        'las nuevas.</span>', '1'))
 
 
   # Public method "on_recycle_toggled" _______________________________________
@@ -1087,7 +1087,7 @@ class Wizard:
         'disco duro. Se van a usar esas mismas particiones para el nuevo ' +
         'sistema, <b>reemplazando</b> al anterior.\n\nTenga en cuenta que ' +
         '<b>todos los datos que hubiese en ese sistema Linux previo se ' +
-        'perderán de manera irreversible</b>.</span>' + where), '1')
+        'perderán de manera irreversible</b>.</span>' + where, '1'))
 
 
   # Public method "on_manually_toggled" ______________________________________
@@ -1106,7 +1106,7 @@ class Wizard:
         'parte ocupe el espacio que quiera.\n\n<b>Atención:</b> las ' +
         'operaciones que haga con el disco duro pueden suponer la <b>pérdida ' +
         'de todos los datos</b>, así que continúe por aquí únicamente si ya ' +
-        'tiene experiencia particionando de forma manual.</span>'), '1')
+        'tiene experiencia particionando de forma manual.</span>', '1'))
 
 
   # Public method "on_confirmation_checkbutton_toggled" ______________________
