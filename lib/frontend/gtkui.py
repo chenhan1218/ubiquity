@@ -222,8 +222,8 @@ class Wizard:
         msg = '<big><b>' + msg + '</b></big>'
       elif ( type == '3' ):
         msg = '<span font_desc="22">' + msg + '</span>'
-    else:
-      msg = ''
+##     else:
+##       msg = ''
 
     return msg
 
