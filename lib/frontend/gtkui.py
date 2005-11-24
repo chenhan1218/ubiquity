@@ -212,6 +212,8 @@ class Wizard:
 
     if widget.__class__ == str :
       msg = widget
+    elif isinstance (widget, list):
+      msg = '\n'.join (widget)
     else:
       msg = widget.get_text()
 
