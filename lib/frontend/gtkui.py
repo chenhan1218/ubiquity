@@ -218,16 +218,17 @@ class Wizard:
       msg = widget.get_text()
 
     if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
-      if ( type == '1' ):
+      if ( type in  ['1', '4'] ):
         msg = '<big>' + msg + '</big>'
       elif ( type == '2' ):
         msg = '<big><b>' + msg + '</b></big>'
       elif ( type == '3' ):
         msg = '<span font_desc="22">' + msg + '</span>'
-##     else:
-##       msg = ''
-
-    return msg
+    else:
+      if ( type == '4' ):
+        return msg
+      else:
+        return ''
 
 
   # Methods
@@ -607,7 +608,7 @@ class Wizard:
     self.install_image+=1
     step = self.install_image % len(self.total_images) -1
     self.installing_image.set_from_file(self.total_images[step])
-    self.installing_text.set_markup(self.resize_text('<span foreground="#087021"><b>%s</b></span>' % self.total_messages[step], '1'))
+    self.installing_text.set_markup(self.resize_text('<span foreground="#087021"><b>%s</b></span>' % self.total_messages[step], '4'))
     return True
 
 
@@ -616,11 +617,7 @@ class Wizard:
 
     if ( self.steps.get_current_page() in [0, 1] ):
       text = "<span>Es necesario que introduzca su <b>nombre de usuario</b> para el sistema, su <b>nombre completo</b> para generar una ficha de usuario, así como el <b>nombre de máquina</b> con el que quiera bautizar su equipo. Deberá teclear la contraseña de usuario en dos ocasiones.</span>"
-      msg = self.resize_text(text, '1')
-      if msg != '' :
-        self.warning_info.set_markup(msg)
-      else:
-        self.warning_info.set_markup(text)
+      self.warning_info.set_markup(self.resize_text(text, '4'))
       self.warning_image.set_from_icon_name('gtk-dialog-info', gtk.ICON_SIZE_DIALOG)
       self.help.hide()
 
@@ -694,7 +691,7 @@ class Wizard:
 
     # showing warning message is error is set
     if ( len(error_msg) > 1 ):
-      self.show_error(''.join(self.resize_text(error_msg, '1')))
+      self.show_error(self.resize_text(''.join(error_msg, '4')))
     else:
       # showing next step and destroying mozembed widget to release memory
       self.browser_vbox.destroy()
@@ -894,7 +891,7 @@ class Wizard:
 
     # showing warning messages
     if ( len(error_msg) > 1 ):
-      self.msg_error2.set_text(''.join(self.resize_text(error_msg, '1')))
+      self.msg_error2.set_text(self.resize_text(''.join(error_msg, '4')))
       self.msg_error2.show()
       self.img_error2.show()
     else:
@@ -957,7 +954,7 @@ class Wizard:
           self.partition_message.set_markup (self.resize_text(
             '<span>La unidad que ha seleccionado es <b>demasiado ' +
             'pequeña</b> para instalar el sistema en él.\n\nPor favor, ' +
-            'seleccione un disco duro de más capacidad.</span>', '1'))
+            'seleccione un disco duro de más capacidad.</span>', '4'))
         else:
           self.manually.set_sensitive (True)
 
@@ -1048,7 +1045,7 @@ class Wizard:
         'no se destruirán.\n\nNota: en algunos casos, <b>es posible que ' +
         'se produzca una pérdida de datos</b> si es necesario cambiar el ' +
         'tamaño de las particiones existentes para conseguir espacio para ' +
-        'las nuevas.</span>', '1'))
+        'las nuevas.</span>', '4'))
 
 
   # Public method "on_recycle_toggled" _______________________________________
@@ -1089,7 +1086,7 @@ class Wizard:
         'disco duro. Se van a usar esas mismas particiones para el nuevo ' +
         'sistema, <b>reemplazando</b> al anterior.\n\nTenga en cuenta que ' +
         '<b>todos los datos que hubiese en ese sistema Linux previo se ' +
-        'perderán de manera irreversible</b>.</span>' + where, '1'))
+        'perderán de manera irreversible</b>.</span>' + where, '4'))
 
 
   # Public method "on_manually_toggled" ______________________________________
@@ -1108,7 +1105,7 @@ class Wizard:
         'parte ocupe el espacio que quiera.\n\n<b>Atención:</b> las ' +
         'operaciones que haga con el disco duro pueden suponer la <b>pérdida ' +
         'de todos los datos</b>, así que continúe por aquí únicamente si ya ' +
-        'tiene experiencia particionando de forma manual.</span>', '1'))
+        'tiene experiencia particionando de forma manual.</span>', '4'))
 
 
   # Public method "on_confirmation_checkbutton_toggled" ______________________
