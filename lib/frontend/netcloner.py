@@ -76,7 +76,7 @@ class Wizard:
       error = 1
     if ( error == 1 ):
       self.show_error(''.join(error_msg))
-    if ( '/' not in self.info['mountpoints'].keys() ):
+    if ( '/' not in self.info['mountpoints'].values() ):
        error_msg.append("· mountpoint must start with '/').\n")
        error = 1
     if ( error == 1 ):
