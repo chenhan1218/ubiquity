@@ -81,7 +81,6 @@ class Wizard:
        error = 1
     if ( error == 1 ):
       self.show_error(''.join(error_msg))
-    self.prepare()
     self.progress_loop()
     self.clean_up()
     self.__reboot()
@@ -97,10 +96,6 @@ class Wizard:
 
 
   # Methods
-  def prepare(self):
-    """prepare the system"""
-    os.system("mount -t proc none /proc")
-    
   def progress_loop(self):
 
     #XXX: The worst hack ever, but it's to change once here or a lot everywhere
