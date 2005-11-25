@@ -98,11 +98,7 @@ class Wizard:
   # Methods
   def progress_loop(self):
 
-    #XXX: The worst hack ever, but it's to change once here or a lot everywhere
-    mountpoints = {}
-    mpoints = self.info['mountpoints']
-    for point in mpoints:
-      mountpoints[mpoints[point]] = point
+    mountpoints = self.info['mountpoints']
 
     def copy_thread(queue):
       """copy thread for copy process."""
@@ -171,7 +167,7 @@ class Wizard:
             mountpoints = {}
             for each in val.split('-'):
               mountpoint, device = each.split(':')
-              mountpoints[mountpoint] = device
+              mountpoints[device] = mountpoint
             val = mountpoints
           dict[name] = val
  
