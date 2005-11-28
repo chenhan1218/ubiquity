@@ -58,19 +58,19 @@ msgstr "<span size=\"xx-large\">Identifíquese y ponga nombre a su ordenador</sp
 
 #: liveinstaller.glade:269
 msgid "Real Name:"
-msgstr "<span foreground='#3b5da5'>Nombre completo:</span> "
+msgstr "<span foreground='#3b5da5'>Nombre completo</span> "
 
 #: liveinstaller.glade:297
 msgid "Username:"
-msgstr "<span foreground='#3b5da5'>Usuario:</span> "
+msgstr "<span foreground='#3b5da5'>Usuario</span> "
 
 #: liveinstaller.glade:369
 msgid "Password:"
-msgstr "<span foreground='#3b5da5'>Contraseña:</span> "
+msgstr "<span foreground='#3b5da5'>Contraseña</span> "
 
 #: liveinstaller.glade:397
 msgid "Verify password:"
-msgstr "<span foreground='#3b5da5'>Verifique contraseña:</span> "
+msgstr "<span foreground='#3b5da5'>Verifique contraseña</span> "
 
 #: liveinstaller.glade:518
 msgid "<b>Personal data</b>"
@@ -78,7 +78,7 @@ msgstr "<span foreground='#90b5f9'><b>Datos personales</b></span>"
 
 #: liveinstaller.glade:595
 msgid "Hostname:"
-msgstr "<span foreground='#90b5f9'>Nombre:</span> "
+msgstr "<span foreground='#90b5f9'>Nombre</span> "
 
 #: liveinstaller.glade:676
 msgid "<b>Computer data</b>"

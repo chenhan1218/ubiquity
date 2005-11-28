@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-04 12:14+0200\n"
+"POT-Creation-Date: 2005-11-28 18:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,61 +20,53 @@ msgstr ""
 msgid "Express installer"
 msgstr ""
 
-#: liveinstaller.glade:50
+#: liveinstaller.glade:56
 msgid ""
-"<span size=\"xx-large\" foreground=\"white\" background=\"#9F6C49\" >  <span "
-"size=\"x-large\" foreground=\"black\" ><b>0. Intro</b></span> » <span size="
-"\"x-large\">1. Identification</span> » <span size=\"x-large\">2. Disk space</"
-"span> » <span size=\"x-large\">3. Installation</span> » <span size=\"x-large"
-"\">4. Ready!</span> </span>"
+"<span foreground=\"#9F6C49\"> <span foreground=\"white\" background=\"#9F6C49"
+"\"><b>0. Intro</b></span> > <b>1. Identification</b> > <b>2. Disk space</b> "
+"> <b>3. Installation</b> > <b>4. Ready!</b></span>"
 msgstr ""
 
-#: liveinstaller.glade:99
-msgid "0"
-msgstr ""
-
-#: liveinstaller.glade:128
+#: liveinstaller.glade:162
 msgid ""
-"<span size=\"xx-large\" foreground=\"white\" background=\"#9F6C49\" >  <span "
-"size=\"x-large\"><b>0. Intro</b></span> » <span size=\"x-large\" foreground="
-"\"black\">1. Identification</span> » <span size=\"x-large\">2. Disk space</"
-"span> » <span size=\"x-large\">3. Installation</span> » <span size=\"x-large"
-"\">4. Ready!</span> </span>"
+"<span foreground=\"#9F6C49\"> <b>0. Intro</b> > <span foreground=\"white\" "
+"background=\"#9F6C49\"><b>1. Identification</b></span> > <b>2. Disk space</"
+"b> > <b>3. Installation</b> > <b>4. Ready!</b></span>"
 msgstr ""
 
-#: liveinstaller.glade:187
+#: liveinstaller.glade:228
 msgid "<span size=\"xx-large\">Identify yourself and your computer</span>"
 msgstr ""
 
-#: liveinstaller.glade:270
+#: liveinstaller.glade:287
 msgid "Real Name:"
 msgstr ""
 
-#: liveinstaller.glade:298
+#: liveinstaller.glade:337
 msgid "Username:"
 msgstr ""
 
-#: liveinstaller.glade:370
+#: liveinstaller.glade:387
 msgid "Password:"
 msgstr ""
 
-#: liveinstaller.glade:398
+#: liveinstaller.glade:459
 msgid "Verify password:"
 msgstr ""
 
-#: liveinstaller.glade:519
+#: liveinstaller.glade:491
 msgid "<b>Personal data</b>"
 msgstr ""
 
-#: liveinstaller.glade:596
+#: liveinstaller.glade:556
 msgid "Hostname:"
 msgstr ""
 
-#: liveinstaller.glade:677
+#: liveinstaller.glade:637
 msgid "<b>Computer data</b>"
 msgstr ""
 
-#: liveinstaller.glade:788
+#: liveinstaller.glade:673
 msgid ""
 "<span>Es necesario que introduzca su <b>nombre de usuario</b> para el "
 "sistema, su <b>nombre completo</b> para generar una ficha de usuario, así "
@@ -82,77 +74,65 @@ msgid ""
 "Deberá teclear la contraseña de usuario en dos ocasiones.</span>"
 msgstr ""
 
-#: liveinstaller.glade:862
-msgid "1"
-msgstr ""
-
-#: liveinstaller.glade:891 liveinstaller.glade:1319 liveinstaller.glade:1517
+#: liveinstaller.glade:782 liveinstaller.glade:1247 liveinstaller.glade:1458
 msgid ""
-"<span size=\"xx-large\" foreground=\"white\" background=\"#9F6C49\" >  <span "
-"size=\"x-large\"><b>0. Intro</b></span> » <span size=\"x-large\">1. "
-"Identification</span> » <span foreground=\"black\" size=\"x-large\">2. Disk "
-"space</span> » <span size=\"x-large\">3. Installation</span> » <span size="
-"\"x-large\">4. Ready!</span> </span>"
+"<span foreground=\"#9F6C49\"> <b>0. Intro</b> > <b>1. Identification</b> > "
+"<span foreground=\"white\" background=\"#9F6C49\"><b>2. Disk space</b></"
+"span> > <b>3. Installation</b> > <b>4. Ready!</b></span>"
 msgstr ""
 
-#: liveinstaller.glade:950 liveinstaller.glade:1378 liveinstaller.glade:1576
+#: liveinstaller.glade:833 liveinstaller.glade:1298 liveinstaller.glade:1503
 msgid ""
 "<span size=\"xx-large\">Please prepare some space for you new system</span>"
 msgstr ""
 
-#: liveinstaller.glade:998
+#: liveinstaller.glade:881
 msgid "<b>Unidades de disco disponibles</b>"
 msgstr ""
 
-#: liveinstaller.glade:1059
+#: liveinstaller.glade:942
 msgid "<b>¿Cómo desea particionar el disco?</b>"
 msgstr ""
 
-#: liveinstaller.glade:1094
+#: liveinstaller.glade:977
 msgid ""
 "Seleccione esta opción para usar el espacio libre que hay en su disco duro, "
 "sin perder los datos que ya contiene"
 msgstr ""
 
-#: liveinstaller.glade:1096
-msgid "Usar el espacio libre"
+#: liveinstaller.glade:979
+msgid "Usar el espacio libre [EXPERIMENTAL]"
 msgstr ""
 
-#: liveinstaller.glade:1119
+#: liveinstaller.glade:1002
 msgid ""
 "Con este método se aprovecharán las particiones GNU/Linux que hay en el "
 "disco duro, reemplazando el sistema anterior"
 msgstr ""
 
-#: liveinstaller.glade:1121
+#: liveinstaller.glade:1004
 msgid "Reutilizar las particiones existentes"
 msgstr ""
 
-#: liveinstaller.glade:1145
+#: liveinstaller.glade:1028
 msgid ""
 "Particionamiento avanzado: mediante esta opción podrá crear, redimensionar y "
 "destruir las particiones actuales de su disco duro con entera libertad"
 msgstr ""
 
-#: liveinstaller.glade:1147
+#: liveinstaller.glade:1030
 msgid "Particionar a mano"
 msgstr ""
 
-#: liveinstaller.glade:1218
-msgid ""
-"Marque esta casilla para confirmar que desea reemplazar los datos de estas "
-"tres particiones"
+#: liveinstaller.glade:1115
+msgid "Marque esta casilla para confirmar la operación"
 msgstr ""
 
-#: liveinstaller.glade:1220
-msgid "Confirmar el uso de estas particiones"
+#: liveinstaller.glade:1117
+msgid "Confirmar el particionado automático"
 msgstr ""
 
-#: liveinstaller.glade:1290
-msgid "2-1"
-msgstr ""
-
-#: liveinstaller.glade:1438
+#: liveinstaller.glade:1358
 msgid ""
 "You have to make room in one or more of your hard disks in order to have GNU/"
 "Linux properly installed. 3 partitions are necessary:\n"
@@ -167,11 +147,7 @@ msgid ""
 "easier partitioning method."
 msgstr ""
 
-#: liveinstaller.glade:1488
-msgid "2-2"
-msgstr ""
-
-#: liveinstaller.glade:1644
+#: liveinstaller.glade:1564
 msgid ""
 "Now you should have at least 3 GNU/Linux partitions with space enough. It's "
 "time to specify where you want every component to be installed.\n"
@@ -183,88 +159,52 @@ msgid ""
 "mount point. It will not be formatted, so data is preserved."
 msgstr ""
 
-#: liveinstaller.glade:1698
+#: liveinstaller.glade:1618
 msgid "<b>Mountpoint</b>"
 msgstr ""
 
-#: liveinstaller.glade:1723 liveinstaller.glade:1743 liveinstaller.glade:1763
-#: liveinstaller.glade:1783 liveinstaller.glade:1803 liveinstaller.glade:1823
-#: liveinstaller.glade:1843 liveinstaller.glade:1863 liveinstaller.glade:1883
-#: liveinstaller.glade:1903
-msgid ""
-"swap\n"
-"/\n"
-"/home\n"
-"/boot\n"
-"/usr\n"
-"/var"
+#: liveinstaller.glade:1857
+msgid "<b>Size</b>"
 msgstr ""
 
-#: liveinstaller.glade:1937
+#: liveinstaller.glade:2136
 msgid "<b>Partition</b>"
 msgstr ""
 
-#: liveinstaller.glade:1962 liveinstaller.glade:1976 liveinstaller.glade:1990
-#: liveinstaller.glade:2004 liveinstaller.glade:2018 liveinstaller.glade:2032
-#: liveinstaller.glade:2046 liveinstaller.glade:2060 liveinstaller.glade:2074
-#: liveinstaller.glade:2088
-msgid "/dev/hda"
-msgstr ""
-
-#: liveinstaller.glade:2209
+#: liveinstaller.glade:2408
 msgid ""
 "<span>Debe introducir un punto de montaje <b>\"/\"</b> para su sistema "
 "instalado.</span>"
 msgstr ""
 
-#: liveinstaller.glade:2297
-msgid "2-3"
-msgstr ""
-
-#: liveinstaller.glade:2326
+#: liveinstaller.glade:2546
 msgid ""
-"<span size=\"xx-large\" foreground=\"white\" background=\"#9F6C49\" >  <span "
-"size=\"x-large\"><b>0. Intro</b></span> » <span size=\"x-large\">1. "
-"Identification</span> » <span size=\"x-large\">2. Disk space</span> » <span "
-"foreground=\"black\" size=\"x-large\">3. Installation</span> » <span size="
-"\"x-large\">4. Ready!</span> </span>"
+"<span foreground=\"#9F6C49\"> <b>0. Intro</b> > <b>1. Identification</b> > "
+"<b>2. Disk space</b> > <span foreground=\"white\" background=\"#9F6C49"
+"\"><b>3. Installation</b></span> > <b>4. Ready!</b></span>"
 msgstr ""
 
-#: liveinstaller.glade:2379
+#: liveinstaller.glade:2612
 msgid ""
 "<span size=\"xx-large\">Introducing your forthcoming free desktop</span>"
 msgstr ""
 
-#: liveinstaller.glade:2454
-msgid ""
-"Please wait while your new\n"
-"free operative system and more \n"
-"than nnn free programs are being  \n"
-"installed."
-msgstr ""
-
-#: liveinstaller.glade:2481
+#: liveinstaller.glade:2717
 msgid "Installation progress"
 msgstr ""
 
-#: liveinstaller.glade:2508
-msgid "3"
-msgstr ""
-
-#: liveinstaller.glade:2537
+#: liveinstaller.glade:2794
 msgid ""
-"<span size=\"xx-large\" foreground=\"white\" background=\"#9F6C49\" >  <span "
-"size=\"x-large\"><b>0. Intro</b></span> » <span size=\"x-large\">1. "
-"Identification</span> » <span size=\"x-large\">2. Disk space</span> » <span "
-"size=\"x-large\">3. Installation</span> » <span foreground=\"black\" size="
-"\"x-large\">4. Ready!</span> </span>"
+"<span foreground=\"#9F6C49\"> <b>0. Intro</b> > <b>1. Identification</b> > "
+"<b>2. Disk space</b> > <b>3. Installation</b> > <span foreground=\"white\" "
+"background=\"#9F6C49\"><b>4. Ready!</b></span></span>"
 msgstr ""
 
-#: liveinstaller.glade:2590
+#: liveinstaller.glade:2839
 msgid "<span size=\"xx-large\">Congratulations!</span>"
 msgstr ""
 
-#: liveinstaller.glade:2622
+#: liveinstaller.glade:2871
 msgid ""
 "The installation has been successfully completed.\n"
 "\n"
@@ -272,18 +212,28 @@ msgid ""
 "CDLive and reboot your computer."
 msgstr ""
 
-#: liveinstaller.glade:2662
+#: liveinstaller.glade:2911
 msgid "Ready"
 msgstr ""
 
-#: liveinstaller.glade:2827
+#: liveinstaller.glade:3076
 msgid "¿Salir del instalador de Guadalinex?"
 msgstr ""
 
-#: liveinstaller.glade:2937
+#: liveinstaller.glade:3186
 msgid "¿Desea salir verdaderamente del instalador de Guadalinex 2005?"
 msgstr ""
 
-#: liveinstaller.glade:2959
+#: liveinstaller.glade:3208 liveinstaller.glade:3365
 msgid "<b>Instalador de Guadalinex 2005</b>"
+msgstr ""
+
+#: liveinstaller.glade:3247
+msgid "Se interrumpió el particionado"
+msgstr ""
+
+#: liveinstaller.glade:3343
+msgid ""
+"No es posible particionar automáticamente esta unidad. Tendrá que "
+"seleccionar otra forma de particionado."
 msgstr ""
