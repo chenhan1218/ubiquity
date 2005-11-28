@@ -1,7 +1,7 @@
 Source: ubuntu-express
 Section: admin
 Priority: optional
-Maintainer: Javier Carranza <javier.carranza@interactors.coop>
+Maintainer: Junta de Andalucia <packmaster@guadalinex.org>
 Build-Depends: debhelper (>= 4.0.0)
 Standards-Version: 3.6.2.1
 
@@ -68,7 +68,7 @@ Description: Guadalinex Documentation and help files for UE Live installer
 
 Package: ubuntu-express-frontend-gtk
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python-gnome2-extras, python-glade2, gparted ( >= 0.0.8+cvs2005061901-0ubuntu2 ), ubuntu-express-artwork, ubuntu-express-doc
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python-gnome2-extras, python-glade2, gparted ( >= 0.0.8+cvs2005061901-0ubuntu2 ), ubuntu-express-artwork, ubuntu-express-doc, python-gtk2, firefox, peez2
 Provides: ubuntu-express-frontend
 Description: Gtk+ Frontend for Ubuntu Express Live installer
  This package provides a Gtk+ based Ubuntu Express GUI.
