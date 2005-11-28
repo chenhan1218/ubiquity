@@ -85,7 +85,7 @@ def ex(*args):
       msg += str(word) + ' '
       
     try:
-      status = subprocess.call(args, shell=True)
+      status = subprocess.call(msg, shell=True)
     except IOError, e:
       pre_log('error', msg)
       pre_log('error', "OS error(%s): %s" % (e.errno, e.strerror))

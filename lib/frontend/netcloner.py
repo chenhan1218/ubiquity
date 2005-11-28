@@ -178,8 +178,9 @@ class Wizard:
 
 
   def show_error(self, msg):
-    post_log('error', msg)
-    print "ERROR: " + msg
+    from sys import stderr
+    pre_log('error', msg)
+    print >>stderr, "ERROR: " + msg
 
 
   def quit(self):
