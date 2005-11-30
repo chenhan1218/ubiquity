@@ -1,3 +1,14 @@
+ubuntu-express (0.98ubuntu2) breezy; urgency=low
+
+  * New UI design for gtk frontend.
+  * Dual resolution supported (widget distribution and sizes are modified from
+    screen resolution).
+  * New grub configuration algorithm based on grub-installer scripts (from
+    debian package).
+  * Several bugfixes.
+
+ -- Javier Carranza <javier.carranza@interactors.coop>  Wed, 30 Nov 2005 07:56:39 +0200
+
 ubuntu-express (0.98ubuntu1) breezy; urgency=low
 
   * Added mountpoints validation and mountpoints preselection.
