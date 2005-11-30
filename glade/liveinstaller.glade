@@ -50,6 +50,21 @@
 		  <property name="spacing">0</property>
 
 		  <child>
+		    <widget class="GtkImage" id="logo_image0">
+		      <property name="visible">True</property>
+		      <property name="xalign">0.5</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xpad">0</property>
+		      <property name="ypad">0</property>
+		    </widget>
+		    <packing>
+		      <property name="padding">0</property>
+		      <property name="expand">True</property>
+		      <property name="fill">True</property>
+		    </packing>
+		  </child>
+
+		  <child>
 		    <widget class="GtkLabel" id="title0">
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; &gt; &lt;b&gt;1. Identification&lt;/b&gt; &gt; &lt;b&gt;2. Disk space&lt;/b&gt; &gt; &lt;b&gt;3. Installation&lt;/b&gt; &gt; &lt;b&gt;4. Ready!&lt;/b&gt;&lt;/span&gt;</property>
