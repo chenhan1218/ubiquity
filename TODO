@@ -1,10 +1,8 @@
 Ubuntu-express TODO list
 ========================
 
-Version 0.98ubuntu1 - 16 Oct 2005 11:15:05
+Version 0.98ubuntu2 - 30 Nov 2005 07:55:14
 ##########################################
 
 	* Some internationalization stuff from glade file and python
 	sources are needed.
-	* Resizing fonts from window resolution.
-	* Set busy cursor while gparted is launched.
