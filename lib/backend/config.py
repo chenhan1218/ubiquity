@@ -1,7 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from ue import misc, settings
+from ue import misc
+from ue.settings import *
 
 import debconf, os
 import subprocess
@@ -149,7 +150,7 @@ class Config:
     # if swap partition isn't defined, we create a swapfile
     if ( swap != 1 ):
       print >>fstab, '/swapfile\tnone\tswap\tsw\t0\t0'
-      os.system("dd if=/dev/zero of=%s/swapfile bs=1024 count=%d" % (self.target, settings.MINIMAL_PARTITION_SCHEME ['swap'] * 1024) )
+      os.system("dd if=/dev/zero of=%s/swapfile bs=1024 count=%d" % (self.target, MINIMAL_PARTITION_SCHEME ['swap'] * 1024) )
       os.system("mkswap %s/swapfile" % self.target)
 
     fstab.close()
@@ -201,10 +202,8 @@ class Config:
         stdout=subprocess.PIPE)
     subprocess.Popen(['chroot', self.target, 'chpasswd', '--md5'], stdin=passwd.stdout)
     self.chrex('mkdir', '/home/%s' % self.username)
-    try:
-      self.chrex('adduser', self.username, 'admin')
-      self.chrex('/usr/local/sbin/adduser.local', self.username)
-    except Exception, e:
+    self.chrex('adduser', self.username, 'admin')
+    if not self.chrex('/usr/local/sbin/adduser.local', self.username):
       for group in GROUPS:
         self.chrex('adduser', self.username, group)
 
@@ -225,6 +224,11 @@ class Config:
 
     self.chrex('chown', '-R', self.username, '/home/%s' % self.username)
 
+    # configuring /etc/aliases
+    aliases = open(os.path.join(self.target, 'etc/aliases'), 'w')
+    print >>aliases, "root: %s" % self.username
+    aliases.close()
+
     return True
 
 
@@ -235,6 +239,20 @@ class Config:
     fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
     print >>fp, self.hostname
     fp.close()
+
+    hosts = open(os.path.join(self.target, 'etc/hosts'), 'w')
+    print >>hosts, """127.0.0.1       localhost.localdomain   localhost
+%s
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts""" % self.hostname
+    hosts.close()
+
     return True
 
 
@@ -295,7 +313,8 @@ class Config:
     device = device_regex.search(target_dev).group()
     if not os.path.exists ( device ) or os.path.isdir ( device ):
       device = target_dev
-    self.chrex('grub-install', device )
+    self.chrex ('rm', '-f', '/boot/grub/device.map')
+    self.chrex ('grub-install', device )
 
     # creates grub menu.lst on target
     self.chrex ('rm', '-f', '/boot/grub/menu.lst')
