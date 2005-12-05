@@ -2,6 +2,15 @@ project.log
 tailor.state
 tailor.state.old
 tailor.state.journal
+./build-stamp
+debian/build
 debian/files
+debian/ubuntu-express
+debian/ubuntu-express-frontend-cloner
+debian/ubuntu-express-frontend-gtk
+debian/ubuntu-express-guadalinex-artwork
+debian/ubuntu-express-guadalinex-doc
+debian/ubuntu-express-ubuntu-artwork
+debian/ubuntu-express-ubuntu-doc
 debian/*.debhelper
 debian/*.substvars
