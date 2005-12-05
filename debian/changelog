@@ -5,6 +5,7 @@ espresso (0.98.1) UNRELEASED; urgency=low
     upstream for a project called "Ubuntu ...". I've left the binary
     packages alone for now.
   * Use dh_installdocs to install documentation.
+  * Remove unnecessary ${shlibs:Depends} dependencies.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 

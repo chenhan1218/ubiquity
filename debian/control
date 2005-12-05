@@ -7,7 +7,7 @@ Standards-Version: 3.6.2.1
 
 Package: ubuntu-express
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf, yaboot | grub, ubuntu-express-frontend, system-tools-backends, ubuntu-express-doc, zenity
+Depends: ${misc:Depends}, ${python:Depends}, debconf, yaboot | grub, ubuntu-express-frontend, system-tools-backends, ubuntu-express-doc, zenity
 Recommends: gparted, peez2
 Description: Ubuntu Live installer
  Live installers have featured itself until now by being very
@@ -32,7 +32,6 @@ Description: Ubuntu Live installer
 
 Package: ubuntu-express-ubuntu-artwork
 Architecture: all
-Depends: ${shlibs:Depends}
 Provides: ubuntu-express-artwork
 Description: Ubuntu artwork for Ubuntu Express Live installer
  This package provides a set of pixmaps, logo images and colormap for
@@ -41,7 +40,6 @@ Description: Ubuntu artwork for Ubuntu Express Live installer
 
 Package: ubuntu-express-guadalinex-artwork
 Architecture: all
-Depends: ${shlibs:Depends}
 Provides: ubuntu-express-artwork
 Description: Guadalinex artwork for Ubuntu Express Live installer
  This package provides a set of pixmaps, logo images and colormap for
@@ -50,7 +48,6 @@ Description: Guadalinex artwork for Ubuntu Express Live installer
 
 Package: ubuntu-express-ubuntu-doc
 Architecture: all
-Depends: ${shlibs:Depends}
 Provides: ubuntu-express-doc
 Description: Ubuntu Documentation and help files for UE Live installer
  This package provides a set of help files, html pages for the Ubuntu
@@ -59,7 +56,6 @@ Description: Ubuntu Documentation and help files for UE Live installer
 
 Package: ubuntu-express-guadalinex-doc
 Architecture: all
-Depends: ${shlibs:Depends}
 Provides: ubuntu-express-doc
 Description: Guadalinex Documentation and help files for UE Live installer
  This package provides a set of help files, html pages for the Ubuntu
@@ -68,14 +64,14 @@ Description: Guadalinex Documentation and help files for UE Live installer
 
 Package: ubuntu-express-frontend-gtk
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python-gnome2-extras, python-glade2, gparted ( >= 0.0.8+cvs2005061901-0ubuntu2 ), ubuntu-express-artwork, ubuntu-express-doc, python-gtk2, firefox, peez2
+Depends: ${misc:Depends}, ${python:Depends}, python-gnome2-extras, python-glade2, gparted ( >= 0.0.8+cvs2005061901-0ubuntu2 ), ubuntu-express-artwork, ubuntu-express-doc, python-gtk2, firefox, peez2
 Provides: ubuntu-express-frontend
 Description: Gtk+ Frontend for Ubuntu Express Live installer
  This package provides a Gtk+ based Ubuntu Express GUI.
 
 Package: ubuntu-express-frontend-cloner
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubuntu-express-artwork, ubuntu-express-doc
+Depends: ${misc:Depends}, ${python:Depends}, ubuntu-express-artwork, ubuntu-express-doc
 Provides: ubuntu-express-frontend
 Description: Network Cloner Frontend for Ubuntu Express Live installer
  This package provides a Ubuntu Express GUI non interactive which will install the system from a server.
