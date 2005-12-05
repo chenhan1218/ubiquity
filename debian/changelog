@@ -6,6 +6,9 @@ espresso (0.98.1) UNRELEASED; urgency=low
     packages alone for now.
   * Use dh_installdocs to install documentation.
   * Remove unnecessary ${shlibs:Depends} dependencies.
+  * Add debconffilter.py from oem-config (this has been sent to debconf
+    upstream and may eventually make it in there instead). We'll use this
+    for d-i integration.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
