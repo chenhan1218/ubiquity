@@ -2,3 +2,6 @@ project.log
 tailor.state
 tailor.state.old
 tailor.state.journal
+debian/files
+debian/*.debhelper
+debian/*.substvars
