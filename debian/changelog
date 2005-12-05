@@ -1,4 +1,4 @@
-ubuntu-express (0.98ubuntu2) breezy; urgency=low
+ubuntu-express (0.99-1) breezy; urgency=low
 
   * New UI design for gtk frontend.
   * Dual resolution supported (widget distribution and sizes are modified from
