@@ -1,9 +1,8 @@
-espresso (0.98.1) UNRELEASED; urgency=low
+espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
 
-  * Rename source to espresso to avoid horrible version numbering conflicts
-    and to avoid confusion caused by somebody other than Ubuntu being
-    upstream for a project called "Ubuntu ...". I've left the binary
-    packages alone for now.
+  * Rename source to espresso to avoid confusion caused by somebody other
+    than Ubuntu being upstream for a project called "Ubuntu ...". I've left
+    the binary packages alone for now.
   * Use dh_installdocs to install documentation.
   * Remove unnecessary ${shlibs:Depends} dependencies.
   * Add debconffilter.py from oem-config (this has been sent to debconf
@@ -12,7 +11,7 @@ espresso (0.98.1) UNRELEASED; urgency=low
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
-ubuntu-express (0.98ubuntu2) breezy; urgency=low
+ubuntu-express (0.99-1) breezy; urgency=low
 
   * New UI design for gtk frontend.
   * Dual resolution supported (widget distribution and sizes are modified from
