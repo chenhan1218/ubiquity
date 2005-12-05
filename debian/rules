@@ -62,7 +62,6 @@ install:
 	# Ubuntu-express
 	cp $(CURDIR)/lib/frontend/noui.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/frontend/
 	cp $(CURDIR)/lib/frontend/__init__.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/frontend/
-	cp -r $(CURDIR)/doc/* $(CURDIR)/debian/ubuntu-express/usr/share/doc/ubuntu-express/
 	cp -a $(CURDIR)/lib/{*.py,backend} $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/
 	cp $(CURDIR)/ubuntu-express $(CURDIR)/installer $(CURDIR)/debian/ubuntu-express/usr/bin/
 	rm -rf `find $(CURDIR)/debian/ -mindepth 2 -type d -name .svn`
