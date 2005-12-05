@@ -1,3 +1,12 @@
+espresso (0.98.1) UNRELEASED; urgency=low
+
+  * Rename source to espresso to avoid horrible version numbering conflicts
+    and to avoid confusion caused by somebody other than Ubuntu being
+    upstream for a project called "Ubuntu ...". I've left the binary
+    packages alone for now.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
+
 ubuntu-express (0.98ubuntu2) breezy; urgency=low
 
   * New UI design for gtk frontend.
