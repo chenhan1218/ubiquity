@@ -64,6 +64,7 @@ install:
 	cp $(CURDIR)/lib/frontend/__init__.py $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/frontend/
 	cp -a $(CURDIR)/lib/{*.py,backend} $(CURDIR)/debian/ubuntu-express/usr/lib/python2.4/site-packages/ue/
 	cp $(CURDIR)/ubuntu-express $(CURDIR)/installer $(CURDIR)/debian/ubuntu-express/usr/bin/
+	cp -a $(CURDIR)/compat/* $(CURDIR)/debian/ubuntu-express/usr/share/espresso/
 	rm -rf `find $(CURDIR)/debian/ -mindepth 2 -type d -name .svn`
 
 # Build architecture-independent files here.

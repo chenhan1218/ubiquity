@@ -1,0 +1,4 @@
+#! /bin/sh
+# Compatibility shim for d-i's mapdevfs tool. In the live environment, we
+# aren't using devfs, so this just passes its input straight through.
+echo "$1"
