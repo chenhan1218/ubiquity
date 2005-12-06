@@ -136,7 +136,7 @@ ul {
     list-style-type: square;
     margin: 0.5em 0 0 1.5em;
     padding: 0;
-    list-style-image: url(http://www.ubuntulinux.org/bullet.gif);
+    list-style-image: url(http://www.ubuntu.com/bullet.gif);
 }
 
 ol {
@@ -419,7 +419,7 @@ del {
     list-style: none;
 }
 #portal-personaltools .portalUser {
-    background: transparent url(http://www.ubuntulinux.org/user.gif) center left no-repeat;
+    background: transparent url(http://www.ubuntu.com/user.gif) center left no-repeat;
     padding-left: 15px;
 }
 
@@ -431,7 +431,7 @@ del {
 } /* Used on all descriptions relevant to those not logged in */
  
 #portal-personaltools li {
-    background: transparent url(http://www.ubuntulinux.org/linkOpaque.gif) center left no-repeat;
+    background: transparent url(http://www.ubuntu.com/linkOpaque.gif) center left no-repeat;
     padding-left: 8px;
     color: #436976;
     margin-left: 1em;
@@ -531,7 +531,7 @@ del {
 }
 .contentActions li {
     float: right;
-    background-image: url(http://www.ubuntulinux.org/arrowDownAlternative.gif);
+    background-image: url(http://www.ubuntu.com/arrowDownAlternative.gif);
     background-repeat: no-repeat;
     background-position: center right;
     z-index: 4;
@@ -720,7 +720,7 @@ del {
     margin: 1em 0em 0em 0em;
     padding: 0.5em 1em 0.5em 3em;
     vertical-align: middle;
-    background-image: url(http://www.ubuntulinux.org/info_icon.gif);
+    background-image: url(http://www.ubuntu.com/info_icon.gif);
     background-repeat: no-repeat;
     background-position: 5px center ;
 
@@ -798,7 +798,7 @@ del {
 
 .standalone,
 .documentEditable * .standalone {
-    background: #f5ebd7 url(http://www.ubuntulinux.org/linkOpaque.gif) 9px 1px no-repeat;
+    background: #f5ebd7 url(http://www.ubuntu.com/linkOpaque.gif) 9px 1px no-repeat;
     cursor: pointer;
     font-size: 85%;
     margin-bottom: 1em;
@@ -807,7 +807,7 @@ del {
 }
 .context,
 .documentEditable * .context {
-    background: transparent url(http://www.ubuntulinux.org/linkTransparent.gif) 9px 1px no-repeat;
+    background: transparent url(http://www.ubuntu.com/linkTransparent.gif) 9px 1px no-repeat;
     cursor: pointer;
     font-size: 85%;
     margin-bottom: 1em;
@@ -816,7 +816,7 @@ del {
 }
 .destructive,
 .documentEditable * .destructive {
-    background: #ffce7b url(http://www.ubuntulinux.org/linkTransparent.gif) 9px 1px no-repeat;
+    background: #ffce7b url(http://www.ubuntu.com/linkTransparent.gif) 9px 1px no-repeat;
     border: 1px solid #ffa500;  
     cursor: pointer;
     font-size: 85%;
@@ -827,7 +827,7 @@ del {
 input.searchButton {
     font-size: 100%;
     margin-bottom: 1px ! important;
-    background: White url(http://www.ubuntulinux.org/search_icon.gif) 2px 1px no-repeat;
+    background: White url(http://www.ubuntu.com/search_icon.gif) 2px 1px no-repeat;
     cursor: pointer;
     padding: 1px 1px 1px 15px;
     text-transform: lowercase;
@@ -867,7 +867,7 @@ input.searchButton {
 }
 
 .fieldRequired {
-    background: url(http://www.ubuntulinux.org/required.gif) center left no-repeat;
+    background: url(http://www.ubuntu.com/required.gif) center left no-repeat;
     padding: 0 0 0 8px;
     color: White;
 } 
@@ -1319,53 +1319,53 @@ ol.visualNoMarker {
 
 .link-parent {
     display: block;
-    background: transparent url(http://www.ubuntulinux.org/arrowUp.gif) 4px 5px no-repeat;
+    background: transparent url(http://www.ubuntu.com/arrowUp.gif) 4px 5px no-repeat;
     padding: 1px 0px 1px 16px;
     font-size: 85%;
 }
 
 .link-user {
-    background: transparent url(http://www.ubuntulinux.org/user.gif) 0 1px no-repeat;
+    background: transparent url(http://www.ubuntu.com/user.gif) 0 1px no-repeat;
     padding: 1px 0px 1px 16px;
 }
 
 .link-external {
-    background: transparent url(http://www.ubuntulinux.org/link_icon.gif) 0px 1px no-repeat;
+    background: transparent url(http://www.ubuntu.com/link_icon.gif) 0px 1px no-repeat;
     padding: 1px 0px 1px 16px;
 }
 
 .link-https {
-    background: transparent url(http://www.ubuntulinux.org/lock_icon.gif) 0px 1px no-repeat;
+    background: transparent url(http://www.ubuntu.com/lock_icon.gif) 0px 1px no-repeat;
     padding: 1px 0px 1px 16px;
 }
 
 .link-mailto {
-    background: transparent url(http://www.ubuntulinux.org/mail_icon.gif) 0px 1px no-repeat;
+    background: transparent url(http://www.ubuntu.com/mail_icon.gif) 0px 1px no-repeat;
     padding: 1px 0px 1px 16px;
 }
 
 .link-news {
-    background: transparent url(http://www.ubuntulinux.org/topic_icon.gif) 0px 1px no-repeat;
+    background: transparent url(http://www.ubuntu.com/topic_icon.gif) 0px 1px no-repeat;
     padding: 1px 0px 1px 16px;
 }
 
 .link-ftp {
-    background: transparent url(http://www.ubuntulinux.org/file_icon.gif) 0px 1px no-repeat;
+    background: transparent url(http://www.ubuntu.com/file_icon.gif) 0px 1px no-repeat;
     padding: 1px 0px 1px 16px;
 }
 
 .link-irc {
-    background: transparent url(http://www.ubuntulinux.org/discussionitem_icon.gif) 0px 1px no-repeat;
+    background: transparent url(http://www.ubuntu.com/discussionitem_icon.gif) 0px 1px no-repeat;
     padding: 1px 0px 1px 16px;
 }
 
 .link-callto {
-    background: transparent url(http://www.ubuntulinux.org/phone_icon.gif) 0px 1px no-repeat;
+    background: transparent url(http://www.ubuntu.com/phone_icon.gif) 0px 1px no-repeat;
     padding: 1px 0px 1px 16px;
 }
 
 .link-comment {
-    background: transparent url(http://www.ubuntulinux.org/discussionitem_icon.gif) center left no-repeat;
+    background: transparent url(http://www.ubuntu.com/discussionitem_icon.gif) center left no-repeat;
     padding: 1px 0px 1px 16px !important;
 }
 

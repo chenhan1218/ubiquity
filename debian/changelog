@@ -8,6 +8,7 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
   * Add debconffilter.py from oem-config (this has been sent to debconf
     upstream and may eventually make it in there instead). We'll use this
     for d-i integration.
+  * Refer to ubuntu.com everywhere, not the deprecated ubuntulinux.org.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 

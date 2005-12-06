@@ -216,7 +216,7 @@ class Wizard:
     try:
       widget.load_url("file://" + local_uri)
     except:
-      widget.load_url("http://www.ubuntulinux.org/")
+      widget.load_url("http://www.ubuntu.com/")
     widget.get_location()
     self.browser_vbox.add(widget)
     widget.show()
