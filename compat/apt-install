@@ -1,2 +1,3 @@
 #! /bin/sh
-debconf-apt-progress -- apt-get -y install "$@"
+# TODO: use chroot-setup
+DEBIAN_FRONTEND=noninteractive DEBCONF_ADMIN_EMAIL= apt-get -o Acquire::gpgv::Options::=--ignore-time-conflict -y install "$@" </dev/null
