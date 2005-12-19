@@ -14,6 +14,8 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
   * Refer to ubuntu.com everywhere, not the deprecated ubuntulinux.org.
   * Add archdetect compatibility shim, since lots of d-i programs need it.
   * Add apt-install compatibility shim.
+  * Add rudimentary FilteredCommand class, a convenience wrapper around
+    DebconfFilter that makes it easier to test various things.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
