@@ -113,6 +113,9 @@ class DebconfFilter:
                 self.reply(30, 'backup', log=True)
                 continue
 
+            if command == 'STOP':
+                continue
+
             try:
                 data = self.db.command(command, *params)
                 self.reply(0, data)
