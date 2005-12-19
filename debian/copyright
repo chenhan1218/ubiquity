@@ -1,10 +1,16 @@
-This is ubuntu-express, written and maintained by Javier Carranza <javier.carranza@interactors.coop> and Juanje Ojeda Croissier <juanje@interactors.coop>
-on Fri, 29 Jul 2005 17:04:51 +0200.
+Espresso was originally known as "Ubuntu Express", which is written and
+maintained by Javier Carranza <javier.carranza@interactors.coop> and Juanje
+Ojeda Croissier <juanje@interactors.coop>. This version draws heavily on the
+work done on Ubuntu Express, but was renamed to avoid confusion, to reduce
+awkward branding considerations, and because Espresso concentrates on
+reusing debian-installer code and reducing duplicated translation and
+branding work as much as possible.
 
 The original source can always be found at:
 	http://ws314.juntadeandalucia.es/guadalinex2005/live_installer/
 
 Copyright (C) 2005  Javier Carranza
+Copyright (C) 2005  Canonical Ltd.
 
 License:
 

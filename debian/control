@@ -5,10 +5,12 @@ Maintainer: Junta de Andalucia <packmaster@guadalinex.org>
 Build-Depends: debhelper (>= 4.0.0)
 Standards-Version: 3.6.2.1
 
-Package: ubuntu-express
+Package: espresso
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, debconf, yaboot | grub, ubuntu-express-frontend, system-tools-backends, ubuntu-express-doc, zenity
+Depends: ${misc:Depends}, ${python:Depends}, debconf, yaboot | grub, espresso-frontend, system-tools-backends, espresso-doc, zenity
 Recommends: gparted, peez2
+Conflicts: ubuntu-express
+Replaces: ubuntu-express
 Description: Ubuntu Live installer
  Live installers have featured itself until now by being very
  simple, friendly and graphical.
@@ -30,48 +32,60 @@ Description: Ubuntu Live installer
  he needs to reinstall or to install in a similar computer, just must
  get it.
 
-Package: ubuntu-express-ubuntu-artwork
+Package: espresso-ubuntu-artwork
 Architecture: all
-Provides: ubuntu-express-artwork
-Description: Ubuntu artwork for Ubuntu Express Live installer
+Conflicts: ubuntu-express-ubuntu-artwork
+Replaces: ubuntu-express-ubuntu-artwork
+Provides: espresso-artwork
+Description: Ubuntu artwork for Espresso Live installer
  This package provides a set of pixmaps, logo images and colormap for
- window styles and Ubuntu Express UI. All the stuff provide by this
+ window styles and Espresso UI. All the stuff provide by this
  package is Ubuntu related.
 
-Package: ubuntu-express-guadalinex-artwork
+Package: espresso-guadalinex-artwork
 Architecture: all
-Provides: ubuntu-express-artwork
-Description: Guadalinex artwork for Ubuntu Express Live installer
+Conflicts: ubuntu-express-guadalinex-artwork
+Replaces: ubuntu-express-guadalinex-artwork
+Provides: espresso-artwork
+Description: Guadalinex artwork for Espresso Live installer
  This package provides a set of pixmaps, logo images and colormap for
- window styles and Ubuntu Express UI. All the stuff provide by this
+ window styles and Espresso UI. All the stuff provide by this
  package is Guadalinex related.
 
-Package: ubuntu-express-ubuntu-doc
+Package: espresso-ubuntu-doc
 Architecture: all
-Provides: ubuntu-express-doc
-Description: Ubuntu Documentation and help files for UE Live installer
- This package provides a set of help files, html pages for the Ubuntu
- Express UI, text messages for the installer and more stuff related
+Conflicts: ubuntu-express-ubuntu-doc
+Replaces: ubuntu-express-ubuntu-doc
+Provides: espresso-doc
+Description: Ubuntu Documentation and help files for Espresso Live installer
+ This package provides a set of help files, html pages for the Espresso
+ UI, text messages for the installer and more stuff related
  to Ubuntu distribution.
 
-Package: ubuntu-express-guadalinex-doc
+Package: espresso-guadalinex-doc
 Architecture: all
-Provides: ubuntu-express-doc
-Description: Guadalinex Documentation and help files for UE Live installer
- This package provides a set of help files, html pages for the Ubuntu
- Express UI, text messages for the installer and more stuff related
+Conflicts: ubuntu-express-guadalinex-doc
+Replaces: ubuntu-express-guadalinex-doc
+Provides: espresso-doc
+Description: Guadalinex Documentation and help files for Espresso Live installer
+ This package provides a set of help files, html pages for the Espresso
+ UI, text messages for the installer and more stuff related
  to Guadalinex distribution.
 
-Package: ubuntu-express-frontend-gtk
+Package: espresso-frontend-gtk
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, python-gnome2-extras, python-glade2, gparted ( >= 0.0.8+cvs2005061901-0ubuntu2 ), ubuntu-express-artwork, ubuntu-express-doc, python-gtk2, firefox, peez2
-Provides: ubuntu-express-frontend
-Description: Gtk+ Frontend for Ubuntu Express Live installer
- This package provides a Gtk+ based Ubuntu Express GUI.
+Depends: ${misc:Depends}, ${python:Depends}, python-gnome2-extras, python-glade2, gparted ( >= 0.0.8+cvs2005061901-0ubuntu2 ), espresso-artwork, espresso-doc, python-gtk2, firefox, peez2
+Conflicts: ubuntu-express-frontend-gtk
+Replaces: ubuntu-express-frontend-gtk
+Provides: espresso-frontend
+Description: Gtk+ Frontend for Espresso Live installer
+ This package provides a Gtk+ based Espresso GUI.
 
-Package: ubuntu-express-frontend-cloner
+Package: espresso-frontend-cloner
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, ubuntu-express-artwork, ubuntu-express-doc
-Provides: ubuntu-express-frontend
-Description: Network Cloner Frontend for Ubuntu Express Live installer
- This package provides a Ubuntu Express GUI non interactive which will install the system from a server.
+Depends: ${misc:Depends}, ${python:Depends}, espresso-artwork, espresso-doc
+Conflicts: ubuntu-express-frontend-cloner
+Replaces: ubuntu-express-frontend-cloner
+Provides: espresso-frontend
+Description: Network Cloner Frontend for Espresso installer
+ This package provides an Espresso non interactive which will install the system from a server.

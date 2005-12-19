@@ -1,8 +1,10 @@
 espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
 
-  * Rename source to espresso to avoid confusion caused by somebody other
-    than Ubuntu being upstream for a project called "Ubuntu ...". I've left
-    the binary packages alone for now.
+  * Rename to espresso to avoid confusion caused by somebody other than
+    Ubuntu being upstream for a project called "Ubuntu ...", to reduce
+    awkward branding considerations, and to clearly separate the work being
+    done on this project for Dapper from the work done by Guadalinex since
+    the focus is rather different.
   * Use dh_installdocs to install documentation.
   * Remove unnecessary ${shlibs:Depends} dependencies.
   * Add debconffilter.py from oem-config (this has been sent to debconf
