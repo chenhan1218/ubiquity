@@ -1,0 +1,2 @@
+#! /bin/sh
+debconf-apt-progress -- apt-get -y install "$@"

@@ -12,6 +12,8 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
     but it's useful here anyway for backports to breezy.
   * Refer to ubuntu.com everywhere, not the deprecated ubuntulinux.org.
   * Add archdetect compatibility shim, since lots of d-i programs need it.
+  * Add apt-install compatibility shim; uses debconf-apt-progress and so
+    requires debconf (>= 1.4.62).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
