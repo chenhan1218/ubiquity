@@ -1,5 +1,7 @@
 #!/usr/bin/make -f
 
+export DH_OPTIONS
+
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
@@ -35,7 +37,7 @@ install:
 	dh_testdir
 	dh_testroot
 	dh_clean -k
-	dh_installdirs -A
+	dh_installdirs -i
 
 	# Ubuntu-doc
 	for locale in $$(find $(BUILDDIR)/ubuntu/ -name \*.mo -exec basename {} \; | sed -e 's/\.mo//g'); do mkdir -p $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/ubuntu/$$locale\.mo $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/ubuntu-installer.mo; done
@@ -68,27 +70,28 @@ install:
 	rm -rf `find $(CURDIR)/debian/ -mindepth 2 -type d -name .svn`
 
 # Build architecture-independent files here.
+binary-indep: DH_OPTIONS=-i
 binary-indep: install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs Changelog
+	dh_installdocs
+#	dh_installexamples
+#	dh_install
+#	dh_installdebconf
+#	dh_installman
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_python
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
 
 # Build architecture-dependent files here.
 binary-arch: install
-	dh_testdir -A
-	dh_testroot -A
-	dh_installchangelogs Changelog
-	dh_installdocs -A
-#	dh_installexamples -A
-#	dh_install -A
-#	dh_installdebconf -A
-#	dh_installman -A
-	dh_strip -A
-	dh_compress -A
-	dh_fixperms -A
-	dh_python -A
-	dh_installdeb -A
-	dh_shlibdeps -A
-	dh_gencontrol -A
-	dh_md5sums -A
-	dh_builddeb -A
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install

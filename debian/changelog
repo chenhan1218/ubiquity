@@ -18,6 +18,8 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
   * Add apt-install compatibility shim.
   * Add rudimentary FilteredCommand class, a convenience wrapper around
     DebconfFilter that makes it easier to test various things.
+  * Fix broken use of debhelper; the author seemed to be confusing -A and
+    -a, and in any case we only build architecture-independent packages.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
