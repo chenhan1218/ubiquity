@@ -16,7 +16,7 @@ class Config:
     self.kernel_version = open('/proc/sys/kernel/osrelease').readline().strip()
     # FIXME: Hack (current kernel loaded on liveCD doesn't work on installed systems)
     self.kernel_version = '2.6.12-9-386'
-    self.distro = misc.distro().lower()
+    self.distro = misc.distribution().lower()
     self.target = '/target/'
     # Getting vars: fullname, username, password, hostname
     # and mountpoints

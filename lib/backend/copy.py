@@ -203,7 +203,7 @@ class Copy:
   def copy_logs(self):
     """copy logs files into installed system."""
 
-    distro = misc.distro().lower()
+    distro = misc.distribution().lower()
     log_file = '/var/log/' + distro + '-express'
 
     if not misc.ex('cp', '-a', log_file, os.path.join(self.target, log_file[1:])):

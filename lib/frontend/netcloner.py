@@ -206,7 +206,7 @@ class Wizard:
     return True
 
 if __name__ == '__main__':
-  distro = misc.distro().lower()
+  distro = misc.distribution().lower()
   w = Wizard(distro)
   w.run()
 

@@ -77,7 +77,7 @@ def make_yaboot_header(target, target_dev):
 
 
 def distribution():
-    """Returns the name of this system's distributor."""
+    """Returns the name of the running distribution."""
 
     proc = subprocess.Popen(['lsb_release', '-is'], stdout=subprocess.PIPE)
     return proc.communicate()[0].strip()
@@ -143,7 +143,7 @@ def set_var(var):
 def pre_log(code, msg=''):
   """logs install messages into /var/log on live filesystem."""
 
-  distro = distro().lower()
+  distro = distribution().lower()
   log_file = '/var/log/' + distro + '-express'
 
   import logging
@@ -158,7 +158,7 @@ def pre_log(code, msg=''):
 def post_log(code, msg=''):
   """logs install messages into /var/log on installed filesystem."""
 
-  distro = distro().lower()
+  distro = distribution().lower()
   log_file = '/target/var/log/' + distro + '-express'
 
   import logging
