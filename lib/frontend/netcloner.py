@@ -13,8 +13,8 @@ from ue.misc import *
 from Queue import Queue
 import thread
 
-# Define Ubuntu Express global path
-PATH = '/usr/share/ubuntu-express'
+# Define Espresso global path
+PATH = '/usr/share/espresso'
 
 # Define locale path
 LOCALEDIR = "/usr/share/locale"

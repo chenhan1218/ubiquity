@@ -41,21 +41,21 @@ install:
 
 	# Ubuntu-doc
 	for locale in $$(find $(BUILDDIR)/ubuntu/ -name \*.mo -exec basename {} \; | sed -e 's/\.mo//g'); do mkdir -p $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/ubuntu/$$locale\.mo $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/ubuntu-installer.mo; done
-	cp -r $(CURDIR)/htmldocs/ubuntu $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/ubuntu-express/htmldocs/
+	cp -r $(CURDIR)/htmldocs/ubuntu $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/espresso/htmldocs/
 
 	# Ubuntu-artwork
-	cp -r $(CURDIR)/glade/pixmaps/ubuntu $(CURDIR)/debian/espresso-ubuntu-artwork/usr/share/ubuntu-express/glade/pixmaps/
+	cp -r $(CURDIR)/glade/pixmaps/ubuntu $(CURDIR)/debian/espresso-ubuntu-artwork/usr/share/espresso/glade/pixmaps/
 
 	# Guadalinex-doc
 	for locale in $$(find $(BUILDDIR)/guadalinex/ -name \*.mo -exec basename {} \; | sed -e 's/\.mo//g'); do mkdir -p $(CURDIR)/debian/espresso-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/guadalinex/$$locale\.mo $(CURDIR)/debian/espresso-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES/guadalinex-installer.mo; done
-	cp -r $(CURDIR)/htmldocs/guadalinex $(CURDIR)/debian/espresso-guadalinex-doc/usr/share/ubuntu-express/htmldocs/ 2> /dev/null || true
+	cp -r $(CURDIR)/htmldocs/guadalinex $(CURDIR)/debian/espresso-guadalinex-doc/usr/share/espresso/htmldocs/ 2> /dev/null || true
 
 	# Guadalinex-artwork
-	cp -r $(CURDIR)/glade/pixmaps/guadalinex $(CURDIR)/debian/espresso-guadalinex-artwork/usr/share/ubuntu-express/glade/pixmaps/
+	cp -r $(CURDIR)/glade/pixmaps/guadalinex $(CURDIR)/debian/espresso-guadalinex-artwork/usr/share/espresso/glade/pixmaps/
 
 	# Gtk+ Frontend
 	cp $(CURDIR)/lib/frontend/gtkui.py $(CURDIR)/debian/espresso-frontend-gtk/usr/lib/python2.4/site-packages/ue/frontend/
-	cp $(CURDIR)/glade/liveinstaller.glade* $(CURDIR)/debian/espresso-frontend-gtk/usr/share/ubuntu-express/glade/
+	cp $(CURDIR)/glade/liveinstaller.glade* $(CURDIR)/debian/espresso-frontend-gtk/usr/share/espresso/glade/
 
 	# Network Cloner Frontend
 	cp $(CURDIR)/lib/frontend/netcloner.py $(CURDIR)/debian/espresso-frontend-cloner/usr/lib/python2.4/site-packages/ue/frontend/

@@ -69,8 +69,8 @@ from ue.validation import *
 from ue.misc import *
 from ue.backend.peez2 import *
 
-# Define Ubuntu Express global path
-PATH = '/usr/share/ubuntu-express'
+# Define Espresso global path
+PATH = '/usr/share/espresso'
 
 # Define glade path
 GLADEDIR = os.path.join(PATH, 'glade')
