@@ -7,7 +7,7 @@ Standards-Version: 3.6.2.1
 
 Package: espresso
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, debconf, yaboot | grub, espresso-frontend, system-tools-backends, espresso-doc, zenity
+Depends: ${misc:Depends}, ${python:Depends}, debconf, yaboot | grub, espresso-frontend, system-tools-backends, espresso-doc, zenity, lsb-release
 Recommends: gparted, peez2
 Conflicts: ubuntu-express
 Replaces: ubuntu-express

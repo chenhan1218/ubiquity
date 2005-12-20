@@ -206,7 +206,7 @@ class Wizard:
     return True
 
 if __name__ == '__main__':
-  distro = open('/etc/lsb-release').readline().strip().split('=')[1].lower()
+  distro = misc.distro().lower()
   w = Wizard(distro)
   w.run()
 

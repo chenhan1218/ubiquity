@@ -29,7 +29,7 @@ def install(type='gtkui'):
     mod = __import__('ue.frontend', globals(), locals() , [type])
     ui = getattr(mod, type)
 
-    distro = open('/etc/lsb-release').readline().strip().split('=')[1].lower()
+    distro = misc.distro().lower()
     wizard = ui.Wizard(distro)
     if ( type == 'gtkui' ):
         os.system('gconftool-2 --set /apps/panel/toplevels/top_panel/auto_hide_size --type int 0')

@@ -21,6 +21,8 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
   * Fix broken use of debhelper; the author seemed to be confusing -A and
     -a, and in any case we only build architecture-independent packages.
   * Don't use full-screen mode.
+  * Use 'lsb_release -is' rather than reading /etc/lsb-release directly.
+  * Depend on lsb-release.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 

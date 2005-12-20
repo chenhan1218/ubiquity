@@ -76,6 +76,13 @@ def make_yaboot_header(target, target_dev):
     ' % (boot_partition, device_of, partition, target_dev, timeout) )
 
 
+def distribution():
+    """Returns the name of this system's distributor."""
+
+    proc = subprocess.Popen(['lsb_release', '-is'], stdout=subprocess.PIPE)
+    return proc.communicate()[0].strip()
+
+
 def ex(*args):
     """runs args* in shell mode. Output status is taken."""
 
@@ -136,7 +143,7 @@ def set_var(var):
 def pre_log(code, msg=''):
   """logs install messages into /var/log on live filesystem."""
 
-  distro = open ('/etc/lsb-release').readline ().strip ().split ('=') [1].lower ()
+  distro = distro().lower()
   log_file = '/var/log/' + distro + '-express'
 
   import logging
@@ -151,7 +158,7 @@ def pre_log(code, msg=''):
 def post_log(code, msg=''):
   """logs install messages into /var/log on installed filesystem."""
 
-  distro = open ('/etc/lsb-release').readline ().strip ().split ('=') [1].lower ()
+  distro = distro().lower()
   log_file = '/target/var/log/' + distro + '-express'
 
   import logging
