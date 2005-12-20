@@ -8,7 +8,7 @@ Standards-Version: 3.6.2.1
 Package: espresso
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends}, debconf, yaboot | grub, espresso-frontend, system-tools-backends, espresso-doc, zenity, lsb-release
-Recommends: gparted, peez2
+Recommends: gparted
 Conflicts: ubuntu-express
 Replaces: ubuntu-express
 Description: Ubuntu Live installer
@@ -74,7 +74,7 @@ Description: Guadalinex Documentation and help files for Espresso Live installer
 
 Package: espresso-frontend-gtk
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, python-gnome2-extras, python-glade2, gparted ( >= 0.0.8+cvs2005061901-0ubuntu2 ), espresso-artwork, espresso-doc, python-gtk2, firefox, peez2
+Depends: ${misc:Depends}, ${python:Depends}, python-gnome2-extras, python-glade2, gparted ( >= 0.0.8+cvs2005061901-0ubuntu2 ), espresso-artwork, espresso-doc, python-gtk2, firefox
 Conflicts: ubuntu-express-frontend-gtk
 Replaces: ubuntu-express-frontend-gtk
 Provides: espresso-frontend

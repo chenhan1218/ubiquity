@@ -23,6 +23,9 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
   * Don't use full-screen mode.
   * Use 'lsb_release -is' rather than reading /etc/lsb-release directly.
   * Depend on lsb-release.
+  * Drop dependency on peez2. We don't have anything to replace it with yet
+    (although we will), but depending on a nonexistent package makes
+    development work too awkward.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
