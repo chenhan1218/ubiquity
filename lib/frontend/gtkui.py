@@ -131,7 +131,9 @@ class Wizard:
     """run the interface."""
 
     # show interface
-    self.show_browser()
+    # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
+    # current dapper (https://bugzilla.ubuntu.com/show_bug.cgi?id=20338).
+    #self.show_browser()
 
     # Resizing labels according to screen resolution
     for widget in self.glade.get_widget_prefix(""):
