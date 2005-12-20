@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import subprocess
+
 
 def grub_dev(dev):
     """returns a device name in grub mode from a unix device name."""
