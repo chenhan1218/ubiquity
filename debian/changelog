@@ -1,4 +1,4 @@
-oem-config (0.9) UNRELEASED; urgency=low
+oem-config (0.9) breezy; urgency=low
 
   * Quieten output from deluser.
   * Quieten output from debconf-communicate while resetting passwd/user-uid.
@@ -21,7 +21,7 @@ oem-config (0.9) UNRELEASED; urgency=low
   * Reload /var/lib/dpkg/info/base-config.templates for timezone question;
     for some reason the translations seem to be getting lost from it.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Oct 2005 12:05:34 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Oct 2005 21:41:41 +0100
 
 oem-config (0.8) breezy; urgency=low
 
