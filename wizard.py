@@ -30,7 +30,6 @@ import debconf
 from debconffilter import DebconfFilter
 from debconfcommunicator import DebconfCommunicator
 
-moduledir = '/usr/lib/oem-config'
 menudir = '/usr/lib/oem-config/menu'
 
 menu_line_re = re.compile(r'(.*?): (.*)')
