@@ -1,2 +1,0 @@
-Order: 40
-Asks: ^passwd/(user-fullname|username|user-password|user-password-again)$

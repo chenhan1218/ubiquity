@@ -1,6 +1,7 @@
 oem-config (0.10) UNRELEASED; urgency=low
 
   * Remove unused moduledir variable.
+  * Remove passwd menu entry, now moved to user-setup.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  2 Jan 2006 14:21:26 +0000
 
