@@ -38,6 +38,11 @@ import debconf
 # Widgets may also have a set(self, question, value) method; if present,
 # this will be called whenever the confmodule uses SET. They may wish to use
 # this to adjust the values of questions in their user interface.
+#
+# If a widget is registered for the 'ERROR' pseudo-question, then its
+# error(self, priority, question) method will be called whenever the
+# confmodule asks an otherwise-unhandled question whose template has type
+# error.
 
 class DebconfFilter:
     def __init__(self, db, widgets={}):
@@ -90,6 +95,18 @@ class DebconfFilter:
                         break
                 else:
                     widget = None
+
+                if widget is None and 'ERROR' in self.widgets:
+                    # If it's an error template, fall back to generic error
+                    # handling.
+                    try:
+                        if self.db.metaget(question, 'Type') == 'error':
+                            self.debug('filter', 'error question detected:',
+                                       question)
+                            widget = self.widgets['ERROR']
+                    except debconf.DebconfError:
+                        pass
+
                 if widget is not None:
                     self.debug('filter', 'widget found for', question)
                     if not widget.run(priority, question):
