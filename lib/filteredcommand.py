@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 import os
+import debconf
 try:
     from debconf import DebconfCommunicator
 except ImportError:
@@ -32,6 +33,17 @@ class FilteredCommand(object):
         self.db.shutdown()
 
         return ret
+
+    def preseed(self, name, value, seen=True):
+        try:
+            self.db.set(name, value)
+        except debconf.DebconfError:
+            self.db.register('espresso/dummy', name)
+            self.db.set(name, value)
+            self.db.subst(name, 'ID', name)
+
+        if seen:
+            self.db.fset(name, 'seen', 'true')
 
 if __name__ == '__main__':
     import sys
