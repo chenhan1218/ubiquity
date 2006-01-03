@@ -18,8 +18,11 @@ class FilteredCommand(object):
             message = fmt % args
             print >>sys.stderr, '%s: %s' % (self.package, message)
 
-    def run_command(self, command, widgets={}):
+    def run_command(self, command, question_patterns=[]):
         self.db = DebconfCommunicator(self.package)
+        widgets = {}
+        for pattern in question_patterns:
+            widgets[pattern] = self
         dbfilter = DebconfFilter(self.db, widgets)
 
         # TODO: Set as unseen all questions that we're going to ask.
