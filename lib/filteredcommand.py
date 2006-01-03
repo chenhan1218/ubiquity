@@ -5,8 +5,8 @@ import os
 try:
     from debconf import DebconfCommunicator
 except ImportError:
-    from ue.debconfcommunicator import DebconfCommunicator
-from ue.debconffilter import DebconfFilter
+    from espresso.debconfcommunicator import DebconfCommunicator
+from espresso.debconffilter import DebconfFilter
 
 class FilteredCommand(object):
     def __init__(self):

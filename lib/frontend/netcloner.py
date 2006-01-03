@@ -6,9 +6,9 @@ import glob
 
 from gettext import bindtextdomain, textdomain, install
 
-from ue.backend import *
-from ue.validation import *
-from ue.misc import *
+from espresso.backend import *
+from espresso.validation import *
+from espresso.misc import *
 
 from Queue import Queue
 import thread
@@ -37,7 +37,7 @@ class Wizard:
     
     
   def run(self):
-    from ue import validation
+    from espresso import validation
     error_msg = ['\n']
     error = 0
     result = validation.check_username(self.info['username'])
@@ -173,7 +173,7 @@ class Wizard:
  
  
   def set_vars_file(self):
-    from ue import misc
+    from espresso import misc
     misc.set_var(self.info)
 
 

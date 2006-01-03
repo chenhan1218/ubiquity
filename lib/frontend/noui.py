@@ -17,7 +17,7 @@ like timezone, keymap and locales.
 
 import debconf
     
-from ue.backend.part import call_autoparted, call_gparted
+from espresso.backend.part import call_autoparted, call_gparted
 
 
 class Wizard:

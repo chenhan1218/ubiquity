@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from ue import misc
-from ue.settings import *
+from espresso import misc
+from espresso.settings import *
 
 import debconf, os
 import subprocess

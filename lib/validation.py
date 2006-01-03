@@ -53,8 +53,8 @@
 # Created by Antonio Olmo <aolmo#emergya._info> on 26 jul 2005.
 # Last modified on 11 oct 2005.
 
-from string      import whitespace, uppercase
-from ue.settings import *
+from string            import whitespace, uppercase
+from espresso.settings import *
 
 # Index:
 # def check_username (name):

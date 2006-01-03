@@ -59,14 +59,14 @@
 # def beautify_size (size):
 # def beautify_device (device, locale):
 
-from sys         import stderr
-from zlib        import crc32
-from time        import sleep
-from os.path     import exists
-from locale      import getdefaultlocale
-from popen2      import Popen3
-from string      import lower
-from ue.settings import *
+from sys               import stderr
+from zlib              import crc32
+from time              import sleep
+from os.path           import exists
+from locale            import getdefaultlocale
+from popen2            import Popen3
+from string            import lower
+from espresso.settings import *
 
 class Peez2:
 

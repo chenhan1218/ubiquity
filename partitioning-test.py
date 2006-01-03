@@ -2,8 +2,8 @@
 
 """ Tiny program to test automatic partitioning through "Peez2". """
 
-from sys              import stderr, stdin, exit
-from ue.backend.peez2 import Peez2
+from sys                    import stderr, stdin, exit
+from espresso.backend.peez2 import Peez2
 
 # Enable next variable during debugging:
 DEBUGGING_STATUS = False

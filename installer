@@ -16,8 +16,8 @@ and configure everything.
 
 import sys
 import os
-import ue
-from ue import misc
+import espresso
+from espresso import misc
 
 TARGET = '/target'
 
@@ -26,7 +26,7 @@ def install(type='gtkui'):
     
     Get the type of frontend to use and load the module for that.
     '''
-    mod = __import__('ue.frontend', globals(), locals() , [type])
+    mod = __import__('espresso.frontend', globals(), locals() , [type])
     ui = getattr(mod, type)
 
     distro = misc.distribution().lower()

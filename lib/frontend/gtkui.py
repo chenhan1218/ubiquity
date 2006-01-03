@@ -64,10 +64,10 @@ import thread
 from gettext import bindtextdomain, textdomain, install
 from Queue import Queue
 
-from ue.backend import *
-from ue.validation import *
-from ue.misc import *
-from ue.backend.peez2 import *
+from espresso.backend import *
+from espresso.validation import *
+from espresso.misc import *
+from espresso.backend.peez2 import *
 
 # Define Espresso global path
 PATH = '/usr/share/espresso'
@@ -345,7 +345,7 @@ class Wizard:
     """write all values in this widget (GtkComboBox) from local
     partitions values."""
 
-    from ue import misc
+    from espresso import misc
     import gobject
 
     # setting GtkComboBox partition values from get_partition return.
@@ -379,7 +379,7 @@ class Wizard:
     # Setting Normal cursor
     self.live_installer.window.set_cursor(None)
 
-    path = '/usr/lib/python2.4/site-packages/ue/backend/'
+    path = '/usr/lib/python2.4/site-packages/espresso/backend/'
 
     def wait_thread(queue):
       """wait thread for format process."""
@@ -488,7 +488,7 @@ class Wizard:
     """writing vars crypted file to get theses vars accessible from
     Format, Copy and Config classes."""
 
-    from ue import misc
+    from espresso import misc
     vars = {}
     attribs = ['hostname','fullname','username','password']
     try:
@@ -670,7 +670,7 @@ class Wizard:
   def info_to_peez (self):
     """Processing info to peez step tasks."""
 
-    from ue import validation
+    from espresso import validation
     error_msg = ['\n']
     error = 0
 
