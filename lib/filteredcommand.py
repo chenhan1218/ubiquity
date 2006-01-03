@@ -48,6 +48,24 @@ class FilteredCommand(object):
         if seen:
             self.db.fset(name, 'seen', 'true')
 
+    # User selected OK, Forward, or similar. Subclasses should override this
+    # to send user-entered information back to debconf (perhaps using
+    # preseed()) and return control to the filtered command. After this
+    # point, self.done is set so no further user interaction should take
+    # place.
+    def ok_handler(self):
+        self.succeeded = True
+        self.done = True
+
+    # User selected Cancel, Back, or similar. Subclasses should override
+    # this to send user-entered information back to debconf (perhaps using
+    # preseed()) and return control to the filtered command. After this
+    # point, self.done is set so no further user interaction should take
+    # place.
+    def cancel_handler(self):
+        self.succeeded = False
+        self.done = True
+
 if __name__ == '__main__':
     import sys
     fc = FilteredCommand()
