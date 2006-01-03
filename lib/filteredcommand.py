@@ -18,8 +18,8 @@ class FilteredCommand(object):
             print >>sys.stderr, '%s: %s' % (self.package, message)
 
     def run_command(self, command, widgets={}):
-        db = DebconfCommunicator(self.package)
-        dbfilter = DebconfFilter(db, widgets)
+        self.db = DebconfCommunicator(self.package)
+        dbfilter = DebconfFilter(self.db, widgets)
 
         # TODO: Set as unseen all questions that we're going to ask.
 
@@ -29,7 +29,7 @@ class FilteredCommand(object):
             # TODO: error message if (ret / 256) != 10
             self.debug("%s exited with code %d", command, ret)
 
-        db.shutdown()
+        self.db.shutdown()
 
         return ret
 
