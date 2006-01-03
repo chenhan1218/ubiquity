@@ -17,7 +17,7 @@ class FilteredCommand(object):
             message = fmt % args
             print >>sys.stderr, '%s: %s' % (self.package, message)
 
-    def run(self, command, widgets={}):
+    def run_command(self, command, widgets={}):
         db = DebconfCommunicator(self.package)
         dbfilter = DebconfFilter(db, widgets)
 
