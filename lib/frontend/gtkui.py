@@ -390,8 +390,6 @@ class Wizard:
     # Setting Normal cursor
     self.live_installer.window.set_cursor(None)
 
-    path = '/usr/lib/python2.4/site-packages/espresso/backend/'
-
     def wait_thread(queue):
       """wait thread for format process."""
 
