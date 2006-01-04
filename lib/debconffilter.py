@@ -96,17 +96,6 @@ class DebconfFilter:
                 else:
                     widget = None
 
-                if widget is None and 'ERROR' in self.widgets:
-                    # If it's an error template, fall back to generic error
-                    # handling.
-                    try:
-                        if self.db.metaget(question, 'Type') == 'error':
-                            self.debug('filter', 'error question detected:',
-                                       question)
-                            widget = self.widgets['ERROR']
-                    except debconf.DebconfError:
-                        pass
-
                 if widget is not None:
                     self.debug('filter', 'widget found for', question)
                     if not widget.run(priority, question):
@@ -116,6 +105,23 @@ class DebconfFilter:
                         next_go_backup = False
                     self.reply(0, 'question will be asked', log=True)
                     continue
+                elif 'ERROR' in self.widgets:
+                    # If it's an error template, fall back to generic error
+                    # handling.
+                    try:
+                        if self.db.metaget(question, 'Type') == 'error':
+                            widget = self.widgets['ERROR']
+                            self.debug('filter', 'error widget found for',
+                                       question)
+                            if not widget.error(priority, question):
+                                self.debug('filter', 'widget requested backup')
+                                next_go_backup = True
+                            else:
+                                next_go_backup = False
+                            self.reply(0, 'question will be asked', log=True)
+                            continue
+                    except debconf.DebconfError:
+                        pass
 
             if command == 'SET' and len(params) == 2:
                 (question, value) = params
