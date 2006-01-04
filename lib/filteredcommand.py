@@ -52,7 +52,7 @@ class FilteredCommand(object):
     # to send user-entered information back to debconf (perhaps using
     # preseed()) and return control to the filtered command. After this
     # point, self.done is set so no further user interaction should take
-    # place.
+    # place unless an error resets it.
     def ok_handler(self):
         self.succeeded = True
         self.done = True
@@ -61,7 +61,7 @@ class FilteredCommand(object):
     # this to send user-entered information back to debconf (perhaps using
     # preseed()) and return control to the filtered command. After this
     # point, self.done is set so no further user interaction should take
-    # place.
+    # place unless an error resets it.
     def cancel_handler(self):
         self.succeeded = False
         self.done = True
