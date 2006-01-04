@@ -5,6 +5,10 @@ from espresso import misc
 from espresso.settings import *
 
 import debconf, os
+try:
+  from debconf import DebconfCommunicator
+except ImportError:
+  from espresso.debconfcommunicator import DebconfCommunicator
 import subprocess
 
 class Config:
@@ -28,14 +32,14 @@ class Config:
     """Run configuration stage. These are the last steps to launch in live
     installer."""
 
-    #queue.put('92 92% Configurando sistema locales')
-    #misc.post_log('info', 'Configuring distro')
-    #if self.get_locales():
-    #  queue.put('92 92% Sistema locales configurado')
-    #  misc.post_log('info', 'Configured distro')
-    #else:
-    #  misc.post_log('error', 'Configuring distro')
-    #  return False
+    queue.put('92 92% Configurando sistema locales')
+    misc.post_log('info', 'Configuring distro')
+    if self.get_locales():
+      queue.put('92 92% Sistema locales configurado')
+      misc.post_log('info', 'Configured distro')
+    else:
+      misc.post_log('error', 'Configuring distro')
+      return False
     queue.put('93 93% Configurando sistema de particiones en disco')
     misc.post_log('info', 'Configuring distro')
     if self.configure_fstab():
@@ -100,8 +104,7 @@ class Config:
 
     get_locales() -> timezone, keymap, locales"""
 
-    debconf.runFrontEnd()
-    db = debconf.Debconf()
+    db = DebconfCommunicator('espresso')
 
     try:
       self.timezone = db.get('express/timezone')
