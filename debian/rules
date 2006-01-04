@@ -64,7 +64,7 @@ install:
 	# Espresso core
 	cp $(CURDIR)/lib/frontend/noui.py $(CURDIR)/debian/espresso/usr/lib/python2.4/site-packages/espresso/frontend/
 	cp $(CURDIR)/lib/frontend/__init__.py $(CURDIR)/debian/espresso/usr/lib/python2.4/site-packages/espresso/frontend/
-	cp -a $(CURDIR)/lib/{*.py,backend} $(CURDIR)/debian/espresso/usr/lib/python2.4/site-packages/espresso/
+	cp -a $(CURDIR)/lib/{*.py,backend,components} $(CURDIR)/debian/espresso/usr/lib/python2.4/site-packages/espresso/
 	cp $(CURDIR)/ubuntu-express $(CURDIR)/installer $(CURDIR)/debian/espresso/usr/bin/
 	cp -a $(CURDIR)/compat/* $(CURDIR)/debian/espresso/usr/share/espresso/
 	rm -rf `find $(CURDIR)/debian/ -mindepth 2 -type d -name .svn`

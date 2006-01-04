@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from espresso import misc
+from espresso.components import usersetup
 from espresso.settings import *
 
 import debconf, os
@@ -187,50 +188,7 @@ class Config:
     system. Default user from live system is deleted and skel for this new user is
     copied to $HOME."""
 
-    self.chrex('passwd', '-l', 'root')
-    #self.set_debconf('passwd', 'passwd/username', self.username)
-    #self.set_debconf('passwd', 'passwd/user-fullname', self.fullname)
-    #self.set_debconf('passwd', 'passwd/user-password', self.password)
-    #self.set_debconf('passwd', 'passwd/user-password-again', self.password)
-    #self.reconfigure('passwd')
-
-    # Only for Guadalinex
-    self.chrex('deluser', 'guada')
-    self.chrex('rm', '-rf', '/home/guada')
-    self.chrex('delgroup', 'guada')
-
-    self.chrex('useradd', '-u', '1000', '-d', '/home/' + self.username, '-m', '-s',
-        '/bin/bash', '-c', self.fullname, self.username)
-    passwd = subprocess.Popen(['echo', self.username + ':' + self.password],
-        stdout=subprocess.PIPE)
-    subprocess.Popen(['chroot', self.target, 'chpasswd', '--md5'], stdin=passwd.stdout)
-    self.chrex('mkdir', '/home/%s' % self.username)
-    self.chrex('adduser', self.username, 'admin')
-    if not self.chrex('/usr/local/sbin/adduser.local', self.username):
-      for group in GROUPS:
-        self.chrex('adduser', self.username, group)
-
-    # Copying skel
-    #
-    #def visit (arg, dirname, names):
-    #  for name in names:
-    #    oldname = os.path.join (dirname, name)
-    #    for pattern in str(dirname).split('/')[2:]:
-    #      dir = os.path.join('', pattern)
-    #    newname = os.path.join (self.target, 'home/%s/' % self.username, dir, name)
-    #    if ( os.path.isdir(oldname) ):
-    #      os.mkdir(newname)
-    #    else:
-    #      os.system('cp ' + oldname + ' ' + newname)
-    #
-    #os.path.walk('/etc/skel/', visit, None)
-
-    self.chrex('chown', '-R', self.username, '/home/%s' % self.username)
-
-    # configuring /etc/aliases
-    aliases = open(os.path.join(self.target, 'etc/aliases'), 'w')
-    print >>aliases, "root: %s" % self.username
-    aliases.close()
+    usersetup.UserSetup().apply_configuration()
 
     return True
 

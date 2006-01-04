@@ -68,6 +68,7 @@ from espresso.backend import *
 from espresso.validation import *
 from espresso.misc import *
 from espresso.backend.peez2 import *
+from espresso.components import usersetup
 
 # Define Espresso global path
 PATH = '/usr/share/espresso'
@@ -92,6 +93,8 @@ class Wizard:
     self.mountpoints = {}
     self.part_labels = {' ' : ' '}
     self.remainder = 0
+    self.current_page = None
+    self.dbfilter = None
 
     # Peez2 stuff initialization:
     self.__assistant = None
@@ -147,7 +150,15 @@ class Wizard:
     self.glade.signal_autoconnect(self)
 
     # Start the interface
-    gtk.main()
+    self.current_page = 0
+    self.dbfilter = None
+    while self.current_page is not None:
+      if self.current_page == 1:
+        self.dbfilter = usersetup.UserSetup(self)
+        self.dbfilter.run_command()
+      else:
+        gtk.main()
+      self.process_step()
 
 
   def customize_installer(self):
@@ -490,7 +501,7 @@ class Wizard:
 
     from espresso import misc
     vars = {}
-    attribs = ['hostname','fullname','username','password']
+    attribs = ['hostname']
     try:
       for name in attribs:
         var = getattr(self, name)
@@ -518,6 +529,7 @@ class Wizard:
     pre_log('info', 'You wasted %.2f seconds with this installation' %
                       (time.time()-self.start))
     # exiting from application
+    self.current_page = None
     gtk.main_quit()
 
 
@@ -641,6 +653,15 @@ class Wizard:
   def on_next_clicked(self, widget):
     """Callback to control the installation process between steps."""
 
+    if self.dbfilter is not None:
+      self.dbfilter.ok_handler()
+    else:
+      gtk.main_quit()
+
+
+  def process_step(self):
+    """Process and validate the results of this step."""
+
     # setting actual step
     step = self.steps.get_current_page()
     pre_log('info', 'Step_before = %d' % step)
@@ -675,26 +696,6 @@ class Wizard:
     error = 0
 
     # Validation stuff
-
-    # checking username entry
-    for result in validation.check_username(self.username.get_property('text')):
-      if ( result == 1 ):
-        error_msg.append("· El <b>nombre de usuario</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
-      elif ( result == 2 ):
-        error_msg.append("· El <b>nombre de usuario</b> contiene mayúsculas (no están permitidas).\n")
-      elif ( result == 3 ):
-        error_msg.append("· El <b>nombre de usuario</b> tiene tamaño incorrecto (permitido entre 3 y 24 caracteres).\n")
-      elif ( result == 4 ):
-        error_msg.append("· El <b>nombre de usuario</b> contiene espacios en blanco (no están permitidos).\n")
-      elif ( result in [5, 6] ):
-        error_msg.append("· El <b>nombre de usuario</b> ya está en uso o está prohibido.\n")
-
-    # checking password entry
-    for result in validation.check_password(self.password.get_property('text'), self.verified_password.get_property('text')):
-      if ( result in [1,2] ):
-        error_msg.append("· La <b>contraseña</b> tiene tamaño incorrecto (permitido entre 4 y 16 caracteres).\n")
-      elif ( result == 3 ):
-        error_msg.append("· Las <b>contraseñas</b> no coinciden.\n")
 
     # checking hostname entry
     for result in validation.check_hostname(self.hostname.get_property('text')):
@@ -937,6 +938,9 @@ class Wizard:
   def on_back_clicked(self, widget):
     """Callback to set previous screen."""
 
+    if self.dbfilter is not None:
+      self.dbfilter.cancel_handler()
+
     # Enabling next button
     self.next.set_sensitive(True)
     # Setting actual step
@@ -1019,9 +1023,9 @@ class Wizard:
   # Public method "on_steps_switch_page" _____________________________________
   def on_steps_switch_page (self, foo, bar, current):
 
-    """ Only to populate the drives combo box the first time that page #2 is
-        shown. """
+    self.current_page = current
 
+    # Populate the drives combo box the first time that page #2 is shown.
     if 2 == current and None == self.__assistant:
 
       # To set a "busy mouse":
@@ -1042,6 +1046,12 @@ class Wizard:
 
       if len (model) > 0:
         self.drives.set_active (0)
+
+    # Quit the main loop so that we can start up debconf coprocesses if
+    # required for this page. TODO cjwatson 2006-01-04: calling main_level()
+    # is very nasty!
+    if gtk.main_level() > 0:
+        gtk.main_quit()
 
 
   # Public method "on_freespace_toggled" _____________________________________
@@ -1152,12 +1162,24 @@ class Wizard:
 
     self.abort_dialog.hide ()
 
+
   def error_dialog (self, msg):
     # TODO: cancel button as well if capb backup
     dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
                                gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
     dialog.run()
     dialog.hide()
+
+
+  # Run the UI's main loop until it returns control to us.
+  def run_main_loop (self):
+    gtk.main()
+
+
+  # Return control to the next level up.
+  def quit_main_loop (self):
+    gtk.main_quit()
+
 
 # Function "launch_autoparted" _______________________________________________
 def launch_autoparted (wizard, assistant, drive, progress):

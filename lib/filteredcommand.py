@@ -10,7 +10,10 @@ except ImportError:
 from espresso.debconffilter import DebconfFilter
 
 class FilteredCommand(object):
-    def __init__(self):
+    def __init__(self, frontend):
+        self.frontend = frontend
+        self.done = False
+        self.current_question = None
         self.package = 'espresso'
 
     def debug(self, fmt, *args):
@@ -56,6 +59,7 @@ class FilteredCommand(object):
     def ok_handler(self):
         self.succeeded = True
         self.done = True
+        self.frontend.quit_main_loop()
 
     # User selected Cancel, Back, or similar. Subclasses should override
     # this to send user-entered information back to debconf (perhaps using
@@ -65,6 +69,23 @@ class FilteredCommand(object):
     def cancel_handler(self):
         self.succeeded = False
         self.done = True
+        self.frontend.quit_main_loop()
+
+    def error(self, priority, question):
+        self.succeeded = False
+        self.done = False
+        self.frontend.run_main_loop()
+        return True
+
+    # The confmodule asked a question; process it. Subclasses only need to
+    # override this if they want to do something special like updating their
+    # UI depending on what questions were asked.
+    def run(self, priority, question):
+        self.current_question = question
+        if not self.done:
+            self.succeeded = False
+            self.frontend.run_main_loop()
+        return self.succeeded
 
 if __name__ == '__main__':
     import sys

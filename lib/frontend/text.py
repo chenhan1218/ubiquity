@@ -29,4 +29,10 @@ class Wizard:
   def get_partitions(self):
     pass
   
+  def run_main_loop(self):
+    pass
+
+  def quit_main_loop(self):
+    pass
+
 # vim:ai:et:sts=2:tw=80:sw=2:

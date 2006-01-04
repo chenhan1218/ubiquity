@@ -81,7 +81,13 @@ class Wizard:
       print 'Autopartioning fail!'
 
     return mountpoints
- 
+
+  def run_main_loop(self):
+    pass
+
+  def quit_main_loop(self):
+    pass
+
 if __name__ == '__main__':
   w = Wizard()
   hostname, fullname, name, password = w.get_info()

@@ -40,33 +40,6 @@ class Wizard:
     from espresso import validation
     error_msg = ['\n']
     error = 0
-    result = validation.check_username(self.info['username'])
-    if ( result == 1 ):
-      error_msg.append("· username contains dots (they're not allowed).\n")
-      error = 1
-    elif ( result == 2 ):
-      error_msg.append("· username contains uppercase characters (they're not allowed).\n")
-      error = 1
-    elif ( result == 3 ):
-      error_msg.append("· username wrong length (allowed between 3 and 24 chars).\n")
-      error = 1
-    elif ( result == 4 ):
-      error_msg.append("· username contains white spaces (they're not allowed).\n")
-      error = 1
-    elif ( result in [5, 6] ):
-      error_msg.append("· username is already taken or prohibited.\n")
-      error = 1
-    if ( error == 1 ):
-      self.show_error(''.join(error_msg))
-    result = validation.check_password(self.info['password'], self.info['password'])
-    if ( result in [1,2] ):
-      error_msg.append("· password wrong length (allowed between 4 and 16 chars).\n")
-      error = 1
-    elif ( result == 3 ):
-      error_msg.append("· passwords don't match.\n")
-      error = 1
-    if ( error == 1 ):
-      self.show_error(''.join(error_msg))
     result = validation.check_hostname(self.info['hostname'])
     if ( result == 1 ):
       error_msg.append("· hostname wrong length (allowed between 3 and 18 chars).\n")
@@ -204,6 +177,15 @@ class Wizard:
       return False
     self.set_progress(msg)
     return True
+
+
+  def run_main_loop(self):
+    pass
+
+
+  def quit_main_loop(self):
+    pass
+
 
 if __name__ == '__main__':
   distro = misc.distribution().lower()

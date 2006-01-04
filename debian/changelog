@@ -30,6 +30,8 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
   * Disable embedded web browser for now since this segfaults in current
     dapper (Bugzilla #20338).
   * Fix Config.get_locales() using DebconfCommunicator.
+  * Call user-setup as a debconffilter coprocess while running the
+    corresponding UI step, replacing our own duplicated validation code.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
