@@ -37,6 +37,10 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
   * Use dh_install instead of verbose code in debian/rules (which includes a
     bashism anyway).
   * Remove hardcoded svn commands in generate-doc.sh.
+  * Remove generated source code documentation for now; it's really not
+    terribly useful, certainly not in the espresso binary package, and
+    ultimately it should be generated as part of the build process if at
+    all.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
