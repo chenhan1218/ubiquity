@@ -22,7 +22,7 @@ build-stamp:
 	for file in $$(ls $(CURDIR)/glade/locale/guadalinex/*.po); do msgfmt -o $(BUILDDIR)/guadalinex/$$(echo $$(basename $$file) | sed -e 's,\.po$$,\.mo,') $(CURDIR)/glade/locale/guadalinex/$$(basename $$file); done || true
 
 	# Fixing perms
-	chmod +x $(CURDIR)/lib/backend/*.py
+	chmod +x $(CURDIR)/espresso/backend/*.py
 
 	touch build-stamp
 

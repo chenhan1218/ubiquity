@@ -5,6 +5,8 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
     awkward branding considerations, and to clearly separate the work being
     done on this project for Dapper from the work done by Guadalinex since
     the focus is rather different.
+  * Rename lib directory in source to espresso so that pychecker can be used
+    more easily.
   * Use dh_installdocs to install documentation.
   * Remove unnecessary ${shlibs:Depends} dependencies.
   * Add debconffilter.py from oem-config (this has been sent to debconf

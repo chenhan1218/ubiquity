@@ -1,8 +1,8 @@
 installer usr/bin
 ubuntu-express usr/bin
-lib/*.py usr/lib/python2.4/site-packages/espresso
-lib/backend usr/lib/python2.4/site-packages/espresso
-lib/components usr/lib/python2.4/site-packages/espresso
-lib/frontend/noui.py usr/lib/python2.4/site-packages/espresso/frontend
-lib/frontend/__init__.py usr/lib/python2.4/site-packages/espresso/frontend
+espresso/*.py usr/lib/python2.4/site-packages/espresso
+espresso/backend usr/lib/python2.4/site-packages/espresso
+espresso/components usr/lib/python2.4/site-packages/espresso
+espresso/frontend/noui.py usr/lib/python2.4/site-packages/espresso/frontend
+espresso/frontend/__init__.py usr/lib/python2.4/site-packages/espresso/frontend
 compat/* usr/share/espresso
