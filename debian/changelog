@@ -36,6 +36,7 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
     corresponding UI step, replacing our own duplicated validation code.
   * Use dh_install instead of verbose code in debian/rules (which includes a
     bashism anyway).
+  * Remove hardcoded svn commands in generate-doc.sh.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
