@@ -151,12 +151,12 @@ class Wizard:
 
     # Start the interface
     self.current_page = 0
-    self.dbfilter = None
     while self.current_page is not None:
       if self.current_page == 1:
         self.dbfilter = usersetup.UserSetup(self)
         self.dbfilter.run_command()
       else:
+        self.dbfilter = None
         gtk.main()
       self.process_step()
 
