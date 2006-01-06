@@ -64,6 +64,13 @@ class DebconfFilter:
         self.subin.write('%s\n' % ret)
         self.subin.flush()
 
+    def find_widgets(self, question):
+        found = []
+        for pattern in self.widgets.keys():
+            if re.search(pattern, question):
+                found.append(self.widgets[pattern])
+        return found
+
     def run(self, subprocess):
         os.environ['DEBIAN_HAS_FRONTEND'] = '1'
         os.environ['PERL_DL_NONLAZY'] = '1'
@@ -89,16 +96,11 @@ class DebconfFilter:
 
             if command == 'INPUT' and len(params) == 2:
                 (priority, question) = params
-                for pattern in self.widgets.keys():
-                    if re.search(pattern, question):
-                        widget = self.widgets[pattern]
-                        break
-                else:
-                    widget = None
+                input_widgets = self.find_widgets(question)
 
-                if widget is not None:
+                if len(input_widgets) > 0:
                     self.debug('filter', 'widget found for', question)
-                    if not widget.run(priority, question):
+                    if not input_widgets[0].run(priority, question):
                         self.debug('filter', 'widget requested backup')
                         next_go_backup = True
                     else:
@@ -125,12 +127,10 @@ class DebconfFilter:
 
             if command == 'SET' and len(params) == 2:
                 (question, value) = params
-                for pattern in self.widgets.keys():
-                    if re.search(pattern, question):
-                        self.debug('filter', 'widget found for', question)
-                        widget = self.widgets[pattern]
-                        if hasattr(widget, 'set'):
-                            widget.set(question, value)
+                for widget in self.find_widgets(question):
+                    self.debug('filter', 'widget found for', question)
+                    if hasattr(widget, 'set'):
+                        widget.set(question, value)
 
             if command == 'GO' and next_go_backup:
                 self.reply(30, 'backup', log=True)
