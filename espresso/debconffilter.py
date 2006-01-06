@@ -64,11 +64,12 @@ class DebconfFilter:
         self.subin.write('%s\n' % ret)
         self.subin.flush()
 
-    def find_widgets(self, question):
+    def find_widgets(self, question, method=None):
         found = []
         for pattern in self.widgets.keys():
             if re.search(pattern, question):
-                found.append(self.widgets[pattern])
+                if method is None or hasattr(widget, method):
+                    found.append(self.widgets[pattern])
         return found
 
     def run(self, subprocess):
@@ -127,10 +128,9 @@ class DebconfFilter:
 
             if command == 'SET' and len(params) == 2:
                 (question, value) = params
-                for widget in self.find_widgets(question):
-                    if hasattr(widget, 'set'):
-                        self.debug('filter', 'widget found for', question)
-                        widget.set(question, value)
+                for widget in self.find_widgets(question, 'set'):
+                    self.debug('filter', 'widget found for', question)
+                    widget.set(question, value)
 
             if command == 'GO' and next_go_backup:
                 self.reply(30, 'backup', log=True)
