@@ -39,6 +39,10 @@ import debconf
 # this will be called whenever the confmodule uses SET. They may wish to use
 # this to adjust the values of questions in their user interface.
 #
+# If present, the metaget(self, question, field) method will be called
+# whenever the confmodule uses METAGET. This may be useful to spot questions
+# being assembled out of individually-translatable pieces.
+#
 # If a widget is registered for the 'ERROR' pseudo-question, then its
 # error(self, priority, question) method will be called whenever the
 # confmodule asks an otherwise-unhandled question whose template has type
@@ -131,6 +135,12 @@ class DebconfFilter:
                 for widget in self.find_widgets(question, 'set'):
                     self.debug('filter', 'widget found for', question)
                     widget.set(question, value)
+
+            if command == 'METAGET' and len(params) == 2:
+                (question, field) = params
+                for widget in self.find_widgets(question, 'metaget'):
+                    self.debug('filter', 'widget found for', question)
+                    widget.metaget(question, field)
 
             if command == 'GO' and next_go_backup:
                 self.reply(30, 'backup', log=True)
