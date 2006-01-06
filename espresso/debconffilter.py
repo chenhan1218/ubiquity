@@ -128,8 +128,8 @@ class DebconfFilter:
             if command == 'SET' and len(params) == 2:
                 (question, value) = params
                 for widget in self.find_widgets(question):
-                    self.debug('filter', 'widget found for', question)
                     if hasattr(widget, 'set'):
+                        self.debug('filter', 'widget found for', question)
                         widget.set(question, value)
 
             if command == 'GO' and next_go_backup:
