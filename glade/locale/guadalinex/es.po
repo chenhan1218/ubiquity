@@ -97,7 +97,7 @@ msgstr ""
 
 #: liveinstaller.glade:847 liveinstaller.glade:1312 liveinstaller.glade:1517
 msgid ""
-"<span size=\"xx-large\">Please prepare some space for you new system</span>"
+"<span size=\"xx-large\">Please prepare some space for your new system</span>"
 msgstr ""
 "<span size=\"xx-large\" foreground=\"#3b5da5\">¿Donde ubicar Guadalinex?</span>"
 
@@ -257,7 +257,7 @@ msgstr "<span size=\"xx-large\" foreground=\"#3b5da5\">¡Felicidades!</span>"
 msgid ""
 "The installation has been successfully completed.\n"
 "\n"
-"In order to work with your new free operative system you need to eject the "
+"In order to work with your new free operating system you need to eject the "
 "CDLive and reboot your computer."
 msgstr ""
 "El proceso de instalación se ha completado.\n"

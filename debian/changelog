@@ -42,6 +42,9 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
     terribly useful, certainly not in the espresso binary package, and
     ultimately it should be generated as part of the build process if at
     all.
+  * Translate strings in glade file to English. In the unlikely event that
+    any of the strings remain basically identical, I'll restore the original
+    text as a Spanish translation.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
