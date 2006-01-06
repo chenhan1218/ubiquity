@@ -40,6 +40,42 @@ class FilteredCommand(object):
 
         return ret
 
+    # Split a string on commas, stripping surrounding whitespace, and
+    # honouring backslash-quoting.
+    def split_choices(self, text):
+        textlen = len(text)
+        index = 0
+        items = []
+        item = ''
+
+        while index < textlen:
+            if text[index] == '\\' and index + 1 < textlen:
+                if text[index + 1] == ',' or text[index + 1] == ' ':
+                    item += text[index + 1]
+                    index += 1
+            elif text[index] == ',':
+                items.append(item.strip())
+                item = ''
+            else:
+                item += text[index]
+            index += 1
+
+        if item != '':
+            items.append(item.strip())
+
+        return items
+
+    def choices_untranslated(self, question):
+        choices = unicode(self.db.metaget(question, 'choices-c'))
+        return self.split_choices(choices)
+
+    def choices(self, question):
+        choices = unicode(self.db.metaget(question, 'choices'))
+        return self.split_choices(choices)
+
+    def description(self, question):
+        return unicode(self.db.metaget(question, 'description'))
+
     def preseed(self, name, value, seen=True):
         try:
             self.db.set(name, value)
