@@ -72,8 +72,9 @@ class DebconfFilter:
         found = []
         for pattern in self.widgets.keys():
             if re.search(pattern, question):
+                widget = self.widgets[pattern]
                 if method is None or hasattr(widget, method):
-                    found.append(self.widgets[pattern])
+                    found.append(widget)
         return found
 
     def run(self, subprocess):
