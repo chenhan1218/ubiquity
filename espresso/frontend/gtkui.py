@@ -60,6 +60,7 @@ import os
 import time
 import glob
 import thread
+import xml.sax.saxutils
 
 from gettext import bindtextdomain, textdomain, install
 from Queue import Queue
@@ -95,6 +96,9 @@ class Wizard:
     self.remainder = 0
     self.current_page = None
     self.dbfilter = None
+    self.progress_min = 0
+    self.progress_max = 100
+    self.progress_cur = 0
 
     # Peez2 stuff initialization:
     self.__assistant = None
@@ -489,8 +493,8 @@ class Wizard:
     if ( num % (100/len(self.total_images)) < self.remainder ):
       self.images_loop()
     self.remainder = num % (100/len(self.total_images))
-    self.progressbar.set_fraction (num / 100.0)
-    self.progressbar.set_text(text)
+    self.install_progress_bar.set_fraction (num / 100.0)
+    self.install_progress_bar.set_text(text)
 
 
   def set_vars_file(self):
@@ -1161,12 +1165,49 @@ class Wizard:
     self.abort_dialog.hide ()
 
 
+  # Callbacks provided to components.
+
+  def debconf_progress_start (self, progress_min, progress_max, progress_title):
+    self.progress_dialog.set_transient_for(self.live_installer)
+    self.progress_dialog.set_title(progress_title)
+    self.progress_title.set_markup(
+      '<b>' + xml.sax.saxutils.escape(progress_title) + '</b>')
+    self.progress_bar.set_fraction(0)
+    self.progress_bar.set_text('0%')
+    self.progress_min = progress_min
+    self.progress_max = progress_max
+    self.progress_cur = progress_min
+    self.progress_dialog.show()
+
+  def debconf_progress_set (self, progress_val):
+    self.progress_cur = progress_val
+    fraction = (float(self.progress_cur - self.progress_min) /
+                (self.progress_max - self.progress_min))
+    self.progress_bar.set_fraction(fraction)
+    self.progress_bar.set_text('%s%%' % int(fraction * 100))
+
+  def debconf_progress_step (self, progress_inc):
+    self.debconf_progress_set(self.progress_cur + progress_inc)
+
+  def debconf_progress_info (self, progress_info):
+    self.progress_info.set_markup(
+      '<i>' + xml.sax.saxutils.escape(progress_info) + '</i>')
+
+  def debconf_progress_stop (self):
+    self.progress_dialog.hide()
+
+
   def error_dialog (self, msg):
     # TODO: cancel button as well if capb backup
     dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
                                gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
     dialog.run()
     dialog.hide()
+
+
+  def refresh (self):
+    while gtk.events_pending():
+      gtk.main_iteration()
 
 
   # Run the UI's main loop until it returns control to us.

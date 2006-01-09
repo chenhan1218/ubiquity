@@ -45,6 +45,7 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
   * Translate strings in glade file to English. In the unlikely event that
     any of the strings remain basically identical, I'll restore the original
     text as a Spanish translation.
+  * Add filtered debconf progress bar handling in the GTK frontend.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 

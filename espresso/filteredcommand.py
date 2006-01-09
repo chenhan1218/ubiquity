@@ -123,6 +123,33 @@ class FilteredCommand(object):
             self.frontend.run_main_loop()
         return self.succeeded
 
+    # Default progress bar handling: just pass it through to the frontend.
+
+    def progress_start(self, progress_min, progress_max, progress_title):
+        self.frontend.debconf_progress_start(progress_min, progress_max,
+                                             self.description(progress_title))
+        self.frontend.refresh()
+
+    def progress_set(self, progress_title, progress_val):
+        self.frontend.debconf_progress_set(progress_val)
+        self.frontend.refresh()
+
+    def progress_step(self, progress_title, progress_inc):
+        self.frontend.debconf_progress_step(progress_inc)
+        self.frontend.refresh()
+
+    def progress_info(self, progress_title, progress_info):
+        try:
+            self.frontend.debconf_progress_info(self.description(progress_info))
+            self.frontend.refresh()
+        except debconf.DebconfError:
+            # ignore unknown info templates
+            pass
+
+    def progress_stop(self, progress_title):
+        self.frontend.debconf_progress_stop()
+        self.frontend.refresh()
+
 if __name__ == '__main__':
     import sys
     fc = FilteredCommand()
