@@ -3411,7 +3411,6 @@ In order to work with your new free operating system you need to eject the CDLiv
 </widget>
 
 <widget class="GtkDialog" id="progress_dialog">
-  <property name="visible">False</property>
   <property name="title">Progress bar title</property>
   <property name="type">GTK_WINDOW_TOPLEVEL</property>
   <property name="window_position">GTK_WIN_POS_NONE</property>
