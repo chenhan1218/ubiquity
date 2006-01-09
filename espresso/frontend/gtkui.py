@@ -162,7 +162,9 @@ class Wizard:
       else:
         self.dbfilter = None
         gtk.main()
-      self.process_step()
+
+      if self.current_page is not None:
+        self.process_step()
 
 
   def customize_installer(self):
