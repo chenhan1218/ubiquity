@@ -668,21 +668,21 @@ class Wizard:
     step = self.steps.get_current_page()
     pre_log('info', 'Step_before = %d' % step)
 
-    # From Welcome to Info
+    # Welcome
     if step == 0:
       self.next.set_label('gtk-go-forward')
       self.next.set_sensitive(False)
       self.steps.next_page()
-    # From Info to Peez
+    # Identification
     elif step == 1:
-      self.info_to_peez()
-    # From Peez to {Gparted, Progress}
+      self.process_identification()
+    # Automatic partitioning
     elif step == 2:
       self.peez2()
-    # From Gparted to Mountpoints
+    # Advanced partitioning
     elif step == 3:
       self.gparted_to_mountpoints()
-    # From Mountpoints to Progress
+    # Mountpoints
     elif step == 4:
       self.mountpoints_to_progress()
 
@@ -690,8 +690,8 @@ class Wizard:
     pre_log('info', 'Step_after = %d' % step)
 
 
-  def info_to_peez (self):
-    """Processing info to peez step tasks."""
+  def process_identification (self):
+    """Processing identification step tasks."""
 
     from espresso import validation
     error_msg = ['\n']
@@ -725,7 +725,7 @@ class Wizard:
 
 
   def peez2(self):
-    """Processing peez to {gparted, progress} step tasks."""
+    """Processing peez step tasks."""
 
     while gtk.events_pending ():
       gtk.main_iteration ()
