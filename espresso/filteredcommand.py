@@ -76,6 +76,14 @@ class FilteredCommand(object):
     def description(self, question):
         return unicode(self.db.metaget(question, 'description'))
 
+    def translate_to_c(self, question, value):
+        choices = self.choices(question)
+        choices_c = self.choices_untranslated(question)
+        for i in range(len(choices)):
+            if choices[i] == value:
+                return choices_c[i]
+        raise ValueError, value
+
     def preseed(self, name, value, seen=True):
         try:
             self.db.set(name, value)
@@ -86,6 +94,9 @@ class FilteredCommand(object):
 
         if seen:
             self.db.fset(name, 'seen', 'true')
+
+    def preseed_as_c(self, name, value, seen=True):
+        self.preseed(name, self.translate_to_c(name, value), seen)
 
     # User selected OK, Forward, or similar. Subclasses should override this
     # to send user-entered information back to debconf (perhaps using
