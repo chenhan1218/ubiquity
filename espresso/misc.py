@@ -145,8 +145,10 @@ def set_var(var):
 def pre_log(code, msg=''):
   """logs install messages into /var/log on live filesystem."""
 
-  distro = distribution().lower()
-  log_file = '/var/log/' + distro + '-express'
+  log_file = '/var/log/installer/espresso'
+
+  if not os.path.exists(os.path.dirname(log_file)):
+    os.makedirs(os.path.dirname(log_file))
 
   import logging
   logging.basicConfig(level=logging.DEBUG,
@@ -160,8 +162,10 @@ def pre_log(code, msg=''):
 def post_log(code, msg=''):
   """logs install messages into /var/log on installed filesystem."""
 
-  distro = distribution().lower()
-  log_file = '/target/var/log/' + distro + '-express'
+  log_file = '/target/var/log/installer/espresso'
+
+  if not os.path.exists(os.path.dirname(log_file)):
+    os.makedirs(os.path.dirname(log_file))
 
   import logging
   logging.basicConfig(level=logging.DEBUG,

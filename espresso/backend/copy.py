@@ -207,8 +207,10 @@ class Copy:
   def copy_logs(self):
     """copy logs files into installed system."""
 
-    distro = misc.distribution().lower()
-    log_file = '/var/log/' + distro + '-express'
+    log_file = '/var/log/installer/espresso'
+
+    if not os.path.exists(os.path.dirname(log_file)):
+      os.makedirs(os.path.dirname(log_file))
 
     if not misc.ex('cp', '-a', log_file, os.path.join(self.target, log_file[1:])):
       misc.pre_log('error', 'No se pudieron copiar los registros de instalación')

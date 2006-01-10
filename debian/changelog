@@ -50,6 +50,7 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
   * Remove the numbers from the breadcrumb trail at the top of the screen.
   * Copy from /rofs if it exists, rather than hunting through the CD for the
     filesystem image. Requires casper 1.25.
+  * Log to /var/log/installer/espresso instead of /var/log/<distro>-express.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
