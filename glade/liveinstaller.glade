@@ -66,7 +66,7 @@
 		  <child>
 		    <widget class="GtkLabel" id="title0">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;0. Intro&lt;/b&gt;&lt;/span&gt; &gt; &lt;b&gt;1. Identification&lt;/b&gt; &gt; &lt;b&gt;2. Disk space&lt;/b&gt; &gt; &lt;b&gt;3. Installation&lt;/b&gt; &gt; &lt;b&gt;4. Ready!&lt;/b&gt;&lt;/span&gt;</property>
+		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;Intro&lt;/b&gt;&lt;/span&gt; &gt; &lt;b&gt;Identification&lt;/b&gt; &gt; &lt;b&gt;Disk space&lt;/b&gt; &gt; &lt;b&gt;Installation&lt;/b&gt; &gt; &lt;b&gt;Ready!&lt;/b&gt;&lt;/span&gt;</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">True</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -172,7 +172,7 @@
 		  <child>
 		    <widget class="GtkLabel" id="title1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;b&gt;0. Intro&lt;/b&gt; &gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;1. Identification&lt;/b&gt;&lt;/span&gt; &gt; &lt;b&gt;2. Disk space&lt;/b&gt; &gt; &lt;b&gt;3. Installation&lt;/b&gt; &gt; &lt;b&gt;4. Ready!&lt;/b&gt;&lt;/span&gt;</property>
+		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;b&gt;Intro&lt;/b&gt; &gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;Identification&lt;/b&gt;&lt;/span&gt; &gt; &lt;b&gt;Disk space&lt;/b&gt; &gt; &lt;b&gt;Installation&lt;/b&gt; &gt; &lt;b&gt;Ready!&lt;/b&gt;&lt;/span&gt;</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">True</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -792,7 +792,7 @@
 		  <child>
 		    <widget class="GtkLabel" id="title2-1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;b&gt;0. Intro&lt;/b&gt; &gt; &lt;b&gt;1. Identification&lt;/b&gt; &gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;2. Disk space&lt;/b&gt;&lt;/span&gt; &gt; &lt;b&gt;3. Installation&lt;/b&gt; &gt; &lt;b&gt;4. Ready!&lt;/b&gt;&lt;/span&gt;</property>
+		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;b&gt;Intro&lt;/b&gt; &gt; &lt;b&gt;Identification&lt;/b&gt; &gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;Disk space&lt;/b&gt;&lt;/span&gt; &gt; &lt;b&gt;Installation&lt;/b&gt; &gt; &lt;b&gt;Ready!&lt;/b&gt;&lt;/span&gt;</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">True</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1277,7 +1277,7 @@
 		  <child>
 		    <widget class="GtkLabel" id="title2-2">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;b&gt;0. Intro&lt;/b&gt; &gt; &lt;b&gt;1. Identification&lt;/b&gt; &gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;2. Disk space&lt;/b&gt;&lt;/span&gt; &gt; &lt;b&gt;3. Installation&lt;/b&gt; &gt; &lt;b&gt;4. Ready!&lt;/b&gt;&lt;/span&gt;</property>
+		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;b&gt;Intro&lt;/b&gt; &gt; &lt;b&gt;Identification&lt;/b&gt; &gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;Disk space&lt;/b&gt;&lt;/span&gt; &gt; &lt;b&gt;Installation&lt;/b&gt; &gt; &lt;b&gt;Ready!&lt;/b&gt;&lt;/span&gt;</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">True</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1488,7 +1488,7 @@ Alternatively, it is possible to return to the previous page to select an easier
 		  <child>
 		    <widget class="GtkLabel" id="title2-3">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;b&gt;0. Intro&lt;/b&gt; &gt; &lt;b&gt;1. Identification&lt;/b&gt; &gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;2. Disk space&lt;/b&gt;&lt;/span&gt; &gt; &lt;b&gt;3. Installation&lt;/b&gt; &gt; &lt;b&gt;4. Ready!&lt;/b&gt;&lt;/span&gt;</property>
+		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;b&gt;Intro&lt;/b&gt; &gt; &lt;b&gt;Identification&lt;/b&gt; &gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;Disk space&lt;/b&gt;&lt;/span&gt; &gt; &lt;b&gt;Installation&lt;/b&gt; &gt; &lt;b&gt;Ready!&lt;/b&gt;&lt;/span&gt;</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">True</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -2576,7 +2576,7 @@ If you kept an intact home partition, you can now link it with the “/home” m
 		  <child>
 		    <widget class="GtkLabel" id="title3">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;b&gt;0. Intro&lt;/b&gt; &gt; &lt;b&gt;1. Identification&lt;/b&gt; &gt; &lt;b&gt;2. Disk space&lt;/b&gt; &gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;3. Installation&lt;/b&gt;&lt;/span&gt; &gt; &lt;b&gt;4. Ready!&lt;/b&gt;&lt;/span&gt;</property>
+		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;b&gt;Intro&lt;/b&gt; &gt; &lt;b&gt;Identification&lt;/b&gt; &gt; &lt;b&gt;Disk space&lt;/b&gt; &gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;Installation&lt;/b&gt;&lt;/span&gt; &gt; &lt;b&gt;Ready!&lt;/b&gt;&lt;/span&gt;</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">True</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -2824,7 +2824,7 @@ If you kept an intact home partition, you can now link it with the “/home” m
 		  <child>
 		    <widget class="GtkLabel" id="title4">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;b&gt;0. Intro&lt;/b&gt; &gt; &lt;b&gt;1. Identification&lt;/b&gt; &gt; &lt;b&gt;2. Disk space&lt;/b&gt; &gt; &lt;b&gt;3. Installation&lt;/b&gt; &gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;4. Ready!&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;</property>
+		      <property name="label" translatable="yes">&lt;span foreground=&quot;#9F6C49&quot;&gt; &lt;b&gt;Intro&lt;/b&gt; &gt; &lt;b&gt;Identification&lt;/b&gt; &gt; &lt;b&gt;Disk space&lt;/b&gt; &gt; &lt;b&gt;Installation&lt;/b&gt; &gt; &lt;span foreground=&quot;white&quot; background=&quot;#9F6C49&quot;&gt;&lt;b&gt;Ready!&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">True</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>

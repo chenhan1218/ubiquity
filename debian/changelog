@@ -47,6 +47,7 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
     autopartitioning UI step. Remove peez2 entirely, as this will replace it
     once it's finished.
   * Change gparted invocation to use new --installer=WID option.
+  * Remove the numbers from the breadcrumb trail at the top of the screen.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 

@@ -23,15 +23,15 @@ msgstr ""
 #: liveinstaller.glade:70
 msgid ""
 "<span foreground=\"#9F6C49\"> <span foreground=\"white\" background=\"#9F6C49"
-"\"><b>0. Intro</b></span> > <b>1. Identification</b> > <b>2. Disk space</b> "
-"> <b>3. Installation</b> > <b>4. Ready!</b></span>"
+"\"><b>Intro</b></span> > <b>Identification</b> > <b>Disk space</b> "
+"> <b>Installation</b> > <b>Ready!</b></span>"
 msgstr ""
 
 #: liveinstaller.glade:176
 msgid ""
-"<span foreground=\"#9F6C49\"> <b>0. Intro</b> > <span foreground=\"white\" "
-"background=\"#9F6C49\"><b>1. Identification</b></span> > <b>2. Disk space</"
-"b> > <b>3. Installation</b> > <b>4. Ready!</b></span>"
+"<span foreground=\"#9F6C49\"> <b>Intro</b> > <span foreground=\"white\" "
+"background=\"#9F6C49\"><b>Identification</b></span> > <b>Disk space</"
+"b> > <b>Installation</b> > <b>Ready!</b></span>"
 msgstr ""
 
 #: liveinstaller.glade:242
@@ -76,9 +76,9 @@ msgstr ""
 
 #: liveinstaller.glade:796 liveinstaller.glade:1261 liveinstaller.glade:1472
 msgid ""
-"<span foreground=\"#9F6C49\"> <b>0. Intro</b> > <b>1. Identification</b> > "
-"<span foreground=\"white\" background=\"#9F6C49\"><b>2. Disk space</b></"
-"span> > <b>3. Installation</b> > <b>4. Ready!</b></span>"
+"<span foreground=\"#9F6C49\"> <b>Intro</b> > <b>Identification</b> > "
+"<span foreground=\"white\" background=\"#9F6C49\"><b>Disk space</b></"
+"span> > <b>Installation</b> > <b>Ready!</b></span>"
 msgstr ""
 
 #: liveinstaller.glade:847 liveinstaller.glade:1312 liveinstaller.glade:1517
@@ -179,9 +179,9 @@ msgstr ""
 
 #: liveinstaller.glade:2560
 msgid ""
-"<span foreground=\"#9F6C49\"> <b>0. Intro</b> > <b>1. Identification</b> > "
-"<b>2. Disk space</b> > <span foreground=\"white\" background=\"#9F6C49"
-"\"><b>3. Installation</b></span> > <b>4. Ready!</b></span>"
+"<span foreground=\"#9F6C49\"> <b>Intro</b> > <b>Identification</b> > "
+"<b>Disk space</b> > <span foreground=\"white\" background=\"#9F6C49"
+"\"><b>Installation</b></span> > <b>Ready!</b></span>"
 msgstr ""
 
 #: liveinstaller.glade:2626
@@ -195,9 +195,9 @@ msgstr ""
 
 #: liveinstaller.glade:2808
 msgid ""
-"<span foreground=\"#9F6C49\"> <b>0. Intro</b> > <b>1. Identification</b> > "
-"<b>2. Disk space</b> > <b>3. Installation</b> > <span foreground=\"white\" "
-"background=\"#9F6C49\"><b>4. Ready!</b></span></span>"
+"<span foreground=\"#9F6C49\"> <b>Intro</b> > <b>Identification</b> > "
+"<b>Disk space</b> > <b>Installation</b> > <span foreground=\"white\" "
+"background=\"#9F6C49\"><b>Ready!</b></span></span>"
 msgstr ""
 
 #: liveinstaller.glade:2853
