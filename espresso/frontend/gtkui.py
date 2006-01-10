@@ -68,8 +68,7 @@ from Queue import Queue
 from espresso.backend import *
 from espresso.validation import *
 from espresso.misc import *
-from espresso.backend.peez2 import *
-from espresso.components import usersetup
+from espresso.components import usersetup, partman
 
 # Define Espresso global path
 PATH = '/usr/share/espresso'
@@ -89,6 +88,7 @@ class Wizard:
     self.hostname = ''
     self.fullname = ''
     self.name = ''
+    self.manual_partitioning = False
     self.gparted = True
     self.password = ''
     self.mountpoints = {}
@@ -99,9 +99,6 @@ class Wizard:
     self.progress_min = 0
     self.progress_max = 100
     self.progress_cur = 0
-
-    # Peez2 stuff initialization:
-    self.__assistant = None
 
     # To get a "busy mouse":
     self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
@@ -158,9 +155,15 @@ class Wizard:
     while self.current_page is not None:
       if self.current_page == 1:
         self.dbfilter = usersetup.UserSetup(self)
-        self.dbfilter.run_command()
+      elif self.current_page == 2:
+        self.manual_partitioning = False
+        self.dbfilter = partman.Partman(self)
       else:
         self.dbfilter = None
+
+      if self.dbfilter is not None:
+        self.dbfilter.run_command()
+      else:
         gtk.main()
 
       if self.current_page is not None:
@@ -680,7 +683,7 @@ class Wizard:
       self.process_identification()
     # Automatic partitioning
     elif step == 2:
-      self.peez2()
+      self.process_autopartitioning()
     # Advanced partitioning
     elif step == 3:
       self.gparted_to_mountpoints()
@@ -719,87 +722,29 @@ class Wizard:
       self.back.show()
       self.help.hide()
       self.steps.next_page()
-      # To disable peez2 utility, you must comment the line above
-      # this one and uncoment the three below lines.
-      # if self.gparted:
-      #   self.gparted_loop()
-      # self.steps.set_current_page(3)
 
 
-  def peez2(self):
-    """Processing peez step tasks."""
+  def process_autopartitioning(self):
+    """Processing automatic partitioning step tasks."""
 
     while gtk.events_pending ():
       gtk.main_iteration ()
 
-    self.freespace.set_active (False)
-    self.recycle.set_active (False)
-    self.manually.set_active (False)
-    model = self.drives.get_model ()
-
-    if len (model) > 0:
-      current = self.drives.get_active ()
-
-      if -1 != current:
-        selected_drive = self.__assistant.get_drives () [current]
-
-    if self.freespace.get_active ():
-      self.partition_bar.show ()
-
-      if -1 != current:
-        progress = Queue ()
-        thread.start_new_thread (launch_autoparted, (self, self.__assistant, selected_drive, progress))
-        msg = str (progress.get ())
-
-        while msg is not '':
-          field = msg.split ('|')
-          self.partition_bar.set_fraction (float (field [0]))
-          self.partition_bar.set_text (str (field [1]))
-          msg = str (progress.get ())
-
-          while gtk.events_pending ():
-            gtk.main_iteration ()
-
-          time.sleep (0.5)
-
-        self.mountpoints = progress.get ()
-        self.partition_bar.set_text ('')
-
-        if self.mountpoints is 'STOPPED':
-          self.mountpoints = None
-          self.partition_bar.set_fraction (0.0)
-          self.discard_automatic_partitioning = True
-          self.freespace.set_sensitive (False)
-          self.on_drives_changed (None)
-          self.abort_dialog.show ()
-#          self.steps.set_current_page(2)
-        else:
-          self.partition_bar.set_fraction (1.0)
-          self.steps.set_current_page(5)
-
-          while gtk.events_pending():
-            gtk.main_iteration()
-
-          self.back.hide()
-          self.progress_loop()
-
-    elif self.recycle.get_active ():
-
-      if -1 != current:
-        self.mountpoints = selected_drive ['linux_before']
-        stderr.write ('\n\n' + str (self.mountpoints) + '\n\n')
-        self.steps.set_current_page(5)
-
-        while gtk.events_pending():
-          gtk.main_iteration()
-
-        self.back.hide()
-        self.progress_loop()
-    else:
-
+    if self.manual_partitioning:
       if self.gparted:
         self.gparted_loop()
+
       self.steps.next_page()
+
+    else:
+      # TODO cjwatson 2006-01-10: extract mountpoints from partman
+      self.steps.set_current_page(5)
+
+      while gtk.events_pending():
+        gtk.main_iteration()
+
+      self.back.hide()
+      self.progress_loop()
 
 
   def gparted_to_mountpoints(self):
@@ -963,6 +908,9 @@ class Wizard:
         chekboxes to reflect the set of permited operations on the new
         drive. """
 
+    # TODO cjwatson 2006-01-10: update for partman
+    return
+
     model = self.drives.get_model ()
 
     if len (model) > 0:
@@ -1024,21 +972,26 @@ class Wizard:
       self.on_manually_toggled (self.manually)
 
 
+  # Public method "on_new_size_scale_format_value" ___________________________
+  def on_new_size_scale_format_value (self, widget, value):
+    # TODO cjwatson 2006-01-09: get minsize/maxsize through to here
+    return '%d%%' % value
+
+
   # Public method "on_steps_switch_page" _____________________________________
   def on_steps_switch_page (self, foo, bar, current):
 
     self.current_page = current
 
     # Populate the drives combo box the first time that page #2 is shown.
-    if 2 == current and None == self.__assistant:
+    if 2 == current and False:
+      # TODO cjwatson 2006-01-10: update for partman
 
       # To set a "busy mouse":
       self.live_installer.window.set_cursor (self.watch)
 
 ##       while gtk.events_pending ():
 ##         gtk.main_iteration ()
-
-      self.__assistant = Peez2 () # debug = False)
 
       # To set a normal mouse again:
       self.live_installer.window.set_cursor (None)
@@ -1058,84 +1011,38 @@ class Wizard:
         gtk.main_quit()
 
 
-  # Public method "on_freespace_toggled" _____________________________________
-  def on_freespace_toggled (self, widget):
+  # Public method "on_autopartition_resize_toggled" __________________________
+  def on_autopartition_resize_toggled (self, widget):
+    """Update autopartitioning screen when the resize button is selected."""
 
-    """ Update help message when this radio button is selected. """
-
-    if self.freespace.get_active ():
-      self.confirmation_checkbutton.show ()
-      self.confirmation_checkbutton.set_active (False)
-      self.next.set_sensitive (False)
-      self.partition_message.set_markup (self.resize_text(
-        '<span><b>Este método de particionado es EXPERIMENTAL.</b>\n\n' +
-        'Se crearán 3 particiones <b>nuevas</b> en su disco duro y ' +
-        'se instalará ahí el sistema. En la mayoría de los casos, los datos ' +
-        'que haya ya en el disco duro ' +
-        'no se destruirán.\n\nNota: en algunos casos, <b>es posible que ' +
-        'se produzca una pérdida de datos</b> si es necesario cambiar el ' +
-        'tamaño de las particiones existentes para conseguir espacio para ' +
-        'las nuevas.</span>', '4'))
+    if widget.get_active():
+      self.confirmation_checkbutton.show()
+      self.confirmation_checkbutton.set_active(False)
+      self.next.set_sensitive(False)
+      self.new_size_vbox.set_sensitive(True)
+    else:
+      self.new_size_vbox.set_sensitive(False)
 
 
-  # Public method "on_recycle_toggled" _______________________________________
-  def on_recycle_toggled (self, widget):
+  # Public method "on_autopartition_manual_toggled" __________________________
+  def on_autopartition_manual_toggled (self, widget):
+    """Update autopartitioning screen when the manual button is selected."""
 
-    """ Update help message when this radio button is selected. """
-
-    if self.recycle.get_active ():
-      self.confirmation_checkbutton.show ()
-      self.confirmation_checkbutton.set_active (False)
-      self.next.set_sensitive (False)
-      model = self.drives.get_model ()
-
-      if len (model) > 0:
-        current = self.drives.get_active ()
-
-        if -1 != current:
-          selected_drive = self.__assistant.get_drives () [current]
-          associations = selected_drive ['linux_before']
-          where = '<span foreground="#800000"><b>\n\nSe usarán las ' + \
-                  'siguientes particiones:\n'
-
-          for i in associations.keys ():
-
-            if i in self.part_labels:
-              where = where + '\n· ' + self.part_labels [i] +\
-                      ' para <tt>' + associations [i] + '</tt>'
-            else:
-              where = where + '\n<tt>' + i + '</tt> para <tt>' + \
-                      associations [i] + '</tt>'
-
-          where = where + '</b></span>'
-      else:
-        where = ''
-
-      self.partition_message.set_markup (self.resize_text(
-        '<span>Se ha detectado un sistema GNU/Linux instalado ya en este ' +
-        'disco duro. Se van a usar esas mismas particiones para el nuevo ' +
-        'sistema, <b>reemplazando</b> al anterior.\n\nTenga en cuenta que ' +
-        '<b>todos los datos que hubiese en ese sistema Linux previo se ' +
-        'perderán de manera irreversible</b>.</span>' + where, '4'))
+    if widget.get_active():
+      self.confirmation_checkbutton.hide()
+      self.confirmation_checkbutton.set_active(False)
+      self.next.set_sensitive(True)
 
 
-  # Public method "on_manually_toggled" ______________________________________
-  def on_manually_toggled (self, widget):
+  # Public method "on_autopartition_button_toggled" __________________________
+  def on_autopartition_button_toggled (self, widget):
+    """Update autopartitioning screen when any button other than resize or
+    manual is selected."""
 
-    """ Update help message when this radio button is selected. """
-
-    if self.manually.get_active ():
-      self.confirmation_checkbutton.hide ()
-      self.confirmation_checkbutton.set_active (False)
-      self.next.set_sensitive (True)
-      self.partition_message.set_markup (self.resize_text(
-        '<span>Use este método de particionado si desea total libertad ' +
-        'para decidir dónde instalar cada componente del sistema. Podrá ' +
-        'crear, destruir y redimensionar cualquier partición para que cada ' +
-        'parte ocupe el espacio que quiera.\n\n<b>Atención:</b> las ' +
-        'operaciones que haga con el disco duro pueden suponer la <b>pérdida ' +
-        'de todos los datos</b>, así que continúe por aquí únicamente si ya ' +
-        'tiene experiencia particionando de forma manual.</span>', '4'))
+    if widget.get_active():
+      self.confirmation_checkbutton.show()
+      self.confirmation_checkbutton.set_active(False)
+      self.next.set_sensitive(False)
 
 
   # Public method "on_confirmation_checkbutton_toggled" ______________________
@@ -1197,6 +1104,49 @@ class Wizard:
 
   def debconf_progress_stop (self):
     self.progress_dialog.hide()
+
+
+  def set_autopartition_choices (self, choices, resize_choice, manual_choice):
+    for child in self.autopartition_vbox.get_children():
+      self.autopartition_vbox.remove(child)
+
+    firstbutton = None
+    for choice in choices:
+      button = gtk.RadioButton(firstbutton, choice, False)
+      if firstbutton is None:
+        firstbutton = button
+      self.autopartition_vbox.add(button)
+      if choice == resize_choice:
+        self.on_autopartition_resize_toggled(button)
+        button.connect('toggled', self.on_autopartition_resize_toggled)
+      elif choice == manual_choice:
+        self.on_autopartition_manual_toggled(button)
+        button.connect('toggled', self.on_autopartition_manual_toggled)
+      else:
+        self.on_autopartition_button_toggled(button)
+        button.connect('toggled', self.on_autopartition_button_toggled)
+    if firstbutton is not None:
+      firstbutton.set_active(True)
+
+    self.autopartition_vbox.show_all()
+
+
+  def get_autopartition_choice (self):
+    for button in self.autopartition_vbox.get_children():
+      if button.get_active():
+        return button.get_label()
+
+
+  def set_autopartition_resize_min_percent (self, min_percent):
+    self.new_size_scale.set_range(min_percent, 100)
+
+
+  def get_autopartition_resize_percent (self):
+    return self.new_size_scale.get_value()
+
+
+  def do_manual_partitioning (self):
+    self.manual_partitioning = True
 
 
   def error_dialog (self, msg):

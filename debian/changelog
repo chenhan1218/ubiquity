@@ -27,9 +27,6 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
   * Don't use full-screen mode.
   * Use 'lsb_release -is' rather than reading /etc/lsb-release directly.
   * Depend on lsb-release.
-  * Drop dependency on peez2. We don't have anything to replace it with yet
-    (although we will), but depending on a nonexistent package makes
-    development work too awkward.
   * Disable embedded web browser for now since this segfaults in current
     dapper (Bugzilla #20338).
   * Fix Config.get_locales() using DebconfCommunicator.
@@ -46,6 +43,9 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
     any of the strings remain basically identical, I'll restore the original
     text as a Spanish translation.
   * Add filtered debconf progress bar handling in the GTK frontend.
+  * Call partman as a debconffilter coprocess while running the
+    autopartitioning UI step. Remove peez2 entirely, as this will replace it
+    once it's finished.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
