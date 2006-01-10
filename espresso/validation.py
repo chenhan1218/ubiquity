@@ -86,23 +86,6 @@ def check_hostname (name):
 
     return result
 
-# Function "invalid_names" ___________________________________________________
-
-def invalid_names ():
-
-    """ Find out which user names should not be used.
-
-        @return: a C{set} of prohibited user names. """
-
-    result = set ([])
-
-    for i in open ('/etc/passwd'):
-
-        if ':' in i and '1000:1000' not in i:
-            result.add (i [: i.find (':')])
-
-    return result
-
 def check_mountpoint (mountpoints, size):
 
     """ Check the correctness of a proposed set of mountpoints.
