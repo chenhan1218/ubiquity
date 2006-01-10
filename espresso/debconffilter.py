@@ -138,6 +138,12 @@ class DebconfFilter:
                     self.debug('filter', 'widget found for', question)
                     widget.set(question, value)
 
+            if command == 'SUBST' and len(params) == 3:
+                (question, key, value) = params
+                for widget in self.find_widgets(question, 'subst'):
+                    self.debug('filter', 'widget found for', question)
+                    widget.subst(question, key, value)
+
             if command == 'METAGET' and len(params) == 2:
                 (question, field) = params
                 for widget in self.find_widgets(question, 'metaget'):

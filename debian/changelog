@@ -13,8 +13,8 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
     upstream and may eventually make it in there instead). We'll use this
     for d-i integration.
   * Adjust debconffilter to filter out STOP.
-  * Add generic error question handling, METAGET filtering, and PROGRESS
-    filtering to debconffilter.
+  * Add generic error question handling, METAGET filtering, SUBST filtering,
+    and PROGRESS filtering to debconffilter.
   * Add debconfcommunicator.py too; it's been committed to debconf upstream,
     but it's useful here anyway for backports to breezy.
   * Refer to ubuntu.com everywhere, not the deprecated ubuntulinux.org.
