@@ -79,14 +79,14 @@ def call_gparted(widget):
   #mountpoints = None
 
   try:
-    out = Popen(['/usr/bin/gparted', '-i', Wid], stdin=PIPE, stdout=PIPE,
-                close_fds=True)
+    out = Popen(['/usr/bin/gparted', '--installer', Wid],
+                stdin=PIPE, stdout=PIPE, close_fds=True)
     # get the output last line 
     #line = out.readlines()[-1].strip()
   except:
     try:
-      out = Popen(['/usr/local/bin/gparted', '-i', Wid], stdin=PIPE,
-                  stdout=PIPE, close_fds=True)
+      out = Popen(['/usr/local/bin/gparted', '--installer', Wid],
+                  stdin=PIPE, stdout=PIPE, close_fds=True)
       # get the output last line 
       line = out.readlines()[-1].strip()
     except:

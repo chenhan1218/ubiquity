@@ -46,6 +46,7 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
   * Call partman as a debconffilter coprocess while running the
     autopartitioning UI step. Remove peez2 entirely, as this will replace it
     once it's finished.
+  * Change gparted invocation to use new --installer=WID option.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
