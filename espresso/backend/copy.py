@@ -14,7 +14,10 @@ class Copy:
   def __init__(self, mountpoints):
     """Initial attributes."""
 
-    self.source = '/source'
+    if os.path.exists('/rofs'):
+      self.source = '/rofs'
+    else:
+      self.source = '/source'
     self.target = '/target'
     self.mountpoints = mountpoints
     self.unionfs = False
@@ -32,14 +35,15 @@ class Copy:
       misc.pre_log('error', 'Mounting target')
       return False
 
-    queue.put( '4 Obteniendo la distribución a copiar')
-    misc.pre_log('info', 'Mounting source')
-    if self.mount_source():
-      queue.put( '5 Distribución obtenida')
-      misc.pre_log('info', 'Mounted source')
-    else:
-      misc.pre_log('error', 'Mounting source')
-      return False
+    if self.source == '/source':
+      queue.put( '4 Obteniendo la distribución a copiar')
+      misc.pre_log('info', 'Mounting source')
+      if self.mount_source():
+        queue.put( '5 Distribución obtenida')
+        misc.pre_log('info', 'Mounted source')
+      else:
+        misc.pre_log('error', 'Mounting source')
+        return False
 
     queue.put( '6 Preparando la copia a disco')
     misc.pre_log('info', 'Copying distro')
