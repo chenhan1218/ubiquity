@@ -1,4 +1,4 @@
-espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
+espresso (0.99.1) UNRELEASED; urgency=low
 
   * Rename to espresso to avoid confusion caused by somebody other than
     Ubuntu being upstream for a project called "Ubuntu ...", to reduce
