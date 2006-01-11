@@ -63,14 +63,15 @@ class Copy:
       misc.pre_log('error', 'Copying log files')
       return False
 
-    queue.put('93 Unmounting original file system image')
-    misc.post_log('info', 'Umounting source')
-    if self.umount_source():
-      queue.put('94 Original file system image unmounted')
-      misc.post_log('info', 'Umounted source')
-    else:
-      misc.post_log('error', 'Umounting source')
-      return False
+    if self.source == '/source':
+      queue.put('93 Unmounting original file system image')
+      misc.post_log('info', 'Umounting source')
+      if self.umount_source():
+        queue.put('94 Original file system image unmounted')
+        misc.post_log('info', 'Umounted source')
+      else:
+        misc.post_log('error', 'Umounting source')
+        return False
 
 
   def mount_target(self):
