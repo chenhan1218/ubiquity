@@ -39,9 +39,9 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
     terribly useful, certainly not in the espresso binary package, and
     ultimately it should be generated as part of the build process if at
     all.
-  * Translate strings in glade file to English. In the unlikely event that
-    any of the strings remain basically identical, I'll restore the original
-    text as a Spanish translation.
+  * Translate strings in glade file and progress queue messages to English.
+    In the unlikely event that any of the strings remain basically
+    identical, I'll restore the original text as a Spanish translation.
   * Add filtered debconf progress bar handling in the GTK frontend.
   * Call partman as a debconffilter coprocess while running the
     autopartitioning UI step. Remove peez2 entirely, as this will replace it

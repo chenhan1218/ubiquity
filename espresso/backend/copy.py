@@ -26,47 +26,47 @@ class Copy:
     """Run the copy stage. This is the second step from the installation
     process."""
 
-    queue.put( '3 Preparando el directorio de instalación')
+    queue.put('3 Preparing the installation directory')
     misc.pre_log('info', 'Mounting target')
     if self.mount_target():
-      queue.put( '3 Directorio de instalación listo')
+      queue.put('3 Installation directory ready')
       misc.pre_log('info', 'Mounted target')
     else:
       misc.pre_log('error', 'Mounting target')
       return False
 
     if self.source == '/source':
-      queue.put( '4 Obteniendo la distribución a copiar')
+      queue.put('4 Finding the distribution to copy')
       misc.pre_log('info', 'Mounting source')
       if self.mount_source():
-        queue.put( '5 Distribución obtenida')
+        queue.put('5 Distribution found')
         misc.pre_log('info', 'Mounted source')
       else:
         misc.pre_log('error', 'Mounting source')
         return False
 
-    queue.put( '6 Preparando la copia a disco')
+    queue.put('6 Preparing to copy files to disk')
     misc.pre_log('info', 'Copying distro')
     if self.copy_all(queue):
-      queue.put( '90 Ficheros copiados')
+      queue.put('90 File copying complete')
       misc.pre_log('info', 'Copied distro')
     else:
       misc.pre_log('error', 'Copying distro')
       return False
 
-    queue.put( '91 Copiando registros de instalación al disco')
+    queue.put('91 Copying installation logs')
     misc.pre_log('info', 'Copying log files')
     if self.copy_logs():
-      queue.put( '92 Registros de instalación listos')
+      queue.put('92 Installation logs copied')
       misc.post_log('info', 'Copied log files')
     else:
       misc.pre_log('error', 'Copying log files')
       return False
 
-    queue.put( '93 Desmontando la imagen original de la copia')
+    queue.put('93 Unmounting original file system image')
     misc.post_log('info', 'Umounting source')
     if self.umount_source():
-      queue.put( '94 Imagen de la copia desmontada')
+      queue.put('94 Original file system image unmounted')
       misc.post_log('info', 'Umounted source')
     else:
       misc.post_log('error', 'Umounting source')
@@ -140,21 +140,21 @@ class Copy:
       sourcepath = dirpath[len(self.source)+1:]
       if ( oldsourcepath.split('/')[0] != sourcepath.split('/')[0] ):
         if sourcepath.startswith('etc'):
-          queue.put( '7 Recorriendo /etc' )
+          queue.put( '7 Scanning /etc' )
         elif sourcepath.startswith('home'):
-          queue.put( '8 Recorriendo /home' )
+          queue.put( '8 Scanning /home' )
         elif sourcepath.startswith('media'):
-          queue.put( '10 Recorriendo /media' )
+          queue.put( '10 Scanning /media' )
         elif sourcepath.startswith('usr/doc'):
-          queue.put( '11 Recorriendo /usr/doc' )
+          queue.put( '11 Scanning /usr/doc' )
         elif sourcepath.startswith('usr/local'):
-          queue.put( '13 Recorriendo /usr/local' )
+          queue.put( '13 Scanning /usr/local' )
         elif sourcepath.startswith('usr/src'):
-          queue.put( '15 Recorriendo /usr/src' )
+          queue.put( '15 Scanning /usr/src' )
         elif sourcepath.startswith('var/backups'):
-          queue.put( '16 Recorriendo /var/backups' )
+          queue.put( '16 Scanning /var/backups' )
         elif sourcepath.startswith('var/tmp'):
-          queue.put( '17 Recorriendo /var/tmp' )
+          queue.put( '17 Scanning /var/tmp' )
         oldsourcepath = sourcepath
 
 
@@ -188,15 +188,15 @@ class Copy:
         # We start the counter until 33
         time_start = time.time()
         counter = per
-        queue.put("%s Copiando %s%% - [%s]" % (per, per, path))
+        queue.put("%s Copying %s%% - [%s]" % (per, per, path))
       elif ( counter != per and per >= 40 ):
         counter = per
         time_left = (time.time()-time_start)*57/(counter - 33) - (time.time()-time_start)
         minutes, seconds = time_left/60, time_left - int(time_left/60)*60
-        queue.put("%s Copiando %s%% - Queda %02d:%02d - [%s]" % (per, per, minutes, seconds, path))
+        queue.put("%s Copying %s%% - %02d:%02d remaining - [%s]" % (per, per, minutes, seconds, path))
       elif ( counter != per ):
         counter = per
-        queue.put("%s Copiando %s%% - [%s]" % (per, per, path))
+        queue.put("%s Copying %s%% - [%s]" % (per, per, path))
 
     copy.stdin.close()
     copy.wait()
