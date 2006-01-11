@@ -25,12 +25,10 @@ class Format:
         queue.put( "1 Formatting root partition" )
         if not misc.ex('mkfs.ext3', device):
           return False
-        queue.put( "2 Root partition formatted" )
       elif path == 'swap':
         queue.put( "3 Preparing swap partition" )
         if not misc.ex('mkswap', device):
           return False
-        queue.put( "3 Swap partition prepared" )
 
 if __name__ == '__main__':
   mountpoints = misc.get_var()['mountpoints']

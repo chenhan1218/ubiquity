@@ -29,7 +29,6 @@ class Copy:
     queue.put('3 Preparing the installation directory')
     misc.pre_log('info', 'Mounting target')
     if self.mount_target():
-      queue.put('3 Installation directory ready')
       misc.pre_log('info', 'Mounted target')
     else:
       misc.pre_log('error', 'Mounting target')
@@ -39,7 +38,6 @@ class Copy:
       queue.put('4 Finding the distribution to copy')
       misc.pre_log('info', 'Mounting source')
       if self.mount_source():
-        queue.put('5 Distribution found')
         misc.pre_log('info', 'Mounted source')
       else:
         misc.pre_log('error', 'Mounting source')
@@ -48,7 +46,6 @@ class Copy:
     queue.put('6 Preparing to copy files to disk')
     misc.pre_log('info', 'Copying distro')
     if self.copy_all(queue):
-      queue.put('90 File copying complete')
       misc.pre_log('info', 'Copied distro')
     else:
       misc.pre_log('error', 'Copying distro')
@@ -57,7 +54,6 @@ class Copy:
     queue.put('91 Copying installation logs')
     misc.pre_log('info', 'Copying log files')
     if self.copy_logs():
-      queue.put('92 Installation logs copied')
       misc.post_log('info', 'Copied log files')
     else:
       misc.pre_log('error', 'Copying log files')
@@ -67,7 +63,6 @@ class Copy:
       queue.put('93 Unmounting original file system image')
       misc.post_log('info', 'Umounting source')
       if self.umount_source():
-        queue.put('94 Original file system image unmounted')
         misc.post_log('info', 'Umounted source')
       else:
         misc.post_log('error', 'Umounting source')

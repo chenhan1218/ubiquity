@@ -36,7 +36,6 @@ class Config:
     queue.put('92 92% Configuring system locales')
     misc.post_log('info', 'Configuring distro')
     if self.get_locales():
-      queue.put('92 92% System locales configured')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
@@ -44,7 +43,6 @@ class Config:
     queue.put('93 93% Configuring mount points')
     misc.post_log('info', 'Configuring distro')
     if self.configure_fstab():
-      queue.put('93 93% Mount points configured')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
@@ -52,7 +50,6 @@ class Config:
     #queue.put('94 94% Configure time zone')
     #misc.post_log('info', 'Configuring distro')
     #if self.configure_timezone():
-    #  queue.put('94 94% Time zone configured')
     #  misc.post_log('info', 'Configured distro')
     #else:
     #  misc.post_log('error', 'Configuring distro')
@@ -60,7 +57,6 @@ class Config:
     queue.put('95 95% Creating user')
     misc.post_log('info', 'Configuring distro')
     if self.configure_user():
-      queue.put('95 95% User created')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
@@ -68,7 +64,6 @@ class Config:
     queue.put('96 96% Configuring hardware')
     misc.post_log('info', 'Configuring distro')
     if self.configure_hardware():
-      queue.put('96 96% Hardware configured')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
@@ -76,7 +71,6 @@ class Config:
     queue.put('97 97% Configuring network')
     misc.post_log('info', 'Configuring distro')
     if self.configure_network():
-      queue.put('97 97% Network configured')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
@@ -84,7 +78,6 @@ class Config:
     queue.put('98 98% Setting computer name')
     misc.post_log('info', 'Configuring distro')
     if self.configure_hostname():
-      queue.put('98 98% Computer name set')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')

@@ -51,6 +51,10 @@ espresso (0.99-1ubuntu1) UNRELEASED; urgency=low
   * Copy from /rofs if it exists, rather than hunting through the CD for the
     filesystem image. Requires casper 1.25.
   * Log to /var/log/installer/espresso instead of /var/log/<distro>-express.
+  * In general, don't send a progress queue message when completing a task,
+    only when starting one. There's no point constructing translatable text
+    that's only going to be on the screen for tiny fractions of a second
+    anyway.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
