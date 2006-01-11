@@ -55,12 +55,12 @@ class Copy:
       return False
 
     queue.put( '91 Copiando registros de instalación al disco')
-    misc.pre_log('info', 'Copying logs files')
+    misc.pre_log('info', 'Copying log files')
     if self.copy_logs():
       queue.put( '92 Registros de instalación listos')
-      misc.post_log('info', 'Copied logs files')
+      misc.post_log('info', 'Copied log files')
     else:
-      misc.pre_log('error', 'Copying logs files')
+      misc.pre_log('error', 'Copying log files')
       return False
 
     queue.put( '93 Desmontando la imagen original de la copia')
@@ -205,7 +205,7 @@ class Copy:
 
 
   def copy_logs(self):
-    """copy logs files into installed system."""
+    """copy log files into installed system."""
 
     log_file = '/var/log/installer/espresso'
 
