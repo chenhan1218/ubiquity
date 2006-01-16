@@ -104,7 +104,7 @@ class Config:
       self.timezone = db.get('express/timezone')
       if self.timezone == '':
           self.timezone = db.get('tzconfig/choose_country_zone_multiple')
-    except:
+    except debconf.DebconfError:
       if os.path.islink('/etc/localtime'):
         self.timezone = os.readlink('/etc/localtime')
         if self.timezone.startswith('/usr/share/zoneinfo/'):
@@ -113,9 +113,19 @@ class Config:
         self.timezone = open('/etc/timezone').readline().strip()
       else:
         self.timezone = None
-    self.keymap = db.get('debian-installer/keymap')
 
-    self.locales = db.get('locales/default_environment_locale')
+    try:
+      self.keymap = db.get('debian-installer/keymap')
+    except debconf.DebconfError:
+      self.keymap = None
+
+    try:
+      self.locales = db.get('locales/default_environment_locale')
+      if self.locales == 'None':
+        self.locales = None
+    except debconf.DebconfError:
+      self.locales = None
+
     return True
 
 
@@ -180,8 +190,10 @@ class Config:
   def configure_keymap(self):
     """set keymap on installed system (which was obtained from get_locales)."""
 
-    self.set_debconf('d-i', 'debian-installer/keymap', self.keymap)
-    self.chrex('install-keymap', self.keymap)
+    if self.keymap is not None:
+      self.set_debconf('d-i', 'debian-installer/keymap', self.keymap)
+      self.chrex('install-keymap', self.keymap)
+
     return True
 
 

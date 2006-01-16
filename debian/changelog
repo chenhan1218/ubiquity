@@ -56,6 +56,7 @@ espresso (0.99.1) UNRELEASED; urgency=low
     that's only going to be on the screen for tiny fractions of a second
     anyway.
   * Try fetching timezone from /etc/localtime as well as from /etc/timezone.
+  * Handle missing keymap and/or locale debconf questions.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
