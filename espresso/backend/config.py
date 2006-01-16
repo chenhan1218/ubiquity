@@ -5,7 +5,9 @@ from espresso import misc
 from espresso.components import usersetup
 from espresso.settings import *
 
-import debconf, os
+import os
+import platform
+import debconf
 try:
   from debconf import DebconfCommunicator
 except ImportError:
@@ -17,10 +19,7 @@ class Config:
   def __init__(self, vars):
     """Initial attributes."""
 
-    # We get here the current kernel version
-    self.kernel_version = open('/proc/sys/kernel/osrelease').readline().strip()
-    # FIXME: Hack (current kernel loaded on liveCD doesn't work on installed systems)
-    self.kernel_version = '2.6.12-9-386'
+    self.kernel_version = platform.release()
     self.distro = misc.distribution().lower()
     self.target = '/target/'
     # Getting vars: fullname, username, password, hostname
