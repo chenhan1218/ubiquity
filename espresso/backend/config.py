@@ -180,7 +180,7 @@ class Config:
   def configure_keymap(self):
     """set keymap on installed system (which was obtained from get_locales)."""
 
-    self.set_debconf('debian-installer', 'debian-installer/keymap', self.keymap)
+    self.set_debconf('d-i', 'debian-installer/keymap', self.keymap)
     self.chrex('install-keymap', self.keymap)
     return True
 
