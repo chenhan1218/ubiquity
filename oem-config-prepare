@@ -1,0 +1,8 @@
+#! /bin/sh
+set -e
+
+update-rc.d oem-config start 12 2 3 4 5 .
+
+echo "oem-config will run the next time the system boots."
+
+exit 0

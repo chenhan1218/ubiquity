@@ -3,6 +3,13 @@ oem-config (0.10) UNRELEASED; urgency=low
   * Remove unused moduledir variable.
   * Remove passwd menu entry, now moved to user-setup.
   * Build binary package in binary-indep, not binary-arch.
+  * We now use a single-stage installer, so we can no longer hook into
+    base-config. Add a udeb instead which provides instructions on what to
+    do after the first boot, and add an oem-config-prepare program which
+    should be run by the OEM once they have completed any necessary
+    modifications. Note that this means that the system is no longer
+    prepared for the end-user until oem-config-prepare is manually run
+    (closes: Malone #28095).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  2 Jan 2006 14:21:26 +0000
 

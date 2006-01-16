@@ -1,0 +1,16 @@
+Template: prebaseconfig/progress/oem-config-udeb
+Type: text
+_Description: Preparing for end-user configuration...
+
+Template: oem-config-udeb/instructions
+Type: text
+_Description: Ready for end-user configuration
+ When you boot into the new system, you will be able to log in as the 'oem'
+ user with the password you selected earlier; this user also has
+ administrative privileges using 'sudo'. You will then be able to make any
+ additional modifications you require to the system.
+ .
+ Once the system is configured to your satisfaction, run 'sudo
+ oem-config-prepare'. This will cause the system to delete the temporary
+ 'oem' user and ask the end user various configuration questions the next
+ time it boots.

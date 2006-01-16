@@ -8,40 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-01-02 14:28+0000\n"
+"POT-Creation-Date: 2006-01-16 13:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#. Type: boolean
-#. Description
-#: ../oem-config.templates:10
-msgid "Run a system test?"
-msgstr ""
-
-#. Type: boolean
-#. Description
-#: ../oem-config.templates:10
-msgid ""
-"The system has now been fully installed, and is ready for shipping. The next "
-"time it boots, it will finish off by asking the end user a few questions and "
-"reconfiguring the system accordingly."
-msgstr ""
-
-#. Type: boolean
-#. Description
-#: ../oem-config.templates:10
-msgid "Would you like to run a system test now?"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../oem-config.templates:19
-msgid "Prepare for reconfiguration by end user"
-msgstr ""
 
 #. Type: text
 #. Description
@@ -53,4 +26,35 @@ msgstr ""
 #. Description
 #: ../../menu/exit.templates:3
 msgid "Exit configuration"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config-udeb.templates:3
+msgid "Preparing for end-user configuration..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config-udeb.templates:7
+msgid "Ready for end-user configuration"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config-udeb.templates:7
+msgid ""
+"When you boot into the new system, you will be able to log in as the 'oem' "
+"user with the password you selected earlier; this user also has "
+"administrative privileges using 'sudo'. You will then be able to make any "
+"additional modifications you require to the system."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config-udeb.templates:7
+msgid ""
+"Once the system is configured to your satisfaction, run 'sudo oem-config-"
+"prepare'. This will cause the system to delete the temporary 'oem' user and "
+"ask the end user various configuration questions the next time it boots."
 msgstr ""

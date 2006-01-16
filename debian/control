@@ -7,7 +7,7 @@ Standards-Version: 3.6.2
 
 Package: oem-config
 Architecture: all
-Depends: debconf (>= 1.4.52), debconf-utils, base-config, oem-config-keyboard, oem-config-locale, ${python:Depends}, python-gtk2, python-glade2
+Depends: debconf (>= 1.4.52), debconf-utils, oem-config-keyboard, oem-config-locale, ${python:Depends}, python-gtk2, python-glade2
 Recommends: hwdb-client
 Description: Perform end-user configuration after initial installation
  The oem-config script re-asks a number of questions that are normally asked
@@ -15,7 +15,10 @@ Description: Perform end-user configuration after initial installation
  vendor to install a skeleton system, clone it onto a large number of
  machines, and ship it to end users, while still allowing end users to set
  up their own username and password, language, timezone, and so on.
- .
- If this package is installed while base-config is run at the end of an
- installation, then the system will automatically be configured to run
- oem-config the next time it boots.
+
+Package: oem-config-udeb
+XC-Package-Type: udeb
+Architecture: all
+Section: debian-installer
+Depends: cdebconf-udeb
+Description: Prepare for end-user configuration after initial installation

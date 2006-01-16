@@ -1,6 +1,7 @@
 #! /usr/bin/make -f
 
 tmp = $(CURDIR)/debian/oem-config
+tmp_udeb = $(CURDIR)/debian/oem-config-udeb
 
 build:
 
@@ -17,27 +18,28 @@ binary-indep: build
 	dh_testroot
 	dh_clean -k
 	dh_installdirs -i
-	dh_install oem-config oem-config-dm oem-config-firstboot \
-		oem-config-test usr/sbin/
-	dh_install *.py /usr/lib/oem-config/
-	dh_install menu/* usr/lib/oem-config/menu/
+	dh_install -poem-config oem-config oem-config-dm oem-config-firstboot \
+		oem-config-prepare usr/sbin/
+	dh_install -poem-config *.py /usr/lib/oem-config/
+	dh_install -poem-config menu/* usr/lib/oem-config/menu/
 	set -e; for x in menu/*.templates; do \
 		po2debconf --podir=debian/po $$x \
 			> $(tmp)/usr/lib/oem-config/menu/$${x##*/}; \
 	done
-	dh_install base-config/* /usr/lib/base-config/menu/
 	cp debian/lintian-override $(tmp)/usr/share/lintian/overrides/oem-config
-	dh_installdebconf
+	install -m755 debian/prebaseconfig \
+		$(tmp_udeb)/usr/lib/prebaseconfig.d/01oem-config-udeb
+	dh_installdebconf -i
 	dh_installdocs
 	dh_installchangelogs
 	dh_installinit -n
-	dh_compress
-	dh_fixperms
+	dh_compress -i
+	dh_fixperms -i
 	dh_python
-	dh_installdeb
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
 
 binary: binary-arch binary-indep
 
