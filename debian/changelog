@@ -57,6 +57,7 @@ espresso (0.99.1) UNRELEASED; urgency=low
     anyway.
   * Try fetching timezone from /etc/localtime as well as from /etc/timezone.
   * Handle missing keymap and/or locale debconf questions.
+  * Fix kernel version detection.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
