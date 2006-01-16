@@ -126,6 +126,8 @@ class Config:
     except debconf.DebconfError:
       self.locales = None
 
+    db.shutdown()
+
     return True
 
 
