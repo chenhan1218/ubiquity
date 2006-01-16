@@ -105,7 +105,14 @@ class Config:
       if self.timezone == '':
           self.timezone = db.get('tzconfig/choose_country_zone_multiple')
     except:
-      self.timezone = open('/etc/timezone').readline().strip()
+      if os.path.islink('/etc/localtime'):
+        self.timezone = os.readlink('/etc/localtime')
+        if self.timezone.startswith('/usr/share/zoneinfo/'):
+          self.timezone = self.timezone[len('/usr/share/zoneinfo/'):]
+      elif os.path.exists('/etc/timezone'):
+        self.timezone = open('/etc/timezone').readline().strip()
+      else:
+        self.timezone = None
     self.keymap = db.get('debian-installer/keymap')
 
     self.locales = db.get('locales/default_environment_locale')
