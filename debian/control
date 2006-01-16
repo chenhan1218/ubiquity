@@ -18,7 +18,7 @@ Description: Perform end-user configuration after initial installation
 
 Package: oem-config-udeb
 XC-Package-Type: udeb
-Architecture: all
 Section: debian-installer
+Architecture: all
 Depends: cdebconf-udeb
 Description: Prepare for end-user configuration after initial installation
