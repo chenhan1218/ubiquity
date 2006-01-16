@@ -12,6 +12,7 @@ oem-config (0.10) UNRELEASED; urgency=low
     (closes: Malone #28095).
   * Make oem-config-udeb responsible for installing oem-config in /target.
     This will require preseed file changes.
+  * Remove timezone menu entry, now moved to oem-config-timezone.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  2 Jan 2006 14:21:26 +0000
 

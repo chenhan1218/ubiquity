@@ -34,8 +34,6 @@ menudir = '/usr/lib/oem-config/menu'
 
 menu_line_re = re.compile(r'(.*?): (.*)')
 
-from menu.timezone import *
-
 class Wizard:
     def __init__(self, includes=None, excludes=None):
         if 'OEM_CONFIG_DEBUG' in os.environ:
