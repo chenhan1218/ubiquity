@@ -204,11 +204,12 @@ class Copy:
     """copy log files into installed system."""
 
     log_file = '/var/log/installer/espresso'
+    target_log_file = os.path.join(self.target, log_file[1:])
 
-    if not os.path.exists(os.path.dirname(log_file)):
-      os.makedirs(os.path.dirname(log_file))
+    if not os.path.exists(os.path.dirname(target_log_file)):
+      os.makedirs(os.path.dirname(target_log_file))
 
-    if not misc.ex('cp', '-a', log_file, os.path.join(self.target, log_file[1:])):
+    if not misc.ex('cp', '-a', log_file, target_log_file):
       misc.pre_log('error', 'No se pudieron copiar los registros de instalación')
 
     return True
