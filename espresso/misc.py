@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import os
 import subprocess
 
 
@@ -40,7 +41,7 @@ def part_label(dev):
 def make_yaboot_header(target, target_dev):
     """builds yaboot header config-file."""
 
-    import os, re
+    import re
 
     yaboot_conf = open(target + '/etc/yaboot.conf', 'w')
     timeout = 50
