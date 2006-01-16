@@ -1,4 +1,4 @@
-oem-config (0.10) UNRELEASED; urgency=low
+oem-config (0.10) dapper; urgency=low
 
   * Remove unused moduledir variable.
   * Remove passwd menu entry, now moved to user-setup.
@@ -14,7 +14,7 @@ oem-config (0.10) UNRELEASED; urgency=low
     This will require preseed file changes.
   * Remove timezone menu entry, now moved to oem-config-timezone.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon,  2 Jan 2006 14:21:26 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 16 Jan 2006 16:20:14 +0000
 
 oem-config (0.9) breezy; urgency=low
 
