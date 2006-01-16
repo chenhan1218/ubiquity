@@ -10,6 +10,8 @@ oem-config (0.10) UNRELEASED; urgency=low
     modifications. Note that this means that the system is no longer
     prepared for the end-user until oem-config-prepare is manually run
     (closes: Malone #28095).
+  * Make oem-config-udeb responsible for installing oem-config in /target.
+    This will require preseed file changes.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  2 Jan 2006 14:21:26 +0000
 
