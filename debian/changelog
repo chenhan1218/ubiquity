@@ -1,10 +1,10 @@
-oem-config (0.11) UNRELEASED; urgency=low
+oem-config (0.11) dapper; urgency=low
 
   * Add a main-menu step to the udeb which is responsible for arranging to
     create the oem user with a suitable uid. This was formerly done by a
     preseed file.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 16 Jan 2006 18:35:11 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 16 Jan 2006 18:38:37 +0000
 
 oem-config (0.10) dapper; urgency=low
 
