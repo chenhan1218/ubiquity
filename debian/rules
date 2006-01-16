@@ -10,7 +10,9 @@ clean:
 	find -type f -name '*.pyc' -print0 | xargs -0r rm -f
 	dh_clean
 
-binary-arch: build
+binary-arch:
+
+binary-indep: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k
@@ -36,8 +38,6 @@ binary-arch: build
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
-
-binary-indep:
 
 binary: binary-arch binary-indep
 
