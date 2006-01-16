@@ -164,14 +164,16 @@ class Config:
   def configure_timezone(self):
     """set timezone on installed system (which was obtained from get_locales)."""
 
-    # tzsetup ignores us if these exist
-    for tzfile in ('etc/timezone', 'etc/localtime'):
-        path = os.path.join(self.target, tzfile)
-        if os.path.exists(path):
-            os.unlink(path)
+    if self.timezone is not None:
+      # tzsetup ignores us if these exist
+      for tzfile in ('etc/timezone', 'etc/localtime'):
+          path = os.path.join(self.target, tzfile)
+          if os.path.exists(path):
+              os.unlink(path)
 
-    self.set_debconf('base-config', 'tzconfig/preseed_zone', self.timezone)
-    self.chrex('tzsetup', '-y')
+      self.set_debconf('base-config', 'tzconfig/preseed_zone', self.timezone)
+      self.chrex('tzsetup', '-y')
+
     return True
 
 
