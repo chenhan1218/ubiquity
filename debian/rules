@@ -16,7 +16,7 @@ binary-indep: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k
-	dh_installdirs usr/lib/oem-config/menu usr/share/lintian/overrides
+	dh_installdirs -i
 	dh_install oem-config oem-config-dm oem-config-firstboot \
 		oem-config-test usr/sbin/
 	dh_install *.py /usr/lib/oem-config/
