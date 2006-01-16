@@ -474,9 +474,9 @@ class Wizard:
     umount.umount_target()
 
     # setting new button labels and status from bottom bar
-    self.next.set_label('Reiniciar el ordenador')
+    self.next.set_label('Reboot the computer')
     self.next.connect('clicked', self.__reboot)
-    self.back.set_label('Salir')
+    self.back.set_label('Quit')
     self.back.connect('clicked', self.quit)
     self.next.set_sensitive(True)
     self.back.show()
