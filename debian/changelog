@@ -1,10 +1,10 @@
-oem-config (0.12) UNRELEASED; urgency=low
+oem-config (0.12) dapper; urgency=low
 
   * Make better use of dh_install.
   * Add various helpers in /usr/lib/oem-config/compat, moved here from
     oem-config-locale.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Jan 2006 15:21:33 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Jan 2006 15:33:33 +0000
 
 oem-config (0.11) dapper; urgency=low
 
