@@ -1,3 +1,4 @@
 oem-config oem-config-dm oem-config-firstboot oem-config-prepare usr/sbin
 *.py usr/lib/oem-config
+compat/* usr/lib/oem-config/compat
 menu/* usr/lib/oem-config/menu

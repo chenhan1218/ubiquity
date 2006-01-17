@@ -1,0 +1,4 @@
+#! /bin/sh
+# The installer uses apt-install to queue packages for installation in the
+# target system. In oem-config, we can just install them directly.
+exec apt-get install "$@"

@@ -1,6 +1,8 @@
 oem-config (0.12) UNRELEASED; urgency=low
 
   * Make better use of dh_install.
+  * Add various helpers in /usr/lib/oem-config/compat, moved here from
+    oem-config-locale.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Jan 2006 15:21:33 +0000
 
