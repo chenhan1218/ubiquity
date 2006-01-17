@@ -138,6 +138,7 @@ class Wizard:
     # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
     # current dapper (https://bugzilla.ubuntu.com/show_bug.cgi?id=20338).
     #self.show_browser()
+    self.live_installer.window.set_cursor(None)
 
     # Resizing labels according to screen resolution
     for widget in self.glade.get_widget_prefix(""):
@@ -240,9 +241,6 @@ class Wizard:
     widget.get_location()
     self.browser_vbox.add(widget)
     widget.show()
-
-    # Setting Normal mouse cursor
-    self.live_installer.window.set_cursor(None)
 
 
   def resize_text (self, widget, type):
