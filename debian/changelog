@@ -1,3 +1,9 @@
+oem-config (0.12) UNRELEASED; urgency=low
+
+  * Make better use of dh_install.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Jan 2006 15:21:33 +0000
+
 oem-config (0.11) dapper; urgency=low
 
   * Add a main-menu step to the udeb which is responsible for arranging to
