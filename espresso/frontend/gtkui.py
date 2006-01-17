@@ -477,7 +477,7 @@ class Wizard:
     self.next.set_label('Reboot the computer')
     self.next.connect('clicked', self.__reboot)
     self.back.set_label('Quit')
-    self.back.connect('clicked', self.quit)
+    self.back.connect('clicked', self.on_exitbutton_clicked)
     self.next.set_sensitive(True)
     self.back.show()
     self.cancel.hide()
