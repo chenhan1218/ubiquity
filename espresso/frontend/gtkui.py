@@ -548,6 +548,7 @@ class Wizard:
 
 
   def on_exitbutton_clicked(self, widget):
+    self.current_page = None
     self.quit()
 
 
