@@ -32,6 +32,13 @@ class Config:
     """Run configuration stage. These are the last steps to launch in live
     installer."""
 
+    queue.put('91 91% Configuring installed system')
+    misc.post_log('info', 'Configuring distro')
+    if self.run_target_config_hooks():
+      misc.post_log('info', 'Configured distro')
+    else:
+      misc.post_log('error', 'Configuring distro')
+      return False
     queue.put('92 92% Configuring system locales')
     misc.post_log('info', 'Configuring distro')
     if self.get_locales():
@@ -89,6 +96,27 @@ class Config:
     else:
       misc.post_log('error', 'Configuring distro')
       return False
+
+
+  def run_target_config_hooks(self):
+    """Run hook scripts from /usr/lib/espresso/target-config. This allows
+    casper to hook into us and repeat bits of its configuration in the
+    target system."""
+
+    hookdir = '/usr/lib/espresso/target-config'
+
+    for hookentry in os.listdir(hookdir):
+      # Exclude hooks containing '.', so that *.dpkg-* et al are avoided.
+      if '.' in hookentry:
+        continue
+
+      hook = os.path.join(hookdir, hookentry)
+      if not os.access(hook, os.X_OK):
+        continue
+      # Errors are ignored at present, although this may change.
+      subprocess.call(hook)
+
+    return True
 
 
   def get_locales(self):

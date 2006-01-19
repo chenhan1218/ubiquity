@@ -58,6 +58,9 @@ espresso (0.99.1) UNRELEASED; urgency=low
   * Try fetching timezone from /etc/localtime as well as from /etc/timezone.
   * Handle missing keymap and/or locale debconf questions.
   * Fix kernel version detection.
+  * Run hook scripts in /usr/lib/espresso/target-config (filenames
+    containing '.' are ignored) so that casper can propagate appropriate
+    parts of its configuration to the target system.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
