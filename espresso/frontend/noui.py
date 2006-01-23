@@ -4,15 +4,11 @@
 Noui Frontend
 
 Noui frontend implementation for the installer
-This UI implementation consist actually in no UI at all.
-It means it's a no interactive method to get the answers.
-We don't ask because the answers already exists.
+This UI implementation consists of no UI at all: it retrieves answers
+noninteractively. We don't ask because the answers already exist.
 
-To do that we need to preseed the answers. We'll use a new debconf
-package called "express" for this prupose.
-We'll take some answers form the express package and others from 
-the system. It's because of the user could change some stuff
-like timezone, keymap and locales.
+Some of the answers will need to be preseeded in advance, but most will be
+determined from the running system.
 """
 
 import debconf
@@ -47,10 +43,6 @@ class Wizard:
     hostname and user. Return a list with those values.
     '''
     info = []
-    # Just for tests. We should use a especific package for this
-    # It seems to be because of the installer preseed, so it could be
-    # a good idea something like:
-    # info.append(self.db.get('express/username'))
     info.append(self.db.get('base-config/get-hostname'))
     info.append(self.db.get('passwd/user-fullname'))
     info.append(self.db.get('passwd/username'))
@@ -70,7 +62,7 @@ class Wizard:
     # This is just a example info.
     # We should take that info from the debconf
     # Something like:
-    # re = self.db.get('express/mountpoints')
+    # re = self.db.get('espresso/mountpoints')
     # for path, dev in re:
     #   mountpoints[path] = dev
     mountpoints = {'/'     : '/dev/hda1',

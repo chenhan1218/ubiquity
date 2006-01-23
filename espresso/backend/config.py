@@ -130,7 +130,7 @@ class Config:
     db = DebconfCommunicator('espresso')
 
     try:
-      self.timezone = db.get('express/timezone')
+      self.timezone = db.get('time/zone')
       if self.timezone == '':
           self.timezone = db.get('tzconfig/choose_country_zone_multiple')
     except debconf.DebconfError:

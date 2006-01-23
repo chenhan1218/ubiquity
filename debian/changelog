@@ -63,6 +63,8 @@ espresso (0.99.1) UNRELEASED; urgency=low
     parts of its configuration to the target system.
   * Use espresso-grub for GRUB installation rather than doing it by hand.
   * Drop dependency on yaboot | grub.
+  * Change all uses of express/* debconf questions to real questions where
+    possible, and espresso/* where not.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
