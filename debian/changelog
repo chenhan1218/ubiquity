@@ -61,6 +61,8 @@ espresso (0.99.1) UNRELEASED; urgency=low
   * Run hook scripts in /usr/lib/espresso/target-config (filenames
     containing '.' are ignored) so that casper can propagate appropriate
     parts of its configuration to the target system.
+  * Use espresso-grub for GRUB installation rather than doing it by hand.
+  * Drop dependency on yaboot | grub.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 

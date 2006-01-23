@@ -448,7 +448,7 @@ class Wizard:
       """wait thread for config process."""
 
       vars = get_var()
-      cf = config.Config(vars)
+      cf = config.Config(self, vars)
       cf.run(queue)
       queue.put('101')
 

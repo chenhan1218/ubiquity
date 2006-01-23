@@ -87,7 +87,7 @@ class Wizard:
     def config_thread(queue):
       """config thread for config process."""
       pre_log('info', 'Configuring the system...')
-      cf = config.Config(self.info)
+      cf = config.Config(self, self.info)
       if not cf.run(queue):
         pre_log('error','fail the configure fase')
         self.quit()

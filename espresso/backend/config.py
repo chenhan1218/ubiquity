@@ -16,9 +16,10 @@ import subprocess
 
 class Config:
 
-  def __init__(self, vars):
+  def __init__(self, frontend, vars):
     """Initial attributes."""
 
+    self.frontend = frontend
     self.kernel_version = platform.release()
     self.distro = misc.distribution().lower()
     self.target = '/target/'
@@ -296,38 +297,20 @@ ff02::3 ip6-allhosts""" % self.hostname
   def configure_bootloader(self):
     """configuring and installing boot loader into installed hardware system."""
 
-    import re
+    misc.ex('mount', '--bind', '/proc', self.target + '/proc')
+    misc.ex('mount', '--bind', '/dev', self.target + '/dev')
 
-    target_dev = self.mountpoints.keys()[self.mountpoints.values().index('/')]
-    distro = self.distro.capitalize()
+    try:
+      from espresso.components import grubinstaller
+      grubinstaller.GrubInstaller(self.frontend).run_command()
+      ret = True
+    except ImportError:
+      ret = False
 
-    misc.ex('mount', '/proc', '--bind', self.target + '/proc')
-    misc.ex('mount', '/sys', '--bind', self.target + '/sys')
-    misc.ex('mount', '/dev', '--bind', self.target + '/dev')
-
-    if not os.path.exists(self.target + '/boot/grub'):
-          os.mkdir(self.target + '/boot/grub')
-
-    #/target/etc/mtab creation - temporary bugfix for buggy grub-install
-    mtab = open(os.path.join(self.target,'etc/mtab'), 'w')
-    print >>mtab, '%s\t%s\t%s\t%s\t%s' % (target_dev, '/', 'auto', 'defaults', '0 0')
-    mtab.close()
-
-    #grub-install it's enough, because it calls grub-shell with setup command
-    device_regex = re.compile(r'/dev/[a-z]+')
-    device = device_regex.search(target_dev).group()
-    if not os.path.exists ( device ) or os.path.isdir ( device ):
-      device = target_dev
-    self.chrex ('rm', '-f', '/boot/grub/device.map')
-    self.chrex ('grub-install', device )
-
-    # creates grub menu.lst on target
-    self.chrex ('rm', '-f', '/boot/grub/menu.lst')
-    self.chrex('update-grub', '-y')
     misc.ex('umount', '-f', self.target + '/proc')
-    misc.ex('umount', '-f', self.target + '/sys')
     misc.ex('umount', '-f', self.target + '/dev')
-    return True
+
+    return ret
 
 
   def chrex(self, *args):
@@ -372,7 +355,7 @@ if __name__ == '__main__':
   from Queue import Queue
   queue = Queue ()
   vars = misc.get_var()
-  config = Config(vars)
+  config = Config(None, vars)
   config.run(queue)
   print 101
 

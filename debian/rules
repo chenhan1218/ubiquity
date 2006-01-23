@@ -7,6 +7,24 @@ export DH_OPTIONS
 
 BUILDDIR=$(CURDIR)/debian/build
 
+DEB_HOST_ARCH_CPU ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_CPU 2>/dev/null)
+
+# Take account of old dpkg-architecture output.
+ifeq ($(DEB_HOST_ARCH_CPU),)
+  DEB_HOST_ARCH_CPU := $(shell dpkg-architecture -qDEB_HOST_GNU_CPU)
+  ifeq ($(DEB_HOST_ARCH_CPU),x86_64)
+    DEB_HOST_ARCH_CPU := amd64
+  endif
+endif
+
+ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:amd64:i386:))
+  BOOTLOADER := espresso-grub
+else
+ifeq ($(DEB_HOST_ARCH_CPU),powerpc)
+  BOOTLOADER := espresso-yaboot
+endif
+endif
+
 build: build-stamp
 
 build-stamp:
@@ -61,7 +79,9 @@ binary-indep: install
 	dh_python
 	dh_installdeb
 	dh_shlibdeps
-	dh_gencontrol
+ifdef BOOTLOADER
+	dh_gencontrol -- -V'bootloader=$(BOOTLOADER)'
+endif
 	dh_md5sums
 	dh_builddeb
 
