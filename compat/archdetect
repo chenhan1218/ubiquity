@@ -1,8 +1,0 @@
-#! /bin/sh
-# Simple compatibility shim for d-i's archdetect tool. Doesn't yet handle
-# subarchitectures (and if we care, perhaps we should just arrange for
-# archdetect proper to be available as a .deb; libdebian-installer is
-# already available and the command wrapper is trivial).
-
-ARCH="$(dpkg --print-architecture 2>/dev/null)"
-echo "$ARCH/generic"
