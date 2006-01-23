@@ -128,9 +128,9 @@ def get_var():
   """gets install input data from vars file."""
 
   import cPickle
-  file = open('/tmp/vars')
-  var = cPickle.load(file)
-  file.close()
+  vars_file = open('/tmp/vars')
+  var = cPickle.load(vars_file)
+  vars_file.close()
   return var
 
 
@@ -138,9 +138,9 @@ def set_var(var):
   """sets install input data into a vars file."""
 
   import cPickle
-  file = open('/tmp/vars', 'w')
-  cPickle.dump(var, file, -1)
-  file.close()
+  vars_file = open('/tmp/vars', 'w')
+  cPickle.dump(var, vars_file, -1)
+  vars_file.close()
 
 
 def pre_log(code, msg=''):
@@ -228,10 +228,10 @@ def get_filesystems():
 
 
 # Bootloader stuff
-def lilo_entries(file):
+def lilo_entries(lilo_config):
     global default
     lines = []
-    for line in file:
+    for line in lilo_config:
         if line.startswith('default='):
             default = line.split('=')[1]
         elif line.startswith('image') or line.startswith('other'):
@@ -242,9 +242,9 @@ def lilo_entries(file):
     yield lines
 
 
-def grub_entries(file):
+def grub_entries(grub_config):
     lines = []
-    for line in file:
+    for line in grub_config:
         if line.startswith('title'):
             yield lines
             lines = [line]
