@@ -212,8 +212,8 @@ class Config:
           if os.path.exists(path):
               os.unlink(path)
 
-      self.set_debconf('base-config', 'tzconfig/preseed_zone', self.timezone)
-      self.chrex('tzsetup', '-y')
+      self.set_debconf('d-i', 'time/zone', self.timezone)
+      self.chrex('tzsetup')
 
     return True
 

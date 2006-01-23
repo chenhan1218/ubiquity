@@ -65,6 +65,8 @@ espresso (0.99.1) UNRELEASED; urgency=low
   * Drop dependency on yaboot | grub.
   * Change all uses of express/* debconf questions to real questions where
     possible, and espresso/* where not.
+  * Remove all references to base-config; timezone configuration now
+    requires a .deb of the new tzsetup.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
