@@ -105,16 +105,17 @@ class Config:
 
     hookdir = '/usr/lib/espresso/target-config'
 
-    for hookentry in os.listdir(hookdir):
-      # Exclude hooks containing '.', so that *.dpkg-* et al are avoided.
-      if '.' in hookentry:
-        continue
+    if os.path.isdir(hookdir):
+      for hookentry in os.listdir(hookdir):
+        # Exclude hooks containing '.', so that *.dpkg-* et al are avoided.
+        if '.' in hookentry:
+          continue
 
-      hook = os.path.join(hookdir, hookentry)
-      if not os.access(hook, os.X_OK):
-        continue
-      # Errors are ignored at present, although this may change.
-      subprocess.call(hook)
+        hook = os.path.join(hookdir, hookentry)
+        if not os.access(hook, os.X_OK):
+          continue
+        # Errors are ignored at present, although this may change.
+        subprocess.call(hook)
 
     return True
 
