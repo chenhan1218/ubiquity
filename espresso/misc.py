@@ -213,30 +213,4 @@ def get_filesystems():
         device_list[device] = 'ntfs'
   return device_list
 
-
-# Bootloader stuff
-def lilo_entries(lilo_config):
-    global default
-    lines = []
-    for line in lilo_config:
-        if line.startswith('default='):
-            default = line.split('=')[1]
-        elif line.startswith('image') or line.startswith('other'):
-            yield lines
-            lines = [line]
-        elif not line.startswith('#'):
-            lines.append(line)
-    yield lines
-
-
-def grub_entries(grub_config):
-    lines = []
-    for line in grub_config:
-        if line.startswith('title'):
-            yield lines
-            lines = [line]
-        elif not line.startswith('#'):
-            lines.append(line)
-    yield lines
-
 # vim:ai:et:sts=2:tw=80:sw=2:
