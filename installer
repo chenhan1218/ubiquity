@@ -48,6 +48,11 @@ def unmount_target(mountpoints):
     misc.ex('umount', TARGET)
 
 if __name__ == '__main__':
+    if 'PATH' in os.environ and os.environ['PATH'] != '':
+        os.environ['PATH'] = '/usr/lib/espresso/compat:' + os.environ['PATH']
+    else:
+        os.environ['PATH'] = '/usr/lib/espresso/compat'
+
     if len(sys.argv) == 2:
         install(sys.argv[1])
     install()
