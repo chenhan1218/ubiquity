@@ -18,7 +18,7 @@ espresso (0.99.1) UNRELEASED; urgency=low
   * Add debconfcommunicator.py too; it's been committed to debconf upstream,
     but it's useful here anyway for backports to breezy.
   * Refer to ubuntu.com everywhere, not the deprecated ubuntulinux.org.
-  * Add apt-install compatibility shim.
+  * Add apt-install and udpkg compatibility shims.
   * Add rudimentary FilteredCommand class, a convenience wrapper around
     DebconfFilter that makes it easier to test various things.
   * Fix broken use of debhelper; the author seemed to be confusing -A and
