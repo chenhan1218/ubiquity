@@ -203,7 +203,6 @@ class Wizard:
 
     self.installing_image.set_from_file(os.path.join(PIXMAPSDIR, "snapshot1.png"))
 
-    self.live_installer.set_keep_above(True)
     self.live_installer.show()
     self.live_installer.window.set_cursor(self.watch)
 
