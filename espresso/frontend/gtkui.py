@@ -88,7 +88,7 @@ class Wizard:
     self.hostname = ''
     self.fullname = ''
     self.name = ''
-    self.manual_partitioning = False
+    self.manual_choice = None
     self.gparted = True
     self.password = ''
     self.mountpoints = {}
@@ -157,7 +157,6 @@ class Wizard:
       if self.current_page == 1:
         self.dbfilter = usersetup.UserSetup(self)
       elif self.current_page == 2:
-        self.manual_partitioning = False
         self.dbfilter = partman.Partman(self)
       else:
         self.dbfilter = None
@@ -733,7 +732,10 @@ class Wizard:
     while gtk.events_pending ():
       gtk.main_iteration ()
 
-    if self.manual_partitioning:
+    # For safety, if we somehow ended up improperly initialised then go to
+    # manual partitioning.
+    if (self.manual_choice is None or
+        self.get_autopartition_choice() == self.manual_choice):
       if self.gparted:
         self.gparted_loop()
 
@@ -1113,6 +1115,7 @@ class Wizard:
     for child in self.autopartition_vbox.get_children():
       self.autopartition_vbox.remove(child)
 
+    self.manual_choice = manual_choice
     firstbutton = None
     for choice in choices:
       button = gtk.RadioButton(firstbutton, choice, False)
@@ -1146,10 +1149,6 @@ class Wizard:
 
   def get_autopartition_resize_percent (self):
     return self.new_size_scale.get_value()
-
-
-  def do_manual_partitioning (self):
-    self.manual_partitioning = True
 
 
   def error_dialog (self, msg):
