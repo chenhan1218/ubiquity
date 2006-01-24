@@ -177,7 +177,8 @@ class Wizard:
     self.install_image = 0
     PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
     self.total_images   = glob.glob("%s/snapshot*.png" % PIXMAPSDIR)
-    self.total_messages = open("%s/messages.txt" % PIXMAPSDIR).readlines()
+    self.total_messages = map(lambda line: line.rstrip('\n'),
+                              open("%s/messages.txt" % PIXMAPSDIR).readlines())
 
     # set pixmaps
     if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
