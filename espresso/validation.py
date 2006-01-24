@@ -106,17 +106,17 @@ def check_mountpoint (mountpoints, size):
       root_minimum_KB = (MINIMAL_PARTITION_SCHEME ['root'] +
                          MINIMAL_PARTITION_SCHEME ['swap']) * 1024
 
-    for j, k in mountpoints.items():
-      if k == '/':
+    for device, path in mountpoints.items():
+      if path == '/':
         root = 1
 
-        if float(size[j.split('/')[2]]) < root_minimum_KB:
+        if float(size[device.split('/')[2]]) < root_minimum_KB:
           result[2] = 3
 
-      if ( mountpoints.values().count(k) > 1 ):
+      if ( mountpoints.values().count(path) > 1 ):
         result[1] = 2
       regex = re.compile(r'^[a-zA-Z0-9/\-\_\+]+$')
-      if not regex.search(k):
+      if not regex.search(path):
         result[3] = 4
 
     if ( root != 1 ):
