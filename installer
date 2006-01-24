@@ -40,7 +40,7 @@ def install(type='gtkui'):
         os.system('gconftool-2 --set /apps/panel/toplevels/top_panel/auto_hide --type boolean false')
 
 def unmount_target(mountpoints):
-    for path, device in mountpoints.items():
+    for device, path in mountpoints.items():
         if path in ('/', 'swap'):
             continue
         path = os.path.join(TARGET, path[1:])

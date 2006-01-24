@@ -67,6 +67,7 @@ espresso (0.99.1) UNRELEASED; urgency=low
   * Remove all references to base-config; timezone configuration now
     requires a .deb of the new tzsetup.
   * Strip newlines from lines in messages.txt.
+  * Fix unmounting at end of installation.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
