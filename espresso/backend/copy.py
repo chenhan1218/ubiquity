@@ -14,7 +14,7 @@ class Copy:
   def __init__(self, mountpoints):
     """Initial attributes."""
 
-    if os.path.exists('/rofs'):
+    if os.path.isdir('/rofs'):
       self.source = '/rofs'
     else:
       self.source = '/source'
