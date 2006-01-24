@@ -21,7 +21,6 @@ class Config:
 
     self.frontend = frontend
     self.kernel_version = platform.release()
-    self.distro = misc.distribution().lower()
     self.target = '/target/'
     # Getting vars: fullname, username, password, hostname
     # and mountpoints
