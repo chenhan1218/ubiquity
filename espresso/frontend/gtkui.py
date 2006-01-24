@@ -536,7 +536,10 @@ class Wizard:
                       (time.time()-self.start))
     # exiting from application
     self.current_page = None
-    gtk.main_quit()
+    if self.dbfilter is not None:
+      self.dbfilter.cancel_handler()
+    else:
+      gtk.main_quit()
 
 
   # Callbacks
