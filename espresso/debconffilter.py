@@ -101,6 +101,13 @@ class DebconfFilter:
 
             self.debug('filter', '<--', command, *params)
 
+            if line == '' or line.startswith(' '):
+                # Work around confmodules that try to send multi-line
+                # commands; this works (sort of, and by fluke) in cdebconf,
+                # but debconf doesn't like it.
+                self.debug('filter', 'ignoring unknown (multi-line?) command')
+                continue
+
             if command == 'INPUT' and len(params) == 2:
                 (priority, question) = params
                 input_widgets = self.find_widgets(question)
