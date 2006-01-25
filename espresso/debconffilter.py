@@ -163,8 +163,10 @@ class DebconfFilter:
                     progress_min = int(params[1])
                     progress_max = int(params[2])
                     progress_title = params[3]
-                    for widget in self.find_widgets(progress_title,
-                                                    'progress_start'):
+                    widgets = (self.find_widgets(progress_title,
+                                                 'progress_start') +
+                               self.find_widgets('PROGRESS', 'progress_start'))
+                    for widget in widgets:
                         self.debug('filter', 'widget found for', progress_title)
                         widget.progress_start(progress_min, progress_max,
                                               progress_title)
