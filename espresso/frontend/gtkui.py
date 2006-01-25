@@ -314,8 +314,7 @@ class Wizard:
   def get_default_partition_selection(self, size):
     """return a dictionary with a skeleton { mountpoint : device }
     as a default partition selection. The first partition with max size
-    and ext3 fs will be root, the second partition with max size and ext3
-    fs will be selected as /home, and the first partition it finds as swap
+    and ext3 fs will be root, and the first partition it finds as swap
     will be marked as the swap selection."""
 
     # ordering a list from size dict ( { device : size } ), from higher to lower
@@ -329,25 +328,21 @@ class Wizard:
     # getting filesystem dict ( { device : fs } )
     device_list = get_filesystems()
 
-    # building an initial mountpoint preselection dict. Assigning only preferred
-    #   partitions for each mountpoint (highest ext3 partition to '/', the
-    #   second highest ext3 partition to '/home' and the first swap partition to
-    #   swap).
+    # building an initial mountpoint preselection dict. Assigning only
+    # preferred partitions for each mountpoint (the highest ext3 partition
+    # to '/' and the first swap partition to swap).
     if ( len(device_list.items()) != 0 ):
-      root, swap, home = 0, 0, 0
+      root, swap = 0, 0
       for size_selected in size_ordered:
         partition = size.keys()[size.values().index(size_selected)]
         try:
           fs = device_list['/dev/%s' % partition]
         except:
           continue
-        if ( swap == 1 and root == 1 and home == 1 ):
+        if ( swap == 1 and root == 1 ):
           break
         elif ( fs == 'ext3' and size_selected > 1024):
-          if ( root == 1 and home == 0 ):
-            selection['/home'] = '/dev/%s' % partition
-            home = 1
-          elif ( root == 0 ):
+          if ( root == 0 ):
             selection['/'] = '/dev/%s' % partition
             root = 1
         elif ( fs == 'swap' ):
@@ -767,7 +762,7 @@ class Wizard:
       self.next.set_sensitive(False)
     else:
       count = 0
-      mp = { 'swap' : 0, '/' : 1, '/home' : 2 }
+      mp = { 'swap' : 0, '/' : 1 }
 
       # Setting default preselection values into ComboBox widgets and setting
       #   size values. In addition, next row is showed if they're validated.
@@ -788,13 +783,6 @@ class Wizard:
             self.partition3.show()
             self.mountpoint3.show()
           count += 1
-        elif ( count == 2 ):
-          self.partition3.set_active(self.partitions.index(k)+1)
-          self.mountpoint3.set_active(mp[j])
-          self.size3.set_text(self.set_size_msg(k))
-          if ( len(get_partitions()) > 3 ):
-            self.partition4.show()
-            self.mountpoint4.show()
 
     self.steps.next_page()
 

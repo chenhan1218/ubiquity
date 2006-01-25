@@ -70,6 +70,7 @@ espresso (0.99.1) UNRELEASED; urgency=low
   * Fix unmounting at end of installation.
   * Don't keep the GTK user interface window on top; it's annoying during
     development, and arguable at best in production.
+  * Don't preselect a mount point for /home.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
