@@ -77,6 +77,9 @@ class FilteredCommand(object):
     def description(self, question):
         return unicode(self.db.metaget(question, 'description'))
 
+    def extended_description(self, question):
+        return unicode(self.db.metaget(question, 'extended_description'))
+
     def translate_to_c(self, question, value):
         choices = self.choices(question)
         choices_c = self.choices_untranslated(question)
