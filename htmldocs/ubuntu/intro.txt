@@ -1,0 +1,3 @@
+This is a preliminary version of Espresso, the Ubuntu live CD installer.
+
+This program has been lightly tested, and works for the author. However, by its nature as an installer, it may permanently erase any or all of the data on your disk, and a preliminary version of such a program is even more risky. <b>Take a full backup of any valuable data</b> before running this program! The author takes no responsibility for any loss of data caused by running this installer.

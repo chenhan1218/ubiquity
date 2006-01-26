@@ -51,7 +51,8 @@ espresso (0.99.1) UNRELEASED; urgency=low
     development, and arguable at best in production.
   * Remove the numbers from the breadcrumb trail at the top of the screen.
   * Disable embedded web browser for now since this segfaults in current
-    dapper (Bugzilla #20338).
+    dapper (Bugzilla #20338). For the time being, replace it with a scary
+    message telling users to be sure to BACK UP THEIR DATA FIRST.
   * Translate strings in glade file and progress queue messages to English.
     In the unlikely event that any of the strings remain basically
     identical, I'll restore the original text as a Spanish translation.

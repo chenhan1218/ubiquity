@@ -138,6 +138,7 @@ class Wizard:
     # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
     # current dapper (https://bugzilla.ubuntu.com/show_bug.cgi?id=20338).
     #self.show_browser()
+    self.show_intro()
     self.live_installer.window.set_cursor(None)
 
     # Resizing labels according to screen resolution
@@ -240,6 +241,21 @@ class Wizard:
     widget.get_location()
     self.browser_vbox.add(widget)
     widget.show()
+
+
+  def show_intro(self):
+    """Show some introductory text, if available."""
+
+    intro = os.path.join(PATH, 'htmldocs', self.distro, 'intro.txt')
+
+    if os.path.isfile(intro):
+      widget = gtk.Label()
+      widget.set_line_wrap(True)
+      intro_file = open(intro)
+      widget.set_markup(intro_file.read().rstrip('\n'))
+      intro_file.close()
+      self.browser_vbox.add(widget)
+      widget.show()
 
 
   def resize_text (self, widget, type):
