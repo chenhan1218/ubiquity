@@ -58,6 +58,7 @@ install:
 	dh_installdirs -i
 
 	dh_install
+	install installer $(CURDIR)/debian/espresso/usr/bin/espresso
 	for locale in $$(find $(BUILDDIR)/ubuntu/ -name \*.mo -exec basename {} .mo \;); do mkdir -p $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/ubuntu/$$locale.mo $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/ubuntu-installer.mo; done
 	for locale in $$(find $(BUILDDIR)/guadalinex/ -name \*.mo -exec basename {} .mo \;); do mkdir -p $(CURDIR)/debian/espresso-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/guadalinex/$$locale.mo $(CURDIR)/debian/espresso-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES/guadalinex-installer.mo; done
 

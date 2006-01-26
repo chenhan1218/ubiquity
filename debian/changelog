@@ -74,6 +74,8 @@ espresso (0.99.1) UNRELEASED; urgency=low
     unmounting is necessary during the partitioning step rather than turning
     off swap for the whole installer (and partman should help with this
     already).
+  * Install installer script as /usr/bin/espresso rather than
+    /usr/bin/installer.
 
   * Use dh_installdocs to install documentation.
   * Remove unnecessary ${shlibs:Depends} dependencies.
