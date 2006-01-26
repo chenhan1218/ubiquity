@@ -84,6 +84,9 @@ espresso (0.99.1) UNRELEASED; urgency=low
   * Use dh_install instead of verbose code in debian/rules (which includes a
     bashism anyway).
   * Remove hardcoded svn commands in generate-doc.sh.
+  * Remove svn exclusion stuff in debian/rules; if building from a
+    Subversion checkout, you should use standard workarounds to avoid .svn
+    directories.
   * Remove generated source code documentation for now; it's really not
     terribly useful, certainly not in the espresso binary package, and
     ultimately it should be generated as part of the build process if at

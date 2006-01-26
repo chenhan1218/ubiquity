@@ -62,8 +62,6 @@ install:
 	for locale in $$(find $(BUILDDIR)/ubuntu/ -name \*.mo -exec basename {} .mo \;); do mkdir -p $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/ubuntu/$$locale.mo $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/ubuntu-installer.mo; done
 	for locale in $$(find $(BUILDDIR)/guadalinex/ -name \*.mo -exec basename {} .mo \;); do mkdir -p $(CURDIR)/debian/espresso-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/guadalinex/$$locale.mo $(CURDIR)/debian/espresso-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES/guadalinex-installer.mo; done
 
-	rm -rf `find $(CURDIR)/debian/ -mindepth 2 -type d -name .svn`
-
 # Build architecture-independent files here.
 binary-indep: DH_OPTIONS=-i
 binary-indep: install
