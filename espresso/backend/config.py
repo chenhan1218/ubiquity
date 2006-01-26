@@ -232,7 +232,7 @@ class Config:
     system. Default user from live system is deleted and skel for this new user is
     copied to $HOME."""
 
-    usersetup.UserSetup().apply_configuration()
+    usersetup.UserSetup(self.frontend).apply_configuration()
 
     return True
 
