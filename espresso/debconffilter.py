@@ -69,13 +69,14 @@ class DebconfFilter:
         self.subin.write('%s\n' % ret)
         self.subin.flush()
 
-    def find_widgets(self, question, method=None):
+    def find_widgets(self, questions, method=None):
         found = []
         for pattern in self.widgets.keys():
-            if re.search(pattern, question):
-                widget = self.widgets[pattern]
-                if method is None or hasattr(widget, method):
-                    found.append(widget)
+            for question in questions:
+                if re.search(pattern, question):
+                    widget = self.widgets[pattern]
+                    if method is None or hasattr(widget, method):
+                        found.append(widget)
         return found
 
     def run(self, subprocess):
@@ -110,7 +111,7 @@ class DebconfFilter:
 
             if command == 'INPUT' and len(params) == 2:
                 (priority, question) = params
-                input_widgets = self.find_widgets(question)
+                input_widgets = self.find_widgets([question])
 
                 if len(input_widgets) > 0:
                     self.debug('filter', 'widget found for', question)
@@ -141,19 +142,19 @@ class DebconfFilter:
 
             if command == 'SET' and len(params) == 2:
                 (question, value) = params
-                for widget in self.find_widgets(question, 'set'):
+                for widget in self.find_widgets([question], 'set'):
                     self.debug('filter', 'widget found for', question)
                     widget.set(question, value)
 
             if command == 'SUBST' and len(params) == 3:
                 (question, key, value) = params
-                for widget in self.find_widgets(question, 'subst'):
+                for widget in self.find_widgets([question], 'subst'):
                     self.debug('filter', 'widget found for', question)
                     widget.subst(question, key, value)
 
             if command == 'METAGET' and len(params) == 2:
                 (question, field) = params
-                for widget in self.find_widgets(question, 'metaget'):
+                for widget in self.find_widgets([question], 'metaget'):
                     self.debug('filter', 'widget found for', question)
                     widget.metaget(question, field)
 
@@ -163,10 +164,8 @@ class DebconfFilter:
                     progress_min = int(params[1])
                     progress_max = int(params[2])
                     progress_title = params[3]
-                    widgets = (self.find_widgets(progress_title,
-                                                 'progress_start') +
-                               self.find_widgets('PROGRESS', 'progress_start'))
-                    for widget in widgets:
+                    for widget in self.find_widgets(
+                            [progress_title, 'PROGRESS'], 'progress_start'):
                         self.debug('filter', 'widget found for', progress_title)
                         widget.progress_start(progress_min, progress_max,
                                               progress_title)
@@ -174,31 +173,35 @@ class DebconfFilter:
                 elif self.progress_bar is not None:
                     if subcommand == 'SET' and len(params) == 2:
                         progress_val = int(params[1])
-                        for widget in self.find_widgets(self.progress_bar,
-                                                        'progress_set'):
+                        for widget in self.find_widgets(
+                                [self.progress_bar, 'PROGRESS'],
+                                'progress_set'):
                             self.debug('filter', 'widget found for',
                                        self.progress_bar)
                             widget.progress_set(self.progress_bar,
                                                 progress_val)
                     elif subcommand == 'STEP' and len(params) == 2:
                         progress_inc = int(params[1])
-                        for widget in self.find_widgets(self.progress_bar,
-                                                        'progress_step'):
+                        for widget in self.find_widgets(
+                                [self.progress_bar, 'PROGRESS'],
+                                'progress_step'):
                             self.debug('filter', 'widget found for',
                                        self.progress_bar)
                             widget.progress_step(self.progress_bar,
                                                  progress_inc)
                     elif subcommand == 'INFO' and len(params) == 2:
                         progress_info = params[1]
-                        for widget in self.find_widgets(self.progress_bar,
-                                                        'progress_info'):
+                        for widget in self.find_widgets(
+                                [self.progress_bar, 'PROGRESS'],
+                                'progress_info'):
                             self.debug('filter', 'widget found for',
                                        self.progress_bar)
                             widget.progress_info(self.progress_bar,
                                                  progress_info)
                     elif subcommand == 'STOP' and len(params) == 1:
-                        for widget in self.find_widgets(self.progress_bar,
-                                                        'progress_stop'):
+                        for widget in self.find_widgets(
+                                [self.progress_bar, 'PROGRESS'],
+                                'progress_stop'):
                             self.debug('filter', 'widget found for',
                                        self.progress_bar)
                             widget.progress_stop(self.progress_bar)
