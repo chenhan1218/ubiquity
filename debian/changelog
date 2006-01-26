@@ -74,6 +74,8 @@ espresso (0.99.1) UNRELEASED; urgency=low
   * Don't keep the GTK user interface window on top; it's annoying during
     development, and arguable at best in production.
   * Don't preselect a mount point for /home.
+  * Replace hand-rolled partition formatting and mounting code with a call
+    to PartmanCommit.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 

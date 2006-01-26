@@ -68,7 +68,7 @@ from Queue import Queue
 from espresso.backend import *
 from espresso.validation import *
 from espresso.misc import *
-from espresso.components import usersetup, partman
+from espresso.components import usersetup, partman, partman_commit
 
 # Define Espresso global path
 PATH = '/usr/share/espresso'
@@ -376,8 +376,7 @@ class Wizard:
 
 
   def progress_loop(self):
-    """prepare, format, copy and config the system in the
-    core install process."""
+    """prepare, copy and config the system in the core install process."""
 
     pre_log('info', 'progress_loop()')
 
@@ -390,30 +389,6 @@ class Wizard:
     self.images_loop()
     # Setting Normal cursor
     self.live_installer.window.set_cursor(None)
-
-    def wait_thread(queue):
-      """wait thread for format process."""
-
-      mountpoints = get_var()['mountpoints']
-      ft = format.Format(mountpoints)
-      ft.format_target(queue)
-      queue.put('101')
-
-    # Starting format process
-    queue = Queue()
-    thread.start_new_thread(wait_thread, (queue,))
-
-    # setting progress bar status while format process is running
-    while True:
-      msg = str (queue.get ())
-      # format process is ended when '101' is pushed
-      if msg.startswith('101'):
-        break
-      self.set_progress(msg)
-      # refreshing UI
-      while gtk.events_pending():
-        gtk.main_iteration()
-      time.sleep(0.5)
 
     def wait_thread(queue):
       """wait thread for copy process."""
@@ -821,6 +796,9 @@ class Wizard:
     elif ( len(list_partitions) < len(list_mountpoints) ):
       error_msg.append("· Partición sin seleccionar.\n\n")
 
+    if not partman_commit.PartmanCommit(self).run_command():
+        return
+
     # Checking duplicated devices
     for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
       if ( widget.get_active_text() != None ):
@@ -1136,6 +1114,22 @@ class Wizard:
 
   def get_autopartition_resize_percent (self):
     return self.new_size_scale.get_value()
+
+
+  def get_mountpoints (self):
+    return dict(self.mountpoints)
+
+
+  def confirm_partitioning_dialog (self, title, description):
+    dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
+                               gtk.MESSAGE_QUESTION, gtk.BUTTONS_YES_NO, title)
+    dialog.format_secondary_text(description)
+    response = dialog.run()
+    dialog.hide()
+    if response == gtk.RESPONSE_YES:
+      return True
+    else:
+      return False
 
 
   def error_dialog (self, msg):

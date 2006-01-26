@@ -26,14 +26,6 @@ class Copy:
     """Run the copy stage. This is the second step from the installation
     process."""
 
-    queue.put('3 Preparing the installation directory')
-    misc.pre_log('info', 'Mounting target')
-    if self.mount_target():
-      misc.pre_log('info', 'Mounted target')
-    else:
-      misc.pre_log('error', 'Mounting target')
-      return False
-
     if self.source == '/source':
       queue.put('4 Finding the distribution to copy')
       misc.pre_log('info', 'Mounting source')
@@ -67,41 +59,6 @@ class Copy:
       else:
         misc.post_log('error', 'Umounting source')
         return False
-
-
-  def mount_target(self):
-    """mount selected partitions on /target ."""
-
-#    stderr.write ('PuntosDeMontaje: ' + str (self.mountpoints) + '\n')
-
-    if not os.path.isdir(self.target) and not os.path.isfile(self.target):
-      os.mkdir(self.target)
-
-    misc.ex('mount', self.mountpoints.keys()[self.mountpoints.values().index('/')], self.target)
-
-    for device, path in self.mountpoints.items():
-      if ( path == '/' ):
-          continue
-      elif ( path ==  'swap' ):
-          os.system('swapon %s' % device)
-          continue
-      path = os.path.join(self.target, path[1:])
-      if not os.path.isdir(path) and not os.path.isfile(path):
-        os.mkdir(path)
-      else:
-        misc.pre_log('error', 'Problemas al crear %s' % path)
-
-      if not misc.ex ('mount', '-t', 'ext3', device, path):
-        misc.ex('mkfs.ext3',device)
-        misc.ex('mount', device, path)
-
-    if ( 'swap' not in self.mountpoints.values() ):
-      # If swap partition isn't defined, we create a swapfile
-      os.system("dd if=/dev/zero of=%s/swapfile bs=1024 count=%d" % (self.target, MINIMAL_PARTITION_SCHEME ['swap'] * 1024) )
-      os.system("mkswap %s/swapfile" % self.target)
-      os.system("swapon %s/swapfile" % self.target)
-
-    return True
 
 
   def umount_target(self):
