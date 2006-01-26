@@ -7,8 +7,10 @@ espresso (0.99.1) UNRELEASED; urgency=low
     the focus is rather different.
   * Rename lib directory in source to espresso so that pychecker can be used
     more easily.
-  * Use dh_installdocs to install documentation.
-  * Remove unnecessary ${shlibs:Depends} dependencies.
+  * Log to /var/log/installer/espresso instead of /var/log/<distro>-express.
+  * Change all uses of express/* debconf questions to real questions where
+    possible, and espresso/* where not.
+
   * Add debconffilter.py from oem-config (this has been sent to debconf
     upstream and may eventually make it in there instead). We'll use this
     for d-i integration.
@@ -20,20 +22,58 @@ espresso (0.99.1) UNRELEASED; urgency=low
     by fluke.
   * Add debconfcommunicator.py too; it's been committed to debconf upstream,
     but it's useful here anyway for backports to breezy.
-  * Refer to ubuntu.com everywhere, not the deprecated ubuntulinux.org.
-  * Add apt-install and udpkg compatibility shims.
   * Add rudimentary FilteredCommand class, a convenience wrapper around
     DebconfFilter that makes it easier to test various things.
-  * Fix broken use of debhelper; the author seemed to be confusing -A and
-    -a, and in any case we only build architecture-independent packages.
-  * Don't use full-screen mode.
-  * Use 'lsb_release -is' rather than reading /etc/lsb-release directly.
-  * Depend on lsb-release.
-  * Disable embedded web browser for now since this segfaults in current
-    dapper (Bugzilla #20338).
-  * Fix Config.get_locales() using DebconfCommunicator.
+  * Add filtered debconf progress bar handling in the GTK frontend.
+
+  * Add apt-install and udpkg compatibility shims.
   * Call user-setup as a debconffilter coprocess while running the
     corresponding UI step, replacing our own duplicated validation code.
+  * Call partman as a debconffilter coprocess while running the
+    autopartitioning UI step. Remove peez2 entirely, as this will replace it
+    once it's finished.
+  * Change gparted invocation to use new --installer=WID option.
+  * Replace hand-rolled partition formatting and mounting code with a call
+    to PartmanCommit.
+  * Copy from /rofs if it exists, rather than hunting through the CD for the
+    filesystem image. Requires casper 1.25.
+  * Run hook scripts in /usr/lib/espresso/target-config (filenames
+    containing '.' are ignored) so that casper can propagate appropriate
+    parts of its configuration to the target system.
+  * Remove all references to base-config; timezone configuration now
+    requires a .deb of the new tzsetup.
+  * Use espresso-grub for GRUB installation rather than doing it by hand.
+  * Drop dependency on yaboot | grub.
+
+  * Refer to ubuntu.com everywhere, not the deprecated ubuntulinux.org.
+  * Don't use full-screen mode.
+  * Don't keep the GTK user interface window on top; it's annoying during
+    development, and arguable at best in production.
+  * Remove the numbers from the breadcrumb trail at the top of the screen.
+  * Disable embedded web browser for now since this segfaults in current
+    dapper (Bugzilla #20338).
+  * Translate strings in glade file and progress queue messages to English.
+    In the unlikely event that any of the strings remain basically
+    identical, I'll restore the original text as a Spanish translation.
+  * In general, don't send a progress queue message when completing a task,
+    only when starting one. There's no point constructing translatable text
+    that's only going to be on the screen for tiny fractions of a second
+    anyway.
+  * Strip newlines from lines in messages.txt.
+
+  * Fix Config.get_locales() using DebconfCommunicator.
+  * Try fetching timezone from /etc/localtime as well as from /etc/timezone.
+  * Handle missing keymap and/or locale debconf questions.
+  * Fix kernel version detection.
+  * Use 'lsb_release -is' rather than reading /etc/lsb-release directly.
+  * Depend on lsb-release.
+  * Don't preselect a mount point for /home.
+  * Fix unmounting at end of installation.
+
+  * Use dh_installdocs to install documentation.
+  * Remove unnecessary ${shlibs:Depends} dependencies.
+  * Fix broken use of debhelper; the author seemed to be confusing -A and
+    -a, and in any case we only build architecture-independent packages.
   * Use dh_install instead of verbose code in debian/rules (which includes a
     bashism anyway).
   * Remove hardcoded svn commands in generate-doc.sh.
@@ -41,41 +81,6 @@ espresso (0.99.1) UNRELEASED; urgency=low
     terribly useful, certainly not in the espresso binary package, and
     ultimately it should be generated as part of the build process if at
     all.
-  * Translate strings in glade file and progress queue messages to English.
-    In the unlikely event that any of the strings remain basically
-    identical, I'll restore the original text as a Spanish translation.
-  * Add filtered debconf progress bar handling in the GTK frontend.
-  * Call partman as a debconffilter coprocess while running the
-    autopartitioning UI step. Remove peez2 entirely, as this will replace it
-    once it's finished.
-  * Change gparted invocation to use new --installer=WID option.
-  * Remove the numbers from the breadcrumb trail at the top of the screen.
-  * Copy from /rofs if it exists, rather than hunting through the CD for the
-    filesystem image. Requires casper 1.25.
-  * Log to /var/log/installer/espresso instead of /var/log/<distro>-express.
-  * In general, don't send a progress queue message when completing a task,
-    only when starting one. There's no point constructing translatable text
-    that's only going to be on the screen for tiny fractions of a second
-    anyway.
-  * Try fetching timezone from /etc/localtime as well as from /etc/timezone.
-  * Handle missing keymap and/or locale debconf questions.
-  * Fix kernel version detection.
-  * Run hook scripts in /usr/lib/espresso/target-config (filenames
-    containing '.' are ignored) so that casper can propagate appropriate
-    parts of its configuration to the target system.
-  * Use espresso-grub for GRUB installation rather than doing it by hand.
-  * Drop dependency on yaboot | grub.
-  * Change all uses of express/* debconf questions to real questions where
-    possible, and espresso/* where not.
-  * Remove all references to base-config; timezone configuration now
-    requires a .deb of the new tzsetup.
-  * Strip newlines from lines in messages.txt.
-  * Fix unmounting at end of installation.
-  * Don't keep the GTK user interface window on top; it's annoying during
-    development, and arguable at best in production.
-  * Don't preselect a mount point for /home.
-  * Replace hand-rolled partition formatting and mounting code with a call
-    to PartmanCommit.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
 
