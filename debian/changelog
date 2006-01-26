@@ -70,6 +70,10 @@ espresso (0.99.1) UNRELEASED; urgency=low
   * Depend on lsb-release.
   * Don't preselect a mount point for /home.
   * Fix unmounting at end of installation.
+  * Remove ubuntu-express wrapper script; eventually we'll do whatever
+    unmounting is necessary during the partitioning step rather than turning
+    off swap for the whole installer (and partman should help with this
+    already).
 
   * Use dh_installdocs to install documentation.
   * Remove unnecessary ${shlibs:Depends} dependencies.

@@ -1,5 +1,4 @@
 installer usr/bin
-ubuntu-express usr/bin
 espresso/*.py usr/lib/python2.4/site-packages/espresso
 espresso/backend usr/lib/python2.4/site-packages/espresso
 espresso/components usr/lib/python2.4/site-packages/espresso
