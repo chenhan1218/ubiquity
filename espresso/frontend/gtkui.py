@@ -147,7 +147,6 @@ class Wizard:
         msg = self.resize_text(widget, widget.get_name()[-1:])
         if msg != '':
           widget.set_markup(msg)
-    self.on_help_clicked(self.warning_info)
 
     # Declare SignalHandler
     self.glade.signal_autoconnect(self)
@@ -209,7 +208,6 @@ class Wizard:
 
     # set initial bottom bar status
     self.back.hide()
-    self.help.hide()
     self.next.set_label('gtk-go-forward')
 
 
@@ -509,7 +507,6 @@ class Wizard:
     doesn't work properly."""
 
     self.warning_info.set_markup(msg)
-    self.help.show()
 
 
   def quit(self):
@@ -588,8 +585,7 @@ class Wizard:
 
     # mapping enter key to get more usability
     if ( event.keyval == gtk.gdk.keyval_from_name('Return') ) :
-      if ( not self.help.get_property('has-focus')
-        and not self.back.get_property('has-focus')
+      if ( not self.back.get_property('has-focus')
         and not self.cancel.get_property('has-focus') ):
         self.next.clicked()
 
@@ -633,15 +629,6 @@ class Wizard:
     self.installing_image.set_from_file(self.total_images[step])
     self.installing_text.set_markup(self.resize_text('<span foreground="#087021"><b>%s</b></span>' % self.total_messages[step], '4'))
     return True
-
-
-  def on_help_clicked(self, widget):
-    """show help message when help button is clicked."""
-
-    if ( self.steps.get_current_page() in [0, 1] ):
-      text = "<span>Es necesario que introduzca su <b>nombre de usuario</b> para el sistema, su <b>nombre completo</b> para generar una ficha de usuario, así como el <b>nombre de máquina</b> con el que quiera bautizar su equipo. Deberá teclear la contraseña de usuario en dos ocasiones.</span>"
-      self.warning_info.set_markup(self.resize_text(text, '4'))
-      self.help.hide()
 
 
   def on_next_clicked(self, widget):
@@ -707,7 +694,6 @@ class Wizard:
       # showing next step and destroying mozembed widget to release memory
       self.browser_vbox.destroy()
       self.back.show()
-      self.help.hide()
       self.steps.next_page()
 
 

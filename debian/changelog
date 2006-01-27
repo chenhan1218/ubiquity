@@ -61,6 +61,9 @@ espresso (0.99.1) UNRELEASED; urgency=low
     that's only going to be on the screen for tiny fractions of a second
     anyway.
   * Strip newlines from lines in messages.txt.
+  * Get rid of almost-useless help button. In general, the UI should be made
+    self-explanatory rather than requiring extra clicks to get at help
+    information.
 
   * Fix Config.get_locales() using DebconfCommunicator.
   * Try fetching timezone from /etc/localtime as well as from /etc/timezone.
