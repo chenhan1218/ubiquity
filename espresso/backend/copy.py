@@ -124,7 +124,7 @@ class Copy:
 
     misc.pre_log('info','About to start copying')
 
-    copy = subprocess.Popen(['cpio', '-d0mp', self.target],
+    copy = subprocess.Popen(['cpio', '-d0mqp', self.target],
         cwd = self.source,
         stdin = subprocess.PIPE)
 

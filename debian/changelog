@@ -79,6 +79,7 @@ espresso (0.99.1) UNRELEASED; urgency=low
     already).
   * Install installer script as /usr/bin/espresso rather than
     /usr/bin/installer.
+  * Quieten cpio a bit.
 
   * Use dh_installdocs to install documentation.
   * Remove unnecessary ${shlibs:Depends} dependencies.
