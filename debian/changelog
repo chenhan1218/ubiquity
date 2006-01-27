@@ -1,4 +1,4 @@
-espresso (0.99.1) UNRELEASED; urgency=low
+espresso (0.99.1) dapper; urgency=low
 
   * Rename to espresso to avoid confusion caused by somebody other than
     Ubuntu being upstream for a project called "Ubuntu ...", to reduce
@@ -98,7 +98,7 @@ espresso (0.99.1) UNRELEASED; urgency=low
     all.
   * Rewrite descriptions to be better English and (I hope) more useful.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Dec 2005 12:27:33 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 27 Jan 2006 13:25:43 +0000
 
 ubuntu-express (0.99-1) breezy; urgency=low
 
