@@ -1,7 +1,7 @@
 Source: espresso
 Section: admin
 Priority: optional
-Maintainer: Junta de Andalucia <packmaster@guadalinex.org>
+Maintainer: Colin Watson <cjwatson@ubuntu.com>
 Build-Depends: debhelper (>= 4.0.0)
 Standards-Version: 3.6.2.1
 

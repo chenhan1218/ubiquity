@@ -5,6 +5,7 @@ espresso (0.99.1) UNRELEASED; urgency=low
     awkward branding considerations, and to clearly separate the work being
     done on this project for Dapper from the work done by Guadalinex since
     the focus is rather different.
+  * Change Maintainer to me.
   * Rename lib directory in source to espresso so that pychecker can be used
     more easily.
   * Log to /var/log/installer/espresso instead of /var/log/<distro>-express.
