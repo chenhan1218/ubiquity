@@ -1,3 +1,9 @@
+espresso (0.99.2) UNRELEASED; urgency=low
+
+  * Fix cpio arguments.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 30 Jan 2006 12:49:45 +0000
+
 espresso (0.99.1) dapper; urgency=low
 
   * Rename to espresso to avoid confusion caused by somebody other than
