@@ -3,6 +3,7 @@
 # «gtkui» - interfaz de usuario GTK
 #
 # Copyright (C) 2005 Junta de Andalucía
+# Copyright (C) 2005, 2006 Canonical Ltd.
 #
 # Autores (Authors):
 #
@@ -10,6 +11,7 @@
 # - Juan Jesús Ojeda Croissier <juanje#interactors._coop>
 # - Antonio Olmo Titos <aolmo#emergya._info>
 # - Gumer Coronel Pérez <gcoronel#emergya._info>
+# - Colin Watson <cjwatson@ubuntu.com>
 #
 # Este fichero es parte del instalador en directo de Guadalinex 2005.
 #
