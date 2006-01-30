@@ -1,6 +1,7 @@
 espresso (0.99.2) UNRELEASED; urgency=low
 
   * Fix cpio arguments.
+  * Drop espresso-yaboot dependency on powerpc for now, until it exists.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 30 Jan 2006 12:49:45 +0000
 
