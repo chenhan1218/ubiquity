@@ -34,7 +34,7 @@ class FilteredCommand(object):
         ret = dbfilter.run(command)
 
         if ret != 0:
-            # TODO: error message if (ret / 256) != 10
+            # TODO: error message if ret != 10
             self.debug("%s exited with code %d", command, ret)
 
         self.db.shutdown()
