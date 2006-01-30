@@ -19,7 +19,7 @@
 
 import sys
 import os
-import popen2
+import subprocess
 import re
 import debconf
 
@@ -79,13 +79,15 @@ class DebconfFilter:
                         found.append(widget)
         return found
 
-    def run(self, subprocess):
+    def subprocess_setup(self):
         os.environ['DEBIAN_HAS_FRONTEND'] = '1'
         os.environ['PERL_DL_NONLAZY'] = '1'
-        subp = popen2.Popen3(subprocess)
-        del os.environ['PERL_DL_NONLAZY']
-        del os.environ['DEBIAN_HAS_FRONTEND']
-        (self.subin, self.subout) = (subp.tochild, subp.fromchild)
+
+    def run(self, command):
+        subp = subprocess.Popen(command,
+                                stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                                preexec_fn=self.subprocess_setup)
+        (self.subin, self.subout) = (subp.stdin, subp.stdout)
         next_go_backup = False
 
         while True:
