@@ -80,6 +80,8 @@ binary-indep: install
 	dh_shlibdeps
 ifdef BOOTLOADER
 	dh_gencontrol -- -V'bootloader=$(BOOTLOADER)'
+else
+	dh_gencontrol
 endif
 	dh_md5sums
 	dh_builddeb
