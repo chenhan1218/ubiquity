@@ -81,11 +81,12 @@ class DebconfFilter:
 
     def subprocess_setup(self):
         os.environ['DEBIAN_HAS_FRONTEND'] = '1'
-        os.environ['PERL_DL_NONLAZY'] = '1'
         if 'DEBCONF_USE_CDEBCONF' in os.environ:
             # cdebconf expects to be able to redirect standard output to fd
             # 5. Make this stderr to match debconf.
             os.dup2(2, 5)
+        else:
+            os.environ['PERL_DL_NONLAZY'] = '1'
 
     def run(self, command):
         subp = subprocess.Popen(command,
