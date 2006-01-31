@@ -1,8 +1,8 @@
-espresso (0.99.3) UNRELEASED; urgency=low
+espresso (0.99.3) dapper; urgency=low
 
   * Fix stupid debian/rules thinko affecting powerpc.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 11:06:41 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 11:06:58 +0000
 
 espresso (0.99.2) dapper; urgency=low
 
