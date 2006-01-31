@@ -1,11 +1,11 @@
-espresso (0.99.5) UNRELEASED; urgency=low
+espresso (0.99.5) dapper; urgency=low
 
   * Add get_hostname and get_mountpoints methods to frontends so that
     components can get at them without the nasty vars file hack. Remove all
     code handling the vars file.
   * Build espresso in the binary-arch target. This time I've even tested it.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 15:39:52 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 20:55:29 +0000
 
 espresso (0.99.4) dapper; urgency=low
 
