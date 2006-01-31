@@ -55,39 +55,54 @@ install:
 	dh_testdir
 	dh_testroot
 	dh_clean -k
-	dh_installdirs -i
+	dh_installdirs -A
 
-	dh_install
+	dh_install -A
 	install installer $(CURDIR)/debian/espresso/usr/bin/espresso
 	for locale in $$(find $(BUILDDIR)/ubuntu/ -name \*.mo -exec basename {} .mo \;); do mkdir -p $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/ubuntu/$$locale.mo $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/ubuntu-installer.mo; done
 	for locale in $$(find $(BUILDDIR)/guadalinex/ -name \*.mo -exec basename {} .mo \;); do mkdir -p $(CURDIR)/debian/espresso-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/guadalinex/$$locale.mo $(CURDIR)/debian/espresso-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES/guadalinex-installer.mo; done
 
 # Build architecture-independent files here.
-binary-indep: DH_OPTIONS=-i
 binary-indep: install
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs Changelog
-	dh_installdocs
-#	dh_installexamples
-	dh_installdebconf
-#	dh_installman
-	dh_strip
-	dh_compress
-	dh_fixperms
-	dh_python
-	dh_installdeb
-	dh_shlibdeps
-ifdef BOOTLOADER
-	dh_gencontrol -- -V'bootloader=$(BOOTLOADER)'
-else
-	dh_gencontrol
-endif
-	dh_md5sums
-	dh_builddeb
+	dh_installchangelogs -i Changelog
+	dh_installdocs -i
+#	dh_installexamples -i
+	dh_installdebconf -i
+#	dh_installman -i
+	dh_strip -i
+	dh_compress -i
+	dh_fixperms -i
+	dh_python -i
+	dh_installdeb -i
+	dh_shlibdeps -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
 
 # Build architecture-dependent files here.
 binary-arch: install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs -a Changelog
+	dh_installdocs -a
+#	dh_installexamples -a
+	dh_installdebconf -a
+#	dh_installman -a
+	dh_strip -a
+	dh_compress -a
+	dh_fixperms -a
+	dh_python -a
+	dh_installdeb -a
+	dh_shlibdeps -a
+ifdef BOOTLOADER
+	dh_gencontrol -a -- -V'bootloader=$(BOOTLOADER)'
+else
+	dh_gencontrol -a
+endif
+	dh_md5sums -a
+	dh_builddeb -a
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install
