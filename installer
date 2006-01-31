@@ -19,6 +19,8 @@ import os
 import espresso
 from espresso import misc
 
+cdebconf = False
+
 TARGET = '/target'
 
 def install(type='gtkui'):
@@ -55,6 +57,11 @@ def prepend_path(directory):
         os.environ['PATH'] = directory
 
 if __name__ == '__main__':
+    if cdebconf:
+        # Note that this needs to be set before DebconfCommunicate is
+        # imported by anything.
+        os.environ['DEBCONF_USE_CDEBCONF'] = '1'
+        prepend_path('/usr/lib/cdebconf')
     prepend_path('/usr/lib/espresso/compat')
 
     if len(sys.argv) == 2:

@@ -1,3 +1,11 @@
+espresso (0.99.6) UNRELEASED; urgency=low
+
+  * Initial work on porting to cdebconf (for speed and for increased
+    compatibility with d-i), not enabled by default yet until I've had a
+    chance to give it more testing.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 21:57:53 +0000
+
 espresso (0.99.5) dapper; urgency=low
 
   * Add get_hostname and get_mountpoints methods to frontends so that
