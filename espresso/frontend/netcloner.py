@@ -187,6 +187,10 @@ class Wizard:
     pass
 
 
+  def get_hostname(self):
+    return self.info['hostname']
+
+
 if __name__ == '__main__':
   distro = misc.distribution().lower()
   w = Wizard(distro)

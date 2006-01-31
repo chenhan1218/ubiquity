@@ -491,11 +491,7 @@ class Wizard:
 
     from espresso import misc
     vars = {}
-    attribs = ['hostname']
     try:
-      for name in attribs:
-        var = getattr(self, name)
-        vars[name] = var.get_text()
       vars['mountpoints'] = self.mountpoints
     except:
       pre_log('error', 'Missed attrib to write to /tmp/vars')
@@ -1118,6 +1114,10 @@ class Wizard:
 
   def get_autopartition_resize_percent (self):
     return self.new_size_scale.get_value()
+
+
+  def get_hostname (self):
+    return self.hostname
 
 
   def get_mountpoints (self):

@@ -15,10 +15,10 @@ class Wizard:
       print ".",
     print "\n%d " % num
 
-  def get_hostname(self):
+  def ask_hostname(self):
     print "Please enter the hostname for this system."
-    hostname = raw_input("Hostname: ")
-    return hostname
+    self.hostname = raw_input("Hostname: ")
+    return self.hostname
 
   def get_locales(self):
     pass
@@ -34,5 +34,8 @@ class Wizard:
 
   def quit_main_loop(self):
     pass
+
+  def get_hostname(self):
+    return self.hostname
 
 # vim:ai:et:sts=2:tw=80:sw=2:

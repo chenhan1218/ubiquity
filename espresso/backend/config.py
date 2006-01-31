@@ -22,8 +22,7 @@ class Config:
     self.frontend = frontend
     self.kernel_version = platform.release()
     self.target = '/target/'
-    # Getting vars: fullname, username, password, hostname
-    # and mountpoints
+    # Getting vars: fullname, username, password and mountpoints
     for var in vars.keys():
       setattr(self,var,vars[var])
 
@@ -242,7 +241,7 @@ class Config:
     process."""
 
     fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
-    print >>fp, self.hostname
+    print >>fp, self.frontend.get_hostname()
     fp.close()
 
     hosts = open(os.path.join(self.target, 'etc/hosts'), 'w')
@@ -255,7 +254,7 @@ fe00::0 ip6-localnet
 ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
-ff02::3 ip6-allhosts""" % self.hostname
+ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
     hosts.close()
 
     return True

@@ -80,6 +80,9 @@ class Wizard:
   def quit_main_loop(self):
     pass
 
+  def get_hostname(self):
+    return self.get_info()[0]
+
 if __name__ == '__main__':
   w = Wizard()
   hostname, fullname, name, password = w.get_info()

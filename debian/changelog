@@ -1,3 +1,10 @@
+espresso (0.99.5) UNRELEASED; urgency=low
+
+  * Add get_hostname method to frontends so that components can get at it
+    without the nasty vars file hack.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 15:39:52 +0000
+
 espresso (0.99.4) dapper; urgency=low
 
   * Make espresso Architecture: any; it has different dependencies on
