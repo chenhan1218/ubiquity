@@ -1,3 +1,10 @@
+espresso (0.99.4) UNRELEASED; urgency=low
+
+  * Make espresso Architecture: any; it has different dependencies on
+    different architectures.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 14:28:11 +0000
+
 espresso (0.99.3) dapper; urgency=low
 
   * Fix stupid debian/rules thinko affecting powerpc.
