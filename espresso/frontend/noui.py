@@ -65,14 +65,14 @@ class Wizard:
     # re = self.db.get('espresso/mountpoints')
     # for path, dev in re:
     #   mountpoints[path] = dev
-    mountpoints = {'/'     : '/dev/hda1',
-                   'swap'  : '/dev/hda2',
-                   '/home' : '/dev/hda3'}
-    mountpoints = call_autoparted()
-    if mountpoints is None:
+    self.mountpoints = {'/'     : '/dev/hda1',
+                        'swap'  : '/dev/hda2',
+                        '/home' : '/dev/hda3'}
+    self.mountpoints = call_autoparted()
+    if self.mountpoints is None:
       print 'Autopartioning fail!'
 
-    return mountpoints
+    return self.mountpoints
 
   def run_main_loop(self):
     pass
@@ -82,6 +82,9 @@ class Wizard:
 
   def get_hostname(self):
     return self.get_info()[0]
+
+  def get_mountpoints(self):
+    return dict(self.mountpoints)
 
 if __name__ == '__main__':
   w = Wizard()

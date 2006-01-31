@@ -16,15 +16,12 @@ import subprocess
 
 class Config:
 
-  def __init__(self, frontend, vars):
+  def __init__(self, frontend):
     """Initial attributes."""
 
     self.frontend = frontend
     self.kernel_version = platform.release()
     self.target = '/target/'
-    # Getting vars: fullname, username, password and mountpoints
-    for var in vars.keys():
-      setattr(self,var,vars[var])
 
 
   def run(self, queue):
@@ -166,7 +163,7 @@ class Config:
     swap = 0
     fstab = open(os.path.join(self.target,'etc/fstab'), 'w')
     print >>fstab, 'proc\t/proc\tproc\tdefaults\t0\t0\nsysfs\t/sys\tsysfs\tdefaults\t0\t0'
-    for device, path in self.mountpoints.items():
+    for device, path in self.frontend.get_mountpoints().items():
         if path == '/':
             passno, options, filesystem = 1, 'defaults,errors=remount-ro', 'ext3'
         elif path == 'swap':
@@ -352,8 +349,7 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
 if __name__ == '__main__':
   from Queue import Queue
   queue = Queue ()
-  vars = misc.get_var()
-  config = Config(None, vars)
+  config = Config(None)
   config.run(queue)
   print 101
 

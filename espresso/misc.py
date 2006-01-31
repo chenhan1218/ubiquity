@@ -111,25 +111,6 @@ def ret_ex(*args):
       return proc.stdout
 
 
-def get_var():
-  """gets install input data from vars file."""
-
-  import cPickle
-  vars_file = open('/tmp/vars')
-  var = cPickle.load(vars_file)
-  vars_file.close()
-  return var
-
-
-def set_var(var):
-  """sets install input data into a vars file."""
-
-  import cPickle
-  vars_file = open('/tmp/vars', 'w')
-  cPickle.dump(var, vars_file, -1)
-  vars_file.close()
-
-
 def pre_log(code, msg=''):
   """logs install messages into /var/log on live filesystem."""
 

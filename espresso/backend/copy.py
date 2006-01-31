@@ -227,9 +227,4 @@ class Copy:
     return True
 
 
-if __name__ == '__main__':
-  mountpoints = misc.get_var()['mountpoints']
-  copy = Copy(mountpoints)
-  copy.run()
-
 # vim:ai:et:sts=2:tw=80:sw=2:

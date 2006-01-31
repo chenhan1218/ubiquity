@@ -38,6 +38,7 @@ def install(type='gtkui'):
     if ( type == 'gtkui' ):
         os.system('gconftool-2 --set /apps/panel/toplevels/top_panel/auto_hide_size --type int 6')
         os.system('gconftool-2 --set /apps/panel/toplevels/top_panel/auto_hide --type boolean false')
+    unmount_target(wizard.get_mountpoints())
 
 def unmount_target(mountpoints):
     for device, path in mountpoints.items():
@@ -59,10 +60,5 @@ if __name__ == '__main__':
     if len(sys.argv) == 2:
         install(sys.argv[1])
     install()
-    if not os.path.isfile('/tmp/vars'):
-        misc.pre_log('error', 'Vars file no found')
-        sys.exit(1)
-    mountpoints = misc.get_var()['mountpoints']
-    unmount_target(mountpoints)
 
 # vim:ai:et:sts=4:tw=80:sw=4:

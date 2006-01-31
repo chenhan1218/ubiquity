@@ -1,7 +1,8 @@
 espresso (0.99.5) UNRELEASED; urgency=low
 
-  * Add get_hostname method to frontends so that components can get at it
-    without the nasty vars file hack.
+  * Add get_hostname and get_mountpoints methods to frontends so that
+    components can get at them without the nasty vars file hack. Remove all
+    code handling the vars file.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 15:39:52 +0000
 

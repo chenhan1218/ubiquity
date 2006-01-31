@@ -398,9 +398,6 @@ class Wizard:
 
     self.next.set_sensitive(False)
 
-    # saving UI input data to vars file
-    self.set_vars_file()
-
     # first image iteration
     self.images_loop()
     # Setting Normal cursor
@@ -409,8 +406,7 @@ class Wizard:
     def wait_thread(queue):
       """wait thread for copy process."""
 
-      mountpoints = get_var()['mountpoints']
-      cp = copy.Copy(mountpoints)
+      cp = copy.Copy(self.mountpoints)
       cp.run(queue)
       queue.put('101')
 
@@ -432,8 +428,7 @@ class Wizard:
     def wait_thread(queue):
       """wait thread for config process."""
 
-      vars = get_var()
-      cf = config.Config(self, vars)
+      cf = config.Config(self)
       cf.run(queue)
       queue.put('101')
 
@@ -483,21 +478,6 @@ class Wizard:
     self.remainder = num % (100/len(self.total_images))
     self.install_progress_bar.set_fraction (num / 100.0)
     self.install_progress_bar.set_text(text)
-
-
-  def set_vars_file(self):
-    """writing vars crypted file to get theses vars accessible from
-    Format, Copy and Config classes."""
-
-    from espresso import misc
-    vars = {}
-    try:
-      vars['mountpoints'] = self.mountpoints
-    except:
-      pre_log('error', 'Missed attrib to write to /tmp/vars')
-      self.quit()
-    else:
-      misc.set_var(vars)
 
 
   def show_error(self, msg):

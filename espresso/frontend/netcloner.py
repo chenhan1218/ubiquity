@@ -87,7 +87,7 @@ class Wizard:
     def config_thread(queue):
       """config thread for config process."""
       pre_log('info', 'Configuring the system...')
-      cf = config.Config(self, self.info)
+      cf = config.Config(self)
       if not cf.run(queue):
         pre_log('error','fail the configure fase')
         self.quit()
@@ -143,11 +143,6 @@ class Wizard:
               mountpoints[device] = mountpoint
             val = mountpoints
           dict[name] = val
- 
- 
-  def set_vars_file(self):
-    from espresso import misc
-    misc.set_var(self.info)
 
 
   def show_error(self, msg):
@@ -189,6 +184,10 @@ class Wizard:
 
   def get_hostname(self):
     return self.info['hostname']
+
+
+  def get_mountpoints(self):
+    return dict(self.info['mountpoints'])
 
 
 if __name__ == '__main__':
