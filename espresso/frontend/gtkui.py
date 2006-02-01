@@ -532,9 +532,9 @@ class Wizard:
 
 
   def on_list_changed(self, widget):
-    """check if partition/mountpoint par is filled and show the next par
-    on mountpoint screen. Also size label associated to partition combobox
-    is changed dinamically to shows the size partition."""
+    """check if partition/mountpoint pair is filled and show the next pair
+    on mountpoint screen. Also size label associated with partition combobox
+    is changed dynamically to show the size partition."""
 
     list_partitions, list_mountpoints, list_sizes, list_partitions_labels, list_mountpoints_labels, list_sizes_labels = [], [], [], [], [], []
 
