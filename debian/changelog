@@ -10,6 +10,8 @@ espresso (0.99.6) UNRELEASED; urgency=low
   * Fix apt-install to install packages in /target, not /.
   * Update the GTK interface much more frequently during the copying and
     configuration processes.
+  * Fix various focus and default-dialog-action settings in the GTK
+    interface.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 21:57:53 +0000
 
