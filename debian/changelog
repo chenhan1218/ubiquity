@@ -7,6 +7,7 @@ espresso (0.99.6) UNRELEASED; urgency=low
     flickering when we make the counter update more often, and paths that
     are only updated at semi-random points every few seconds during the
     copying process are more confusing than interesting.
+  * Fix apt-install to install packages in /target, not /.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 21:57:53 +0000
 
