@@ -68,6 +68,7 @@ class Wizard:
     self.mountpoints = {'/'     : '/dev/hda1',
                         'swap'  : '/dev/hda2',
                         '/home' : '/dev/hda3'}
+    # TODO cjwatson 2006-02-01: convert this to debconffiltered partman
     self.mountpoints = call_autoparted()
     if self.mountpoints is None:
       print 'Autopartioning fail!'

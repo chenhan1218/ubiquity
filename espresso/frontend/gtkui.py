@@ -1151,23 +1151,6 @@ class Wizard:
     gtk.main_quit()
 
 
-# Function "launch_autoparted" _______________________________________________
-def launch_autoparted (wizard, assistant, drive, progress):
-
-  """ Start auto-partitioning process in a separate thread. """
-
-  result = None
-
-  # To set a "busy mouse":
-  wizard.live_installer.window.set_cursor (wizard.watch)
-
-  result = part.call_autoparted (assistant, drive, progress)
-  progress.put ('')
-  progress.put (result)
-
-  # To set normal mouse again:
-  wizard.live_installer.window.set_cursor (None)
-
 if __name__ == '__main__':
   w = Wizard('ubuntu')
   w.run()
