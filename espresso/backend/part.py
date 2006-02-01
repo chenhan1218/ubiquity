@@ -93,7 +93,7 @@ def call_gparted(widget):
       widget.destroy()
       return None
 
-  #FIXME:We need to know how the mounpoints are showed up
+  #FIXME:We need to know how the mountpoints are shown
 
   return out.pid
 

@@ -108,7 +108,7 @@ class Wizard:
           break
         self.set_progress(msg)
 
-    # umounting self.mountpoints (mounpoints user selection)
+    # umounting self.mountpoints (mountpoints user selection)
     umount = copy.Copy(mountpoints)
     umount.umount_target()
 

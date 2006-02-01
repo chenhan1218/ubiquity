@@ -459,7 +459,7 @@ class Wizard:
       else:
         time.sleep(0.1)
 
-    # umounting self.mountpoints (mounpoints user selection)
+    # umounting self.mountpoints (mountpoints user selection)
     umount = copy.Copy(self.mountpoints)
     umount.umount_target()
 
