@@ -63,9 +63,9 @@ import time
 import glob
 import thread
 import xml.sax.saxutils
+import Queue
 
 from gettext import bindtextdomain, textdomain, install
-from Queue import Queue
 
 from espresso.backend import *
 from espresso.validation import *
@@ -411,19 +411,25 @@ class Wizard:
       queue.put('101')
 
     # Starting copy process
-    queue = Queue()
+    queue = Queue.Queue()
     thread.start_new_thread(wait_thread, (queue,))
 
     # setting progress bar status while copy process is running
     while True:
-      msg = str(queue.get())
-      # copy process is ended when '101' is pushed
-      if msg.startswith('101'):
-        break
-      self.set_progress(msg)
+      try:
+        msg = str(queue.get())
+        # copy process is ended when '101' is pushed
+        if msg.startswith('101'):
+          break
+        self.set_progress(msg)
+      except Queue.Empty:
+        pass
       # refreshing UI
-      while gtk.events_pending():
-        gtk.main_iteration()
+      if gtk.events_pending():
+        while gtk.events_pending():
+          gtk.main_iteration()
+      else:
+        time.sleep(0.1)
 
     def wait_thread(queue):
       """wait thread for config process."""
@@ -433,19 +439,25 @@ class Wizard:
       queue.put('101')
 
     # Starting config process
-    queue = Queue()
+    queue = Queue.Queue()
     thread.start_new_thread(wait_thread, (queue,))
 
     # setting progress bar status while config process is running
     while True:
-      msg = str(queue.get())
-      # config process is ended when '101' is pushed
-      if msg.startswith('101'):
-        break
-      self.set_progress(msg)
+      try:
+        msg = str(queue.get_nowait())
+        # config process is ended when '101' is pushed
+        if msg.startswith('101'):
+          break
+        self.set_progress(msg)
+      except Queue.Empty:
+        pass
       # refreshing UI
-      while gtk.events_pending():
-        gtk.main_iteration()
+      if gtk.events_pending():
+        while gtk.events_pending():
+          gtk.main_iteration()
+      else:
+        time.sleep(0.1)
 
     # umounting self.mountpoints (mounpoints user selection)
     umount = copy.Copy(self.mountpoints)

@@ -8,6 +8,8 @@ espresso (0.99.6) UNRELEASED; urgency=low
     are only updated at semi-random points every few seconds during the
     copying process are more confusing than interesting.
   * Fix apt-install to install packages in /target, not /.
+  * Update the GTK interface much more frequently during the copying and
+    configuration processes.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 21:57:53 +0000
 
