@@ -141,15 +141,15 @@ class Copy:
         # We start the counter until 33
         time_start = time.time()
         counter = per
-        queue.put("%s Copying %s%% - [%s]" % (per, per, path))
+        queue.put("%s Copying %s%%" % (per, per))
       elif ( counter != per and per >= 40 ):
         counter = per
         time_left = (time.time()-time_start)*57/(counter - 33) - (time.time()-time_start)
         minutes, seconds = time_left/60, time_left - int(time_left/60)*60
-        queue.put("%s Copying %s%% - %02d:%02d remaining - [%s]" % (per, per, minutes, seconds, path))
+        queue.put("%s Copying %s%% - %02d:%02d remaining" % (per, per, minutes, seconds))
       elif ( counter != per ):
         counter = per
-        queue.put("%s Copying %s%% - [%s]" % (per, per, path))
+        queue.put("%s Copying %s%%" % (per, per))
 
     copy.stdin.close()
     copy.wait()

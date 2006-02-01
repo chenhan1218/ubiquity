@@ -3,6 +3,10 @@ espresso (0.99.6) UNRELEASED; urgency=low
   * Initial work on porting to cdebconf (for speed and for increased
     compatibility with d-i), not enabled by default yet until I've had a
     chance to give it more testing.
+  * Don't display paths while copying the filesystem; it will cause a lot of
+    flickering when we make the counter update more often, and paths that
+    are only updated at semi-random points every few seconds during the
+    copying process are more confusing than interesting.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 21:57:53 +0000
 
