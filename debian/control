@@ -7,7 +7,7 @@ Standards-Version: 3.6.2.1
 
 Package: espresso
 Architecture: any
-Depends: ${misc:Depends}, ${python:Depends}, cdebconf (>= 0.97), espresso-frontend, system-tools-backends, espresso-doc, lsb-release, espresso-utils (>= 1.22ubuntu4), user-setup (>= 0.04ubuntu2), partman (>= 78ubuntu1+2), ${bootloader}
+Depends: ${misc:Depends}, ${python:Depends}, espresso-frontend, system-tools-backends, espresso-doc, lsb-release, espresso-utils (>= 1.22ubuntu4), user-setup (>= 0.04ubuntu2), partman (>= 78ubuntu1+2), ${bootloader}
 Recommends: gparted
 Conflicts: ubuntu-express
 Replaces: ubuntu-express
