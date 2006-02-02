@@ -92,7 +92,7 @@ class DebconfFilter:
         self.subp = subprocess.Popen(
             command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
             preexec_fn=self.subprocess_setup)
-        (self.subin, self.subout) = (subp.stdin, subp.stdout)
+        (self.subin, self.subout) = (self.subp.stdin, self.subp.stdout)
         self.next_go_backup = False
 
     def process_line(self):
