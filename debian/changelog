@@ -13,8 +13,7 @@ espresso (0.99.6) UNRELEASED; urgency=low
   * Fix various focus and default-dialog-action settings in the GTK
     interface.
   * Pad out the text in the debconf progress dialog a bit more.
-  * Refactor DebconfFilter.run() into several pieces; left a run() method
-    there for now for backward compatibility.
+  * Refactor DebconfFilter.run() into several pieces.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 21:57:53 +0000
 

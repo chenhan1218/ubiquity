@@ -31,7 +31,10 @@ class FilteredCommand(object):
 
         # TODO: Set as unseen all questions that we're going to ask.
 
-        ret = dbfilter.run(command)
+        dbfilter.start(command)
+        while dbfilter.process_line():
+            pass
+        ret = dbfilter.wait()
 
         if ret != 0:
             # TODO: error message if ret != 10
