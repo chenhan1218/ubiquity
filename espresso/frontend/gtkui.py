@@ -417,7 +417,7 @@ class Wizard:
     # setting progress bar status while copy process is running
     while True:
       try:
-        msg = str(queue.get())
+        msg = str(queue.get_nowait())
         # copy process is ended when '101' is pushed
         if msg.startswith('101'):
           break
