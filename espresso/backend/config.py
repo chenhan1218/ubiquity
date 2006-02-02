@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from espresso import misc
-from espresso.components import usersetup
+from espresso.components import usersetup_apply
 from espresso.settings import *
 
 import os
@@ -228,7 +228,7 @@ class Config:
     system. Default user from live system is deleted and skel for this new user is
     copied to $HOME."""
 
-    usersetup.UserSetup(self.frontend).apply_configuration()
+    usersetup_apply.UserSetupApply(self.frontend).run_command()
 
     return True
 

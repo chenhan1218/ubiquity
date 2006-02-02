@@ -22,19 +22,23 @@ class FilteredCommand(object):
             message = fmt % args
             print >>sys.stderr, '%s: %s' % (self.package, message)
 
-    def run_command(self, command, question_patterns=[]):
+    def start(self):
+        (command, question_patterns) = self.prepare()
         self.db = DebconfCommunicator(self.package)
         widgets = {}
         for pattern in question_patterns:
             widgets[pattern] = self
-        dbfilter = DebconfFilter(self.db, widgets)
+        self.dbfilter = DebconfFilter(self.db, widgets)
 
         # TODO: Set as unseen all questions that we're going to ask.
 
-        dbfilter.start(command)
-        while dbfilter.process_line():
-            pass
-        ret = dbfilter.wait()
+        self.dbfilter.start(command)
+
+    def process_line(self):
+        return self.dbfilter.process_line()
+
+    def wait(self):
+        ret = self.dbfilter.wait()
 
         if ret != 0:
             # TODO: error message if ret != 10
@@ -43,6 +47,12 @@ class FilteredCommand(object):
         self.db.shutdown()
 
         return ret
+
+    def run_command(self):
+        self.start()
+        while self.process_line():
+            pass
+        return self.wait()
 
     # Split a string on commas, stripping surrounding whitespace, and
     # honouring backslash-quoting.
