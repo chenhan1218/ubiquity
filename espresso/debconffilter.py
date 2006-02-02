@@ -88,149 +88,151 @@ class DebconfFilter:
         else:
             os.environ['PERL_DL_NONLAZY'] = '1'
 
-    def run(self, command):
-        subp = subprocess.Popen(command,
-                                stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                                preexec_fn=self.subprocess_setup)
+    def start(self, command):
+        self.subp = subprocess.Popen(
+            command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+            preexec_fn=self.subprocess_setup)
         (self.subin, self.subout) = (subp.stdin, subp.stdout)
-        next_go_backup = False
+        self.next_go_backup = False
 
-        while True:
-            line = self.subout.readline()
-            if line == '':
-                break
+    def process_line(self):
+        line = self.subout.readline()
+        if line == '':
+            return False
 
-            line = line.rstrip('\n')
-            params = line.split(' ')
-            if not params:
-                continue
-            command = params[0].upper()
-            params = params[1:]
+        line = line.rstrip('\n')
+        params = line.split(' ')
+        if not params:
+            return True
+        command = params[0].upper()
+        params = params[1:]
 
-            self.debug('filter', '<--', command, *params)
+        self.debug('filter', '<--', command, *params)
 
-            if line == '' or line.startswith(' '):
-                # Work around confmodules that try to send multi-line
-                # commands; this works (sort of, and by fluke) in cdebconf,
-                # but debconf doesn't like it.
-                self.debug('filter', 'ignoring unknown (multi-line?) command')
-                continue
+        if line == '' or line.startswith(' '):
+            # Work around confmodules that try to send multi-line commands;
+            # this works (sort of, and by fluke) in cdebconf, but debconf
+            # doesn't like it.
+            self.debug('filter', 'ignoring unknown (multi-line?) command')
+            return True
 
-            if command == 'INPUT' and len(params) == 2:
-                (priority, question) = params
-                input_widgets = self.find_widgets([question])
+        if command == 'INPUT' and len(params) == 2:
+            (priority, question) = params
+            input_widgets = self.find_widgets([question])
 
-                if len(input_widgets) > 0:
-                    self.debug('filter', 'widget found for', question)
-                    if not input_widgets[0].run(priority, question):
-                        self.debug('filter', 'widget requested backup')
-                        next_go_backup = True
-                    else:
-                        next_go_backup = False
-                    self.reply(0, 'question will be asked', log=True)
-                    continue
-                elif 'ERROR' in self.widgets:
-                    # If it's an error template, fall back to generic error
-                    # handling.
-                    try:
-                        if self.db.metaget(question, 'Type') == 'error':
-                            widget = self.widgets['ERROR']
-                            self.debug('filter', 'error widget found for',
-                                       question)
-                            if not widget.error(priority, question):
-                                self.debug('filter', 'widget requested backup')
-                                next_go_backup = True
-                            else:
-                                next_go_backup = False
-                            self.reply(0, 'question will be asked', log=True)
-                            continue
-                    except debconf.DebconfError:
-                        pass
+            if len(input_widgets) > 0:
+                self.debug('filter', 'widget found for', question)
+                if not input_widgets[0].run(priority, question):
+                    self.debug('filter', 'widget requested backup')
+                    self.next_go_backup = True
+                else:
+                    self.next_go_backup = False
+                self.reply(0, 'question will be asked', log=True)
+                return True
+            elif 'ERROR' in self.widgets:
+                # If it's an error template, fall back to generic error
+                # handling.
+                try:
+                    if self.db.metaget(question, 'Type') == 'error':
+                        widget = self.widgets['ERROR']
+                        self.debug('filter', 'error widget found for',
+                                   question)
+                        if not widget.error(priority, question):
+                            self.debug('filter', 'widget requested backup')
+                            self.next_go_backup = True
+                        else:
+                            self.next_go_backup = False
+                        self.reply(0, 'question will be asked', log=True)
+                        return True
+                except debconf.DebconfError:
+                    pass
 
-            if command == 'SET' and len(params) == 2:
-                (question, value) = params
-                for widget in self.find_widgets([question], 'set'):
-                    self.debug('filter', 'widget found for', question)
-                    widget.set(question, value)
+        if command == 'SET' and len(params) == 2:
+            (question, value) = params
+            for widget in self.find_widgets([question], 'set'):
+                self.debug('filter', 'widget found for', question)
+                widget.set(question, value)
 
-            if command == 'SUBST' and len(params) == 3:
-                (question, key, value) = params
-                for widget in self.find_widgets([question], 'subst'):
-                    self.debug('filter', 'widget found for', question)
-                    widget.subst(question, key, value)
+        if command == 'SUBST' and len(params) == 3:
+            (question, key, value) = params
+            for widget in self.find_widgets([question], 'subst'):
+                self.debug('filter', 'widget found for', question)
+                widget.subst(question, key, value)
 
-            if command == 'METAGET' and len(params) == 2:
-                (question, field) = params
-                for widget in self.find_widgets([question], 'metaget'):
-                    self.debug('filter', 'widget found for', question)
-                    widget.metaget(question, field)
+        if command == 'METAGET' and len(params) == 2:
+            (question, field) = params
+            for widget in self.find_widgets([question], 'metaget'):
+                self.debug('filter', 'widget found for', question)
+                widget.metaget(question, field)
 
-            if command == 'PROGRESS' and len(params) >= 1:
-                subcommand = params[0].upper()
-                if subcommand == 'START' and len(params) == 4:
-                    progress_min = int(params[1])
-                    progress_max = int(params[2])
-                    progress_title = params[3]
+        if command == 'PROGRESS' and len(params) >= 1:
+            subcommand = params[0].upper()
+            if subcommand == 'START' and len(params) == 4:
+                progress_min = int(params[1])
+                progress_max = int(params[2])
+                progress_title = params[3]
+                for widget in self.find_widgets(
+                        [progress_title, 'PROGRESS'], 'progress_start'):
+                    self.debug('filter', 'widget found for', progress_title)
+                    widget.progress_start(progress_min, progress_max,
+                                          progress_title)
+                self.progress_bar = progress_title
+            elif self.progress_bar is not None:
+                if subcommand == 'SET' and len(params) == 2:
+                    progress_val = int(params[1])
                     for widget in self.find_widgets(
-                            [progress_title, 'PROGRESS'], 'progress_start'):
-                        self.debug('filter', 'widget found for', progress_title)
-                        widget.progress_start(progress_min, progress_max,
-                                              progress_title)
-                    self.progress_bar = progress_title
-                elif self.progress_bar is not None:
-                    if subcommand == 'SET' and len(params) == 2:
-                        progress_val = int(params[1])
-                        for widget in self.find_widgets(
-                                [self.progress_bar, 'PROGRESS'],
-                                'progress_set'):
-                            self.debug('filter', 'widget found for',
-                                       self.progress_bar)
-                            widget.progress_set(self.progress_bar,
-                                                progress_val)
-                    elif subcommand == 'STEP' and len(params) == 2:
-                        progress_inc = int(params[1])
-                        for widget in self.find_widgets(
-                                [self.progress_bar, 'PROGRESS'],
-                                'progress_step'):
-                            self.debug('filter', 'widget found for',
-                                       self.progress_bar)
-                            widget.progress_step(self.progress_bar,
-                                                 progress_inc)
-                    elif subcommand == 'INFO' and len(params) == 2:
-                        progress_info = params[1]
-                        for widget in self.find_widgets(
-                                [self.progress_bar, 'PROGRESS'],
-                                'progress_info'):
-                            self.debug('filter', 'widget found for',
-                                       self.progress_bar)
-                            widget.progress_info(self.progress_bar,
-                                                 progress_info)
-                    elif subcommand == 'STOP' and len(params) == 1:
-                        for widget in self.find_widgets(
-                                [self.progress_bar, 'PROGRESS'],
-                                'progress_stop'):
-                            self.debug('filter', 'widget found for',
-                                       self.progress_bar)
-                            widget.progress_stop(self.progress_bar)
-                        self.progress_bar = None
+                            [self.progress_bar, 'PROGRESS'], 'progress_set'):
+                        self.debug('filter', 'widget found for',
+                                   self.progress_bar)
+                        widget.progress_set(self.progress_bar, progress_val)
+                elif subcommand == 'STEP' and len(params) == 2:
+                    progress_inc = int(params[1])
+                    for widget in self.find_widgets(
+                            [self.progress_bar, 'PROGRESS'], 'progress_step'):
+                        self.debug('filter', 'widget found for',
+                                   self.progress_bar)
+                        widget.progress_step(self.progress_bar, progress_inc)
+                elif subcommand == 'INFO' and len(params) == 2:
+                    progress_info = params[1]
+                    for widget in self.find_widgets(
+                            [self.progress_bar, 'PROGRESS'], 'progress_info'):
+                        self.debug('filter', 'widget found for',
+                                   self.progress_bar)
+                        widget.progress_info(self.progress_bar, progress_info)
+                elif subcommand == 'STOP' and len(params) == 1:
+                    for widget in self.find_widgets(
+                            [self.progress_bar, 'PROGRESS'], 'progress_stop'):
+                        self.debug('filter', 'widget found for',
+                                   self.progress_bar)
+                        widget.progress_stop(self.progress_bar)
+                    self.progress_bar = None
 
-            if command == 'GO' and next_go_backup:
-                self.reply(30, 'backup', log=True)
-                continue
+        if command == 'GO' and self.next_go_backup:
+            self.reply(30, 'backup', log=True)
+            return True
 
-            if command == 'STOP':
-                continue
+        if command == 'STOP':
+            return True
 
-            try:
-                data = self.db.command(command, *params)
-                self.reply(0, data)
+        try:
+            data = self.db.command(command, *params)
+            self.reply(0, data)
 
-                # Visible elements reset the backup state. If we just reset
-                # the backup state on GO, then invisible elements would not
-                # be properly skipped over in multi-stage backups.
-                if command == 'INPUT':
-                    next_go_backup = False
-            except debconf.DebconfError, e:
-                self.reply(*e.args)
+            # Visible elements reset the backup state. If we just reset the
+            # backup state on GO, then invisible elements would not be
+            # properly skipped over in multi-stage backups.
+            if command == 'INPUT':
+                self.next_go_backup = False
+        except debconf.DebconfError, e:
+            self.reply(*e.args)
 
-        return subp.wait()
+        return True
+
+    def wait(self):
+        return self.subp.wait()
+
+    def run(self, command):
+        self.start(command)
+        while self.process_line():
+            pass
+        return self.wait()
