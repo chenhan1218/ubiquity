@@ -1039,8 +1039,8 @@ class Wizard:
   # Callbacks provided to components.
 
   def debconf_progress_start (self, progress_min, progress_max, progress_title):
-    self.progress_dialog.set_transient_for(self.live_installer)
-    self.progress_dialog.set_title(progress_title)
+    self.debconf_progress_dialog.set_transient_for(self.live_installer)
+    self.debconf_progress_dialog.set_title(progress_title)
     self.progress_title.set_markup(
       '<b>' + xml.sax.saxutils.escape(progress_title) + '</b>')
     self.progress_bar.set_fraction(0)
@@ -1048,7 +1048,7 @@ class Wizard:
     self.progress_min = progress_min
     self.progress_max = progress_max
     self.progress_cur = progress_min
-    self.progress_dialog.show()
+    self.debconf_progress_dialog.show()
 
   def debconf_progress_set (self, progress_val):
     self.progress_cur = progress_val
@@ -1065,7 +1065,7 @@ class Wizard:
       '<i>' + xml.sax.saxutils.escape(progress_info) + '</i>')
 
   def debconf_progress_stop (self):
-    self.progress_dialog.hide()
+    self.debconf_progress_dialog.hide()
 
 
   def set_autopartition_choices (self, choices, resize_choice, manual_choice):
