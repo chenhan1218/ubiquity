@@ -788,7 +788,7 @@ class Wizard:
     elif ( len(list_partitions) < len(list_mountpoints) ):
       error_msg.append("· Partición sin seleccionar.\n\n")
 
-    if not partman_commit.PartmanCommit(self).run_command():
+    if partman_commit.PartmanCommit(self).run_command() != 0:
         return
 
     # Checking duplicated devices
