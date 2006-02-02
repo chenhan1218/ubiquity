@@ -12,7 +12,7 @@ espresso (0.99.6) UNRELEASED; urgency=low
     configuration processes.
   * Fix various focus and default-dialog-action settings in the GTK
     interface.
-  * Pad out the text in the progress dialog a bit more.
+  * Pad out the text in the debconf progress dialog a bit more.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 21:57:53 +0000
 
