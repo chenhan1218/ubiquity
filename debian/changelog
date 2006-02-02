@@ -1,4 +1,4 @@
-espresso (0.99.6) UNRELEASED; urgency=low
+espresso (0.99.6) dapper; urgency=low
 
   * Initial work on porting to cdebconf (for speed and for increased
     compatibility with d-i), not enabled by default yet until I've had a
@@ -17,7 +17,7 @@ espresso (0.99.6) UNRELEASED; urgency=low
   * Rely on corrected return value from PartmanCommit.run_command().
     Requires partman (>= 78ubuntu1+3).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jan 2006 21:57:53 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  2 Feb 2006 17:56:29 +0000
 
 espresso (0.99.5) dapper; urgency=low
 
