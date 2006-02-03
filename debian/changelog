@@ -1,3 +1,10 @@
+espresso (0.99.8) UNRELEASED; urgency=low
+
+  * Use new target-config hooks from espresso-casper rather than copying
+    xorg.conf and (wrongly) reconfiguring gnome-panel-data ourselves.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  3 Feb 2006 16:12:14 +0000
+
 espresso (0.99.7) dapper; urgency=low
 
   * Refactor FilteredCommand.run_command() into several pieces, leaving a
