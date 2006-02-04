@@ -17,85 +17,85 @@ from espresso.backend.part import call_autoparted, call_gparted
 
 
 class Wizard:
-  '''
-  This is a wizard interface to interact with the user and the 
-  main program. It has some basic methods:
-   - set_progress()
-   - get_info()
-   - get_partitions()
-  '''
-  def __init__(self):
-    debconf.runFrontEnd()
-    self.db = debconf.Debconf()
-
-  def set_progress(self,num,msg=''):
-    '''set_progress(num, msg='') -> none
-
-    Put the progress bar in the 'num' percent and if
-    there is any value in 'msg', this method print it.
     '''
-    print "%d\t%s" % (num,msg)
-
-  def get_info(self):
-    '''get_info() -> [hostname, fullname, name, password]
-
-    Get from the Debconf database the information about
-    hostname and user. Return a list with those values.
+    This is a wizard interface to interact with the user and the 
+    main program. It has some basic methods:
+     - set_progress()
+     - get_info()
+     - get_partitions()
     '''
-    info = []
-    info.append(open('/etc/hostname').readline().strip())
-    info.append(self.db.get('passwd/user-fullname'))
-    info.append(self.db.get('passwd/username'))
-    info.append(self.db.get('passwd/user-password'))
-    return info
-    
-  def get_partitions(self):
-    '''get_partitions() -> dict {'mount point' : 'dev'}
+    def __init__(self):
+        debconf.runFrontEnd()
+        self.db = debconf.Debconf()
 
-    Get the information to be able to partitioning the disk.
-    Partitioning the disk and return a dict with the pairs
-    mount point and device.
-    At least, there must be 2 partitions: / and swap.
-    '''
-    #FIXME: We've to put here the autopartitioning stuff
-    
-    # This is just a example info.
-    # We should take that info from the debconf
-    # Something like:
-    # re = self.db.get('espresso/mountpoints')
-    # for path, dev in re:
-    #   mountpoints[path] = dev
-    self.mountpoints = {'/'     : '/dev/hda1',
-                        'swap'  : '/dev/hda2',
-                        '/home' : '/dev/hda3'}
-    # TODO cjwatson 2006-02-01: convert this to debconffiltered partman
-    self.mountpoints = call_autoparted()
-    if self.mountpoints is None:
-      print 'Autopartioning fail!'
+    def set_progress(self,num,msg=''):
+        '''set_progress(num, msg='') -> none
 
-    return self.mountpoints
+        Put the progress bar in the 'num' percent and if
+        there is any value in 'msg', this method print it.
+        '''
+        print "%d\t%s" % (num,msg)
 
-  def run_main_loop(self):
-    pass
+    def get_info(self):
+        '''get_info() -> [hostname, fullname, name, password]
 
-  def quit_main_loop(self):
-    pass
+        Get from the Debconf database the information about
+        hostname and user. Return a list with those values.
+        '''
+        info = []
+        info.append(open('/etc/hostname').readline().strip())
+        info.append(self.db.get('passwd/user-fullname'))
+        info.append(self.db.get('passwd/username'))
+        info.append(self.db.get('passwd/user-password'))
+        return info
+        
+    def get_partitions(self):
+        '''get_partitions() -> dict {'mount point' : 'dev'}
 
-  def get_hostname(self):
-    return self.get_info()[0]
+        Get the information to be able to partitioning the disk.
+        Partitioning the disk and return a dict with the pairs
+        mount point and device.
+        At least, there must be 2 partitions: / and swap.
+        '''
+        #FIXME: We've to put here the autopartitioning stuff
+        
+        # This is just a example info.
+        # We should take that info from the debconf
+        # Something like:
+        # re = self.db.get('espresso/mountpoints')
+        # for path, dev in re:
+        #     mountpoints[path] = dev
+        self.mountpoints = {'/'         : '/dev/hda1',
+                                                'swap'    : '/dev/hda2',
+                                                '/home' : '/dev/hda3'}
+        # TODO cjwatson 2006-02-01: convert this to debconffiltered partman
+        self.mountpoints = call_autoparted()
+        if self.mountpoints is None:
+            print 'Autopartioning fail!'
 
-  def get_mountpoints(self):
-    return dict(self.mountpoints)
+        return self.mountpoints
+
+    def run_main_loop(self):
+        pass
+
+    def quit_main_loop(self):
+        pass
+
+    def get_hostname(self):
+        return self.get_info()[0]
+
+    def get_mountpoints(self):
+        return dict(self.mountpoints)
 
 if __name__ == '__main__':
-  w = Wizard()
-  hostname, fullname, name, password = w.get_info()
-  print '''
-  Hostname: %s
-  User Full name: %s
-  Username: %s
-  Password: %s
-  Mountpoints : %s
-  ''' % (hostname, fullname, name, password, w.get_partitions())
+    w = Wizard()
+    hostname, fullname, name, password = w.get_info()
+    print '''
+    Hostname: %s
+    User Full name: %s
+    Username: %s
+    Password: %s
+    Mountpoints : %s
+    ''' % (hostname, fullname, name, password, w.get_partitions())
 
-# vim:ai:et:sts=2:tw=80:sw=2:
+# vim:ai:et:sts=4:tw=80:sw=4:
