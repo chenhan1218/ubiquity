@@ -569,17 +569,6 @@ class Wizard:
         list_sizes[index].set_text(self.set_size_msg(list_partitions[index]))
 
 
-  def on_key_press (self, widget, event):
-    """capture return key on live installer to go to next
-    screen only if Next button has the focus."""
-
-    # mapping enter key to get more usability
-    if ( event.keyval == gtk.gdk.keyval_from_name('Return') ) :
-      if ( not self.back.get_property('has-focus')
-        and not self.cancel.get_property('has-focus') ):
-        self.next.clicked()
-
-
   def info_loop(self, widget):
     """check if all entries from Identification screen are filled. Callback
     defined in glade file."""
