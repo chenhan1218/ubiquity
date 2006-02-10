@@ -10,6 +10,12 @@ except ImportError:
     from espresso.debconfcommunicator import DebconfCommunicator
 from espresso.debconffilter import DebconfFilter
 
+# Bitfield constants for process_input and process_output.
+DEBCONF_IO_IN = 1
+DEBCONF_IO_OUT = 2
+DEBCONF_IO_ERR = 4
+DEBCONF_IO_HUP = 8
+
 class FilteredCommand(object):
     def __init__(self, frontend):
         self.frontend = frontend
@@ -22,8 +28,16 @@ class FilteredCommand(object):
             message = fmt % args
             print >>sys.stderr, '%s: %s' % (self.package, message)
 
-    def start(self):
-        (command, question_patterns) = self.prepare()
+    def start(self, auto_process=False):
+        self.status = None
+        (self.command, question_patterns) = self.prepare()
+        self.ui_loop_level = 0
+
+        self.debug("Starting up '%s' for %s.%s", self.command,
+                   self.__class__.__module__, self.__class__.__name__)
+        self.debug("Watching for question patterns %s",
+                   ', '.join(question_patterns))
+
         self.db = DebconfCommunicator(self.package)
         widgets = {}
         for pattern in question_patterns:
@@ -32,7 +46,12 @@ class FilteredCommand(object):
 
         # TODO: Set as unseen all questions that we're going to ask.
 
-        self.dbfilter.start(command)
+        if auto_process:
+            self.dbfilter.start(self.command, blocking=False)
+            self.frontend.watch_debconf_fd(
+                self.dbfilter.subout_fd, self.process_input)
+        else:
+            self.dbfilter.start(self.command, blocking=True)
 
     def process_line(self):
         return self.dbfilter.process_line()
@@ -42,7 +61,7 @@ class FilteredCommand(object):
 
         if ret != 0:
             # TODO: error message if ret != 10
-            self.debug("%s exited with code %d", command, ret)
+            self.debug("%s exited with code %d", self.command, ret)
 
         self.db.shutdown()
 
@@ -53,6 +72,27 @@ class FilteredCommand(object):
         while self.process_line():
             pass
         return self.wait()
+
+    def process_input(self, source, condition):
+        if source != self.dbfilter.subout_fd:
+            return True
+
+        call_again = True
+
+        if condition & DEBCONF_IO_IN:
+            if not self.process_line():
+                call_again = False
+
+        if (condition & DEBCONF_IO_ERR) or (condition & DEBCONF_IO_HUP):
+            call_again = False
+
+        if not call_again:
+            # TODO cjwatson 2006-02-08: We hope this happens quickly! It
+            # would be better to do this out-of-band somehow.
+            self.status = self.wait()
+            self.frontend.debconffilter_done(self)
+
+        return call_again
 
     # Split a string on commas, stripping surrounding whitespace, and
     # honouring backslash-quoting.
@@ -123,7 +163,9 @@ class FilteredCommand(object):
     def ok_handler(self):
         self.succeeded = True
         self.done = True
-        self.frontend.quit_main_loop()
+        if self.ui_loop_level > 0:
+            self.ui_loop_level -= 1
+            self.frontend.quit_main_loop()
 
     # User selected Cancel, Back, or similar. Subclasses should override
     # this to send user-entered information back to debconf (perhaps using
@@ -133,11 +175,14 @@ class FilteredCommand(object):
     def cancel_handler(self):
         self.succeeded = False
         self.done = True
-        self.frontend.quit_main_loop()
+        if self.ui_loop_level > 0:
+            self.ui_loop_level -= 1
+            self.frontend.quit_main_loop()
 
     def error(self, priority, question):
         self.succeeded = False
         self.done = False
+        self.ui_loop_level += 1
         self.frontend.run_main_loop()
         return True
 
@@ -148,6 +193,7 @@ class FilteredCommand(object):
         self.current_question = question
         if not self.done:
             self.succeeded = False
+            self.ui_loop_level += 1
             self.frontend.run_main_loop()
         return self.succeeded
 

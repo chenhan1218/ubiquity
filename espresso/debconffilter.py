@@ -19,6 +19,8 @@
 
 import sys
 import os
+import fcntl
+import errno
 import subprocess
 import re
 import debconf
@@ -57,10 +59,41 @@ class DebconfFilter:
         else:
             self.debug_re = None
         self.progress_bar = None
+        self.toread = ''
+        self.toreadpos = 0
+        self.towrite = ''
+        self.towritepos = 0
 
     def debug(self, key, *args):
         if self.debug_re is not None and self.debug_re.search(key):
             print >>sys.stderr, "debconf (%s):" % key, ' '.join(args)
+
+    # Returns None if non-blocking and can't read a full line right now;
+    # returns '' at end of file; otherwise as fileobj.readline().
+    def tryreadline(self):
+        while True:
+            newlinepos = self.toread.find('\n', self.toreadpos)
+            if newlinepos != -1:
+                ret = self.toread[self.toreadpos:newlinepos + 1]
+                self.toreadpos = newlinepos + 1
+                if self.toreadpos >= len(self.toread):
+                    self.toread = ''
+                    self.toreadpos = 0
+                return ret
+
+            try:
+                text = os.read(self.subout_fd, 512)
+                if text == '':
+                    ret = self.toread
+                    self.toread = ''
+                    self.toreadpos = 0
+                    return ret
+                self.toread += text
+            except OSError, (err, _):
+                if err == errno.EAGAIN or err == errno.EWOULDBLOCK:
+                    return None
+                else:
+                    raise
 
     def reply(self, code, text='', log=False):
         ret = '%d %s' % (code, text)
@@ -88,15 +121,24 @@ class DebconfFilter:
         else:
             os.environ['PERL_DL_NONLAZY'] = '1'
 
-    def start(self, command):
+    def start(self, command, blocking=True):
         self.subp = subprocess.Popen(
             command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
             preexec_fn=self.subprocess_setup)
-        (self.subin, self.subout) = (self.subp.stdin, self.subp.stdout)
+        self.subin = self.subp.stdin
+        self.subout = self.subp.stdout
+        self.subout_fd = self.subout.fileno()
+        self.blocking = blocking
+        if not self.blocking:
+            flags = fcntl.fcntl(self.subout_fd, fcntl.F_GETFL)
+            fcntl.fcntl(self.subout_fd, fcntl.F_SETFL, flags | os.O_NONBLOCK)
         self.next_go_backup = False
+        self.waiting = False
 
     def process_line(self):
-        line = self.subout.readline()
+        line = self.tryreadline()
+        if line is None:
+            return True
         if line == '':
             return False
 
@@ -229,7 +271,10 @@ class DebconfFilter:
         return True
 
     def wait(self):
-        return self.subp.wait()
+        if self.subin is not None and self.subout is not None:
+            self.subin = None
+            self.subout = None
+            return self.subp.wait()
 
     def run(self, command):
         self.start(command)
