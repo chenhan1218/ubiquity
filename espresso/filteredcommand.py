@@ -161,6 +161,19 @@ class FilteredCommand(object):
     def preseed_as_c(self, name, value, seen=True):
         self.preseed(name, self.translate_to_c(name, value), seen)
 
+    # Cause the frontend to enter a recursive main loop. Will block until
+    # something causes the frontend to exit that loop (probably by calling
+    # exit_ui_loops).
+    def enter_ui_loop(self):
+        self.ui_loop_level += 1
+        self.frontend.run_main_loop()
+
+    # Exit any recursive main loops we caused the frontend to enter.
+    def exit_ui_loops(self):
+        while self.ui_loop_level > 0:
+            self.ui_loop_level -= 1
+            self.frontend.quit_main_loop()
+
     # User selected OK, Forward, or similar. Subclasses should override this
     # to send user-entered information back to debconf (perhaps using
     # preseed()) and return control to the filtered command. After this
@@ -169,9 +182,7 @@ class FilteredCommand(object):
     def ok_handler(self):
         self.succeeded = True
         self.done = True
-        if self.ui_loop_level > 0:
-            self.ui_loop_level -= 1
-            self.frontend.quit_main_loop()
+        self.exit_ui_loops()
 
     # User selected Cancel, Back, or similar. Subclasses should override
     # this to send user-entered information back to debconf (perhaps using
@@ -181,15 +192,12 @@ class FilteredCommand(object):
     def cancel_handler(self):
         self.succeeded = False
         self.done = True
-        if self.ui_loop_level > 0:
-            self.ui_loop_level -= 1
-            self.frontend.quit_main_loop()
+        self.exit_ui_loops()
 
     def error(self, priority, question):
         self.succeeded = False
         self.done = False
-        self.ui_loop_level += 1
-        self.frontend.run_main_loop()
+        self.enter_ui_loop()
         return True
 
     # The confmodule asked a question; process it. Subclasses only need to
@@ -199,8 +207,7 @@ class FilteredCommand(object):
         self.current_question = question
         if not self.done:
             self.succeeded = False
-            self.ui_loop_level += 1
-            self.frontend.run_main_loop()
+            self.enter_ui_loop()
         return self.succeeded
 
     # Default progress bar handling: just pass it through to the frontend.
