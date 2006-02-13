@@ -48,6 +48,12 @@ class FilteredCommand(object):
 
         if auto_process:
             self.dbfilter.start(self.command, blocking=False)
+            # Clearly, this isn't enough for full non-blocking operation.
+            # However, debconf itself is generally quick, and the confmodule
+            # will generally be listening for a reply when we try to send
+            # one; the slow bit is waiting for the confmodule to decide to
+            # send a command. Therefore, this is the only file descriptor we
+            # bother to watch, which greatly simplifies our life.
             self.frontend.watch_debconf_fd(
                 self.dbfilter.subout_fd, self.process_input)
         else:
