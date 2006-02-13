@@ -73,11 +73,15 @@ class FilteredCommand(object):
 
         return ret
 
-    def run_command(self):
-        self.start()
-        while self.process_line():
-            pass
-        return self.wait()
+    def run_command(self, auto_process=False):
+        self.start(auto_process=auto_process)
+        if auto_process:
+            self.enter_ui_loop()
+            return self.status
+        else:
+            while self.process_line():
+                pass
+            return self.wait()
 
     def process_input(self, source, condition):
         if source != self.dbfilter.subout_fd:
