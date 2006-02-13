@@ -615,7 +615,8 @@ class Wizard:
 
     if self.dbfilter is not None:
       self.dbfilter.ok_handler()
-      # expect debconffilter_done() to be called when the filter exits
+      # expect recursive main loops to be exited and debconffilter_done() to
+      # be called when the filter exits
     else:
       gtk.main_quit()
 

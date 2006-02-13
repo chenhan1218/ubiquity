@@ -96,6 +96,7 @@ class FilteredCommand(object):
             # TODO cjwatson 2006-02-08: We hope this happens quickly! It
             # would be better to do this out-of-band somehow.
             self.status = self.wait()
+            self.exit_ui_loops()
             self.frontend.debconffilter_done(self)
 
         return call_again
