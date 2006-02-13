@@ -13,7 +13,7 @@ determined from the running system.
 
 import debconf
     
-from espresso.backend.part import call_autoparted, call_gparted
+from espresso.backend.part import call_autoparted
 
 
 class Wizard:
