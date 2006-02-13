@@ -229,9 +229,7 @@ class Config:
     copied to $HOME."""
 
     dbfilter = usersetup_apply.UserSetupApply(self.frontend)
-    dbfilter.run_command(auto_process=True)
-
-    return True
+    return (dbfilter.run_command(auto_process=True) == 0)
 
 
   def configure_hostname(self):
@@ -298,8 +296,7 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
     try:
       from espresso.components import grubinstaller
       dbfilter = grubinstaller.GrubInstaller(self.frontend)
-      dbfilter.run_command(auto_process=True)
-      ret = True
+      ret = (dbfilter.run_command(auto_process=True) == 0)
     except ImportError:
       ret = False
 
