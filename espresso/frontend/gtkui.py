@@ -62,6 +62,7 @@ import gtk.glade
 import os
 import time
 import glob
+import subprocess
 import thread
 import xml.sax.saxutils
 import Queue
@@ -779,8 +780,28 @@ class Wizard:
     elif ( len(list_partitions) < len(list_mountpoints) ):
       error_msg.append("· Partición sin seleccionar.\n\n")
 
+    gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
+    gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
+    gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
+    gconf_previous = {}
+    for gconf_key in (gvm_automount_drives, gvm_automount_media):
+      subp = subprocess.Popen(['gconftool-2', '--config-source', gconf_dir,
+                               '--get', gconf_key],
+                              stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+      gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
+      if gconf_previous[gconf_key] != 'false':
+        subprocess.call(['gconftool-2', '--set', gconf_key,
+                         '--type', 'bool', 'false'])
+
     if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
         return
+
+    for gconf_key in (gvm_automount_drives, gvm_automount_media):
+      if gconf_previous[gconf_key] == '':
+        subprocess.call(['gconftool-2', '--unset', gconf_key])
+      elif gconf_previous[gconf_key] != 'false':
+        subprocess.call(['gconftool-2', '--set', gconf_key,
+                         '--type', 'bool', gconf_previous[gconf_key]])
 
     # Checking duplicated devices
     for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
