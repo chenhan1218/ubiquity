@@ -313,9 +313,8 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
     for word in args:
       msg += str(word) + ' '
     if not misc.ex('chroot', self.target, *args):
-      misc.post_log('error', 'chroot' + msg)
+      misc.post_log('error', 'chroot ' + msg)
       return False
-    misc.post_log('info', 'chroot' + msg)
     return True
 
 
