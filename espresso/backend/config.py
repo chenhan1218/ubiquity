@@ -28,66 +28,66 @@ class Config:
     """Run configuration stage. These are the last steps to launch in live
     installer."""
 
-    queue.put('91 91% Configuring installed system')
+    queue.put('91 Configuring installed system')
     misc.post_log('info', 'Configuring distro')
     if self.run_target_config_hooks():
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    queue.put('92 92% Configuring system locales')
+    queue.put('92 Configuring system locales')
     misc.post_log('info', 'Configuring distro')
     if self.get_locales():
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    queue.put('93 93% Configuring mount points')
+    queue.put('93 Configuring mount points')
     misc.post_log('info', 'Configuring distro')
     if self.configure_fstab():
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    #queue.put('94 94% Configure time zone')
+    #queue.put('94 Configure time zone')
     #misc.post_log('info', 'Configuring distro')
     #if self.configure_timezone():
     #  misc.post_log('info', 'Configured distro')
     #else:
     #  misc.post_log('error', 'Configuring distro')
     #  return False
-    queue.put('95 95% Creating user')
+    queue.put('95 Creating user')
     misc.post_log('info', 'Configuring distro')
     if self.configure_user():
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    queue.put('96 96% Configuring hardware')
+    queue.put('96 Configuring hardware')
     misc.post_log('info', 'Configuring distro')
     if self.configure_hardware():
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    queue.put('97 97% Configuring network')
+    queue.put('97 Configuring network')
     misc.post_log('info', 'Configuring distro')
     if self.configure_network():
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    queue.put('98 98% Setting computer name')
+    queue.put('98 Setting computer name')
     misc.post_log('info', 'Configuring distro')
     if self.configure_hostname():
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')
       return False
-    queue.put('99 99% Configuring boot loader')
+    queue.put('99 Configuring boot loader')
     misc.post_log('info', 'Configuring distro')
     if self.configure_bootloader():
-      queue.put('100 100% Installation complete')
+      queue.put('100 Installation complete')
       misc.post_log('info', 'Configured distro')
     else:
       misc.post_log('error', 'Configuring distro')

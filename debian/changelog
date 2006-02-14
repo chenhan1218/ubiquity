@@ -1,3 +1,12 @@
+espresso (0.99.10) UNRELEASED; urgency=low
+
+  * Move the installation progress bar and the final message to separate
+    windows, per https://wiki.ubuntu.com/UbuntuExpress/GnomeUserInterface.
+  * Remove all the screenshots. We'll replace these with an animated demo
+    when that's ready.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 14 Feb 2006 17:15:33 +0000
+
 espresso (0.99.9) dapper; urgency=low
 
   * Drop on_key_press handler from GTK frontend; setting has_default on the
