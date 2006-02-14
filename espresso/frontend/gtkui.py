@@ -184,6 +184,10 @@ class Wizard:
     else:
       logo = os.path.join(PIXMAPSDIR, "logo_1024.jpg")
       photo = os.path.join(PIXMAPSDIR, "photo_1024.jpg")
+    if not os.path.exists(logo):
+      logo = None
+    if not os.path.exists(photo):
+      photo = None
 
     self.logo_image0.set_from_file(logo)
     self.logo_image1.set_from_file(logo)

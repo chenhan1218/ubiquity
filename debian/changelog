@@ -4,6 +4,7 @@ espresso (0.99.10) UNRELEASED; urgency=low
     windows, per https://wiki.ubuntu.com/UbuntuExpress/GnomeUserInterface.
   * Remove all the screenshots. We'll replace these with an animated demo
     when that's ready.
+  * Avoid broken-image icons if logo or photo images aren't available.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 14 Feb 2006 17:15:33 +0000
 
