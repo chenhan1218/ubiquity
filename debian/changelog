@@ -5,6 +5,9 @@ espresso (0.99.10) UNRELEASED; urgency=low
   * Remove all the screenshots. We'll replace these with an animated demo
     when that's ready.
   * Avoid broken-image icons if logo or photo images aren't available.
+  * Hardcode a list of valid debconf commands in debconffilter and ignore
+    any we don't recognise. Works around most problems with multi-line
+    commands in partman for now.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 14 Feb 2006 17:15:33 +0000
 
