@@ -179,19 +179,18 @@ class Wizard:
 
     # set pixmaps
     if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
-      self.logo_image0.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-      self.logo_image1.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-      self.photo1.set_from_file(os.path.join(PIXMAPSDIR, "photo_1280.jpg"))
-      self.logo_image21.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-      self.logo_image22.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-      self.logo_image23.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
+      logo = os.path.join(PIXMAPSDIR, "logo_1280.jpg")
+      photo = os.path.join(PIXMAPSDIR, "photo_1280.jpg")
     else:
-      self.logo_image0.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-      self.logo_image1.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-      self.photo1.set_from_file(os.path.join(PIXMAPSDIR, "photo_1024.jpg"))
-      self.logo_image21.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-      self.logo_image22.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-      self.logo_image23.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
+      logo = os.path.join(PIXMAPSDIR, "logo_1024.jpg")
+      photo = os.path.join(PIXMAPSDIR, "photo_1024.jpg")
+
+    self.logo_image0.set_from_file(logo)
+    self.logo_image1.set_from_file(logo)
+    self.photo1.set_from_file(photo)
+    self.logo_image21.set_from_file(logo)
+    self.logo_image22.set_from_file(logo)
+    self.logo_image23.set_from_file(logo)
 
     self.live_installer.show()
     self.live_installer.window.set_cursor(self.watch)
