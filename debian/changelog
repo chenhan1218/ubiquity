@@ -1,4 +1,4 @@
-espresso (0.99.10) UNRELEASED; urgency=low
+espresso (0.99.10) dapper; urgency=low
 
   * Move the installation progress bar and the final message to separate
     windows, per https://wiki.ubuntu.com/UbuntuExpress/GnomeUserInterface.
@@ -9,7 +9,7 @@ espresso (0.99.10) UNRELEASED; urgency=low
     any we don't recognise. Works around most problems with multi-line
     commands in partman for now.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 14 Feb 2006 17:15:33 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 14 Feb 2006 21:58:54 +0000
 
 espresso (0.99.9) dapper; urgency=low
 
