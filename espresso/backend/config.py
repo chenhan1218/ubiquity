@@ -228,9 +228,8 @@ class Config:
     system. Default user from live system is deleted and skel for this new user is
     copied to $HOME."""
 
-    usersetup_apply.UserSetupApply(self.frontend).run_command()
-
-    return True
+    dbfilter = usersetup_apply.UserSetupApply(self.frontend)
+    return (dbfilter.run_command(auto_process=True) == 0)
 
 
   def configure_hostname(self):
@@ -296,8 +295,8 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
 
     try:
       from espresso.components import grubinstaller
-      grubinstaller.GrubInstaller(self.frontend).run_command()
-      ret = True
+      dbfilter = grubinstaller.GrubInstaller(self.frontend)
+      ret = (dbfilter.run_command(auto_process=True) == 0)
     except ImportError:
       ret = False
 
@@ -314,9 +313,8 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
     for word in args:
       msg += str(word) + ' '
     if not misc.ex('chroot', self.target, *args):
-      misc.post_log('error', 'chroot' + msg)
+      misc.post_log('error', 'chroot ' + msg)
       return False
-    misc.post_log('info', 'chroot' + msg)
     return True
 
 

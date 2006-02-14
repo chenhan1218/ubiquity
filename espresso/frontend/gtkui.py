@@ -57,16 +57,19 @@ from sys import stderr
 import pygtk
 pygtk.require('2.0')
 
+import gobject
 import gtk.glade
 import os
 import time
 import glob
+import subprocess
 import thread
 import xml.sax.saxutils
 import Queue
 
 from gettext import bindtextdomain, textdomain, install
 
+from espresso import filteredcommand
 from espresso.backend import *
 from espresso.validation import *
 from espresso.misc import *
@@ -164,9 +167,8 @@ class Wizard:
         self.dbfilter = None
 
       if self.dbfilter is not None:
-        self.dbfilter.run_command()
-      else:
-        gtk.main()
+        self.dbfilter.start(auto_process=True)
+      gtk.main()
 
       if self.current_page is not None:
         self.process_step()
@@ -509,8 +511,7 @@ class Wizard:
     self.current_page = None
     if self.dbfilter is not None:
       self.dbfilter.cancel_handler()
-    else:
-      gtk.main_quit()
+    gtk.main_quit()
 
 
   # Callbacks
@@ -569,17 +570,6 @@ class Wizard:
         list_sizes[index].set_text(self.set_size_msg(list_partitions[index]))
 
 
-  def on_key_press (self, widget, event):
-    """capture return key on live installer to go to next
-    screen only if Next button has the focus."""
-
-    # mapping enter key to get more usability
-    if ( event.keyval == gtk.gdk.keyval_from_name('Return') ) :
-      if ( not self.back.get_property('has-focus')
-        and not self.cancel.get_property('has-focus') ):
-        self.next.clicked()
-
-
   def info_loop(self, widget):
     """check if all entries from Identification screen are filled. Callback
     defined in glade file."""
@@ -626,6 +616,8 @@ class Wizard:
 
     if self.dbfilter is not None:
       self.dbfilter.ok_handler()
+      # expect recursive main loops to be exited and debconffilter_done() to
+      # be called when the filter exits
     else:
       gtk.main_quit()
 
@@ -788,8 +780,28 @@ class Wizard:
     elif ( len(list_partitions) < len(list_mountpoints) ):
       error_msg.append("· Partición sin seleccionar.\n\n")
 
-    if partman_commit.PartmanCommit(self).run_command() != 0:
+    gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
+    gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
+    gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
+    gconf_previous = {}
+    for gconf_key in (gvm_automount_drives, gvm_automount_media):
+      subp = subprocess.Popen(['gconftool-2', '--config-source', gconf_dir,
+                               '--get', gconf_key],
+                              stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+      gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
+      if gconf_previous[gconf_key] != 'false':
+        subprocess.call(['gconftool-2', '--set', gconf_key,
+                         '--type', 'bool', 'false'])
+
+    if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
         return
+
+    for gconf_key in (gvm_automount_drives, gvm_automount_media):
+      if gconf_previous[gconf_key] == '':
+        subprocess.call(['gconftool-2', '--unset', gconf_key])
+      elif gconf_previous[gconf_key] != 'false':
+        subprocess.call(['gconftool-2', '--set', gconf_key,
+                         '--type', 'bool', gconf_previous[gconf_key]])
 
     # Checking duplicated devices
     for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
@@ -966,12 +978,6 @@ class Wizard:
       if len (model) > 0:
         self.drives.set_active (0)
 
-    # Quit the main loop so that we can start up debconf coprocesses if
-    # required for this page. TODO cjwatson 2006-01-04: calling main_level()
-    # is very nasty!
-    if gtk.main_level() > 0:
-        gtk.main_quit()
-
 
   # Public method "on_autopartition_resize_toggled" __________________________
   def on_autopartition_resize_toggled (self, widget):
@@ -1038,6 +1044,24 @@ class Wizard:
 
   # Callbacks provided to components.
 
+  def watch_debconf_fd (self, from_debconf, process_input):
+    gobject.io_add_watch(from_debconf,
+                         gobject.IO_IN | gobject.IO_ERR | gobject.IO_HUP,
+                         self.watch_debconf_fd_helper, process_input)
+
+
+  def watch_debconf_fd_helper (self, source, cb_condition, callback):
+    debconf_condition = 0
+    if (cb_condition & gobject.IO_IN) != 0:
+      debconf_condition |= filteredcommand.DEBCONF_IO_IN
+    if (cb_condition & gobject.IO_ERR) != 0:
+      debconf_condition |= filteredcommand.DEBCONF_IO_ERR
+    if (cb_condition & gobject.IO_HUP) != 0:
+      debconf_condition |= filteredcommand.DEBCONF_IO_HUP
+
+    return callback(source, debconf_condition)
+
+
   def debconf_progress_start (self, progress_min, progress_max, progress_title):
     self.debconf_progress_dialog.set_transient_for(self.live_installer)
     self.debconf_progress_dialog.set_title(progress_title)
@@ -1066,6 +1090,12 @@ class Wizard:
 
   def debconf_progress_stop (self):
     self.debconf_progress_dialog.hide()
+
+
+  def debconffilter_done (self, dbfilter):
+    # TODO cjwatson 2006-02-10: handle dbfilter.status
+    if dbfilter == self.dbfilter:
+      gtk.main_quit()
 
 
   def set_autopartition_choices (self, choices, resize_choice, manual_choice):
