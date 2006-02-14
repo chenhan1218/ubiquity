@@ -661,12 +661,11 @@ class Wizard:
 
     else:
       # TODO cjwatson 2006-01-10: extract mountpoints from partman
-      self.steps.set_current_page(5)
+      self.live_installer.hide()
 
       while gtk.events_pending():
         gtk.main_iteration()
 
-      self.back.hide()
       self.progress_loop()
 
 
