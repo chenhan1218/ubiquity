@@ -94,7 +94,6 @@ class Wizard:
     self.fullname = ''
     self.name = ''
     self.manual_choice = None
-    self.gparted = True
     self.password = ''
     self.mountpoints = {}
     self.part_labels = {' ' : ' '}
@@ -289,9 +288,7 @@ class Wizard:
 
     pre_log('info', 'gparted_loop()')
     # Save pid to kill gparted when install process starts
-    self.gparted_pid = part.call_gparted(self.embedded)
-    # gparted must be launched once only
-    self.gparted = False
+    self.gparted_subp = part.call_gparted(self.embedded)
 
 
   def get_sizes(self):
@@ -689,8 +686,7 @@ class Wizard:
     # manual partitioning.
     if (self.manual_choice is None or
         self.get_autopartition_choice() == self.manual_choice):
-      if self.gparted:
-        self.gparted_loop()
+      self.gparted_loop()
 
       self.steps.next_page()
 
@@ -707,6 +703,16 @@ class Wizard:
 
   def gparted_to_mountpoints(self):
     """Processing gparted to mountpoints step tasks."""
+
+    print >>self.gparted_subp.stdin, "apply"
+    gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
+    if not gparted_reply.startswith('0 '):
+      return
+
+    # Shut down gparted
+    self.gparted_subp.stdin.close()
+    self.gparted_subp.wait()
+    self.gparted_subp = None
 
     # Setting items into partition Comboboxes
     for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
@@ -844,15 +850,7 @@ class Wizard:
       while gtk.events_pending():
         gtk.main_iteration()
 
-      # Destroy gparted tree widgets
-      self.embedded.destroy()
       self.next.set_sensitive(False)
-
-      # killing gparted to release mem
-      try:
-        os.kill(self.gparted_pid, 9)
-      except Exception, e:
-        print e
 
       # Starting installation core process
       self.progress_loop()
@@ -871,6 +869,13 @@ class Wizard:
 
     if step == 2:
       self.back.hide()
+    elif step == 3:
+      print >>self.gparted_subp.stdin, "undo"
+      self.gparted_subp.stdin.close()
+      self.gparted_subp.wait()
+      self.gparted_subp = None
+    elif step == 4:
+      self.gparted_loop()
 
     if step is not 6:
       self.steps.prev_page()
