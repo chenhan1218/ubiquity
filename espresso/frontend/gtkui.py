@@ -114,11 +114,7 @@ a.insert(pango.AttrBackground(0x9F << 8, 0x6C << 8, 0x49 << 8, end_index=-1))
 
 BREADCRUMB_HIGHLIGHT = a
 
-a = pango.AttrList()
-a.insert(pango.AttrForeground(0x9F << 8, 0x6C << 8, 0x49 << 8, end_index=-1))
-a.insert(pango.AttrBackground(0, 0, 0, end_index=-1))
-
-BREADCRUMB_NORMAL = a
+BREADCRUMB_NORMAL = pango.AttrList()
 
 class Wizard:
 
@@ -946,12 +942,15 @@ class Wizard:
 
         self.current_page = current
 
-        try:
-            breadcrumblbl = getattr(self, BREADCRUMB_STEPS[current])
-            breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
-        except Exception, e:
-            print e
-            pass
+        for step in range(0, self.steps.get_n_pages()):
+            try:
+                breadcrumblbl = getattr(self, BREADCRUMB_STEPS[step])
+                if BREADCRUMB_STEPS[step] == BREADCRUMB_STEPS[current]:
+                    breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
+                else:
+                    breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
+            except Exception, e:
+                print e
         
         # Populate the drives combo box the first time that page #2 is shown.
         if current == STEP_PART_AUTO and False:
