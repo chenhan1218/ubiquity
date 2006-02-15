@@ -115,9 +115,6 @@ class Wizard:
                     'verified_password' : 0
                     }
 
-    # Start a timer to see how long the user runs this program
-    self.start = time.time()
-
     # set custom language
     self.set_locales()
 
@@ -480,9 +477,6 @@ class Wizard:
   def quit(self):
     """quit installer cleanly."""
 
-    # Tell the user how much time they used
-    pre_log('info', 'You wasted %.2f seconds with this installation' %
-                      (time.time()-self.start))
     # exiting from application
     self.current_page = None
     if self.dbfilter is not None:
