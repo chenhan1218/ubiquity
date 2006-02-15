@@ -662,9 +662,6 @@ class Wizard:
         if len(error_msg) > 1:
             self.show_error(self.resize_text(''.join(error_msg), '4'))
         else:
-            # showing next step and destroying mozembed widget to
-            # release memory
-            self.browser_vbox.destroy()
             self.back.show()
             self.steps.next_page()
 
