@@ -12,6 +12,8 @@ espresso (0.99.12) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Stop destroying the browser widget; following Tollef's changes, this
     changes the number of pages in the notebook, causing much confusion.
+  * Use named constants in espresso.validation; construct returned list more
+    sensibly.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Feb 2006 12:54:43 +0000
 

@@ -54,42 +54,50 @@
 from string            import whitespace, uppercase
 from espresso.settings import *
 
+HOSTNAME_LENGTH = 1
+HOSTNAME_WHITESPACE = 2
+HOSTNAME_BADCHAR = 3
+
 def check_hostname(name):
 
     """ Check the correctness of a proposed host name.
 
-        @return:
-            - C{0} valid.
-            - C{1} wrong length.
-            - C{2} contains white spaces.
-            - C{3} contains invalid characters."""
+        @return empty list (valid) or list of:
+            - C{HOSTNAME_LENGTH} wrong length.
+            - C{HOSTNAME_WHITESPACE} contains white spaces.
+            - C{HOSTNAME_BADCHAR} contains invalid characters."""
 
     import re
-    result = [0, 0, 0]
+    result = set()
 
     if len (set(name).intersection(set(whitespace))) > 0:
-        result[1] = 2
+        result.add(HOSTNAME_WHITESPACE)
     if len (name) < 3 or len (name) > 18:
-        result[0] = 1
+        result.add(HOSTNAME_LENGTH)
 
     regex = re.compile(r'^[a-zA-Z0-9]+$')
     if not regex.search(name):
-      result[2] = 3
+      result.add(HOSTNAME_BADCHAR)
 
-    return result
+    return sorted(result)
+
+MOUNTPOINT_NOROOT = 1
+MOUNTPOINT_DUPPATH = 2
+MOUNTPOINT_BADSIZE = 3
+MOUNTPOINT_BADCHAR = 4
 
 def check_mountpoint(mountpoints, size):
 
     """ Check the correctness of a proposed set of mountpoints.
 
-        @return:
-            - C{0} Doesn't exist root path.
-            - C{1} Path duplicated.
-            - C{2} Size incorrect.
-            - C{3} Contains invalid characters."""
+        @return empty list (valid) or list of:
+            - C{MOUNTPOINT_NOROOT} Doesn't exist root path.
+            - C{MOUNTPOINT_DUPPATH} Path duplicated.
+            - C{MOUNTPOINT_BADSIZE} Size incorrect.
+            - C{MOUNTPOINT_BADCHAR} Contains invalid characters."""
 
     import re
-    result = [0, 0, 0, 0]
+    result = set()
     root = 0
 
     if 'swap' in mountpoints.values():
@@ -103,15 +111,15 @@ def check_mountpoint(mountpoints, size):
         root = 1
 
         if float(size[device.split('/')[2]]) < root_minimum_KB:
-          result[2] = 3
+          result.add(MOUNTPOINT_BADSIZE)
 
       if mountpoints.values().count(path) > 1:
-        result[1] = 2
+        result.add(MOUNTPOINT_DUPPATH)
       regex = re.compile(r'^[a-zA-Z0-9/\-\_\+]+$')
       if not regex.search(path):
-        result[3] = 4
+        result.add(MOUNTPOINT_BADCHAR)
 
     if root != 1:
-      result[0] = 1
+      result.add(MOUNTPOINT_NOROOT)
 
-    return result
+    return sorted(result)

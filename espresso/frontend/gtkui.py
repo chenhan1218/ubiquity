@@ -69,9 +69,8 @@ import Queue
 
 from gettext import bindtextdomain, textdomain, install
 
-from espresso import filteredcommand
+from espresso import filteredcommand, validation
 from espresso.backend import *
-from espresso.validation import *
 from espresso.misc import *
 from espresso.components import usersetup, partman, partman_commit
 
@@ -654,19 +653,19 @@ class Wizard:
     def process_identification (self):
         """Processing identification step tasks."""
 
-        from espresso import validation
         error_msg = ['\n']
         error = 0
 
         # Validation stuff
 
         # checking hostname entry
-        for result in validation.check_hostname(self.hostname.get_property('text')):
-            if result == 1:
+        hostname = self.hostname.get_property('text')
+        for result in validation.check_hostname(hostname):
+            if result == validation.HOSTNAME_LENGTH:
                 error_msg.append("· El <b>nombre del equipo</b> tiene tamaño incorrecto (permitido entre 3 y 18 caracteres).\n")
-            elif result == 2:
+            elif result == validation.HOSTNAME_WHITESPACE:
                 error_msg.append("· El <b>nombre del equipo</b> contiene espacios en blanco (no están permitidos).\n")
-            elif result == 3:
+            elif result == validation.HOSTNAME_BADCHAR:
                 error_msg.append("· El <b>nombre del equipo</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
 
         # showing warning message is error is set
@@ -824,18 +823,19 @@ class Wizard:
 
         # Processing more validation stuff
         if len(self.mountpoints) > 0:
-            for check in check_mountpoint(self.mountpoints, self.size):
-                if check == 1:
+            for check in validation.check_mountpoint(self.mountpoints,
+                                                     self.size):
+                if check == validation.MOUNTPOINT_NOROOT:
                     error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
-                elif check == 2:
+                elif check == validation.MOUNTPOINT_DUPPATH:
                     error_msg.append("· Puntos de montaje duplicados.\n\n")
-                elif check == 3:
+                elif check == validation.MOUNTPOINT_BADSIZE:
                     try:
                         swap = self.mountpoints.values().index('swap')
                         error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
                     except:
                         error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
-                elif check == 4:
+                elif check == validation.MOUNTPOINT_BADCHAR:
                     error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
 
         # showing warning messages
