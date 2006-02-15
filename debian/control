@@ -56,7 +56,7 @@ Description: Guadalinex documentation and help files for Espresso live installer
 
 Package: espresso-frontend-gtk
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, python-gnome2-extras, python-glade2, gparted (>= 0.0.9+cvs2006.01.08-0ubuntu3), espresso-artwork, espresso-doc, python-gtk2, firefox
+Depends: ${misc:Depends}, ${python:Depends}, python-gnome2-extras, python-glade2, gparted (>= 0.1-0ubuntu2), espresso-artwork, espresso-doc, python-gtk2, firefox
 Conflicts: ubuntu-express-frontend-gtk
 Replaces: ubuntu-express-frontend-gtk
 Provides: espresso-frontend

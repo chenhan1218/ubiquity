@@ -92,7 +92,7 @@ class Copy:
         misc.pre_log('info','Recollecting files to copy')
         for dirpath, dirnames, filenames in os.walk(self.source):
             sourcepath = dirpath[len(self.source)+1:]
-            if ( oldsourcepath.split('/')[0] != sourcepath.split('/')[0] ):
+            if oldsourcepath.split('/')[0] != sourcepath.split('/')[0]:
                 if sourcepath.startswith('etc'):
                     queue.put( '7 Scanning /etc' )
                 elif sourcepath.startswith('home'):
@@ -142,16 +142,16 @@ class Copy:
                 # We start the counter until 33
                 time_start = time.time()
                 counter = per
-                queue.put("%s Copying %s%%" % (per, per))
+                queue.put("%s Copying files" % per)
             elif counter != per and per >= 40:
                 counter = per
                 time_left = (time.time() - time_start) * 57 / (counter - 33) - (time.time() - time_start)
                 minutes = time_left / 60
                 seconds = time_left - int(time_left/60)*60
-                queue.put("%s Copying %s%% - %02d:%02d remaining" % (per, per, minutes, seconds))
+                queue.put("%s Copying files - %02d:%02d remaining" % (per, minutes, seconds))
             elif counter != per:
                 counter = per
-                queue.put("%s Copying %s%%" % (per, per))
+                queue.put("%s Copying files" % per)
 
         copy.stdin.close()
         copy.wait()

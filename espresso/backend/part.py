@@ -90,6 +90,6 @@ def call_gparted(widget):
 
     #FIXME:We need to know how the mountpoints are shown
 
-    return out.pid
+    return out
 
 # vim:ai:et:sts=4:tw=80:sw=4:

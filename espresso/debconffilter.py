@@ -50,6 +50,32 @@ import debconf
 # confmodule asks an otherwise-unhandled question whose template has type
 # error.
 
+valid_commands = (
+    'BEGINBLOCK',
+    'CAPB',
+    'CLEAR',
+    'ENDBLOCK',
+    'FGET',
+    'FSET',
+    'GET',
+    'GO',
+    'INFO',
+    'INPUT',
+    'METAGET',
+    'PREVIOUS_MODULE',
+    'PROGRESS',
+    'PURGE',
+    'REGISTER',
+    'RESET',
+    'SET',
+    'SETTITLE',
+    'STOP',
+    'SUBST',
+    'TITLE',
+    'UNREGISTER',
+    'VERSION'
+)
+
 class DebconfFilter:
     def __init__(self, db, widgets={}):
         self.db = db
@@ -151,7 +177,7 @@ class DebconfFilter:
 
         self.debug('filter', '<--', command, *params)
 
-        if line == '' or line.startswith(' '):
+        if line == '' or line.startswith(' ') or command not in valid_commands:
             # Work around confmodules that try to send multi-line commands;
             # this works (sort of, and by fluke) in cdebconf, but debconf
             # doesn't like it.
