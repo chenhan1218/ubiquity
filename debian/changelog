@@ -1,3 +1,9 @@
+espresso (0.99.11) UNRELEASED; urgency=low
+
+  * Stop auto-hiding the panel when running the GTK frontend.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Feb 2006 10:04:25 +0000
+
 espresso (0.99.10) dapper; urgency=low
 
   * Move the installation progress bar and the final message to separate
