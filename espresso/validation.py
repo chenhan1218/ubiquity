@@ -48,21 +48,13 @@
 
 """ U{pylint<http://logilab.org/projects/pylint>} mark: 6.67 """
 
-# File "validation.py".
 # Validation library.
 # Created by Antonio Olmo <aolmo#emergya._info> on 26 jul 2005.
-# Last modified on 11 oct 2005.
 
 from string            import whitespace, uppercase
 from espresso.settings import *
 
-# Index:
-# def check_hostname (name):
-# def invalid_names ():
-
-# Function "check_hostname" __________________________________________________
-
-def check_hostname (name):
+def check_hostname(name):
 
     """ Check the correctness of a proposed host name.
 
@@ -75,7 +67,7 @@ def check_hostname (name):
     import re
     result = [0, 0, 0]
 
-    if len (set (name).intersection (set (whitespace))) > 0:
+    if len (set(name).intersection(set(whitespace))) > 0:
         result[1] = 2
     if len (name) < 3 or len (name) > 18:
         result[0] = 1
@@ -86,7 +78,7 @@ def check_hostname (name):
 
     return result
 
-def check_mountpoint (mountpoints, size):
+def check_mountpoint(mountpoints, size):
 
     """ Check the correctness of a proposed set of mountpoints.
 
@@ -101,10 +93,10 @@ def check_mountpoint (mountpoints, size):
     root = 0
 
     if 'swap' in mountpoints.values():
-      root_minimum_KB = MINIMAL_PARTITION_SCHEME ['root'] * 1024
+      root_minimum_KB = MINIMAL_PARTITION_SCHEME['root'] * 1024
     else:
-      root_minimum_KB = (MINIMAL_PARTITION_SCHEME ['root'] +
-                         MINIMAL_PARTITION_SCHEME ['swap']) * 1024
+      root_minimum_KB = (MINIMAL_PARTITION_SCHEME['root'] +
+                         MINIMAL_PARTITION_SCHEME['swap']) * 1024
 
     for device, path in mountpoints.items():
       if path == '/':
@@ -113,16 +105,13 @@ def check_mountpoint (mountpoints, size):
         if float(size[device.split('/')[2]]) < root_minimum_KB:
           result[2] = 3
 
-      if ( mountpoints.values().count(path) > 1 ):
+      if mountpoints.values().count(path) > 1:
         result[1] = 2
       regex = re.compile(r'^[a-zA-Z0-9/\-\_\+]+$')
       if not regex.search(path):
         result[3] = 4
 
-    if ( root != 1 ):
+    if root != 1:
       result[0] = 1
 
     return result
-
-# End of file.
-
