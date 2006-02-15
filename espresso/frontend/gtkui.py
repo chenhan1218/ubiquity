@@ -94,11 +94,9 @@ class Wizard:
     self.fullname = ''
     self.name = ''
     self.manual_choice = None
-    self.gparted = True
     self.password = ''
     self.mountpoints = {}
     self.part_labels = {' ' : ' '}
-    self.remainder = 0
     self.current_page = None
     self.dbfilter = None
     self.progress_min = 0
@@ -116,9 +114,6 @@ class Wizard:
                     'password' : 0,
                     'verified_password' : 0
                     }
-
-    # Start a timer to see how long the user runs this program
-    self.start = time.time()
 
     # set custom language
     self.set_locales()
@@ -175,37 +170,28 @@ class Wizard:
 
 
   def customize_installer(self):
-    """Customizing logo and images."""
-    # images stuff
-    self.install_image = 0
+    """Initial UI setup."""
+
     PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
-    self.total_images   = glob.glob("%s/snapshot*.png" % PIXMAPSDIR)
-    self.total_messages = map(lambda line: line.rstrip('\n'),
-                              open("%s/messages.txt" % PIXMAPSDIR).readlines())
 
     # set pixmaps
     if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
-      self.logo_image0.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-      self.logo_image1.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-      self.photo1.set_from_file(os.path.join(PIXMAPSDIR, "photo_1280.jpg"))
-      self.logo_image21.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-      self.logo_image22.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-      self.logo_image23.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-      self.logo_image3.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-      self.photo2.set_from_file(os.path.join(PIXMAPSDIR, "photo_1280.jpg"))
-      self.logo_image4.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
+      logo = os.path.join(PIXMAPSDIR, "logo_1280.jpg")
+      photo = os.path.join(PIXMAPSDIR, "photo_1280.jpg")
     else:
-      self.logo_image0.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-      self.logo_image1.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-      self.photo1.set_from_file(os.path.join(PIXMAPSDIR, "photo_1024.jpg"))
-      self.logo_image21.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-      self.logo_image22.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-      self.logo_image23.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-      self.logo_image3.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-      self.photo2.set_from_file(os.path.join(PIXMAPSDIR, "photo_1024.jpg"))
-      self.logo_image4.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
+      logo = os.path.join(PIXMAPSDIR, "logo_1024.jpg")
+      photo = os.path.join(PIXMAPSDIR, "photo_1024.jpg")
+    if not os.path.exists(logo):
+      logo = None
+    if not os.path.exists(photo):
+      photo = None
 
-    self.installing_image.set_from_file(os.path.join(PIXMAPSDIR, "snapshot1.png"))
+    self.logo_image0.set_from_file(logo)
+    self.logo_image1.set_from_file(logo)
+    self.photo1.set_from_file(photo)
+    self.logo_image21.set_from_file(logo)
+    self.logo_image22.set_from_file(logo)
+    self.logo_image23.set_from_file(logo)
 
     self.live_installer.show()
     self.live_installer.window.set_cursor(self.watch)
@@ -289,9 +275,7 @@ class Wizard:
 
     pre_log('info', 'gparted_loop()')
     # Save pid to kill gparted when install process starts
-    self.gparted_pid = part.call_gparted(self.embedded)
-    # gparted must be launched once only
-    self.gparted = False
+    self.gparted_subp = part.call_gparted(self.embedded)
 
 
   def get_sizes(self):
@@ -398,12 +382,10 @@ class Wizard:
 
     pre_log('info', 'progress_loop()')
 
-    self.next.set_sensitive(False)
+    self.install_window.show()
 
-    # first image iteration
-    self.images_loop()
     # Setting Normal cursor
-    self.live_installer.window.set_cursor(None)
+    self.install_window.window.set_cursor(None)
 
     def wait_thread(queue):
       """wait thread for copy process."""
@@ -465,15 +447,8 @@ class Wizard:
     umount = copy.Copy(self.mountpoints)
     umount.umount_target()
 
-    # setting new button labels and status from bottom bar
-    self.next.set_label('Reboot the computer')
-    self.next.connect('clicked', self.__reboot)
-    self.back.set_label('Quit')
-    self.back.connect('clicked', self.on_exitbutton_clicked)
-    self.next.set_sensitive(True)
-    self.back.show()
-    self.cancel.hide()
-    self.steps.next_page()
+    self.install_window.hide()
+    self.finished_dialog.show()
 
 
   def __reboot(self, *args):
@@ -487,11 +462,9 @@ class Wizard:
     """set values on progress bar widget."""
 
     num , text = get_progress(msg)
-    if ( num % (100/len(self.total_images)) < self.remainder ):
-      self.images_loop()
-    self.remainder = num % (100/len(self.total_images))
     self.install_progress_bar.set_fraction (num / 100.0)
-    self.install_progress_bar.set_text(text)
+    self.install_progress_bar.set_text('%d%%' % num)
+    self.install_progress_label.set_text(text)
 
 
   def show_error(self, msg):
@@ -504,9 +477,6 @@ class Wizard:
   def quit(self):
     """quit installer cleanly."""
 
-    # Tell the user how much time they used
-    pre_log('info', 'You wasted %.2f seconds with this installation' %
-                      (time.time()-self.start))
     # exiting from application
     self.current_page = None
     if self.dbfilter is not None:
@@ -601,16 +571,6 @@ class Wizard:
     return True
 
 
-  def images_loop(self):
-    """looping images and text on installing screen about the install process."""
-
-    self.install_image+=1
-    step = self.install_image % len(self.total_images) -1
-    self.installing_image.set_from_file(self.total_images[step])
-    self.installing_text.set_markup(self.resize_text('<span foreground="#087021"><b>%s</b></span>' % self.total_messages[step], '4'))
-    return True
-
-
   def on_next_clicked(self, widget):
     """Callback to control the installation process between steps."""
 
@@ -689,24 +649,32 @@ class Wizard:
     # manual partitioning.
     if (self.manual_choice is None or
         self.get_autopartition_choice() == self.manual_choice):
-      if self.gparted:
-        self.gparted_loop()
+      self.gparted_loop()
 
       self.steps.next_page()
 
     else:
       # TODO cjwatson 2006-01-10: extract mountpoints from partman
-      self.steps.set_current_page(5)
+      self.live_installer.hide()
 
       while gtk.events_pending():
         gtk.main_iteration()
 
-      self.back.hide()
       self.progress_loop()
 
 
   def gparted_to_mountpoints(self):
     """Processing gparted to mountpoints step tasks."""
+
+    print >>self.gparted_subp.stdin, "apply"
+    gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
+    if not gparted_reply.startswith('0 '):
+      return
+
+    # Shut down gparted
+    self.gparted_subp.stdin.close()
+    self.gparted_subp.wait()
+    self.gparted_subp = None
 
     # Setting items into partition Comboboxes
     for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
@@ -835,24 +803,11 @@ class Wizard:
       self.msg_error2.show()
       self.img_error2.show()
     else:
-      self.back.hide()
-      self.steps.next_page()
-      # setting busy mouse cursor
-      self.live_installer.window.set_cursor(self.watch)
+      self.live_installer.hide()
 
       # refreshing UI
       while gtk.events_pending():
         gtk.main_iteration()
-
-      # Destroy gparted tree widgets
-      self.embedded.destroy()
-      self.next.set_sensitive(False)
-
-      # killing gparted to release mem
-      try:
-        os.kill(self.gparted_pid, 9)
-      except Exception, e:
-        print e
 
       # Starting installation core process
       self.progress_loop()
@@ -871,6 +826,13 @@ class Wizard:
 
     if step == 2:
       self.back.hide()
+    elif step == 3:
+      print >>self.gparted_subp.stdin, "undo"
+      self.gparted_subp.stdin.close()
+      self.gparted_subp.wait()
+      self.gparted_subp = None
+    elif step == 4:
+      self.gparted_loop()
 
     if step is not 6:
       self.steps.prev_page()
