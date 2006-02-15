@@ -536,7 +536,7 @@ class Wizard:
 
             if list_partitions[index].get_active_text() is not None and \
                list_mountpoints[index].get_active_text() != "" and \
-               len(get_partitions()) >= index+1 ):
+               len(get_partitions()) >= index+1:
                 list_partitions[index+1].show()
                 list_mountpoints[index+1].show()
                 list_sizes[index+1].show()
