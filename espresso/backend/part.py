@@ -49,53 +49,47 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -6.50!! (bad
     indentation) """
 
-# Last modified by A. Olmo on 20 oct 2005.
-
 from subprocess import *
 
 def call_autoparted (assistant, drive, progress = None):
-
-  """ Perform automatic partition.
+    
+    """ Perform automatic partition.
       @return: a dictionary containing a device for each mount point (i.e.
       C{{'/dev/hda5': '/', '/dev/hda7': '/home', '/dev/hda6': 'swap'}}). """
 
-  return assistant.auto_partition (drive, steps = progress)
+    return assistant.auto_partition (drive, steps = progress)
 
 def call_gparted(widget):
 
-  '''call_autoparted() -> dict {'mount point' : 'dev'}
-                       -> None
-  '''
-  import gtk
-  import sys
+    '''call_autoparted() -> dict {'mount point' : 'dev'}
+                         -> None
+    '''
+    import gtk
+    import sys
 
-  # plug/socket implementation (Gparted integration)
-  socket = gtk.Socket()
-  socket.show()
-  widget.add(socket)
-  Wid = str(socket.get_id())
+    # plug/socket implementation (Gparted integration)
+    socket = gtk.Socket()
+    socket.show()
+    widget.add(socket)
+    Wid = str(socket.get_id())
 
-  # TODO: rewrite next block.
-  #mountpoints = None
+    # TODO: rewrite next block.
+    #mountpoints = None
 
-  try:
-    out = Popen(['/usr/bin/gparted', '--installer', Wid],
-                stdin=PIPE, stdout=PIPE, close_fds=True)
-    # get the output last line 
-    #line = out.readlines()[-1].strip()
-  except:
     try:
-      out = Popen(['/usr/local/bin/gparted', '--installer', Wid],
-                  stdin=PIPE, stdout=PIPE, close_fds=True)
-      # get the output last line 
-      line = out.readlines()[-1].strip()
+        out = Popen(['/usr/bin/gparted', '--installer', Wid],
+                    stdin=PIPE, stdout=PIPE, close_fds=True)
     except:
-      widget.destroy()
-      return None
+        try:
+            out = Popen(['/usr/local/bin/gparted', '--installer', Wid],
+                        stdin=PIPE, stdout=PIPE, close_fds=True)
+            line = out.readlines()[-1].strip()
+        except:
+            widget.destroy()
+            return None
 
-  #FIXME:We need to know how the mountpoints are shown
+    #FIXME:We need to know how the mountpoints are shown
 
-  return out
+    return out
 
-# vim:ai:et:sts=2:tw=80:sw=2:
-
+# vim:ai:et:sts=4:tw=80:sw=4:

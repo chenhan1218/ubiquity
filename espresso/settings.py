@@ -47,10 +47,8 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -5.00! (wrong
     encoding) """
 
-# File "settings.py".
 # Global settings.
 # Created by Antonio Olmo <aolmo#emergya._info> on 7 oct 2005.
-# Last modified on 18 oct 2005.
 
 DEBUGGING_STATUS = True
 
@@ -65,6 +63,3 @@ LARGER_PARTITION_SCHEME = {'swap':  1024,
 # WARNING: next variable controls whether partitioning will be actually
 #          performed, or not. Enable it at your own risk!
 ACTUAL_PARTITIONING = True
-
-# End of file.
-

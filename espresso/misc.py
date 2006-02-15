@@ -11,7 +11,7 @@ def part_label(dev):
     drive_type = {'hd': 'IDE/ATA', 'sd': 'USB/SCSI/SATA'}
     dev, ext = dev.lower(), dev[7:]
     try:
-      if ( int(dev[8:]) > 4 ):
+      if int(dev[8:]) > 4:
         partition_type = _('Logical')
       else:
         partition_type = _('Primary')

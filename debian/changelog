@@ -2,7 +2,9 @@ espresso (0.99.11) UNRELEASED; urgency=low
 
   * Stop auto-hiding the panel when running the GTK frontend.
   * Stop logging how much time was spent in the installation; it makes it
-    unnecessarily painful to quit espresso if you try to run it as non-root.
+    unnecessarily painful to quit espresso if you try to run it as
+    non-root.
+  * Use named constants rather than just numbers for the steps in gtkui.py
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Feb 2006 10:04:25 +0000
 
