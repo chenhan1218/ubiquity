@@ -162,9 +162,9 @@ class Wizard:
         # Start the interface
         self.current_page = 0
         while self.current_page is not None:
-            if self.current_page == 1:
+            if self.current_page == STEP_USER_INFO:
                 self.dbfilter = usersetup.UserSetup(self)
-            elif self.current_page == 2:
+            elif self.current_page == STEP_PART_AUTO:
                 self.dbfilter = partman.Partman(self)
             else:
                 self.dbfilter = None
@@ -919,7 +919,7 @@ class Wizard:
         self.current_page = current
 
         # Populate the drives combo box the first time that page #2 is shown.
-        if 2 == current and False:
+        if current == STEP_PART_AUTO and False:
             # TODO cjwatson 2006-01-10: update for partman
 
             # To set a "busy mouse":
