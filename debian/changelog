@@ -10,7 +10,14 @@ espresso (0.99.11) UNRELEASED; urgency=low
   * Global reformatting to conform roughly to PEP 8 rather than a mish-mash
     of difficult-to-read styles.
   * Use named constants rather than just numbers for the steps in gtkui.py
-    unnecessarily painful to quit espresso if you try to run it as non-root.
+    unnecessarily painful to quit espresso if you try to run it as
+    non-root.
+  * Move the common parts (logo, photo and breadcrumb) outside the
+    notebook so they don't have to be kept in sync.  Adjust code to
+    highlight the correct one.
+  * Use named constants instead of just numbers which make inserting new
+    steps in the beginning possible.
+  * Begin implementing a keyboard selector.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Feb 2006 10:04:25 +0000
 
