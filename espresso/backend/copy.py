@@ -22,7 +22,7 @@ class Copy:
         self.mountpoints = mountpoints
         self.unionfs = False
 
-  def run(self, queue):
+    def run(self, queue):
         """Run the copy stage. This is the second step from the installation
         process."""
 
