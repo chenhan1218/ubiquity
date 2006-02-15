@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import time, gobject
+import gobject
 import glob
 
 from gettext import bindtextdomain, textdomain, install
@@ -28,9 +28,6 @@ class Wizard:
         self.per = 0
         self.parse('/etc/config.cfg',self.info)
      
-        # Start a timer to see how long the user runs this program
-        self.start = time.time()
-        
         # set custom language
         self.set_locales()
         
@@ -153,8 +150,6 @@ class Wizard:
     def quit(self):
         if self.pid:
             os.kill(self.pid, 9)
-        post_log('info', 'You wasted %.2f seconds with this installation' %
-                                            (time.time()-self.start))
 
 
     def __reboot(self, *args):
