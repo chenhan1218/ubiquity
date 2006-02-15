@@ -312,7 +312,7 @@ class Wizard:
 
         if size > 1024*1024:
             msg = '%.0f Gb' % (size/1024/1024)
-        elif size > 1024):
+        elif size > 1024:
             msg = '%.0f Mb' % (size/1024)
         else:
             msg = '%.0f Kb' % size
