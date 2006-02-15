@@ -1,4 +1,4 @@
-espresso (0.99.11) UNRELEASED; urgency=low
+espresso (0.99.11) dapper; urgency=low
 
   [ Colin Watson ]
   * Stop auto-hiding the panel when running the GTK frontend.
@@ -16,7 +16,7 @@ espresso (0.99.11) UNRELEASED; urgency=low
   * Global reformatting to conform roughly to PEP 8 rather than a mish-mash
     of difficult-to-read styles.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Feb 2006 10:04:25 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Feb 2006 12:54:43 +0000
 
 espresso (0.99.10) dapper; urgency=low
 
