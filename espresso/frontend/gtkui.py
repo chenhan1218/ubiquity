@@ -84,6 +84,14 @@ GLADEDIR = os.path.join(PATH, 'glade')
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
+# Those step names must be kept in sync with the glade file
+STEP_WELCOME = 0
+STEP_USER_INFO = 1
+STEP_PART_AUTO = 2
+STEP_PART_ADVANCED = 3
+STEP_PART_MOUNTPOINTS = 4
+STEP_DO_INSTALL = 5
+STEP_END = 6
 
 class Wizard:
 
@@ -590,21 +598,21 @@ class Wizard:
     pre_log('info', 'Step_before = %d' % step)
 
     # Welcome
-    if step == 0:
+    if step == STEP_WELCOME:
       self.next.set_label('gtk-go-forward')
       self.next.set_sensitive(False)
       self.steps.next_page()
     # Identification
-    elif step == 1:
+    elif step == STEP_USER_INFO:
       self.process_identification()
     # Automatic partitioning
-    elif step == 2:
+    elif step == STEP_PART_AUTO:
       self.process_autopartitioning()
     # Advanced partitioning
-    elif step == 3:
+    elif step == STEP_PART_ADVANCED:
       self.gparted_to_mountpoints()
     # Mountpoints
-    elif step == 4:
+    elif step == STEP_PART_MOUNTPOINTS:
       self.mountpoints_to_progress()
 
     step = self.steps.get_current_page()
@@ -824,17 +832,17 @@ class Wizard:
     # Setting actual step
     step = self.steps.get_current_page()
 
-    if step == 2:
+    if step == STEP_PART_AUTO:
       self.back.hide()
-    elif step == 3:
+    elif step == STEP_PART_ADVANCED:
       print >>self.gparted_subp.stdin, "undo"
       self.gparted_subp.stdin.close()
       self.gparted_subp.wait()
       self.gparted_subp = None
-    elif step == 4:
+    elif step == STEP_PART_MOUNTPOINTS:
       self.gparted_loop()
 
-    if step is not 6:
+    if step is not STEP_END:
       self.steps.prev_page()
 
   # Public method "on_drives_changed" ________________________________________
