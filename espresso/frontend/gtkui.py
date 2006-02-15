@@ -194,12 +194,8 @@ class Wizard:
         if not os.path.exists(photo):
             photo = None
 
-        self.logo_image0.set_from_file(logo)
-        self.logo_image1.set_from_file(logo)
-        self.photo1.set_from_file(photo)
-        self.logo_image21.set_from_file(logo)
-        self.logo_image22.set_from_file(logo)
-        self.logo_image23.set_from_file(logo)
+        self.logo_image.set_from_file(logo)
+        self.photo.set_from_file(photo)
 
         self.live_installer.show()
         self.live_installer.window.set_cursor(self.watch)
