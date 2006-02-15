@@ -27,14 +27,14 @@ Description: Ubuntu artwork for Espresso live installer
  This package provides Ubuntu-themed user interface artwork for the Espresso
  live CD installer.
 
-Package: espresso-guadalinex-artwork
-Architecture: all
-Conflicts: ubuntu-express-guadalinex-artwork
-Replaces: ubuntu-express-guadalinex-artwork
-Provides: espresso-artwork
-Description: Guadalinex artwork for Espresso live installer
- This package provides Guadalinex-themed user interface artwork for the
- Espresso live CD installer.
+#Package: espresso-guadalinex-artwork
+#Architecture: all
+#Conflicts: ubuntu-express-guadalinex-artwork
+#Replaces: ubuntu-express-guadalinex-artwork
+#Provides: espresso-artwork
+#Description: Guadalinex artwork for Espresso live installer
+# This package provides Guadalinex-themed user interface artwork for the
+# Espresso live CD installer.
 
 Package: espresso-ubuntu-doc
 Architecture: all
@@ -45,14 +45,14 @@ Description: Ubuntu documentation and help files for Espresso live installer
  This package provides Ubuntu-themed help files and user interface text for
  the Espresso live CD installer.
 
-Package: espresso-guadalinex-doc
-Architecture: all
-Conflicts: ubuntu-express-guadalinex-doc
-Replaces: ubuntu-express-guadalinex-doc
-Provides: espresso-doc
-Description: Guadalinex documentation and help files for Espresso live installer
- This package provides Guadalinex-themed help files and user interface text
- for the Espresso live CD installer.
+#Package: espresso-guadalinex-doc
+#Architecture: all
+#Conflicts: ubuntu-express-guadalinex-doc
+#Replaces: ubuntu-express-guadalinex-doc
+#Provides: espresso-doc
+#Description: Guadalinex documentation and help files for Espresso live installer
+# This package provides Guadalinex-themed help files and user interface text
+# for the Espresso live CD installer.
 
 Package: espresso-frontend-gtk
 Architecture: all
@@ -64,12 +64,12 @@ Description: GTK+ frontend for Espresso live installer
  This package provides a GTK+-based user interface frontend for the Espresso
  live CD installer.
 
-Package: espresso-frontend-cloner
-Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, espresso-artwork, espresso-doc
-Conflicts: ubuntu-express-frontend-cloner
-Replaces: ubuntu-express-frontend-cloner
-Provides: espresso-frontend
-Description: Network Cloner frontend for Espresso live installer
- This package provides a non-interactive frontend for the Espresso live CD
- installer which will install the system from a server.
+#Package: espresso-frontend-cloner
+#Architecture: all
+#Depends: ${misc:Depends}, ${python:Depends}, espresso-artwork, espresso-doc
+#Conflicts: ubuntu-express-frontend-cloner
+#Replaces: ubuntu-express-frontend-cloner
+#Provides: espresso-frontend
+#Description: Network Cloner frontend for Espresso live installer
+# This package provides a non-interactive frontend for the Espresso live CD
+# installer which will install the system from a server.

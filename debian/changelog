@@ -8,6 +8,9 @@ espresso (0.99.11) UNRELEASED; urgency=low
     pops up a more detailed confirmation dialog for this now.
   * Make ESPRESSO_DEBUG=1 imply DEBCONF_DEBUG='developer|filter' for ease of
     debugging.
+  * Stop building espresso-frontend-cloner, espresso-guadalinex-artwork, and
+    espresso-guadalinex-doc for now, until they work again and are
+    better-tested.
 
   [ Tollef Fog Heen ]
   * Global reformatting to conform roughly to PEP 8 rather than a mish-mash
