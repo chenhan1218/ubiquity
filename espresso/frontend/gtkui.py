@@ -914,7 +914,6 @@ class Wizard:
         return '%d%%' % value
 
 
-    # Public method "on_steps_switch_page" _____________________________________
     def on_steps_switch_page (self, foo, bar, current):
 
         self.current_page = current
