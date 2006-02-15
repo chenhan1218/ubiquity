@@ -183,7 +183,7 @@ class Wizard:
         self.glade.signal_autoconnect(self)
 
         # Start the interface
-        self.current_page = 0
+        self.set_current_page(0)
         while self.current_page is not None:
             if self.current_page == STEP_USER_INFO:
                 self.dbfilter = usersetup.UserSetup(self)
@@ -294,6 +294,21 @@ class Wizard:
             if type != '4':
                 msg = ''
         return msg
+
+
+    def set_current_page(self, current):
+        self.current_page = current
+
+        for step in range(0, self.steps.get_n_pages()):
+            breadcrumb = BREADCRUMB_STEPS[step]
+            if hasattr(self, breadcrumb):
+                breadcrumblbl = getattr(self, breadcrumb)
+                if breadcrumb == BREADCRUMB_STEPS[current]:
+                    breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
+                else:
+                    breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
+            else:
+                pre_log('info', 'breadcrumb step %s missing' % breadcrumb)
 
     # Methods
 
@@ -940,7 +955,7 @@ class Wizard:
 
     def on_steps_switch_page (self, foo, bar, current):
 
-        self.current_page = current
+        self.set_current_page(current)
 
         for step in range(0, self.steps.get_n_pages()):
             breadcrumb = BREADCRUMB_STEPS[step]
