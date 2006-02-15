@@ -949,6 +949,13 @@ class Wizard:
 
         self.current_page = current
 
+        try:
+            breadcrumblbl = getattr(self, BREADCRUMB_STEPS[current])
+            breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
+        except Exception, e:
+            print e
+            pass
+        
         # Populate the drives combo box the first time that page #2 is shown.
         if current == STEP_PART_AUTO and False:
             # TODO cjwatson 2006-01-10: update for partman
