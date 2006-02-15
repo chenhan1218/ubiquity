@@ -1045,8 +1045,7 @@
 			  <property name="spacing">6</property>
 
 			  <child>
-			    <widget class="GtkHBox" id="hbox24">
-			      <property name="visible">True</property>
+			    <widget class="GtkHBox" id="drives_hbox">
 			      <property name="homogeneous">False</property>
 			      <property name="spacing">0</property>
 
