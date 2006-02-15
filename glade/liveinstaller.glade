@@ -19,7 +19,6 @@
   <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
   <property name="focus_on_map">True</property>
   <property name="urgency_hint">False</property>
-  <signal name="key_press_event" handler="on_key_press" last_modification_time="Wed, 24 Aug 2005 23:04:57 GMT"/>
 
   <child>
     <widget class="GtkVBox" id="wizard">

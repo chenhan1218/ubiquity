@@ -51,22 +51,25 @@
 ##################################################################################
 
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -28.40!!! (bad
-    indentation and accesses to undefined members) """
+        indentation and accesses to undefined members) """
 
 from sys import stderr
 import pygtk
 pygtk.require('2.0')
 
+import gobject
 import gtk.glade
 import os
 import time
 import glob
+import subprocess
 import thread
 import xml.sax.saxutils
 import Queue
 
 from gettext import bindtextdomain, textdomain, install
 
+from espresso import filteredcommand
 from espresso.backend import *
 from espresso.validation import *
 from espresso.misc import *
@@ -91,11 +94,9 @@ class Wizard:
         self.fullname = ''
         self.name = ''
         self.manual_choice = None
-        self.gparted = True
         self.password = ''
         self.mountpoints = {}
         self.part_labels = {' ' : ' '}
-        self.remainder = 0
         self.current_page = None
         self.dbfilter = None
         self.progress_min = 0
@@ -113,9 +114,6 @@ class Wizard:
                                         'password' : 0,
                                         'verified_password' : 0
                                         }
-
-        # Start a timer to see how long the user runs this program
-        self.start = time.time()
 
         # set custom language
         self.set_locales()
@@ -164,46 +162,36 @@ class Wizard:
                 self.dbfilter = None
 
             if self.dbfilter is not None:
-                self.dbfilter.run_command()
-            else:
-                gtk.main()
+                self.dbfilter.start(auto_process=True)
+            gtk.main()
 
             if self.current_page is not None:
                 self.process_step()
 
 
     def customize_installer(self):
-        """Customizing logo and images."""
-        # images stuff
-        self.install_image = 0
+        """Initial UI setup."""
+
         PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
-        self.total_images = glob.glob("%s/snapshot*.png" % PIXMAPSDIR)
-        self.total_messages = map(lambda line: line.rstrip('\n'),
-                                  open("%s/messages.txt" % PIXMAPSDIR))
 
         # set pixmaps
         if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
-            self.logo_image0.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-            self.logo_image1.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-            self.photo1.set_from_file(os.path.join(PIXMAPSDIR, "photo_1280.jpg"))
-            self.logo_image21.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-            self.logo_image22.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-            self.logo_image23.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-            self.logo_image3.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-            self.photo2.set_from_file(os.path.join(PIXMAPSDIR, "photo_1280.jpg"))
-            self.logo_image4.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
+            logo = os.path.join(PIXMAPSDIR, "logo_1280.jpg")
+            photo = os.path.join(PIXMAPSDIR, "photo_1280.jpg")
         else:
-            self.logo_image0.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-            self.logo_image1.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-            self.photo1.set_from_file(os.path.join(PIXMAPSDIR, "photo_1024.jpg"))
-            self.logo_image21.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-            self.logo_image22.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-            self.logo_image23.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-            self.logo_image3.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-            self.photo2.set_from_file(os.path.join(PIXMAPSDIR, "photo_1024.jpg"))
-            self.logo_image4.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
+            logo = os.path.join(PIXMAPSDIR, "logo_1024.jpg")
+            photo = os.path.join(PIXMAPSDIR, "photo_1024.jpg")
+        if not os.path.exists(logo):
+            logo = None
+        if not os.path.exists(photo):
+            photo = None
 
-        self.installing_image.set_from_file(os.path.join(PIXMAPSDIR, "snapshot1.png"))
+        self.logo_image0.set_from_file(logo)
+        self.logo_image1.set_from_file(logo)
+        self.photo1.set_from_file(photo)
+        self.logo_image21.set_from_file(logo)
+        self.logo_image22.set_from_file(logo)
+        self.logo_image23.set_from_file(logo)
 
         self.live_installer.show()
         self.live_installer.window.set_cursor(self.watch)
@@ -268,26 +256,26 @@ class Wizard:
         else:
             msg = widget.get_text()
 
-        if gtk.gdk.get_default_root_window().get_screen().get_width() > 1024:
-            if type in ['1', '4']:
+        if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
+            if ( type in    ['1', '4'] ):
                 msg = '<big>' + msg + '</big>'
-            elif type == '2':
+            elif ( type == '2' ):
                 msg = '<big><b>' + msg + '</b></big>'
-            elif type == '3':
+            elif ( type == '3' ):
                 msg = '<span font_desc="22">' + msg + '</span>'
         else:
             if type != '4':
                 msg = ''
         return msg
 
+    # Methods
+
     def gparted_loop(self):
         """call gparted and embed it into glade interface."""
 
         pre_log('info', 'gparted_loop()')
         # Save pid to kill gparted when install process starts
-        self.gparted_pid = part.call_gparted(self.embedded)
-        # gparted must be launched once only
-        self.gparted = False
+        self.gparted_subp = part.call_gparted(self.embedded)
 
 
     def get_sizes(self):
@@ -314,9 +302,9 @@ class Wizard:
         else:
             size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(widget.get_active_text())].split('/')[2]])
 
-        if size > 1048576:
+        if size > 1024*1024:
             msg = '%.0f Gb' % (size/1024/1024)
-        elif size > 1024:
+        elif size > 1024):
             msg = '%.0f Mb' % (size/1024)
         else:
             msg = '%.0f Kb' % size
@@ -392,12 +380,10 @@ class Wizard:
 
         pre_log('info', 'progress_loop()')
 
-        self.next.set_sensitive(False)
+        self.install_window.show()
 
-        # first image iteration
-        self.images_loop()
         # Setting Normal cursor
-        self.live_installer.window.set_cursor(None)
+        self.install_window.window.set_cursor(None)
 
         def wait_thread(queue):
             """wait thread for copy process."""
@@ -459,15 +445,8 @@ class Wizard:
         umount = copy.Copy(self.mountpoints)
         umount.umount_target()
 
-        # setting new button labels and status from bottom bar
-        self.next.set_label('Reboot the computer')
-        self.next.connect('clicked', self.__reboot)
-        self.back.set_label('Quit')
-        self.back.connect('clicked', self.on_exitbutton_clicked)
-        self.next.set_sensitive(True)
-        self.back.show()
-        self.cancel.hide()
-        self.steps.next_page()
+        self.install_window.hide()
+        self.finished_dialog.show()
 
 
     def __reboot(self, *args):
@@ -481,11 +460,9 @@ class Wizard:
         """set values on progress bar widget."""
 
         num , text = get_progress(msg)
-        if num % (100/len(self.total_images)) < self.remainder:
-            self.images_loop()
-        self.remainder = num % (100/len(self.total_images))
         self.install_progress_bar.set_fraction (num / 100.0)
-        self.install_progress_bar.set_text(text)
+        self.install_progress_bar.set_text('%d%%' % num)
+        self.install_progress_label.set_text(text)
 
 
     def show_error(self, msg):
@@ -498,15 +475,11 @@ class Wizard:
     def quit(self):
         """quit installer cleanly."""
 
-        # Tell the user how much time they used
-        pre_log('info', 'You wasted %.2f seconds with this installation' %
-                                            (time.time()-self.start))
         # exiting from application
         self.current_page = None
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
-        else:
-            gtk.main_quit()
+        gtk.main_quit()
 
 
     # Callbacks
@@ -545,35 +518,24 @@ class Wizard:
             list_sizes.append(widget_it)
             list_sizes_labels.append(widget_it.get_name())
 
-        # showing new partition and mountpoint widgets if they are
-        # needed. Assigning a new value to gtklabel size.
+        # showing new partition and mountpoint widgets if they are needed. Assigning
+        #     a new value to gtklabel size.
         if widget.get_active_text() not in ['', None]:
             if widget.__class__ == gtk.ComboBox:
                 index = list_partitions_labels.index(widget.get_name())
             elif widget.__class__ == gtk.ComboBoxEntry:
                 index = list_mountpoints_labels.index(widget.get_name())
 
-            if list_partitions[index].get_active_text() != None and \
-                     list_mountpoints[index].get_active_text() != "" and \
-                     len(get_partitions()) >= index+1:
+            if list_partitions[index].get_active_text() is not None and \
+               list_mountpoints[index].get_active_text() != "" and \
+               len(get_partitions()) >= index+1 ):
                 list_partitions[index+1].show()
                 list_mountpoints[index+1].show()
                 list_sizes[index+1].show()
             if list_partitions[index].get_active_text() == ' ':
                 list_sizes[index].set_text('')
-            elif list_partitions[index].get_active_text() is not None:
+            elif list_partitions[index].get_active_text() != None:
                 list_sizes[index].set_text(self.set_size_msg(list_partitions[index]))
-
-
-    def on_key_press (self, widget, event):
-        """capture return key on live installer to go to next
-        screen only if Next button has the focus."""
-
-        # mapping enter key to get more usability
-        if event.keyval == gtk.gdk.keyval_from_name('Return'):
-            if not self.back.get_property('has-focus') \
-                   and not self.cancel.get_property('has-focus'):
-                self.next.clicked()
 
 
     def info_loop(self, widget):
@@ -583,7 +545,7 @@ class Wizard:
         # each entry is saved as 1 when it's filled and as 0 when it's empty. This
         #     callback is launched when these widgets are modified.
         counter = 0
-        if widget.get_text() is not '':
+        if widget.get_text() != '':
             self.entries[widget.get_name()] = 1
         else:
             self.entries[widget.get_name()] = 0
@@ -603,22 +565,13 @@ class Wizard:
         return True
 
 
-    def images_loop(self):
-        """looping images and text on installing screen about the
-        install process."""
-
-        self.install_image+=1
-        step = self.install_image % len(self.total_images) -1
-        self.installing_image.set_from_file(self.total_images[step])
-        self.installing_text.set_markup(self.resize_text('<span foreground="#087021"><b>%s</b></span>' % self.total_messages[step], '4'))
-        return True
-
-
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
+            # expect recursive main loops to be exited and
+            # debconffilter_done() to be called when the filter exits
         else:
             gtk.main_quit()
 
@@ -674,7 +627,8 @@ class Wizard:
         if len(error_msg) > 1:
             self.show_error(self.resize_text(''.join(error_msg), '4'))
         else:
-            # showing next step and destroying mozembed widget to release memory
+            # showing next step and destroying mozembed widget to
+            # release memory
             self.browser_vbox.destroy()
             self.back.show()
             self.steps.next_page()
@@ -686,28 +640,36 @@ class Wizard:
         while gtk.events_pending ():
             gtk.main_iteration ()
 
-        # For safety, if we somehow ended up improperly initialised then go to
-        # manual partitioning.
+        # For safety, if we somehow ended up improperly initialised
+        # then go to manual partitioning.
         if self.manual_choice is None or \
-                self.get_autopartition_choice() == self.manual_choice:
-            if self.gparted:
-                self.gparted_loop()
+           self.get_autopartition_choice() == self.manual_choice:
+            self.gparted_loop()
 
             self.steps.next_page()
 
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
-            self.steps.set_current_page(5)
+            self.live_installer.hide()
 
             while gtk.events_pending():
                 gtk.main_iteration()
 
-            self.back.hide()
             self.progress_loop()
 
 
     def gparted_to_mountpoints(self):
         """Processing gparted to mountpoints step tasks."""
+
+        print >>self.gparted_subp.stdin, "apply"
+        gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
+        if not gparted_reply.startswith('0 '):
+            return
+
+        # Shut down gparted
+        self.gparted_subp.stdin.close()
+        self.gparted_subp.wait()
+        self.gparted_subp = None
 
         # Setting items into partition Comboboxes
         for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
@@ -754,26 +716,28 @@ class Wizard:
         # Validating self.mountpoints
         error_msg = ['\n']
 
-        # creating self.mountpoints list only if the pairs { device : mountpoint } are
-        #     selected.
+        # creating self.mountpoints list only if the pairs { device :
+        # mountpoint } are selected.
         list = []
         list_partitions = []
         list_mountpoints = []
 
-        # building widget lists to build dev_mnt dict ( { device : mountpoint } )
+        # building widget lists to build dev_mnt dict ( { device :
+        # mountpoint } )
         for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
             if widget.get_active_text() not in [None, ' ']:
                 list_partitions.append(widget)
         for widget in self.glade.get_widget('vbox_mountpoints').get_children()[1:]:
             if widget.get_active_text() != "":
                 list_mountpoints.append(widget)
-        # Only if partitions cout or mountpoints count selected are
-        # the same, dev_mnt is built.
+        # Only if partitions cout or mountpoints count selected are the same,
+        #     dev_mnt is built.
         if len(list_partitions) == len(list_mountpoints):
             dev_mnt = dict( [ (list_partitions[i], list_mountpoints[i]) for i in range(0,len(list_partitions)) ] )
 
             for dev, mnt in dev_mnt.items():
-                if ( dev.get_active_text() != None and mnt.get_active_text() != "" ):
+                if dev.get_active_text() is not None \
+                   and mnt.get_active_text() != "":
                     self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(dev.get_active_text())]] = mnt.get_active_text()
 
         # Processing validation stuff
@@ -782,12 +746,32 @@ class Wizard:
         elif len(list_partitions) < len(list_mountpoints):
             error_msg.append("· Partición sin seleccionar.\n\n")
 
-        if partman_commit.PartmanCommit(self).run_command() != 0:
+        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
+        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
+        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
+        gconf_previous = {}
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            subp = subprocess.Popen(['gconftool-2', '--config-source', gconf_dir,
+                                                             '--get', gconf_key],
+                                                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
+            if gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                                 '--type', 'bool', 'false'])
+
+        if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
                 return
+
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            if gconf_previous[gconf_key] == '':
+                subprocess.call(['gconftool-2', '--unset', gconf_key])
+            elif gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                                 '--type', 'bool', gconf_previous[gconf_key]])
 
         # Checking duplicated devices
         for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
-            if widget.get_active_text() is not None:
+            if widget.get_active_text() != None:
                 list.append(widget.get_active_text())
 
         for check in list:
@@ -817,24 +801,11 @@ class Wizard:
             self.msg_error2.show()
             self.img_error2.show()
         else:
-            self.back.hide()
-            self.steps.next_page()
-            # setting busy mouse cursor
-            self.live_installer.window.set_cursor(self.watch)
+            self.live_installer.hide()
 
             # refreshing UI
             while gtk.events_pending():
                 gtk.main_iteration()
-
-            # Destroy gparted tree widgets
-            self.embedded.destroy()
-            self.next.set_sensitive(False)
-
-            # killing gparted to release mem
-            try:
-                os.kill(self.gparted_pid, 9)
-            except Exception, e:
-                print e
 
             # Starting installation core process
             self.progress_loop()
@@ -853,16 +824,22 @@ class Wizard:
 
         if step == 2:
             self.back.hide()
+        elif step == 3:
+            print >>self.gparted_subp.stdin, "undo"
+            self.gparted_subp.stdin.close()
+            self.gparted_subp.wait()
+            self.gparted_subp = None
+        elif step == 4:
+            self.gparted_loop()
 
         if step is not 6:
             self.steps.prev_page()
 
-
     def on_drives_changed (self, foo):
 
-        """ When a different drive is selected, it is necessary to
-            update the chekboxes to reflect the set of permited
-            operations on the new drive."""
+        """When a different drive is selected, it is necessary to
+           update the chekboxes to reflect the set of permited
+           operations on the new drive."""
 
         # TODO cjwatson 2006-01-10: update for partman
         return
@@ -933,6 +910,7 @@ class Wizard:
         return '%d%%' % value
 
 
+    # Public method "on_steps_switch_page" _____________________________________
     def on_steps_switch_page (self, foo, bar, current):
 
         self.current_page = current
@@ -958,15 +936,10 @@ class Wizard:
             if len (model) > 0:
                 self.drives.set_active (0)
 
-        # Quit the main loop so that we can start up debconf coprocesses if
-        # required for this page. TODO cjwatson 2006-01-04: calling main_level()
-        # is very nasty!
-        if gtk.main_level() > 0:
-                gtk.main_quit()
-
 
     def on_autopartition_resize_toggled (self, widget):
-        """Update autopartitioning screen when the resize button is selected."""
+        """Update autopartitioning screen when the resize button is
+        selected."""
 
         if widget.get_active():
             self.confirmation_checkbutton.show()
@@ -978,7 +951,8 @@ class Wizard:
 
 
     def on_autopartition_manual_toggled (self, widget):
-        """Update autopartitioning screen when the manual button is selected."""
+        """Update autopartitioning screen when the manual button is
+        selected."""
 
         if widget.get_active():
             self.confirmation_checkbutton.hide()
@@ -987,8 +961,8 @@ class Wizard:
 
 
     def on_autopartition_button_toggled (self, widget):
-        """Update autopartitioning screen when any button other than resize or
-        manual is selected."""
+        """Update autopartitioning screen when any button other than
+        resize or manual is selected."""
 
         if widget.get_active():
             self.confirmation_checkbutton.show()
@@ -998,14 +972,13 @@ class Wizard:
 
     def on_confirmation_checkbutton_toggled (self, widget):
 
-        """ Change "active" property of "next" button when this check box is
-                changed. """
+        """Change 'active' property of 'next' button when this check
+        box is changed."""
 
         if self.confirmation_checkbutton.get_active ():
             self.next.set_sensitive (True)
         else:
             self.next.set_sensitive (False)
-
 
 ##     def on_abort_dialog_close (self, widget):
 
@@ -1024,6 +997,24 @@ class Wizard:
 
 
     # Callbacks provided to components.
+
+    def watch_debconf_fd (self, from_debconf, process_input):
+        gobject.io_add_watch(from_debconf,
+                                                 gobject.IO_IN | gobject.IO_ERR | gobject.IO_HUP,
+                                                 self.watch_debconf_fd_helper, process_input)
+
+
+    def watch_debconf_fd_helper (self, source, cb_condition, callback):
+        debconf_condition = 0
+        if (cb_condition & gobject.IO_IN) != 0:
+            debconf_condition |= filteredcommand.DEBCONF_IO_IN
+        if (cb_condition & gobject.IO_ERR) != 0:
+            debconf_condition |= filteredcommand.DEBCONF_IO_ERR
+        if (cb_condition & gobject.IO_HUP) != 0:
+            debconf_condition |= filteredcommand.DEBCONF_IO_HUP
+
+        return callback(source, debconf_condition)
+
 
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
         self.debconf_progress_dialog.set_transient_for(self.live_installer)
@@ -1053,6 +1044,12 @@ class Wizard:
 
     def debconf_progress_stop (self):
         self.debconf_progress_dialog.hide()
+
+
+    def debconffilter_done (self, dbfilter):
+        # TODO cjwatson 2006-02-10: handle dbfilter.status
+        if dbfilter == self.dbfilter:
+            gtk.main_quit()
 
 
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
