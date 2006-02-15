@@ -942,43 +942,10 @@ class Wizard:
         selected."""
 
         if widget.get_active():
-            self.confirmation_checkbutton.show()
-            self.confirmation_checkbutton.set_active(False)
-            self.next.set_sensitive(False)
             self.new_size_vbox.set_sensitive(True)
         else:
             self.new_size_vbox.set_sensitive(False)
 
-
-    def on_autopartition_manual_toggled (self, widget):
-        """Update autopartitioning screen when the manual button is
-        selected."""
-
-        if widget.get_active():
-            self.confirmation_checkbutton.hide()
-            self.confirmation_checkbutton.set_active(False)
-            self.next.set_sensitive(True)
-
-
-    def on_autopartition_button_toggled (self, widget):
-        """Update autopartitioning screen when any button other than
-        resize or manual is selected."""
-
-        if widget.get_active():
-            self.confirmation_checkbutton.show()
-            self.confirmation_checkbutton.set_active(False)
-            self.next.set_sensitive(False)
-
-
-    def on_confirmation_checkbutton_toggled (self, widget):
-
-        """Change 'active' property of 'next' button when this check
-        box is changed."""
-
-        if self.confirmation_checkbutton.get_active ():
-            self.next.set_sensitive (True)
-        else:
-            self.next.set_sensitive (False)
 
 ##     def on_abort_dialog_close (self, widget):
 
@@ -1066,12 +1033,6 @@ class Wizard:
             if choice == resize_choice:
                 self.on_autopartition_resize_toggled(button)
                 button.connect('toggled', self.on_autopartition_resize_toggled)
-            elif choice == manual_choice:
-                self.on_autopartition_manual_toggled(button)
-                button.connect('toggled', self.on_autopartition_manual_toggled)
-            else:
-                self.on_autopartition_button_toggled(button)
-                button.connect('toggled', self.on_autopartition_button_toggled)
         if firstbutton is not None:
             firstbutton.set_active(True)
 

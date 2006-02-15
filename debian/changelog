@@ -4,6 +4,8 @@ espresso (0.99.11) UNRELEASED; urgency=low
   * Stop auto-hiding the panel when running the GTK frontend.
   * Stop logging how much time was spent in the installation; it makes it
     unnecessarily painful to quit espresso if you try to run it as non-root.
+  * Get rid of the confirmation checkbox for automatic partitioning; partman
+    pops up a more detailed confirmation dialog for this now.
 
   [ Tollef Fog Heen ]
   * Global reformatting to conform roughly to PEP 8 rather than a mish-mash
