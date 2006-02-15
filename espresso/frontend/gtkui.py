@@ -943,15 +943,16 @@ class Wizard:
         self.current_page = current
 
         for step in range(0, self.steps.get_n_pages()):
-            try:
-                breadcrumblbl = getattr(self, BREADCRUMB_STEPS[step])
-                if BREADCRUMB_STEPS[step] == BREADCRUMB_STEPS[current]:
+            breadcrumb = BREADCRUMB_STEPS[step]
+            if hasattr(self, breadcrumb):
+                breadcrumblbl = getattr(self, breadcrumb)
+                if breadcrumb == BREADCRUMB_STEPS[current]:
                     breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
                 else:
                     breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
-            except Exception, e:
-                print e
-        
+            else:
+                pre_log('info', 'breadcrumb step %s missing' % breadcrumb)
+
         # Populate the drives combo box the first time that page #2 is shown.
         if current == STEP_PART_AUTO and False:
             # TODO cjwatson 2006-01-10: update for partman
