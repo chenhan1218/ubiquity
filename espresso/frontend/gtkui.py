@@ -631,6 +631,7 @@ class Wizard:
         # Keyboard
         elif step == STEP_KEYBOARD_CONFIG:
             self.steps.next_page()
+            self.back.show()
             self.next.set_sensitive(False)
             # XXX: Actually do keyboard config here
         # Identification
@@ -672,7 +673,6 @@ class Wizard:
         if len(error_msg) > 1:
             self.show_error(self.resize_text(''.join(error_msg), '4'))
         else:
-            self.back.show()
             self.steps.next_page()
 
 
