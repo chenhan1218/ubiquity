@@ -1,3 +1,16 @@
+espresso (0.99.12) UNRELEASED; urgency=low
+
+  [ Tollef Fog Heen ]
+  * Use named constants rather than just numbers for the steps in gtkui.py
+  * Move the common parts (logo, photo and breadcrumb) outside the
+    notebook so they don't have to be kept in sync.  Adjust code to
+    highlight the correct one.
+  * Use named constants instead of just numbers which make inserting new
+    steps in the beginning possible.
+  * Begin implementing a keyboard selector.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Feb 2006 12:54:43 +0000
+
 espresso (0.99.11) dapper; urgency=low
 
   [ Colin Watson ]

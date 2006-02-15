@@ -84,6 +84,41 @@ GLADEDIR = os.path.join(PATH, 'glade')
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
+# Those step names must be kept in sync with the glade file
+STEP_WELCOME = 0
+STEP_KEYBOARD_CONFIG = 1
+STEP_USER_INFO = 2
+STEP_PART_AUTO = 3
+STEP_PART_ADVANCED = 4
+STEP_PART_MOUNTPOINTS = 5
+STEP_DO_INSTALL = 6
+STEP_END = 7
+
+BREADCRUMB_STEPS = {
+    STEP_WELCOME : "lblWelcome",
+    STEP_KEYBOARD_CONFIG : "lblKeyboardConf",
+    STEP_USER_INFO: "lblUserInfo",
+    STEP_PART_AUTO: "lblDiskSpace",
+    STEP_PART_ADVANCED: "lblDiskSpace",
+    STEP_PART_MOUNTPOINTS: "lblDiskSpace",
+    STEP_DO_INSTALL: "lblInstallation",
+    STEP_END: "lblEnd" }
+
+# Font stuff
+
+import pango
+
+a = pango.AttrList()
+a.insert(pango.AttrForeground(65535, 65535, 655355, end_index=-1))
+a.insert(pango.AttrBackground(0x9F << 8, 0x6C << 8, 0x49 << 8, end_index=-1))
+
+BREADCRUMB_HIGHLIGHT = a
+
+a = pango.AttrList()
+a.insert(pango.AttrForeground(0x9F << 8, 0x6C << 8, 0x49 << 8, end_index=-1))
+a.insert(pango.AttrBackground(0, 0, 0, end_index=-1))
+
+BREADCRUMB_NORMAL = a
 
 class Wizard:
 
@@ -154,9 +189,9 @@ class Wizard:
         # Start the interface
         self.current_page = 0
         while self.current_page is not None:
-            if self.current_page == 1:
+            if self.current_page == STEP_USER_INFO:
                 self.dbfilter = usersetup.UserSetup(self)
-            elif self.current_page == 2:
+            elif self.current_page == STEP_PART_AUTO:
                 self.dbfilter = partman.Partman(self)
             else:
                 self.dbfilter = None
@@ -186,12 +221,8 @@ class Wizard:
         if not os.path.exists(photo):
             photo = None
 
-        self.logo_image0.set_from_file(logo)
-        self.logo_image1.set_from_file(logo)
-        self.photo1.set_from_file(photo)
-        self.logo_image21.set_from_file(logo)
-        self.logo_image22.set_from_file(logo)
-        self.logo_image23.set_from_file(logo)
+        self.logo_image.set_from_file(logo)
+        self.photo.set_from_file(photo)
 
         self.live_installer.show()
         self.live_installer.window.set_cursor(self.watch)
@@ -584,21 +615,25 @@ class Wizard:
         pre_log('info', 'Step_before = %d' % step)
 
         # Welcome
-        if step == 0:
+        if step == STEP_WELCOME:
             self.next.set_label('gtk-go-forward')
-            self.next.set_sensitive(False)
             self.steps.next_page()
+        # Keyboard
+        elif step == STEP_KEYBOARD_CONFIG:
+            self.steps.next_page()
+            self.next.set_sensitive(False)
+            # XXX: Actually do keyboard config here
         # Identification
-        elif step == 1:
+        elif step == STEP_USER_INFO:
             self.process_identification()
         # Automatic partitioning
-        elif step == 2:
+        elif step == STEP_PART_AUTO:
             self.process_autopartitioning()
         # Advanced partitioning
-        elif step == 3:
+        elif step == STEP_PART_ADVANCED:
             self.gparted_to_mountpoints()
         # Mountpoints
-        elif step == 4:
+        elif step == STEP_PART_MOUNTPOINTS:
             self.mountpoints_to_progress()
 
         step = self.steps.get_current_page()
@@ -822,17 +857,17 @@ class Wizard:
         # Setting actual step
         step = self.steps.get_current_page()
 
-        if step == 2:
+        if step == STEP_PART_AUTO:
             self.back.hide()
-        elif step == 3:
+        elif step == STEP_PART_ADVANCED:
             print >>self.gparted_subp.stdin, "undo"
             self.gparted_subp.stdin.close()
             self.gparted_subp.wait()
             self.gparted_subp = None
-        elif step == 4:
+        elif step == STEP_PART_MOUNTPOINTS:
             self.gparted_loop()
 
-        if step is not 6:
+        if step is not STEP_END:
             self.steps.prev_page()
 
     def on_drives_changed (self, foo):
@@ -910,13 +945,19 @@ class Wizard:
         return '%d%%' % value
 
 
-    # Public method "on_steps_switch_page" _____________________________________
     def on_steps_switch_page (self, foo, bar, current):
 
         self.current_page = current
 
+        try:
+            breadcrumblbl = getattr(self, BREADCRUMB_STEPS[current])
+            breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
+        except Exception, e:
+            print e
+            pass
+        
         # Populate the drives combo box the first time that page #2 is shown.
-        if 2 == current and False:
+        if current == STEP_PART_AUTO and False:
             # TODO cjwatson 2006-01-10: update for partman
 
             # To set a "busy mouse":
