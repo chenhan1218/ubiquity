@@ -86,12 +86,39 @@ LOCALEDIR = "/usr/share/locale"
 
 # Those step names must be kept in sync with the glade file
 STEP_WELCOME = 0
-STEP_USER_INFO = 1
-STEP_PART_AUTO = 2
-STEP_PART_ADVANCED = 3
-STEP_PART_MOUNTPOINTS = 4
-STEP_DO_INSTALL = 5
-STEP_END = 6
+STEP_KEYBOARD_CONFIG = 1
+STEP_USER_INFO = 2
+STEP_PART_AUTO = 3
+STEP_PART_ADVANCED = 4
+STEP_PART_MOUNTPOINTS = 5
+STEP_DO_INSTALL = 6
+STEP_END = 7
+
+BREADCRUMB_STEPS = {
+    STEP_WELCOME : "lblWelcome",
+    STEP_KEYBOARD_CONFIG : "lblKeyboardConf",
+    STEP_USER_INFO: "lblUserInfo",
+    STEP_PART_AUTO: "lblDiskSpace",
+    STEP_PART_ADVANCED: "lblDiskSpace",
+    STEP_PART_MOUNTPOINTS: "lblDiskSpace",
+    STEP_DO_INSTALL: "lblInstallation",
+    STEP_END: "lblEnd" }
+
+# Font stuff
+
+import pango
+
+a = pango.AttrList()
+a.insert(pango.AttrForeground(65535, 65535, 655355, end_index=-1))
+a.insert(pango.AttrBackground(0x9F << 8, 0x6C << 8, 0x49 << 8, end_index=-1))
+
+BREADCRUMB_HIGHLIGHT = a
+
+a = pango.AttrList()
+a.insert(pango.AttrForeground(0x9F << 8, 0x6C << 8, 0x49 << 8, end_index=-1))
+a.insert(pango.AttrBackground(0, 0, 0, end_index=-1))
+
+BREADCRUMB_NORMAL = a
 
 class Wizard:
 
@@ -590,8 +617,12 @@ class Wizard:
         # Welcome
         if step == STEP_WELCOME:
             self.next.set_label('gtk-go-forward')
-            self.next.set_sensitive(False)
             self.steps.next_page()
+        # Keyboard
+        elif step == STEP_KEYBOARD_CONFIG:
+            self.steps.next_page()
+            self.next.set_sensitive(False)
+            # XXX: Actually do keyboard config here
         # Identification
         elif step == STEP_USER_INFO:
             self.process_identification()
