@@ -854,7 +854,7 @@ class Wizard:
         # Setting actual step
         step = self.steps.get_current_page()
 
-        if step == STEP_PART_AUTO:
+        if step == STEP_USER_INFO:
             self.back.hide()
         elif step == STEP_PART_ADVANCED:
             print >>self.gparted_subp.stdin, "undo"
