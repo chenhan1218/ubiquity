@@ -17,6 +17,7 @@ espresso (0.99.12) UNRELEASED; urgency=low
   * Hide the disk selector until it becomes useful.
   * More PEP 8 reformatting, this time in espresso.misc.
   * Fix 'espresso <frontend-name>' not to try to do two installs.
+  * Provide a .desktop file for the GTK frontend.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Feb 2006 12:54:43 +0000
 
