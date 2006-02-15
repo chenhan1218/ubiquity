@@ -304,7 +304,7 @@ class Wizard:
 
         if size > 1024*1024:
             msg = '%.0f Gb' % (size/1024/1024)
-        elif size > 1024):
+        elif size > 1024:
             msg = '%.0f Mb' % (size/1024)
         else:
             msg = '%.0f Kb' % size
@@ -528,7 +528,7 @@ class Wizard:
 
             if list_partitions[index].get_active_text() is not None and \
                list_mountpoints[index].get_active_text() != "" and \
-               len(get_partitions()) >= index+1 ):
+               len(get_partitions()) >= index+1:
                 list_partitions[index+1].show()
                 list_mountpoints[index+1].show()
                 list_sizes[index+1].show()
