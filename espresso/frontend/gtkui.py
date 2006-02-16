@@ -72,7 +72,7 @@ from gettext import bindtextdomain, textdomain, install
 from espresso import filteredcommand, validation
 from espresso.backend import *
 from espresso.misc import *
-from espresso.components import usersetup, partman, partman_commit
+from espresso.components import usersetup, partman, partman_commit, kbd-chooser
 
 # Define Espresso global path
 PATH = '/usr/share/espresso'
@@ -188,6 +188,8 @@ class Wizard:
                 self.dbfilter = usersetup.UserSetup(self)
             elif self.current_page == STEP_PART_AUTO:
                 self.dbfilter = partman.Partman(self)
+            elif self.current_page == STEP_KEYBOARD_CONFIG:
+                self.dbfilter = kbd-chooser.KbdChooser(self)
             else:
                 self.dbfilter = None
 
