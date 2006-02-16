@@ -72,7 +72,7 @@ from gettext import bindtextdomain, textdomain, install
 from espresso import filteredcommand, validation
 from espresso.backend import *
 from espresso.misc import *
-from espresso.components import usersetup, partman, partman_commit, kbd-chooser
+from espresso.components import usersetup, partman, partman_commit, kbd_chooser
 
 # Define Espresso global path
 PATH = '/usr/share/espresso'
