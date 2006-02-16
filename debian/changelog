@@ -1,17 +1,7 @@
-espresso (0.99.11) UNRELEASED; urgency=low
+espresso (0.99.12) dapper; urgency=low
 
-  [ Colin Watson ]
-  * Stop auto-hiding the panel when running the GTK frontend.
-  * Stop logging how much time was spent in the installation; it makes it
-    unnecessarily painful to quit espresso if you try to run it as
-    non-root.
-    
   [ Tollef Fog Heen ]
-  * Global reformatting to conform roughly to PEP 8 rather than a mish-mash
-    of difficult-to-read styles.
   * Use named constants rather than just numbers for the steps in gtkui.py
-    unnecessarily painful to quit espresso if you try to run it as
-    non-root.
   * Move the common parts (logo, photo and breadcrumb) outside the
     notebook so they don't have to be kept in sync.  Adjust code to
     highlight the correct one.
@@ -19,7 +9,38 @@ espresso (0.99.11) UNRELEASED; urgency=low
     steps in the beginning possible.
   * Begin implementing a keyboard selector.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Feb 2006 10:04:25 +0000
+  [ Colin Watson ]
+  * Stop destroying the browser widget; following Tollef's changes, this
+    changes the number of pages in the notebook, causing much confusion.
+  * Use named constants in espresso.validation; construct returned list more
+    sensibly.
+  * Hide the disk selector until it becomes useful.
+  * More PEP 8 reformatting, this time in espresso.misc.
+  * Fix 'espresso <frontend-name>' not to try to do two installs.
+  * Provide a .desktop file for the GTK frontend.
+  * Remove Guadalinex-specific text from warning and abort dialogs.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Feb 2006 23:00:58 +0000
+
+espresso (0.99.11) dapper; urgency=low
+
+  [ Colin Watson ]
+  * Stop auto-hiding the panel when running the GTK frontend.
+  * Stop logging how much time was spent in the installation; it makes it
+    unnecessarily painful to quit espresso if you try to run it as non-root.
+  * Get rid of the confirmation checkbox for automatic partitioning; partman
+    pops up a more detailed confirmation dialog for this now.
+  * Make ESPRESSO_DEBUG=1 imply DEBCONF_DEBUG='developer|filter' for ease of
+    debugging.
+  * Stop building espresso-frontend-cloner, espresso-guadalinex-artwork, and
+    espresso-guadalinex-doc for now, until they work again and are
+    better-tested.
+
+  [ Tollef Fog Heen ]
+  * Global reformatting to conform roughly to PEP 8 rather than a mish-mash
+    of difficult-to-read styles.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Feb 2006 12:54:43 +0000
 
 espresso (0.99.10) dapper; urgency=low
 

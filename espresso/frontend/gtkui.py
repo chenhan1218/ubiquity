@@ -69,9 +69,8 @@ import Queue
 
 from gettext import bindtextdomain, textdomain, install
 
-from espresso import filteredcommand
+from espresso import filteredcommand, validation
 from espresso.backend import *
-from espresso.validation import *
 from espresso.misc import *
 from espresso.components import usersetup, partman, partman_commit
 
@@ -114,11 +113,7 @@ a.insert(pango.AttrBackground(0x9F << 8, 0x6C << 8, 0x49 << 8, end_index=-1))
 
 BREADCRUMB_HIGHLIGHT = a
 
-a = pango.AttrList()
-a.insert(pango.AttrForeground(0x9F << 8, 0x6C << 8, 0x49 << 8, end_index=-1))
-a.insert(pango.AttrBackground(0, 0, 0, end_index=-1))
-
-BREADCRUMB_NORMAL = a
+BREADCRUMB_NORMAL = pango.AttrList()
 
 class Wizard:
 
@@ -187,7 +182,7 @@ class Wizard:
         self.glade.signal_autoconnect(self)
 
         # Start the interface
-        self.current_page = 0
+        self.set_current_page(0)
         while self.current_page is not None:
             if self.current_page == STEP_USER_INFO:
                 self.dbfilter = usersetup.UserSetup(self)
@@ -298,6 +293,21 @@ class Wizard:
             if type != '4':
                 msg = ''
         return msg
+
+
+    def set_current_page(self, current):
+        self.current_page = current
+
+        for step in range(0, self.steps.get_n_pages()):
+            breadcrumb = BREADCRUMB_STEPS[step]
+            if hasattr(self, breadcrumb):
+                breadcrumblbl = getattr(self, breadcrumb)
+                if breadcrumb == BREADCRUMB_STEPS[current]:
+                    breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
+                else:
+                    breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
+            else:
+                pre_log('info', 'breadcrumb step %s missing' % breadcrumb)
 
     # Methods
 
@@ -621,6 +631,7 @@ class Wizard:
         # Keyboard
         elif step == STEP_KEYBOARD_CONFIG:
             self.steps.next_page()
+            self.back.show()
             self.next.set_sensitive(False)
             # XXX: Actually do keyboard config here
         # Identification
@@ -643,29 +654,25 @@ class Wizard:
     def process_identification (self):
         """Processing identification step tasks."""
 
-        from espresso import validation
         error_msg = ['\n']
         error = 0
 
         # Validation stuff
 
         # checking hostname entry
-        for result in validation.check_hostname(self.hostname.get_property('text')):
-            if result == 1:
+        hostname = self.hostname.get_property('text')
+        for result in validation.check_hostname(hostname):
+            if result == validation.HOSTNAME_LENGTH:
                 error_msg.append("· El <b>nombre del equipo</b> tiene tamaño incorrecto (permitido entre 3 y 18 caracteres).\n")
-            elif result == 2:
+            elif result == validation.HOSTNAME_WHITESPACE:
                 error_msg.append("· El <b>nombre del equipo</b> contiene espacios en blanco (no están permitidos).\n")
-            elif result == 3:
+            elif result == validation.HOSTNAME_BADCHAR:
                 error_msg.append("· El <b>nombre del equipo</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
 
         # showing warning message is error is set
         if len(error_msg) > 1:
             self.show_error(self.resize_text(''.join(error_msg), '4'))
         else:
-            # showing next step and destroying mozembed widget to
-            # release memory
-            self.browser_vbox.destroy()
-            self.back.show()
             self.steps.next_page()
 
 
@@ -816,18 +823,19 @@ class Wizard:
 
         # Processing more validation stuff
         if len(self.mountpoints) > 0:
-            for check in check_mountpoint(self.mountpoints, self.size):
-                if check == 1:
+            for check in validation.check_mountpoint(self.mountpoints,
+                                                     self.size):
+                if check == validation.MOUNTPOINT_NOROOT:
                     error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
-                elif check == 2:
+                elif check == validation.MOUNTPOINT_DUPPATH:
                     error_msg.append("· Puntos de montaje duplicados.\n\n")
-                elif check == 3:
+                elif check == validation.MOUNTPOINT_BADSIZE:
                     try:
                         swap = self.mountpoints.values().index('swap')
                         error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
                     except:
                         error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
-                elif check == 4:
+                elif check == validation.MOUNTPOINT_BADCHAR:
                     error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
 
         # showing warning messages
@@ -857,7 +865,7 @@ class Wizard:
         # Setting actual step
         step = self.steps.get_current_page()
 
-        if step == STEP_PART_AUTO:
+        if step == STEP_USER_INFO:
             self.back.hide()
         elif step == STEP_PART_ADVANCED:
             print >>self.gparted_subp.stdin, "undo"
@@ -947,15 +955,19 @@ class Wizard:
 
     def on_steps_switch_page (self, foo, bar, current):
 
-        self.current_page = current
+        self.set_current_page(current)
 
-        try:
-            breadcrumblbl = getattr(self, BREADCRUMB_STEPS[current])
-            breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
-        except Exception, e:
-            print e
-            pass
-        
+        for step in range(0, self.steps.get_n_pages()):
+            breadcrumb = BREADCRUMB_STEPS[step]
+            if hasattr(self, breadcrumb):
+                breadcrumblbl = getattr(self, breadcrumb)
+                if breadcrumb == BREADCRUMB_STEPS[current]:
+                    breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
+                else:
+                    breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
+            else:
+                pre_log('info', 'breadcrumb step %s missing' % breadcrumb)
+
         # Populate the drives combo box the first time that page #2 is shown.
         if current == STEP_PART_AUTO and False:
             # TODO cjwatson 2006-01-10: update for partman
@@ -983,43 +995,10 @@ class Wizard:
         selected."""
 
         if widget.get_active():
-            self.confirmation_checkbutton.show()
-            self.confirmation_checkbutton.set_active(False)
-            self.next.set_sensitive(False)
             self.new_size_vbox.set_sensitive(True)
         else:
             self.new_size_vbox.set_sensitive(False)
 
-
-    def on_autopartition_manual_toggled (self, widget):
-        """Update autopartitioning screen when the manual button is
-        selected."""
-
-        if widget.get_active():
-            self.confirmation_checkbutton.hide()
-            self.confirmation_checkbutton.set_active(False)
-            self.next.set_sensitive(True)
-
-
-    def on_autopartition_button_toggled (self, widget):
-        """Update autopartitioning screen when any button other than
-        resize or manual is selected."""
-
-        if widget.get_active():
-            self.confirmation_checkbutton.show()
-            self.confirmation_checkbutton.set_active(False)
-            self.next.set_sensitive(False)
-
-
-    def on_confirmation_checkbutton_toggled (self, widget):
-
-        """Change 'active' property of 'next' button when this check
-        box is changed."""
-
-        if self.confirmation_checkbutton.get_active ():
-            self.next.set_sensitive (True)
-        else:
-            self.next.set_sensitive (False)
 
 ##     def on_abort_dialog_close (self, widget):
 
@@ -1107,12 +1086,6 @@ class Wizard:
             if choice == resize_choice:
                 self.on_autopartition_resize_toggled(button)
                 button.connect('toggled', self.on_autopartition_resize_toggled)
-            elif choice == manual_choice:
-                self.on_autopartition_manual_toggled(button)
-                button.connect('toggled', self.on_autopartition_manual_toggled)
-            else:
-                self.on_autopartition_button_toggled(button)
-                button.connect('toggled', self.on_autopartition_button_toggled)
         if firstbutton is not None:
             firstbutton.set_active(True)
 
