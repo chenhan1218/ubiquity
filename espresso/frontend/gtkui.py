@@ -189,7 +189,7 @@ class Wizard:
             elif self.current_page == STEP_PART_AUTO:
                 self.dbfilter = partman.Partman(self)
             elif self.current_page == STEP_KEYBOARD_CONFIG:
-                self.dbfilter = kbd-chooser.KbdChooser(self)
+                self.dbfilter = kbd_chooser.KbdChooser(self)
             else:
                 self.dbfilter = None
 
