@@ -83,25 +83,14 @@ GLADEDIR = os.path.join(PATH, 'glade')
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
-# Those step names must be kept in sync with the glade file
-STEP_WELCOME = 0
-STEP_KEYBOARD_CONFIG = 1
-STEP_USER_INFO = 2
-STEP_PART_AUTO = 3
-STEP_PART_ADVANCED = 4
-STEP_PART_MOUNTPOINTS = 5
-STEP_DO_INSTALL = 6
-STEP_END = 7
-
 BREADCRUMB_STEPS = {
-    STEP_WELCOME : "lblWelcome",
-    STEP_KEYBOARD_CONFIG : "lblKeyboardConf",
-    STEP_USER_INFO: "lblUserInfo",
-    STEP_PART_AUTO: "lblDiskSpace",
-    STEP_PART_ADVANCED: "lblDiskSpace",
-    STEP_PART_MOUNTPOINTS: "lblDiskSpace",
-    STEP_DO_INSTALL: "lblInstallation",
-    STEP_END: "lblEnd" }
+    "stepWelcome": "lblWelcome",
+    "stepKeyboardConf": "lblKeyboardConf",
+    "stepUserInfo": "lblUserInfo",
+    "stepPartAuto": "lblDiskSpace",
+    "stepPartAdvanced": "lblDiskSpace",
+    "stepPartMountpoints": "lblDiskSpace"
+}
 
 # Font stuff
 
@@ -184,9 +173,10 @@ class Wizard:
         # Start the interface
         self.set_current_page(0)
         while self.current_page is not None:
-            if self.current_page == STEP_USER_INFO:
+            current_name = self.step_name(self.current_page)
+            if current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
-            elif self.current_page == STEP_PART_AUTO:
+            elif current_name == "stepPartAuto":
                 self.dbfilter = partman.Partman(self)
             else:
                 self.dbfilter = None
@@ -253,7 +243,7 @@ class Wizard:
         except:
             widget.load_url("http://www.ubuntu.com/")
         widget.get_location()
-        self.browser_vbox.add(widget)
+        self.stepWelcome.add(widget)
         widget.show()
 
 
@@ -268,7 +258,7 @@ class Wizard:
             intro_file = open(intro)
             widget.set_markup(intro_file.read().rstrip('\n'))
             intro_file.close()
-            self.browser_vbox.add(widget)
+            self.stepWelcome.add(widget)
             widget.show()
 
 
@@ -295,14 +285,19 @@ class Wizard:
         return msg
 
 
+    def step_name(self, step_index):
+        return self.steps.get_nth_page(step_index).get_name()
+
+
     def set_current_page(self, current):
         self.current_page = current
+        current_name = self.step_name(current)
 
         for step in range(0, self.steps.get_n_pages()):
-            breadcrumb = BREADCRUMB_STEPS[step]
+            breadcrumb = BREADCRUMB_STEPS[self.step_name(step)]
             if hasattr(self, breadcrumb):
                 breadcrumblbl = getattr(self, breadcrumb)
-                if breadcrumb == BREADCRUMB_STEPS[current]:
+                if breadcrumb == BREADCRUMB_STEPS[current_name]:
                     breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
                 else:
                     breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
@@ -621,34 +616,34 @@ class Wizard:
         """Process and validate the results of this step."""
 
         # setting actual step
-        step = self.steps.get_current_page()
-        pre_log('info', 'Step_before = %d' % step)
+        step = self.step_name(self.steps.get_current_page())
+        pre_log('info', 'Step_before = %s' % step)
 
         # Welcome
-        if step == STEP_WELCOME:
+        if step == "stepWelcome":
             self.next.set_label('gtk-go-forward')
             self.steps.next_page()
         # Keyboard
-        elif step == STEP_KEYBOARD_CONFIG:
+        elif step == "stepKeyboardConf":
             self.steps.next_page()
             self.back.show()
             self.next.set_sensitive(False)
             # XXX: Actually do keyboard config here
         # Identification
-        elif step == STEP_USER_INFO:
+        elif step == "stepUserInfo":
             self.process_identification()
         # Automatic partitioning
-        elif step == STEP_PART_AUTO:
+        elif step == "stepPartAuto":
             self.process_autopartitioning()
         # Advanced partitioning
-        elif step == STEP_PART_ADVANCED:
+        elif step == "stepPartAdvanced":
             self.gparted_to_mountpoints()
         # Mountpoints
-        elif step == STEP_PART_MOUNTPOINTS:
+        elif step == "stepPartMountpoints":
             self.mountpoints_to_progress()
 
-        step = self.steps.get_current_page()
-        pre_log('info', 'Step_after = %d' % step)
+        step = self.step_name(self.steps.get_current_page())
+        pre_log('info', 'Step_after = %s' % step)
 
 
     def process_identification (self):
@@ -863,20 +858,19 @@ class Wizard:
         # Enabling next button
         self.next.set_sensitive(True)
         # Setting actual step
-        step = self.steps.get_current_page()
+        step = self.step_name(self.steps.get_current_page())
 
-        if step == STEP_USER_INFO:
+        if step == "stepUserInfo":
             self.back.hide()
-        elif step == STEP_PART_ADVANCED:
+        elif step == "stepPartAdvanced":
             print >>self.gparted_subp.stdin, "undo"
             self.gparted_subp.stdin.close()
             self.gparted_subp.wait()
             self.gparted_subp = None
-        elif step == STEP_PART_MOUNTPOINTS:
+        elif step == "stepPartMountpoints":
             self.gparted_loop()
 
-        if step is not STEP_END:
-            self.steps.prev_page()
+        self.steps.prev_page()
 
     def on_drives_changed (self, foo):
 
@@ -956,12 +950,13 @@ class Wizard:
     def on_steps_switch_page (self, foo, bar, current):
 
         self.set_current_page(current)
+        current_name = self.step_name(current)
 
         for step in range(0, self.steps.get_n_pages()):
-            breadcrumb = BREADCRUMB_STEPS[step]
+            breadcrumb = BREADCRUMB_STEPS[self.step_name(step)]
             if hasattr(self, breadcrumb):
                 breadcrumblbl = getattr(self, breadcrumb)
-                if breadcrumb == BREADCRUMB_STEPS[current]:
+                if breadcrumb == BREADCRUMB_STEPS[current_name]:
                     breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
                 else:
                     breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
@@ -969,7 +964,7 @@ class Wizard:
                 pre_log('info', 'breadcrumb step %s missing' % breadcrumb)
 
         # Populate the drives combo box the first time that page #2 is shown.
-        if current == STEP_PART_AUTO and False:
+        if current == "stepPartAuto" and False:
             # TODO cjwatson 2006-01-10: update for partman
 
             # To set a "busy mouse":

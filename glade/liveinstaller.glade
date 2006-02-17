@@ -374,7 +374,7 @@
 	      <signal name="switch_page" handler="on_steps_switch_page" last_modification_time="Tue, 13 Sep 2005 17:21:02 GMT"/>
 
 	      <child>
-		<widget class="GtkVBox" id="browser_vbox">
+		<widget class="GtkVBox" id="stepWelcome">
 		  <property name="border_width">16</property>
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
@@ -414,7 +414,7 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkLabel" id="label71">
+		<widget class="GtkLabel" id="stepKeyboardConf">
 		  <property name="visible">True</property>
 		  <property name="label" translatable="yes">Some text (keyboard configurator goes here)</property>
 		  <property name="use_underline">False</property>
@@ -461,7 +461,7 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkVBox" id="ident">
+		<widget class="GtkVBox" id="stepUserInfo">
 		  <property name="border_width">16</property>
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
@@ -988,7 +988,7 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkVBox" id="hbox_partitioning">
+		<widget class="GtkVBox" id="stepPartAuto">
 		  <property name="border_width">16</property>
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
@@ -1349,7 +1349,7 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkVBox" id="vbox11">
+		<widget class="GtkVBox" id="stepPartAdvanced">
 		  <property name="border_width">16</property>
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
@@ -1493,7 +1493,7 @@ Alternatively, it is possible to return to the previous page to select an easier
 	      </child>
 
 	      <child>
-		<widget class="GtkVBox" id="vbox15">
+		<widget class="GtkVBox" id="stepPartMountpoints">
 		  <property name="border_width">16</property>
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
@@ -2737,10 +2737,6 @@ If you kept an intact home partition, you can now link it with the “/home” m
 		    </widget>
 		  </child>
 		</widget>
-	      </child>
-
-	      <child>
-		<placeholder/>
 	      </child>
 	    </widget>
 	    <packing>
