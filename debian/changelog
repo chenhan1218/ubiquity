@@ -1,4 +1,4 @@
-espresso (0.99.13) UNRELEASED; urgency=low
+espresso (0.99.13) dapper; urgency=low
 
   * Remove the GTK frontend's reliance on step numbers entirely; refer to
     widget names for each step instead. This makes it easier to add steps.
@@ -9,7 +9,7 @@ espresso (0.99.13) UNRELEASED; urgency=low
     finished, rather than continuing and (in some cases) trying to re-run
     the partitioner.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 Feb 2006 16:33:21 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 Feb 2006 18:20:19 +0000
 
 espresso (0.99.12) dapper; urgency=low
 
