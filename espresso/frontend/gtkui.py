@@ -485,7 +485,7 @@ class Wizard:
         self.finished_dialog.show()
 
 
-    def __reboot(self, *args):
+    def reboot(self, *args):
         """reboot the system after installing process."""
 
         os.system("reboot")

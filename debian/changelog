@@ -2,6 +2,7 @@ espresso (0.99.13) UNRELEASED; urgency=low
 
   * Remove the GTK frontend's reliance on step numbers entirely; refer to
     widget names for each step instead. This makes it easier to add steps.
+  * Fix the GTK frontend's reboot button.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 Feb 2006 16:33:21 +0000
 

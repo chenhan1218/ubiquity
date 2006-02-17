@@ -3156,7 +3156,7 @@ If you kept an intact home partition, you can now link it with the “/home” m
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
 	      <property name="focus_on_click">True</property>
 	      <property name="response_id">0</property>
-	      <signal name="clicked" handler="__reboot" last_modification_time="Tue, 14 Feb 2006 16:53:32 GMT"/>
+	      <signal name="clicked" handler="reboot" last_modification_time="Tue, 14 Feb 2006 16:53:32 GMT"/>
 	    </widget>
 	  </child>
 	</widget>
