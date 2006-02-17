@@ -416,6 +416,8 @@ class Wizard:
 
         pre_log('info', 'progress_loop()')
 
+        self.current_page = None
+
         self.install_window.show()
 
         # Setting Normal cursor
@@ -482,7 +484,7 @@ class Wizard:
         umount.umount_target()
 
         self.install_window.hide()
-        self.finished_dialog.show()
+        self.finished_dialog.run()
 
 
     def reboot(self, *args):

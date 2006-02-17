@@ -5,6 +5,9 @@ espresso (0.99.13) UNRELEASED; urgency=low
   * Fix the GTK frontend's reboot button.
   * Remove fstab configuration; partman does all this now, and trying to do
     it ourselves breaks in the autopartitioning case.
+  * Make sure to block in progress_loop() until the final dialog has
+    finished, rather than continuing and (in some cases) trying to re-run
+    the partitioner.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 Feb 2006 16:33:21 +0000
 
