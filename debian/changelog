@@ -1,10 +1,10 @@
-espresso (0.99.14) UNRELEASED; urgency=low
+espresso (0.99.14) dapper; urgency=low
 
   * Set NoDisplay=true in espresso-gtkui.desktop so that it doesn't show up
     on menus. I may remove this again once we've figured out how to make
     espresso not install itself on the target system.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 Feb 2006 18:36:00 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 Feb 2006 18:40:10 +0000
 
 espresso (0.99.13) dapper; urgency=low
 
