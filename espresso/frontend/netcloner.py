@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import os
-import time, gobject
+import gobject
 import glob
 
 from gettext import bindtextdomain, textdomain, install
 
+from espresso import validation
 from espresso.backend import *
-from espresso.validation import *
 from espresso.misc import *
 
 from Queue import Queue
@@ -28,24 +28,20 @@ class Wizard:
         self.per = 0
         self.parse('/etc/config.cfg',self.info)
      
-        # Start a timer to see how long the user runs this program
-        self.start = time.time()
-        
         # set custom language
         self.set_locales()
         
         
     def run(self):
-        from espresso import validation
         error_msg = ['\n']
         error = 0
-        result = validation.check_hostname(self.info['hostname'])
-        if result == 1:
-            error_msg.append("· hostname wrong length (allowed between 3 and 18 chars).\n")
-            error = 1
-        elif result == 2:
-            error_msg.append("· hostname contains white spaces (they're not allowed).\n")
-            error = 1
+        for result in validation.check_hostname(self.info['hostname']):
+            if result == validation.HOSTNAME_LENGTH:
+                error_msg.append("· hostname wrong length (allowed between 3 and 18 chars).\n")
+                error = 1
+            elif result == validation.HOSTNAME_WHITESPACE:
+                error_msg.append("· hostname contains white spaces (they're not allowed).\n")
+                error = 1
         if error == 1:
             self.show_error(''.join(error_msg))
         if '/' not in self.info['mountpoints'].values():
@@ -153,8 +149,6 @@ class Wizard:
     def quit(self):
         if self.pid:
             os.kill(self.pid, 9)
-        post_log('info', 'You wasted %.2f seconds with this installation' %
-                                            (time.time()-self.start))
 
 
     def __reboot(self, *args):

@@ -69,9 +69,8 @@ import Queue
 
 from gettext import bindtextdomain, textdomain, install
 
-from espresso import filteredcommand
+from espresso import filteredcommand, validation
 from espresso.backend import *
-from espresso.validation import *
 from espresso.misc import *
 from espresso.components import usersetup, partman, partman_commit
 
@@ -84,25 +83,14 @@ GLADEDIR = os.path.join(PATH, 'glade')
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
-# Those step names must be kept in sync with the glade file
-STEP_WELCOME = 0
-STEP_KEYBOARD_CONFIG = 1
-STEP_USER_INFO = 2
-STEP_PART_AUTO = 3
-STEP_PART_ADVANCED = 4
-STEP_PART_MOUNTPOINTS = 5
-STEP_DO_INSTALL = 6
-STEP_END = 7
-
 BREADCRUMB_STEPS = {
-    STEP_WELCOME : "lblWelcome",
-    STEP_KEYBOARD_CONFIG : "lblKeyboardConf",
-    STEP_USER_INFO: "lblUserInfo",
-    STEP_PART_AUTO: "lblDiskSpace",
-    STEP_PART_ADVANCED: "lblDiskSpace",
-    STEP_PART_MOUNTPOINTS: "lblDiskSpace",
-    STEP_DO_INSTALL: "lblInstallation",
-    STEP_END: "lblEnd" }
+    "stepWelcome": "lblWelcome",
+    "stepKeyboardConf": "lblKeyboardConf",
+    "stepUserInfo": "lblUserInfo",
+    "stepPartAuto": "lblDiskSpace",
+    "stepPartAdvanced": "lblDiskSpace",
+    "stepPartMountpoints": "lblDiskSpace"
+}
 
 # Font stuff
 
@@ -114,11 +102,7 @@ a.insert(pango.AttrBackground(0x9F << 8, 0x6C << 8, 0x49 << 8, end_index=-1))
 
 BREADCRUMB_HIGHLIGHT = a
 
-a = pango.AttrList()
-a.insert(pango.AttrForeground(0x9F << 8, 0x6C << 8, 0x49 << 8, end_index=-1))
-a.insert(pango.AttrBackground(0, 0, 0, end_index=-1))
-
-BREADCRUMB_NORMAL = a
+BREADCRUMB_NORMAL = pango.AttrList()
 
 class Wizard:
 
@@ -187,11 +171,12 @@ class Wizard:
         self.glade.signal_autoconnect(self)
 
         # Start the interface
-        self.current_page = 0
+        self.set_current_page(0)
         while self.current_page is not None:
-            if self.current_page == STEP_USER_INFO:
+            current_name = self.step_name(self.current_page)
+            if current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
-            elif self.current_page == STEP_PART_AUTO:
+            elif current_name == "stepPartAuto":
                 self.dbfilter = partman.Partman(self)
             else:
                 self.dbfilter = None
@@ -258,7 +243,7 @@ class Wizard:
         except:
             widget.load_url("http://www.ubuntu.com/")
         widget.get_location()
-        self.browser_vbox.add(widget)
+        self.stepWelcome.add(widget)
         widget.show()
 
 
@@ -273,7 +258,7 @@ class Wizard:
             intro_file = open(intro)
             widget.set_markup(intro_file.read().rstrip('\n'))
             intro_file.close()
-            self.browser_vbox.add(widget)
+            self.stepWelcome.add(widget)
             widget.show()
 
 
@@ -298,6 +283,26 @@ class Wizard:
             if type != '4':
                 msg = ''
         return msg
+
+
+    def step_name(self, step_index):
+        return self.steps.get_nth_page(step_index).get_name()
+
+
+    def set_current_page(self, current):
+        self.current_page = current
+        current_name = self.step_name(current)
+
+        for step in range(0, self.steps.get_n_pages()):
+            breadcrumb = BREADCRUMB_STEPS[self.step_name(step)]
+            if hasattr(self, breadcrumb):
+                breadcrumblbl = getattr(self, breadcrumb)
+                if breadcrumb == BREADCRUMB_STEPS[current_name]:
+                    breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
+                else:
+                    breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
+            else:
+                pre_log('info', 'breadcrumb step %s missing' % breadcrumb)
 
     # Methods
 
@@ -411,6 +416,8 @@ class Wizard:
 
         pre_log('info', 'progress_loop()')
 
+        self.current_page = None
+
         self.install_window.show()
 
         # Setting Normal cursor
@@ -477,10 +484,10 @@ class Wizard:
         umount.umount_target()
 
         self.install_window.hide()
-        self.finished_dialog.show()
+        self.finished_dialog.run()
 
 
-    def __reboot(self, *args):
+    def reboot(self, *args):
         """reboot the system after installing process."""
 
         os.system("reboot")
@@ -611,61 +618,58 @@ class Wizard:
         """Process and validate the results of this step."""
 
         # setting actual step
-        step = self.steps.get_current_page()
-        pre_log('info', 'Step_before = %d' % step)
+        step = self.step_name(self.steps.get_current_page())
+        pre_log('info', 'Step_before = %s' % step)
 
         # Welcome
-        if step == STEP_WELCOME:
+        if step == "stepWelcome":
             self.next.set_label('gtk-go-forward')
             self.steps.next_page()
         # Keyboard
-        elif step == STEP_KEYBOARD_CONFIG:
+        elif step == "stepKeyboardConf":
             self.steps.next_page()
+            self.back.show()
             self.next.set_sensitive(False)
             # XXX: Actually do keyboard config here
         # Identification
-        elif step == STEP_USER_INFO:
+        elif step == "stepUserInfo":
             self.process_identification()
         # Automatic partitioning
-        elif step == STEP_PART_AUTO:
+        elif step == "stepPartAuto":
             self.process_autopartitioning()
         # Advanced partitioning
-        elif step == STEP_PART_ADVANCED:
+        elif step == "stepPartAdvanced":
             self.gparted_to_mountpoints()
         # Mountpoints
-        elif step == STEP_PART_MOUNTPOINTS:
+        elif step == "stepPartMountpoints":
             self.mountpoints_to_progress()
 
-        step = self.steps.get_current_page()
-        pre_log('info', 'Step_after = %d' % step)
+        step = self.step_name(self.steps.get_current_page())
+        pre_log('info', 'Step_after = %s' % step)
 
 
     def process_identification (self):
         """Processing identification step tasks."""
 
-        from espresso import validation
         error_msg = ['\n']
         error = 0
 
         # Validation stuff
 
         # checking hostname entry
-        for result in validation.check_hostname(self.hostname.get_property('text')):
-            if result == 1:
+        hostname = self.hostname.get_property('text')
+        for result in validation.check_hostname(hostname):
+            if result == validation.HOSTNAME_LENGTH:
                 error_msg.append("· El <b>nombre del equipo</b> tiene tamaño incorrecto (permitido entre 3 y 18 caracteres).\n")
-            elif result == 2:
+            elif result == validation.HOSTNAME_WHITESPACE:
                 error_msg.append("· El <b>nombre del equipo</b> contiene espacios en blanco (no están permitidos).\n")
-            elif result == 3:
+            elif result == validation.HOSTNAME_BADCHAR:
                 error_msg.append("· El <b>nombre del equipo</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
 
         # showing warning message is error is set
         if len(error_msg) > 1:
             self.show_error(self.resize_text(''.join(error_msg), '4'))
         else:
-            # showing next step and destroying mozembed widget to
-            # release memory
-            self.browser_vbox.destroy()
-            self.back.show()
             self.steps.next_page()
 
 
@@ -816,18 +820,19 @@ class Wizard:
 
         # Processing more validation stuff
         if len(self.mountpoints) > 0:
-            for check in check_mountpoint(self.mountpoints, self.size):
-                if check == 1:
+            for check in validation.check_mountpoint(self.mountpoints,
+                                                     self.size):
+                if check == validation.MOUNTPOINT_NOROOT:
                     error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
-                elif check == 2:
+                elif check == validation.MOUNTPOINT_DUPPATH:
                     error_msg.append("· Puntos de montaje duplicados.\n\n")
-                elif check == 3:
+                elif check == validation.MOUNTPOINT_BADSIZE:
                     try:
                         swap = self.mountpoints.values().index('swap')
                         error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
                     except:
                         error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
-                elif check == 4:
+                elif check == validation.MOUNTPOINT_BADCHAR:
                     error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
 
         # showing warning messages
@@ -855,20 +860,19 @@ class Wizard:
         # Enabling next button
         self.next.set_sensitive(True)
         # Setting actual step
-        step = self.steps.get_current_page()
+        step = self.step_name(self.steps.get_current_page())
 
-        if step == STEP_PART_AUTO:
+        if step == "stepUserInfo":
             self.back.hide()
-        elif step == STEP_PART_ADVANCED:
+        elif step == "stepPartAdvanced":
             print >>self.gparted_subp.stdin, "undo"
             self.gparted_subp.stdin.close()
             self.gparted_subp.wait()
             self.gparted_subp = None
-        elif step == STEP_PART_MOUNTPOINTS:
+        elif step == "stepPartMountpoints":
             self.gparted_loop()
 
-        if step is not STEP_END:
-            self.steps.prev_page()
+        self.steps.prev_page()
 
     def on_drives_changed (self, foo):
 
@@ -947,17 +951,22 @@ class Wizard:
 
     def on_steps_switch_page (self, foo, bar, current):
 
-        self.current_page = current
+        self.set_current_page(current)
+        current_name = self.step_name(current)
 
-        try:
-            breadcrumblbl = getattr(self, BREADCRUMB_STEPS[current])
-            breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
-        except Exception, e:
-            print e
-            pass
-        
+        for step in range(0, self.steps.get_n_pages()):
+            breadcrumb = BREADCRUMB_STEPS[self.step_name(step)]
+            if hasattr(self, breadcrumb):
+                breadcrumblbl = getattr(self, breadcrumb)
+                if breadcrumb == BREADCRUMB_STEPS[current_name]:
+                    breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
+                else:
+                    breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
+            else:
+                pre_log('info', 'breadcrumb step %s missing' % breadcrumb)
+
         # Populate the drives combo box the first time that page #2 is shown.
-        if current == STEP_PART_AUTO and False:
+        if current == "stepPartAuto" and False:
             # TODO cjwatson 2006-01-10: update for partman
 
             # To set a "busy mouse":
@@ -983,43 +992,10 @@ class Wizard:
         selected."""
 
         if widget.get_active():
-            self.confirmation_checkbutton.show()
-            self.confirmation_checkbutton.set_active(False)
-            self.next.set_sensitive(False)
             self.new_size_vbox.set_sensitive(True)
         else:
             self.new_size_vbox.set_sensitive(False)
 
-
-    def on_autopartition_manual_toggled (self, widget):
-        """Update autopartitioning screen when the manual button is
-        selected."""
-
-        if widget.get_active():
-            self.confirmation_checkbutton.hide()
-            self.confirmation_checkbutton.set_active(False)
-            self.next.set_sensitive(True)
-
-
-    def on_autopartition_button_toggled (self, widget):
-        """Update autopartitioning screen when any button other than
-        resize or manual is selected."""
-
-        if widget.get_active():
-            self.confirmation_checkbutton.show()
-            self.confirmation_checkbutton.set_active(False)
-            self.next.set_sensitive(False)
-
-
-    def on_confirmation_checkbutton_toggled (self, widget):
-
-        """Change 'active' property of 'next' button when this check
-        box is changed."""
-
-        if self.confirmation_checkbutton.get_active ():
-            self.next.set_sensitive (True)
-        else:
-            self.next.set_sensitive (False)
 
 ##     def on_abort_dialog_close (self, widget):
 
@@ -1107,12 +1083,6 @@ class Wizard:
             if choice == resize_choice:
                 self.on_autopartition_resize_toggled(button)
                 button.connect('toggled', self.on_autopartition_resize_toggled)
-            elif choice == manual_choice:
-                self.on_autopartition_manual_toggled(button)
-                button.connect('toggled', self.on_autopartition_manual_toggled)
-            else:
-                self.on_autopartition_button_toggled(button)
-                button.connect('toggled', self.on_autopartition_button_toggled)
         if firstbutton is not None:
             firstbutton.set_active(True)
 
