@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import sys
 import os
 import subprocess
 
@@ -114,17 +115,11 @@ def ret_ex(*args):
 def pre_log(code, msg=''):
     """logs install messages into /var/log on live filesystem."""
 
-    log_file = '/var/log/installer/espresso'
-
-    if not os.path.exists(os.path.dirname(log_file)):
-        os.makedirs(os.path.dirname(log_file))
-
     import logging
     logging.basicConfig(level=logging.DEBUG,
                         format='%(asctime)s %(levelname)-8s %(message)s',
                         datefmt='%a, %d %b %Y %H:%M:%S',
-                        filename=log_file,
-                        filemode='a')
+                        stream=sys.stderr)
     eval('logging.%s(\'%s\')' % (code,msg))
 
 

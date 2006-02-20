@@ -23,6 +23,8 @@ cdebconf = False
 
 TARGET = '/target'
 
+log_file = '/var/log/installer/espresso'
+
 def install(type='gtkui'):
     '''install(type='gtkui') -> none
     
@@ -51,6 +53,11 @@ def prepend_path(directory):
         os.environ['PATH'] = directory
 
 if __name__ == '__main__':
+    if not os.path.exists(os.path.dirname(log_file)):
+        os.makedirs(os.path.dirname(log_file))
+    sys.stderr = open(log_file, 'a')
+    os.dup2(sys.stderr.fileno(), 2)
+
     if cdebconf:
         # Note that this needs to be set before DebconfCommunicate is
         # imported by anything.

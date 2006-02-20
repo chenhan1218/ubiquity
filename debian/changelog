@@ -1,3 +1,10 @@
+espresso (0.99.15) UNRELEASED; urgency=low
+
+  * Redirect sys.stderr to /var/log/installer/espresso so that we have a
+    better chance of diagnosing problems after the fact.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 20 Feb 2006 10:25:03 +0000
+
 espresso (0.99.14) dapper; urgency=low
 
   * Set NoDisplay=true in espresso-gtkui.desktop so that it doesn't show up
