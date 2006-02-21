@@ -79,6 +79,56 @@
 	      </child>
 
 	      <child>
+		<widget class="GtkLabel" id="label67">
+		  <property name="visible">True</property>
+		  <property name="label" translatable="yes">&gt;</property>
+		  <property name="use_underline">False</property>
+		  <property name="use_markup">False</property>
+		  <property name="justify">GTK_JUSTIFY_LEFT</property>
+		  <property name="wrap">False</property>
+		  <property name="selectable">False</property>
+		  <property name="xalign">0.5</property>
+		  <property name="yalign">0.5</property>
+		  <property name="xpad">0</property>
+		  <property name="ypad">0</property>
+		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		  <property name="width_chars">-1</property>
+		  <property name="single_line_mode">False</property>
+		  <property name="angle">0</property>
+		</widget>
+		<packing>
+		  <property name="padding">0</property>
+		  <property name="expand">False</property>
+		  <property name="fill">False</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkLabel" id="lblLanguage">
+		  <property name="visible">True</property>
+		  <property name="label" translatable="yes">Language</property>
+		  <property name="use_underline">False</property>
+		  <property name="use_markup">False</property>
+		  <property name="justify">GTK_JUSTIFY_LEFT</property>
+		  <property name="wrap">False</property>
+		  <property name="selectable">False</property>
+		  <property name="xalign">0.5</property>
+		  <property name="yalign">0.5</property>
+		  <property name="xpad">0</property>
+		  <property name="ypad">0</property>
+		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		  <property name="width_chars">-1</property>
+		  <property name="single_line_mode">False</property>
+		  <property name="angle">0</property>
+		</widget>
+		<packing>
+		  <property name="padding">0</property>
+		  <property name="expand">False</property>
+		  <property name="fill">False</property>
+		</packing>
+	      </child>
+
+	      <child>
 		<widget class="GtkLabel" id="label66">
 		  <property name="visible">True</property>
 		  <property name="label">&gt;</property>
@@ -414,6 +464,148 @@
 	      </child>
 
 	      <child>
+		<widget class="GtkHBox" id="stepLanguage">
+		  <property name="visible">True</property>
+		  <property name="homogeneous">False</property>
+		  <property name="spacing">0</property>
+
+		  <child>
+		    <widget class="GtkScrolledWindow" id="scrolledwindow4">
+		      <property name="visible">True</property>
+		      <property name="can_focus">True</property>
+		      <property name="hscrollbar_policy">GTK_POLICY_NEVER</property>
+		      <property name="vscrollbar_policy">GTK_POLICY_ALWAYS</property>
+		      <property name="shadow_type">GTK_SHADOW_NONE</property>
+		      <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
+
+		      <child>
+			<widget class="GtkTreeView" id="language_treeview">
+			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
+			  <property name="headers_visible">False</property>
+			  <property name="rules_hint">False</property>
+			  <property name="reorderable">False</property>
+			  <property name="enable_search">True</property>
+			  <property name="fixed_height_mode">True</property>
+			  <property name="hover_selection">False</property>
+			  <property name="hover_expand">False</property>
+			</widget>
+		      </child>
+		    </widget>
+		    <packing>
+		      <property name="padding">6</property>
+		      <property name="expand">True</property>
+		      <property name="fill">True</property>
+		    </packing>
+		  </child>
+
+		  <child>
+		    <widget class="GtkVBox" id="vbox37">
+		      <property name="border_width">6</property>
+		      <property name="visible">True</property>
+		      <property name="homogeneous">False</property>
+		      <property name="spacing">0</property>
+
+		      <child>
+			<widget class="GtkLabel" id="welcome_heading_label">
+			  <property name="visible">True</property>
+			  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Welcome&lt;/b&gt;&lt;/big&gt;</property>
+			  <property name="use_underline">False</property>
+			  <property name="use_markup">True</property>
+			  <property name="justify">GTK_JUSTIFY_LEFT</property>
+			  <property name="wrap">False</property>
+			  <property name="selectable">False</property>
+			  <property name="xalign">0</property>
+			  <property name="yalign">0.5</property>
+			  <property name="xpad">0</property>
+			  <property name="ypad">0</property>
+			  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+			  <property name="width_chars">-1</property>
+			  <property name="single_line_mode">True</property>
+			  <property name="angle">0</property>
+			</widget>
+			<packing>
+			  <property name="padding">0</property>
+			  <property name="expand">False</property>
+			  <property name="fill">False</property>
+			</packing>
+		      </child>
+
+		      <child>
+			<widget class="GtkHSeparator" id="hseparator1">
+			  <property name="visible">True</property>
+			</widget>
+			<packing>
+			  <property name="padding">6</property>
+			  <property name="expand">False</property>
+			  <property name="fill">False</property>
+			</packing>
+		      </child>
+
+		      <child>
+			<widget class="GtkLabel" id="welcome_text_label">
+			  <property name="visible">True</property>
+			  <property name="label" translatable="yes">Ready to install? Once you answer a few questions, Ubuntu can be installed on this computer so you can run the system at full speed and without the CD.
+
+Answering the questions should only take a few minutes.</property>
+			  <property name="use_underline">False</property>
+			  <property name="use_markup">False</property>
+			  <property name="justify">GTK_JUSTIFY_LEFT</property>
+			  <property name="wrap">True</property>
+			  <property name="selectable">False</property>
+			  <property name="xalign">0</property>
+			  <property name="yalign">0.5</property>
+			  <property name="xpad">0</property>
+			  <property name="ypad">12</property>
+			  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+			  <property name="width_chars">-1</property>
+			  <property name="single_line_mode">False</property>
+			  <property name="angle">0</property>
+			</widget>
+			<packing>
+			  <property name="padding">0</property>
+			  <property name="expand">False</property>
+			  <property name="fill">False</property>
+			</packing>
+		      </child>
+		    </widget>
+		    <packing>
+		      <property name="padding">6</property>
+		      <property name="expand">True</property>
+		      <property name="fill">True</property>
+		    </packing>
+		  </child>
+		</widget>
+		<packing>
+		  <property name="tab_expand">False</property>
+		  <property name="tab_fill">True</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkLabel" id="label-1">
+		  <property name="visible">True</property>
+		  <property name="label" translatable="yes">Language</property>
+		  <property name="use_underline">False</property>
+		  <property name="use_markup">False</property>
+		  <property name="justify">GTK_JUSTIFY_LEFT</property>
+		  <property name="wrap">False</property>
+		  <property name="selectable">False</property>
+		  <property name="xalign">0.5</property>
+		  <property name="yalign">0.5</property>
+		  <property name="xpad">0</property>
+		  <property name="ypad">0</property>
+		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		  <property name="width_chars">-1</property>
+		  <property name="single_line_mode">False</property>
+		  <property name="angle">0</property>
+		</widget>
+		<packing>
+		  <property name="type">tab</property>
+		</packing>
+	      </child>
+
+	      <child>
 		<widget class="GtkLabel" id="stepKeyboardConf">
 		  <property name="visible">True</property>
 		  <property name="label" translatable="yes">Some text (keyboard configurator goes here)</property>
@@ -438,7 +630,7 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkLabel" id="label-1">
+		<widget class="GtkLabel" id="label-2">
 		  <property name="visible">True</property>
 		  <property name="label" translatable="yes">Keyboard selector</property>
 		  <property name="use_underline">False</property>
@@ -965,7 +1157,7 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkLabel" id="label-1">
+		<widget class="GtkLabel" id="label-3">
 		  <property name="visible">True</property>
 		  <property name="label" translatable="yes">Identification</property>
 		  <property name="use_underline">False</property>
@@ -1326,9 +1518,9 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkLabel" id="label-2-1">
+		<widget class="GtkLabel" id="label-4-1">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">2-1</property>
+		  <property name="label" translatable="yes">4-1</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">False</property>
 		  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1470,9 +1662,9 @@ Alternatively, it is possible to return to the previous page to select an easier
 	      </child>
 
 	      <child>
-		<widget class="GtkLabel" id="label2-2">
+		<widget class="GtkLabel" id="label-4-2">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">2-2</property>
+		  <property name="label" translatable="yes">4-2</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">False</property>
 		  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -2512,9 +2704,9 @@ If you kept an intact home partition, you can now link it with the “/home” m
 	      </child>
 
 	      <child>
-		<widget class="GtkLabel" id="label2-3">
+		<widget class="GtkLabel" id="label-4-3">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">2-3</property>
+		  <property name="label" translatable="yes">4-3</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">False</property>
 		  <property name="justify">GTK_JUSTIFY_LEFT</property>
