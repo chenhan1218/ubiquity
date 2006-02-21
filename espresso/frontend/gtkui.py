@@ -1124,6 +1124,18 @@ class Wizard:
         else:
             return False
 
+    def set_keyboard_choices(self, choices):
+        kbdlayouts = gtk.ListStore(gobject.TYPE_STRING)
+
+        self.keyboardlistview.set_model(kbdlayouts)
+        for v in choices:
+            kbdlayouts.append([v])
+            print "Appending: ", v, "\n"
+
+        renderer = gtk.CellRendererText()
+        column = gtk.TreeViewColumn("Layout", renderer, text=0)
+        self.keyboardlistview.append_column(column)
+        
 
     def error_dialog (self, msg):
         # TODO: cancel button as well if capb backup
