@@ -27,6 +27,7 @@ class FilteredCommand(object):
         if 'ESPRESSO_DEBUG' in os.environ:
             message = fmt % args
             print >>sys.stderr, '%s: %s' % (self.package, message)
+            sys.stderr.flush()
 
     def start(self, auto_process=False):
         self.status = None
