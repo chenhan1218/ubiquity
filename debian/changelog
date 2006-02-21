@@ -11,6 +11,8 @@ espresso (0.99.15) UNRELEASED; urgency=low
     translatable strings in the Espresso core.
   * Add a FilteredCommand.cleanup() hook that can be overridden by
     components to perform cleanup tasks after their subprocess exits.
+  * Stop logging every single file we copy to /var/log/installer/espresso;
+    it creates massive log bloat and isn't very useful.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 20 Feb 2006 10:25:03 +0000
 

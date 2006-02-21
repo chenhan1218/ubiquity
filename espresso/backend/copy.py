@@ -132,7 +132,6 @@ class Copy:
         copied_bytes, counter = 0, 0
         for path, size in files:
             copy.stdin.write(path + '\0')
-            misc.pre_log('info', path)
             if size is not None:
                 copied_bytes += size
             per = (copied_bytes * 100) / total_size
