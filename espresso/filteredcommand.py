@@ -10,6 +10,9 @@ except ImportError:
     from espresso.debconfcommunicator import DebconfCommunicator
 from espresso.debconffilter import DebconfFilter
 
+# We identify as this to debconf.
+PACKAGE = 'espresso'
+
 # Bitfield constants for process_input and process_output.
 DEBCONF_IO_IN = 1
 DEBCONF_IO_OUT = 2
@@ -21,12 +24,11 @@ class FilteredCommand(object):
         self.frontend = frontend
         self.done = False
         self.current_question = None
-        self.package = 'espresso'
 
     def debug(self, fmt, *args):
         if 'ESPRESSO_DEBUG' in os.environ:
             message = fmt % args
-            print >>sys.stderr, '%s: %s' % (self.package, message)
+            print >>sys.stderr, '%s: %s' % (PACKAGE, message)
             sys.stderr.flush()
 
     def start(self, auto_process=False):
@@ -45,7 +47,7 @@ class FilteredCommand(object):
         self.debug("Watching for question patterns %s",
                    ', '.join(question_patterns))
 
-        self.db = DebconfCommunicator(self.package)
+        self.db = DebconfCommunicator(PACKAGE)
         widgets = {}
         for pattern in question_patterns:
             widgets[pattern] = self
