@@ -3,6 +3,9 @@ espresso (0.99.15) UNRELEASED; urgency=low
   * Redirect sys.stderr to /var/log/installer/espresso so that we have a
     better chance of diagnosing problems after the fact.
   * Add FilteredCommand.value_index helper from oem-config.
+  * Add support for components optionally returning a third argument from
+    FilteredCommand.prepare(), interpreted as a dictionary of extra
+    environment variables to set for the subprocess.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 20 Feb 2006 10:25:03 +0000
 
