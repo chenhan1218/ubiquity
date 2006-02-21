@@ -30,6 +30,7 @@ class FilteredCommand(object):
 
     def start(self, auto_process=False):
         self.status = None
+        self.db = DebconfCommunicator(self.package)
         (self.command, question_patterns) = self.prepare()
         self.ui_loop_level = 0
 
@@ -38,7 +39,6 @@ class FilteredCommand(object):
         self.debug("Watching for question patterns %s",
                    ', '.join(question_patterns))
 
-        self.db = DebconfCommunicator(self.package)
         widgets = {}
         for pattern in question_patterns:
             widgets[pattern] = self
