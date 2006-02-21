@@ -7,7 +7,8 @@ espresso (0.99.15) UNRELEASED; urgency=low
     FilteredCommand.prepare(), interpreted as a dictionary of extra
     environment variables to set for the subprocess.
   * Add a language page, using espresso-locale. The locale is set in the
-    target system, but isn't yet used for Espresso itself.
+    target system and used for debconf coprocesses, although not yet for
+    translatable strings in the Espresso core.
   * Add a FilteredCommand.cleanup() hook that can be overridden by
     components to perform cleanup tasks after their subprocess exits.
 
