@@ -119,6 +119,7 @@ class Wizard:
         self.part_labels = {' ' : ' '}
         self.current_page = None
         self.dbfilter = None
+        self.locale = None
         self.progress_min = 0
         self.progress_max = 100
         self.progress_cur = 0
