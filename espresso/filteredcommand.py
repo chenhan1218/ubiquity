@@ -10,6 +10,9 @@ except ImportError:
     from espresso.debconfcommunicator import DebconfCommunicator
 from espresso.debconffilter import DebconfFilter
 
+# We identify as this to debconf.
+PACKAGE = 'espresso'
+
 # Bitfield constants for process_input and process_output.
 DEBCONF_IO_IN = 1
 DEBCONF_IO_OUT = 2
@@ -21,17 +24,24 @@ class FilteredCommand(object):
         self.frontend = frontend
         self.done = False
         self.current_question = None
-        self.package = 'espresso'
 
     def debug(self, fmt, *args):
         if 'ESPRESSO_DEBUG' in os.environ:
             message = fmt % args
-            print >>sys.stderr, '%s: %s' % (self.package, message)
+            print >>sys.stderr, '%s: %s' % (PACKAGE, message)
+            sys.stderr.flush()
 
     def start(self, auto_process=False):
         self.status = None
         self.db = DebconfCommunicator(self.package)
-        (self.command, question_patterns) = self.prepare()
+        prep = self.prepare()
+        self.command = prep[0]
+        question_patterns = prep[1]
+        if len(prep) > 2:
+            env = prep[2]
+        else:
+            env = {}
+
         self.ui_loop_level = 0
 
         self.debug("Starting up '%s' for %s.%s", self.command,
@@ -47,7 +57,7 @@ class FilteredCommand(object):
         # TODO: Set as unseen all questions that we're going to ask.
 
         if auto_process:
-            self.dbfilter.start(self.command, blocking=False)
+            self.dbfilter.start(self.command, blocking=False, extra_env=env)
             # Clearly, this isn't enough for full non-blocking operation.
             # However, debconf itself is generally quick, and the confmodule
             # will generally be listening for a reply when we try to send
@@ -57,7 +67,7 @@ class FilteredCommand(object):
             self.frontend.watch_debconf_fd(
                 self.dbfilter.subout_fd, self.process_input)
         else:
-            self.dbfilter.start(self.command, blocking=True)
+            self.dbfilter.start(self.command, blocking=True, extra_env=env)
 
     def process_line(self):
         return self.dbfilter.process_line()
@@ -69,9 +79,14 @@ class FilteredCommand(object):
             # TODO: error message if ret != 10
             self.debug("%s exited with code %d", self.command, ret)
 
+        self.cleanup()
+
         self.db.shutdown()
 
         return ret
+
+    def cleanup(self):
+        pass
 
     def run_command(self, auto_process=False):
         self.start(auto_process=auto_process)

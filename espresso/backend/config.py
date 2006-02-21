@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from espresso import misc
-from espresso.components import usersetup_apply
+from espresso.components import language_apply, usersetup_apply
 from espresso.settings import *
 
 import os
@@ -136,16 +136,10 @@ class Config:
         except debconf.DebconfError:
             self.keymap = None
 
-        try:
-            self.locales = db.get('locales/default_environment_locale')
-            if self.locales == 'None':
-                self.locales = None
-        except debconf.DebconfError:
-            self.locales = None
-
         db.shutdown()
 
-        return True
+        dbfilter = language_apply.LanguageApply(self.frontend)
+        return (dbfilter.run_command(auto_process=True) == 0)
 
 
     def configure_timezone(self):

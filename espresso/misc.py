@@ -189,4 +189,17 @@ def get_filesystems():
                 device_list[device] = 'ntfs'
     return device_list
 
+
+_supported_locales = None
+
+def get_supported_locales():
+    """Returns a list of all locales supported by the installation system."""
+    global _supported_locales
+    if _supported_locales is None:
+        _supported_locales = {}
+        for line in open('/usr/share/i18n/SUPPORTED'):
+            (locale, charset) = line.split(None, 1)
+            _supported_locales[locale] = charset
+    return _supported_locales
+
 # vim:ai:et:sts=4:tw=80:sw=4:
