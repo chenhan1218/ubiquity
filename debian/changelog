@@ -8,6 +8,8 @@ espresso (0.99.15) UNRELEASED; urgency=low
     environment variables to set for the subprocess.
   * Add a language page, using espresso-locale. The locale is set in the
     target system, but isn't yet used for Espresso itself.
+  * Add a FilteredCommand.cleanup() hook that can be overridden by
+    components to perform cleanup tasks after their subprocess exits.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 20 Feb 2006 10:25:03 +0000
 

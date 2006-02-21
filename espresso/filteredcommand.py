@@ -78,9 +78,14 @@ class FilteredCommand(object):
             # TODO: error message if ret != 10
             self.debug("%s exited with code %d", self.command, ret)
 
+        self.cleanup()
+
         self.db.shutdown()
 
         return ret
+
+    def cleanup(self):
+        pass
 
     def run_command(self, auto_process=False):
         self.start(auto_process=auto_process)
