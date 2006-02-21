@@ -42,13 +42,6 @@ class Config:
         else:
             misc.post_log('error', 'Configuring distro')
             return False
-        queue.put('93 Configuring mount points')
-        misc.post_log('info', 'Configuring distro')
-        if self.configure_fstab():
-            misc.post_log('info', 'Configured distro')
-        else:
-            misc.post_log('error', 'Configuring distro')
-            return False
         #queue.put('94 Configure time zone')
         #misc.post_log('info', 'Configuring distro')
         #if self.configure_timezone():
@@ -152,49 +145,6 @@ class Config:
 
         db.shutdown()
 
-        return True
-
-
-    def configure_fstab(self):
-        """create and configure /etc/fstab depending on our
-        installation selections.  It creates a swapfile instead of
-        swap partition if it isn't defined along the installation
-        process."""
-
-        swap = 0
-        fstab = open(os.path.join(self.target,'etc/fstab'), 'w')
-        print >>fstab, 'proc\t/proc\tproc\tdefaults\t0\t0\nsysfs\t/sys\tsysfs\tdefaults\t0\t0'
-        for device, path in self.frontend.get_mountpoints().items():
-                if path == '/':
-                        passno, options, filesystem = 1, 'defaults,errors=remount-ro', 'ext3'
-                elif path == 'swap':
-                        swap, passno, filesystem, options, path = 1, 0, 'swap', 'sw', 'none'
-                else:
-                        passno, filesystem, options = 2, 'ext3', 'defaults'
-
-                print >>fstab, '%s\t%s\t%s\t%s\t%d\t%d' % (device, path, filesystem, options, 0, passno)
-
-        counter = 1
-        for device, fs in misc.get_filesystems().items():
-            if fs in ['vfat', 'ntfs']:
-                passno = 2
-                if fs == 'vfat' :
-                    options = 'rw,exec,users,sync,noauto,umask=022'
-                else:
-                    options = 'utf8,noauto,user,exec,uid=1000,gid=1000'
-                path = '/media/Windows%d' % counter
-                os.mkdir(os.path.join(self.target, path[1:]))
-                counter += 1
-
-                print >>fstab, '%s\t%s\t%s\t%s\t%d\t%d' % (device, path, fs, options, 0, passno)
-
-        # if swap partition isn't defined, we create a swapfile
-        if swap != 1:
-            print >>fstab, '/swapfile\tnone\tswap\tsw\t0\t0'
-            os.system("dd if=/dev/zero of=%s/swapfile bs=1024 count=%d" % (self.target, MINIMAL_PARTITION_SCHEME ['swap'] * 1024) )
-            os.system("mkswap %s/swapfile" % self.target)
-
-        fstab.close()
         return True
 
 

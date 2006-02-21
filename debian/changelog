@@ -1,3 +1,32 @@
+espresso (0.99.15) UNRELEASED; urgency=low
+
+  * Redirect sys.stderr to /var/log/installer/espresso so that we have a
+    better chance of diagnosing problems after the fact.
+  * Add FilteredCommand.value_index helper from oem-config.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 20 Feb 2006 10:25:03 +0000
+
+espresso (0.99.14) dapper; urgency=low
+
+  * Set NoDisplay=true in espresso-gtkui.desktop so that it doesn't show up
+    on menus. I may remove this again once we've figured out how to make
+    espresso not install itself on the target system.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 Feb 2006 18:40:10 +0000
+
+espresso (0.99.13) dapper; urgency=low
+
+  * Remove the GTK frontend's reliance on step numbers entirely; refer to
+    widget names for each step instead. This makes it easier to add steps.
+  * Fix the GTK frontend's reboot button.
+  * Remove fstab configuration; partman does all this now, and trying to do
+    it ourselves breaks in the autopartitioning case.
+  * Make sure to block in progress_loop() until the final dialog has
+    finished, rather than continuing and (in some cases) trying to re-run
+    the partitioner.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 Feb 2006 18:20:19 +0000
+
 espresso (0.99.12) dapper; urgency=low
 
   [ Tollef Fog Heen ]

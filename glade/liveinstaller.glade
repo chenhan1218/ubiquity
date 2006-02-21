@@ -374,7 +374,7 @@
 	      <signal name="switch_page" handler="on_steps_switch_page" last_modification_time="Tue, 13 Sep 2005 17:21:02 GMT"/>
 
 	      <child>
-		<widget class="GtkVBox" id="browser_vbox">
+		<widget class="GtkVBox" id="stepWelcome">
 		  <property name="border_width">16</property>
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
@@ -414,7 +414,7 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkVBox" id="vbox37">
+		<widget class="GtkVBox" id="stepKeyboardConf">
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
 		  <property name="spacing">0</property>
@@ -508,7 +508,7 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkVBox" id="ident">
+		<widget class="GtkVBox" id="stepUserInfo">
 		  <property name="border_width">16</property>
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
@@ -1035,7 +1035,7 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkVBox" id="hbox_partitioning">
+		<widget class="GtkVBox" id="stepPartAuto">
 		  <property name="border_width">16</property>
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
@@ -1396,7 +1396,7 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkVBox" id="vbox11">
+		<widget class="GtkVBox" id="stepPartAdvanced">
 		  <property name="border_width">16</property>
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
@@ -1540,7 +1540,7 @@ Alternatively, it is possible to return to the previous page to select an easier
 	      </child>
 
 	      <child>
-		<widget class="GtkVBox" id="vbox15">
+		<widget class="GtkVBox" id="stepPartMountpoints">
 		  <property name="border_width">16</property>
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
@@ -3203,7 +3203,7 @@ If you kept an intact home partition, you can now link it with the “/home” m
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
 	      <property name="focus_on_click">True</property>
 	      <property name="response_id">0</property>
-	      <signal name="clicked" handler="__reboot" last_modification_time="Tue, 14 Feb 2006 16:53:32 GMT"/>
+	      <signal name="clicked" handler="reboot" last_modification_time="Tue, 14 Feb 2006 16:53:32 GMT"/>
 	    </widget>
 	  </child>
 	</widget>
