@@ -1092,7 +1092,7 @@ class Wizard:
         model = self.language_treeview.get_model()
         iterator = model.iter_children(None)
         while iterator is not None:
-            if model.get_value(iterator, 0) == language:
+            if unicode(model.get_value(iterator, 0)) == language:
                 self.language_treeview.get_selection().select_iter(iterator)
                 break
             iterator = model.iter_next(iterator)
@@ -1101,7 +1101,7 @@ class Wizard:
     def get_language (self):
         selection = self.language_treeview.get_selection()
         (model, iterator) = selection.get_selected()
-        return self.language_choice_map[model.get_value(iterator, 0)]
+        return self.language_choice_map[unicode(model.get_value(iterator, 0))]
 
 
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
