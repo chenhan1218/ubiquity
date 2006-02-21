@@ -178,7 +178,7 @@ class Wizard:
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name == "stepPartAuto":
                 self.dbfilter = partman.Partman(self)
-            elif self.current_page == STEP_KEYBOARD_CONFIG:
+            elif current_name == "stepKeyboardConf":
                 self.dbfilter = kbd_chooser.KbdChooser(self)
             else:
                 self.dbfilter = None
