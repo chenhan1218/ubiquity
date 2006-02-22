@@ -608,7 +608,6 @@ class Wizard:
         self.set_progress(msg)
         return True
 
-
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""
 
@@ -1161,7 +1160,7 @@ class Wizard:
 
     def set_keyboard_choices(self, choicemap):
         self.keyboard_choice_map = choicemap
-        choices = choicemap[1]
+        choices = choicemap.keys()
 
         kbdlayouts = gtk.ListStore(gobject.TYPE_STRING)
         self.keyboardlistview.set_model(kbdlayouts)

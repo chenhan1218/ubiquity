@@ -24,6 +24,7 @@ class FilteredCommand(object):
         self.frontend = frontend
         self.done = False
         self.current_question = None
+        self.succeeded = False
 
     def debug(self, fmt, *args):
         if 'ESPRESSO_DEBUG' in os.environ:
@@ -164,7 +165,11 @@ class FilteredCommand(object):
         choices = self.choices(question)
         choices_c = self.choices_untranslated(question)
         for i in range(len(choices)):
-            _map[choices[i]] = choices_c[i]
+#            print >>sys.stderr, i
+#            print >>sys.stderr, choices[i]
+#            print >>sys.stderr, choices_c[i]
+            
+            _map[choices[i]] = choices[i]
         return _map        
 
     def description(self, question):
