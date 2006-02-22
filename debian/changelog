@@ -1,3 +1,11 @@
+espresso (0.99.16) UNRELEASED; urgency=low
+
+  * Explicitly decode strings returned by debconf as UTF-8, since apparently
+    we get confused when running with the KDE frontend otherwise (which
+    presumably does something funky with Python's default encoding).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Feb 2006 17:34:20 +0000
+
 espresso (0.99.15) dapper; urgency=low
 
   * Redirect sys.stderr to /var/log/installer/espresso so that we have a
