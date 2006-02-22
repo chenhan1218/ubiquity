@@ -31,6 +31,8 @@
 #define IS_E_MAP(obj)         (GTK_CHECK_TYPE ((obj), TYPE_E_MAP))
 #define IS_E_MAP_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), TYPE_E_MAP))
 
+#define TYPE_E_MAP_POINT      (e_map_point_get_type ())
+
 typedef struct _EMap EMap;
 typedef struct _EMapClass EMapClass;
 typedef struct _EMapPoint EMapPoint;
@@ -116,6 +118,12 @@ EMapPoint *e_map_add_point (EMap *map, gchar *name,
 			    guint32 color_rgba);
 
 void e_map_remove_point (EMap *map, EMapPoint *point);
+
+EMapPoint *e_map_point_copy (const EMapPoint *point);
+
+void e_map_point_free (EMapPoint *point);
+
+GtkType e_map_point_get_type (void);
 
 void e_map_point_get_location (EMapPoint *point,
 			       double *longitude, double *latitude);

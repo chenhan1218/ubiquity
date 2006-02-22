@@ -7,6 +7,15 @@
   (gtype-id "E_TYPE_MAP")
 )
 
+; boxed types ...
+(define-boxed EMapPoint
+  (in-module "emap")
+  (c-name "EMapPoint")
+  (gtype-id "E_TYPE_MAP_POINT")
+  (copy-func "e_map_point_copy")
+  (release-func "e_map_point_free")
+)
+
 ;; Enumerations and flags ...
 
 
@@ -115,6 +124,23 @@
   (parameters
     '("EMapPoint*" "point")
   )
+)
+
+(define-method copy
+  (of-object "EMapPoint")
+  (c-name "e_map_point_copy")
+  (return-type "EMapPoint*")
+)
+
+(define-method free
+  (of-object "EMapPoint")
+  (c-name "e_map_point_free")
+  (return-type "none")
+)
+
+(define-function e_map_point_get_type
+  (c-name "e_map_point_get_type")
+  (return-type "GtkType")
 )
 
 (define-method get_location

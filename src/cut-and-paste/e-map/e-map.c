@@ -870,6 +870,47 @@ e_map_remove_point (EMap *map, EMapPoint *point)
 }
 
 
+EMapPoint *
+e_map_point_copy (const EMapPoint *point)
+{
+	EMapPoint *new_point;
+
+	g_return_val_if_fail (point != NULL, NULL);
+
+	new_point = g_memdup (point, sizeof (EMapPoint));
+	if (new_point->name)
+		new_point->name = g_strdup (new_point->name);
+
+	return new_point;
+}
+
+
+void
+e_map_point_free (EMapPoint *point)
+{
+	g_return_if_fail (point != NULL);
+
+	if (point->name)
+		g_free (point->name);
+
+	g_free (point);
+}
+
+
+GtkType
+e_map_point_get_type (void)
+{
+	static GtkType e_map_point_type = 0;
+
+	if (!e_map_point_type)
+		e_map_point_type = g_boxed_type_register_static ("EMapPoint",
+								 (GBoxedCopyFunc) e_map_point_copy,
+								 (GBoxedFreeFunc) e_map_point_free);
+
+	return e_map_point_type;
+}
+
+
 void
 e_map_point_get_location (EMapPoint *point, double *longitude, double *latitude)
 {

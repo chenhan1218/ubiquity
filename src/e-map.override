@@ -4,6 +4,7 @@ headers
 #include "pygobject.h"
 #include "e-map.h"
 #define E_TYPE_MAP TYPE_E_MAP
+#define E_TYPE_MAP_POINT TYPE_E_MAP_POINT
 %%
 modulename emap
 %%
