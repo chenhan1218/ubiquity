@@ -1173,6 +1173,20 @@ class Wizard:
             self.keyboardlistview.append_column(column)
 
         
+    def set_keyboard (self, keyboard):
+        model = self.keyboardllistview.get_model()
+        iterator = model.iter_children(None)
+        while iterator is not None:
+            if unicode(model.get_value(iterator, 0)) == keyboard:
+                self.keyboardlistview.get_selection().select_iter(iterator)
+                break
+            iterator = model.iter_next(iterator)
+
+    def get_keyboard (self):
+        pass
+#        selection = self.keyboardlistview.get_selection()
+#        (model, iterator) = selection.get_selected()
+#        return self.language_choice_map[unicode(model.get_value(iterator, 0))]
 
     def error_dialog (self, msg):
         # TODO: cancel button as well if capb backup
