@@ -30,6 +30,9 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
+	./configure --prefix=/usr
+	$(MAKE)
+
 	mkdir -p $(BUILDDIR)/ubuntu
 	mkdir -p $(BUILDDIR)/guadalinex
 
@@ -49,6 +52,8 @@ clean:
 	dh_testroot
 	rm -fr build-stamp $(BUILDDIR)
 
+	-$(MAKE) clean
+
 	dh_clean 
 
 install:
@@ -56,6 +61,10 @@ install:
 	dh_testroot
 	dh_clean -k
 	dh_installdirs -A
+
+	# For the meantime, everything automake wants to install is part of
+	# the GTK frontend.
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/espresso-frontend-gtk
 
 	dh_install -A
 	install installer $(CURDIR)/debian/espresso/usr/bin/espresso
