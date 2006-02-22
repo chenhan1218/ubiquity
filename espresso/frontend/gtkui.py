@@ -1159,9 +1159,11 @@ class Wizard:
         else:
             return False
 
-    def set_keyboard_choices(self, choices):
-        kbdlayouts = gtk.ListStore(gobject.TYPE_STRING)
+    def set_keyboard_choices(self, choicemap):
+        self.keyboard_choice_map = choicemap
+        choices = choicemap[1]
 
+        kbdlayouts = gtk.ListStore(gobject.TYPE_STRING)
         self.keyboardlistview.set_model(kbdlayouts)
         for v in choices:
             kbdlayouts.append([v])
@@ -1183,10 +1185,9 @@ class Wizard:
             iterator = model.iter_next(iterator)
 
     def get_keyboard (self):
-        pass
-#        selection = self.keyboardlistview.get_selection()
-#        (model, iterator) = selection.get_selected()
-#        return self.language_choice_map[unicode(model.get_value(iterator, 0))]
+        selection = self.keyboardlistview.get_selection()
+        (model, iterator) = selection.get_selected()
+        return self.keyboard_choice_map[unicode(model.get_value(iterator, 0))]
 
     def error_dialog (self, msg):
         # TODO: cancel button as well if capb backup
