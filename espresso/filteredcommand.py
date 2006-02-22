@@ -153,6 +153,20 @@ class FilteredCommand(object):
         choices = unicode(self.db.metaget(question, 'choices'))
         return self.split_choices(choices)
 
+    def choices_display_map(self, question):
+        """Returns a mapping from displayed (translated) choices to
+        database (untranslated) choices.  It can be used both ways,
+        since both choices and the untranslated choices are sequences
+        without duplication.
+        """
+
+        _map = {}
+        choices = self.choices(question)
+        choices_c = self.choices_untranslated(question)
+        for i in range(len(choices)):
+            _map[choices[i]] = choices_c[i]
+        return _map        
+
     def description(self, question):
         return unicode(self.db.metaget(question, 'description'))
 
