@@ -1,3 +1,11 @@
+espresso (0.99.16) UNRELEASED; urgency=low
+
+  * Add e-map widget, cut-and-pasted from evolution via gnome-system-tools
+    (ugh).
+  * Basic autoconfiscation for the above.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Feb 2006 15:21:29 +0000
+
 espresso (0.99.15) dapper; urgency=low
 
   * Redirect sys.stderr to /var/log/installer/espresso so that we have a

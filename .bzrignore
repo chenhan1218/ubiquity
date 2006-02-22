@@ -14,3 +14,9 @@ debian/espresso-ubuntu-artwork
 debian/espresso-ubuntu-doc
 debian/*.debhelper
 debian/*.substvars
+./Makefile
+./libtool
+src/Makefile
+src/cut-and-paste/Makefile
+src/cut-and-paste/e-map/.deps
+src/cut-and-paste/e-map/Makefile
