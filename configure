@@ -20854,7 +20854,7 @@ pixmapsdir="${datadir}/${PACKAGE}/pixmaps"
 
 
 
-                                        ac_config_files="$ac_config_files Makefile src/Makefile src/cut-and-paste/Makefile src/cut-and-paste/e-map/Makefile"
+                                                  ac_config_files="$ac_config_files Makefile pixmaps/Makefile src/Makefile src/cut-and-paste/Makefile src/cut-and-paste/e-map/Makefile"
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure
@@ -21426,6 +21426,7 @@ do
   case "$ac_config_target" in
   # Handling of arguments.
   "Makefile" ) CONFIG_FILES="$CONFIG_FILES Makefile" ;;
+  "pixmaps/Makefile" ) CONFIG_FILES="$CONFIG_FILES pixmaps/Makefile" ;;
   "src/Makefile" ) CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
   "src/cut-and-paste/Makefile" ) CONFIG_FILES="$CONFIG_FILES src/cut-and-paste/Makefile" ;;
   "src/cut-and-paste/e-map/Makefile" ) CONFIG_FILES="$CONFIG_FILES src/cut-and-paste/e-map/Makefile" ;;
