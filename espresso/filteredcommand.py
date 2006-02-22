@@ -146,18 +146,19 @@ class FilteredCommand(object):
         return items
 
     def choices_untranslated(self, question):
-        choices = unicode(self.db.metaget(question, 'choices-c'))
+        choices = unicode(self.db.metaget(question, 'choices-c'), 'utf-8')
         return self.split_choices(choices)
 
     def choices(self, question):
-        choices = unicode(self.db.metaget(question, 'choices'))
+        choices = unicode(self.db.metaget(question, 'choices'), 'utf-8')
         return self.split_choices(choices)
 
     def description(self, question):
-        return unicode(self.db.metaget(question, 'description'))
+        return unicode(self.db.metaget(question, 'description'), 'utf-8')
 
     def extended_description(self, question):
-        return unicode(self.db.metaget(question, 'extended_description'))
+        return unicode(self.db.metaget(question, 'extended_description'),
+                       'utf-8')
 
     def translate_to_c(self, question, value):
         choices = self.choices(question)
