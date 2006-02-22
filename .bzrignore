@@ -20,3 +20,6 @@ src/Makefile
 src/cut-and-paste/Makefile
 src/cut-and-paste/e-map/.deps
 src/cut-and-paste/e-map/Makefile
+src/.deps
+src/.libs
+src/e-map.c

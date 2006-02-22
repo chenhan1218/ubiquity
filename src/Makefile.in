@@ -13,6 +13,10 @@
 # PARTICULAR PURPOSE.
 
 @SET_MAKE@
+
+
+SOURCES = $(emap_la_SOURCES) $(nodist_emap_la_SOURCES)
+
 srcdir = @srcdir@
 top_srcdir = @top_srcdir@
 VPATH = @srcdir@
@@ -37,20 +41,43 @@ host_triplet = @host@
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.in
+am__aclocal_m4_deps = $(top_srcdir)/acinclude.m4 \
+	$(top_srcdir)/configure.in
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(mkdir_p)
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
-SOURCES =
-DIST_SOURCES =
+am__installdirs = "$(DESTDIR)$(pkgpyexecdir)" "$(DESTDIR)$(defsdir)"
+pkgpyexecLTLIBRARIES_INSTALL = $(INSTALL)
+LTLIBRARIES = $(pkgpyexec_LTLIBRARIES)
+emap_la_DEPENDENCIES =
+am_emap_la_OBJECTS = emap_la-emapmodule.lo
+nodist_emap_la_OBJECTS = emap_la-e-map.lo
+emap_la_OBJECTS = $(am_emap_la_OBJECTS) $(nodist_emap_la_OBJECTS)
+DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
+depcomp = $(SHELL) $(top_srcdir)/depcomp
+am__depfiles_maybe = depfiles
+@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/emap_la-e-map.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/emap_la-emapmodule.Plo
+COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) \
+	$(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
+	$(AM_CFLAGS) $(CFLAGS)
+CCLD = $(CC)
+LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
+	$(AM_LDFLAGS) $(LDFLAGS) -o $@
+SOURCES = $(emap_la_SOURCES) $(nodist_emap_la_SOURCES)
+DIST_SOURCES = $(emap_la_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	html-recursive info-recursive install-data-recursive \
 	install-exec-recursive install-info-recursive \
 	install-recursive installcheck-recursive installdirs-recursive \
 	pdf-recursive ps-recursive uninstall-info-recursive \
 	uninstall-recursive
+defsDATA_INSTALL = $(INSTALL_DATA)
+DATA = $(defs_DATA)
 ETAGS = etags
 CTAGS = ctags
 DIST_SUBDIRS = $(SUBDIRS)
@@ -112,6 +139,16 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 PKG_CONFIG = @PKG_CONFIG@
+PYGTK_CFLAGS = @PYGTK_CFLAGS@
+PYGTK_CODEGEN = @PYGTK_CODEGEN@
+PYGTK_DEFSDIR = @PYGTK_DEFSDIR@
+PYGTK_LIBS = @PYGTK_LIBS@
+PYTHON = @PYTHON@
+PYTHON_EXEC_PREFIX = @PYTHON_EXEC_PREFIX@
+PYTHON_INCLUDES = @PYTHON_INCLUDES@
+PYTHON_PLATFORM = @PYTHON_PLATFORM@
+PYTHON_PREFIX = @PYTHON_PREFIX@
+PYTHON_VERSION = @PYTHON_VERSION@
 RANLIB = @RANLIB@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
@@ -154,17 +191,37 @@ mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
 pixmapsdir = @pixmapsdir@
+pkgpyexecdir = @pkgpyexecdir@
+pkgpythondir = @pkgpythondir@
 prefix = @prefix@
 program_transform_name = @program_transform_name@
+pyexecdir = @pyexecdir@
+pythondir = @pythondir@
 sbindir = @sbindir@
 scriptsdir = @scriptsdir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 SUBDIRS = cut-and-paste
+INCLUDES = $(PYTHON_INCLUDES) $(PYGTK_CFLAGS)
+defsdir = $(datadir)/pygtk/2.0/defs
+defs_DATA = e-map.defs
+EXTRA_DIST = $(defs_DATA) e-map.override
+pkgpyexec_LTLIBRARIES = emap.la
+emap_la_CFLAGS = $(PYTHON_INCLUDES) $(PYGTK_CFLAGS) \
+		 -I$(srcdir)/cut-and-paste/e-map
+
+emap_la_LDFLAGS = $(PYGTK_LIBS) \
+		  -module -avoid-version -export-symbols-regex initemap
+
+emap_la_LIBADD = -Lcut-and-paste/e-map -lemap
+emap_la_SOURCES = emapmodule.c
+nodist_emap_la_SOURCES = e-map.c
+CLEANFILES = e-map.c
 all: all-recursive
 
 .SUFFIXES:
+.SUFFIXES: .c .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -194,6 +251,116 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
+install-pkgpyexecLTLIBRARIES: $(pkgpyexec_LTLIBRARIES)
+	@$(NORMAL_INSTALL)
+	test -z "$(pkgpyexecdir)" || $(mkdir_p) "$(DESTDIR)$(pkgpyexecdir)"
+	@list='$(pkgpyexec_LTLIBRARIES)'; for p in $$list; do \
+	  if test -f $$p; then \
+	    f="`echo $$p | sed -e 's|^.*/||'`"; \
+	    echo " $(LIBTOOL) --mode=install $(pkgpyexecLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(pkgpyexecdir)/$$f'"; \
+	    $(LIBTOOL) --mode=install $(pkgpyexecLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(pkgpyexecdir)/$$f"; \
+	  else :; fi; \
+	done
+
+uninstall-pkgpyexecLTLIBRARIES:
+	@$(NORMAL_UNINSTALL)
+	@list='$(pkgpyexec_LTLIBRARIES)'; for p in $$list; do \
+	    p="`echo $$p | sed -e 's|^.*/||'`"; \
+	  echo " $(LIBTOOL) --mode=uninstall rm -f '$(DESTDIR)$(pkgpyexecdir)/$$p'"; \
+	  $(LIBTOOL) --mode=uninstall rm -f "$(DESTDIR)$(pkgpyexecdir)/$$p"; \
+	done
+
+clean-pkgpyexecLTLIBRARIES:
+	-test -z "$(pkgpyexec_LTLIBRARIES)" || rm -f $(pkgpyexec_LTLIBRARIES)
+	@list='$(pkgpyexec_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" != "$$p" || dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+emap.la: $(emap_la_OBJECTS) $(emap_la_DEPENDENCIES) 
+	$(LINK) -rpath $(pkgpyexecdir) $(emap_la_LDFLAGS) $(emap_la_OBJECTS) $(emap_la_LIBADD) $(LIBS)
+
+mostlyclean-compile:
+	-rm -f *.$(OBJEXT)
+
+distclean-compile:
+	-rm -f *.tab.c
+
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emap_la-e-map.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emap_la-emapmodule.Plo@am__quote@
+
+.c.o:
+@am__fastdepCC_TRUE@	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/$*.Po' tmpdepfile='$(DEPDIR)/$*.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(COMPILE) -c $<
+
+.c.obj:
+@am__fastdepCC_TRUE@	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ `$(CYGPATH_W) '$<'`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/$*.Po' tmpdepfile='$(DEPDIR)/$*.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
+
+.c.lo:
+@am__fastdepCC_TRUE@	if $(LTCOMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Plo"; else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/$*.Plo' tmpdepfile='$(DEPDIR)/$*.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+
+emap_la-emapmodule.o: emapmodule.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emap_la_CFLAGS) $(CFLAGS) -MT emap_la-emapmodule.o -MD -MP -MF "$(DEPDIR)/emap_la-emapmodule.Tpo" -c -o emap_la-emapmodule.o `test -f 'emapmodule.c' || echo '$(srcdir)/'`emapmodule.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/emap_la-emapmodule.Tpo" "$(DEPDIR)/emap_la-emapmodule.Po"; else rm -f "$(DEPDIR)/emap_la-emapmodule.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='emapmodule.c' object='emap_la-emapmodule.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/emap_la-emapmodule.Po' tmpdepfile='$(DEPDIR)/emap_la-emapmodule.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emap_la_CFLAGS) $(CFLAGS) -c -o emap_la-emapmodule.o `test -f 'emapmodule.c' || echo '$(srcdir)/'`emapmodule.c
+
+emap_la-emapmodule.obj: emapmodule.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emap_la_CFLAGS) $(CFLAGS) -MT emap_la-emapmodule.obj -MD -MP -MF "$(DEPDIR)/emap_la-emapmodule.Tpo" -c -o emap_la-emapmodule.obj `if test -f 'emapmodule.c'; then $(CYGPATH_W) 'emapmodule.c'; else $(CYGPATH_W) '$(srcdir)/emapmodule.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/emap_la-emapmodule.Tpo" "$(DEPDIR)/emap_la-emapmodule.Po"; else rm -f "$(DEPDIR)/emap_la-emapmodule.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='emapmodule.c' object='emap_la-emapmodule.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/emap_la-emapmodule.Po' tmpdepfile='$(DEPDIR)/emap_la-emapmodule.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emap_la_CFLAGS) $(CFLAGS) -c -o emap_la-emapmodule.obj `if test -f 'emapmodule.c'; then $(CYGPATH_W) 'emapmodule.c'; else $(CYGPATH_W) '$(srcdir)/emapmodule.c'; fi`
+
+emap_la-emapmodule.lo: emapmodule.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emap_la_CFLAGS) $(CFLAGS) -MT emap_la-emapmodule.lo -MD -MP -MF "$(DEPDIR)/emap_la-emapmodule.Tpo" -c -o emap_la-emapmodule.lo `test -f 'emapmodule.c' || echo '$(srcdir)/'`emapmodule.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/emap_la-emapmodule.Tpo" "$(DEPDIR)/emap_la-emapmodule.Plo"; else rm -f "$(DEPDIR)/emap_la-emapmodule.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='emapmodule.c' object='emap_la-emapmodule.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/emap_la-emapmodule.Plo' tmpdepfile='$(DEPDIR)/emap_la-emapmodule.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emap_la_CFLAGS) $(CFLAGS) -c -o emap_la-emapmodule.lo `test -f 'emapmodule.c' || echo '$(srcdir)/'`emapmodule.c
+
+emap_la-e-map.o: e-map.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emap_la_CFLAGS) $(CFLAGS) -MT emap_la-e-map.o -MD -MP -MF "$(DEPDIR)/emap_la-e-map.Tpo" -c -o emap_la-e-map.o `test -f 'e-map.c' || echo '$(srcdir)/'`e-map.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/emap_la-e-map.Tpo" "$(DEPDIR)/emap_la-e-map.Po"; else rm -f "$(DEPDIR)/emap_la-e-map.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='e-map.c' object='emap_la-e-map.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/emap_la-e-map.Po' tmpdepfile='$(DEPDIR)/emap_la-e-map.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emap_la_CFLAGS) $(CFLAGS) -c -o emap_la-e-map.o `test -f 'e-map.c' || echo '$(srcdir)/'`e-map.c
+
+emap_la-e-map.obj: e-map.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emap_la_CFLAGS) $(CFLAGS) -MT emap_la-e-map.obj -MD -MP -MF "$(DEPDIR)/emap_la-e-map.Tpo" -c -o emap_la-e-map.obj `if test -f 'e-map.c'; then $(CYGPATH_W) 'e-map.c'; else $(CYGPATH_W) '$(srcdir)/e-map.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/emap_la-e-map.Tpo" "$(DEPDIR)/emap_la-e-map.Po"; else rm -f "$(DEPDIR)/emap_la-e-map.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='e-map.c' object='emap_la-e-map.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/emap_la-e-map.Po' tmpdepfile='$(DEPDIR)/emap_la-e-map.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emap_la_CFLAGS) $(CFLAGS) -c -o emap_la-e-map.obj `if test -f 'e-map.c'; then $(CYGPATH_W) 'e-map.c'; else $(CYGPATH_W) '$(srcdir)/e-map.c'; fi`
+
+emap_la-e-map.lo: e-map.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emap_la_CFLAGS) $(CFLAGS) -MT emap_la-e-map.lo -MD -MP -MF "$(DEPDIR)/emap_la-e-map.Tpo" -c -o emap_la-e-map.lo `test -f 'e-map.c' || echo '$(srcdir)/'`e-map.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/emap_la-e-map.Tpo" "$(DEPDIR)/emap_la-e-map.Plo"; else rm -f "$(DEPDIR)/emap_la-e-map.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='e-map.c' object='emap_la-e-map.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/emap_la-e-map.Plo' tmpdepfile='$(DEPDIR)/emap_la-e-map.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emap_la_CFLAGS) $(CFLAGS) -c -o emap_la-e-map.lo `test -f 'e-map.c' || echo '$(srcdir)/'`e-map.c
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -204,6 +371,23 @@ clean-libtool:
 distclean-libtool:
 	-rm -f libtool
 uninstall-info-am:
+install-defsDATA: $(defs_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(defsdir)" || $(mkdir_p) "$(DESTDIR)$(defsdir)"
+	@list='$(defs_DATA)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  f="`echo $$p | sed -e 's|^.*/||'`"; \
+	  echo " $(defsDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(defsdir)/$$f'"; \
+	  $(defsDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(defsdir)/$$f"; \
+	done
+
+uninstall-defsDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(defs_DATA)'; for p in $$list; do \
+	  f="`echo $$p | sed -e 's|^.*/||'`"; \
+	  echo " rm -f '$(DESTDIR)$(defsdir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(defsdir)/$$f"; \
+	done
 
 # This directory's subdirectories are mostly independent; you can cd
 # into them and run `make' without going through this Makefile.
@@ -367,9 +551,12 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-recursive
-all-am: Makefile
+all-am: Makefile $(LTLIBRARIES) $(DATA)
 installdirs: installdirs-recursive
 installdirs-am:
+	for dir in "$(DESTDIR)$(pkgpyexecdir)" "$(DESTDIR)$(defsdir)"; do \
+	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
+	done
 install: install-recursive
 install-exec: install-exec-recursive
 install-data: install-data-recursive
@@ -387,6 +574,7 @@ install-strip:
 mostlyclean-generic:
 
 clean-generic:
+	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
 
 distclean-generic:
 	-rm -f $(CONFIG_CLEAN_FILES)
@@ -396,12 +584,14 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-recursive
 
-clean-am: clean-generic clean-libtool mostlyclean-am
+clean-am: clean-generic clean-libtool clean-pkgpyexecLTLIBRARIES \
+	mostlyclean-am
 
 distclean: distclean-recursive
+	-rm -rf ./$(DEPDIR)
 	-rm -f Makefile
-distclean-am: clean-am distclean-generic distclean-libtool \
-	distclean-tags
+distclean-am: clean-am distclean-compile distclean-generic \
+	distclean-libtool distclean-tags
 
 dvi: dvi-recursive
 
@@ -413,9 +603,9 @@ info: info-recursive
 
 info-am:
 
-install-data-am:
+install-data-am: install-defsDATA
 
-install-exec-am:
+install-exec-am: install-pkgpyexecLTLIBRARIES
 
 install-info: install-info-recursive
 
@@ -424,12 +614,14 @@ install-man:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-recursive
+	-rm -rf ./$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-recursive
 
-mostlyclean-am: mostlyclean-generic mostlyclean-libtool
+mostlyclean-am: mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool
 
 pdf: pdf-recursive
 
@@ -439,23 +631,37 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-info-am
+uninstall-am: uninstall-defsDATA uninstall-info-am \
+	uninstall-pkgpyexecLTLIBRARIES
 
 uninstall-info: uninstall-info-recursive
 
 .PHONY: $(RECURSIVE_TARGETS) CTAGS GTAGS all all-am check check-am \
-	clean clean-generic clean-libtool clean-recursive ctags \
-	ctags-recursive distclean distclean-generic distclean-libtool \
+	clean clean-generic clean-libtool clean-pkgpyexecLTLIBRARIES \
+	clean-recursive ctags ctags-recursive distclean \
+	distclean-compile distclean-generic distclean-libtool \
 	distclean-recursive distclean-tags distdir dvi dvi-am html \
 	html-am info info-am install install-am install-data \
-	install-data-am install-exec install-exec-am install-info \
-	install-info-am install-man install-strip installcheck \
+	install-data-am install-defsDATA install-exec install-exec-am \
+	install-info install-info-am install-man \
+	install-pkgpyexecLTLIBRARIES install-strip installcheck \
 	installcheck-am installdirs installdirs-am maintainer-clean \
 	maintainer-clean-generic maintainer-clean-recursive \
-	mostlyclean mostlyclean-generic mostlyclean-libtool \
-	mostlyclean-recursive pdf pdf-am ps ps-am tags tags-recursive \
-	uninstall uninstall-am uninstall-info-am
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool mostlyclean-recursive pdf pdf-am ps ps-am \
+	tags tags-recursive uninstall uninstall-am uninstall-defsDATA \
+	uninstall-info-am uninstall-pkgpyexecLTLIBRARIES
 
+
+%.c: %.defs %.override
+	(cd $(srcdir) \
+	 && $(PYGTK_CODEGEN) --prefix e_map \
+	    --register $(PYGTK_DEFSDIR)/gdk-types.defs \
+	    --register $(PYGTK_DEFSDIR)/gtk-types.defs \
+	    --override $*.override \
+	    $<) > gen-$@ \
+	&& cp gen-$@ $@ \
+	&& rm -f gen-$@
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:

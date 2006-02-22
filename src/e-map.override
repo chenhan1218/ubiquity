@@ -1,0 +1,14 @@
+%%
+headers
+#include <Python.h>
+#include "pygobject.h"
+#include "e-map.h"
+#define E_TYPE_MAP TYPE_E_MAP
+%%
+modulename emap
+%%
+import gtk.Widget as PyGtkWidget_Type
+%%
+ignore-glob
+  *_get_type
+%%
