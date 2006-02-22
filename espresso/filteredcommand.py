@@ -24,6 +24,7 @@ class FilteredCommand(object):
         self.frontend = frontend
         self.done = False
         self.current_question = None
+        self.succeeded = False
 
     def debug(self, fmt, *args):
         if 'ESPRESSO_DEBUG' in os.environ:
@@ -33,7 +34,7 @@ class FilteredCommand(object):
 
     def start(self, auto_process=False):
         self.status = None
-        self.db = DebconfCommunicator(self.package)
+        self.db = DebconfCommunicator(PACKAGE)
         prep = self.prepare()
         self.command = prep[0]
         question_patterns = prep[1]
@@ -152,6 +153,24 @@ class FilteredCommand(object):
     def choices(self, question):
         choices = unicode(self.db.metaget(question, 'choices'), 'utf-8')
         return self.split_choices(choices)
+
+    def choices_display_map(self, question):
+        """Returns a mapping from displayed (translated) choices to
+        database (untranslated) choices.  It can be used both ways,
+        since both choices and the untranslated choices are sequences
+        without duplication.
+        """
+
+        _map = {}
+        choices = self.choices(question)
+        choices_c = self.choices_untranslated(question)
+        for i in range(len(choices)):
+#            print >>sys.stderr, i
+#            print >>sys.stderr, choices[i]
+#            print >>sys.stderr, choices_c[i]
+            
+            _map[choices[i]] = choices[i]
+        return _map        
 
     def description(self, question):
         return unicode(self.db.metaget(question, 'description'), 'utf-8')

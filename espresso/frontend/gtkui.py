@@ -608,7 +608,6 @@ class Wizard:
         self.set_progress(msg)
         return True
 
-
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""
 
@@ -1159,18 +1158,35 @@ class Wizard:
         else:
             return False
 
-    def set_keyboard_choices(self, choices):
-        kbdlayouts = gtk.ListStore(gobject.TYPE_STRING)
+    def set_keyboard_choices(self, choicemap):
+        self.keyboard_choice_map = choicemap
+        choices = choicemap.keys()
 
+        kbdlayouts = gtk.ListStore(gobject.TYPE_STRING)
         self.keyboardlistview.set_model(kbdlayouts)
         for v in choices:
             kbdlayouts.append([v])
             print "Appending: ", v, "\n"
 
-        renderer = gtk.CellRendererText()
-        column = gtk.TreeViewColumn("Layout", renderer, text=0)
-        self.keyboardlistview.append_column(column)
+        if len(self.keyboardlistview.get_columns()) < 1:
+            column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            self.keyboardlistview.append_column(column)
+
         
+    def set_keyboard (self, keyboard):
+        model = self.keyboardllistview.get_model()
+        iterator = model.iter_children(None)
+        while iterator is not None:
+            if unicode(model.get_value(iterator, 0)) == keyboard:
+                self.keyboardlistview.get_selection().select_iter(iterator)
+                break
+            iterator = model.iter_next(iterator)
+
+    def get_keyboard (self):
+        selection = self.keyboardlistview.get_selection()
+        (model, iterator) = selection.get_selected()
+        return self.keyboard_choice_map[unicode(model.get_value(iterator, 0))]
 
     def error_dialog (self, msg):
         # TODO: cancel button as well if capb backup
