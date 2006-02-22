@@ -1167,9 +1167,11 @@ class Wizard:
             kbdlayouts.append([v])
             print "Appending: ", v, "\n"
 
-        renderer = gtk.CellRendererText()
-        column = gtk.TreeViewColumn("Layout", renderer, text=0)
-        self.keyboardlistview.append_column(column)
+        if len(self.keyboardlistview.get_columns()) < 1:
+            column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            self.keyboardlistview.append_column(column)
+
         
 
     def error_dialog (self, msg):
