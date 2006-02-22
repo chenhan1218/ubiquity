@@ -20843,21 +20843,12 @@ fi
 
 
 
-if test "x${prefix}" = "xNONE"; then
 
 cat >>confdefs.h <<_ACEOF
-#define PIXMAPS_DIR "${ac_default_prefix}/${DATADIRNAME}/${PACKAGE}/pixmaps"
+#define PIXMAPS_DIR "${datadir}/${PACKAGE}/pixmaps"
 _ACEOF
 
-  pixmapsdir="${ac_default_prefix}/${DATADIRNAME}/${PACKAGE}/pixmaps"
-else
-
-cat >>confdefs.h <<_ACEOF
-#define PIXMAPS_DIR "${prefix}/${DATADIRNAME}/${PACKAGE}/pixmaps"
-_ACEOF
-
-  pixmapsdir="${prefix}/${DATADIRNAME}/${PACKAGE}/pixmaps"
-fi
+pixmapsdir="${datadir}/${PACKAGE}/pixmaps"
 
 
 

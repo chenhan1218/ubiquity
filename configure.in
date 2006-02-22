@@ -55,13 +55,8 @@ dnl ========================================================
 dnl Set PIXMAPS_DIR 
 dnl ========================================================
 
-if test "x${prefix}" = "xNONE"; then
-  AC_DEFINE_UNQUOTED(PIXMAPS_DIR, "${ac_default_prefix}/${DATADIRNAME}/${PACKAGE}/pixmaps", [pixmaps directory])
-  pixmapsdir="${ac_default_prefix}/${DATADIRNAME}/${PACKAGE}/pixmaps"
-else
-  AC_DEFINE_UNQUOTED(PIXMAPS_DIR, "${prefix}/${DATADIRNAME}/${PACKAGE}/pixmaps", [pixmaps directory])
-  pixmapsdir="${prefix}/${DATADIRNAME}/${PACKAGE}/pixmaps"
-fi
+AC_DEFINE_UNQUOTED(PIXMAPS_DIR, "${datadir}/${PACKAGE}/pixmaps", [pixmaps directory])
+pixmapsdir="${datadir}/${PACKAGE}/pixmaps"
 
 AC_SUBST(scriptsdir)
 AC_SUBST(pixmapsdir)
