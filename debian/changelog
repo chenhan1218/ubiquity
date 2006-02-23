@@ -1,4 +1,4 @@
-espresso (0.99.16) UNRELEASED; urgency=low
+espresso (0.99.16) dapper; urgency=low
 
   * Explicitly decode strings returned by debconf as UTF-8, since apparently
     we get confused when running with the KDE frontend otherwise (which
@@ -13,7 +13,7 @@ espresso (0.99.16) UNRELEASED; urgency=low
   * First cut at timezone map widget, based on a translation of code in
     gnome-system-tools into Python. Depend on espresso-timezone.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Feb 2006 17:34:20 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 23 Feb 2006 13:26:13 +0000
 
 espresso (0.99.15) dapper; urgency=low
 
