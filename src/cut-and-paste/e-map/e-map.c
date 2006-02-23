@@ -241,6 +241,7 @@ e_map_init (EMap *view)
 	priv->smooth_zoom = TRUE;
 	priv->zoom_state = E_MAP_ZOOMED_OUT;
         priv->points = g_ptr_array_new ();
+	e_map_set_scroll_adjustments (GTK_WIDGET (view), NULL, NULL);
 
 	GTK_WIDGET_SET_FLAGS (view, GTK_CAN_FOCUS);
 	GTK_WIDGET_UNSET_FLAGS (view, GTK_NO_WINDOW);
