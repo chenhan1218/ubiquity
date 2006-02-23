@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from espresso import misc
-from espresso.components import language_apply, usersetup_apply
+from espresso.components import language_apply, timezone_apply, usersetup_apply
 from espresso.settings import *
 
 import os
@@ -42,13 +42,13 @@ class Config:
         else:
             misc.post_log('error', 'Configuring distro')
             return False
-        #queue.put('94 Configure time zone')
-        #misc.post_log('info', 'Configuring distro')
-        #if self.configure_timezone():
-        #    misc.post_log('info', 'Configured distro')
-        #else:
-        #    misc.post_log('error', 'Configuring distro')
-        #    return False
+        queue.put('94 Configure time zone')
+        misc.post_log('info', 'Configuring distro')
+        if self.configure_timezone():
+            misc.post_log('info', 'Configured distro')
+        else:
+            misc.post_log('error', 'Configuring distro')
+            return False
         queue.put('95 Creating user')
         misc.post_log('info', 'Configuring distro')
         if self.configure_user():
@@ -110,26 +110,12 @@ class Config:
 
 
     def get_locales(self):
-        """set timezone and keymap attributes from debconf. It uses the same values
+        """set keymap attributes from debconf. It uses the same values
         the user have selected on live system.
 
-        get_locales() -> timezone, keymap, locales"""
+        get_locales() -> keymap, locales"""
 
         db = DebconfCommunicator('espresso')
-
-        try:
-            self.timezone = db.get('time/zone')
-            if self.timezone == '':
-                    self.timezone = db.get('tzconfig/choose_country_zone_multiple')
-        except debconf.DebconfError:
-            if os.path.islink('/etc/localtime'):
-                self.timezone = os.readlink('/etc/localtime')
-                if self.timezone.startswith('/usr/share/zoneinfo/'):
-                    self.timezone = self.timezone[len('/usr/share/zoneinfo/'):]
-            elif os.path.exists('/etc/timezone'):
-                self.timezone = open('/etc/timezone').readline().strip()
-            else:
-                self.timezone = None
 
         try:
             self.keymap = db.get('debian-installer/keymap')
@@ -143,20 +129,10 @@ class Config:
 
 
     def configure_timezone(self):
-        """set timezone on installed system (which was obtained from
-        get_locales)."""
+        """Set timezone on installed system."""
 
-        if self.timezone is not None:
-            # tzsetup ignores us if these exist
-            for tzfile in ('etc/timezone', 'etc/localtime'):
-                    path = os.path.join(self.target, tzfile)
-                    if os.path.exists(path):
-                            os.unlink(path)
-
-            self.set_debconf('d-i', 'time/zone', self.timezone)
-            self.chrex('tzsetup')
-
-        return True
+        dbfilter = timezone_apply.TimezoneApply(self.frontend)
+        return (dbfilter.run_command(auto_process=True) == 0)
 
 
     def configure_keymap(self):

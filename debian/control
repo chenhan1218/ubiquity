@@ -2,12 +2,12 @@ Source: espresso
 Section: admin
 Priority: optional
 Maintainer: Colin Watson <cjwatson@ubuntu.com>
-Build-Depends: debhelper (>= 4.0.0)
+Build-Depends: debhelper (>= 4.0.0), libglib2.0-dev, libgtk2.0-dev, libart-2.0-dev, python2.4-dev, python-gtk2-dev
 Standards-Version: 3.6.2.1
 
 Package: espresso
 Architecture: any
-Depends: ${misc:Depends}, ${python:Depends}, espresso-frontend, system-tools-backends, espresso-doc, lsb-release, espresso-utils (>= 1.22ubuntu4), espresso-locale, user-setup (>= 0.05ubuntu2), partman (>= 78ubuntu1+4), ${bootloader}, espresso-casper
+Depends: ${misc:Depends}, ${python:Depends}, espresso-frontend, system-tools-backends, espresso-doc, lsb-release, espresso-utils (>= 1.22ubuntu4), espresso-locale, espresso-timezone, user-setup (>= 0.05ubuntu2), partman (>= 78ubuntu1+4), ${bootloader}, espresso-casper
 Recommends: gparted
 Conflicts: ubuntu-express
 Replaces: ubuntu-express

@@ -5,6 +5,13 @@ espresso (0.99.16) UNRELEASED; urgency=low
     presumably does something funky with Python's default encoding).
   * Rename Changelog to Changelog.Guadalinex to avoid confusion. Ubuntu
     changes (i.e. everything since renaming to espresso) go here.
+  * Add e-map widget, cut-and-pasted from evolution via gnome-system-tools
+    (ugh).
+  * Basic autoconfiscation for the above.
+  * Add initial Python bindings for e-map.
+  * Add an espresso.tz module for various bits of timezone handling.
+  * First cut at timezone map widget, based on a translation of code in
+    gnome-system-tools into Python. Depend on espresso-timezone.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Feb 2006 17:34:20 +0000
 
