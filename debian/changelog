@@ -5,6 +5,8 @@ espresso (0.99.16) UNRELEASED; urgency=low
   * Basic autoconfiscation for the above.
   * Add initial Python bindings for e-map.
   * Add an espresso.tz module for various bits of timezone handling.
+  * First cut at timezone map widget, based on a translation of code in
+    gnome-system-tools into Python.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Feb 2006 15:21:29 +0000
 

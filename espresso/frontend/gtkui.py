@@ -73,6 +73,8 @@ from espresso import filteredcommand, validation
 from espresso.backend import *
 from espresso.misc import *
 from espresso.components import language, usersetup, partman, partman_commit
+import espresso.emap
+import espresso.tz
 
 # Define Espresso global path
 PATH = '/usr/share/espresso'
@@ -1179,6 +1181,102 @@ class Wizard:
     # Return control to the next level up.
     def quit_main_loop (self):
         gtk.main_quit()
+
+
+# Much of this timezone map widget is a rough translation of
+# gnome-system-tools/src/time/tz-map.c. Thanks to Hans Petter Jansson
+# <hpj@ximian.com> for that.
+
+NORMAL_RGBA = 0xc070a0ffL
+HOVER_RGBA = 0xffff60ffL
+SELECTED_1_RGBA = 0xff60e0ffL
+SELECTED_2_RGBA = 0x000000ffL
+
+class TimezoneMap(object):
+    def __init__(self):
+        # TODO need frontend hook
+        self.tzdb = espresso.tz.Database()
+        self.tzmap = espresso.emap.EMap()
+        self.point_selected = None
+        self.point_hover = None
+
+        self.tzmap.add_events(gtk.gdk.LEAVE_NOTIFY_MASK |
+                              gtk.gdk.VISIBILITY_NOTIFY_MASK)
+
+        for location in self.tzdb.locations:
+            import sys
+            self.tzmap.add_point("", location.longitude, location.latitude,
+                                 NORMAL_RGBA)
+
+        gobject.timeout_add(100, self.flash_selected_point)
+        self.tzmap.connect("motion-notify-event", self.motion)
+        self.tzmap.connect("button-press-event", self.button_pressed)
+        self.tzmap.connect("leave-notify-event", self.out_map)
+
+    def location_from_point(self, point):
+        (longitude, latitude) = point.get_location()
+        for location in self.tzdb.locations:
+            if (abs(location.longitude - longitude) <= 0.005 and
+                abs(location.latitude - latitude) <= 0.005):
+                return location
+        else:
+            return None
+
+    def flash_selected_point(self):
+        if self.point_selected is None:
+            return True
+
+        if self.point_selected.get_color_rgba() == SELECTED_1_RGBA:
+            self.tzmap.point_set_color_rgba(self.point_selected,
+                                            SELECTED_2_RGBA)
+        else:
+            self.tzmap.point_set_color_rgba(self.point_selected,
+                                            SELECTED_1_RGBA)
+
+        return True
+
+    def motion(self, widget, event):
+        (longitude, latitude) = self.tzmap.window_to_world(event.x, event.y)
+
+        if (self.point_hover is not None and
+            self.point_hover != self.point_selected):
+            self.tzmap.point_set_color_rgba(self.point_hover, NORMAL_RGBA)
+
+        self.point_hover = self.tzmap.get_closest_point(longitude, latitude,
+                                                        True)
+
+        if self.point_hover != self.point_selected:
+            self.tzmap.point_set_color_rgba(self.point_hover, HOVER_RGBA)
+
+        return True
+
+    def out_map(self, widget, event):
+        if event.mode != gtk.gdk.CROSSING_NORMAL:
+            return False
+
+        if (self.point_hover is not None and
+            self.point_hover != self.point_selected):
+            self.tzmap.point_set_color_rgba(self.point_hover, NORMAL_RGBA)
+
+        self.point_hover = None
+
+        return True
+
+    def button_pressed(self, widget, event):
+        (longitude, latitude) = self.tzmap.window_to_world(event.x, event.y)
+
+        if event.button != 1:
+            self.tzmap.zoom_out()
+        else:
+            if self.tzmap.get_magnification() <= 1.0:
+                self.tzmap.zoom_to_location(longitude, latitude)
+
+            if self.point_selected is not None:
+                self.tzmap.point_set_color_rgba(self.point_selected,
+                                                NORMAL_RGBA)
+            self.point_selected = self.point_hover
+
+        return True
 
 
 if __name__ == '__main__':
