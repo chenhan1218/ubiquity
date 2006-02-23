@@ -217,14 +217,16 @@ class DebconfFilter:
                 except debconf.DebconfError:
                     pass
 
-        if command == 'SET' and len(params) == 2:
-            (question, value) = params
+        if command == 'SET' and len(params) >= 2:
+            question = params[0]
+            value = ' '.join(params[1:])
             for widget in self.find_widgets([question], 'set'):
                 self.debug('filter', 'widget found for', question)
                 widget.set(question, value)
 
-        if command == 'SUBST' and len(params) == 3:
-            (question, key, value) = params
+        if command == 'SUBST' and len(params) >= 3:
+            (question, key) = params[0:2]
+            value = ' '.join(params[2:])
             for widget in self.find_widgets([question], 'subst'):
                 self.debug('filter', 'widget found for', question)
                 widget.subst(question, key, value)
