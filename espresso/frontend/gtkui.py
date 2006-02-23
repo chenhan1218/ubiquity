@@ -61,6 +61,7 @@ import gobject
 import gtk.glade
 import os
 import time
+import datetime
 import glob
 import subprocess
 import thread
@@ -72,7 +73,8 @@ from gettext import bindtextdomain, textdomain, install
 from espresso import filteredcommand, validation
 from espresso.backend import *
 from espresso.misc import *
-from espresso.components import language, usersetup, partman, partman_commit
+from espresso.components import language, timezone, usersetup, \
+                                partman, partman_commit
 import espresso.emap
 import espresso.tz
 
@@ -89,6 +91,7 @@ BREADCRUMB_STEPS = {
     "stepWelcome": "lblWelcome",
     "stepLanguage": "lblLanguage",
     "stepKeyboardConf": "lblKeyboardConf",
+    "stepLocation": "lblLocation",
     "stepUserInfo": "lblUserInfo",
     "stepPartAuto": "lblDiskSpace",
     "stepPartAdvanced": "lblDiskSpace",
@@ -180,6 +183,8 @@ class Wizard:
             current_name = self.step_name(self.current_page)
             if current_name == "stepLanguage":
                 self.dbfilter = language.Language(self)
+            elif current_name == "stepLocation":
+                self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name == "stepPartAuto":
@@ -217,6 +222,9 @@ class Wizard:
 
         self.live_installer.show()
         self.live_installer.window.set_cursor(self.watch)
+
+        self.tzmap = TimezoneMap(self)
+        self.tzmap.tzmap.show()
 
         # set initial bottom bar status
         self.back.hide()
@@ -638,8 +646,11 @@ class Wizard:
         # Keyboard
         elif step == "stepKeyboardConf":
             self.steps.next_page()
-            self.next.set_sensitive(False)
             # XXX: Actually do keyboard config here
+        # Location
+        elif step == "stepLocation":
+            self.steps.next_page()
+            self.next.set_sensitive(False)
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
@@ -1106,6 +1117,14 @@ class Wizard:
         return self.language_choice_map[unicode(model.get_value(iterator, 0))]
 
 
+    def set_timezone (self, timezone):
+        self.tzmap.set_tz_from_name(timezone)
+
+
+    def get_timezone (self):
+        return self.tzmap.get_selected_tz_name()
+
+
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
         for child in self.autopartition_vbox.get_children():
             self.autopartition_vbox.remove(child)
@@ -1193,34 +1212,107 @@ SELECTED_1_RGBA = 0xff60e0ffL
 SELECTED_2_RGBA = 0x000000ffL
 
 class TimezoneMap(object):
-    def __init__(self):
-        # TODO need frontend hook
+    def __init__(self, frontend):
+        self.frontend = frontend
         self.tzdb = espresso.tz.Database()
         self.tzmap = espresso.emap.EMap()
         self.point_selected = None
         self.point_hover = None
+        self.location_selected = None
 
         self.tzmap.add_events(gtk.gdk.LEAVE_NOTIFY_MASK |
                               gtk.gdk.VISIBILITY_NOTIFY_MASK)
 
+        self.frontend.timezone_map_window.add(self.tzmap)
+
+        timezone_city_combo = self.frontend.timezone_city_combo
+
+        renderer = gtk.CellRendererText()
+        timezone_city_combo.pack_start(renderer, True)
+        timezone_city_combo.add_attribute(renderer, 'text', 0)
+        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        timezone_city_combo.set_model(list_store)
+
         for location in self.tzdb.locations:
-            import sys
             self.tzmap.add_point("", location.longitude, location.latitude,
                                  NORMAL_RGBA)
+            list_store.append([location.zone])
 
         gobject.timeout_add(100, self.flash_selected_point)
         self.tzmap.connect("motion-notify-event", self.motion)
         self.tzmap.connect("button-press-event", self.button_pressed)
         self.tzmap.connect("leave-notify-event", self.out_map)
 
+        timezone_city_combo.connect("changed", self.city_changed)
+
+    def set_city_text(self, name):
+        model = self.frontend.timezone_city_combo.get_model()
+        iterator = model.get_iter_first()
+        while iterator is not None:
+            location = model.get_value(iterator, 0)
+            if location == name:
+                self.frontend.timezone_city_combo.set_active_iter(iterator)
+                break
+            iterator = model.iter_next(iterator)
+
+    def set_zone_text(self, letters, offset):
+        if offset >= datetime.timedelta(0):
+            houroffset = float(offset.seconds) / 3600
+        else:
+            houroffset = float(offset.seconds) / 3600 - 24
+        text = "%s (UTC%+.1f)" % (letters, houroffset)
+        self.frontend.timezone_zone_text.set_text(text)
+
+    def set_tz_from_name(self, name):
+        (longitude, latitude) = (0.0, 0.0)
+
+        for location in self.tzdb.locations:
+            if location.zone == name:
+                (longitude, latitude) = (location.longitude, location.latitude)
+                break
+        else:
+            return
+
+        if self.point_selected is not None:
+            self.tzmap.point_set_color_rgba(self.point_selected, NORMAL_RGBA)
+
+        self.point_selected = self.tzmap.get_closest_point(longitude, latitude,
+                                                           False)
+
+        self.location_selected = location
+        self.set_city_text(self.location_selected.zone)
+        self.set_zone_text(self.location_selected.zone_letters,
+                           self.location_selected.utc_offset)
+
+    def city_changed(self, widget):
+        iterator = widget.get_active_iter()
+        if iterator is not None:
+            model = widget.get_model()
+            location = model.get_value(iterator, 0)
+            self.set_tz_from_name(location)
+
+    def get_selected_tz_name(self):
+        iterator = self.frontend.timezone_city_combo.get_active_iter()
+        if iterator is not None:
+            model = self.frontend.timezone_city_combo.get_model()
+            return model.get_value(iterator, 0)
+        return None
+
     def location_from_point(self, point):
         (longitude, latitude) = point.get_location()
+
+        best_location = None
+        best_distance = None
         for location in self.tzdb.locations:
-            if (abs(location.longitude - longitude) <= 0.005 and
-                abs(location.latitude - latitude) <= 0.005):
-                return location
-        else:
-            return None
+            if (abs(location.longitude - longitude) <= 1.0 and
+                abs(location.latitude - latitude) <= 1.0):
+                distance = ((location.longitude - longitude) ** 2 +
+                            (location.latitude - latitude) ** 2) ** 0.5
+                if best_distance is None or distance < best_distance:
+                    best_location = location
+                    best_distance = distance
+
+        return best_location
 
     def flash_selected_point(self):
         if self.point_selected is None:
@@ -1275,6 +1367,15 @@ class TimezoneMap(object):
                 self.tzmap.point_set_color_rgba(self.point_selected,
                                                 NORMAL_RGBA)
             self.point_selected = self.point_hover
+
+            self.location_selected = \
+                self.location_from_point(self.point_selected)
+            if self.location_selected is not None:
+                old_city = self.get_selected_tz_name()
+                if old_city is None or old_city != self.location_selected.zone:
+                    self.set_city_text(self.location_selected.zone)
+                    self.set_zone_text(self.location_selected.zone_letters,
+                                       self.location_selected.utc_offset)
 
         return True
 

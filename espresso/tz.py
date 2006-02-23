@@ -88,6 +88,14 @@ class SystemTzInfo(datetime.tzinfo):
     def tzname(self, dt):
         return self.tz
 
+    def tzname_letters(self, dt):
+        self._select_tz()
+        try:
+            localtime = time.localtime(_seconds_since_epoch(dt))
+            return time.strftime('%Z', localtime)
+        finally:
+            self._restore_tz()
+
 
 # Much of the Location and Database classes are a rough translation of
 # gnome-system-tools/src/time/tz.c. Thanks to Hans Petter Jansson
@@ -127,6 +135,11 @@ class Location(object):
             self.comment = None
         self.latitude = _parse_position(latitude, 2)
         self.longitude = _parse_position(longitude, 3)
+
+        today = datetime.datetime.today()
+        info = SystemTzInfo(self.zone)
+        self.utc_offset = info.utcoffset(today)
+        self.zone_letters = info.tzname_letters(today)
 
 
 class Database(object):
