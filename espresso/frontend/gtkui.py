@@ -74,7 +74,7 @@ from espresso import filteredcommand, validation
 from espresso.backend import *
 from espresso.misc import *
 from espresso.components import language, timezone, usersetup, \
-                                partman, partman_commit
+                                partman, partman_commit, summary
 import espresso.emap
 import espresso.tz
 
@@ -95,7 +95,8 @@ BREADCRUMB_STEPS = {
     "stepUserInfo": "lblUserInfo",
     "stepPartAuto": "lblDiskSpace",
     "stepPartAdvanced": "lblDiskSpace",
-    "stepPartMountpoints": "lblDiskSpace"
+    "stepPartMountpoints": "lblDiskSpace",
+    "stepReady": "lblReady"
 }
 
 # Font stuff
@@ -189,6 +190,8 @@ class Wizard:
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name == "stepPartAuto":
                 self.dbfilter = partman.Partman(self)
+            elif current_name == "stepReady":
+                self.dbfilter = summary.Summary(self)
             else:
                 self.dbfilter = None
 
@@ -662,7 +665,13 @@ class Wizard:
             self.gparted_to_mountpoints()
         # Mountpoints
         elif step == "stepPartMountpoints":
-            self.mountpoints_to_progress()
+            self.mountpoints_to_summary()
+        # Ready to install
+        elif step == "stepReady":
+            self.live_installer.hide()
+            while gtk.events_pending():
+                gtk.main_iteration()
+            self.progress_loop()
 
         step = self.step_name(self.steps.get_current_page())
         pre_log('info', 'Step_after = %s' % step)
@@ -709,12 +718,7 @@ class Wizard:
 
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
-            self.live_installer.hide()
-
-            while gtk.events_pending():
-                gtk.main_iteration()
-
-            self.progress_loop()
+            self.steps.set_current_page(self.steps.page_num(self.stepReady))
 
 
     def gparted_to_mountpoints(self):
@@ -769,8 +773,8 @@ class Wizard:
         self.steps.next_page()
 
 
-    def mountpoints_to_progress(self):
-        """Processing mountpoints to progress step tasks."""
+    def mountpoints_to_summary(self):
+        """Processing mountpoints to summary step tasks."""
 
         # Validating self.mountpoints
         error_msg = ['\n']
@@ -861,14 +865,7 @@ class Wizard:
             self.msg_error2.show()
             self.img_error2.show()
         else:
-            self.live_installer.hide()
-
-            # refreshing UI
-            while gtk.events_pending():
-                gtk.main_iteration()
-
-            # Starting installation core process
-            self.progress_loop()
+            self.steps.next_page()
 
 
     def on_back_clicked(self, widget):
@@ -1177,6 +1174,12 @@ class Wizard:
             return True
         else:
             return False
+
+
+    def set_summary_text (self, text):
+        textbuffer = gtk.TextBuffer()
+        textbuffer.set_text(text)
+        self.ready_textview.set_buffer(textbuffer)
 
 
     def error_dialog (self, msg):

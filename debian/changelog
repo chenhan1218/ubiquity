@@ -6,6 +6,9 @@ espresso (0.99.17) UNRELEASED; urgency=low
     messages appear there more quickly during testing.
   * Fix debconffilter to handle SET and SUBST commands whose values consist
     of more than one word.
+  * Add a "Ready to install" summary page. (It doesn't contain all the
+    necessary information yet, and it should run before partitioning is
+    committed rather than after, but that will be easy to fix later.)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 23 Feb 2006 20:06:28 +0000
 

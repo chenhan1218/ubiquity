@@ -10,3 +10,11 @@ Type: boolean
 Default: true
 Description: enable frame buffer console on boot
 
+Template: espresso/summary
+Type: note
+Description: Ready to install
+  Language: ${LANGUAGE}
+  Keyboard layout: ${KEYMAP}
+  Name: ${REALNAME}
+  Login name: ${USERNAME}
+  Location: ${LOCATION}
