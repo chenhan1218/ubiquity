@@ -51,11 +51,13 @@ _wrap_e_map_add_point(PyGObject *self, PyObject *args, PyObject *kwargs)
     gchar *name;
     double longitude, latitude;
     guint32 color_rgba;
+    EMapPoint *point;
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, "sddI:EMap.add_point", kwlist, &name, &longitude, &latitude, &color_rgba))
         return NULL;
 
-    return pyg_boxed_new(TYPE_E_MAP_POINT, e_map_add_point(E_MAP(self->obj), name, longitude, latitude, color_rgba), FALSE, TRUE);
+    point = e_map_add_point(E_MAP(self->obj), name, longitude, latitude, color_rgba);
+    return pyg_boxed_new(TYPE_E_MAP_POINT, point, FALSE, TRUE);
 }
 %%
 override e_map_point_get_location noargs
