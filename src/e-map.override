@@ -57,7 +57,7 @@ _wrap_e_map_add_point(PyGObject *self, PyObject *args, PyObject *kwargs)
         return NULL;
 
     point = e_map_add_point(E_MAP(self->obj), name, longitude, latitude, color_rgba);
-    return pyg_boxed_new(TYPE_E_MAP_POINT, point, FALSE, TRUE);
+    return pyg_boxed_new(TYPE_E_MAP_POINT, point, TRUE, TRUE);
 }
 %%
 override e_map_point_get_location noargs
