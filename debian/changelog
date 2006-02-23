@@ -1,3 +1,10 @@
+espresso (0.99.17) UNRELEASED; urgency=low
+
+  * Add X-Ubuntu-Gettext-Domain=espresso to espresso-gtkui.desktop (although
+    it's useless until we get internationalisation set up properly).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 23 Feb 2006 20:06:28 +0000
+
 espresso (0.99.16) dapper; urgency=low
 
   * Explicitly decode strings returned by debconf as UTF-8, since apparently
