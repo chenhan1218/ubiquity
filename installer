@@ -55,7 +55,7 @@ def prepend_path(directory):
 if __name__ == '__main__':
     if not os.path.exists(os.path.dirname(log_file)):
         os.makedirs(os.path.dirname(log_file))
-    sys.stderr = open(log_file, 'a')
+    sys.stderr = open(log_file, 'a', 1)
     os.dup2(sys.stderr.fileno(), 2)
 
     if cdebconf:

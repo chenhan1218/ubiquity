@@ -2,6 +2,8 @@ espresso (0.99.17) UNRELEASED; urgency=low
 
   * Add X-Ubuntu-Gettext-Domain=espresso to espresso-gtkui.desktop (although
     it's useless until we get internationalisation set up properly).
+  * Open /var/log/installer/espresso with line-buffering so that error
+    messages appear there more quickly during testing.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 23 Feb 2006 20:06:28 +0000
 
