@@ -1166,7 +1166,8 @@ class Wizard:
 
     def confirm_partitioning_dialog (self, title, description):
         dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
-                                                             gtk.MESSAGE_QUESTION, gtk.BUTTONS_YES_NO, title)
+                                   gtk.MESSAGE_QUESTION, gtk.BUTTONS_YES_NO,
+                                   title)
         dialog.format_secondary_text(description)
         response = dialog.run()
         dialog.hide()
