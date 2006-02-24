@@ -51,7 +51,7 @@ class Wizard:
             self.show_error(''.join(error_msg))
         self.progress_loop()
         self.clean_up()
-        self.__reboot()
+        return 10 # reboot
 
 
     def set_locales(self):
@@ -145,7 +145,7 @@ class Wizard:
             os.kill(self.pid, 9)
 
 
-    def __reboot(self, *args):
+    def do_reboot(self, *args):
         """reboot the system after installing process."""
 
         os.system("reboot")

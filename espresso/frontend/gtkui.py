@@ -129,6 +129,7 @@ class Wizard:
         self.progress_min = 0
         self.progress_max = 100
         self.progress_cur = 0
+        self.returncode = 0
 
         # To get a "busy mouse":
         self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
@@ -210,6 +211,8 @@ class Wizard:
 
             if self.current_page is not None:
                 self.process_step()
+
+        return self.returncode
 
 
     def customize_installer(self):
@@ -512,8 +515,14 @@ class Wizard:
     def reboot(self, *args):
         """reboot the system after installing process."""
 
-        os.system("reboot")
+        self.returncode = 10
         self.quit()
+
+
+    def do_reboot(self):
+        """Callback for main program to actually reboot the machine."""
+
+        os.system("reboot")
 
 
     def set_progress(self, msg):

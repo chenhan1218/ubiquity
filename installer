@@ -38,6 +38,8 @@ def install(type='gtkui'):
     wizard = ui.Wizard(distro)
     ret = wizard.run()
     unmount_target()
+    if ret == 10:
+        wizard.do_reboot()
 
 def unmount_target():
     paths = []
