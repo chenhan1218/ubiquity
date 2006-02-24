@@ -1,3 +1,10 @@
+espresso (0.99.18) UNRELEASED; urgency=low
+
+  * Move espresso/components/summary to a new scripts directory; more
+    debconf helper scripts will be going here in the future.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Feb 2006 15:14:15 +0000
+
 espresso (0.99.17) dapper; urgency=low
 
   * Add X-Ubuntu-Gettext-Domain=espresso to espresso-gtkui.desktop (although
