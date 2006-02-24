@@ -161,6 +161,15 @@ class Wizard:
     def run(self):
         """run the interface."""
 
+        if os.getuid() != 0:
+            title = ('This installer must be run with administrative '
+                     'privileges, and cannot continue without them.')
+            dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
+                                       gtk.MESSAGE_ERROR, gtk.BUTTONS_CLOSE,
+                                       title)
+            dialog.run()
+            sys.exit(1)
+
         # show interface
         # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
         # current dapper (https://bugzilla.ubuntu.com/show_bug.cgi?id=20338).
