@@ -1,4 +1,4 @@
-espresso (0.99.17) UNRELEASED; urgency=low
+espresso (0.99.17) dapper; urgency=low
 
   * Add X-Ubuntu-Gettext-Domain=espresso to espresso-gtkui.desktop (although
     it's useless until we get internationalisation set up properly).
@@ -13,7 +13,7 @@ espresso (0.99.17) UNRELEASED; urgency=low
     non-root.
   * Restore some bits of autoconfiscation that bzr helped me lose.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 23 Feb 2006 20:06:28 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Feb 2006 14:44:28 +0000
 
 espresso (0.99.16) dapper; urgency=low
 
