@@ -70,10 +70,10 @@ class Copy:
                     continue
 
             path = os.path.join(self.target, path[1:])
-            ordered_list.append((len(path), device, path))
+            ordered_list.append(path)
 
         ordered_list.reverse()
-        for length, device, path in ordered_list:
+        for path in ordered_list:
             try:
                 misc.ex('umount', '-f', os.path.join(self.target, path))
             except Exception, e:
