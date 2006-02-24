@@ -11,6 +11,7 @@ espresso (0.99.17) UNRELEASED; urgency=low
     committed rather than after, but that will be easy to fix later.)
   * In the GTK frontend, display an error dialog and exit if running as
     non-root.
+  * Restore some bits of autoconfiscation that bzr helped me lose.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 23 Feb 2006 20:06:28 +0000
 
