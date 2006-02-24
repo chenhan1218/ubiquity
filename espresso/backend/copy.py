@@ -11,7 +11,7 @@ from sys import stderr
 
 class Copy:
 
-    def __init__(self, mountpoints):
+    def __init__(self):
         """Initial attributes."""
 
         if os.path.isdir('/rofs'):
@@ -19,7 +19,6 @@ class Copy:
         else:
             self.source = '/source'
         self.target = '/target'
-        self.mountpoints = mountpoints
         self.unionfs = False
 
     def run(self, queue):
@@ -60,25 +59,6 @@ class Copy:
                 misc.post_log('error', 'Umounting source')
                 return False
 
-
-    def umount_target(self):
-        """umounting selected partitions."""
-
-        ordered_list = []
-        for device, path in self.mountpoints.items():
-            if path in ('swap',):
-                    continue
-
-            path = os.path.join(self.target, path[1:])
-            ordered_list.append(path)
-
-        ordered_list.reverse()
-        for path in ordered_list:
-            try:
-                misc.ex('umount', '-f', os.path.join(self.target, path))
-            except Exception, e:
-                print e
-        return True
 
     def copy_all(self, queue):
         """Core copy process. This is the most important step of this

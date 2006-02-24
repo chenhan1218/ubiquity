@@ -452,7 +452,7 @@ class Wizard:
         def wait_thread(queue):
             """wait thread for copy process."""
 
-            cp = copy.Copy(self.mountpoints)
+            cp = copy.Copy()
             cp.run(queue)
             queue.put('101')
 
@@ -504,10 +504,6 @@ class Wizard:
                     gtk.main_iteration()
             else:
                 time.sleep(0.1)
-
-        # umounting self.mountpoints (mountpoints user selection)
-        umount = copy.Copy(self.mountpoints)
-        umount.umount_target()
 
         self.install_window.hide()
         self.finished_dialog.run()
@@ -1167,10 +1163,6 @@ class Wizard:
 
     def get_hostname (self):
         return self.hostname
-
-
-    def get_mountpoints (self):
-        return dict(self.mountpoints)
 
 
     def confirm_partitioning_dialog (self, title, description):

@@ -66,12 +66,10 @@ class Wizard:
     # Methods
     def progress_loop(self):
 
-        mountpoints = self.info['mountpoints']
-
         def copy_thread(queue):
             """copy thread for copy process."""
             pre_log('info', 'Copying the system...')
-            cp = copy.Copy(mountpoints)
+            cp = copy.Copy()
             if not cp.run(queue):
                 pre_log('error','fail the copy fase')
                 self.quit()
@@ -102,10 +100,6 @@ class Wizard:
                 if msg.startswith('101'):
                     break
                 self.set_progress(msg)
-
-        # umounting self.mountpoints (mountpoints user selection)
-        umount = copy.Copy(mountpoints)
-        umount.umount_target()
 
 
     def clean_up(self):
@@ -176,10 +170,6 @@ class Wizard:
 
     def get_hostname(self):
         return self.info['hostname']
-
-
-    def get_mountpoints(self):
-        return dict(self.info['mountpoints'])
 
 
 if __name__ == '__main__':

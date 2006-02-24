@@ -2,6 +2,10 @@ espresso (0.99.18) UNRELEASED; urgency=low
 
   * Move espresso/components/summary to a new scripts directory; more
     debconf helper scripts will be going here in the future.
+  * Rip all the /target unmounting code out of espresso.backend.copy and do
+    it in the main espresso program just before exiting.
+  * Parse /proc/mounts for mountpoints to unmount; this saves having to have
+    a get_mountpoints method in every frontend.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Feb 2006 15:14:15 +0000
 

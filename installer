@@ -37,15 +37,18 @@ def install(type='gtkui'):
     distro = misc.distribution().lower()
     wizard = ui.Wizard(distro)
     ret = wizard.run()
-    unmount_target(wizard.get_mountpoints())
+    unmount_target()
 
-def unmount_target(mountpoints):
-    for device, path in mountpoints.items():
-        if path in ('/', 'swap'):
-            continue
-        path = os.path.join(TARGET, path[1:])
+def unmount_target():
+    paths = []
+    for line in open('/proc/mounts'):
+        path = line.split(' ')[1]
+        if path == '/target' or path.startswith('/target/'):
+            paths.append(path)
+    paths.sort()
+    paths.reverse()
+    for path in paths:
         misc.ex('umount', path)
-    misc.ex('umount', TARGET)
 
 def prepend_path(directory):
     if 'PATH' in os.environ and os.environ['PATH'] != '':

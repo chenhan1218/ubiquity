@@ -84,9 +84,6 @@ class Wizard:
     def get_hostname(self):
         return self.get_info()[0]
 
-    def get_mountpoints(self):
-        return dict(self.mountpoints)
-
 if __name__ == '__main__':
     w = Wizard()
     hostname, fullname, name, password = w.get_info()
