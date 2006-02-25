@@ -8,6 +8,8 @@ espresso (0.99.18) UNRELEASED; urgency=low
     a get_mountpoints method in every frontend.
   * Handle all PROGRESS commands entirely in debconffilter, without passing
     them through to the debconf frontend.
+  * Make espresso-frontend-gtk Architecture: any, due to the Evolution map
+    widget (closes: Malone #32874).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Feb 2006 15:14:15 +0000
 

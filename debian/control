@@ -55,7 +55,7 @@ Description: Ubuntu documentation and help files for Espresso live installer
 # for the Espresso live CD installer.
 
 Package: espresso-frontend-gtk
-Architecture: all
+Architecture: any
 Depends: ${misc:Depends}, ${python:Depends}, python-gnome2-extras, python-glade2, gparted (>= 0.1-0ubuntu2), espresso-artwork, espresso-doc, python-gtk2, firefox
 Conflicts: ubuntu-express-frontend-gtk
 Replaces: ubuntu-express-frontend-gtk
