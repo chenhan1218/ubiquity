@@ -278,6 +278,10 @@ class DebconfFilter:
                                    self.progress_bar)
                         widget.progress_stop(self.progress_bar)
                     self.progress_bar = None
+            # We handle all progress bars ourselves; don't pass them through
+            # to the debconf frontend.
+            self.reply(0, 'OK', log=True)
+            return True
 
         if command == 'GO' and self.next_go_backup:
             self.reply(30, 'backup', log=True)
