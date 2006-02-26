@@ -26,6 +26,8 @@ espresso (0.99.18) UNRELEASED; urgency=low
     netcloner and noui frontends which are both broken at the moment anyway.
     The frontend/backend division is now between espresso.frontend and
     espresso.components, mediated by debconffilter.
+  * Only enable the TimezoneMap.flash_selected_point handler when the
+    timezone map is visible.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Feb 2006 15:14:15 +0000
 

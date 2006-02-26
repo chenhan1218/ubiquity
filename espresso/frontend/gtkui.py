@@ -1201,7 +1201,7 @@ class TimezoneMap(object):
                                  NORMAL_RGBA)
             list_store.append([location.zone])
 
-        gobject.timeout_add(100, self.flash_selected_point)
+        self.tzmap.connect("visibility-notify-event", self.visibility_changed)
         self.tzmap.connect("motion-notify-event", self.motion)
         self.tzmap.connect("button-press-event", self.button_pressed)
         self.tzmap.connect("leave-notify-event", self.out_map)
@@ -1289,6 +1289,15 @@ class TimezoneMap(object):
                                             SELECTED_1_RGBA)
 
         return True
+
+    def visibility_changed(self, widget, event):
+        if event.state == gtk.gdk.VISIBILITY_FULLY_OBSCURED:
+            if self.flash_timeout is not None:
+                gobject.source_remove(self.flash_timeout)
+                self.flash_timeout = None
+        elif self.flash_timeout is None:
+            self.flash_timeout = gobject.timeout_add(100,
+                                                     self.flash_selected_point)
 
     def motion(self, widget, event):
         (longitude, latitude) = self.tzmap.window_to_world(event.x, event.y)
