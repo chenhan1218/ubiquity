@@ -7,7 +7,6 @@ import glob
 from gettext import bindtextdomain, textdomain, install
 
 from espresso import validation
-from espresso.backend import *
 from espresso.misc import *
 
 from Queue import Queue

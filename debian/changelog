@@ -22,6 +22,10 @@ espresso (0.99.18) UNRELEASED; urgency=low
   * Add debconf template translation boilerplate.
   * Move call_gparted from espresso.backend.part into the GTK frontend, as
     it's widget-set-dependent. Unhardcode the path to gparted.
+  * Remove espresso/backend/, none of which is used any more except by the
+    netcloner and noui frontends which are both broken at the moment anyway.
+    The frontend/backend division is now between espresso.frontend and
+    espresso.components, mediated by debconffilter.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Feb 2006 15:14:15 +0000
 
