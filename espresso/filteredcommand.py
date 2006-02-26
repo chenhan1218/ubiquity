@@ -3,6 +3,7 @@
 
 import sys
 import os
+import subprocess
 import debconf
 try:
     from debconf import DebconfCommunicator
@@ -88,6 +89,15 @@ class FilteredCommand(object):
         pass
 
     def run_command(self, auto_process=False):
+        # TODO cjwatson 2006-02-25: Hack to allow _apply functions to be run
+        # from within the debconffiltered Config class.
+        if self.frontend is None:
+            prep = self.prepare()
+            self.command = prep[0]
+            self.debug("Starting up '%s' for %s.%s", self.command,
+                       self.__class__.__module__, self.__class__.__name__)
+            return subprocess.call(self.command)
+
         self.start(auto_process=auto_process)
         if auto_process:
             self.enter_ui_loop()

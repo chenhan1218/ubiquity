@@ -13,6 +13,9 @@ espresso (0.99.18) UNRELEASED; urgency=low
   * Add a PROGRESS REGION extension to debconffilter, and a ProgressPosition
     class to keep track of progress bar regions; allows a single progress
     bar to be subdivided into pieces for different stages.
+  * Hack FilteredCommand.run_command() to execute the command without any
+    debconffiltering glue if frontend is None; this allows nested
+    FilteredCommands to more or less work.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Feb 2006 15:14:15 +0000
 
