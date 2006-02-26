@@ -1179,6 +1179,7 @@ class TimezoneMap(object):
         self.frontend = frontend
         self.tzdb = espresso.tz.Database()
         self.tzmap = espresso.emap.EMap()
+        self.flash_timeout = None
         self.point_selected = None
         self.point_hover = None
         self.location_selected = None
