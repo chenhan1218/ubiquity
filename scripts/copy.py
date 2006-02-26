@@ -1,11 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# Last modified by A. Olmo on 4 oct 2005.
-
 import os
 import subprocess
 import time
+import debconf
 from espresso import misc
 from sys import stderr
 
@@ -20,47 +19,37 @@ class Copy:
             self.source = '/source'
         self.target = '/target'
         self.unionfs = False
+        self.db = debconf.Debconf()
 
-    def run(self, queue):
+    def run(self):
         """Run the copy stage. This is the second step from the installation
         process."""
 
+        self.db.progress('START', 0, 100, 'espresso/copy/title')
+        self.db.progress('INFO', 'espresso/copy/mounting_source')
         if self.source == '/source':
-            queue.put('4 Finding the distribution to copy')
-            misc.pre_log('info', 'Mounting source')
-            if self.mount_source():
-                misc.pre_log('info', 'Mounted source')
-            else:
-                misc.pre_log('error', 'Mounting source')
+            if not self.mount_source():
                 return False
 
-        queue.put('6 Preparing to copy files to disk')
-        misc.pre_log('info', 'Copying distro')
-        if self.copy_all(queue):
-            misc.pre_log('info', 'Copied distro')
-        else:
-            misc.pre_log('error', 'Copying distro')
+        if not self.copy_all():
             return False
 
-        queue.put('91 Copying installation logs')
-        misc.pre_log('info', 'Copying log files')
-        if self.copy_logs():
-            misc.post_log('info', 'Copied log files')
-        else:
-            misc.pre_log('error', 'Copying log files')
+        self.db.progress('SET', 98)
+        self.db.progress('INFO', 'espresso/copy/log_files')
+        if not self.copy_logs():
             return False
 
+        self.db.progress('SET', 99)
+        self.db.progress('INFO', 'espresso/copy/cleanup')
         if self.source == '/source':
-            queue.put('93 Unmounting original file system image')
-            misc.post_log('info', 'Umounting source')
-            if self.umount_source():
-                misc.post_log('info', 'Umounted source')
-            else:
-                misc.post_log('error', 'Umounting source')
+            if not self.umount_source():
                 return False
 
+        self.db.progress('SET', 100)
+        self.db.progress('STOP')
 
-    def copy_all(self, queue):
+
+    def copy_all(self):
         """Core copy process. This is the most important step of this
         stage. It clones live filesystem into a local partition in the
         selected hard disk."""
@@ -69,28 +58,25 @@ class Copy:
         total_size = 0
         oldsourcepath = ''
 
-        misc.pre_log('info','Recollecting files to copy')
-        for dirpath, dirnames, filenames in os.walk(self.source):
-            sourcepath = dirpath[len(self.source)+1:]
-            if oldsourcepath.split('/')[0] != sourcepath.split('/')[0]:
-                if sourcepath.startswith('etc'):
-                    queue.put( '7 Scanning /etc' )
-                elif sourcepath.startswith('home'):
-                    queue.put( '8 Scanning /home' )
-                elif sourcepath.startswith('media'):
-                    queue.put( '10 Scanning /media' )
-                elif sourcepath.startswith('usr/doc'):
-                    queue.put( '11 Scanning /usr/doc' )
-                elif sourcepath.startswith('usr/local'):
-                    queue.put( '13 Scanning /usr/local' )
-                elif sourcepath.startswith('usr/src'):
-                    queue.put( '15 Scanning /usr/src' )
-                elif sourcepath.startswith('var/backups'):
-                    queue.put( '16 Scanning /var/backups' )
-                elif sourcepath.startswith('var/tmp'):
-                    queue.put( '17 Scanning /var/tmp' )
-                oldsourcepath = sourcepath
+        self.db.progress('SET', 1)
+        self.db.progress('INFO', 'espresso/copy/scanning')
 
+        # Obviously doing os.walk() twice is inefficient, but I'd rather not
+        # suck the list into espresso's memory, and I'm guessing that the
+        # kernel's dentry cache will avoid most of the slowness anyway.
+        walklen = 0
+        for entry in os.walk(self.source):
+            walklen += 1
+        walkpos = 0
+        walkprogress = 0
+
+        for dirpath, dirnames, filenames in os.walk(self.source):
+            walkpos += 1
+            if int(float(walkpos) / walklen * 9) != walkprogress:
+                walkprogress = int(float(walkpos) / walklen * 9)
+                self.db.progress('SET', 1 + walkprogress)
+
+            sourcepath = dirpath[len(self.source) + 1:]
 
             for name in dirnames + filenames:
                 relpath = os.path.join(sourcepath, name)
@@ -103,34 +89,54 @@ class Copy:
                 else:
                     files.append((relpath, None))
 
-        misc.pre_log('info','About to start copying')
+        self.db.progress('SET', 10)
+        self.db.progress('INFO', 'espresso/copy/copying')
 
         copy = subprocess.Popen(['cpio', '-d0mp', '--quiet', self.target],
                 cwd = self.source,
                 stdin = subprocess.PIPE)
 
+        # Progress bar handling:
+        # We sample progress every half-second (assuming time.time() gives
+        # us sufficiently good granularity) and use the average of progress
+        # over the last minute or so to decide how much time remains. We
+        # don't bother displaying any progress for the first ten seconds in
+        # order to allow things to settle down, and we only update the "time
+        # remaining" indicator at most every two seconds after that.
+
+        copy_progress = 0
         copied_bytes, counter = 0, 0
+        time_start = time.time()
+        times = [(time_start, copied_bytes)]
+        long_enough = False
+        time_last_update = time_start
+
         for path, size in files:
             copy.stdin.write(path + '\0')
             if size is not None:
                 copied_bytes += size
-            per = (copied_bytes * 100) / total_size
-            # Adjusting the percentage
-            per = (per*73/100)+17
-            if counter != per and per < 34:
-                # We start the counter until 33
-                time_start = time.time()
-                counter = per
-                queue.put("%s Copying files" % per)
-            elif counter != per and per >= 40:
-                counter = per
-                time_left = (time.time() - time_start) * 57 / (counter - 33) - (time.time() - time_start)
-                minutes = time_left / 60
-                seconds = time_left - int(time_left/60)*60
-                queue.put("%s Copying files - %02d:%02d remaining" % (per, minutes, seconds))
-            elif counter != per:
-                counter = per
-                queue.put("%s Copying files" % per)
+
+            if int((copied_bytes * 88) / total_size) != copy_progress:
+                copy_progress = int((copied_bytes * 88) / total_size)
+                self.db.progress('SET', 10 + copy_progress)
+
+            time_now = time.time()
+            if (time_now - times[-1][0]) >= 0.5:
+                times.append((time_now, copied_bytes))
+                if not long_enough and time_now - times[0][0] >= 10:
+                    long_enough = True
+                if long_enough and time_now - time_last_update >= 2:
+                    time_last_update = time_now
+                    while (time_now - times[0][0] > 60 and
+                           time_now - times[1][0] >= 60):
+                        times.pop(0)
+                    speed = ((times[-1][1] - times[0][1]) /
+                             (times[-1][0] - times[0][0]))
+                    time_remaining = int(total_size / speed)
+                    time_str = "%d:%02d" % divmod(time_remaining, 60)
+                    self.db.subst('espresso/copy/copying_time',
+                                  'TIME', time_str)
+                    self.db.progress('INFO', 'espresso/copy/copying_time')
 
         copy.stdin.close()
         copy.wait()
@@ -206,5 +212,8 @@ class Copy:
             return False
         return True
 
+
+if __name__ == '__main__':
+    Copy().run()
 
 # vim:ai:et:sts=4:tw=80:sw=4:

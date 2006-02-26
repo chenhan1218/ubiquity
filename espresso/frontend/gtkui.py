@@ -66,7 +66,6 @@ import glob
 import subprocess
 import thread
 import xml.sax.saxutils
-import Queue
 
 from gettext import bindtextdomain, textdomain, install
 
@@ -74,9 +73,10 @@ from espresso import filteredcommand, validation
 from espresso.backend import *
 from espresso.misc import *
 from espresso.components import language, timezone, usersetup, \
-                                partman, partman_commit, summary
+                                partman, partman_commit, summary, copy, config
 import espresso.emap
 import espresso.tz
+import espresso.progressposition
 
 # Define Espresso global path
 PATH = '/usr/share/espresso'
@@ -126,9 +126,7 @@ class Wizard:
         self.current_page = None
         self.dbfilter = None
         self.locale = None
-        self.progress_min = 0
-        self.progress_max = 100
-        self.progress_cur = 0
+        self.progress_position = espresso.progressposition.ProgressPosition()
         self.returncode = 0
 
         # To get a "busy mouse":
@@ -447,68 +445,22 @@ class Wizard:
 
         self.current_page = None
 
-        self.install_window.show()
+        self.debconf_progress_start(0, 1000, "Installing system")
 
-        # Setting Normal cursor
-        self.install_window.window.set_cursor(None)
+        self.debconf_progress_region(0, 800)
+        dbfilter = copy.Copy(self)
+        if dbfilter.run_command(auto_process=True) != 0:
+            pass # TODO cjwatson 2006-02-25: handle errors
 
-        def wait_thread(queue):
-            """wait thread for copy process."""
+        self.debconf_progress_region(800, 1000)
+        dbfilter = config.Config(self)
+        if dbfilter.run_command(auto_process=True) != 0:
+            pass # TODO cjwatson 2006-02-25: handle errors
 
-            cp = copy.Copy()
-            cp.run(queue)
-            queue.put('101')
+        self.debconf_progress_stop()
+        # just to make sure
+        self.debconf_progress_dialog.hide()
 
-        # Starting copy process
-        queue = Queue.Queue()
-        thread.start_new_thread(wait_thread, (queue,))
-
-        # setting progress bar status while copy process is running
-        while True:
-            try:
-                msg = str(queue.get_nowait())
-                # copy process is ended when '101' is pushed
-                if msg.startswith('101'):
-                    break
-                self.set_progress(msg)
-            except Queue.Empty:
-                pass
-            # refreshing UI
-            if gtk.events_pending():
-                while gtk.events_pending():
-                    gtk.main_iteration()
-            else:
-                time.sleep(0.1)
-
-        def wait_thread(queue):
-            """wait thread for config process."""
-
-            cf = config.Config(self)
-            cf.run(queue)
-            queue.put('101')
-
-        # Starting config process
-        queue = Queue.Queue()
-        thread.start_new_thread(wait_thread, (queue,))
-
-        # setting progress bar status while config process is running
-        while True:
-            try:
-                msg = str(queue.get_nowait())
-                # config process is ended when '101' is pushed
-                if msg.startswith('101'):
-                    break
-                self.set_progress(msg)
-            except Queue.Empty:
-                pass
-            # refreshing UI
-            if gtk.events_pending():
-                while gtk.events_pending():
-                    gtk.main_iteration()
-            else:
-                time.sleep(0.1)
-
-        self.install_window.hide()
         self.finished_dialog.run()
 
 
@@ -523,15 +475,6 @@ class Wizard:
         """Callback for main program to actually reboot the machine."""
 
         os.system("reboot")
-
-
-    def set_progress(self, msg):
-        """set values on progress bar widget."""
-
-        num , text = get_progress(msg)
-        self.install_progress_bar.set_fraction (num / 100.0)
-        self.install_progress_bar.set_text('%d%%' % num)
-        self.install_progress_label.set_text(text)
 
 
     def show_error(self, msg):
@@ -621,17 +564,6 @@ class Wizard:
 
         if len(filter(lambda v: v == 1, self.entries.values())) == 5:
             self.next.set_sensitive(True)
-
-    def read_stdout(self, source, condition):
-        """read msgs from queues to set progress on progress bar label.
-        '101' message finishes this process returning False."""
-
-        msg = source.readline()
-        if msg.startswith('101'):
-            print "read_stdout finished"
-            return False
-        self.set_progress(msg)
-        return True
 
 
     def on_next_clicked(self, widget):
@@ -1065,33 +997,43 @@ class Wizard:
 
 
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
-        self.debconf_progress_dialog.set_transient_for(self.live_installer)
-        self.debconf_progress_dialog.set_title(progress_title)
+        if self.current_page is not None:
+            self.debconf_progress_dialog.set_transient_for(self.live_installer)
+        else:
+            self.debconf_progress_dialog.set_transient_for(None)
+        if self.progress_position.depth() == 0:
+            self.debconf_progress_dialog.set_title(progress_title)
+
         self.progress_title.set_markup(
             '<b>' + xml.sax.saxutils.escape(progress_title) + '</b>')
-        self.progress_bar.set_fraction(0)
-        self.progress_bar.set_text('0%')
-        self.progress_min = progress_min
-        self.progress_max = progress_max
-        self.progress_cur = progress_min
+        self.progress_position.start(progress_min, progress_max)
+        self.debconf_progress_set(0)
+        self.progress_info.set_text('')
         self.debconf_progress_dialog.show()
 
     def debconf_progress_set (self, progress_val):
-        self.progress_cur = progress_val
-        fraction = (float(self.progress_cur - self.progress_min) /
-                                (self.progress_max - self.progress_min))
+        self.progress_position.set(progress_val)
+        fraction = self.progress_position.fraction()
         self.progress_bar.set_fraction(fraction)
         self.progress_bar.set_text('%s%%' % int(fraction * 100))
 
     def debconf_progress_step (self, progress_inc):
-        self.debconf_progress_set(self.progress_cur + progress_inc)
+        self.progress_position.step(progress_inc)
+        fraction = self.progress_position.fraction()
+        self.progress_bar.set_fraction(fraction)
+        self.progress_bar.set_text('%s%%' % int(fraction * 100))
 
     def debconf_progress_info (self, progress_info):
         self.progress_info.set_markup(
             '<i>' + xml.sax.saxutils.escape(progress_info) + '</i>')
 
     def debconf_progress_stop (self):
-        self.debconf_progress_dialog.hide()
+        self.progress_position.stop()
+        if self.progress_position.depth() == 0:
+            self.debconf_progress_dialog.hide()
+
+    def debconf_progress_region (self, region_start, region_end):
+        self.progress_position.set_region(region_start, region_end)
 
 
     def debconffilter_done (self, dbfilter):

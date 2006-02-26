@@ -18,3 +18,67 @@ Description: Ready to install
   Name: ${REALNAME}
   Login name: ${USERNAME}
   Location: ${LOCATION}
+
+Template: espresso/copy/title
+Type: title
+_Description: Copying files
+
+Template: espresso/copy/mounting_source
+Type: text
+_Description: Finding the distribution to copy...
+
+Template: espresso/copy/scanning
+Type: text
+_Description: Scanning files...
+
+Template: espresso/copy/copying
+Type: text
+_Description: Copying files...
+
+Template: espresso/copy/copying_time
+Type: text
+_Description: Copying files (${TIME} remaining)...
+
+Template: espresso/copy/log_files
+Type: text
+_Description: Copying installation logs...
+
+Template: espresso/copy/cleanup
+Type: text
+_Description: Cleaning up...
+
+Template: espresso/config/title
+Type: title
+_Description: Configuring installed system
+
+Template: espresso/config/target_hook
+Type: text
+_Description: Running ${SCRIPT}...
+
+Template: espresso/config/locales
+Type: text
+_Description: Configuring system locales...
+
+Template: espresso/config/timezone
+Type: text
+_Description: Configuring time zone...
+
+Template: espresso/config/user
+Type: text
+_Description: Creating user...
+
+Template: espresso/config/hardware
+Type: text
+_Description: Configuring hardware...
+
+Template: espresso/config/network
+Type: text
+_Description: Configuring network...
+
+Template: espresso/config/hostname
+Type: text
+_Description: Setting computer name...
+
+Template: espresso/config/bootloader
+Type: text
+_Description: Configuring boot loader...

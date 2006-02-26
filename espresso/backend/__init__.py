@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-__all__ = ['config', 'copy', 'part']
+__all__ = ['part']

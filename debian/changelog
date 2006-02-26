@@ -16,6 +16,9 @@ espresso (0.99.18) UNRELEASED; urgency=low
   * Hack FilteredCommand.run_command() to execute the command without any
     debconffiltering glue if frontend is None; this allows nested
     FilteredCommands to more or less work.
+  * Rework copy and configuration progress bars using debconffilter. This
+    fixes some responsiveness bugs, allows for localisation, and finally
+    unifies all progress bar handling.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Feb 2006 15:14:15 +0000
 

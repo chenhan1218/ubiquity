@@ -8,83 +8,73 @@ from espresso.settings import *
 import os
 import platform
 import debconf
-try:
-    from debconf import DebconfCommunicator
-except ImportError:
-    from espresso.debconfcommunicator import DebconfCommunicator
 import subprocess
 
 class Config:
 
-    def __init__(self, frontend):
+    def __init__(self):
         """Initial attributes."""
 
-        self.frontend = frontend
         self.kernel_version = platform.release()
         self.target = '/target/'
+        self.db = debconf.Debconf()
 
 
-    def run(self, queue):
+    def run(self):
         """Run configuration stage. These are the last steps to launch in live
         installer."""
 
-        queue.put('91 Configuring installed system')
-        misc.post_log('info', 'Configuring distro')
-        if self.run_target_config_hooks():
-            misc.post_log('info', 'Configured distro')
-        else:
-            misc.post_log('error', 'Configuring distro')
+        self.db.progress('START', 0, 7, 'espresso/config/title')
+        self.db.progress('REGION', 0, 1)
+        if not self.run_target_config_hooks():
             return False
-        queue.put('92 Configuring system locales')
-        misc.post_log('info', 'Configuring distro')
-        if self.get_locales():
-            misc.post_log('info', 'Configured distro')
-        else:
-            misc.post_log('error', 'Configuring distro')
+
+        self.db.progress('SET', 1)
+        self.db.progress('REGION', 1, 2)
+        self.db.progress('INFO', 'espresso/config/locales')
+        if not self.get_locales():
             return False
-        queue.put('94 Configure time zone')
-        misc.post_log('info', 'Configuring distro')
-        if self.configure_timezone():
-            misc.post_log('info', 'Configured distro')
-        else:
-            misc.post_log('error', 'Configuring distro')
+
+        self.db.progress('SET', 2)
+        self.db.progress('REGION', 2, 3)
+        self.db.progress('INFO', 'espresso/config/timezone')
+        if not self.configure_timezone():
             return False
-        queue.put('95 Creating user')
-        misc.post_log('info', 'Configuring distro')
-        if self.configure_user():
-            misc.post_log('info', 'Configured distro')
-        else:
-            misc.post_log('error', 'Configuring distro')
+
+        self.db.progress('SET', 3)
+        self.db.progress('REGION', 3, 4)
+        self.db.progress('INFO', 'espresso/config/user')
+        if not self.configure_user():
             return False
-        queue.put('96 Configuring hardware')
-        misc.post_log('info', 'Configuring distro')
-        if self.configure_hardware():
-            misc.post_log('info', 'Configured distro')
-        else:
-            misc.post_log('error', 'Configuring distro')
+
+        self.db.progress('SET', 4)
+        self.db.progress('REGION', 4, 5)
+        self.db.progress('INFO', 'espresso/config/hardware')
+        if not self.configure_hardware():
             return False
-        queue.put('97 Configuring network')
-        misc.post_log('info', 'Configuring distro')
-        if self.configure_network():
-            misc.post_log('info', 'Configured distro')
-        else:
-            misc.post_log('error', 'Configuring distro')
+
+        self.db.progress('SET', 5)
+        self.db.progress('REGION', 5, 6)
+        self.db.progress('INFO', 'espresso/config/network')
+        if not self.configure_network():
             return False
-        queue.put('98 Setting computer name')
-        misc.post_log('info', 'Configuring distro')
-        if self.configure_hostname():
-            misc.post_log('info', 'Configured distro')
-        else:
-            misc.post_log('error', 'Configuring distro')
+
+        # TODO cjwatson 2006-02-25: needs direct access to frontend;
+        # disabled until we have espresso-netcfg
+        #self.db.progress('SET', 6)
+        #self.db.progress('REGION', 6, 7)
+        #self.db.progress('INFO', 'espresso/config/hostname')
+        #if not self.configure_hostname():
+        #    return False
+
+        self.db.progress('SET', 6)
+        self.db.progress('REGION', 6, 7)
+        self.db.progress('INFO', 'espresso/config/bootloader')
+        if not self.configure_bootloader():
             return False
-        queue.put('99 Configuring boot loader')
-        misc.post_log('info', 'Configuring distro')
-        if self.configure_bootloader():
-            queue.put('100 Installation complete')
-            misc.post_log('info', 'Configured distro')
-        else:
-            misc.post_log('error', 'Configuring distro')
-            return False
+
+        self.db.progress('SET', 7)
+        self.db.progress('STOP')
 
 
     def run_target_config_hooks(self):
@@ -95,16 +85,21 @@ class Config:
         hookdir = '/usr/lib/espresso/target-config'
 
         if os.path.isdir(hookdir):
-            for hookentry in os.listdir(hookdir):
-                # Exclude hooks containing '.', so that *.dpkg-* et al are avoided.
-                if '.' in hookentry:
-                    continue
-
+            # Exclude hooks containing '.', so that *.dpkg-* et al are avoided.
+            hooks = filter(lambda entry: '.' not in entry, os.listdir(hookdir))
+            self.db.progress('START', 0, len(hooks), 'espresso/config/title')
+            for hookentry in hooks:
                 hook = os.path.join(hookdir, hookentry)
                 if not os.access(hook, os.X_OK):
+                    self.db.progress('STEP', 1)
                     continue
+                self.db.subst('espresso/config/target_hook',
+                              'SCRIPT', hookentry)
+                self.db.progress('INFO', 'espresso/config/target_hook')
                 # Errors are ignored at present, although this may change.
                 subprocess.call(hook)
+                self.db.progress('STEP', 1)
+            self.db.progress('STOP')
 
         return True
 
@@ -115,23 +110,19 @@ class Config:
 
         get_locales() -> keymap, locales"""
 
-        db = DebconfCommunicator('espresso')
-
         try:
-            self.keymap = db.get('debian-installer/keymap')
+            self.keymap = self.db.get('debian-installer/keymap')
         except debconf.DebconfError:
             self.keymap = None
 
-        db.shutdown()
-
-        dbfilter = language_apply.LanguageApply(self.frontend)
+        dbfilter = language_apply.LanguageApply(None)
         return (dbfilter.run_command(auto_process=True) == 0)
 
 
     def configure_timezone(self):
         """Set timezone on installed system."""
 
-        dbfilter = timezone_apply.TimezoneApply(self.frontend)
+        dbfilter = timezone_apply.TimezoneApply(None)
         return (dbfilter.run_command(auto_process=True) == 0)
 
 
@@ -140,7 +131,7 @@ class Config:
         get_locales)."""
 
         if self.keymap is not None:
-            self.set_debconf('d-i', 'debian-installer/keymap', self.keymap)
+            self.set_debconf('debian-installer/keymap', self.keymap)
             self.chrex('install-keymap', self.keymap)
 
         return True
@@ -151,7 +142,7 @@ class Config:
         into the installed system. Default user from live system is
         deleted and skel for this new user is copied to $HOME."""
 
-        dbfilter = usersetup_apply.UserSetupApply(self.frontend)
+        dbfilter = usersetup_apply.UserSetupApply(None)
         return (dbfilter.run_command(auto_process=True) == 0)
 
 
@@ -191,7 +182,6 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
 
         try:
                 for package in packages:
-                        self.copy_debconf(package)
                         self.reconfigure(package)
         finally:
                 self.chrex('umount', '/proc')
@@ -219,7 +209,7 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
 
         try:
             from espresso.components import grubinstaller
-            dbfilter = grubinstaller.GrubInstaller(self.frontend)
+            dbfilter = grubinstaller.GrubInstaller(None)
             ret = (dbfilter.run_command(auto_process=True) == 0)
         except ImportError:
             ret = False
@@ -245,6 +235,10 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
     def copy_debconf(self, package):
         """setting debconf database into installed system."""
 
+        # TODO cjwatson 2006-02-25: unusable here now because we have a
+        # running debconf frontend that's locked the database; fortunately
+        # this isn't critical. We still need to think about how to handle
+        # preseeding in general, though.
         targetdb = os.path.join(self.target, 'var/cache/debconf/config.dat')
 
         misc.ex('debconf-copydb', 'configdb', 'targetdb', '-p',
@@ -273,10 +267,7 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
 
 
 if __name__ == '__main__':
-    from Queue import Queue
-    queue = Queue ()
-    config = Config(None)
-    config.run(queue)
-    print 101
+    config = Config()
+    config.run()
 
 # vim:ai:et:sts=4:tw=80:sw=4:
