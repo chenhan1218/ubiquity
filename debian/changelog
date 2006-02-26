@@ -10,6 +10,9 @@ espresso (0.99.18) UNRELEASED; urgency=low
     them through to the debconf frontend.
   * Make espresso-frontend-gtk Architecture: any, due to the Evolution map
     widget (closes: Malone #32874).
+  * Add a PROGRESS REGION extension to debconffilter, and a ProgressPosition
+    class to keep track of progress bar regions; allows a single progress
+    bar to be subdivided into pieces for different stages.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Feb 2006 15:14:15 +0000
 

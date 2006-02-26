@@ -265,6 +265,11 @@ class FilteredCommand(object):
         self.frontend.debconf_progress_stop()
         self.frontend.refresh()
 
+    def progress_region(self, progress_title,
+                        progress_region_start, progress_region_end):
+        self.frontend.debconf_progress_region(progress_region_start,
+                                              progress_region_end)
+
 if __name__ == '__main__':
     import sys
     fc = FilteredCommand()

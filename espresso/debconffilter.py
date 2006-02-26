@@ -84,7 +84,7 @@ class DebconfFilter:
             self.debug_re = re.compile(os.environ['DEBCONF_DEBUG'])
         else:
             self.debug_re = None
-        self.progress_bar = None
+        self.progress_bars = []
         self.toread = ''
         self.toreadpos = 0
         self.towrite = ''
@@ -248,36 +248,54 @@ class DebconfFilter:
                     self.debug('filter', 'widget found for', progress_title)
                     widget.progress_start(progress_min, progress_max,
                                           progress_title)
-                self.progress_bar = progress_title
-            elif self.progress_bar is not None:
+                self.progress_bars.insert(0, progress_title)
+            elif len(self.progress_bars) != 0:
                 if subcommand == 'SET' and len(params) == 2:
                     progress_val = int(params[1])
                     for widget in self.find_widgets(
-                            [self.progress_bar, 'PROGRESS'], 'progress_set'):
+                            [self.progress_bars[0], 'PROGRESS'],
+                             'progress_set'):
                         self.debug('filter', 'widget found for',
-                                   self.progress_bar)
-                        widget.progress_set(self.progress_bar, progress_val)
+                                   self.progress_bars[0])
+                        widget.progress_set(self.progress_bars[0],
+                                            progress_val)
                 elif subcommand == 'STEP' and len(params) == 2:
                     progress_inc = int(params[1])
                     for widget in self.find_widgets(
-                            [self.progress_bar, 'PROGRESS'], 'progress_step'):
+                            [self.progress_bars[0], 'PROGRESS'],
+                             'progress_step'):
                         self.debug('filter', 'widget found for',
-                                   self.progress_bar)
-                        widget.progress_step(self.progress_bar, progress_inc)
+                                   self.progress_bars[0])
+                        widget.progress_step(self.progress_bars[0],
+                                             progress_inc)
                 elif subcommand == 'INFO' and len(params) == 2:
                     progress_info = params[1]
                     for widget in self.find_widgets(
-                            [self.progress_bar, 'PROGRESS'], 'progress_info'):
+                            [self.progress_bars[0], 'PROGRESS'],
+                             'progress_info'):
                         self.debug('filter', 'widget found for',
-                                   self.progress_bar)
-                        widget.progress_info(self.progress_bar, progress_info)
+                                   self.progress_bars[0])
+                        widget.progress_info(self.progress_bars[0],
+                                             progress_info)
                 elif subcommand == 'STOP' and len(params) == 1:
                     for widget in self.find_widgets(
-                            [self.progress_bar, 'PROGRESS'], 'progress_stop'):
+                            [self.progress_bars[0], 'PROGRESS'],
+                             'progress_stop'):
                         self.debug('filter', 'widget found for',
-                                   self.progress_bar)
-                        widget.progress_stop(self.progress_bar)
-                    self.progress_bar = None
+                                   self.progress_bars[0])
+                        widget.progress_stop(self.progress_bars[0])
+                    self.progress_bars.pop()
+                elif subcommand == 'REGION' and len(params) == 3:
+                    progress_region_start = int(params[1])
+                    progress_region_end = int(params[2])
+                    for widget in self.find_widgets(
+                            [self.progress_bars[0], 'PROGRESS'],
+                            'progress_region'):
+                        self.debug('filter', 'widget found for',
+                                   self.progress_bars[0])
+                        widget.progress_region(self.progress_bars[0],
+                                               progress_region_start,
+                                               progress_region_end)
             # We handle all progress bars ourselves; don't pass them through
             # to the debconf frontend.
             self.reply(0, 'OK', log=True)
