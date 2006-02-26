@@ -70,7 +70,6 @@ import xml.sax.saxutils
 from gettext import bindtextdomain, textdomain, install
 
 from espresso import filteredcommand, validation
-from espresso.backend import *
 from espresso.misc import *
 from espresso.components import language, timezone, usersetup, \
                                 partman, partman_commit, summary, copy, config
@@ -337,8 +336,16 @@ class Wizard:
         """call gparted and embed it into glade interface."""
 
         pre_log('info', 'gparted_loop()')
+
+        socket = gtk.Socket()
+        socket.show()
+        self.embedded.add(socket)
+        window_id = str(socket.get_id())
+
         # Save pid to kill gparted when install process starts
-        self.gparted_subp = part.call_gparted(self.embedded)
+        self.gparted_subp = subprocess.Popen(
+            ['gparted', '--installer', window_id],
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
 
 
     def get_sizes(self):

@@ -59,37 +59,4 @@ def call_autoparted (assistant, drive, progress = None):
 
     return assistant.auto_partition (drive, steps = progress)
 
-def call_gparted(widget):
-
-    '''call_autoparted() -> dict {'mount point' : 'dev'}
-                         -> None
-    '''
-    import gtk
-    import sys
-
-    # plug/socket implementation (Gparted integration)
-    socket = gtk.Socket()
-    socket.show()
-    widget.add(socket)
-    Wid = str(socket.get_id())
-
-    # TODO: rewrite next block.
-    #mountpoints = None
-
-    try:
-        out = Popen(['/usr/bin/gparted', '--installer', Wid],
-                    stdin=PIPE, stdout=PIPE, close_fds=True)
-    except:
-        try:
-            out = Popen(['/usr/local/bin/gparted', '--installer', Wid],
-                        stdin=PIPE, stdout=PIPE, close_fds=True)
-            line = out.readlines()[-1].strip()
-        except:
-            widget.destroy()
-            return None
-
-    #FIXME:We need to know how the mountpoints are shown
-
-    return out
-
 # vim:ai:et:sts=4:tw=80:sw=4:

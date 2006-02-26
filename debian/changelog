@@ -20,6 +20,8 @@ espresso (0.99.18) UNRELEASED; urgency=low
     fixes some responsiveness bugs, allows for localisation, and finally
     unifies all progress bar handling.
   * Add debconf template translation boilerplate.
+  * Move call_gparted from espresso.backend.part into the GTK frontend, as
+    it's widget-set-dependent. Unhardcode the path to gparted.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Feb 2006 15:14:15 +0000
 
