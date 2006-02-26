@@ -1145,7 +1145,7 @@ class Wizard:
     def error_dialog (self, msg):
         # TODO: cancel button as well if capb backup
         dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
-                                                             gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
+                                   gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
         dialog.run()
         dialog.hide()
 
