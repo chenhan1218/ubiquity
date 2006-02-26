@@ -181,11 +181,11 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
         packages = ['linux-image-' + self.kernel_version]
 
         try:
-                for package in packages:
-                        self.reconfigure(package)
+            for package in packages:
+                self.reconfigure(package)
         finally:
-                self.chrex('umount', '/proc')
-                self.chrex('umount', '/sys')
+            self.chrex('umount', '/proc')
+            self.chrex('umount', '/sys')
         return True
 
 
