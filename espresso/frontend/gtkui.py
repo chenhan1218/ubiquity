@@ -985,8 +985,8 @@ class Wizard:
 
     def watch_debconf_fd (self, from_debconf, process_input):
         gobject.io_add_watch(from_debconf,
-                                                 gobject.IO_IN | gobject.IO_ERR | gobject.IO_HUP,
-                                                 self.watch_debconf_fd_helper, process_input)
+                             gobject.IO_IN | gobject.IO_ERR | gobject.IO_HUP,
+                             self.watch_debconf_fd_helper, process_input)
 
 
     def watch_debconf_fd_helper (self, source, cb_condition, callback):
