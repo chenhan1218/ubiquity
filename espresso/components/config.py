@@ -29,3 +29,9 @@ class Config(FilteredCommand):
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question))
         return super(Config, self).error(priority, question)
+
+    def run(self, priority, question):
+        if question == 'grub-installer/apt-install-failed':
+            return self.error(priority, question)
+
+        return super(Config, self).run(priority, question)
