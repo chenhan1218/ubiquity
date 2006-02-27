@@ -96,7 +96,10 @@ class FilteredCommand(object):
             self.command = prep[0]
             self.debug("Starting up '%s' for %s.%s", self.command,
                        self.__class__.__module__, self.__class__.__name__)
-            return subprocess.call(self.command)
+            ret = subprocess.call(self.command)
+            if ret != 0:
+                self.debug("%s exited with code %d", self.command, ret)
+            return ret
 
         self.start(auto_process=auto_process)
         if auto_process:
