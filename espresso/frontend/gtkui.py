@@ -622,8 +622,6 @@ class Wizard:
         # Ready to install
         elif step == "stepReady":
             self.live_installer.hide()
-            while gtk.events_pending():
-                gtk.main_iteration()
             self.progress_loop()
 
         step = self.step_name(self.steps.get_current_page())
