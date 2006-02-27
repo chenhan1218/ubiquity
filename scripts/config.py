@@ -5,6 +5,7 @@ from espresso import misc
 from espresso.components import language_apply, timezone_apply, usersetup_apply
 from espresso.settings import *
 
+import sys
 import os
 import platform
 import debconf
@@ -75,6 +76,8 @@ class Config:
 
         self.db.progress('SET', 7)
         self.db.progress('STOP')
+
+        return True
 
 
     def run_target_config_hooks(self):
@@ -267,7 +270,9 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
 
 
 if __name__ == '__main__':
-    config = Config()
-    config.run()
+    if Config().run():
+        sys.exit(0)
+    else:
+        sys.exit(1)
 
 # vim:ai:et:sts=4:tw=80:sw=4:

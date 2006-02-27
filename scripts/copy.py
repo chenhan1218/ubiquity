@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import sys
 import os
 import subprocess
 import time
@@ -47,6 +48,8 @@ class Copy:
 
         self.db.progress('SET', 100)
         self.db.progress('STOP')
+
+        return True
 
 
     def copy_all(self):
@@ -214,6 +217,9 @@ class Copy:
 
 
 if __name__ == '__main__':
-    Copy().run()
+    if Copy().run():
+        sys.exit(0)
+    else:
+        sys.exit(1)
 
 # vim:ai:et:sts=4:tw=80:sw=4:

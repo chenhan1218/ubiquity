@@ -40,6 +40,7 @@ espresso (0.99.18) UNRELEASED; urgency=low
   * Display an error dialog on GRUB installation failures (closes: Malone
     #32047; grub has been seeded, so this shouldn't generally happen any
     more anyway).
+  * Notice and exit on errors from the copy and configuration stages.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Feb 2006 15:14:15 +0000
 

@@ -457,12 +457,14 @@ class Wizard:
         self.debconf_progress_region(0, 800)
         dbfilter = copy.Copy(self)
         if dbfilter.run_command(auto_process=True) != 0:
-            pass # TODO cjwatson 2006-02-25: handle errors
+            # TODO cjwatson 2006-02-27: do something nicer than just quitting
+            self.quit()
 
         self.debconf_progress_region(800, 1000)
         dbfilter = config.Config(self)
         if dbfilter.run_command(auto_process=True) != 0:
-            pass # TODO cjwatson 2006-02-25: handle errors
+            # TODO cjwatson 2006-02-27: do something nicer than just quitting
+            self.quit()
 
         self.debconf_progress_stop()
         # just to make sure
