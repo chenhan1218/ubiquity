@@ -22,7 +22,7 @@ $(e_map_la_OBJECTS): e-map-marshal.h
 noinst_LIBRARIES = libemap.a
 
 libemap_a_CFLAGS = \
-	$(ESPRESSO_DEPENDS_CFLAGS)
+	-fPIC $(ESPRESSO_DEPENDS_CFLAGS)
 	
 BUILT_SOURCES= e-map-marshal.c	e-map-marshal.h
 

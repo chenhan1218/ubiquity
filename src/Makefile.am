@@ -10,7 +10,7 @@ defs_DATA = e-map.defs
 EXTRA_DIST = $(defs_DATA)
 
 pkgpyexec_LTLIBRARIES = emap.la
-emap_la_CFLAGS = $(PYTHON_INCLUDES) $(PYGTK_CFLAGS) \
+emap_la_CFLAGS = -fPIC $(PYTHON_INCLUDES) $(PYGTK_CFLAGS) \
 		 -I$(srcdir)/cut-and-paste/e-map
 emap_la_LDFLAGS = $(PYGTK_LIBS) \
 		  -module -avoid-version -export-symbols-regex initemap

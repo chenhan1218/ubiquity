@@ -200,7 +200,7 @@ LDADD = -lm $(ESPRESSO_DEPENDS_LIBS)
 EXTRA_DIST = e-map-marshal.list
 noinst_LIBRARIES = libemap.a
 libemap_a_CFLAGS = \
-	$(ESPRESSO_DEPENDS_CFLAGS)
+	-fPIC $(ESPRESSO_DEPENDS_CFLAGS)
 
 BUILT_SOURCES = e-map-marshal.c	e-map-marshal.h
 libemap_a_SOURCES = \

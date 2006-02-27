@@ -33,6 +33,8 @@ espresso (0.99.18) UNRELEASED; urgency=low
 
   * Make espresso-frontend-gtk Architecture: any, due to the Evolution map
     widget (closes: Malone #32874).
+  * Build Evolution map widget and Python bindings with -fPIC; should fix
+    build failure on amd64.
   * Only enable the TimezoneMap.flash_selected_point handler when the
     timezone map is visible.
   * Remove text that claims /home will not be formatted; partly fixes Malone
