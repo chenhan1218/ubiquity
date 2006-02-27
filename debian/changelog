@@ -43,6 +43,7 @@ espresso (0.99.18) UNRELEASED; urgency=low
     #32047; grub has been seeded, so this shouldn't generally happen any
     more anyway).
   * Notice and exit on errors from the copy and configuration stages.
+  * Run 'make distclean' rather than 'make clean' on 'debian/rules clean'.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Feb 2006 15:14:15 +0000
 
