@@ -6,6 +6,8 @@ espresso (0.99.18) UNRELEASED; urgency=low
     it in the main espresso program just before exiting.
   * Parse /proc/mounts for mountpoints to unmount; this saves having to have
     a get_mountpoints method in every frontend.
+  * Unmount /target before starting the frontend, since we will behave badly
+    if /target is still mounted from a previous installation attempt.
   * Handle all PROGRESS commands entirely in debconffilter, without passing
     them through to the debconf frontend.
   * Make espresso-frontend-gtk Architecture: any, due to the Evolution map

@@ -34,6 +34,7 @@ def install(type='gtkui'):
     mod = __import__('espresso.frontend', globals(), locals() , [type])
     ui = getattr(mod, type)
 
+    unmount_target()
     distro = misc.distribution().lower()
     wizard = ui.Wizard(distro)
     ret = wizard.run()
