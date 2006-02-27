@@ -1,33 +1,35 @@
 espresso (0.99.18) UNRELEASED; urgency=low
 
-  * Move espresso/components/summary to a new scripts directory; more
-    debconf helper scripts will be going here in the future.
   * Rip all the /target unmounting code out of espresso.backend.copy and do
     it in the main espresso program just before exiting.
   * Parse /proc/mounts for mountpoints to unmount; this saves having to have
     a get_mountpoints method in every frontend.
   * Unmount /target before starting the frontend, since we will behave badly
     if /target is still mounted from a previous installation attempt.
+
   * Handle all PROGRESS commands entirely in debconffilter, without passing
     them through to the debconf frontend.
-  * Make espresso-frontend-gtk Architecture: any, due to the Evolution map
-    widget (closes: Malone #32874).
   * Add a PROGRESS REGION extension to debconffilter, and a ProgressPosition
     class to keep track of progress bar regions; allows a single progress
     bar to be subdivided into pieces for different stages.
   * Hack FilteredCommand.run_command() to execute the command without any
     debconffiltering glue if frontend is None; this allows nested
     FilteredCommands to more or less work.
+  * Move espresso/components/summary to a new scripts directory.
   * Rework copy and configuration progress bars using debconffilter. This
     fixes some responsiveness bugs, allows for localisation, and finally
     unifies all progress bar handling.
   * Add debconf template translation boilerplate.
+
   * Move call_gparted from espresso.backend.part into the GTK frontend, as
     it's widget-set-dependent. Unhardcode the path to gparted.
   * Remove espresso/backend/, none of which is used any more except by the
     netcloner and noui frontends which are both broken at the moment anyway.
     The frontend/backend division is now between espresso.frontend and
     espresso.components, mediated by debconffilter.
+
+  * Make espresso-frontend-gtk Architecture: any, due to the Evolution map
+    widget (closes: Malone #32874).
   * Only enable the TimezoneMap.flash_selected_point handler when the
     timezone map is visible.
   * Remove text that claims /home will not be formatted; partly fixes Malone
