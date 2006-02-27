@@ -2016,8 +2016,7 @@ Alternatively, it is possible to return to the previous page to select an easier
 			      <property name="indent">0</property>
 			      <property name="text" translatable="yes">Now you should have at least 2 GNU/Linux partitions with space enough. It's time to specify where you want every component to be installed.
 Proceed as follows: select one partition in the column on the left and link it with one mount point on the right. Repeat for every desired partition.
-There are 2 necessary “mount points” – they must be associated with 2 partitions. They are “/” and “swap”.
-If you kept an intact home partition, you can now link it with the “/home” mount point. It will not be formatted, so data is preserved.</property>
+There are 2 necessary “mount points” – they must be associated with 2 partitions. They are “/” and “swap”.</property>
 			    </widget>
 			  </child>
 			</widget>
