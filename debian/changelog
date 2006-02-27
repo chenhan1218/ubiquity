@@ -15,6 +15,9 @@ espresso (0.99.18) UNRELEASED; urgency=low
   * Hack FilteredCommand.run_command() to execute the command without any
     debconffiltering glue if frontend is None; this allows nested
     FilteredCommands to more or less work.
+  * Stop FilteredCommand.error() from running a UI loop; we assume that the
+    frontend's error_dialog() method runs synchronously.
+
   * Move espresso/components/summary to a new scripts directory.
   * Rework copy and configuration progress bars using debconffilter. This
     fixes some responsiveness bugs, allows for localisation, and finally

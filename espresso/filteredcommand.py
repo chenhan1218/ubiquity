@@ -238,7 +238,6 @@ class FilteredCommand(object):
     def error(self, priority, question):
         self.succeeded = False
         self.done = False
-        self.enter_ui_loop()
         return True
 
     # The confmodule asked a question; process it. Subclasses only need to
