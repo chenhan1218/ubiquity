@@ -1,3 +1,10 @@
+espresso (0.99.19) UNRELEASED; urgency=low
+
+  [ Jonathan Riddell ]
+  * Add accessor methods to the GTK frontend for use by user-setup.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 28 Feb 2006 14:32:38 +0000
+
 espresso (0.99.18) dapper; urgency=low
 
   * Rip all the /target unmounting code out of espresso.backend.copy and do

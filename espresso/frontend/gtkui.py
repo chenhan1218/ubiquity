@@ -1085,6 +1085,19 @@ class Wizard:
         return self.tzmap.get_selected_tz_name()
 
 
+    def get_fullname(self):
+        return self.fullname.get_text()
+
+    def get_username(self):
+        return self.username.get_text()
+
+    def get_password(self):
+        return self.password.get_text()
+
+    def get_verified_password(self):
+        return self.verified_password.get_text()
+
+
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
         for child in self.autopartition_vbox.get_children():
             self.autopartition_vbox.remove(child)
