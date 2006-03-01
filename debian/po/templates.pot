@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-02-26 14:05+0000\n"
+"POT-Creation-Date: 2006-03-01 12:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../espresso.templates:24
-msgid "Copying files"
+msgid "Installing system"
 msgstr ""
 
 #. Type: text
@@ -58,56 +58,50 @@ msgstr ""
 msgid "Cleaning up..."
 msgstr ""
 
-#. Type: title
-#. Description
-#: ../espresso.templates:52
-msgid "Configuring installed system"
-msgstr ""
-
 #. Type: text
 #. Description
-#: ../espresso.templates:56
+#: ../espresso.templates:52
 msgid "Running ${SCRIPT}..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:60
+#: ../espresso.templates:56
 msgid "Configuring system locales..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:64
+#: ../espresso.templates:60
 msgid "Configuring time zone..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:68
+#: ../espresso.templates:64
 msgid "Creating user..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:72
+#: ../espresso.templates:68
 msgid "Configuring hardware..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:76
+#: ../espresso.templates:72
 msgid "Configuring network..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:80
+#: ../espresso.templates:76
 msgid "Setting computer name..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:84
+#: ../espresso.templates:80
 msgid "Configuring boot loader..."
 msgstr ""
