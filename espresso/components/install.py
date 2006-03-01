@@ -19,6 +19,19 @@
 
 from espresso.filteredcommand import FilteredCommand
 
-class Copy(FilteredCommand):
+class Install(FilteredCommand):
     def prepare(self):
-        return (['/usr/share/espresso/copy.py'], ['PROGRESS'])
+        questions = ['^grub-installer/apt-install-failed$',
+                     'ERROR',
+                     'PROGRESS']
+        return (['/usr/share/espresso/install.py'], questions)
+
+    def error(self, priority, question):
+        self.frontend.error_dialog(self.description(question))
+        return super(Install, self).error(priority, question)
+
+    def run(self, priority, question):
+        if question == 'grub-installer/apt-install-failed':
+            return self.error(priority, question)
+
+        return super(Install, self).run(priority, question)

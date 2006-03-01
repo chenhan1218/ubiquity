@@ -72,7 +72,7 @@ import gettext
 from espresso import filteredcommand, validation
 from espresso.misc import *
 from espresso.components import language, timezone, usersetup, \
-                                partman, partman_commit, summary, copy, config
+                                partman, partman_commit, summary, install
 import espresso.emap
 import espresso.tz
 import espresso.progressposition

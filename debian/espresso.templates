@@ -19,66 +19,62 @@ Description: Ready to install
   Login name: ${USERNAME}
   Location: ${LOCATION}
 
-Template: espresso/copy/title
+Template: espresso/install/title
 Type: title
-_Description: Copying files
+_Description: Installing system
 
-Template: espresso/copy/mounting_source
+Template: espresso/install/mounting_source
 Type: text
 _Description: Finding the distribution to copy...
 
-Template: espresso/copy/scanning
+Template: espresso/install/scanning
 Type: text
 _Description: Scanning files...
 
-Template: espresso/copy/copying
+Template: espresso/install/copying
 Type: text
 _Description: Copying files...
 
-Template: espresso/copy/copying_time
+Template: espresso/install/copying_time
 Type: text
 _Description: Copying files (${TIME} remaining)...
 
-Template: espresso/copy/log_files
+Template: espresso/install/log_files
 Type: text
 _Description: Copying installation logs...
 
-Template: espresso/copy/cleanup
+Template: espresso/install/cleanup
 Type: text
 _Description: Cleaning up...
 
-Template: espresso/config/title
-Type: title
-_Description: Configuring installed system
-
-Template: espresso/config/target_hook
+Template: espresso/install/target_hook
 Type: text
 _Description: Running ${SCRIPT}...
 
-Template: espresso/config/locales
+Template: espresso/install/locales
 Type: text
 _Description: Configuring system locales...
 
-Template: espresso/config/timezone
+Template: espresso/install/timezone
 Type: text
 _Description: Configuring time zone...
 
-Template: espresso/config/user
+Template: espresso/install/user
 Type: text
 _Description: Creating user...
 
-Template: espresso/config/hardware
+Template: espresso/install/hardware
 Type: text
 _Description: Configuring hardware...
 
-Template: espresso/config/network
+Template: espresso/install/network
 Type: text
 _Description: Configuring network...
 
-Template: espresso/config/hostname
+Template: espresso/install/hostname
 Type: text
 _Description: Setting computer name...
 
-Template: espresso/config/bootloader
+Template: espresso/install/bootloader
 Type: text
 _Description: Configuring boot loader...
