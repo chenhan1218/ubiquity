@@ -3,6 +3,7 @@ espresso (0.99.20) UNRELEASED; urgency=low
   * Add support for cancellable progress bars.
   * The Copy/Config split is more inconvenient than useful, so merge the two
     steps into one, called simply Install.
+  * Install language packs according to the selected language.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 28 Feb 2006 16:12:42 +0000
 

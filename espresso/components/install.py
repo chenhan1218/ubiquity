@@ -22,9 +22,14 @@ from espresso.filteredcommand import FilteredCommand
 class Install(FilteredCommand):
     def prepare(self):
         questions = ['^grub-installer/apt-install-failed$',
+                     'CAPB',
                      'ERROR',
                      'PROGRESS']
         return (['/usr/share/espresso/install.py'], questions)
+
+    def capb(self, capabilities):
+        self.frontend.debconf_progress_cancellable(
+            'progresscancel' in capabilities)
 
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question))

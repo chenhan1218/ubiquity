@@ -21,12 +21,119 @@
 import sys
 import os
 import platform
+import errno
+import re
 import subprocess
 import time
 import debconf
+import apt_pkg
+from apt.package import Package
+from apt.cache import Cache
+from apt.progress import FetchProgress, InstallProgress
 from espresso import misc
 from espresso.components import language_apply, timezone_apply, usersetup_apply
 from espresso.settings import *
+
+class DebconfFetchProgress(FetchProgress):
+    """An object that reports apt's fetching progress using debconf."""
+
+    def __init__(self, db, title, info):
+        FetchProgress.__init__(self)
+        self.db = db
+        self.title = title
+        self.info = info
+        self.old_capb = None
+        self.eta = 0.0
+
+    def start(self):
+        self.db.progress('START', 0, 100, self.title)
+        self.old_capb = self.db.capb()
+        capb_list = self.old_capb.split()
+        capb_list.append('progresscancel')
+        self.db.capb(' '.join(capb_list))
+
+    # TODO cjwatson 2006-02-27: implement updateStatus
+
+    def pulse(self):
+        FetchProgress.pulse(self)
+        try:
+            self.db.progress('SET', int(self.percent))
+        except debconf.DebconfError:
+            return False
+        if self.eta != 0.0:
+            time_str = "%d:%02d" % divmod(int(self.eta), 60)
+            self.db.subst(self.info, 'TIME', time_str)
+            try:
+                self.db.progress('INFO', self.info)
+            except debconf.DebconfError:
+                return False
+        return True
+
+    def stop(self):
+        if self.old_capb is not None:
+            self.db.capb(self.old_capb)
+            self.old_capb = None
+            self.db.progress('STOP')
+
+class DebconfInstallProgress(InstallProgress):
+    """An object that reports apt's installation progress using debconf."""
+
+    def __init__(self, db, title, info, error):
+        InstallProgress.__init__(self)
+        self.db = db
+        self.title = title
+        self.info = info
+        self.error = error
+        self.started = False
+
+    def startUpdate(self):
+        self.db.progress('START', 0, 100, self.title)
+        self.started = True
+
+    def error(self, pkg, errormsg):
+        self.db.subst(self.error, 'PACKAGE', pkg)
+        self.db.subst(self.error, 'MESSAGE', errormsg)
+        self.db.input('critical', self.error)
+        self.db.go()
+
+    def statusChange(self, pkg, percent, status):
+        self.percent = percent
+        self.status = status
+        self.db.progress('SET', int(percent))
+        self.db.subst(self.info, 'DESCRIPTION', status)
+        self.db.progress('INFO', self.info)
+
+    def updateInterface(self):
+        # TODO cjwatson 2006-02-28: InstallProgress.updateInterface doesn't
+        # give us a handy way to spot when percentages/statuses change and
+        # aren't pmerror/pmconffile, so we have to reimplement it here.
+        if self.statusfd != None:
+            try:
+                while not self.read.endswith("\n"):
+                    self.read += os.read(self.statusfd.fileno(),1)
+            except OSError, (err,errstr):
+                # resource temporarily unavailable is ignored
+                if err != errno.EAGAIN:
+                    print errstr
+            if self.read.endswith("\n"):
+                s = self.read
+                (status, pkg, percent, status_str) = s.split(":", 3)
+                if status == "pmerror":
+                    self.error(pkg, status_str)
+                elif status == "pmconffile":
+                    # we get a string like this:
+                    # 'current-conffile' 'new-conffile' useredited distedited
+                    match = re.compile("\s*\'(.*)\'\s*\'(.*)\'.*").match(status_str)
+                    if match:
+                        self.conffile(match.group(1), match.group(2))
+                else:
+                    self.statusChange(pkg, float(percent), status_str.strip())
+                self.read = ""
+
+    def finishUpdate(self):
+        if self.started:
+            self.db.progress('STOP')
+            self.started = False
 
 class Install:
 
@@ -41,6 +148,20 @@ class Install:
         self.unionfs = False
         self.kernel_version = platform.release()
         self.db = debconf.Debconf()
+
+        apt_pkg.InitConfig()
+        apt_pkg.Config.Set("Dir", "/target")
+        apt_pkg.Config.Set("APT::GPGV::TrustedKeyring",
+                           "/target/etc/apt/trusted.gpg")
+        apt_pkg.Config.Set("DPkg::Options::", "--root=/target")
+        # We don't want apt-listchanges or dpkg-preconfigure, so just clear
+        # out the list of pre-installation hooks.
+        apt_pkg.Config.Clear("DPkg::Pre-Install-Pkgs")
+        apt_pkg.InitSystem()
+        # Make sure all packages are installed non-interactively. We don't
+        # have enough passthrough magic here to deal with any debconf
+        # questions they might ask.
+        os.environ['DEBIAN_FRONTEND'] = 'noninteractive'
 
     def run(self):
         """Run the install stage: copy everything to the target system, then
@@ -86,19 +207,24 @@ class Install:
             return False
 
         self.db.progress('SET', 82)
-        self.db.progress('REGION', 82, 83)
+        self.db.progress('REGION', 82, 87)
+        # Ignore failures from language pack installation.
+        self.install_language_packs()
+
+        self.db.progress('SET', 87)
+        self.db.progress('REGION', 87, 88)
         self.db.progress('INFO', 'espresso/install/timezone')
         if not self.configure_timezone():
             return False
 
-        self.db.progress('SET', 83)
-        self.db.progress('REGION', 83, 84)
+        self.db.progress('SET', 88)
+        self.db.progress('REGION', 88, 89)
         self.db.progress('INFO', 'espresso/install/user')
         if not self.configure_user():
             return False
 
-        self.db.progress('SET', 84)
-        self.db.progress('REGION', 84, 95)
+        self.db.progress('SET', 89)
+        self.db.progress('REGION', 89, 95)
         self.db.progress('INFO', 'espresso/install/hardware')
         if not self.configure_hardware():
             return False
@@ -336,6 +462,103 @@ class Install:
 
         dbfilter = language_apply.LanguageApply(None)
         return (dbfilter.run_command(auto_process=True) == 0)
+
+
+    def mark_install(self, cache, pkg):
+        # work around broken has_key in python-apt 0.6.16
+        try:
+            cachedpkg = cache[pkg]
+        except KeyError:
+            cachedpkg = None
+        if cachedpkg is not None and not cachedpkg.isInstalled:
+            apt_error = False
+            try:
+                cachedpkg.markInstall()
+            except SystemError:
+                apt_error = True
+            if cache._depcache.BrokenCount > 0 or apt_error:
+                cachedpkg.markKeep()
+                assert cache._depcache.BrokenCount == 0
+
+
+    def install_language_packs(self):
+        langpacks = []
+        try:
+            langpack_db = self.db.get('base-config/language-packs')
+            langpacks = langpack_db.replace(',', '').split()
+        except debconf.DebconfError:
+            pass
+        if not langpacks:
+            try:
+                langpack_db = self.db.get('pkgsel/language-packs')
+                langpacks = langpack_db.replace(',', '').split()
+            except debconf.DebconfError:
+                pass
+        if not langpacks:
+            try:
+                langpack_db = self.db.get('localechooser/supported-locales')
+                langpack_set = set()
+                for locale in langpack_db.replace(',', '').split():
+                    langpack_set.add(locale.split('_')[0])
+                langpacks = sorted(langpack_set)
+            except debconf.DebconfError:
+                pass
+        if not langpacks:
+            langpack_db = self.db.get('debian-installer/locale')
+            langpacks = [langpack_db.split('_')[0]]
+
+        try:
+            lppatterns = self.db.get('pkgsel/language-pack-patterns').split()
+        except debconf.DebconfError:
+            return True
+
+        self.db.progress('START', 0, 100, 'espresso/langpacks/title')
+
+        self.db.progress('REGION', 0, 10)
+        fetchprogress = DebconfFetchProgress(
+            self.db, 'espresso/langpacks/title', 'espresso/langpacks/indices')
+        self.cache = Cache()
+        try:
+            # update() returns False on failure and 0 on success. Madness!
+            if self.cache.update(fetchprogress) not in (0, True):
+                fetchprogress.stop()
+                self.db.progress('STOP')
+                return True
+        except IOError, e:
+            print >>sys.stderr, e
+            sys.stderr.flush()
+            self.db.progress('STOP')
+            return False
+        self.cache.open(None)
+        self.db.progress('SET', 10)
+
+        self.db.progress('REGION', 10, 100)
+        fetchprogress = DebconfFetchProgress(
+            self.db, 'espresso/langpacks/title', 'espresso/langpacks/packages')
+        installprogress = DebconfInstallProgress(
+            self.db, 'espresso/langpacks/title', 'espresso/langpacks/info',
+            'espresso/langpacks/error')
+
+        for lp in langpacks:
+            for pattern in lppatterns:
+                self.mark_install(self.cache, pattern.replace('$LL', lp))
+            self.mark_install(self.cache, 'language-support-%s' % lp)
+
+        try:
+            if not self.cache.commit(fetchprogress, installprogress):
+                fetchprogress.stop()
+                installprogress.finishUpdate()
+                self.db.progress('STOP')
+                return True
+        except SystemError, e:
+            print >>sys.stderr, e
+            sys.stderr.flush()
+            self.db.progress('STOP')
+            return False
+        self.db.progress('SET', 100)
+
+        self.db.progress('STOP')
+        return True
 
 
     def configure_timezone(self):

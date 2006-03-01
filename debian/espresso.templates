@@ -78,3 +78,37 @@ _Description: Setting computer name...
 Template: espresso/install/bootloader
 Type: text
 _Description: Configuring boot loader...
+
+Template: espresso/langpacks/title
+Type: title
+_Description: Installing language packs
+
+Template: espresso/langpacks/indices
+Type: text
+_Description: Downloading package lists (${TIME} remaining)...
+
+Template: espresso/langpacks/packages
+Type: text
+_Description: Downloading language packs (${TIME} remaining)...
+
+Template: espresso/langpacks/info
+Type: text
+# Not translated; apt emits translated descriptions for us already.
+Description: ${DESCRIPTION}
+
+Template: espresso/langpacks/error
+Type: text
+_Description: Error installing ${PACKAGE}
+ ${MESSAGE}
+
+Template: pkgsel/language-pack-patterns
+Type: text
+Default: language-pack-gnome-$LL
+Description: Patterns for language packs to install
+ This template may be preseeded to modify the packages that will be
+ installed to provide translations for a given language. The selected
+ language will be substituted in place of $LL; multiple patterns may be
+ given, separated by spaces.
+ .
+ language-pack-$LL is required, and is always installed (by localechooser).
+ You do not need to list it here.

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-03-01 12:27+0000\n"
+"POT-Creation-Date: 2006-03-01 12:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,4 +104,34 @@ msgstr ""
 #. Description
 #: ../espresso.templates:80
 msgid "Configuring boot loader..."
+msgstr ""
+
+#. Type: title
+#. Description
+#: ../espresso.templates:84
+msgid "Installing language packs"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:88
+msgid "Downloading package lists (${TIME} remaining)..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:92
+msgid "Downloading language packs (${TIME} remaining)..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:101
+msgid "Error installing ${PACKAGE}"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:101
+msgid "${MESSAGE}"
 msgstr ""
