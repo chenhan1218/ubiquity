@@ -540,8 +540,15 @@ class Install:
             'espresso/langpacks/error')
 
         for lp in langpacks:
+            # Basic language packs, required to get localisation working at
+            # all. We install these almost unconditionally; if you want to
+            # get rid of even these, you can preseed pkgsel/language-packs
+            # to the empty string.
+            self.mark_install(self.cache, 'language-pack-%s' % lp)
+            # Other language packs, typically selected by preseeding.
             for pattern in lppatterns:
                 self.mark_install(self.cache, pattern.replace('$LL', lp))
+            # More extensive language support packages.
             self.mark_install(self.cache, 'language-support-%s' % lp)
 
         try:
