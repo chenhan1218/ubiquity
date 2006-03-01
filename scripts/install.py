@@ -27,7 +27,6 @@ import debconf
 from espresso import misc
 from espresso.components import language_apply, timezone_apply, usersetup_apply
 from espresso.settings import *
-from sys import stderr
 
 class Install:
 

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import sys
 import os
 import gobject
 import glob
@@ -134,9 +135,8 @@ class Wizard:
 
 
     def show_error(self, msg):
-        from sys import stderr
         pre_log('error', msg)
-        print >>stderr, "ERROR: " + msg
+        print >>sys.stderr, "ERROR: " + msg
 
 
     def quit(self):

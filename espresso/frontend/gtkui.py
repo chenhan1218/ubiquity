@@ -53,7 +53,7 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -28.40!!! (bad
         indentation and accesses to undefined members) """
 
-from sys import stderr
+import sys
 import pygtk
 pygtk.require('2.0')
 
@@ -972,7 +972,7 @@ class Wizard:
 
 ##         """ Disable automatic partitioning and reset partitioning method step. """
 
-##         stderr.write ('\non_abort_dialog_close.\n\n')
+##         sys.stderr.write ('\non_abort_dialog_close.\n\n')
 
 ##         self.discard_automatic_partitioning = True
 ##         self.on_drives_changed (None)
