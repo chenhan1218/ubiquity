@@ -6,6 +6,9 @@ espresso (0.99.21) UNRELEASED; urgency=low
   * Add FilteredCommand.choices_display_map helper.
   * Flesh out keymap page, using espresso-keyboard-setup.
 
+  [ Colin Watson ]
+  * Sort presented list of keymaps.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Wed,  1 Mar 2006 14:42:10 +0000
 
 espresso (0.99.20) dapper; urgency=low

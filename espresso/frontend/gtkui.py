@@ -1173,7 +1173,7 @@ class Wizard:
 
         kbdlayouts = gtk.ListStore(gobject.TYPE_STRING)
         self.keyboardlistview.set_model(kbdlayouts)
-        for v in choices:
+        for v in sorted(choices):
             kbdlayouts.append([v])
             print "Appending: ", v, "\n"
 
