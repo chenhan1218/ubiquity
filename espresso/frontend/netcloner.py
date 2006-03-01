@@ -4,7 +4,7 @@ import os
 import gobject
 import glob
 
-from gettext import bindtextdomain, textdomain, install
+import gettext
 
 from espresso import validation
 from espresso.misc import *
@@ -57,9 +57,9 @@ class Wizard:
         """internationalization config. Use only once."""
         
         domain = self.distro + '-installer'
-        bindtextdomain(domain, LOCALEDIR)
-        textdomain(domain)
-        install(domain, LOCALEDIR, unicode=1)
+        gettext.bindtextdomain(domain, LOCALEDIR)
+        gettext.textdomain(domain)
+        gettext.install(domain, LOCALEDIR, unicode=1)
 
 
     # Methods

@@ -67,7 +67,7 @@ import subprocess
 import thread
 import xml.sax.saxutils
 
-from gettext import bindtextdomain, textdomain, install
+import gettext
 
 from espresso import filteredcommand, validation
 from espresso.misc import *
@@ -248,11 +248,11 @@ class Wizard:
         """internationalization config. Use only once."""
 
         domain = self.distro + '-installer'
-        bindtextdomain(domain, LOCALEDIR)
+        gettext.bindtextdomain(domain, LOCALEDIR)
         gtk.glade.bindtextdomain(domain, LOCALEDIR )
         gtk.glade.textdomain(domain)
-        textdomain(domain)
-        install(domain, LOCALEDIR, unicode=1)
+        gettext.textdomain(domain)
+        gettext.install(domain, LOCALEDIR, unicode=1)
 
 
     def show_browser(self):
