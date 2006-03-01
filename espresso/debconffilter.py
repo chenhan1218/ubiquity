@@ -186,6 +186,11 @@ class DebconfFilter:
             self.debug('filter', 'ignoring unknown (multi-line?) command')
             return True
 
+        if command == 'CAPB':
+            for widget in self.find_widgets(['CAPB'], 'capb'):
+                self.debug('filter', 'capb widget found')
+                widget.capb(params)
+
         if command == 'INPUT' and len(params) == 2:
             (priority, question) = params
             input_widgets = self.find_widgets([question])
@@ -239,6 +244,7 @@ class DebconfFilter:
 
         if command == 'PROGRESS' and len(params) >= 1:
             subcommand = params[0].upper()
+            cancelled = False
             if subcommand == 'START' and len(params) == 4:
                 progress_min = int(params[1])
                 progress_max = int(params[2])
@@ -246,8 +252,9 @@ class DebconfFilter:
                 for widget in self.find_widgets(
                         [progress_title, 'PROGRESS'], 'progress_start'):
                     self.debug('filter', 'widget found for', progress_title)
-                    widget.progress_start(progress_min, progress_max,
-                                          progress_title)
+                    if not widget.progress_start(progress_min, progress_max,
+                                                 progress_title):
+                        cancelled = True
                 self.progress_bars.insert(0, progress_title)
             elif len(self.progress_bars) != 0:
                 if subcommand == 'SET' and len(params) == 2:
@@ -257,8 +264,9 @@ class DebconfFilter:
                              'progress_set'):
                         self.debug('filter', 'widget found for',
                                    self.progress_bars[0])
-                        widget.progress_set(self.progress_bars[0],
-                                            progress_val)
+                        if not widget.progress_set(self.progress_bars[0],
+                                                   progress_val):
+                            cancelled = True
                 elif subcommand == 'STEP' and len(params) == 2:
                     progress_inc = int(params[1])
                     for widget in self.find_widgets(
@@ -266,8 +274,9 @@ class DebconfFilter:
                              'progress_step'):
                         self.debug('filter', 'widget found for',
                                    self.progress_bars[0])
-                        widget.progress_step(self.progress_bars[0],
-                                             progress_inc)
+                        if not widget.progress_step(self.progress_bars[0],
+                                                    progress_inc):
+                            cancelled = True
                 elif subcommand == 'INFO' and len(params) == 2:
                     progress_info = params[1]
                     for widget in self.find_widgets(
@@ -275,15 +284,17 @@ class DebconfFilter:
                              'progress_info'):
                         self.debug('filter', 'widget found for',
                                    self.progress_bars[0])
-                        widget.progress_info(self.progress_bars[0],
-                                             progress_info)
+                        if not widget.progress_info(self.progress_bars[0],
+                                                    progress_info):
+                            cancelled = True
                 elif subcommand == 'STOP' and len(params) == 1:
                     for widget in self.find_widgets(
                             [self.progress_bars[0], 'PROGRESS'],
                              'progress_stop'):
                         self.debug('filter', 'widget found for',
                                    self.progress_bars[0])
-                        widget.progress_stop(self.progress_bars[0])
+                        if not widget.progress_stop(self.progress_bars[0]):
+                            cancelled = True
                     self.progress_bars.pop()
                 elif subcommand == 'REGION' and len(params) == 3:
                     progress_region_start = int(params[1])
@@ -298,7 +309,10 @@ class DebconfFilter:
                                                progress_region_end)
             # We handle all progress bars ourselves; don't pass them through
             # to the debconf frontend.
-            self.reply(0, 'OK', log=True)
+            if cancelled:
+                self.reply(30, 'progress bar cancelled', log=True)
+            else:
+                self.reply(0, 'OK', log=True)
             return True
 
         if command == 'GO' and self.next_go_backup:

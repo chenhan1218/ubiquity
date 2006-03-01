@@ -253,29 +253,35 @@ class FilteredCommand(object):
     # Default progress bar handling: just pass it through to the frontend.
 
     def progress_start(self, progress_min, progress_max, progress_title):
-        self.frontend.debconf_progress_start(progress_min, progress_max,
-                                             self.description(progress_title))
+        ret = self.frontend.debconf_progress_start(
+            progress_min, progress_max, self.description(progress_title))
         self.frontend.refresh()
+        return ret
 
     def progress_set(self, progress_title, progress_val):
-        self.frontend.debconf_progress_set(progress_val)
+        ret = self.frontend.debconf_progress_set(progress_val)
         self.frontend.refresh()
+        return ret
 
     def progress_step(self, progress_title, progress_inc):
-        self.frontend.debconf_progress_step(progress_inc)
+        ret = self.frontend.debconf_progress_step(progress_inc)
         self.frontend.refresh()
+        return ret
 
     def progress_info(self, progress_title, progress_info):
         try:
-            self.frontend.debconf_progress_info(self.description(progress_info))
+            ret = self.frontend.debconf_progress_info(
+                self.description(progress_info))
             self.frontend.refresh()
+            return ret
         except debconf.DebconfError:
             # ignore unknown info templates
-            pass
+            return True
 
     def progress_stop(self, progress_title):
-        self.frontend.debconf_progress_stop()
+        ret = self.frontend.debconf_progress_stop()
         self.frontend.refresh()
+        return ret
 
     def progress_region(self, progress_title,
                         progress_region_start, progress_region_end):

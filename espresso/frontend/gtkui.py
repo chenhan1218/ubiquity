@@ -126,6 +126,7 @@ class Wizard:
         self.dbfilter = None
         self.locale = None
         self.progress_position = espresso.progressposition.ProgressPosition()
+        self.progress_cancelled = False
         self.returncode = 0
 
         # To get a "busy mouse":
@@ -1004,6 +1005,8 @@ class Wizard:
 
 
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
+        if self.progress_cancelled:
+            return False
         if self.current_page is not None:
             self.debconf_progress_dialog.set_transient_for(self.live_installer)
         else:
@@ -1017,30 +1020,54 @@ class Wizard:
         self.debconf_progress_set(0)
         self.progress_info.set_text('')
         self.debconf_progress_dialog.show()
+        return True
 
     def debconf_progress_set (self, progress_val):
+        if self.progress_cancelled:
+            return False
         self.progress_position.set(progress_val)
         fraction = self.progress_position.fraction()
         self.progress_bar.set_fraction(fraction)
         self.progress_bar.set_text('%s%%' % int(fraction * 100))
+        return True
 
     def debconf_progress_step (self, progress_inc):
+        if self.progress_cancelled:
+            return False
         self.progress_position.step(progress_inc)
         fraction = self.progress_position.fraction()
         self.progress_bar.set_fraction(fraction)
         self.progress_bar.set_text('%s%%' % int(fraction * 100))
+        return True
 
     def debconf_progress_info (self, progress_info):
+        if self.progress_cancelled:
+            return False
         self.progress_info.set_markup(
             '<i>' + xml.sax.saxutils.escape(progress_info) + '</i>')
+        return True
 
     def debconf_progress_stop (self):
+        if self.progress_cancelled:
+            self.progress_cancelled = False
+            return False
         self.progress_position.stop()
         if self.progress_position.depth() == 0:
             self.debconf_progress_dialog.hide()
+        return True
 
     def debconf_progress_region (self, region_start, region_end):
         self.progress_position.set_region(region_start, region_end)
+
+    def debconf_progress_cancellable (self, cancellable):
+        if cancellable:
+            self.progress_cancel_button.show()
+        else:
+            self.progress_cancel_button.hide()
+            self.progress_cancelled = False
+
+    def on_progress_cancel_button_clicked (self, button):
+        self.progress_cancelled = True
 
 
     def debconffilter_done (self, dbfilter):

@@ -1,3 +1,9 @@
+espresso (0.99.20) UNRELEASED; urgency=low
+
+  * Add support for cancellable progress bars.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 28 Feb 2006 16:12:42 +0000
+
 espresso (0.99.19) dapper; urgency=low
 
   [ Jonathan Riddell ]
