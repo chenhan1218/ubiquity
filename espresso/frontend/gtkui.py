@@ -453,21 +453,11 @@ class Wizard:
 
         self.current_page = None
 
-        self.debconf_progress_start(0, 1000, "Installing system")
-
-        self.debconf_progress_region(0, 800)
-        dbfilter = copy.Copy(self)
+        dbfilter = install.Install(self)
         if dbfilter.run_command(auto_process=True) != 0:
             # TODO cjwatson 2006-02-27: do something nicer than just quitting
             self.quit()
 
-        self.debconf_progress_region(800, 1000)
-        dbfilter = config.Config(self)
-        if dbfilter.run_command(auto_process=True) != 0:
-            # TODO cjwatson 2006-02-27: do something nicer than just quitting
-            self.quit()
-
-        self.debconf_progress_stop()
         # just to make sure
         self.debconf_progress_dialog.hide()
 
