@@ -1,4 +1,4 @@
-espresso (0.99.21) UNRELEASED; urgency=low
+espresso (0.99.21) dapper; urgency=low
 
   [ Tollef Fog Heen ]
   * Allow prepare() methods in components to have access to the debconf
@@ -22,7 +22,7 @@ espresso (0.99.21) UNRELEASED; urgency=low
     sure we don't remove those.
   * Depend on python-apt.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed,  1 Mar 2006 14:42:10 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  2 Mar 2006 13:33:51 +0000
 
 espresso (0.99.20) dapper; urgency=low
 
