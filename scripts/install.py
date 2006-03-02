@@ -505,7 +505,23 @@ class Install:
             return None
 
 
+    def record_installed(self, pkgs):
+        """Record which packages we've explicitly installed so that we don't
+        try to remove them later."""
+
+        record_file = "/var/lib/espresso/apt-installed"
+        if not os.path.exists(os.path.dirname(record_file)):
+            os.makedirs(os.path.dirname(record_file))
+        record = open(record_file, "a")
+
+        for pkg in pkgs:
+            print >>record, pkg
+
+        record.close()
+
+
     def mark_install(self, cache, pkg):
+        self.record_installed([pkg])
         cachedpkg = self.get_cache_pkg(cache, pkg)
         if cachedpkg is not None and not cachedpkg.isInstalled:
             apt_error = False
@@ -516,23 +532,6 @@ class Install:
             if cache._depcache.BrokenCount > 0 or apt_error:
                 cachedpkg.markKeep()
                 assert cache._depcache.BrokenCount == 0
-
-
-    def record_installed(self, cache):
-        """Record which packages we've explicitly installed so that we don't
-        try to remove them later."""
-
-        record_file = "/var/lib/espresso/apt-installed"
-        if not os.path.exists(os.path.dirname(record_file)):
-            os.makedirs(os.path.dirname(record_file))
-        record = open(record_file, "a")
-
-        for pkg in cache.keys():
-            if (cache[pkg].markedInstall or cache[pkg].markedUpgrade or
-                cache[pkg].markedReinstall or cache[pkg].markedDowngrade):
-                print >>record, pkg
-
-        record.close()
 
 
     def install_language_packs(self):
@@ -605,7 +604,12 @@ class Install:
                 self.mark_install(cache, pattern.replace('$LL', lp))
             # More extensive language support packages.
             self.mark_install(cache, 'language-support-%s' % lp)
-        self.record_installed(cache)
+        installed_pkgs = []
+        for pkg in cache.keys():
+            if (cache[pkg].markedInstall or cache[pkg].markedUpgrade or
+                cache[pkg].markedReinstall or cache[pkg].markedDowngrade):
+                installed_pkgs.append(pkg)
+        self.record_installed(installed_pkgs)
 
         try:
             if not cache.commit(fetchprogress, installprogress):
