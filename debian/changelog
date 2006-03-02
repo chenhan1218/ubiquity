@@ -14,6 +14,8 @@ espresso (0.99.21) UNRELEASED; urgency=low
     frontend is started for them in the target system.
   * Add set_fullname() and set_username() methods to the GTK frontend for
     use by user-setup.
+  * Stop the installation progress bar on all return paths from
+    Install.run().
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed,  1 Mar 2006 14:42:10 +0000
 

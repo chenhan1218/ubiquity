@@ -236,24 +236,28 @@ class Install:
         self.db.progress('REGION', 87, 88)
         self.db.progress('INFO', 'espresso/install/timezone')
         if not self.configure_timezone():
+            self.db.progress('STOP')
             return False
 
         self.db.progress('SET', 88)
         self.db.progress('REGION', 88, 89)
         self.db.progress('INFO', 'espresso/install/user')
         if not self.configure_user():
+            self.db.progress('STOP')
             return False
 
         self.db.progress('SET', 89)
         self.db.progress('REGION', 89, 95)
         self.db.progress('INFO', 'espresso/install/hardware')
         if not self.configure_hardware():
+            self.db.progress('STOP')
             return False
 
         self.db.progress('SET', 95)
         self.db.progress('REGION', 95, 98)
         self.db.progress('INFO', 'espresso/install/network')
         if not self.configure_network():
+            self.db.progress('STOP')
             return False
 
         # TODO cjwatson 2006-02-25: needs direct access to frontend;
@@ -262,12 +266,14 @@ class Install:
         #self.db.progress('REGION', 98, 99)
         #self.db.progress('INFO', 'espresso/install/hostname')
         #if not self.configure_hostname():
+        #    self.db.progress('STOP')
         #    return False
 
         self.db.progress('SET', 98)
         self.db.progress('REGION', 98, 100)
         self.db.progress('INFO', 'espresso/install/bootloader')
         if not self.configure_bootloader():
+            self.db.progress('STOP')
             return False
 
         self.db.progress('SET', 100)
