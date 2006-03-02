@@ -537,10 +537,10 @@ class Install:
         self.db.progress('REGION', 0, 10)
         fetchprogress = DebconfFetchProgress(
             self.db, 'espresso/langpacks/title', 'espresso/langpacks/indices')
-        self.cache = Cache()
+        cache = Cache()
         try:
             # update() returns False on failure and 0 on success. Madness!
-            if self.cache.update(fetchprogress) not in (0, True):
+            if cache.update(fetchprogress) not in (0, True):
                 fetchprogress.stop()
                 self.db.progress('STOP')
                 return True
@@ -549,7 +549,7 @@ class Install:
             sys.stderr.flush()
             self.db.progress('STOP')
             return False
-        self.cache.open(None)
+        cache.open(None)
         self.db.progress('SET', 10)
 
         self.db.progress('REGION', 10, 100)
@@ -564,15 +564,15 @@ class Install:
             # all. We install these almost unconditionally; if you want to
             # get rid of even these, you can preseed pkgsel/language-packs
             # to the empty string.
-            self.mark_install(self.cache, 'language-pack-%s' % lp)
+            self.mark_install(cache, 'language-pack-%s' % lp)
             # Other language packs, typically selected by preseeding.
             for pattern in lppatterns:
-                self.mark_install(self.cache, pattern.replace('$LL', lp))
+                self.mark_install(cache, pattern.replace('$LL', lp))
             # More extensive language support packages.
-            self.mark_install(self.cache, 'language-support-%s' % lp)
+            self.mark_install(cache, 'language-support-%s' % lp)
 
         try:
-            if not self.cache.commit(fetchprogress, installprogress):
+            if not cache.commit(fetchprogress, installprogress):
                 fetchprogress.stop()
                 installprogress.finishUpdate()
                 self.db.progress('STOP')
