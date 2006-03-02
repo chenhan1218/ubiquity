@@ -484,12 +484,16 @@ class Install:
         return (dbfilter.run_command(auto_process=True) == 0)
 
 
-    def mark_install(self, cache, pkg):
+    def get_cache_pkg(self, cache, pkg):
         # work around broken has_key in python-apt 0.6.16
         try:
-            cachedpkg = cache[pkg]
+            return cache[pkg]
         except KeyError:
-            cachedpkg = None
+            return None
+
+
+    def mark_install(self, cache, pkg):
+        cachedpkg = self.get_cache_pkg(cache, pkg)
         if cachedpkg is not None and not cachedpkg.isInstalled:
             apt_error = False
             try:
