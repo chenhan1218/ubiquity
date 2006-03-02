@@ -12,6 +12,8 @@ espresso (0.99.21) UNRELEASED; urgency=low
   * Make sure that stdout from language pack maintainer scripts doesn't
     interfere with Install's debconf protocol stream, and that a new debconf
     frontend is started for them in the target system.
+  * Add set_fullname() and set_username() methods to the GTK frontend for
+    use by user-setup.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed,  1 Mar 2006 14:42:10 +0000
 

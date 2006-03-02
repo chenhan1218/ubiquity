@@ -1104,8 +1104,14 @@ class Wizard:
         return self.tzmap.get_selected_tz_name()
 
 
+    def set_fullname(self, value):
+        self.fullname.set_text(value)
+
     def get_fullname(self):
         return self.fullname.get_text()
+
+    def set_username(self, value):
+        self.username.set_text(value)
 
     def get_username(self):
         return self.username.get_text()
