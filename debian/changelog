@@ -8,6 +8,7 @@ espresso (0.99.21) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Sort presented list of keymaps.
+  * Various pychecker-induced cleanups.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed,  1 Mar 2006 14:42:10 +0000
 

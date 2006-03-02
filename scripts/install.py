@@ -262,7 +262,6 @@ class Install:
 
         files = []
         total_size = 0
-        oldsourcepath = ''
 
         self.db.progress('START', 0, 100, 'espresso/install/title')
         self.db.progress('INFO', 'espresso/install/scanning')
@@ -371,8 +370,6 @@ class Install:
     def mount_source(self):
         """mounting loop system from cloop or squashfs system."""
 
-        from os import path
-
         self.dev = ''
         if not os.path.isdir(self.source):
             try:
@@ -389,15 +386,17 @@ class Install:
                 return True
 
         # Manual Detection on non unionfs systems
-        files = ['/cdrom/casper/filesystem.cloop', '/cdrom/META/META.squashfs']
+        fsfiles = ['/cdrom/casper/filesystem.cloop',
+                   '/cdrom/META/META.squashfs']
 
-        for file in files:
-            if path.isfile(file) and path.splitext(file)[1] == '.cloop':
-                self.dev = '/dev/cloop1'
-                break
-            elif path.isfile(file) and path.splitext(file)[1] == '.squashfs':
-                self.dev = '/dev/loop3'
-                break
+        for fsfile in fsfiles:
+            if os.path.isfile(fsfile):
+                if os.path.splitext(fsfile)[1] == '.cloop':
+                    self.dev = '/dev/cloop1'
+                    break
+                elif os.path.splitext(fsfile)[1] == '.squashfs':
+                    self.dev = '/dev/loop3'
+                    break
 
         if self.dev == '':
             return False
@@ -695,10 +694,10 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
                 '--config=Driver:File','--config=Filename:' + targetdb)
 
 
-    def set_debconf(self, owner, question, value):
+    def set_debconf(self, question, value):
         dccomm = subprocess.Popen(['chroot', self.target,
                                    'debconf-communicate',
-                                   '-fnoninteractive', owner],
+                                   '-fnoninteractive', 'espresso'],
                                   stdin=subprocess.PIPE,
                                   stdout=subprocess.PIPE, close_fds=True)
         dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)
