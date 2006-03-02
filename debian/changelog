@@ -16,6 +16,10 @@ espresso (0.99.21) UNRELEASED; urgency=low
     use by user-setup.
   * Stop the installation progress bar on all return paths from
     Install.run().
+  * Remove packages specific to the live CD after installation (relies on
+    having a desktop manifest for the live filesystem from the buildd, which
+    isn't done yet). Record packages that are dynamically installed and make
+    sure we don't remove those.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed,  1 Mar 2006 14:42:10 +0000
 

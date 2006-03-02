@@ -79,27 +79,44 @@ Template: espresso/install/bootloader
 Type: text
 _Description: Configuring boot loader...
 
-Template: espresso/langpacks/title
-Type: title
-_Description: Installing language packs
+Template: espresso/install/removing
+Type: text
+_Description: Removing extra packages...
 
-Template: espresso/langpacks/indices
+Template: espresso/install/find_removables
+Type: text
+_Description: Checking for packages to remove...
+
+Template: espresso/install/fetch_remove
+Type: text
+_Description: Downloading packages (${TIME} remaining)...
+
+Template: espresso/install/apt_indices
 Type: text
 _Description: Downloading package lists (${TIME} remaining)...
 
-Template: espresso/langpacks/packages
-Type: text
-_Description: Downloading language packs (${TIME} remaining)...
-
-Template: espresso/langpacks/info
+Template: espresso/install/apt_info
 Type: text
 # Not translated; apt emits translated descriptions for us already.
 Description: ${DESCRIPTION}
 
-Template: espresso/langpacks/error
+Template: espresso/install/apt_error_install
 Type: text
 _Description: Error installing ${PACKAGE}
  ${MESSAGE}
+
+Template: espresso/install/apt_error_remove
+Type: text
+_Description: Error removing ${PACKAGE}
+ ${MESSAGE}
+
+Template: espresso/langpacks/title
+Type: title
+_Description: Installing language packs
+
+Template: espresso/langpacks/packages
+Type: text
+_Description: Downloading language packs (${TIME} remaining)...
 
 Template: pkgsel/language-pack-patterns
 Type: text

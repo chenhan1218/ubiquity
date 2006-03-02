@@ -254,7 +254,7 @@ class Install:
             return False
 
         self.db.progress('SET', 95)
-        self.db.progress('REGION', 95, 98)
+        self.db.progress('REGION', 95, 96)
         self.db.progress('INFO', 'espresso/install/network')
         if not self.configure_network():
             self.db.progress('STOP')
@@ -269,10 +269,17 @@ class Install:
         #    self.db.progress('STOP')
         #    return False
 
-        self.db.progress('SET', 98)
-        self.db.progress('REGION', 98, 100)
+        self.db.progress('SET', 96)
+        self.db.progress('REGION', 96, 97)
         self.db.progress('INFO', 'espresso/install/bootloader')
         if not self.configure_bootloader():
+            self.db.progress('STOP')
+            return False
+
+        self.db.progress('SET', 97)
+        self.db.progress('REGION', 97, 100)
+        self.db.progress('INFO', 'espresso/install/removing')
+        if not self.remove_extras():
             self.db.progress('STOP')
             return False
 
@@ -511,6 +518,23 @@ class Install:
                 assert cache._depcache.BrokenCount == 0
 
 
+    def record_installed(self, cache):
+        """Record which packages we've explicitly installed so that we don't
+        try to remove them later."""
+
+        record_file = "/var/lib/espresso/apt-installed"
+        if not os.path.exists(os.path.dirname(record_file)):
+            os.makedirs(os.path.dirname(record_file))
+        record = open(record_file, "a")
+
+        for pkg in cache.keys():
+            if (cache[pkg].markedInstall or cache[pkg].markedUpgrade or
+                cache[pkg].markedReinstall or cache[pkg].markedDowngrade):
+                print >>record, pkg
+
+        record.close()
+
+
     def install_language_packs(self):
         langpacks = []
         try:
@@ -546,7 +570,8 @@ class Install:
 
         self.db.progress('REGION', 0, 10)
         fetchprogress = DebconfFetchProgress(
-            self.db, 'espresso/langpacks/title', 'espresso/langpacks/indices')
+            self.db, 'espresso/langpacks/title',
+            'espresso/install/apt_indices')
         cache = Cache()
         try:
             # update() returns False on failure and 0 on success. Madness!
@@ -566,8 +591,8 @@ class Install:
         fetchprogress = DebconfFetchProgress(
             self.db, 'espresso/langpacks/title', 'espresso/langpacks/packages')
         installprogress = DebconfInstallProgress(
-            self.db, 'espresso/langpacks/title', 'espresso/langpacks/info',
-            'espresso/langpacks/error')
+            self.db, 'espresso/langpacks/title', 'espresso/install/apt_info',
+            'espresso/install/apt_error_install')
 
         for lp in langpacks:
             # Basic language packs, required to get localisation working at
@@ -580,6 +605,7 @@ class Install:
                 self.mark_install(cache, pattern.replace('$LL', lp))
             # More extensive language support packages.
             self.mark_install(cache, 'language-support-%s' % lp)
+        self.record_installed(cache)
 
         try:
             if not cache.commit(fetchprogress, installprogress):
@@ -697,6 +723,104 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
         misc.ex('umount', '-f', self.target + '/dev')
 
         return ret
+
+
+    def remove_extras(self):
+        """Try to remove packages that are needed on the live CD but not on
+        the installed system."""
+
+        if (not os.path.exists("/cdrom/casper/filesystem.manifest-desktop") or
+            not os.path.exists("/cdrom/casper/filesystem.manifest")):
+            return True
+
+        self.db.progress('START', 0, 5, 'espresso/install/title')
+
+        self.db.progress('INFO', 'espresso/install/find_removables')
+        desktop_packages = set()
+        for line in open("/cdrom/casper/filesystem.manifest-desktop"):
+            desktop_packages.add(line.split()[0])
+        live_packages = set()
+        for line in open("/cdrom/casper/filesystem.manifest"):
+            live_packages.add(line.split()[0])
+        apt_installed = set()
+        if os.path.exists("/var/lib/espresso/apt-installed"):
+            for line in open("/var/lib/espresso/apt-installed"):
+                apt_installed.add(line.strip())
+        difference = live_packages - desktop_packages - apt_installed
+
+        fetchprogress = DebconfFetchProgress(
+            self.db, 'espresso/install/title', 'espresso/install/apt_indices')
+        cache = Cache()
+
+        while True:
+            removed = set()
+            for pkg in difference:
+                cachedpkg = self.get_cache_pkg(cache, pkg)
+                if cachedpkg is not None and cachedpkg.isInstalled:
+                    apt_error = False
+                    try:
+                        cachedpkg.markDelete(autoFix=False)
+                    except SystemError:
+                        apt_error = True
+                    if apt_error:
+                        cachedpkg.markKeep()
+                    elif cache._depcache.BrokenCount > 0:
+                        # If all of the broken packages are in the
+                        # difference set, then go ahead and try to remove
+                        # them too.
+                        brokenpkgs = set()
+                        for pkg in cache.keys():
+                            if cache._depcache.IsInstBroken(cache._cache[pkg]):
+                                brokenpkgs.add(pkg)
+                        broken_removed = set()
+                        if brokenpkgs <= difference:
+                            for pkg in brokenpkgs:
+                                cachedpkg2 = self.get_cache_pkg(cache, pkg)
+                                if cachedpkg2 is not None:
+                                    broken_removed.add(pkg)
+                                    try:
+                                        cachedpkg2.markDelete(autoFix=False)
+                                    except SystemError:
+                                        apt_error = True
+                                        break
+                        if apt_error or cache._depcache.BrokenCount > 0:
+                            # That didn't work. Revert all the removals we
+                            # just tried.
+                            for pkg in broken_removed:
+                                self.get_cache_pkg(cache, pkg).markKeep()
+                            cachedpkg.markKeep()
+                        else:
+                            removed.add(pkg)
+                            removed |= broken_removed
+                    else:
+                        removed.add(pkg)
+                    assert cache._depcache.BrokenCount == 0
+            if len(removed) == 0:
+                break
+            difference -= removed
+
+        self.db.progress('SET', 1)
+        self.db.progress('REGION', 1, 5)
+        fetchprogress = DebconfFetchProgress(
+            self.db, 'espresso/install/title', 'espresso/install/fetch_remove')
+        installprogress = DebconfInstallProgress(
+            self.db, 'espresso/install/title', 'espresso/install/apt_info',
+            'espresso/install/apt_error_remove')
+        try:
+            if not cache.commit(fetchprogress, installprogress):
+                fetchprogress.stop()
+                installprogress.finishUpdate()
+                self.db.progress('STOP')
+                return True
+        except SystemError, e:
+            print >>sys.stderr, e
+            sys.stderr.flush()
+            self.db.progress('STOP')
+            return False
+        self.db.progress('SET', 5)
+
+        self.db.progress('STOP')
+        return True
 
 
     def chrex(self, *args):
