@@ -130,6 +130,31 @@ class DebconfInstallProgress(InstallProgress):
                     self.statusChange(pkg, float(percent), status_str.strip())
                 self.read = ""
 
+    def run(self, pm):
+        pid = self.fork()
+        if pid == 0:
+            # child
+
+            # Redirect stdout to stderr to avoid it interfering with our
+            # debconf protocol stream.
+            os.dup2(2, 1)
+
+            # Make sure all packages are installed non-interactively. We
+            # don't have enough passthrough magic here to deal with any
+            # debconf questions they might ask.
+            os.environ['DEBIAN_FRONTEND'] = 'noninteractive'
+            if 'DEBIAN_HAS_FRONTEND' in os.environ:
+                del os.environ['DEBIAN_HAS_FRONTEND']
+            if 'DEBCONF_USE_CDEBCONF' in os.environ:
+                # Probably not a good idea to use this in /target too ...
+                del os.environ['DEBCONF_USE_CDEBCONF']
+
+            res = pm.DoInstall(self.writefd)
+            sys.exit(res)
+        self.child_pid = pid
+        res = self.waitChild()
+        return res
+
     def finishUpdate(self):
         if self.started:
             self.db.progress('STOP')
@@ -158,10 +183,6 @@ class Install:
         # out the list of pre-installation hooks.
         apt_pkg.Config.Clear("DPkg::Pre-Install-Pkgs")
         apt_pkg.InitSystem()
-        # Make sure all packages are installed non-interactively. We don't
-        # have enough passthrough magic here to deal with any debconf
-        # questions they might ask.
-        os.environ['DEBIAN_FRONTEND'] = 'noninteractive'
 
     def run(self):
         """Run the install stage: copy everything to the target system, then
