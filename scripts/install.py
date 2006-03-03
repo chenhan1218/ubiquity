@@ -617,6 +617,11 @@ class Install:
                 installprogress.finishUpdate()
                 self.db.progress('STOP')
                 return True
+        except IOError, e:
+            print >>sys.stderr, e
+            sys.stderr.flush()
+            self.db.progress('STOP')
+            return False
         except SystemError, e:
             print >>sys.stderr, e
             sys.stderr.flush()
