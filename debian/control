@@ -64,6 +64,14 @@ Description: GTK+ frontend for Espresso live installer
  This package provides a GTK+-based user interface frontend for the Espresso
  live CD installer.
 
+Package: espresso-frontend-kde
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, espresso, python-kde3, qtparted
+Provides: espresso-frontend
+Description: KDE frontend for Espresso live installer
+ This package provides a KDE-based user interface frontend for the Espresso
+ live CD installer.
+
 #Package: espresso-frontend-cloner
 #Architecture: all
 #Depends: ${misc:Depends}, ${python:Depends}, espresso-artwork, espresso-doc
