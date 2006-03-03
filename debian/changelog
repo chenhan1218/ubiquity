@@ -1,6 +1,8 @@
 espresso (0.99.22) UNRELEASED; urgency=low
 
   * Improve the appearance of the keymap page a bit.
+  * Automatically scroll language and keymap lists so that the selected
+    option is visible.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  3 Mar 2006 12:30:19 +0000
 
