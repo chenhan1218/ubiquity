@@ -1,4 +1,4 @@
-espresso (0.99.22) UNRELEASED; urgency=low
+espresso (0.99.22) dapper; urgency=low
 
   * Improve the appearance of several pages a bit.
   * Automatically scroll language and keymap lists so that the selected
@@ -9,7 +9,7 @@ espresso (0.99.22) UNRELEASED; urgency=low
   * Catch IOError while downloading language packs.
   * Put back get_mountpoints methods in frontends, as partman needs them.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri,  3 Mar 2006 12:30:19 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  3 Mar 2006 14:59:43 +0000
 
 espresso (0.99.21) dapper; urgency=low
 
