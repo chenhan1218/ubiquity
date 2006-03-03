@@ -22,7 +22,7 @@ from qt import *
 from kdeui import *
 from kdecore import *
 #import kdedesigner
-from liveinstaller import EspressoUI
+from espresso.frontend.liveinstaller import EspressoUI
 
 import os
 import time

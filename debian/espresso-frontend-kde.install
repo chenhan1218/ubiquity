@@ -1,4 +1,4 @@
 desktop/espresso-kdeui.desktop usr/share/applications/kde
 espresso/frontend/kde-ui.py usr/lib/python2.4/site-packages/espresso/frontend
-glade/liveinstaller.ui usr/lib/python2.4/site-packages
-glade/liveinstaller.py usr/lib/python2.4/site-packages
+espresso/frontend/liveinstaller.ui usr/lib/python2.4/site-packages/espresso/frontend
+espresso/frontend/liveinstaller.py usr/lib/python2.4/site-packages/espresso/frontend
