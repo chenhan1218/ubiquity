@@ -3,6 +3,7 @@ espresso (0.99.22) UNRELEASED; urgency=low
   * Improve the appearance of several pages a bit.
   * Automatically scroll language and keymap lists so that the selected
     option is visible.
+  * Fix backup handling in GTK frontend (closes: Malone #32866).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  3 Mar 2006 12:30:19 +0000
 

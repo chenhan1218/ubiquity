@@ -189,6 +189,7 @@ class Wizard:
         # Start the interface
         self.set_current_page(0)
         while self.current_page is not None:
+            self.backup = False
             current_name = self.step_name(self.current_page)
             if current_name == "stepLanguage":
                 self.dbfilter = language.Language(self)
@@ -209,7 +210,7 @@ class Wizard:
                 self.dbfilter.start(auto_process=True)
             gtk.main()
 
-            if self.current_page is not None:
+            if self.current_page is not None and not self.backup:
                 self.process_step()
 
         return self.returncode
@@ -816,6 +817,8 @@ class Wizard:
 
     def on_back_clicked(self, widget):
         """Callback to set previous screen."""
+
+        self.backup = True
 
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
