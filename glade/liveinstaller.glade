@@ -650,9 +650,9 @@ Answering the questions should only take a few minutes.</property>
 		  <child>
 		    <widget class="GtkLabel" id="label71">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;big&gt;Which layout is most similar to your keyboard?&lt;/big&gt;</property>
+		      <property name="label" translatable="yes">Which layout is most similar to your keyboard?</property>
 		      <property name="use_underline">False</property>
-		      <property name="use_markup">True</property>
+		      <property name="use_markup">False</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
 		      <property name="wrap">False</property>
 		      <property name="selectable">False</property>
