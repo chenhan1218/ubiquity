@@ -338,7 +338,9 @@ class DebconfFilter:
 
     def wait(self):
         if self.subin is not None and self.subout is not None:
+            self.subin.close()
             self.subin = None
+            self.subout.close()
             self.subout = None
             return self.subp.wait()
 

@@ -118,7 +118,8 @@ class Wizard:
 
 
     def parse(self,name, dict):
-        for line in open(name).readlines():
+        f = open(name)
+        for line in f.readlines():
             line = line.strip()
             if line[0] == '#':
                 continue
@@ -132,6 +133,7 @@ class Wizard:
                             mountpoints[device] = mountpoint
                         val = mountpoints
                     dict[name] = val
+        f.close()
 
 
     def show_error(self, msg):

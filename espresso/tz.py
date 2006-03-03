@@ -145,8 +145,10 @@ class Location(object):
 class Database(object):
     def __init__(self):
         self.locations = []
-        for line in open(TZ_DATA_FILE):
+        tzdata = open(TZ_DATA_FILE)
+        for line in tzdata:
             if line.startswith('#'):
                 continue
             self.locations.append(Location(line))
+        tzdata.close()
         self.locations.sort(cmp, lambda location: location.zone)

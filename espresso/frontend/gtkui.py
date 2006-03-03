@@ -358,11 +358,13 @@ class Wizard:
 
         # parsing /proc/partitions and getting size data
         size = {}
-        for line in open('/proc/partitions'):
+        partitions = open('/proc/partitions')
+        for line in partitions:
             try:
                 size[line.split()[3]] = int(line.split()[2])
             except:
                 continue
+        partitions.close()
         return size
 
 

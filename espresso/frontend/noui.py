@@ -43,7 +43,9 @@ class Wizard:
         hostname and user. Return a list with those values.
         '''
         info = []
-        info.append(open('/etc/hostname').readline().strip())
+        hostname = open('/etc/hostname')
+        info.append(hostname.readline().strip())
+        hostname.close()
         info.append(self.db.get('passwd/user-fullname'))
         info.append(self.db.get('passwd/username'))
         info.append(self.db.get('passwd/user-password'))

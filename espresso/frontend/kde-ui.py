@@ -188,8 +188,10 @@ class Wizard:
         self.install_image = 0
         PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
         self.total_images   = glob.glob("%s/snapshot*.png" % PIXMAPSDIR)
+        messages = open("%s/messages.txt" % PIXMAPSDIR)
         self.total_messages = map(lambda line: line.rstrip('\n'),
-                                open("%s/messages.txt" % PIXMAPSDIR).readlines())
+                                  messages.readlines())
+        messages.close()
         """
         iconLoader = KIconLoader()
         icon = iconLoader.loadIcon("system", KIcon.Small)
@@ -624,11 +626,13 @@ class Wizard:
 
         # parsing /proc/partitions and getting size data
         size = {}
-        for line in open('/proc/partitions'):
+        partitions = open('/proc/partitions')
+        for line in partitions:
             try:
                 size[line.split()[3]] = int(line.split()[2])
             except:
                 continue
+        partitions.close()
         return size
 
     def get_default_partition_selection(self, size):

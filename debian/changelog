@@ -3,6 +3,9 @@ espresso (0.99.23) UNRELEASED; urgency=low
   [ Jonathan Riddell ]
   * Add KDE frontend, espresso-frontend-kde
 
+  [ Colin Watson ]
+  * Fix lots of file descriptor leaks.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  3 Mar 2006 14:59:43 +0000
 
 espresso (0.99.22) dapper; urgency=low
