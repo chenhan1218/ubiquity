@@ -1166,6 +1166,10 @@ class Wizard:
         return self.hostname
 
 
+    def get_mountpoints (self):
+        return dict(self.mountpoints)
+
+
     def confirm_partitioning_dialog (self, title, description):
         dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
                                    gtk.MESSAGE_QUESTION, gtk.BUTTONS_YES_NO,
