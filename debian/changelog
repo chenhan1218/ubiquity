@@ -1,4 +1,4 @@
-espresso (0.99.23) dapper; urgency=low
+espresso (0.99.23) UNRELEASED; urgency=low
 
   [ Jonathan Riddell ]
   * Add KDE frontend, espresso-frontend-kde
