@@ -500,19 +500,18 @@ class Wizard:
     # Callbacks
     def on_cancel_clicked(self, widget):
         self.warning_dialog.show()
-
-
-    def on_cancelbutton_clicked(self, widget):
+        response = self.warning_dialog.run()
         self.warning_dialog.hide()
+        if response == gtk.RESPONSE_CLOSE:
+            self.current_page = None
+            self.quit()
+            return False
+        else:
+            return True # stop processing
 
 
-    def on_exitbutton_clicked(self, widget):
-        self.current_page = None
-        self.quit()
-
-
-    def on_warning_dialog_close(self, widget):
-        self.warning_dialog.hide()
+    def on_live_installer_delete_event(self, widget, event):
+        return self.on_cancel_clicked(widget)
 
 
     def on_list_changed(self, widget):
