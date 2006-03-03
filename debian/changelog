@@ -1,6 +1,6 @@
 espresso (0.99.22) UNRELEASED; urgency=low
 
-  * Improve the appearance of the keymap page a bit.
+  * Improve the appearance of several pages a bit.
   * Automatically scroll language and keymap lists so that the selected
     option is visible.
 
