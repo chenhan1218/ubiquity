@@ -5,6 +5,8 @@ espresso (0.99.24) UNRELEASED; urgency=low
   * GTK: Rearrange help text on advanced partitioning pages to allow for
     more space on the screen where it matters.
   * Fix espresso.tz.SystemTzInfo to work for datetime.datetime.now(tzinfo).
+  * GTK: Show the current time in the selected timezone on the location
+    page.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  6 Mar 2006 09:02:31 +0000
 

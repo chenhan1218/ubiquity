@@ -137,9 +137,9 @@ class Location(object):
         self.longitude = _parse_position(longitude, 3)
 
         today = datetime.datetime.today()
-        info = SystemTzInfo(self.zone)
-        self.utc_offset = info.utcoffset(today)
-        self.zone_letters = info.tzname_letters(today)
+        self.info = SystemTzInfo(self.zone)
+        self.utc_offset = self.info.utcoffset(today)
+        self.zone_letters = self.info.tzname_letters(today)
 
 
 class Database(object):

@@ -1264,6 +1264,7 @@ class TimezoneMap(object):
         self.tzdb = espresso.tz.Database()
         self.tzmap = espresso.emap.EMap()
         self.flash_timeout = None
+        self.update_timeout = None
         self.point_selected = None
         self.point_hover = None
         self.location_selected = None
@@ -1304,13 +1305,21 @@ class TimezoneMap(object):
                 break
             iterator = model.iter_next(iterator)
 
-    def set_zone_text(self, letters, offset):
+    def set_zone_text(self, location):
+        offset = location.utc_offset
         if offset >= datetime.timedelta(0):
             houroffset = float(offset.seconds) / 3600
         else:
             houroffset = float(offset.seconds) / 3600 - 24
-        text = "%s (UTC%+.1f)" % (letters, houroffset)
+        text = "%s (UTC%+.1f)" % (location.zone_letters, houroffset)
         self.frontend.timezone_zone_text.set_text(text)
+        self.update_current_time()
+
+    def update_current_time(self):
+        if self.location_selected is not None:
+            now = datetime.datetime.now(self.location_selected.info)
+            self.frontend.timezone_time_text.set_text(
+                "%d:%02d" % (now.hour, now.minute))
 
     def set_tz_from_name(self, name):
         (longitude, latitude) = (0.0, 0.0)
@@ -1330,8 +1339,7 @@ class TimezoneMap(object):
 
         self.location_selected = location
         self.set_city_text(self.location_selected.zone)
-        self.set_zone_text(self.location_selected.zone_letters,
-                           self.location_selected.utc_offset)
+        self.set_zone_text(self.location_selected)
 
     def city_changed(self, widget):
         iterator = widget.get_active_iter()
@@ -1380,11 +1388,17 @@ class TimezoneMap(object):
         if self.flash_timeout is None:
             self.flash_timeout = gobject.timeout_add(100,
                                                      self.flash_selected_point)
+        if self.update_timeout is None:
+            self.update_timeout = gobject.timeout_add(100,
+                                                      self.update_current_time)
 
     def unmapped(self, widget, event):
         if self.flash_timeout is not None:
             gobject.source_remove(self.flash_timeout)
             self.flash_timeout = None
+        if self.update_timeout is not None:
+            gobject.source_remove(self.update_timeout)
+            self.update_timeout = None
 
     def motion(self, widget, event):
         (longitude, latitude) = self.tzmap.window_to_world(event.x, event.y)
@@ -1433,8 +1447,7 @@ class TimezoneMap(object):
                 old_city = self.get_selected_tz_name()
                 if old_city is None or old_city != self.location_selected.zone:
                     self.set_city_text(self.location_selected.zone)
-                    self.set_zone_text(self.location_selected.zone_letters,
-                                       self.location_selected.utc_offset)
+                    self.set_zone_text(self.location_selected)
 
         return True
 
