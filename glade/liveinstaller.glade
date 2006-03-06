@@ -1960,7 +1960,6 @@ Answering the questions should only take a few minutes.</property>
 · The root partition (“/”), with a minimum size of 1.5 GB.
 · The swap partition (“swap”), with 256 MB or more.
 You can now modify your existing partition table and select where you want what.
-Remember that you can keep the data in a previous home partition – just leave it as it is and it will not be formatted.
 Alternatively, it is possible to return to the previous page to select an easier partitioning method.</property>
 				</widget>
 			      </child>
