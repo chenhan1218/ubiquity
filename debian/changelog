@@ -1,3 +1,9 @@
+espresso (0.99.24) UNRELEASED; urgency=low
+
+  * GTK: Improve headings and spacing on advanced partitioning pages.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  6 Mar 2006 09:02:31 +0000
+
 espresso (0.99.23) dapper; urgency=low
 
   [ Jonathan Riddell ]
