@@ -1,20 +1,20 @@
 espresso (0.99.24) UNRELEASED; urgency=low
 
-  * GTK: Improve headings and spacing on advanced partitioning pages.
-  * GTK: Remove more text that claims /home will not be formatted.
-  * GTK: Rearrange help text on advanced partitioning pages to allow for
-    more space on the screen where it matters.
   * Fix espresso.tz.SystemTzInfo to work for datetime.datetime.now(tzinfo).
-  * GTK: Show the current time in the selected timezone on the location
-    page.
-  * GTK: Translate more strings from Spanish to English.
-  * GTK: Use HH:MM for UTC offsets rather than fractions of hours.
-  * GTK: Refer to UTC offsets as GMT offsets instead; it's not quite 100%
-    accurate, but (we think) more widely understood.
-  * GTK: Only display timezone map scrollbars if necessary; add a border.
-  * GTK: Change identification page heading to "Who are you?".
-  * GTK: Reorganise locale page so that the language select box is in the
-    middle rather than at the left-hand side, and shorter.
+  * GTK frontend:
+    - Improve headings and spacing on advanced partitioning pages.
+    - Remove more text that claims /home will not be formatted.
+    - Rearrange help text on advanced partitioning pages to allow for more
+      space on the screen where it matters.
+    - Show the current time in the selected timezone on the location page.
+    - Translate more strings from Spanish to English.
+    - Use HH:MM for UTC offsets rather than fractions of hours.
+    - Refer to UTC offsets as GMT offsets instead; it's not quite 100%
+      accurate, but (we think) more widely understood.
+    - Only display timezone map scrollbars if necessary; add a border.
+    - Change identification page heading to "Who are you?".
+    - Reorganise locale page so that the language select box is in the
+      middle rather than at the left-hand side, and shorter.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  6 Mar 2006 09:02:31 +0000
 
