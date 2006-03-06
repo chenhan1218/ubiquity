@@ -26,7 +26,7 @@ TZ_DATA_FILE = '/usr/share/zoneinfo/zone.tab'
 
 def _seconds_since_epoch(dt):
     # TODO cjwatson 2006-02-23: %s escape is not portable
-    return int(dt.strftime('%s'))
+    return int(dt.replace(tzinfo=None).strftime('%s'))
 
 
 class SystemTzInfo(datetime.tzinfo):
