@@ -9,6 +9,8 @@ espresso (0.99.24) UNRELEASED; urgency=low
     page.
   * GTK: Translate more strings from Spanish to English.
   * GTK: Use HH:MM for UTC offsets rather than fractions of hours.
+  * GTK: Refer to UTC offsets as GMT offsets instead; it's not quite 100%
+    accurate, but (we think) more widely understood.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  6 Mar 2006 09:02:31 +0000
 

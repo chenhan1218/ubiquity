@@ -1311,8 +1311,11 @@ class TimezoneMap(object):
             minuteoffset = int(offset.seconds / 60)
         else:
             minuteoffset = int(offset.seconds / 60 - 1440)
-        text = "%s (UTC%+d:%02d)" % (location.zone_letters,
-                                     minuteoffset / 60, minuteoffset % 60)
+        if location.zone_letters == 'GMT':
+            text = location.zone_letters
+        else:
+            text = "%s (GMT%+d:%02d)" % (location.zone_letters,
+                                         minuteoffset / 60, minuteoffset % 60)
         self.frontend.timezone_zone_text.set_text(text)
         self.update_current_time()
 
