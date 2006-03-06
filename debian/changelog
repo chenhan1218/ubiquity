@@ -8,6 +8,7 @@ espresso (0.99.24) UNRELEASED; urgency=low
   * GTK: Show the current time in the selected timezone on the location
     page.
   * GTK: Translate more strings from Spanish to English.
+  * GTK: Use HH:MM for UTC offsets rather than fractions of hours.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  6 Mar 2006 09:02:31 +0000
 

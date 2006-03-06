@@ -1308,10 +1308,11 @@ class TimezoneMap(object):
     def set_zone_text(self, location):
         offset = location.utc_offset
         if offset >= datetime.timedelta(0):
-            houroffset = float(offset.seconds) / 3600
+            minuteoffset = int(offset.seconds / 60)
         else:
-            houroffset = float(offset.seconds) / 3600 - 24
-        text = "%s (UTC%+.1f)" % (location.zone_letters, houroffset)
+            minuteoffset = int(offset.seconds / 60 - 1440)
+        text = "%s (UTC%+d:%02d)" % (location.zone_letters,
+                                     minuteoffset / 60, minuteoffset % 60)
         self.frontend.timezone_zone_text.set_text(text)
         self.update_current_time()
 
