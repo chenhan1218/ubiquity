@@ -13,6 +13,8 @@ espresso (0.99.24) UNRELEASED; urgency=low
     accurate, but (we think) more widely understood.
   * GTK: Only display timezone map scrollbars if necessary; add a border.
   * GTK: Change identification page heading to "Who are you?".
+  * GTK: Reorganise locale page so that the language select box is in the
+    middle rather than at the left-hand side, and shorter.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  6 Mar 2006 09:02:31 +0000
 
