@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
+"POT-Creation-Date: 2006-03-02 11:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: title
+#. Description
+#: ../espresso.templates:24
+msgid "Installing system"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:28
+msgid "Finding the distribution to copy..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:32
+msgid "Scanning files..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:36
+msgid "Copying files..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:40
+msgid "Copying files (${TIME} remaining)..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:44
+msgid "Copying installation logs..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:48
+msgid "Cleaning up..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:52
+msgid "Running ${SCRIPT}..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:56
+msgid "Configuring system locales..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:60
+msgid "Configuring time zone..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:64
+msgid "Creating user..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:68
+msgid "Configuring hardware..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:72
+msgid "Configuring network..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:76
+msgid "Setting computer name..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:80
+msgid "Configuring boot loader..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:84
+msgid "Removing extra packages..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:88
+msgid "Checking for packages to remove..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:92
+msgid "Downloading packages (${TIME} remaining)..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:96
+msgid "Downloading package lists (${TIME} remaining)..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:105
+msgid "Error installing ${PACKAGE}"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:110
+msgid "Error removing ${PACKAGE}"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:110
+msgid "${MESSAGE}"
+msgstr ""
+
+#. Type: title
+#. Description
+#: ../espresso.templates:115
+msgid "Installing language packs"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:119
+msgid "Downloading language packs (${TIME} remaining)..."
+msgstr ""

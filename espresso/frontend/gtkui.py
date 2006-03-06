@@ -53,7 +53,7 @@
 """ U{pylint<http://logilab.org/projects/pylint>} mark: -28.40!!! (bad
         indentation and accesses to undefined members) """
 
-from sys import stderr
+import sys
 import pygtk
 pygtk.require('2.0')
 
@@ -61,18 +61,21 @@ import gobject
 import gtk.glade
 import os
 import time
+import datetime
 import glob
 import subprocess
 import thread
 import xml.sax.saxutils
-import Queue
 
-from gettext import bindtextdomain, textdomain, install
+import gettext
 
 from espresso import filteredcommand, validation
-from espresso.backend import *
 from espresso.misc import *
-from espresso.components import language, usersetup, partman, partman_commit, kbd_chooser
+from espresso.components import language, kbd_chooser, timezone, usersetup, \
+                                partman, partman_commit, summary, install
+import espresso.emap
+import espresso.tz
+import espresso.progressposition
 
 # Define Espresso global path
 PATH = '/usr/share/espresso'
@@ -87,10 +90,12 @@ BREADCRUMB_STEPS = {
     "stepWelcome": "lblWelcome",
     "stepLanguage": "lblLanguage",
     "stepKeyboardConf": "lblKeyboardConf",
+    "stepLocation": "lblLocation",
     "stepUserInfo": "lblUserInfo",
     "stepPartAuto": "lblDiskSpace",
     "stepPartAdvanced": "lblDiskSpace",
-    "stepPartMountpoints": "lblDiskSpace"
+    "stepPartMountpoints": "lblDiskSpace",
+    "stepReady": "lblReady"
 }
 
 # Font stuff
@@ -120,9 +125,9 @@ class Wizard:
         self.current_page = None
         self.dbfilter = None
         self.locale = None
-        self.progress_min = 0
-        self.progress_max = 100
-        self.progress_cur = 0
+        self.progress_position = espresso.progressposition.ProgressPosition()
+        self.progress_cancelled = False
+        self.returncode = 0
 
         # To get a "busy mouse":
         self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
@@ -155,6 +160,15 @@ class Wizard:
     def run(self):
         """run the interface."""
 
+        if os.getuid() != 0:
+            title = ('This installer must be run with administrative '
+                     'privileges, and cannot continue without them.')
+            dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
+                                       gtk.MESSAGE_ERROR, gtk.BUTTONS_CLOSE,
+                                       title)
+            dialog.run()
+            sys.exit(1)
+
         # show interface
         # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
         # current dapper (https://bugzilla.ubuntu.com/show_bug.cgi?id=20338).
@@ -175,15 +189,20 @@ class Wizard:
         # Start the interface
         self.set_current_page(0)
         while self.current_page is not None:
+            self.backup = False
             current_name = self.step_name(self.current_page)
             if current_name == "stepLanguage":
                 self.dbfilter = language.Language(self)
+            elif current_name == "stepKeyboardConf":
+                self.dbfilter = kbd_chooser.KbdChooser(self)
+            elif current_name == "stepLocation":
+                self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name == "stepPartAuto":
                 self.dbfilter = partman.Partman(self)
-            elif current_name == "stepKeyboardConf":
-                self.dbfilter = kbd_chooser.KbdChooser(self)
+            elif current_name == "stepReady":
+                self.dbfilter = summary.Summary(self)
             else:
                 self.dbfilter = None
 
@@ -191,8 +210,10 @@ class Wizard:
                 self.dbfilter.start(auto_process=True)
             gtk.main()
 
-            if self.current_page is not None:
+            if self.current_page is not None and not self.backup:
                 self.process_step()
+
+        return self.returncode
 
 
     def customize_installer(self):
@@ -218,6 +239,9 @@ class Wizard:
         self.live_installer.show()
         self.live_installer.window.set_cursor(self.watch)
 
+        self.tzmap = TimezoneMap(self)
+        self.tzmap.tzmap.show()
+
         # set initial bottom bar status
         self.back.hide()
         self.next.set_label('gtk-go-forward')
@@ -227,11 +251,11 @@ class Wizard:
         """internationalization config. Use only once."""
 
         domain = self.distro + '-installer'
-        bindtextdomain(domain, LOCALEDIR)
+        gettext.bindtextdomain(domain, LOCALEDIR)
         gtk.glade.bindtextdomain(domain, LOCALEDIR )
         gtk.glade.textdomain(domain)
-        textdomain(domain)
-        install(domain, LOCALEDIR, unicode=1)
+        gettext.textdomain(domain)
+        gettext.install(domain, LOCALEDIR, unicode=1)
 
 
     def show_browser(self):
@@ -316,8 +340,16 @@ class Wizard:
         """call gparted and embed it into glade interface."""
 
         pre_log('info', 'gparted_loop()')
+
+        socket = gtk.Socket()
+        socket.show()
+        self.embedded.add(socket)
+        window_id = str(socket.get_id())
+
         # Save pid to kill gparted when install process starts
-        self.gparted_subp = part.call_gparted(self.embedded)
+        self.gparted_subp = subprocess.Popen(
+            ['gparted', '--installer', window_id],
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
 
 
     def get_sizes(self):
@@ -326,11 +358,13 @@ class Wizard:
 
         # parsing /proc/partitions and getting size data
         size = {}
-        for line in open('/proc/partitions'):
+        partitions = open('/proc/partitions')
+        for line in partitions:
             try:
                 size[line.split()[3]] = int(line.split()[2])
             except:
                 continue
+        partitions.close()
         return size
 
 
@@ -424,89 +458,28 @@ class Wizard:
 
         self.current_page = None
 
-        self.install_window.show()
+        dbfilter = install.Install(self)
+        if dbfilter.run_command(auto_process=True) != 0:
+            # TODO cjwatson 2006-02-27: do something nicer than just quitting
+            self.quit()
 
-        # Setting Normal cursor
-        self.install_window.window.set_cursor(None)
+        # just to make sure
+        self.debconf_progress_dialog.hide()
 
-        def wait_thread(queue):
-            """wait thread for copy process."""
-
-            cp = copy.Copy(self.mountpoints)
-            cp.run(queue)
-            queue.put('101')
-
-        # Starting copy process
-        queue = Queue.Queue()
-        thread.start_new_thread(wait_thread, (queue,))
-
-        # setting progress bar status while copy process is running
-        while True:
-            try:
-                msg = str(queue.get_nowait())
-                # copy process is ended when '101' is pushed
-                if msg.startswith('101'):
-                    break
-                self.set_progress(msg)
-            except Queue.Empty:
-                pass
-            # refreshing UI
-            if gtk.events_pending():
-                while gtk.events_pending():
-                    gtk.main_iteration()
-            else:
-                time.sleep(0.1)
-
-        def wait_thread(queue):
-            """wait thread for config process."""
-
-            cf = config.Config(self)
-            cf.run(queue)
-            queue.put('101')
-
-        # Starting config process
-        queue = Queue.Queue()
-        thread.start_new_thread(wait_thread, (queue,))
-
-        # setting progress bar status while config process is running
-        while True:
-            try:
-                msg = str(queue.get_nowait())
-                # config process is ended when '101' is pushed
-                if msg.startswith('101'):
-                    break
-                self.set_progress(msg)
-            except Queue.Empty:
-                pass
-            # refreshing UI
-            if gtk.events_pending():
-                while gtk.events_pending():
-                    gtk.main_iteration()
-            else:
-                time.sleep(0.1)
-
-        # umounting self.mountpoints (mountpoints user selection)
-        umount = copy.Copy(self.mountpoints)
-        umount.umount_target()
-
-        self.install_window.hide()
         self.finished_dialog.run()
 
 
     def reboot(self, *args):
         """reboot the system after installing process."""
 
-        os.system("reboot")
+        self.returncode = 10
         self.quit()
 
 
-    def set_progress(self, msg):
-        """set values on progress bar widget."""
+    def do_reboot(self):
+        """Callback for main program to actually reboot the machine."""
 
-        num , text = get_progress(msg)
-        self.install_progress_bar.set_fraction (num / 100.0)
-        self.install_progress_bar.set_text('%d%%' % num)
-        self.install_progress_label.set_text(text)
+        os.system("reboot")
 
 
     def show_error(self, msg):
@@ -529,19 +502,18 @@ class Wizard:
     # Callbacks
     def on_cancel_clicked(self, widget):
         self.warning_dialog.show()
-
-
-    def on_cancelbutton_clicked(self, widget):
+        response = self.warning_dialog.run()
         self.warning_dialog.hide()
+        if response == gtk.RESPONSE_CLOSE:
+            self.current_page = None
+            self.quit()
+            return False
+        else:
+            return True # stop processing
 
 
-    def on_exitbutton_clicked(self, widget):
-        self.current_page = None
-        self.quit()
-
-
-    def on_warning_dialog_close(self, widget):
-        self.warning_dialog.hide()
+    def on_live_installer_delete_event(self, widget, event):
+        return self.on_cancel_clicked(widget)
 
 
     def on_list_changed(self, widget):
@@ -597,16 +569,6 @@ class Wizard:
         if len(filter(lambda v: v == 1, self.entries.values())) == 5:
             self.next.set_sensitive(True)
 
-    def read_stdout(self, source, condition):
-        """read msgs from queues to set progress on progress bar label.
-        '101' message finishes this process returning False."""
-
-        msg = source.readline()
-        if msg.startswith('101'):
-            print "read_stdout finished"
-            return False
-        self.set_progress(msg)
-        return True
 
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""
@@ -637,8 +599,11 @@ class Wizard:
         # Keyboard
         elif step == "stepKeyboardConf":
             self.steps.next_page()
-            self.next.set_sensitive(False)
             # XXX: Actually do keyboard config here
+        # Location
+        elif step == "stepLocation":
+            self.steps.next_page()
+            self.next.set_sensitive(False)
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
@@ -650,7 +615,11 @@ class Wizard:
             self.gparted_to_mountpoints()
         # Mountpoints
         elif step == "stepPartMountpoints":
-            self.mountpoints_to_progress()
+            self.mountpoints_to_summary()
+        # Ready to install
+        elif step == "stepReady":
+            self.live_installer.hide()
+            self.progress_loop()
 
         step = self.step_name(self.steps.get_current_page())
         pre_log('info', 'Step_after = %s' % step)
@@ -697,12 +666,7 @@ class Wizard:
 
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
-            self.live_installer.hide()
-
-            while gtk.events_pending():
-                gtk.main_iteration()
-
-            self.progress_loop()
+            self.steps.set_current_page(self.steps.page_num(self.stepReady))
 
 
     def gparted_to_mountpoints(self):
@@ -757,8 +721,8 @@ class Wizard:
         self.steps.next_page()
 
 
-    def mountpoints_to_progress(self):
-        """Processing mountpoints to progress step tasks."""
+    def mountpoints_to_summary(self):
+        """Processing mountpoints to summary step tasks."""
 
         # Validating self.mountpoints
         error_msg = ['\n']
@@ -849,18 +813,13 @@ class Wizard:
             self.msg_error2.show()
             self.img_error2.show()
         else:
-            self.live_installer.hide()
-
-            # refreshing UI
-            while gtk.events_pending():
-                gtk.main_iteration()
-
-            # Starting installation core process
-            self.progress_loop()
+            self.steps.next_page()
 
 
     def on_back_clicked(self, widget):
         """Callback to set previous screen."""
+
+        self.backup = True
 
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
@@ -1009,7 +968,7 @@ class Wizard:
 
 ##         """ Disable automatic partitioning and reset partitioning method step. """
 
-##         stderr.write ('\non_abort_dialog_close.\n\n')
+##         sys.stderr.write ('\non_abort_dialog_close.\n\n')
 
 ##         self.discard_automatic_partitioning = True
 ##         self.on_drives_changed (None)
@@ -1025,8 +984,8 @@ class Wizard:
 
     def watch_debconf_fd (self, from_debconf, process_input):
         gobject.io_add_watch(from_debconf,
-                                                 gobject.IO_IN | gobject.IO_ERR | gobject.IO_HUP,
-                                                 self.watch_debconf_fd_helper, process_input)
+                             gobject.IO_IN | gobject.IO_ERR | gobject.IO_HUP,
+                             self.watch_debconf_fd_helper, process_input)
 
 
     def watch_debconf_fd_helper (self, source, cb_condition, callback):
@@ -1042,33 +1001,69 @@ class Wizard:
 
 
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
-        self.debconf_progress_dialog.set_transient_for(self.live_installer)
-        self.debconf_progress_dialog.set_title(progress_title)
+        if self.progress_cancelled:
+            return False
+        if self.current_page is not None:
+            self.debconf_progress_dialog.set_transient_for(self.live_installer)
+        else:
+            self.debconf_progress_dialog.set_transient_for(None)
+        if self.progress_position.depth() == 0:
+            self.debconf_progress_dialog.set_title(progress_title)
+
         self.progress_title.set_markup(
             '<b>' + xml.sax.saxutils.escape(progress_title) + '</b>')
-        self.progress_bar.set_fraction(0)
-        self.progress_bar.set_text('0%')
-        self.progress_min = progress_min
-        self.progress_max = progress_max
-        self.progress_cur = progress_min
+        self.progress_position.start(progress_min, progress_max)
+        self.debconf_progress_set(0)
+        self.progress_info.set_text('')
         self.debconf_progress_dialog.show()
+        return True
 
     def debconf_progress_set (self, progress_val):
-        self.progress_cur = progress_val
-        fraction = (float(self.progress_cur - self.progress_min) /
-                                (self.progress_max - self.progress_min))
+        if self.progress_cancelled:
+            return False
+        self.progress_position.set(progress_val)
+        fraction = self.progress_position.fraction()
         self.progress_bar.set_fraction(fraction)
         self.progress_bar.set_text('%s%%' % int(fraction * 100))
+        return True
 
     def debconf_progress_step (self, progress_inc):
-        self.debconf_progress_set(self.progress_cur + progress_inc)
+        if self.progress_cancelled:
+            return False
+        self.progress_position.step(progress_inc)
+        fraction = self.progress_position.fraction()
+        self.progress_bar.set_fraction(fraction)
+        self.progress_bar.set_text('%s%%' % int(fraction * 100))
+        return True
 
     def debconf_progress_info (self, progress_info):
+        if self.progress_cancelled:
+            return False
         self.progress_info.set_markup(
             '<i>' + xml.sax.saxutils.escape(progress_info) + '</i>')
+        return True
 
     def debconf_progress_stop (self):
-        self.debconf_progress_dialog.hide()
+        if self.progress_cancelled:
+            self.progress_cancelled = False
+            return False
+        self.progress_position.stop()
+        if self.progress_position.depth() == 0:
+            self.debconf_progress_dialog.hide()
+        return True
+
+    def debconf_progress_region (self, region_start, region_end):
+        self.progress_position.set_region(region_start, region_end)
+
+    def debconf_progress_cancellable (self, cancellable):
+        if cancellable:
+            self.progress_cancel_button.show()
+        else:
+            self.progress_cancel_button.hide()
+            self.progress_cancelled = False
+
+    def on_progress_cancel_button_clicked (self, button):
+        self.progress_cancelled = True
 
 
     def debconffilter_done (self, dbfilter):
@@ -1094,7 +1089,10 @@ class Wizard:
         iterator = model.iter_children(None)
         while iterator is not None:
             if unicode(model.get_value(iterator, 0)) == language:
-                self.language_treeview.get_selection().select_iter(iterator)
+                path = model.get_path(iterator)
+                self.language_treeview.get_selection().select_path(path)
+                self.language_treeview.scroll_to_cell(
+                    path, use_align=True, row_align=0.5)
                 break
             iterator = model.iter_next(iterator)
 
@@ -1103,6 +1101,33 @@ class Wizard:
         selection = self.language_treeview.get_selection()
         (model, iterator) = selection.get_selected()
         return self.language_choice_map[unicode(model.get_value(iterator, 0))]
+
+
+    def set_timezone (self, timezone):
+        self.tzmap.set_tz_from_name(timezone)
+
+
+    def get_timezone (self):
+        return self.tzmap.get_selected_tz_name()
+
+
+    def set_fullname(self, value):
+        self.fullname.set_text(value)
+
+    def get_fullname(self):
+        return self.fullname.get_text()
+
+    def set_username(self, value):
+        self.username.set_text(value)
+
+    def get_username(self):
+        return self.username.get_text()
+
+    def get_password(self):
+        return self.password.get_text()
+
+    def get_verified_password(self):
+        return self.verified_password.get_text()
 
 
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
@@ -1149,7 +1174,8 @@ class Wizard:
 
     def confirm_partitioning_dialog (self, title, description):
         dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
-                                                             gtk.MESSAGE_QUESTION, gtk.BUTTONS_YES_NO, title)
+                                   gtk.MESSAGE_QUESTION, gtk.BUTTONS_YES_NO,
+                                   title)
         dialog.format_secondary_text(description)
         response = dialog.run()
         dialog.hide()
@@ -1164,7 +1190,7 @@ class Wizard:
 
         kbdlayouts = gtk.ListStore(gobject.TYPE_STRING)
         self.keyboardlistview.set_model(kbdlayouts)
-        for v in choices:
+        for v in sorted(choices):
             kbdlayouts.append([v])
             print "Appending: ", v, "\n"
 
@@ -1174,12 +1200,14 @@ class Wizard:
             self.keyboardlistview.append_column(column)
 
     def set_keyboard (self, keyboard):
-
         model = self.keyboardlistview.get_model()
         iterator = model.iter_children(None)
         while iterator is not None:
             if unicode(model.get_value(iterator, 0)) == keyboard:
-                self.keyboardlistview.get_selection().select_iter(iterator)
+                path = model.get_path(iterator)
+                self.keyboardlistview.get_selection().select_path(path)
+                self.keyboardlistview.scroll_to_cell(
+                    path, use_align=True, row_align=0.5)
                 break
             iterator = model.iter_next(iterator)
 
@@ -1188,10 +1216,20 @@ class Wizard:
         (model, iterator) = selection.get_selected()
         return self.keyboard_choice_map[unicode(model.get_value(iterator, 0))]
 
+    def set_summary_text (self, text):
+        textbuffer = gtk.TextBuffer()
+        textbuffer.set_text(text)
+        self.ready_textview.set_buffer(textbuffer)
+
+
     def error_dialog (self, msg):
         # TODO: cancel button as well if capb backup
-        dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
-                                                             gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
+        if self.current_page is not None:
+            transient = self.live_installer
+        else:
+            transient = self.debconf_progress_dialog
+        dialog = gtk.MessageDialog(transient, gtk.DIALOG_MODAL,
+                                   gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
         dialog.run()
         dialog.hide()
 
@@ -1209,6 +1247,196 @@ class Wizard:
     # Return control to the next level up.
     def quit_main_loop (self):
         gtk.main_quit()
+
+
+# Much of this timezone map widget is a rough translation of
+# gnome-system-tools/src/time/tz-map.c. Thanks to Hans Petter Jansson
+# <hpj@ximian.com> for that.
+
+NORMAL_RGBA = 0xc070a0ffL
+HOVER_RGBA = 0xffff60ffL
+SELECTED_1_RGBA = 0xff60e0ffL
+SELECTED_2_RGBA = 0x000000ffL
+
+class TimezoneMap(object):
+    def __init__(self, frontend):
+        self.frontend = frontend
+        self.tzdb = espresso.tz.Database()
+        self.tzmap = espresso.emap.EMap()
+        self.flash_timeout = None
+        self.point_selected = None
+        self.point_hover = None
+        self.location_selected = None
+
+        self.tzmap.add_events(gtk.gdk.LEAVE_NOTIFY_MASK |
+                              gtk.gdk.VISIBILITY_NOTIFY_MASK)
+
+        self.frontend.timezone_map_window.add(self.tzmap)
+
+        timezone_city_combo = self.frontend.timezone_city_combo
+
+        renderer = gtk.CellRendererText()
+        timezone_city_combo.pack_start(renderer, True)
+        timezone_city_combo.add_attribute(renderer, 'text', 0)
+        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        timezone_city_combo.set_model(list_store)
+
+        for location in self.tzdb.locations:
+            self.tzmap.add_point("", location.longitude, location.latitude,
+                                 NORMAL_RGBA)
+            list_store.append([location.zone])
+
+        self.tzmap.connect("map-event", self.mapped)
+        self.tzmap.connect("unmap-event", self.unmapped)
+        self.tzmap.connect("motion-notify-event", self.motion)
+        self.tzmap.connect("button-press-event", self.button_pressed)
+        self.tzmap.connect("leave-notify-event", self.out_map)
+
+        timezone_city_combo.connect("changed", self.city_changed)
+
+    def set_city_text(self, name):
+        model = self.frontend.timezone_city_combo.get_model()
+        iterator = model.get_iter_first()
+        while iterator is not None:
+            location = model.get_value(iterator, 0)
+            if location == name:
+                self.frontend.timezone_city_combo.set_active_iter(iterator)
+                break
+            iterator = model.iter_next(iterator)
+
+    def set_zone_text(self, letters, offset):
+        if offset >= datetime.timedelta(0):
+            houroffset = float(offset.seconds) / 3600
+        else:
+            houroffset = float(offset.seconds) / 3600 - 24
+        text = "%s (UTC%+.1f)" % (letters, houroffset)
+        self.frontend.timezone_zone_text.set_text(text)
+
+    def set_tz_from_name(self, name):
+        (longitude, latitude) = (0.0, 0.0)
+
+        for location in self.tzdb.locations:
+            if location.zone == name:
+                (longitude, latitude) = (location.longitude, location.latitude)
+                break
+        else:
+            return
+
+        if self.point_selected is not None:
+            self.tzmap.point_set_color_rgba(self.point_selected, NORMAL_RGBA)
+
+        self.point_selected = self.tzmap.get_closest_point(longitude, latitude,
+                                                           False)
+
+        self.location_selected = location
+        self.set_city_text(self.location_selected.zone)
+        self.set_zone_text(self.location_selected.zone_letters,
+                           self.location_selected.utc_offset)
+
+    def city_changed(self, widget):
+        iterator = widget.get_active_iter()
+        if iterator is not None:
+            model = widget.get_model()
+            location = model.get_value(iterator, 0)
+            self.set_tz_from_name(location)
+
+    def get_selected_tz_name(self):
+        iterator = self.frontend.timezone_city_combo.get_active_iter()
+        if iterator is not None:
+            model = self.frontend.timezone_city_combo.get_model()
+            return model.get_value(iterator, 0)
+        return None
+
+    def location_from_point(self, point):
+        (longitude, latitude) = point.get_location()
+
+        best_location = None
+        best_distance = None
+        for location in self.tzdb.locations:
+            if (abs(location.longitude - longitude) <= 1.0 and
+                abs(location.latitude - latitude) <= 1.0):
+                distance = ((location.longitude - longitude) ** 2 +
+                            (location.latitude - latitude) ** 2) ** 0.5
+                if best_distance is None or distance < best_distance:
+                    best_location = location
+                    best_distance = distance
+
+        return best_location
+
+    def flash_selected_point(self):
+        if self.point_selected is None:
+            return True
+
+        if self.point_selected.get_color_rgba() == SELECTED_1_RGBA:
+            self.tzmap.point_set_color_rgba(self.point_selected,
+                                            SELECTED_2_RGBA)
+        else:
+            self.tzmap.point_set_color_rgba(self.point_selected,
+                                            SELECTED_1_RGBA)
+
+        return True
+
+    def mapped(self, widget, event):
+        if self.flash_timeout is None:
+            self.flash_timeout = gobject.timeout_add(100,
+                                                     self.flash_selected_point)
+
+    def unmapped(self, widget, event):
+        if self.flash_timeout is not None:
+            gobject.source_remove(self.flash_timeout)
+            self.flash_timeout = None
+
+    def motion(self, widget, event):
+        (longitude, latitude) = self.tzmap.window_to_world(event.x, event.y)
+
+        if (self.point_hover is not None and
+            self.point_hover != self.point_selected):
+            self.tzmap.point_set_color_rgba(self.point_hover, NORMAL_RGBA)
+
+        self.point_hover = self.tzmap.get_closest_point(longitude, latitude,
+                                                        True)
+
+        if self.point_hover != self.point_selected:
+            self.tzmap.point_set_color_rgba(self.point_hover, HOVER_RGBA)
+
+        return True
+
+    def out_map(self, widget, event):
+        if event.mode != gtk.gdk.CROSSING_NORMAL:
+            return False
+
+        if (self.point_hover is not None and
+            self.point_hover != self.point_selected):
+            self.tzmap.point_set_color_rgba(self.point_hover, NORMAL_RGBA)
+
+        self.point_hover = None
+
+        return True
+
+    def button_pressed(self, widget, event):
+        (longitude, latitude) = self.tzmap.window_to_world(event.x, event.y)
+
+        if event.button != 1:
+            self.tzmap.zoom_out()
+        else:
+            if self.tzmap.get_magnification() <= 1.0:
+                self.tzmap.zoom_to_location(longitude, latitude)
+
+            if self.point_selected is not None:
+                self.tzmap.point_set_color_rgba(self.point_selected,
+                                                NORMAL_RGBA)
+            self.point_selected = self.point_hover
+
+            self.location_selected = \
+                self.location_from_point(self.point_selected)
+            if self.location_selected is not None:
+                old_city = self.get_selected_tz_name()
+                if old_city is None or old_city != self.location_selected.zone:
+                    self.set_city_text(self.location_selected.zone)
+                    self.set_zone_text(self.location_selected.zone_letters,
+                                       self.location_selected.utc_offset)
+
+        return True
 
 
 if __name__ == '__main__':

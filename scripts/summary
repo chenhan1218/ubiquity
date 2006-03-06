@@ -1,0 +1,19 @@
+#! /bin/sh
+set -e
+
+. /usr/share/debconf/confmodule
+
+db_get languagechooser/language-name
+db_subst espresso/summary LANGUAGE "$RET"
+db_subst espresso/summary KEYMAP "<unknown>"
+db_get passwd/user-fullname
+db_subst espresso/summary FULLNAME "$RET"
+db_get passwd/username
+db_subst espresso/summary USERNAME "$RET"
+db_get time/zone # actually continent/city (usually)
+db_subst espresso/summary LOCATION "$RET"
+
+db_input high espresso/summary || true
+db_go
+
+exit 0

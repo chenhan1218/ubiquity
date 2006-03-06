@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-# Copyright (C) 2005 Canonical Ltd.
+# Copyright (C) 2006 Canonical Ltd.
 # Written by Colin Watson <cjwatson@ubuntu.com>.
 #
 # This program is free software; you can redistribute it and/or modify
@@ -17,23 +17,26 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import popen2
-import debconf
+import textwrap
+from espresso.filteredcommand import FilteredCommand
 
-class DebconfCommunicator(debconf.Debconf, object):
-    def __init__(self, owner, title=None):
-        self.dccomm = popen2.Popen3(['debconf-communicate', '-fnoninteractive',
-                                     owner])
-        super(DebconfCommunicator, self).__init__(title=title,
-                                                  read=self.dccomm.fromchild,
-                                                  write=self.dccomm.tochild)
+class Summary(FilteredCommand):
+    def prepare(self):
+        self.substcache = {}
+        return (['/usr/share/espresso/summary'], ['^espresso/summary$'])
 
-    def shutdown(self):
-        if self.dccomm is not None:
-            self.dccomm.tochild.close()
-            self.dccomm.fromchild.close()
-            self.dccomm.wait()
-            self.dccomm = None
+    def subst(self, question, key, value):
+        self.substcache[key] = value
 
-    def __del__(self):
-        self.shutdown()
+    def run(self, question, priority):
+        # TODO: untranslatable
+        text = textwrap.dedent("""\
+        Language: %(LANGUAGE)s
+        Keyboard layout: %(KEYMAP)s
+        Name: %(FULLNAME)s
+        Login name: %(USERNAME)s
+        Location: %(LOCATION)s
+        """ % self.substcache)
+        self.frontend.set_summary_text(text)
+
+        return super(Summary, self).run(question, priority)

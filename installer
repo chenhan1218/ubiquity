@@ -16,6 +16,7 @@ and configure everything.
 
 import sys
 import os
+import errno
 import espresso
 from espresso import misc
 
@@ -33,18 +34,26 @@ def install(type='gtkui'):
     mod = __import__('espresso.frontend', globals(), locals() , [type])
     ui = getattr(mod, type)
 
+    unmount_target()
     distro = misc.distribution().lower()
     wizard = ui.Wizard(distro)
     ret = wizard.run()
-    unmount_target(wizard.get_mountpoints())
+    unmount_target()
+    if ret == 10:
+        wizard.do_reboot()
 
-def unmount_target(mountpoints):
-    for device, path in mountpoints.items():
-        if path in ('/', 'swap'):
-            continue
-        path = os.path.join(TARGET, path[1:])
+def unmount_target():
+    paths = []
+    mounts = open('/proc/mounts')
+    for line in mounts:
+        path = line.split(' ')[1]
+        if path == '/target' or path.startswith('/target/'):
+            paths.append(path)
+    mounts.close()
+    paths.sort()
+    paths.reverse()
+    for path in paths:
         misc.ex('umount', path)
-    misc.ex('umount', TARGET)
 
 def prepend_path(directory):
     if 'PATH' in os.environ and os.environ['PATH'] != '':
@@ -55,8 +64,14 @@ def prepend_path(directory):
 if __name__ == '__main__':
     if not os.path.exists(os.path.dirname(log_file)):
         os.makedirs(os.path.dirname(log_file))
-    sys.stderr = open(log_file, 'a')
-    os.dup2(sys.stderr.fileno(), 2)
+    # The frontend should take care of displaying a helpful message if we
+    # are being run without root privileges.
+    try:
+        sys.stderr = open(log_file, 'a', 1)
+        os.dup2(sys.stderr.fileno(), 2)
+    except IOError, err:
+        if err.errno != errno.EACCES:
+            raise
 
     if cdebconf:
         # Note that this needs to be set before DebconfCommunicate is
@@ -68,6 +83,10 @@ if __name__ == '__main__':
     if 'ESPRESSO_DEBUG' in os.environ:
         if 'DEBCONF_DEBUG' not in os.environ:
             os.environ['DEBCONF_DEBUG'] = 'developer|filter'
+
+    # Clean up old state.
+    if os.path.exists("/var/lib/espresso/apt-installed"):
+        os.unlink("/var/lib/espresso/apt-installed")
 
     if len(sys.argv) == 2:
         install(sys.argv[1])

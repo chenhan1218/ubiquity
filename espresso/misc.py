@@ -66,6 +66,8 @@ def make_yaboot_header(target, target_dev):
     enablecdboot \
     ' % (boot_partition, device_of, partition, target_dev, timeout) )
 
+    yaboot_conf.close()
+
 
 def distribution():
     """Returns the name of the running distribution."""
@@ -155,9 +157,11 @@ def get_partitions():
 
     # parsing partitions from the procfs
     # attention with the output format. the partitions list is without '/dev/'
-    partition_table = open('/proc/partitions').read()
+    partitions = open('/proc/partitions')
+    partition_table = partitions.read()
     regex = re.compile('[sh]d[a-g][0-9]+')
     partition = regex.findall(partition_table)
+    partitions.close()
 
     return partition
 
@@ -197,9 +201,11 @@ def get_supported_locales():
     global _supported_locales
     if _supported_locales is None:
         _supported_locales = {}
-        for line in open('/usr/share/i18n/SUPPORTED'):
+        supported = open('/usr/share/i18n/SUPPORTED')
+        for line in supported:
             (locale, charset) = line.split(None, 1)
             _supported_locales[locale] = charset
+        supported.close()
     return _supported_locales
 
 # vim:ai:et:sts=4:tw=80:sw=4:

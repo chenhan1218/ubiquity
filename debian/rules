@@ -30,6 +30,9 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
+	./configure --prefix=/usr
+	$(MAKE)
+
 	mkdir -p $(BUILDDIR)/ubuntu
 	mkdir -p $(BUILDDIR)/guadalinex
 
@@ -39,15 +42,14 @@ build-stamp:
 	# Guadalinex-doc
 	for file in $$(ls $(CURDIR)/glade/locale/guadalinex/*.po); do msgfmt -o $(BUILDDIR)/guadalinex/$$(basename $$file .po).mo $(CURDIR)/glade/locale/guadalinex/$$(basename $$file); done || true
 
-	# Fixing perms
-	chmod +x $(CURDIR)/espresso/backend/*.py
-
 	touch build-stamp
 
 clean:
 	dh_testdir
 	dh_testroot
 	rm -fr build-stamp $(BUILDDIR)
+
+	-$(MAKE) distclean
 
 	dh_clean 
 
@@ -56,6 +58,10 @@ install:
 	dh_testroot
 	dh_clean -k
 	dh_installdirs -A
+
+	# For the meantime, everything automake wants to install is part of
+	# the GTK frontend.
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/espresso-frontend-gtk
 
 	dh_install -A
 	install installer $(CURDIR)/debian/espresso/usr/bin/espresso
@@ -66,7 +72,7 @@ install:
 binary-indep: install
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs -i Changelog
+	dh_installchangelogs -i Changelog.Guadalinex
 	dh_installdocs -i
 #	dh_installexamples -i
 	dh_installdebconf -i
@@ -85,7 +91,7 @@ binary-indep: install
 binary-arch: install
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs -a Changelog
+	dh_installchangelogs -a Changelog.Guadalinex
 	dh_installdocs -a
 #	dh_installexamples -a
 	dh_installdebconf -a

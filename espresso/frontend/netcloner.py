@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
+import sys
 import os
 import gobject
 import glob
 
-from gettext import bindtextdomain, textdomain, install
+import gettext
 
 from espresso import validation
-from espresso.backend import *
 from espresso.misc import *
 
 from Queue import Queue
@@ -51,27 +51,25 @@ class Wizard:
             self.show_error(''.join(error_msg))
         self.progress_loop()
         self.clean_up()
-        self.__reboot()
+        return 10 # reboot
 
 
     def set_locales(self):
         """internationalization config. Use only once."""
         
         domain = self.distro + '-installer'
-        bindtextdomain(domain, LOCALEDIR)
-        textdomain(domain)
-        install(domain, LOCALEDIR, unicode=1)
+        gettext.bindtextdomain(domain, LOCALEDIR)
+        gettext.textdomain(domain)
+        gettext.install(domain, LOCALEDIR, unicode=1)
 
 
     # Methods
     def progress_loop(self):
 
-        mountpoints = self.info['mountpoints']
-
         def copy_thread(queue):
             """copy thread for copy process."""
             pre_log('info', 'Copying the system...')
-            cp = copy.Copy(mountpoints)
+            cp = copy.Copy()
             if not cp.run(queue):
                 pre_log('error','fail the copy fase')
                 self.quit()
@@ -103,10 +101,6 @@ class Wizard:
                     break
                 self.set_progress(msg)
 
-        # umounting self.mountpoints (mountpoints user selection)
-        umount = copy.Copy(mountpoints)
-        umount.umount_target()
-
 
     def clean_up(self):
         ex('rm','-f','/cdrom/META/META.squashfs')
@@ -124,7 +118,8 @@ class Wizard:
 
 
     def parse(self,name, dict):
-        for line in open(name).readlines():
+        f = open(name)
+        for line in f.readlines():
             line = line.strip()
             if line[0] == '#':
                 continue
@@ -138,12 +133,12 @@ class Wizard:
                             mountpoints[device] = mountpoint
                         val = mountpoints
                     dict[name] = val
+        f.close()
 
 
     def show_error(self, msg):
-        from sys import stderr
         pre_log('error', msg)
-        print >>stderr, "ERROR: " + msg
+        print >>sys.stderr, "ERROR: " + msg
 
 
     def quit(self):
@@ -151,7 +146,7 @@ class Wizard:
             os.kill(self.pid, 9)
 
 
-    def __reboot(self, *args):
+    def do_reboot(self, *args):
         """reboot the system after installing process."""
 
         os.system("reboot")
@@ -176,10 +171,6 @@ class Wizard:
 
     def get_hostname(self):
         return self.info['hostname']
-
-
-    def get_mountpoints(self):
-        return dict(self.info['mountpoints'])
 
 
 if __name__ == '__main__':
