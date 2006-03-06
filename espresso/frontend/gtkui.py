@@ -637,11 +637,11 @@ class Wizard:
         hostname = self.hostname.get_property('text')
         for result in validation.check_hostname(hostname):
             if result == validation.HOSTNAME_LENGTH:
-                error_msg.append("· El <b>nombre del equipo</b> tiene tamaño incorrecto (permitido entre 3 y 18 caracteres).\n")
+                error_msg.append("The hostname must be between 3 and 18 characters long.\n")
             elif result == validation.HOSTNAME_WHITESPACE:
-                error_msg.append("· El <b>nombre del equipo</b> contiene espacios en blanco (no están permitidos).\n")
+                error_msg.append("The hostname may not contain spaces.\n")
             elif result == validation.HOSTNAME_BADCHAR:
-                error_msg.append("· El <b>nombre del equipo</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
+                error_msg.append("The hostname may only contain letters and digits.\n")
 
         # showing warning message is error is set
         if len(error_msg) > 1:

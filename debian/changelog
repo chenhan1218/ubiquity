@@ -7,6 +7,7 @@ espresso (0.99.24) UNRELEASED; urgency=low
   * Fix espresso.tz.SystemTzInfo to work for datetime.datetime.now(tzinfo).
   * GTK: Show the current time in the selected timezone on the location
     page.
+  * GTK: Translate more strings from Spanish to English.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  6 Mar 2006 09:02:31 +0000
 
