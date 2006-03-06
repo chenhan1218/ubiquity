@@ -10,6 +10,9 @@ except ImportError:
     from espresso.debconfcommunicator import DebconfCommunicator
 from espresso.debconffilter import DebconfFilter
 
+# We identify as this to debconf.
+PACKAGE = 'espresso'
+
 # Bitfield constants for process_input and process_output.
 DEBCONF_IO_IN = 1
 DEBCONF_IO_OUT = 2
@@ -21,16 +24,25 @@ class FilteredCommand(object):
         self.frontend = frontend
         self.done = False
         self.current_question = None
-        self.package = 'espresso'
+        self.succeeded = False
 
     def debug(self, fmt, *args):
         if 'ESPRESSO_DEBUG' in os.environ:
             message = fmt % args
-            print >>sys.stderr, '%s: %s' % (self.package, message)
+            print >>sys.stderr, '%s: %s' % (PACKAGE, message)
+            sys.stderr.flush()
 
     def start(self, auto_process=False):
         self.status = None
-        (self.command, question_patterns) = self.prepare()
+        self.db = DebconfCommunicator(PACKAGE)
+        prep = self.prepare()
+        self.command = prep[0]
+        question_patterns = prep[1]
+        if len(prep) > 2:
+            env = prep[2]
+        else:
+            env = {}
+
         self.ui_loop_level = 0
 
         self.debug("Starting up '%s' for %s.%s", self.command,
@@ -38,7 +50,6 @@ class FilteredCommand(object):
         self.debug("Watching for question patterns %s",
                    ', '.join(question_patterns))
 
-        self.db = DebconfCommunicator(self.package)
         widgets = {}
         for pattern in question_patterns:
             widgets[pattern] = self
@@ -47,7 +58,7 @@ class FilteredCommand(object):
         # TODO: Set as unseen all questions that we're going to ask.
 
         if auto_process:
-            self.dbfilter.start(self.command, blocking=False)
+            self.dbfilter.start(self.command, blocking=False, extra_env=env)
             # Clearly, this isn't enough for full non-blocking operation.
             # However, debconf itself is generally quick, and the confmodule
             # will generally be listening for a reply when we try to send
@@ -57,7 +68,7 @@ class FilteredCommand(object):
             self.frontend.watch_debconf_fd(
                 self.dbfilter.subout_fd, self.process_input)
         else:
-            self.dbfilter.start(self.command, blocking=True)
+            self.dbfilter.start(self.command, blocking=True, extra_env=env)
 
     def process_line(self):
         return self.dbfilter.process_line()
@@ -69,9 +80,14 @@ class FilteredCommand(object):
             # TODO: error message if ret != 10
             self.debug("%s exited with code %d", self.command, ret)
 
+        self.cleanup()
+
         self.db.shutdown()
 
         return ret
+
+    def cleanup(self):
+        pass
 
     def run_command(self, auto_process=False):
         self.start(auto_process=auto_process)
@@ -131,18 +147,37 @@ class FilteredCommand(object):
         return items
 
     def choices_untranslated(self, question):
-        choices = unicode(self.db.metaget(question, 'choices-c'))
+        choices = unicode(self.db.metaget(question, 'choices-c'), 'utf-8')
         return self.split_choices(choices)
 
     def choices(self, question):
-        choices = unicode(self.db.metaget(question, 'choices'))
+        choices = unicode(self.db.metaget(question, 'choices'), 'utf-8')
         return self.split_choices(choices)
 
+    def choices_display_map(self, question):
+        """Returns a mapping from displayed (translated) choices to
+        database (untranslated) choices.  It can be used both ways,
+        since both choices and the untranslated choices are sequences
+        without duplication.
+        """
+
+        _map = {}
+        choices = self.choices(question)
+        choices_c = self.choices_untranslated(question)
+        for i in range(len(choices)):
+#            print >>sys.stderr, i
+#            print >>sys.stderr, choices[i]
+#            print >>sys.stderr, choices_c[i]
+            
+            _map[choices[i]] = choices[i]
+        return _map        
+
     def description(self, question):
-        return unicode(self.db.metaget(question, 'description'))
+        return unicode(self.db.metaget(question, 'description'), 'utf-8')
 
     def extended_description(self, question):
-        return unicode(self.db.metaget(question, 'extended_description'))
+        return unicode(self.db.metaget(question, 'extended_description'),
+                       'utf-8')
 
     def translate_to_c(self, question, value):
         choices = self.choices(question)
@@ -150,6 +185,14 @@ class FilteredCommand(object):
         for i in range(len(choices)):
             if choices[i] == value:
                 return choices_c[i]
+        raise ValueError, value
+
+    def value_index(self, question):
+        value = self.db.get(question)
+        choices_c = self.choices_untranslated(question)
+        for i in range(len(choices_c)):
+            if choices_c[i] == value:
+                return i
         raise ValueError, value
 
     def preseed(self, name, value, seen=True):

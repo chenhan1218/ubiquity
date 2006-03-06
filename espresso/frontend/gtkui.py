@@ -72,7 +72,7 @@ from gettext import bindtextdomain, textdomain, install
 from espresso import filteredcommand, validation
 from espresso.backend import *
 from espresso.misc import *
-from espresso.components import usersetup, partman, partman_commit
+from espresso.components import language, usersetup, partman, partman_commit, kbd_chooser
 
 # Define Espresso global path
 PATH = '/usr/share/espresso'
@@ -85,6 +85,7 @@ LOCALEDIR = "/usr/share/locale"
 
 BREADCRUMB_STEPS = {
     "stepWelcome": "lblWelcome",
+    "stepLanguage": "lblLanguage",
     "stepKeyboardConf": "lblKeyboardConf",
     "stepUserInfo": "lblUserInfo",
     "stepPartAuto": "lblDiskSpace",
@@ -118,6 +119,7 @@ class Wizard:
         self.part_labels = {' ' : ' '}
         self.current_page = None
         self.dbfilter = None
+        self.locale = None
         self.progress_min = 0
         self.progress_max = 100
         self.progress_cur = 0
@@ -174,10 +176,14 @@ class Wizard:
         self.set_current_page(0)
         while self.current_page is not None:
             current_name = self.step_name(self.current_page)
-            if current_name == "stepUserInfo":
+            if current_name == "stepLanguage":
+                self.dbfilter = language.Language(self)
+            elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name == "stepPartAuto":
                 self.dbfilter = partman.Partman(self)
+            elif current_name == "stepKeyboardConf":
+                self.dbfilter = kbd_chooser.KbdChooser(self)
             else:
                 self.dbfilter = None
 
@@ -602,7 +608,6 @@ class Wizard:
         self.set_progress(msg)
         return True
 
-
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""
 
@@ -625,10 +630,13 @@ class Wizard:
         if step == "stepWelcome":
             self.next.set_label('gtk-go-forward')
             self.steps.next_page()
+        # Language
+        elif step == "stepLanguage":
+            self.steps.next_page()
+            self.back.show()
         # Keyboard
         elif step == "stepKeyboardConf":
             self.steps.next_page()
-            self.back.show()
             self.next.set_sensitive(False)
             # XXX: Actually do keyboard config here
         # Identification
@@ -862,7 +870,7 @@ class Wizard:
         # Setting actual step
         step = self.step_name(self.steps.get_current_page())
 
-        if step == "stepUserInfo":
+        if step == "stepKeyboardConf":
             self.back.hide()
         elif step == "stepPartAdvanced":
             print >>self.gparted_subp.stdin, "undo"
@@ -1069,6 +1077,34 @@ class Wizard:
             gtk.main_quit()
 
 
+    def set_language_choices (self, choice_map):
+        self.language_choice_map = dict(choice_map)
+        if len(self.language_treeview.get_columns()) < 1:
+            column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            self.language_treeview.append_column(column)
+        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        self.language_treeview.set_model(list_store)
+        for choice in sorted(self.language_choice_map):
+            list_store.append([choice])
+
+
+    def set_language (self, language):
+        model = self.language_treeview.get_model()
+        iterator = model.iter_children(None)
+        while iterator is not None:
+            if unicode(model.get_value(iterator, 0)) == language:
+                self.language_treeview.get_selection().select_iter(iterator)
+                break
+            iterator = model.iter_next(iterator)
+
+
+    def get_language (self):
+        selection = self.language_treeview.get_selection()
+        (model, iterator) = selection.get_selected()
+        return self.language_choice_map[unicode(model.get_value(iterator, 0))]
+
+
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
         for child in self.autopartition_vbox.get_children():
             self.autopartition_vbox.remove(child)
@@ -1122,6 +1158,35 @@ class Wizard:
         else:
             return False
 
+    def set_keyboard_choices(self, choicemap):
+        self.keyboard_choice_map = choicemap
+        choices = choicemap.keys()
+
+        kbdlayouts = gtk.ListStore(gobject.TYPE_STRING)
+        self.keyboardlistview.set_model(kbdlayouts)
+        for v in choices:
+            kbdlayouts.append([v])
+            print "Appending: ", v, "\n"
+
+        if len(self.keyboardlistview.get_columns()) < 1:
+            column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            self.keyboardlistview.append_column(column)
+
+    def set_keyboard (self, keyboard):
+
+        model = self.keyboardlistview.get_model()
+        iterator = model.iter_children(None)
+        while iterator is not None:
+            if unicode(model.get_value(iterator, 0)) == keyboard:
+                self.keyboardlistview.get_selection().select_iter(iterator)
+                break
+            iterator = model.iter_next(iterator)
+
+    def get_keyboard (self):
+        selection = self.keyboardlistview.get_selection()
+        (model, iterator) = selection.get_selected()
+        return self.keyboard_choice_map[unicode(model.get_value(iterator, 0))]
 
     def error_dialog (self, msg):
         # TODO: cancel button as well if capb backup

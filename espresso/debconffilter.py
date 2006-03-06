@@ -138,19 +138,21 @@ class DebconfFilter:
                         found.append(widget)
         return found
 
-    def subprocess_setup(self):
-        os.environ['DEBIAN_HAS_FRONTEND'] = '1'
-        if 'DEBCONF_USE_CDEBCONF' in os.environ:
-            # cdebconf expects to be able to redirect standard output to fd
-            # 5. Make this stderr to match debconf.
-            os.dup2(2, 5)
-        else:
-            os.environ['PERL_DL_NONLAZY'] = '1'
+    def start(self, command, blocking=True, extra_env={}):
+        def subprocess_setup():
+            os.environ['DEBIAN_HAS_FRONTEND'] = '1'
+            if 'DEBCONF_USE_CDEBCONF' in os.environ:
+                # cdebconf expects to be able to redirect standard output to fd
+                # 5. Make this stderr to match debconf.
+                os.dup2(2, 5)
+            else:
+                os.environ['PERL_DL_NONLAZY'] = '1'
+            for key, value in extra_env.iteritems():
+                os.environ[key] = value
 
-    def start(self, command, blocking=True):
         self.subp = subprocess.Popen(
             command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-            preexec_fn=self.subprocess_setup)
+            preexec_fn=subprocess_setup)
         self.subin = self.subp.stdin
         self.subout = self.subp.stdout
         self.subout_fd = self.subout.fileno()

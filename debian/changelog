@@ -1,3 +1,29 @@
+espresso (0.99.16) UNRELEASED; urgency=low
+
+  * Explicitly decode strings returned by debconf as UTF-8, since apparently
+    we get confused when running with the KDE frontend otherwise (which
+    presumably does something funky with Python's default encoding).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Feb 2006 17:34:20 +0000
+
+espresso (0.99.15) dapper; urgency=low
+
+  * Redirect sys.stderr to /var/log/installer/espresso so that we have a
+    better chance of diagnosing problems after the fact.
+  * Add FilteredCommand.value_index helper from oem-config.
+  * Add support for components optionally returning a third argument from
+    FilteredCommand.prepare(), interpreted as a dictionary of extra
+    environment variables to set for the subprocess.
+  * Add a language page, using espresso-locale. The locale is set in the
+    target system and used for debconf coprocesses, although not yet for
+    translatable strings in the Espresso core.
+  * Add a FilteredCommand.cleanup() hook that can be overridden by
+    components to perform cleanup tasks after their subprocess exits.
+  * Stop logging every single file we copy to /var/log/installer/espresso;
+    it creates massive log bloat and isn't very useful.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 21 Feb 2006 13:12:13 +0000
+
 espresso (0.99.14) dapper; urgency=low
 
   * Set NoDisplay=true in espresso-gtkui.desktop so that it doesn't show up
