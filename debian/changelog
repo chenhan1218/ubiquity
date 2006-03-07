@@ -11,7 +11,7 @@ espresso (0.99.24) UNRELEASED; urgency=low
     - Use HH:MM for UTC offsets rather than fractions of hours.
     - Refer to UTC offsets as GMT offsets instead; it's not quite 100%
       accurate, but (we think) more widely understood.
-    - Only display timezone map scrollbars if necessary; add a border.
+    - Add a border around the timezone map.
     - Change identification page heading to "Who are you?".
     - Reorganise locale page so that the language select box is in the
       middle rather than at the left-hand side, and shorter.
