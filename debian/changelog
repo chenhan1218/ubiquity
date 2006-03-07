@@ -1,4 +1,4 @@
-espresso (0.99.24) UNRELEASED; urgency=low
+espresso (0.99.24) dapper; urgency=low
 
   * Fix espresso.tz.SystemTzInfo to work for datetime.datetime.now(tzinfo).
   * GTK frontend:
@@ -25,7 +25,7 @@ espresso (0.99.24) UNRELEASED; urgency=low
   * Remove old Guadalinex screenshots.
   * Remove *.pyc and *.pyo on 'debian/rules clean'.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon,  6 Mar 2006 09:02:31 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue,  7 Mar 2006 17:49:19 +0000
 
 espresso (0.99.23) dapper; urgency=low
 
