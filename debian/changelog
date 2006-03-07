@@ -18,6 +18,7 @@ espresso (0.99.24) UNRELEASED; urgency=low
     - Drop the notebook border.
     - Remove the expander and the "Details" label from the summary page, per
       feedback from the UI sprint.
+  * Remove old Guadalinex screenshots.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  6 Mar 2006 09:02:31 +0000
 
