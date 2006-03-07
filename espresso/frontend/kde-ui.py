@@ -524,6 +524,10 @@ class Wizard:
         print "  get_autopartition_resize_percent (self):"
         return self.new_size_scale.value()
 
+
+    def get_mountpoints (self):
+        return dict(self.mountpoints)
+
   
     def confirm_partitioning_dialog (self, title, description):
         print "  confirm_partitioning_dialog (self, title, description):" + title + " ... " + description
