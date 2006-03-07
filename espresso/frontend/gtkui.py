@@ -1269,6 +1269,15 @@ class TimezoneMap(object):
         self.point_hover = None
         self.location_selected = None
 
+        zoom_in_file = os.path.join(GLADEDIR, 'pixmaps', self.frontend.distro,
+                                    'zoom-in.png')
+        if os.path.exists(zoom_in_file):
+            display = self.frontend.live_installer.get_display()
+            pixbuf = gtk.gdk.pixbuf_new_from_file(zoom_in_file)
+            self.cursor_zoom_in = gtk.gdk.Cursor(display, pixbuf, 10, 10)
+        else:
+            self.cursor_zoom_in = None
+
         self.tzmap.add_events(gtk.gdk.LEAVE_NOTIFY_MASK |
                               gtk.gdk.VISIBILITY_NOTIFY_MASK)
 
@@ -1405,17 +1414,25 @@ class TimezoneMap(object):
             self.update_timeout = None
 
     def motion(self, widget, event):
-        (longitude, latitude) = self.tzmap.window_to_world(event.x, event.y)
+        if self.tzmap.get_magnification() <= 1.0:
+            if self.cursor_zoom_in is not None:
+                self.frontend.live_installer.window.set_cursor(
+                    self.cursor_zoom_in)
+        else:
+            self.frontend.live_installer.window.set_cursor(None)
 
-        if (self.point_hover is not None and
-            self.point_hover != self.point_selected):
-            self.tzmap.point_set_color_rgba(self.point_hover, NORMAL_RGBA)
+            (longitude, latitude) = self.tzmap.window_to_world(event.x,
+                                                               event.y)
 
-        self.point_hover = self.tzmap.get_closest_point(longitude, latitude,
-                                                        True)
+            if (self.point_hover is not None and
+                self.point_hover != self.point_selected):
+                self.tzmap.point_set_color_rgba(self.point_hover, NORMAL_RGBA)
 
-        if self.point_hover != self.point_selected:
-            self.tzmap.point_set_color_rgba(self.point_hover, HOVER_RGBA)
+            self.point_hover = self.tzmap.get_closest_point(longitude,
+                                                            latitude, True)
+
+            if self.point_hover != self.point_selected:
+                self.tzmap.point_set_color_rgba(self.point_hover, HOVER_RGBA)
 
         return True
 
@@ -1429,6 +1446,8 @@ class TimezoneMap(object):
 
         self.point_hover = None
 
+        self.frontend.live_installer.window.set_cursor(None)
+
         return True
 
     def button_pressed(self, widget, event):
@@ -1436,10 +1455,14 @@ class TimezoneMap(object):
 
         if event.button != 1:
             self.tzmap.zoom_out()
+            if self.cursor_zoom_in is not None:
+                self.frontend.live_installer.window.set_cursor(
+                    self.cursor_zoom_in)
+        elif self.tzmap.get_magnification() <= 1.0:
+            self.tzmap.zoom_to_location(longitude, latitude)
+            if self.cursor_zoom_in is not None:
+                self.frontend.live_installer.window.set_cursor(None)
         else:
-            if self.tzmap.get_magnification() <= 1.0:
-                self.tzmap.zoom_to_location(longitude, latitude)
-
             if self.point_selected is not None:
                 self.tzmap.point_set_color_rgba(self.point_selected,
                                                 NORMAL_RGBA)

@@ -18,6 +18,8 @@ espresso (0.99.24) UNRELEASED; urgency=low
     - Drop the notebook border.
     - Remove the expander and the "Details" label from the summary page, per
       feedback from the UI sprint.
+    - Make the first click on the timezone map zoom in but not select a
+      city; the second click will select a city.
   * KDE frontend:
     - Add get_mountpoints method, needed by partman.
   * Remove old Guadalinex screenshots.
