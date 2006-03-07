@@ -48,6 +48,7 @@ clean:
 	dh_testdir
 	dh_testroot
 	rm -fr build-stamp $(BUILDDIR)
+	find -type f \( -name \*.pyc -o -name \*.pyo \) -print0 | xargs -0r rm -f
 
 	-$(MAKE) distclean
 

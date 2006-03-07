@@ -23,6 +23,7 @@ espresso (0.99.24) UNRELEASED; urgency=low
   * KDE frontend:
     - Add get_mountpoints method, needed by partman.
   * Remove old Guadalinex screenshots.
+  * Remove *.pyc and *.pyo on 'debian/rules clean'.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  6 Mar 2006 09:02:31 +0000
 
