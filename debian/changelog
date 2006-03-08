@@ -1,4 +1,4 @@
-espresso (0.99.25) UNRELEASED; urgency=low
+espresso (0.99.25) dapper; urgency=low
 
   * GTK frontend:
     - Add a format checkbox to the mountpoints page (closes: Malone #32065).
@@ -6,7 +6,7 @@ espresso (0.99.25) UNRELEASED; urgency=low
   * Patched up KDE frontend to avoid breaking it too badly (I hope) until
     corresponding UI is added there too.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed,  8 Mar 2006 14:46:38 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed,  8 Mar 2006 14:59:41 +0000
 
 espresso (0.99.24) dapper; urgency=low
 
