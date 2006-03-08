@@ -120,6 +120,13 @@ class Wizard:
         self.name = ''
         self.manual_choice = None
         self.password = ''
+        self.mountpoint_widgets = []
+        self.size_widgets = []
+        self.partition_widgets = []
+        self.format_widgets = []
+        self.mountpoint_choices = ['swap', '/', '/home',
+                                   '/boot', '/usr', '/var']
+        self.partition_choices = []
         self.mountpoints = {}
         self.part_labels = {' ' : ' '}
         self.current_page = None
@@ -429,26 +436,39 @@ class Wizard:
         return selection
 
 
-    def show_partitions(self, widget):
-        """write all values in this widget (GtkComboBox) from local
-        partitions values."""
+    def add_mountpoint_table_row(self):
+        """Add a new empty row to the mountpoints table."""
+        mountpoint = gtk.combo_box_entry_new_text()
+        for mp in self.mountpoint_choices:
+            mountpoint.append_text(mp)
+        size = gtk.Label()
+        size.set_single_line_mode(True)
+        partition = gtk.combo_box_new_text()
+        for part in self.partition_choices:
+            if part in self.part_labels:
+                partition.append_text(self.part_labels[part])
+            else:
+                partition.append_text(part)
+        format = gtk.CheckButton()
+        format.set_mode(draw_indicator=True)
+        format.set_active(False)
 
-        from espresso import misc
-        import gobject
+        row = len(self.mountpoint_widgets) + 1
+        self.mountpoint_widgets.append(mountpoint)
+        self.size_widgets.append(size)
+        self.partition_widgets.append(partition)
+        self.format_widgets.append(format)
 
-        # setting GtkComboBox partition values from get_partition return.
-        self.partitions = []
-        partition_list = get_partitions()
-        treelist = gtk.ListStore(gobject.TYPE_STRING)
-
-        # the first element is empty to allow deselect a preselected device
-        treelist.append([' '])
-        for index in partition_list:
-            index = '/dev/' + index
-            self.part_labels[index] = misc.part_label(index)
-            treelist.append([self.part_labels[index]])
-            self.partitions.append(index)
-        widget.set_model(treelist)
+        self.mountpoint_table.resize(row + 1, 4)
+        self.mountpoint_table.attach(mountpoint, 0, 1, row, row + 1,
+                                     yoptions=0)
+        self.mountpoint_table.attach(size, 1, 2, row, row + 1,
+                                     xoptions=0, yoptions=0)
+        self.mountpoint_table.attach(partition, 2, 3, row, row + 1,
+                                     yoptions=0)
+        self.mountpoint_table.attach(format, 3, 4, row, row + 1,
+                                     xoptions=0, yoptions=0)
+        self.mountpoint_table.show_all()
 
 
     def progress_loop(self):
@@ -521,37 +541,28 @@ class Wizard:
         on mountpoint screen. Also size label associated with partition combobox
         is changed dynamically to show the size partition."""
 
-        list_partitions, list_mountpoints, list_sizes, list_partitions_labels, list_mountpoints_labels, list_sizes_labels = [], [], [], [], [], []
-
-        # building widget and name_widget lists to query and modify the original widget status
-        for widget_it in self.glade.get_widget('vbox_partitions').get_children()[1:]:
-            list_partitions.append(widget_it)
-            list_partitions_labels.append(widget_it.get_name())
-        for widget_it in self.glade.get_widget('vbox_mountpoints').get_children()[1:]:
-            list_mountpoints.append(widget_it)
-            list_mountpoints_labels.append(widget_it.get_name())
-        for widget_it in self.glade.get_widget('vbox_sizes').get_children()[1:]:
-            list_sizes.append(widget_it)
-            list_sizes_labels.append(widget_it.get_name())
-
-        # showing new partition and mountpoint widgets if they are needed. Assigning
-        #     a new value to gtklabel size.
         if widget.get_active_text() not in ['', None]:
-            if widget.__class__ == gtk.ComboBox:
-                index = list_partitions_labels.index(widget.get_name())
-            elif widget.__class__ == gtk.ComboBoxEntry:
-                index = list_mountpoints_labels.index(widget.get_name())
+            if widget in self.partition_widgets:
+                index = self.partition_widgets.index(widget)
+            elif widget in self.mountpoint_widgets:
+                index = self.mountpoint_widgets.index(widget)
+            else:
+                return
+            partition_text = self.partition_widgets[index].get_active_text()
+            mountpoint_text = self.mountpoint_widgets[index].get_active_text()
 
-            if list_partitions[index].get_active_text() is not None and \
-               list_mountpoints[index].get_active_text() != "" and \
-               len(get_partitions()) >= index+1:
-                list_partitions[index+1].show()
-                list_mountpoints[index+1].show()
-                list_sizes[index+1].show()
-            if list_partitions[index].get_active_text() == ' ':
-                list_sizes[index].set_text('')
-            elif list_partitions[index].get_active_text() != None:
-                list_sizes[index].set_text(self.set_size_msg(list_partitions[index]))
+            if partition_text is not None and mountpoint_text != "" and \
+               len(get_partitions()) >= index + 1:
+                # This table row has been filled; create a new one.
+                self.add_mountpoint_table_row()
+                self.mountpoint_widgets[-1].connect("changed",
+                                                    self.on_list_changed)
+                self.partition_widgets[-1].connect("changed",
+                                                   self.on_list_changed)
+            if partition_text == ' ':
+                self.size_widgets[index].set_text('')
+            elif partition_text != None:
+                self.size_widgets[index].set_text(self.set_size_msg(self.partition_widgets[index]))
 
 
     def info_loop(self, widget):
@@ -682,41 +693,52 @@ class Wizard:
         self.gparted_subp.wait()
         self.gparted_subp = None
 
-        # Setting items into partition Comboboxes
-        for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
-            self.show_partitions(widget)
-        self.size = self.get_sizes()
+        # Set up list of partition names for use in the mountpoints table.
+        self.partition_choices = []
+        # The first element is empty to allow deselecting a partition.
+        self.partition_choices.append(' ')
+        for partition in get_partitions():
+            partition = '/dev/' + partition
+            self.part_labels[partition] = part_label(partition)
+            self.partition_choices.append(partition)
 
-        # building mountpoints preselection
-        self.default_partition_selection = self.get_default_partition_selection(self.size)
+        # Initialise the mountpoints table.
+        if len(self.mountpoint_widgets) == 0:
+            self.add_mountpoint_table_row()
 
-        # Setting a default partition preselection
-        if len(self.default_partition_selection.items()) == 0:
-            self.next.set_sensitive(False)
-        else:
-            count = 0
-            mp = { 'swap' : 0, '/' : 1 }
+            # Try to get some default mountpoint selections.
+            self.size = self.get_sizes()
+            selection = self.get_default_partition_selection(self.size)
 
-            # Setting default preselection values into ComboBox
-            # widgets and setting size values. In addition, next row
-            # is showed if they're validated.
-            for j, k in self.default_partition_selection.items():
-                if count == 0:
-                    self.partition1.set_active(self.partitions.index(k)+1)
-                    self.mountpoint1.set_active(mp[j])
-                    self.size1.set_text(self.set_size_msg(k))
-                    if ( len(get_partitions()) > 1 ):
-                        self.partition2.show()
-                        self.mountpoint2.show()
+            # Setting a default partition preselection
+            if len(selection.items()) == 0:
+                self.next.set_sensitive(False)
+            else:
+                count = 0
+                mp = { 'swap' : 0, '/' : 1 }
+
+                # Setting default preselection values into ComboBox
+                # widgets and setting size values. In addition, next row
+                # is showed if they're validated.
+                for mountpoint, partition in selection.items():
+                    self.mountpoint_widgets[-1].set_active(mp[mountpoint])
+                    self.size_widgets[-1].set_text(
+                        self.set_size_msg(partition))
+                    self.partition_widgets[-1].set_active(
+                        self.partition_choices.index(partition))
+                    self.format_widgets[-1].set_active(True)
+                    if len(get_partitions()) > count + 1:
+                        self.add_mountpoint_table_row()
+                    else:
+                        break
                     count += 1
-                elif count == 1:
-                    self.partition2.set_active(self.partitions.index(k)+1)
-                    self.mountpoint2.set_active(mp[j])
-                    self.size2.set_text(self.set_size_msg(k))
-                    if ( len(get_partitions()) > 2 ):
-                        self.partition3.show()
-                        self.mountpoint3.show()
-                    count += 1
+
+            # We defer connecting up signals until now to avoid the changed
+            # signal firing while we're busy populating the table.
+            for mountpoint in self.mountpoint_widgets:
+                mountpoint.connect("changed", self.on_list_changed)
+            for partition in self.partition_widgets:
+                partition.connect("changed", self.on_list_changed)
 
         self.steps.next_page()
 
@@ -727,35 +749,32 @@ class Wizard:
         # Validating self.mountpoints
         error_msg = ['\n']
 
-        # creating self.mountpoints list only if the pairs { device :
-        # mountpoint } are selected.
-        list = []
-        list_partitions = []
-        list_mountpoints = []
+        mountpoints = {}
+        part_labels_inv = {}
+        for key, value in self.part_labels.iteritems():
+            part_labels_inv[value] = key
+        for i in range(len(self.mountpoint_widgets)):
+            mountpoint_value = self.mountpoint_widgets[i].get_active_text()
+            partition_value = self.partition_widgets[i].get_active_text()
+            format_value = self.format_widgets[i].get_active()
 
-        # building widget lists to build dev_mnt dict ( { device :
-        # mountpoint } )
-        for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
-            if widget.get_active_text() not in [None, ' ']:
-                list_partitions.append(widget)
-        for widget in self.glade.get_widget('vbox_mountpoints').get_children()[1:]:
-            if widget.get_active_text() != "":
-                list_mountpoints.append(widget)
-        # Only if partitions cout or mountpoints count selected are the same,
-        #     dev_mnt is built.
-        if len(list_partitions) == len(list_mountpoints):
-            dev_mnt = dict( [ (list_partitions[i], list_mountpoints[i]) for i in range(0,len(list_partitions)) ] )
-
-            for dev, mnt in dev_mnt.items():
-                if dev.get_active_text() is not None \
-                   and mnt.get_active_text() != "":
-                    self.mountpoints[self.part_labels.keys()[self.part_labels.values().index(dev.get_active_text())]] = mnt.get_active_text()
-
-        # Processing validation stuff
-        elif len(list_partitions) > len(list_mountpoints):
-            error_msg.append("· Punto de montaje vacío.\n\n")
-        elif len(list_partitions) < len(list_mountpoints):
-            error_msg.append("· Partición sin seleccionar.\n\n")
+            if mountpoint_value == "":
+                if partition_value in (None, ' '):
+                    continue
+                else:
+                    error_msg.append(
+                        "No mount point selected for %s.\n" % partition_value)
+                    break
+            else:
+                if partition_value in (None, ' '):
+                    error_msg.append(
+                        "No partition selected for %s.\n" % mountpoint_value)
+                    break
+                else:
+                    mountpoints[part_labels_inv[partition_value]] = \
+                        (mountpoint_value, format_value)
+        else:
+            self.mountpoints = mountpoints
 
         gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
         gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
@@ -781,12 +800,10 @@ class Wizard:
                                                  '--type', 'bool', gconf_previous[gconf_key]])
 
         # Checking duplicated devices
-        for widget in self.glade.get_widget('vbox_partitions').get_children()[1:]:
-            if widget.get_active_text() != None:
-                list.append(widget.get_active_text())
+        partitions = [w.get_active_text() for w in self.partition_widgets]
 
-        for check in list:
-            if list.count(check) > 1:
+        for check in partitions:
+            if partitions.count(check) > 1:
                 error_msg.append("· Dispositivos duplicados.\n\n")
                 break
 
@@ -799,10 +816,11 @@ class Wizard:
                 elif check == validation.MOUNTPOINT_DUPPATH:
                     error_msg.append("· Puntos de montaje duplicados.\n\n")
                 elif check == validation.MOUNTPOINT_BADSIZE:
-                    try:
-                        swap = self.mountpoints.values().index('swap')
-                        error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
-                    except:
+                    for mountpoint, format in self.mountpoints.itervalues():
+                        if mountpoint == 'swap':
+                            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
+                            break
+                    else:
                         error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
                 elif check == validation.MOUNTPOINT_BADCHAR:
                     error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")

@@ -745,7 +745,10 @@ class Wizard:
                    and mnt.currentText() != "":
                     bar = self.part_labels.values().index(str(dev.currentText()))
                     foo = self.part_labels.keys()[bar]
-                    self.mountpoints[foo] = mnt.currentText()
+                    # TODO cjwatson 2006-03-08: Add UI to control whether
+                    # the partition is to be formatted; hardcoded to True in
+                    # the meantime.
+                    self.mountpoints[foo] = (mnt.currentText(), True)
 
         # Processing validation stuff
         elif len(list_partitions) > len(list_mountpoints):
@@ -802,10 +805,11 @@ class Wizard:
                 elif check == validation.MOUNTPOINT_DUPPATH:
                     error_msg.append("· Puntos de montaje duplicados.\n\n")
                 elif check == validation.MOUNTPOINT_BADSIZE:
-                    try:
-                        swap = self.mountpoints.values().index('swap')
-                        error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
-                    except:
+                    for mountpoint, format in self.mountpoints.itervalues():
+                        if mountpoint == 'swap':
+                            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
+                            break
+                    else:
                         error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
                 elif check == validation.MOUNTPOINT_BADCHAR:
                     error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")

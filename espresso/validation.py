@@ -100,21 +100,26 @@ def check_mountpoint(mountpoints, size):
     result = set()
     root = 0
 
-    if 'swap' in mountpoints.values():
-        root_minimum_KB = MINIMAL_PARTITION_SCHEME['root'] * 1024
+    for mountpoint, format in mountpoints.itervalues():
+        if mountpoint == 'swap':
+            root_minimum_KB = MINIMAL_PARTITION_SCHEME['root'] * 1024
+            break
     else:
         root_minimum_KB = (MINIMAL_PARTITION_SCHEME['root'] +
                            MINIMAL_PARTITION_SCHEME['swap']) * 1024
 
-    for device, path in mountpoints.items():
+    seen_mountpoints = set()
+    for device, (path, format) in mountpoints.items():
         if path == '/':
             root = 1
 
             if float(size[device.split('/')[2]]) < root_minimum_KB:
                 result.add(MOUNTPOINT_BADSIZE)
 
-        if mountpoints.values().count(path) > 1:
+        if path in seen_mountpoints:
             result.add(MOUNTPOINT_DUPPATH)
+        else:
+            seen_mountpoints.add(path)
         regex = re.compile(r'^[a-zA-Z0-9/\-\_\+]+$')
         if not regex.search(path):
             result.add(MOUNTPOINT_BADCHAR)
