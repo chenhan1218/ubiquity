@@ -3,6 +3,7 @@
 
 import sys
 import os
+import subprocess
 import debconf
 try:
     from debconf import DebconfCommunicator
@@ -90,6 +91,18 @@ class FilteredCommand(object):
         pass
 
     def run_command(self, auto_process=False):
+        # TODO cjwatson 2006-02-25: Hack to allow _apply functions to be run
+        # from within the debconffiltered Config class.
+        if self.frontend is None:
+            prep = self.prepare()
+            self.command = prep[0]
+            self.debug("Starting up '%s' for %s.%s", self.command,
+                       self.__class__.__module__, self.__class__.__name__)
+            ret = subprocess.call(self.command)
+            if ret != 0:
+                self.debug("%s exited with code %d", self.command, ret)
+            return ret
+
         self.start(auto_process=auto_process)
         if auto_process:
             self.enter_ui_loop()
@@ -245,7 +258,6 @@ class FilteredCommand(object):
     def error(self, priority, question):
         self.succeeded = False
         self.done = False
-        self.enter_ui_loop()
         return True
 
     # The confmodule asked a question; process it. Subclasses only need to
@@ -261,29 +273,40 @@ class FilteredCommand(object):
     # Default progress bar handling: just pass it through to the frontend.
 
     def progress_start(self, progress_min, progress_max, progress_title):
-        self.frontend.debconf_progress_start(progress_min, progress_max,
-                                             self.description(progress_title))
+        ret = self.frontend.debconf_progress_start(
+            progress_min, progress_max, self.description(progress_title))
         self.frontend.refresh()
+        return ret
 
     def progress_set(self, progress_title, progress_val):
-        self.frontend.debconf_progress_set(progress_val)
+        ret = self.frontend.debconf_progress_set(progress_val)
         self.frontend.refresh()
+        return ret
 
     def progress_step(self, progress_title, progress_inc):
-        self.frontend.debconf_progress_step(progress_inc)
+        ret = self.frontend.debconf_progress_step(progress_inc)
         self.frontend.refresh()
+        return ret
 
     def progress_info(self, progress_title, progress_info):
         try:
-            self.frontend.debconf_progress_info(self.description(progress_info))
+            ret = self.frontend.debconf_progress_info(
+                self.description(progress_info))
             self.frontend.refresh()
+            return ret
         except debconf.DebconfError:
             # ignore unknown info templates
-            pass
+            return True
 
     def progress_stop(self, progress_title):
-        self.frontend.debconf_progress_stop()
+        ret = self.frontend.debconf_progress_stop()
         self.frontend.refresh()
+        return ret
+
+    def progress_region(self, progress_title,
+                        progress_region_start, progress_region_end):
+        self.frontend.debconf_progress_region(progress_region_start,
+                                              progress_region_end)
 
 if __name__ == '__main__':
     import sys

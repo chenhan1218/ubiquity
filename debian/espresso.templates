@@ -10,3 +10,122 @@ Type: boolean
 Default: true
 Description: enable frame buffer console on boot
 
+Template: espresso/summary
+Type: note
+Description: Ready to install
+  Language: ${LANGUAGE}
+  Keyboard layout: ${KEYMAP}
+  Name: ${REALNAME}
+  Login name: ${USERNAME}
+  Location: ${LOCATION}
+
+Template: espresso/install/title
+Type: title
+_Description: Installing system
+
+Template: espresso/install/mounting_source
+Type: text
+_Description: Finding the distribution to copy...
+
+Template: espresso/install/scanning
+Type: text
+_Description: Scanning files...
+
+Template: espresso/install/copying
+Type: text
+_Description: Copying files...
+
+Template: espresso/install/copying_time
+Type: text
+_Description: Copying files (${TIME} remaining)...
+
+Template: espresso/install/log_files
+Type: text
+_Description: Copying installation logs...
+
+Template: espresso/install/cleanup
+Type: text
+_Description: Cleaning up...
+
+Template: espresso/install/target_hook
+Type: text
+_Description: Running ${SCRIPT}...
+
+Template: espresso/install/locales
+Type: text
+_Description: Configuring system locales...
+
+Template: espresso/install/timezone
+Type: text
+_Description: Configuring time zone...
+
+Template: espresso/install/user
+Type: text
+_Description: Creating user...
+
+Template: espresso/install/hardware
+Type: text
+_Description: Configuring hardware...
+
+Template: espresso/install/network
+Type: text
+_Description: Configuring network...
+
+Template: espresso/install/hostname
+Type: text
+_Description: Setting computer name...
+
+Template: espresso/install/bootloader
+Type: text
+_Description: Configuring boot loader...
+
+Template: espresso/install/removing
+Type: text
+_Description: Removing extra packages...
+
+Template: espresso/install/find_removables
+Type: text
+_Description: Checking for packages to remove...
+
+Template: espresso/install/fetch_remove
+Type: text
+_Description: Downloading packages (${TIME} remaining)...
+
+Template: espresso/install/apt_indices
+Type: text
+_Description: Downloading package lists (${TIME} remaining)...
+
+Template: espresso/install/apt_info
+Type: text
+# Not translated; apt emits translated descriptions for us already.
+Description: ${DESCRIPTION}
+
+Template: espresso/install/apt_error_install
+Type: text
+_Description: Error installing ${PACKAGE}
+ ${MESSAGE}
+
+Template: espresso/install/apt_error_remove
+Type: text
+_Description: Error removing ${PACKAGE}
+ ${MESSAGE}
+
+Template: espresso/langpacks/title
+Type: title
+_Description: Installing language packs
+
+Template: espresso/langpacks/packages
+Type: text
+_Description: Downloading language packs (${TIME} remaining)...
+
+Template: pkgsel/language-pack-patterns
+Type: text
+Default: language-pack-gnome-$LL
+Description: Patterns for language packs to install
+ This template may be preseeded to modify the packages that will be
+ installed to provide translations for a given language. The selected
+ language will be substituted in place of $LL; multiple patterns may be
+ given, separated by spaces.
+ .
+ language-pack-$LL is required, and is always installed (by localechooser).
+ You do not need to list it here.
