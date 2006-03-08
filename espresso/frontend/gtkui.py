@@ -1348,8 +1348,7 @@ class TimezoneMap(object):
     def update_current_time(self):
         if self.location_selected is not None:
             now = datetime.datetime.now(self.location_selected.info)
-            self.frontend.timezone_time_text.set_text(
-                "%d:%02d" % (now.hour, now.minute))
+            self.frontend.timezone_time_text.set_text(now.strftime('%X'))
 
     def set_tz_from_name(self, name):
         (longitude, latitude) = (0.0, 0.0)

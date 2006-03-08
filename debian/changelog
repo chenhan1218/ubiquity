@@ -4,6 +4,8 @@ espresso (0.99.26) UNRELEASED; urgency=low
     - Add a test box to the keymap page. (Note that your keymap isn't
       actually changed in the installer at the moment, so this won't work
       yet.)
+    - Display the current time in the format used by the currently-selected
+      locale.
   * GTK and KDE frontends:
     - Move the keymap page after the location page, so that in future the
       keymap page can be initialised using data for the selected country.
