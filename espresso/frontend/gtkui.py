@@ -1421,9 +1421,6 @@ class TimezoneMap(object):
             self.update_timeout = gobject.timeout_add(100, self.timeout)
 
     def unmapped(self, widget, event):
-        if self.flash_timeout is not None:
-            gobject.source_remove(self.flash_timeout)
-            self.flash_timeout = None
         if self.update_timeout is not None:
             gobject.source_remove(self.update_timeout)
             self.update_timeout = None
