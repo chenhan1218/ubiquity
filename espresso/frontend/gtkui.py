@@ -1281,7 +1281,6 @@ class TimezoneMap(object):
         self.frontend = frontend
         self.tzdb = espresso.tz.Database()
         self.tzmap = espresso.emap.EMap()
-        self.flash_timeout = None
         self.update_timeout = None
         self.point_selected = None
         self.point_hover = None
@@ -1402,7 +1401,9 @@ class TimezoneMap(object):
 
         return best_location
 
-    def flash_selected_point(self):
+    def timeout(self):
+        self.update_current_time()
+
         if self.point_selected is None:
             return True
 
@@ -1416,12 +1417,8 @@ class TimezoneMap(object):
         return True
 
     def mapped(self, widget, event):
-        if self.flash_timeout is None:
-            self.flash_timeout = gobject.timeout_add(100,
-                                                     self.flash_selected_point)
         if self.update_timeout is None:
-            self.update_timeout = gobject.timeout_add(100,
-                                                      self.update_current_time)
+            self.update_timeout = gobject.timeout_add(100, self.timeout)
 
     def unmapped(self, widget, event):
         if self.flash_timeout is not None:
