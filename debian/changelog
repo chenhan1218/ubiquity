@@ -7,6 +7,9 @@ espresso (0.99.26) UNRELEASED; urgency=low
   * GTK and KDE frontends:
     - Move the keymap page after the location page, so that in future the
       keymap page can be initialised using data for the selected country.
+  * Make espresso.tz.SystemTzInfo.dst() pretend that DST is not in effect if
+    we have no DST information, rather than returning the more correct None;
+    this allows fromutc() to be used reliably.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed,  8 Mar 2006 19:00:55 +0000
 

@@ -72,8 +72,9 @@ class SystemTzInfo(datetime.tzinfo):
         self._select_tz()
         try:
             if time.daylight == 0:
-                # no DST information
-                return None
+                # no DST information, so assume no DST; None would be more
+                # accurate but causes awkwardness in fromutc()
+                return datetime.timedelta(0)
             else:
                 localtime = time.localtime(_seconds_since_epoch(dt))
                 if localtime.tm_isdst != 1:
