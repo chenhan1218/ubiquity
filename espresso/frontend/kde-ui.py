@@ -36,7 +36,7 @@ import gettext
 
 from espresso import filteredcommand, validation
 from espresso.misc import *
-#from espresso.components import language, kbd_chooser, timezone, usersetup, \
+#from espresso.components import language, timezone, kbd_chooser, usersetup, \
 from espresso.components import language, timezone, usersetup, \
                                 partman, partman_commit, summary, install
 import espresso.progressposition
@@ -152,10 +152,10 @@ class Wizard:
             if current_name == "stepLanguage":
                 print "stepLanguage"
                 self.dbfilter = language.Language(self)
-            #elif current_name == "stepKeyboardConf":
-            #    self.dbfilter = kbd_chooser.KbdChooser(self)
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
+            #elif current_name == "stepKeyboardConf":
+            #    self.dbfilter = kbd_chooser.KbdChooser(self)
             elif current_name == "stepUserInfo":
                 print "stepUserInfo"
                 self.dbfilter = usersetup.UserSetup(self)
@@ -352,7 +352,7 @@ class Wizard:
         ##step = self.step_name(self.steps.get_current_page())
 
         """
-        if step == "stepKeyboardConf":
+        if step == "stepLocation":
             self.back.hide()
         elif step == "stepPartAdvanced":
             print >>self.gparted_subp.stdin, "undo"
@@ -380,16 +380,15 @@ class Wizard:
         elif step == "stepLanguage":
             self.userinterface.widgetStack.raiseWidget(2)
             #self.back.show()
-        # Keyboard
-        elif step == "stepKeyboardConf":
-            self.userinterface.widgetStack.raiseWidget(3)
-            #self.steps.next_page()
-            #self.back.show()
-            # FIXME ? self.next.set_sensitive(False)
-            # XXX: Actually do keyboard config here
         # Location
         elif step == "stepLocation":
+            self.userinterface.widgetStack.raiseWidget(3)
+            # FIXME ? self.next.set_sensitive(False)
+        # Keyboard
+        elif step == "stepKeyboardConf":
             self.userinterface.widgetStack.raiseWidget(4)
+            #self.steps.next_page()
+            # XXX: Actually do keyboard config here
             #self.next.set_sensitive(False)
         # Identification
         elif step == "stepUserInfo":

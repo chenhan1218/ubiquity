@@ -89,8 +89,8 @@ LOCALEDIR = "/usr/share/locale"
 BREADCRUMB_STEPS = {
     "stepWelcome": "lblWelcome",
     "stepLanguage": "lblLanguage",
-    "stepKeyboardConf": "lblKeyboardConf",
     "stepLocation": "lblLocation",
+    "stepKeyboardConf": "lblKeyboardConf",
     "stepUserInfo": "lblUserInfo",
     "stepPartAuto": "lblDiskSpace",
     "stepPartAdvanced": "lblDiskSpace",
@@ -200,10 +200,10 @@ class Wizard:
             current_name = self.step_name(self.current_page)
             if current_name == "stepLanguage":
                 self.dbfilter = language.Language(self)
-            elif current_name == "stepKeyboardConf":
-                self.dbfilter = kbd_chooser.KbdChooser(self)
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
+            elif current_name == "stepKeyboardConf":
+                self.dbfilter = kbd_chooser.KbdChooser(self)
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name == "stepPartAuto":
@@ -607,13 +607,13 @@ class Wizard:
         elif step == "stepLanguage":
             self.steps.next_page()
             self.back.show()
+        # Location
+        elif step == "stepLocation":
+            self.steps.next_page()
         # Keyboard
         elif step == "stepKeyboardConf":
             self.steps.next_page()
             # XXX: Actually do keyboard config here
-        # Location
-        elif step == "stepLocation":
-            self.steps.next_page()
             self.next.set_sensitive(False)
         # Identification
         elif step == "stepUserInfo":
@@ -847,7 +847,7 @@ class Wizard:
         # Setting actual step
         step = self.step_name(self.steps.get_current_page())
 
-        if step == "stepKeyboardConf":
+        if step == "stepLocation":
             self.back.hide()
         elif step == "stepPartAdvanced":
             print >>self.gparted_subp.stdin, "undo"

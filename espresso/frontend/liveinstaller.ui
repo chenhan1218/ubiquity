@@ -267,65 +267,10 @@ Answering the questions should only take a few minutes.</string>
             </widget>
             <widget class="QWidget">
                 <property name="name">
-                    <cstring>stepKeyboardConf</cstring>
-                </property>
-                <attribute name="id">
-                    <number>2</number>
-                </attribute>
-                <grid>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <spacer row="0" column="0">
-                        <property name="name">
-                            <cstring>spacer16_2_2</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>21</width>
-                                <height>193</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <spacer row="2" column="0">
-                        <property name="name">
-                            <cstring>spacer17_2_2</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>21</width>
-                                <height>193</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <widget class="QLabel" row="1" column="0">
-                        <property name="name">
-                            <cstring>textLabel1_3_2</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Some text (keyboard configurator goes here)</string>
-                        </property>
-                    </widget>
-                </grid>
-            </widget>
-            <widget class="QWidget">
-                <property name="name">
                     <cstring>stepLocation</cstring>
                 </property>
                 <attribute name="id">
-                    <number>3</number>
+                    <number>2</number>
                 </attribute>
                 <grid>
                     <property name="name">
@@ -457,6 +402,61 @@ Answering the questions should only take a few minutes.</string>
                         </property>
                         <property name="text">
                             <string>&lt;h2&gt;Where are you?&lt;/h2&gt;</string>
+                        </property>
+                    </widget>
+                </grid>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>stepKeyboardConf</cstring>
+                </property>
+                <attribute name="id">
+                    <number>3</number>
+                </attribute>
+                <grid>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <spacer row="0" column="0">
+                        <property name="name">
+                            <cstring>spacer16_2_2</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>21</width>
+                                <height>193</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <spacer row="2" column="0">
+                        <property name="name">
+                            <cstring>spacer17_2_2</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>21</width>
+                                <height>193</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QLabel" row="1" column="0">
+                        <property name="name">
+                            <cstring>textLabel1_3_2</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Some text (keyboard configurator goes here)</string>
                         </property>
                     </widget>
                 </grid>
