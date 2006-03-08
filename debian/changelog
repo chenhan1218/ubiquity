@@ -1,7 +1,9 @@
 espresso (0.99.26) UNRELEASED; urgency=low
 
-  * Add a test box to the keymap page. (Note that your keymap isn't actually
-    changed in the installer at the moment, so this won't work yet.)
+  * GTK frontend:
+    - Add a test box to the keymap page. (Note that your keymap isn't
+      actually changed in the installer at the moment, so this won't work
+      yet.)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed,  8 Mar 2006 19:00:55 +0000
 
