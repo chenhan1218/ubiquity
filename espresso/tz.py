@@ -26,7 +26,7 @@ TZ_DATA_FILE = '/usr/share/zoneinfo/zone.tab'
 
 def _seconds_since_epoch(dt):
     # TODO cjwatson 2006-02-23: %s escape is not portable
-    return int(dt.strftime('%s'))
+    return int(dt.replace(tzinfo=None).strftime('%s'))
 
 
 class SystemTzInfo(datetime.tzinfo):
@@ -72,8 +72,9 @@ class SystemTzInfo(datetime.tzinfo):
         self._select_tz()
         try:
             if time.daylight == 0:
-                # no DST information
-                return None
+                # no DST information, so assume no DST; None would be more
+                # accurate but causes awkwardness in fromutc()
+                return datetime.timedelta(0)
             else:
                 localtime = time.localtime(_seconds_since_epoch(dt))
                 if localtime.tm_isdst != 1:
@@ -137,9 +138,9 @@ class Location(object):
         self.longitude = _parse_position(longitude, 3)
 
         today = datetime.datetime.today()
-        info = SystemTzInfo(self.zone)
-        self.utc_offset = info.utcoffset(today)
-        self.zone_letters = info.tzname_letters(today)
+        self.info = SystemTzInfo(self.zone)
+        self.utc_offset = self.info.utcoffset(today)
+        self.zone_letters = self.info.tzname_letters(today)
 
 
 class Database(object):

@@ -36,7 +36,7 @@ import gettext
 
 from espresso import filteredcommand, validation
 from espresso.misc import *
-#from espresso.components import language, kbd_chooser, timezone, usersetup, \
+#from espresso.components import language, timezone, kbd_chooser, usersetup, \
 from espresso.components import language, timezone, usersetup, \
                                 partman, partman_commit, summary, install
 import espresso.progressposition
@@ -152,10 +152,10 @@ class Wizard:
             if current_name == "stepLanguage":
                 print "stepLanguage"
                 self.dbfilter = language.Language(self)
-            #elif current_name == "stepKeyboardConf":
-            #    self.dbfilter = kbd_chooser.KbdChooser(self)
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
+            #elif current_name == "stepKeyboardConf":
+            #    self.dbfilter = kbd_chooser.KbdChooser(self)
             elif current_name == "stepUserInfo":
                 print "stepUserInfo"
                 self.dbfilter = usersetup.UserSetup(self)
@@ -352,7 +352,7 @@ class Wizard:
         ##step = self.step_name(self.steps.get_current_page())
 
         """
-        if step == "stepKeyboardConf":
+        if step == "stepLocation":
             self.back.hide()
         elif step == "stepPartAdvanced":
             print >>self.gparted_subp.stdin, "undo"
@@ -380,16 +380,15 @@ class Wizard:
         elif step == "stepLanguage":
             self.userinterface.widgetStack.raiseWidget(2)
             #self.back.show()
-        # Keyboard
-        elif step == "stepKeyboardConf":
-            self.userinterface.widgetStack.raiseWidget(3)
-            #self.steps.next_page()
-            #self.back.show()
-            # FIXME ? self.next.set_sensitive(False)
-            # XXX: Actually do keyboard config here
         # Location
         elif step == "stepLocation":
+            self.userinterface.widgetStack.raiseWidget(3)
+            # FIXME ? self.next.set_sensitive(False)
+        # Keyboard
+        elif step == "stepKeyboardConf":
             self.userinterface.widgetStack.raiseWidget(4)
+            #self.steps.next_page()
+            # XXX: Actually do keyboard config here
             #self.next.set_sensitive(False)
         # Identification
         elif step == "stepUserInfo":
@@ -523,6 +522,10 @@ class Wizard:
     def get_autopartition_resize_percent (self):
         print "  get_autopartition_resize_percent (self):"
         return self.new_size_scale.value()
+
+
+    def get_mountpoints (self):
+        return dict(self.mountpoints)
 
   
     def confirm_partitioning_dialog (self, title, description):
@@ -741,7 +744,10 @@ class Wizard:
                    and mnt.currentText() != "":
                     bar = self.part_labels.values().index(str(dev.currentText()))
                     foo = self.part_labels.keys()[bar]
-                    self.mountpoints[foo] = mnt.currentText()
+                    # TODO cjwatson 2006-03-08: Add UI to control whether
+                    # the partition is to be formatted; hardcoded to True in
+                    # the meantime.
+                    self.mountpoints[foo] = (mnt.currentText(), True)
 
         # Processing validation stuff
         elif len(list_partitions) > len(list_mountpoints):
@@ -798,10 +804,11 @@ class Wizard:
                 elif check == validation.MOUNTPOINT_DUPPATH:
                     error_msg.append("· Puntos de montaje duplicados.\n\n")
                 elif check == validation.MOUNTPOINT_BADSIZE:
-                    try:
-                        swap = self.mountpoints.values().index('swap')
-                        error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
-                    except:
+                    for mountpoint, format in self.mountpoints.itervalues():
+                        if mountpoint == 'swap':
+                            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
+                            break
+                    else:
                         error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
                 elif check == validation.MOUNTPOINT_BADCHAR:
                     error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")

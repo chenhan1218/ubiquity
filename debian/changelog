@@ -1,11 +1,59 @@
-espresso (0.99.24) UNRELEASED; urgency=low
+espresso (0.99.26) dapper; urgency=low
 
-  * GTK: Improve headings and spacing on advanced partitioning pages.
-  * GTK: Remove more text that claims /home will not be formatted.
-  * GTK: Rearrange help text on advanced partitioning pages to allow for
-    more space on the screen where it matters.
+  * GTK frontend:
+    - Add a test box to the keymap page. (Note that your keymap isn't
+      actually changed in the installer at the moment, so this won't work
+      yet.)
+    - Display the current time in the format used by the currently-selected
+      locale.
+  * GTK and KDE frontends:
+    - Move the keymap page after the location page, so that in future the
+      keymap page can be initialised using data for the selected country.
+  * Make espresso.tz.SystemTzInfo.dst() pretend that DST is not in effect if
+    we have no DST information, rather than returning the more correct None;
+    this allows fromutc() to be used reliably.
+  * Use espresso-yaboot to install yaboot on powerpc systems.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon,  6 Mar 2006 09:02:31 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  9 Mar 2006 08:32:42 +0000
+
+espresso (0.99.25) dapper; urgency=low
+
+  * GTK frontend:
+    - Add a format checkbox to the mountpoints page (closes: Malone #32065).
+      Requires partman (>= 78ubuntu1+8).
+  * Patched up KDE frontend to avoid breaking it too badly (I hope) until
+    corresponding UI is added there too.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed,  8 Mar 2006 14:59:41 +0000
+
+espresso (0.99.24) dapper; urgency=low
+
+  * Fix espresso.tz.SystemTzInfo to work for datetime.datetime.now(tzinfo).
+  * GTK frontend:
+    - Improve headings and spacing on advanced partitioning pages.
+    - Remove more text that claims /home will not be formatted.
+    - Rearrange help text on advanced partitioning pages to allow for more
+      space on the screen where it matters.
+    - Show the current time in the selected timezone on the location page.
+    - Translate more strings from Spanish to English.
+    - Use HH:MM for UTC offsets rather than fractions of hours.
+    - Refer to UTC offsets as GMT offsets instead; it's not quite 100%
+      accurate, but (we think) more widely understood.
+    - Add a border around the timezone map.
+    - Change identification page heading to "Who are you?".
+    - Reorganise locale page so that the language select box is in the
+      middle rather than at the left-hand side, and shorter.
+    - Drop the notebook border.
+    - Remove the expander and the "Details" label from the summary page, per
+      feedback from the UI sprint.
+    - Make the first click on the timezone map zoom in but not select a
+      city; the second click will select a city.
+  * KDE frontend:
+    - Add get_mountpoints method, needed by partman.
+  * Remove old Guadalinex screenshots.
+  * Remove *.pyc and *.pyo on 'debian/rules clean'.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue,  7 Mar 2006 17:49:19 +0000
 
 espresso (0.99.23) dapper; urgency=low
 
