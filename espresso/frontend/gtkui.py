@@ -251,7 +251,6 @@ class Wizard:
 
         # set initial bottom bar status
         self.back.hide()
-        self.next.set_label('gtk-go-forward')
 
 
     def set_locales(self):
@@ -601,7 +600,6 @@ class Wizard:
 
         # Welcome
         if step == "stepWelcome":
-            self.next.set_label('gtk-go-forward')
             self.steps.next_page()
         # Language
         elif step == "stepLanguage":
