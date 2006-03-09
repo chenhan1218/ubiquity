@@ -726,7 +726,12 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
             dbfilter = grubinstaller.GrubInstaller(None)
             ret = (dbfilter.run_command(auto_process=True) == 0)
         except ImportError:
-            ret = False
+            try:
+                from espresso.components import yabootinstaller
+                dbfilter = yabootinstaller.YabootInstaller(None)
+                ret = (dbfilter.run_command(auto_process=True) == 0)
+            except ImportError:
+                ret = False
 
         misc.ex('umount', '-f', self.target + '/proc')
         misc.ex('umount', '-f', self.target + '/dev')

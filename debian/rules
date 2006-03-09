@@ -21,7 +21,7 @@ ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:amd64:i386:))
   BOOTLOADER := espresso-grub (>= 1.12ubuntu3)
 else
 ifeq ($(DEB_HOST_ARCH_CPU),powerpc)
-  #BOOTLOADER := espresso-yaboot
+  BOOTLOADER := espresso-yaboot
 endif
 endif
 

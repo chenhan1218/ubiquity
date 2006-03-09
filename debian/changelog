@@ -12,6 +12,7 @@ espresso (0.99.26) UNRELEASED; urgency=low
   * Make espresso.tz.SystemTzInfo.dst() pretend that DST is not in effect if
     we have no DST information, rather than returning the more correct None;
     this allows fromutc() to be used reliably.
+  * Use espresso-yaboot to install yaboot on powerpc systems.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed,  8 Mar 2006 19:00:55 +0000
 
