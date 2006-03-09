@@ -3,6 +3,8 @@ espresso (0.99.27) UNRELEASED; urgency=low
   * GTK frontend:
     - Set initial Forward button text in glade rather than in code.
     - Change Forward button to say "Install" when on the summary page.
+    - Revamp identification page layout. Add callbacks to let user-setup
+      tell us about errors on this page more accurately.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  9 Mar 2006 11:16:38 +0000
 

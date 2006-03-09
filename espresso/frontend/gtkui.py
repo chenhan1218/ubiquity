@@ -501,13 +501,6 @@ class Wizard:
         os.system("reboot")
 
 
-    def show_error(self, msg):
-        """show warning message on Identification screen where validation
-        doesn't work properly."""
-
-        self.warning_info.set_markup(msg)
-
-
     def quit(self):
         """quit installer cleanly."""
 
@@ -583,6 +576,13 @@ class Wizard:
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""
 
+        step = self.step_name(self.steps.get_current_page())
+
+        if step == "stepUserInfo":
+            self.username_error_box.hide()
+            self.password_error_box.hide()
+            self.hostname_error_box.hide()
+
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
@@ -637,7 +637,7 @@ class Wizard:
     def process_identification (self):
         """Processing identification step tasks."""
 
-        error_msg = ['\n']
+        error_msg = []
         error = 0
 
         # Validation stuff
@@ -646,15 +646,16 @@ class Wizard:
         hostname = self.hostname.get_property('text')
         for result in validation.check_hostname(hostname):
             if result == validation.HOSTNAME_LENGTH:
-                error_msg.append("The hostname must be between 3 and 18 characters long.\n")
+                error_msg.append("The hostname must be between 3 and 18 characters long.")
             elif result == validation.HOSTNAME_WHITESPACE:
-                error_msg.append("The hostname may not contain spaces.\n")
+                error_msg.append("The hostname may not contain spaces.")
             elif result == validation.HOSTNAME_BADCHAR:
-                error_msg.append("The hostname may only contain letters and digits.\n")
+                error_msg.append("The hostname may only contain letters and digits.")
 
         # showing warning message is error is set
-        if len(error_msg) > 1:
-            self.show_error(self.resize_text(''.join(error_msg), '4'))
+        if len(error_msg) != 0:
+            self.hostname_error_reason.set_text("\n".join(error_msg))
+            self.hostname_error_box.show()
         else:
             self.steps.next_page()
 
@@ -1148,6 +1149,14 @@ class Wizard:
 
     def get_verified_password(self):
         return self.verified_password.get_text()
+
+    def username_error(self, msg):
+        self.username_error_reason.set_text(msg)
+        self.username_error_box.show()
+
+    def password_error(self, msg):
+        self.password_error_reason.set_text(msg)
+        self.password_error_box.show()
 
 
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
