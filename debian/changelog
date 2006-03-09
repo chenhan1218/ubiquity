@@ -12,7 +12,7 @@ espresso (0.99.27) UNRELEASED; urgency=low
 
   [ Daniel Silverstone ]
   * Make sure GTK gparted integration supports the new gparted.
-  * Conflict with the old gparted.
+  * Depend on the new gparted.
   
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  9 Mar 2006 11:16:38 +0000
 
