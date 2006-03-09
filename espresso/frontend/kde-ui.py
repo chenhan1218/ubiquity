@@ -1123,9 +1123,15 @@ class Wizard:
             gtk.main_iteration()
         """
 
+    def set_fullname(self, value):
+      self.userinterface.fullname.setText(str(value))
+
     def get_fullname(self):
       return str(self.userinterface.fullname.text())
   
+    def set_username(self, value):
+      self.userinterface.fullname.setText(str(value))
+
     def get_username(self):
       return str(self.userinterface.username.text())
   
@@ -1134,6 +1140,16 @@ class Wizard:
   
     def get_verified_password(self):
       return str(self.userinterface.verified_password.text())
+
+    def username_error(self, msg):
+      # TODO cjwatson 2006-03-09: We may want to replace this with a better
+      # implementation that e.g. displays the error inline on the page.
+      self.error_dialog(msg)
+
+    def password_error(self, msg):
+      # TODO cjwatson 2006-03-09: We may want to replace this with a better
+      # implementation that e.g. displays the error inline on the page.
+      self.error_dialog(msg)
 
 
 if __name__ == '__main__':

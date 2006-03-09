@@ -5,6 +5,9 @@ espresso (0.99.27) UNRELEASED; urgency=low
     - Change Forward button to say "Install" when on the summary page.
     - Revamp identification page layout. Add callbacks to let user-setup
       tell us about errors on this page more accurately.
+  * KDE frontend:
+    - Add guesswork/stub implementations for set_fullname(), set_username(),
+      username_error(), and password_error(), for use by user-setup.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  9 Mar 2006 11:16:38 +0000
 
