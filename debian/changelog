@@ -1,5 +1,10 @@
 espresso (0.99.27) UNRELEASED; urgency=low
 
+  [ Daniel Silverstone ]
+  * Make sure GTK gparted integration supports the new gparted.
+  * Conflict with the old gparted.
+  
+  [ Colin Watson ]
   * GTK frontend:
     - Set initial Forward button text in glade rather than in code.
     - Change Forward button to say "Install" when on the summary page.

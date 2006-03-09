@@ -683,7 +683,13 @@ class Wizard:
         """Processing gparted to mountpoints step tasks."""
 
         print >>self.gparted_subp.stdin, "apply"
+
         gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
+        while gparted_reply.startswith("-"):
+            # Instructions like FORMAT come in here, let's just continue
+            # swallowing them up for now.
+            gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
+            
         if not gparted_reply.startswith('0 '):
             return
 
