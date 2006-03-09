@@ -1,5 +1,6 @@
 espresso (0.99.27) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * GTK frontend:
     - Set initial Forward button text in glade rather than in code.
     - Change Forward button to say "Install" when on the summary page.
@@ -9,6 +10,10 @@ espresso (0.99.27) UNRELEASED; urgency=low
     - Add guesswork/stub implementations for set_fullname(), set_username(),
       username_error(), and password_error(), for use by user-setup.
 
+  [ Daniel Silverstone ]
+  * Make sure GTK gparted integration supports the new gparted.
+  * Conflict with the old gparted.
+  
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  9 Mar 2006 11:16:38 +0000
 
 espresso (0.99.26) dapper; urgency=low
