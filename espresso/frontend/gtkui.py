@@ -676,6 +676,7 @@ class Wizard:
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.steps.set_current_page(self.steps.page_num(self.stepReady))
+            self.next.set_label("Install") # TODO i18n
 
 
     def gparted_to_mountpoints(self):
@@ -829,6 +830,7 @@ class Wizard:
             self.msg_error2.show()
             self.img_error2.show()
         else:
+            self.next.set_label("Install") # TODO i18n
             self.steps.next_page()
 
 
@@ -854,6 +856,8 @@ class Wizard:
             self.gparted_subp = None
         elif step == "stepPartMountpoints":
             self.gparted_loop()
+        elif step == "stepReady":
+            self.next.set_label("gtk-go-forward")
 
         self.steps.prev_page()
 
