@@ -1,4 +1,4 @@
-espresso (0.99.26) UNRELEASED; urgency=low
+espresso (0.99.26) dapper; urgency=low
 
   * GTK frontend:
     - Add a test box to the keymap page. (Note that your keymap isn't
@@ -14,7 +14,7 @@ espresso (0.99.26) UNRELEASED; urgency=low
     this allows fromutc() to be used reliably.
   * Use espresso-yaboot to install yaboot on powerpc systems.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed,  8 Mar 2006 19:00:55 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  9 Mar 2006 08:32:42 +0000
 
 espresso (0.99.25) dapper; urgency=low
 
