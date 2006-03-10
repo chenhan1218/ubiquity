@@ -868,6 +868,23 @@ class Wizard:
 
         self.steps.prev_page()
 
+
+    def on_timezone_time_adjust_clicked (self, button):
+        invisible = gtk.Invisible()
+        invisible.grab_add()
+        time_admin_env = dict(os.environ)
+        tz = self.tzmap.get_selected_tz_name()
+        if tz is not None:
+            time_admin_env['TZ'] = tz
+        time_admin_subp = subprocess.Popen(["time-admin"], env=time_admin_env)
+        gobject.child_watch_add(time_admin_subp.pid, self.on_time_admin_exit,
+                                invisible)
+
+
+    def on_time_admin_exit (self, pid, condition, invisible):
+        invisible.grab_remove()
+
+
     def on_drives_changed (self, foo):
 
         """When a different drive is selected, it is necessary to
