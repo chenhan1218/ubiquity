@@ -1,4 +1,4 @@
-espresso (0.99.28) UNRELEASED; urgency=low
+espresso (0.99.28) dapper; urgency=low
 
   * GTK frontend:
     - Add an "Adjust..." button on the timezone screen which starts
@@ -7,7 +7,7 @@ espresso (0.99.28) UNRELEASED; urgency=low
     breakage on the live CD. This means we rely on the live CD having
     passwordless sudo.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 10 Mar 2006 02:49:08 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 10 Mar 2006 12:30:52 +0000
 
 espresso (0.99.27) dapper; urgency=low
 
