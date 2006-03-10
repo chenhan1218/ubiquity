@@ -3,6 +3,9 @@ espresso (0.99.28) UNRELEASED; urgency=low
   * GTK frontend:
     - Add an "Adjust..." button on the timezone screen which starts
       time-admin to let you change the current time.
+  * Make espresso-gtkui.desktop use sudo for now, to work around gksudo
+    breakage on the live CD. This means we rely on the live CD having
+    passwordless sudo.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 10 Mar 2006 02:49:08 +0000
 
