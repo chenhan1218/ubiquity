@@ -796,7 +796,7 @@ class Wizard:
                                                  '--type', 'bool', 'false'])
 
         if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
-                return
+            return
 
         for gconf_key in (gvm_automount_drives, gvm_automount_media):
             if gconf_previous[gconf_key] == '':
