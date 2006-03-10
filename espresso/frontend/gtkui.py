@@ -1269,9 +1269,7 @@ class Wizard:
         return self.keyboard_choice_map[unicode(model.get_value(iterator, 0))]
 
     def set_summary_text (self, text):
-        textbuffer = gtk.TextBuffer()
-        textbuffer.set_text(text)
-        self.ready_textview.set_buffer(textbuffer)
+        self.ready_text.set_text(text)
 
 
     def error_dialog (self, msg):
