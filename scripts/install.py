@@ -83,7 +83,7 @@ class DebconfInstallProgress(InstallProgress):
         self.db = db
         self.title = title
         self.info = info
-        self.error = error
+        self.error_template = error
         self.started = False
 
     def startUpdate(self):
@@ -91,9 +91,9 @@ class DebconfInstallProgress(InstallProgress):
         self.started = True
 
     def error(self, pkg, errormsg):
-        self.db.subst(self.error, 'PACKAGE', pkg)
-        self.db.subst(self.error, 'MESSAGE', errormsg)
-        self.db.input('critical', self.error)
+        self.db.subst(self.error_template, 'PACKAGE', pkg)
+        self.db.subst(self.error_template, 'MESSAGE', errormsg)
+        self.db.input('critical', self.error_template)
         self.db.go()
 
     def statusChange(self, pkg, percent, status):
