@@ -1623,7 +1623,7 @@ Answering the questions should only take a few minutes.</property>
 						  <property name="has_frame">True</property>
 						  <property name="invisible_char">*</property>
 						  <property name="activates_default">True</property>
-						  <property name="width_chars">20</property>
+						  <property name="width_chars">12</property>
 						  <signal name="changed" handler="info_loop" last_modification_time="Thu, 09 Mar 2006 13:10:09 GMT"/>
 						</widget>
 						<packing>
@@ -1644,7 +1644,7 @@ Answering the questions should only take a few minutes.</property>
 						  <property name="has_frame">True</property>
 						  <property name="invisible_char">*</property>
 						  <property name="activates_default">True</property>
-						  <property name="width_chars">20</property>
+						  <property name="width_chars">12</property>
 						  <signal name="changed" handler="info_loop" last_modification_time="Thu, 09 Mar 2006 13:10:18 GMT"/>
 						</widget>
 						<packing>
