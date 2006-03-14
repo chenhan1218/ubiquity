@@ -22,6 +22,7 @@ import sys
 import os
 import platform
 import errno
+import stat
 import re
 import subprocess
 import time
@@ -397,6 +398,7 @@ class Install:
 
         if not misc.ex('cp', '-a', log_file, target_log_file):
             misc.pre_log('error', 'No se pudieron copiar los registros de instalación')
+        os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
 
         return True
 
