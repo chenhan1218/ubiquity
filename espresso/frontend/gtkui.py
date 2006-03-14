@@ -251,7 +251,6 @@ class Wizard:
 
         # set initial bottom bar status
         self.back.hide()
-        self.next.set_label('gtk-go-forward')
 
 
     def set_locales(self):
@@ -502,13 +501,6 @@ class Wizard:
         os.system("reboot")
 
 
-    def show_error(self, msg):
-        """show warning message on Identification screen where validation
-        doesn't work properly."""
-
-        self.warning_info.set_markup(msg)
-
-
     def quit(self):
         """quit installer cleanly."""
 
@@ -584,6 +576,13 @@ class Wizard:
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""
 
+        step = self.step_name(self.steps.get_current_page())
+
+        if step == "stepUserInfo":
+            self.username_error_box.hide()
+            self.password_error_box.hide()
+            self.hostname_error_box.hide()
+
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
@@ -601,7 +600,6 @@ class Wizard:
 
         # Welcome
         if step == "stepWelcome":
-            self.next.set_label('gtk-go-forward')
             self.steps.next_page()
         # Language
         elif step == "stepLanguage":
@@ -639,7 +637,7 @@ class Wizard:
     def process_identification (self):
         """Processing identification step tasks."""
 
-        error_msg = ['\n']
+        error_msg = []
         error = 0
 
         # Validation stuff
@@ -648,15 +646,16 @@ class Wizard:
         hostname = self.hostname.get_property('text')
         for result in validation.check_hostname(hostname):
             if result == validation.HOSTNAME_LENGTH:
-                error_msg.append("The hostname must be between 3 and 18 characters long.\n")
+                error_msg.append("The hostname must be between 3 and 18 characters long.")
             elif result == validation.HOSTNAME_WHITESPACE:
-                error_msg.append("The hostname may not contain spaces.\n")
+                error_msg.append("The hostname may not contain spaces.")
             elif result == validation.HOSTNAME_BADCHAR:
-                error_msg.append("The hostname may only contain letters and digits.\n")
+                error_msg.append("The hostname may only contain letters and digits.")
 
         # showing warning message is error is set
-        if len(error_msg) > 1:
-            self.show_error(self.resize_text(''.join(error_msg), '4'))
+        if len(error_msg) != 0:
+            self.hostname_error_reason.set_text("\n".join(error_msg))
+            self.hostname_error_box.show()
         else:
             self.steps.next_page()
 
@@ -678,13 +677,20 @@ class Wizard:
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.steps.set_current_page(self.steps.page_num(self.stepReady))
+            self.next.set_label("Install") # TODO i18n
 
 
     def gparted_to_mountpoints(self):
         """Processing gparted to mountpoints step tasks."""
 
         print >>self.gparted_subp.stdin, "apply"
+
         gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
+        while gparted_reply.startswith("-"):
+            # Instructions like FORMAT come in here, let's just continue
+            # swallowing them up for now.
+            gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
+            
         if not gparted_reply.startswith('0 '):
             return
 
@@ -790,7 +796,7 @@ class Wizard:
                                                  '--type', 'bool', 'false'])
 
         if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
-                return
+            return
 
         for gconf_key in (gvm_automount_drives, gvm_automount_media):
             if gconf_previous[gconf_key] == '':
@@ -831,6 +837,7 @@ class Wizard:
             self.msg_error2.show()
             self.img_error2.show()
         else:
+            self.next.set_label("Install") # TODO i18n
             self.steps.next_page()
 
 
@@ -856,8 +863,27 @@ class Wizard:
             self.gparted_subp = None
         elif step == "stepPartMountpoints":
             self.gparted_loop()
+        elif step == "stepReady":
+            self.next.set_label("gtk-go-forward")
 
         self.steps.prev_page()
+
+
+    def on_timezone_time_adjust_clicked (self, button):
+        invisible = gtk.Invisible()
+        invisible.grab_add()
+        time_admin_env = dict(os.environ)
+        tz = self.tzmap.get_selected_tz_name()
+        if tz is not None:
+            time_admin_env['TZ'] = tz
+        time_admin_subp = subprocess.Popen(["time-admin"], env=time_admin_env)
+        gobject.child_watch_add(time_admin_subp.pid, self.on_time_admin_exit,
+                                invisible)
+
+
+    def on_time_admin_exit (self, pid, condition, invisible):
+        invisible.grab_remove()
+
 
     def on_drives_changed (self, foo):
 
@@ -1147,6 +1173,14 @@ class Wizard:
     def get_verified_password(self):
         return self.verified_password.get_text()
 
+    def username_error(self, msg):
+        self.username_error_reason.set_text(msg)
+        self.username_error_box.show()
+
+    def password_error(self, msg):
+        self.password_error_reason.set_text(msg)
+        self.password_error_box.show()
+
 
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
         for child in self.autopartition_vbox.get_children():
@@ -1235,9 +1269,7 @@ class Wizard:
         return self.keyboard_choice_map[unicode(model.get_value(iterator, 0))]
 
     def set_summary_text (self, text):
-        textbuffer = gtk.TextBuffer()
-        textbuffer.set_text(text)
-        self.ready_textview.set_buffer(textbuffer)
+        self.ready_text.set_text(text)
 
 
     def error_dialog (self, msg):

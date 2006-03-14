@@ -1,3 +1,45 @@
+espresso (0.99.29) UNRELEASED; urgency=low
+
+  * Fix variable/method name clash in Install's apt error handling.
+  * GTK frontend:
+    - Rename "Adjust..." to "Set Time...".
+    - Remove justification text on location page; instead, add brief
+      instructions at the top. Rename "Nearest city" to "Selected city".
+    - Make the password entry boxes smaller.
+    - Change the summary text box to a selectable label so that it gets the
+      standard dialog background colour. Add padding around the text.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 10 Mar 2006 12:42:25 +0000
+
+espresso (0.99.28) dapper; urgency=low
+
+  * GTK frontend:
+    - Add an "Adjust..." button on the timezone screen which starts
+      time-admin to let you change the current time.
+  * Make espresso-gtkui.desktop use sudo for now, to work around gksudo
+    breakage on the live CD. This means we rely on the live CD having
+    passwordless sudo.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 10 Mar 2006 12:30:52 +0000
+
+espresso (0.99.27) dapper; urgency=low
+
+  [ Colin Watson ]
+  * GTK frontend:
+    - Set initial Forward button text in glade rather than in code.
+    - Change Forward button to say "Install" when on the summary page.
+    - Revamp identification page layout. Add callbacks to let user-setup
+      tell us about errors on this page more accurately.
+  * KDE frontend:
+    - Add guesswork/stub implementations for set_fullname(), set_username(),
+      username_error(), and password_error(), for use by user-setup.
+
+  [ Daniel Silverstone ]
+  * Make sure GTK gparted integration supports the new gparted.
+  * Depend on the new gparted.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  9 Mar 2006 17:32:11 +0000
+
 espresso (0.99.26) dapper; urgency=low
 
   * GTK frontend:
