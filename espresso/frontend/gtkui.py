@@ -141,12 +141,12 @@ class Wizard:
 
         # useful dicts to manage UI data
         self.entries = {
-                                        'hostname' : 0,
-                                        'fullname' : 0,
-                                        'username' : 0,
-                                        'password' : 0,
-                                        'verified_password' : 0
-                                        }
+            'hostname' : 0,
+            'fullname' : 0,
+            'username' : 0,
+            'password' : 0,
+            'verified_password' : 0
+        }
 
         # set custom language
         self.set_locales()
