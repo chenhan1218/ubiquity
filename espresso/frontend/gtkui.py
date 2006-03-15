@@ -1244,7 +1244,6 @@ class Wizard:
         self.keyboardlistview.set_model(kbdlayouts)
         for v in sorted(choices):
             kbdlayouts.append([v])
-            print "Appending: ", v, "\n"
 
         if len(self.keyboardlistview.get_columns()) < 1:
             column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
