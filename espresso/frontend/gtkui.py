@@ -13,26 +13,6 @@
 # - Gumer Coronel Pérez <gcoronel#emergya._info>
 # - Colin Watson <cjwatson@ubuntu.com>
 #
-# Este fichero es parte del instalador en directo de Guadalinex 2005.
-#
-# El instalador en directo de Guadalinex 2005 es software libre. Puede
-# redistribuirlo y/o modificarlo bajo los términos de la Licencia Pública
-# General de GNU según es publicada por la Free Software Foundation, bien de la
-# versión 2 de dicha Licencia o bien (según su elección) de cualquier versión
-# posterior.
-#
-# El instalador en directo de Guadalinex 2005 se distribuye con la esperanza de
-# que sea útil, pero SIN NINGUNA GARANTÍA, incluso sin la garantía MERCANTIL
-# implícita o sin garantizar la CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase
-# la Licencia Pública General de GNU para más detalles.
-#
-# Debería haber recibido una copia de la Licencia Pública General junto con el
-# instalador en directo de Guadalinex 2005. Si no ha sido así, escriba a la Free
-# Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301
-# USA.
-#
-# -------------------------------------------------------------------------
-#
 # This file is part of Guadalinex 2005 live installer.
 #
 # Guadalinex 2005 live installer is free software; you can redistribute it
