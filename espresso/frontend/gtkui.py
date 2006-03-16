@@ -134,6 +134,8 @@ class Wizard:
         self.locale = None
         self.progress_position = espresso.progressposition.ProgressPosition()
         self.progress_cancelled = False
+        self.previous_partitioning_page = None
+        self.installing = False
         self.returncode = 0
 
         # To get a "busy mouse":
@@ -217,7 +219,9 @@ class Wizard:
                 self.dbfilter.start(auto_process=True)
             gtk.main()
 
-            if self.current_page is not None and not self.backup:
+            if self.installing:
+                self.progress_loop()
+            elif self.current_page is not None and not self.backup:
                 self.process_step()
 
         return self.returncode
@@ -477,13 +481,25 @@ class Wizard:
 
         self.current_page = None
 
+        if self.progress_position.depth() != 0:
+            # A progress bar is already up for the partitioner. Use the rest
+            # of it.
+            (start, end) = self.progress_position.get_region()
+            self.debconf_progress_region(end, 100)
+
         dbfilter = install.Install(self)
         if dbfilter.run_command(auto_process=True) != 0:
+            self.installing = False
             # TODO cjwatson 2006-02-27: do something nicer than just quitting
             self.quit()
 
+        while self.progress_position.depth() != 0:
+            self.debconf_progress_stop()
+
         # just to make sure
         self.debconf_progress_dialog.hide()
+
+        self.installing = False
 
         self.finished_dialog.run()
 
@@ -782,29 +798,6 @@ class Wizard:
         else:
             self.mountpoints = mountpoints
 
-        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
-        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
-        gconf_previous = {}
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            subp = subprocess.Popen(['gconftool-2', '--config-source', gconf_dir,
-                                                             '--get', gconf_key],
-                                                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
-            if gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                                 '--type', 'bool', 'false'])
-
-        if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
-            return
-
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            if gconf_previous[gconf_key] == '':
-                subprocess.call(['gconftool-2', '--unset', gconf_key])
-            elif gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                                 '--type', 'bool', gconf_previous[gconf_key]])
-
         # Checking duplicated devices
         partitions = [w.get_active_text() for w in self.partition_widgets]
 
@@ -836,9 +829,36 @@ class Wizard:
             self.msg_error2.set_text(self.resize_text(''.join(error_msg), '4'))
             self.msg_error2.show()
             self.img_error2.show()
-        else:
-            self.next.set_label("Install") # TODO i18n
-            self.steps.next_page()
+            return
+
+        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
+        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
+        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
+        gconf_previous = {}
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            subp = subprocess.Popen(['gconftool-2', '--config-source',
+                                     gconf_dir, '--get', gconf_key],
+                                    stdout=subprocess.PIPE,
+                                    stderr=subprocess.PIPE)
+            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
+            if gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                 '--type', 'bool', 'false'])
+
+        if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
+            return
+
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            if gconf_previous[gconf_key] == '':
+                subprocess.call(['gconftool-2', '--unset', gconf_key])
+            elif gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                 '--type', 'bool', gconf_previous[gconf_key]])
+
+        # Since we've successfully committed partitioning, the install
+        # progress bar should now be displayed, so we can go straight on to
+        # the installation now.
+        self.progress_loop()
 
 
     def on_back_clicked(self, widget):
@@ -1225,16 +1245,61 @@ class Wizard:
 
 
     def confirm_partitioning_dialog (self, title, description):
-        dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
-                                   gtk.MESSAGE_QUESTION, gtk.BUTTONS_YES_NO,
-                                   title)
-        dialog.format_secondary_text(description)
-        response = dialog.run()
-        dialog.hide()
-        if response == gtk.RESPONSE_YES:
-            return True
+        # TODO cjwatson 2006-03-10: Duplication of page logic; I think some
+        # of this can go away once we reorganise page handling not to invoke
+        # a main loop for each page.
+        self.next.set_label("Install") # TODO i18n
+        self.previous_partitioning_page = self.steps.get_current_page()
+        self.steps.set_current_page(self.steps.page_num(self.stepReady))
+
+        save_dbfilter = self.dbfilter
+        save_backup = self.backup
+        self.dbfilter = summary.Summary(self, description)
+        self.backup = False
+
+        # Since the partitioner is still running, we need to use a different
+        # database to run the summary page. Fortunately, nothing we set in
+        # the summary script needs to persist, so we can just use a
+        # throwaway database.
+        save_replace, save_override = None, None
+        if 'DEBCONF_DB_REPLACE' in os.environ:
+            save_replace = os.environ['DEBCONF_DB_REPLACE']
+        if 'DEBCONF_DB_OVERRIDE' in os.environ:
+            save_override = os.environ['DEBCONF_DB_OVERRIDE']
+        os.environ['DEBCONF_DB_REPLACE'] = 'configdb'
+        os.environ['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
+        self.dbfilter.run_command(auto_process=True)
+        if save_replace is None:
+            del os.environ['DEBCONF_DB_REPLACE']
         else:
+            os.environ['DEBCONF_DB_REPLACE'] = save_replace
+        if save_override is None:
+            del os.environ['DEBCONF_DB_OVERRIDE']
+        else:
+            os.environ['DEBCONF_DB_OVERRIDE'] = save_override
+
+        self.dbfilter = save_dbfilter
+        if self.backup:
+            self.steps.set_current_page(self.previous_partitioning_page)
+            self.next.set_label("gtk-go-forward")
             return False
+        # TODO should this not just force self.backup = False?
+        self.backup = save_backup
+
+        # The user said OK, so we're going to start the installation proper
+        # now. We therefore have to put up the installation progress bar,
+        # return control to partman to do the partitioning in a region of
+        # that, and then let whatever started partman drop through to
+        # progress_loop.
+        # Yes, the control flow is pretty tortuous here. Sorry!
+
+        self.live_installer.hide()
+        self.current_page = None
+        self.debconf_progress_start(0, 100, "Installing system") # TODO i18n
+        self.debconf_progress_region(0, 15)
+        self.installing = True
+
+        return True
 
     def set_keyboard_choices(self, choicemap):
         self.keyboard_choice_map = choicemap
@@ -1282,6 +1347,13 @@ class Wizard:
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
         dialog.run()
         dialog.hide()
+        if self.installing:
+            # Go back to the autopartitioner and try again.
+            # TODO self.previous_partitioning_page
+            self.steps.set_current_page(self.steps.page_num(self.stepPartAuto))
+            self.next.set_label("gtk-go-forward")
+            self.backup = True
+            self.installing = False
 
 
     def refresh (self):

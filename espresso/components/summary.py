@@ -21,6 +21,13 @@ import textwrap
 from espresso.filteredcommand import FilteredCommand
 
 class Summary(FilteredCommand):
+    # TODO cjwatson 2006-03-10: Having partition_info passed this way is a
+    # hack; it should really live in debconf. However, this is a lot easier
+    # to deal with for now.
+    def __init__(self, frontend, partition_info=None):
+        super(Summary, self).__init__(frontend)
+        self.partition_info = partition_info
+
     def prepare(self):
         self.substcache = {}
         return (['/usr/share/espresso/summary'], ['^espresso/summary$'])
@@ -37,6 +44,14 @@ class Summary(FilteredCommand):
         Login name: %(USERNAME)s
         Location: %(LOCATION)s
         """ % self.substcache)
+
+        if self.partition_info is not None:
+            text += "Partitioning:\n"
+            wrapper = textwrap.TextWrapper(
+                initial_indent='  ', subsequent_indent='  ', width=76)
+            for line in self.partition_info.split("\n"):
+                text += wrapper.fill(line) + "\n"
+
         self.frontend.set_summary_text(text)
 
         return super(Summary, self).run(question, priority)

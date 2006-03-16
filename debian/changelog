@@ -1,3 +1,10 @@
+espresso (0.99.30) UNRELEASED; urgency=low
+
+  * GTK frontend:
+    - Move partitioning committal into the main installation progress bar.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Mar 2006 16:49:38 +0000
+
 espresso (0.99.29) dapper; urgency=low
 
   * Fix variable/method name clash in Install's apt error handling.
