@@ -1,3 +1,10 @@
+espresso (0.99.31) UNRELEASED; urgency=low
+
+  * Add a pile of translations (only about two per language, but better than
+    nothing) taken from elsewhere in the installer.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 Mar 2006 14:35:44 +0000
+
 espresso (0.99.30) dapper; urgency=low
 
   * GTK frontend:

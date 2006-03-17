@@ -1,0 +1,33 @@
+# Portuguese messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
+"POT-Creation-Date: 2006-03-16 16:53+0000\n"
+"PO-Revision-Date: 2006-03-17 13:53+0000\n"
+"Last-Translator: André Luís Lopes <andrelop@debian.org>\n"
+"Language-Team: Debia-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: text
+#. Description
+#: ../espresso.templates:19
+msgid "Welcome"
+msgstr "Bem-vindo"
+
+#. Type: text
+#. Description
+#: ../espresso.templates:241
+msgid "Running ${SCRIPT}..."
+msgstr "Executando ${SCRIPT} ..."
+
+#. Type: text
+#. Description
+#: ../espresso.templates:261
+msgid "Configuring network..."
+msgstr "Configurando a rede..."
