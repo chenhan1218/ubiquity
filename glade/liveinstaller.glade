@@ -860,7 +860,7 @@ Answering the questions should only take a few minutes.</property>
 			      <child>
 				<widget class="GtkLabel" id="timezone_time_text">
 				  <property name="visible">True</property>
-				  <property name="label" translatable="yes"></property>
+				  <property name="label"></property>
 				  <property name="use_underline">False</property>
 				  <property name="use_markup">False</property>
 				  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1124,7 +1124,7 @@ Answering the questions should only take a few minutes.</property>
 				  <property name="editable">True</property>
 				  <property name="visibility">True</property>
 				  <property name="max_length">0</property>
-				  <property name="text" translatable="yes"></property>
+				  <property name="text"></property>
 				  <property name="has_frame">True</property>
 				  <property name="invisible_char">*</property>
 				  <property name="activates_default">False</property>
@@ -1288,7 +1288,7 @@ Answering the questions should only take a few minutes.</property>
 					  <property name="editable">True</property>
 					  <property name="visibility">True</property>
 					  <property name="max_length">0</property>
-					  <property name="text" translatable="yes"></property>
+					  <property name="text"></property>
 					  <property name="has_frame">True</property>
 					  <property name="invisible_char">*</property>
 					  <property name="activates_default">True</property>
@@ -1434,7 +1434,7 @@ Answering the questions should only take a few minutes.</property>
 					      <property name="editable">True</property>
 					      <property name="visibility">True</property>
 					      <property name="max_length">0</property>
-					      <property name="text" translatable="yes"></property>
+					      <property name="text"></property>
 					      <property name="has_frame">True</property>
 					      <property name="invisible_char">*</property>
 					      <property name="activates_default">True</property>
@@ -1619,7 +1619,7 @@ Answering the questions should only take a few minutes.</property>
 						  <property name="editable">True</property>
 						  <property name="visibility">False</property>
 						  <property name="max_length">0</property>
-						  <property name="text" translatable="yes"></property>
+						  <property name="text"></property>
 						  <property name="has_frame">True</property>
 						  <property name="invisible_char">*</property>
 						  <property name="activates_default">True</property>
@@ -1640,7 +1640,7 @@ Answering the questions should only take a few minutes.</property>
 						  <property name="editable">True</property>
 						  <property name="visibility">False</property>
 						  <property name="max_length">0</property>
-						  <property name="text" translatable="yes"></property>
+						  <property name="text"></property>
 						  <property name="has_frame">True</property>
 						  <property name="invisible_char">*</property>
 						  <property name="activates_default">True</property>
@@ -1833,7 +1833,7 @@ Answering the questions should only take a few minutes.</property>
 					  <property name="editable">True</property>
 					  <property name="visibility">True</property>
 					  <property name="max_length">0</property>
-					  <property name="text" translatable="yes"></property>
+					  <property name="text"></property>
 					  <property name="has_frame">True</property>
 					  <property name="invisible_char">*</property>
 					  <property name="activates_default">True</property>
@@ -2063,7 +2063,7 @@ Answering the questions should only take a few minutes.</property>
 		      <child>
 			<widget class="GtkComboBox" id="drives">
 			  <property name="visible">True</property>
-			  <property name="items" translatable="yes"></property>
+			  <property name="items"></property>
 			  <property name="add_tearoffs">False</property>
 			  <property name="focus_on_click">True</property>
 			  <signal name="changed" handler="on_drives_changed" last_modification_time="Tue, 13 Sep 2005 10:24:03 GMT"/>
