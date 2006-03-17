@@ -165,13 +165,6 @@ class Wizard:
         self.show_intro()
         self.live_installer.window.set_cursor(None)
 
-        # Resizing labels according to screen resolution
-        for widget in self.glade.get_widget_prefix(""):
-            if widget.__class__ == gtk.Label and widget.get_name()[-6:-1] == 'label':
-                msg = self.resize_text(widget, widget.get_name()[-1:])
-                if msg != '':
-                    widget.set_markup(msg)
-
         # Declare SignalHandler
         self.glade.signal_autoconnect(self)
 
@@ -280,29 +273,6 @@ class Wizard:
             intro_file.close()
             self.stepWelcome.add(widget)
             widget.show()
-
-
-    def resize_text (self, widget, type):
-        """set different text sizes from screen resolution."""
-
-        if widget.__class__ == str :
-            msg = widget
-        elif isinstance (widget, list):
-            msg = '\n'.join (widget)
-        else:
-            msg = widget.get_text()
-
-        if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
-            if ( type in    ['1', '4'] ):
-                msg = '<big>' + msg + '</big>'
-            elif ( type == '2' ):
-                msg = '<big><b>' + msg + '</b></big>'
-            elif ( type == '3' ):
-                msg = '<span font_desc="22">' + msg + '</span>'
-        else:
-            if type != '4':
-                msg = ''
-        return msg
 
 
     def step_name(self, step_index):
@@ -806,7 +776,7 @@ class Wizard:
 
         # showing warning messages
         if len(error_msg) > 1:
-            self.msg_error2.set_text(self.resize_text(''.join(error_msg), '4'))
+            self.msg_error2.set_text(''.join(error_msg))
             self.msg_error2.show()
             self.img_error2.show()
             return
@@ -906,10 +876,10 @@ class Wizard:
                     self.freespace.set_sensitive (False)
                     self.recycle.set_sensitive (False)
                     self.manually.set_sensitive (False)
-                    self.partition_message.set_markup (self.resize_text(
+                    self.partition_message.set_markup (
                         '<span>La unidad que ha seleccionado es <b>demasiado ' +
                         'pequeña</b> para instalar el sistema en él.\n\nPor favor, ' +
-                        'seleccione un disco duro de más capacidad.</span>', '4'))
+                        'seleccione un disco duro de más capacidad.</span>')
                 else:
                     self.manually.set_sensitive (True)
 
