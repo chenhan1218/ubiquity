@@ -783,9 +783,9 @@ class Wizard:
 
         # showing warning messages
         if len(error_msg) > 1:
-            self.msg_error2.setText(''.join(error_msg))
-            self.msg_error2.show()
-            self.img_error2.show()
+            self.mountpoint_error_reason.setText(''.join(error_msg))
+            self.mountpoint_error_reason.show()
+            self.mountpoint_error_image.show()
         else:
             self.userinterface.widgetStack.raiseWidget(8)
 
