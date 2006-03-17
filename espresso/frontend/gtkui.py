@@ -117,6 +117,7 @@ class Wizard:
         self.previous_partitioning_page = None
         self.installing = False
         self.returncode = 0
+        self.translations = get_translations()
 
         # To get a "busy mouse":
         self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
@@ -240,6 +241,55 @@ class Wizard:
         gettext.textdomain(domain)
         gettext.install(domain, LOCALEDIR, unicode=1)
 
+
+    def translate_widgets(self):
+        for widget in self.glade.get_widget_prefix(""):
+            name = widget.get_name()
+            if name in self.translations:
+                self.translate_widget(widget, self.translations[name])
+
+    def translate_widget(self, widget, translation, lang=None):
+        if lang is None:
+            if self.locale is None:
+                lang = 'c'
+            else:
+                lang = self.locale.lower()
+
+        if lang in translation:
+            text = translation[lang]
+        else:
+            lang = lang.split('_')[0]
+            if lang in translation:
+                text = translation[lang]
+            else:
+                text = translation['c']
+
+        if isinstance(widget, gtk.Label):
+            widget.set_text(text)
+
+            # Ideally, these attributes would be in the glade file somehow ...
+            name = widget.get_name()
+            if 'heading_label' in name:
+                attrs = pango.AttrList()
+                attrs.insert(pango.AttrScale(pango.SCALE_LARGE, 0, len(text)))
+                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, len(text)))
+                widget.set_attributes(attrs)
+            elif 'extra_label' in name:
+                attrs = pango.AttrList()
+                attrs.insert(pango.AttrStyle(pango.STYLE_ITALIC, 0, len(text)))
+                widget.set_attributes(attrs)
+            elif name in ('drives_label', 'partition_method_label',
+                          'mountpoint_label', 'size_label', 'device_label',
+                          'format_label'):
+                attrs = pango.AttrList()
+                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, len(text)))
+                widget.set_attributes(attrs)
+
+        elif isinstance(widget, gtk.Button):
+            widget.set_label(text)
+
+        elif isinstance(widget, gtk.Window):
+            widget.set_title(text)
 
     def show_browser(self):
         """Embed Mozilla widget into a vbox."""
@@ -569,6 +619,7 @@ class Wizard:
             self.steps.next_page()
         # Language
         elif step == "stepLanguage":
+            self.translate_widgets()
             self.steps.next_page()
             self.back.show()
         # Location
@@ -839,6 +890,18 @@ class Wizard:
         self.steps.prev_page()
 
 
+    def on_language_treeview_selection_changed (self, selection):
+        (model, iterator) = selection.get_selected()
+        if iterator is not None:
+            value = unicode(model.get_value(iterator, 0))
+            lang = self.language_choice_map[value][1]
+            # strip encoding; we use UTF-8 internally no matter what
+            lang = lang.split('.')[0]
+            for widget in ('welcome_heading_label', 'welcome_text_label'):
+                self.translate_widget(getattr(self, widget),
+                                      self.translations[widget], lang)
+
+
     def on_timezone_time_adjust_clicked (self, button):
         invisible = gtk.Invisible()
         invisible.grab_add()
@@ -1092,6 +1155,9 @@ class Wizard:
             column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
             column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
             self.language_treeview.append_column(column)
+            selection = self.language_treeview.get_selection()
+            selection.connect('changed',
+                              self.on_language_treeview_selection_changed)
         list_store = gtk.ListStore(gobject.TYPE_STRING)
         self.language_treeview.set_model(list_store)
         for choice in sorted(self.language_choice_map):
@@ -1114,7 +1180,11 @@ class Wizard:
     def get_language (self):
         selection = self.language_treeview.get_selection()
         (model, iterator) = selection.get_selected()
-        return self.language_choice_map[unicode(model.get_value(iterator, 0))]
+        if iterator is None:
+            return 'C'
+        else:
+            value = unicode(model.get_value(iterator, 0))
+            return self.language_choice_map[value][0]
 
 
     def set_timezone (self, timezone):

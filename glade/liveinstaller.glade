@@ -3436,9 +3436,9 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
       <child>
 	<widget class="GtkLabel" id="finished_label">
 	  <property name="visible">True</property>
-	  <property name="label" translatable="yes">Installation is complete, so it is time to boot into your new system.
+	  <property name="label" translatable="yes">Ubuntu is now installed on your computer. You need to restart the computer in order to use it. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.
 
-Make sure to remove the CD-ROM so that you boot into the new system rather than restarting the installation.</property>
+Make sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system.</property>
 	  <property name="use_underline">False</property>
 	  <property name="use_markup">False</property>
 	  <property name="justify">GTK_JUSTIFY_LEFT</property>

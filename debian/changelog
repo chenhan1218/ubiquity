@@ -5,6 +5,11 @@ espresso (0.99.30) UNRELEASED; urgency=low
   * Remove text resizing based on the screen size, which as well as being
     annoying was also implemented in a way that made our lives difficult for
     internationalisation.
+  * Add internationalisation support for those strings that don't come from
+    d-i, with translations stored in debconf templates. I've only set this
+    up in the GTK frontend so far, but it should be straightforward to do
+    elsewhere. Requires espresso-locale (>= 0.27ubuntu11).
+  * Improve the final dialog text.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Mar 2006 16:49:38 +0000
 

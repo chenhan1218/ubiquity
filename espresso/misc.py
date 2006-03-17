@@ -4,6 +4,7 @@
 import sys
 import os
 import stat
+import re
 import subprocess
 
 
@@ -166,5 +167,65 @@ def get_supported_locales():
             _supported_locales[locale] = charset
         supported.close()
     return _supported_locales
+
+
+_translations = None
+
+def get_translations():
+    """Returns a dictionary {name: {language: description}} of translatable
+    strings."""
+    global _translations
+    if _translations is None:
+        _translations = {}
+        devnull = open('/dev/null', 'w')
+        db = subprocess.Popen(
+            ['debconf-copydb', 'templatedb', 'pipe',
+             '--config=Name:pipe', '--config=Driver:Pipe',
+             '--config=InFd:none', '--pattern=^espresso/text/'],
+            stdout=subprocess.PIPE, stderr=devnull)
+        question = None
+        descriptions = {}
+        fieldsplitter = re.compile(r':\s*')
+
+        for line in db.stdout:
+            line = line.rstrip('\n')
+            if ':' not in line:
+                if question is not None:
+                    _translations[question] = descriptions
+                    descriptions = {}
+                    question = None
+                continue
+
+            (name, value) = fieldsplitter.split(line, 1)
+            if value == '':
+                continue
+            name = name.lower()
+            if name == 'name':
+                question = value.split('/')[-1]
+            elif name.startswith('description'):
+                namebits = name.split('-', 1)
+                if len(namebits) == 1:
+                    lang = 'c'
+                else:
+                    lang = namebits[1].lower()
+                    # TODO: recode from specified encoding
+                    lang = lang.split('.')[0]
+                descriptions[lang] = value.replace('\\n', '\n')
+            elif name.startswith('extended_description'):
+                namebits = name.split('-', 1)
+                if len(namebits) == 1:
+                    lang = 'c'
+                else:
+                    lang = namebits[1].lower()
+                    # TODO: recode from specified encoding
+                    lang = lang.split('.')[0]
+                if lang not in descriptions:
+                    descriptions[lang] = value.replace('\\n', '\n')
+
+        db.wait()
+        devnull.close()
+
+    return _translations
+
 
 # vim:ai:et:sts=4:tw=80:sw=4:
