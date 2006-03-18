@@ -896,7 +896,7 @@ class Wizard:
             value = unicode(model.get_value(iterator, 0))
             lang = self.language_choice_map[value][1]
             # strip encoding; we use UTF-8 internally no matter what
-            lang = lang.split('.')[0]
+            lang = lang.split('.')[0].lower()
             for widget in ('welcome_heading_label', 'welcome_text_label'):
                 self.translate_widget(getattr(self, widget),
                                       self.translations[widget], lang)
