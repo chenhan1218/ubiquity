@@ -1,3 +1,9 @@
+espresso (0.99.32) UNRELEASED; urgency=low
+
+  * Update Portuguese translation from Rosetta.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 20 Mar 2006 11:45:26 +0000
+
 espresso (0.99.31) dapper; urgency=low
 
   * Add a pile of translations (only about two per language, but better than
