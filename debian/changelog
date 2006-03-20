@@ -1,4 +1,4 @@
-espresso (0.99.31) UNRELEASED; urgency=low
+espresso (0.99.31) dapper; urgency=low
 
   * Add a pile of translations (only about two per language, but better than
     nothing) taken from elsewhere in the installer.
@@ -8,7 +8,7 @@ espresso (0.99.31) UNRELEASED; urgency=low
   * KDE frontend:
     - Add disk selector stub methods. These need to be fleshed out.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 Mar 2006 14:35:44 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 20 Mar 2006 10:15:16 +0000
 
 espresso (0.99.30) dapper; urgency=low
 
