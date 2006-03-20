@@ -2,8 +2,8 @@ espresso (0.99.31) UNRELEASED; urgency=low
 
   * Add a pile of translations (only about two per language, but better than
     nothing) taken from elsewhere in the installer.
-  * Fix immediate translation of widgets when changing language.
   * GTK frontend:
+    - Fix immediate translation of widgets when changing language.
     - Add a disk selector. Requires partman (>= 78ubuntu1+10).
   * KDE frontend:
     - Add disk selector stub methods. These need to be fleshed out.
