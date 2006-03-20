@@ -1250,11 +1250,16 @@ class Wizard:
             column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
             self.keyboardlistview.append_column(column)
 
+    
     def set_keyboard (self, keyboard):
+        """
+        Keyboard is the database name of the keyboard, so unstranslated
+        """
+
         model = self.keyboardlistview.get_model()
         iterator = model.iter_children(None)
         while iterator is not None:
-            if unicode(model.get_value(iterator, 0)) == keyboard:
+            if self.keyboard_choice_map[unicode(model.get_value(iterator, 0))] == keyboard:
                 path = model.get_path(iterator)
                 self.keyboardlistview.get_selection().select_path(path)
                 self.keyboardlistview.scroll_to_cell(
