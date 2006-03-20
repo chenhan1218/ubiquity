@@ -129,15 +129,6 @@ class Wizard:
         
         #FIXME self.live_installer.window.set_cursor(None)
     
-        """
-        # Resizing labels according to screen resolution
-        for widget in self.glade.get_widget_prefix(""):
-        if widget.__class__ == gtk.Label and widget.get_name()[-6:-1] == 'label':
-            msg = self.resize_text(widget, widget.get_name()[-1:])
-            if msg != '':
-            widget.set_markup(msg)
-        """
-        
         # Declare SignalHandler
         #FIXME self.glade.signal_autoconnect(self)
         self.app.connect(self.userinterface.nextButton, SIGNAL("clicked()"), self.on_next_clicked)
@@ -256,29 +247,6 @@ class Wizard:
             self.userinterface.introLabel.setText(intro_file.read().rstrip('\n'))
             intro_file.close()
     
-    def resize_text (self, widget, type):
-        """set different text sizes from screen resolution."""
-        print "resize_text(widget, type)"
-    
-        if widget.__class__ == str :
-            msg = widget
-        elif isinstance (widget, list):
-            msg = '\n'.join (widget)
-        else:
-            msg = widget.text()
-    
-        if ( self.get_screen_width() > 1024 ):
-            if ( type in  ['1', '4'] ):
-                msg = '<big>' + msg + '</big>'
-            elif ( type == '2' ):
-                msg = '<big><b>' + msg + '</b></big>'
-            elif ( type == '3' ):
-                msg = '<span font_desc="22">' + msg + '</span>'
-        else:
-            if type != '4':
-                msg = ''
-        return msg
-
     def step_name(self, step_index):
         print "  step_name(step_index) " + str(step_index)
         if step_index < 0:
@@ -432,7 +400,7 @@ class Wizard:
     
         # showing warning message is error is set
         if len(error_msg) > 1:
-            self.show_error(self.resize_text(''.join(error_msg), '4'))
+            self.show_error(''.join(error_msg))
         else:
             # showing next step and destroying mozembed widget to release memory
             self.userinterface.widgetStack.raiseWidget(5)
@@ -456,6 +424,16 @@ class Wizard:
 
             self.progress_loop()
             self.steps.set_current_page(self.steps.page_num(self.stepReady))
+
+    def set_disk_choices (self, choices, manual_choice):
+        # TODO cjwatson 2006-03-20: This method should set up a disk
+        # selector UI with the given choices.
+        return False
+
+    def get_disk_choice (self):
+        # TODO cjwatson 2006-03-20: This method should return the current
+        # choice in the disk selector.
+        return None
 
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
         print "  set_autopartition_choices (self, choices, resize_choice, manual_choice):"
@@ -815,9 +793,9 @@ class Wizard:
 
         # showing warning messages
         if len(error_msg) > 1:
-            self.msg_error2.setText(self.resize_text(''.join(error_msg), '4'))
-            self.msg_error2.show()
-            self.img_error2.show()
+            self.mountpoint_error_reason.setText(''.join(error_msg))
+            self.mountpoint_error_reason.show()
+            self.mountpoint_error_image.show()
         else:
             self.userinterface.widgetStack.raiseWidget(8)
 

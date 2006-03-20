@@ -37,7 +37,7 @@ class ProgressPosition(object):
         self.inner_position = 0.0
 
     def start(self, start, end):
-        self.positions.insert(0, [start, end, None, None])
+        self.positions.insert(0, [start, end, start, end])
 
     def stop(self):
         self.positions.pop(0)
@@ -45,6 +45,13 @@ class ProgressPosition(object):
     def set_region(self, region_start, region_end):
         self.positions[0][2] = region_start
         self.positions[0][3] = region_end
+
+    def get_region(self):
+        """Returns the current region in the innermost progress bar.
+        
+        This method returns the current region as a (start, end) tuple.
+        """
+        return (self.positions[0][2], self.positions[0][3])
 
     def set(self, value):
         self.inner_position = float(value)

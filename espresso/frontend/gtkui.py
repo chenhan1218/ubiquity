@@ -13,26 +13,6 @@
 # - Gumer Coronel Pérez <gcoronel#emergya._info>
 # - Colin Watson <cjwatson@ubuntu.com>
 #
-# Este fichero es parte del instalador en directo de Guadalinex 2005.
-#
-# El instalador en directo de Guadalinex 2005 es software libre. Puede
-# redistribuirlo y/o modificarlo bajo los términos de la Licencia Pública
-# General de GNU según es publicada por la Free Software Foundation, bien de la
-# versión 2 de dicha Licencia o bien (según su elección) de cualquier versión
-# posterior.
-#
-# El instalador en directo de Guadalinex 2005 se distribuye con la esperanza de
-# que sea útil, pero SIN NINGUNA GARANTÍA, incluso sin la garantía MERCANTIL
-# implícita o sin garantizar la CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase
-# la Licencia Pública General de GNU para más detalles.
-#
-# Debería haber recibido una copia de la Licencia Pública General junto con el
-# instalador en directo de Guadalinex 2005. Si no ha sido así, escriba a la Free
-# Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301
-# USA.
-#
-# -------------------------------------------------------------------------
-#
 # This file is part of Guadalinex 2005 live installer.
 #
 # Guadalinex 2005 live installer is free software; you can redistribute it
@@ -92,6 +72,7 @@ BREADCRUMB_STEPS = {
     "stepLocation": "lblLocation",
     "stepKeyboardConf": "lblKeyboardConf",
     "stepUserInfo": "lblUserInfo",
+    "stepPartDisk": "lblDiskSpace",
     "stepPartAuto": "lblDiskSpace",
     "stepPartAdvanced": "lblDiskSpace",
     "stepPartMountpoints": "lblDiskSpace",
@@ -134,19 +115,22 @@ class Wizard:
         self.locale = None
         self.progress_position = espresso.progressposition.ProgressPosition()
         self.progress_cancelled = False
+        self.previous_partitioning_page = None
+        self.installing = False
         self.returncode = 0
+        self.translations = get_translations()
 
         # To get a "busy mouse":
         self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
 
         # useful dicts to manage UI data
         self.entries = {
-                                        'hostname' : 0,
-                                        'fullname' : 0,
-                                        'username' : 0,
-                                        'password' : 0,
-                                        'verified_password' : 0
-                                        }
+            'hostname' : 0,
+            'fullname' : 0,
+            'username' : 0,
+            'password' : 0,
+            'verified_password' : 0
+        }
 
         # set custom language
         self.set_locales()
@@ -183,13 +167,6 @@ class Wizard:
         self.show_intro()
         self.live_installer.window.set_cursor(None)
 
-        # Resizing labels according to screen resolution
-        for widget in self.glade.get_widget_prefix(""):
-            if widget.__class__ == gtk.Label and widget.get_name()[-6:-1] == 'label':
-                msg = self.resize_text(widget, widget.get_name()[-1:])
-                if msg != '':
-                    widget.set_markup(msg)
-
         # Declare SignalHandler
         self.glade.signal_autoconnect(self)
 
@@ -198,6 +175,7 @@ class Wizard:
         while self.current_page is not None:
             self.backup = False
             current_name = self.step_name(self.current_page)
+            old_dbfilter = self.dbfilter
             if current_name == "stepLanguage":
                 self.dbfilter = language.Language(self)
             elif current_name == "stepLocation":
@@ -206,19 +184,27 @@ class Wizard:
                 self.dbfilter = kbd_chooser.KbdChooser(self)
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
-            elif current_name == "stepPartAuto":
-                self.dbfilter = partman.Partman(self)
+            elif current_name in ("stepPartDisk", "stepPartAuto"):
+                if isinstance(self.dbfilter, partman.Partman):
+                    pre_log('info', 'reusing running partman')
+                else:
+                    self.dbfilter = partman.Partman(self)
             elif current_name == "stepReady":
                 self.dbfilter = summary.Summary(self)
             else:
                 self.dbfilter = None
 
-            if self.dbfilter is not None:
+            if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.dbfilter.start(auto_process=True)
             gtk.main()
 
-            if self.current_page is not None and not self.backup:
+            if self.installing:
+                self.progress_loop()
+            elif self.current_page is not None and not self.backup:
                 self.process_step()
+
+            while gtk.events_pending():
+                gtk.main_iteration()
 
         return self.returncode
 
@@ -264,6 +250,55 @@ class Wizard:
         gettext.install(domain, LOCALEDIR, unicode=1)
 
 
+    def translate_widgets(self):
+        for widget in self.glade.get_widget_prefix(""):
+            name = widget.get_name()
+            if name in self.translations:
+                self.translate_widget(widget, self.translations[name])
+
+    def translate_widget(self, widget, translation, lang=None):
+        if lang is None:
+            if self.locale is None:
+                lang = 'c'
+            else:
+                lang = self.locale.lower()
+
+        if lang in translation:
+            text = translation[lang]
+        else:
+            lang = lang.split('_')[0]
+            if lang in translation:
+                text = translation[lang]
+            else:
+                text = translation['c']
+
+        if isinstance(widget, gtk.Label):
+            widget.set_text(text)
+
+            # Ideally, these attributes would be in the glade file somehow ...
+            name = widget.get_name()
+            if 'heading_label' in name:
+                attrs = pango.AttrList()
+                attrs.insert(pango.AttrScale(pango.SCALE_LARGE, 0, len(text)))
+                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, len(text)))
+                widget.set_attributes(attrs)
+            elif 'extra_label' in name:
+                attrs = pango.AttrList()
+                attrs.insert(pango.AttrStyle(pango.STYLE_ITALIC, 0, len(text)))
+                widget.set_attributes(attrs)
+            elif name in ('drives_label', 'partition_method_label',
+                          'mountpoint_label', 'size_label', 'device_label',
+                          'format_label'):
+                attrs = pango.AttrList()
+                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, len(text)))
+                widget.set_attributes(attrs)
+
+        elif isinstance(widget, gtk.Button):
+            widget.set_label(text)
+
+        elif isinstance(widget, gtk.Window):
+            widget.set_title(text)
+
     def show_browser(self):
         """Embed Mozilla widget into a vbox."""
 
@@ -296,29 +331,6 @@ class Wizard:
             intro_file.close()
             self.stepWelcome.add(widget)
             widget.show()
-
-
-    def resize_text (self, widget, type):
-        """set different text sizes from screen resolution."""
-
-        if widget.__class__ == str :
-            msg = widget
-        elif isinstance (widget, list):
-            msg = '\n'.join (widget)
-        else:
-            msg = widget.get_text()
-
-        if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
-            if ( type in    ['1', '4'] ):
-                msg = '<big>' + msg + '</big>'
-            elif ( type == '2' ):
-                msg = '<big><b>' + msg + '</b></big>'
-            elif ( type == '3' ):
-                msg = '<span font_desc="22">' + msg + '</span>'
-        else:
-            if type != '4':
-                msg = ''
-        return msg
 
 
     def step_name(self, step_index):
@@ -477,13 +489,25 @@ class Wizard:
 
         self.current_page = None
 
+        if self.progress_position.depth() != 0:
+            # A progress bar is already up for the partitioner. Use the rest
+            # of it.
+            (start, end) = self.progress_position.get_region()
+            self.debconf_progress_region(end, 100)
+
         dbfilter = install.Install(self)
         if dbfilter.run_command(auto_process=True) != 0:
+            self.installing = False
             # TODO cjwatson 2006-02-27: do something nicer than just quitting
             self.quit()
 
+        while self.progress_position.depth() != 0:
+            self.debconf_progress_stop()
+
         # just to make sure
         self.debconf_progress_dialog.hide()
+
+        self.installing = False
 
         self.finished_dialog.run()
 
@@ -603,6 +627,7 @@ class Wizard:
             self.steps.next_page()
         # Language
         elif step == "stepLanguage":
+            self.translate_widgets()
             self.steps.next_page()
             self.back.show()
         # Location
@@ -616,6 +641,9 @@ class Wizard:
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
+        # Disk selection
+        elif step == "stepPartDisk":
+            self.process_disk_selection()
         # Automatic partitioning
         elif step == "stepPartAuto":
             self.process_autopartitioning()
@@ -660,6 +688,21 @@ class Wizard:
             self.steps.next_page()
 
 
+    def process_disk_selection (self):
+        """Process disk selection before autopartitioning. This step will be
+        skipped if only one disk is present."""
+
+        # For safety, if we somehow ended up improperly initialised
+        # then go to manual partitioning.
+        choice = self.get_disk_choice()
+        if self.manual_choice is None or choice == self.manual_choice:
+            self.gparted_loop()
+            self.steps.set_current_page(
+                self.steps.page_num(self.stepPartAdvanced))
+        else:
+            self.steps.next_page()
+
+
     def process_autopartitioning(self):
         """Processing automatic partitioning step tasks."""
 
@@ -668,12 +711,10 @@ class Wizard:
 
         # For safety, if we somehow ended up improperly initialised
         # then go to manual partitioning.
-        if self.manual_choice is None or \
-           self.get_autopartition_choice() == self.manual_choice:
+        choice = self.get_autopartition_choice()
+        if self.manual_choice is None or choice == self.manual_choice:
             self.gparted_loop()
-
             self.steps.next_page()
-
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.steps.set_current_page(self.steps.page_num(self.stepReady))
@@ -782,29 +823,6 @@ class Wizard:
         else:
             self.mountpoints = mountpoints
 
-        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
-        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
-        gconf_previous = {}
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            subp = subprocess.Popen(['gconftool-2', '--config-source', gconf_dir,
-                                                             '--get', gconf_key],
-                                                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
-            if gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                                 '--type', 'bool', 'false'])
-
-        if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
-            return
-
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            if gconf_previous[gconf_key] == '':
-                subprocess.call(['gconftool-2', '--unset', gconf_key])
-            elif gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                                 '--type', 'bool', gconf_previous[gconf_key]])
-
         # Checking duplicated devices
         partitions = [w.get_active_text() for w in self.partition_widgets]
 
@@ -833,12 +851,39 @@ class Wizard:
 
         # showing warning messages
         if len(error_msg) > 1:
-            self.msg_error2.set_text(self.resize_text(''.join(error_msg), '4'))
+            self.msg_error2.set_text(''.join(error_msg))
             self.msg_error2.show()
             self.img_error2.show()
-        else:
-            self.next.set_label("Install") # TODO i18n
-            self.steps.next_page()
+            return
+
+        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
+        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
+        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
+        gconf_previous = {}
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            subp = subprocess.Popen(['gconftool-2', '--config-source',
+                                     gconf_dir, '--get', gconf_key],
+                                    stdout=subprocess.PIPE,
+                                    stderr=subprocess.PIPE)
+            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
+            if gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                 '--type', 'bool', 'false'])
+
+        if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
+            return
+
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            if gconf_previous[gconf_key] == '':
+                subprocess.call(['gconftool-2', '--unset', gconf_key])
+            elif gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                 '--type', 'bool', gconf_previous[gconf_key]])
+
+        # Since we've successfully committed partitioning, the install
+        # progress bar should now be displayed, so we can go straight on to
+        # the installation now.
+        self.progress_loop()
 
 
     def on_back_clicked(self, widget):
@@ -846,13 +891,12 @@ class Wizard:
 
         self.backup = True
 
-        if self.dbfilter is not None:
-            self.dbfilter.cancel_handler()
-
         # Enabling next button
         self.next.set_sensitive(True)
         # Setting actual step
         step = self.step_name(self.steps.get_current_page())
+
+        changed_page = False
 
         if step == "stepLocation":
             self.back.hide()
@@ -861,12 +905,34 @@ class Wizard:
             self.gparted_subp.stdin.close()
             self.gparted_subp.wait()
             self.gparted_subp = None
+            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            changed_page = True
         elif step == "stepPartMountpoints":
             self.gparted_loop()
         elif step == "stepReady":
             self.next.set_label("gtk-go-forward")
 
-        self.steps.prev_page()
+        if not changed_page:
+            self.steps.prev_page()
+
+        if self.dbfilter is not None:
+            self.dbfilter.cancel_handler()
+            # expect recursive main loops to be exited and
+            # debconffilter_done() to be called when the filter exits
+        else:
+            gtk.main_quit()
+
+
+    def on_language_treeview_selection_changed (self, selection):
+        (model, iterator) = selection.get_selected()
+        if iterator is not None:
+            value = unicode(model.get_value(iterator, 0))
+            lang = self.language_choice_map[value][1]
+            # strip encoding; we use UTF-8 internally no matter what
+            lang = lang.split('.')[0].lower()
+            for widget in ('welcome_heading_label', 'welcome_text_label'):
+                self.translate_widget(getattr(self, widget),
+                                      self.translations[widget], lang)
 
 
     def on_timezone_time_adjust_clicked (self, button):
@@ -885,85 +951,15 @@ class Wizard:
         invisible.grab_remove()
 
 
-    def on_drives_changed (self, foo):
-
-        """When a different drive is selected, it is necessary to
-           update the chekboxes to reflect the set of permited
-           operations on the new drive."""
-
-        # TODO cjwatson 2006-01-10: update for partman
-        return
-
-        model = self.drives.get_model ()
-
-        if len (model) > 0:
-            current = self.drives.get_active ()
-
-            if -1 != current:
-                selected_drive = self.__assistant.get_drives () [current]
-
-                if not selected_drive ['large_enough']:
-                    self.freespace.set_sensitive (False)
-                    self.recycle.set_sensitive (False)
-                    self.manually.set_sensitive (False)
-                    self.partition_message.set_markup (self.resize_text(
-                        '<span>La unidad que ha seleccionado es <b>demasiado ' +
-                        'pequeña</b> para instalar el sistema en él.\n\nPor favor, ' +
-                        'seleccione un disco duro de más capacidad.</span>', '4'))
-                else:
-                    self.manually.set_sensitive (True)
-
-                    if not self.__assistant.only_manually ():
-
-                        if not self.discard_automatic_partitioning:
-
-##                             if selected_drive.has_key (''):
-
-                            self.freespace.set_sensitive (True)
-
-                        if selected_drive.has_key ('linux_before'):
-
-                            if selected_drive ['linux_before'] is not None:
-                                self.recycle.set_sensitive (True)
-
-                # All options are disabled:
-                self.freespace.set_active (False)
-                self.recycle.set_active (False)
-                self.manually.set_active (False)
-
-                # "Next" button is sensitive:
-                self.next.set_sensitive (True)
-
-                # Only the first possible option (if any) is enabled:
-                if self.freespace.get_property ('sensitive'):
-                    self.freespace.set_active (True)
-                elif self.recycle.get_property ('sensitive'):
-                    self.recycle.set_active (True)
-                elif self.manually.get_property ('sensitive'):
-                    self.manually.set_active (True)
-                else:
-                    # If no option is possible, "Next" button should not be sensitive:
-                    self.next.set_sensitive (False)
-
-                # Next lines for debugging purposes only:
-##                 message = str (selected_drive ['info'])
-##                 self.partition_message.set_text (message)
-
-        if selected_drive ['large_enough']:
-            self.on_freespace_toggled (self.freespace)
-            self.on_recycle_toggled (self.recycle)
-            self.on_manually_toggled (self.manually)
-
-
     def on_new_size_scale_format_value (self, widget, value):
         # TODO cjwatson 2006-01-09: get minsize/maxsize through to here
         return '%d%%' % value
 
 
     def on_steps_switch_page (self, foo, bar, current):
-
         self.set_current_page(current)
         current_name = self.step_name(current)
+        pre_log('info', 'switched to page %s' % current_name)
 
         for step in range(0, self.steps.get_n_pages()):
             breadcrumb = BREADCRUMB_STEPS[self.step_name(step)]
@@ -975,27 +971,6 @@ class Wizard:
                     breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
             else:
                 pre_log('info', 'breadcrumb step %s missing' % breadcrumb)
-
-        # Populate the drives combo box the first time that page #2 is shown.
-        if current == "stepPartAuto" and False:
-            # TODO cjwatson 2006-01-10: update for partman
-
-            # To set a "busy mouse":
-            self.live_installer.window.set_cursor (self.watch)
-
-##             while gtk.events_pending ():
-##                 gtk.main_iteration ()
-
-            # To set a normal mouse again:
-            self.live_installer.window.set_cursor (None)
-
-            for i in self.__assistant.get_drives ():
-                self.drives.append_text ('%s' % i ['label'])
-
-            model = self.drives.get_model ()
-
-            if len (model) > 0:
-                self.drives.set_active (0)
 
 
     def on_autopartition_resize_toggled (self, widget):
@@ -1113,6 +1088,7 @@ class Wizard:
     def debconffilter_done (self, dbfilter):
         # TODO cjwatson 2006-02-10: handle dbfilter.status
         if dbfilter == self.dbfilter:
+            self.dbfilter = None
             gtk.main_quit()
 
 
@@ -1122,6 +1098,9 @@ class Wizard:
             column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
             column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
             self.language_treeview.append_column(column)
+            selection = self.language_treeview.get_selection()
+            selection.connect('changed',
+                              self.on_language_treeview_selection_changed)
         list_store = gtk.ListStore(gobject.TYPE_STRING)
         self.language_treeview.set_model(list_store)
         for choice in sorted(self.language_choice_map):
@@ -1144,7 +1123,11 @@ class Wizard:
     def get_language (self):
         selection = self.language_treeview.get_selection()
         (model, iterator) = selection.get_selected()
-        return self.language_choice_map[unicode(model.get_value(iterator, 0))]
+        if iterator is None:
+            return 'C'
+        else:
+            value = unicode(model.get_value(iterator, 0))
+            return self.language_choice_map[value][0]
 
 
     def set_timezone (self, timezone):
@@ -1182,6 +1165,37 @@ class Wizard:
         self.password_error_box.show()
 
 
+    def set_disk_choices (self, choices, manual_choice):
+        for child in self.part_disk_vbox.get_children():
+            self.part_disk_vbox.remove(child)
+
+        self.manual_choice = manual_choice
+        firstbutton = None
+        for choice in choices:
+            if choice == '':
+                self.part_disk_vbox.add(gtk.Alignment())
+            else:
+                button = gtk.RadioButton(firstbutton, choice, False)
+                if firstbutton is None:
+                    firstbutton = button
+                self.part_disk_vbox.add(button)
+        if firstbutton is not None:
+            firstbutton.set_active(True)
+
+        self.part_disk_vbox.show_all()
+
+        # make sure we're on the disk selection page
+        self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+
+        return True
+
+
+    def get_disk_choice (self):
+        for widget in self.part_disk_vbox.get_children():
+            if isinstance(widget, gtk.Button) and widget.get_active():
+                return widget.get_label()
+
+
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
         for child in self.autopartition_vbox.get_children():
             self.autopartition_vbox.remove(child)
@@ -1200,6 +1214,9 @@ class Wizard:
             firstbutton.set_active(True)
 
         self.autopartition_vbox.show_all()
+
+        # make sure we're on the autopartitioning page
+        self.steps.set_current_page(self.steps.page_num(self.stepPartAuto))
 
 
     def get_autopartition_choice (self):
@@ -1225,16 +1242,61 @@ class Wizard:
 
 
     def confirm_partitioning_dialog (self, title, description):
-        dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
-                                   gtk.MESSAGE_QUESTION, gtk.BUTTONS_YES_NO,
-                                   title)
-        dialog.format_secondary_text(description)
-        response = dialog.run()
-        dialog.hide()
-        if response == gtk.RESPONSE_YES:
-            return True
+        # TODO cjwatson 2006-03-10: Duplication of page logic; I think some
+        # of this can go away once we reorganise page handling not to invoke
+        # a main loop for each page.
+        self.next.set_label("Install") # TODO i18n
+        self.previous_partitioning_page = self.steps.get_current_page()
+        self.steps.set_current_page(self.steps.page_num(self.stepReady))
+
+        save_dbfilter = self.dbfilter
+        save_backup = self.backup
+        self.dbfilter = summary.Summary(self, description)
+        self.backup = False
+
+        # Since the partitioner is still running, we need to use a different
+        # database to run the summary page. Fortunately, nothing we set in
+        # the summary script needs to persist, so we can just use a
+        # throwaway database.
+        save_replace, save_override = None, None
+        if 'DEBCONF_DB_REPLACE' in os.environ:
+            save_replace = os.environ['DEBCONF_DB_REPLACE']
+        if 'DEBCONF_DB_OVERRIDE' in os.environ:
+            save_override = os.environ['DEBCONF_DB_OVERRIDE']
+        os.environ['DEBCONF_DB_REPLACE'] = 'configdb'
+        os.environ['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
+        self.dbfilter.run_command(auto_process=True)
+        if save_replace is None:
+            del os.environ['DEBCONF_DB_REPLACE']
         else:
+            os.environ['DEBCONF_DB_REPLACE'] = save_replace
+        if save_override is None:
+            del os.environ['DEBCONF_DB_OVERRIDE']
+        else:
+            os.environ['DEBCONF_DB_OVERRIDE'] = save_override
+
+        self.dbfilter = save_dbfilter
+        if self.backup:
+            self.steps.set_current_page(self.previous_partitioning_page)
+            self.next.set_label("gtk-go-forward")
             return False
+        # TODO should this not just force self.backup = False?
+        self.backup = save_backup
+
+        # The user said OK, so we're going to start the installation proper
+        # now. We therefore have to put up the installation progress bar,
+        # return control to partman to do the partitioning in a region of
+        # that, and then let whatever started partman drop through to
+        # progress_loop.
+        # Yes, the control flow is pretty tortuous here. Sorry!
+
+        self.live_installer.hide()
+        self.current_page = None
+        self.debconf_progress_start(0, 100, "Installing system") # TODO i18n
+        self.debconf_progress_region(0, 15)
+        self.installing = True
+
+        return True
 
     def set_keyboard_choices(self, choicemap):
         self.keyboard_choice_map = choicemap
@@ -1286,6 +1348,13 @@ class Wizard:
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
         dialog.run()
         dialog.hide()
+        if self.installing:
+            # Go back to the autopartitioner and try again.
+            # TODO self.previous_partitioning_page
+            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            self.next.set_label("gtk-go-forward")
+            self.backup = True
+            self.installing = False
 
 
     def refresh (self):

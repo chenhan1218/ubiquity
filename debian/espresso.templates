@@ -10,6 +10,206 @@ Type: boolean
 Default: true
 Description: enable frame buffer console on boot
 
+Template: espresso/text/live_installer
+Type: text
+_Description: Espresso Installer
+
+Template: espresso/text/welcome_heading_label
+Type: text
+_Description: Welcome
+
+Template: espresso/text/welcome_text_label
+Type: text
+_Description:
+ Ready to install? Once you answer a few questions, Ubuntu can be installed
+ on this computer so you can run the system at full speed and without the
+ CD.
+ .
+ Answering the questions should only take a few minutes.
+
+Template: espresso/text/timezone_heading_label
+Type: text
+_Description: Where are you?
+
+Template: espresso/text/timezone_comment_label
+Type: text
+_Description: Select a city in your country and time zone.
+
+Template: espresso/text/timezone_city_label
+Type: text
+_Description: Selected city:
+
+Template: espresso/text/timezone_zone_label
+Type: text
+_Description: Time zone:
+
+Template: espresso/text/timezone_time_label
+Type: text
+_Description: Current time:
+
+Template: espresso/text/timezone_time_adjust
+Type: text
+_Description: Set Time...
+
+Template: espresso/text/keyboard_heading_label
+Type: text
+_Description: Keyboard layout
+
+Template: espresso/text/keyboard_comment_label
+Type: text
+_Description: Which layout is most similar to your keyboard?
+
+Template: espresso/text/keyboard_test_label
+Type: text
+_Description: You can type into this box to test your new keyboard layout.
+
+Template: espresso/text/userinfo_heading_label
+Type: text
+_Description: Who are you?
+
+Template: espresso/text/fullname_label
+Type: text
+_Description: What is your name?
+
+Template: espresso/text/username_label
+Type: text
+_Description: What name do you want to use to log in?
+
+Template: espresso/text/username_extra_label
+Type: text
+_Description:
+ If more than one person will use this computer, you can set up multiple
+ accounts after installation.
+
+Template: espresso/text/password_label
+Type: text
+_Description: Choose a password to keep your account safe.
+
+Template: espresso/text/password_extra_label
+Type: text
+_Description:
+ Enter the same password twice, so that it can be checked for typing errors.
+
+Template: espresso/text/hostname_label
+Type: text
+_Description: What is the name of this computer?
+
+Template: espresso/text/hostname_extra_label
+Type: text
+_Description:
+ This name will be used if you make the computer visible to others on a
+ network.
+
+Template: espresso/text/part_disk_heading_label
+Type: text
+_Description: Select a disk
+
+Template: espresso/text/part_disk_comment_label
+Type: text
+_Description:
+ You can have the installer automatically create space in various ways on
+ any one of the following hard disks. Alternatively, you can partition the
+ disks manually.
+
+Template: espresso/text/part_auto_heading_label
+Type: text
+_Description: Prepare disk space
+
+Template: espresso/text/partition_method_label
+Type: text
+_Description: How do you want to partition the disk?
+
+Template: espresso/text/part_advanced_heading_label
+Type: text
+_Description: Prepare partitions
+
+Template: espresso/text/partition_help
+Type: text
+_Description:
+ Make sure to allocate space for a root partition ("/"), with a minimum size
+ of 1.5 GB, and a swap partition of at least 256 MB.
+
+Template: espresso/text/part_mountpoints_heading_label
+Type: text
+_Description: Prepare mount points
+
+Template: espresso/text/mount_help
+Type: text
+_Description:
+ Select which partitions you want to use for your new installation, and
+ where you want to mount each of them.
+ .
+ You must mount one partition on the root file system ("/"), and you must
+ choose at least one partition for use as swap space.
+
+Template: espresso/text/mountpoint_label
+Type: text
+_Description: Mount Point
+
+Template: espresso/text/size_label
+Type: text
+_Description: Size
+
+Template: espresso/text/device_label
+Type: text
+_Description: Partition
+
+Template: espresso/text/format_label
+Type: text
+_Description: Format?
+
+Template: espresso/text/mountpoint_error_reason
+Type: text
+_Description: You must supply a root ("/") mount point.
+
+Template: espresso/text/ready_heading_label
+Type: text
+_Description: Ready to install
+
+Template: espresso/text/ready_description_label
+Type: text
+_Description: Ubuntu is ready to install on this computer.
+
+Template: espresso/text/warning_dialog
+Type: title
+_Description: Abort the installation?
+
+Template: espresso/text/warning_dialog_label
+Type: text
+_Description: Do you really want to abort the installation now?
+
+Template: espresso/text/abort_dialog
+Type: title
+_Description: Partitioning was interrupted
+
+Template: espresso/text/abort_dialog_label
+Type: text
+_Description:
+ It was not possible to partition this disk automatically. You must select
+ another partitioning method.
+
+Template: espresso/text/progress_cancel_button
+Type: text
+_Description: Skip
+
+Template: espresso/text/quit_button
+Type: text
+_Description: Quit
+
+Template: espresso/text/reboot_button
+Type: text
+_Description: Reboot the computer
+
+Template: espresso/text/finished_label
+Type: text
+_Description:
+ Ubuntu is now installed on your computer. You need to restart the computer
+ in order to use it. You can continue to use this live CD, although any
+ changes you make or documents you save will not be preserved.
+ .
+ Make sure to remove the CD when restarting the computer, otherwise it will
+ start back up using this live CD rather than the newly-installed system.
+
 Template: espresso/summary
 Type: note
 Description: Ready to install

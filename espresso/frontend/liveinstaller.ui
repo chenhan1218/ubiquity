@@ -917,7 +917,7 @@ Alternatively, it is possible to return to the previous page to select an easier
                             </property>
                             <widget class="QLabel" row="0" column="2" rowspan="2" colspan="1">
                                 <property name="name">
-                                    <cstring>msg_error2</cstring>
+                                    <cstring>mountpoint_error_message</cstring>
                                 </property>
                                 <property name="text">
                                     <string>You must supply a &lt;b&gt;"/"&lt;/b&gt; mount point for your installed system.</string>
@@ -942,7 +942,7 @@ Alternatively, it is possible to return to the previous page to select an easier
                             </spacer>
                             <widget class="QLabel" row="0" column="0">
                                 <property name="name">
-                                    <cstring>img_error2</cstring>
+                                    <cstring>mountpoint_error_image</cstring>
                                 </property>
                                 <property name="pixmap">
                                     <pixmap>image1</pixmap>

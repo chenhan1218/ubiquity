@@ -579,17 +579,17 @@ class EspressoUI(QWidget):
 
         layout14 = QGridLayout(None,1,1,0,6,"layout14")
 
-        self.msg_error2 = QLabel(self.stepPartMountpoints,"msg_error2")
+        self.mountpoint_error_message = QLabel(self.stepPartMountpoints,"mountpoint_error_message")
 
-        layout14.addMultiCellWidget(self.msg_error2,0,1,2,2)
+        layout14.addMultiCellWidget(self.mountpoint_error_message,0,1,2,2)
         spacer26 = QSpacerItem(21,31,QSizePolicy.Minimum,QSizePolicy.Expanding)
         layout14.addItem(spacer26,1,0)
 
-        self.img_error2 = QLabel(self.stepPartMountpoints,"img_error2")
-        self.img_error2.setPixmap(self.image1)
-        self.img_error2.setScaledContents(1)
+        self.mountpoint_error_image = QLabel(self.stepPartMountpoints,"mountpoint_error_image")
+        self.mountpoint_error_image.setPixmap(self.image1)
+        self.mountpoint_error_image.setScaledContents(1)
 
-        layout14.addWidget(self.img_error2,0,0)
+        layout14.addWidget(self.mountpoint_error_image,0,0)
         spacer25 = QSpacerItem(31,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
         layout14.addItem(spacer25,0,1)
 
@@ -826,7 +826,7 @@ class EspressoUI(QWidget):
 "You can now modify your existing partition table and select where you want what.\n"
 "Remember that you can keep the data in a previous home partition – just leave it as it is and it will not be formatted.\n"
 "Alternatively, it is possible to return to the previous page to select an easier partitioning method."))
-        self.msg_error2.setText(i18n("You must supply a <b>\"/\"</b> mount point for your installed system."))
+        self.mountpoint_error_message.setText(i18n("You must supply a <b>\"/\"</b> mount point for your installed system."))
         self.mountpoint8.clear()
         self.mountpoint8.insertItem(QString.null)
         self.mountpoint8.insertItem(i18n("swap"))
