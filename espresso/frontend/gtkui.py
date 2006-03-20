@@ -120,6 +120,8 @@ class Wizard:
         self.returncode = 0
         self.translations = get_translations()
 
+        gobject.timeout_add(30000, self.poke_gnome_screensaver)
+
         # To get a "busy mouse":
         self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
 
@@ -237,6 +239,14 @@ class Wizard:
 
         # set initial bottom bar status
         self.back.hide()
+
+
+    def poke_gnome_screensaver(self):
+        """Attempt to make sure that the screensaver doesn't kick in."""
+        gobject.spawn_async(["gnome-screensaver-command", "--poke"],
+                            flags=(gobject.SPAWN_SEARCH_PATH |
+                                   gobject.SPAWN_STDOUT_TO_DEV_NULL |
+                                   gobject.SPAWN_STDERR_TO_DEV_NULL))
 
 
     def set_locales(self):

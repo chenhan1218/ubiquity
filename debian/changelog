@@ -1,6 +1,9 @@
 espresso (0.99.32) UNRELEASED; urgency=low
 
   * Update Portuguese translation from Rosetta.
+  * GTK frontend:
+    - Prevent gnome-screensaver from kicking in while Espresso is running
+      (closes: Malone #34510 espresso-frontend-gtk task).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 20 Mar 2006 11:45:26 +0000
 
