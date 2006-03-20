@@ -72,6 +72,7 @@ BREADCRUMB_STEPS = {
     "stepLocation": "lblLocation",
     "stepKeyboardConf": "lblKeyboardConf",
     "stepUserInfo": "lblUserInfo",
+    "stepPartDisk": "lblDiskSpace",
     "stepPartAuto": "lblDiskSpace",
     "stepPartAdvanced": "lblDiskSpace",
     "stepPartMountpoints": "lblDiskSpace",
@@ -174,6 +175,7 @@ class Wizard:
         while self.current_page is not None:
             self.backup = False
             current_name = self.step_name(self.current_page)
+            old_dbfilter = self.dbfilter
             if current_name == "stepLanguage":
                 self.dbfilter = language.Language(self)
             elif current_name == "stepLocation":
@@ -182,14 +184,17 @@ class Wizard:
                 self.dbfilter = kbd_chooser.KbdChooser(self)
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
-            elif current_name == "stepPartAuto":
-                self.dbfilter = partman.Partman(self)
+            elif current_name in ("stepPartDisk", "stepPartAuto"):
+                if isinstance(self.dbfilter, partman.Partman):
+                    pre_log('info', 'reusing running partman')
+                else:
+                    self.dbfilter = partman.Partman(self)
             elif current_name == "stepReady":
                 self.dbfilter = summary.Summary(self)
             else:
                 self.dbfilter = None
 
-            if self.dbfilter is not None:
+            if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.dbfilter.start(auto_process=True)
             gtk.main()
 
@@ -197,6 +202,9 @@ class Wizard:
                 self.progress_loop()
             elif self.current_page is not None and not self.backup:
                 self.process_step()
+
+            while gtk.events_pending():
+                gtk.main_iteration()
 
         return self.returncode
 
@@ -633,6 +641,9 @@ class Wizard:
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
+        # Disk selection
+        elif step == "stepPartDisk":
+            self.process_disk_selection()
         # Automatic partitioning
         elif step == "stepPartAuto":
             self.process_autopartitioning()
@@ -677,6 +688,21 @@ class Wizard:
             self.steps.next_page()
 
 
+    def process_disk_selection (self):
+        """Process disk selection before autopartitioning. This step will be
+        skipped if only one disk is present."""
+
+        # For safety, if we somehow ended up improperly initialised
+        # then go to manual partitioning.
+        choice = self.get_disk_choice()
+        if self.manual_choice is None or choice == self.manual_choice:
+            self.gparted_loop()
+            self.steps.set_current_page(
+                self.steps.page_num(self.stepPartAdvanced))
+        else:
+            self.steps.next_page()
+
+
     def process_autopartitioning(self):
         """Processing automatic partitioning step tasks."""
 
@@ -685,12 +711,10 @@ class Wizard:
 
         # For safety, if we somehow ended up improperly initialised
         # then go to manual partitioning.
-        if self.manual_choice is None or \
-           self.get_autopartition_choice() == self.manual_choice:
+        choice = self.get_autopartition_choice()
+        if self.manual_choice is None or choice == self.manual_choice:
             self.gparted_loop()
-
             self.steps.next_page()
-
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.steps.set_current_page(self.steps.page_num(self.stepReady))
@@ -867,13 +891,12 @@ class Wizard:
 
         self.backup = True
 
-        if self.dbfilter is not None:
-            self.dbfilter.cancel_handler()
-
         # Enabling next button
         self.next.set_sensitive(True)
         # Setting actual step
         step = self.step_name(self.steps.get_current_page())
+
+        changed_page = False
 
         if step == "stepLocation":
             self.back.hide()
@@ -882,12 +905,22 @@ class Wizard:
             self.gparted_subp.stdin.close()
             self.gparted_subp.wait()
             self.gparted_subp = None
+            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            changed_page = True
         elif step == "stepPartMountpoints":
             self.gparted_loop()
         elif step == "stepReady":
             self.next.set_label("gtk-go-forward")
 
-        self.steps.prev_page()
+        if not changed_page:
+            self.steps.prev_page()
+
+        if self.dbfilter is not None:
+            self.dbfilter.cancel_handler()
+            # expect recursive main loops to be exited and
+            # debconffilter_done() to be called when the filter exits
+        else:
+            gtk.main_quit()
 
 
     def on_language_treeview_selection_changed (self, selection):
@@ -918,85 +951,15 @@ class Wizard:
         invisible.grab_remove()
 
 
-    def on_drives_changed (self, foo):
-
-        """When a different drive is selected, it is necessary to
-           update the chekboxes to reflect the set of permited
-           operations on the new drive."""
-
-        # TODO cjwatson 2006-01-10: update for partman
-        return
-
-        model = self.drives.get_model ()
-
-        if len (model) > 0:
-            current = self.drives.get_active ()
-
-            if -1 != current:
-                selected_drive = self.__assistant.get_drives () [current]
-
-                if not selected_drive ['large_enough']:
-                    self.freespace.set_sensitive (False)
-                    self.recycle.set_sensitive (False)
-                    self.manually.set_sensitive (False)
-                    self.partition_message.set_markup (
-                        '<span>La unidad que ha seleccionado es <b>demasiado ' +
-                        'pequeña</b> para instalar el sistema en él.\n\nPor favor, ' +
-                        'seleccione un disco duro de más capacidad.</span>')
-                else:
-                    self.manually.set_sensitive (True)
-
-                    if not self.__assistant.only_manually ():
-
-                        if not self.discard_automatic_partitioning:
-
-##                             if selected_drive.has_key (''):
-
-                            self.freespace.set_sensitive (True)
-
-                        if selected_drive.has_key ('linux_before'):
-
-                            if selected_drive ['linux_before'] is not None:
-                                self.recycle.set_sensitive (True)
-
-                # All options are disabled:
-                self.freespace.set_active (False)
-                self.recycle.set_active (False)
-                self.manually.set_active (False)
-
-                # "Next" button is sensitive:
-                self.next.set_sensitive (True)
-
-                # Only the first possible option (if any) is enabled:
-                if self.freespace.get_property ('sensitive'):
-                    self.freespace.set_active (True)
-                elif self.recycle.get_property ('sensitive'):
-                    self.recycle.set_active (True)
-                elif self.manually.get_property ('sensitive'):
-                    self.manually.set_active (True)
-                else:
-                    # If no option is possible, "Next" button should not be sensitive:
-                    self.next.set_sensitive (False)
-
-                # Next lines for debugging purposes only:
-##                 message = str (selected_drive ['info'])
-##                 self.partition_message.set_text (message)
-
-        if selected_drive ['large_enough']:
-            self.on_freespace_toggled (self.freespace)
-            self.on_recycle_toggled (self.recycle)
-            self.on_manually_toggled (self.manually)
-
-
     def on_new_size_scale_format_value (self, widget, value):
         # TODO cjwatson 2006-01-09: get minsize/maxsize through to here
         return '%d%%' % value
 
 
     def on_steps_switch_page (self, foo, bar, current):
-
         self.set_current_page(current)
         current_name = self.step_name(current)
+        pre_log('info', 'switched to page %s' % current_name)
 
         for step in range(0, self.steps.get_n_pages()):
             breadcrumb = BREADCRUMB_STEPS[self.step_name(step)]
@@ -1008,27 +971,6 @@ class Wizard:
                     breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
             else:
                 pre_log('info', 'breadcrumb step %s missing' % breadcrumb)
-
-        # Populate the drives combo box the first time that page #2 is shown.
-        if current == "stepPartAuto" and False:
-            # TODO cjwatson 2006-01-10: update for partman
-
-            # To set a "busy mouse":
-            self.live_installer.window.set_cursor (self.watch)
-
-##             while gtk.events_pending ():
-##                 gtk.main_iteration ()
-
-            # To set a normal mouse again:
-            self.live_installer.window.set_cursor (None)
-
-            for i in self.__assistant.get_drives ():
-                self.drives.append_text ('%s' % i ['label'])
-
-            model = self.drives.get_model ()
-
-            if len (model) > 0:
-                self.drives.set_active (0)
 
 
     def on_autopartition_resize_toggled (self, widget):
@@ -1146,6 +1088,7 @@ class Wizard:
     def debconffilter_done (self, dbfilter):
         # TODO cjwatson 2006-02-10: handle dbfilter.status
         if dbfilter == self.dbfilter:
+            self.dbfilter = None
             gtk.main_quit()
 
 
@@ -1222,6 +1165,37 @@ class Wizard:
         self.password_error_box.show()
 
 
+    def set_disk_choices (self, choices, manual_choice):
+        for child in self.part_disk_vbox.get_children():
+            self.part_disk_vbox.remove(child)
+
+        self.manual_choice = manual_choice
+        firstbutton = None
+        for choice in choices:
+            if choice == '':
+                self.part_disk_vbox.add(gtk.Alignment())
+            else:
+                button = gtk.RadioButton(firstbutton, choice, False)
+                if firstbutton is None:
+                    firstbutton = button
+                self.part_disk_vbox.add(button)
+        if firstbutton is not None:
+            firstbutton.set_active(True)
+
+        self.part_disk_vbox.show_all()
+
+        # make sure we're on the disk selection page
+        self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+
+        return True
+
+
+    def get_disk_choice (self):
+        for widget in self.part_disk_vbox.get_children():
+            if isinstance(widget, gtk.Button) and widget.get_active():
+                return widget.get_label()
+
+
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
         for child in self.autopartition_vbox.get_children():
             self.autopartition_vbox.remove(child)
@@ -1240,6 +1214,9 @@ class Wizard:
             firstbutton.set_active(True)
 
         self.autopartition_vbox.show_all()
+
+        # make sure we're on the autopartitioning page
+        self.steps.set_current_page(self.steps.page_num(self.stepPartAuto))
 
 
     def get_autopartition_choice (self):
@@ -1370,7 +1347,7 @@ class Wizard:
         if self.installing:
             # Go back to the autopartitioner and try again.
             # TODO self.previous_partitioning_page
-            self.steps.set_current_page(self.steps.page_num(self.stepPartAuto))
+            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
             self.next.set_label("gtk-go-forward")
             self.backup = True
             self.installing = False

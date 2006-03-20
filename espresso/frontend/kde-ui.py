@@ -425,6 +425,16 @@ class Wizard:
             self.progress_loop()
             self.steps.set_current_page(self.steps.page_num(self.stepReady))
 
+    def set_disk_choices (self, choices, manual_choice):
+        # TODO cjwatson 2006-03-20: This method should set up a disk
+        # selector UI with the given choices.
+        return False
+
+    def get_disk_choice (self):
+        # TODO cjwatson 2006-03-20: This method should return the current
+        # choice in the disk selector.
+        return None
+
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
         print "  set_autopartition_choices (self, choices, resize_choice, manual_choice):"
         children = self.userinterface.autopartition_frame.children()
