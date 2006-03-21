@@ -129,14 +129,16 @@ class DebconfFilter:
         self.subin.flush()
 
     def find_widgets(self, questions, method=None):
-        found = []
+        found = set()
         for pattern in self.widgets.keys():
-            for question in questions:
-                if re.search(pattern, question):
-                    widget = self.widgets[pattern]
-                    if method is None or hasattr(widget, method):
-                        found.append(widget)
-        return found
+            widget = self.widgets[pattern]
+            if widget not in found:
+                for question in questions:
+                    if re.search(pattern, question):
+                        if method is None or hasattr(widget, method):
+                            found.add(widget)
+                            break
+        return list(found)
 
     def start(self, command, blocking=True, extra_env={}):
         def subprocess_setup():
