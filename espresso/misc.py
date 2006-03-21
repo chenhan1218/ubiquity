@@ -181,7 +181,7 @@ def get_translations():
         db = subprocess.Popen(
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
-             '--config=InFd:none', '--pattern=^espresso/text/'],
+             '--config=InFd:none', '--pattern=^espresso/'],
             stdout=subprocess.PIPE, stderr=devnull)
         question = None
         descriptions = {}
@@ -201,7 +201,7 @@ def get_translations():
                 continue
             name = name.lower()
             if name == 'name':
-                question = value.split('/')[-1]
+                question = value
             elif name.startswith('description'):
                 namebits = name.split('-', 1)
                 if len(namebits) == 1:

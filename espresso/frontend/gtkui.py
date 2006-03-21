@@ -262,25 +262,12 @@ class Wizard:
 
     def translate_widgets(self):
         for widget in self.glade.get_widget_prefix(""):
-            name = widget.get_name()
-            if name in self.translations:
-                self.translate_widget(widget, self.translations[name])
+            self.translate_widget(widget)
 
-    def translate_widget(self, widget, translation, lang=None):
-        if lang is None:
-            if self.locale is None:
-                lang = 'c'
-            else:
-                lang = self.locale.lower()
-
-        if lang in translation:
-            text = translation[lang]
-        else:
-            lang = lang.split('_')[0]
-            if lang in translation:
-                text = translation[lang]
-            else:
-                text = translation['c']
+    def translate_widget(self, widget, lang=None):
+        text = self.get_string('espresso/text/%s' % widget.get_name(), lang)
+        if text is None:
+            return
 
         if isinstance(widget, gtk.Label):
             widget.set_text(text)
@@ -308,6 +295,28 @@ class Wizard:
 
         elif isinstance(widget, gtk.Window):
             widget.set_title(text)
+
+    def get_string(self, name, lang=None):
+        if name not in self.translations:
+            return None
+
+        if lang is None:
+            if self.locale is None:
+                lang = 'c'
+            else:
+                lang = self.locale.lower()
+
+        if lang in self.translations[name]:
+            text = self.translations[name][lang]
+        else:
+            lang = lang.split('_')[0]
+            if lang in self.translations[name]:
+                text = self.translations[name][lang]
+            else:
+                text = self.translations[name]['c']
+
+        return text
+
 
     def show_browser(self):
         """Embed Mozilla widget into a vbox."""
@@ -942,8 +951,7 @@ class Wizard:
             lang = lang.split('.')[0].lower()
             for widget in ('live_installer', 'welcome_heading_label',
                            'welcome_text_label'):
-                self.translate_widget(getattr(self, widget),
-                                      self.translations[widget], lang)
+                self.translate_widget(getattr(self, widget), lang)
 
 
     def on_timezone_time_adjust_clicked (self, button):
@@ -1303,7 +1311,8 @@ class Wizard:
 
         self.live_installer.hide()
         self.current_page = None
-        self.debconf_progress_start(0, 100, "Installing system") # TODO i18n
+        self.debconf_progress_start(0, 100,
+                                    self.get_string('espresso/install/title'))
         self.debconf_progress_region(0, 15)
         self.installing = True
 
