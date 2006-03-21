@@ -614,6 +614,8 @@ class Wizard:
         else:
             gtk.main_quit()
 
+    def on_keyboard_selected(self, start_editing, *args):
+        kbd_chooser.apply_keyboard(self.get_keyboard())
 
     def process_step(self):
         """Process and validate the results of this step."""
@@ -1311,7 +1313,9 @@ class Wizard:
             column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
             column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
             self.keyboardlistview.append_column(column)
-
+            selection = self.keyboardlistview.get_selection()
+            selection.connect('changed',
+                              self.on_keyboard_selected)
     
     def set_keyboard (self, keyboard):
         """
