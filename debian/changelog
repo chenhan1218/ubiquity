@@ -8,6 +8,8 @@ espresso (0.99.32) UNRELEASED; urgency=low
     - Make title of install progress bar translatable.
   * Make sure that debconffilter never tries to call the same widget more
     than once for a single command.
+  * Move more frontend-independent translation logic from the GTK frontend
+    to espresso.misc so that other frontends can use it.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 20 Mar 2006 11:45:26 +0000
 

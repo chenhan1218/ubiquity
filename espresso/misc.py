@@ -227,5 +227,27 @@ def get_translations():
 
     return _translations
 
+def get_string(name, lang):
+    """Get the translation of a single string."""
+    translations = get_translations()
+    if name not in translations:
+        return None
+
+    if lang is None:
+        lang = 'c'
+    else:
+        lang = lang.lower()
+
+    if lang in translations[name]:
+        text = translations[name][lang]
+    else:
+        lang = lang.split('_')[0]
+        if lang in translations[name]:
+            text = translations[name][lang]
+        else:
+            text = translations[name]['c']
+
+    return text
+
 
 # vim:ai:et:sts=4:tw=80:sw=4:

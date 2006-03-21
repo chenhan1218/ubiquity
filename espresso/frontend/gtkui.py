@@ -265,7 +265,7 @@ class Wizard:
             self.translate_widget(widget)
 
     def translate_widget(self, widget, lang=None):
-        text = self.get_string('espresso/text/%s' % widget.get_name(), lang)
+        text = get_string('espresso/text/%s' % widget.get_name(), lang)
         if text is None:
             return
 
@@ -295,27 +295,6 @@ class Wizard:
 
         elif isinstance(widget, gtk.Window):
             widget.set_title(text)
-
-    def get_string(self, name, lang=None):
-        if name not in self.translations:
-            return None
-
-        if lang is None:
-            if self.locale is None:
-                lang = 'c'
-            else:
-                lang = self.locale.lower()
-
-        if lang in self.translations[name]:
-            text = self.translations[name][lang]
-        else:
-            lang = lang.split('_')[0]
-            if lang in self.translations[name]:
-                text = self.translations[name][lang]
-            else:
-                text = self.translations[name]['c']
-
-        return text
 
 
     def show_browser(self):
@@ -1311,8 +1290,8 @@ class Wizard:
 
         self.live_installer.hide()
         self.current_page = None
-        self.debconf_progress_start(0, 100,
-                                    self.get_string('espresso/install/title'))
+        self.debconf_progress_start(
+            0, 100, get_string('espresso/install/title', self.locale))
         self.debconf_progress_region(0, 15)
         self.installing = True
 
