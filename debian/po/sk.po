@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-03-20 10:08+0000\n"
+"POT-Creation-Date: 2006-03-21 14:10+0000\n"
 "PO-Revision-Date: 2006-03-17 13:54+0000\n"
 "Last-Translator: Peter Mann <Peter.Mann@tuke.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -284,21 +284,27 @@ msgstr ""
 msgid "Skip"
 msgstr ""
 
-#. Type: text
+#. Type: title
 #. Description
 #: ../espresso.templates:197
-msgid "Quit"
+msgid "Installation complete"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../espresso.templates:201
-msgid "Reboot the computer"
+msgid "Quit"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../espresso.templates:205
+msgid "Reboot the computer"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../espresso.templates:209
 msgid ""
 "Ubuntu is now installed on your computer. You need to restart the computer "
 "in order to use it. You can continue to use this live CD, although any "
@@ -307,7 +313,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:205
+#: ../espresso.templates:209
 msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
@@ -315,148 +321,148 @@ msgstr ""
 
 #. Type: title
 #. Description
-#: ../espresso.templates:224
+#: ../espresso.templates:228
 msgid "Installing system"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:228
+#: ../espresso.templates:232
 msgid "Finding the distribution to copy..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:232
+#: ../espresso.templates:236
 msgid "Scanning files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:236
+#: ../espresso.templates:240
 msgid "Copying files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:240
+#: ../espresso.templates:244
 msgid "Copying files (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:244
+#: ../espresso.templates:248
 msgid "Copying installation logs..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:248
+#: ../espresso.templates:252
 msgid "Cleaning up..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:252
+#: ../espresso.templates:256
 msgid "Running ${SCRIPT}..."
 msgstr "Spúšťa sa ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:256
+#: ../espresso.templates:260
 #, fuzzy
 msgid "Configuring system locales..."
 msgstr "Nastavuje sa sieť..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:260
+#: ../espresso.templates:264
 #, fuzzy
 msgid "Configuring time zone..."
 msgstr "Nastavuje sa sieť..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:264
+#: ../espresso.templates:268
 msgid "Creating user..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:268
+#: ../espresso.templates:272
 #, fuzzy
 msgid "Configuring hardware..."
 msgstr "Nastavuje sa sieť..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:272
+#: ../espresso.templates:276
 msgid "Configuring network..."
 msgstr "Nastavuje sa sieť..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:276
+#: ../espresso.templates:280
 msgid "Setting computer name..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:280
+#: ../espresso.templates:284
 #, fuzzy
 msgid "Configuring boot loader..."
 msgstr "Nastavuje sa sieť..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:284
+#: ../espresso.templates:288
 msgid "Removing extra packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:288
+#: ../espresso.templates:292
 msgid "Checking for packages to remove..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:292
+#: ../espresso.templates:296
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:296
+#: ../espresso.templates:300
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:305
+#: ../espresso.templates:309
 msgid "Error installing ${PACKAGE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:310
+#: ../espresso.templates:314
 msgid "Error removing ${PACKAGE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:310
+#: ../espresso.templates:314
 msgid "${MESSAGE}"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../espresso.templates:315
+#: ../espresso.templates:319
 msgid "Installing language packs"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:319
+#: ../espresso.templates:323
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""

@@ -3412,7 +3412,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 
 <widget class="GtkDialog" id="finished_dialog">
   <property name="border_width">6</property>
-  <property name="title">Installation complete</property>
+  <property name="title" translatable="yes">Installation complete</property>
   <property name="type">GTK_WINDOW_TOPLEVEL</property>
   <property name="window_position">GTK_WIN_POS_CENTER</property>
   <property name="modal">False</property>

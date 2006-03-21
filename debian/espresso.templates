@@ -192,6 +192,10 @@ Template: espresso/text/progress_cancel_button
 Type: text
 _Description: Skip
 
+Template: espresso/text/finished_dialog
+Type: title
+_Description: Installation complete
+
 Template: espresso/text/quit_button
 Type: text
 _Description: Quit

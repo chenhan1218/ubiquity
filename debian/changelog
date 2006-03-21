@@ -8,6 +8,7 @@ espresso (0.99.32) UNRELEASED; urgency=low
     - Make title of install progress bar translatable.
     - Make sure that cancelling the installation at the summary page cancels
       partman too.
+    - Make "Installation complete" translatable.
   * Make sure that debconffilter never tries to call the same widget more
     than once for a single command.
   * Move more frontend-independent translation logic from the GTK frontend
