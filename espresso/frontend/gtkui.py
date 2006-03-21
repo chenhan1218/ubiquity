@@ -612,6 +612,8 @@ class Wizard:
         else:
             gtk.main_quit()
 
+    def on_keyboard_selected(self, start_editing, *args):
+        kbd_chooser.apply_keyboard(self.get_keyboard())
 
     def process_step(self):
         """Process and validate the results of this step."""
@@ -1310,18 +1312,24 @@ class Wizard:
         self.keyboardlistview.set_model(kbdlayouts)
         for v in sorted(choices):
             kbdlayouts.append([v])
-            print "Appending: ", v, "\n"
 
         if len(self.keyboardlistview.get_columns()) < 1:
             column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
             column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
             self.keyboardlistview.append_column(column)
-
+            selection = self.keyboardlistview.get_selection()
+            selection.connect('changed',
+                              self.on_keyboard_selected)
+    
     def set_keyboard (self, keyboard):
+        """
+        Keyboard is the database name of the keyboard, so unstranslated
+        """
+
         model = self.keyboardlistview.get_model()
         iterator = model.iter_children(None)
         while iterator is not None:
-            if unicode(model.get_value(iterator, 0)) == keyboard:
+            if self.keyboard_choice_map[unicode(model.get_value(iterator, 0))] == keyboard:
                 path = model.get_path(iterator)
                 self.keyboardlistview.get_selection().select_path(path)
                 self.keyboardlistview.scroll_to_cell(

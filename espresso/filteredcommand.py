@@ -182,7 +182,7 @@ class FilteredCommand(object):
 #            print >>sys.stderr, choices[i]
 #            print >>sys.stderr, choices_c[i]
             
-            _map[choices[i]] = choices[i]
+            _map[choices[i]] = choices_c[i]
         return _map        
 
     def description(self, question):

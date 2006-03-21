@@ -1050,6 +1050,7 @@ Answering the questions should only take a few minutes.</property>
 			      <property name="fixed_height_mode">False</property>
 			      <property name="hover_selection">False</property>
 			      <property name="hover_expand">False</property>
+			      <signal name="select_cursor_row" handler="on_keyboard_select" last_modification_time="Mon, 20 Mar 2006 14:42:15 GMT"/>
 			    </widget>
 			  </child>
 			</widget>
