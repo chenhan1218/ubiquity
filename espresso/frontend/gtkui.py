@@ -1274,6 +1274,11 @@ class Wizard:
             os.environ['DEBCONF_DB_OVERRIDE'] = save_override
 
         self.dbfilter = save_dbfilter
+
+        if self.current_page is None:
+            # installation cancelled; partman should return ASAP after this
+            return False
+
         if self.backup:
             self.steps.set_current_page(self.previous_partitioning_page)
             self.next.set_label("gtk-go-forward")
