@@ -262,9 +262,9 @@ class Wizard:
 
     def translate_widgets(self):
         for widget in self.glade.get_widget_prefix(""):
-            self.translate_widget(widget)
+            self.translate_widget(widget, self.locale)
 
-    def translate_widget(self, widget, lang=None):
+    def translate_widget(self, widget, lang):
         text = get_string('espresso/text/%s' % widget.get_name(), lang)
         if text is None:
             return
