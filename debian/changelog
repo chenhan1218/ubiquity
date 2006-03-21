@@ -1,5 +1,11 @@
 espresso (0.99.32) UNRELEASED; urgency=low
 
+  [ Tollef Fog Heen ]
+  * Change dependency on espresso-keyboard-setup to espresso-kbd-chooser,
+    since that component moved to another package with a lower version
+    number and we don't like epochs.
+
+  [ Colin Watson ]
   * Update Portuguese translation from Rosetta.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 20 Mar 2006 11:45:26 +0000
