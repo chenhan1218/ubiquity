@@ -4,6 +4,10 @@ espresso (0.99.32) UNRELEASED; urgency=low
   * Change dependency on espresso-keyboard-setup to espresso-kbd-chooser,
     since that component moved to another package with a lower version
     number and we don't like epochs.
+  * Make the keyboard selector work somewhat sanely -- call back to
+    kbd-chooser when the selection is changed.
+  * Fix choices_display_map to work correctly and map to the other value
+    instead of being an identity map.
 
   [ Colin Watson ]
   * Update Portuguese translation from Rosetta.
