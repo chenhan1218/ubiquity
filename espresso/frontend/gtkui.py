@@ -67,29 +67,21 @@ GLADEDIR = os.path.join(PATH, 'glade')
 LOCALEDIR = "/usr/share/locale"
 
 BREADCRUMB_STEPS = {
-    "stepWelcome": "lblWelcome",
-    "stepLanguage": "lblLanguage",
-    "stepLocation": "lblLocation",
-    "stepKeyboardConf": "lblKeyboardConf",
-    "stepUserInfo": "lblUserInfo",
-    "stepPartDisk": "lblDiskSpace",
-    "stepPartAuto": "lblDiskSpace",
-    "stepPartAdvanced": "lblDiskSpace",
-    "stepPartMountpoints": "lblDiskSpace",
-    "stepReady": "lblReady"
+    "stepWelcome": 1,
+    "stepLanguage": 2,
+    "stepLocation": 3,
+    "stepKeyboardConf": 4,
+    "stepUserInfo": 5,
+    "stepPartDisk": 6,
+    "stepPartAuto": 6,
+    "stepPartAdvanced": 6,
+    "stepPartMountpoints": 6,
+    "stepReady": 7
 }
+BREADCRUMB_MAX_STEP = 7
 
-# Font stuff
-
+# For the font wibbling later
 import pango
-
-a = pango.AttrList()
-a.insert(pango.AttrForeground(65535, 65535, 655355, end_index=-1))
-a.insert(pango.AttrBackground(0x9F << 8, 0x6C << 8, 0x49 << 8, end_index=-1))
-
-BREADCRUMB_HIGHLIGHT = a
-
-BREADCRUMB_NORMAL = pango.AttrList()
 
 class Wizard:
 
@@ -347,17 +339,11 @@ class Wizard:
     def set_current_page(self, current):
         self.current_page = current
         current_name = self.step_name(current)
-
-        for step in range(0, self.steps.get_n_pages()):
-            breadcrumb = BREADCRUMB_STEPS[self.step_name(step)]
-            if hasattr(self, breadcrumb):
-                breadcrumblbl = getattr(self, breadcrumb)
-                if breadcrumb == BREADCRUMB_STEPS[current_name]:
-                    breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
-                else:
-                    breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
-            else:
-                pre_log('info', 'breadcrumb step %s missing' % breadcrumb)
+        label_text = "Step %s of %d"
+        curstep = "<i>Unknown?</i>"
+        if current_name in BREADCRUMB_STEPS:
+            curstep = str(BREADCRUMB_STEPS[current_name])
+        self.lblStepNofM.set_markup(label_text % (curstep, BREADCRUMB_MAX_STEP))
 
     # Methods
 
@@ -972,17 +958,7 @@ class Wizard:
         self.set_current_page(current)
         current_name = self.step_name(current)
         pre_log('info', 'switched to page %s' % current_name)
-
-        for step in range(0, self.steps.get_n_pages()):
-            breadcrumb = BREADCRUMB_STEPS[self.step_name(step)]
-            if hasattr(self, breadcrumb):
-                breadcrumblbl = getattr(self, breadcrumb)
-                if breadcrumb == BREADCRUMB_STEPS[current_name]:
-                    breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
-                else:
-                    breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
-            else:
-                pre_log('info', 'breadcrumb step %s missing' % breadcrumb)
+        self.set_current_page(current)
 
 
     def on_autopartition_resize_toggled (self, widget):
