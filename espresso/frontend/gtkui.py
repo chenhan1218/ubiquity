@@ -245,8 +245,7 @@ class Wizard:
         """Attempt to make sure that the screensaver doesn't kick in."""
         gobject.spawn_async(["gnome-screensaver-command", "--poke"],
                             flags=(gobject.SPAWN_SEARCH_PATH |
-                                   gobject.SPAWN_STDOUT_TO_DEV_NULL |
-                                   gobject.SPAWN_STDERR_TO_DEV_NULL))
+                                   gobject.SPAWN_STDOUT_TO_DEV_NULL))
         return True
 
 
