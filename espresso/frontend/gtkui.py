@@ -958,7 +958,6 @@ class Wizard:
         self.set_current_page(current)
         current_name = self.step_name(current)
         pre_log('info', 'switched to page %s' % current_name)
-        self.set_current_page(current)
 
 
     def on_autopartition_resize_toggled (self, widget):
