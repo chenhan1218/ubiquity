@@ -243,9 +243,18 @@ class Wizard:
 
     def poke_gnome_screensaver(self):
         """Attempt to make sure that the screensaver doesn't kick in."""
+        def drop_privileges():
+            if 'SUDO_GID' in os.environ:
+                gid = int(os.environ['SUDO_GID'])
+                os.setregid(gid, gid)
+            if 'SUDO_UID' in os.environ:
+                uid = int(os.environ['SUDO_UID'])
+                os.setreuid(uid, uid)
+
         gobject.spawn_async(["gnome-screensaver-command", "--poke"],
                             flags=(gobject.SPAWN_SEARCH_PATH |
-                                   gobject.SPAWN_STDOUT_TO_DEV_NULL))
+                                   gobject.SPAWN_STDOUT_TO_DEV_NULL),
+                            child_setup=drop_privileges)
         return True
 
 
