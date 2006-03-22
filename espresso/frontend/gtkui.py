@@ -775,7 +775,6 @@ class Wizard:
             if len(selection.items()) == 0:
                 self.next.set_sensitive(False)
             else:
-                count = 0
                 mp = { 'swap' : 0, '/' : 1 }
 
                 # Setting default preselection values into ComboBox
@@ -788,11 +787,10 @@ class Wizard:
                     self.partition_widgets[-1].set_active(
                         self.partition_choices.index(partition))
                     self.format_widgets[-1].set_active(True)
-                    if len(get_partitions()) > count + 1:
+                    if len(get_partitions()) > len(self.partition_widgets):
                         self.add_mountpoint_table_row()
                     else:
                         break
-                    count += 1
 
             # We defer connecting up signals until now to avoid the changed
             # signal firing while we're busy populating the table.
