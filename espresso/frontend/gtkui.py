@@ -247,6 +247,7 @@ class Wizard:
                             flags=(gobject.SPAWN_SEARCH_PATH |
                                    gobject.SPAWN_STDOUT_TO_DEV_NULL |
                                    gobject.SPAWN_STDERR_TO_DEV_NULL))
+        return True
 
 
     def set_locales(self):
