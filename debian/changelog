@@ -1,4 +1,4 @@
-espresso (0.99.32) UNRELEASED; urgency=low
+espresso (0.99.32) dapper; urgency=low
 
   [ Tollef Fog Heen ]
   * Change dependency on espresso-keyboard-setup to espresso-kbd-chooser,
@@ -24,7 +24,7 @@ espresso (0.99.32) UNRELEASED; urgency=low
   * Move more frontend-independent translation logic from the GTK frontend
     to espresso.misc so that other frontends can use it.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 20 Mar 2006 11:45:26 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Mar 2006 10:48:13 +0000
 
 espresso (0.99.31) dapper; urgency=low
 
