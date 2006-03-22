@@ -571,21 +571,26 @@ class Wizard:
                 index = self.mountpoint_widgets.index(widget)
             else:
                 return
-            partition_text = self.partition_widgets[index].get_active_text()
-            mountpoint_text = self.mountpoint_widgets[index].get_active_text()
 
-            if partition_text is not None and mountpoint_text != "" and \
-               len(get_partitions()) >= index + 1:
-                # This table row has been filled; create a new one.
-                self.add_mountpoint_table_row()
-                self.mountpoint_widgets[-1].connect("changed",
-                                                    self.on_list_changed)
-                self.partition_widgets[-1].connect("changed",
-                                                   self.on_list_changed)
+            partition_text = self.partition_widgets[index].get_active_text()
             if partition_text == ' ':
                 self.size_widgets[index].set_text('')
             elif partition_text != None:
                 self.size_widgets[index].set_text(self.set_size_msg(self.partition_widgets[index]))
+
+            if len(get_partitions()) > len(self.partition_widgets):
+                for i in range(len(self.partition_widgets)):
+                    partition = self.partition_widgets[i].get_active_text()
+                    mountpoint = self.mountpoint_widgets[i].get_active_text()
+                    if partition is None or mountpoint == "":
+                        break
+                else:
+                    # All table rows have been filled; create a new one.
+                    self.add_mountpoint_table_row()
+                    self.mountpoint_widgets[-1].connect("changed",
+                                                        self.on_list_changed)
+                    self.partition_widgets[-1].connect("changed",
+                                                       self.on_list_changed)
 
 
     def info_loop(self, widget):

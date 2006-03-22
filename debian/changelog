@@ -1,3 +1,10 @@
+espresso (0.99.33) UNRELEASED; urgency=low
+
+  * Only add new mountpoint table rows if all current rows have been filled
+    (closes: Malone #34922).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Mar 2006 12:05:27 +0000
+
 espresso (0.99.32) dapper; urgency=low
 
   [ Tollef Fog Heen ]
