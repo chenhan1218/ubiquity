@@ -1327,7 +1327,11 @@ class Wizard:
     def get_keyboard (self):
         selection = self.keyboardlistview.get_selection()
         (model, iterator) = selection.get_selected()
-        return self.keyboard_choice_map[unicode(model.get_value(iterator, 0))]
+        if iterator is None:
+            return None
+        else:
+            value = unicode(model.get_value(iterator, 0))
+            return self.keyboard_choice_map[value]
 
     def set_summary_text (self, text):
         self.ready_text.set_text(text)

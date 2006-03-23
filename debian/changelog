@@ -4,7 +4,8 @@ espresso (0.99.33) UNRELEASED; urgency=low
   * Only add new mountpoint table rows if all current rows have been filled
     (closes: Malone #34922).
   * Fix widget names in mount point error handling (closes: Malone #36154).
-  
+  * Cope with the keyboard selector having no row selected.
+
   [ Daniel Silverstone ]
   * Change breadcrumbs to a Step N-of-M display instead.
 
