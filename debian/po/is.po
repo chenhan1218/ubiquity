@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-03-21 14:10+0000\n"
+"POT-Creation-Date: 2006-03-23 18:04+0000\n"
 "PO-Revision-Date: 2006-03-17 13:49+0000\n"
 "Last-Translator: David Steinn Geirsson <davidgeirs@gmail.com>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
@@ -231,7 +231,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:159
-msgid "Format?"
+msgid "Reformat?"
 msgstr ""
 
 #. Type: text

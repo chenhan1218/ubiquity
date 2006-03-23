@@ -156,7 +156,7 @@ _Description: Partition
 
 Template: espresso/text/format_label
 Type: text
-_Description: Format?
+_Description: Reformat?
 
 Template: espresso/text/mountpoint_error_reason
 Type: text

@@ -9,6 +9,7 @@ espresso (0.99.33) UNRELEASED; urgency=low
     - Cope with the keyboard selector having no row selected.
     - Cope with getting set_keyboard and set_keyboard_choices in either
       order.
+    - Change "Format?" to "Reformat?" in mountpoint table.
 
   [ Daniel Silverstone ]
   * GTK frontend: Change breadcrumbs to a Step N-of-M display instead.

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-03-21 14:10+0000\n"
+"POT-Creation-Date: 2006-03-23 18:04+0000\n"
 "PO-Revision-Date: 2006-03-19 12:09+0000\n"
 "Last-Translator: Rui Az. <astronomy@mail.pt>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -248,7 +248,8 @@ msgstr "Partição"
 #. Type: text
 #. Description
 #: ../espresso.templates:159
-msgid "Format?"
+#, fuzzy
+msgid "Reformat?"
 msgstr "Formatar?"
 
 #. Type: text
