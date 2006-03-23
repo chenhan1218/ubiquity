@@ -181,7 +181,7 @@ def get_translations():
         db = subprocess.Popen(
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
-             '--config=InFd:none', '--pattern=^espresso/'],
+             '--config=InFd:none', '--pattern=^(espresso|partman)'],
             stdout=subprocess.PIPE, stderr=devnull)
         question = None
         descriptions = {}

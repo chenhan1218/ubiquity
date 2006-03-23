@@ -1,3 +1,11 @@
+espresso (0.99.34) UNRELEASED; urgency=low
+
+  * GTK frontend:
+    - Remove remaining Spanish strings. Make some of these translatable
+      using existing strings in partman; the rest will follow later.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 23 Mar 2006 19:45:47 +0000
+
 espresso (0.99.33) dapper; urgency=low
 
   [ Colin Watson ]

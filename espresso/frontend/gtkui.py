@@ -793,7 +793,7 @@ class Wizard:
         """Processing mountpoints to summary step tasks."""
 
         # Validating self.mountpoints
-        error_msg = ['\n']
+        error_msg = []
 
         mountpoints = {}
         part_labels_inv = {}
@@ -809,12 +809,12 @@ class Wizard:
                     continue
                 else:
                     error_msg.append(
-                        "No mount point selected for %s.\n" % partition_value)
+                        "No mount point selected for %s." % partition_value)
                     break
             else:
                 if partition_value in (None, ' '):
                     error_msg.append(
-                        "No partition selected for %s.\n" % mountpoint_value)
+                        "No partition selected for %s." % mountpoint_value)
                     break
                 else:
                     mountpoints[part_labels_inv[partition_value]] = \
@@ -827,7 +827,8 @@ class Wizard:
 
         for check in partitions:
             if partitions.count(check) > 1:
-                error_msg.append("· Dispositivos duplicados.\n\n")
+                error_msg.append("A partition is assigned to more than one "
+                                 "mount point.")
                 break
 
         # Processing more validation stuff
@@ -835,22 +836,29 @@ class Wizard:
             for check in validation.check_mountpoint(self.mountpoints,
                                                      self.size):
                 if check == validation.MOUNTPOINT_NOROOT:
-                    error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
+                    error_msg.append(get_string(
+                        'partman-target/no_root', self.locale))
                 elif check == validation.MOUNTPOINT_DUPPATH:
-                    error_msg.append("· Puntos de montaje duplicados.\n\n")
+                    error_msg.append("Two file systems are assigned the same "
+                                     "mount point.")
                 elif check == validation.MOUNTPOINT_BADSIZE:
                     for mountpoint, format in self.mountpoints.itervalues():
                         if mountpoint == 'swap':
-                            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
+                            min_root = MINIMAL_PARTITION_SCHEME['root']
                             break
                     else:
-                        error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
+                        min_root = (MINIMAL_PARTITION_SCHEME['root'] +
+                                    MINIMAL_PARTITION_SCHEME['swap'] * 1024)
+                    error_msg.append("The partition assigned to '/' is too "
+                                     "small (minimum size: %d Mb)." % min_root)
                 elif check == validation.MOUNTPOINT_BADCHAR:
-                    error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
+                    error_msg.append(get_string(
+                        'partman-basicfilesystems/bad_mountpoint',
+                        self.locale))
 
         # showing warning messages
-        if len(error_msg) > 1:
-            self.mountpoint_error_reason.set_text(''.join(error_msg))
+        if len(error_msg) != 0:
+            self.mountpoint_error_reason.set_text("\n".join(error_msg))
             self.mountpoint_error_reason.show()
             self.mountpoint_error_image.show()
             return
