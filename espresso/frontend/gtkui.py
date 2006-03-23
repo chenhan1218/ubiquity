@@ -88,6 +88,7 @@ class Wizard:
     def __init__(self, distro):
         # declare attributes
         self.distro = distro
+        self.current_keyboard = None
         self.hostname = ''
         self.fullname = ''
         self.name = ''
@@ -1307,16 +1308,23 @@ class Wizard:
             selection = self.keyboardlistview.get_selection()
             selection.connect('changed',
                               self.on_keyboard_selected)
+
+        if self.current_keyboard is not None:
+            self.set_keyboard(self.current_keyboard)
     
     def set_keyboard (self, keyboard):
         """
-        Keyboard is the database name of the keyboard, so unstranslated
+        Keyboard is the database name of the keyboard, so untranslated
         """
 
+        self.current_keyboard = keyboard
         model = self.keyboardlistview.get_model()
+        if model is None:
+            return
         iterator = model.iter_children(None)
         while iterator is not None:
-            if self.keyboard_choice_map[unicode(model.get_value(iterator, 0))] == keyboard:
+            value = unicode(model.get_value(iterator, 0))
+            if self.keyboard_choice_map[value] == keyboard:
                 path = model.get_path(iterator)
                 self.keyboardlistview.get_selection().select_path(path)
                 self.keyboardlistview.scroll_to_cell(
