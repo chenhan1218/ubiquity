@@ -849,9 +849,9 @@ class Wizard:
 
         # showing warning messages
         if len(error_msg) > 1:
-            self.msg_error2.set_text(''.join(error_msg))
-            self.msg_error2.show()
-            self.img_error2.show()
+            self.mountpoint_error_reason.set_text(''.join(error_msg))
+            self.mountpoint_error_reason.show()
+            self.mountpoint_error_image.show()
             return
 
         gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
