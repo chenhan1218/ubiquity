@@ -1,14 +1,17 @@
 espresso (0.99.33) UNRELEASED; urgency=low
 
   [ Colin Watson ]
-  * Only add new mountpoint table rows if all current rows have been filled
-    (closes: Malone #34922).
-  * Fix widget names in mount point error handling (closes: Malone #36154).
-  * Cope with the keyboard selector having no row selected.
-  * Cope with getting set_keyboard and set_keyboard_choices in either order.
+  * GTK frontend:
+    - Only add new mountpoint table rows if all current rows have been
+      filled (closes: Malone #34922).
+    - Fix widget names in mount point error handling (closes: Malone
+      #36154).
+    - Cope with the keyboard selector having no row selected.
+    - Cope with getting set_keyboard and set_keyboard_choices in either
+      order.
 
   [ Daniel Silverstone ]
-  * Change breadcrumbs to a Step N-of-M display instead.
+  * GTK frontend: Change breadcrumbs to a Step N-of-M display instead.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Mar 2006 12:05:27 +0000
 
