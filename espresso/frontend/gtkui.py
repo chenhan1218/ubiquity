@@ -459,6 +459,7 @@ class Wizard:
         format = gtk.CheckButton()
         format.set_mode(draw_indicator=True)
         format.set_active(False)
+        format.set_sensitive(False)
 
         row = len(self.mountpoint_widgets) + 1
         self.mountpoint_widgets.append(mountpoint)
@@ -566,6 +567,17 @@ class Wizard:
                 self.size_widgets[index].set_text('')
             elif partition_text != None:
                 self.size_widgets[index].set_text(self.set_size_msg(self.partition_widgets[index]))
+
+            # Does the Reformat checkbox make sense?
+            partition = self.part_labels.keys()[self.part_labels.values().index(partition_text)]
+            if partition_text == ' ':
+                self.format_widgets[index].set_sensitive(False)
+                self.format_widgets[index].set_active(False)
+            elif partition in self.gparted_fstype:
+                self.format_widgets[index].set_sensitive(False)
+                self.format_widgets[index].set_active(True)
+            else:
+                self.format_widgets[index].set_sensitive(True)
 
             if len(get_partitions()) > len(self.partition_widgets):
                 for i in range(len(self.partition_widgets)):
@@ -779,10 +791,13 @@ class Wizard:
                         self.set_size_msg(partition))
                     self.partition_widgets[-1].set_active(
                         self.partition_choices.index(partition))
-                    if (mountpoint in ('swap', '/', '/usr', '/var', '/boot')):
+                    if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
+                        partition in self.gparted_fstype):
                         self.format_widgets[-1].set_active(True)
                     else:
                         self.format_widgets[-1].set_active(False)
+                    if partition not in self.gparted_fstype:
+                        self.format_widgets[-1].set_sensitive(True)
                     if len(get_partitions()) > len(self.partition_widgets):
                         self.add_mountpoint_table_row()
                     else:

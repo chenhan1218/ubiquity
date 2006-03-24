@@ -7,6 +7,8 @@ espresso (0.99.34) UNRELEASED; urgency=low
       swap, /, /usr, /var, or /boot to be reformatted by default.
     - Honour the desired type of a filesystem newly created in gparted in
       preference to its current detected type.
+    - If a newly-created filesystem is selected, disable the Reformat
+      checkbox and force it on, as it makes no sense off.
   * Exempt swap from duplicate mountpoint checks (part of Malone #34465).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 23 Mar 2006 19:45:47 +0000
