@@ -1,4 +1,4 @@
-espresso (0.99.34) UNRELEASED; urgency=low
+espresso (0.99.34) dapper; urgency=low
 
   * GTK frontend:
     - Remove remaining Spanish strings. Make some of these translatable
@@ -16,7 +16,7 @@ espresso (0.99.34) UNRELEASED; urgency=low
     copy), although I think buffering on cpio's stdin is still causing it to
     be pretty badly out most of the time.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 23 Mar 2006 19:45:47 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Mar 2006 20:00:34 +0000
 
 espresso (0.99.33) dapper; urgency=low
 
