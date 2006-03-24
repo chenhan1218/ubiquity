@@ -36,6 +36,7 @@ import gettext
 
 from espresso import filteredcommand, validation
 from espresso.misc import *
+from espresso.settings import *
 #from espresso.components import language, timezone, kbd_chooser, usersetup, \
 from espresso.components import language, timezone, usersetup, \
                                 partman, partman_commit, summary, install

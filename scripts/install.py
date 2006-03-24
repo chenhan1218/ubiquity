@@ -33,7 +33,6 @@ from apt.cache import Cache
 from apt.progress import FetchProgress, InstallProgress
 from espresso import misc
 from espresso.components import language_apply, timezone_apply, usersetup_apply
-from espresso.settings import *
 
 class DebconfFetchProgress(FetchProgress):
     """An object that reports apt's fetching progress using debconf."""
