@@ -11,6 +11,10 @@ espresso (0.99.34) UNRELEASED; urgency=low
       checkbox and force it on, as it makes no sense off.
   * Exempt swap from duplicate mountpoint checks (part of Malone #34465).
   * Fix crash when reporting that a partition is too small.
+  * Make the estimated install copying time a bit less madly wrong (it was
+    estimating based on the total file size rather than the amount left to
+    copy), although I think buffering on cpio's stdin is still causing it to
+    be pretty badly out most of the time.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 23 Mar 2006 19:45:47 +0000
 

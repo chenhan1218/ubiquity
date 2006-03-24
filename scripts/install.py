@@ -371,7 +371,7 @@ class Install:
                         times.pop(0)
                     speed = ((times[-1][1] - times[0][1]) /
                              (times[-1][0] - times[0][0]))
-                    time_remaining = int(total_size / speed)
+                    time_remaining = int((total_size - copied_bytes) / speed)
                     time_str = "%d:%02d" % divmod(time_remaining, 60)
                     self.db.subst('espresso/install/copying_time',
                                   'TIME', time_str)
