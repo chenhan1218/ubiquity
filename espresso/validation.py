@@ -116,7 +116,7 @@ def check_mountpoint(mountpoints, size):
             if float(size[device.split('/')[2]]) < root_minimum_KB:
                 result.add(MOUNTPOINT_BADSIZE)
 
-        if path in seen_mountpoints:
+        if path != 'swap' and path in seen_mountpoints:
             result.add(MOUNTPOINT_DUPPATH)
         else:
             seen_mountpoints.add(path)
