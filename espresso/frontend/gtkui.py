@@ -358,6 +358,8 @@ class Wizard:
         self.embedded.add(socket)
         window_id = str(socket.get_id())
 
+        self.gparted_fstype = {}
+
         # Save pid to kill gparted when install process starts
         self.gparted_subp = subprocess.Popen(
             ['gparted', '--installer', window_id],
@@ -399,7 +401,7 @@ class Wizard:
         return msg
 
 
-    def get_default_partition_selection(self, size):
+    def get_default_partition_selection(self, size, fstype):
         """return a dictionary with a skeleton { mountpoint : device }
         as a default partition selection. The first partition with max size
         and ext3 fs will be root, and the first partition it finds as swap
@@ -414,7 +416,7 @@ class Wizard:
         size_ordered.reverse()
 
         # getting filesystem dict ( { device : fs } )
-        device_list = get_filesystems()
+        device_list = get_filesystems(fstype)
 
         # building an initial mountpoint preselection dict. Assigning only
         # preferred partitions for each mountpoint (the highest ext3 partition
@@ -433,7 +435,7 @@ class Wizard:
                     if root == 0:
                         selection['/'] = '/dev/%s' % partition
                         root = 1
-                elif fs == 'swap':
+                elif fs == 'linux-swap':
                     selection['swap'] = '/dev/%s' % partition
                     swap = 1
                 else:
@@ -725,14 +727,17 @@ class Wizard:
     def gparted_to_mountpoints(self):
         """Processing gparted to mountpoints step tasks."""
 
+        self.gparted_fstype = {}
+
         print >>self.gparted_subp.stdin, "apply"
 
         gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
-        while gparted_reply.startswith("-"):
-            # Instructions like FORMAT come in here, let's just continue
-            # swallowing them up for now.
+        while gparted_reply.startswith('- '):
+            words = gparted_reply[2:].strip().split()
+            if words[0].lower() == 'format' and len(words) >= 3:
+                self.gparted_fstype[words[1]] = words[2]
             gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
-            
+
         if not gparted_reply.startswith('0 '):
             return
 
@@ -756,7 +761,8 @@ class Wizard:
 
             # Try to get some default mountpoint selections.
             self.size = self.get_sizes()
-            selection = self.get_default_partition_selection(self.size)
+            selection = self.get_default_partition_selection(
+                self.size, self.gparted_fstype)
 
             # Setting a default partition preselection
             if len(selection.items()) == 0:

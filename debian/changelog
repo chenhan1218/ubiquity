@@ -5,6 +5,8 @@ espresso (0.99.34) UNRELEASED; urgency=low
       using existing strings in partman; the rest will follow later.
     - In manual partitioning, only mark partitions automatically mounted on
       swap, /, /usr, /var, or /boot to be reformatted by default.
+    - Honour the desired type of a filesystem newly created in gparted in
+      preference to its current detected type.
   * Exempt swap from duplicate mountpoint checks (part of Malone #34465).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 23 Mar 2006 19:45:47 +0000

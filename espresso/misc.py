@@ -126,7 +126,7 @@ def get_partitions():
     return partition
 
 
-def get_filesystems():
+def get_filesystems(fstype={}):
     """returns a dictionary with a skeleton { device : filesystem }
     with data from local hard disks. Only swap and ext3 filesystems
     are available."""
@@ -140,13 +140,17 @@ def get_filesystems():
     partition_list = get_partitions()
     for device in partition_list:
         device = '/dev/' + device
+        if device in fstype:
+            # Filesystem is due to be formatted; honour the desired type.
+            device_list[device] = fstype[device]
+            continue
         filesystem_pipe = subprocess.Popen(['file', '-s', device], stdout=subprocess.PIPE)
         filesystem = filesystem_pipe.communicate()[0]
         if re.match('.*((ext3)|(swap)|(extended)|(data)).*', filesystem, re.I):
             if 'ext3' in filesystem.split() or 'data' in filesystem.split() or 'extended' in filesystem.split():
                 device_list[device] = 'ext3'
             elif 'swap' in filesystem.split():
-                device_list[device] = 'swap'
+                device_list[device] = 'linux-swap'
             elif 'FAT' in filesystem.split():
                 device_list[device] = 'vfat'
             elif 'NTFS' in filesystem.split():

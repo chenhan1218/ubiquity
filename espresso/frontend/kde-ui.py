@@ -651,7 +651,7 @@ class Wizard:
                     if root == 0:
                         selection['/'] = '/dev/%s' % partition
                         root = 1
-                elif fs == 'swap':
+                elif fs == 'linux-swap':
                     selection['swap'] = '/dev/%s' % partition
                     swap = 1
                 else:
