@@ -773,7 +773,10 @@ class Wizard:
                         self.set_size_msg(partition))
                     self.partition_widgets[-1].set_active(
                         self.partition_choices.index(partition))
-                    self.format_widgets[-1].set_active(True)
+                    if (mountpoint in ('swap', '/', '/usr', '/var', '/boot'):
+                        self.format_widgets[-1].set_active(True)
+                    else:
+                        self.format_widgets[-1].set_active(False)
                     if len(get_partitions()) > len(self.partition_widgets):
                         self.add_mountpoint_table_row()
                     else:
