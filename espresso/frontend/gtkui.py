@@ -5,7 +5,7 @@
 # Copyright (C) 2005 Junta de Andalucía
 # Copyright (C) 2005, 2006 Canonical Ltd.
 #
-# Autores (Authors):
+# Authors:
 #
 # - Javier Carranza <javier.carranza#interactors._coop>
 # - Juan Jesús Ojeda Croissier <juanje#interactors._coop>
