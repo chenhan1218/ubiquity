@@ -1051,7 +1051,8 @@ class Wizard:
             self.debconf_progress_dialog.set_title(progress_title)
 
         self.progress_title.set_markup(
-            '<b>' + xml.sax.saxutils.escape(progress_title) + '</b>')
+            '<big><b>' + xml.sax.saxutils.escape(progress_title) +
+            '</b></big>')
         self.progress_position.start(progress_min, progress_max)
         self.debconf_progress_set(0)
         self.progress_info.set_text('')

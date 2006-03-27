@@ -5,6 +5,8 @@ espresso (0.99.35) UNRELEASED; urgency=low
     buffering issues.
   * Avoid a long pause without any info message while updating apt's indices
     before downloading language packs.
+  * GTK frontend:
+    - Enlarge primary text in progress windows, per the GNOME HIG.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 27 Mar 2006 13:38:44 +0100
 
