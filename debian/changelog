@@ -1,10 +1,14 @@
 espresso (0.99.35) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Fix estimated install copying time. We no longer use cpio to do the
     copying, but instead do the whole thing in-process. This lets us avoid
     buffering issues.
   * Avoid a long pause without any info message while updating apt's indices
     before downloading language packs.
+
+  [ Jonathan Riddell ]
+  * Sync KDE frontend with GTK
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 27 Mar 2006 13:38:44 +0100
 
