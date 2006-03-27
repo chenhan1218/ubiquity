@@ -44,10 +44,12 @@ def install(type='gtkui'):
 
 def unmount_target():
     paths = []
-    for line in open('/proc/mounts'):
+    mounts = open('/proc/mounts')
+    for line in mounts:
         path = line.split(' ')[1]
         if path == '/target' or path.startswith('/target/'):
             paths.append(path)
+    mounts.close()
     paths.sort()
     paths.reverse()
     for path in paths:

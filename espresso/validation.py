@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# «validation» - validación de los datos de entrada del usuario
+# «validation» - miscellaneous validation of user-entered data
 # 
 # Copyright (C) 2005 Junta de Andalucía
 # 
@@ -9,26 +9,6 @@
 # - Antonio Olmo Titos <aolmo#emergya._info>
 # - Javier Carranza <javier.carranza#interactors._coop>
 # - Juan Jesús Ojeda Croissier <juanje#interactors._coop>
-# 
-# Este fichero es parte del instalador en directo de Guadalinex 2005.
-# 
-# El instalador en directo de Guadalinex 2005 es software libre. Puede
-# redistribuirlo y/o modificarlo bajo los términos de la Licencia Pública
-# General de GNU según es publicada por la Free Software Foundation, bien de la
-# versión 2 de dicha Licencia o bien (según su elección) de cualquier versión
-# posterior. 
-# 
-# El instalador en directo de Guadalinex 2005 se distribuye con la esperanza de
-# que sea útil, pero SIN NINGUNA GARANTÍA, incluso sin la garantía MERCANTIL
-# implícita o sin garantizar la CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase
-# la Licencia Pública General de GNU para más detalles.
-# 
-# Debería haber recibido una copia de la Licencia Pública General junto con el
-# instalador en directo de Guadalinex 2005. Si no ha sido así, escriba a la Free
-# Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301
-# USA.
-# 
-# -------------------------------------------------------------------------
 # 
 # This file is part of Guadalinex 2005 live installer.
 # 
@@ -77,7 +57,7 @@ def check_hostname(name):
 
     regex = re.compile(r'^[a-zA-Z0-9]+$')
     if not regex.search(name):
-      result.add(HOSTNAME_BADCHAR)
+        result.add(HOSTNAME_BADCHAR)
 
     return sorted(result)
 
@@ -100,26 +80,31 @@ def check_mountpoint(mountpoints, size):
     result = set()
     root = 0
 
-    if 'swap' in mountpoints.values():
-      root_minimum_KB = MINIMAL_PARTITION_SCHEME['root'] * 1024
+    for mountpoint, format in mountpoints.itervalues():
+        if mountpoint == 'swap':
+            root_minimum_KB = MINIMAL_PARTITION_SCHEME['root'] * 1024
+            break
     else:
-      root_minimum_KB = (MINIMAL_PARTITION_SCHEME['root'] +
-                         MINIMAL_PARTITION_SCHEME['swap']) * 1024
+        root_minimum_KB = (MINIMAL_PARTITION_SCHEME['root'] +
+                           MINIMAL_PARTITION_SCHEME['swap']) * 1024
 
-    for device, path in mountpoints.items():
-      if path == '/':
-        root = 1
+    seen_mountpoints = set()
+    for device, (path, format) in mountpoints.items():
+        if path == '/':
+            root = 1
 
-        if float(size[device.split('/')[2]]) < root_minimum_KB:
-          result.add(MOUNTPOINT_BADSIZE)
+            if float(size[device.split('/')[2]]) < root_minimum_KB:
+                result.add(MOUNTPOINT_BADSIZE)
 
-      if mountpoints.values().count(path) > 1:
-        result.add(MOUNTPOINT_DUPPATH)
-      regex = re.compile(r'^[a-zA-Z0-9/\-\_\+]+$')
-      if not regex.search(path):
-        result.add(MOUNTPOINT_BADCHAR)
+        if path != 'swap' and path in seen_mountpoints:
+            result.add(MOUNTPOINT_DUPPATH)
+        else:
+            seen_mountpoints.add(path)
+        regex = re.compile(r'^[a-zA-Z0-9/\-\_\+]+$')
+        if not regex.search(path):
+            result.add(MOUNTPOINT_BADCHAR)
 
     if root != 1:
-      result.add(MOUNTPOINT_NOROOT)
+        result.add(MOUNTPOINT_NOROOT)
 
     return sorted(result)

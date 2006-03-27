@@ -43,7 +43,9 @@ class Wizard:
         hostname and user. Return a list with those values.
         '''
         info = []
-        info.append(open('/etc/hostname').readline().strip())
+        hostname = open('/etc/hostname')
+        info.append(hostname.readline().strip())
+        hostname.close()
         info.append(self.db.get('passwd/user-fullname'))
         info.append(self.db.get('passwd/username'))
         info.append(self.db.get('passwd/user-password'))
@@ -83,6 +85,15 @@ class Wizard:
 
     def get_hostname(self):
         return self.get_info()[0]
+
+    def get_mountpoints(self):
+        # TODO cjwatson 2006-03-08: partman now expects
+        # {mountpoint -> (partition, format?)}; this frontend should be
+        # fixed to work with that internally (see gtkui).
+        dummy_mountpoints = {}
+        for mountpoint, partition in self.mountpoints.iteritems():
+            dummy_mountpoints[mountpoint] = (partition, True)
+        return dummy_mountpoints
 
 if __name__ == '__main__':
     w = Wizard()

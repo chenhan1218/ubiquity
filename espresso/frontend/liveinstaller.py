@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'liveinstaller.ui'
 #
-# Created: Fri Mar 3 13:33:47 2006
+# Created: Wed Mar 8 21:01:56 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -357,18 +357,6 @@ class EspressoUI(QWidget):
         stepLanguageLayout.addWidget(self.textLabel2_3,2,1)
         self.widgetStack.addWidget(self.stepLanguage,1)
 
-        self.stepKeyboardConf = QWidget(self.widgetStack,"stepKeyboardConf")
-        stepKeyboardConfLayout = QGridLayout(self.stepKeyboardConf,1,1,11,6,"stepKeyboardConfLayout")
-        spacer16_2_2 = QSpacerItem(21,193,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        stepKeyboardConfLayout.addItem(spacer16_2_2,0,0)
-        spacer17_2_2 = QSpacerItem(21,193,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        stepKeyboardConfLayout.addItem(spacer17_2_2,2,0)
-
-        self.textLabel1_3_2 = QLabel(self.stepKeyboardConf,"textLabel1_3_2")
-
-        stepKeyboardConfLayout.addWidget(self.textLabel1_3_2,1,0)
-        self.widgetStack.addWidget(self.stepKeyboardConf,2)
-
         self.stepLocation = QWidget(self.widgetStack,"stepLocation")
         stepLocationLayout = QGridLayout(self.stepLocation,1,1,11,6,"stepLocationLayout")
 
@@ -413,7 +401,19 @@ class EspressoUI(QWidget):
         self.textLabel1 = QLabel(self.stepLocation,"textLabel1")
 
         stepLocationLayout.addWidget(self.textLabel1,0,0)
-        self.widgetStack.addWidget(self.stepLocation,3)
+        self.widgetStack.addWidget(self.stepLocation,2)
+
+        self.stepKeyboardConf = QWidget(self.widgetStack,"stepKeyboardConf")
+        stepKeyboardConfLayout = QGridLayout(self.stepKeyboardConf,1,1,11,6,"stepKeyboardConfLayout")
+        spacer16_2_2 = QSpacerItem(21,193,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        stepKeyboardConfLayout.addItem(spacer16_2_2,0,0)
+        spacer17_2_2 = QSpacerItem(21,193,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        stepKeyboardConfLayout.addItem(spacer17_2_2,2,0)
+
+        self.textLabel1_3_2 = QLabel(self.stepKeyboardConf,"textLabel1_3_2")
+
+        stepKeyboardConfLayout.addWidget(self.textLabel1_3_2,1,0)
+        self.widgetStack.addWidget(self.stepKeyboardConf,3)
 
         self.stepUserInfo = QWidget(self.widgetStack,"stepUserInfo")
         stepUserInfoLayout = QGridLayout(self.stepUserInfo,1,1,11,6,"stepUserInfoLayout")
@@ -579,17 +579,17 @@ class EspressoUI(QWidget):
 
         layout14 = QGridLayout(None,1,1,0,6,"layout14")
 
-        self.msg_error2 = QLabel(self.stepPartMountpoints,"msg_error2")
+        self.mountpoint_error_message = QLabel(self.stepPartMountpoints,"mountpoint_error_message")
 
-        layout14.addMultiCellWidget(self.msg_error2,0,1,2,2)
+        layout14.addMultiCellWidget(self.mountpoint_error_message,0,1,2,2)
         spacer26 = QSpacerItem(21,31,QSizePolicy.Minimum,QSizePolicy.Expanding)
         layout14.addItem(spacer26,1,0)
 
-        self.img_error2 = QLabel(self.stepPartMountpoints,"img_error2")
-        self.img_error2.setPixmap(self.image1)
-        self.img_error2.setScaledContents(1)
+        self.mountpoint_error_image = QLabel(self.stepPartMountpoints,"mountpoint_error_image")
+        self.mountpoint_error_image.setPixmap(self.image1)
+        self.mountpoint_error_image.setScaledContents(1)
 
-        layout14.addWidget(self.img_error2,0,0)
+        layout14.addWidget(self.mountpoint_error_image,0,0)
         spacer25 = QSpacerItem(31,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
         layout14.addItem(spacer25,0,1)
 
@@ -800,12 +800,12 @@ class EspressoUI(QWidget):
         self.textLabel2_3.setText(i18n("Ready to install? Once you answer a few questions, Ubuntu can be installed on this computer so you can run the system at full speed and without the CD.\n"
 "\n"
 "Answering the questions should only take a few minutes."))
-        self.textLabel1_3_2.setText(i18n("Some text (keyboard configurator goes here)"))
         self.textLabel4.setText(i18n("Specifying your location helps achieve faster downloads, and accurate number and currency settings."))
         self.textLabel2.setText(i18n("Nearest city:"))
         self.textLabel3_2.setText(i18n("Time zone:"))
         self.timezone_zone_text.setText(QString.null)
         self.textLabel1.setText(i18n("<h2>Where are you?</h2>"))
+        self.textLabel1_3_2.setText(i18n("Some text (keyboard configurator goes here)"))
         self.warning_info.setText(QString.null)
         self.ident_label_3.setText(i18n("<h2>Identify yourself and your computer</h2>"))
         self.textLabel4_2.setText(i18n("<b>Computer Data</b>"))
@@ -826,7 +826,7 @@ class EspressoUI(QWidget):
 "You can now modify your existing partition table and select where you want what.\n"
 "Remember that you can keep the data in a previous home partition – just leave it as it is and it will not be formatted.\n"
 "Alternatively, it is possible to return to the previous page to select an easier partitioning method."))
-        self.msg_error2.setText(i18n("You must supply a <b>\"/\"</b> mount point for your installed system."))
+        self.mountpoint_error_message.setText(i18n("You must supply a <b>\"/\"</b> mount point for your installed system."))
         self.mountpoint8.clear()
         self.mountpoint8.insertItem(QString.null)
         self.mountpoint8.insertItem(i18n("swap"))

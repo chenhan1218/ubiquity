@@ -22,7 +22,9 @@ import sys
 import os
 import platform
 import errno
+import stat
 import re
+import shutil
 import subprocess
 import time
 import debconf
@@ -32,21 +34,23 @@ from apt.cache import Cache
 from apt.progress import FetchProgress, InstallProgress
 from espresso import misc
 from espresso.components import language_apply, timezone_apply, usersetup_apply
-from espresso.settings import *
 
 class DebconfFetchProgress(FetchProgress):
     """An object that reports apt's fetching progress using debconf."""
 
-    def __init__(self, db, title, info):
+    def __init__(self, db, title, info_starting, info):
         FetchProgress.__init__(self)
         self.db = db
         self.title = title
+        self.info_starting = info_starting
         self.info = info
         self.old_capb = None
         self.eta = 0.0
 
     def start(self):
         self.db.progress('START', 0, 100, self.title)
+        if self.info_starting is not None:
+            self.db.progress('INFO', self.info_starting)
         self.old_capb = self.db.capb()
         capb_list = self.old_capb.split()
         capb_list.append('progresscancel')
@@ -83,7 +87,7 @@ class DebconfInstallProgress(InstallProgress):
         self.db = db
         self.title = title
         self.info = info
-        self.error = error
+        self.error_template = error
         self.started = False
 
     def startUpdate(self):
@@ -91,9 +95,9 @@ class DebconfInstallProgress(InstallProgress):
         self.started = True
 
     def error(self, pkg, errormsg):
-        self.db.subst(self.error, 'PACKAGE', pkg)
-        self.db.subst(self.error, 'MESSAGE', errormsg)
-        self.db.input('critical', self.error)
+        self.db.subst(self.error_template, 'PACKAGE', pkg)
+        self.db.subst(self.error_template, 'MESSAGE', errormsg)
+        self.db.input('critical', self.error_template)
         self.db.go()
 
     def statusChange(self, pkg, percent, status):
@@ -321,19 +325,11 @@ class Install:
                 relpath = os.path.join(sourcepath, name)
                 fqpath = os.path.join(self.source, dirpath, name)
 
-                if os.path.isfile(fqpath):
-                    size = os.path.getsize(fqpath)
-                    total_size += size
-                    files.append((relpath, size))
-                else:
-                    files.append((relpath, None))
+                total_size += os.lstat(fqpath).st_size
+                files.append(relpath)
 
         self.db.progress('SET', 10)
         self.db.progress('INFO', 'espresso/install/copying')
-
-        copy = subprocess.Popen(['cpio', '-d0mp', '--quiet', self.target],
-                cwd = self.source,
-                stdin = subprocess.PIPE)
 
         # Progress bar handling:
         # We sample progress every half-second (assuming time.time() gives
@@ -344,24 +340,50 @@ class Install:
         # remaining" indicator at most every two seconds after that.
 
         copy_progress = 0
-        copied_bytes, counter = 0, 0
+        copied_size, counter = 0, 0
         time_start = time.time()
-        times = [(time_start, copied_bytes)]
+        times = [(time_start, copied_size)]
         long_enough = False
         time_last_update = time_start
 
-        for path, size in files:
-            copy.stdin.write(path + '\0')
-            if size is not None:
-                copied_bytes += size
+        old_umask = os.umask(0)
+        for path in files:
+            sourcepath = os.path.join(self.source, path)
+            targetpath = os.path.join(self.target, path)
+            st = os.lstat(sourcepath)
+            if stat.S_ISLNK(st.st_mode):
+                linkto = os.readlink(sourcepath)
+                os.symlink(linkto, targetpath)
+            elif stat.S_ISDIR(st.st_mode):
+                if os.path.isdir(targetpath):
+                    os.chmod(targetpath, stat.S_IMODE(st.st_mode))
+                else:
+                    os.mkdir(targetpath, stat.S_IMODE(st.st_mode))
+            elif stat.S_ISCHR(st.st_mode):
+                os.mknod(targetpath, stat.S_IFCHR | stat.S_IMODE(st.st_mode),
+                         st.st_rdev)
+            elif stat.S_ISBLK(st.st_mode):
+                os.mknod(targetpath, stat.S_IFBLK | stat.S_IMODE(st.st_mode),
+                         st.st_rdev)
+            elif stat.S_ISFIFO(st.st_mode):
+                os.mknod(targetpath, stat.S_IFIFO | stat.S_IMODE(st.st_mode))
+            elif stat.S_ISSOCK(st.st_mode):
+                os.mknod(targetpath, stat.S_IFSOCK | stat.S_IMODE(st.st_mode))
+            elif stat.S_ISREG(st.st_mode):
+                shutil.copyfile(sourcepath, targetpath)
+                os.chmod(targetpath, stat.S_IMODE(st.st_mode))
 
-            if int((copied_bytes * 90) / total_size) != copy_progress:
-                copy_progress = int((copied_bytes * 90) / total_size)
+            copied_size += st.st_size
+            if not stat.S_ISLNK(st.st_mode):
+                os.utime(targetpath, (st.st_atime, st.st_mtime))
+
+            if int((copied_size * 90) / total_size) != copy_progress:
+                copy_progress = int((copied_size * 90) / total_size)
                 self.db.progress('SET', 10 + copy_progress)
 
             time_now = time.time()
             if (time_now - times[-1][0]) >= 0.5:
-                times.append((time_now, copied_bytes))
+                times.append((time_now, copied_size))
                 if not long_enough and time_now - times[0][0] >= 10:
                     long_enough = True
                 if long_enough and time_now - time_last_update >= 2:
@@ -371,14 +393,13 @@ class Install:
                         times.pop(0)
                     speed = ((times[-1][1] - times[0][1]) /
                              (times[-1][0] - times[0][0]))
-                    time_remaining = int(total_size / speed)
+                    time_remaining = int((total_size - copied_size) / speed)
                     time_str = "%d:%02d" % divmod(time_remaining, 60)
                     self.db.subst('espresso/install/copying_time',
                                   'TIME', time_str)
                     self.db.progress('INFO', 'espresso/install/copying_time')
 
-        copy.stdin.close()
-        copy.wait()
+        os.umask(old_umask)
 
         self.db.progress('SET', 100)
         self.db.progress('STOP')
@@ -397,6 +418,7 @@ class Install:
 
         if not misc.ex('cp', '-a', log_file, target_log_file):
             misc.pre_log('error', 'No se pudieron copiar los registros de instalación')
+        os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
 
         return True
 
@@ -570,6 +592,7 @@ class Install:
         self.db.progress('REGION', 0, 10)
         fetchprogress = DebconfFetchProgress(
             self.db, 'espresso/langpacks/title',
+            'espresso/install/apt_indices_starting',
             'espresso/install/apt_indices')
         cache = Cache()
         try:
@@ -588,7 +611,8 @@ class Install:
 
         self.db.progress('REGION', 10, 100)
         fetchprogress = DebconfFetchProgress(
-            self.db, 'espresso/langpacks/title', 'espresso/langpacks/packages')
+            self.db, 'espresso/langpacks/title', None,
+            'espresso/langpacks/packages')
         installprogress = DebconfInstallProgress(
             self.db, 'espresso/langpacks/title', 'espresso/install/apt_info',
             'espresso/install/apt_error_install')
@@ -617,6 +641,11 @@ class Install:
                 installprogress.finishUpdate()
                 self.db.progress('STOP')
                 return True
+        except IOError, e:
+            print >>sys.stderr, e
+            sys.stderr.flush()
+            self.db.progress('STOP')
+            return False
         except SystemError, e:
             print >>sys.stderr, e
             sys.stderr.flush()
@@ -721,7 +750,12 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
             dbfilter = grubinstaller.GrubInstaller(None)
             ret = (dbfilter.run_command(auto_process=True) == 0)
         except ImportError:
-            ret = False
+            try:
+                from espresso.components import yabootinstaller
+                dbfilter = yabootinstaller.YabootInstaller(None)
+                ret = (dbfilter.run_command(auto_process=True) == 0)
+            except ImportError:
+                ret = False
 
         misc.ex('umount', '-f', self.target + '/proc')
         misc.ex('umount', '-f', self.target + '/dev')
@@ -753,7 +787,9 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
         difference = live_packages - desktop_packages - apt_installed
 
         fetchprogress = DebconfFetchProgress(
-            self.db, 'espresso/install/title', 'espresso/install/apt_indices')
+            self.db, 'espresso/install/title',
+            'espresso/install/apt_indices_starting',
+            'espresso/install/apt_indices')
         cache = Cache()
 
         while True:
@@ -806,7 +842,8 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
         self.db.progress('SET', 1)
         self.db.progress('REGION', 1, 5)
         fetchprogress = DebconfFetchProgress(
-            self.db, 'espresso/install/title', 'espresso/install/fetch_remove')
+            self.db, 'espresso/install/title', None,
+            'espresso/install/fetch_remove')
         installprogress = DebconfInstallProgress(
             self.db, 'espresso/install/title', 'espresso/install/apt_info',
             'espresso/install/apt_error_remove')

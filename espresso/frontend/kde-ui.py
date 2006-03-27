@@ -1,5 +1,7 @@
 # -*- coding: utf8 -*-
+#
 # Copyright (C) 2006 Canonical Ltd.
+#
 # Espresso live installer is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
 # published by the Free Software Foundation; either version 2 of the License, or
@@ -13,6 +15,9 @@
 # You should have received a copy of the GNU General Public License along with
 # Guadalinex 2005 live installer; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+#
+# Author:
+#   Jonathan Riddell <jriddell@ubuntu.com>
 
 print "importing kde-ui"
 
@@ -36,7 +41,8 @@ import gettext
 
 from espresso import filteredcommand, validation
 from espresso.misc import *
-#from espresso.components import language, kbd_chooser, timezone, usersetup, \
+from espresso.settings import *
+#from espresso.components import language, timezone, kbd_chooser, usersetup, \
 from espresso.components import language, timezone, usersetup, \
                                 partman, partman_commit, summary, install
 import espresso.tz
@@ -50,6 +56,20 @@ GLADEDIR = os.path.join(PATH, 'glade')
 
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
+
+BREADCRUMB_STEPS = {
+    "stepWelcome": 1,
+    "stepLanguage": 2,
+    "stepLocation": 3,
+    "stepKeyboardConf": 4,
+    "stepUserInfo": 5,
+    "stepPartDisk": 6,
+    "stepPartAuto": 6,
+    "stepPartAdvanced": 6,
+    "stepPartMountpoints": 6,
+    "stepReady": 7
+}
+BREADCRUMB_MAX_STEP = 7
 
 class Wizard:
 
@@ -67,11 +87,19 @@ class Wizard:
         
         # declare attributes
         self.distro = distro
+        self.current_keyboard = None
         self.hostname = ''
         self.fullname = ''
         self.name = ''
         self.manual_choice = None
         self.password = ''
+        self.mountpoint_widgets = []
+        self.size_widgets = []
+        self.partition_widgets = []
+        self.format_widgets = []
+        self.mountpoint_choices = ['swap', '/', '/home',
+                                   '/boot', '/usr', '/var']
+        self.partition_choices = []
         self.mountpoints = {}
         self.part_labels = {' ' : ' '}
         self.current_page = None
@@ -79,8 +107,11 @@ class Wizard:
         self.locale = None
         self.progress_position = espresso.progressposition.ProgressPosition()
         self.progress_cancelled = False
+        self.previous_partitioning_page = None
+        self.installing = False
         self.returncode = 0
-    
+        self.translations = get_translations()
+
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
     
         # To get a "busy mouse":
@@ -88,12 +119,12 @@ class Wizard:
     
         # useful dicts to manage UI data
         self.entries = {
-                        'hostname' : 0,
-                        'fullname' : 0,
-                        'username' : 0,
-                        'password' : 0,
-                        'verified_password' : 0
-                        }
+            'hostname' : 0,
+            'fullname' : 0,
+            'username' : 0,
+            'password' : 0,
+            'verified_password' : 0
+        }
         
         # set custom language
         self.set_locales()
@@ -130,15 +161,6 @@ class Wizard:
         
         #FIXME self.live_installer.window.set_cursor(None)
     
-        """
-        # Resizing labels according to screen resolution
-        for widget in self.glade.get_widget_prefix(""):
-        if widget.__class__ == gtk.Label and widget.get_name()[-6:-1] == 'label':
-            msg = self.resize_text(widget, widget.get_name()[-1:])
-            if msg != '':
-            widget.set_markup(msg)
-        """
-        
         # Declare SignalHandler
         #FIXME self.glade.signal_autoconnect(self)
         self.app.connect(self.userinterface.nextButton, SIGNAL("clicked()"), self.on_next_clicked)
@@ -149,37 +171,48 @@ class Wizard:
         # Start the interface
         self.set_current_page(0)
         while self.current_page is not None:
+            self.backup = False
             current_name = self.step_name(self.current_page)
+            old_dbfilter = self.dbfilter
             if current_name == "stepLanguage":
                 print "stepLanguage"
                 self.dbfilter = language.Language(self)
-            #elif current_name == "stepKeyboardConf":
-            #    self.dbfilter = kbd_chooser.KbdChooser(self)
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
+            #elif current_name == "stepKeyboardConf":
+            #    self.dbfilter = kbd_chooser.KbdChooser(self)
             elif current_name == "stepUserInfo":
                 print "stepUserInfo"
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name == "stepPartAuto":
                 print "stepPartAuto"
                 self.dbfilter = partman.Partman(self)
+            elif current_name in ("stepPartDisk", "stepPartAuto"):
+                if isinstance(self.dbfilter, partman.Partman):
+                    pre_log('info', 'reusing running partman')
+                else:
+                    self.dbfilter = partman.Partman(self)
             else:
                 print "no filter"
                 self.dbfilter = None
     
             print "checking if dbfilter in not None"
-            if self.dbfilter is not None:
+            if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 print "dbfilter.start"
                 self.dbfilter.start(auto_process=True)
             print "mainloop"
             self.app.exec_loop()
             print "end mainloop"
     
-            if self.current_page is not None:
+            if self.installing:
+                self.progress_loop()
+            elif self.current_page is not None and not self.backup:
                 print "process_step"
                 self.process_step()
             print "end of while"
-        return self.returncode
+            self.app.processEvents(1)
+
+	return self.returncode
     
     def customize_installer(self):
         """Customizing logo and images."""
@@ -189,8 +222,10 @@ class Wizard:
         self.install_image = 0
         PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
         self.total_images   = glob.glob("%s/snapshot*.png" % PIXMAPSDIR)
+        messages = open("%s/messages.txt" % PIXMAPSDIR)
         self.total_messages = map(lambda line: line.rstrip('\n'),
-                                open("%s/messages.txt" % PIXMAPSDIR).readlines())
+                                  messages.readlines())
+        messages.close()
         """
         iconLoader = KIconLoader()
         icon = iconLoader.loadIcon("system", KIcon.Small)
@@ -255,29 +290,6 @@ class Wizard:
             self.userinterface.introLabel.setText(intro_file.read().rstrip('\n'))
             intro_file.close()
     
-    def resize_text (self, widget, type):
-        """set different text sizes from screen resolution."""
-        print "resize_text(widget, type)"
-    
-        if widget.__class__ == str :
-            msg = widget
-        elif isinstance (widget, list):
-            msg = '\n'.join (widget)
-        else:
-            msg = widget.text()
-    
-        if ( self.get_screen_width() > 1024 ):
-            if ( type in  ['1', '4'] ):
-                msg = '<big>' + msg + '</big>'
-            elif ( type == '2' ):
-                msg = '<big><b>' + msg + '</b></big>'
-            elif ( type == '3' ):
-                msg = '<span font_desc="22">' + msg + '</span>'
-        else:
-            if type != '4':
-                msg = ''
-        return msg
-
     def step_name(self, step_index):
         print "  step_name(step_index) " + str(step_index)
         if step_index < 0:
@@ -289,16 +301,11 @@ class Wizard:
         self.current_page = current
         current_name = self.step_name(current)
         """
-        for step in range(0, self.steps.get_n_pages()):
-            breadcrumb = BREADCRUMB_STEPS[self.step_name(step)]
-            if hasattr(self, breadcrumb):
-                breadcrumblbl = getattr(self, breadcrumb)
-                if breadcrumb == BREADCRUMB_STEPS[current_name]:
-                    breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
-                else:
-                    breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
-            else:
-                pre_log('info', 'breadcrumb step %s missing' % breadcrumb)
+        label_text = "Step %s of %d"
+        curstep = "<i>Unknown?</i>"
+        if current_name in BREADCRUMB_STEPS:
+            curstep = str(BREADCRUMB_STEPS[current_name])
+        self.lblStepNofM.set_markup(label_text % (curstep, BREADCRUMB_MAX_STEP))
         """
 
     def gparted_loop(self):
@@ -351,7 +358,7 @@ class Wizard:
         ##step = self.step_name(self.steps.get_current_page())
 
         """
-        if step == "stepKeyboardConf":
+        if step == "stepLocation":
             self.back.hide()
         elif step == "stepPartAdvanced":
             print >>self.gparted_subp.stdin, "undo"
@@ -377,22 +384,25 @@ class Wizard:
             self.userinterface.widgetStack.raiseWidget(1)
         # Language
         elif step == "stepLanguage":
+            self.translate_widgets()
             self.userinterface.widgetStack.raiseWidget(2)
             #self.back.show()
-        # Keyboard
-        elif step == "stepKeyboardConf":
-            self.userinterface.widgetStack.raiseWidget(3)
-            #self.steps.next_page()
-            #self.back.show()
-            # FIXME ? self.next.set_sensitive(False)
-            # XXX: Actually do keyboard config here
         # Location
         elif step == "stepLocation":
+            self.userinterface.widgetStack.raiseWidget(3)
+            # FIXME ? self.next.set_sensitive(False)
+        # Keyboard
+        elif step == "stepKeyboardConf":
             self.userinterface.widgetStack.raiseWidget(4)
+            #self.steps.next_page()
+            # XXX: Actually do keyboard config here
             #self.next.set_sensitive(False)
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
+        # Disk selection
+        elif step == "stepPartDisk":
+            self.process_disk_selection()
         # Automatic partitioning
         elif step == "stepPartAuto":
             self.process_autopartitioning()
@@ -415,7 +425,7 @@ class Wizard:
         """Processing identification step tasks."""
         print "  process_identification()"
     
-        error_msg = ['\n']
+        error_msg = []
         error = 0
     
         # Validation stuff
@@ -424,18 +434,19 @@ class Wizard:
         hostname = self.userinterface.hostname.text()
         for result in validation.check_hostname(str(hostname)):
             if result == validation.HOSTNAME_LENGTH:
-                error_msg.append("· El <b>nombre del equipo</b> tiene tamaño incorrecto (permitido entre 3 y 18 caracteres).\n")
+                error_msg.append("The hostname must be between 3 and 18 characters long.")
             elif result == validation.HOSTNAME_WHITESPACE:
-                error_msg.append("· El <b>nombre del equipo</b> contiene espacios en blanco (no están permitidos).\n")
+                error_msg.append("The hostname may not contain spaces.")
             elif result == validation.HOSTNAME_BADCHAR:
-                error_msg.append("· El <b>nombre del equipo</b> contiene carácteres incorrectos (sólo letras y números están permitidos).\n")
+                error_msg.append("The hostname may only contain letters and digits.")
     
         # showing warning message is error is set
         if len(error_msg) > 1:
-            self.show_error(self.resize_text(''.join(error_msg), '4'))
+            self.show_error(''.join(error_msg))
         else:
             # showing next step and destroying mozembed widget to release memory
             self.userinterface.widgetStack.raiseWidget(5)
+
     def process_autopartitioning(self):
         print "  process_autopartitioning(self):"
         """Processing automatic partitioning step tasks."""
@@ -444,18 +455,26 @@ class Wizard:
 
         # For safety, if we somehow ended up improperly initialised
         # then go to manual partitioning.
-        if self.manual_choice is None or self.get_autopartition_choice() == self.manual_choice:
+        choice = self.get_autopartition_choice()
+        if self.manual_choice is None or choice == self.manual_choice:
             self.gparted_loop()
             self.userinterface.widgetStack.raiseWidget(6)
 
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
-            self.live_installer.hide()
-
-            self.app.processEvents(1)
-
-            self.progress_loop()
+            # TODO jr kde-ify
             self.steps.set_current_page(self.steps.page_num(self.stepReady))
+            self.next.set_label("Install") # TODO i18n
+
+    def set_disk_choices (self, choices, manual_choice):
+        # TODO cjwatson 2006-03-20: This method should set up a disk
+        # selector UI with the given choices.
+        return False
+
+    def get_disk_choice (self):
+        # TODO cjwatson 2006-03-20: This method should return the current
+        # choice in the disk selector.
+        return None
 
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
         print "  set_autopartition_choices (self, choices, resize_choice, manual_choice):"
@@ -491,6 +510,10 @@ class Wizard:
         if firstbutton is not None:
             firstbutton.setChecked(True)
 
+        # make sure we're on the autopartitioning page
+        # FIXME self.steps.set_current_page(self.steps.page_num(self.stepPartAuto))
+
+
     def on_autopartition_resize_toggled (self, enable):
         print "  on_autopartition_resize_toggled (self, widget):"
         """Update autopartitioning screen when the resize button is
@@ -523,8 +546,13 @@ class Wizard:
         print "  get_autopartition_resize_percent (self):"
         return self.new_size_scale.value()
 
+
+    def get_mountpoints (self):
+        return dict(self.mountpoints)
+
   
     def confirm_partitioning_dialog (self, title, description):
+        # TODO merge with gtk
         print "  confirm_partitioning_dialog (self, title, description):" + title + " ... " + description
         response = KMessageBox.warningYesNo(self.userinterface, description, title)
         if response == KMessageBox.Yes:
@@ -625,14 +653,16 @@ class Wizard:
 
         # parsing /proc/partitions and getting size data
         size = {}
-        for line in open('/proc/partitions'):
+        partitions = open('/proc/partitions')
+        for line in partitions:
             try:
                 size[line.split()[3]] = int(line.split()[2])
             except:
                 continue
+        partitions.close()
         return size
 
-    def get_default_partition_selection(self, size):
+    def get_default_partition_selection(self, size, fstype):
         print "  get_default_partition_selection(self, size):"
         """return a dictionary with a skeleton { mountpoint : device }
         as a default partition selection. The first partition with max size
@@ -648,7 +678,7 @@ class Wizard:
         size_ordered.reverse()
 
         # getting filesystem dict ( { device : fs } )
-        device_list = get_filesystems()
+        device_list = get_filesystems(fstype)
 
         # building an initial mountpoint preselection dict. Assigning only
         # preferred partitions for each mountpoint (the highest ext3 partition
@@ -667,7 +697,7 @@ class Wizard:
                     if root == 0:
                         selection['/'] = '/dev/%s' % partition
                         root = 1
-                elif fs == 'swap':
+                elif fs == 'linux-swap':
                     selection['swap'] = '/dev/%s' % partition
                     swap = 1
                 else:
@@ -738,7 +768,10 @@ class Wizard:
                    and mnt.currentText() != "":
                     bar = self.part_labels.values().index(str(dev.currentText()))
                     foo = self.part_labels.keys()[bar]
-                    self.mountpoints[foo] = mnt.currentText()
+                    # TODO cjwatson 2006-03-08: Add UI to control whether
+                    # the partition is to be formatted; hardcoded to True in
+                    # the meantime.
+                    self.mountpoints[foo] = (mnt.currentText(), True)
 
         # Processing validation stuff
         elif len(list_partitions) > len(list_mountpoints):
@@ -795,19 +828,20 @@ class Wizard:
                 elif check == validation.MOUNTPOINT_DUPPATH:
                     error_msg.append("· Puntos de montaje duplicados.\n\n")
                 elif check == validation.MOUNTPOINT_BADSIZE:
-                    try:
-                        swap = self.mountpoints.values().index('swap')
-                        error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
-                    except:
+                    for mountpoint, format in self.mountpoints.itervalues():
+                        if mountpoint == 'swap':
+                            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
+                            break
+                    else:
                         error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
                 elif check == validation.MOUNTPOINT_BADCHAR:
                     error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
 
         # showing warning messages
         if len(error_msg) > 1:
-            self.msg_error2.setText(self.resize_text(''.join(error_msg), '4'))
-            self.msg_error2.show()
-            self.img_error2.show()
+            self.mountpoint_error_reason.setText(''.join(error_msg))
+            self.mountpoint_error_reason.show()
+            self.mountpoint_error_image.show()
         else:
             self.userinterface.widgetStack.raiseWidget(8)
 
@@ -815,12 +849,14 @@ class Wizard:
     def get_current_page(self):
       return self.userinterface.widgetStack.id(self.userinterface.widgetStack.visibleWidget())
 
+    """
     def show_error(self, msg):
-      """show warning message on Identification screen where validation
-      doesn't work properly."""
+      ""show warning message on Identification screen where validation
+      doesn't work properly.""
       print "  show_error(msg)"
 
       self.userinterface.warning_info.setText(msg)
+    """
 
     def on_steps_switch_page(self, newPageID):
         print "  on_steps_switch_page(title): " + str(self.get_current_page()) + " " + str(newPageID)
@@ -1113,9 +1149,15 @@ class Wizard:
             gtk.main_iteration()
         """
 
+    def set_fullname(self, value):
+      self.userinterface.fullname.setText(str(value))
+
     def get_fullname(self):
       return str(self.userinterface.fullname.text())
   
+    def set_username(self, value):
+      self.userinterface.fullname.setText(str(value))
+
     def get_username(self):
       return str(self.userinterface.username.text())
   
@@ -1124,6 +1166,16 @@ class Wizard:
   
     def get_verified_password(self):
       return str(self.userinterface.verified_password.text())
+
+    def username_error(self, msg):
+        print "username_error() fixme for kde"
+        self.username_error_reason.set_text(msg)
+        self.username_error_box.show()
+
+    def password_error(self, msg):
+        print "password_error() fixme for kde"
+        self.password_error_reason.set_text(msg)
+        self.password_error_box.show()
 
 
 if __name__ == '__main__':
