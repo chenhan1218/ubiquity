@@ -375,6 +375,7 @@ class Install:
 
             copied_size += st.st_size
             if not stat.S_ISLNK(st.st_mode):
+                os.chown(targetpath, st.st_uid, st.st_gid)
                 os.utime(targetpath, (st.st_atime, st.st_mtime))
 
             if int((copied_size * 90) / total_size) != copy_progress:
