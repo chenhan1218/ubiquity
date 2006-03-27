@@ -503,7 +503,7 @@ class Wizard:
             self.debconf_progress_stop()
 
         # just to make sure
-        self.debconf_progress_dialog.hide()
+        self.debconf_progress_window.hide()
 
         self.installing = False
 
@@ -1044,11 +1044,11 @@ class Wizard:
         if self.progress_cancelled:
             return False
         if self.current_page is not None:
-            self.debconf_progress_dialog.set_transient_for(self.live_installer)
+            self.debconf_progress_window.set_transient_for(self.live_installer)
         else:
-            self.debconf_progress_dialog.set_transient_for(None)
+            self.debconf_progress_window.set_transient_for(None)
         if self.progress_position.depth() == 0:
-            self.debconf_progress_dialog.set_title(progress_title)
+            self.debconf_progress_window.set_title(progress_title)
 
         self.progress_title.set_markup(
             '<big><b>' + xml.sax.saxutils.escape(progress_title) +
@@ -1056,7 +1056,7 @@ class Wizard:
         self.progress_position.start(progress_min, progress_max)
         self.debconf_progress_set(0)
         self.progress_info.set_text('')
-        self.debconf_progress_dialog.show()
+        self.debconf_progress_window.show()
         return True
 
     def debconf_progress_set (self, progress_val):
@@ -1090,7 +1090,7 @@ class Wizard:
             return False
         self.progress_position.stop()
         if self.progress_position.depth() == 0:
-            self.debconf_progress_dialog.hide()
+            self.debconf_progress_window.hide()
         return True
 
     def debconf_progress_region (self, region_start, region_end):
@@ -1384,7 +1384,7 @@ class Wizard:
         if self.current_page is not None:
             transient = self.live_installer
         else:
-            transient = self.debconf_progress_dialog
+            transient = self.debconf_progress_window
         dialog = gtk.MessageDialog(transient, gtk.DIALOG_MODAL,
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
         dialog.run()
