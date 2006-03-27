@@ -39,7 +39,6 @@ from espresso.misc import *
 #from espresso.components import language, kbd_chooser, timezone, usersetup, \
 from espresso.components import language, timezone, usersetup, \
                                 partman, partman_commit, summary, install
-import espresso.emap
 import espresso.tz
 import espresso.progressposition
 

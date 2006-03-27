@@ -21,7 +21,7 @@ from espresso.filteredcommand import FilteredCommand
 
 class Install(FilteredCommand):
     def prepare(self):
-        questions = ['^grub-installer/apt-install-failed$',
+        questions = ['^.*/apt-install-failed$',
                      'CAPB',
                      'ERROR',
                      'PROGRESS']
@@ -36,7 +36,7 @@ class Install(FilteredCommand):
         return super(Install, self).error(priority, question)
 
     def run(self, priority, question):
-        if question == 'grub-installer/apt-install-failed':
+        if question.endswith('/apt-install-failed'):
             return self.error(priority, question)
 
         return super(Install, self).run(priority, question)
