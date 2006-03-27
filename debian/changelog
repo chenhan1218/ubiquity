@@ -1,3 +1,11 @@
+espresso (0.99.35) UNRELEASED; urgency=low
+
+  * Fix estimated install copying time. We no longer use cpio to do the
+    copying, but instead do the whole thing in-process. This lets us avoid
+    buffering issues.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 27 Mar 2006 13:38:44 +0100
+
 espresso (0.99.34) dapper; urgency=low
 
   * GTK frontend:
