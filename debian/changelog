@@ -3,6 +3,8 @@ espresso (0.99.35) UNRELEASED; urgency=low
   * Fix estimated install copying time. We no longer use cpio to do the
     copying, but instead do the whole thing in-process. This lets us avoid
     buffering issues.
+  * Avoid a long pause without any info message while updating apt's indices
+    before downloading language packs.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 27 Mar 2006 13:38:44 +0100
 

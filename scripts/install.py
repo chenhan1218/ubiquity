@@ -38,16 +38,19 @@ from espresso.components import language_apply, timezone_apply, usersetup_apply
 class DebconfFetchProgress(FetchProgress):
     """An object that reports apt's fetching progress using debconf."""
 
-    def __init__(self, db, title, info):
+    def __init__(self, db, title, info_starting, info):
         FetchProgress.__init__(self)
         self.db = db
         self.title = title
+        self.info_starting = info_starting
         self.info = info
         self.old_capb = None
         self.eta = 0.0
 
     def start(self):
         self.db.progress('START', 0, 100, self.title)
+        if self.info_starting is not None:
+            self.db.progress('INFO', self.info_starting)
         self.old_capb = self.db.capb()
         capb_list = self.old_capb.split()
         capb_list.append('progresscancel')
@@ -589,6 +592,7 @@ class Install:
         self.db.progress('REGION', 0, 10)
         fetchprogress = DebconfFetchProgress(
             self.db, 'espresso/langpacks/title',
+            'espresso/install/apt_indices_starting',
             'espresso/install/apt_indices')
         cache = Cache()
         try:
@@ -607,7 +611,8 @@ class Install:
 
         self.db.progress('REGION', 10, 100)
         fetchprogress = DebconfFetchProgress(
-            self.db, 'espresso/langpacks/title', 'espresso/langpacks/packages')
+            self.db, 'espresso/langpacks/title', None,
+            'espresso/langpacks/packages')
         installprogress = DebconfInstallProgress(
             self.db, 'espresso/langpacks/title', 'espresso/install/apt_info',
             'espresso/install/apt_error_install')
@@ -782,7 +787,9 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
         difference = live_packages - desktop_packages - apt_installed
 
         fetchprogress = DebconfFetchProgress(
-            self.db, 'espresso/install/title', 'espresso/install/apt_indices')
+            self.db, 'espresso/install/title',
+            'espresso/install/apt_indices_starting',
+            'espresso/install/apt_indices')
         cache = Cache()
 
         while True:
@@ -835,7 +842,8 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
         self.db.progress('SET', 1)
         self.db.progress('REGION', 1, 5)
         fetchprogress = DebconfFetchProgress(
-            self.db, 'espresso/install/title', 'espresso/install/fetch_remove')
+            self.db, 'espresso/install/title', None,
+            'espresso/install/fetch_remove')
         installprogress = DebconfInstallProgress(
             self.db, 'espresso/install/title', 'espresso/install/apt_info',
             'espresso/install/apt_error_remove')

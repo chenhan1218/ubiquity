@@ -295,6 +295,10 @@ Template: espresso/install/fetch_remove
 Type: text
 _Description: Downloading packages (${TIME} remaining)...
 
+Template: espresso/install/apt_indices_starting
+Type: text
+_Description: Downloading package lists...
+
 Template: espresso/install/apt_indices
 Type: text
 _Description: Downloading package lists (${TIME} remaining)...
