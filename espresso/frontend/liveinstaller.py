@@ -2,14 +2,15 @@
 
 # Form implementation generated from reading ui file 'liveinstaller.ui'
 #
-# Created: Wed Mar 8 21:01:56 2006
+# Created: Mon Mar 27 20:16:20 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
 
 
+import sys
 from qt import *
-from kdecore import *
+from kdecore import KCmdLineArgs, KApplication
 from kdeui import *
 
 
@@ -125,6 +126,67 @@ image0_data = \
     "\xe8\x63\xaa\x26\xe5\xb4\x20\x00\x00\x00\x00\x49" \
     "\x45\x4e\x44\xae\x42\x60\x82"
 image1_data = \
+    "\x89\x50\x4e\x47\x0d\x0a\x1a\x0a\x00\x00\x00\x0d" \
+    "\x49\x48\x44\x52\x00\x00\x00\x16\x00\x00\x00\x16" \
+    "\x08\x06\x00\x00\x00\xc4\xb4\x6c\x3b\x00\x00\x02" \
+    "\x8f\x49\x44\x41\x54\x38\x8d\xb5\xd5\x4d\x4f\x13" \
+    "\x51\x14\xc6\xf1\x7f\xa9\x20\x06\xa1\x17\xa9\x80" \
+    "\x91\x97\x41\x48\x04\x42\x70\x48\xd0\x0d\x10\x53" \
+    "\x25\x6e\xc0\x18\x4d\x4c\x8c\x7e\x42\x57\x7e\x02" \
+    "\x73\x17\x95\x18\x1b\x4c\x41\x31\x41\x31\xda\x20" \
+    "\xd1\x34\xa0\x0c\x28\xcc\x4c\xdb\xb9\xc7\xc5\xb4" \
+    "\xf6\x8d\x42\x37\x9e\xfd\xfc\xf2\xcc\xb9\xe7\xdc" \
+    "\x1b\x11\x11\xfe\x4b\xd5\xc2\xd9\xbb\xa8\xec\x1d" \
+    "\xac\x66\xbf\x7f\x37\x84\xb5\x3e\x88\xaa\x35\x5b" \
+    "\x6a\x51\x11\x74\x50\x20\xbd\x33\x87\xdd\x04\x6a" \
+    "\x8b\x90\x26\x40\xa7\xfb\xaa\xf1\x7f\x70\x09\xed" \
+    "\x7a\xfa\xc0\x8e\x3d\x5b\x56\xa6\x80\xce\xcc\x36" \
+    "\xc6\x8b\xa8\x1e\x4c\x0c\xa9\x81\xdb\x03\xb6\x11" \
+    "\xf4\x6a\x4f\x19\x6f\xa9\x45\xdb\x6f\x3c\xe2\xc2" \
+    "\xd4\x7d\xba\x9f\x2c\x2a\x13\xa0\xb7\xa6\xeb\xf1" \
+    "\x4a\x54\x0d\x0c\xd2\xdd\xdf\xc7\xf0\xcd\xb8\x8d" \
+    "\x41\xa7\x62\x21\x1e\x26\x16\x94\x29\x60\x49\x10" \
+    "\x40\xce\x83\x9c\x4b\xc7\xe4\x22\xf1\xc7\xf3\x4a" \
+    "\x02\xf4\xe6\x78\x19\xaf\x45\x71\x3d\x70\x3d\x24" \
+    "\x6f\x30\x06\x0b\x42\x38\x22\x22\x44\x22\x11\x76" \
+    "\xe6\xb0\x4d\x01\xdd\xfd\x64\x51\x75\x4c\x2e\x42" \
+    "\xce\x85\x9c\xc7\x61\xfa\x25\xdf\x9f\xaf\x3a\x12" \
+    "\x90\x08\x0a\x70\x12\xfa\xf3\xcb\x0f\xbe\xbe\xf9" \
+    "\xe5\x20\x24\x6e\x1d\xb2\x26\x22\x65\x18\x20\x33" \
+    "\x8b\x6d\x02\x74\xfc\xf1\xbc\xba\x78\x7d\x2e\x4c" \
+    "\xef\x1f\x73\xb0\xfe\x9a\x9d\x17\x1b\x8e\x09\xe0" \
+    "\x2c\xb4\x34\x15\x55\x30\xc0\xd6\x34\xb6\x04\xe8" \
+    "\xde\x87\xb3\xaa\x6b\x6c\x06\x72\x3e\x78\x2e\xbf" \
+    "\x3f\x6e\x80\x9f\xa7\xb3\xb7\xef\x54\xb4\x21\x0c" \
+    "\xb0\x39\x1e\x26\xbf\xb2\x3c\xa5\x62\x23\x13\xe0" \
+    "\xb9\xe0\x7b\xe0\xba\x67\xa2\xa7\xc2\x00\x1f\xae" \
+    "\x61\x1b\x83\x1e\x5a\x9a\x50\x9d\xfd\x57\xab\x50" \
+    "\x67\x3b\xcb\xe7\x95\xbd\x13\xd1\x12\x7c\xae\xd1" \
+    "\x9c\x16\x0f\x0a\xfc\x7c\x15\x8a\xeb\x83\x57\x40" \
+    "\x04\xc4\x34\xfa\x9a\xea\xcd\x2b\x55\xe5\x48\x55" \
+    "\xf6\x14\xd7\x87\x63\x0f\xd5\xde\xca\x88\xd5\xae" \
+    "\x24\x40\xaf\x9c\x3f\x79\x89\xea\xe0\x46\x73\xea" \
+    "\x6c\x67\x71\xbe\xed\xc1\x91\x0f\x47\x79\xe2\x6d" \
+    "\x51\x46\x7b\xa2\x0a\xd0\x2b\xad\xf5\x78\x55\x8f" \
+    "\x1b\xa1\xa5\x83\x12\x81\x11\xab\x5d\xc5\xdb\xa2" \
+    "\xf0\x27\x0f\x07\x05\x76\x1d\xc3\x56\x0e\x07\x48" \
+    "\xcc\x07\x27\x8c\xdb\x59\x28\x42\xc2\x18\x90\x00" \
+    "\x3d\xda\x13\x55\xf1\x40\xe0\xc0\xc0\x31\xec\x02" \
+    "\x9f\x08\xf1\x05\x2a\x16\xe4\xfd\x70\xc4\x12\x21" \
+    "\xdd\xcc\xf0\x17\x7b\xaa\xc7\x5a\x50\x97\xdd\xf2" \
+    "\xaf\x57\xe0\x33\xf3\x22\x99\x96\x30\x3a\x0e\x01" \
+    "\x19\xc9\x9b\x33\xe7\x74\xce\x67\x0d\x43\x62\x2b" \
+    "\x87\xb3\x5b\x7f\x66\x19\x42\xbc\x7c\xd1\xa7\xfb" \
+    "\x50\x6f\x7b\x49\xef\x2d\xc5\x65\xf7\xde\x25\x49" \
+    "\xc5\xd8\x4f\x75\x35\xbe\x36\x5f\x45\xb1\x93\xb0" \
+    "\x9f\x05\xc9\x82\x24\x21\x9d\x2c\x5e\x40\x75\x0b" \
+    "\xb2\xda\x83\xc2\xa0\x8d\xc1\x6a\x34\xfc\x95\x95" \
+    "\x24\x6c\x4b\x31\x69\x62\xa1\x98\x56\x44\xea\x9f" \
+    "\xa6\x54\x0c\x95\x8a\x35\xff\x34\x25\xc1\x2a\x25" \
+    "\x2d\xd5\xbf\xc4\xff\xa3\xfe\x02\x51\xa5\xf8\xb0" \
+    "\xfa\xa8\x41\x98\x00\x00\x00\x00\x49\x45\x4e\x44" \
+    "\xae\x42\x60\x82"
+image2_data = \
     "\x89\x50\x4e\x47\x0d\x0a\x1a\x0a\x00\x00\x00\x0d" \
     "\x49\x48\x44\x52\x00\x00\x00\x20\x00\x00\x00\x20" \
     "\x08\x06\x00\x00\x00\x73\x7a\x7a\xf4\x00\x00\x06" \
@@ -278,6 +340,8 @@ class EspressoUI(QWidget):
         self.image0.loadFromData(image0_data,"PNG")
         self.image1 = QPixmap()
         self.image1.loadFromData(image1_data,"PNG")
+        self.image2 = QPixmap()
+        self.image2.loadFromData(image2_data,"PNG")
         if not name:
             self.setName("EspressoUI")
 
@@ -295,25 +359,25 @@ class EspressoUI(QWidget):
         spacer3_2_4_2_2 = QSpacerItem(161,16,QSizePolicy.Expanding,QSizePolicy.Minimum)
         layout9_4_2_2.addItem(spacer3_2_4_2_2)
 
-        EspressoUILayout.addMultiCellLayout(layout9_4_2_2,0,0,0,3)
-
-        self.textLabel = QLabel(self,"textLabel")
-
-        EspressoUILayout.addMultiCellWidget(self.textLabel,1,1,0,3)
+        EspressoUILayout.addMultiCellLayout(layout9_4_2_2,0,0,0,4)
 
         self.backButton = QPushButton(self,"backButton")
 
-        EspressoUILayout.addWidget(self.backButton,3,1)
+        EspressoUILayout.addWidget(self.backButton,2,3)
 
         self.nextButton = QPushButton(self,"nextButton")
 
-        EspressoUILayout.addWidget(self.nextButton,3,2)
+        EspressoUILayout.addWidget(self.nextButton,2,4)
 
         self.cancelButton = QPushButton(self,"cancelButton")
 
-        EspressoUILayout.addWidget(self.cancelButton,3,3)
-        spacer31 = QSpacerItem(240,41,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        EspressoUILayout.addItem(spacer31,3,0)
+        EspressoUILayout.addWidget(self.cancelButton,2,2)
+
+        self.textLabel1_3 = QLabel(self,"textLabel1_3")
+
+        EspressoUILayout.addWidget(self.textLabel1_3,2,0)
+        spacer31 = QSpacerItem(260,41,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        EspressoUILayout.addItem(spacer31,2,1)
 
         self.widgetStack = QWidgetStack(self,"widgetStack")
         self.widgetStack.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,1,self.widgetStack.sizePolicy().hasHeightForWidth()))
@@ -334,38 +398,36 @@ class EspressoUI(QWidget):
         self.stepLanguage = QWidget(self.widgetStack,"stepLanguage")
         stepLanguageLayout = QGridLayout(self.stepLanguage,1,1,11,6,"stepLanguageLayout")
 
-        self.language_treeview = KListView(self.stepLanguage,"language_treeview")
-        self.language_treeview.addColumn(i18n("Language"))
-
-        stepLanguageLayout.addMultiCellWidget(self.language_treeview,0,2,0,0)
-
-        self.textLabel1_2 = QLabel(self.stepLanguage,"textLabel1_2")
-
-        stepLanguageLayout.addWidget(self.textLabel1_2,0,1)
-
         self.line1_2 = QFrame(self.stepLanguage,"line1_2")
         self.line1_2.setFrameShape(QFrame.HLine)
         self.line1_2.setFrameShadow(QFrame.Sunken)
         self.line1_2.setFrameShape(QFrame.HLine)
 
-        stepLanguageLayout.addWidget(self.line1_2,1,1)
+        stepLanguageLayout.addMultiCellWidget(self.line1_2,1,1,0,2)
+
+        self.textLabel1_2 = QLabel(self.stepLanguage,"textLabel1_2")
+
+        stepLanguageLayout.addMultiCellWidget(self.textLabel1_2,0,0,0,2)
+        spacer22 = QSpacerItem(211,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        stepLanguageLayout.addItem(spacer22,3,0)
+        spacer21 = QSpacerItem(180,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        stepLanguageLayout.addItem(spacer21,3,2)
+
+        self.language_treeview = KListView(self.stepLanguage,"language_treeview")
+        self.language_treeview.addColumn(self.__tr("Language"))
+        self.language_treeview.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Expanding,0,1,self.language_treeview.sizePolicy().hasHeightForWidth()))
+
+        stepLanguageLayout.addWidget(self.language_treeview,3,1)
 
         self.textLabel2_3 = QLabel(self.stepLanguage,"textLabel2_3")
-        self.textLabel2_3.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,1,self.textLabel2_3.sizePolicy().hasHeightForWidth()))
+        self.textLabel2_3.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,0,self.textLabel2_3.sizePolicy().hasHeightForWidth()))
         self.textLabel2_3.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
 
-        stepLanguageLayout.addWidget(self.textLabel2_3,2,1)
+        stepLanguageLayout.addMultiCellWidget(self.textLabel2_3,2,2,0,2)
         self.widgetStack.addWidget(self.stepLanguage,1)
 
         self.stepLocation = QWidget(self.widgetStack,"stepLocation")
         stepLocationLayout = QGridLayout(self.stepLocation,1,1,11,6,"stepLocationLayout")
-
-        self.frame3 = QFrame(self.stepLocation,"frame3")
-        self.frame3.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,1,self.frame3.sizePolicy().hasHeightForWidth()))
-        self.frame3.setFrameShape(QFrame.StyledPanel)
-        self.frame3.setFrameShadow(QFrame.Raised)
-
-        stepLocationLayout.addWidget(self.frame3,1,0)
 
         layout9 = QGridLayout(None,1,1,0,6,"layout9")
 
@@ -398,6 +460,13 @@ class EspressoUI(QWidget):
 
         stepLocationLayout.addLayout(layout9,2,0)
 
+        self.frame3 = QFrame(self.stepLocation,"frame3")
+        self.frame3.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,1,self.frame3.sizePolicy().hasHeightForWidth()))
+        self.frame3.setFrameShape(QFrame.StyledPanel)
+        self.frame3.setFrameShadow(QFrame.Raised)
+
+        stepLocationLayout.addWidget(self.frame3,1,0)
+
         self.textLabel1 = QLabel(self.stepLocation,"textLabel1")
 
         stepLocationLayout.addWidget(self.textLabel1,0,0)
@@ -405,10 +474,10 @@ class EspressoUI(QWidget):
 
         self.stepKeyboardConf = QWidget(self.widgetStack,"stepKeyboardConf")
         stepKeyboardConfLayout = QGridLayout(self.stepKeyboardConf,1,1,11,6,"stepKeyboardConfLayout")
-        spacer16_2_2 = QSpacerItem(21,193,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        stepKeyboardConfLayout.addItem(spacer16_2_2,0,0)
-        spacer17_2_2 = QSpacerItem(21,193,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        spacer17_2_2 = QSpacerItem(21,202,QSizePolicy.Minimum,QSizePolicy.Expanding)
         stepKeyboardConfLayout.addItem(spacer17_2_2,2,0)
+        spacer16_2_2 = QSpacerItem(21,202,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        stepKeyboardConfLayout.addItem(spacer16_2_2,0,0)
 
         self.textLabel1_3_2 = QLabel(self.stepKeyboardConf,"textLabel1_3_2")
 
@@ -418,149 +487,181 @@ class EspressoUI(QWidget):
         self.stepUserInfo = QWidget(self.widgetStack,"stepUserInfo")
         stepUserInfoLayout = QGridLayout(self.stepUserInfo,1,1,11,6,"stepUserInfoLayout")
 
-        self.warning_info = QLabel(self.stepUserInfo,"warning_info")
-        self.warning_info.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
+        self.username_label1_2 = QLabel(self.stepUserInfo,"username_label1_2")
 
-        stepUserInfoLayout.addWidget(self.warning_info,3,0)
+        stepUserInfoLayout.addWidget(self.username_label1_2,3,0)
+
+        self.pasword_label1_2 = QLabel(self.stepUserInfo,"pasword_label1_2")
+
+        stepUserInfoLayout.addWidget(self.pasword_label1_2,5,0)
 
         self.ident_label_3 = QLabel(self.stepUserInfo,"ident_label_3")
 
         stepUserInfoLayout.addWidget(self.ident_label_3,0,0)
-        spacer10_2 = QSpacerItem(41,91,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        stepUserInfoLayout.addItem(spacer10_2,4,0)
-
-        layout7 = QGridLayout(None,1,1,0,6,"layout7")
-
-        self.textLabel4_2 = QLabel(self.stepUserInfo,"textLabel4_2")
-
-        layout7.addWidget(self.textLabel4_2,0,0)
-
-        layout6_2 = QGridLayout(None,1,1,10,6,"layout6_2")
-        spacer19_2 = QSpacerItem(161,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        layout6_2.addItem(spacer19_2,0,2)
-
-        self.hostname = QLineEdit(self.stepUserInfo,"hostname")
-
-        layout6_2.addWidget(self.hostname,0,1)
-
-        self.hostname_label1_2 = QLabel(self.stepUserInfo,"hostname_label1_2")
-
-        layout6_2.addWidget(self.hostname_label1_2,0,0)
-
-        layout7.addLayout(layout6_2,1,0)
-
-        stepUserInfoLayout.addLayout(layout7,2,0)
-
-        layout8 = QGridLayout(None,1,1,0,6,"layout8")
-
-        layout5_2 = QGridLayout(None,1,1,10,6,"layout5_2")
-
-        self.pasword_label1_2 = QLabel(self.stepUserInfo,"pasword_label1_2")
-
-        layout5_2.addWidget(self.pasword_label1_2,2,0)
-
-        self.username_label1_2 = QLabel(self.stepUserInfo,"username_label1_2")
-
-        layout5_2.addWidget(self.username_label1_2,1,0)
-
-        self.fullname = QLineEdit(self.stepUserInfo,"fullname")
-
-        layout5_2.addWidget(self.fullname,0,1)
-        spacer16_3 = QSpacerItem(141,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        layout5_2.addItem(spacer16_3,1,2)
-        spacer15_2 = QSpacerItem(141,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        layout5_2.addItem(spacer15_2,0,2)
-        spacer17_3 = QSpacerItem(151,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        layout5_2.addItem(spacer17_3,2,2)
-
-        self.verified_label_2 = QLabel(self.stepUserInfo,"verified_label_2")
-
-        layout5_2.addWidget(self.verified_label_2,3,0)
-        spacer18_2 = QSpacerItem(151,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        layout5_2.addItem(spacer18_2,3,2)
-
-        self.username = QLineEdit(self.stepUserInfo,"username")
-
-        layout5_2.addWidget(self.username,1,1)
-
-        self.password = QLineEdit(self.stepUserInfo,"password")
-
-        layout5_2.addWidget(self.password,2,1)
-
-        self.verified_password = QLineEdit(self.stepUserInfo,"verified_password")
-
-        layout5_2.addWidget(self.verified_password,3,1)
 
         self.fullname_label1_2 = QLabel(self.stepUserInfo,"fullname_label1_2")
 
-        layout5_2.addWidget(self.fullname_label1_2,0,0)
+        stepUserInfoLayout.addWidget(self.fullname_label1_2,1,0)
 
-        layout8.addLayout(layout5_2,1,0)
+        layout15 = QGridLayout(None,1,1,0,6,"layout15")
 
-        self.user_label_2_2 = QLabel(self.stepUserInfo,"user_label_2_2")
+        self.username_error_image = QLabel(self.stepUserInfo,"username_error_image")
+        self.username_error_image.setPixmap(self.image1)
+        self.username_error_image.setScaledContents(1)
 
-        layout8.addWidget(self.user_label_2_2,0,0)
+        layout15.addWidget(self.username_error_image,0,2)
+        spacer30_2 = QSpacerItem(20,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout15.addMultiCell(spacer30_2,0,1,0,0)
 
-        stepUserInfoLayout.addLayout(layout8,1,0)
+        self.username = QLineEdit(self.stepUserInfo,"username")
+        self.username.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Fixed,1,0,self.username.sizePolicy().hasHeightForWidth()))
+
+        layout15.addWidget(self.username,0,1)
+        spacer30_2_4 = QSpacerItem(270,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout15.addItem(spacer30_2_4,0,3)
+
+        self.textLabel2_4 = QLabel(self.stepUserInfo,"textLabel2_4")
+
+        layout15.addMultiCellWidget(self.textLabel2_4,1,1,1,3)
+
+        stepUserInfoLayout.addLayout(layout15,4,0)
+
+        layout14 = QHBoxLayout(None,0,6,"layout14")
+        spacer30 = QSpacerItem(20,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout14.addItem(spacer30)
+
+        self.fullname = QLineEdit(self.stepUserInfo,"fullname")
+        self.fullname.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Fixed,1,0,self.fullname.sizePolicy().hasHeightForWidth()))
+        layout14.addWidget(self.fullname)
+
+        self.fullname_error_image = QLabel(self.stepUserInfo,"fullname_error_image")
+        self.fullname_error_image.setPixmap(self.image1)
+        self.fullname_error_image.setScaledContents(1)
+        layout14.addWidget(self.fullname_error_image)
+        spacer30_2_3 = QSpacerItem(270,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout14.addItem(spacer30_2_3)
+
+        stepUserInfoLayout.addLayout(layout14,2,0)
+        spacer10_2 = QSpacerItem(41,20,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        stepUserInfoLayout.addItem(spacer10_2,9,0)
+
+        layout17 = QGridLayout(None,1,1,0,6,"layout17")
+        spacer30_2_6 = QSpacerItem(260,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout17.addItem(spacer30_2_6,0,3)
+
+        self.hostname_error_image = QLabel(self.stepUserInfo,"hostname_error_image")
+        self.hostname_error_image.setPixmap(self.image1)
+        self.hostname_error_image.setScaledContents(1)
+
+        layout17.addWidget(self.hostname_error_image,0,2)
+
+        self.hostname = QLineEdit(self.stepUserInfo,"hostname")
+        self.hostname.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Fixed,1,0,self.hostname.sizePolicy().hasHeightForWidth()))
+
+        layout17.addWidget(self.hostname,0,1)
+        spacer30_2_2 = QSpacerItem(20,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout17.addMultiCell(spacer30_2_2,0,1,0,0)
+
+        self.textLabel4_2 = QLabel(self.stepUserInfo,"textLabel4_2")
+
+        layout17.addMultiCellWidget(self.textLabel4_2,1,1,1,3)
+
+        stepUserInfoLayout.addLayout(layout17,8,0)
+
+        self.hostname_label1_2 = QLabel(self.stepUserInfo,"hostname_label1_2")
+
+        stepUserInfoLayout.addWidget(self.hostname_label1_2,7,0)
+
+        layout16 = QGridLayout(None,1,1,0,6,"layout16")
+
+        self.verified_password = QLineEdit(self.stepUserInfo,"verified_password")
+        self.verified_password.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Fixed,1,0,self.verified_password.sizePolicy().hasHeightForWidth()))
+
+        layout16.addWidget(self.verified_password,0,2)
+
+        self.password = QLineEdit(self.stepUserInfo,"password")
+        self.password.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Fixed,1,0,self.password.sizePolicy().hasHeightForWidth()))
+
+        layout16.addWidget(self.password,0,1)
+
+        self.textLabel3_3 = QLabel(self.stepUserInfo,"textLabel3_3")
+
+        layout16.addMultiCellWidget(self.textLabel3_3,1,1,1,2)
+        spacer30_2_5 = QSpacerItem(50,20,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout16.addItem(spacer30_2_5,0,4)
+
+        self.password_error_image = QLabel(self.stepUserInfo,"password_error_image")
+        self.password_error_image.setPixmap(self.image1)
+        self.password_error_image.setScaledContents(1)
+
+        layout16.addWidget(self.password_error_image,0,3)
+        spacer30_3 = QSpacerItem(20,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout16.addItem(spacer30_3,1,0)
+
+        stepUserInfoLayout.addLayout(layout16,6,0)
         self.widgetStack.addWidget(self.stepUserInfo,4)
 
+        self.stepPartDisk = QWidget(self.widgetStack,"stepPartDisk")
+        stepPartDiskLayout = QVBoxLayout(self.stepPartDisk,11,6,"stepPartDiskLayout")
+
+        self.textLabel2_2_2 = QLabel(self.stepPartDisk,"textLabel2_2_2")
+        stepPartDiskLayout.addWidget(self.textLabel2_2_2)
+
+        self.textLabel6_3 = QLabel(self.stepPartDisk,"textLabel6_3")
+        self.textLabel6_3.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
+        stepPartDiskLayout.addWidget(self.textLabel6_3)
+
+        part_disk_vbox = QVBoxLayout(None,0,6,"part_disk_vbox")
+        stepPartDiskLayout.addLayout(part_disk_vbox)
+        spacer42 = QSpacerItem(51,291,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        stepPartDiskLayout.addItem(spacer42)
+        self.widgetStack.addWidget(self.stepPartDisk,5)
+
         self.stepPartAuto = QWidget(self.widgetStack,"stepPartAuto")
-        stepPartAutoLayout = QGridLayout(self.stepPartAuto,1,1,11,6,"stepPartAutoLayout")
-
-        self.partition_label2 = QLabel(self.stepPartAuto,"partition_label2")
-
-        stepPartAutoLayout.addWidget(self.partition_label2,2,0)
-
-        self.drives = QComboBox(0,self.stepPartAuto,"drives")
-
-        stepPartAutoLayout.addWidget(self.drives,1,1)
-
-        self.drives_label2 = QLabel(self.stepPartAuto,"drives_label2")
-
-        stepPartAutoLayout.addWidget(self.drives_label2,1,0)
+        stepPartAutoLayout = QVBoxLayout(self.stepPartAuto,11,6,"stepPartAutoLayout")
 
         self.textLabel2_2 = QLabel(self.stepPartAuto,"textLabel2_2")
+        stepPartAutoLayout.addWidget(self.textLabel2_2)
 
-        stepPartAutoLayout.addMultiCellWidget(self.textLabel2_2,0,0,0,1)
+        self.partition_label2 = QLabel(self.stepPartAuto,"partition_label2")
+        stepPartAutoLayout.addWidget(self.partition_label2)
 
         self.autopartition_frame = QFrame(self.stepPartAuto,"autopartition_frame")
         self.autopartition_frame.setFrameShape(QFrame.StyledPanel)
         self.autopartition_frame.setFrameShadow(QFrame.Raised)
-
-        stepPartAutoLayout.addMultiCellWidget(self.autopartition_frame,3,3,0,1)
-        spacer18_2_2 = QSpacerItem(31,140,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        stepPartAutoLayout.addItem(spacer18_2_2,5,0)
+        stepPartAutoLayout.addWidget(self.autopartition_frame)
 
         self.new_size_frame = QFrame(self.stepPartAuto,"new_size_frame")
         self.new_size_frame.setFrameShape(QFrame.StyledPanel)
         self.new_size_frame.setFrameShadow(QFrame.Raised)
         new_size_frameLayout = QGridLayout(self.new_size_frame,1,1,11,6,"new_size_frameLayout")
 
+        self.partition_bar = QProgressBar(self.new_size_frame,"partition_bar")
+
+        new_size_frameLayout.addMultiCellWidget(self.partition_bar,2,2,0,1)
+
         self.new_size_scale = QSlider(self.new_size_frame,"new_size_scale")
         self.new_size_scale.setMaxValue(100)
         self.new_size_scale.setOrientation(QSlider.Horizontal)
 
-        new_size_frameLayout.addWidget(self.new_size_scale,0,1)
+        new_size_frameLayout.addWidget(self.new_size_scale,1,1)
 
         self.new_size_label = QLabel(self.new_size_frame,"new_size_label")
 
-        new_size_frameLayout.addWidget(self.new_size_label,0,0)
+        new_size_frameLayout.addWidget(self.new_size_label,1,0)
 
-        self.partition_bar = QProgressBar(self.new_size_frame,"partition_bar")
+        self.new_size_description = QLabel(self.new_size_frame,"new_size_description")
 
-        new_size_frameLayout.addMultiCellWidget(self.partition_bar,1,1,0,1)
+        new_size_frameLayout.addMultiCellWidget(self.new_size_description,0,0,0,1)
+        stepPartAutoLayout.addWidget(self.new_size_frame)
+        spacer18_2_2 = QSpacerItem(31,190,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        stepPartAutoLayout.addItem(spacer18_2_2)
+        self.widgetStack.addWidget(self.stepPartAuto,6)
 
-        stepPartAutoLayout.addMultiCellWidget(self.new_size_frame,4,4,0,1)
-        self.widgetStack.addWidget(self.stepPartAuto,5)
+        self.stepPartAdvancedpoints = QWidget(self.widgetStack,"stepPartAdvancedpoints")
+        stepPartAdvancedpointsLayout = QGridLayout(self.stepPartAdvancedpoints,1,1,11,6,"stepPartAdvancedpointsLayout")
 
-        self.stepPartAdvanced = QWidget(self.widgetStack,"stepPartAdvanced")
-        stepPartAdvancedLayout = QGridLayout(self.stepPartAdvanced,1,1,11,6,"stepPartAdvancedLayout")
-
-        self.textLabel6_2 = QLabel(self.stepPartAdvanced,"textLabel6_2")
-
-        stepPartAdvancedLayout.addWidget(self.textLabel6_2,0,0)
-
-        self.splitter2 = QSplitter(self.stepPartAdvanced,"splitter2")
+        self.splitter2 = QSplitter(self.stepPartAdvancedpoints,"splitter2")
         self.splitter2.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Preferred,0,1,self.splitter2.sizePolicy().hasHeightForWidth()))
         self.splitter2.setOrientation(QSplitter.Horizontal)
 
@@ -571,29 +672,33 @@ class EspressoUI(QWidget):
         self.qtparted_frame.setFrameShape(QFrame.StyledPanel)
         self.qtparted_frame.setFrameShadow(QFrame.Raised)
 
-        stepPartAdvancedLayout.addWidget(self.splitter2,1,0)
-        self.widgetStack.addWidget(self.stepPartAdvanced,6)
+        stepPartAdvancedpointsLayout.addWidget(self.splitter2,1,0)
+
+        self.textLabel6_2 = QLabel(self.stepPartAdvancedpoints,"textLabel6_2")
+
+        stepPartAdvancedpointsLayout.addWidget(self.textLabel6_2,0,0)
+        self.widgetStack.addWidget(self.stepPartAdvancedpoints,7)
 
         self.stepPartMountpoints = QWidget(self.widgetStack,"stepPartMountpoints")
         stepPartMountpointsLayout = QGridLayout(self.stepPartMountpoints,1,1,11,6,"stepPartMountpointsLayout")
 
-        layout14 = QGridLayout(None,1,1,0,6,"layout14")
+        layout14_2 = QGridLayout(None,1,1,0,6,"layout14_2")
 
-        self.mountpoint_error_message = QLabel(self.stepPartMountpoints,"mountpoint_error_message")
+        self.msg_error2 = QLabel(self.stepPartMountpoints,"msg_error2")
 
-        layout14.addMultiCellWidget(self.mountpoint_error_message,0,1,2,2)
+        layout14_2.addMultiCellWidget(self.msg_error2,0,1,2,2)
         spacer26 = QSpacerItem(21,31,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        layout14.addItem(spacer26,1,0)
+        layout14_2.addItem(spacer26,1,0)
 
-        self.mountpoint_error_image = QLabel(self.stepPartMountpoints,"mountpoint_error_image")
-        self.mountpoint_error_image.setPixmap(self.image1)
-        self.mountpoint_error_image.setScaledContents(1)
+        self.img_error2 = QLabel(self.stepPartMountpoints,"img_error2")
+        self.img_error2.setPixmap(self.image2)
+        self.img_error2.setScaledContents(1)
 
-        layout14.addWidget(self.mountpoint_error_image,0,0)
+        layout14_2.addWidget(self.img_error2,0,0)
         spacer25 = QSpacerItem(31,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        layout14.addItem(spacer25,0,1)
+        layout14_2.addItem(spacer25,0,1)
 
-        stepPartMountpointsLayout.addLayout(layout14,2,1)
+        stepPartMountpointsLayout.addLayout(layout14_2,2,1)
 
         layout12 = QGridLayout(None,1,1,0,6,"layout12")
 
@@ -741,18 +846,30 @@ class EspressoUI(QWidget):
 
         stepPartMountpointsLayout.addLayout(layout12,1,1)
 
+        self.textLabel1_4 = QLabel(self.stepPartMountpoints,"textLabel1_4")
+
+        stepPartMountpointsLayout.addMultiCellWidget(self.textLabel1_4,0,0,0,1)
+
         self.mount_help = QLabel(self.stepPartMountpoints,"mount_help")
         self.mount_help.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
 
         stepPartMountpointsLayout.addMultiCellWidget(self.mount_help,1,2,0,0)
-
-        self.textLabel1_4 = QLabel(self.stepPartMountpoints,"textLabel1_4")
-
-        stepPartMountpointsLayout.addMultiCellWidget(self.textLabel1_4,0,0,0,1)
-        self.widgetStack.addWidget(self.stepPartMountpoints,7)
+        self.widgetStack.addWidget(self.stepPartMountpoints,8)
 
         self.stepReady = QWidget(self.widgetStack,"stepReady")
         stepReadyLayout = QGridLayout(self.stepReady,1,1,11,6,"stepReadyLayout")
+
+        self.textLabel6 = QLabel(self.stepReady,"textLabel6")
+
+        stepReadyLayout.addMultiCellWidget(self.textLabel6,0,0,0,1)
+
+        self.ready_textview = QTextEdit(self.stepReady,"ready_textview")
+
+        stepReadyLayout.addMultiCellWidget(self.ready_textview,4,4,0,1)
+
+        self.textLabel8 = QLabel(self.stepReady,"textLabel8")
+
+        stepReadyLayout.addWidget(self.textLabel8,3,0)
 
         self.line2 = QFrame(self.stepReady,"line2")
         self.line2.setFrameShape(QFrame.HLine)
@@ -760,172 +877,174 @@ class EspressoUI(QWidget):
         self.line2.setFrameShape(QFrame.HLine)
 
         stepReadyLayout.addMultiCellWidget(self.line2,1,1,0,1)
-
-        self.textLabel8 = QLabel(self.stepReady,"textLabel8")
-
-        stepReadyLayout.addWidget(self.textLabel8,3,0)
-        spacer35 = QSpacerItem(501,20,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        spacer35 = QSpacerItem(552,20,QSizePolicy.Expanding,QSizePolicy.Minimum)
         stepReadyLayout.addItem(spacer35,3,1)
-
-        self.textLabel6 = QLabel(self.stepReady,"textLabel6")
-
-        stepReadyLayout.addMultiCellWidget(self.textLabel6,0,0,0,1)
 
         self.textLabel7 = QLabel(self.stepReady,"textLabel7")
 
         stepReadyLayout.addMultiCellWidget(self.textLabel7,2,2,0,1)
+        self.widgetStack.addWidget(self.stepReady,9)
 
-        self.ready_textview = QTextEdit(self.stepReady,"ready_textview")
-
-        stepReadyLayout.addMultiCellWidget(self.ready_textview,4,4,0,1)
-        self.widgetStack.addWidget(self.stepReady,8)
-
-        EspressoUILayout.addMultiCellWidget(self.widgetStack,2,2,0,3)
+        EspressoUILayout.addMultiCellWidget(self.widgetStack,1,1,0,4)
 
         self.languageChange()
 
-        self.resize(QSize(620,552).expandedTo(self.minimumSizeHint()))
+        self.resize(QSize(647,552).expandedTo(self.minimumSizeHint()))
         self.clearWState(Qt.WState_Polished)
 
 
     def languageChange(self):
-        self.setCaption(i18n("Form1"))
-        self.textLabel.setText(i18n("<span foreground=\"#9F6C49\"> <span foreground=\"white\" background=\"#9F6C49\"><b>Intro</b></span> > <b style=\"color: red\">Identification</b> > <b>Disk space</b> > <b>Installation</b> > <b>Ready!</b></span>"))
-        self.backButton.setText(i18n("< Back"))
-        self.nextButton.setText(i18n("Next >"))
-        self.cancelButton.setText(i18n("Cancel"))
-        self.introLabel.setText(i18n("textLabel2"))
-        self.language_treeview.header().setLabel(0,i18n("Language"))
-        self.textLabel1_2.setText(i18n("<b>Welcome</b>"))
-        self.textLabel2_3.setText(i18n("Ready to install? Once you answer a few questions, Ubuntu can be installed on this computer so you can run the system at full speed and without the CD.\n"
+        self.setCaption(self.__tr("Form1"))
+        QWhatsThis.add(self,QString.null)
+        self.backButton.setText(self.__tr("< Back"))
+        self.nextButton.setText(self.__tr("Next >"))
+        self.cancelButton.setText(self.__tr("Cancel"))
+        self.textLabel1_3.setText(self.__tr("Step N of M"))
+        self.introLabel.setText(self.__tr("textLabel2"))
+        self.textLabel1_2.setText(self.__tr("<b>Welcome</b>"))
+        self.language_treeview.header().setLabel(0,self.__tr("Language"))
+        self.textLabel2_3.setText(self.__tr("Ready to install? Once you answer a few questions, Ubuntu can be installed on this computer so you can run the system at full speed and without the CD.\n"
 "\n"
 "Answering the questions should only take a few minutes."))
-        self.textLabel4.setText(i18n("Specifying your location helps achieve faster downloads, and accurate number and currency settings."))
-        self.textLabel2.setText(i18n("Nearest city:"))
-        self.textLabel3_2.setText(i18n("Time zone:"))
+        self.textLabel4.setText(self.__tr("Specifying your location helps achieve faster downloads, and accurate number and currency settings."))
+        self.textLabel2.setText(self.__tr("Nearest city:"))
+        self.textLabel3_2.setText(self.__tr("Time zone:"))
         self.timezone_zone_text.setText(QString.null)
-        self.textLabel1.setText(i18n("<h2>Where are you?</h2>"))
-        self.textLabel1_3_2.setText(i18n("Some text (keyboard configurator goes here)"))
-        self.warning_info.setText(QString.null)
-        self.ident_label_3.setText(i18n("<h2>Identify yourself and your computer</h2>"))
-        self.textLabel4_2.setText(i18n("<b>Computer Data</b>"))
-        self.hostname_label1_2.setText(i18n("Hostname:"))
-        self.pasword_label1_2.setText(i18n("Password"))
-        self.username_label1_2.setText(i18n("User name:"))
-        self.verified_label_2.setText(i18n("Verify Password:"))
-        self.fullname_label1_2.setText(i18n("Real Name:"))
-        self.user_label_2_2.setText(i18n("<b>Personal Data</b>"))
-        self.partition_label2.setText(i18n("<b>How do you want to partition the disk?</b>"))
-        self.drives_label2.setText(i18n("<b>Disk drives available:</b>"))
-        self.textLabel2_2.setText(i18n("<h2>Please prepare some space for your new system</h2>"))
-        self.new_size_label.setText(i18n("New partition size:"))
-        self.textLabel6_2.setText(i18n("<h2>Please prepare some space for your new system</h2>"))
-        self.textLabel7_2.setText(i18n("You have to make room in one or more of your hard disks in order to have GNU/Linux properly installed. 2 partitions are necessary:\n"
-"· The root partition (“/”), with a minimum size of 1.5 GB.\n"
-"· The swap partition (“swap”), with 256 MB or more.\n"
-"You can now modify your existing partition table and select where you want what.\n"
-"Remember that you can keep the data in a previous home partition – just leave it as it is and it will not be formatted.\n"
-"Alternatively, it is possible to return to the previous page to select an easier partitioning method."))
-        self.mountpoint_error_message.setText(i18n("You must supply a <b>\"/\"</b> mount point for your installed system."))
+        self.textLabel1.setText(self.__tr("<h2>Where are you?</h2>"))
+        self.textLabel1_3_2.setText(self.__tr("Some text (keyboard configurator goes here)"))
+        self.username_label1_2.setText(self.__tr("What name do you want to use to log in?"))
+        self.pasword_label1_2.setText(self.__tr("Choose a password to keep your account safe."))
+        self.ident_label_3.setText(self.__tr("<h2>Who are you?</h2>"))
+        self.fullname_label1_2.setText(self.__tr("What is your name?"))
+        self.textLabel2_4.setText(self.__tr("<i>If more than one person will use this computer, you can set up multiple accounts after installation.</i>"))
+        self.textLabel4_2.setText(self.__tr("<i>This name will be used if you make the computer visible to others on a network.</i>"))
+        self.hostname_label1_2.setText(self.__tr("What is the name of this computer?"))
+        self.textLabel3_3.setText(self.__tr("<i>Enter the same password twice, so that it can be checked for typing errors.</i>"))
+        self.textLabel2_2_2.setText(self.__tr("<h2>Select A Disk</h2>"))
+        self.textLabel6_3.setText(self.__tr("You can have the installer automatically create space in various ways on any one of the following hard disks. Alternatively, you can partition the disks manually."))
+        self.textLabel2_2.setText(self.__tr("<h2>Prepare Disk Space</h2>"))
+        self.partition_label2.setText(self.__tr("<b>How do you want to partition the disk?</b>"))
+        self.new_size_label.setText(self.__tr("New partition size:"))
+        self.new_size_description.setText(QString.null)
+        self.textLabel7_2.setText(self.__trUtf8("\x59\x6f\x75\x20\x68\x61\x76\x65\x20\x74\x6f\x20\x6d\x61\x6b\x65\x20\x72\x6f\x6f\x6d\x20\x69\x6e\x20\x6f\x6e\x65\x20\x6f\x72\x20\x6d\x6f\x72\x65\x20\x6f\x66\x20\x79\x6f\x75\x72\x20\x68\x61\x72\x64\x20\x64\x69\x73\x6b\x73\x20\x69\x6e\x20\x6f\x72\x64\x65\x72\x20\x74\x6f\x20\x68\x61\x76\x65\x20\x47\x4e\x55\x2f\x4c\x69\x6e\x75\x78\x20\x70\x72\x6f\x70\x65\x72\x6c\x79\x20\x69\x6e\x73\x74\x61\x6c\x6c\x65\x64\x2e\x20\x32\x20\x70\x61\x72\x74\x69\x74\x69\x6f\x6e\x73\x20\x61\x72\x65\x20\x6e\x65\x63\x65\x73\x73\x61\x72\x79\x3a\x0a\xc2\xb7\x20\x54\x68\x65\x20\x72\x6f\x6f\x74\x20\x70\x61\x72\x74\x69\x74\x69\x6f\x6e\x20\x28\xe2\x80\x9c\x2f\xe2\x80\x9d\x29\x2c\x20\x77\x69\x74\x68\x20\x61\x20\x6d\x69\x6e\x69\x6d\x75\x6d\x20\x73\x69\x7a\x65\x20\x6f\x66\x20\x31\x2e\x35\x20\x47\x42\x2e\x0a\xc2\xb7\x20\x54\x68\x65\x20\x73\x77\x61\x70\x20\x70\x61\x72\x74\x69\x74\x69\x6f\x6e\x20\x28\xe2\x80\x9c\x73\x77\x61\x70\xe2\x80\x9d\x29\x2c\x20\x77\x69\x74\x68\x20\x32\x35\x36\x20\x4d\x42\x20\x6f\x72\x20\x6d\x6f\x72\x65\x2e\x0a\x59\x6f\x75\x20\x63\x61\x6e\x20\x6e\x6f\x77\x20\x6d\x6f\x64\x69\x66\x79\x20\x79\x6f\x75\x72\x20\x65\x78\x69\x73\x74\x69\x6e\x67\x20\x70\x61\x72\x74\x69\x74\x69\x6f\x6e\x20\x74\x61\x62\x6c\x65\x20\x61\x6e\x64\x20\x73\x65\x6c\x65\x63\x74\x20\x77\x68\x65\x72\x65\x20\x79\x6f\x75\x20\x77\x61\x6e\x74\x20\x77\x68\x61\x74\x2e\x0a\x52\x65\x6d\x65\x6d\x62\x65\x72\x20\x74\x68\x61\x74\x20\x79\x6f\x75\x20\x63\x61\x6e\x20\x6b\x65\x65\x70\x20\x74\x68\x65\x20\x64\x61\x74\x61\x20\x69\x6e\x20\x61\x20\x70\x72\x65\x76\x69\x6f\x75\x73\x20\x68\x6f\x6d\x65\x20\x70\x61\x72\x74\x69\x74\x69\x6f\x6e\x20\xe2\x80\x93\x20\x6a\x75\x73\x74\x20\x6c\x65\x61\x76\x65\x20\x69\x74\x20\x61\x73\x20\x69\x74\x20\x69\x73\x20\x61\x6e\x64\x20\x69\x74\x20\x77\x69\x6c\x6c\x20\x6e\x6f\x74\x20\x62\x65\x20\x66\x6f\x72\x6d\x61\x74\x74\x65\x64\x2e\x0a\x41\x6c\x74\x65\x72\x6e\x61\x74\x69\x76\x65\x6c\x79\x2c\x20\x69\x74\x20\x69\x73\x20\x70\x6f\x73\x73\x69\x62\x6c\x65\x20\x74\x6f\x20\x72\x65\x74\x75\x72\x6e\x20\x74\x6f\x20\x74\x68\x65\x20\x70\x72\x65\x76\x69\x6f\x75\x73\x20\x70\x61\x67\x65\x20\x74\x6f\x20\x73\x65\x6c\x65\x63\x74\x20\x61\x6e\x20\x65\x61\x73\x69\x65\x72\x20\x70\x61\x72\x74\x69\x74\x69\x6f\x6e\x69\x6e\x67\x20\x6d\x65\x74\x68\x6f\x64\x2e"))
+        self.textLabel6_2.setText(self.__tr("<h2>Please prepare some space for your new system</h2>"))
+        self.msg_error2.setText(self.__tr("You must supply a <b>\"/\"</b> mount point for your installed system."))
         self.mountpoint8.clear()
         self.mountpoint8.insertItem(QString.null)
-        self.mountpoint8.insertItem(i18n("swap"))
-        self.mountpoint8.insertItem(i18n("/"))
-        self.mountpoint8.insertItem(i18n("/home"))
-        self.mountpoint8.insertItem(i18n("/boot"))
-        self.mountpoint8.insertItem(i18n("/usr"))
-        self.mountpoint8.insertItem(i18n("/var"))
+        self.mountpoint8.insertItem(self.__tr("swap"))
+        self.mountpoint8.insertItem(self.__tr("/"))
+        self.mountpoint8.insertItem(self.__tr("/home"))
+        self.mountpoint8.insertItem(self.__tr("/boot"))
+        self.mountpoint8.insertItem(self.__tr("/usr"))
+        self.mountpoint8.insertItem(self.__tr("/var"))
         self.size4.setText(QString.null)
         self.size2.setText(QString.null)
         self.mountpoint1.clear()
         self.mountpoint1.insertItem(QString.null)
-        self.mountpoint1.insertItem(i18n("swap"))
-        self.mountpoint1.insertItem(i18n("/"))
-        self.mountpoint1.insertItem(i18n("/home"))
-        self.mountpoint1.insertItem(i18n("/boot"))
-        self.mountpoint1.insertItem(i18n("/usr"))
-        self.mountpoint1.insertItem(i18n("/var"))
+        self.mountpoint1.insertItem(self.__tr("swap"))
+        self.mountpoint1.insertItem(self.__tr("/"))
+        self.mountpoint1.insertItem(self.__tr("/home"))
+        self.mountpoint1.insertItem(self.__tr("/boot"))
+        self.mountpoint1.insertItem(self.__tr("/usr"))
+        self.mountpoint1.insertItem(self.__tr("/var"))
         self.mountpoint2.clear()
         self.mountpoint2.insertItem(QString.null)
-        self.mountpoint2.insertItem(i18n("swap"))
-        self.mountpoint2.insertItem(i18n("/"))
-        self.mountpoint2.insertItem(i18n("/home"))
-        self.mountpoint2.insertItem(i18n("/boot"))
-        self.mountpoint2.insertItem(i18n("/usr"))
-        self.mountpoint2.insertItem(i18n("/var"))
-        self.textLabel4_2_2.setText(i18n("<b>Size</b>"))
+        self.mountpoint2.insertItem(self.__tr("swap"))
+        self.mountpoint2.insertItem(self.__tr("/"))
+        self.mountpoint2.insertItem(self.__tr("/home"))
+        self.mountpoint2.insertItem(self.__tr("/boot"))
+        self.mountpoint2.insertItem(self.__tr("/usr"))
+        self.mountpoint2.insertItem(self.__tr("/var"))
+        self.textLabel4_2_2.setText(self.__tr("<b>Size</b>"))
         self.size10.setText(QString.null)
         self.size8.setText(QString.null)
         self.size5.setText(QString.null)
         self.size9.setText(QString.null)
         self.size1.setText(QString.null)
-        self.textLabel3.setText(i18n("<b>Mountpoint</b>"))
-        self.textLabel5.setText(i18n("<b>Partition</b>"))
+        self.textLabel3.setText(self.__tr("<b>Mountpoint</b>"))
+        self.textLabel5.setText(self.__tr("<b>Partition</b>"))
         self.mountpoint4.clear()
         self.mountpoint4.insertItem(QString.null)
-        self.mountpoint4.insertItem(i18n("swap"))
-        self.mountpoint4.insertItem(i18n("/"))
-        self.mountpoint4.insertItem(i18n("/home"))
-        self.mountpoint4.insertItem(i18n("/boot"))
-        self.mountpoint4.insertItem(i18n("/usr"))
-        self.mountpoint4.insertItem(i18n("/var"))
+        self.mountpoint4.insertItem(self.__tr("swap"))
+        self.mountpoint4.insertItem(self.__tr("/"))
+        self.mountpoint4.insertItem(self.__tr("/home"))
+        self.mountpoint4.insertItem(self.__tr("/boot"))
+        self.mountpoint4.insertItem(self.__tr("/usr"))
+        self.mountpoint4.insertItem(self.__tr("/var"))
         self.size7.setText(QString.null)
         self.mountpoint10.clear()
         self.mountpoint10.insertItem(QString.null)
-        self.mountpoint10.insertItem(i18n("swap"))
-        self.mountpoint10.insertItem(i18n("/"))
-        self.mountpoint10.insertItem(i18n("/home"))
-        self.mountpoint10.insertItem(i18n("/boot"))
-        self.mountpoint10.insertItem(i18n("/usr"))
-        self.mountpoint10.insertItem(i18n("/var"))
+        self.mountpoint10.insertItem(self.__tr("swap"))
+        self.mountpoint10.insertItem(self.__tr("/"))
+        self.mountpoint10.insertItem(self.__tr("/home"))
+        self.mountpoint10.insertItem(self.__tr("/boot"))
+        self.mountpoint10.insertItem(self.__tr("/usr"))
+        self.mountpoint10.insertItem(self.__tr("/var"))
         self.mountpoint3.clear()
         self.mountpoint3.insertItem(QString.null)
-        self.mountpoint3.insertItem(i18n("swap"))
-        self.mountpoint3.insertItem(i18n("/"))
-        self.mountpoint3.insertItem(i18n("/home"))
-        self.mountpoint3.insertItem(i18n("/boot"))
-        self.mountpoint3.insertItem(i18n("/usr"))
-        self.mountpoint3.insertItem(i18n("/var"))
+        self.mountpoint3.insertItem(self.__tr("swap"))
+        self.mountpoint3.insertItem(self.__tr("/"))
+        self.mountpoint3.insertItem(self.__tr("/home"))
+        self.mountpoint3.insertItem(self.__tr("/boot"))
+        self.mountpoint3.insertItem(self.__tr("/usr"))
+        self.mountpoint3.insertItem(self.__tr("/var"))
         self.mountpoint7.clear()
         self.mountpoint7.insertItem(QString.null)
-        self.mountpoint7.insertItem(i18n("swap"))
-        self.mountpoint7.insertItem(i18n("/"))
-        self.mountpoint7.insertItem(i18n("/home"))
-        self.mountpoint7.insertItem(i18n("/boot"))
-        self.mountpoint7.insertItem(i18n("/usr"))
-        self.mountpoint7.insertItem(i18n("/var"))
+        self.mountpoint7.insertItem(self.__tr("swap"))
+        self.mountpoint7.insertItem(self.__tr("/"))
+        self.mountpoint7.insertItem(self.__tr("/home"))
+        self.mountpoint7.insertItem(self.__tr("/boot"))
+        self.mountpoint7.insertItem(self.__tr("/usr"))
+        self.mountpoint7.insertItem(self.__tr("/var"))
         self.mountpoint9.clear()
         self.mountpoint9.insertItem(QString.null)
-        self.mountpoint9.insertItem(i18n("swap"))
-        self.mountpoint9.insertItem(i18n("/"))
-        self.mountpoint9.insertItem(i18n("/home"))
-        self.mountpoint9.insertItem(i18n("/root"))
-        self.mountpoint9.insertItem(i18n("/usr"))
-        self.mountpoint9.insertItem(i18n("/var"))
+        self.mountpoint9.insertItem(self.__tr("swap"))
+        self.mountpoint9.insertItem(self.__tr("/"))
+        self.mountpoint9.insertItem(self.__tr("/home"))
+        self.mountpoint9.insertItem(self.__tr("/root"))
+        self.mountpoint9.insertItem(self.__tr("/usr"))
+        self.mountpoint9.insertItem(self.__tr("/var"))
         self.size3.setText(QString.null)
         self.mountpoint5.clear()
         self.mountpoint5.insertItem(QString.null)
-        self.mountpoint5.insertItem(i18n("swap"))
-        self.mountpoint5.insertItem(i18n("/"))
-        self.mountpoint5.insertItem(i18n("/home"))
-        self.mountpoint5.insertItem(i18n("/boot"))
-        self.mountpoint5.insertItem(i18n("/usr"))
-        self.mountpoint5.insertItem(i18n("/var"))
+        self.mountpoint5.insertItem(self.__tr("swap"))
+        self.mountpoint5.insertItem(self.__tr("/"))
+        self.mountpoint5.insertItem(self.__tr("/home"))
+        self.mountpoint5.insertItem(self.__tr("/boot"))
+        self.mountpoint5.insertItem(self.__tr("/usr"))
+        self.mountpoint5.insertItem(self.__tr("/var"))
         self.mountpoint6.clear()
         self.mountpoint6.insertItem(QString.null)
-        self.mountpoint6.insertItem(i18n("swap"))
-        self.mountpoint6.insertItem(i18n("/"))
-        self.mountpoint6.insertItem(i18n("/home"))
-        self.mountpoint6.insertItem(i18n("/boot"))
-        self.mountpoint6.insertItem(i18n("/usr"))
-        self.mountpoint6.insertItem(i18n("/var"))
+        self.mountpoint6.insertItem(self.__tr("swap"))
+        self.mountpoint6.insertItem(self.__tr("/"))
+        self.mountpoint6.insertItem(self.__tr("/home"))
+        self.mountpoint6.insertItem(self.__tr("/boot"))
+        self.mountpoint6.insertItem(self.__tr("/usr"))
+        self.mountpoint6.insertItem(self.__tr("/var"))
         self.size6.setText(QString.null)
-        self.mount_help.setText(i18n("Now you should have at least 2 GNU/Linux partitions with space enough. It's time to specify where you want every component to be installed.\n"
-"Proceed as follows: select one partition in the column on the left and link it with one mount point on the right. Repeat for every desired partition.\n"
-"There are 2 necessary “mount points” – they must be associated with 2 partitions. They are “/” and “swap”.\n"
-"If you kept an intact home partition, you can now link it with the “/home” mount point. It will not be formatted, so data is preserved."))
-        self.textLabel1_4.setText(i18n("<h2>Please prepare some space for your new system</h2>"))
-        self.textLabel8.setText(i18n("Details"))
-        self.textLabel6.setText(i18n("<h2>Ready to install</h2>"))
-        self.textLabel7.setText(i18n("Kubuntu is ready to install on this computer."))
+        self.textLabel1_4.setText(self.__tr("<h2>Please prepare some space for your new system</h2>"))
+        self.mount_help.setText(self.__trUtf8("\x4e\x6f\x77\x20\x79\x6f\x75\x20\x73\x68\x6f\x75\x6c\x64\x20\x68\x61\x76\x65\x20\x61\x74\x20\x6c\x65\x61\x73\x74\x20\x32\x20\x47\x4e\x55\x2f\x4c\x69\x6e\x75\x78\x20\x70\x61\x72\x74\x69\x74\x69\x6f\x6e\x73\x20\x77\x69\x74\x68\x20\x73\x70\x61\x63\x65\x20\x65\x6e\x6f\x75\x67\x68\x2e\x20\x49\x74\x27\x73\x20\x74\x69\x6d\x65\x20\x74\x6f\x20\x73\x70\x65\x63\x69\x66\x79\x20\x77\x68\x65\x72\x65\x20\x79\x6f\x75\x20\x77\x61\x6e\x74\x20\x65\x76\x65\x72\x79\x20\x63\x6f\x6d\x70\x6f\x6e\x65\x6e\x74\x20\x74\x6f\x20\x62\x65\x20\x69\x6e\x73\x74\x61\x6c\x6c\x65\x64\x2e\x0a\x50\x72\x6f\x63\x65\x65\x64\x20\x61\x73\x20\x66\x6f\x6c\x6c\x6f\x77\x73\x3a\x20\x73\x65\x6c\x65\x63\x74\x20\x6f\x6e\x65\x20\x70\x61\x72\x74\x69\x74\x69\x6f\x6e\x20\x69\x6e\x20\x74\x68\x65\x20\x63\x6f\x6c\x75\x6d\x6e\x20\x6f\x6e\x20\x74\x68\x65\x20\x6c\x65\x66\x74\x20\x61\x6e\x64\x20\x6c\x69\x6e\x6b\x20\x69\x74\x20\x77\x69\x74\x68\x20\x6f\x6e\x65\x20\x6d\x6f\x75\x6e\x74\x20\x70\x6f\x69\x6e\x74\x20\x6f\x6e\x20\x74\x68\x65\x20\x72\x69\x67\x68\x74\x2e\x20\x52\x65\x70\x65\x61\x74\x20\x66\x6f\x72\x20\x65\x76\x65\x72\x79\x20\x64\x65\x73\x69\x72\x65\x64\x20\x70\x61\x72\x74\x69\x74\x69\x6f\x6e\x2e\x0a\x54\x68\x65\x72\x65\x20\x61\x72\x65\x20\x32\x20\x6e\x65\x63\x65\x73\x73\x61\x72\x79\x20\xe2\x80\x9c\x6d\x6f\x75\x6e\x74\x20\x70\x6f\x69\x6e\x74\x73\xe2\x80\x9d\x20\xe2\x80\x93\x20\x74\x68\x65\x79\x20\x6d\x75\x73\x74\x20\x62\x65\x20\x61\x73\x73\x6f\x63\x69\x61\x74\x65\x64\x20\x77\x69\x74\x68\x20\x32\x20\x70\x61\x72\x74\x69\x74\x69\x6f\x6e\x73\x2e\x20\x54\x68\x65\x79\x20\x61\x72\x65\x20\xe2\x80\x9c\x2f\xe2\x80\x9d\x20\x61\x6e\x64\x20\xe2\x80\x9c\x73\x77\x61\x70\xe2\x80\x9d\x2e\x0a\x49\x66\x20\x79\x6f\x75\x20\x6b\x65\x70\x74\x20\x61\x6e\x20\x69\x6e\x74\x61\x63\x74\x20\x68\x6f\x6d\x65\x20\x70\x61\x72\x74\x69\x74\x69\x6f\x6e\x2c\x20\x79\x6f\x75\x20\x63\x61\x6e\x20\x6e\x6f\x77\x20\x6c\x69\x6e\x6b\x20\x69\x74\x20\x77\x69\x74\x68\x20\x74\x68\x65\x20\xe2\x80\x9c\x2f\x68\x6f\x6d\x65\xe2\x80\x9d\x20\x6d\x6f\x75\x6e\x74\x20\x70\x6f\x69\x6e\x74\x2e\x20\x49\x74\x20\x77\x69\x6c\x6c\x20\x6e\x6f\x74\x20\x62\x65\x20\x66\x6f\x72\x6d\x61\x74\x74\x65\x64\x2c\x20\x73\x6f\x20\x64\x61\x74\x61\x20\x69\x73\x20\x70\x72\x65\x73\x65\x72\x76\x65\x64\x2e"))
+        self.textLabel6.setText(self.__tr("<h2>Ready to install</h2>"))
+        self.textLabel8.setText(self.__tr("Details"))
+        self.textLabel7.setText(self.__tr("Kubuntu is ready to install on this computer."))
 
+
+    def __tr(self,s,c = None):
+        return qApp.translate("EspressoUI",s,c)
+
+    def __trUtf8(self,s,c = None):
+        return qApp.translate("EspressoUI",s,c,QApplication.UnicodeUTF8)
+
+if __name__ == "__main__":
+    appname     = ""
+    description = ""
+    version     = ""
+
+    KCmdLineArgs.init (sys.argv, appname, description, version)
+    a = KApplication ()
+
+    QObject.connect(a,SIGNAL("lastWindowClosed()"),a,SLOT("quit()"))
+    w = EspressoUI()
+    a.setMainWidget(w)
+    w.show()
+    a.exec_loop()

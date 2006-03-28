@@ -8,18 +8,21 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>620</width>
+            <width>647</width>
             <height>552</height>
         </rect>
     </property>
     <property name="caption">
         <string>Form1</string>
     </property>
+    <property name="whatsThis" stdset="0">
+        <string></string>
+    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="4">
+        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="5">
             <property name="name">
                 <cstring>layout9_4_2_2</cstring>
             </property>
@@ -74,15 +77,7 @@
                 </spacer>
             </hbox>
         </widget>
-        <widget class="QLabel" row="1" column="0" rowspan="1" colspan="4">
-            <property name="name">
-                <cstring>textLabel</cstring>
-            </property>
-            <property name="text">
-                <string>&lt;span foreground="#9F6C49"&gt; &lt;span foreground="white" background="#9F6C49"&gt;&lt;b&gt;Intro&lt;/b&gt;&lt;/span&gt; &gt; &lt;b style="color: red"&gt;Identification&lt;/b&gt; &gt; &lt;b&gt;Disk space&lt;/b&gt; &gt; &lt;b&gt;Installation&lt;/b&gt; &gt; &lt;b&gt;Ready!&lt;/b&gt;&lt;/span&gt;</string>
-            </property>
-        </widget>
-        <widget class="QPushButton" row="3" column="1">
+        <widget class="QPushButton" row="2" column="3">
             <property name="name">
                 <cstring>backButton</cstring>
             </property>
@@ -90,7 +85,7 @@
                 <string>&lt; Back</string>
             </property>
         </widget>
-        <widget class="QPushButton" row="3" column="2">
+        <widget class="QPushButton" row="2" column="4">
             <property name="name">
                 <cstring>nextButton</cstring>
             </property>
@@ -98,7 +93,7 @@
                 <string>Next &gt;</string>
             </property>
         </widget>
-        <widget class="QPushButton" row="3" column="3">
+        <widget class="QPushButton" row="2" column="2">
             <property name="name">
                 <cstring>cancelButton</cstring>
             </property>
@@ -106,7 +101,15 @@
                 <string>Cancel</string>
             </property>
         </widget>
-        <spacer row="3" column="0">
+        <widget class="QLabel" row="2" column="0">
+            <property name="name">
+                <cstring>textLabel1_3</cstring>
+            </property>
+            <property name="text">
+                <string>Step N of M</string>
+            </property>
+        </widget>
+        <spacer row="2" column="1">
             <property name="name">
                 <cstring>spacer31</cstring>
             </property>
@@ -118,12 +121,12 @@
             </property>
             <property name="sizeHint">
                 <size>
-                    <width>240</width>
+                    <width>260</width>
                     <height>41</height>
                 </size>
             </property>
         </spacer>
-        <widget class="QWidgetStack" row="2" column="0" rowspan="1" colspan="4">
+        <widget class="QWidgetStack" row="1" column="0" rowspan="1" colspan="5">
             <property name="name">
                 <cstring>widgetStack</cstring>
             </property>
@@ -204,7 +207,63 @@
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="KListView" row="0" column="0" rowspan="3" colspan="1">
+                    <widget class="Line" row="1" column="0" rowspan="1" colspan="3">
+                        <property name="name">
+                            <cstring>line1_2</cstring>
+                        </property>
+                        <property name="frameShape">
+                            <enum>HLine</enum>
+                        </property>
+                        <property name="frameShadow">
+                            <enum>Sunken</enum>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                    </widget>
+                    <widget class="QLabel" row="0" column="0" rowspan="1" colspan="3">
+                        <property name="name">
+                            <cstring>textLabel1_2</cstring>
+                        </property>
+                        <property name="text">
+                            <string>&lt;b&gt;Welcome&lt;/b&gt;</string>
+                        </property>
+                    </widget>
+                    <spacer row="3" column="0">
+                        <property name="name">
+                            <cstring>spacer22</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>211</width>
+                                <height>31</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <spacer row="3" column="2">
+                        <property name="name">
+                            <cstring>spacer21</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>180</width>
+                                <height>31</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="KListView" row="3" column="1">
                         <column>
                             <property name="text">
                                 <string>Language</string>
@@ -219,30 +278,16 @@
                         <property name="name">
                             <cstring>language_treeview</cstring>
                         </property>
-                    </widget>
-                    <widget class="QLabel" row="0" column="1">
-                        <property name="name">
-                            <cstring>textLabel1_2</cstring>
-                        </property>
-                        <property name="text">
-                            <string>&lt;b&gt;Welcome&lt;/b&gt;</string>
-                        </property>
-                    </widget>
-                    <widget class="Line" row="1" column="1">
-                        <property name="name">
-                            <cstring>line1_2</cstring>
-                        </property>
-                        <property name="frameShape">
-                            <enum>HLine</enum>
-                        </property>
-                        <property name="frameShadow">
-                            <enum>Sunken</enum>
-                        </property>
-                        <property name="orientation">
-                            <enum>Horizontal</enum>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>7</hsizetype>
+                                <vsizetype>7</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>1</verstretch>
+                            </sizepolicy>
                         </property>
                     </widget>
-                    <widget class="QLabel" row="2" column="1">
+                    <widget class="QLabel" row="2" column="0" rowspan="1" colspan="3">
                         <property name="name">
                             <cstring>textLabel2_3</cstring>
                         </property>
@@ -251,7 +296,7 @@
                                 <hsizetype>5</hsizetype>
                                 <vsizetype>5</vsizetype>
                                 <horstretch>0</horstretch>
-                                <verstretch>1</verstretch>
+                                <verstretch>0</verstretch>
                             </sizepolicy>
                         </property>
                         <property name="text">
@@ -276,25 +321,6 @@ Answering the questions should only take a few minutes.</string>
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="QFrame" row="1" column="0">
-                        <property name="name">
-                            <cstring>frame3</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>5</hsizetype>
-                                <vsizetype>5</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>1</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="frameShape">
-                            <enum>StyledPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                            <enum>Raised</enum>
-                        </property>
-                    </widget>
                     <widget class="QLayoutWidget" row="2" column="0">
                         <property name="name">
                             <cstring>layout9</cstring>
@@ -396,6 +422,25 @@ Answering the questions should only take a few minutes.</string>
                             </spacer>
                         </grid>
                     </widget>
+                    <widget class="QFrame" row="1" column="0">
+                        <property name="name">
+                            <cstring>frame3</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>5</hsizetype>
+                                <vsizetype>5</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>1</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="frameShape">
+                            <enum>StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                            <enum>Raised</enum>
+                        </property>
+                    </widget>
                     <widget class="QLabel" row="0" column="0">
                         <property name="name">
                             <cstring>textLabel1</cstring>
@@ -417,23 +462,6 @@ Answering the questions should only take a few minutes.</string>
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <spacer row="0" column="0">
-                        <property name="name">
-                            <cstring>spacer16_2_2</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>21</width>
-                                <height>193</height>
-                            </size>
-                        </property>
-                    </spacer>
                     <spacer row="2" column="0">
                         <property name="name">
                             <cstring>spacer17_2_2</cstring>
@@ -447,7 +475,24 @@ Answering the questions should only take a few minutes.</string>
                         <property name="sizeHint">
                             <size>
                                 <width>21</width>
-                                <height>193</height>
+                                <height>202</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <spacer row="0" column="0">
+                        <property name="name">
+                            <cstring>spacer16_2_2</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>21</width>
+                                <height>202</height>
                             </size>
                         </property>
                     </spacer>
@@ -474,13 +519,18 @@ Answering the questions should only take a few minutes.</string>
                     </property>
                     <widget class="QLabel" row="3" column="0">
                         <property name="name">
-                            <cstring>warning_info</cstring>
+                            <cstring>username_label1_2</cstring>
                         </property>
                         <property name="text">
-                            <string></string>
+                            <string>What name do you want to use to log in?</string>
                         </property>
-                        <property name="alignment">
-                            <set>WordBreak|AlignVCenter</set>
+                    </widget>
+                    <widget class="QLabel" row="5" column="0">
+                        <property name="name">
+                            <cstring>pasword_label1_2</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Choose a password to keep your account safe.</string>
                         </property>
                     </widget>
                     <widget class="QLabel" row="0" column="0">
@@ -488,10 +538,162 @@ Answering the questions should only take a few minutes.</string>
                             <cstring>ident_label_3</cstring>
                         </property>
                         <property name="text">
-                            <string>&lt;h2&gt;Identify yourself and your computer&lt;/h2&gt;</string>
+                            <string>&lt;h2&gt;Who are you?&lt;/h2&gt;</string>
                         </property>
                     </widget>
-                    <spacer row="4" column="0">
+                    <widget class="QLabel" row="1" column="0">
+                        <property name="name">
+                            <cstring>fullname_label1_2</cstring>
+                        </property>
+                        <property name="text">
+                            <string>What is your name?</string>
+                        </property>
+                    </widget>
+                    <widget class="QLayoutWidget" row="4" column="0">
+                        <property name="name">
+                            <cstring>layout15</cstring>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QLabel" row="0" column="2">
+                                <property name="name">
+                                    <cstring>username_error_image</cstring>
+                                </property>
+                                <property name="pixmap">
+                                    <pixmap>image1</pixmap>
+                                </property>
+                                <property name="scaledContents">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                            <spacer row="0" column="0" rowspan="2" colspan="1">
+                                <property name="name">
+                                    <cstring>spacer30_2</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>31</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLineEdit" row="0" column="1">
+                                <property name="name">
+                                    <cstring>username</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>1</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                            </widget>
+                            <spacer row="0" column="3">
+                                <property name="name">
+                                    <cstring>spacer30_2_4</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>270</width>
+                                        <height>31</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLabel" row="1" column="1" rowspan="1" colspan="3">
+                                <property name="name">
+                                    <cstring>textLabel2_4</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&lt;i&gt;If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/i&gt;</string>
+                                </property>
+                            </widget>
+                        </grid>
+                    </widget>
+                    <widget class="QLayoutWidget" row="2" column="0">
+                        <property name="name">
+                            <cstring>layout14</cstring>
+                        </property>
+                        <hbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <spacer>
+                                <property name="name">
+                                    <cstring>spacer30</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>31</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLineEdit">
+                                <property name="name">
+                                    <cstring>fullname</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>1</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                            </widget>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>fullname_error_image</cstring>
+                                </property>
+                                <property name="pixmap">
+                                    <pixmap>image1</pixmap>
+                                </property>
+                                <property name="scaledContents">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                            <spacer>
+                                <property name="name">
+                                    <cstring>spacer30_2_3</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>270</width>
+                                        <height>31</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                        </hbox>
+                    </widget>
+                    <spacer row="9" column="0">
                         <property name="name">
                             <cstring>spacer10_2</cstring>
                         </property>
@@ -504,236 +706,264 @@ Answering the questions should only take a few minutes.</string>
                         <property name="sizeHint">
                             <size>
                                 <width>41</width>
-                                <height>91</height>
+                                <height>20</height>
                             </size>
                         </property>
                     </spacer>
-                    <widget class="QLayoutWidget" row="2" column="0">
+                    <widget class="QLayoutWidget" row="8" column="0">
                         <property name="name">
-                            <cstring>layout7</cstring>
+                            <cstring>layout17</cstring>
                         </property>
                         <grid>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="QLabel" row="0" column="0">
+                            <spacer row="0" column="3">
+                                <property name="name">
+                                    <cstring>spacer30_2_6</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>260</width>
+                                        <height>31</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLabel" row="0" column="2">
+                                <property name="name">
+                                    <cstring>hostname_error_image</cstring>
+                                </property>
+                                <property name="pixmap">
+                                    <pixmap>image1</pixmap>
+                                </property>
+                                <property name="scaledContents">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                            <widget class="QLineEdit" row="0" column="1">
+                                <property name="name">
+                                    <cstring>hostname</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>1</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                            </widget>
+                            <spacer row="0" column="0" rowspan="2" colspan="1">
+                                <property name="name">
+                                    <cstring>spacer30_2_2</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>31</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLabel" row="1" column="1" rowspan="1" colspan="3">
                                 <property name="name">
                                     <cstring>textLabel4_2</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>&lt;b&gt;Computer Data&lt;/b&gt;</string>
+                                    <string>&lt;i&gt;This name will be used if you make the computer visible to others on a network.&lt;/i&gt;</string>
                                 </property>
-                            </widget>
-                            <widget class="QLayoutWidget" row="1" column="0">
-                                <property name="name">
-                                    <cstring>layout6_2</cstring>
-                                </property>
-                                <grid>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <property name="margin">
-                                        <number>10</number>
-                                    </property>
-                                    <spacer row="0" column="2">
-                                        <property name="name">
-                                            <cstring>spacer19_2</cstring>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                        <property name="sizeType">
-                                            <enum>Expanding</enum>
-                                        </property>
-                                        <property name="sizeHint">
-                                            <size>
-                                                <width>161</width>
-                                                <height>31</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                    <widget class="QLineEdit" row="0" column="1">
-                                        <property name="name">
-                                            <cstring>hostname</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="0" column="0">
-                                        <property name="name">
-                                            <cstring>hostname_label1_2</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Hostname:</string>
-                                        </property>
-                                    </widget>
-                                </grid>
                             </widget>
                         </grid>
                     </widget>
-                    <widget class="QLayoutWidget" row="1" column="0">
+                    <widget class="QLabel" row="7" column="0">
                         <property name="name">
-                            <cstring>layout8</cstring>
+                            <cstring>hostname_label1_2</cstring>
+                        </property>
+                        <property name="text">
+                            <string>What is the name of this computer?</string>
+                        </property>
+                    </widget>
+                    <widget class="QLayoutWidget" row="6" column="0">
+                        <property name="name">
+                            <cstring>layout16</cstring>
                         </property>
                         <grid>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="QLayoutWidget" row="1" column="0">
+                            <widget class="QLineEdit" row="0" column="2">
                                 <property name="name">
-                                    <cstring>layout5_2</cstring>
+                                    <cstring>verified_password</cstring>
                                 </property>
-                                <grid>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <property name="margin">
-                                        <number>10</number>
-                                    </property>
-                                    <widget class="QLabel" row="2" column="0">
-                                        <property name="name">
-                                            <cstring>pasword_label1_2</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Password</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="1" column="0">
-                                        <property name="name">
-                                            <cstring>username_label1_2</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>User name:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLineEdit" row="0" column="1">
-                                        <property name="name">
-                                            <cstring>fullname</cstring>
-                                        </property>
-                                    </widget>
-                                    <spacer row="1" column="2">
-                                        <property name="name">
-                                            <cstring>spacer16_3</cstring>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                        <property name="sizeType">
-                                            <enum>Expanding</enum>
-                                        </property>
-                                        <property name="sizeHint">
-                                            <size>
-                                                <width>141</width>
-                                                <height>31</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                    <spacer row="0" column="2">
-                                        <property name="name">
-                                            <cstring>spacer15_2</cstring>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                        <property name="sizeType">
-                                            <enum>Expanding</enum>
-                                        </property>
-                                        <property name="sizeHint">
-                                            <size>
-                                                <width>141</width>
-                                                <height>31</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                    <spacer row="2" column="2">
-                                        <property name="name">
-                                            <cstring>spacer17_3</cstring>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                        <property name="sizeType">
-                                            <enum>Expanding</enum>
-                                        </property>
-                                        <property name="sizeHint">
-                                            <size>
-                                                <width>151</width>
-                                                <height>21</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                    <widget class="QLabel" row="3" column="0">
-                                        <property name="name">
-                                            <cstring>verified_label_2</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Verify Password:</string>
-                                        </property>
-                                    </widget>
-                                    <spacer row="3" column="2">
-                                        <property name="name">
-                                            <cstring>spacer18_2</cstring>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                        <property name="sizeType">
-                                            <enum>Expanding</enum>
-                                        </property>
-                                        <property name="sizeHint">
-                                            <size>
-                                                <width>151</width>
-                                                <height>21</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                    <widget class="QLineEdit" row="1" column="1">
-                                        <property name="name">
-                                            <cstring>username</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLineEdit" row="2" column="1">
-                                        <property name="name">
-                                            <cstring>password</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLineEdit" row="3" column="1">
-                                        <property name="name">
-                                            <cstring>verified_password</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="0" column="0">
-                                        <property name="name">
-                                            <cstring>fullname_label1_2</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Real Name:</string>
-                                        </property>
-                                    </widget>
-                                </grid>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>1</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
                             </widget>
-                            <widget class="QLabel" row="0" column="0">
+                            <widget class="QLineEdit" row="0" column="1">
                                 <property name="name">
-                                    <cstring>user_label_2_2</cstring>
+                                    <cstring>password</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>1</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="1" column="1" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>textLabel3_3</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>&lt;b&gt;Personal Data&lt;/b&gt;</string>
+                                    <string>&lt;i&gt;Enter the same password twice, so that it can be checked for typing errors.&lt;/i&gt;</string>
                                 </property>
                             </widget>
+                            <spacer row="0" column="4">
+                                <property name="name">
+                                    <cstring>spacer30_2_5</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>50</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLabel" row="0" column="3">
+                                <property name="name">
+                                    <cstring>password_error_image</cstring>
+                                </property>
+                                <property name="pixmap">
+                                    <pixmap>image1</pixmap>
+                                </property>
+                                <property name="scaledContents">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                            <spacer row="1" column="0">
+                                <property name="name">
+                                    <cstring>spacer30_3</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>31</height>
+                                    </size>
+                                </property>
+                            </spacer>
                         </grid>
                     </widget>
                 </grid>
             </widget>
             <widget class="QWidget">
                 <property name="name">
-                    <cstring>stepPartAuto</cstring>
+                    <cstring>stepPartDisk</cstring>
                 </property>
                 <attribute name="id">
                     <number>5</number>
                 </attribute>
-                <grid>
+                <vbox>
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="QLabel" row="2" column="0">
+                    <widget class="QLabel">
+                        <property name="name">
+                            <cstring>textLabel2_2_2</cstring>
+                        </property>
+                        <property name="text">
+                            <string>&lt;h2&gt;Select A Disk&lt;/h2&gt;</string>
+                        </property>
+                    </widget>
+                    <widget class="QLabel">
+                        <property name="name">
+                            <cstring>textLabel6_3</cstring>
+                        </property>
+                        <property name="text">
+                            <string>You can have the installer automatically create space in various ways on any one of the following hard disks. Alternatively, you can partition the disks manually.</string>
+                        </property>
+                        <property name="alignment">
+                            <set>WordBreak|AlignVCenter</set>
+                        </property>
+                    </widget>
+                    <widget class="QLayoutWidget">
+                        <property name="name">
+                            <cstring>part_disk_vbox</cstring>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                        </vbox>
+                    </widget>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer42</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>51</width>
+                                <height>291</height>
+                            </size>
+                        </property>
+                    </spacer>
+                </vbox>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>stepPartAuto</cstring>
+                </property>
+                <attribute name="id">
+                    <number>6</number>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QLabel">
+                        <property name="name">
+                            <cstring>textLabel2_2</cstring>
+                        </property>
+                        <property name="text">
+                            <string>&lt;h2&gt;Prepare Disk Space&lt;/h2&gt;</string>
+                        </property>
+                    </widget>
+                    <widget class="QLabel">
                         <property name="name">
                             <cstring>partition_label2</cstring>
                         </property>
@@ -741,28 +971,7 @@ Answering the questions should only take a few minutes.</string>
                             <string>&lt;b&gt;How do you want to partition the disk?&lt;/b&gt;</string>
                         </property>
                     </widget>
-                    <widget class="QComboBox" row="1" column="1">
-                        <property name="name">
-                            <cstring>drives</cstring>
-                        </property>
-                    </widget>
-                    <widget class="QLabel" row="1" column="0">
-                        <property name="name">
-                            <cstring>drives_label2</cstring>
-                        </property>
-                        <property name="text">
-                            <string>&lt;b&gt;Disk drives available:&lt;/b&gt;</string>
-                        </property>
-                    </widget>
-                    <widget class="QLabel" row="0" column="0" rowspan="1" colspan="2">
-                        <property name="name">
-                            <cstring>textLabel2_2</cstring>
-                        </property>
-                        <property name="text">
-                            <string>&lt;h2&gt;Please prepare some space for your new system&lt;/h2&gt;</string>
-                        </property>
-                    </widget>
-                    <widget class="QFrame" row="3" column="0" rowspan="1" colspan="2">
+                    <widget class="QFrame">
                         <property name="name">
                             <cstring>autopartition_frame</cstring>
                         </property>
@@ -773,24 +982,7 @@ Answering the questions should only take a few minutes.</string>
                             <enum>Raised</enum>
                         </property>
                     </widget>
-                    <spacer row="5" column="0">
-                        <property name="name">
-                            <cstring>spacer18_2_2</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>31</width>
-                                <height>140</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <widget class="QFrame" row="4" column="0" rowspan="1" colspan="2">
+                    <widget class="QFrame">
                         <property name="name">
                             <cstring>new_size_frame</cstring>
                         </property>
@@ -804,7 +996,12 @@ Answering the questions should only take a few minutes.</string>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="QSlider" row="0" column="1">
+                            <widget class="QProgressBar" row="2" column="0" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>partition_bar</cstring>
+                                </property>
+                            </widget>
+                            <widget class="QSlider" row="1" column="1">
                                 <property name="name">
                                     <cstring>new_size_scale</cstring>
                                 </property>
@@ -815,7 +1012,7 @@ Answering the questions should only take a few minutes.</string>
                                     <enum>Horizontal</enum>
                                 </property>
                             </widget>
-                            <widget class="QLabel" row="0" column="0">
+                            <widget class="QLabel" row="1" column="0">
                                 <property name="name">
                                     <cstring>new_size_label</cstring>
                                 </property>
@@ -823,34 +1020,46 @@ Answering the questions should only take a few minutes.</string>
                                     <string>New partition size:</string>
                                 </property>
                             </widget>
-                            <widget class="QProgressBar" row="1" column="0" rowspan="1" colspan="2">
+                            <widget class="QLabel" row="0" column="0" rowspan="1" colspan="2">
                                 <property name="name">
-                                    <cstring>partition_bar</cstring>
+                                    <cstring>new_size_description</cstring>
+                                </property>
+                                <property name="text">
+                                    <string></string>
                                 </property>
                             </widget>
                         </grid>
                     </widget>
-                </grid>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer18_2_2</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>31</width>
+                                <height>190</height>
+                            </size>
+                        </property>
+                    </spacer>
+                </vbox>
             </widget>
             <widget class="QWidget">
                 <property name="name">
-                    <cstring>stepPartAdvanced</cstring>
+                    <cstring>stepPartAdvancedpoints</cstring>
                 </property>
                 <attribute name="id">
-                    <number>6</number>
+                    <number>7</number>
                 </attribute>
                 <grid>
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="QLabel" row="0" column="0">
-                        <property name="name">
-                            <cstring>textLabel6_2</cstring>
-                        </property>
-                        <property name="text">
-                            <string>&lt;h2&gt;Please prepare some space for your new system&lt;/h2&gt;</string>
-                        </property>
-                    </widget>
                     <widget class="QSplitter" row="1" column="0">
                         <property name="name">
                             <cstring>splitter2</cstring>
@@ -894,6 +1103,14 @@ Alternatively, it is possible to return to the previous page to select an easier
                             </property>
                         </widget>
                     </widget>
+                    <widget class="QLabel" row="0" column="0">
+                        <property name="name">
+                            <cstring>textLabel6_2</cstring>
+                        </property>
+                        <property name="text">
+                            <string>&lt;h2&gt;Please prepare some space for your new system&lt;/h2&gt;</string>
+                        </property>
+                    </widget>
                 </grid>
             </widget>
             <widget class="QWidget">
@@ -901,7 +1118,7 @@ Alternatively, it is possible to return to the previous page to select an easier
                     <cstring>stepPartMountpoints</cstring>
                 </property>
                 <attribute name="id">
-                    <number>7</number>
+                    <number>8</number>
                 </attribute>
                 <grid>
                     <property name="name">
@@ -909,7 +1126,7 @@ Alternatively, it is possible to return to the previous page to select an easier
                     </property>
                     <widget class="QLayoutWidget" row="2" column="1">
                         <property name="name">
-                            <cstring>layout14</cstring>
+                            <cstring>layout14_2</cstring>
                         </property>
                         <grid>
                             <property name="name">
@@ -917,7 +1134,7 @@ Alternatively, it is possible to return to the previous page to select an easier
                             </property>
                             <widget class="QLabel" row="0" column="2" rowspan="2" colspan="1">
                                 <property name="name">
-                                    <cstring>mountpoint_error_message</cstring>
+                                    <cstring>msg_error2</cstring>
                                 </property>
                                 <property name="text">
                                     <string>You must supply a &lt;b&gt;"/"&lt;/b&gt; mount point for your installed system.</string>
@@ -942,10 +1159,10 @@ Alternatively, it is possible to return to the previous page to select an easier
                             </spacer>
                             <widget class="QLabel" row="0" column="0">
                                 <property name="name">
-                                    <cstring>mountpoint_error_image</cstring>
+                                    <cstring>img_error2</cstring>
                                 </property>
                                 <property name="pixmap">
-                                    <pixmap>image1</pixmap>
+                                    <pixmap>image2</pixmap>
                                 </property>
                                 <property name="scaledContents">
                                     <bool>true</bool>
@@ -1564,6 +1781,14 @@ Alternatively, it is possible to return to the previous page to select an easier
                             </widget>
                         </grid>
                     </widget>
+                    <widget class="QLabel" row="0" column="0" rowspan="1" colspan="2">
+                        <property name="name">
+                            <cstring>textLabel1_4</cstring>
+                        </property>
+                        <property name="text">
+                            <string>&lt;h2&gt;Please prepare some space for your new system&lt;/h2&gt;</string>
+                        </property>
+                    </widget>
                     <widget class="QLabel" row="1" column="0" rowspan="2" colspan="1">
                         <property name="name">
                             <cstring>mount_help</cstring>
@@ -1578,14 +1803,6 @@ If you kept an intact home partition, you can now link it with the “/home” m
                             <set>WordBreak|AlignVCenter</set>
                         </property>
                     </widget>
-                    <widget class="QLabel" row="0" column="0" rowspan="1" colspan="2">
-                        <property name="name">
-                            <cstring>textLabel1_4</cstring>
-                        </property>
-                        <property name="text">
-                            <string>&lt;h2&gt;Please prepare some space for your new system&lt;/h2&gt;</string>
-                        </property>
-                    </widget>
                 </grid>
             </widget>
             <widget class="QWidget">
@@ -1593,12 +1810,33 @@ If you kept an intact home partition, you can now link it with the “/home” m
                     <cstring>stepReady</cstring>
                 </property>
                 <attribute name="id">
-                    <number>8</number>
+                    <number>9</number>
                 </attribute>
                 <grid>
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
+                    <widget class="QLabel" row="0" column="0" rowspan="1" colspan="2">
+                        <property name="name">
+                            <cstring>textLabel6</cstring>
+                        </property>
+                        <property name="text">
+                            <string>&lt;h2&gt;Ready to install&lt;/h2&gt;</string>
+                        </property>
+                    </widget>
+                    <widget class="QTextEdit" row="4" column="0" rowspan="1" colspan="2">
+                        <property name="name">
+                            <cstring>ready_textview</cstring>
+                        </property>
+                    </widget>
+                    <widget class="QLabel" row="3" column="0">
+                        <property name="name">
+                            <cstring>textLabel8</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Details</string>
+                        </property>
+                    </widget>
                     <widget class="Line" row="1" column="0" rowspan="1" colspan="2">
                         <property name="name">
                             <cstring>line2</cstring>
@@ -1613,14 +1851,6 @@ If you kept an intact home partition, you can now link it with the “/home” m
                             <enum>Horizontal</enum>
                         </property>
                     </widget>
-                    <widget class="QLabel" row="3" column="0">
-                        <property name="name">
-                            <cstring>textLabel8</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Details</string>
-                        </property>
-                    </widget>
                     <spacer row="3" column="1">
                         <property name="name">
                             <cstring>spacer35</cstring>
@@ -1633,30 +1863,17 @@ If you kept an intact home partition, you can now link it with the “/home” m
                         </property>
                         <property name="sizeHint">
                             <size>
-                                <width>501</width>
+                                <width>552</width>
                                 <height>20</height>
                             </size>
                         </property>
                     </spacer>
-                    <widget class="QLabel" row="0" column="0" rowspan="1" colspan="2">
-                        <property name="name">
-                            <cstring>textLabel6</cstring>
-                        </property>
-                        <property name="text">
-                            <string>&lt;h2&gt;Ready to install&lt;/h2&gt;</string>
-                        </property>
-                    </widget>
                     <widget class="QLabel" row="2" column="0" rowspan="1" colspan="2">
                         <property name="name">
                             <cstring>textLabel7</cstring>
                         </property>
                         <property name="text">
                             <string>Kubuntu is ready to install on this computer.</string>
-                        </property>
-                    </widget>
-                    <widget class="QTextEdit" row="4" column="0" rowspan="1" colspan="2">
-                        <property name="name">
-                            <cstring>ready_textview</cstring>
                         </property>
                     </widget>
                 </grid>
@@ -1669,6 +1886,9 @@ If you kept an intact home partition, you can now link it with the “/home” m
         <data format="PNG" length="1315">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b000004ea49444154388db5945b6c54d71586bf7dce999933b667c66030b6c7a65c64c78008e0e0949a8b1d0ab915a5ad12485e2284f29ebce4a624444aa4a895fa52a9511fd287b46f5542122951541e7221f788602038c508989a383661f0d89ef13967e6ec7df639bb0fa9109784aa0f5d8f6bedf5e95f5beb5ff07f0afb66c58e1ccb1c1b27d44880ae021d0746f2fb5d3b71ab7e5295f10ff9ff09bc734d7ae42fcfef786570a5bbf9c889ca111cd779eac1fe83cf3e77e0c5bdf7acbdffcef5eece2e57166518ca5a60aa2a21baba5f5c0f6c72c83eb26bf181679ed9f76cc7c05057541a8bfff6dac4a1ec9abdad776cddb0c371b3d9d09fa2108f51f04f33573a3f373a5a3a7ef8d8a5c31f8cfbef9fadc467eb11f56bc03dad149fdfdf7ff0e1471fde9f69ef76cda54966fd22ee8afb68696dc3005114e3790197a7cfd33afb369dd1382ccc63e6672997bd99b7be9a79f3e97f549f74fe235b6ceb4d0ffdfef1e1df0ded7d603b583079066f5660f5eea6a5b58d384e88228d940a25254d852ebeaf6ea1b9fc3579bf82f0e628d84ef3d8a5e854101158009640ec5cdf3cb265f7f02f88347c3b4e32798ec0ee27b7b488d6314a4548a9a8d743948ad051845d58c9b4ea066f0ea4e49daf6beffef558f0aa23706c0003e6e4447872497d62f140d1bd4d9427852c5708573f48535b1125237cbfcef4d424de8287653b681d93180b6f7e8e8ef2c72869c9cfa792a3837d1d5bee5b9eecbbb21552a34e9eab9ed8b6747e6b91a0a7d170916b1f22d594a7d108f96ef2028d9971e4429930cee0a432443ac65fa8b24c9748adbd3d1ed8dc3bd8a255eb2b1f4dbdecdcd6c3c6deee5cdfc0bae2a6552b97ae6e5fb3b4c3b4e4633359b1636308a526a8873482059ad434b1865ad04ecacda1e384423e45aae5164cd8b05e3f74f4d00b6f979e3b5f33679d0d45d60f6fc88decbc77e3aeee5b372ea7b900be47f3e20a29ff7d94ee43884e2c274b23d5436c14581912ad58a6c6e856ef914a028e7e3971f689d7cf3f7629e4fb2b7bec58d83f5bccf2adfdf9adbf19eaf9edaff6edd993b64833751a662fa3b58b97ed652ab3965a611d4db9023dc1a72c99ff0811d5c1367cf8d9c5d15ffff9cc2f3d4d0dc001d00971a9c244e9d3858913e7fe796adb037b86f3eb86dbaad94de49b3ec79d1a65917381457945d8ec6166cb64678e43a2c112180146c7425c6538e77ae72588982449fc30c36cfa2e6a2bb793ee2ad12ccf50084fe354bfc1ae5c84600e6c07232c54126325b1b0aeb2db0d608c3046294ca831c6613ec8e16636219bfa082eced0e59fc28e14284562696412632c8148ae3d113f02061386483f2113cf536fd4a9d52cc84664e50234025021896a101a8801db71c05c7bcf6e001b10715d8aeae506e9cc346d6e8a1a29324243631e1a3e462aa46cf0c3af5a089160e1da37050b8325c2c0ee0a8f30379363c15a413db58228e590f7a611619d5869b494605958b643a89be3d17f055f8531e14f823d69bcb12fc7bf191cf0362fcf9a6cac3ec30b5dfc2847de1bc7e83a8936a023ac749672ad65f64f9fd4fef8ea29efe530a17145e00d8a412c7159b2b13333b8eb964577efe86f1de9eb747af34ee012d64864446c67d0a1e2d877eef1978e540f7e38a50e27905cc7b979b4bb740c2ccbfc7cf7ea96bbb7af4a0ff7b6dbab1227cbdfbfa8bcf6872f6a2f5cf093d28ff5fd57f0d593746645f1f64e77c87544f69d52fd8d20c6ffa9f7ff062be863aa26e5b4200000000049454e44ae426082</data>
     </image>
     <image name="image1">
+        <data format="PNG" length="712">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000028f49444154388db5d54d4f135114c6f17fa92006a117a9809197414804427048d00d1053256ec0184d4c8c7e42577e02731795181b4c41314131da20d134a00c28cc4cdbb9c7c5b4f68d42379efdfcf2ccb9e7dc1b1111fe4bd5c2d9bba8ec1dac66bf7f3784b53e88aa355b6a5111745020bd3387dd046a8b902640a7fbaaf17f7009ed7afac08e3d5b56a680cecc36c68ba81e4c0ca981db03b611f46a4f196fa945db6f3ce2c2d47dba9f2c2a13a0b7a6ebf14a540d0cd2dddfc7f0cdb88d41a762211e2616942960491040ce839c4bc7e422f1c7f34a02f4e67819af45713d703d246f30060b4238222244221176e6b04d01ddfd6451754c2e42ce859cc761fa25df9faf3a1290080a7012faf3cb0fbebef9e520246e1db22622651820338b6d0274fcf1bcba787d2e4cef1f73b0fe9a9d171b8e09e02cb434155530c0d634b604e8de87b3aa6b6c06723e782ebf3f6e809fa7b3b7ef54b4210cb0391e26bfb23ca5622313e0b9e07be0ba67a2a7c2001fae611b831e5a9a509dfd57ab50673bcbe795bd13d1127caed19c160f0afc7c158aeb83574004c434fa9aeacd2b55e54855f614d787630fd5deca88d5ae2440af9c3f7989eae04673ea6c6771beedc1910f4779e26d51467ba20ad02badf578558f1ba1a583128111ab5dc5dba2f0270f0705761dc3560e0748cc07278cdb592842c21890003dda1355f140e0c0c031ec029f08f1052a16e4fd70c41221ddccf0177baac75a5097ddf2af57e033f3229996303a0e0119c99b33e774ce670d43622b87b35b7f661942bc7cd1a7fb506f7b49ef2dc565f7de2549c5d84f7535be365f45b193b09f05c98224219d2c5e40750bb2da83c2a08dc16a34fc9595246c4b316962a1985644ea9fa6540c958a35ff3425c12a252dd5bfc4ffa3fe0251a5f8b0faa841980000000049454e44ae426082</data>
+    </image>
+    <image name="image2">
         <data format="PNG" length="1727">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af400000686494441545885e5975b6c54d71586bf7399b1c7e31966ec61c66318c6066c27be810173712004e24293224a11c4216ee22454912a912a10456d42dba8512bb5efa8aa94362a44aaaaf4a12ff429511ff2d056b24a25d49098402da49a4bb0c79761983967dffa70f0c4a5e162d42a0fddd292ced967edb5fff5afb5ffad631963f83287fda5ee0eb800ef59d6a2171a7852c38f8188819f01bf5e6c8c678c09003cc0e6ad966dbdbbeed9a186507d94d177defd855ff6c72cf8f362633d100001afb7f6f53474bcf916b82126c73ead39fbc1873f0ac113805a4cac45f78081fe1ad779a6f3f08b4008666ed0393444345ab7dd873d12b85f7b200012de58f5f8b66872c757a030058529ea573f4cd7ee9d6109df5710f99f0150f064245abbaf6364043470e30694cb50ba49c7e02089c6e4061f9e370153f7b42a80fb740e2938deb67b9068571f140a018062116667a989a7e8d93e8082571434fed71910f0cd25a9e440c773cf41c58762112f93a192cf43a50233b33cb4710bcdb96c7b055e568b0170afec7550d7573a0fec239c5b05939fa1221144773762c306643a0dd3055c2bc4ba2d9b31f09284ac0ed6ded1ee1b80841752cbd2bdb9af7e0de68a70b30c6d6dd4d7d612b36decfe7e8cd63033434b2ecf8afcb2ac07afca80b93bdafd02c819f85ed7c1fd84534d30791dd3dc8c9f4a71ead4294e9c38c16c7d3d6cda04d3d338bea4bfb717dbb65f52b0f65e4de8b2e0e50eb57f39bb3a9fcb3fbe1b0ad3a014d6860d8c8e8e323232024072e952860f1c80f7df87cb13b4c493b4b5e662672f5e7a2d0cc3778b7f570634b4d98efd7cef5307b122b1e0dce772100ea3a5c4756f09a994e038b0752bcc15b18a25065a5aa9adad392860ab2290c7dbad0ae02ed91fcff7752f6ddafc084c15c075a1a70780c68606e2f13800d96c3658b07b372c5f0ed305b258f42ccb86caf0960677d14da8e0d1704de850cfd0d3584e38c8bebb1b62310032990c894482baba3a52a954102d1281a1a1401ba66678249124198decf0e0c05d19f882e6080b38b6ba7f6d3851035cb90cb138baadadca4e2a952293c9108fc7696c6cacce9b818180a5ebd7097b25d6e49721e09884980f2cb43b9640c0b6ba64e2eb6d6bdb99f9d54f29fcf227782b9aa0aeaeea63db364d4d4da4d36932994c75deaaa9c11b3ec447c52bfcf5ca055ae251324be2fd15f8c61d19b8ad36350ade6cdfd44778e21cfe9539bcda30a2b32b38eb0b463a9da6b9b9f9f36604b4d698c77670f3b147294d6b8ad7fec99ae634d8f6710d8d5f78172c1c129e4d34a5b7ad6a6da472eeef28079ceffc001a332821d00b4064b3595a5a5a3ea7df18949410ae65d96b3fc4898599bc3645b30bb978bcdd83a3fa36066ed781b882a3edfdbdd897ce2126057a703becdc839c2b623b365816aeeb62db36478e1c410851cd5c2985540ae115a9eddf4262df7e264efe96c9cfaed29b4a717176f6b030e66d0b2e554b390fc004b53f9c6ec975aec8d473f3933154d4453ef52d84b191be87901221044a297cdfe7cc99338c8e8e522a95d05a23a5444a89f07dfc8a4762e4306e438cc2d40d1ab4a023b9a4c983a3f312fd6f0014b4e0386f740fac475ff81bb2a8a80c3e81b7710762ba80effb550b85429c3e7d9a5dbb76b177ef5e4e9e3c89ebbad5ef4208fc99699cae5ee2c3c3480957a7aed3178f12b6ed6f0bd8fc1f3a20e05876f5ca54ca2a5119bf84ae77b9b1ff453ccfc7d30a5f1b8409ac2c044db91c6bd6afa7fde14e56b4aec4530a5feb0566f04a25ea0f1ec25d9a607ace877299ce782cecc1abf300e67ba0cb71dda7bbfabbf0cfff09a1c11885333e8658b10a0f0dd247fb615cd745946fd2b1b295dfffee3d9494241b924c5dbb1af4c0ad32f9be8fc0a2fce97964c547035766e6e86d48f251d1d95b526a27f047cb18c3cf2deb9d8e8d6b5fe8cbc799fbcb87681bb402e98691cbdbd0c6c21850d8c11d612c34168e13421ba8f8026540198332066940698dc6a672691c315744dbe029c8c7a24c58361fcc16fff01b63f60407d8b6772e6f4e612e7f8c1baf47034a832515cef8272803521b50a08cc66830062a0ab4097c95066582777440ab3110762c9c5a17adc0b50cb3658fa6ba0811cb5a572d81d2faecf8d878dee97808d9a0304aa3a5c2688dd106ad145a6bb4d218a5b1b4c6560a576b94d6584ae3288dd60aa3027fb3c0bfba566b6cadb9e0f90863fe510560c3eb631f5f0c9d1f9fe83396a5953126504583c1421b13b082b9558af9ebda0459df12a179355518b4997fbee55bfd09368eafcd050bbe0b60fddfff1dff0bd903a510de040b010000000049454e44ae426082</data>
     </image>
 </images>
