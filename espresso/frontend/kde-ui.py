@@ -278,6 +278,11 @@ class Wizard:
         gettext.install(domain, LOCALEDIR, unicode=1)
         pass
 
+    def translate_widgets(self):
+        print "translate_widgets(self): TODO"
+        #for widget in self.glade.get_widget_prefix(""):
+        #    self.translate_widget(widget, self.locale)
+
     def show_intro(self):
         """Show some introductory text, if available."""
         print "  show_intro()"

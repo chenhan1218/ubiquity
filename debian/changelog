@@ -1,3 +1,11 @@
+espresso (0.99.36) dapper; urgency=low
+
+  [ Jonathan Riddell ]
+  * KDE frontend:
+    - merge with GTK, adds disk selection page
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 28 Mar 2006 15:53:46 +0000
+
 espresso (0.99.35) dapper; urgency=low
 
   * Fix estimated install copying time. We no longer use cpio to do the
