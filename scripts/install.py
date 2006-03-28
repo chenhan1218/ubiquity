@@ -376,7 +376,7 @@ class Install:
                 os.chmod(targetpath, mode)
             if stat.S_ISDIR(st.st_mode):
                 directory_times.append((targetpath, st.st_atime, st.st_mtime))
-            # os.utime() fails on a broken symbolic link
+            # os.utime() sets timestamp of target, not link
             elif not stat.S_ISLNK(st.st_mode):
                 os.utime(targetpath, (st.st_atime, st.st_mtime))
 
