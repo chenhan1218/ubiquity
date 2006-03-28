@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-03-27 15:23+0100\n"
-"PO-Revision-Date: 2006-03-17 13:49+0000\n"
-"Last-Translator: VEROK Istvan <vi@fsf.hu>\n"
+"PO-Revision-Date: 2006-03-27 15:07+0000\n"
+"Last-Translator: VERÓK István <vi@fsf.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +18,13 @@ msgstr ""
 #. Description
 #: ../espresso.templates:15
 msgid "Espresso Installer"
-msgstr ""
+msgstr "Espresso Telepítő"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:19
 msgid "Welcome"
-msgstr ""
+msgstr "Üdvözöljük"
 
 #. Type: text
 #. Description
@@ -33,18 +33,21 @@ msgid ""
 "Ready to install? Once you answer a few questions, Ubuntu can be installed "
 "on this computer so you can run the system at full speed and without the CD."
 msgstr ""
+"Felkészült a telepítésre? Amennyiben megválaszolja a következő néhány "
+"kérdést, az Ubuntu feltelepül a számítógépre és így teljes sebességgel, CD "
+"nélkül használhatja."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:23
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "A kérdések megválaszolása csak pár percig fog tartani."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:32
 msgid "Where are you?"
-msgstr ""
+msgstr "Hol tartózkodik Ön?"
 
 #. Type: text
 #. Description
@@ -62,55 +65,55 @@ msgstr ""
 #. Description
 #: ../espresso.templates:44
 msgid "Time zone:"
-msgstr ""
+msgstr "Időzóna:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "Jelenlegi idő:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Idő beállítása…"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Billentyűzetkiosztás"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Melyik kiosztás hasonlít a legjobban a billentyűzetére?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:64
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "A billentyűkiosztás tesztelése céljából írthat ebbe a szövegmezőbe."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Ki Ön?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Mi az Ön neve?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Milyen felhasználói nevet szeretne használni a bejelentkezéshez?"
 
 #. Type: text
 #. Description
@@ -119,12 +122,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Amennyiben ezt a számítógépet többen használják, további fióko(ka)t is "
+"létrehozhat a telepítés után."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Válasszon jelszót, hogy biztonságban lehessen felhasználói fiókja."
 
 #. Type: text
 #. Description
@@ -132,12 +137,14 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Írja be ugyanazt a jelszót kétszer, hogy ellenőrizhessük, nem vétett-e "
+"gépelési hibát."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Mi a neve ennek a számítógépnek?"
 
 #. Type: text
 #. Description
@@ -146,12 +153,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Ez a név akkor lesz használatban, ha láthatóvá teszi a számítógépet egy "
+"hálózaton."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:105
 msgid "Select a disk"
-msgstr ""
+msgstr "Válasszon egy lemezt"
 
 #. Type: text
 #. Description
@@ -161,12 +170,15 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"A telepítő különböző módokon tud automatikusan helyet csinálni a rendszernek "
+"a következő merevlemezeken. Szükség esetén kézileg is particionálhatja a "
+"lemezt."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:116
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Lemezhely előkészítése"
 
 #. Type: text
 #. Description
@@ -187,6 +199,8 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 1.5 GB, and a swap partition of at least 256 MB."
 msgstr ""
+"A gyökérpartíciónak (\"/\") legalább 1,5 GB-osnak, a lapozópartíciónak "
+"legalább 256 MB-osnak kell lennie."
 
 #. Type: text
 #. Description
@@ -201,6 +215,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Válassza ki, hogy melyik partíciókat szeretné használni az új telepítéshez, "
+"és hogy azokat hova szeretné felcsatolni."
 
 #. Type: text
 #. Description
@@ -209,6 +225,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"Egy partíciót kell kiválasztani a gyökérfájlrendszernek (\"/\") és legalább "
+"egyet lapozóterületnek."
 
 #. Type: text
 #. Description
@@ -220,7 +238,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:151
 msgid "Size"
-msgstr ""
+msgstr "Méret"
 
 #. Type: text
 #. Description
@@ -238,7 +256,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "Meg kell adni egy gyökér (\"/\") csatolási pontot."
 
 #. Type: text
 #. Description
@@ -250,7 +268,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:171
 msgid "Ubuntu is ready to install on this computer."
-msgstr ""
+msgstr "A számítógép kész az Ubuntu telepítésére."
 
 #. Type: title
 #. Description
@@ -277,24 +295,26 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
+"Nem volt lehetséges a lemez automatikus particionálása. Válasszon egy másik "
+"particionálási módszert."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:193
 msgid "Skip"
-msgstr ""
+msgstr "Kihagyás"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:197
 msgid "Installation complete"
-msgstr ""
+msgstr "Telepítés befejeződött"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:201
 msgid "Quit"
-msgstr ""
+msgstr "Kilépés"
 
 #. Type: text
 #. Description
@@ -310,6 +330,9 @@ msgid ""
 "in order to use it. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Az Ubuntu telepítése sikeresen befejeződött. Használatához újra kell "
+"indítani a rendszert. Folytathatja a munkát a live CD-n is, de a "
+"változtatások nem lesznek elmentve."
 
 #. Type: text
 #. Description
@@ -318,18 +341,22 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Ügyeljen arra, hogy eltávolította a CD-t a számítógép újraindítása előtt, "
+"mert ellenkező esetben a rendszer ismét a live CD-ről fog elindulni a "
+"frissen telepített helyett."
 
 #. Type: title
 #. Description
 #: ../espresso.templates:228
+#, fuzzy
 msgid "Installing system"
-msgstr ""
+msgstr "Telepítés befejeződött"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:232
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "A másolandó disztribúció keresése..."
 
 #. Type: text
 #. Description
@@ -340,14 +367,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:240
+#, fuzzy
 msgid "Copying files..."
-msgstr ""
+msgstr "Fájlok másolása (${TIME} van hátra)…"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:244
 msgid "Copying files (${TIME} remaining)..."
-msgstr ""
+msgstr "Fájlok másolása (${TIME} van hátra)…"
 
 #. Type: text
 #. Description
@@ -359,7 +387,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:252
 msgid "Cleaning up..."
-msgstr ""
+msgstr "Megtisztítás..."
 
 #. Type: text
 #. Description
@@ -370,29 +398,27 @@ msgstr "Parancsfájl (${SCRIPT}) futtatása folyamatban..."
 #. Type: text
 #. Description
 #: ../espresso.templates:260
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Hálózat konfigurálása folyamatban..."
+msgstr "A nyelvi fájlok konfigurálása folyamatban..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Hálózat konfigurálása folyamatban..."
+msgstr "Az időzóna konfigurálása folyamatban..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:268
+#, fuzzy
 msgid "Creating user..."
-msgstr ""
+msgstr "Megtisztítás..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Hálózat konfigurálása folyamatban..."
+msgstr "A hardver konfigurálása folyamatban..."
 
 #. Type: text
 #. Description
@@ -409,9 +435,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:284
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Hálózat konfigurálása folyamatban..."
+msgstr "A rendszerindító konfigurálása folyamatban..."
 
 #. Type: text
 #. Description
@@ -423,25 +448,26 @@ msgstr ""
 #. Description
 #: ../espresso.templates:292
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Törlendő csomagok keresése…"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:296
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Csomagok letöltése (${TIME} van hátra)…"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:300
+#, fuzzy
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Csomaglisták letöltése (${TIME} van hátra)…"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:304
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Csomaglisták letöltése (${TIME} van hátra)…"
 
 #. Type: text
 #. Description
@@ -459,7 +485,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:318
 msgid "${MESSAGE}"
-msgstr ""
+msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
@@ -471,4 +497,4 @@ msgstr ""
 #. Description
 #: ../espresso.templates:327
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Nyelvi csomagok letöltése (${TIME} van hátra)…"

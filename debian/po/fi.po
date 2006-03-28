@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-03-27 15:23+0100\n"
-"PO-Revision-Date: 2006-03-17 13:48+0000\n"
+"PO-Revision-Date: 2006-03-27 15:04+0000\n"
 "Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,13 +18,13 @@ msgstr ""
 #. Description
 #: ../espresso.templates:15
 msgid "Espresso Installer"
-msgstr ""
+msgstr "Espresso-asennin"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:19
 msgid "Welcome"
-msgstr ""
+msgstr "Tervetuloa"
 
 #. Type: text
 #. Description
@@ -33,48 +33,51 @@ msgid ""
 "Ready to install? Once you answer a few questions, Ubuntu can be installed "
 "on this computer so you can run the system at full speed and without the CD."
 msgstr ""
+"Valmiina asennukseen? Vastaamalla muutamiin kysymyksiin Ubuntu voidaan "
+"asentaa koneelle. Tällöin voit käyttää järjestelmää täydellä nopeudella ja "
+"ilman CD-levyä."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:23
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Kysymyksiin vastaamisen pitäisi viedä vain muutamia minuutteja."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:32
 msgid "Where are you?"
-msgstr ""
+msgstr "Mikä on sijaintisi?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:36
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Valitse kaupunki maastasi sekä aikavyöhyke jolla olet."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:40
 msgid "Selected city:"
-msgstr ""
+msgstr "Valittu kaupunki:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:44
 msgid "Time zone:"
-msgstr ""
+msgstr "Aikavyöhyke:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "Aika nyt:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Aseta aika..."
 
 #. Type: text
 #. Description
@@ -86,31 +89,32 @@ msgstr ""
 #. Description
 #: ../espresso.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Mikä asettelu on lähinnä käyttämääsi näppäimistöä?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:64
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
+"Voit kirjoittaa tähän laatikkoon kokeillaksesi uutta näppäimistöasettelua."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Kuka olet?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Mikä on nimesi?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Mitä nimeä haluat käyttää kirjautuaksesi koneelle?"
 
 #. Type: text
 #. Description
@@ -119,12 +123,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Jos useampi kuin yksi ihminen käyttää tätä tietokonetta, voit luoda lisää "
+"käyttäjätilejä asennuksen jälkeen."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Valitse salasana pitääksesi käyttäjätilisi turvallisena."
 
 #. Type: text
 #. Description
@@ -132,12 +138,13 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Syötä sama salasana kahdesti, jotta mahdolliset kirjoitusvirheet huomataan."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Mikä on tämän tietokoneen nimi?"
 
 #. Type: text
 #. Description
@@ -145,13 +152,13 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
+msgstr "Nimeä käytetään jos asetat tietokoneesi muiden näkyville verkossa."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:105
 msgid "Select a disk"
-msgstr ""
+msgstr "Valitse levy"
 
 #. Type: text
 #. Description
@@ -161,24 +168,26 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"Voit antaa asentimen luoda vapaata tilaa eri tavoilla automaattisesti mille "
+"tahansa seuraavista kovalevyistä. Voit myös osioida levyt käsin."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:116
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Levytilan valmistelu"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Kuinka haluta osioida levyn?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Valmistele osiot"
 
 #. Type: text
 #. Description
@@ -187,12 +196,14 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 1.5 GB, and a swap partition of at least 256 MB."
 msgstr ""
+"Varmista juuriosiolle (\"/\") ainakin 1,5Gt tilaa, ja sivutusosiolle ainakin "
+"256Mt."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Liitoskohtien valmistelu"
 
 #. Type: text
 #. Description
@@ -201,6 +212,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Valitse osiot, ja niiden liitoskohdat, joita haluat käyttää uudessa "
+"järjestelmässäsi."
 
 #. Type: text
 #. Description
@@ -209,6 +222,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"Sinun täytyy liittää ainakin yksi osio juuritiedostojärjestelmäksi (\"/\"), "
+"ja sinun täytyy valita ainakin yksi osio sivutusosioksi."
 
 #. Type: text
 #. Description
@@ -220,13 +235,14 @@ msgstr ""
 #. Description
 #: ../espresso.templates:151
 msgid "Size"
-msgstr ""
+msgstr "Koko"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:155
+#, fuzzy
 msgid "Partition"
-msgstr ""
+msgstr "Valmistele osiot"
 
 #. Type: text
 #. Description
@@ -238,7 +254,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "Sinun täytyy valita juuriliitoskohta (\"/\")"
 
 #. Type: text
 #. Description
@@ -250,7 +266,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:171
 msgid "Ubuntu is ready to install on this computer."
-msgstr ""
+msgstr "Ubuntu on nyt valmis asennettavaksi tälle koneelle."
 
 #. Type: title
 #. Description
@@ -268,7 +284,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:183
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "Osiointi keskeytettiin"
 
 #. Type: text
 #. Description
@@ -277,30 +293,32 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
+"Levyä ei voitu osioida automaattisesti. Sinun täytyy valita jokin muu "
+"osiointitapa."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:193
 msgid "Skip"
-msgstr ""
+msgstr "Ohita"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:197
 msgid "Installation complete"
-msgstr ""
+msgstr "Asennus on valmis"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:201
 msgid "Quit"
-msgstr ""
+msgstr "Lopeta"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:205
 msgid "Reboot the computer"
-msgstr ""
+msgstr "Käynnistä tietokone uudelleen"
 
 #. Type: text
 #. Description
@@ -310,6 +328,9 @@ msgid ""
 "in order to use it. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Ubuntu on nyt asennettu tietokoneellesi. Kone täytyy käynnistää uudelleen "
+"siirtyäksesi siihen. Voit myös jatkaa tämän esittely-CD:n käyttämistä, mutta "
+"tekemäsi muutokset tai dokumentit eivät tallennu."
 
 #. Type: text
 #. Description
@@ -318,36 +339,40 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Poista CD-levy asemasta kun käynnistät tietokoneen uudelleen, muuten "
+"tietokone käynnistyy uudelleen tältä esittely-CD:ltä eikä juuri asennettuun "
+"järjestelmään."
 
 #. Type: title
 #. Description
 #: ../espresso.templates:228
 msgid "Installing system"
-msgstr ""
+msgstr "Asennetaan järjestelmä"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:232
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Etsitään kopioitavaa jakelua..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:236
 msgid "Scanning files..."
-msgstr ""
+msgstr "Selataan tiedostoja..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:240
+#, fuzzy
 msgid "Copying files..."
-msgstr ""
+msgstr "Selataan tiedostoja..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:244
 msgid "Copying files (${TIME} remaining)..."
-msgstr ""
+msgstr "Kopioidaan tiedostoja (${TIME} jäljellä)..."
 
 #. Type: text
 #. Description
@@ -359,7 +384,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:252
 msgid "Cleaning up..."
-msgstr ""
+msgstr "Tehdään jälkitoimenpiteitä..."
 
 #. Type: text
 #. Description
@@ -370,29 +395,27 @@ msgstr "Suoritetaan ${SCRIPT}..."
 #. Type: text
 #. Description
 #: ../espresso.templates:260
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Tehdään verkkoasetukset..."
+msgstr "Asetetaan järjestelmän maa-asetustoja..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Tehdään verkkoasetukset..."
+msgstr "Asetetaan aikavyöhykettä..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:268
+#, fuzzy
 msgid "Creating user..."
-msgstr ""
+msgstr "Tehdään jälkitoimenpiteitä..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Tehdään verkkoasetukset..."
+msgstr "Asetetaan laitteistoa..."
 
 #. Type: text
 #. Description
@@ -409,66 +432,66 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:284
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Tehdään verkkoasetukset..."
+msgstr "Asetetaan alkulatausohjelmaa..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:288
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Poistetaan ylimääräisiä paketteja..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:292
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Etsitään poistettavia paketteja..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:296
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Ladataan paketteja (${TIME} jäljellä)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:300
+#, fuzzy
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Ladataan pakettiluetteloita (${TIME} jäljellä)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:304
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Ladataan pakettiluetteloita (${TIME} jäljellä)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:313
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Virhe asennettaessa pakettia ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:318
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Virhe poistettaessa pakettia ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:318
 msgid "${MESSAGE}"
-msgstr ""
+msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:323
 msgid "Installing language packs"
-msgstr ""
+msgstr "Asennetaan kielipaketteja"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:327
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Ladataan kielipaketteja (${TIME} jäljellä)..."

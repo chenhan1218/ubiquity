@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-03-27 15:23+0100\n"
-"PO-Revision-Date: 2006-03-17 13:51+0000\n"
+"PO-Revision-Date: 2006-03-27 15:11+0000\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
 "Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -18,13 +18,13 @@ msgstr ""
 #. Description
 #: ../espresso.templates:15
 msgid "Espresso Installer"
-msgstr ""
+msgstr "Sazkara Espresso"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:19
 msgid "Welcome"
-msgstr ""
+msgstr "Bixêr hatî"
 
 #. Type: text
 #. Description
@@ -38,19 +38,19 @@ msgstr ""
 #. Description
 #: ../espresso.templates:23
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Bersivandina pirsan diviya tenê çend xulekek biajota"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:32
 msgid "Where are you?"
-msgstr ""
+msgstr "Tu li ku derê yî?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:36
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Ji welatê xwe bajarekî û demekê hilbijêre."
 
 #. Type: text
 #. Description
@@ -68,13 +68,13 @@ msgstr ""
 #. Description
 #: ../espresso.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "Dema niha:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Demê saz bike..."
 
 #. Type: text
 #. Description
@@ -86,31 +86,31 @@ msgstr ""
 #. Description
 #: ../espresso.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Kîjan zêdetir dişibe klavyeya te?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:64
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "Ji bo ceribandina klavyeyê dikarî di vê qutîkê de binivîsî."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Tu kî yî?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Navê te çi ye?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Ji bo têketinê tu dixwazî kîjan navî bi kar bînî?"
 
 #. Type: text
 #. Description
@@ -119,12 +119,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Heke ji yekê zêdetir kes dê vê komputerê bikar bînin, tu dikarî piştî "
+"sazkirinê hesaban mîheng bikî."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Ji bo ewlekariya hesaba xwe şîfreyekê hilbijêre."
 
 #. Type: text
 #. Description
@@ -132,12 +134,14 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Heman şîfreyê du caran têkevê, bi vî awayê xeletbûn/rastbûna şîfreyê dê "
+"diyar bibe."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Navê vê komputerê çi ye?"
 
 #. Type: text
 #. Description
@@ -146,12 +150,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Heke ev komputer li ser torê ji bo kesên din were vekirin, dê ev nav bê "
+"bikaranîn."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:105
 msgid "Select a disk"
-msgstr ""
+msgstr "Dîskekê hilbijêre"
 
 #. Type: text
 #. Description
@@ -172,13 +178,13 @@ msgstr ""
 #. Description
 #: ../espresso.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Partisyona diskê çawa dixwazî?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Partisyonan amade bike"
 
 #. Type: text
 #. Description
@@ -192,7 +198,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Xalên mountê amade bike"
 
 #. Type: text
 #. Description
@@ -201,6 +207,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Ji bo sazkirina nû partisyona ku dixwazî bikar bînî û ciyên ji bo "
+"mountkirina her yek ji wan hilbijêre."
 
 #. Type: text
 #. Description
@@ -214,19 +222,19 @@ msgstr ""
 #. Description
 #: ../espresso.templates:147
 msgid "Mount Point"
-msgstr ""
+msgstr "Xala Mountkirinê"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:151
 msgid "Size"
-msgstr ""
+msgstr "Mezinahî"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:155
 msgid "Partition"
-msgstr ""
+msgstr "Partisyon (Dabeşkirina Diskan)"
 
 #. Type: text
 #. Description
@@ -244,31 +252,32 @@ msgstr ""
 #. Description
 #: ../espresso.templates:167
 msgid "Ready to install"
-msgstr ""
+msgstr "Ji bo sazkirinê amade ye"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:171
 msgid "Ubuntu is ready to install on this computer."
-msgstr ""
+msgstr "Ubuntu ji bo sazkirina di vê komputerê de amade ye."
 
 #. Type: title
 #. Description
 #: ../espresso.templates:175
+#, fuzzy
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Dixwazî sazkirinê niha betal bikî?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:179
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "Dixwazî sazkirinê niha betal bikî?"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:183
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "Partisyon hat rawestandin"
 
 #. Type: text
 #. Description
@@ -277,30 +286,32 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
+"Partisyonkirina bixeber a vê diskê ne gengaz e. Divê metodeke din a "
+"partisyonkirinê hilbijêrî."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:193
 msgid "Skip"
-msgstr ""
+msgstr "Derbas be"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:197
 msgid "Installation complete"
-msgstr ""
+msgstr "Sazkirin temam e"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:201
 msgid "Quit"
-msgstr ""
+msgstr "Derkeve"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:205
 msgid "Reboot the computer"
-msgstr ""
+msgstr "Komputerê ji nû ve boot bike"
 
 #. Type: text
 #. Description
@@ -310,6 +321,9 @@ msgid ""
 "in order to use it. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Niha Ubuntu di komputera te de hat sazkirin. Ji bo bikaranînê divê komputera "
+"xwe ji nû ve bidî destpêkirin. Her wiha dikarî bi CD'a zindî bidomînî, "
+"guherandin an jî dokumenên tomar bikî dê piştî derxistina CD'ê jê bên birin."
 
 #. Type: text
 #. Description
@@ -318,48 +332,51 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"CD'ê ji komputerê derxe, heke dernexî dê komputer bi CD'a zindî bê "
+"destpêkirin û sazkirineke nû bê destpêkirin."
 
 #. Type: title
 #. Description
 #: ../espresso.templates:228
 msgid "Installing system"
-msgstr ""
+msgstr "Sazkirina pergalê"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:232
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Li dîstrîbusyona were jibergirtin digere..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:236
+#, fuzzy
 msgid "Scanning files..."
-msgstr ""
+msgstr "Dosyeyan ji ber digire..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:240
 msgid "Copying files..."
-msgstr ""
+msgstr "Dosyeyan ji ber digire..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:244
 msgid "Copying files (${TIME} remaining)..."
-msgstr ""
+msgstr "Dosyeyan ji ber digire (${TIME} ma..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:248
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "Tomarên sazkirinê ji ber digire..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:252
 msgid "Cleaning up..."
-msgstr ""
+msgstr "Tê paqijkirin..."
 
 #. Type: text
 #. Description
@@ -370,29 +387,26 @@ msgstr "${SCRIPT} dimeşîne..."
 #. Type: text
 #. Description
 #: ../espresso.templates:260
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Tor tê avakirin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Tor tê avakirin..."
+msgstr "Herêma demê tê saz kirin..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:268
 msgid "Creating user..."
-msgstr ""
+msgstr "Bikarhêner diafirîne..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Tor tê avakirin..."
+msgstr "Hardware tê saz kirin..."
 
 #. Type: text
 #. Description
@@ -404,44 +418,44 @@ msgstr "Tor tê avakirin..."
 #. Description
 #: ../espresso.templates:280
 msgid "Setting computer name..."
-msgstr ""
+msgstr "Navê komputerê tê mîhenkirin..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:284
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Tor tê avakirin..."
+msgstr "Boot loader tê saz kirin..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:288
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Paketên zêdebar tên derxistin..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:292
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Ji bo derxistinê li paketan digere..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:296
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Paket tên daxistin (${TIME} ma)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:300
+#, fuzzy
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Lîsteyên paketan tên daxistin (${TIME} ma)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:304
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Lîsteyên paketan tên daxistin (${TIME} ma)..."
 
 #. Type: text
 #. Description
@@ -459,16 +473,16 @@ msgstr ""
 #. Description
 #: ../espresso.templates:318
 msgid "${MESSAGE}"
-msgstr ""
+msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:323
 msgid "Installing language packs"
-msgstr ""
+msgstr "Paketên zimên saz dike"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:327
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Paketên zimên tên daxistin (${TIME} ma)..."

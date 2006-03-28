@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-03-27 15:23+0100\n"
-"PO-Revision-Date: 2006-03-17 13:56+0000\n"
+"PO-Revision-Date: 2006-03-27 15:26+0000\n"
 "Last-Translator: Tetralet <tetralet@pchome.com.tw>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
@@ -289,7 +289,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:197
 msgid "Installation complete"
-msgstr ""
+msgstr "安裝作業完成"
 
 #. Type: text
 #. Description
@@ -323,8 +323,9 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../espresso.templates:228
+#, fuzzy
 msgid "Installing system"
-msgstr ""
+msgstr "安裝作業完成"
 
 #. Type: text
 #. Description

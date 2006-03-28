@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-03-27 15:23+0100\n"
-"PO-Revision-Date: 2006-03-17 13:49+0000\n"
+"PO-Revision-Date: 2006-03-27 15:07+0000\n"
 "Last-Translator: Parlin Imanuel Toh <pt@samip-online.com>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
 "id>\n"
@@ -289,7 +289,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:197
 msgid "Installation complete"
-msgstr ""
+msgstr "Instalasi selesai."
 
 #. Type: text
 #. Description
@@ -323,8 +323,9 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../espresso.templates:228
+#, fuzzy
 msgid "Installing system"
-msgstr ""
+msgstr "Instalasi selesai."
 
 #. Type: text
 #. Description
@@ -360,7 +361,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:252
 msgid "Cleaning up..."
-msgstr ""
+msgstr "Sedang membersihkan..."
 
 #. Type: text
 #. Description
@@ -385,8 +386,9 @@ msgstr "Sedang mengonfigurasi jaringan..."
 #. Type: text
 #. Description
 #: ../espresso.templates:268
+#, fuzzy
 msgid "Creating user..."
-msgstr ""
+msgstr "Sedang membersihkan..."
 
 #. Type: text
 #. Description

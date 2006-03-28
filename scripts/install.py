@@ -341,6 +341,7 @@ class Install:
 
         copy_progress = 0
         copied_size, counter = 0, 0
+        directory_times = []
         time_start = time.time()
         times = [(time_start, copied_size)]
         long_enough = False
@@ -351,30 +352,32 @@ class Install:
             sourcepath = os.path.join(self.source, path)
             targetpath = os.path.join(self.target, path)
             st = os.lstat(sourcepath)
+            mode = stat.S_IMODE(st.st_mode)
             if stat.S_ISLNK(st.st_mode):
                 linkto = os.readlink(sourcepath)
                 os.symlink(linkto, targetpath)
             elif stat.S_ISDIR(st.st_mode):
-                if os.path.isdir(targetpath):
-                    os.chmod(targetpath, stat.S_IMODE(st.st_mode))
-                else:
-                    os.mkdir(targetpath, stat.S_IMODE(st.st_mode))
+                if not os.path.isdir(targetpath):
+                    os.mkdir(targetpath, mode)
             elif stat.S_ISCHR(st.st_mode):
-                os.mknod(targetpath, stat.S_IFCHR | stat.S_IMODE(st.st_mode),
-                         st.st_rdev)
+                os.mknod(targetpath, stat.S_IFCHR | mode, st.st_rdev)
             elif stat.S_ISBLK(st.st_mode):
-                os.mknod(targetpath, stat.S_IFBLK | stat.S_IMODE(st.st_mode),
-                         st.st_rdev)
+                os.mknod(targetpath, stat.S_IFBLK | mode, st.st_rdev)
             elif stat.S_ISFIFO(st.st_mode):
-                os.mknod(targetpath, stat.S_IFIFO | stat.S_IMODE(st.st_mode))
+                os.mknod(targetpath, stat.S_IFIFO | mode)
             elif stat.S_ISSOCK(st.st_mode):
-                os.mknod(targetpath, stat.S_IFSOCK | stat.S_IMODE(st.st_mode))
+                os.mknod(targetpath, stat.S_IFSOCK | mode)
             elif stat.S_ISREG(st.st_mode):
                 shutil.copyfile(sourcepath, targetpath)
-                os.chmod(targetpath, stat.S_IMODE(st.st_mode))
 
             copied_size += st.st_size
+            os.lchown(targetpath, st.st_uid, st.st_gid)
             if not stat.S_ISLNK(st.st_mode):
+                os.chmod(targetpath, mode)
+            if stat.S_ISDIR(st.st_mode):
+                directory_times.append((targetpath, st.st_atime, st.st_mtime))
+            # os.utime() sets timestamp of target, not link
+            elif not stat.S_ISLNK(st.st_mode):
                 os.utime(targetpath, (st.st_atime, st.st_mtime))
 
             if int((copied_size * 90) / total_size) != copy_progress:
@@ -398,6 +401,12 @@ class Install:
                     self.db.subst('espresso/install/copying_time',
                                   'TIME', time_str)
                     self.db.progress('INFO', 'espresso/install/copying_time')
+
+        # Apply timestamps to all directories now that the items within them
+        # have been copied.
+        for dirtime in directory_times:
+            (directory, atime, mtime) = dirtime
+            os.utime(directory, (atime, mtime))
 
         os.umask(old_umask)
 

@@ -1,16 +1,18 @@
-espresso (0.99.35) UNRELEASED; urgency=low
+espresso (0.99.35) dapper; urgency=low
 
-  [ Colin Watson ]
   * Fix estimated install copying time. We no longer use cpio to do the
     copying, but instead do the whole thing in-process. This lets us avoid
     buffering issues.
   * Avoid a long pause without any info message while updating apt's indices
     before downloading language packs.
+  * GTK frontend:
+    - Enlarge primary text in progress windows, per the GNOME HIG.
+    - Turn debconf progress dialog into a normal progress window, since it
+      doesn't have any buttons.
+    - Allow the label above the keyboard test box to wrap.
+  * Update translations for most languages from Rosetta.
 
-  [ Jonathan Riddell ]
-  * Sync KDE frontend with GTK
-
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 27 Mar 2006 13:38:44 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 28 Mar 2006 11:24:22 +0100
 
 espresso (0.99.34) dapper; urgency=low
 
