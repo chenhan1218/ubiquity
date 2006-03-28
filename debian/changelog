@@ -9,6 +9,7 @@ espresso (0.99.35) UNRELEASED; urgency=low
     - Enlarge primary text in progress windows, per the GNOME HIG.
     - Turn debconf progress dialog into a normal progress window, since it
       doesn't have any buttons.
+    - Allow the label above the keyboard test box to wrap.
   * Update translations for most languages from Rosetta.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 27 Mar 2006 13:38:44 +0100
