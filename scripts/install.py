@@ -341,6 +341,7 @@ class Install:
 
         copy_progress = 0
         copied_size, counter = 0, 0
+        directory_times = []
         time_start = time.time()
         times = [(time_start, copied_size)]
         long_enough = False
@@ -375,7 +376,10 @@ class Install:
 
             copied_size += st.st_size
             os.lchown(targetpath, st.st_uid, st.st_gid)
-            if not stat.S_ISLNK(st.st_mode):
+            if stat.S_ISDIR(st.st_mode):
+                directory_times.append((targetpath, st.st_atime, st.st_mtime))
+            # os.utime() fails on a broken symbolic link
+            elif not stat.S_ISLNK(st.st_mode):
                 os.utime(targetpath, (st.st_atime, st.st_mtime))
 
             if int((copied_size * 90) / total_size) != copy_progress:
@@ -399,6 +403,12 @@ class Install:
                     self.db.subst('espresso/install/copying_time',
                                   'TIME', time_str)
                     self.db.progress('INFO', 'espresso/install/copying_time')
+
+        # Apply timestamps to all directories now that the items within them
+        # have been copied.
+        for dirtime in directory_times:
+            (directory, atime, mtime) = dirtime
+            os.utime(directory, (atime, mtime))
 
         os.umask(old_umask)
 
