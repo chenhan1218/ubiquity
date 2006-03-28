@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-03-27 15:23+0100\n"
-"PO-Revision-Date: 2006-03-17 13:50+0000\n"
+"PO-Revision-Date: 2006-03-27 15:09+0000\n"
 "Last-Translator: Giuseppe Sacco <eppesuig@debian.org>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:19
 msgid "Welcome"
-msgstr ""
+msgstr "Benvenuto"
 
 #. Type: text
 #. Description
@@ -33,18 +33,21 @@ msgid ""
 "Ready to install? Once you answer a few questions, Ubuntu can be installed "
 "on this computer so you can run the system at full speed and without the CD."
 msgstr ""
+"Pronto all'installazione? Dopo aver risposto ad alcune domande, Ubuntu potrà "
+"essere installato su questo computer, e il sistema andrà alla velocità "
+"massima e senza il CD."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:23
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Per rispondere alle domande ci vorranno solo pochi minuti."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:32
 msgid "Where are you?"
-msgstr ""
+msgstr "Dove sei?"
 
 #. Type: text
 #. Description
@@ -62,19 +65,19 @@ msgstr ""
 #. Description
 #: ../espresso.templates:44
 msgid "Time zone:"
-msgstr ""
+msgstr "Fuso orario:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "Ora attuale:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Imposta l'ora"
 
 #. Type: text
 #. Description
@@ -86,13 +89,15 @@ msgstr ""
 #. Description
 #: ../espresso.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Quale disposizione è più simile alla tua tastiera?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:64
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
+"Si può scrivere su questo riquadro per provare la nuova disposizione della "
+"tastiera."
 
 #. Type: text
 #. Description
@@ -166,7 +171,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:116
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Preparazione spazio su disco"
 
 #. Type: text
 #. Description
@@ -220,7 +225,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:151
 msgid "Size"
-msgstr ""
+msgstr "Dimensione"
 
 #. Type: text
 #. Description
@@ -250,7 +255,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:171
 msgid "Ubuntu is ready to install on this computer."
-msgstr ""
+msgstr "Ubuntu è pronto per essere installato su questo computer."
 
 #. Type: title
 #. Description
@@ -282,13 +287,13 @@ msgstr ""
 #. Description
 #: ../espresso.templates:193
 msgid "Skip"
-msgstr ""
+msgstr "Salta"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:197
 msgid "Installation complete"
-msgstr ""
+msgstr "Installazione completata"
 
 #. Type: text
 #. Description
@@ -322,8 +327,9 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../espresso.templates:228
+#, fuzzy
 msgid "Installing system"
-msgstr ""
+msgstr "Installazione completata"
 
 #. Type: text
 #. Description
@@ -359,7 +365,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:252
 msgid "Cleaning up..."
-msgstr ""
+msgstr "Pulizia in corso."
 
 #. Type: text
 #. Description
@@ -384,15 +390,15 @@ msgstr "Configurazione della rete in corso."
 #. Type: text
 #. Description
 #: ../espresso.templates:268
+#, fuzzy
 msgid "Creating user..."
-msgstr ""
+msgstr "Pulizia in corso."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Configurazione della rete in corso."
+msgstr "Configurazione dell'hardware in corso..."
 
 #. Type: text
 #. Description

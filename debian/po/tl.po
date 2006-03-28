@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-03-27 15:23+0100\n"
-"PO-Revision-Date: 2006-03-17 13:54+0000\n"
+"PO-Revision-Date: 2006-03-27 15:22+0000\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
 "MIME-Version: 1.0\n"
@@ -288,7 +288,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:197
 msgid "Installation complete"
-msgstr ""
+msgstr "Kumpleto ang pagluklok"
 
 #. Type: text
 #. Description
@@ -322,8 +322,9 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../espresso.templates:228
+#, fuzzy
 msgid "Installing system"
-msgstr ""
+msgstr "Kumpleto ang pagluklok"
 
 #. Type: text
 #. Description
@@ -359,7 +360,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:252
 msgid "Cleaning up..."
-msgstr ""
+msgstr "Nagliligpit..."
 
 #. Type: text
 #. Description
@@ -384,8 +385,9 @@ msgstr "Isinasaayos ng network..."
 #. Type: text
 #. Description
 #: ../espresso.templates:268
+#, fuzzy
 msgid "Creating user..."
-msgstr ""
+msgstr "Nagliligpit..."
 
 #. Type: text
 #. Description

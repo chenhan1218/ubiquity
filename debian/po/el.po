@@ -7,9 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-03-27 15:23+0100\n"
-"PO-Revision-Date: 2006-03-17 13:47+0000\n"
-"Last-Translator: Greek Translation Team <debian-l10n-greek@lists.debian."
-"org>\n"
+"PO-Revision-Date: 2006-03-27 15:00+0000\n"
+"Last-Translator: George Papamichelakis <debian-l10n-greek@lists.debian.org>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,13 +18,13 @@ msgstr ""
 #. Description
 #: ../espresso.templates:15
 msgid "Espresso Installer"
-msgstr ""
+msgstr "Εγκατάσταση Espresso"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:19
 msgid "Welcome"
-msgstr ""
+msgstr "Καλώς ήλθατε"
 
 #. Type: text
 #. Description
@@ -34,18 +33,21 @@ msgid ""
 "Ready to install? Once you answer a few questions, Ubuntu can be installed "
 "on this computer so you can run the system at full speed and without the CD."
 msgstr ""
+"Έτοιμοι για εγκατάσταση; Μόλις απαντήσετε σε μερικές ερωτήσεις, το Ubuntu θα "
+"εγκατασταθεί σε αυτό τον υπολογιστή και έτσι θα μπορείτε να χρησιμοποιείτε "
+"το σύστημα σας ταχύτατα και χωρίς το CD."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:23
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Η απάντηση στις ερωτήσεις θα διαρκέσει μόνο λίγα λεπτά."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:32
 msgid "Where are you?"
-msgstr ""
+msgstr "Από που είστε;"
 
 #. Type: text
 #. Description
@@ -63,19 +65,19 @@ msgstr ""
 #. Description
 #: ../espresso.templates:44
 msgid "Time zone:"
-msgstr ""
+msgstr "Ζώνη ώρας:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "Τρέχουσα ώρα:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Ορισμός ώρας..."
 
 #. Type: text
 #. Description
@@ -87,31 +89,33 @@ msgstr ""
 #. Description
 #: ../espresso.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Ποία διάταξη είναι παρόμοια με το πληκτρολόγια σας;"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:64
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
+"Μπορείτε να πληκτρολογείτε σε αυτό το πλαίσιο για α δοκιμάσετε τη νέα "
+"διάταξη του πληκτρολογίου σας."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Ποιος είστε;"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Ποιο είναι το όνομα σας;"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Τι όνομα θέλετε να χρησιμοποιήσετε για την είσοδο στο σύστημα;"
 
 #. Type: text
 #. Description
@@ -120,12 +124,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Αν χρησιμοποιούν παραπάνω από ένας αυτό τον υπολογιστή, τότε μπορείτε να "
+"εγκαταστήσετε πολλαπλούς λογαριασμούς χρηστών μετά τη εγκατάσταση."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Επιλέξτε ένα κωδικό για να διατηρήσετε το λογαριασμό σας ασφαλή."
 
 #. Type: text
 #. Description
@@ -133,12 +139,14 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Εισάγετε το κωδικό σας δύο φορές, ώστε να ελεγχθεί για τυχόν λάθη στην "
+"πληκτρολόγηση του."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Ποιο είναι το όνομα του υπολογιστή;"
 
 #. Type: text
 #. Description
@@ -147,6 +155,8 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Αυτό το όνομα θα χρησιμοποιηθεί αν κάνετε τον υπολογιστή σας ορατό μέσα σε "
+"ένα δίκτυο,"
 
 #. Type: text
 #. Description
@@ -167,7 +177,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:116
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Προετοιμασία χώρου στο δίσκο"
 
 #. Type: text
 #. Description
@@ -178,8 +188,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:124
+#, fuzzy
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Τμήμα δίσκου"
 
 #. Type: text
 #. Description
@@ -188,6 +199,8 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 1.5 GB, and a swap partition of at least 256 MB."
 msgstr ""
+"Βεβαιωθείτε ότι έχετε διαθέσει αρκετό χώρο στο τμήμα root  (\"/\"), με "
+"ελάχιστο μέγεθος του 1.5 GB, και ενός τμήματος swap τουλάχιστον 256 MB."
 
 #. Type: text
 #. Description
@@ -202,6 +215,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Επιλέξτε ποια τμήματα του δίσκου θέλετε να χρησιμοποιήσετε για τη νέα σας "
+"εγκατάσταση, και σε ποιο σημείο θα προσαρτήσετε καθένα από αυτά."
 
 #. Type: text
 #. Description
@@ -210,24 +225,27 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"Θα πρέπει να προσαρτήσετε τουλάχιστον ένα τμήμα στο σύστημα αρχείων root  "
+"(\"/\"), και θα πρέπει να επιλέξετε τουλάχιστον ένα τμήμα για να "
+"χρησιμοποιηθεί ως χώρος swap."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:147
 msgid "Mount Point"
-msgstr ""
+msgstr "Σημείο προσάρτησης:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:151
 msgid "Size"
-msgstr ""
+msgstr "Μέγεθος"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:155
 msgid "Partition"
-msgstr ""
+msgstr "Τμήμα δίσκου"
 
 #. Type: text
 #. Description
@@ -239,7 +257,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "Θα πρέπει να ρυθμίσετε ένα σημείο προσάρτησης root (\"/\")"
 
 #. Type: text
 #. Description
@@ -251,25 +269,25 @@ msgstr ""
 #. Description
 #: ../espresso.templates:171
 msgid "Ubuntu is ready to install on this computer."
-msgstr ""
+msgstr "Το Ubuntu είναι έτοιμο για εγκατάσταση σε αυτό τον υπολογιστή."
 
 #. Type: title
 #. Description
 #: ../espresso.templates:175
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Ακύρωση της εγκατάστασης;"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:179
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "Θέλετε να ακυρώσετε την εγκατάσταση;"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:183
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "Η κατάτμηση διακόπηκε"
 
 #. Type: text
 #. Description
@@ -278,24 +296,26 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
+"Δεν ήταν δυνατή η αυτόματη κατάτμηση αυτού του δίσκου. Θα πρέπει να "
+"επιλέξετε μια άλλη μέθοδο κατάτμησης."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:193
 msgid "Skip"
-msgstr ""
+msgstr "Παράκαμψη"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:197
 msgid "Installation complete"
-msgstr ""
+msgstr "Η εγκατάσταση ολοκληρώθηκε"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:201
 msgid "Quit"
-msgstr ""
+msgstr "Έξοδος"
 
 #. Type: text
 #. Description
@@ -311,6 +331,10 @@ msgid ""
 "in order to use it. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Το Ubuntu εγκαταστάθηκε στον υπολογιστή σας. Θα πρέπει να επανεκκινήσετε τον "
+"υπολογιστή σας για να το χρησιμοποιήσετε. Μπορείτε να συνεχίσετε τη χρήση "
+"αυτού του  live CD, αλλά δεν θα αποθηκευτούν οι αλλαγές που θα κάνετε ή τα "
+"έγγραφα που θα αποθηκεύσετε."
 
 #. Type: text
 #. Description
@@ -319,18 +343,21 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Βεβαιωθείτε ότι αφαιρέσατε το CD όταν επανεκκινήσετε τον υπολογιστή, αλλιώς "
+"θα χρησιμοποιείτε πάλι το live CD και όχι το νέο σας σύστημα."
 
 #. Type: title
 #. Description
 #: ../espresso.templates:228
+#, fuzzy
 msgid "Installing system"
-msgstr ""
+msgstr "Η εγκατάσταση ολοκληρώθηκε"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:232
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Εύρεση της διανομής για αντιγραφή..."
 
 #. Type: text
 #. Description
@@ -341,26 +368,27 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:240
+#, fuzzy
 msgid "Copying files..."
-msgstr ""
+msgstr "Αντιγραφή των καταγραφών εγκατάστασης..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:244
 msgid "Copying files (${TIME} remaining)..."
-msgstr ""
+msgstr "Αντιγραφή αρχείων (${TIME} απομένουν)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:248
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "Αντιγραφή των καταγραφών εγκατάστασης..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:252
 msgid "Cleaning up..."
-msgstr ""
+msgstr "Τακτοποίηση..."
 
 #. Type: text
 #. Description
@@ -371,29 +399,27 @@ msgstr "Εκτελείται το ${SCRIPT}..."
 #. Type: text
 #. Description
 #: ../espresso.templates:260
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Ρύθμιση δικτύου..."
+msgstr "Ρύθμιση τοπικών στοιχείων συστήματος..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Ρύθμιση δικτύου..."
+msgstr "Ρύθμιση ζώνης ώρας..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:268
+#, fuzzy
 msgid "Creating user..."
-msgstr ""
+msgstr "Τακτοποίηση..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Ρύθμιση δικτύου..."
+msgstr "Ρύθμιση υλικού..."
 
 #. Type: text
 #. Description
@@ -405,71 +431,71 @@ msgstr "Ρύθμιση δικτύου..."
 #. Description
 #: ../espresso.templates:280
 msgid "Setting computer name..."
-msgstr ""
+msgstr "Ρύθμιση ονόματος συστήματος...."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:284
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Ρύθμιση δικτύου..."
+msgstr "Ρύθμιση boot loader..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:288
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Απομάκρυνση επιπλέον πακέτων..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:292
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Έλεγχος για πακέτα που θα απομακρυνθούν..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:296
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Λήψη πακέτων (${TIME} απομένουν)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:300
+#, fuzzy
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Λήψη λίστας πακέτων (${TIME} απομένουν)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:304
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Λήψη λίστας πακέτων (${TIME} απομένουν)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:313
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Σφάλμα εγκατάστασης του ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:318
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Σφάλμα απομάκρυνσης του ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:318
 msgid "${MESSAGE}"
-msgstr ""
+msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:323
 msgid "Installing language packs"
-msgstr ""
+msgstr "Εγκατάσταση  πακέτων γλωσσικής υποστήριξης"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:327
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Λήψη πακέτων γλωσσικής υποστήριξης (${TIME} απομένουν).."
