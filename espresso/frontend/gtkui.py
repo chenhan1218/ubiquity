@@ -90,9 +90,6 @@ class Wizard:
         # declare attributes
         self.distro = distro
         self.current_keyboard = None
-        self.hostname = ''
-        self.fullname = ''
-        self.name = ''
         self.manual_choice = None
         self.password = ''
         self.mountpoint_widgets = []
@@ -1256,7 +1253,7 @@ class Wizard:
 
 
     def get_hostname (self):
-        return self.hostname
+        return self.hostname.get_text()
 
 
     def get_mountpoints (self):
