@@ -101,6 +101,7 @@ class Wizard:
         self.partition_choices = []
         self.mountpoints = {}
         self.part_labels = {' ' : ' '}
+        self.part_devices = {' ' : ' '}
         self.current_page = None
         self.dbfilter = None
         self.locale = None
@@ -388,7 +389,7 @@ class Wizard:
         if widget.__class__ == str:
             size = float(self.size[widget.split('/')[2]])
         else:
-            size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(widget.get_active_text())].split('/')[2]])
+            size = float(self.size[self.part_devices[widget.get_active_text()].split('/')[2]])
 
         if size > 1024*1024:
             msg = '%.0f Gb' % (size/1024/1024)
@@ -567,7 +568,7 @@ class Wizard:
                 self.size_widgets[index].set_text(self.set_size_msg(self.partition_widgets[index]))
 
             # Does the Reformat checkbox make sense?
-            partition = self.part_labels.keys()[self.part_labels.values().index(partition_text)]
+            partition = self.part_devices[partition_text]
             if partition_text == ' ':
                 self.format_widgets[index].set_sensitive(False)
                 self.format_widgets[index].set_active(False)
@@ -762,7 +763,9 @@ class Wizard:
         self.partition_choices.append(' ')
         for partition in get_partitions():
             partition = '/dev/' + partition
-            self.part_labels[partition] = part_label(partition)
+            label = part_label(partition)
+            self.part_labels[partition] = label
+            self.part_devices[label] = partition
             self.partition_choices.append(partition)
 
         # Initialise the mountpoints table.
@@ -818,9 +821,6 @@ class Wizard:
         error_msg = []
 
         mountpoints = {}
-        part_labels_inv = {}
-        for key, value in self.part_labels.iteritems():
-            part_labels_inv[value] = key
         for i in range(len(self.mountpoint_widgets)):
             mountpoint_value = self.mountpoint_widgets[i].get_active_text()
             partition_value = self.partition_widgets[i].get_active_text()
@@ -839,7 +839,7 @@ class Wizard:
                         "No partition selected for %s." % mountpoint_value)
                     break
                 else:
-                    mountpoints[part_labels_inv[partition_value]] = \
+                    mountpoints[part_devices[partition_value]] = \
                         (mountpoint_value, format_value)
         else:
             self.mountpoints = mountpoints
