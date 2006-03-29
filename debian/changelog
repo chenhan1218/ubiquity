@@ -1,4 +1,4 @@
-espresso (0.99.36) UNRELEASED; urgency=low
+espresso (0.99.36) dapper; urgency=low
 
   [ Jonathan Riddell ]
   * KDE frontend:
@@ -9,7 +9,7 @@ espresso (0.99.36) UNRELEASED; urgency=low
     environment variables returned from prepare(), and allow an existing
     Debconf instance to be passed in the constructor.
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 28 Mar 2006 15:53:46 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Mar 2006 10:25:04 +0100
 
 espresso (0.99.35) dapper; urgency=low
 
