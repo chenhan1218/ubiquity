@@ -3,6 +3,8 @@ espresso (0.99.37) UNRELEASED; urgency=low
   * GTK frontend:
     - Remove bogus hostname, fullname, and name instance variables; fix
       get_hostname() method.
+  * Fix logging functions not to use eval, so that they don't break when
+    asked to log something containing "'" characters.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Mar 2006 13:53:35 +0100
 
