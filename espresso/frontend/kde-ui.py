@@ -778,7 +778,11 @@ class Wizard:
                     # TODO cjwatson 2006-03-08: Add UI to control whether
                     # the partition is to be formatted; hardcoded to True in
                     # the meantime.
-                    self.mountpoints[foo] = (mnt.currentText(), True)
+                    # TODO cjwatson 2006-03-29: Extract desired filesystem
+                    # type from qtparted; hardcoded to None (i.e. use
+                    # current filesystem type or failing that ext3) in the
+                    # meantime.
+                    self.mountpoints[foo] = (mnt.currentText(), True, None)
 
         # Processing validation stuff
         elif len(list_partitions) > len(list_mountpoints):
@@ -835,7 +839,8 @@ class Wizard:
                 elif check == validation.MOUNTPOINT_DUPPATH:
                     error_msg.append("· Puntos de montaje duplicados.\n\n")
                 elif check == validation.MOUNTPOINT_BADSIZE:
-                    for mountpoint, format in self.mountpoints.itervalues():
+                    for mountpoint, format, fstype in \
+                            self.mountpoints.itervalues():
                         if mountpoint == 'swap':
                             error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
                             break

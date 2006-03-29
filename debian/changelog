@@ -3,6 +3,8 @@ espresso (0.99.37) UNRELEASED; urgency=low
   * GTK frontend:
     - Remove bogus hostname, fullname, and name instance variables; fix
       get_hostname() method.
+    - Pass desired filesystem type from gparted to partman (closes: Malone
+      #34921). Requires partman (>= 78ubuntu1+11).
   * Fix logging functions not to use eval, so that they don't break when
     asked to log something containing "'" characters.
   * Add part_devices instance variables to the GTK and KDE frontends to
