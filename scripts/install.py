@@ -227,7 +227,7 @@ class Install:
         self.db.progress('SET', 81)
         self.db.progress('REGION', 81, 82)
         self.db.progress('INFO', 'espresso/install/locales')
-        if not self.get_locales():
+        if not self.configure_locales():
             self.db.progress('STOP')
             return False
 
@@ -513,17 +513,8 @@ class Install:
         return True
 
 
-    def get_locales(self):
-        """set keymap attributes from debconf. It uses the same values
-        the user have selected on live system.
-
-        get_locales() -> keymap, locales"""
-
-        try:
-            self.keymap = self.db.get('debian-installer/keymap')
-        except debconf.DebconfError:
-            self.keymap = None
-
+    def configure_locales(self):
+        """Apply locale settings to installed system."""
         dbfilter = language_apply.LanguageApply(None)
         return (dbfilter.run_command(auto_process=True) == 0)
 
