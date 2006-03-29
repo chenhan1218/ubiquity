@@ -21,8 +21,11 @@ DEBCONF_IO_ERR = 4
 DEBCONF_IO_HUP = 8
 
 class FilteredCommand(object):
-    def __init__(self, frontend):
+    def __init__(self, frontend, db=None):
         self.frontend = frontend
+        # db does not normally need to be specified; it is only useful to
+        # set it if frontend=None.
+        self.db = db
         self.done = False
         self.current_question = None
         self.succeeded = False
@@ -98,7 +101,16 @@ class FilteredCommand(object):
             self.command = prep[0]
             self.debug("Starting up '%s' for %s.%s", self.command,
                        self.__class__.__module__, self.__class__.__name__)
-            ret = subprocess.call(self.command)
+            if len(prep) > 2:
+                env = prep[2]
+            else:
+                env = {}
+
+            def subprocess_setup():
+                for key, value in env.iteritems():
+                    os.environ[key] = value
+
+            ret = subprocess.call(self.command, preexec_fn=subprocess_setup)
             if ret != 0:
                 self.debug("%s exited with code %d", self.command, ret)
             return ret

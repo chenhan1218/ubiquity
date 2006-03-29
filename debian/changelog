@@ -4,6 +4,11 @@ espresso (0.99.36) UNRELEASED; urgency=low
   * KDE frontend:
     - merge with GTK, adds disk selection page
 
+  [ Colin Watson ]
+  * Make life easier for components called from Install: support extra
+    environment variables returned from prepare(), and allow an existing
+    Debconf instance to be passed in the constructor.
+
  -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 28 Mar 2006 15:53:46 +0000
 
 espresso (0.99.35) dapper; urgency=low
