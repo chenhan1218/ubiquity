@@ -673,17 +673,6 @@ class Install:
         return (dbfilter.run_command(auto_process=True) == 0)
 
 
-    def configure_keymap(self):
-        """set keymap on installed system (which was obtained from
-        get_locales)."""
-
-        if self.keymap is not None:
-            self.set_debconf('debian-installer/keymap', self.keymap)
-            self.chrex('install-keymap', self.keymap)
-
-        return True
-
-
     def configure_user(self):
         """create the user selected along the installation process
         into the installed system. Default user from live system is
