@@ -673,30 +673,6 @@ class Install:
         return (dbfilter.run_command(auto_process=True) == 0)
 
 
-    def configure_hostname(self):
-        """setting hostname into installed system from data got along
-        the installation process."""
-
-        fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
-        print >>fp, self.frontend.get_hostname()
-        fp.close()
-
-        hosts = open(os.path.join(self.target, 'etc/hosts'), 'w')
-        print >>hosts, """127.0.0.1             localhost.localdomain     localhost
-%s
-
-# The following lines are desirable for IPv6 capable hosts
-::1         ip6-localhost ip6-loopback
-fe00::0 ip6-localnet
-ff00::0 ip6-mcastprefix
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
-ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
-        hosts.close()
-
-        return True
-
-
     def configure_hardware(self):
         """reconfiguring several packages which depends on the
         hardware system in which has been installed on and need some
@@ -724,6 +700,30 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
                 '--platform', 'ubuntu-5.04', '--get'], stdout=subprocess.PIPE)
         subprocess.Popen(['chroot', self.target, '/usr/share/setup-tool-backends/scripts/network-conf', 
                 '--platform', 'ubuntu-5.04', '--set'], stdin=conf.stdout)
+        return True
+
+
+    def configure_hostname(self):
+        """setting hostname into installed system from data got along
+        the installation process."""
+
+        fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
+        print >>fp, self.frontend.get_hostname()
+        fp.close()
+
+        hosts = open(os.path.join(self.target, 'etc/hosts'), 'w')
+        print >>hosts, """127.0.0.1             localhost.localdomain     localhost
+%s
+
+# The following lines are desirable for IPv6 capable hosts
+::1         ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
+        hosts.close()
+
         return True
 
 
