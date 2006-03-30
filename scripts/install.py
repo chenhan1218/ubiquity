@@ -354,8 +354,9 @@ class Install:
             st = os.lstat(sourcepath)
             mode = stat.S_IMODE(st.st_mode)
             if stat.S_ISLNK(st.st_mode):
-                linkto = os.readlink(sourcepath)
-                os.symlink(linkto, targetpath)
+                if not os.path.exists(targetpath):
+                    linkto = os.readlink(sourcepath)
+                    os.symlink(linkto, targetpath)
             elif stat.S_ISDIR(st.st_mode):
                 if not os.path.isdir(targetpath):
                     os.mkdir(targetpath, mode)
@@ -368,7 +369,8 @@ class Install:
             elif stat.S_ISSOCK(st.st_mode):
                 os.mknod(targetpath, stat.S_IFSOCK | mode)
             elif stat.S_ISREG(st.st_mode):
-                shutil.copyfile(sourcepath, targetpath)
+                if not os.path.exists(targetpath):
+                    shutil.copyfile(sourcepath, targetpath)
 
             copied_size += st.st_size
             os.lchown(targetpath, st.st_uid, st.st_gid)
