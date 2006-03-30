@@ -10,6 +10,11 @@ espresso (0.99.37) UNRELEASED; urgency=low
   * Add part_devices instance variables to the GTK and KDE frontends to
     avoid horribleness when trying to map a partition label back to a device
     name.
+  * Perform network configuration: we copy /etc/network/interfaces and
+    /etc/resolv.conf, write /etc/hostname and /etc/hosts afresh based on the
+    selected hostname, and write /etc/iftab afresh based on the interfaces
+    present (closes: Malone #33064). Eventually most of this should be
+    replaced by a call to netcfg, but that's difficult at the moment.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Mar 2006 13:53:35 +0100
 
