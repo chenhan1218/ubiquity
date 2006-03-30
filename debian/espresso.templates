@@ -26,6 +26,9 @@ _Description:
  CD.
  .
  Answering the questions should only take a few minutes.
+ .
+ Please choose the language used for the installation process. This
+ language will be the default language for the final system.
 
 Template: espresso/text/timezone_heading_label
 Type: text
