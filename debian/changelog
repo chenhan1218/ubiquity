@@ -15,6 +15,8 @@ espresso (0.99.37) UNRELEASED; urgency=low
     selected hostname, and write /etc/iftab afresh based on the interfaces
     present (closes: Malone #33064). Eventually most of this should be
     replaced by a call to netcfg, but that's difficult at the moment.
+  * Don't copy regular files or symlinks if they already exist in the target
+    (e.g. /etc/fstab).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Mar 2006 13:53:35 +0100
 
