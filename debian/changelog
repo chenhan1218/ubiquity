@@ -1,9 +1,9 @@
-espresso (0.99.36.1) UNRELEASED; urgency=low
+espresso (0.99.36.1) dapper; urgency=low
 
   * Don't copy regular files or symlinks if they already exist in the target
     (e.g. /etc/fstab).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Mar 2006 13:53:35 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 30 Mar 2006 14:43:50 +0100
 
 espresso (0.99.36) dapper; urgency=low
 
