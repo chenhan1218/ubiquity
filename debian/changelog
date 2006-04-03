@@ -1,10 +1,44 @@
+espresso (0.99.37) UNRELEASED; urgency=low
+
+  * GTK frontend:
+    - Remove bogus hostname, fullname, and name instance variables; fix
+      get_hostname() method.
+    - Pass desired filesystem type from gparted to partman (closes: Malone
+      #34921). Requires partman (>= 78ubuntu1+11).
+  * Fix logging functions not to use eval, so that they don't break when
+    asked to log something containing "'" characters.
+  * Add part_devices instance variables to the GTK and KDE frontends to
+    avoid horribleness when trying to map a partition label back to a device
+    name.
+  * Perform network configuration: we copy /etc/network/interfaces and
+    /etc/resolv.conf, write /etc/hostname and /etc/hosts afresh based on the
+    selected hostname, and write /etc/iftab afresh based on the interfaces
+    present (closes: Malone #33064). Eventually most of this should be
+    replaced by a call to netcfg, but that's difficult at the moment.
+  * Add explicit text with a language question to the language screen
+    (closes: Malone #36973).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Mar 2006 13:53:35 +0100
+
+espresso (0.99.36.1) dapper; urgency=low
+
+  * Don't copy regular files or symlinks if they already exist in the target
+    (e.g. /etc/fstab).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 30 Mar 2006 14:43:50 +0100
+
 espresso (0.99.36) dapper; urgency=low
 
   [ Jonathan Riddell ]
   * KDE frontend:
     - merge with GTK, adds disk selection page
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 28 Mar 2006 15:53:46 +0000
+  [ Colin Watson ]
+  * Make life easier for components called from Install: support extra
+    environment variables returned from prepare(), and allow an existing
+    Debconf instance to be passed in the constructor.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Mar 2006 10:25:04 +0100
 
 espresso (0.99.35) dapper; urgency=low
 

@@ -90,9 +90,6 @@ class Wizard:
         # declare attributes
         self.distro = distro
         self.current_keyboard = None
-        self.hostname = ''
-        self.fullname = ''
-        self.name = ''
         self.manual_choice = None
         self.password = ''
         self.mountpoint_widgets = []
@@ -104,6 +101,7 @@ class Wizard:
         self.partition_choices = []
         self.mountpoints = {}
         self.part_labels = {' ' : ' '}
+        self.part_devices = {' ' : ' '}
         self.current_page = None
         self.dbfilter = None
         self.locale = None
@@ -391,7 +389,7 @@ class Wizard:
         if widget.__class__ == str:
             size = float(self.size[widget.split('/')[2]])
         else:
-            size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(widget.get_active_text())].split('/')[2]])
+            size = float(self.size[self.part_devices[widget.get_active_text()].split('/')[2]])
 
         if size > 1024*1024:
             msg = '%.0f Gb' % (size/1024/1024)
@@ -570,15 +568,17 @@ class Wizard:
                 self.size_widgets[index].set_text(self.set_size_msg(self.partition_widgets[index]))
 
             # Does the Reformat checkbox make sense?
-            partition = self.part_labels.keys()[self.part_labels.values().index(partition_text)]
-            if partition_text == ' ':
+            if (partition_text == ' ' or
+                partition_text not in self.part_devices):
                 self.format_widgets[index].set_sensitive(False)
                 self.format_widgets[index].set_active(False)
-            elif partition in self.gparted_fstype:
-                self.format_widgets[index].set_sensitive(False)
-                self.format_widgets[index].set_active(True)
             else:
-                self.format_widgets[index].set_sensitive(True)
+                partition = self.part_devices[partition_text]
+                if partition in self.gparted_fstype:
+                    self.format_widgets[index].set_sensitive(False)
+                    self.format_widgets[index].set_active(True)
+                else:
+                    self.format_widgets[index].set_sensitive(True)
 
             if len(get_partitions()) > len(self.partition_widgets):
                 for i in range(len(self.partition_widgets)):
@@ -746,6 +746,7 @@ class Wizard:
 
         gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
         while gparted_reply.startswith('- '):
+            pre_log('info', 'gparted replied: %s' % gparted_reply)
             words = gparted_reply[2:].strip().split()
             if words[0].lower() == 'format' and len(words) >= 3:
                 self.gparted_fstype[words[1]] = words[2]
@@ -765,7 +766,9 @@ class Wizard:
         self.partition_choices.append(' ')
         for partition in get_partitions():
             partition = '/dev/' + partition
-            self.part_labels[partition] = part_label(partition)
+            label = part_label(partition)
+            self.part_labels[partition] = label
+            self.part_devices[label] = partition
             self.partition_choices.append(partition)
 
         # Initialise the mountpoints table.
@@ -821,13 +824,14 @@ class Wizard:
         error_msg = []
 
         mountpoints = {}
-        part_labels_inv = {}
-        for key, value in self.part_labels.iteritems():
-            part_labels_inv[value] = key
         for i in range(len(self.mountpoint_widgets)):
             mountpoint_value = self.mountpoint_widgets[i].get_active_text()
             partition_value = self.partition_widgets[i].get_active_text()
+            partition_id = self.part_devices[partition_value]
             format_value = self.format_widgets[i].get_active()
+            fstype = None
+            if partition_id in self.gparted_fstype:
+                fstype = self.gparted_fstype[partition_id]
 
             if mountpoint_value == "":
                 if partition_value in (None, ' '):
@@ -842,10 +846,11 @@ class Wizard:
                         "No partition selected for %s." % mountpoint_value)
                     break
                 else:
-                    mountpoints[part_labels_inv[partition_value]] = \
-                        (mountpoint_value, format_value)
+                    mountpoints[partition_id] = (mountpoint_value,
+                                                 format_value, fstype)
         else:
             self.mountpoints = mountpoints
+        pre_log('info', 'mountpoints: %s' % self.mountpoints)
 
         # Checking duplicated devices
         partitions = [w.get_active_text() for w in self.partition_widgets]
@@ -867,7 +872,8 @@ class Wizard:
                     error_msg.append("Two file systems are assigned the same "
                                      "mount point.")
                 elif check == validation.MOUNTPOINT_BADSIZE:
-                    for mountpoint, format in self.mountpoints.itervalues():
+                    for mountpoint, format, fstype in \
+                            self.mountpoints.itervalues():
                         if mountpoint == 'swap':
                             min_root = MINIMAL_PARTITION_SCHEME['root']
                             break
@@ -1256,7 +1262,7 @@ class Wizard:
 
 
     def get_hostname (self):
-        return self.hostname
+        return self.hostname.get_text()
 
 
     def get_mountpoints (self):

@@ -81,7 +81,7 @@ def pre_log(code, msg=''):
                         format='%(asctime)s %(levelname)-8s %(message)s',
                         datefmt='%a, %d %b %Y %H:%M:%S',
                         stream=sys.stderr)
-    eval('logging.%s(\'%s\')' % (code,msg))
+    getattr(logging, code)(msg)
 
 
 def post_log(code, msg=''):
@@ -98,7 +98,7 @@ def post_log(code, msg=''):
                         datefmt='%a, %d %b %Y %H:%M:%S',
                         filename=log_file,
                         filemode='a')
-    eval('logging.%s(\'%s\')' % (code,msg))
+    getattr(logging, code)(msg)
     os.chmod(log_file, stat.S_IRUSR | stat.S_IWUSR)
 
 

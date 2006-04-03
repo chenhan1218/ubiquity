@@ -102,6 +102,7 @@ class Wizard:
         self.partition_choices = []
         self.mountpoints = {}
         self.part_labels = {' ' : ' '}
+        self.part_devices = {' ' : ' '}
         self.current_page = None
         self.dbfilter = None
         self.locale = None
@@ -647,7 +648,9 @@ class Wizard:
         widget.insertItem(" ")
         for index in partition_list:
             index = '/dev/' + index
-            self.part_labels[index] = misc.part_label(index)
+            label = misc.part_label(index)
+            self.part_labels[index] = label
+            self.part_devices[label] = index
             widget.insertItem(self.part_labels[index])
             self.partitions.append(index)
 
@@ -718,7 +721,7 @@ class Wizard:
         if widget.__class__ == str:
             size = float(self.size[widget.split('/')[2]])
         else:
-            size = float(self.size[self.part_labels.keys()[self.part_labels.values().index(widget.get_active_text())].split('/')[2]])
+            size = float(self.size[self.part_devices[widget.get_active_text()].split('/')[2]])
 
         if size > 1024*1024:
             msg = '%.0f Gb' % (size/1024/1024)
@@ -771,12 +774,15 @@ class Wizard:
             for dev, mnt in dev_mnt.items():
                 if dev.currentText() is not None \
                    and mnt.currentText() != "":
-                    bar = self.part_labels.values().index(str(dev.currentText()))
-                    foo = self.part_labels.keys()[bar]
+                    foo = self.part_devices[str(dev.currentText())]
                     # TODO cjwatson 2006-03-08: Add UI to control whether
                     # the partition is to be formatted; hardcoded to True in
                     # the meantime.
-                    self.mountpoints[foo] = (mnt.currentText(), True)
+                    # TODO cjwatson 2006-03-29: Extract desired filesystem
+                    # type from qtparted; hardcoded to None (i.e. use
+                    # current filesystem type or failing that ext3) in the
+                    # meantime.
+                    self.mountpoints[foo] = (mnt.currentText(), True, None)
 
         # Processing validation stuff
         elif len(list_partitions) > len(list_mountpoints):
@@ -833,7 +839,8 @@ class Wizard:
                 elif check == validation.MOUNTPOINT_DUPPATH:
                     error_msg.append("· Puntos de montaje duplicados.\n\n")
                 elif check == validation.MOUNTPOINT_BADSIZE:
-                    for mountpoint, format in self.mountpoints.itervalues():
+                    for mountpoint, format, fstype in \
+                            self.mountpoints.itervalues():
                         if mountpoint == 'swap':
                             error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
                             break

@@ -24,9 +24,13 @@ import platform
 import errno
 import stat
 import re
+import textwrap
 import shutil
 import subprocess
 import time
+import struct
+import socket
+import fcntl
 import debconf
 import apt_pkg
 from apt.package import Package
@@ -227,7 +231,7 @@ class Install:
         self.db.progress('SET', 81)
         self.db.progress('REGION', 81, 82)
         self.db.progress('INFO', 'espresso/install/locales')
-        if not self.get_locales():
+        if not self.configure_locales():
             self.db.progress('STOP')
             return False
 
@@ -263,15 +267,6 @@ class Install:
         if not self.configure_network():
             self.db.progress('STOP')
             return False
-
-        # TODO cjwatson 2006-02-25: needs direct access to frontend;
-        # disabled until we have espresso-netcfg
-        #self.db.progress('SET', 98)
-        #self.db.progress('REGION', 98, 99)
-        #self.db.progress('INFO', 'espresso/install/hostname')
-        #if not self.configure_hostname():
-        #    self.db.progress('STOP')
-        #    return False
 
         self.db.progress('SET', 96)
         self.db.progress('REGION', 96, 97)
@@ -354,8 +349,9 @@ class Install:
             st = os.lstat(sourcepath)
             mode = stat.S_IMODE(st.st_mode)
             if stat.S_ISLNK(st.st_mode):
-                linkto = os.readlink(sourcepath)
-                os.symlink(linkto, targetpath)
+                if not os.path.exists(targetpath):
+                    linkto = os.readlink(sourcepath)
+                    os.symlink(linkto, targetpath)
             elif stat.S_ISDIR(st.st_mode):
                 if not os.path.isdir(targetpath):
                     os.mkdir(targetpath, mode)
@@ -368,7 +364,8 @@ class Install:
             elif stat.S_ISSOCK(st.st_mode):
                 os.mknod(targetpath, stat.S_IFSOCK | mode)
             elif stat.S_ISREG(st.st_mode):
-                shutil.copyfile(sourcepath, targetpath)
+                if not os.path.exists(targetpath):
+                    shutil.copyfile(sourcepath, targetpath)
 
             copied_size += st.st_size
             os.lchown(targetpath, st.st_uid, st.st_gid)
@@ -513,17 +510,8 @@ class Install:
         return True
 
 
-    def get_locales(self):
-        """set keymap attributes from debconf. It uses the same values
-        the user have selected on live system.
-
-        get_locales() -> keymap, locales"""
-
-        try:
-            self.keymap = self.db.get('debian-installer/keymap')
-        except debconf.DebconfError:
-            self.keymap = None
-
+    def configure_locales(self):
+        """Apply locale settings to installed system."""
         dbfilter = language_apply.LanguageApply(None)
         return (dbfilter.run_command(auto_process=True) == 0)
 
@@ -673,17 +661,6 @@ class Install:
         return (dbfilter.run_command(auto_process=True) == 0)
 
 
-    def configure_keymap(self):
-        """set keymap on installed system (which was obtained from
-        get_locales)."""
-
-        if self.keymap is not None:
-            self.set_debconf('debian-installer/keymap', self.keymap)
-            self.chrex('install-keymap', self.keymap)
-
-        return True
-
-
     def configure_user(self):
         """create the user selected along the installation process
         into the installed system. Default user from live system is
@@ -691,30 +668,6 @@ class Install:
 
         dbfilter = usersetup_apply.UserSetupApply(None)
         return (dbfilter.run_command(auto_process=True) == 0)
-
-
-    def configure_hostname(self):
-        """setting hostname into installed system from data got along
-        the installation process."""
-
-        fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
-        print >>fp, self.frontend.get_hostname()
-        fp.close()
-
-        hosts = open(os.path.join(self.target, 'etc/hosts'), 'w')
-        print >>hosts, """127.0.0.1             localhost.localdomain     localhost
-%s
-
-# The following lines are desirable for IPv6 capable hosts
-::1         ip6-localhost ip6-loopback
-fe00::0 ip6-localnet
-ff00::0 ip6-mcastprefix
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
-ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
-        hosts.close()
-
-        return True
 
 
     def configure_hardware(self):
@@ -736,14 +689,119 @@ ff02::3 ip6-allhosts""" % self.frontend.get_hostname()
         return True
 
 
-    def configure_network(self):
-        """setting network configuration into installed system from
-        live system data. It's provdided by setup-tool-backends."""
+    def get_all_interfaces(self):
+        """Get all non-local network interfaces."""
+        ifs = []
+        ifs_file = open('/proc/net/dev')
+        # eat header
+        ifs_file.readline()
+        ifs_file.readline()
 
-        conf = subprocess.Popen(['/usr/share/setup-tool-backends/scripts/network-conf',
-                '--platform', 'ubuntu-5.04', '--get'], stdout=subprocess.PIPE)
-        subprocess.Popen(['chroot', self.target, '/usr/share/setup-tool-backends/scripts/network-conf', 
-                '--platform', 'ubuntu-5.04', '--set'], stdin=conf.stdout)
+        for line in ifs_file:
+            name = re.match('(.*?(?::\d+)?):', line.strip()).group(1)
+            if name == 'lo':
+                continue
+            ifs.append(name)
+
+        ifs_file.close()
+        return ifs
+
+
+    def configure_network(self):
+        """Automatically configure the network.
+        
+        At present, the only thing the user gets to tweak in the UI is the
+        hostname. Some other things will be copied from the live filesystem,
+        so changes made there will be reflected in the installed system.
+        
+        Unfortunately, at present we have to duplicate a fair bit of netcfg
+        here, because it's hard to drive netcfg in a way that won't try to
+        bring interfaces up and down."""
+
+        # TODO cjwatson 2006-03-30: just call netcfg instead of doing all
+        # this; requires a netcfg binary that doesn't bring interfaces up
+        # and down
+
+        for path in ('/etc/network/interfaces', '/etc/resolv.conf'):
+            if os.path.exists(path):
+                shutil.copy2(path, os.path.join(self.target, path))
+
+        try:
+            hostname = self.db.get('netcfg/get_hostname')
+        except debconf.DebconfError:
+            hostname = ''
+        if hostname == '':
+            hostname = 'ubuntu'
+        fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
+        print >>fp, hostname
+        fp.close()
+
+        hosts = open(os.path.join(self.target, 'etc/hosts'), 'w')
+        print >>hosts, "127.0.0.1\tlocalhost"
+        print >>hosts, "127.0.1.1\t%s" % hostname
+        print >>hosts, textwrap.dedent("""\
+
+            # The following lines are desirable for IPv6 capable hosts
+            ::1     ip6-localhost ip6-loopback
+            fe00::0 ip6-localnet
+            ff00::0 ip6-mcastprefix
+            ff02::1 ip6-allnodes
+            ff02::2 ip6-allrouters
+            ff02::3 ip6-allhosts""")
+        hosts.close()
+
+        # TODO cjwatson 2006-03-30: from <bits/ioctls.h>; ugh, but no
+        # binding available
+        SIOCGIFHWADDR = 0x8927
+        # <net/if_arp.h>
+        ARPHRD_ETHER = 1
+
+        if_names = {}
+        sock = socket.socket(socket.SOCK_DGRAM)
+        interfaces = self.get_all_interfaces()
+        for i in range(len(interfaces)):
+            if_names[interfaces[i]] = struct.unpack('H6s',
+                fcntl.ioctl(sock.fileno(), SIOCGIFHWADDR,
+                            struct.pack('256s', interfaces[i]))[16:24])
+        sock.close()
+
+        iftab = open(os.path.join(self.target, 'etc/iftab'), 'w')
+
+        print >>iftab, textwrap.dedent("""\
+            # This file assigns persistent names to network interfaces.
+            # See iftab(5) for syntax.
+            """)
+
+        for i in range(len(interfaces)):
+            dup = False
+            with_arp = False
+
+            if_name = if_names[interfaces[i]]
+            if if_name is None or if_name[0] != ARPHRD_ETHER:
+                continue
+
+            for j in range(len(interfaces)):
+                if i == j or if_names[interfaces[j]] is None:
+                    continue
+                if if_name[1] != if_names[interfaces[j]][1]:
+                    continue
+
+                if if_names[interfaces[j]][0] == ARPHRD_ETHER:
+                    dup = True
+                else:
+                    with_arp = True
+
+            if dup:
+                continue
+
+            line = (interfaces[i] + " mac " +
+                    ':'.join(['%02x' % ord(if_name[1][c]) for c in range(6)]))
+            if with_arp:
+                line += " arp %d" % if_name[0]
+            print >>iftab, line
+
+        iftab.close()
+
         return True
 
 

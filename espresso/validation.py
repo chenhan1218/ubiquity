@@ -80,7 +80,7 @@ def check_mountpoint(mountpoints, size):
     result = set()
     root = 0
 
-    for mountpoint, format in mountpoints.itervalues():
+    for mountpoint, format, fstype in mountpoints.itervalues():
         if mountpoint == 'swap':
             root_minimum_KB = MINIMAL_PARTITION_SCHEME['root'] * 1024
             break
@@ -89,7 +89,7 @@ def check_mountpoint(mountpoints, size):
                            MINIMAL_PARTITION_SCHEME['swap']) * 1024
 
     seen_mountpoints = set()
-    for device, (path, format) in mountpoints.items():
+    for device, (path, format, fstype) in mountpoints.items():
         if path == '/':
             root = 1
 
