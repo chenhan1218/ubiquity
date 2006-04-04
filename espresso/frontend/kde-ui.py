@@ -71,6 +71,19 @@ BREADCRUMB_STEPS = {
 }
 BREADCRUMB_MAX_STEP = 7
 
+WIDGET_STACK_STEPS = {
+    "stepWelcome": 0,
+    "stepLanguage": 1,
+    "stepLocation": 2,
+    "stepKeyboardConf": 3,
+    "stepUserInfo": 4,
+    "stepPartDisk": 5,
+    "stepPartAuto": 6,
+    "stepPartAdvanced": 7,
+    "stepPartMountpoints": 8,
+    "stepReady": 9
+}
+
 class Wizard:
 
     def __init__(self, distro):
@@ -387,19 +400,19 @@ class Wizard:
 
         # Welcome
         if step == "stepWelcome":
-            self.userinterface.widgetStack.raiseWidget(1)
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepLanguage"])
         # Language
         elif step == "stepLanguage":
             self.translate_widgets()
-            self.userinterface.widgetStack.raiseWidget(2)
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepLocation"])
             #self.back.show()
         # Location
         elif step == "stepLocation":
-            self.userinterface.widgetStack.raiseWidget(3)
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepKeyboardConf"])
             # FIXME ? self.next.set_sensitive(False)
         # Keyboard
         elif step == "stepKeyboardConf":
-            self.userinterface.widgetStack.raiseWidget(4)
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepUserInfo"])
             #self.steps.next_page()
             # XXX: Actually do keyboard config here
             #self.next.set_sensitive(False)
@@ -451,7 +464,23 @@ class Wizard:
             self.show_error(''.join(error_msg))
         else:
             # showing next step and destroying mozembed widget to release memory
-            self.userinterface.widgetStack.raiseWidget(5)
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
+
+    def process_disk_selection (self):
+        print "  process_disk_selection (self):"
+        """Process disk selection before autopartitioning. This step will be
+        skipped if only one disk is present."""
+
+        # For safety, if we somehow ended up improperly initialised
+        # then go to manual partitioning.
+        choice = self.get_disk_choice()
+        if self.manual_choice is None or choice == self.manual_choice:
+            print " process_disk_selection going to gparted"
+            self.gparted_loop()
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
+        else:
+            print " process_disk_selection going to auto"
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAuto"])
 
     def process_autopartitioning(self):
         print "  process_autopartitioning(self):"
@@ -464,13 +493,12 @@ class Wizard:
         choice = self.get_autopartition_choice()
         if self.manual_choice is None or choice == self.manual_choice:
             self.gparted_loop()
-            self.userinterface.widgetStack.raiseWidget(6)
-
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             # TODO jr kde-ify
-            self.steps.set_current_page(self.steps.page_num(self.stepReady))
-            self.next.set_label("Install") # TODO i18n
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartReady"])
+            ##self.next.set_label("Install") # TODO i18n
 
     def set_disk_choices (self, choices, manual_choice):
         # TODO cjwatson 2006-03-20: This method should set up a disk
@@ -632,7 +660,7 @@ class Wizard:
                         self.userinterface.mountpoint3.show()
                     count += 1
 
-        self.userinterface.widgetStack.raiseWidget(7)
+        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartMountpoints"])
 
     def show_partitions(self, widget):
         print "  show_partitions(self, widget): " + widget.name()
@@ -855,7 +883,7 @@ class Wizard:
             self.mountpoint_error_reason.show()
             self.mountpoint_error_image.show()
         else:
-            self.userinterface.widgetStack.raiseWidget(8)
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartReady"])
 
     # returns the current wizard page
     def get_current_page(self):
@@ -1190,6 +1218,3 @@ class Wizard:
         self.password_error_box.show()
 
 
-if __name__ == '__main__':
-    w = Wizard('ubuntu')
-    w.run()
