@@ -1109,15 +1109,13 @@ class Wizard:
         pre_log('info', 'progress_loop()')
 
         self.current_page = None
-        
-        """ FIXME jr
+
         if self.progress_position.depth() != 0:
             # A progress bar is already up for the partitioner. Use the rest
             # of it.
             (start, end) = self.progress_position.get_region()
             self.debconf_progress_region(end, 100)
-        """
-        
+
         print "setting dbfilter"
 
         dbfilter = install.Install(self)
@@ -1129,19 +1127,41 @@ class Wizard:
             self.quit()
         print "run_command good"
 
-        """FIXME jr
         while self.progress_position.depth() != 0:
             self.debconf_progress_stop()
-        """
 
         # just to make sure
-        """FIXME jr
-        self.debconf_progress_window.hide()
+        #FIXME jr self.debconf_progress_window.hide()
 
         self.installing = False
+        quitText = """Ubuntu is now installed on your computer. You need to restart the computer in order to use it. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.\n\nMake sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system."""
+        quitAnswer = KMessageBox.questionYesNo(progress, quitText, "Installation Complete", KGuiItem("Quit"), KGuiItem("reboot"))
+        if quitAnswer == KMessageBox.No:
+            self.reboot();
 
-        self.finished_dialog.run()
-        """
+    def reboot(self, *args):
+        print "  reboot(self, *args):"
+        """reboot the system after installing process."""
+
+        self.returncode = 10
+        self.quit()
+
+
+    def do_reboot(self):
+        print "  do_reboot(self):"
+        """Callback for main program to actually reboot the machine."""
+
+        os.system("reboot")
+
+    def quit(self):
+        print "  quit(self):"
+        """quit installer cleanly."""
+
+        # exiting from application
+        self.current_page = None
+        if self.dbfilter is not None:
+            self.dbfilter.cancel_handler()
+        self.app.exit()
 
     def set_summary_text (self, text):
         print "  set_summary_text (self, text):"
