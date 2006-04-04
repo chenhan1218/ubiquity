@@ -432,7 +432,7 @@ class Wizard:
             self.mountpoints_to_summary()
         # Ready to install
         elif step == "stepReady":
-            self.live_installer.hide()
+            # FIXME self.live_installer.hide()
             self.progress_loop()
 
         step = self.step_name(self.get_current_page())
@@ -1041,6 +1041,7 @@ class Wizard:
         self.debconf_progress_dialog.show()
         return True
         """
+        return True
 
 
     def debconf_progress_set (self, progress_val):
@@ -1054,6 +1055,7 @@ class Wizard:
         self.progress_bar.set_text('%s%%' % int(fraction * 100))
         return True
         """
+        return True
 
     def debconf_progress_step (self, progress_inc):
         print "  debconf_progress_step (self, progress_inc):"
@@ -1066,6 +1068,7 @@ class Wizard:
         self.progress_bar.set_text('%s%%' % int(fraction * 100))
         return True
         """
+        return True
 
     def debconf_progress_info (self, progress_info):
         print "  debconf_progress_info (self, progress_info):"
@@ -1076,6 +1079,7 @@ class Wizard:
             '<i>' + xml.sax.saxutils.escape(progress_info) + '</i>')
         return True
         """
+        return True
 
     def debconf_progress_stop (self):
         print "  debconf_progress_stop (self):"
@@ -1089,6 +1093,7 @@ class Wizard:
             self.debconf_progress_dialog.hide()
         return True
         """
+        return True
 
     def debconf_progress_region (self, region_start, region_end):
         print "  debconf_progress_region (self, region_start, region_end):"
@@ -1121,6 +1126,47 @@ class Wizard:
         if dbfilter == self.dbfilter:
             print "exiting mainloop in debconffilter_done"
             self.app.exit()
+
+    def progress_loop(self):
+        print "  progress_loop(self):"
+        """prepare, copy and config the system in the core install process."""
+
+        pre_log('info', 'progress_loop()')
+
+        self.current_page = None
+        
+        """ FIXME jr
+        if self.progress_position.depth() != 0:
+            # A progress bar is already up for the partitioner. Use the rest
+            # of it.
+            (start, end) = self.progress_position.get_region()
+            self.debconf_progress_region(end, 100)
+        """
+        
+        print "setting dbfilter"
+
+        dbfilter = install.Install(self)
+        print "dbfilter set"
+        if dbfilter.run_command(auto_process=True) != 0:
+            print "runcommand != 0"
+            self.installing = False
+            # TODO cjwatson 2006-02-27: do something nicer than just quitting
+            self.quit()
+        print "run_command good"
+
+        """FIXME jr
+        while self.progress_position.depth() != 0:
+            self.debconf_progress_stop()
+        """
+
+        # just to make sure
+        """FIXME jr
+        self.debconf_progress_window.hide()
+
+        self.installing = False
+
+        self.finished_dialog.run()
+        """
 
     def set_summary_text (self, text):
         print "  set_summary_text (self, text):"
