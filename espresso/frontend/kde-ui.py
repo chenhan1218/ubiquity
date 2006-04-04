@@ -497,7 +497,7 @@ class Wizard:
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             # TODO jr kde-ify
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartReady"])
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
             ##self.next.set_label("Install") # TODO i18n
 
     def set_disk_choices (self, choices, manual_choice):
@@ -545,8 +545,7 @@ class Wizard:
             firstbutton.setChecked(True)
 
         # make sure we're on the autopartitioning page
-        # FIXME self.steps.set_current_page(self.steps.page_num(self.stepPartAuto))
-
+        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAuto"])
 
     def on_autopartition_resize_toggled (self, enable):
         print "  on_autopartition_resize_toggled (self, widget):"
