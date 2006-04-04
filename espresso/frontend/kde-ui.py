@@ -198,14 +198,13 @@ class Wizard:
             elif current_name == "stepUserInfo":
                 print "stepUserInfo"
                 self.dbfilter = usersetup.UserSetup(self)
-            elif current_name == "stepPartAuto":
-                print "stepPartAuto"
-                self.dbfilter = partman.Partman(self)
             elif current_name in ("stepPartDisk", "stepPartAuto"):
                 if isinstance(self.dbfilter, partman.Partman):
                     pre_log('info', 'reusing running partman')
                 else:
                     self.dbfilter = partman.Partman(self)
+            elif current_name == "stepReady":
+                self.dbfilter = summary.Summary(self)
             else:
                 print "no filter"
                 self.dbfilter = None
@@ -1122,6 +1121,10 @@ class Wizard:
         if dbfilter == self.dbfilter:
             print "exiting mainloop in debconffilter_done"
             self.app.exit()
+
+    def set_summary_text (self, text):
+        print "  set_summary_text (self, text):"
+        self.userinterface.ready_text.setText(text)
 
     def error_dialog (self, msg):
         print "  error_dialog (self, msg):" + msg

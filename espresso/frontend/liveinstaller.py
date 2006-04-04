@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'liveinstaller.ui'
 #
-# Created: Mon Mar 27 20:16:20 2006
+# Created: Tue Apr 4 14:46:03 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -863,9 +863,9 @@ class EspressoUI(QWidget):
 
         stepReadyLayout.addMultiCellWidget(self.textLabel6,0,0,0,1)
 
-        self.ready_textview = QTextEdit(self.stepReady,"ready_textview")
+        self.ready_text = QTextEdit(self.stepReady,"ready_text")
 
-        stepReadyLayout.addMultiCellWidget(self.ready_textview,4,4,0,1)
+        stepReadyLayout.addMultiCellWidget(self.ready_text,4,4,0,1)
 
         self.textLabel8 = QLabel(self.stepReady,"textLabel8")
 
