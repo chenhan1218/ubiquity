@@ -1,4 +1,10 @@
-espresso (0.99.37) UNRELEASED; urgency=low
+espresso (0.99.38) UNRELEASED; urgency=low
+
+  * Make espresso-frontend-gtk depend on espresso.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  3 Apr 2006 16:48:00 +0100
+
+espresso (0.99.37) dapper; urgency=low
 
   * GTK frontend:
     - Remove bogus hostname, fullname, and name instance variables; fix
@@ -18,7 +24,7 @@ espresso (0.99.37) UNRELEASED; urgency=low
   * Add explicit text with a language question to the language screen
     (closes: Malone #36973).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Mar 2006 13:53:35 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat,  1 Apr 2006 13:24:21 +0100
 
 espresso (0.99.36.1) dapper; urgency=low
 
