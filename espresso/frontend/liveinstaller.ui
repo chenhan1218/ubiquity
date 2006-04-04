@@ -156,6 +156,9 @@
                         <property name="text">
                             <string>textLabel2</string>
                         </property>
+                        <property name="textFormat">
+                            <enum>RichText</enum>
+                        </property>
                         <property name="alignment">
                             <set>WordBreak|AlignVCenter</set>
                         </property>

@@ -1030,14 +1030,12 @@ class Wizard:
         else:
             self.debconf_progress_window.set_transient_for(None)
         """
-        self.progressDialogue = KProgressDialog(self.userinterface, "hello", progress_title)
         
+        if self.progress_position.depth() == 0:
+            self.progressDialogue = KProgressDialog(self.userinterface, "progressdialog", progress_title, "", True)
+            # FIXME jr self.debconf_progress_window.set_title(progress_title)
         
         self.progressDialogue.setLabel(progress_title)
-        """
-        if self.progress_position.depth() == 0:
-            self.debconf_progress_window.set_title(progress_title)
-        """
 
         bar = self.progressDialogue.progressBar()
         bar.setTotalSteps(progress_max - progress_min)
@@ -1047,6 +1045,7 @@ class Wizard:
 
     def debconf_progress_set (self, progress_val):
         print "  debconf_progress_set (self, progress_val):"
+        self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             return False
         self.progressDialogue.progressBar().setProgress(progress_val)
@@ -1054,6 +1053,7 @@ class Wizard:
 
     def debconf_progress_step (self, progress_inc):
         print "  debconf_progress_step (self, progress_inc): " + str(progress_inc)
+        self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             return False
         newValue = self.progressDialogue.progressBar().progress() + progress_inc
@@ -1062,6 +1062,7 @@ class Wizard:
 
     def debconf_progress_info (self, progress_info):
         print "  debconf_progress_info (self, progress_info):"
+        self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             return False
         self.progressDialogue.setLabel(progress_info)
@@ -1069,6 +1070,7 @@ class Wizard:
 
     def debconf_progress_stop (self):
         print "  debconf_progress_stop (self):"
+        self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             self.progress_cancelled = False
             return False
@@ -1077,38 +1079,27 @@ class Wizard:
             self.progressDialogue.hide()
         return True
 
-###MARK 
-
     def debconf_progress_region (self, region_start, region_end):
         print "  debconf_progress_region (self, region_start, region_end):"
-        """
         self.progress_position.set_region(region_start, region_end)
-        """
+
     def debconf_progress_cancellable (self, cancellable):
-      print "  debconf_progress_cancellable (self, cancellable):"
-      """
+        print "  debconf_progress_cancellable (self, cancellable):"
         if cancellable:
-            self.progress_cancel_button.show()
+            self.progressDialogue.showCancelButton(True)
         else:
-            self.progress_cancel_button.hide()
+            self.progress_cancel_button.hide(False)
             self.progress_cancelled = False
-      """
 
     def on_progress_cancel_button_clicked (self, button):
-      print "  on_progress_cancel_button_clicked (self, button):"
-      """
+        print "  on_progress_cancel_button_clicked (self, button):"
         self.progress_cancelled = True
-      """
 
     def debconffilter_done (self, dbfilter):
         print "  debconffilter_done (self, dbfilter): " + str(self.current_debconf_fd)
         # TODO cjwatson 2006-02-10: handle dbfilter.status
-        #debconf_condition = 0
-        #debconf_condition |= filteredcommand.DEBCONF_IO_HUP
-        #self.debconf_callbacks[self.current_debconf_fd](self.current_debconf_fd, debconf_condition)
-        self.app.disconnect(self.socketNotifierRead, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_read)
         if dbfilter == self.dbfilter:
-            print "exiting mainloop in debconffilter_done"
+            self.dbfilter = None
             self.app.exit()
 
     def progress_loop(self):

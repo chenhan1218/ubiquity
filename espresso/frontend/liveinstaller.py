@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'liveinstaller.ui'
 #
-# Created: Tue Apr 4 14:46:03 2006
+# Created: Tue Apr 4 19:56:46 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -386,6 +386,7 @@ class EspressoUI(QWidget):
         stepWelcomeLayout = QGridLayout(self.stepWelcome,1,1,11,6,"stepWelcomeLayout")
 
         self.introLabel = QLabel(self.stepWelcome,"introLabel")
+        self.introLabel.setTextFormat(QLabel.RichText)
         self.introLabel.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
 
         stepWelcomeLayout.addWidget(self.introLabel,2,0)
