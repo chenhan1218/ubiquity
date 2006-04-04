@@ -1088,7 +1088,7 @@ class Wizard:
         if cancellable:
             self.progressDialogue.showCancelButton(True)
         else:
-            self.progress_cancel_button.hide(False)
+            self.progressDialogue.showCancelButton(False)
             self.progress_cancelled = False
 
     def on_progress_cancel_button_clicked (self, button):
@@ -1135,7 +1135,7 @@ class Wizard:
 
         self.installing = False
         quitText = """Ubuntu is now installed on your computer. You need to restart the computer in order to use it. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.\n\nMake sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system."""
-        quitAnswer = KMessageBox.questionYesNo(progress, quitText, "Installation Complete", KGuiItem("Quit"), KGuiItem("reboot"))
+        quitAnswer = KMessageBox.questionYesNo(self.userinterface, quitText, "Installation Complete", KGuiItem("Quit"), KGuiItem("reboot"))
         if quitAnswer == KMessageBox.No:
             self.reboot();
 
