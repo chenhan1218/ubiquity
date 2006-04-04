@@ -22,7 +22,6 @@
 print "importing kde-ui"
 
 import sys
-import sys
 from qt import *
 from kdeui import *
 from kdecore import *
@@ -1020,80 +1019,65 @@ class Wizard:
 
         return callback(source, debconf_condition)
         """
+	
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
-        print "  debconf_progress_start (self, progress_min, progress_max, progress_title):"
-        """
+        print "  debconf_progress_start (self, progress_min, progress_max, progress_title) " + str(progress_min) + " " + str(progress_max)
         if self.progress_cancelled:
             return False
-
-        if self.current_page is not None:
-            self.debconf_progress_dialog.set_transient_for(self.live_installer)
-        else:
-            self.debconf_progress_dialog.set_transient_for(None)
-        if self.progress_position.depth() == 0:
-            self.debconf_progress_dialog.set_title(progress_title)
-
-        self.progress_title.set_markup(
-            '<b>' + xml.sax.saxutils.escape(progress_title) + '</b>')
-        self.progress_position.start(progress_min, progress_max)
-        self.debconf_progress_set(0)
-        self.progress_info.set_text('')
-        self.debconf_progress_dialog.show()
-        return True
         """
-        return True
+        if self.current_page is not None:
+            self.debconf_progress_window.set_transient_for(self.live_installer)
+        else:
+            self.debconf_progress_window.set_transient_for(None)
+        """
+        self.progressDialogue = KProgressDialog(self.userinterface, "hello", progress_title)
+        
+        
+        self.progressDialogue.setLabel(progress_title)
+        """
+        if self.progress_position.depth() == 0:
+            self.debconf_progress_window.set_title(progress_title)
+        """
 
+        bar = self.progressDialogue.progressBar()
+        bar.setTotalSteps(progress_max - progress_min)
+        self.progress_position.start(progress_min, progress_max)
+        self.progressDialogue.show()
+        return True
 
     def debconf_progress_set (self, progress_val):
         print "  debconf_progress_set (self, progress_val):"
-        """
         if self.progress_cancelled:
             return False
-        self.progress_position.set(progress_val)
-        fraction = self.progress_position.fraction()
-        self.progress_bar.set_fraction(fraction)
-        self.progress_bar.set_text('%s%%' % int(fraction * 100))
-        return True
-        """
+        self.progressDialogue.progressBar().setProgress(progress_val)
         return True
 
     def debconf_progress_step (self, progress_inc):
-        print "  debconf_progress_step (self, progress_inc):"
-        """
+        print "  debconf_progress_step (self, progress_inc): " + str(progress_inc)
         if self.progress_cancelled:
             return False
-        self.progress_position.step(progress_inc)
-        fraction = self.progress_position.fraction()
-        self.progress_bar.set_fraction(fraction)
-        self.progress_bar.set_text('%s%%' % int(fraction * 100))
-        return True
-        """
+        newValue = self.progressDialogue.progressBar().progress() + progress_inc
+        self.progressDialogue.progressBar().setProgress(newValue)
         return True
 
     def debconf_progress_info (self, progress_info):
         print "  debconf_progress_info (self, progress_info):"
-        """
         if self.progress_cancelled:
             return False
-        self.progress_info.set_markup(
-            '<i>' + xml.sax.saxutils.escape(progress_info) + '</i>')
-        return True
-        """
+        self.progressDialogue.setLabel(progress_info)
         return True
 
     def debconf_progress_stop (self):
         print "  debconf_progress_stop (self):"
-        """
         if self.progress_cancelled:
             self.progress_cancelled = False
             return False
-
         self.progress_position.stop()
         if self.progress_position.depth() == 0:
-            self.debconf_progress_dialog.hide()
+            self.progressDialogue.hide()
         return True
-        """
-        return True
+
+###MARK 
 
     def debconf_progress_region (self, region_start, region_end):
         print "  debconf_progress_region (self, region_start, region_end):"
