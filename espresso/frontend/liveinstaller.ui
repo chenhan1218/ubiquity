@@ -515,7 +515,7 @@ Answering the questions should only take a few minutes.</string>
                     <widget class="KListView" row="3" column="2">
                         <column>
                             <property name="text">
-                                <string>Keyboard</string>
+                                <string>Layout</string>
                             </property>
                             <property name="clickable">
                                 <bool>true</bool>

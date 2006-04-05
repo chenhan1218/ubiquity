@@ -677,7 +677,6 @@ class Wizard:
         step = self.step_name(self.steps.get_current_page())
         pre_log('info', 'Step_after = %s' % step)
 
-
     def process_identification (self):
         """Processing identification step tasks."""
 

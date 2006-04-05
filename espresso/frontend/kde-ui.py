@@ -41,8 +41,7 @@ import gettext
 from espresso import filteredcommand, validation
 from espresso.misc import *
 from espresso.settings import *
-#from espresso.components import language, timezone, kbd_chooser, usersetup, \
-from espresso.components import language, timezone, usersetup, \
+from espresso.components import language, kbd_chooser, timezone, usersetup, \
                                 partman, partman_commit, summary, install
 import espresso.tz
 import espresso.progressposition
@@ -191,6 +190,7 @@ class Wizard:
         self.app.connect(self.userinterface.backButton, SIGNAL("clicked()"), self.on_back_clicked)
         self.app.connect(self.userinterface.cancelButton, SIGNAL("clicked()"), self.on_cancel_clicked3)
         self.app.connect(self.userinterface.widgetStack, SIGNAL("aboutToShow(int)"), self.on_steps_switch_page)
+        self.app.connect(self.userinterface.keyboardlistview, SIGNAL("selectionChanged()"), self.on_keyboard_selected)
         
     
         # Start the interface
@@ -204,8 +204,8 @@ class Wizard:
                 self.dbfilter = language.Language(self)
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
-            #elif current_name == "stepKeyboardConf":
-            #    self.dbfilter = kbd_chooser.KbdChooser(self)
+            elif current_name == "stepKeyboardConf":
+                self.dbfilter = kbd_chooser.KbdChooser(self)
             elif current_name == "stepUserInfo":
                 print "stepUserInfo"
                 self.dbfilter = usersetup.UserSetup(self)
@@ -373,6 +373,9 @@ class Wizard:
             self.dbfilter.ok_handler()
         else:
             self.app.exit()
+
+    def on_keyboard_selected(self):
+        kbd_chooser.apply_keyboard(self.get_keyboard())
 
     def on_back_clicked(self):
         print "  on_back_clicked(self, widget):"
@@ -614,7 +617,48 @@ class Wizard:
             return True
         else:
             return False
-        
+
+    def set_keyboard_choices(self, choicemap):
+        print "  set_keyboard_choices(self, choicemap):"
+        self.keyboard_choice_map = choicemap
+        choices = choicemap.keys()
+
+        self.userinterface.keyboardlistview.clear()
+        for choice in sorted(choices):
+            self.userinterface.keyboardlistview.insertItem( QListViewItem(self.userinterface.keyboardlistview, choice) )
+
+        if self.current_keyboard is not None:
+            self.set_keyboard(self.current_keyboard)
+
+    def set_keyboard (self, keyboard):
+        print "  set_keyboard (self, keyboard): " + keyboard
+        """
+        Keyboard is the database name of the keyboard, so untranslated
+        """
+
+        self.current_keyboard = keyboard
+
+        iterator = QListViewItemIterator(self.userinterface.keyboardlistview)
+        while iterator.current():
+            #print "text: " + unicode(iterator.current().text(0))
+            #if unicode(str(iterator.current().text(0).ascii()), 'utf-8') == language:
+            value = unicode(iterator.current().text(0))
+            if self.keyboard_choice_map[value] == keyboard:
+                self.userinterface.keyboardlistview.setSelected(iterator.current(), True)
+                break
+            iterator += 1
+
+    def get_keyboard (self):
+        print "  get_keyboard (self):"
+        selection = self.userinterface.keyboardlistview.selectedItem()
+        if selection is None:
+            print "returning none"
+            return None
+        else:
+            print "returning value: " + str(selection.text(0))
+            value = unicode(selection.text(0))
+            return self.keyboard_choice_map[value]
+
     def qtparted_stdout(self, proc, output, bufflen):
             print " qtparted_stdout " + output
             self.embed.embed( int(output) )

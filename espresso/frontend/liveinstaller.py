@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'liveinstaller.ui'
 #
-# Created: Wed Apr 5 15:08:44 2006
+# Created: Wed Apr 5 17:31:25 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -494,7 +494,7 @@ class EspressoUI(QWidget):
         stepKeyboardConfLayout.addMultiCellWidget(self.textLabel7_3,4,4,0,2)
 
         self.keyboardlistview = KListView(self.stepKeyboardConf,"keyboardlistview")
-        self.keyboardlistview.addColumn(self.__tr("Keyboard"))
+        self.keyboardlistview.addColumn(self.__tr("Layout"))
 
         stepKeyboardConfLayout.addWidget(self.keyboardlistview,3,2)
         spacer32 = QSpacerItem(20,31,QSizePolicy.Fixed,QSizePolicy.Minimum)
@@ -964,7 +964,7 @@ class EspressoUI(QWidget):
         self.textLabel1.setText(self.__tr("<h2>Where are you?</h2>"))
         self.textLabel5_2.setText(self.__tr("<h2>Keyboard Layout</h2>"))
         self.textLabel7_3.setText(self.__tr("You can type into this box to test your new keyboard layout."))
-        self.keyboardlistview.header().setLabel(0,self.__tr("Keyboard"))
+        self.keyboardlistview.header().setLabel(0,self.__tr("Layout"))
         self.textLabel6_4.setText(self.__tr("Which layout is most similar to your keyboard?"))
         self.ident_label_3.setText(self.__tr("<h2>Who are you?</h2>"))
         self.fullname_label1_2.setText(self.__tr("What is your name?"))
