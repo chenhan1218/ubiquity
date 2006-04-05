@@ -1,3 +1,13 @@
+espresso (0.99.39) dapper; urgency=low
+
+  * KDE Frontend:
+    - Make step label work
+    - Make back and cancel buttons work
+    - Enable and disable buttons at correct times
+    - Implement keyboard chooser
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed,  5 Apr 2006 17:39:19 +0000
+
 espresso (0.99.38) dapper; urgency=low
 
   [ Colin Watson ]
