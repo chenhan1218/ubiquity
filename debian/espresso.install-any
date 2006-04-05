@@ -39,6 +39,7 @@ espresso/components/partman.py usr/lib/python2.4/site-packages/espresso/componen
 espresso/components/partman_commit.py usr/lib/python2.4/site-packages/espresso/components
 
 # tzsetup
+d-i/source/tzsetup/tzmap usr/lib/espresso/tzsetup/tzmap
 espresso/components/timezone.py usr/lib/python2.4/site-packages/espresso/components
 espresso/components/timezone_apply.py usr/lib/python2.4/site-packages/espresso/components
 

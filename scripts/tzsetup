@@ -23,10 +23,9 @@ if db_get "tzsetup/country/$CC"; then
 	fi
 else
 	db_register time/zone time/zone # might be registered to something else
-	# espresso-tzmap is the same as tzmap, but this gets us around
-	# packaging awkwardnesses for now; later, oem-config-timezone and
-	# espresso-timezone should be merged into a single tzsetup.deb.
-	zone=$(grep "^$CC" /usr/share/tzsetup/espresso-tzmap | cut -d ' ' -f 2)
+	# tzmap is also in oem-config-timezone (with a different path);
+	# later, this should be moved into a tzsetup.deb.
+	zone=$(grep "^$CC" /usr/lib/espresso/tzsetup/tzmap | cut -d ' ' -f 2)
 	db_set time/zone "$zone"
 	db_input high time/zone || true
 	if ! db_go; then
