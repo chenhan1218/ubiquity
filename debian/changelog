@@ -1,8 +1,11 @@
-espresso (0.99.39) UNRELEASED; urgency=low
+espresso (0.99.39) dapper; urgency=low
 
   * Fix build failure on powerpc due to missing yaboot-installer directory.
+  * Automatic update of included source packages: grub-installer
+    1.14ubuntu3, kbd-chooser 1.23ubuntu13, localechooser 0.27ubuntu13,
+    tzsetup 1:0.8ubuntu5, user-setup 0.05ubuntu6.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed,  5 Apr 2006 21:32:26 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed,  5 Apr 2006 21:35:13 +0100
 
 espresso (0.99.38) dapper; urgency=low
 

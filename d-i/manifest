@@ -1,8 +1,8 @@
 debian-installer-utils 1.22ubuntu6
-grub-installer 1.14ubuntu2
+grub-installer 1.14ubuntu3
 hw-detect 1.32ubuntu5
-kbd-chooser 1.23ubuntu12
-localechooser 0.27ubuntu12
+kbd-chooser 1.23ubuntu13
+localechooser 0.27ubuntu13
 partconf 1.11
 partman-auto 45ubuntu8
 partman-base 78ubuntu1
@@ -17,6 +17,6 @@ partman-partitioning 37ubuntu2
 partman-reiserfs 28
 partman-target 41ubuntu0
 partman-xfs 27
-tzsetup 1:0.8ubuntu4
-user-setup 0.05ubuntu5
+tzsetup 1:0.8ubuntu5
+user-setup 0.05ubuntu6
 yaboot-installer 1.1.4ubuntu2
