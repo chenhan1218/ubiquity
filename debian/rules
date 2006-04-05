@@ -86,6 +86,7 @@ endif
 		chmod +x debian/espresso/usr/lib/espresso/user-setup/$$x; \
 	done
 ifeq ($(DEB_HOST_ARCH),powerpc)
+	dh_installdirs -pespresso usr/lib/espresso/yaboot-installer
 	install d-i/source/yaboot-installer/debian/postinst \
 		debian/espresso/usr/lib/espresso/yaboot-installer/yaboot-installer
 endif
