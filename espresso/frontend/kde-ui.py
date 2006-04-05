@@ -373,30 +373,43 @@ class Wizard:
             self.app.exit()
 
     def on_back_clicked(self):
+        print "  on_back_clicked(self, widget):"
         """Callback to set previous screen."""
-        print "  on_back_clicked()"
 
-        if self.dbfilter is not None:
-            self.dbfilter.cancel_handler()
+        self.backup = True
 
         # Enabling next button
-        ##self.next.set_sensitive(True)
+        self.userinterface.nextButton.setEnabled(True)
         # Setting actual step
-        ##step = self.step_name(self.steps.get_current_page())
+        step = self.step_name(self.get_current_page())
+        print "step: " + step
 
-        """
+        changed_page = False
+
         if step == "stepLocation":
-            self.back.hide()
+            self.userinterface.backButton.setEnabled(False)
         elif step == "stepPartAdvanced":
+            """ FIXME jr
             print >>self.gparted_subp.stdin, "undo"
             self.gparted_subp.stdin.close()
             self.gparted_subp.wait()
             self.gparted_subp = None
+            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            changed_page = True
+            """
+            pass
         elif step == "stepPartMountpoints":
             self.gparted_loop()
-        """
-
-        self.steps.prev_page()
+        elif step == "stepReady":
+            self.userinterface.nextButton.setText("Next >")
+        if not changed_page:
+            self.userinterface.widgetStack.raiseWidget(self.get_current_page() - 1)
+        if self.dbfilter is not None:
+            self.dbfilter.cancel_handler()
+            # expect recursive main loops to be exited and
+            # debconffilter_done() to be called when the filter exits
+        else:
+            self.app.exit()
 
     def process_step(self):
         """Process and validate the results of this step."""
@@ -1201,12 +1214,7 @@ class Wizard:
     def set_language_choices (self, choice_map):
         print "  set_language_choices (self, choice_map):"
         self.language_choice_map = dict(choice_map)
-        #if len(self.language_treeview.get_columns()) < 1:
-        #    column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
-        #    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-        #    self.language_treeview.append_column(column)
-        #list_store = gtk.ListStore(gobject.TYPE_STRING)
-        #self.language_treeview.set_model(list_store)
+        self.userinterface.language_treeview.clear()
         for choice in sorted(self.language_choice_map):
             self.userinterface.language_treeview.insertItem( QListViewItem(self.userinterface.language_treeview, choice) )
 
