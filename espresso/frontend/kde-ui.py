@@ -254,6 +254,8 @@ class Wizard:
         iconLoader = KIconLoader()
         icon = iconLoader.loadIcon("system", KIcon.Small)
         self.userinterface.logo_image.setPixmap(icon)
+        self.userinterface.backButton.setEnabled(False)
+
         """
         # set pixmaps
         if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
@@ -426,17 +428,16 @@ class Wizard:
         elif step == "stepLanguage":
             self.translate_widgets()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepLocation"])
-            #self.back.show()
+            self.userinterface.backButton.setEnabled(True)
         # Location
         elif step == "stepLocation":
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepKeyboardConf"])
-            # FIXME ? self.next.set_sensitive(False)
         # Keyboard
         elif step == "stepKeyboardConf":
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepUserInfo"])
             #self.steps.next_page()
             # XXX: Actually do keyboard config here
-            #self.next.set_sensitive(False)
+            self.userinterface.nextButton.setEnabled(False)
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
