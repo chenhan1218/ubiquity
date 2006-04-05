@@ -103,29 +103,12 @@
         </widget>
         <widget class="QLabel" row="2" column="0">
             <property name="name">
-                <cstring>textLabel1_3</cstring>
+                <cstring>lblStepNofM</cstring>
             </property>
             <property name="text">
                 <string>Step N of M</string>
             </property>
         </widget>
-        <spacer row="2" column="1">
-            <property name="name">
-                <cstring>spacer31</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Horizontal</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>260</width>
-                    <height>41</height>
-                </size>
-            </property>
-        </spacer>
         <widget class="QWidgetStack" row="1" column="0" rowspan="1" colspan="5">
             <property name="name">
                 <cstring>widgetStack</cstring>
@@ -149,21 +132,7 @@
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="QLabel" row="2" column="0">
-                        <property name="name">
-                            <cstring>introLabel</cstring>
-                        </property>
-                        <property name="text">
-                            <string>textLabel2</string>
-                        </property>
-                        <property name="textFormat">
-                            <enum>RichText</enum>
-                        </property>
-                        <property name="alignment">
-                            <set>WordBreak|AlignVCenter</set>
-                        </property>
-                    </widget>
-                    <spacer row="4" column="0">
+                    <spacer row="2" column="1">
                         <property name="name">
                             <cstring>spacer10</cstring>
                         </property>
@@ -180,7 +149,7 @@
                             </size>
                         </property>
                     </spacer>
-                    <spacer row="0" column="0">
+                    <spacer row="0" column="1">
                         <property name="name">
                             <cstring>spacer7</cstring>
                         </property>
@@ -194,6 +163,54 @@
                             <size>
                                 <width>51</width>
                                 <height>120</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <spacer row="1" column="2">
+                        <property name="name">
+                            <cstring>spacer27_2</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>161</width>
+                                <height>31</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QLabel" row="1" column="1">
+                        <property name="name">
+                            <cstring>introLabel</cstring>
+                        </property>
+                        <property name="text">
+                            <string>textLabel2</string>
+                        </property>
+                        <property name="textFormat">
+                            <enum>RichText</enum>
+                        </property>
+                        <property name="alignment">
+                            <set>WordBreak|AlignVCenter</set>
+                        </property>
+                    </widget>
+                    <spacer row="1" column="0" rowspan="2" colspan="1">
+                        <property name="name">
+                            <cstring>spacer27</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>161</width>
+                                <height>31</height>
                             </size>
                         </property>
                     </spacer>
@@ -229,7 +246,7 @@
                             <cstring>textLabel1_2</cstring>
                         </property>
                         <property name="text">
-                            <string>&lt;b&gt;Welcome&lt;/b&gt;</string>
+                            <string>&lt;h2&gt;Welcome&lt;/h2&gt;</string>
                         </property>
                     </widget>
                     <spacer row="3" column="0">
@@ -465,48 +482,133 @@ Answering the questions should only take a few minutes.</string>
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <spacer row="2" column="0">
+                    <widget class="QLabel" row="0" column="0" rowspan="1" colspan="5">
                         <property name="name">
-                            <cstring>spacer17_2_2</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>21</width>
-                                <height>202</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <spacer row="0" column="0">
-                        <property name="name">
-                            <cstring>spacer16_2_2</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>21</width>
-                                <height>202</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <widget class="QLabel" row="1" column="0">
-                        <property name="name">
-                            <cstring>textLabel1_3_2</cstring>
+                            <cstring>textLabel5_2</cstring>
                         </property>
                         <property name="text">
-                            <string>Some text (keyboard configurator goes here)</string>
+                            <string>&lt;h2&gt;Keyboard Layout&lt;/h2&gt;</string>
                         </property>
                     </widget>
+                    <widget class="Line" row="1" column="0" rowspan="1" colspan="5">
+                        <property name="name">
+                            <cstring>line3</cstring>
+                        </property>
+                        <property name="frameShape">
+                            <enum>HLine</enum>
+                        </property>
+                        <property name="frameShadow">
+                            <enum>Sunken</enum>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                    </widget>
+                    <widget class="QLabel" row="4" column="0" rowspan="1" colspan="3">
+                        <property name="name">
+                            <cstring>textLabel7_3</cstring>
+                        </property>
+                        <property name="text">
+                            <string>You can type into this box to test your new keyboard layout.</string>
+                        </property>
+                    </widget>
+                    <widget class="KListView" row="3" column="2">
+                        <column>
+                            <property name="text">
+                                <string>Keyboard</string>
+                            </property>
+                            <property name="clickable">
+                                <bool>true</bool>
+                            </property>
+                            <property name="resizable">
+                                <bool>true</bool>
+                            </property>
+                        </column>
+                        <property name="name">
+                            <cstring>keyboardlistview</cstring>
+                        </property>
+                    </widget>
+                    <spacer row="3" column="0" rowspan="1" colspan="2">
+                        <property name="name">
+                            <cstring>spacer32</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Fixed</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>31</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QLabel" row="2" column="0" rowspan="1" colspan="5">
+                        <property name="name">
+                            <cstring>textLabel6_4</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Which layout is most similar to your keyboard?</string>
+                        </property>
+                    </widget>
+                    <spacer row="3" column="3" rowspan="1" colspan="2">
+                        <property name="name">
+                            <cstring>spacer33</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>181</width>
+                                <height>31</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <spacer row="5" column="0">
+                        <property name="name">
+                            <cstring>spacer34</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Fixed</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>21</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QLineEdit" row="5" column="1" rowspan="1" colspan="3">
+                        <property name="name">
+                            <cstring>entry1</cstring>
+                        </property>
+                    </widget>
+                    <spacer row="5" column="4">
+                        <property name="name">
+                            <cstring>spacer35_2</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>100</width>
+                                <height>21</height>
+                            </size>
+                        </property>
+                    </spacer>
                 </grid>
             </widget>
             <widget class="QWidget">
@@ -516,27 +618,11 @@ Answering the questions should only take a few minutes.</string>
                 <attribute name="id">
                     <number>4</number>
                 </attribute>
-                <grid>
+                <vbox>
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="QLabel" row="3" column="0">
-                        <property name="name">
-                            <cstring>username_label1_2</cstring>
-                        </property>
-                        <property name="text">
-                            <string>What name do you want to use to log in?</string>
-                        </property>
-                    </widget>
-                    <widget class="QLabel" row="5" column="0">
-                        <property name="name">
-                            <cstring>pasword_label1_2</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Choose a password to keep your account safe.</string>
-                        </property>
-                    </widget>
-                    <widget class="QLabel" row="0" column="0">
+                    <widget class="QLabel">
                         <property name="name">
                             <cstring>ident_label_3</cstring>
                         </property>
@@ -544,7 +630,7 @@ Answering the questions should only take a few minutes.</string>
                             <string>&lt;h2&gt;Who are you?&lt;/h2&gt;</string>
                         </property>
                     </widget>
-                    <widget class="QLabel" row="1" column="0">
+                    <widget class="QLabel">
                         <property name="name">
                             <cstring>fullname_label1_2</cstring>
                         </property>
@@ -552,85 +638,9 @@ Answering the questions should only take a few minutes.</string>
                             <string>What is your name?</string>
                         </property>
                     </widget>
-                    <widget class="QLayoutWidget" row="4" column="0">
+                    <widget class="QLayoutWidget">
                         <property name="name">
-                            <cstring>layout15</cstring>
-                        </property>
-                        <grid>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <widget class="QLabel" row="0" column="2">
-                                <property name="name">
-                                    <cstring>username_error_image</cstring>
-                                </property>
-                                <property name="pixmap">
-                                    <pixmap>image1</pixmap>
-                                </property>
-                                <property name="scaledContents">
-                                    <bool>true</bool>
-                                </property>
-                            </widget>
-                            <spacer row="0" column="0" rowspan="2" colspan="1">
-                                <property name="name">
-                                    <cstring>spacer30_2</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>31</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="QLineEdit" row="0" column="1">
-                                <property name="name">
-                                    <cstring>username</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>7</hsizetype>
-                                        <vsizetype>0</vsizetype>
-                                        <horstretch>1</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                            </widget>
-                            <spacer row="0" column="3">
-                                <property name="name">
-                                    <cstring>spacer30_2_4</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>270</width>
-                                        <height>31</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="QLabel" row="1" column="1" rowspan="1" colspan="3">
-                                <property name="name">
-                                    <cstring>textLabel2_4</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>&lt;i&gt;If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/i&gt;</string>
-                                </property>
-                            </widget>
-                        </grid>
-                    </widget>
-                    <widget class="QLayoutWidget" row="2" column="0">
-                        <property name="name">
-                            <cstring>layout14</cstring>
+                            <cstring>layout18</cstring>
                         </property>
                         <hbox>
                             <property name="name">
@@ -644,12 +654,12 @@ Answering the questions should only take a few minutes.</string>
                                     <enum>Horizontal</enum>
                                 </property>
                                 <property name="sizeType">
-                                    <enum>Expanding</enum>
+                                    <enum>Fixed</enum>
                                 </property>
                                 <property name="sizeHint">
                                     <size>
                                         <width>20</width>
-                                        <height>31</height>
+                                        <height>20</height>
                                     </size>
                                 </property>
                             </spacer>
@@ -666,15 +676,50 @@ Answering the questions should only take a few minutes.</string>
                                     </sizepolicy>
                                 </property>
                             </widget>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>layout16</cstring>
+                                </property>
+                                <vbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>fullname_error_image</cstring>
+                                        </property>
+                                        <property name="pixmap">
+                                            <pixmap>image1</pixmap>
+                                        </property>
+                                        <property name="scaledContents">
+                                            <bool>true</bool>
+                                        </property>
+                                    </widget>
+                                    <spacer>
+                                        <property name="name">
+                                            <cstring>spacer30_4</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Vertical</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Expanding</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>21</width>
+                                                <height>16</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                </vbox>
+                            </widget>
                             <widget class="QLabel">
                                 <property name="name">
-                                    <cstring>fullname_error_image</cstring>
+                                    <cstring>fullname_error_reason</cstring>
                                 </property>
-                                <property name="pixmap">
-                                    <pixmap>image1</pixmap>
-                                </property>
-                                <property name="scaledContents">
-                                    <bool>true</bool>
+                                <property name="text">
+                                    <string></string>
                                 </property>
                             </widget>
                             <spacer>
@@ -689,69 +734,48 @@ Answering the questions should only take a few minutes.</string>
                                 </property>
                                 <property name="sizeHint">
                                     <size>
-                                        <width>270</width>
+                                        <width>200</width>
                                         <height>31</height>
                                     </size>
                                 </property>
                             </spacer>
                         </hbox>
                     </widget>
-                    <spacer row="9" column="0">
+                    <widget class="QLabel">
                         <property name="name">
-                            <cstring>spacer10_2</cstring>
+                            <cstring>username_label1_2</cstring>
                         </property>
-                        <property name="orientation">
-                            <enum>Vertical</enum>
+                        <property name="text">
+                            <string>What name do you want to use to log in?</string>
                         </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>41</width>
-                                <height>20</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <widget class="QLayoutWidget" row="8" column="0">
+                    </widget>
+                    <widget class="QLayoutWidget">
                         <property name="name">
-                            <cstring>layout17</cstring>
+                            <cstring>layout12</cstring>
                         </property>
                         <grid>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <spacer row="0" column="3">
+                            <widget class="QLabel" row="0" column="3">
                                 <property name="name">
-                                    <cstring>spacer30_2_6</cstring>
+                                    <cstring>username_error_reason</cstring>
                                 </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
+                                <property name="text">
+                                    <string></string>
                                 </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>260</width>
-                                        <height>31</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="QLabel" row="0" column="2">
+                            </widget>
+                            <widget class="QLabel" row="1" column="1" rowspan="1" colspan="4">
                                 <property name="name">
-                                    <cstring>hostname_error_image</cstring>
+                                    <cstring>textLabel2_4</cstring>
                                 </property>
-                                <property name="pixmap">
-                                    <pixmap>image1</pixmap>
-                                </property>
-                                <property name="scaledContents">
-                                    <bool>true</bool>
+                                <property name="text">
+                                    <string>&lt;i&gt;If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/i&gt;</string>
                                 </property>
                             </widget>
                             <widget class="QLineEdit" row="0" column="1">
                                 <property name="name">
-                                    <cstring>hostname</cstring>
+                                    <cstring>username</cstring>
                                 </property>
                                 <property name="sizePolicy">
                                     <sizepolicy>
@@ -762,9 +786,20 @@ Answering the questions should only take a few minutes.</string>
                                     </sizepolicy>
                                 </property>
                             </widget>
-                            <spacer row="0" column="0" rowspan="2" colspan="1">
+                            <widget class="QLabel" row="0" column="2">
                                 <property name="name">
-                                    <cstring>spacer30_2_2</cstring>
+                                    <cstring>username_error_image</cstring>
+                                </property>
+                                <property name="pixmap">
+                                    <pixmap>image1</pixmap>
+                                </property>
+                                <property name="scaledContents">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                            <spacer row="0" column="4">
+                                <property name="name">
+                                    <cstring>spacer30_2_4</cstring>
                                 </property>
                                 <property name="orientation">
                                     <enum>Horizontal</enum>
@@ -774,37 +809,107 @@ Answering the questions should only take a few minutes.</string>
                                 </property>
                                 <property name="sizeHint">
                                     <size>
+                                        <width>190</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <spacer row="1" column="0">
+                                <property name="name">
+                                    <cstring>spacer30_2</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
                                         <width>20</width>
                                         <height>31</height>
                                     </size>
                                 </property>
                             </spacer>
-                            <widget class="QLabel" row="1" column="1" rowspan="1" colspan="3">
-                                <property name="name">
-                                    <cstring>textLabel4_2</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>&lt;i&gt;This name will be used if you make the computer visible to others on a network.&lt;/i&gt;</string>
-                                </property>
-                            </widget>
                         </grid>
                     </widget>
-                    <widget class="QLabel" row="7" column="0">
+                    <widget class="QLabel">
                         <property name="name">
-                            <cstring>hostname_label1_2</cstring>
+                            <cstring>pasword_label1_2</cstring>
                         </property>
                         <property name="text">
-                            <string>What is the name of this computer?</string>
+                            <string>Choose a password to keep your account safe.</string>
                         </property>
                     </widget>
-                    <widget class="QLayoutWidget" row="6" column="0">
+                    <widget class="QLayoutWidget">
                         <property name="name">
-                            <cstring>layout16</cstring>
+                            <cstring>layout19</cstring>
                         </property>
                         <grid>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
+                            <widget class="QLabel" row="0" column="3">
+                                <property name="name">
+                                    <cstring>password_error_image</cstring>
+                                </property>
+                                <property name="pixmap">
+                                    <pixmap>image1</pixmap>
+                                </property>
+                                <property name="scaledContents">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                            <spacer row="0" column="5">
+                                <property name="name">
+                                    <cstring>spacer30_2_5</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>50</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLabel" row="0" column="4">
+                                <property name="name">
+                                    <cstring>password_error_reason</cstring>
+                                </property>
+                                <property name="text">
+                                    <string></string>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="1" column="1" rowspan="1" colspan="4">
+                                <property name="name">
+                                    <cstring>textLabel3_3</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&lt;i&gt;Enter the same password twice, so that it can be checked for typing errors.&lt;/i&gt;</string>
+                                </property>
+                            </widget>
+                            <spacer row="1" column="0">
+                                <property name="name">
+                                    <cstring>spacer30_3</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>31</height>
+                                    </size>
+                                </property>
+                            </spacer>
                             <widget class="QLineEdit" row="0" column="2">
                                 <property name="name">
                                     <cstring>verified_password</cstring>
@@ -831,62 +936,155 @@ Answering the questions should only take a few minutes.</string>
                                     </sizepolicy>
                                 </property>
                             </widget>
-                            <widget class="QLabel" row="1" column="1" rowspan="1" colspan="2">
-                                <property name="name">
-                                    <cstring>textLabel3_3</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>&lt;i&gt;Enter the same password twice, so that it can be checked for typing errors.&lt;/i&gt;</string>
-                                </property>
-                            </widget>
-                            <spacer row="0" column="4">
-                                <property name="name">
-                                    <cstring>spacer30_2_5</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>50</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="QLabel" row="0" column="3">
-                                <property name="name">
-                                    <cstring>password_error_image</cstring>
-                                </property>
-                                <property name="pixmap">
-                                    <pixmap>image1</pixmap>
-                                </property>
-                                <property name="scaledContents">
-                                    <bool>true</bool>
-                                </property>
-                            </widget>
+                        </grid>
+                    </widget>
+                    <widget class="QLabel">
+                        <property name="name">
+                            <cstring>hostname_label1_2</cstring>
+                        </property>
+                        <property name="text">
+                            <string>What is the name of this computer?</string>
+                        </property>
+                    </widget>
+                    <widget class="QLayoutWidget">
+                        <property name="name">
+                            <cstring>layout23</cstring>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
                             <spacer row="1" column="0">
                                 <property name="name">
-                                    <cstring>spacer30_3</cstring>
+                                    <cstring>spacer30_2_2</cstring>
                                 </property>
                                 <property name="orientation">
                                     <enum>Horizontal</enum>
                                 </property>
                                 <property name="sizeType">
-                                    <enum>Expanding</enum>
+                                    <enum>Fixed</enum>
                                 </property>
                                 <property name="sizeHint">
                                     <size>
                                         <width>20</width>
-                                        <height>31</height>
+                                        <height>20</height>
                                     </size>
                                 </property>
                             </spacer>
+                            <widget class="QLabel" row="1" column="1">
+                                <property name="name">
+                                    <cstring>textLabel4_2</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&lt;i&gt;This name will be used if you make the computer visible to others on a network.&lt;/i&gt;</string>
+                                </property>
+                            </widget>
+                            <widget class="QLayoutWidget" row="0" column="1">
+                                <property name="name">
+                                    <cstring>layout22</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLineEdit">
+                                        <property name="name">
+                                            <cstring>hostname</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>7</hsizetype>
+                                                <vsizetype>0</vsizetype>
+                                                <horstretch>1</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLayoutWidget">
+                                        <property name="name">
+                                            <cstring>layout21</cstring>
+                                        </property>
+                                        <vbox>
+                                            <property name="name">
+                                                <cstring>unnamed</cstring>
+                                            </property>
+                                            <widget class="QLabel">
+                                                <property name="name">
+                                                    <cstring>hostname_error_image</cstring>
+                                                </property>
+                                                <property name="pixmap">
+                                                    <pixmap>image1</pixmap>
+                                                </property>
+                                                <property name="scaledContents">
+                                                    <bool>true</bool>
+                                                </property>
+                                            </widget>
+                                            <spacer>
+                                                <property name="name">
+                                                    <cstring>spacer31_2</cstring>
+                                                </property>
+                                                <property name="orientation">
+                                                    <enum>Vertical</enum>
+                                                </property>
+                                                <property name="sizeType">
+                                                    <enum>Expanding</enum>
+                                                </property>
+                                                <property name="sizeHint">
+                                                    <size>
+                                                        <width>21</width>
+                                                        <height>16</height>
+                                                    </size>
+                                                </property>
+                                            </spacer>
+                                        </vbox>
+                                    </widget>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>hostname_error_reason</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                    <spacer>
+                                        <property name="name">
+                                            <cstring>spacer30_2_6</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Expanding</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>400</width>
+                                                <height>31</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                </hbox>
+                            </widget>
                         </grid>
                     </widget>
-                </grid>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer10_2</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>41</width>
+                                <height>20</height>
+                            </size>
+                        </property>
+                    </spacer>
+                </vbox>
             </widget>
             <widget class="QWidget">
                 <property name="name">
@@ -1831,6 +2029,9 @@ If you kept an intact home partition, you can now link it with the “/home” m
                         <property name="name">
                             <cstring>ready_text</cstring>
                         </property>
+                        <property name="enabled">
+                            <bool>false</bool>
+                        </property>
                     </widget>
                     <widget class="QLabel" row="3" column="0">
                         <property name="name">
@@ -1882,6 +2083,23 @@ If you kept an intact home partition, you can now link it with the “/home” m
                 </grid>
             </widget>
         </widget>
+        <spacer row="2" column="1">
+            <property name="name">
+                <cstring>spacer31</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>260</width>
+                    <height>41</height>
+                </size>
+            </property>
+        </spacer>
     </grid>
 </widget>
 <images>
@@ -1897,6 +2115,7 @@ If you kept an intact home partition, you can now link it with the “/home” m
 </images>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
+    <includehint>klistview.h</includehint>
     <includehint>klistview.h</includehint>
 </includehints>
 </UI>
