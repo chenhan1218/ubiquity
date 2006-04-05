@@ -36,6 +36,7 @@ clean:
 			(cd "$$dir" && debian/rules clean); \
 		fi; \
 	done
+	rm -f $(SOURCEDIR)/*.deb $(SOURCEDIR)/*.udeb
 	rm -f manifest.old
 	rm -rf udeb-control templates
 
