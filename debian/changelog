@@ -16,6 +16,8 @@ espresso (0.99.38) UNRELEASED; urgency=low
     espresso rather than to the component (because they were quite tightly
     bound to espresso's UI frontends anyway) and will be removed from
     component packages.
+  * Use debian-installer/dummy template (from debian-installer-utils) for
+    preseeding rather than espresso/dummy.
   * Update translations from Rosetta: Catalan, German, Greek, Esperanto,
     Spanish, Finnish, French, Hebrew, Hungarian, Polish, Russian, Slovak,
     Swedish, Ukrainian.

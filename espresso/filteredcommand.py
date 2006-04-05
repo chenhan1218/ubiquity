@@ -224,7 +224,7 @@ class FilteredCommand(object):
         try:
             self.db.set(name, value)
         except debconf.DebconfError:
-            self.db.register('espresso/dummy', name)
+            self.db.register('debian-installer/dummy', name)
             self.db.set(name, value)
             self.db.subst(name, 'ID', name)
 

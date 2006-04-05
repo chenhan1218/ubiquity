@@ -1,10 +1,3 @@
-Template: espresso/dummy
-Type: string
-Description: dummy template for preseeding unavailable questions
- The answer to this question has been preseeded (${ID}).
- If you see this template, you've found a bug in the installer;
- please file a report.
-
 Template: debian-installer/framebuffer
 Type: boolean
 Default: true
