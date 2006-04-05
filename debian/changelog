@@ -7,7 +7,7 @@ espresso (0.99.38) UNRELEASED; urgency=low
   * KDE frontend:
     - Fix summary page
     - Add progress dialogue
-  * Don't upgrade in apt-install
+  * Don't upgrade in apt-install (closes: Malone #35614).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  3 Apr 2006 16:48:00 +0100
 

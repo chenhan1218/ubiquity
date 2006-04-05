@@ -21,6 +21,10 @@ from espresso.filteredcommand import FilteredCommand
 
 class Install(FilteredCommand):
     def prepare(self):
+        hostname = self.frontend.get_hostname()
+        if hostname is not None and hostname != '':
+            self.preseed('netcfg/get_hostname', hostname)
+
         questions = ['^.*/apt-install-failed$',
                      'CAPB',
                      'ERROR',
