@@ -83,6 +83,15 @@ WIDGET_STACK_STEPS = {
     "stepReady": 9
 }
 
+class MyEspressoUI(EspressoUI):
+    
+    def setWizard(self, wizardRef):
+        self.wizard = wizardRef
+
+    def closeEvent(self, event):
+        print "closing!"
+        self.wizard.on_cancel_clicked3()
+
 class Wizard:
 
     def __init__(self, distro):
@@ -93,7 +102,9 @@ class Wizard:
         
         self.app = KApplication()
         
-        self.userinterface = EspressoUI(None, "Espresso")
+        #self.userinterface = EspressoUI(None, "Espresso")
+        self.userinterface = MyEspressoUI(None, "Espresso")
+        self.userinterface.setWizard(self)
         self.app.setMainWidget(self.userinterface)
         self.userinterface.show()
         
@@ -178,6 +189,7 @@ class Wizard:
         #FIXME self.glade.signal_autoconnect(self)
         self.app.connect(self.userinterface.nextButton, SIGNAL("clicked()"), self.on_next_clicked)
         self.app.connect(self.userinterface.backButton, SIGNAL("clicked()"), self.on_back_clicked)
+        self.app.connect(self.userinterface.cancelButton, SIGNAL("clicked()"), self.on_cancel_clicked3)
         self.app.connect(self.userinterface.widgetStack, SIGNAL("aboutToShow(int)"), self.on_steps_switch_page)
         
     
@@ -1160,6 +1172,17 @@ class Wizard:
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
         self.app.exit()
+
+    def on_cancel_clicked3(self):
+        print "  on_cancel_clicked(self, widget):"
+        
+        response = KMessageBox.warningContinueCancel(self.userinterface, "Do you really want to abort the installation now?", "Abort the Installation?", KGuiItem("Quit"))
+        if response == KMessageBox.Continue:
+            self.current_page = None
+            self.quit()
+            return True
+        else:
+            return False
 
     def set_summary_text (self, text):
         print "  set_summary_text (self, text):"
