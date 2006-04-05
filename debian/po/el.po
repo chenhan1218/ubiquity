@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-03-30 17:05+0100\n"
-"PO-Revision-Date: 2006-03-27 15:00+0000\n"
-"Last-Translator: George Papamichelakis <debian-l10n-greek@lists.debian.org>\n"
+"PO-Revision-Date: 2006-04-04 08:17+0000\n"
+"Last-Translator: Kostas Papadimas <pkst@gmx.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,13 +61,13 @@ msgstr "Από που είστε;"
 #. Description
 #: ../espresso.templates:39
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Επιλέξτε μια πόλη στην χρονική σας ζώνη:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:43
 msgid "Selected city:"
-msgstr ""
+msgstr "Επιλεγμένη πόλη:"
 
 #. Type: text
 #. Description
@@ -91,20 +91,20 @@ msgstr "Ορισμός ώρας..."
 #. Description
 #: ../espresso.templates:59
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Διάταξη πληκτρολογίου"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:63
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Ποία διάταξη είναι παρόμοια με το πληκτρολόγια σας;"
+msgstr "Ποία διάταξη είναι παρόμοια με το πληκτρολόγιο σας;"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:67
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
-"Μπορείτε να πληκτρολογείτε σε αυτό το πλαίσιο για α δοκιμάσετε τη νέα "
+"Μπορείτε να πληκτρολογείτε σε αυτό το πλαίσιο για να δοκιμάσετε τη νέα "
 "διάταξη του πληκτρολογίου σας."
 
 #. Type: text
@@ -170,7 +170,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:108
 msgid "Select a disk"
-msgstr ""
+msgstr "Επιλέξτε ένα δίσκο"
 
 #. Type: text
 #. Description
@@ -180,6 +180,9 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"Μπορείτε να αφήσετε τον εγκαταστάτη να δημιουργήσει αυτόματα χώρο σε "
+"οποιονδήποτε από τους παρακάτω δίσκους. Εναλλακτικά μπορείτε να κατατμήσετε "
+"τους δίσκους χειροκίνητα ."
 
 #. Type: text
 #. Description
@@ -191,14 +194,13 @@ msgstr "Προετοιμασία χώρου στο δίσκο"
 #. Description
 #: ../espresso.templates:123
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Πως θέλετε να κάνετε τη κατάτμηση του δίσκου;"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:127
-#, fuzzy
 msgid "Prepare partitions"
-msgstr "Τμήμα δίσκου"
+msgstr "Προετοιμασία κατατμήσεων"
 
 #. Type: text
 #. Description
@@ -214,7 +216,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:137
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Προετοιμασία σημείων προσάρτησης"
 
 #. Type: text
 #. Description
@@ -258,8 +260,9 @@ msgstr "Τμήμα δίσκου"
 #. Type: text
 #. Description
 #: ../espresso.templates:162
+#, fuzzy
 msgid "Reformat?"
-msgstr ""
+msgstr "μορφοποίηση"
 
 #. Type: text
 #. Description
@@ -271,7 +274,7 @@ msgstr "Θα πρέπει να ρυθμίσετε ένα σημείο προσά
 #. Description
 #: ../espresso.templates:170
 msgid "Ready to install"
-msgstr ""
+msgstr "Έτοιμο για εγκατάσταση"
 
 #. Type: text
 #. Description
@@ -329,7 +332,7 @@ msgstr "Έξοδος"
 #. Description
 #: ../espresso.templates:208
 msgid "Reboot the computer"
-msgstr ""
+msgstr "Επανεκκίνηση του υπολογιστή"
 
 #. Type: text
 #. Description
@@ -357,9 +360,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../espresso.templates:231
-#, fuzzy
 msgid "Installing system"
-msgstr "Η εγκατάσταση ολοκληρώθηκε"
+msgstr "Εγκατάσταση του βασικού συστήματος"
 
 #. Type: text
 #. Description
@@ -371,14 +373,13 @@ msgstr "Εύρεση της διανομής για αντιγραφή..."
 #. Description
 #: ../espresso.templates:239
 msgid "Scanning files..."
-msgstr ""
+msgstr "Ανίχνευση αρχείων..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:243
-#, fuzzy
 msgid "Copying files..."
-msgstr "Αντιγραφή των καταγραφών εγκατάστασης..."
+msgstr "Αντιγραφή αρχείων..."
 
 #. Type: text
 #. Description
@@ -396,7 +397,7 @@ msgstr "Αντιγραφή των καταγραφών εγκατάστασης.
 #. Description
 #: ../espresso.templates:255
 msgid "Cleaning up..."
-msgstr "Τακτοποίηση..."
+msgstr "Εκκαθάριση..."
 
 #. Type: text
 #. Description
@@ -408,7 +409,7 @@ msgstr "Εκτελείται το ${SCRIPT}..."
 #. Description
 #: ../espresso.templates:263
 msgid "Configuring system locales..."
-msgstr "Ρύθμιση τοπικών στοιχείων συστήματος..."
+msgstr "Ρύθμιση των γλωσσικών εντοπιοτήτων συστήματος..."
 
 #. Type: text
 #. Description
@@ -419,9 +420,8 @@ msgstr "Ρύθμιση ζώνης ώρας..."
 #. Type: text
 #. Description
 #: ../espresso.templates:271
-#, fuzzy
 msgid "Creating user..."
-msgstr "Τακτοποίηση..."
+msgstr "Δημιουργία χρήστη..."
 
 #. Type: text
 #. Description
@@ -500,7 +500,7 @@ msgstr "${MESSAGE}"
 #. Description
 #: ../espresso.templates:326
 msgid "Installing language packs"
-msgstr "Εγκατάσταση  πακέτων γλωσσικής υποστήριξης"
+msgstr "Εγκατάσταση πακέτων γλωσσικής εντοπιότητας"
 
 #. Type: text
 #. Description

@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-03-30 17:05+0100\n"
-"PO-Revision-Date: 2006-03-27 15:01+0000\n"
-"Last-Translator: Serge Leblanc <serge.leblanc@wanadoo.fr>\n"
+"PO-Revision-Date: 2006-04-04 19:55+0000\n"
+"Last-Translator: Rick Miller <rdmiller3@gmail.com>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +18,13 @@ msgstr ""
 #. Description
 #: ../espresso.templates:15
 msgid "Espresso Installer"
-msgstr ""
+msgstr "Espresso Instalilo"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:19
 msgid "Welcome"
-msgstr ""
+msgstr "Bonvenon"
 
 #. Type: text
 #. Description
@@ -33,12 +33,15 @@ msgid ""
 "Ready to install? Once you answer a few questions, Ubuntu can be installed "
 "on this computer so you can run the system at full speed and without the CD."
 msgstr ""
+"Ĉu vi pretas instali?  Ekde vi respondos al kelkaj demandoj, Ubuntu povas "
+"esti instalita en ĉi tiu komputilo por ke vi povas uzi la sistemon "
+"plenrapide kaj sen la KD-o."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:23
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Respondado pri la demandoj probable daŭros nur kelkajn minutojn."
 
 #. Type: text
 #. Description
@@ -52,73 +55,73 @@ msgstr ""
 #. Description
 #: ../espresso.templates:35
 msgid "Where are you?"
-msgstr ""
+msgstr "Kie vi estas?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:39
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Elektu urbon en via horzono :"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:43
 msgid "Selected city:"
-msgstr ""
+msgstr "Elektita urbo:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:47
 msgid "Time zone:"
-msgstr ""
+msgstr "Hora zono:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:51
 msgid "Current time:"
-msgstr ""
+msgstr "Nuna horo:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:55
 msgid "Set Time..."
-msgstr ""
+msgstr "Fiksu Horon..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:59
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Elektu klavaran aranĝon"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:63
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Kiu aranĝo plej similas al via klavaro?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:67
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "Vi povas tajpi en ĉi tiun skatolon por testi vian novan klavararanĝon."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:71
 msgid "Who are you?"
-msgstr ""
+msgstr "Kiu vi estas?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:75
 msgid "What is your name?"
-msgstr ""
+msgstr "Kio estas via nomo?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:79
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Kion uzantnomon vi volas uzi por ensaluti?"
 
 #. Type: text
 #. Description
@@ -127,12 +130,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Se pli ol unu persono uzos ĉi tiun komputilon, vi povas establi plurajn "
+"kontojn post la instalado."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:89
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Elektu pasvorton por sekurigi vian konton."
 
 #. Type: text
 #. Description
@@ -140,12 +145,14 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Enmetu la saman pasvorton dufojen, por ke ĝi povas esti kontrolita kontraŭ "
+"tajperaroj."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:98
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Kio estas la nomo de ĉi tiu komputilo?"
 
 #. Type: text
 #. Description
@@ -154,12 +161,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Ĉi tiu nomo estos uzata se vi videbligus ĉi tiun komputilon al la aliaj je "
+"la reto."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:108
 msgid "Select a disk"
-msgstr ""
+msgstr "Elektu diskon"
 
 #. Type: text
 #. Description
@@ -169,24 +178,26 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"La instalilo povas krei spacon en iu el la sekvantaj durdiskoj per variaj "
+"metodoj.  Alternative, vi rajtas partigi la diskojn permane."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:119
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Pretigu diskan spacon"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:123
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Kiel vi volas partigi la diskon?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:127
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Kreu subdiskojn"
 
 #. Type: text
 #. Description
@@ -195,12 +206,14 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 1.5 GB, and a swap partition of at least 256 MB."
 msgstr ""
+"Certiĝu fari spacon por radika diskparto (\"/\"), de minimume 1.5 GB, kaj "
+"\"swap\"-a diskparto de minimume 256 MB."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:137
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Pretigu surmetingojn"
 
 #. Type: text
 #. Description
@@ -209,6 +222,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Elektu kiujn diskpartojn kiujn vi volas uzi por via nova instalo, kaj kien "
+"vi volas surmeti ĉiu el ili."
 
 #. Type: text
 #. Description
@@ -217,66 +232,69 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"Vi devas surmeti unu diskparton je la radika dosiersistemo (\"/\"), kaj vi "
+"devas elekti almenaŭ unu diskparton kiel \"swap\"-a spaco."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:150
 msgid "Mount Point"
-msgstr ""
+msgstr "Surmetingo"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:154
 msgid "Size"
-msgstr ""
+msgstr "Grandeco"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:158
 msgid "Partition"
-msgstr ""
+msgstr "Diskpartigu"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:162
+#, fuzzy
 msgid "Reformat?"
-msgstr ""
+msgstr "formatu"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:166
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "Vi devas havi radikan (\"/\") surmetingon."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:170
 msgid "Ready to install"
-msgstr ""
+msgstr "Pretas por instalado"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:174
 msgid "Ubuntu is ready to install on this computer."
-msgstr ""
+msgstr "Ubuntu-o pretas por instalado sur ĉi tiu komputilo."
 
 #. Type: title
 #. Description
 #: ../espresso.templates:178
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Ĉu abortigu la instaladon?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:182
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "Ĉu vi vere volas abortigi la instaladon nun?"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:186
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "Partigado estis interrompita"
 
 #. Type: text
 #. Description
@@ -285,12 +303,14 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
+"Ne eblis partigi ĉi tiun diskon aŭtomate.  Vi devas elekti alian partigadan "
+"metodon."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:196
 msgid "Skip"
-msgstr ""
+msgstr "Preterpasi"
 
 #. Type: title
 #. Description
@@ -302,13 +322,13 @@ msgstr "Kompleta instalado"
 #. Description
 #: ../espresso.templates:204
 msgid "Quit"
-msgstr ""
+msgstr "Fini"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:208
 msgid "Reboot the computer"
-msgstr ""
+msgstr "Reiniciati la komputilon"
 
 #. Type: text
 #. Description
@@ -318,6 +338,9 @@ msgid ""
 "in order to use it. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Ubuntu-o estas nun instalita je via komputilo.  Vi devas reiniciati la "
+"komputilon por uzi ĝin.  Vi povas daŭri uzanta ĉi tiun viv-KD-on, kvankam "
+"iujn ŝanĝojn vi farus (al dokumentoj aŭ ion ajn) estos nekonservitaj."
 
 #. Type: text
 #. Description
@@ -326,43 +349,44 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Certiĝu elpreni la KD-on antaŭ reiniciante la komputilon, krom ĝi restartos "
+"uzanta ĉi tiun viv-KD-on anstataŭ la nov-instalitan sistemon."
 
 #. Type: title
 #. Description
 #: ../espresso.templates:231
-#, fuzzy
 msgid "Installing system"
-msgstr "Kompleta instalado"
+msgstr "Instalanta sistemon"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:235
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Trovanta la disdonaĵon por kopii..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:239
 msgid "Scanning files..."
-msgstr ""
+msgstr "Skananta dosierojn..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:243
 msgid "Copying files..."
-msgstr ""
+msgstr "Kopianta dosierojn..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:247
 msgid "Copying files (${TIME} remaining)..."
-msgstr ""
+msgstr "Kopianta dosierojn (${TIME} restas)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:251
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "Kopianta instaladajn registraĵojn..."
 
 #. Type: text
 #. Description
@@ -379,30 +403,26 @@ msgstr "Interpretado de ${SCRIPT} ..."
 #. Type: text
 #. Description
 #: ../espresso.templates:263
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Akomodi reton ..."
+msgstr "Akomodanta sistemajn lokarojn..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:267
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Akomodi reton ..."
+msgstr "Akomodanta horan zonon..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:271
-#, fuzzy
 msgid "Creating user..."
-msgstr "Purigi ..."
+msgstr "Kreanta uzanton..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:275
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Akomodi reton ..."
+msgstr "Akomodi aparataĵon..."
 
 #. Type: text
 #. Description
@@ -414,71 +434,71 @@ msgstr "Akomodi reton ..."
 #. Description
 #: ../espresso.templates:283
 msgid "Setting computer name..."
-msgstr ""
+msgstr "Fiksanta komputilan nomon..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:287
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Akomodi reton ..."
+msgstr "Akomodanta iniciatan ŝargilon..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:291
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Foriganta ekstrajn pakojn..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:295
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Kontrolanta kiujn ajn pakojn por forigi..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:299
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Elŝutanta pakojn (${TIME} restanta)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:303
+#, fuzzy
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Elŝutanta pakajn listojn (${TIME} restanta)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:307
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Elŝutanta pakajn listojn (${TIME} restanta)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:316
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Eraris instalante ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:321
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Eraris forigante ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:321
 msgid "${MESSAGE}"
-msgstr ""
+msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:326
 msgid "Installing language packs"
-msgstr ""
+msgstr "Instalante lingvajn pakojn"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:330
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Elŝutante lingvajn pakojn (${TIME} restante)..."
