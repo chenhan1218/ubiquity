@@ -8,6 +8,7 @@ debian/files
 debian/espresso
 debian/espresso-frontend-cloner
 debian/espresso-frontend-gtk
+debian/espresso-frontend-kde
 debian/espresso-guadalinex-artwork
 debian/espresso-guadalinex-doc
 debian/espresso-ubuntu-artwork
