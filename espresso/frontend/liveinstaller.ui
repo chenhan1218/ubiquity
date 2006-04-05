@@ -156,6 +156,9 @@
                         <property name="text">
                             <string>textLabel2</string>
                         </property>
+                        <property name="textFormat">
+                            <enum>RichText</enum>
+                        </property>
                         <property name="alignment">
                             <set>WordBreak|AlignVCenter</set>
                         </property>
@@ -1826,7 +1829,7 @@ If you kept an intact home partition, you can now link it with the “/home” m
                     </widget>
                     <widget class="QTextEdit" row="4" column="0" rowspan="1" colspan="2">
                         <property name="name">
-                            <cstring>ready_textview</cstring>
+                            <cstring>ready_text</cstring>
                         </property>
                     </widget>
                     <widget class="QLabel" row="3" column="0">

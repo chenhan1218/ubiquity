@@ -22,7 +22,6 @@
 print "importing kde-ui"
 
 import sys
-import sys
 from qt import *
 from kdeui import *
 from kdecore import *
@@ -70,6 +69,19 @@ BREADCRUMB_STEPS = {
     "stepReady": 7
 }
 BREADCRUMB_MAX_STEP = 7
+
+WIDGET_STACK_STEPS = {
+    "stepWelcome": 0,
+    "stepLanguage": 1,
+    "stepLocation": 2,
+    "stepKeyboardConf": 3,
+    "stepUserInfo": 4,
+    "stepPartDisk": 5,
+    "stepPartAuto": 6,
+    "stepPartAdvanced": 7,
+    "stepPartMountpoints": 8,
+    "stepReady": 9
+}
 
 class Wizard:
 
@@ -185,14 +197,13 @@ class Wizard:
             elif current_name == "stepUserInfo":
                 print "stepUserInfo"
                 self.dbfilter = usersetup.UserSetup(self)
-            elif current_name == "stepPartAuto":
-                print "stepPartAuto"
-                self.dbfilter = partman.Partman(self)
             elif current_name in ("stepPartDisk", "stepPartAuto"):
                 if isinstance(self.dbfilter, partman.Partman):
                     pre_log('info', 'reusing running partman')
                 else:
                     self.dbfilter = partman.Partman(self)
+            elif current_name == "stepReady":
+                self.dbfilter = summary.Summary(self)
             else:
                 print "no filter"
                 self.dbfilter = None
@@ -387,19 +398,19 @@ class Wizard:
 
         # Welcome
         if step == "stepWelcome":
-            self.userinterface.widgetStack.raiseWidget(1)
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepLanguage"])
         # Language
         elif step == "stepLanguage":
             self.translate_widgets()
-            self.userinterface.widgetStack.raiseWidget(2)
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepLocation"])
             #self.back.show()
         # Location
         elif step == "stepLocation":
-            self.userinterface.widgetStack.raiseWidget(3)
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepKeyboardConf"])
             # FIXME ? self.next.set_sensitive(False)
         # Keyboard
         elif step == "stepKeyboardConf":
-            self.userinterface.widgetStack.raiseWidget(4)
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepUserInfo"])
             #self.steps.next_page()
             # XXX: Actually do keyboard config here
             #self.next.set_sensitive(False)
@@ -420,7 +431,7 @@ class Wizard:
             self.mountpoints_to_summary()
         # Ready to install
         elif step == "stepReady":
-            self.live_installer.hide()
+            # FIXME self.live_installer.hide()
             self.progress_loop()
 
         step = self.step_name(self.get_current_page())
@@ -451,7 +462,23 @@ class Wizard:
             self.show_error(''.join(error_msg))
         else:
             # showing next step and destroying mozembed widget to release memory
-            self.userinterface.widgetStack.raiseWidget(5)
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
+
+    def process_disk_selection (self):
+        print "  process_disk_selection (self):"
+        """Process disk selection before autopartitioning. This step will be
+        skipped if only one disk is present."""
+
+        # For safety, if we somehow ended up improperly initialised
+        # then go to manual partitioning.
+        choice = self.get_disk_choice()
+        if self.manual_choice is None or choice == self.manual_choice:
+            print " process_disk_selection going to gparted"
+            self.gparted_loop()
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
+        else:
+            print " process_disk_selection going to auto"
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAuto"])
 
     def process_autopartitioning(self):
         print "  process_autopartitioning(self):"
@@ -464,13 +491,12 @@ class Wizard:
         choice = self.get_autopartition_choice()
         if self.manual_choice is None or choice == self.manual_choice:
             self.gparted_loop()
-            self.userinterface.widgetStack.raiseWidget(6)
-
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             # TODO jr kde-ify
-            self.steps.set_current_page(self.steps.page_num(self.stepReady))
-            self.next.set_label("Install") # TODO i18n
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
+            ##self.next.set_label("Install") # TODO i18n
 
     def set_disk_choices (self, choices, manual_choice):
         # TODO cjwatson 2006-03-20: This method should set up a disk
@@ -517,8 +543,7 @@ class Wizard:
             firstbutton.setChecked(True)
 
         # make sure we're on the autopartitioning page
-        # FIXME self.steps.set_current_page(self.steps.page_num(self.stepPartAuto))
-
+        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAuto"])
 
     def on_autopartition_resize_toggled (self, enable):
         print "  on_autopartition_resize_toggled (self, widget):"
@@ -632,7 +657,7 @@ class Wizard:
                         self.userinterface.mountpoint3.show()
                     count += 1
 
-        self.userinterface.widgetStack.raiseWidget(7)
+        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartMountpoints"])
 
     def show_partitions(self, widget):
         print "  show_partitions(self, widget): " + widget.name()
@@ -855,7 +880,7 @@ class Wizard:
             self.mountpoint_error_reason.show()
             self.mountpoint_error_image.show()
         else:
-            self.userinterface.widgetStack.raiseWidget(8)
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartReady"])
 
     # returns the current wizard page
     def get_current_page(self):
@@ -994,107 +1019,153 @@ class Wizard:
 
         return callback(source, debconf_condition)
         """
+	
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
-        print "  debconf_progress_start (self, progress_min, progress_max, progress_title):"
-        """
+        print "  debconf_progress_start (self, progress_min, progress_max, progress_title) " + str(progress_min) + " " + str(progress_max)
         if self.progress_cancelled:
             return False
-
-        if self.current_page is not None:
-            self.debconf_progress_dialog.set_transient_for(self.live_installer)
-        else:
-            self.debconf_progress_dialog.set_transient_for(None)
-        if self.progress_position.depth() == 0:
-            self.debconf_progress_dialog.set_title(progress_title)
-
-        self.progress_title.set_markup(
-            '<b>' + xml.sax.saxutils.escape(progress_title) + '</b>')
-        self.progress_position.start(progress_min, progress_max)
-        self.debconf_progress_set(0)
-        self.progress_info.set_text('')
-        self.debconf_progress_dialog.show()
-        return True
         """
+        if self.current_page is not None:
+            self.debconf_progress_window.set_transient_for(self.live_installer)
+        else:
+            self.debconf_progress_window.set_transient_for(None)
+        """
+        
+        if self.progress_position.depth() == 0:
+            self.progressDialogue = KProgressDialog(self.userinterface, "progressdialog", progress_title, "", True)
+            # FIXME jr self.debconf_progress_window.set_title(progress_title)
+        
+        self.progressDialogue.setLabel(progress_title)
 
+        bar = self.progressDialogue.progressBar()
+        bar.setTotalSteps(progress_max - progress_min)
+        self.progress_position.start(progress_min, progress_max)
+        self.progressDialogue.show()
+        return True
 
     def debconf_progress_set (self, progress_val):
         print "  debconf_progress_set (self, progress_val):"
-        """
+        self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             return False
-        self.progress_position.set(progress_val)
-        fraction = self.progress_position.fraction()
-        self.progress_bar.set_fraction(fraction)
-        self.progress_bar.set_text('%s%%' % int(fraction * 100))
+        self.progressDialogue.progressBar().setProgress(progress_val)
         return True
-        """
 
     def debconf_progress_step (self, progress_inc):
-        print "  debconf_progress_step (self, progress_inc):"
-        """
+        print "  debconf_progress_step (self, progress_inc): " + str(progress_inc)
+        self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             return False
-        self.progress_position.step(progress_inc)
-        fraction = self.progress_position.fraction()
-        self.progress_bar.set_fraction(fraction)
-        self.progress_bar.set_text('%s%%' % int(fraction * 100))
+        newValue = self.progressDialogue.progressBar().progress() + progress_inc
+        self.progressDialogue.progressBar().setProgress(newValue)
         return True
-        """
 
     def debconf_progress_info (self, progress_info):
         print "  debconf_progress_info (self, progress_info):"
-        """
+        self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             return False
-        self.progress_info.set_markup(
-            '<i>' + xml.sax.saxutils.escape(progress_info) + '</i>')
+        self.progressDialogue.setLabel(progress_info)
         return True
-        """
 
     def debconf_progress_stop (self):
         print "  debconf_progress_stop (self):"
-        """
+        self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             self.progress_cancelled = False
             return False
-
         self.progress_position.stop()
         if self.progress_position.depth() == 0:
-            self.debconf_progress_dialog.hide()
+            self.progressDialogue.hide()
         return True
-        """
 
     def debconf_progress_region (self, region_start, region_end):
         print "  debconf_progress_region (self, region_start, region_end):"
-        """
         self.progress_position.set_region(region_start, region_end)
-        """
+
     def debconf_progress_cancellable (self, cancellable):
-      print "  debconf_progress_cancellable (self, cancellable):"
-      """
+        print "  debconf_progress_cancellable (self, cancellable):"
         if cancellable:
-            self.progress_cancel_button.show()
+            self.progressDialogue.showCancelButton(True)
         else:
-            self.progress_cancel_button.hide()
+            self.progressDialogue.showCancelButton(False)
             self.progress_cancelled = False
-      """
 
     def on_progress_cancel_button_clicked (self, button):
-      print "  on_progress_cancel_button_clicked (self, button):"
-      """
+        print "  on_progress_cancel_button_clicked (self, button):"
         self.progress_cancelled = True
-      """
 
     def debconffilter_done (self, dbfilter):
         print "  debconffilter_done (self, dbfilter): " + str(self.current_debconf_fd)
         # TODO cjwatson 2006-02-10: handle dbfilter.status
-        #debconf_condition = 0
-        #debconf_condition |= filteredcommand.DEBCONF_IO_HUP
-        #self.debconf_callbacks[self.current_debconf_fd](self.current_debconf_fd, debconf_condition)
-        self.app.disconnect(self.socketNotifierRead, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_read)
         if dbfilter == self.dbfilter:
-            print "exiting mainloop in debconffilter_done"
+            self.dbfilter = None
             self.app.exit()
+
+    def progress_loop(self):
+        print "  progress_loop(self):"
+        """prepare, copy and config the system in the core install process."""
+
+        pre_log('info', 'progress_loop()')
+
+        self.current_page = None
+
+        if self.progress_position.depth() != 0:
+            # A progress bar is already up for the partitioner. Use the rest
+            # of it.
+            (start, end) = self.progress_position.get_region()
+            self.debconf_progress_region(end, 100)
+
+        print "setting dbfilter"
+
+        dbfilter = install.Install(self)
+        print "dbfilter set"
+        if dbfilter.run_command(auto_process=True) != 0:
+            print "runcommand != 0"
+            self.installing = False
+            # TODO cjwatson 2006-02-27: do something nicer than just quitting
+            self.quit()
+        print "run_command good"
+
+        while self.progress_position.depth() != 0:
+            self.debconf_progress_stop()
+
+        # just to make sure
+        #FIXME jr self.debconf_progress_window.hide()
+
+        self.installing = False
+        quitText = """Ubuntu is now installed on your computer. You need to restart the computer in order to use it. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.\n\nMake sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system."""
+        quitAnswer = KMessageBox.questionYesNo(self.userinterface, quitText, "Installation Complete", KGuiItem("Quit"), KGuiItem("reboot"))
+        if quitAnswer == KMessageBox.No:
+            self.reboot();
+
+    def reboot(self, *args):
+        print "  reboot(self, *args):"
+        """reboot the system after installing process."""
+
+        self.returncode = 10
+        self.quit()
+
+
+    def do_reboot(self):
+        print "  do_reboot(self):"
+        """Callback for main program to actually reboot the machine."""
+
+        os.system("reboot")
+
+    def quit(self):
+        print "  quit(self):"
+        """quit installer cleanly."""
+
+        # exiting from application
+        self.current_page = None
+        if self.dbfilter is not None:
+            self.dbfilter.cancel_handler()
+        self.app.exit()
+
+    def set_summary_text (self, text):
+        print "  set_summary_text (self, text):"
+        self.userinterface.ready_text.setText(text)
 
     def error_dialog (self, msg):
         print "  error_dialog (self, msg):" + msg
@@ -1190,6 +1261,3 @@ class Wizard:
         self.password_error_box.show()
 
 
-if __name__ == '__main__':
-    w = Wizard('ubuntu')
-    w.run()

@@ -4,4 +4,4 @@ for package; do
 	echo "$package" >> /var/lib/espresso/apt-installed
 done
 # TODO: use chroot-setup
-DEBIAN_FRONTEND=noninteractive DEBCONF_ADMIN_EMAIL= chroot /target apt-get -o Acquire::gpgv::Options::=--ignore-time-conflict -y install "$@" </dev/null
+DEBIAN_FRONTEND=noninteractive DEBCONF_ADMIN_EMAIL= chroot /target apt-get --no-upgrade -o Acquire::gpgv::Options::=--ignore-time-conflict -y install "$@" </dev/null

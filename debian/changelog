@@ -1,6 +1,13 @@
 espresso (0.99.38) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Make espresso-frontend-gtk depend on espresso.
+
+  [ Jonathan Riddell ]
+  * KDE frontend:
+    - Fix summary page
+    - Add progress dialogue
+  * Don't upgrade in apt-install
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  3 Apr 2006 16:48:00 +0100
 
