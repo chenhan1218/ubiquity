@@ -1,0 +1,34 @@
+#! /bin/sh
+set -e
+
+. /usr/share/debconf/confmodule
+db_capb backup
+
+# For now, this is a separate script from tzsetup because we want to ask the
+# time zone question even if there's only one plausible zone for the
+# selected language's default country.
+
+db_get debian-installer/country
+CC="$RET"
+# per-country templates are used for countries with multiple choices
+if db_get "tzsetup/country/$CC"; then
+	db_register "tzsetup/country/$CC" time/zone
+	db_fget time/zone seen
+	if [ "$RET" = false ]; then
+		db_reset time/zone
+	fi
+	db_input high time/zone || :
+	if ! db_go; then
+		exit 10 # back to menu
+	fi
+else
+	db_register time/zone time/zone # might be registered to something else
+	# tzmap is also in oem-config-timezone (with a different path);
+	# later, this should be moved into a tzsetup.deb.
+	zone=$(grep "^$CC" /usr/lib/espresso/tzsetup/tzmap | cut -d ' ' -f 2)
+	db_set time/zone "$zone"
+	db_input high time/zone || true
+	if ! db_go; then
+		exit 10 # back to menu
+	fi
+fi

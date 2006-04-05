@@ -2,15 +2,15 @@ Source: espresso
 Section: admin
 Priority: optional
 Maintainer: Colin Watson <cjwatson@ubuntu.com>
-Build-Depends: debhelper (>= 4.0.0), libglib2.0-dev, libgtk2.0-dev, libart-2.0-dev, python2.4-dev, python-gtk2-dev
+Build-Depends: apt, bison, debhelper (>= 5), dpkg-dev (>= 1.9.0), flex, intltool-debian (>= 0.30+20040212), iso-codes (>= 0.21-1), libart-2.0-dev, libdebconfclient0-dev (>= 0.68), libdebian-installer-dev, libdebian-installer4-dev (>= 0.31), libglib2.0-dev, libgtk2.0-dev, libparted1.6-dev (>= 1.6.24), locales, po-debconf (>= 0.5.3), python-gtk2-dev, python2.4-dev
 Standards-Version: 3.6.2.1
 
 Package: espresso
 Architecture: any
-Depends: ${misc:Depends}, ${python:Depends}, espresso-frontend, espresso-doc, lsb-release, espresso-utils (>= 1.22ubuntu4), espresso-locale (>= 0.27ubuntu11), espresso-kbd-chooser, espresso-timezone, user-setup (>= 0.05ubuntu2), partman (>= 78ubuntu1+10), ${bootloader}, espresso-casper, python-apt
+Depends: ${misc:Depends}, ${python:Depends}, espresso-frontend, espresso-doc, lsb-release, espresso-casper, python-apt, console-keymaps, console-data (>= 2002.12.04dbs-52.1ubuntu7), localechooser-data, iso-codes, ${bootloader-depends}
 Recommends: gparted
-Conflicts: ubuntu-express
-Replaces: ubuntu-express
+Conflicts: ubuntu-express, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
+Replaces: ubuntu-express, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
 Description: Ubuntu live CD installer
  This is a simple live CD installer designed to integrate well with Debian-
  and Ubuntu-based systems, and to reuse code from d-i for ease of

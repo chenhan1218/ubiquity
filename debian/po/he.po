@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-03-30 17:05+0100\n"
-"PO-Revision-Date: 2006-03-27 15:05+0000\n"
-"Last-Translator: Lior Kaplan <webmaster@guides.co.il>\n"
+"PO-Revision-Date: 2006-03-29 14:41+0000\n"
+"Last-Translator: Yaniv Abir <yanivabir@gmail.com>\n"
 "Language-Team: Debian l10n Hebrew <webmaster@guides.co.il>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:19
 msgid "Welcome"
-msgstr ""
+msgstr "ברוכים הבאים"
 
 #. Type: text
 #. Description
@@ -33,12 +33,14 @@ msgid ""
 "Ready to install? Once you answer a few questions, Ubuntu can be installed "
 "on this computer so you can run the system at full speed and without the CD."
 msgstr ""
+"מוכנים להתקנה? לאחר שתענו על כמה שאלות תוכלו להתקין את אובונטו על המחשב הזה, "
+"ולהשתמש במערכת במהירות מלאה, ללא התקליטור."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:23
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "המענה לשאלות לא ייקח יותר מכמה דקות."
 
 #. Type: text
 #. Description
@@ -52,43 +54,45 @@ msgstr ""
 #. Description
 #: ../espresso.templates:35
 msgid "Where are you?"
-msgstr ""
+msgstr "איפה אתם?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:39
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "בחר עיר באיזור הזמן והמדינה שלך:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:43
+#, fuzzy
 msgid "Selected city:"
-msgstr ""
+msgstr "איזור זמן נבחר"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:47
 msgid "Time zone:"
-msgstr ""
+msgstr "איזור זמן:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:51
 msgid "Current time:"
-msgstr ""
+msgstr "השעה כרגע:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:55
 msgid "Set Time..."
-msgstr ""
+msgstr "כוון שעון..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:59
+#, fuzzy
 msgid "Keyboard layout"
-msgstr ""
+msgstr "בחירת פריסת מקלדת"
 
 #. Type: text
 #. Description
@@ -139,13 +143,13 @@ msgstr ""
 #: ../espresso.templates:93
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "הקלידו את אותה סיסמה פעמיים, כדי לוודא שלא שגיתם בהקלדה."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:98
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "איך קוראים למחשב הזה?"
 
 #. Type: text
 #. Description
@@ -153,13 +157,13 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
+msgstr "בשם זה יעשה שימוש אם תבחרו לחבר את המחשב לרשת מקומית."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:108
 msgid "Select a disk"
-msgstr ""
+msgstr "בחרו בדיסק קשיח"
 
 #. Type: text
 #. Description
@@ -174,19 +178,21 @@ msgstr ""
 #. Description
 #: ../espresso.templates:119
 msgid "Prepare disk space"
-msgstr ""
+msgstr "צור מקום בדיסק"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:123
+#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "האם ברצונך להמשיך בחלוקה למחיצות?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:127
+#, fuzzy
 msgid "Prepare partitions"
-msgstr ""
+msgstr "יצירת מחיצה חדשה"
 
 #. Type: text
 #. Description
@@ -221,8 +227,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:150
+#, fuzzy
 msgid "Mount Point"
-msgstr ""
+msgstr "נקודת עגינה:"
 
 #. Type: text
 #. Description
@@ -233,14 +240,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:158
+#, fuzzy
 msgid "Partition"
-msgstr ""
+msgstr "חלוקה למחיצות"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:162
+#, fuzzy
 msgid "Reformat?"
-msgstr ""
+msgstr "הכן לעבודה"
 
 #. Type: text
 #. Description
@@ -252,31 +261,31 @@ msgstr ""
 #. Description
 #: ../espresso.templates:170
 msgid "Ready to install"
-msgstr ""
+msgstr "מוכן להתקנה"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:174
 msgid "Ubuntu is ready to install on this computer."
-msgstr ""
+msgstr "ניתן להתקין את אובונטו על המחשב."
 
 #. Type: title
 #. Description
 #: ../espresso.templates:178
 msgid "Abort the installation?"
-msgstr ""
+msgstr "לבטל את ההתקנה?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:182
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "האם ברצונכם לבטל את תהליך ההתקנה עכשיו?"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:186
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "החלוקה למחיצות הופרעה"
 
 #. Type: text
 #. Description
@@ -285,12 +294,13 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
+"לא ניתן לחלק את הדיסק למחיצות באופן אוטומטי. עליכם לבחור בשיטה אחרת לחלוקה."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:196
 msgid "Skip"
-msgstr ""
+msgstr "דלג"
 
 #. Type: title
 #. Description
@@ -302,13 +312,14 @@ msgstr "ההתקנה הסתיימה"
 #. Description
 #: ../espresso.templates:204
 msgid "Quit"
-msgstr ""
+msgstr "יציאה"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:208
+#, fuzzy
 msgid "Reboot the computer"
-msgstr ""
+msgstr "אין root file system"
 
 #. Type: text
 #. Description
@@ -332,7 +343,7 @@ msgstr ""
 #: ../espresso.templates:231
 #, fuzzy
 msgid "Installing system"
-msgstr "ההתקנה הסתיימה"
+msgstr "מתקין את מערכת הבסיס"
 
 #. Type: text
 #. Description
@@ -343,14 +354,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:239
+#, fuzzy
 msgid "Scanning files..."
-msgstr ""
+msgstr "סורק כוננים..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:243
+#, fuzzy
 msgid "Copying files..."
-msgstr ""
+msgstr "מעתיק מחיצה..."
 
 #. Type: text
 #. Description
@@ -361,14 +374,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:251
+#, fuzzy
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "מעתיק מחיצה..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:255
+#, fuzzy
 msgid "Cleaning up..."
-msgstr ""
+msgstr "מנקה ומסדר..."
 
 #. Type: text
 #. Description
@@ -379,29 +394,26 @@ msgstr "מריץ את ${SCRIPT}..."
 #. Type: text
 #. Description
 #: ../espresso.templates:263
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "מגדיר רשת..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../espresso.templates:267
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "מגדיר רשת..."
+msgstr "מגדיר איזור זמן..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:271
 msgid "Creating user..."
-msgstr ""
+msgstr "יוצר משתמש..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:275
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "מגדיר רשת..."
+msgstr "מגדיר את החומרה..."
 
 #. Type: text
 #. Description
@@ -412,39 +424,40 @@ msgstr "מגדיר רשת..."
 #. Type: text
 #. Description
 #: ../espresso.templates:283
+#, fuzzy
 msgid "Setting computer name..."
-msgstr ""
+msgstr "מגדיר את שם המחשב..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:287
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "מגדיר רשת..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../espresso.templates:291
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "מסיר חבילות מיותרות..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:295
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "מחפש חבילות להסרה..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:299
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "מוריד חבילות (${TIME} נותרו)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:303
+#, fuzzy
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "מוריד חבילות (${TIME} נותרו)..."
 
 #. Type: text
 #. Description
@@ -455,14 +468,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:316
+#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "לא ניתן להתקין את GRUB ב-${BOOTDEV}"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:321
+#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "מביא את ${PACKAGE}"
 
 #. Type: text
 #. Description
@@ -473,8 +488,9 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../espresso.templates:326
+#, fuzzy
 msgid "Installing language packs"
-msgstr ""
+msgstr "מתקין את חבילות הליבה"
 
 #. Type: text
 #. Description

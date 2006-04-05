@@ -1,7 +1,26 @@
-espresso (0.99.38) UNRELEASED; urgency=low
+espresso (0.99.38) dapper; urgency=low
 
   [ Colin Watson ]
   * Make espresso-frontend-gtk depend on espresso.
+  * Reorganise component packaging. Instead of having to modify each d-i
+    component to produce an espresso-* binary package (in most cases) and
+    having to do coordinated uploads of that package and espresso all the
+    time, we now include all the relevant d-i source packages in this one
+    (under d-i/source/), build them as part of our build process, and
+    include all the components in the espresso binary package. 'debian/rules
+    update' can be used to do automatic updates of these copied source
+    packages. This should ultimately simplify maintenance work as well as
+    making it much easier for third parties to make local changes to this
+    installer.
+  * All FilteredCommand implementations for components now belong to
+    espresso rather than to the component (because they were quite tightly
+    bound to espresso's UI frontends anyway) and will be removed from
+    component packages.
+  * Use debian-installer/dummy template (from debian-installer-utils) for
+    preseeding rather than espresso/dummy.
+  * Update translations from Rosetta: Catalan, German, Greek, Esperanto,
+    Spanish, Finnish, French, Hebrew, Hungarian, Polish, Russian, Slovak,
+    Swedish, Ukrainian.
 
   [ Jonathan Riddell ]
   * KDE frontend:
@@ -9,7 +28,7 @@ espresso (0.99.38) UNRELEASED; urgency=low
     - Add progress dialogue
   * Don't upgrade in apt-install (closes: Malone #35614).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon,  3 Apr 2006 16:48:00 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed,  5 Apr 2006 15:14:00 +0100
 
 espresso (0.99.37) dapper; urgency=low
 

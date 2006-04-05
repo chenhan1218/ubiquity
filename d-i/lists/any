@@ -1,0 +1,17 @@
+debian-installer-utils
+hw-detect
+kbd-chooser
+localechooser
+partconf
+partman-auto
+partman-base
+partman-basicfilesystems
+partman-basicmethods
+partman-ext3
+partman-jfs
+partman-partitioning
+partman-reiserfs
+partman-target
+partman-xfs
+tzsetup
+user-setup

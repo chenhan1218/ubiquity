@@ -1,12 +1,11 @@
 #!/usr/bin/make -f
 
-export DH_OPTIONS
-
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
 BUILDDIR=$(CURDIR)/debian/build
 
+DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_ARCH_CPU ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_CPU 2>/dev/null)
 
 # Take account of old dpkg-architecture output.
@@ -18,12 +17,15 @@ ifeq ($(DEB_HOST_ARCH_CPU),)
 endif
 
 ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:amd64:i386:))
-  BOOTLOADER := espresso-grub (>= 1.12ubuntu3)
+  bootloader-depends := grub, os-prober
 else
 ifeq ($(DEB_HOST_ARCH_CPU),powerpc)
-  BOOTLOADER := espresso-yaboot
+  bootloader-depends := yaboot, os-prober, hfsutils
 endif
 endif
+
+update:
+	$(MAKE) -C d-i update
 
 build: build-stamp
 
@@ -32,6 +34,7 @@ build-stamp:
 
 	./configure --prefix=/usr
 	$(MAKE)
+	$(MAKE) -C d-i build
 
 	mkdir -p $(BUILDDIR)/ubuntu
 	mkdir -p $(BUILDDIR)/guadalinex
@@ -50,9 +53,10 @@ clean:
 	rm -fr build-stamp $(BUILDDIR)
 	find -type f \( -name \*.pyc -o -name \*.pyo \) -print0 | xargs -0r rm -f
 
+	$(MAKE) -C d-i clean
 	-$(MAKE) distclean
 
-	dh_clean 
+	dh_clean debian/espresso.install
 
 install:
 	dh_testdir
@@ -63,9 +67,29 @@ install:
 	# For the meantime, everything automake wants to install is part of
 	# the GTK frontend.
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/espresso-frontend-gtk
+	$(MAKE) -C d-i install
 
+	cp debian/espresso.install-any debian/espresso.install
+ifneq (,$(wildcard debian/espresso.install-$(DEB_HOST_ARCH)))
+	cat debian/espresso.install-$(DEB_HOST_ARCH) >> debian/espresso.install
+endif
 	dh_install -A
+
+	# Bits of manual installation that can't be done by dh_install
 	install installer $(CURDIR)/debian/espresso/usr/bin/espresso
+	install d-i/source/tzsetup/prebaseconfig.d/*tzsetup \
+		debian/espresso/usr/lib/espresso/tzsetup/prebaseconfig
+	set -e; for x in user-setup user-setup-ask user-setup-apply; do \
+		sed 's,/usr/lib/user-setup,/usr/lib/espresso/user-setup,g' \
+			d-i/source/user-setup/$$x \
+			> debian/espresso/usr/lib/espresso/user-setup/$$x; \
+		chmod +x debian/espresso/usr/lib/espresso/user-setup/$$x; \
+	done
+ifeq ($(DEB_HOST_ARCH),powerpc)
+	install d-i/source/yaboot-installer/debian/postinst \
+		debian/espresso/usr/lib/espresso/yaboot-installer/yaboot-installer
+endif
+
 	for locale in $$(find $(BUILDDIR)/ubuntu/ -name \*.mo -exec basename {} .mo \;); do mkdir -p $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/ubuntu/$$locale.mo $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/ubuntu-installer.mo; done
 	for locale in $$(find $(BUILDDIR)/guadalinex/ -name \*.mo -exec basename {} .mo \;); do mkdir -p $(CURDIR)/debian/espresso-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/guadalinex/$$locale.mo $(CURDIR)/debian/espresso-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES/guadalinex-installer.mo; done
 
@@ -96,6 +120,8 @@ binary-arch: install
 	dh_installdocs -a
 #	dh_installexamples -a
 	dh_installdebconf -a
+	echo >> debian/espresso/DEBIAN/templates
+	cat d-i/templates >> debian/espresso/DEBIAN/templates
 #	dh_installman -a
 	dh_strip -a
 	dh_compress -a
@@ -103,8 +129,8 @@ binary-arch: install
 	dh_python -a
 	dh_installdeb -a
 	dh_shlibdeps -a
-ifdef BOOTLOADER
-	dh_gencontrol -a -- -V'bootloader=$(BOOTLOADER)'
+ifdef bootloader-depends
+	dh_gencontrol -a -- -V'bootloader-depends=$(bootloader-depends)'
 else
 	dh_gencontrol -a
 endif

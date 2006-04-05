@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-03-30 17:05+0100\n"
-"PO-Revision-Date: 2006-03-27 15:17+0000\n"
-"Last-Translator: Bartosz Fenski <fenio@debian.org>\n"
+"PO-Revision-Date: 2006-03-28 16:25+0000\n"
+"Last-Translator: Dominik Zablotny <doza@sztorm.net>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,13 +61,13 @@ msgstr "Gdzie się znajdujesz?"
 #. Description
 #: ../espresso.templates:39
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Wybierz miasto w swoim kraju i strefie czasowej."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:43
 msgid "Selected city:"
-msgstr ""
+msgstr "Wybrane miasto:"
 
 #. Type: text
 #. Description
@@ -91,7 +91,7 @@ msgstr "Ustaw czas..."
 #. Description
 #: ../espresso.templates:59
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Układ klawiatury"
 
 #. Type: text
 #. Description
@@ -187,13 +187,13 @@ msgstr "Przygotowywanie miejsca na dysku"
 #. Description
 #: ../espresso.templates:123
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Czy chcesz zmienić układ partycji na tym dysku?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:127
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Przygotuj partycje"
 
 #. Type: text
 #. Description
@@ -209,7 +209,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:137
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Przygotuj punkty montowania"
 
 #. Type: text
 #. Description
@@ -235,7 +235,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:150
 msgid "Mount Point"
-msgstr ""
+msgstr "Punkt montowania"
 
 #. Type: text
 #. Description
@@ -247,13 +247,14 @@ msgstr "Rozmiar"
 #. Description
 #: ../espresso.templates:158
 msgid "Partition"
-msgstr ""
+msgstr "Partycja"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:162
+#, fuzzy
 msgid "Reformat?"
-msgstr ""
+msgstr "formatowanie"
 
 #. Type: text
 #. Description
@@ -265,7 +266,7 @@ msgstr "Należy określić partycję główną (\"/\")"
 #. Description
 #: ../espresso.templates:170
 msgid "Ready to install"
-msgstr ""
+msgstr "Gotowe do instalacji"
 
 #. Type: text
 #. Description
@@ -277,19 +278,19 @@ msgstr "Ubuntu jest gotowe do instalacji na tym komputerze"
 #. Description
 #: ../espresso.templates:178
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Porzucić instalację?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:182
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "Czy chcesz natychmiast porzucić instalację?"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:186
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "Ustawianie partycji zostało przerwane"
 
 #. Type: text
 #. Description
@@ -323,7 +324,7 @@ msgstr "Zakończ"
 #. Description
 #: ../espresso.templates:208
 msgid "Reboot the computer"
-msgstr ""
+msgstr "Ponownie uruchom system"
 
 #. Type: text
 #. Description
@@ -350,9 +351,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../espresso.templates:231
-#, fuzzy
 msgid "Installing system"
-msgstr "Instalacja zakończona"
+msgstr "Instalacja systemu"
 
 #. Type: text
 #. Description
@@ -364,14 +364,13 @@ msgstr "Wyszukiwanie dystrybucji do kopiowania..."
 #. Description
 #: ../espresso.templates:239
 msgid "Scanning files..."
-msgstr ""
+msgstr "Przzeglądanie plików..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:243
-#, fuzzy
 msgid "Copying files..."
-msgstr "Kopiowanie plików (pozostało ${TIME})..."
+msgstr "Kopiowanie plików..."
 
 #. Type: text
 #. Description
@@ -383,7 +382,7 @@ msgstr "Kopiowanie plików (pozostało ${TIME})..."
 #. Description
 #: ../espresso.templates:251
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "Kopiowanie logów z instalacji..."
 
 #. Type: text
 #. Description
@@ -412,9 +411,8 @@ msgstr "Konfigurowanie strefy czasu..."
 #. Type: text
 #. Description
 #: ../espresso.templates:271
-#, fuzzy
 msgid "Creating user..."
-msgstr "Sprzątanie..."
+msgstr "Dodawanie użytkownika..."
 
 #. Type: text
 #. Description
@@ -432,7 +430,7 @@ msgstr "Konfigurowanie sieci..."
 #. Description
 #: ../espresso.templates:283
 msgid "Setting computer name..."
-msgstr ""
+msgstr "Ustawianie nazwy komputera..."
 
 #. Type: text
 #. Description
@@ -444,7 +442,7 @@ msgstr "Konfigurowanie programu uruchomieniowego..."
 #. Description
 #: ../espresso.templates:291
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Usuwanie pakietów dodatkowych..."
 
 #. Type: text
 #. Description
@@ -475,13 +473,13 @@ msgstr "Pobieranie list pakietów (pozostało ${TIME})..."
 #. Description
 #: ../espresso.templates:316
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Błąd przy instalowaniu ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:321
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Błąd przy usuwaniu ${PACKAGE}"
 
 #. Type: text
 #. Description
@@ -493,7 +491,7 @@ msgstr "${MESSAGE}"
 #. Description
 #: ../espresso.templates:326
 msgid "Installing language packs"
-msgstr ""
+msgstr "Instalowanie pakietów rdzennych"
 
 #. Type: text
 #. Description
