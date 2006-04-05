@@ -2,6 +2,20 @@ espresso (0.99.38) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Make espresso-frontend-gtk depend on espresso.
+  * Reorganise component packaging. Instead of having to modify each d-i
+    component to produce an espresso-* binary package (in most cases) and
+    having to do coordinated uploads of that package and espresso all the
+    time, we now include all the relevant d-i source packages in this one
+    (under d-i/source/), build them as part of our build process, and
+    include all the components in the espresso binary package. 'debian/rules
+    update' can be used to do automatic updates of these copied source
+    packages. This should ultimately simplify maintenance work as well as
+    making it much easier for third parties to make local changes to this
+    installer.
+  * All FilteredCommand implementations for components now belong to
+    espresso rather than to the component (because they were quite tightly
+    bound to espresso's UI frontends anyway) and will be removed from
+    component packages.
 
   [ Jonathan Riddell ]
   * KDE frontend:

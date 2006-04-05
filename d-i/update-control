@@ -1,0 +1,94 @@
+#! /usr/bin/perl -w
+use strict;
+
+my $dpkglibdir = '/usr/lib/dpkg';
+push @INC, $dpkglibdir;
+require 'controllib.pl';
+
+# Is $x a stricter dependency than $y?
+sub stricter ($$) {
+	my ($x, $y) = @_;
+	my ($xrel, $xver) = @{$x}[1, 2];
+	my ($yrel, $yver) = @{$y}[1, 2];
+
+	# Trivial cases.
+	if (!$xrel and !$yrel) {
+		return 0;
+	} elsif (!$xrel and $yrel) {
+		return 0;
+	} elsif ($xrel and !$yrel) {
+		return 1;
+	}
+
+	system('dpkg', '--compare-versions', $xver, 'gt', $yver);
+	my $xnewer = (($? >> 8) == 0);
+	system('dpkg', '--compare-versions', $yver, 'gt', $xver);
+	my $ynewer = (($? >> 8) == 0);
+
+	if ($xrel eq $yrel) {
+		return $xnewer;
+	} elsif ($xrel eq '>=' and $yrel eq '>>') {
+		return $xnewer;
+	} elsif ($xrel eq '>>' and $yrel eq '>=') {
+		return !$ynewer;
+	} else {
+		die "Don't know how to compare dependency relations '$xrel' and '$yrel'!\n";
+	}
+}
+
+sub depstring ($) {
+	my ($package, $relation, $version) = @{$_[0]}[0, 1, 2];
+	if ($relation) {
+		return "$package ($relation $version)";
+	} else {
+		return $package;
+	}
+}
+
+my $control = 'debian/control';
+unless (-e $control) {
+	$control = '../debian/control';
+	unless (-e $control) {
+		die "cannot find debian/control";
+	}
+}
+
+my %builddeps;
+
+# Always include base espresso build dependencies.
+my $basebd = 'apt, debhelper (>= 4.0.0), libglib2.0-dev, libgtk2.0-dev, libart-2.0-dev, python2.4-dev, python-gtk2-dev';
+for my $bd (@{parsedep($basebd, 1, 1)}) {
+	$builddeps{$bd->[0][0]} = $bd->[0];
+}
+
+for my $source (<source/*/debian/control>) {
+	open SOURCE, '<', $source or die "can't open $source: $!";
+	while (<SOURCE>) {
+		if (/^Build-Depends(?:-Indep)?:\s*(.*)/i) {
+			for my $bd (split /, */, $1) {
+				# TODO: doesn't handle or-ed dependencies
+				my $dep = parsedep($bd, 1, 1)->[0][0];
+				my $package = $dep->[0];
+				if (not exists $builddeps{$package} or
+				    stricter($dep, $builddeps{$package})) {
+					$builddeps{$package} = $dep;
+				}
+			}
+			next;
+		}
+	}
+	close SOURCE;
+}
+
+my $builddeps =
+	join ', ', map { depstring($builddeps{$_}) } sort keys %builddeps;
+open IN, '<', $control or die "can't open $control: $!";
+open OUT, '>', "$control.tmp" or die "can't open $control.tmp for writing: $!";
+foreach (<IN>) {
+	s/^(Build-Depends:\s*)(.*)/$1$builddeps/;
+	print OUT or die "can't print to $control.tmp: $!";
+}
+close OUT or die "can't close $control.tmp: $!";
+close IN;
+rename "$control.tmp", $control
+	or die "can't rename $control.tmp to $control: $!";

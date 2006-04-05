@@ -1,0 +1,4 @@
+# grub-installer
+d-i/source/grub-installer/functions.sh usr/share/grub-installer
+d-i/source/grub-installer/grub-installer usr/share/grub-installer
+espresso/components/grubinstaller.py usr/lib/python2.4/site-packages/espresso/components
