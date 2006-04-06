@@ -25,8 +25,6 @@ espresso/components/kbd_chooser_apply.py usr/lib/python2.4/site-packages/espress
 # localechooser
 d-i/source/localechooser/localechooser usr/lib/espresso/localechooser
 d-i/source/localechooser/languagemap usr/lib/espresso/localechooser
-d-i/source/localechooser/post-base-installer usr/lib/espresso/localechooser
-d-i/source/localechooser/prebaseconfig usr/lib/espresso/localechooser
 espresso/components/language.py usr/lib/python2.4/site-packages/espresso/components
 espresso/components/language_apply.py usr/lib/python2.4/site-packages/espresso/components
 
