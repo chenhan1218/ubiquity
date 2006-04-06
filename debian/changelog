@@ -5,6 +5,8 @@ espresso (0.99.40) UNRELEASED; urgency=low
   * Fix copying of /etc/network/interfaces and /etc/resolv.conf.
   * Remove spurious (DOS-style!) newline from Ukrainian translation.
   * Propagate selected keymap to installed system (closes: Malone #37748).
+  * Show the selected keymap on the summary page (although only the
+    machine-readable console keymap name for now).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  6 Apr 2006 12:38:51 +0100
 
