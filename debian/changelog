@@ -1,4 +1,4 @@
-espresso (0.99.41) UNRELEASED; urgency=low
+espresso (0.99.41) dapper; urgency=low
 
   [ Colin Watson ]
   * Set debian-installer/country based on selected timezone.
@@ -10,7 +10,7 @@ espresso (0.99.41) UNRELEASED; urgency=low
     - Enable and disable buttons at correct times
     - Implement keyboard chooser
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu,  6 Apr 2006 18:39:41 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  6 Apr 2006 22:39:35 +0100
 
 espresso (0.99.40) dapper; urgency=low
 
