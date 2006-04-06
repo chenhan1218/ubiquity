@@ -17,6 +17,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import re
 import os
 from espresso.filteredcommand import FilteredCommand
 from gtk import ListStore
@@ -70,13 +71,16 @@ class KbdChooser(FilteredCommand):
 
     def ok_handler(self):
         if self.keyboard_question is not None:
-            current_kbd = self.frontend.get_keyboard().lower().replace(" ", "_")
-            self.preseed(self.keyboard_question, current_kbd)
+            keyboard = self.frontend.get_keyboard()
+            keyboard_value = keyboard.lower().replace(" ", "_")
+            self.preseed(self.keyboard_question, keyboard_value)
+
+            update_x_config(keyboard)
 
         return super(KbdChooser, self).ok_handler()
 
 
-def apply_keyboard(keyboard):
+def map_keyboard(keyboard):
     """
     Takes a keyboard name from the frontend.  This is mapped using the
     same logic (hopefully) as X's configuration script and we get a
@@ -278,10 +282,16 @@ def apply_keyboard(keyboard):
             xmap = "us"
             model = "pc104"
             break
-    
+
+    return (xmap, model, variant)
+
+def apply_keyboard(keyboard):
+    (xmap, model, variant) = map_keyboard(keyboard)
+
     import syslog
     syslog.syslog(syslog.LOG_ERR, "kbd: %s" % keyboard)
     syslog.syslog(syslog.LOG_ERR, "kbd: %s %s %s" % (xmap, model, variant))
+
     if xmap is not None:
 
         if model is not None:
@@ -295,3 +305,79 @@ def apply_keyboard(keyboard):
             variant = []
 
         Popen(["setxkbmap", xmap] + model + variant)
+
+def update_x_config(keyboard):
+    # We also need to rewrite xorg.conf with this new setting, so that (a)
+    # it persists even if you restart X on the live CD and (b) it gets
+    # copied to the installed system.
+    # TODO cjwatson 2006-04-05: This is ghastly. We really, really ought to
+    # get xserver-xorg to do this itself, perhaps by splitting out bits of
+    # the config script into library code and calling dexconf.
+
+    (layout, model, variant) = map_keyboard(keyboard)
+    if layout is None:
+        return
+
+    oldconfigfile = '/etc/X11/xorg.conf'
+    newconfigfile = '/etc/X11/xorg.conf.new'
+    oldconfig = open(oldconfigfile)
+    newconfig = open(newconfigfile, 'w')
+
+    re_section_inputdevice = re.compile(r'\s*Section\s+"InputDevice"\s*$')
+    re_driver_kbd = re.compile(r'\s*Driver\s+"kbd"\s*$')
+    re_endsection = re.compile(r'\s*EndSection\s*$')
+    re_option_xkbmodel = re.compile(r'(\s*Option\s*"XkbModel"\s*).*')
+    re_option_xkblayout = re.compile(r'(\s*Option\s*"XkbLayout"\s*).*')
+    re_option_xkbvariant = re.compile(r'(\s*Option\s*"XkbVariant"\s*).*')
+    in_inputdevice = False
+    in_inputdevice_kbd = False
+    done = {'model': model is None, 'layout': False,
+            'variant': variant is None}
+
+    for line in oldconfig:
+        line = line.rstrip('\n')
+        if re_section_inputdevice.match(line) is not None:
+            in_inputdevice = True
+        elif in_inputdevice and re_driver_kbd.match(line) is not None:
+            in_inputdevice_kbd = True
+        elif re_endsection.match(line) is not None:
+            if in_inputdevice_kbd:
+                if not done['model']:
+                    print >>newconfig, '\tOption\t\t"XkbModel"\t"%s"' % model
+                if not done['layout']:
+                    print >>newconfig, '\tOption\t\t"XkbLayout"\t"%s"' % layout
+                if not done['variant']:
+                    print >>newconfig, \
+                          '\tOption\t\t"XkbVariant"\t"%s"' % variant
+            in_inputdevice = False
+            in_inputdevice_kbd = False
+            done = {'model': model is None, 'layout': False,
+                    'variant': variant is None}
+        elif in_inputdevice_kbd:
+            match = re_option_xkbmodel.match(line)
+            if match is not None:
+                if model is None:
+                    # hmm, not quite sure what to do here; guessing that
+                    # forcing to pc105 will be reasonable
+                    line = match.group(1) + '"pc105"'
+                else:
+                    line = match.group(1) + '"%s"' % model
+                done['model'] = True
+            else:
+                match = re_option_xkblayout.match(line)
+                if match is not None:
+                    line = match.group(1) + '"%s"' % layout
+                    done['layout'] = True
+                else:
+                    match = re_option_xkbvariant.match(line)
+                    if match is not None:
+                        if variant is None:
+                            continue # delete this line
+                        else:
+                            line = match.group(1) + '"%s"' % variant
+                        done['variant'] = True
+        print >>newconfig, line
+
+    newconfig.close()
+    oldconfig.close()
+    os.rename(newconfigfile, oldconfigfile)

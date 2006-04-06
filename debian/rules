@@ -77,6 +77,8 @@ endif
 
 	# Bits of manual installation that can't be done by dh_install
 	install installer $(CURDIR)/debian/espresso/usr/bin/espresso
+	install d-i/source/kbd-chooser/debian/prebaseconfig \
+		debian/espresso/usr/lib/espresso/kbd-chooser/
 	install d-i/source/localechooser/post-base-installer \
 		d-i/source/localechooser/prebaseconfig \
 		debian/espresso/usr/lib/espresso/localechooser/

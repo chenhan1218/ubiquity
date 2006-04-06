@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-06 15:03+0100\n"
+"POT-Creation-Date: 2006-04-06 15:07+0100\n"
 "PO-Revision-Date: 2006-03-28 20:09+0000\n"
 "Last-Translator: Szilveszter Farkas <Szilveszter.Farkas@gmail.com>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
@@ -417,90 +417,97 @@ msgstr "Az időzóna konfigurálása folyamatban..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
+#, fuzzy
+msgid "Configuring keyboard..."
+msgstr "Hálózat konfigurálása folyamatban..."
+
+#. Type: text
+#. Description
+#: ../espresso.templates:268
 msgid "Creating user..."
 msgstr "Felhasználó létrehozása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:268
+#: ../espresso.templates:272
 msgid "Configuring hardware..."
 msgstr "A hardver konfigurálása folyamatban..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:272
+#: ../espresso.templates:276
 msgid "Configuring network..."
 msgstr "Hálózat konfigurálása folyamatban..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:276
+#: ../espresso.templates:280
 msgid "Setting computer name..."
 msgstr "Gépnév beállítása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:280
+#: ../espresso.templates:284
 msgid "Configuring boot loader..."
 msgstr "A rendszerindító konfigurálása folyamatban..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:284
+#: ../espresso.templates:288
 msgid "Removing extra packages..."
 msgstr "Extra csomagok eltávolítása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:288
+#: ../espresso.templates:292
 msgid "Checking for packages to remove..."
 msgstr "Törlendő csomagok keresése…"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:292
+#: ../espresso.templates:296
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Csomagok letöltése (${TIME} van hátra)…"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:296
+#: ../espresso.templates:300
 #, fuzzy
 msgid "Downloading package lists..."
 msgstr "Csomaglisták letöltése (${TIME} van hátra)…"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:300
+#: ../espresso.templates:304
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Csomaglisták letöltése (${TIME} van hátra)…"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:309
+#: ../espresso.templates:313
 msgid "Error installing ${PACKAGE}"
 msgstr "Hiba a(z) ${PACKAGE} telepítése során"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:314
+#: ../espresso.templates:318
 msgid "Error removing ${PACKAGE}"
 msgstr "Hiba a(z) ${PACKAGE} törlésekor"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:314
+#: ../espresso.templates:318
 msgid "${MESSAGE}"
 msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
-#: ../espresso.templates:319
+#: ../espresso.templates:323
 msgid "Installing language packs"
 msgstr "Nyelvi csomagok telepítése"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:323
+#: ../espresso.templates:327
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Nyelvi csomagok letöltése (${TIME} van hátra)…"

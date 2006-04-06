@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-06 15:03+0100\n"
+"POT-Creation-Date: 2006-04-06 15:07+0100\n"
 "PO-Revision-Date: 2006-04-04 19:55+0000\n"
 "Last-Translator: Rick Miller <rdmiller3@gmail.com>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
@@ -415,90 +415,97 @@ msgstr "Akomodanta horan zonon..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
+#, fuzzy
+msgid "Configuring keyboard..."
+msgstr "Akomodi reton ..."
+
+#. Type: text
+#. Description
+#: ../espresso.templates:268
 msgid "Creating user..."
 msgstr "Kreanta uzanton..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:268
+#: ../espresso.templates:272
 msgid "Configuring hardware..."
 msgstr "Akomodi aparataĵon..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:272
+#: ../espresso.templates:276
 msgid "Configuring network..."
 msgstr "Akomodi reton ..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:276
+#: ../espresso.templates:280
 msgid "Setting computer name..."
 msgstr "Fiksanta komputilan nomon..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:280
+#: ../espresso.templates:284
 msgid "Configuring boot loader..."
 msgstr "Akomodanta iniciatan ŝargilon..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:284
+#: ../espresso.templates:288
 msgid "Removing extra packages..."
 msgstr "Foriganta ekstrajn pakojn..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:288
+#: ../espresso.templates:292
 msgid "Checking for packages to remove..."
 msgstr "Kontrolanta kiujn ajn pakojn por forigi..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:292
+#: ../espresso.templates:296
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Elŝutanta pakojn (${TIME} restanta)..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:296
+#: ../espresso.templates:300
 #, fuzzy
 msgid "Downloading package lists..."
 msgstr "Elŝutanta pakajn listojn (${TIME} restanta)..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:300
+#: ../espresso.templates:304
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Elŝutanta pakajn listojn (${TIME} restanta)..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:309
+#: ../espresso.templates:313
 msgid "Error installing ${PACKAGE}"
 msgstr "Eraris instalante ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:314
+#: ../espresso.templates:318
 msgid "Error removing ${PACKAGE}"
 msgstr "Eraris forigante ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:314
+#: ../espresso.templates:318
 msgid "${MESSAGE}"
 msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
-#: ../espresso.templates:319
+#: ../espresso.templates:323
 msgid "Installing language packs"
 msgstr "Instalante lingvajn pakojn"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:323
+#: ../espresso.templates:327
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Elŝutante lingvajn pakojn (${TIME} restante)..."

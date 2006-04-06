@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-06 15:03+0100\n"
+"POT-Creation-Date: 2006-04-06 15:07+0100\n"
 "PO-Revision-Date: 2006-03-27 15:14+0000\n"
 "Last-Translator: Bjørn Steensrud <bjornst@powertech.no>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -407,91 +407,98 @@ msgstr "Setter opp tidssone..."
 #. Description
 #: ../espresso.templates:264
 #, fuzzy
+msgid "Configuring keyboard..."
+msgstr "Setter opp nettverk ..."
+
+#. Type: text
+#. Description
+#: ../espresso.templates:268
+#, fuzzy
 msgid "Creating user..."
 msgstr "Rydder opp ..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:268
+#: ../espresso.templates:272
 msgid "Configuring hardware..."
 msgstr "Setter opp maskinvare..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:272
+#: ../espresso.templates:276
 msgid "Configuring network..."
 msgstr "Setter opp nettverk ..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:276
+#: ../espresso.templates:280
 msgid "Setting computer name..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:280
+#: ../espresso.templates:284
 #, fuzzy
 msgid "Configuring boot loader..."
 msgstr "Setter opp systemspråk..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:284
+#: ../espresso.templates:288
 msgid "Removing extra packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:288
+#: ../espresso.templates:292
 msgid "Checking for packages to remove..."
 msgstr "Kontrollerer om det er pakker som skal fjernes..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:292
+#: ../espresso.templates:296
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Laster ned pakker (${TIME} gjenstår)..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:296
+#: ../espresso.templates:300
 #, fuzzy
 msgid "Downloading package lists..."
 msgstr "Laster ned pakkelister (${TIME} gjenstår)..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:300
+#: ../espresso.templates:304
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Laster ned pakkelister (${TIME} gjenstår)..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:309
+#: ../espresso.templates:313
 msgid "Error installing ${PACKAGE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:314
+#: ../espresso.templates:318
 msgid "Error removing ${PACKAGE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:314
+#: ../espresso.templates:318
 msgid "${MESSAGE}"
 msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
-#: ../espresso.templates:319
+#: ../espresso.templates:323
 msgid "Installing language packs"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:323
+#: ../espresso.templates:327
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Laster ned språkpakker (${TIME} gjenstår)..."
