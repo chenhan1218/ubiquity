@@ -1,3 +1,9 @@
+espresso (0.99.41) UNRELEASED; urgency=low
+
+  * Set debian-installer/country based on selected timezone.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  6 Apr 2006 18:39:41 +0100
+
 espresso (0.99.40) dapper; urgency=low
 
   * Install localechooser's post-base-installer and prebaseconfig scripts as
