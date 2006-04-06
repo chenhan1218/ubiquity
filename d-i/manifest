@@ -1,4 +1,4 @@
-debian-installer-utils 1.22ubuntu6
+debian-installer-utils 1.22ubuntu7
 grub-installer 1.14ubuntu3
 hw-detect 1.32ubuntu5
 kbd-chooser 1.23ubuntu13
@@ -19,4 +19,4 @@ partman-target 41ubuntu0
 partman-xfs 27
 tzsetup 1:0.8ubuntu5
 user-setup 0.05ubuntu6
-yaboot-installer 1.1.4ubuntu2
+yaboot-installer 1.1.4ubuntu3
