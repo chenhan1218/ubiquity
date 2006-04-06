@@ -724,7 +724,7 @@ class Install:
 
         for path in ('/etc/network/interfaces', '/etc/resolv.conf'):
             if os.path.exists(path):
-                shutil.copy2(path, os.path.join(self.target, path))
+                shutil.copy2(path, os.path.join(self.target, path[1:]))
 
         try:
             hostname = self.db.get('netcfg/get_hostname')

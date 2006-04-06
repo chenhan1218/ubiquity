@@ -2,6 +2,7 @@ espresso (0.99.40) UNRELEASED; urgency=low
 
   * Install localechooser's post-base-installer and prebaseconfig scripts as
     executable again.
+  * Fix copying of /etc/network/interfaces and /etc/resolv.conf.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  6 Apr 2006 12:38:51 +0100
 
