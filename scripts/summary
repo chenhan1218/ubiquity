@@ -5,7 +5,8 @@ set -e
 
 db_get languagechooser/language-name
 db_subst espresso/summary LANGUAGE "$RET"
-db_subst espresso/summary KEYMAP "<unknown>"
+db_get debian-installer/keymap
+db_subst espresso/summary KEYMAP "$RET"
 db_get passwd/user-fullname
 db_subst espresso/summary FULLNAME "$RET"
 db_get passwd/username
