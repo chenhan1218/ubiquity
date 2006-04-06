@@ -1,6 +1,14 @@
 espresso (0.99.41) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Set debian-installer/country based on selected timezone.
+
+  [ Jonathan Riddell ]
+  * KDE Frontend:
+    - Make step label work
+    - Make back and cancel buttons work
+    - Enable and disable buttons at correct times
+    - Implement keyboard chooser
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  6 Apr 2006 18:39:41 +0100
 

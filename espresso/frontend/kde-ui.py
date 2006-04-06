@@ -41,8 +41,7 @@ import gettext
 from espresso import filteredcommand, validation
 from espresso.misc import *
 from espresso.settings import *
-#from espresso.components import language, timezone, kbd_chooser, usersetup, \
-from espresso.components import language, timezone, usersetup, \
+from espresso.components import language, kbd_chooser, timezone, usersetup, \
                                 partman, partman_commit, summary, install
 import espresso.tz
 import espresso.progressposition
@@ -83,6 +82,15 @@ WIDGET_STACK_STEPS = {
     "stepReady": 9
 }
 
+class MyEspressoUI(EspressoUI):
+    
+    def setWizard(self, wizardRef):
+        self.wizard = wizardRef
+
+    def closeEvent(self, event):
+        print "closing!"
+        self.wizard.on_cancel_clicked3()
+
 class Wizard:
 
     def __init__(self, distro):
@@ -93,7 +101,9 @@ class Wizard:
         
         self.app = KApplication()
         
-        self.userinterface = EspressoUI(None, "Espresso")
+        #self.userinterface = EspressoUI(None, "Espresso")
+        self.userinterface = MyEspressoUI(None, "Espresso")
+        self.userinterface.setWizard(self)
         self.app.setMainWidget(self.userinterface)
         self.userinterface.show()
         
@@ -178,7 +188,9 @@ class Wizard:
         #FIXME self.glade.signal_autoconnect(self)
         self.app.connect(self.userinterface.nextButton, SIGNAL("clicked()"), self.on_next_clicked)
         self.app.connect(self.userinterface.backButton, SIGNAL("clicked()"), self.on_back_clicked)
+        self.app.connect(self.userinterface.cancelButton, SIGNAL("clicked()"), self.on_cancel_clicked3)
         self.app.connect(self.userinterface.widgetStack, SIGNAL("aboutToShow(int)"), self.on_steps_switch_page)
+        self.app.connect(self.userinterface.keyboardlistview, SIGNAL("selectionChanged()"), self.on_keyboard_selected)
         
     
         # Start the interface
@@ -192,8 +204,8 @@ class Wizard:
                 self.dbfilter = language.Language(self)
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
-            #elif current_name == "stepKeyboardConf":
-            #    self.dbfilter = kbd_chooser.KbdChooser(self)
+            elif current_name == "stepKeyboardConf":
+                self.dbfilter = kbd_chooser.KbdChooser(self)
             elif current_name == "stepUserInfo":
                 print "stepUserInfo"
                 self.dbfilter = usersetup.UserSetup(self)
@@ -242,6 +254,8 @@ class Wizard:
         iconLoader = KIconLoader()
         icon = iconLoader.loadIcon("system", KIcon.Small)
         self.userinterface.logo_image.setPixmap(icon)
+        self.userinterface.backButton.setEnabled(False)
+
         """
         # set pixmaps
         if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
@@ -317,13 +331,11 @@ class Wizard:
         print "  set_current_page(self, current):"
         self.current_page = current
         current_name = self.step_name(current)
-        """
         label_text = "Step %s of %d"
         curstep = "<i>Unknown?</i>"
         if current_name in BREADCRUMB_STEPS:
             curstep = str(BREADCRUMB_STEPS[current_name])
-        self.lblStepNofM.set_markup(label_text % (curstep, BREADCRUMB_MAX_STEP))
-        """
+        self.userinterface.lblStepNofM.setText(label_text % (curstep, BREADCRUMB_MAX_STEP))
 
     def gparted_loop(self):
         print "  gparted_loop(self):"
@@ -362,31 +374,47 @@ class Wizard:
         else:
             self.app.exit()
 
-    def on_back_clicked(self):
-        """Callback to set previous screen."""
-        print "  on_back_clicked()"
+    def on_keyboard_selected(self):
+        kbd_chooser.apply_keyboard(self.get_keyboard())
 
-        if self.dbfilter is not None:
-            self.dbfilter.cancel_handler()
+    def on_back_clicked(self):
+        print "  on_back_clicked(self, widget):"
+        """Callback to set previous screen."""
+
+        self.backup = True
 
         # Enabling next button
-        ##self.next.set_sensitive(True)
+        self.userinterface.nextButton.setEnabled(True)
         # Setting actual step
-        ##step = self.step_name(self.steps.get_current_page())
+        step = self.step_name(self.get_current_page())
+        print "step: " + step
 
-        """
+        changed_page = False
+
         if step == "stepLocation":
-            self.back.hide()
+            self.userinterface.backButton.setEnabled(False)
         elif step == "stepPartAdvanced":
+            """ FIXME jr
             print >>self.gparted_subp.stdin, "undo"
             self.gparted_subp.stdin.close()
             self.gparted_subp.wait()
             self.gparted_subp = None
+            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            changed_page = True
+            """
+            pass
         elif step == "stepPartMountpoints":
             self.gparted_loop()
-        """
-
-        self.steps.prev_page()
+        elif step == "stepReady":
+            self.userinterface.nextButton.setText("Next >")
+        if not changed_page:
+            self.userinterface.widgetStack.raiseWidget(self.get_current_page() - 1)
+        if self.dbfilter is not None:
+            self.dbfilter.cancel_handler()
+            # expect recursive main loops to be exited and
+            # debconffilter_done() to be called when the filter exits
+        else:
+            self.app.exit()
 
     def process_step(self):
         """Process and validate the results of this step."""
@@ -403,17 +431,16 @@ class Wizard:
         elif step == "stepLanguage":
             self.translate_widgets()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepLocation"])
-            #self.back.show()
+            self.userinterface.backButton.setEnabled(True)
         # Location
         elif step == "stepLocation":
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepKeyboardConf"])
-            # FIXME ? self.next.set_sensitive(False)
         # Keyboard
         elif step == "stepKeyboardConf":
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepUserInfo"])
             #self.steps.next_page()
             # XXX: Actually do keyboard config here
-            #self.next.set_sensitive(False)
+            self.userinterface.nextButton.setEnabled(False)
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
@@ -590,7 +617,48 @@ class Wizard:
             return True
         else:
             return False
-        
+
+    def set_keyboard_choices(self, choicemap):
+        print "  set_keyboard_choices(self, choicemap):"
+        self.keyboard_choice_map = choicemap
+        choices = choicemap.keys()
+
+        self.userinterface.keyboardlistview.clear()
+        for choice in sorted(choices):
+            self.userinterface.keyboardlistview.insertItem( QListViewItem(self.userinterface.keyboardlistview, choice) )
+
+        if self.current_keyboard is not None:
+            self.set_keyboard(self.current_keyboard)
+
+    def set_keyboard (self, keyboard):
+        print "  set_keyboard (self, keyboard): " + keyboard
+        """
+        Keyboard is the database name of the keyboard, so untranslated
+        """
+
+        self.current_keyboard = keyboard
+
+        iterator = QListViewItemIterator(self.userinterface.keyboardlistview)
+        while iterator.current():
+            #print "text: " + unicode(iterator.current().text(0))
+            #if unicode(str(iterator.current().text(0).ascii()), 'utf-8') == language:
+            value = unicode(iterator.current().text(0))
+            if self.keyboard_choice_map[value] == keyboard:
+                self.userinterface.keyboardlistview.setSelected(iterator.current(), True)
+                break
+            iterator += 1
+
+    def get_keyboard (self):
+        print "  get_keyboard (self):"
+        selection = self.userinterface.keyboardlistview.selectedItem()
+        if selection is None:
+            print "returning none"
+            return None
+        else:
+            print "returning value: " + str(selection.text(0))
+            value = unicode(selection.text(0))
+            return self.keyboard_choice_map[value]
+
     def qtparted_stdout(self, proc, output, bufflen):
             print " qtparted_stdout " + output
             self.embed.embed( int(output) )
@@ -1163,6 +1231,17 @@ class Wizard:
             self.dbfilter.cancel_handler()
         self.app.exit()
 
+    def on_cancel_clicked3(self):
+        print "  on_cancel_clicked(self, widget):"
+        
+        response = KMessageBox.warningContinueCancel(self.userinterface, "Do you really want to abort the installation now?", "Abort the Installation?", KGuiItem("Quit"))
+        if response == KMessageBox.Continue:
+            self.current_page = None
+            self.quit()
+            return True
+        else:
+            return False
+
     def set_summary_text (self, text):
         print "  set_summary_text (self, text):"
         self.userinterface.ready_text.setText(text)
@@ -1180,12 +1259,7 @@ class Wizard:
     def set_language_choices (self, choice_map):
         print "  set_language_choices (self, choice_map):"
         self.language_choice_map = dict(choice_map)
-        #if len(self.language_treeview.get_columns()) < 1:
-        #    column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
-        #    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-        #    self.language_treeview.append_column(column)
-        #list_store = gtk.ListStore(gobject.TYPE_STRING)
-        #self.language_treeview.set_model(list_store)
+        self.userinterface.language_treeview.clear()
         for choice in sorted(self.language_choice_map):
             self.userinterface.language_treeview.insertItem( QListViewItem(self.userinterface.language_treeview, choice) )
 
