@@ -259,6 +259,10 @@ Template: espresso/install/timezone
 Type: text
 _Description: Configuring time zone...
 
+Template: espresso/install/keyboard
+Type: text
+_Description: Configuring keyboard...
+
 Template: espresso/install/user
 Type: text
 _Description: Creating user...

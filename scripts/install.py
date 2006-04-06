@@ -37,7 +37,8 @@ from apt.package import Package
 from apt.cache import Cache
 from apt.progress import FetchProgress, InstallProgress
 from espresso import misc
-from espresso.components import language_apply, timezone_apply, usersetup_apply
+from espresso.components import language_apply, timezone_apply, \
+                                kbd_chooser_apply, usersetup_apply
 
 class DebconfFetchProgress(FetchProgress):
     """An object that reports apt's fetching progress using debconf."""
@@ -248,14 +249,21 @@ class Install:
             return False
 
         self.db.progress('SET', 88)
-        self.db.progress('REGION', 88, 89)
+        self.db.progress('REGION', 88, 90)
+        self.db.progress('INFO', 'espresso/install/keyboard')
+        if not self.configure_keyboard():
+            self.db.progress('STOP')
+            return False
+
+        self.db.progress('SET', 90)
+        self.db.progress('REGION', 90, 91)
         self.db.progress('INFO', 'espresso/install/user')
         if not self.configure_user():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 89)
-        self.db.progress('REGION', 89, 95)
+        self.db.progress('SET', 91)
+        self.db.progress('REGION', 91, 95)
         self.db.progress('INFO', 'espresso/install/hardware')
         if not self.configure_hardware():
             self.db.progress('STOP')
@@ -661,6 +669,19 @@ class Install:
         return (dbfilter.run_command(auto_process=True) == 0)
 
 
+    def configure_keyboard(self):
+        """Set keyboard in installed system."""
+
+        try:
+            keymap = self.db.get('debian-installer/keymap')
+            self.set_debconf('debian-installer/keymap', keymap)
+        except debconf.DebconfError:
+            pass
+
+        dbfilter = kbd_chooser_apply.KbdChooserApply(None)
+        return (dbfilter.run_command(auto_process=True) == 0)
+
+
     def configure_user(self):
         """create the user selected along the installation process
         into the installed system. Default user from live system is
@@ -724,7 +745,7 @@ class Install:
 
         for path in ('/etc/network/interfaces', '/etc/resolv.conf'):
             if os.path.exists(path):
-                shutil.copy2(path, os.path.join(self.target, path))
+                shutil.copy2(path, os.path.join(self.target, path[1:]))
 
         try:
             hostname = self.db.get('netcfg/get_hostname')

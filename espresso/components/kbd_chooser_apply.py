@@ -21,5 +21,4 @@ from espresso.filteredcommand import FilteredCommand
 
 class KbdChooserApply(FilteredCommand):
     def prepare(self):
-        return (['chroot', '/target', '/var/lib/dpkg/info/console-data.postinst',
-                 'configure'], [])
+        return (['/usr/lib/espresso/kbd-chooser/prebaseconfig'], [])

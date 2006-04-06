@@ -77,6 +77,11 @@ endif
 
 	# Bits of manual installation that can't be done by dh_install
 	install installer $(CURDIR)/debian/espresso/usr/bin/espresso
+	install d-i/source/kbd-chooser/debian/prebaseconfig \
+		debian/espresso/usr/lib/espresso/kbd-chooser/
+	install d-i/source/localechooser/post-base-installer \
+		d-i/source/localechooser/prebaseconfig \
+		debian/espresso/usr/lib/espresso/localechooser/
 	install d-i/source/tzsetup/prebaseconfig.d/*tzsetup \
 		debian/espresso/usr/lib/espresso/tzsetup/prebaseconfig
 	set -e; for x in user-setup user-setup-ask user-setup-apply; do \
@@ -86,6 +91,7 @@ endif
 		chmod +x debian/espresso/usr/lib/espresso/user-setup/$$x; \
 	done
 ifeq ($(DEB_HOST_ARCH),powerpc)
+	dh_installdirs -pespresso usr/lib/espresso/yaboot-installer
 	install d-i/source/yaboot-installer/debian/postinst \
 		debian/espresso/usr/lib/espresso/yaboot-installer/yaboot-installer
 endif
