@@ -1322,7 +1322,7 @@ Answering the questions should only take a few minutes.</string>
             </widget>
             <widget class="QWidget">
                 <property name="name">
-                    <cstring>stepPartAdvancedpoints</cstring>
+                    <cstring>stepPartAdvanced</cstring>
                 </property>
                 <attribute name="id">
                     <number>7</number>

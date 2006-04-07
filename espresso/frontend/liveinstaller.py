@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'liveinstaller.ui'
 #
-# Created: Fri Apr 7 17:33:06 2006
+# Created: Fri Apr 7 18:11:56 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -732,10 +732,10 @@ class EspressoUI(QWidget):
         stepPartAutoLayout.addItem(spacer18_2_2)
         self.widgetStack.addWidget(self.stepPartAuto,6)
 
-        self.stepPartAdvancedpoints = QWidget(self.widgetStack,"stepPartAdvancedpoints")
-        stepPartAdvancedpointsLayout = QGridLayout(self.stepPartAdvancedpoints,1,1,11,6,"stepPartAdvancedpointsLayout")
+        self.stepPartAdvanced = QWidget(self.widgetStack,"stepPartAdvanced")
+        stepPartAdvancedLayout = QGridLayout(self.stepPartAdvanced,1,1,11,6,"stepPartAdvancedLayout")
 
-        self.splitter2 = QSplitter(self.stepPartAdvancedpoints,"splitter2")
+        self.splitter2 = QSplitter(self.stepPartAdvanced,"splitter2")
         self.splitter2.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Preferred,0,1,self.splitter2.sizePolicy().hasHeightForWidth()))
         self.splitter2.setOrientation(QSplitter.Horizontal)
 
@@ -746,12 +746,12 @@ class EspressoUI(QWidget):
         self.qtparted_frame.setFrameShape(QFrame.StyledPanel)
         self.qtparted_frame.setFrameShadow(QFrame.Raised)
 
-        stepPartAdvancedpointsLayout.addWidget(self.splitter2,1,0)
+        stepPartAdvancedLayout.addWidget(self.splitter2,1,0)
 
-        self.textLabel6_2 = QLabel(self.stepPartAdvancedpoints,"textLabel6_2")
+        self.textLabel6_2 = QLabel(self.stepPartAdvanced,"textLabel6_2")
 
-        stepPartAdvancedpointsLayout.addWidget(self.textLabel6_2,0,0)
-        self.widgetStack.addWidget(self.stepPartAdvancedpoints,7)
+        stepPartAdvancedLayout.addWidget(self.textLabel6_2,0,0)
+        self.widgetStack.addWidget(self.stepPartAdvanced,7)
 
         self.stepPartMountpoints = QWidget(self.widgetStack,"stepPartMountpoints")
         stepPartMountpointsLayout = QGridLayout(self.stepPartMountpoints,1,1,11,6,"stepPartMountpointsLayout")
