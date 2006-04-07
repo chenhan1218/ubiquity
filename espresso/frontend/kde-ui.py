@@ -354,6 +354,55 @@ class Wizard:
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
         """
 
+    def on_list_changed(self, widget):
+        print "  on_list_changed(self, widget):"
+        """check if partition/mountpoint pair is filled and show the next pair
+        on mountpoint screen. Also size label associated with partition combobox
+        is changed dynamically to show the size partition."""
+
+        """
+        if widget.get_active_text() not in ['', None]:
+            if widget in self.partition_widgets:
+                index = self.partition_widgets.index(widget)
+            elif widget in self.mountpoint_widgets:
+                index = self.mountpoint_widgets.index(widget)
+            else:
+                return
+
+            partition_text = self.partition_widgets[index].get_active_text()
+            if partition_text == ' ':
+                self.size_widgets[index].set_text('')
+            elif partition_text != None:
+                self.size_widgets[index].set_text(self.set_size_msg(self.partition_widgets[index]))
+
+            # Does the Reformat checkbox make sense?
+            if (partition_text == ' ' or
+                partition_text not in self.part_devices):
+                self.format_widgets[index].set_sensitive(False)
+                self.format_widgets[index].set_active(False)
+            else:
+                partition = self.part_devices[partition_text]
+                if partition in self.gparted_fstype:
+                    self.format_widgets[index].set_sensitive(False)
+                    self.format_widgets[index].set_active(True)
+                else:
+                    self.format_widgets[index].set_sensitive(True)
+
+            if len(get_partitions()) > len(self.partition_widgets):
+                for i in range(len(self.partition_widgets)):
+                    partition = self.partition_widgets[i].get_active_text()
+                    mountpoint = self.mountpoint_widgets[i].get_active_text()
+                    if partition is None or mountpoint == "":
+                        break
+                else:
+                    # All table rows have been filled; create a new one.
+                    self.add_mountpoint_table_row()
+                    self.mountpoint_widgets[-1].connect("changed",
+                                                        self.on_list_changed)
+                    self.partition_widgets[-1].connect("changed",
+                                                       self.on_list_changed)
+        """
+
     def info_loop(self):
         print "  info_loop(self, widget):"
         """check if all entries from Identification screen are filled. Callback
@@ -693,15 +742,117 @@ class Wizard:
         print "qtparted_exited"
 
     def gparted_to_mountpoints(self):
-        print "  gparted_to_mountpoints(self):"
         """Processing gparted to mountpoints step tasks."""
+
+        self.gparted_fstype = {}
+        
+        self.qtparted_process.writeStdin("apply", 5)
+        """
+        print >>self.gparted_subp.stdin, "apply"
+
+        # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
+        gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
+        while gparted_reply.startswith('- '):
+            pre_log('info', 'gparted replied: %s' % gparted_reply)
+            words = gparted_reply[2:].strip().split()
+            if words[0].lower() == 'format' and len(words) >= 3:
+                self.gparted_fstype[words[1]] = words[2]
+            gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
+        
+
+        if not gparted_reply.startswith('0 '):
+            return
+
+        # Shut down gparted
+        self.gparted_subp.stdin.close()
+        self.gparted_subp.wait()
+        self.gparted_subp = None
+        """
+
+        self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
+        mountLabel = QLabel("<b>Mount Point</b>", self.userinterface.mountpoint_frame)
+        sizeLabel = QLabel("<b>Size</b>", self.userinterface.mountpoint_frame)
+        partitionLabel = QLabel("<b>Partition</b>", self.userinterface.mountpoint_frame)
+        reformatLabel = QLabel("<b>Reformat?</b>", self.userinterface.mountpoint_frame)
+        self.mountpoint_table.addWidget(mountLabel, 0, 0)
+        self.mountpoint_table.addWidget(sizeLabel, 0, 1)
+        self.mountpoint_table.addWidget(partitionLabel, 0, 2)
+        self.mountpoint_table.addWidget(reformatLabel, 0, 3)
+
+        # Set up list of partition names for use in the mountpoints table.
+        self.partition_choices = []
+        # The first element is empty to allow deselecting a partition.
+        self.partition_choices.append(' ')
+        for partition in get_partitions():
+            partition = '/dev/' + partition
+            label = part_label(partition)
+            self.part_labels[partition] = label
+            self.part_devices[label] = partition
+            self.partition_choices.append(partition)
+
+        # Initialise the mountpoints table.
+        if len(self.mountpoint_widgets) == 0:
+            self.add_mountpoint_table_row()
+            
+
+            # Try to get some default mountpoint selections.
+            self.size = self.get_sizes()
+            selection = self.get_default_partition_selection(
+                self.size, self.gparted_fstype)
+
+            # Setting a default partition preselection
+            if len(selection.items()) == 0:
+                self.userinterface.nextButton.setEnabled(False)
+            else:
+                mp = { 'swap' : 0, '/' : 1 }
+
+                # Setting default preselection values into ComboBox
+                # widgets and setting size values. In addition, next row
+                # is showed if they're validated.
+                for mountpoint, partition in selection.items():
+                    count = 0
+                    while count < self.mountpoint_widgets[-1].count():
+                        if self.mountpoint_widgets[-1].text(count) == mp[mountpoint]:
+                            self.mountpoint_widgets[-1].setCurrentItem(count)
+                        count += 1
+                    self.size_widgets[-1].setText(self.set_size_msg(partition))
+                    count = 0
+                    while count < self.partition_widgets[-1].count():
+                        if self.partition_widgets[-1].text(count) == self.partition_choices.index(partition):
+                            self.partition_widgets[-1].setCurrentItem(count)
+                        count += 1
+                    if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
+                        partition in self.gparted_fstype):
+                        self.format_widgets[-1].setEnabled(True)
+                    else:
+                        self.format_widgets[-1].setEnabled(False)
+                    if partition not in self.gparted_fstype:
+                        self.format_widgets[-1].setEnabled(True)
+                    if len(get_partitions()) > len(self.partition_widgets):
+                        self.add_mountpoint_table_row()
+                    else:
+                        break
+
+            # We defer connecting up signals until now to avoid the changed
+            # signal firing while we're busy populating the table.
+            for mountpoint in self.mountpoint_widgets:
+                self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
+            for partition in self.partition_widgets:
+                self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
+
+        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartMountpoints"])
+
+    # OLD! DELETE ME
+    """
+    def gparted_to_mountpoints(self):
+        print "  gparted_to_mountpoints(self):"
         
         self.gparted_fstype = {}
         
         #I'm doing something wrong in qtparted that it isn't reading stdin
         self.qtparted_process.writeStdin("apply", 5)
 
-        """
+        ""
         print >>self.gparted_subp.stdin, "apply"
         gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
         if not gparted_reply.startswith('0 '):
@@ -711,7 +862,7 @@ class Wizard:
         self.gparted_subp.stdin.close()
         self.gparted_subp.wait()
         self.gparted_subp = None
-        """
+        ""
 
         # Setting items into partition Comboboxes
         for widget in self.userinterface.stepPartMountpoints.children():
@@ -753,6 +904,7 @@ class Wizard:
                     count += 1
 
         self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartMountpoints"])
+        """
 
     def show_partitions(self, widget):
         print "  show_partitions(self, widget): " + widget.name()
@@ -791,6 +943,39 @@ class Wizard:
                 continue
         partitions.close()
         return size
+
+    def add_mountpoint_table_row(self):
+        print "  add_mountpoint_table_row(self):"
+        """Add a new empty row to the mountpoints table."""
+        mountpoint = QComboBox(self.userinterface.mountpoint_frame)
+        mountpoint.insertItem("")
+        for mp in self.mountpoint_choices:
+            mountpoint.insertItem(mp)
+        size = QLabel(self.userinterface)
+        partition = QComboBox(self.userinterface.mountpoint_frame)
+        for part in self.partition_choices:
+            if part in self.part_labels:
+                partition.insertItem(self.part_labels[part])
+            else:
+                partition.insertItem(part)
+        format = QCheckBox(self.userinterface.mountpoint_frame)
+        format.setEnabled(False)
+
+        row = len(self.mountpoint_widgets) + 1
+        self.mountpoint_widgets.append(mountpoint)
+        self.size_widgets.append(size)
+        self.partition_widgets.append(partition)
+        self.format_widgets.append(format)
+
+        #self.mountpoint_table.resize(row + 1, 4)
+        self.mountpoint_table.addWidget(mountpoint, row, 0)
+        self.mountpoint_table.addWidget(size, row, 1)
+        self.mountpoint_table.addWidget(partition, row, 2)
+        self.mountpoint_table.addWidget(format, row, 3)
+        mountpoint.show()
+        size.show()
+        partition.show()
+        format.show()
 
     def get_default_partition_selection(self, size, fstype):
         print "  get_default_partition_selection(self, size):"

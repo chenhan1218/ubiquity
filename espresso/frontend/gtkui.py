@@ -744,6 +744,7 @@ class Wizard:
 
         print >>self.gparted_subp.stdin, "apply"
 
+        # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
         gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
         while gparted_reply.startswith('- '):
             pre_log('info', 'gparted replied: %s' % gparted_reply)

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'liveinstaller.ui'
 #
-# Created: Fri Apr 7 21:25:32 2006
+# Created: Fri Apr 7 22:19:59 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -1901,168 +1901,39 @@ class EspressoUI(QWidget):
 
         stepPartMountpointsLayout.addWidget(self.textLabel1_4,0,0)
 
-        layout17 = QGridLayout(None,1,1,0,6,"layout17")
-
-        self.img_error2 = QLabel(self.stepPartMountpoints,"img_error2")
-        self.img_error2.setPixmap(self.image3)
-        self.img_error2.setScaledContents(1)
-
-        layout17.addWidget(self.img_error2,0,0)
-
-        self.msg_error2 = QLabel(self.stepPartMountpoints,"msg_error2")
-        self.msg_error2.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Preferred,0,0,self.msg_error2.sizePolicy().hasHeightForWidth()))
-
-        layout17.addMultiCellWidget(self.msg_error2,0,1,2,2)
-        spacer34_2 = QSpacerItem(241,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        layout17.addItem(spacer34_2,0,3)
-        spacer26 = QSpacerItem(21,40,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        layout17.addItem(spacer26,1,0)
-
-        stepPartMountpointsLayout.addLayout(layout17,3,0)
-
         self.mount_help = QLabel(self.stepPartMountpoints,"mount_help")
         self.mount_help.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
 
         stepPartMountpointsLayout.addWidget(self.mount_help,1,0)
 
-        layout18_2 = QGridLayout(None,1,1,0,6,"layout18_2")
+        layout21_2 = QGridLayout(None,1,1,0,6,"layout21_2")
 
-        self.partition6 = QComboBox(0,self.stepPartMountpoints,"partition6")
+        self.img_error2 = QLabel(self.stepPartMountpoints,"img_error2")
+        self.img_error2.setPixmap(self.image3)
+        self.img_error2.setScaledContents(1)
 
-        layout18_2.addWidget(self.partition6,6,2)
+        layout21_2.addWidget(self.img_error2,2,0)
+        spacer36 = QSpacerItem(41,161,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        layout21_2.addItem(spacer36,0,1)
+        spacer35_3 = QSpacerItem(21,20,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        layout21_2.addItem(spacer35_3,1,0)
 
-        self.mountpoint2 = QComboBox(0,self.stepPartMountpoints,"mountpoint2")
-        self.mountpoint2.setEditable(1)
+        self.msg_error2 = QLabel(self.stepPartMountpoints,"msg_error2")
+        self.msg_error2.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Preferred,0,0,self.msg_error2.sizePolicy().hasHeightForWidth()))
 
-        layout18_2.addWidget(self.mountpoint2,2,0)
+        layout21_2.addMultiCellWidget(self.msg_error2,1,3,1,1)
+        spacer34_2 = QSpacerItem(278,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout21_2.addItem(spacer34_2,0,2)
+        spacer26 = QSpacerItem(21,20,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        layout21_2.addItem(spacer26,3,0)
 
-        self.mountpoint1 = QComboBox(0,self.stepPartMountpoints,"mountpoint1")
-        self.mountpoint1.setEditable(1)
+        stepPartMountpointsLayout.addLayout(layout21_2,3,0)
 
-        layout18_2.addWidget(self.mountpoint1,1,0)
+        self.mountpoint_frame = QFrame(self.stepPartMountpoints,"mountpoint_frame")
+        self.mountpoint_frame.setFrameShape(QFrame.StyledPanel)
+        self.mountpoint_frame.setFrameShadow(QFrame.Raised)
 
-        self.size6 = QLabel(self.stepPartMountpoints,"size6")
-
-        layout18_2.addWidget(self.size6,6,1)
-
-        self.checkBox1_2 = QCheckBox(self.stepPartMountpoints,"checkBox1_2")
-
-        layout18_2.addWidget(self.checkBox1_2,2,3)
-
-        self.mountpoint3 = QComboBox(0,self.stepPartMountpoints,"mountpoint3")
-        self.mountpoint3.setEditable(1)
-
-        layout18_2.addWidget(self.mountpoint3,3,0)
-
-        self.size7 = QLabel(self.stepPartMountpoints,"size7")
-
-        layout18_2.addWidget(self.size7,7,1)
-
-        self.mountpoint4 = QComboBox(0,self.stepPartMountpoints,"mountpoint4")
-        self.mountpoint4.setEditable(1)
-
-        layout18_2.addWidget(self.mountpoint4,4,0)
-
-        self.partition3 = QComboBox(0,self.stepPartMountpoints,"partition3")
-
-        layout18_2.addWidget(self.partition3,3,2)
-
-        self.size2 = QLabel(self.stepPartMountpoints,"size2")
-
-        layout18_2.addWidget(self.size2,2,1)
-
-        self.size5 = QLabel(self.stepPartMountpoints,"size5")
-
-        layout18_2.addWidget(self.size5,5,1)
-
-        self.checkBox1_5 = QCheckBox(self.stepPartMountpoints,"checkBox1_5")
-
-        layout18_2.addWidget(self.checkBox1_5,5,3)
-
-        self.checkBox1_4 = QCheckBox(self.stepPartMountpoints,"checkBox1_4")
-
-        layout18_2.addWidget(self.checkBox1_4,4,3)
-
-        self.partition1 = QComboBox(0,self.stepPartMountpoints,"partition1")
-
-        layout18_2.addWidget(self.partition1,1,2)
-
-        self.textLabel3 = QLabel(self.stepPartMountpoints,"textLabel3")
-
-        layout18_2.addWidget(self.textLabel3,0,0)
-
-        self.textLabel5 = QLabel(self.stepPartMountpoints,"textLabel5")
-
-        layout18_2.addWidget(self.textLabel5,0,2)
-
-        self.mountpoint6 = QComboBox(0,self.stepPartMountpoints,"mountpoint6")
-        self.mountpoint6.setEditable(1)
-
-        layout18_2.addWidget(self.mountpoint6,6,0)
-
-        self.mountpoint5 = QComboBox(0,self.stepPartMountpoints,"mountpoint5")
-        self.mountpoint5.setEditable(1)
-
-        layout18_2.addWidget(self.mountpoint5,5,0)
-
-        self.partition5 = QComboBox(0,self.stepPartMountpoints,"partition5")
-
-        layout18_2.addWidget(self.partition5,5,2)
-
-        self.partition4 = QComboBox(0,self.stepPartMountpoints,"partition4")
-
-        layout18_2.addWidget(self.partition4,4,2)
-
-        self.checkBox1_7 = QCheckBox(self.stepPartMountpoints,"checkBox1_7")
-
-        layout18_2.addWidget(self.checkBox1_7,7,3)
-
-        self.partition2 = QComboBox(0,self.stepPartMountpoints,"partition2")
-
-        layout18_2.addWidget(self.partition2,2,2)
-
-        self.size3 = QLabel(self.stepPartMountpoints,"size3")
-
-        layout18_2.addWidget(self.size3,3,1)
-
-        self.checkBox1_6 = QCheckBox(self.stepPartMountpoints,"checkBox1_6")
-
-        layout18_2.addWidget(self.checkBox1_6,6,3)
-
-        self.size1 = QLabel(self.stepPartMountpoints,"size1")
-
-        layout18_2.addWidget(self.size1,1,1)
-
-        self.partition7 = QComboBox(0,self.stepPartMountpoints,"partition7")
-
-        layout18_2.addWidget(self.partition7,7,2)
-
-        self.textLabel4_2_2 = QLabel(self.stepPartMountpoints,"textLabel4_2_2")
-
-        layout18_2.addWidget(self.textLabel4_2_2,0,1)
-
-        self.checkBox1 = QCheckBox(self.stepPartMountpoints,"checkBox1")
-
-        layout18_2.addWidget(self.checkBox1,1,3)
-
-        self.textLabel4 = QLabel(self.stepPartMountpoints,"textLabel4")
-
-        layout18_2.addWidget(self.textLabel4,0,3)
-
-        self.size4 = QLabel(self.stepPartMountpoints,"size4")
-
-        layout18_2.addWidget(self.size4,4,1)
-
-        self.checkBox1_3 = QCheckBox(self.stepPartMountpoints,"checkBox1_3")
-
-        layout18_2.addWidget(self.checkBox1_3,3,3)
-
-        self.mountpoint7 = QComboBox(0,self.stepPartMountpoints,"mountpoint7")
-        self.mountpoint7.setEditable(1)
-
-        layout18_2.addWidget(self.mountpoint7,7,0)
-
-        stepPartMountpointsLayout.addLayout(layout18_2,2,0)
+        stepPartMountpointsLayout.addWidget(self.mountpoint_frame,2,0)
         self.widgetStack.addWidget(self.stepPartMountpoints,8)
 
         self.stepReady = QWidget(self.widgetStack,"stepReady")
@@ -2149,84 +2020,10 @@ class EspressoUI(QWidget):
         self.textLabel6_2.setText(self.__tr("<h2>Prepare Partitions</h2>"))
         self.textLabel7_2.setText(self.__tr("Make sure to allocate space for a root partition (\"/\"), with a minimum size of 1.5 GB, and a swap partition of at least 256 MB."))
         self.textLabel1_4.setText(self.__tr("<h2>Prepare Mount Points</h2>"))
-        self.msg_error2.setText(self.__tr("You must supply a root (\"/\") mount point."))
         self.mount_help.setText(self.__tr("Select which partitions you want to use for your new installation, and where you want to mount each of them.\n"
 "\n"
 "You must mount one partition on the root file system (\"/\"), and you must choose at least one partition for use as swap space."))
-        self.mountpoint2.clear()
-        self.mountpoint2.insertItem(QString.null)
-        self.mountpoint2.insertItem(self.__tr("swap"))
-        self.mountpoint2.insertItem(self.__tr("/"))
-        self.mountpoint2.insertItem(self.__tr("/home"))
-        self.mountpoint2.insertItem(self.__tr("/boot"))
-        self.mountpoint2.insertItem(self.__tr("/usr"))
-        self.mountpoint2.insertItem(self.__tr("/var"))
-        self.mountpoint1.clear()
-        self.mountpoint1.insertItem(QString.null)
-        self.mountpoint1.insertItem(self.__tr("swap"))
-        self.mountpoint1.insertItem(self.__tr("/"))
-        self.mountpoint1.insertItem(self.__tr("/home"))
-        self.mountpoint1.insertItem(self.__tr("/boot"))
-        self.mountpoint1.insertItem(self.__tr("/usr"))
-        self.mountpoint1.insertItem(self.__tr("/var"))
-        self.size6.setText(QString.null)
-        self.checkBox1_2.setText(QString.null)
-        self.mountpoint3.clear()
-        self.mountpoint3.insertItem(QString.null)
-        self.mountpoint3.insertItem(self.__tr("swap"))
-        self.mountpoint3.insertItem(self.__tr("/"))
-        self.mountpoint3.insertItem(self.__tr("/home"))
-        self.mountpoint3.insertItem(self.__tr("/boot"))
-        self.mountpoint3.insertItem(self.__tr("/usr"))
-        self.mountpoint3.insertItem(self.__tr("/var"))
-        self.size7.setText(QString.null)
-        self.mountpoint4.clear()
-        self.mountpoint4.insertItem(QString.null)
-        self.mountpoint4.insertItem(self.__tr("swap"))
-        self.mountpoint4.insertItem(self.__tr("/"))
-        self.mountpoint4.insertItem(self.__tr("/home"))
-        self.mountpoint4.insertItem(self.__tr("/boot"))
-        self.mountpoint4.insertItem(self.__tr("/usr"))
-        self.mountpoint4.insertItem(self.__tr("/var"))
-        self.size2.setText(QString.null)
-        self.size5.setText(QString.null)
-        self.checkBox1_5.setText(QString.null)
-        self.checkBox1_4.setText(QString.null)
-        self.textLabel3.setText(self.__tr("<b>Mountpoint</b>"))
-        self.textLabel5.setText(self.__tr("<b>Partition</b>"))
-        self.mountpoint6.clear()
-        self.mountpoint6.insertItem(QString.null)
-        self.mountpoint6.insertItem(self.__tr("swap"))
-        self.mountpoint6.insertItem(self.__tr("/"))
-        self.mountpoint6.insertItem(self.__tr("/home"))
-        self.mountpoint6.insertItem(self.__tr("/boot"))
-        self.mountpoint6.insertItem(self.__tr("/usr"))
-        self.mountpoint6.insertItem(self.__tr("/var"))
-        self.mountpoint5.clear()
-        self.mountpoint5.insertItem(QString.null)
-        self.mountpoint5.insertItem(self.__tr("swap"))
-        self.mountpoint5.insertItem(self.__tr("/"))
-        self.mountpoint5.insertItem(self.__tr("/home"))
-        self.mountpoint5.insertItem(self.__tr("/boot"))
-        self.mountpoint5.insertItem(self.__tr("/usr"))
-        self.mountpoint5.insertItem(self.__tr("/var"))
-        self.checkBox1_7.setText(QString.null)
-        self.size3.setText(QString.null)
-        self.checkBox1_6.setText(QString.null)
-        self.size1.setText(QString.null)
-        self.textLabel4_2_2.setText(self.__tr("<b>Size</b>"))
-        self.checkBox1.setText(QString.null)
-        self.textLabel4.setText(self.__tr("<b>Reformat?</b>"))
-        self.size4.setText(QString.null)
-        self.checkBox1_3.setText(QString.null)
-        self.mountpoint7.clear()
-        self.mountpoint7.insertItem(QString.null)
-        self.mountpoint7.insertItem(self.__tr("swap"))
-        self.mountpoint7.insertItem(self.__tr("/"))
-        self.mountpoint7.insertItem(self.__tr("/home"))
-        self.mountpoint7.insertItem(self.__tr("/boot"))
-        self.mountpoint7.insertItem(self.__tr("/usr"))
-        self.mountpoint7.insertItem(self.__tr("/var"))
+        self.msg_error2.setText(self.__tr("You must supply a root (\"/\") mount point."))
         self.textLabel6.setText(self.__tr("<h2>Ready to install</h2>"))
         self.textLabel8.setText(self.__tr("Details"))
         self.textLabel7.setText(self.__tr("Kubuntu is ready to install on this computer."))

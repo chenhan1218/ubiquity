@@ -1394,15 +1394,28 @@ Answering the questions should only take a few minutes.</string>
                             <string>&lt;h2&gt;Prepare Mount Points&lt;/h2&gt;</string>
                         </property>
                     </widget>
+                    <widget class="QLabel" row="1" column="0">
+                        <property name="name">
+                            <cstring>mount_help</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Select which partitions you want to use for your new installation, and where you want to mount each of them.
+
+You must mount one partition on the root file system ("/"), and you must choose at least one partition for use as swap space.</string>
+                        </property>
+                        <property name="alignment">
+                            <set>WordBreak|AlignVCenter</set>
+                        </property>
+                    </widget>
                     <widget class="QLayoutWidget" row="3" column="0">
                         <property name="name">
-                            <cstring>layout17</cstring>
+                            <cstring>layout21</cstring>
                         </property>
                         <grid>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="QLabel" row="0" column="0">
+                            <widget class="QLabel" row="2" column="0">
                                 <property name="name">
                                     <cstring>img_error2</cstring>
                                 </property>
@@ -1413,7 +1426,41 @@ Answering the questions should only take a few minutes.</string>
                                     <bool>true</bool>
                                 </property>
                             </widget>
-                            <widget class="QLabel" row="0" column="2" rowspan="2" colspan="1">
+                            <spacer row="0" column="1">
+                                <property name="name">
+                                    <cstring>spacer36</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Vertical</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>41</width>
+                                        <height>161</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <spacer row="1" column="0">
+                                <property name="name">
+                                    <cstring>spacer35_3</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Vertical</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>21</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLabel" row="1" column="1" rowspan="3" colspan="1">
                                 <property name="name">
                                     <cstring>msg_error2</cstring>
                                 </property>
@@ -1429,7 +1476,7 @@ Answering the questions should only take a few minutes.</string>
                                     <string>You must supply a root ("/") mount point.</string>
                                 </property>
                             </widget>
-                            <spacer row="0" column="3">
+                            <spacer row="0" column="2">
                                 <property name="name">
                                     <cstring>spacer34_2</cstring>
                                 </property>
@@ -1441,12 +1488,12 @@ Answering the questions should only take a few minutes.</string>
                                 </property>
                                 <property name="sizeHint">
                                     <size>
-                                        <width>241</width>
+                                        <width>278</width>
                                         <height>21</height>
                                     </size>
                                 </property>
                             </spacer>
-                            <spacer row="1" column="0">
+                            <spacer row="3" column="0">
                                 <property name="name">
                                     <cstring>spacer26</cstring>
                                 </property>
@@ -1459,514 +1506,22 @@ Answering the questions should only take a few minutes.</string>
                                 <property name="sizeHint">
                                     <size>
                                         <width>21</width>
-                                        <height>40</height>
+                                        <height>20</height>
                                     </size>
                                 </property>
                             </spacer>
                         </grid>
                     </widget>
-                    <widget class="QLabel" row="1" column="0">
+                    <widget class="QFrame" row="2" column="0">
                         <property name="name">
-                            <cstring>mount_help</cstring>
+                            <cstring>mountpoint_frame</cstring>
                         </property>
-                        <property name="text">
-                            <string>Select which partitions you want to use for your new installation, and where you want to mount each of them.
-
-You must mount one partition on the root file system ("/"), and you must choose at least one partition for use as swap space.</string>
+                        <property name="frameShape">
+                            <enum>StyledPanel</enum>
                         </property>
-                        <property name="alignment">
-                            <set>WordBreak|AlignVCenter</set>
+                        <property name="frameShadow">
+                            <enum>Raised</enum>
                         </property>
-                    </widget>
-                    <widget class="QLayoutWidget" row="2" column="0">
-                        <property name="name">
-                            <cstring>layout18</cstring>
-                        </property>
-                        <grid>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <widget class="QComboBox" row="6" column="2">
-                                <property name="name">
-                                    <cstring>partition6</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="2" column="0">
-                                <item>
-                                    <property name="text">
-                                        <string></string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>swap</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/home</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/boot</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/usr</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/var</string>
-                                    </property>
-                                </item>
-                                <property name="name">
-                                    <cstring>mountpoint2</cstring>
-                                </property>
-                                <property name="editable">
-                                    <bool>true</bool>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="1" column="0">
-                                <item>
-                                    <property name="text">
-                                        <string></string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>swap</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/home</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/boot</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/usr</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/var</string>
-                                    </property>
-                                </item>
-                                <property name="name">
-                                    <cstring>mountpoint1</cstring>
-                                </property>
-                                <property name="editable">
-                                    <bool>true</bool>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="6" column="1">
-                                <property name="name">
-                                    <cstring>size6</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QCheckBox" row="2" column="3">
-                                <property name="name">
-                                    <cstring>checkBox1_2</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="3" column="0">
-                                <item>
-                                    <property name="text">
-                                        <string></string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>swap</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/home</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/boot</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/usr</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/var</string>
-                                    </property>
-                                </item>
-                                <property name="name">
-                                    <cstring>mountpoint3</cstring>
-                                </property>
-                                <property name="editable">
-                                    <bool>true</bool>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="7" column="1">
-                                <property name="name">
-                                    <cstring>size7</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="4" column="0">
-                                <item>
-                                    <property name="text">
-                                        <string></string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>swap</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/home</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/boot</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/usr</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/var</string>
-                                    </property>
-                                </item>
-                                <property name="name">
-                                    <cstring>mountpoint4</cstring>
-                                </property>
-                                <property name="editable">
-                                    <bool>true</bool>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="3" column="2">
-                                <property name="name">
-                                    <cstring>partition3</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="2" column="1">
-                                <property name="name">
-                                    <cstring>size2</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="5" column="1">
-                                <property name="name">
-                                    <cstring>size5</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QCheckBox" row="5" column="3">
-                                <property name="name">
-                                    <cstring>checkBox1_5</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QCheckBox" row="4" column="3">
-                                <property name="name">
-                                    <cstring>checkBox1_4</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="1" column="2">
-                                <property name="name">
-                                    <cstring>partition1</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="0" column="0">
-                                <property name="name">
-                                    <cstring>textLabel3</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>&lt;b&gt;Mountpoint&lt;/b&gt;</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="0" column="2">
-                                <property name="name">
-                                    <cstring>textLabel5</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>&lt;b&gt;Partition&lt;/b&gt;</string>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="6" column="0">
-                                <item>
-                                    <property name="text">
-                                        <string></string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>swap</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/home</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/boot</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/usr</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/var</string>
-                                    </property>
-                                </item>
-                                <property name="name">
-                                    <cstring>mountpoint6</cstring>
-                                </property>
-                                <property name="editable">
-                                    <bool>true</bool>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="5" column="0">
-                                <item>
-                                    <property name="text">
-                                        <string></string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>swap</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/home</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/boot</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/usr</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/var</string>
-                                    </property>
-                                </item>
-                                <property name="name">
-                                    <cstring>mountpoint5</cstring>
-                                </property>
-                                <property name="editable">
-                                    <bool>true</bool>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="5" column="2">
-                                <property name="name">
-                                    <cstring>partition5</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="4" column="2">
-                                <property name="name">
-                                    <cstring>partition4</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QCheckBox" row="7" column="3">
-                                <property name="name">
-                                    <cstring>checkBox1_7</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="2" column="2">
-                                <property name="name">
-                                    <cstring>partition2</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="3" column="1">
-                                <property name="name">
-                                    <cstring>size3</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QCheckBox" row="6" column="3">
-                                <property name="name">
-                                    <cstring>checkBox1_6</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="1" column="1">
-                                <property name="name">
-                                    <cstring>size1</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="7" column="2">
-                                <property name="name">
-                                    <cstring>partition7</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="0" column="1">
-                                <property name="name">
-                                    <cstring>textLabel4_2_2</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>&lt;b&gt;Size&lt;/b&gt;</string>
-                                </property>
-                            </widget>
-                            <widget class="QCheckBox" row="1" column="3">
-                                <property name="name">
-                                    <cstring>checkBox1</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="0" column="3">
-                                <property name="name">
-                                    <cstring>textLabel4</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>&lt;b&gt;Reformat?&lt;/b&gt;</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="4" column="1">
-                                <property name="name">
-                                    <cstring>size4</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QCheckBox" row="3" column="3">
-                                <property name="name">
-                                    <cstring>checkBox1_3</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="7" column="0">
-                                <item>
-                                    <property name="text">
-                                        <string></string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>swap</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/home</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/boot</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/usr</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>/var</string>
-                                    </property>
-                                </item>
-                                <property name="name">
-                                    <cstring>mountpoint7</cstring>
-                                </property>
-                                <property name="editable">
-                                    <bool>true</bool>
-                                </property>
-                            </widget>
-                        </grid>
                     </widget>
                 </grid>
             </widget>
