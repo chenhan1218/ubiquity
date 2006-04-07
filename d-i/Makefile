@@ -43,7 +43,8 @@ clean:
 install:
 	set -e; for package in $(PACKAGES); do \
 		if [ -d "$(SOURCEDIR)/$$package" ]; then \
-			(cd "$(SOURCEDIR)/$$package" && \
+			(export NO_PKG_MANGLE=1; \
+			 cd "$(SOURCEDIR)/$$package" && \
 			 debian/rules binary-arch && \
 			 debian/rules binary-indep && \
 			 rm -rf debian/*/DEBIAN); \
