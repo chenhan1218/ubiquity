@@ -6,6 +6,7 @@ espresso (0.99.43) dapper; urgency=low
     - Implement basics of timezone selection
     - Enable non-root user error on startup
     - Update mountpoints page
+    - Use KDE button order
   * GTK Frontend:
     - Disable Forward button on user information page if not all
       fields are filled out
