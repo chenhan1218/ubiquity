@@ -15,7 +15,7 @@ endif
 
 update:
 	./get-sources update
-	./get-sources $(shell cat $(LISTDIR)/*)
+	./get-sources $(shell sort -u $(LISTDIR)/*)
 	./update-control
 	./update-changelog
 
