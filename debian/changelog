@@ -4,6 +4,7 @@ espresso (0.99.43) dapper; urgency=low
   * KDE Frontend:
     - Add user information validation
     - Implement basics of timezone selection
+    - Enable non-root user error on startup
   * GTK Frontend:
     - Disable Forward button on user information page if not all
       fields are filled out

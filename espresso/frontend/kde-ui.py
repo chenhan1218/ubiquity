@@ -168,14 +168,13 @@ class Wizard:
     def run(self):
         """run the interface."""
         print "  run()"
-        """
+
         if os.getuid() != 0:
                 print "uid != 0"
-                title = ('This installer must be run with administrative '
-                        'privileges, and cannot continue without them.')
+                title = ('This installer must be run with administrative privileges, and cannot continue without them.')
                 KMessageBox.error(self.userinterface, title, "Must run as root")
                 sys.exit(1)
-        """
+
         # show interface
         # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
         # current dapper (https://bugzilla.ubuntu.com/show_bug.cgi?id=20338).
