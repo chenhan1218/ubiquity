@@ -18,9 +18,11 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 from espresso.filteredcommand import FilteredCommand
+import espresso.tz
 
 class Timezone(FilteredCommand):
     def prepare(self):
+        self.tzdb = espresso.tz.Database()
         questions = ['^time/zone$']
         return (['/usr/share/espresso/tzsetup'], questions)
 
@@ -37,5 +39,10 @@ class Timezone(FilteredCommand):
         return super(Timezone, self).run(priority, question)
 
     def ok_handler(self):
-        self.preseed('time/zone', self.frontend.get_timezone())
+        zone = self.frontend.get_timezone()
+        self.preseed('time/zone', zone)
+        for location in self.tzdb.locations:
+            if location.zone == zone:
+                self.preseed('debian-installer/country', location.country)
+                break
         super(Timezone, self).ok_handler()
