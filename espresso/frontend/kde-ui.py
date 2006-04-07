@@ -364,15 +364,11 @@ class Wizard:
         counter = 0
         for widget in [self.userinterface.fullname, self.userinterface.username, self.userinterface.password, self.userinterface.verified_password, self.userinterface.hostname]:
             if widget.text() != '':
-                print " = 1"
                 self.entries[widget.name()] = 1
             else:
-                print " = 0"
                 self.entries[widget.name()] = 0
 
-        print "test: " + str(len(filter(lambda v: v == 1, self.entries.values())))
         if len(filter(lambda v: v == 1, self.entries.values())) == 5:
-            print "is 5 "
             self.userinterface.nextButton.setEnabled(True)
         else:
             self.userinterface.nextButton.setEnabled(False)
@@ -700,9 +696,10 @@ class Wizard:
         print "  gparted_to_mountpoints(self):"
         """Processing gparted to mountpoints step tasks."""
         
+        self.gparted_fstype = {}
+        
         #I'm doing something wrong in qtparted that it isn't reading stdin
         self.qtparted_process.writeStdin("apply", 5)
-
 
         """
         print >>self.gparted_subp.stdin, "apply"
@@ -718,12 +715,14 @@ class Wizard:
 
         # Setting items into partition Comboboxes
         for widget in self.userinterface.stepPartMountpoints.children():
+            print "for widget loop"
             if QString(widget.name()).contains("partition") > 0:
+                print "found partition widget"
                 self.show_partitions(widget)
         self.size = self.get_sizes()
 
         # building mountpoints preselection
-        self.default_partition_selection = self.get_default_partition_selection(self.size)
+        self.default_partition_selection = self.get_default_partition_selection(self.size, self.gparted_fstype)
 
         # Setting a default partition preselection
         if len(self.default_partition_selection.items()) == 0:
@@ -766,8 +765,10 @@ class Wizard:
         partition_list = get_partitions()
 
         # the first element is empty to allow deselect a preselected device
+        widget.clear()
         widget.insertItem(" ")
         for index in partition_list:
+            print "partition:" + index
             index = '/dev/' + index
             label = misc.part_label(index)
             self.part_labels[index] = label
@@ -1441,9 +1442,7 @@ class TimezoneMap(object):
         found = False
         i = 0
         while not found and i < count:
-            print "not found " + str(i)
             if str(timezone_city_combo.text(i)) == name:
-                print "found"
                 timezone_city_combo.setCurrentItem(i)
                 found = True
             i += 1
