@@ -721,6 +721,9 @@ Answering the questions should only take a few minutes.</string>
                                 <property name="text">
                                     <string></string>
                                 </property>
+                                <property name="alignment">
+                                    <set>WordBreak|AlignVCenter</set>
+                                </property>
                             </widget>
                             <spacer>
                                 <property name="name">
@@ -763,6 +766,9 @@ Answering the questions should only take a few minutes.</string>
                                 </property>
                                 <property name="text">
                                     <string></string>
+                                </property>
+                                <property name="alignment">
+                                    <set>WordBreak|AlignVCenter</set>
                                 </property>
                             </widget>
                             <widget class="QLabel" row="1" column="1" rowspan="1" colspan="4">
@@ -884,6 +890,9 @@ Answering the questions should only take a few minutes.</string>
                                 <property name="text">
                                     <string></string>
                                 </property>
+                                <property name="alignment">
+                                    <set>WordBreak|AlignVCenter</set>
+                                </property>
                             </widget>
                             <widget class="QLabel" row="1" column="1" rowspan="1" colspan="4">
                                 <property name="name">
@@ -922,6 +931,9 @@ Answering the questions should only take a few minutes.</string>
                                         <verstretch>0</verstretch>
                                     </sizepolicy>
                                 </property>
+                                <property name="echoMode">
+                                    <enum>Password</enum>
+                                </property>
                             </widget>
                             <widget class="QLineEdit" row="0" column="1">
                                 <property name="name">
@@ -934,6 +946,9 @@ Answering the questions should only take a few minutes.</string>
                                         <horstretch>1</horstretch>
                                         <verstretch>0</verstretch>
                                     </sizepolicy>
+                                </property>
+                                <property name="echoMode">
+                                    <enum>Password</enum>
                                 </property>
                             </widget>
                         </grid>
@@ -1044,6 +1059,9 @@ Answering the questions should only take a few minutes.</string>
                                         </property>
                                         <property name="text">
                                             <string></string>
+                                        </property>
+                                        <property name="alignment">
+                                            <set>WordBreak|AlignVCenter</set>
                                         </property>
                                     </widget>
                                     <spacer>

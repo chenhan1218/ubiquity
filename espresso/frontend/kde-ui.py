@@ -192,7 +192,18 @@ class Wizard:
         self.app.connect(self.userinterface.widgetStack, SIGNAL("aboutToShow(int)"), self.on_steps_switch_page)
         self.app.connect(self.userinterface.keyboardlistview, SIGNAL("selectionChanged()"), self.on_keyboard_selected)
         
-    
+        self.app.connect(self.userinterface.fullname, SIGNAL("textChanged(const QString &)"), self.info_loop)
+        self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.info_loop)
+        self.app.connect(self.userinterface.password, SIGNAL("textChanged(const QString &)"), self.info_loop)
+        self.app.connect(self.userinterface.verified_password, SIGNAL("textChanged(const QString &)"), self.info_loop)
+        self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.info_loop)
+        
+        self.app.connect(self.userinterface.fullname, SIGNAL("selectionChanged()"), self.info_loop)
+        self.app.connect(self.userinterface.username, SIGNAL("selectionChanged()"), self.info_loop)
+        self.app.connect(self.userinterface.password, SIGNAL("selectionChanged()"), self.info_loop)
+        self.app.connect(self.userinterface.verified_password, SIGNAL("selectionChanged()"), self.info_loop)
+        self.app.connect(self.userinterface.hostname, SIGNAL("selectionChanged()"), self.info_loop)
+        
         # Start the interface
         self.set_current_page(0)
         while self.current_page is not None:
@@ -365,16 +376,57 @@ class Wizard:
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
         """
 
+    def info_loop(self):
+        print "  info_loop(self, widget):"
+        """check if all entries from Identification screen are filled. Callback
+        defined in glade file."""
+
+        # each entry is saved as 1 when it's filled and as 0 when it's empty. This
+        #     callback is launched when these widgets are modified.
+        counter = 0
+        for widget in [self.userinterface.fullname, self.userinterface.username, self.userinterface.password, self.userinterface.verified_password, self.userinterface.hostname]:
+            if widget.text() != '':
+                print " = 1"
+                self.entries[widget.name()] = 1
+            else:
+                print " = 0"
+                self.entries[widget.name()] = 0
+
+        print "test: " + str(len(filter(lambda v: v == 1, self.entries.values())))
+        if len(filter(lambda v: v == 1, self.entries.values())) == 5:
+            print "is 5 "
+            self.userinterface.nextButton.setEnabled(True)
+        else:
+            self.userinterface.nextButton.setEnabled(False)
+
     def on_next_clicked(self):
+        print "  on_next_clicked(self):"
         """Callback to control the installation process between steps."""
-        print "  on_next_clicked()"
-    
+
+        step = self.step_name(self.get_current_page())
+        print "step: " + step
+
+        if step == "stepKeyboardConf":
+            print "is stepUserInfo"
+            self.userinterface.fullname_error_image.hide()
+            self.userinterface.fullname_error_reason.hide()
+            self.userinterface.username_error_image.hide()
+            self.userinterface.username_error_reason.hide()
+            self.userinterface.password_error_image.hide()
+            self.userinterface.password_error_reason.hide()
+            self.userinterface.hostname_error_image.hide()
+            self.userinterface.hostname_error_reason.hide()
+        print "if stepuserinfo done ***"
+
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
+            # expect recursive main loops to be exited and
+            # debconffilter_done() to be called when the filter exits
         else:
             self.app.exit()
 
     def on_keyboard_selected(self):
+        print "  on_keyboard_selected(self):"
         kbd_chooser.apply_keyboard(self.get_keyboard())
 
     def on_back_clicked(self):
@@ -464,16 +516,14 @@ class Wizard:
         step = self.step_name(self.get_current_page())
         pre_log('info', 'Step_after = %s' % step)
 
-    
     def process_identification (self):
         """Processing identification step tasks."""
-        print "  process_identification()"
-    
+
         error_msg = []
         error = 0
-    
+
         # Validation stuff
-    
+
         # checking hostname entry
         hostname = self.userinterface.hostname.text()
         for result in validation.check_hostname(str(hostname)):
@@ -483,12 +533,12 @@ class Wizard:
                 error_msg.append("The hostname may not contain spaces.")
             elif result == validation.HOSTNAME_BADCHAR:
                 error_msg.append("The hostname may only contain letters and digits.")
-    
+
         # showing warning message is error is set
-        if len(error_msg) > 1:
-            self.show_error(''.join(error_msg))
+        if len(error_msg) != 0:
+            self.userinterface.hostname_error_reason.setText("\n".join(error_msg))
+            self.userinterface.hostname_error_reason.show()
         else:
-            # showing next step and destroying mozembed widget to release memory
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
 
     def process_disk_selection (self):
@@ -944,9 +994,9 @@ class Wizard:
 
         # showing warning messages
         if len(error_msg) > 1:
-            self.mountpoint_error_reason.setText(''.join(error_msg))
-            self.mountpoint_error_reason.show()
-            self.mountpoint_error_image.show()
+            self.userinterface.mountpoint_error_reason.setText(''.join(error_msg))
+            self.userinterface.mountpoint_error_reason.show()
+            self.userinterface.mountpoint_error_image.show()
         else:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartReady"])
 
@@ -1307,31 +1357,37 @@ class Wizard:
         """
 
     def set_fullname(self, value):
-      self.userinterface.fullname.setText(str(value))
+        print "  set_fullname(self, value):"
+        self.userinterface.fullname.setText(str(value))
 
     def get_fullname(self):
-      return str(self.userinterface.fullname.text())
-  
+        print "  get_fullname(self):"
+        return str(self.userinterface.fullname.text())
+
     def set_username(self, value):
-      self.userinterface.fullname.setText(str(value))
+        print "  set_username(self, value):"
+        self.userinterface.fullname.setText(str(value))
 
     def get_username(self):
-      return str(self.userinterface.username.text())
+        print "  get_username(self):"
+        return str(self.userinterface.username.text())
   
     def get_password(self):
-      return str(self.userinterface.password.text())
+        print "  get_password(self):"
+        return str(self.userinterface.password.text())
   
     def get_verified_password(self):
-      return str(self.userinterface.verified_password.text())
+        print "  get_verified_password(self):"
+        return str(self.userinterface.verified_password.text())
 
     def username_error(self, msg):
-        print "username_error() fixme for kde"
-        self.username_error_reason.set_text(msg)
-        self.username_error_box.show()
+        print "  username_error(self, msg):"
+        self.userinterface.username_error_reason.setText(msg)
+        self.userinterface.username_error_image.show()
+        self.userinterface.username_error_reason.show()
 
     def password_error(self, msg):
-        print "password_error() fixme for kde"
-        self.password_error_reason.set_text(msg)
-        self.password_error_box.show()
-
-
+        print "  password_error(self, msg):"
+        self.userinterface.password_error_reason.setText(msg)
+        self.userinterface.password_error_image.show()
+        self.userinterface.password_error_reason.show()

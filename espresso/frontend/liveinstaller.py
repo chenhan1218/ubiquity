@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'liveinstaller.ui'
 #
-# Created: Wed Apr 5 17:31:25 2006
+# Created: Fri Apr 7 16:30:54 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -543,6 +543,7 @@ class EspressoUI(QWidget):
         layout18.addLayout(layout16)
 
         self.fullname_error_reason = QLabel(self.stepUserInfo,"fullname_error_reason")
+        self.fullname_error_reason.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
         layout18.addWidget(self.fullname_error_reason)
         spacer30_2_3 = QSpacerItem(200,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
         layout18.addItem(spacer30_2_3)
@@ -554,6 +555,7 @@ class EspressoUI(QWidget):
         layout12 = QGridLayout(None,1,1,0,6,"layout12")
 
         self.username_error_reason = QLabel(self.stepUserInfo,"username_error_reason")
+        self.username_error_reason.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
 
         layout12.addWidget(self.username_error_reason,0,3)
 
@@ -591,6 +593,7 @@ class EspressoUI(QWidget):
         layout19.addItem(spacer30_2_5,0,5)
 
         self.password_error_reason = QLabel(self.stepUserInfo,"password_error_reason")
+        self.password_error_reason.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
 
         layout19.addWidget(self.password_error_reason,0,4)
 
@@ -602,11 +605,13 @@ class EspressoUI(QWidget):
 
         self.verified_password = QLineEdit(self.stepUserInfo,"verified_password")
         self.verified_password.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Fixed,1,0,self.verified_password.sizePolicy().hasHeightForWidth()))
+        self.verified_password.setEchoMode(QLineEdit.Password)
 
         layout19.addWidget(self.verified_password,0,2)
 
         self.password = QLineEdit(self.stepUserInfo,"password")
         self.password.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Fixed,1,0,self.password.sizePolicy().hasHeightForWidth()))
+        self.password.setEchoMode(QLineEdit.Password)
 
         layout19.addWidget(self.password,0,1)
         stepUserInfoLayout.addLayout(layout19)
@@ -639,6 +644,7 @@ class EspressoUI(QWidget):
         layout22.addLayout(layout21)
 
         self.hostname_error_reason = QLabel(self.stepUserInfo,"hostname_error_reason")
+        self.hostname_error_reason.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
         layout22.addWidget(self.hostname_error_reason)
         spacer30_2_6 = QSpacerItem(400,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
         layout22.addItem(spacer30_2_6)

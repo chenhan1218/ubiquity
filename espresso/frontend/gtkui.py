@@ -609,7 +609,8 @@ class Wizard:
 
         if len(filter(lambda v: v == 1, self.entries.values())) == 5:
             self.next.set_sensitive(True)
-
+        else:
+            self.next.set_sensitive(False)
 
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""

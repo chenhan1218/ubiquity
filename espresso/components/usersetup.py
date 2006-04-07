@@ -38,8 +38,7 @@ class UserSetup(FilteredCommand):
 
     def set(self, question, value):
         if question == 'passwd/username':
-            username = self.glade.get_widget('username')
-            if username.get_text() != '':
+            if self.frontend.get_username() != '':
                 username.set_text(value)
 
     def ok_handler(self):
