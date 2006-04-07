@@ -3,6 +3,7 @@ espresso (0.99.43) dapper; urgency=low
   * Make usersetup.py frontend independent
   * KDE Frontend:
     - Add user information validation
+    - Implement basics of timezone selection
   * GTK Frontend:
     - Disable Forward button on user information page if not all
       fields are filled out

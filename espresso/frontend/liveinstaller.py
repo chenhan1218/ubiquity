@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'liveinstaller.ui'
 #
-# Created: Fri Apr 7 16:30:54 2006
+# Created: Fri Apr 7 17:33:06 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -376,6 +376,8 @@ class EspressoUI(QWidget):
         self.lblStepNofM = QLabel(self,"lblStepNofM")
 
         EspressoUILayout.addWidget(self.lblStepNofM,2,0)
+        spacer31 = QSpacerItem(260,41,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        EspressoUILayout.addItem(spacer31,2,1)
 
         self.widgetStack = QWidgetStack(self,"widgetStack")
         self.widgetStack.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,1,self.widgetStack.sizePolicy().hasHeightForWidth()))
@@ -432,47 +434,65 @@ class EspressoUI(QWidget):
         self.stepLocation = QWidget(self.widgetStack,"stepLocation")
         stepLocationLayout = QGridLayout(self.stepLocation,1,1,11,6,"stepLocationLayout")
 
-        layout9 = QGridLayout(None,1,1,0,6,"layout9")
-
-        self.textLabel4 = QLabel(self.stepLocation,"textLabel4")
-        self.textLabel4.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
-
-        layout9.addMultiCellWidget(self.textLabel4,2,2,0,2)
-
-        self.textLabel2 = QLabel(self.stepLocation,"textLabel2")
-
-        layout9.addWidget(self.textLabel2,0,0)
-        spacer19 = QSpacerItem(161,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        layout9.addItem(spacer19,2,3)
-
-        self.textLabel3_2 = QLabel(self.stepLocation,"textLabel3_2")
-
-        layout9.addWidget(self.textLabel3_2,1,0)
-
-        self.timezone_city_combo = QComboBox(0,self.stepLocation,"timezone_city_combo")
-
-        layout9.addWidget(self.timezone_city_combo,0,1)
-
-        self.timezone_zone_text = QLabel(self.stepLocation,"timezone_zone_text")
-
-        layout9.addWidget(self.timezone_zone_text,1,1)
-        spacer18 = QSpacerItem(291,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        layout9.addMultiCell(spacer18,1,1,2,3)
-        spacer17 = QSpacerItem(291,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        layout9.addMultiCell(spacer17,0,0,2,3)
-
-        stepLocationLayout.addLayout(layout9,2,0)
-
         self.frame3 = QFrame(self.stepLocation,"frame3")
         self.frame3.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,1,self.frame3.sizePolicy().hasHeightForWidth()))
         self.frame3.setFrameShape(QFrame.StyledPanel)
         self.frame3.setFrameShadow(QFrame.Raised)
 
-        stepLocationLayout.addWidget(self.frame3,1,0)
+        stepLocationLayout.addWidget(self.frame3,3,0)
+
+        self.line1_2_2 = QFrame(self.stepLocation,"line1_2_2")
+        self.line1_2_2.setFrameShape(QFrame.HLine)
+        self.line1_2_2.setFrameShadow(QFrame.Sunken)
+        self.line1_2_2.setFrameShape(QFrame.HLine)
+
+        stepLocationLayout.addWidget(self.line1_2_2,1,0)
 
         self.textLabel1 = QLabel(self.stepLocation,"textLabel1")
 
         stepLocationLayout.addWidget(self.textLabel1,0,0)
+
+        self.textLabel1_3 = QLabel(self.stepLocation,"textLabel1_3")
+
+        stepLocationLayout.addWidget(self.textLabel1_3,2,0)
+
+        layout13 = QGridLayout(None,1,1,0,6,"layout13")
+
+        self.pushButton4 = QPushButton(self.stepLocation,"pushButton4")
+
+        layout13.addWidget(self.pushButton4,1,5)
+        spacer33_2 = QSpacerItem(70,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout13.addItem(spacer33_2,1,2)
+
+        self.timezone_city_combo = QComboBox(0,self.stepLocation,"timezone_city_combo")
+
+        layout13.addWidget(self.timezone_city_combo,0,1)
+        spacer17 = QSpacerItem(417,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout13.addMultiCell(spacer17,0,0,2,6)
+
+        self.textLabel2_5 = QLabel(self.stepLocation,"textLabel2_5")
+
+        layout13.addWidget(self.textLabel2_5,1,3)
+        spacer18 = QSpacerItem(70,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout13.addItem(spacer18,1,6)
+
+        self.textLabel3_2 = QLabel(self.stepLocation,"textLabel3_2")
+
+        layout13.addWidget(self.textLabel3_2,1,0)
+
+        self.textLabel2 = QLabel(self.stepLocation,"textLabel2")
+
+        layout13.addWidget(self.textLabel2,0,0)
+
+        self.timezone_zone_text = QLabel(self.stepLocation,"timezone_zone_text")
+
+        layout13.addWidget(self.timezone_zone_text,1,1)
+
+        self.textLabel3_4 = QLabel(self.stepLocation,"textLabel3_4")
+
+        layout13.addWidget(self.textLabel3_4,1,4)
+
+        stepLocationLayout.addLayout(layout13,4,0)
         self.widgetStack.addWidget(self.stepLocation,2)
 
         self.stepKeyboardConf = QWidget(self.widgetStack,"stepKeyboardConf")
@@ -941,8 +961,6 @@ class EspressoUI(QWidget):
         self.widgetStack.addWidget(self.stepReady,9)
 
         EspressoUILayout.addMultiCellWidget(self.widgetStack,1,1,0,4)
-        spacer31 = QSpacerItem(260,41,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        EspressoUILayout.addItem(spacer31,2,1)
 
         self.languageChange()
 
@@ -963,11 +981,14 @@ class EspressoUI(QWidget):
         self.textLabel2_3.setText(self.__tr("Ready to install? Once you answer a few questions, Ubuntu can be installed on this computer so you can run the system at full speed and without the CD.\n"
 "\n"
 "Answering the questions should only take a few minutes."))
-        self.textLabel4.setText(self.__tr("Specifying your location helps achieve faster downloads, and accurate number and currency settings."))
-        self.textLabel2.setText(self.__tr("Nearest city:"))
-        self.textLabel3_2.setText(self.__tr("Time zone:"))
-        self.timezone_zone_text.setText(QString.null)
         self.textLabel1.setText(self.__tr("<h2>Where are you?</h2>"))
+        self.textLabel1_3.setText(self.__tr("Select a city in your country and time zone."))
+        self.pushButton4.setText(self.__tr("Set Time..."))
+        self.textLabel2_5.setText(self.__tr("Current Time:"))
+        self.textLabel3_2.setText(self.__tr("Time zone:"))
+        self.textLabel2.setText(self.__tr("Selected City:"))
+        self.timezone_zone_text.setText(QString.null)
+        self.textLabel3_4.setText(QString.null)
         self.textLabel5_2.setText(self.__tr("<h2>Keyboard Layout</h2>"))
         self.textLabel7_3.setText(self.__tr("You can type into this box to test your new keyboard layout."))
         self.keyboardlistview.header().setLabel(0,self.__tr("Layout"))

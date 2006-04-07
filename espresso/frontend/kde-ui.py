@@ -250,58 +250,37 @@ class Wizard:
 	return self.returncode
     
     def customize_installer(self):
-        """Customizing logo and images."""
-        # images stuff
-        print "  customize_installer()"
-        """
-        self.install_image = 0
-        PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
-        self.total_images   = glob.glob("%s/snapshot*.png" % PIXMAPSDIR)
-        messages = open("%s/messages.txt" % PIXMAPSDIR)
-        self.total_messages = map(lambda line: line.rstrip('\n'),
-                                  messages.readlines())
-        messages.close()
-        """
+        """Initial UI setup."""
+
         iconLoader = KIconLoader()
         icon = iconLoader.loadIcon("system", KIcon.Small)
         self.userinterface.logo_image.setPixmap(icon)
         self.userinterface.backButton.setEnabled(False)
 
         """
+
+        PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
+
         # set pixmaps
         if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
-        self.logo_image0.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-        self.logo_image1.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-        self.photo1.set_from_file(os.path.join(PIXMAPSDIR, "photo_1280.jpg"))
-        self.logo_image21.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-        self.logo_image22.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-        self.logo_image23.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-        self.logo_image3.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
-        self.photo2.set_from_file(os.path.join(PIXMAPSDIR, "photo_1280.jpg"))
-        self.logo_image4.set_from_file(os.path.join(PIXMAPSDIR, "logo_1280.jpg"))
+            logo = os.path.join(PIXMAPSDIR, "logo_1280.jpg")
+            photo = os.path.join(PIXMAPSDIR, "photo_1280.jpg")
         else:
-        self.logo_image0.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-        self.logo_image1.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-        self.photo1.set_from_file(os.path.join(PIXMAPSDIR, "photo_1024.jpg"))
-        self.logo_image21.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-        self.logo_image22.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-        self.logo_image23.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-        self.logo_image3.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-        self.photo2.set_from_file(os.path.join(PIXMAPSDIR, "photo_1024.jpg"))
-        self.logo_image4.set_from_file(os.path.join(PIXMAPSDIR, "logo_1024.jpg"))
-    
-        self.installing_image.set_from_file(os.path.join(PIXMAPSDIR, "snapshot1.png"))
-        
-        self.live_installer.show()
-        self.live_installer.window.set_cursor(self.watch)
-        
-        self.tzmap = TimezoneMap(self)
-        self.tzmap.tzmap.show()
-    
-        # set initial bottom bar status
-        self.back.hide()
-        self.next.set_label('gtk-go-forward')
+            logo = os.path.join(PIXMAPSDIR, "logo_1024.jpg")
+            photo = os.path.join(PIXMAPSDIR, "photo_1024.jpg")
+        if not os.path.exists(logo):
+            logo = None
+        if not os.path.exists(photo):
+            photo = None
+
+        self.logo_image.set_from_file(logo)
+        self.photo.set_from_file(photo)
         """
+
+        #self.live_installer.window.set_cursor(self.watch)
+
+        self.tzmap = TimezoneMap(self)
+        #self.tzmap.tzmap.show()
 
     def set_locales(self):
         """internationalization config. Use only once."""
@@ -1342,11 +1321,12 @@ class Wizard:
 
     def set_timezone (self, timezone):
         print "  set_timezone (self, timezone): " + timezone + "<<"
-        #self.tzmap.set_tz_from_name(timezone)
+        self.tzmap.set_tz_from_name(timezone)
 
     def get_timezone (self):
         print "  get_timezone (self):"
-        return "Europe/London" #self.tzmap.get_selected_tz_name()
+        #return "Europe/London" #self.tzmap.get_selected_tz_name()
+        return self.userinterface.timezone_city_combo.currentText()
 
     def refresh (self):
         print "  refresh (self):"
@@ -1391,3 +1371,80 @@ class Wizard:
         self.userinterface.password_error_reason.setText(msg)
         self.userinterface.password_error_image.show()
         self.userinterface.password_error_reason.show()
+
+class TimezoneMap(object):
+    def __init__(self, frontend):
+        print "  TimezoneMap.__init__(self, frontend):"
+        self.frontend = frontend
+        self.tzdb = espresso.tz.Database()
+        #self.tzmap = espresso.emap.EMap()
+        self.update_timeout = None
+        self.point_selected = None
+        self.point_hover = None
+        self.location_selected = None
+
+        """
+        zoom_in_file = os.path.join(GLADEDIR, 'pixmaps', self.frontend.distro,
+                                    'zoom-in.png')
+        if os.path.exists(zoom_in_file):
+            display = self.frontend.live_installer.get_display()
+            pixbuf = gtk.gdk.pixbuf_new_from_file(zoom_in_file)
+            self.cursor_zoom_in = gtk.gdk.Cursor(display, pixbuf, 10, 10)
+        else:
+            self.cursor_zoom_in = None
+
+        self.tzmap.add_events(gtk.gdk.LEAVE_NOTIFY_MASK |
+                              gtk.gdk.VISIBILITY_NOTIFY_MASK)
+
+        self.frontend.timezone_map_window.add(self.tzmap)
+        """
+
+        timezone_city_combo = self.frontend.userinterface.timezone_city_combo
+
+        for location in self.tzdb.locations:
+            #self.tzmap.add_point("", location.longitude, location.latitude,
+            #                     NORMAL_RGBA)
+            timezone_city_combo.insertItem(location.zone)
+
+        #self.tzmap.connect("map-event", self.mapped)
+        #self.tzmap.connect("unmap-event", self.unmapped)
+        #self.tzmap.connect("motion-notify-event", self.motion)
+        #self.tzmap.connect("button-press-event", self.button_pressed)
+        #self.tzmap.connect("leave-notify-event", self.out_map)
+
+        #timezone_city_combo.connect("changed", self.city_changed)
+
+    def set_tz_from_name(self, name):
+        print "  set_tz_from_name(self, name): " + name
+        """
+        (longitude, latitude) = (0.0, 0.0)
+
+        for location in self.tzdb.locations:
+            if location.zone == name:
+                (longitude, latitude) = (location.longitude, location.latitude)
+                break
+        else:
+            return
+
+        if self.point_selected is not None:
+            self.tzmap.point_set_color_rgba(self.point_selected, NORMAL_RGBA)
+
+        self.point_selected = self.tzmap.get_closest_point(longitude, latitude,
+                                                           False)
+
+        self.location_selected = location
+        self.set_city_text(self.location_selected.zone)
+        self.set_zone_text(self.location_selected)
+        """
+
+        timezone_city_combo = self.frontend.userinterface.timezone_city_combo
+        count = timezone_city_combo.count()
+        found = False
+        i = 0
+        while not found and i < count:
+            print "not found " + str(i)
+            if str(timezone_city_combo.text(i)) == name:
+                print "found"
+                timezone_city_combo.setCurrentItem(i)
+                found = True
+            i += 1
