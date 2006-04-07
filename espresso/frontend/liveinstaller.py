@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'liveinstaller.ui'
+# Form implementation generated from reading ui file 'espresso/frontend/liveinstaller.ui'
 #
-# Created: Fri Apr 7 22:19:59 2006
+# Created: Fri Apr 7 23:42:30 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -1501,19 +1501,7 @@ class EspressoUI(QWidget):
         spacer3_2_4_2_2 = QSpacerItem(161,16,QSizePolicy.Expanding,QSizePolicy.Minimum)
         layout9_4_2_2.addItem(spacer3_2_4_2_2)
 
-        EspressoUILayout.addMultiCellLayout(layout9_4_2_2,0,0,0,4)
-
-        self.backButton = QPushButton(self,"backButton")
-
-        EspressoUILayout.addWidget(self.backButton,2,3)
-
-        self.nextButton = QPushButton(self,"nextButton")
-
-        EspressoUILayout.addWidget(self.nextButton,2,4)
-
-        self.cancelButton = QPushButton(self,"cancelButton")
-
-        EspressoUILayout.addWidget(self.cancelButton,2,2)
+        EspressoUILayout.addMultiCellLayout(layout9_4_2_2,0,0,0,5)
 
         self.lblStepNofM = QLabel(self,"lblStepNofM")
 
@@ -1966,7 +1954,21 @@ class EspressoUI(QWidget):
         stepReadyLayout.addMultiCellWidget(self.textLabel7,2,2,0,1)
         self.widgetStack.addWidget(self.stepReady,9)
 
-        EspressoUILayout.addMultiCellWidget(self.widgetStack,1,1,0,4)
+        EspressoUILayout.addMultiCellWidget(self.widgetStack,1,1,0,5)
+
+        self.backButton = QPushButton(self,"backButton")
+
+        EspressoUILayout.addWidget(self.backButton,2,2)
+
+        self.nextButton = QPushButton(self,"nextButton")
+
+        EspressoUILayout.addWidget(self.nextButton,2,3)
+
+        self.cancelButton = QPushButton(self,"cancelButton")
+
+        EspressoUILayout.addWidget(self.cancelButton,2,5)
+        spacer40 = QSpacerItem(20,20,QSizePolicy.Fixed,QSizePolicy.Minimum)
+        EspressoUILayout.addItem(spacer40,2,4)
 
         self.languageChange()
 
@@ -1977,9 +1979,6 @@ class EspressoUI(QWidget):
     def languageChange(self):
         self.setCaption(self.__tr("Kubuntu Installer"))
         QWhatsThis.add(self,QString.null)
-        self.backButton.setText(self.__tr("< Back"))
-        self.nextButton.setText(self.__tr("Next >"))
-        self.cancelButton.setText(self.__tr("Cancel"))
         self.lblStepNofM.setText(self.__tr("Step N of M"))
         self.introLabel.setText(self.__tr("textLabel2"))
         self.textLabel1_2.setText(self.__tr("<h2>Welcome</h2>"))
@@ -2027,6 +2026,9 @@ class EspressoUI(QWidget):
         self.textLabel6.setText(self.__tr("<h2>Ready to install</h2>"))
         self.textLabel8.setText(self.__tr("Details"))
         self.textLabel7.setText(self.__tr("Kubuntu is ready to install on this computer."))
+        self.backButton.setText(self.__tr("< Back"))
+        self.nextButton.setText(self.__tr("Next >"))
+        self.cancelButton.setText(self.__tr("Cancel"))
 
 
     def __tr(self,s,c = None):

@@ -26,7 +26,7 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="5">
+        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="6">
             <property name="name">
                 <cstring>layout9_4_2_2</cstring>
             </property>
@@ -81,30 +81,6 @@
                 </spacer>
             </hbox>
         </widget>
-        <widget class="QPushButton" row="2" column="3">
-            <property name="name">
-                <cstring>backButton</cstring>
-            </property>
-            <property name="text">
-                <string>&lt; Back</string>
-            </property>
-        </widget>
-        <widget class="QPushButton" row="2" column="4">
-            <property name="name">
-                <cstring>nextButton</cstring>
-            </property>
-            <property name="text">
-                <string>Next &gt;</string>
-            </property>
-        </widget>
-        <widget class="QPushButton" row="2" column="2">
-            <property name="name">
-                <cstring>cancelButton</cstring>
-            </property>
-            <property name="text">
-                <string>Cancel</string>
-            </property>
-        </widget>
         <widget class="QLabel" row="2" column="0">
             <property name="name">
                 <cstring>lblStepNofM</cstring>
@@ -130,7 +106,7 @@
                 </size>
             </property>
         </spacer>
-        <widget class="QWidgetStack" row="1" column="0" rowspan="1" colspan="5">
+        <widget class="QWidgetStack" row="1" column="0" rowspan="1" colspan="6">
             <property name="name">
                 <cstring>widgetStack</cstring>
             </property>
@@ -1602,6 +1578,47 @@ You must mount one partition on the root file system ("/"), and you must choose 
                 </grid>
             </widget>
         </widget>
+        <widget class="QPushButton" row="2" column="2">
+            <property name="name">
+                <cstring>backButton</cstring>
+            </property>
+            <property name="text">
+                <string>&lt; Back</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="2" column="3">
+            <property name="name">
+                <cstring>nextButton</cstring>
+            </property>
+            <property name="text">
+                <string>Next &gt;</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="2" column="5">
+            <property name="name">
+                <cstring>cancelButton</cstring>
+            </property>
+            <property name="text">
+                <string>Cancel</string>
+            </property>
+        </widget>
+        <spacer row="2" column="4">
+            <property name="name">
+                <cstring>spacer40</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Fixed</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
     </grid>
 </widget>
 <images>
