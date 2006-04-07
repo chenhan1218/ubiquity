@@ -1,9 +1,9 @@
-espresso (0.99.42) UNRELEASED; urgency=low
+espresso (0.99.42) dapper; urgency=low
 
   * Disable pkgstriptranslations while building nested packages. Requires
     pkgstriptranslations (>= 27) on the buildds.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri,  7 Apr 2006 10:07:10 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  7 Apr 2006 10:24:13 +0100
 
 espresso (0.99.41) dapper; urgency=low
 
