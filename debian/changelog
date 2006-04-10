@@ -2,6 +2,8 @@ espresso (0.99.43) UNRELEASED; urgency=low
 
   * Add /cdrom/casper/filesystem.squashfs to the list of filesystem images
     we try to mount if casper didn't do it for us.
+  * Use choose-mirror and apt-setup to set up a standard
+    /etc/apt/sources.list.
 
  -- Colin Watson <cjwatson@debian.org>  Fri,  7 Apr 2006 12:03:47 +0100
 

@@ -1,3 +1,5 @@
+apt-setup
+choose-mirror
 debian-installer-utils
 hw-detect
 kbd-chooser

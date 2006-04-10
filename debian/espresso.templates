@@ -255,6 +255,10 @@ Template: espresso/install/locales
 Type: text
 _Description: Configuring system locales...
 
+Template: espresso/install/apt
+Type: text
+_Description: Configuring apt...
+
 Template: espresso/install/timezone
 Type: text
 _Description: Configuring time zone...

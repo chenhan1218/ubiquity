@@ -37,7 +37,7 @@ from apt.package import Package
 from apt.cache import Cache
 from apt.progress import FetchProgress, InstallProgress
 from espresso import misc
-from espresso.components import language_apply, timezone_apply, \
+from espresso.components import language_apply, apt_setup, timezone_apply, \
                                 kbd_chooser_apply, usersetup_apply
 
 class DebconfFetchProgress(FetchProgress):
@@ -237,7 +237,14 @@ class Install:
             return False
 
         self.db.progress('SET', 82)
-        self.db.progress('REGION', 82, 87)
+        self.db.progress('REGION', 82, 83)
+        self.db.progress('INFO', 'espresso/install/apt')
+        if not self.configure_apt():
+            self.db.progress('STOP')
+            return False
+
+        self.db.progress('SET', 83)
+        self.db.progress('REGION', 83, 87)
         # Ignore failures from language pack installation.
         self.install_language_packs()
 
@@ -522,6 +529,12 @@ class Install:
     def configure_locales(self):
         """Apply locale settings to installed system."""
         dbfilter = language_apply.LanguageApply(None)
+        return (dbfilter.run_command(auto_process=True) == 0)
+
+
+    def configure_apt(self):
+        """Configure /etc/apt/sources.list."""
+        dbfilter = apt_setup.AptSetup(None)
         return (dbfilter.run_command(auto_process=True) == 0)
 
 
