@@ -1,3 +1,10 @@
+espresso (0.99.44) dapper; urgency=low
+
+  * KDE Frontend:
+    - Fix mountpoints page 
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 10 Apr 2006 21:55:27 +0000
+
 espresso (0.99.43) dapper; urgency=low
 
   * Make usersetup.py frontend independent
