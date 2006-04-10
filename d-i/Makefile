@@ -57,7 +57,7 @@ install:
 			name="$$(basename "$$udeb" .udeb)"; \
 			dpkg-deb -e "$$udeb" "udeb-control/$$name"; \
 			if [ -f "udeb-control/$$name/templates" ]; then \
-				cat "udeb-control/$$name/templates" >> templates; \
+				sed -n '/./,$$p' "udeb-control/$$name/templates" >> templates; \
 				echo >> templates; \
 			fi; \
 		fi; \
