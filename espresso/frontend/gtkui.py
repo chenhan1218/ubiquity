@@ -609,7 +609,8 @@ class Wizard:
 
         if len(filter(lambda v: v == 1, self.entries.values())) == 5:
             self.next.set_sensitive(True)
-
+        else:
+            self.next.set_sensitive(False)
 
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""
@@ -743,6 +744,7 @@ class Wizard:
 
         print >>self.gparted_subp.stdin, "apply"
 
+        # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
         gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
         while gparted_reply.startswith('- '):
             pre_log('info', 'gparted replied: %s' % gparted_reply)
