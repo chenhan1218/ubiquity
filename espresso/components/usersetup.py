@@ -39,7 +39,7 @@ class UserSetup(FilteredCommand):
     def set(self, question, value):
         if question == 'passwd/username':
             if self.frontend.get_username() != '':
-                username.set_text(value)
+                self.frontend.set_username(value)
 
     def ok_handler(self):
         fullname = self.frontend.get_fullname()
