@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'espresso/frontend/liveinstaller.ui'
+# Form implementation generated from reading ui file 'liveinstaller.ui'
 #
-# Created: Fri Apr 7 23:42:30 2006
+# Created: Mon Apr 10 21:44:48 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -1896,20 +1896,20 @@ class EspressoUI(QWidget):
 
         layout21_2 = QGridLayout(None,1,1,0,6,"layout21_2")
 
-        self.img_error2 = QLabel(self.stepPartMountpoints,"img_error2")
-        self.img_error2.setPixmap(self.image3)
-        self.img_error2.setScaledContents(1)
+        self.mountpoint_error_image = QLabel(self.stepPartMountpoints,"mountpoint_error_image")
+        self.mountpoint_error_image.setPixmap(self.image3)
+        self.mountpoint_error_image.setScaledContents(1)
 
-        layout21_2.addWidget(self.img_error2,2,0)
+        layout21_2.addWidget(self.mountpoint_error_image,2,0)
         spacer36 = QSpacerItem(41,161,QSizePolicy.Minimum,QSizePolicy.Expanding)
         layout21_2.addItem(spacer36,0,1)
         spacer35_3 = QSpacerItem(21,20,QSizePolicy.Minimum,QSizePolicy.Expanding)
         layout21_2.addItem(spacer35_3,1,0)
 
-        self.msg_error2 = QLabel(self.stepPartMountpoints,"msg_error2")
-        self.msg_error2.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Preferred,0,0,self.msg_error2.sizePolicy().hasHeightForWidth()))
+        self.mountpoint_error_reason = QLabel(self.stepPartMountpoints,"mountpoint_error_reason")
+        self.mountpoint_error_reason.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Preferred,0,0,self.mountpoint_error_reason.sizePolicy().hasHeightForWidth()))
 
-        layout21_2.addMultiCellWidget(self.msg_error2,1,3,1,1)
+        layout21_2.addMultiCellWidget(self.mountpoint_error_reason,1,3,1,1)
         spacer34_2 = QSpacerItem(278,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
         layout21_2.addItem(spacer34_2,0,2)
         spacer26 = QSpacerItem(21,20,QSizePolicy.Minimum,QSizePolicy.Expanding)
@@ -2022,7 +2022,7 @@ class EspressoUI(QWidget):
         self.mount_help.setText(self.__tr("Select which partitions you want to use for your new installation, and where you want to mount each of them.\n"
 "\n"
 "You must mount one partition on the root file system (\"/\"), and you must choose at least one partition for use as swap space."))
-        self.msg_error2.setText(self.__tr("You must supply a root (\"/\") mount point."))
+        self.mountpoint_error_reason.setText(self.__tr("You must supply a root (\"/\") mount point."))
         self.textLabel6.setText(self.__tr("<h2>Ready to install</h2>"))
         self.textLabel8.setText(self.__tr("Details"))
         self.textLabel7.setText(self.__tr("Kubuntu is ready to install on this computer."))

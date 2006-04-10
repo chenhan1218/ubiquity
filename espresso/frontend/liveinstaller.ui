@@ -1393,7 +1393,7 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             </property>
                             <widget class="QLabel" row="2" column="0">
                                 <property name="name">
-                                    <cstring>img_error2</cstring>
+                                    <cstring>mountpoint_error_image</cstring>
                                 </property>
                                 <property name="pixmap">
                                     <pixmap>image3</pixmap>
@@ -1438,7 +1438,7 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             </spacer>
                             <widget class="QLabel" row="1" column="1" rowspan="3" colspan="1">
                                 <property name="name">
-                                    <cstring>msg_error2</cstring>
+                                    <cstring>mountpoint_error_reason</cstring>
                                 </property>
                                 <property name="sizePolicy">
                                     <sizepolicy>

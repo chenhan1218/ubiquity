@@ -354,13 +354,14 @@ class Wizard:
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
         """
 
-    def on_list_changed(self, widget):
+    def on_list_changed(self, textID):
         print "  on_list_changed(self, widget):"
         """check if partition/mountpoint pair is filled and show the next pair
         on mountpoint screen. Also size label associated with partition combobox
         is changed dynamically to show the size partition."""
-
+        
         """
+
         if widget.get_active_text() not in ['', None]:
             if widget in self.partition_widgets:
                 index = self.partition_widgets.index(widget)
@@ -368,40 +369,42 @@ class Wizard:
                 index = self.mountpoint_widgets.index(widget)
             else:
                 return
+        """
 
-            partition_text = self.partition_widgets[index].get_active_text()
+        index = 0
+        while index < len(self.partition_widgets):
+
+            #set size widget
+            partition_text = self.partition_widgets[index].currentText()
             if partition_text == ' ':
-                self.size_widgets[index].set_text('')
+                self.size_widgets[index].setText('')
             elif partition_text != None:
-                self.size_widgets[index].set_text(self.set_size_msg(self.partition_widgets[index]))
+                self.size_widgets[index].setText(self.set_size_msg(self.partition_widgets[index]))
 
             # Does the Reformat checkbox make sense?
             if (partition_text == ' ' or
                 partition_text not in self.part_devices):
-                self.format_widgets[index].set_sensitive(False)
-                self.format_widgets[index].set_active(False)
+                self.format_widgets[index].setEnabled(False)
+                self.format_widgets[index].setChecked(False)
             else:
                 partition = self.part_devices[partition_text]
                 if partition in self.gparted_fstype:
-                    self.format_widgets[index].set_sensitive(False)
-                    self.format_widgets[index].set_active(True)
+                    self.format_widgets[index].setEnablede(False)
+                    self.format_widgets[index].setChecked(True)
                 else:
-                    self.format_widgets[index].set_sensitive(True)
+                    self.format_widgets[index].setChecked(True)
 
+            #add new row if partitions list is long enough and last row validates
             if len(get_partitions()) > len(self.partition_widgets):
                 for i in range(len(self.partition_widgets)):
-                    partition = self.partition_widgets[i].get_active_text()
-                    mountpoint = self.mountpoint_widgets[i].get_active_text()
+                    partition = self.partition_widgets[i].currentText()
+                    mountpoint = self.mountpoint_widgets[i].currentText()
                     if partition is None or mountpoint == "":
                         break
                 else:
                     # All table rows have been filled; create a new one.
                     self.add_mountpoint_table_row()
-                    self.mountpoint_widgets[-1].connect("changed",
-                                                        self.on_list_changed)
-                    self.partition_widgets[-1].connect("changed",
-                                                       self.on_list_changed)
-        """
+            index += 1
 
     def info_loop(self):
         print "  info_loop(self, widget):"
@@ -835,10 +838,15 @@ class Wizard:
 
             # We defer connecting up signals until now to avoid the changed
             # signal firing while we're busy populating the table.
+            """
             for mountpoint in self.mountpoint_widgets:
                 self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
             for partition in self.partition_widgets:
                 self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
+            """
+
+        self.userinterface.mountpoint_error_reason.hide()
+        self.userinterface.mountpoint_error_image.hide()
 
         self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartMountpoints"])
 
@@ -951,7 +959,7 @@ class Wizard:
         mountpoint.insertItem("")
         for mp in self.mountpoint_choices:
             mountpoint.insertItem(mp)
-        size = QLabel(self.userinterface)
+        size = QLabel(self.userinterface.mountpoint_frame)
         partition = QComboBox(self.userinterface.mountpoint_frame)
         for part in self.partition_choices:
             if part in self.part_labels:
@@ -976,6 +984,9 @@ class Wizard:
         size.show()
         partition.show()
         format.show()
+
+        self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
+        self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
 
     def get_default_partition_selection(self, size, fstype):
         print "  get_default_partition_selection(self, size):"
@@ -1020,7 +1031,6 @@ class Wizard:
         return selection
 
     def set_size_msg(self, widget):
-        print "  set_size_msg(self, widget):"
         """return a string message with size value about
         the partition target by widget argument."""
 
@@ -1028,7 +1038,7 @@ class Wizard:
         if widget.__class__ == str:
             size = float(self.size[widget.split('/')[2]])
         else:
-            size = float(self.size[self.part_devices[widget.get_active_text()].split('/')[2]])
+            size = float(self.size[self.part_devices[str(widget.currentText())].split('/')[2]])
 
         if size > 1024*1024:
             msg = '%.0f Gb' % (size/1024/1024)
@@ -1036,6 +1046,7 @@ class Wizard:
             msg = '%.0f Mb' % (size/1024)
         else:
             msg = '%.0f Kb' % size
+        print "msg: " + msg
         return msg
 
     def get_partition_widgets(self):
