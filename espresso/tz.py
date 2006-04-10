@@ -20,9 +20,11 @@
 import os
 import datetime
 import time
+import xml.dom.minidom
 
 
 TZ_DATA_FILE = '/usr/share/zoneinfo/zone.tab'
+ISO_3166_FILE = '/usr/share/xml/iso-codes/iso_3166.xml'
 
 def _seconds_since_epoch(dt):
     # TODO cjwatson 2006-02-23: %s escape is not portable
@@ -98,6 +100,28 @@ class SystemTzInfo(datetime.tzinfo):
             self._restore_tz()
 
 
+class Iso3166(object):
+    def __init__(self):
+        self.names = {}
+        document = xml.dom.minidom.parse(ISO_3166_FILE)
+        entries = document.getElementsByTagName('iso_3166_entries')[0]
+        self.handle_entries(entries)
+
+    def handle_entries(self, entries):
+        for entry in entries.getElementsByTagName('iso_3166_entry'):
+            self.handle_entry(entry)
+
+    def handle_entry(self, entry):
+        if (entry.hasAttribute('alpha_2_code') and
+            (entry.hasAttribute('common_name') or entry.hasAttribute('name'))):
+            alpha_2_code = entry.getAttribute('alpha_2_code')
+            if entry.hasAttribute('common_name'):
+                name = entry.getAttribute('common_name')
+            else:
+                name = entry.getAttribute('name')
+            self.names[alpha_2_code] = name
+
+
 # Much of the Location and Database classes are a rough translation of
 # gnome-system-tools/src/time/tz.c. Thanks to Hans Petter Jansson
 # <hpj@ximian.com> for that.
@@ -115,7 +139,7 @@ def _parse_position(position, wholedigits):
         return whole - fraction / pow(10.0, len(fractionstr))
 
 class Location(object):
-    def __init__(self, zonetab_line):
+    def __init__(self, zonetab_line, iso3166):
         bits = zonetab_line.rstrip().split('\t', 3)
         latlong = bits[1]
         latlongsplit = latlong.find('-', 1)
@@ -129,6 +153,10 @@ class Location(object):
             longitude = '+0'
 
         self.country = bits[0]
+        if self.country in iso3166.names:
+            self.human_country = iso3166.names[self.country]
+        else:
+            self.human_country = self.country
         self.zone = bits[2]
         if len(bits) > 3:
             self.comment = bits[3]
@@ -146,10 +174,11 @@ class Location(object):
 class Database(object):
     def __init__(self):
         self.locations = []
+        iso3166 = Iso3166()
         tzdata = open(TZ_DATA_FILE)
         for line in tzdata:
             if line.startswith('#'):
                 continue
-            self.locations.append(Location(line))
+            self.locations.append(Location(line, iso3166))
         tzdata.close()
         self.locations.sort(cmp, lambda location: location.zone)

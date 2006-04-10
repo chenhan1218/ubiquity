@@ -1458,13 +1458,23 @@ class TimezoneMap(object):
         renderer = gtk.CellRendererText()
         timezone_city_combo.pack_start(renderer, True)
         timezone_city_combo.add_attribute(renderer, 'text', 0)
-        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         timezone_city_combo.set_model(list_store)
 
+        prev_region = ''
         for location in self.tzdb.locations:
             self.tzmap.add_point("", location.longitude, location.latitude,
                                  NORMAL_RGBA)
-            list_store.append([location.zone])
+            zone_bits = location.zone.split('/')
+            if len(zone_bits) == 1:
+                continue
+            region = zone_bits[0]
+            if region != prev_region:
+                list_store.append(['', None])
+                list_store.append(["--- %s ---" % region, None])
+                prev_region = region
+            human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
+            list_store.append([human_zone, location.zone])
 
         self.tzmap.connect("map-event", self.mapped)
         self.tzmap.connect("unmap-event", self.unmapped)
@@ -1478,7 +1488,7 @@ class TimezoneMap(object):
         model = self.frontend.timezone_city_combo.get_model()
         iterator = model.get_iter_first()
         while iterator is not None:
-            location = model.get_value(iterator, 0)
+            location = model.get_value(iterator, 1)
             if location == name:
                 self.frontend.timezone_city_combo.set_active_iter(iterator)
                 break
@@ -1496,6 +1506,11 @@ class TimezoneMap(object):
             text = "%s (GMT%+d:%02d)" % (location.zone_letters,
                                          minuteoffset / 60, minuteoffset % 60)
         self.frontend.timezone_zone_text.set_text(text)
+        translations = gettext.translation('iso_3166',
+                                           languages=[self.frontend.locale],
+                                           fallback=True)
+        self.frontend.timezone_country_text.set_text(
+            translations.ugettext(location.human_country))
         self.update_current_time()
 
     def update_current_time(self):
@@ -1527,15 +1542,15 @@ class TimezoneMap(object):
         iterator = widget.get_active_iter()
         if iterator is not None:
             model = widget.get_model()
-            location = model.get_value(iterator, 0)
-            self.set_tz_from_name(location)
+            location = model.get_value(iterator, 1)
+            if location is not None:
+                self.set_tz_from_name(location)
 
     def get_selected_tz_name(self):
-        iterator = self.frontend.timezone_city_combo.get_active_iter()
-        if iterator is not None:
-            model = self.frontend.timezone_city_combo.get_model()
-            return model.get_value(iterator, 0)
-        return None
+        if self.location_selected is not None:
+            return self.location_selected.zone
+        else:
+            return None
 
     def location_from_point(self, point):
         (longitude, latitude) = point.get_location()
@@ -1632,13 +1647,14 @@ class TimezoneMap(object):
                                                 NORMAL_RGBA)
             self.point_selected = self.point_hover
 
-            self.location_selected = \
+            new_location_selected = \
                 self.location_from_point(self.point_selected)
-            if self.location_selected is not None:
+            if new_location_selected is not None:
                 old_city = self.get_selected_tz_name()
-                if old_city is None or old_city != self.location_selected.zone:
-                    self.set_city_text(self.location_selected.zone)
-                    self.set_zone_text(self.location_selected)
+                if old_city is None or old_city != new_location_selected.zone:
+                    self.set_city_text(new_location_selected.zone)
+                    self.set_zone_text(new_location_selected)
+            self.location_selected = new_location_selected
 
         return True
 

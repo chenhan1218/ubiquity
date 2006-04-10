@@ -5,6 +5,11 @@ espresso (0.99.43) UNRELEASED; urgency=low
     we try to mount if casper didn't do it for us.
   * Use choose-mirror and apt-setup to set up a standard
     /etc/apt/sources.list.
+  * GTK frontend:
+    - Display more human-readable names for cities.
+    - Display the selected country (using the existing iso-codes
+      translations, which I hope should avoid most of the thorny
+      geopolitical issues).
 
   [ Jonathan Riddell ]
   * Make usersetup.py frontend independent
