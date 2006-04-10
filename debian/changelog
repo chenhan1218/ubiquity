@@ -10,6 +10,7 @@ espresso (0.99.43) UNRELEASED; urgency=low
     - Display the selected country (using the existing iso-codes
       translations, which I hope should avoid most of the thorny
       geopolitical issues).
+    - Stop depending on firefox; we don't display HTML any more.
 
   [ Jonathan Riddell ]
   * Make usersetup.py frontend independent
