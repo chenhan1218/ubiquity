@@ -1461,18 +1461,18 @@ class TimezoneMap(object):
         list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         timezone_city_combo.set_model(list_store)
 
-        prev_region = ''
+        prev_continent = ''
         for location in self.tzdb.locations:
             self.tzmap.add_point("", location.longitude, location.latitude,
                                  NORMAL_RGBA)
             zone_bits = location.zone.split('/')
             if len(zone_bits) == 1:
                 continue
-            region = zone_bits[0]
-            if region != prev_region:
+            continent = zone_bits[0]
+            if continent != prev_continent:
                 list_store.append(['', None])
-                list_store.append(["--- %s ---" % region, None])
-                prev_region = region
+                list_store.append(["--- %s ---" % continent, None])
+                prev_continent = continent
             human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
             list_store.append([human_zone, location.zone])
 
