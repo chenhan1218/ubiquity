@@ -1,4 +1,4 @@
-espresso (0.99.43) UNRELEASED; urgency=low
+espresso (0.99.43) dapper; urgency=low
 
   [ Colin Watson ]
   * Add /cdrom/casper/filesystem.squashfs to the list of filesystem images
@@ -24,7 +24,7 @@ espresso (0.99.43) UNRELEASED; urgency=low
     - Disable Forward button on user information page if not all
       fields are filled out
 
- -- Colin Watson <cjwatson@debian.org>  Fri,  7 Apr 2006 12:03:47 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 10 Apr 2006 17:52:28 +0100
 
 espresso (0.99.42) dapper; urgency=low
 
