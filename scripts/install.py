@@ -457,6 +457,7 @@ class Install:
 
         # Manual Detection on non unionfs systems
         fsfiles = ['/cdrom/casper/filesystem.cloop',
+                   '/cdrom/casper/filesystem.squashfs',
                    '/cdrom/META/META.squashfs']
 
         for fsfile in fsfiles:
