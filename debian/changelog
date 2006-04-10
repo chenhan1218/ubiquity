@@ -7,6 +7,19 @@ espresso (0.99.44) dapper; urgency=low
 
 espresso (0.99.43) dapper; urgency=low
 
+  [ Colin Watson ]
+  * Add /cdrom/casper/filesystem.squashfs to the list of filesystem images
+    we try to mount if casper didn't do it for us.
+  * Use choose-mirror and apt-setup to set up a standard
+    /etc/apt/sources.list.
+  * GTK frontend:
+    - Display more human-readable names for cities.
+    - Display the selected country (using the existing iso-codes
+      translations, which I hope should avoid most of the thorny
+      geopolitical issues).
+    - Stop depending on firefox; we don't display HTML any more.
+
+  [ Jonathan Riddell ]
   * Make usersetup.py frontend independent
   * KDE Frontend:
     - Add user information validation
@@ -18,7 +31,7 @@ espresso (0.99.43) dapper; urgency=low
     - Disable Forward button on user information page if not all
       fields are filled out
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Fri,  7 Apr 2006 16:57:53 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 10 Apr 2006 17:52:28 +0100
 
 espresso (0.99.42) dapper; urgency=low
 

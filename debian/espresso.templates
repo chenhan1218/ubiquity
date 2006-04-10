@@ -39,6 +39,10 @@ Template: espresso/text/timezone_zone_label
 Type: text
 _Description: Time zone:
 
+Template: espresso/text/timezone_country_label
+Type: text
+_Description: Selected country:
+
 Template: espresso/text/timezone_time_label
 Type: text
 _Description: Current time:
@@ -254,6 +258,10 @@ _Description: Running ${SCRIPT}...
 Template: espresso/install/locales
 Type: text
 _Description: Configuring system locales...
+
+Template: espresso/install/apt
+Type: text
+_Description: Configuring apt...
 
 Template: espresso/install/timezone
 Type: text

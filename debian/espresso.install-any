@@ -7,6 +7,16 @@ espresso/frontend/__init__.py usr/lib/python2.4/site-packages/espresso/frontend
 compat/* usr/lib/espresso/compat
 scripts/* usr/share/espresso
 
+# apt-setup
+d-i/source/apt-setup/apt-setup-verify usr/lib/espresso/apt-setup
+d-i/source/apt-setup/generators/01setup usr/lib/espresso/apt-setup/generators
+d-i/source/apt-setup/generators/50mirror.ubuntu usr/lib/espresso/apt-setup/generators
+d-i/source/apt-setup/generators/90security usr/lib/espresso/apt-setup/generators
+espresso/components/apt_setup.py usr/lib/python2.4/site-packages/espresso/components
+
+# choose-mirror
+d-i/source/choose-mirror/choose-mirror usr/lib/espresso/choose-mirror
+
 # debian-installer-utils
 d-i/source/debian-installer-utils/log-output bin
 d-i/source/debian-installer-utils/mapdevfs bin

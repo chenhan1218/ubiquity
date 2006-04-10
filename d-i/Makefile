@@ -15,7 +15,7 @@ endif
 
 update:
 	./get-sources update
-	./get-sources $(shell cat $(LISTDIR)/*)
+	./get-sources $(shell sort -u $(LISTDIR)/*)
 	./update-control
 	./update-changelog
 
@@ -43,7 +43,8 @@ clean:
 install:
 	set -e; for package in $(PACKAGES); do \
 		if [ -d "$(SOURCEDIR)/$$package" ]; then \
-			(cd "$(SOURCEDIR)/$$package" && \
+			(export NO_PKG_MANGLE=1; \
+			 cd "$(SOURCEDIR)/$$package" && \
 			 debian/rules binary-arch && \
 			 debian/rules binary-indep && \
 			 rm -rf debian/*/DEBIAN); \
@@ -56,7 +57,8 @@ install:
 			name="$$(basename "$$udeb" .udeb)"; \
 			dpkg-deb -e "$$udeb" "udeb-control/$$name"; \
 			if [ -f "udeb-control/$$name/templates" ]; then \
-				cat "udeb-control/$$name/templates" >> templates; \
+				sed -n '/./,$$p' "udeb-control/$$name/templates" | \
+					grep -iv '^indices.*:' >> templates; \
 				echo >> templates; \
 			fi; \
 		fi; \

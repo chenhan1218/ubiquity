@@ -77,6 +77,10 @@ endif
 
 	# Bits of manual installation that can't be done by dh_install
 	install installer $(CURDIR)/debian/espresso/usr/bin/espresso
+	sed 's,/usr/lib/apt-setup,/usr/lib/espresso/apt-setup,g' \
+		d-i/source/apt-setup/apt-setup \
+		> debian/espresso/usr/lib/espresso/apt-setup/apt-setup
+	chmod +x debian/espresso/usr/lib/espresso/apt-setup/apt-setup
 	install d-i/source/kbd-chooser/debian/prebaseconfig \
 		debian/espresso/usr/lib/espresso/kbd-chooser/
 	install d-i/source/localechooser/post-base-installer \

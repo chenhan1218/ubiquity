@@ -1,0 +1,14 @@
+#! /bin/sh -e
+
+. /usr/share/debconf/confmodule
+
+if CODENAME="$(lsb_release -cs)"; then
+	# TODO cjwatson 2006-04-07: wrong for Debian, I think
+	db_set mirror/suite "$CODENAME"
+	db_set mirror/codename "$CODENAME"
+fi
+
+OVERRIDE_BASE_INSTALLABLE=1 /usr/lib/espresso/choose-mirror/choose-mirror
+rm -f /target/etc/apt/sources.list
+PATH="/usr/lib/espresso/apt-setup:$PATH" \
+	/usr/lib/espresso/apt-setup/apt-setup /target
