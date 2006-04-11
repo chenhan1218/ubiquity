@@ -1,4 +1,4 @@
-espresso (0.99.44) UNRELEASED; urgency=low
+espresso (0.99.44) dapper; urgency=low
 
   * GTK frontend:
     - Say "Selected region" rather than "Selected country".
@@ -18,7 +18,7 @@ espresso (0.99.44) UNRELEASED; urgency=low
     Lithuanian, Macedonian, Norwegian Bokmål, Dutch, Portuguese (Brazil),
     Tagalog, Ukrainian.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Apr 2006 00:52:02 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Apr 2006 17:40:35 +0100
 
 espresso (0.99.43) dapper; urgency=low
 
