@@ -113,9 +113,10 @@ class Wizard:
         self.returncode = 0
         self.translations = get_translations()
 
-        self.laptop = subprocess.call(["laptop-detect"],
-                                      stdout=open('/dev/null'),
+        devnull = open('/dev/null', 'w')
+        self.laptop = subprocess.call(["laptop-detect"], stdout=devnull,
                                       stderr=subprocess.STDOUT) == 0
+        devnull.close()
 
         gobject.timeout_add(30000, self.poke_gnome_screensaver)
 
