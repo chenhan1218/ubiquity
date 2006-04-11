@@ -203,6 +203,8 @@ class Wizard:
         self.app.connect(self.userinterface.verified_password, SIGNAL("selectionChanged()"), self.info_loop)
         self.app.connect(self.userinterface.hostname, SIGNAL("selectionChanged()"), self.info_loop)
         
+        self.app.connect(self.userinterface.language_treeview, SIGNAL("selectionChanged()"), self.on_language_treeview_selection_changed)
+
         # Start the interface
         self.set_current_page(0)
         while self.current_page is not None:
@@ -1425,22 +1427,17 @@ class Wizard:
             self.userinterface.language_treeview.insertItem( QListViewItem(self.userinterface.language_treeview, choice) )
 
     def set_language (self, language):
-        print "  set_language (self, language):"
-        #model = self.language_treeview.get_model()
-        #iterator = model.iter_children(None)
-        #while iterator is not None:
-        #    if unicode(model.get_value(iterator, 0)) == language:
-        #        self.language_treeview.get_selection().select_iter(iterator)
-        #        break
-        #    iterator = model.iter_next(iterator)
-        
-        # FIXME, can't change QString to unicode when in ascii, why is this
-        # program in ascii??
+        print "  set_language (self, language): " + language
         iterator = QListViewItemIterator(self.userinterface.language_treeview)
         while iterator.current():
             #print "text: " + unicode(iterator.current().text(0))
             #if unicode(str(iterator.current().text(0).ascii()), 'utf-8') == language:
-            if unicode("English") == language:
+            selection = iterator.current()
+            if selection is None:
+                value = "C"
+            else:
+                value = unicode(selection.text(0))
+            if value == language:
                 self.userinterface.language_treeview.setSelected(iterator.current(), True)
                 break
             iterator += 1
