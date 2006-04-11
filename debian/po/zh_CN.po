@@ -401,9 +401,8 @@ msgstr "正在配置本地设置"
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "正在设置网络..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -414,9 +413,8 @@ msgstr "正在配置时区..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "正在设置网络..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -471,9 +469,8 @@ msgstr "下载软件包 (${TIME} 剩余)..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "下载软件包列表 (${TIME} 剩余)..."
+msgstr ""
 
 #. Type: text
 #. Description

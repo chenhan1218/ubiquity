@@ -14,6 +14,9 @@ espresso (0.99.44) UNRELEASED; urgency=low
   * Add ${shlibs:Depends} to espresso's and espresso-frontend-gtk's Depends
     (closes: Malone #39115).
   * Retranslate Cancel/Back/Forward buttons when changing language.
+  * Update translations from Rosetta: Arabic, Czech, French, Hungarian,
+    Lithuanian, Macedonian, Norwegian Bokmål, Dutch, Portuguese (Brazil),
+    Tagalog, Ukrainian.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Apr 2006 00:52:02 +0100
 

@@ -393,9 +393,8 @@ msgstr "Yn cyflunio'r rhwydwaith..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Yn cyflunio'r rhwydwaith..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -407,9 +406,8 @@ msgstr "Yn cyflunio'r rhwydwaith..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Yn cyflunio'r rhwydwaith..."
+msgstr ""
 
 #. Type: text
 #. Description

@@ -78,9 +78,8 @@ msgstr "Aikavyöhyke:"
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-#, fuzzy
 msgid "Selected country:"
-msgstr "Valittu kaupunki:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -261,9 +260,8 @@ msgstr "Osio"
 #. Type: text
 #. Description
 #: ../espresso.templates:159
-#, fuzzy
 msgid "Reformat?"
-msgstr "alusta"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -415,9 +413,8 @@ msgstr "Asetetaan järjestelmän maa-asetustoja..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Tehdään verkkoasetukset..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -428,9 +425,8 @@ msgstr "Asetetaan aikavyöhykettä..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Tehdään verkkoasetukset..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -483,9 +479,8 @@ msgstr "Ladataan paketteja (${TIME} jäljellä)..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Ladataan pakettiluetteloita (${TIME} jäljellä)..."
+msgstr ""
 
 #. Type: text
 #. Description

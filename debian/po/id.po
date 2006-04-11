@@ -393,9 +393,8 @@ msgstr "Sedang mengonfigurasi jaringan..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Sedang mengonfigurasi jaringan..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -407,9 +406,8 @@ msgstr "Sedang mengonfigurasi jaringan..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Sedang mengonfigurasi jaringan..."
+msgstr ""
 
 #. Type: text
 #. Description

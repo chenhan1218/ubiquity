@@ -407,9 +407,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Tor tê avakirin..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -420,9 +419,8 @@ msgstr "Herêma demê tê saz kirin..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Tor tê avakirin..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -475,9 +473,8 @@ msgstr "Paket tên daxistin (${TIME} ma)..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Lîsteyên paketan tên daxistin (${TIME} ma)..."
+msgstr ""
 
 #. Type: text
 #. Description

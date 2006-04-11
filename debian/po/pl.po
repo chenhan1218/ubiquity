@@ -78,9 +78,8 @@ msgstr "Strefa czasowa:"
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-#, fuzzy
 msgid "Selected country:"
-msgstr "Wybrane miasto:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -259,9 +258,8 @@ msgstr "Partycja"
 #. Type: text
 #. Description
 #: ../espresso.templates:159
-#, fuzzy
 msgid "Reformat?"
-msgstr "formatowanie"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -412,9 +410,8 @@ msgstr "Konfigurowanie locale (lokalizacji)..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Konfigurowanie sieci..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -425,9 +422,8 @@ msgstr "Konfigurowanie strefy czasu..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Konfigurowanie sieci..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -480,9 +476,8 @@ msgstr "Pobieranie pakietów (pozostało ${TIME})..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Pobieranie list pakietów (pozostało ${TIME})..."
+msgstr ""
 
 #. Type: text
 #. Description

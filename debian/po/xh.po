@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-04-10 17:37+0100\n"
-"PO-Revision-Date: 2006-03-17 13:55+0000\n"
+"PO-Revision-Date: 2006-03-27 15:25+0000\n"
 "Last-Translator: Canonical Ltd <translations@canonical.com>\n"
 "Language-Team: Xhosa <xh-translate@ubuntu.com>\n"
 "MIME-Version: 1.0\n"
@@ -391,9 +391,8 @@ msgstr "Imisela inkqubo yothungelwano..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Imisela inkqubo yothungelwano..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -405,9 +404,8 @@ msgstr "Imisela inkqubo yothungelwano..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Imisela inkqubo yothungelwano..."
+msgstr ""
 
 #. Type: text
 #. Description

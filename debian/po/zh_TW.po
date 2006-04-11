@@ -393,9 +393,8 @@ msgstr "正在設定網路..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "正在設定網路..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -407,9 +406,8 @@ msgstr "正在設定網路..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "正在設定網路..."
+msgstr ""
 
 #. Type: text
 #. Description

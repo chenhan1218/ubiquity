@@ -392,9 +392,8 @@ msgstr "Đang cấu hình mạng..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Đang cấu hình mạng..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -406,9 +405,8 @@ msgstr "Đang cấu hình mạng..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Đang cấu hình mạng..."
+msgstr ""
 
 #. Type: text
 #. Description

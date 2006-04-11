@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-04-10 17:37+0100\n"
-"PO-Revision-Date: 2006-04-05 12:40+0000\n"
+"PO-Revision-Date: 2006-04-05 15:52+0000\n"
 "Last-Translator: Serhey Kusyumoff <gpalco@gmail.com>\n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
@@ -78,9 +78,8 @@ msgstr "Часовий пояс:"
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-#, fuzzy
 msgid "Selected country:"
-msgstr "Оберіть місто знаходження"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -241,69 +240,62 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:147
-#, fuzzy
 msgid "Mount Point"
-msgstr "Точка монтування:"
+msgstr "Точка монтування"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:151
 msgid "Size"
-msgstr ""
+msgstr "Розмір"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:155
-#, fuzzy
 msgid "Partition"
-msgstr "Розбити диски на розділи"
+msgstr "Поділ"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:159
-#, fuzzy
 msgid "Reformat?"
-msgstr "format"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../espresso.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "Необхідно зазначити точку монтування root (\"/\")"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:167
-#, fuzzy
 msgid "Ready to install"
-msgstr "Ядро для встановлення:"
+msgstr "Готовий до встановлення"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:171
 msgid "Ubuntu is ready to install on this computer."
-msgstr ""
+msgstr "Завершено підготовку Ubuntu до встановлення на кмпютер"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:175
-#, fuzzy
 msgid "Abort the installation?"
 msgstr "Перервати встановлення"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:179
-#, fuzzy
 msgid "Do you really want to abort the installation now?"
-msgstr "Чи бажаєте ви повернутися до меню розбивки?"
+msgstr "Ви справді бажаєте перервати встановлення?"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:183
-#, fuzzy
 msgid "Partitioning was interrupted"
-msgstr "Принцип розбивки:"
+msgstr "Розбиття диску було перевано"
 
 #. Type: text
 #. Description
@@ -419,9 +411,8 @@ msgstr "Налаштування мережі..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Налаштування мережі..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -433,9 +424,8 @@ msgstr "Налаштування мережі..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Налаштування мережі..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -493,9 +483,8 @@ msgstr "Завантаження пакунків (${TIME} remaining)..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Завантаження списків пакунків (${TIME} remaining)..."
+msgstr ""
 
 #. Type: text
 #. Description

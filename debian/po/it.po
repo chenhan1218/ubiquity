@@ -397,9 +397,8 @@ msgstr "Configurazione della rete in corso."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Configurazione della rete in corso."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -411,9 +410,8 @@ msgstr "Configurazione della rete in corso."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Configurazione della rete in corso."
+msgstr ""
 
 #. Type: text
 #. Description

@@ -393,9 +393,8 @@ msgstr "নেটওয়ার্ক কনফিগার করা হচ্ছ
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "নেটওয়ার্ক কনফিগার করা হচ্ছে..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -407,9 +406,8 @@ msgstr "নেটওয়ার্ক কনফিগার করা হচ্ছ
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "নেটওয়ার্ক কনফিগার করা হচ্ছে..."
+msgstr ""
 
 #. Type: text
 #. Description
