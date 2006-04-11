@@ -850,70 +850,6 @@ class Wizard:
 
         self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartMountpoints"])
 
-    # OLD! DELETE ME
-    """
-    def gparted_to_mountpoints(self):
-        print "  gparted_to_mountpoints(self):"
-        
-        self.gparted_fstype = {}
-        
-        #I'm doing something wrong in qtparted that it isn't reading stdin
-        self.qtparted_process.writeStdin("apply", 5)
-
-        ""
-        print >>self.gparted_subp.stdin, "apply"
-        gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
-        if not gparted_reply.startswith('0 '):
-            return
-
-        # Shut down gparted
-        self.gparted_subp.stdin.close()
-        self.gparted_subp.wait()
-        self.gparted_subp = None
-        ""
-
-        # Setting items into partition Comboboxes
-        for widget in self.userinterface.stepPartMountpoints.children():
-            print "for widget loop"
-            if QString(widget.name()).contains("partition") > 0:
-                print "found partition widget"
-                self.show_partitions(widget)
-        self.size = self.get_sizes()
-
-        # building mountpoints preselection
-        self.default_partition_selection = self.get_default_partition_selection(self.size, self.gparted_fstype)
-
-        # Setting a default partition preselection
-        if len(self.default_partition_selection.items()) == 0:
-            self.userinterface.nextButton.setEnabled(False)
-        else:
-            count = 0
-            mp = { 'swap' : 0, '/' : 1 }
-
-            # Setting default preselection values into ComboBox
-            # widgets and setting size values. In addition, next row
-            # is showed if they're validated.
-            for j, k in self.default_partition_selection.items():
-                if count == 0:
-                    self.userinterface.partition1.setCurrentItem(self.partitions.index(k)+1)
-                    self.userinterface.mountpoint1.setCurrentItem(mp[j]) # FIXME combox has never been filled
-                    self.userinterface.size1.setText(self.set_size_msg(k))
-                    if ( len(get_partitions()) > 1 ):
-                        self.userinterface.partition2.show()
-                        self.userinterface.mountpoint2.show()
-                    count += 1
-                elif count == 1:
-                    self.userinterface.partition2.setCurrentItem(self.partitions.index(k)+1)
-                    self.userinterface.mountpoint2.setCurrentItem(mp[j])
-                    self.userinterface.size2.setText(self.set_size_msg(k))
-                    if ( len(get_partitions()) > 2 ):
-                        self.userinterface.partition3.show()
-                        self.userinterface.mountpoint3.show()
-                    count += 1
-
-        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartMountpoints"])
-        """
-
     def show_partitions(self, widget):
         print "  show_partitions(self, widget): " + widget.name()
         """write all values in this widget (GtkComboBox) from local
@@ -1064,88 +1000,47 @@ class Wizard:
         return widgets
 
     def mountpoints_to_summary(self):
-        print "  mountpoints_to_summary(self):"
         """Processing mountpoints to summary step tasks."""
 
         # Validating self.mountpoints
-        error_msg = ['\n']
+        error_msg = []
 
-        # creating self.mountpoints list only if the pairs { device :
-        # mountpoint } are selected.
-        list = []
-        list_partitions = []
-        list_mountpoints = []
+        mountpoints = {}
+        for i in range(len(self.mountpoint_widgets)):
+            mountpoint_value = str(self.mountpoint_widgets[i].currentText())
+            partition_value = str(self.partition_widgets[i].currentText())
+            partition_id = self.part_devices[partition_value]
+            format_value = self.format_widgets[i].isChecked()
+            fstype = None
+            if partition_id in self.gparted_fstype:
+                fstype = self.gparted_fstype[partition_id]
 
-        # building widget lists to build dev_mnt dict ( { device :
-        # mountpoint } )
-        for widget in self.get_partition_widgets():
-            if widget.currentText() not in [None, ' ']:
-                list_partitions.append(widget)
-        for widget in self.get_mountpoint_widgets():
-            if widget.currentText() != "":
-                list_mountpoints.append(widget)
-        # Only if partitions cout or mountpoints count selected are the same,
-        #     dev_mnt is built.
-        if len(list_partitions) == len(list_mountpoints):
-            dev_mnt = dict( [ (list_partitions[i], list_mountpoints[i]) for i in range(0,len(list_partitions)) ] )
-
-            for dev, mnt in dev_mnt.items():
-                if dev.currentText() is not None \
-                   and mnt.currentText() != "":
-                    foo = self.part_devices[str(dev.currentText())]
-                    # TODO cjwatson 2006-03-08: Add UI to control whether
-                    # the partition is to be formatted; hardcoded to True in
-                    # the meantime.
-                    # TODO cjwatson 2006-03-29: Extract desired filesystem
-                    # type from qtparted; hardcoded to None (i.e. use
-                    # current filesystem type or failing that ext3) in the
-                    # meantime.
-                    self.mountpoints[foo] = (mnt.currentText(), True, None)
-
-        # Processing validation stuff
-        elif len(list_partitions) > len(list_mountpoints):
-            error_msg.append("· Punto de montaje vacío.\n\n")
-        elif len(list_partitions) < len(list_mountpoints):
-            error_msg.append("· Partición sin seleccionar.\n\n")
-        """
-        # turn off automount
-
-        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
-        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
-        gconf_previous = {}
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            subp = subprocess.Popen(['gconftool-2', '--config-source', gconf_dir,
-                                                             '--get', gconf_key],
-                                                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
-            if gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                                 '--type', 'bool', 'false'])
-        """
-
-        if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
-                return
-        
-        """
-        #return gconf back to previous state
-
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            if gconf_previous[gconf_key] == '':
-                subprocess.call(['gconftool-2', '--unset', gconf_key])
-            elif gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                                 '--type', 'bool', gconf_previous[gconf_key]])
-        """
+            if mountpoint_value == "":
+                if partition_value in (None, ' '):
+                    continue
+                else:
+                    error_msg.append(
+                        "No mount point selected for %s." % partition_value)
+                    break
+            else:
+                if partition_value in (None, ' '):
+                    error_msg.append(
+                        "No partition selected for %s." % mountpoint_value)
+                    break
+                else:
+                    mountpoints[partition_id] = (mountpoint_value,
+                                                 format_value, fstype)
+        else:
+            self.mountpoints = mountpoints
+        pre_log('info', 'mountpoints: %s' % self.mountpoints)
 
         # Checking duplicated devices
-        for widget in self.get_partition_widgets:
-            if widget.currentText() != None:
-                list.append(widget.currentText())
+        partitions = [w.currentText() for w in self.partition_widgets]
 
-        for check in list:
-            if list.count(check) > 1:
-                error_msg.append("· Dispositivos duplicados.\n\n")
+        for check in partitions:
+            if partitions.count(check) > 1:
+                error_msg.append("A partition is assigned to more than one "
+                                 "mount point.")
                 break
 
         # Processing more validation stuff
@@ -1153,27 +1048,67 @@ class Wizard:
             for check in validation.check_mountpoint(self.mountpoints,
                                                      self.size):
                 if check == validation.MOUNTPOINT_NOROOT:
-                    error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
+                    error_msg.append(get_string(
+                        'partman-target/no_root', self.locale))
                 elif check == validation.MOUNTPOINT_DUPPATH:
-                    error_msg.append("· Puntos de montaje duplicados.\n\n")
+                    error_msg.append("Two file systems are assigned the same "
+                                     "mount point.")
                 elif check == validation.MOUNTPOINT_BADSIZE:
                     for mountpoint, format, fstype in \
                             self.mountpoints.itervalues():
                         if mountpoint == 'swap':
-                            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
+                            min_root = MINIMAL_PARTITION_SCHEME['root']
                             break
                     else:
-                        error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
+                        min_root = (MINIMAL_PARTITION_SCHEME['root'] +
+                                    MINIMAL_PARTITION_SCHEME['swap'] * 1024)
+                    error_msg.append("The partition assigned to '/' is too "
+                                     "small (minimum size: %d Mb)." % min_root)
                 elif check == validation.MOUNTPOINT_BADCHAR:
-                    error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
+                    error_msg.append(get_string(
+                        'partman-basicfilesystems/bad_mountpoint',
+                        self.locale))
 
         # showing warning messages
-        if len(error_msg) > 1:
-            self.userinterface.mountpoint_error_reason.setText(''.join(error_msg))
+        if len(error_msg) != 0:
+            self.userinterface.mountpoint_error_reason.setText("\n".join(error_msg))
             self.userinterface.mountpoint_error_reason.show()
             self.userinterface.mountpoint_error_image.show()
-        else:
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartReady"])
+            return
+        
+        """
+
+        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
+        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
+        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
+        gconf_previous = {}
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            subp = subprocess.Popen(['gconftool-2', '--config-source',
+                                     gconf_dir, '--get', gconf_key],
+                                    stdout=subprocess.PIPE,
+                                    stderr=subprocess.PIPE)
+            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
+            if gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                 '--type', 'bool', 'false'])
+        """
+
+        if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
+            return
+
+        """
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            if gconf_previous[gconf_key] == '':
+                subprocess.call(['gconftool-2', '--unset', gconf_key])
+            elif gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                 '--type', 'bool', gconf_previous[gconf_key]])
+        """
+
+        # Since we've successfully committed partitioning, the install
+        # progress bar should now be displayed, so we can go straight on to
+        # the installation now.
+        self.progress_loop()
 
     # returns the current wizard page
     def get_current_page(self):
