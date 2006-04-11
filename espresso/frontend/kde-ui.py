@@ -680,11 +680,12 @@ class Wizard:
         print "  get_autopartition_resize_percent (self):"
         return self.new_size_scale.value()
 
+    def get_hostname (self):
+        return self.userinterface.hostname.text()
 
     def get_mountpoints (self):
         return dict(self.mountpoints)
 
-  
     def confirm_partitioning_dialog (self, title, description):
         # TODO merge with gtk
         print "  confirm_partitioning_dialog (self, title, description):" + title + " ... " + description
