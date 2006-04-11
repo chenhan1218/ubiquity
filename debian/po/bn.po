@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-10 17:37+0100\n"
+"POT-Creation-Date: 2006-04-11 17:36+0100\n"
 "PO-Revision-Date: 2006-03-27 14:55+0000\n"
 "Last-Translator: Baishampayan Ghose <b.ghose@ubuntu.com>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
@@ -75,7 +75,7 @@ msgstr "টাইম জোন:"
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-msgid "Selected country:"
+msgid "Selected region:"
 msgstr ""
 
 #. Type: text
