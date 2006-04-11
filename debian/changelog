@@ -5,6 +5,8 @@ espresso (0.99.44) UNRELEASED; urgency=low
     - Set default hostname to <username>-desktop or <username>-laptop
       depending on the result of laptop-detect, unless the hostname has been
       edited by hand.
+    - Set initial language based on boot parameter from gfxboot or previous
+      espresso run (closes: Malone #39051).
   * Depend on localechooser-data (>= 0.27ubuntu12) for a matching
     languagelist (closes: Malone #39043).
   * Silently skip languages rather than crashing if we can't find their

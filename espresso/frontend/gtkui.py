@@ -49,6 +49,12 @@ import xml.sax.saxutils
 
 import gettext
 
+import debconf
+try:
+    from debconf import DebconfCommunicator
+except ImportError:
+    from espresso.debconfcommunicator import DebconfCommunicator
+
 from espresso import filteredcommand, validation
 from espresso.misc import *
 from espresso.settings import *
@@ -118,6 +124,11 @@ class Wizard:
                                       stderr=subprocess.STDOUT) == 0
         devnull.close()
 
+        # set default language
+        dbfilter = language.Language(self, DebconfCommunicator('espresso'))
+        dbfilter.cleanup()
+        dbfilter.db.shutdown()
+
         gobject.timeout_add(30000, self.poke_gnome_screensaver)
 
         # To get a "busy mouse":
@@ -144,6 +155,8 @@ class Wizard:
         # get widgets
         for widget in self.glade.get_widget_prefix(""):
             setattr(self, widget.get_name(), widget)
+
+        self.translate_widgets()
 
         self.customize_installer()
 
