@@ -185,9 +185,9 @@ class Wizard:
     
         # Declare SignalHandler
         #FIXME self.glade.signal_autoconnect(self)
-        self.app.connect(self.userinterface.nextButton, SIGNAL("clicked()"), self.on_next_clicked)
-        self.app.connect(self.userinterface.backButton, SIGNAL("clicked()"), self.on_back_clicked)
-        self.app.connect(self.userinterface.cancelButton, SIGNAL("clicked()"), self.on_cancel_clicked3)
+        self.app.connect(self.userinterface.next, SIGNAL("clicked()"), self.on_next_clicked)
+        self.app.connect(self.userinterface.back, SIGNAL("clicked()"), self.on_back_clicked)
+        self.app.connect(self.userinterface.cancel, SIGNAL("clicked()"), self.on_cancel_clicked3)
         self.app.connect(self.userinterface.widgetStack, SIGNAL("aboutToShow(int)"), self.on_steps_switch_page)
         self.app.connect(self.userinterface.keyboardlistview, SIGNAL("selectionChanged()"), self.on_keyboard_selected)
         
@@ -253,10 +253,10 @@ class Wizard:
     def customize_installer(self):
         """Initial UI setup."""
 
-        iconLoader = KIconLoader()
-        icon = iconLoader.loadIcon("system", KIcon.Small)
-        self.userinterface.logo_image.setPixmap(icon)
-        self.userinterface.backButton.setEnabled(False)
+        #iconLoader = KIconLoader()
+        #icon = iconLoader.loadIcon("system", KIcon.Small)
+        #self.userinterface.logo_image.setPixmap(icon)
+        self.userinterface.back.setEnabled(False)
 
         """
 
@@ -295,10 +295,40 @@ class Wizard:
         gettext.install(domain, LOCALEDIR, unicode=1)
         pass
 
-    def translate_widgets(self):
-        print "translate_widgets(self): TODO"
-        #for widget in self.glade.get_widget_prefix(""):
-        #    self.translate_widget(widget, self.locale)
+    def translate_widgets(self, parentWidget=None):
+        if parentWidget == None:
+            parentWidget = self.userinterface
+
+        for widget in parentWidget.children():
+            print "translating widget: " + str(widget.name())
+            self.translate_widget(widget, self.locale)
+            self.translate_widgets(widget)
+
+    def translate_widget(self, widget, lang):
+        text = get_string('espresso/text/%s' % widget.name(), lang)
+        if text is None:
+            return
+
+        print "  translate_widget(self, widget, lang)"
+        if isinstance(widget, QLabel):
+            name = widget.name()
+            if 'heading_label' in name:
+                print "text: " + text
+                widget.setText(unicode("<h2>" + text + "</h2>"))
+            elif 'extra_label' in name:
+                widget.setText(unicode("<em>" + text + "</em>"))
+            elif name in ('drives_label', 'partition_method_label',
+                          'mountpoint_label', 'size_label', 'device_label',
+                          'format_label'):
+                widget.setText(unicode("<strong>" + text + "</strong>"))
+            else:
+                widget.setText(unicode(text))
+
+        elif isinstance(widget, QPushButton):
+            widget.setText(unicode(text))
+
+        elif isinstance(widget, QWidget) and widget.name() == EspressoUI:
+            widget.setCaption(unicode(text))
 
     def show_intro(self):
         """Show some introductory text, if available."""
@@ -423,9 +453,9 @@ class Wizard:
                 self.entries[widget.name()] = 0
 
         if len(filter(lambda v: v == 1, self.entries.values())) == 5:
-            self.userinterface.nextButton.setEnabled(True)
+            self.userinterface.next.setEnabled(True)
         else:
-            self.userinterface.nextButton.setEnabled(False)
+            self.userinterface.next.setEnabled(False)
 
     def on_next_clicked(self):
         print "  on_next_clicked(self):"
@@ -457,6 +487,17 @@ class Wizard:
         print "  on_keyboard_selected(self):"
         kbd_chooser.apply_keyboard(self.get_keyboard())
 
+    def on_language_treeview_selection_changed (self):
+        print "  on_language_treeview_selection_changed (self, selection):"
+        selection = self.userinterface.language_treeview.selectedItem()
+        if selection is not None:
+            value = unicode(selection.text(0))
+            lang = self.language_choice_map[value][1]
+            # strip encoding; we use UTF-8 internally no matter what
+            lang = lang.split('.')[0].lower()
+            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label):
+                self.translate_widget(widget, lang)
+
     def on_back_clicked(self):
         print "  on_back_clicked(self, widget):"
         """Callback to set previous screen."""
@@ -464,7 +505,7 @@ class Wizard:
         self.backup = True
 
         # Enabling next button
-        self.userinterface.nextButton.setEnabled(True)
+        self.userinterface.next.setEnabled(True)
         # Setting actual step
         step = self.step_name(self.get_current_page())
         print "step: " + step
@@ -472,7 +513,7 @@ class Wizard:
         changed_page = False
 
         if step == "stepLocation":
-            self.userinterface.backButton.setEnabled(False)
+            self.userinterface.back.setEnabled(False)
         elif step == "stepPartAdvanced":
             """ FIXME jr
             print >>self.gparted_subp.stdin, "undo"
@@ -486,7 +527,7 @@ class Wizard:
         elif step == "stepPartMountpoints":
             self.gparted_loop()
         elif step == "stepReady":
-            self.userinterface.nextButton.setText("Next >")
+            self.userinterface.next.setText("Next >")
         if not changed_page:
             self.userinterface.widgetStack.raiseWidget(self.get_current_page() - 1)
         if self.dbfilter is not None:
@@ -511,7 +552,7 @@ class Wizard:
         elif step == "stepLanguage":
             self.translate_widgets()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepLocation"])
-            self.userinterface.backButton.setEnabled(True)
+            self.userinterface.back.setEnabled(True)
         # Location
         elif step == "stepLocation":
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepKeyboardConf"])
@@ -520,7 +561,7 @@ class Wizard:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepUserInfo"])
             #self.steps.next_page()
             # XXX: Actually do keyboard config here
-            self.userinterface.nextButton.setEnabled(False)
+            self.userinterface.next.setEnabled(False)
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
@@ -808,7 +849,7 @@ class Wizard:
 
             # Setting a default partition preselection
             if len(selection.items()) == 0:
-                self.userinterface.nextButton.setEnabled(False)
+                self.userinterface.next.setEnabled(False)
             else:
                 mp = { 'swap' : 0, '/' : 1 }
 
