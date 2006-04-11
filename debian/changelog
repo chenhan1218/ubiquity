@@ -6,7 +6,8 @@ espresso (0.99.44) UNRELEASED; urgency=low
     languagelist (closes: Malone #39043).
   * Silently skip languages rather than crashing if we can't find their
     language code.
-  * Add ${shlibs:Depends} to espresso's Depends (closes: Malone #39115).
+  * Add ${shlibs:Depends} to espresso's and espresso-frontend-gtk's Depends
+    (closes: Malone #39115).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Apr 2006 00:52:02 +0100
 
