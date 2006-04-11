@@ -92,6 +92,7 @@ class Wizard:
         self.current_keyboard = None
         self.manual_choice = None
         self.password = ''
+        self.hostname_edited = False
         self.mountpoint_widgets = []
         self.size_widgets = []
         self.partition_widgets = []
@@ -111,6 +112,10 @@ class Wizard:
         self.installing = False
         self.returncode = 0
         self.translations = get_translations()
+
+        self.laptop = subprocess.call(["laptop-detect"],
+                                      stdout=open('/dev/null'),
+                                      stderr=subprocess.STDOUT) == 0
 
         gobject.timeout_add(30000, self.poke_gnome_screensaver)
 
@@ -163,6 +168,13 @@ class Wizard:
 
         # Declare SignalHandler
         self.glade.signal_autoconnect(self)
+
+        # Some signals need to be connected by hand so that we have the
+        # handler ids.
+        self.hostname_delete_text_id = self.hostname.connect(
+            'delete_text', self.on_hostname_delete_text)
+        self.hostname_insert_text_id = self.hostname.connect(
+            'insert_text', self.on_hostname_insert_text)
 
         # Start the interface
         self.set_current_page(0)
@@ -610,10 +622,28 @@ class Wizard:
         else:
             self.entries[widget.get_name()] = 0
 
+        if widget.get_name() == 'username' and not self.hostname_edited:
+            if self.laptop:
+                hostname_suffix = '-laptop'
+            else:
+                hostname_suffix = '-desktop'
+            self.hostname.handler_block(self.hostname_delete_text_id)
+            self.hostname.handler_block(self.hostname_insert_text_id)
+            self.hostname.set_text(widget.get_text() + hostname_suffix)
+            self.hostname.handler_unblock(self.hostname_insert_text_id)
+            self.hostname.handler_unblock(self.hostname_delete_text_id)
+
         if len(filter(lambda v: v == 1, self.entries.values())) == 5:
             self.next.set_sensitive(True)
         else:
             self.next.set_sensitive(False)
+
+    def on_hostname_delete_text(self, widget, start, end):
+        self.hostname_edited = True
+
+    def on_hostname_insert_text(self, widget,
+                                new_text, new_text_length, position):
+        self.hostname_edited = True
 
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""
