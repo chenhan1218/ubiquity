@@ -8,6 +8,7 @@ espresso (0.99.44) UNRELEASED; urgency=low
     language code.
   * Add ${shlibs:Depends} to espresso's and espresso-frontend-gtk's Depends
     (closes: Malone #39115).
+  * Retranslate Cancel/Back/Forward buttons when changing language.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Apr 2006 00:52:02 +0100
 

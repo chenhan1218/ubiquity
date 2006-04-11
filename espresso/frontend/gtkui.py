@@ -266,6 +266,9 @@ class Wizard:
             self.translate_widget(widget, self.locale)
 
     def translate_widget(self, widget, lang):
+        if isinstance(widget, gtk.Button) and widget.get_use_stock():
+            widget.set_label(widget.get_label())
+
         text = get_string('espresso/text/%s' % widget.get_name(), lang)
         if text is None:
             return
@@ -970,7 +973,7 @@ class Wizard:
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
             for widget in ('live_installer', 'welcome_heading_label',
-                           'welcome_text_label'):
+                           'welcome_text_label', 'cancel', 'back', 'next'):
                 self.translate_widget(getattr(self, widget), lang)
 
 
