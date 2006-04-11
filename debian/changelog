@@ -4,6 +4,8 @@ espresso (0.99.44) UNRELEASED; urgency=low
     - Say "Selected region" rather than "Selected country".
   * Depend on localechooser-data (>= 0.27ubuntu12) for a matching
     languagelist (closes: Malone #39043).
+  * Silently skip languages rather than crashing if we can't find their
+    language code.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Apr 2006 00:52:02 +0100
 

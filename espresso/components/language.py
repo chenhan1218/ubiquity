@@ -58,6 +58,8 @@ class Language(FilteredCommand):
             for i in range(len(language_choices)):
                 choice = re.sub(r'.*? *- (.*)', r'\1', language_choices[i])
                 choice_c = language_choices_c[i]
+                if choice_c not in language_codes:
+                    continue
                 language_display_map[choice] = (choice_c,
                                                 language_codes[choice_c])
                 if i == current_language_index:
