@@ -2,6 +2,8 @@ espresso (0.99.44) UNRELEASED; urgency=low
 
   * GTK frontend:
     - Say "Selected region" rather than "Selected country".
+  * Depend on localechooser-data (>= 0.27ubuntu12) for a matching
+    languagelist (closes: Malone #39043).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Apr 2006 00:52:02 +0100
 
