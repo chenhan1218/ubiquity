@@ -3,6 +3,7 @@ espresso (0.99.44) dapper; urgency=low
   * KDE Frontend:
     - Fix mountpoints page 
     - Update mountpoints_to_summary
+    - Make language page return its value
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 10 Apr 2006 21:55:27 +0000
 

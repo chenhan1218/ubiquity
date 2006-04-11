@@ -1448,8 +1448,13 @@ class Wizard:
     def get_language (self):
         print "  get_language (self):"
         selection = self.userinterface.language_treeview.selectedItem()
-        #return unicode(selection.text(0))
-        return unicode("English")
+        if selection is None:
+            print "returning C"
+            return 'C'
+        else:
+            value = unicode(selection.text(0))
+            print "returning: " + self.language_choice_map[value][0]
+            return self.language_choice_map[value][0]
 
     def set_timezone (self, timezone):
         print "  set_timezone (self, timezone): " + timezone + "<<"
