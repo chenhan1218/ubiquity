@@ -555,7 +555,7 @@ class Wizard:
             elif result == validation.HOSTNAME_WHITESPACE:
                 error_msg.append("The hostname may not contain spaces.")
             elif result == validation.HOSTNAME_BADCHAR:
-                error_msg.append("The hostname may only contain letters and digits.")
+                error_msg.append("The hostname may only contain letters, digits, and hyphens.")
 
         # showing warning message is error is set
         if len(error_msg) != 0:
