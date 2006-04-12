@@ -226,5 +226,5 @@ class PartedServer(object):
         for name in scripts:
             script = os.path.join('/lib/partman/update.d', name)
             if os.access(script, os.X_OK):
-                subprocess.call(script, self.current_disk, partition)
+                subprocess.call([script, self.current_disk, partition])
         os.chdir(cwd)

@@ -8,6 +8,8 @@ espresso (0.99.46) UNRELEASED; urgency=low
   * Set HOME=/root for debconffiltered processes. This fixes
     yaboot-installer, since the hfsutils are run in /target and want to
     write to $HOME/.hcwd.
+  * Fix calling of /lib/partman/update.d scripts. This should make the
+    manual partitioner work somewhat better.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 12 Apr 2006 04:02:34 +0100
 
