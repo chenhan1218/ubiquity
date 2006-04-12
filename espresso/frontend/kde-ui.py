@@ -1487,7 +1487,6 @@ class Wizard:
         print "  on_cancel_clicked(self, widget):"
         
         response = KMessageBox.warningContinueCancel(self.userinterface, "Do you really want to abort the installation now?", "Abort the Installation?", KGuiItem("Quit"))
-        print "here"
         if response == KMessageBox.Continue:
             self.current_page = None
             self.quit()
@@ -1682,13 +1681,11 @@ class TimezoneMap(object):
         i = 0
         print str(self.timezone_city_index)
         print "text: " + str(timezone_city_combo.text(i))
+        zone_bits = name.split('/')
+        human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
+        print "human zone" + human_zone
         while not found and i < count:
-            try:
-                combo_name = self.timezone_city_index[str(timezone_city_combo.text(i))]
-            except KeyError:
-                return
-            print "combo_name: " + combo_name
-            if combo_name == name:
+            if str(timezone_city_combo.text(i)) == human_zone:
                 timezone_city_combo.setCurrentItem(i)
                 found = True
             i += 1
