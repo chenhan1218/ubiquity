@@ -126,6 +126,19 @@ def get_partitions():
     return partition
 
 
+def disable_swap():
+    """Disable swap so that an external partition manager can be used."""
+    if not os.path.exists('/proc/swaps'):
+        return
+    swaps = open('/proc/swaps')
+    for swap in swaps:
+        if swap.startswith('/dev'):
+            device = swap.split()[0]
+            pre_log('info', "Disabling swap on %s" % device)
+            subprocess.call(['swapoff', device])
+    swaps.close()
+
+
 def get_filesystems(fstype={}):
     """returns a dictionary with a skeleton { device : filesystem }
     with data from local hard disks. Only swap and ext3 filesystems

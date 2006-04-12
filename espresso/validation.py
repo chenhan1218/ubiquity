@@ -55,7 +55,7 @@ def check_hostname(name):
     if len (name) < 3 or len (name) > 18:
         result.add(HOSTNAME_LENGTH)
 
-    regex = re.compile(r'^[a-zA-Z0-9]+$')
+    regex = re.compile(r'^[a-zA-Z0-9-]+$')
     if not regex.search(name):
         result.add(HOSTNAME_BADCHAR)
 

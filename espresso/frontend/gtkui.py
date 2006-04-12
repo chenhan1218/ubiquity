@@ -381,6 +381,8 @@ class Wizard:
 
         pre_log('info', 'gparted_loop()')
 
+        disable_swap()
+
         socket = gtk.Socket()
         socket.show()
         self.embedded.add(socket)
@@ -741,7 +743,7 @@ class Wizard:
             elif result == validation.HOSTNAME_WHITESPACE:
                 error_msg.append("The hostname may not contain spaces.")
             elif result == validation.HOSTNAME_BADCHAR:
-                error_msg.append("The hostname may only contain letters and digits.")
+                error_msg.append("The hostname may only contain letters, digits, and hyphens.")
 
         # showing warning message is error is set
         if len(error_msg) != 0:
@@ -875,7 +877,10 @@ class Wizard:
         for i in range(len(self.mountpoint_widgets)):
             mountpoint_value = self.mountpoint_widgets[i].get_active_text()
             partition_value = self.partition_widgets[i].get_active_text()
-            partition_id = self.part_devices[partition_value]
+            if partition_value is not None:
+                partition_id = self.part_devices[partition_value]
+            else:
+                partition_id = None
             format_value = self.format_widgets[i].get_active()
             fstype = None
             if partition_id in self.gparted_fstype:

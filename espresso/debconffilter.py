@@ -149,6 +149,7 @@ class DebconfFilter:
                 os.dup2(2, 5)
             else:
                 os.environ['PERL_DL_NONLAZY'] = '1'
+            os.environ['HOME'] = '/root'
             for key, value in extra_env.iteritems():
                 os.environ[key] = value
 

@@ -32,3 +32,15 @@ else
 		exit 10 # back to menu
 	fi
 fi
+
+# Reconfigure locale according to the selected country. We rely on
+# espresso/components/timezone.py having set debian-installer/country for
+# us.
+db_get debian-installer/country
+country="$RET"
+db_get debian-installer/locale
+newlocale="$(echo "$RET" | sed "s/_[A-Z][A-Z]*/_$country/")"
+db_set debian-installer/locale "$newlocale"
+db_fset debian-installer/locale seen true
+PATH="/usr/lib/espresso/localechooser:$PATH" \
+	/usr/lib/espresso/localechooser/localechooser
