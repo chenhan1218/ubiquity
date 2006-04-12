@@ -1,3 +1,10 @@
+espresso (0.99.46) UNRELEASED; urgency=low
+
+  * Disable swap before starting gparted or qtparted. partman will enable it
+    again after mountpoint selection if any swap partitions were selected.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 12 Apr 2006 04:02:34 +0100
+
 espresso (0.99.45) dapper; urgency=low
 
   * Fix validation to accept hyphens in hostname (thanks, Alexandre Otto

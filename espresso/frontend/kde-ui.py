@@ -331,7 +331,9 @@ class Wizard:
         """call gparted and embed it into glade interface."""
 
         pre_log('info', 'gparted_loop()')
-        
+
+        disable_swap()
+
         #label.show()
         self.qtparted_process = KProcess(self.app)
         self.qtparted_process.setExecutable("/usr/sbin/qtparted")

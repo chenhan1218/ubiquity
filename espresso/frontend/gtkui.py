@@ -381,6 +381,8 @@ class Wizard:
 
         pre_log('info', 'gparted_loop()')
 
+        disable_swap()
+
         socket = gtk.Socket()
         socket.show()
         self.embedded.add(socket)
