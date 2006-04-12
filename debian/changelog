@@ -5,6 +5,9 @@ espresso (0.99.46) UNRELEASED; urgency=low
   * Install debconf-get again, lost in the component packaging merge.
   * Reconfigure the locale according to the selected country after the
     timezone question.
+  * Set HOME=/root for debconffiltered processes. This fixes
+    yaboot-installer, since the hfsutils are run in /target and want to
+    write to $HOME/.hcwd.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 12 Apr 2006 04:02:34 +0100
 
