@@ -17,7 +17,11 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import os
+import locale
+
 from espresso.filteredcommand import FilteredCommand
+from espresso import misc
 import espresso.tz
 
 class Timezone(FilteredCommand):
@@ -46,3 +50,14 @@ class Timezone(FilteredCommand):
                 self.preseed('debian-installer/country', location.country)
                 break
         super(Timezone, self).ok_handler()
+
+    def cleanup(self):
+        di_locale = self.db.get('debian-installer/locale')
+        if di_locale not in misc.get_supported_locales():
+            di_locale = self.db.get('debian-installer/fallbacklocale')
+        if di_locale != self.frontend.locale:
+            self.frontend.locale = di_locale
+            os.environ['LANG'] = di_locale
+            if 'LANGUAGE' in os.environ:
+                del os.environ['LANGUAGE']
+            locale.setlocale(locale.LC_ALL, '')
