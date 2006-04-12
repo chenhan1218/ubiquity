@@ -1487,6 +1487,7 @@ class Wizard:
         print "  on_cancel_clicked(self, widget):"
         
         response = KMessageBox.warningContinueCancel(self.userinterface, "Do you really want to abort the installation now?", "Abort the Installation?", KGuiItem("Quit"))
+        print "here"
         if response == KMessageBox.Continue:
             self.current_page = None
             self.quit()
@@ -1548,8 +1549,8 @@ class Wizard:
 
     def get_timezone (self):
         print "  get_timezone (self):"
-        #return "Europe/London" #self.tzmap.get_selected_tz_name()
-        return self.userinterface.timezone_city_combo.currentText()
+        name = str(self.userinterface.timezone_city_combo.currentText())
+        return self.tzmap.get_tz_from_name(name)
 
     def refresh (self):
         print "  refresh (self):"
@@ -1672,12 +1673,26 @@ class TimezoneMap(object):
         self.set_zone_text(self.location_selected)
         """
 
+        if name == None or name == "":
+            return
+
         timezone_city_combo = self.frontend.userinterface.timezone_city_combo
         count = timezone_city_combo.count()
         found = False
         i = 0
+        print str(self.timezone_city_index)
+        print "text: " + str(timezone_city_combo.text(i))
         while not found and i < count:
-            if str(timezone_city_combo.text(i)) == name:
+            try:
+                combo_name = self.timezone_city_index[str(timezone_city_combo.text(i))]
+            except KeyError:
+                return
+            print "combo_name: " + combo_name
+            if combo_name == name:
                 timezone_city_combo.setCurrentItem(i)
                 found = True
             i += 1
+
+    def get_tz_from_name(self, name):
+        print "  set_tz_from_name(self, name): " + name
+        return self.timezone_city_index[name]

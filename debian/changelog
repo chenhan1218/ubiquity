@@ -1,13 +1,18 @@
 espresso (0.99.47) dapper; urgency=low
 
+  [ Jonathan Riddell ]
   * KDE Frontend:
-    - Fix mountpoints page 
+    - Fix mountpoints page
     - Update mountpoints_to_summary
     - Language page returns the selected language
     - Widgets get translated into selected language
     - Add Kubuntu logo
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 10 Apr 2006 21:55:27 +0000
+  [ Ubuntu LiveCD user ]
+  * Automatic update of included source packages: localechooser
+    0.27ubuntu15.
+
+ -- Ubuntu LiveCD user <ubuntu@ubuntu>  Wed, 12 Apr 2006 18:49:28 +0000
 
 espresso (0.99.46) UNRELEASED; urgency=low
 
