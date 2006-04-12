@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-10 17:37+0100\n"
-"PO-Revision-Date: 2006-03-27 15:15+0000\n"
-"Last-Translator: Frans Pop <aragorn@tiscali.nl>\n"
+"POT-Creation-Date: 2006-04-11 17:36+0100\n"
+"PO-Revision-Date: 2006-04-10 13:41+0000\n"
+"Last-Translator: Niels Abspoel <niels.abspoel@wanadoo.nl>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +18,13 @@ msgstr ""
 #. Description
 #: ../espresso.templates:8
 msgid "Espresso Installer"
-msgstr ""
+msgstr "Espresso Installatieprogramma"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:12
 msgid "Welcome"
-msgstr ""
+msgstr "Welkom"
 
 #. Type: text
 #. Description
@@ -33,12 +33,15 @@ msgid ""
 "Ready to install? Once you answer a few questions, Ubuntu can be installed "
 "on this computer so you can run the system at full speed and without the CD."
 msgstr ""
+"Klaar voor installatie? Nadu u een paar vragen heeft beantwoord, kan Ubuntu "
+"geïnstalleerd worden op deze computer zodat u het systeem kan gebruiken op "
+"volle snelheid en zonder de cd."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Het beantwoorden van de vragen neemt slechts enkele minuten in beslag."
 
 #. Type: text
 #. Description
@@ -52,43 +55,43 @@ msgstr ""
 #. Description
 #: ../espresso.templates:28
 msgid "Where are you?"
-msgstr ""
+msgstr "Waar bevindt u zich?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:32
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Selecteer een stad in uw land en tijdzone:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:36
 msgid "Selected city:"
-msgstr ""
+msgstr "Geselecteerde stad:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:40
 msgid "Time zone:"
-msgstr ""
+msgstr "Tijdzone:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-msgid "Selected country:"
+msgid "Selected region:"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../espresso.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "Huidige tijd:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Stel de tijd in..."
 
 #. Type: text
 #. Description
@@ -160,12 +163,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Deze naam zal gebruikt worden als u uw computer beschikbaar maakt voor "
+"anderen op een netwerk."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:105
 msgid "Select a disk"
-msgstr ""
+msgstr "Kies een schijf"
 
 #. Type: text
 #. Description
@@ -175,24 +180,27 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"U kan de installatie zo instellen dat er automatisch schijfruimte gecreeërd "
+"wordt in verschillende stappen op een van deze harde schijven. U kunt ook "
+"kiezen om zelf de harde schijf te verdelen."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:116
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Schijfruimte voorbereiden"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Hoe wilt u de schrijf verdelen?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Partities voorbereiden"
 
 #. Type: text
 #. Description
@@ -201,12 +209,14 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 1.5 GB, and a swap partition of at least 256 MB."
 msgstr ""
+"Maak op zijn minst ruimte  voor een root partitie (\"/\"), met een minium "
+"grootte van 1.5 GB, en een swap partitie met minimaal 256 MB schijfruimte."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Aanhechtpunten voorbereiden"
 
 #. Type: text
 #. Description
@@ -215,6 +225,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Selecteer welke partitie u wilt gebruiken voor u nieuwe installatie, en waar "
+"u deze wilt aanhechten."
 
 #. Type: text
 #. Description
@@ -223,6 +235,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"U moet tenminste een partitie op de root bestand systeem (\"/\") aanhechten, "
+"en kies minimaal een partitie om te gebruiken als swap ruimte."
 
 #. Type: text
 #. Description
@@ -291,12 +305,14 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
+"Het is niet gelukt deze schijf automatisch te verdelen. Kies een andere "
+"verdeel-methode."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:193
 msgid "Skip"
-msgstr ""
+msgstr "Overslaan"
 
 #. Type: title
 #. Description
@@ -308,13 +324,13 @@ msgstr "Installatie is voltooid"
 #. Description
 #: ../espresso.templates:201
 msgid "Quit"
-msgstr ""
+msgstr "Afsluiten"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:205
 msgid "Reboot the computer"
-msgstr ""
+msgstr "Het systeem opnieuw opstarten"
 
 #. Type: text
 #. Description
@@ -324,6 +340,10 @@ msgid ""
 "in order to use it. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Ubuntu is nu geïnstalleerd op uw computer. U moet uw computer herstarten om "
+"ubuntu te gebruiken. U kunt verdergaan met het gebruiken van deze live cd, "
+"maar veranderingen die u maakt of documenten die u opslaat zullen niet "
+"bewaard worden."
 
 #. Type: text
 #. Description
@@ -332,31 +352,33 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Verzeker je ervan dat u de cd heeft verwijderd waneer de computer wordt "
+"herstart, anders start de computer weer met de live cd en niet het nieuwe "
+"geïnstalleerde systeem."
 
 #. Type: title
 #. Description
 #: ../espresso.templates:228
-#, fuzzy
 msgid "Installing system"
-msgstr "Installatie is voltooid"
+msgstr "Het systeem wordt geïnstalleerd"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:232
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Vinden van de te kopiëren distributie..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:236
 msgid "Scanning files..."
-msgstr ""
+msgstr "Bestanden scannen..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:240
 msgid "Copying files..."
-msgstr ""
+msgstr "Bestanden aan het kopiëren..."
 
 #. Type: text
 #. Description
@@ -392,9 +414,8 @@ msgstr "Netwerk wordt geconfigureerd..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Netwerk wordt geconfigureerd..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -406,9 +427,8 @@ msgstr "Netwerk wordt geconfigureerd..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Netwerk wordt geconfigureerd..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -459,7 +479,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:304
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Downloaden van pakketten (${TIME} te gaan)..."
 
 #. Type: text
 #. Description
@@ -471,34 +491,34 @@ msgstr ""
 #. Description
 #: ../espresso.templates:312
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Downloaden van pakketlijsten (${TIME} te gaan)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:321
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Foutmelding bij installatie van ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:326
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Foutmelding bij verwijderen van ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:326
 msgid "${MESSAGE}"
-msgstr ""
+msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:331
 msgid "Installing language packs"
-msgstr ""
+msgstr "Taalpakketten worden geïnstalleerd"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Downloaden van taalpakketten (${TIME} te gaan)..."

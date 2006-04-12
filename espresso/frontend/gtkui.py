@@ -49,6 +49,12 @@ import xml.sax.saxutils
 
 import gettext
 
+import debconf
+try:
+    from debconf import DebconfCommunicator
+except ImportError:
+    from espresso.debconfcommunicator import DebconfCommunicator
+
 from espresso import filteredcommand, validation
 from espresso.misc import *
 from espresso.settings import *
@@ -92,6 +98,7 @@ class Wizard:
         self.current_keyboard = None
         self.manual_choice = None
         self.password = ''
+        self.hostname_edited = False
         self.mountpoint_widgets = []
         self.size_widgets = []
         self.partition_widgets = []
@@ -111,6 +118,16 @@ class Wizard:
         self.installing = False
         self.returncode = 0
         self.translations = get_translations()
+
+        devnull = open('/dev/null', 'w')
+        self.laptop = subprocess.call(["laptop-detect"], stdout=devnull,
+                                      stderr=subprocess.STDOUT) == 0
+        devnull.close()
+
+        # set default language
+        dbfilter = language.Language(self, DebconfCommunicator('espresso'))
+        dbfilter.cleanup()
+        dbfilter.db.shutdown()
 
         gobject.timeout_add(30000, self.poke_gnome_screensaver)
 
@@ -139,6 +156,8 @@ class Wizard:
         for widget in self.glade.get_widget_prefix(""):
             setattr(self, widget.get_name(), widget)
 
+        self.translate_widgets()
+
         self.customize_installer()
 
 
@@ -163,6 +182,13 @@ class Wizard:
 
         # Declare SignalHandler
         self.glade.signal_autoconnect(self)
+
+        # Some signals need to be connected by hand so that we have the
+        # handler ids.
+        self.hostname_delete_text_id = self.hostname.connect(
+            'delete_text', self.on_hostname_delete_text)
+        self.hostname_insert_text_id = self.hostname.connect(
+            'insert_text', self.on_hostname_insert_text)
 
         # Start the interface
         self.set_current_page(0)
@@ -266,6 +292,9 @@ class Wizard:
             self.translate_widget(widget, self.locale)
 
     def translate_widget(self, widget, lang):
+        if isinstance(widget, gtk.Button) and widget.get_use_stock():
+            widget.set_label(widget.get_label())
+
         text = get_string('espresso/text/%s' % widget.get_name(), lang)
         if text is None:
             return
@@ -607,10 +636,28 @@ class Wizard:
         else:
             self.entries[widget.get_name()] = 0
 
+        if widget.get_name() == 'username' and not self.hostname_edited:
+            if self.laptop:
+                hostname_suffix = '-laptop'
+            else:
+                hostname_suffix = '-desktop'
+            self.hostname.handler_block(self.hostname_delete_text_id)
+            self.hostname.handler_block(self.hostname_insert_text_id)
+            self.hostname.set_text(widget.get_text() + hostname_suffix)
+            self.hostname.handler_unblock(self.hostname_insert_text_id)
+            self.hostname.handler_unblock(self.hostname_delete_text_id)
+
         if len(filter(lambda v: v == 1, self.entries.values())) == 5:
             self.next.set_sensitive(True)
         else:
             self.next.set_sensitive(False)
+
+    def on_hostname_delete_text(self, widget, start, end):
+        self.hostname_edited = True
+
+    def on_hostname_insert_text(self, widget,
+                                new_text, new_text_length, position):
+        self.hostname_edited = True
 
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""
@@ -970,7 +1017,7 @@ class Wizard:
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
             for widget in ('live_installer', 'welcome_heading_label',
-                           'welcome_text_label'):
+                           'welcome_text_label', 'cancel', 'back', 'next'):
                 self.translate_widget(getattr(self, widget), lang)
 
 
@@ -1461,18 +1508,18 @@ class TimezoneMap(object):
         list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         timezone_city_combo.set_model(list_store)
 
-        prev_region = ''
+        prev_continent = ''
         for location in self.tzdb.locations:
             self.tzmap.add_point("", location.longitude, location.latitude,
                                  NORMAL_RGBA)
             zone_bits = location.zone.split('/')
             if len(zone_bits) == 1:
                 continue
-            region = zone_bits[0]
-            if region != prev_region:
+            continent = zone_bits[0]
+            if continent != prev_continent:
                 list_store.append(['', None])
-                list_store.append(["--- %s ---" % region, None])
-                prev_region = region
+                list_store.append(["--- %s ---" % continent, None])
+                prev_continent = continent
             human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
             list_store.append([human_zone, location.zone])
 

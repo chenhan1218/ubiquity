@@ -19,6 +19,7 @@
 
 import os
 import re
+import locale
 
 from espresso.filteredcommand import FilteredCommand
 from espresso import misc
@@ -58,6 +59,8 @@ class Language(FilteredCommand):
             for i in range(len(language_choices)):
                 choice = re.sub(r'.*? *- (.*)', r'\1', language_choices[i])
                 choice_c = language_choices_c[i]
+                if choice_c not in language_codes:
+                    continue
                 language_display_map[choice] = (choice_c,
                                                 language_codes[choice_c])
                 if i == current_language_index:
@@ -74,11 +77,12 @@ class Language(FilteredCommand):
         super(Language, self).ok_handler()
 
     def cleanup(self):
-        locale = self.db.get('debian-installer/locale')
-        if locale not in misc.get_supported_locales():
-            locale = self.db.get('debian-installer/fallbacklocale')
-        if locale != self.frontend.locale:
-            self.frontend.locale = locale
-            os.environ['LANG'] = locale
+        di_locale = self.db.get('debian-installer/locale')
+        if di_locale not in misc.get_supported_locales():
+            di_locale = self.db.get('debian-installer/fallbacklocale')
+        if di_locale != self.frontend.locale:
+            self.frontend.locale = di_locale
+            os.environ['LANG'] = di_locale
             if 'LANGUAGE' in os.environ:
                 del os.environ['LANGUAGE']
+            locale.setlocale(locale.LC_ALL, '')

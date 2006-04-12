@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-10 17:37+0100\n"
+"POT-Creation-Date: 2006-04-11 17:36+0100\n"
 "PO-Revision-Date: 2006-03-30 09:37+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <debian-boot@lists.debian.org>\n"
@@ -78,9 +78,8 @@ msgstr "Tidszon:"
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-#, fuzzy
-msgid "Selected country:"
-msgstr "Vald stad:"
+msgid "Selected region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -263,9 +262,8 @@ msgstr "Partition"
 #. Type: text
 #. Description
 #: ../espresso.templates:159
-#, fuzzy
 msgid "Reformat?"
-msgstr "formatera"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -416,9 +414,8 @@ msgstr "Konfigurerar systemlokaler..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Konfigurerar nätverket..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -429,9 +426,8 @@ msgstr "Konfigurerar tidszonen..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Konfigurerar nätverket..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -484,9 +480,8 @@ msgstr "Hämtar paket (${TIME} återstår)..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Hämtar paketlistor (${TIME} återstår)..."
+msgstr ""
 
 #. Type: text
 #. Description

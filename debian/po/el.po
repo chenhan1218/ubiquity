@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-10 17:37+0100\n"
+"POT-Creation-Date: 2006-04-11 17:36+0100\n"
 "PO-Revision-Date: 2006-04-04 08:17+0000\n"
 "Last-Translator: Kostas Papadimas <pkst@gmx.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -78,9 +78,8 @@ msgstr "Ζώνη ώρας:"
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-#, fuzzy
-msgid "Selected country:"
-msgstr "Επιλεγμένη πόλη:"
+msgid "Selected region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -267,9 +266,8 @@ msgstr "Τμήμα δίσκου"
 #. Type: text
 #. Description
 #: ../espresso.templates:159
-#, fuzzy
 msgid "Reformat?"
-msgstr "μορφοποίηση"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -421,9 +419,8 @@ msgstr "Ρύθμιση των γλωσσικών εντοπιοτήτων συσ
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Ρύθμιση δικτύου..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -434,9 +431,8 @@ msgstr "Ρύθμιση ζώνης ώρας..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Ρύθμιση δικτύου..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -489,9 +485,8 @@ msgstr "Λήψη πακέτων (${TIME} απομένουν)..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Λήψη λίστας πακέτων (${TIME} απομένουν)..."
+msgstr ""
 
 #. Type: text
 #. Description

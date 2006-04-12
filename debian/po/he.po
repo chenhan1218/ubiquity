@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-10 17:37+0100\n"
+"POT-Creation-Date: 2006-04-11 17:36+0100\n"
 "PO-Revision-Date: 2006-03-29 14:41+0000\n"
 "Last-Translator: Yaniv Abir <yanivabir@gmail.com>\n"
 "Language-Team: Debian l10n Hebrew <webmaster@guides.co.il>\n"
@@ -78,9 +78,8 @@ msgstr "איזור זמן:"
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-#, fuzzy
-msgid "Selected country:"
-msgstr "איזור זמן נבחר"
+msgid "Selected region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -254,9 +253,8 @@ msgstr "חלוקה למחיצות"
 #. Type: text
 #. Description
 #: ../espresso.templates:159
-#, fuzzy
 msgid "Reformat?"
-msgstr "הכן לעבודה"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -407,9 +405,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "מגדיר רשת..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -420,9 +417,8 @@ msgstr "מגדיר איזור זמן..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "מגדיר רשת..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -476,9 +472,8 @@ msgstr "מוריד חבילות (${TIME} נותרו)..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "מוריד חבילות (${TIME} נותרו)..."
+msgstr ""
 
 #. Type: text
 #. Description

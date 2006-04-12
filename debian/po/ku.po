@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-10 17:37+0100\n"
+"POT-Creation-Date: 2006-04-11 17:36+0100\n"
 "PO-Revision-Date: 2006-03-27 15:11+0000\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
 "Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
@@ -75,7 +75,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-msgid "Selected country:"
+msgid "Selected region:"
 msgstr ""
 
 #. Type: text
@@ -407,9 +407,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Tor tê avakirin..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -420,9 +419,8 @@ msgstr "Herêma demê tê saz kirin..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Tor tê avakirin..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -475,9 +473,8 @@ msgstr "Paket tên daxistin (${TIME} ma)..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Lîsteyên paketan tên daxistin (${TIME} ma)..."
+msgstr ""
 
 #. Type: text
 #. Description

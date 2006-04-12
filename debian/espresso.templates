@@ -41,7 +41,7 @@ _Description: Time zone:
 
 Template: espresso/text/timezone_country_label
 Type: text
-_Description: Selected country:
+_Description: Selected region:
 
 Template: espresso/text/timezone_time_label
 Type: text

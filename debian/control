@@ -7,7 +7,7 @@ Standards-Version: 3.6.2.1
 
 Package: espresso
 Architecture: any
-Depends: ${misc:Depends}, ${python:Depends}, espresso-frontend, espresso-doc, lsb-release, espresso-casper, python-apt, console-keymaps, console-data (>= 2002.12.04dbs-52.1ubuntu7), localechooser-data, iso-codes, ${bootloader-depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, espresso-frontend, espresso-doc, laptop-detect, lsb-release, espresso-casper, python-apt, console-keymaps, console-data (>= 2002.12.04dbs-52.1ubuntu7), localechooser-data (>= 0.27ubuntu12), iso-codes, ${bootloader-depends}
 Recommends: gparted
 Conflicts: ubuntu-express, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
 Replaces: ubuntu-express, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
@@ -56,7 +56,7 @@ Description: Ubuntu documentation and help files for Espresso live installer
 
 Package: espresso-frontend-gtk
 Architecture: any
-Depends: ${misc:Depends}, ${python:Depends}, espresso, python-gnome2-extras, python-glade2, gparted (>= 0.1-0ubuntu3), espresso-artwork, espresso-doc, python-gtk2, iso-codes
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, espresso, python-gnome2-extras, python-glade2, gparted (>= 0.1-0ubuntu3), espresso-artwork, espresso-doc, python-gtk2, iso-codes
 Conflicts: ubuntu-express-frontend-gtk
 Replaces: ubuntu-express-frontend-gtk
 Provides: espresso-frontend

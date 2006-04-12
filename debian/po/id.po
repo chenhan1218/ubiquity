@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-10 17:37+0100\n"
+"POT-Creation-Date: 2006-04-11 17:36+0100\n"
 "PO-Revision-Date: 2006-03-27 15:07+0000\n"
 "Last-Translator: Parlin Imanuel Toh <pt@samip-online.com>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
@@ -76,7 +76,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-msgid "Selected country:"
+msgid "Selected region:"
 msgstr ""
 
 #. Type: text
@@ -393,9 +393,8 @@ msgstr "Sedang mengonfigurasi jaringan..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Sedang mengonfigurasi jaringan..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -407,9 +406,8 @@ msgstr "Sedang mengonfigurasi jaringan..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Sedang mengonfigurasi jaringan..."
+msgstr ""
 
 #. Type: text
 #. Description

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-10 17:37+0100\n"
+"POT-Creation-Date: 2006-04-11 17:36+0100\n"
 "PO-Revision-Date: 2006-03-28 16:25+0000\n"
 "Last-Translator: Dominik Zablotny <doza@sztorm.net>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
@@ -78,9 +78,8 @@ msgstr "Strefa czasowa:"
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-#, fuzzy
-msgid "Selected country:"
-msgstr "Wybrane miasto:"
+msgid "Selected region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -259,9 +258,8 @@ msgstr "Partycja"
 #. Type: text
 #. Description
 #: ../espresso.templates:159
-#, fuzzy
 msgid "Reformat?"
-msgstr "formatowanie"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -412,9 +410,8 @@ msgstr "Konfigurowanie locale (lokalizacji)..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Konfigurowanie sieci..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -425,9 +422,8 @@ msgstr "Konfigurowanie strefy czasu..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Konfigurowanie sieci..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -480,9 +476,8 @@ msgstr "Pobieranie pakietów (pozostało ${TIME})..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Pobieranie list pakietów (pozostało ${TIME})..."
+msgstr ""
 
 #. Type: text
 #. Description

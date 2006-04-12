@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-10 17:37+0100\n"
+"POT-Creation-Date: 2006-04-11 17:36+0100\n"
 "PO-Revision-Date: 2006-04-05 06:29+0000\n"
 "Last-Translator: Serhey Kusyumoff <gpalco@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -78,9 +78,8 @@ msgstr "Часовой пояс:"
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-#, fuzzy
-msgid "Selected country:"
-msgstr "Выбранный город:"
+msgid "Selected region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -259,9 +258,8 @@ msgstr "Раздел"
 #. Type: text
 #. Description
 #: ../espresso.templates:159
-#, fuzzy
 msgid "Reformat?"
-msgstr "форматировать"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -410,9 +408,8 @@ msgstr "Настройка локализаций..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Настройка сети..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -423,9 +420,8 @@ msgstr "Настройка часового пояса..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Настройка сети..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -478,9 +474,8 @@ msgstr "Загрузка пакетов (осталось ${TIME} )..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Загрузка списков пакетов (осталось ${TIME} )..."
+msgstr ""
 
 #. Type: text
 #. Description

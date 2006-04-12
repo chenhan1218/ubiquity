@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-10 17:37+0100\n"
+"POT-Creation-Date: 2006-04-11 17:36+0100\n"
 "PO-Revision-Date: 2006-03-29 11:56+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -78,9 +78,8 @@ msgstr "Aikavyöhyke:"
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-#, fuzzy
-msgid "Selected country:"
-msgstr "Valittu kaupunki:"
+msgid "Selected region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -261,9 +260,8 @@ msgstr "Osio"
 #. Type: text
 #. Description
 #: ../espresso.templates:159
-#, fuzzy
 msgid "Reformat?"
-msgstr "alusta"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -415,9 +413,8 @@ msgstr "Asetetaan järjestelmän maa-asetustoja..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Tehdään verkkoasetukset..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -428,9 +425,8 @@ msgstr "Asetetaan aikavyöhykettä..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Tehdään verkkoasetukset..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -483,9 +479,8 @@ msgstr "Ladataan paketteja (${TIME} jäljellä)..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Ladataan pakettiluetteloita (${TIME} jäljellä)..."
+msgstr ""
 
 #. Type: text
 #. Description

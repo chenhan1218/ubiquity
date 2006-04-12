@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-10 17:37+0100\n"
-"PO-Revision-Date: 2006-04-04 19:55+0000\n"
+"POT-Creation-Date: 2006-04-11 17:36+0100\n"
+"PO-Revision-Date: 2006-04-11 16:03+0000\n"
 "Last-Translator: Rick Miller <rdmiller3@gmail.com>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -78,9 +78,8 @@ msgstr "Hora zono:"
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-#, fuzzy
-msgid "Selected country:"
-msgstr "Elektita urbo:"
+msgid "Selected region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -263,9 +262,8 @@ msgstr "Diskpartigu"
 #. Type: text
 #. Description
 #: ../espresso.templates:159
-#, fuzzy
 msgid "Reformat?"
-msgstr "formatu"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -416,9 +414,8 @@ msgstr "Akomodanta sistemajn lokarojn..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Akomodi reton ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -429,9 +426,8 @@ msgstr "Akomodanta horan zonon..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Akomodi reton ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -484,9 +480,8 @@ msgstr "Elŝutanta pakojn (${TIME} restanta)..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Elŝutanta pakajn listojn (${TIME} restanta)..."
+msgstr ""
 
 #. Type: text
 #. Description

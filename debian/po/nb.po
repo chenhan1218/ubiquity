@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-10 17:37+0100\n"
-"PO-Revision-Date: 2006-03-27 15:14+0000\n"
-"Last-Translator: Bjørn Steensrud <bjornst@powertech.no>\n"
+"POT-Creation-Date: 2006-04-11 17:36+0100\n"
+"PO-Revision-Date: 2006-04-10 18:58+0000\n"
+"Last-Translator: Tor Harald Thorland <linux@strigen.com>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:8
 msgid "Espresso Installer"
-msgstr ""
+msgstr "Installasjonsprogrammet Espresso"
 
 #. Type: text
 #. Description
@@ -53,21 +53,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:28
-#, fuzzy
 msgid "Where are you?"
-msgstr "Hvem er du?"
+msgstr "Hvor bor du?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:32
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Velg en by i ditt land, og din tidssone:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:36
 msgid "Selected city:"
-msgstr ""
+msgstr "Valgt by:"
 
 #. Type: text
 #. Description
@@ -78,7 +77,7 @@ msgstr "Tidssone:"
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-msgid "Selected country:"
+msgid "Selected region:"
 msgstr ""
 
 #. Type: text
@@ -91,25 +90,25 @@ msgstr "Gjeldende tid:"
 #. Description
 #: ../espresso.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Still klokken..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Tastaturutforming"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Hvilken oppsett er mest likt ditt tastatur?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:64
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "Her kan du skrive for å teste tastaturetoppsett."
 
 #. Type: text
 #. Description
@@ -143,7 +142,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Velg et passord for å holde din brukerkonto sikker."
 
 #. Type: text
 #. Description
@@ -181,24 +180,27 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"Det er flere måter du kan la installasjonsprogrammet opprette plass på "
+"automatisk. Det kan gjøres på hvilken som helst av følgende harddisker. "
+"Alternativt kan du partisjonere diskene manuelt."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:116
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Klargjør diskplass"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Hvordan vil du partisjonere disken?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Klargjør partisjon"
 
 #. Type: text
 #. Description
@@ -214,7 +216,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Klargjør monteringspunkter"
 
 #. Type: text
 #. Description
@@ -240,7 +242,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:147
 msgid "Mount Point"
-msgstr ""
+msgstr "Monteringspunkt"
 
 #. Type: text
 #. Description
@@ -252,7 +254,7 @@ msgstr "Størrelse"
 #. Description
 #: ../espresso.templates:155
 msgid "Partition"
-msgstr ""
+msgstr "Partisjon"
 
 #. Type: text
 #. Description
@@ -270,7 +272,7 @@ msgstr "Du må angi et monteringpunkt for roten («/»)."
 #. Description
 #: ../espresso.templates:167
 msgid "Ready to install"
-msgstr ""
+msgstr "Klar til å installere"
 
 #. Type: text
 #. Description
@@ -282,19 +284,19 @@ msgstr "Ubuntu er klar for installering på denne datamaskinen."
 #. Description
 #: ../espresso.templates:175
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Avbryt installasjonen?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:179
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "Vil du virkelig avbryte installasjonen nå?"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:183
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "Partisjoneringen ble avbrutt"
 
 #. Type: text
 #. Description
@@ -328,7 +330,7 @@ msgstr "Avslutt"
 #. Description
 #: ../espresso.templates:205
 msgid "Reboot the computer"
-msgstr ""
+msgstr "Start systemet på nytt"
 
 #. Type: text
 #. Description
@@ -338,6 +340,9 @@ msgid ""
 "in order to use it. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Ubuntu er installert på din datamaskin. Du må starte på nytt for å ta det i "
+"bruk. Du kan fortsatt kjøre fra CDen, men ingen endringer du gjør eller "
+"dokumenter du oppretter blir lagret."
 
 #. Type: text
 #. Description
@@ -346,32 +351,33 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Pass på at du fjerner CD'en når du starter systemet på nytt, ellers vil "
+"systemet starte opp  fra denne live-cd'en isteden for det nyinstallerte "
+"systemet."
 
 #. Type: title
 #. Description
 #: ../espresso.templates:228
-#, fuzzy
 msgid "Installing system"
-msgstr "Installasjonen er ferdig"
+msgstr "Installerer systemet"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:232
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Finner distribusjon som skal kopieres..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:236
 msgid "Scanning files..."
-msgstr ""
+msgstr "Skanner filer..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:240
-#, fuzzy
 msgid "Copying files..."
-msgstr "Kopierer filer (${TIME} gjenstår)..."
+msgstr "Kopierer filer..."
 
 #. Type: text
 #. Description
@@ -383,7 +389,7 @@ msgstr "Kopierer filer (${TIME} gjenstår)..."
 #. Description
 #: ../espresso.templates:248
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "Kopierer installasjons loger..."
 
 #. Type: text
 #. Description
@@ -406,9 +412,8 @@ msgstr "Setter opp systemspråk..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "Setter opp nettverk ..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -419,16 +424,14 @@ msgstr "Setter opp tidssone..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "Setter opp nettverk ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../espresso.templates:276
-#, fuzzy
 msgid "Creating user..."
-msgstr "Rydder opp ..."
+msgstr "Oppretter en bruker..."
 
 #. Type: text
 #. Description
@@ -446,20 +449,19 @@ msgstr "Setter opp nettverk ..."
 #. Description
 #: ../espresso.templates:288
 msgid "Setting computer name..."
-msgstr ""
+msgstr "Setter datamaskin navn..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:292
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Setter opp systemspråk..."
+msgstr "Setter opp oppstartslaster..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:296
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Fjerner ekstrapakkene..."
 
 #. Type: text
 #. Description
@@ -476,9 +478,8 @@ msgstr "Laster ned pakker (${TIME} gjenstår)..."
 #. Type: text
 #. Description
 #: ../espresso.templates:308
-#, fuzzy
 msgid "Downloading package lists..."
-msgstr "Laster ned pakkelister (${TIME} gjenstår)..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -490,13 +491,13 @@ msgstr "Laster ned pakkelister (${TIME} gjenstår)..."
 #. Description
 #: ../espresso.templates:321
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Klarte ikke å installere ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:326
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Feil under fjerning av ${PACKAGE}"
 
 #. Type: text
 #. Description
@@ -508,7 +509,7 @@ msgstr "${MESSAGE}"
 #. Description
 #: ../espresso.templates:331
 msgid "Installing language packs"
-msgstr ""
+msgstr "Installerer språkpakkene"
 
 #. Type: text
 #. Description

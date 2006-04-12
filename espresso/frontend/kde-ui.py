@@ -38,6 +38,12 @@ import xml.sax.saxutils
 
 import gettext
 
+import debconf
+try:
+    from debconf import DebconfCommunicator
+except ImportError:
+    from espresso.debconfcommunicator import DebconfCommunicator
+
 from espresso import filteredcommand, validation
 from espresso.misc import *
 from espresso.settings import *
@@ -115,6 +121,7 @@ class Wizard:
         self.name = ''
         self.manual_choice = None
         self.password = ''
+        self.hostname_edited = False
         self.mountpoint_widgets = []
         self.size_widgets = []
         self.partition_widgets = []
@@ -135,11 +142,23 @@ class Wizard:
         self.returncode = 0
         self.translations = get_translations()
 
+        devnull = open('/dev/null', 'w')
+        self.laptop = subprocess.call(["laptop-detect"], stdout=devnull,
+                                      stderr=subprocess.STDOUT) == 0
+        devnull.close()
+
+        # FIXME seems to quit program
+        # set default language
+        dbfilter = language.Language(self, DebconfCommunicator('espresso'))
+        dbfilter.cleanup()
+        dbfilter.db.shutdown()
+
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
     
         # To get a "busy mouse":
         #FIXME self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
     
+        print "4"
         # useful dicts to manage UI data
         self.entries = {
             'hostname' : 0,
@@ -155,15 +174,22 @@ class Wizard:
         # If automatic partitioning fails, it may be disabled toggling on this variable:
         self.discard_automatic_partitioning = False
         
+        print "5"
+
+        self.translate_widgets()
+
+        print "6"
         self.customize_installer()
         
         self.autopartition_vbox = QVBoxLayout(self.userinterface.autopartition_frame)
         self.autopartition_buttongroup = QButtonGroup(self.userinterface.autopartition_frame)
         self.autopartition_buttongroup_texts = {}
         
+        print "7"
         self.qtparted_vbox = QVBoxLayout(self.userinterface.qtparted_frame)
         self.embed = QXEmbed(self.userinterface.qtparted_frame, "embed")
         self.embed.setProtocol(QXEmbed.XPLAIN)
+        print "init end"
 
     def run(self):
         """run the interface."""
@@ -196,6 +222,7 @@ class Wizard:
         self.app.connect(self.userinterface.password, SIGNAL("textChanged(const QString &)"), self.info_loop)
         self.app.connect(self.userinterface.verified_password, SIGNAL("textChanged(const QString &)"), self.info_loop)
         self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.info_loop)
+        self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.on_hostname_insert_text)
         
         self.app.connect(self.userinterface.fullname, SIGNAL("selectionChanged()"), self.info_loop)
         self.app.connect(self.userinterface.username, SIGNAL("selectionChanged()"), self.info_loop)
@@ -305,6 +332,11 @@ class Wizard:
             self.translate_widgets(widget)
 
     def translate_widget(self, widget, lang):
+        
+        #FIXME how to do in KDE?  use kstdactions?
+        #if isinstance(widget, gtk.Button) and widget.get_use_stock():
+        #    widget.set_label(widget.get_label())
+
         text = get_string('espresso/text/%s' % widget.name(), lang)
         if text is None:
             return
@@ -452,10 +484,21 @@ class Wizard:
             else:
                 self.entries[widget.name()] = 0
 
+            if widget.name() == 'username' and not self.hostname_edited:
+                if self.laptop:
+                    hostname_suffix = '-laptop'
+                else:
+                    hostname_suffix = '-desktop'
+                self.hostname.set_text(widget.text() + hostname_suffix)
+
         if len(filter(lambda v: v == 1, self.entries.values())) == 5:
             self.userinterface.next.setEnabled(True)
         else:
             self.userinterface.next.setEnabled(False)
+
+    def on_hostname_insert_text(self):
+        print "  on_hostname_insert_text(self):"
+        self.hostname_edited = True
 
     def on_next_clicked(self):
         print "  on_next_clicked(self):"
@@ -495,7 +538,7 @@ class Wizard:
             lang = self.language_choice_map[value][1]
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
-            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label):
+            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.next, self.userinterface.back, self.userinterface.cancel):
                 self.translate_widget(widget, lang)
 
     def on_back_clicked(self):
@@ -1575,11 +1618,23 @@ class TimezoneMap(object):
         """
 
         timezone_city_combo = self.frontend.userinterface.timezone_city_combo
+        self.timezone_city_index = {}  #map human readable city name to Europe/London style zone
 
+        prev_continent = ''
         for location in self.tzdb.locations:
             #self.tzmap.add_point("", location.longitude, location.latitude,
             #                     NORMAL_RGBA)
-            timezone_city_combo.insertItem(location.zone)
+            zone_bits = location.zone.split('/')
+            if len(zone_bits) == 1:
+                continue
+            continent = zone_bits[0]
+            if continent != prev_continent:
+                timezone_city_combo.insertItem('')
+                timezone_city_combo.insertItem("--- %s ---" % continent)
+                prev_continent = continent
+            human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
+            timezone_city_combo.insertItem(human_zone)
+            self.timezone_city_index[human_zone] = location.zone
 
         #self.tzmap.connect("map-event", self.mapped)
         #self.tzmap.connect("unmap-event", self.unmapped)

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-10 17:37+0100\n"
+"POT-Creation-Date: 2006-04-11 17:36+0100\n"
 "PO-Revision-Date: 2006-03-27 15:10+0000\n"
 "Last-Translator: darehanl <darehanl@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -75,7 +75,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:44
-msgid "Selected country:"
+msgid "Selected region:"
 msgstr ""
 
 #. Type: text
@@ -392,9 +392,8 @@ msgstr "네트워크를 설정하는 중입니다..."
 #. Type: text
 #. Description
 #: ../espresso.templates:264
-#, fuzzy
 msgid "Configuring apt..."
-msgstr "네트워크를 설정하는 중입니다..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -406,9 +405,8 @@ msgstr "네트워크를 설정하는 중입니다..."
 #. Type: text
 #. Description
 #: ../espresso.templates:272
-#, fuzzy
 msgid "Configuring keyboard..."
-msgstr "네트워크를 설정하는 중입니다..."
+msgstr ""
 
 #. Type: text
 #. Description
