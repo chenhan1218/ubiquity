@@ -2,6 +2,7 @@ espresso (0.99.46) UNRELEASED; urgency=low
 
   * Disable swap before starting gparted or qtparted. partman will enable it
     again after mountpoint selection if any swap partitions were selected.
+  * Install debconf-get again, lost in the component packaging merge.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 12 Apr 2006 04:02:34 +0100
 
