@@ -875,7 +875,10 @@ class Wizard:
         for i in range(len(self.mountpoint_widgets)):
             mountpoint_value = self.mountpoint_widgets[i].get_active_text()
             partition_value = self.partition_widgets[i].get_active_text()
-            partition_id = self.part_devices[partition_value]
+            if partition_value is not None:
+                partition_id = self.part_devices[partition_value]
+            else:
+                partition_id = None
             format_value = self.format_widgets[i].get_active()
             fstype = None
             if partition_id in self.gparted_fstype:

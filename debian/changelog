@@ -2,6 +2,9 @@ espresso (0.99.45) UNRELEASED; urgency=low
 
   * Fix validation to accept hyphens in hostname (thanks, Alexandre Otto
     Strube; closes: Malone #39218).
+  * GTK frontend:
+    - Avoid crash if no partition is selected for a given mount point
+      (closes: Malone #39116).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 12 Apr 2006 03:26:18 +0100
 
