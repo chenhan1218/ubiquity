@@ -1,4 +1,4 @@
-espresso (0.99.46) UNRELEASED; urgency=low
+espresso (0.99.46) dapper; urgency=low
 
   * Disable swap before starting gparted or qtparted. partman will enable it
     again after mountpoint selection if any swap partitions were selected.
@@ -10,8 +10,10 @@ espresso (0.99.46) UNRELEASED; urgency=low
     write to $HOME/.hcwd.
   * Fix calling of /lib/partman/update.d scripts. This should make the
     manual partitioner work somewhat better.
+  * Automatic update of included source packages: localechooser
+    0.27ubuntu15.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 12 Apr 2006 04:02:34 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 12 Apr 2006 18:31:26 +0100
 
 espresso (0.99.45) dapper; urgency=low
 
