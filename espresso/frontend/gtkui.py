@@ -215,7 +215,10 @@ class Wizard:
                 self.dbfilter = None
 
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
+                self.live_installer.window.set_cursor(self.watch)
                 self.dbfilter.start(auto_process=True)
+            else:
+                self.live_installer.window.set_cursor(None)
             gtk.main()
 
             if self.installing:
@@ -672,6 +675,7 @@ class Wizard:
             self.hostname_error_box.hide()
 
         if self.dbfilter is not None:
+            self.live_installer.window.set_cursor(self.watch)
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
@@ -1007,6 +1011,7 @@ class Wizard:
             self.steps.prev_page()
 
         if self.dbfilter is not None:
+            self.live_installer.window.set_cursor(self.watch)
             self.dbfilter.cancel_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
@@ -1326,6 +1331,7 @@ class Wizard:
         # TODO cjwatson 2006-03-10: Duplication of page logic; I think some
         # of this can go away once we reorganise page handling not to invoke
         # a main loop for each page.
+        self.live_installer.window.set_cursor(self.watch)
         self.next.set_label("Install") # TODO i18n
         self.previous_partitioning_page = self.steps.get_current_page()
         self.steps.set_current_page(self.steps.page_num(self.stepReady))
@@ -1440,6 +1446,7 @@ class Wizard:
 
     def error_dialog (self, msg):
         # TODO: cancel button as well if capb backup
+        self.live_installer.window.set_cursor(None)
         if self.current_page is not None:
             transient = self.live_installer
         else:
@@ -1464,6 +1471,7 @@ class Wizard:
 
     # Run the UI's main loop until it returns control to us.
     def run_main_loop (self):
+        self.live_installer.window.set_cursor(None)
         gtk.main()
 
 
