@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-11 17:36+0100\n"
+"POT-Creation-Date: 2006-04-13 16:02+0100\n"
 "PO-Revision-Date: 2006-03-27 15:08+0000\n"
 "Last-Translator: David Steinn Geirsson <davidgeirs@gmail.com>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
@@ -30,8 +30,9 @@ msgstr ""
 #. Description
 #: ../espresso.templates:16
 msgid ""
-"Ready to install? Once you answer a few questions, Ubuntu can be installed "
-"on this computer so you can run the system at full speed and without the CD."
+"Ready to install? Once you answer a few questions, the contents of the live "
+"CD can be installed on this computer so you can run the system at full speed "
+"and without the CD."
 msgstr ""
 
 #. Type: text
@@ -263,7 +264,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-msgid "Ubuntu is ready to install on this computer."
+msgid "The live CD is ready to be installed on this computer."
 msgstr ""
 
 #. Type: title
@@ -320,8 +321,8 @@ msgstr ""
 #. Description
 #: ../espresso.templates:209
 msgid ""
-"Ubuntu is now installed on your computer. You need to restart the computer "
-"in order to use it. You can continue to use this live CD, although any "
+"Installation is complete. You need to restart the computer in order to use "
+"the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
 

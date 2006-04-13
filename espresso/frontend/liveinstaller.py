@@ -2326,7 +2326,7 @@ class EspressoUI(QWidget):
         self.introLabel.setText(self.__tr("textLabel2"))
         self.welcome_heading_label.setText(self.__tr("<h2>Welcome</h2>"))
         self.language_treeview.header().setLabel(0,self.__tr("Language"))
-        self.welcome_text_label.setText(self.__tr("Ready to install? Once you answer a few questions, Ubuntu can be installed on this computer so you can run the system at full speed and without the CD.\n"
+        self.welcome_text_label.setText(self.__tr("Ready to install? Once you answer a few questions, the contents of the live CD can be installed on this computer so you can run the system at full speed and without the CD.\n"
 "\n"
 "Answering the questions should only take a few minutes."))
         self.timezone_heading_label.setText(self.__tr("<h2>Where are you?</h2>"))
@@ -2370,7 +2370,7 @@ class EspressoUI(QWidget):
         self.mountpoint_error_reason.setText(self.__tr("You must supply a root (\"/\") mount point."))
         self.ready_heading_label.setText(self.__tr("<h2>Ready to install</h2>"))
         self.textLabel8.setText(self.__tr("Details"))
-        self.ready_description_label.setText(self.__tr("Kubuntu is ready to install on this computer."))
+        self.ready_description_label.setText(self.__tr("The live CD is ready to be installed on this computer."))
         self.back.setText(self.__tr("< Back"))
         self.next.setText(self.__tr("Next >"))
         self.cancel.setText(self.__tr("Cancel"))

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-11 17:36+0100\n"
+"POT-Creation-Date: 2006-04-13 16:02+0100\n"
 "PO-Revision-Date: 2006-03-28 16:25+0000\n"
 "Last-Translator: Dominik Zablotny <doza@sztorm.net>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
@@ -29,9 +29,11 @@ msgstr "Witaj"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
+#, fuzzy
 msgid ""
-"Ready to install? Once you answer a few questions, Ubuntu can be installed "
-"on this computer so you can run the system at full speed and without the CD."
+"Ready to install? Once you answer a few questions, the contents of the live "
+"CD can be installed on this computer so you can run the system at full speed "
+"and without the CD."
 msgstr ""
 "Czy jesteś gotowy do instalacji? Po udzieleniu odpowiedzi na kilka pytań, "
 "Ubunu będzie mogło zostać zainstalowane na tym komputerze, abyś mógł używać "
@@ -276,7 +278,8 @@ msgstr "Gotowe do instalacji"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-msgid "Ubuntu is ready to install on this computer."
+#, fuzzy
+msgid "The live CD is ready to be installed on this computer."
 msgstr "Ubuntu jest gotowe do instalacji na tym komputerze"
 
 #. Type: title
@@ -334,9 +337,10 @@ msgstr "Ponownie uruchom system"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
+#, fuzzy
 msgid ""
-"Ubuntu is now installed on your computer. You need to restart the computer "
-"in order to use it. You can continue to use this live CD, although any "
+"Installation is complete. You need to restart the computer in order to use "
+"the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
 "Ubuntu jest już zainstalowane na tym komputerze. Aby zacząć go używać, "

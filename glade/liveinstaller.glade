@@ -178,7 +178,7 @@
 			<widget class="GtkLabel" id="welcome_text_label">
 			  <property name="width_request">600</property>
 			  <property name="visible">True</property>
-			  <property name="label" translatable="yes">Ready to install? Once you answer a few questions, Ubuntu can be installed on this computer so you can run the system at full speed and without the CD.
+			  <property name="label" translatable="yes">Ready to install? Once you answer a few questions, the contents of the live CD can be installed on this computer so you can run the system at full speed and without the CD.
 
 Answering the questions should only take a few minutes.
 
@@ -2522,7 +2522,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 		      <child>
 			<widget class="GtkLabel" id="ready_description_label">
 			  <property name="visible">True</property>
-			  <property name="label" translatable="yes">Ubuntu is ready to install on this computer.</property>
+			  <property name="label" translatable="yes">The live CD is ready to be installed on this computer.</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
 			  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -3233,7 +3233,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
       <child>
 	<widget class="GtkLabel" id="finished_label">
 	  <property name="visible">True</property>
-	  <property name="label" translatable="yes">Ubuntu is now installed on your computer. You need to restart the computer in order to use it. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.
+	  <property name="label" translatable="yes">Installation is complete. You need to restart the computer in order to use the new installation. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.
 
 Make sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system.</property>
 	  <property name="use_underline">False</property>

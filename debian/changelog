@@ -15,6 +15,10 @@ espresso (0.99.47) UNRELEASED; urgency=low
   * Remove kernels that aren't appropriate for the current system, using
     base-installer's kernel selection logic. This fixes 32-bit powerpc
     systems, which otherwise would try to boot a 64-bit kernel by default.
+  * Rephrase all strings that talk about "Ubuntu" so that Kubuntu, Edubuntu,
+    and Xubuntu don't have branding problems. The boot splash image, desktop
+    wallpaper, and so on should be enough to indicate what you're
+    installing.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 12 Apr 2006 18:49:28 +0000
 
