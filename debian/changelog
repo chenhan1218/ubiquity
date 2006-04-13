@@ -1,3 +1,10 @@
+espresso (0.99.48) UNRELEASED; urgency=low
+
+  * Make the intro message a bit less scary, and make it clear that this is
+    a beta release.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 13 Apr 2006 18:18:32 +0100
+
 espresso (0.99.47) dapper; urgency=low
 
   [ Jonathan Riddell ]
