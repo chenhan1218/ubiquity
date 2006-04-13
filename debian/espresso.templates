@@ -14,9 +14,9 @@ _Description: Welcome
 Template: espresso/text/welcome_text_label
 Type: text
 _Description:
- Ready to install? Once you answer a few questions, Ubuntu can be installed
- on this computer so you can run the system at full speed and without the
- CD.
+ Ready to install? Once you answer a few questions, the contents of the live
+ CD can be installed on this computer so you can run the system at full
+ speed and without the CD.
  .
  Answering the questions should only take a few minutes.
  .
@@ -168,7 +168,7 @@ _Description: Ready to install
 
 Template: espresso/text/ready_description_label
 Type: text
-_Description: Ubuntu is ready to install on this computer.
+_Description: The live CD is ready to be installed on this computer.
 
 Template: espresso/text/warning_dialog
 Type: title
@@ -207,8 +207,8 @@ _Description: Reboot the computer
 Template: espresso/text/finished_label
 Type: text
 _Description:
- Ubuntu is now installed on your computer. You need to restart the computer
- in order to use it. You can continue to use this live CD, although any
+ Installation is complete. You need to restart the computer in order to use
+ the new installation. You can continue to use this live CD, although any
  changes you make or documents you save will not be preserved.
  .
  Make sure to remove the CD when restarting the computer, otherwise it will

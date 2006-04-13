@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-11 17:36+0100\n"
+"POT-Creation-Date: 2006-04-13 16:02+0100\n"
 "PO-Revision-Date: 2006-03-27 15:26+0000\n"
 "Last-Translator: Ming Hua <minghua-list@sbcglobal.net>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -29,9 +29,11 @@ msgstr "欢迎"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
+#, fuzzy
 msgid ""
-"Ready to install? Once you answer a few questions, Ubuntu can be installed "
-"on this computer so you can run the system at full speed and without the CD."
+"Ready to install? Once you answer a few questions, the contents of the live "
+"CD can be installed on this computer so you can run the system at full speed "
+"and without the CD."
 msgstr ""
 "准备好安装了? 一旦你回答一些简单的问题以后, Ubuntu就可以安装到本地的硬盘上"
 "了, 你可以在没有CD的情况下享受到高速流畅的系统"
@@ -269,7 +271,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-msgid "Ubuntu is ready to install on this computer."
+#, fuzzy
+msgid "The live CD is ready to be installed on this computer."
 msgstr "Ubuntu已经准备好在这台电脑上安装了"
 
 #. Type: title
@@ -325,9 +328,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:209
+#, fuzzy
 msgid ""
-"Ubuntu is now installed on your computer. You need to restart the computer "
-"in order to use it. You can continue to use this live CD, although any "
+"Installation is complete. You need to restart the computer in order to use "
+"the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
 "Ubuntu现在已经完成安装了. 你需要重新启动.你可以继续使用这张LIVE CD, 但是你所"

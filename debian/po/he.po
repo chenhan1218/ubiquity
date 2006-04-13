@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-11 17:36+0100\n"
+"POT-Creation-Date: 2006-04-13 16:02+0100\n"
 "PO-Revision-Date: 2006-03-29 14:41+0000\n"
 "Last-Translator: Yaniv Abir <yanivabir@gmail.com>\n"
 "Language-Team: Debian l10n Hebrew <webmaster@guides.co.il>\n"
@@ -29,9 +29,11 @@ msgstr "ברוכים הבאים"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
+#, fuzzy
 msgid ""
-"Ready to install? Once you answer a few questions, Ubuntu can be installed "
-"on this computer so you can run the system at full speed and without the CD."
+"Ready to install? Once you answer a few questions, the contents of the live "
+"CD can be installed on this computer so you can run the system at full speed "
+"and without the CD."
 msgstr ""
 "מוכנים להתקנה? לאחר שתענו על כמה שאלות תוכלו להתקין את אובונטו על המחשב הזה, "
 "ולהשתמש במערכת במהירות מלאה, ללא התקליטור."
@@ -271,7 +273,8 @@ msgstr "מוכן להתקנה"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-msgid "Ubuntu is ready to install on this computer."
+#, fuzzy
+msgid "The live CD is ready to be installed on this computer."
 msgstr "ניתן להתקין את אובונטו על המחשב."
 
 #. Type: title
@@ -330,8 +333,8 @@ msgstr "אין root file system"
 #. Description
 #: ../espresso.templates:209
 msgid ""
-"Ubuntu is now installed on your computer. You need to restart the computer "
-"in order to use it. You can continue to use this live CD, although any "
+"Installation is complete. You need to restart the computer in order to use "
+"the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
 

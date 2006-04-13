@@ -300,7 +300,7 @@
                             </sizepolicy>
                         </property>
                         <property name="text">
-                            <string>Ready to install? Once you answer a few questions, Ubuntu can be installed on this computer so you can run the system at full speed and without the CD.
+                            <string>Ready to install? Once you answer a few questions, the contents of the live CD can be installed on this computer so you can run the system at full speed and without the CD.
 
 Answering the questions should only take a few minutes.</string>
                         </property>
@@ -1583,7 +1583,7 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             <cstring>ready_description_label</cstring>
                         </property>
                         <property name="text">
-                            <string>Kubuntu is ready to install on this computer.</string>
+                            <string>The live CD is ready to be installed on this computer.</string>
                         </property>
                     </widget>
                 </grid>

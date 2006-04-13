@@ -14,6 +14,9 @@ d-i/source/apt-setup/generators/50mirror.ubuntu usr/lib/espresso/apt-setup/gener
 d-i/source/apt-setup/generators/90security usr/lib/espresso/apt-setup/generators
 espresso/components/apt_setup.py usr/lib/python2.4/site-packages/espresso/components
 
+# base-installer
+espresso/components/check_kernels.py usr/lib/python2.4/site-packages/espresso/components
+
 # choose-mirror
 d-i/source/choose-mirror/choose-mirror usr/lib/espresso/choose-mirror
 

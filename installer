@@ -87,6 +87,8 @@ if __name__ == '__main__':
     # Clean up old state.
     if os.path.exists("/var/lib/espresso/apt-installed"):
         os.unlink("/var/lib/espresso/apt-installed")
+    if os.path.exists("/var/lib/espresso/remove-kernels"):
+        os.unlink("/var/lib/espresso/remove-kernels")
 
     if len(sys.argv) == 2:
         install(sys.argv[1])

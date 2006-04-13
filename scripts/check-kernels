@@ -1,0 +1,40 @@
+#! /bin/sh
+
+ARCH="$(dpkg --print-architecture)"
+SUBARCH="$(archdetect)"
+SUBARCH="${SUBARCH#*/}"
+CPUINFO=/proc/cpuinfo
+KERNEL_MAJOR="$(uname -r | cut -d . -f 1,2)"
+KERNEL_VERSION="$(uname -r | cut -d - -f 1)"
+KERNEL_ABI="$(uname -r | cut -d - -f 1,2)"
+MACHINE="$(uname -m)"
+NUMCPUS=
+
+if [ -f /usr/lib/espresso/base-installer/kernel.sh ]; then
+	. /usr/lib/espresso/base-installer/kernel.sh
+else
+	exit 0
+fi
+
+kernels="$(dpkg-query -f '${status} ${package}\n' -W linux-image-\* | \
+		grep '^install ok installed ' | cut -d' ' -f4 | xargs)"
+
+flavour="$(arch_get_kernel_flavour || true)"
+incompatible=
+for kernel in $kernels; do
+	if ! arch_check_usable_kernel "$kernel" "$flavour"; then
+		incompatible="${incompatible:+$incompatible }$kernel"
+	fi
+done
+
+if [ "$kernels" = "$incompatible" ]; then
+	# We must be wrong. After all, we got this far ...
+	echo 'No usable kernel found; assuming foreign package naming' >&2
+else
+	mkdir -p /var/lib/espresso
+	for kernel in $incompatible; do
+		echo "$kernel" >> /var/lib/espresso/remove-kernels
+	done
+fi
+
+exit 0
