@@ -901,7 +901,7 @@ class Install:
                 if cachedpkg is not None and cachedpkg.isInstalled:
                     apt_error = False
                     try:
-                        cachedpkg.markDelete(autoFix=False)
+                        cachedpkg.markDelete(autoFix=False, purge=True)
                     except SystemError:
                         apt_error = True
                     if apt_error:
@@ -921,7 +921,8 @@ class Install:
                                 if cachedpkg2 is not None:
                                     broken_removed.add(pkg)
                                     try:
-                                        cachedpkg2.markDelete(autoFix=False)
+                                        cachedpkg2.markDelete(autoFix=False,
+                                                              purge=True)
                                     except SystemError:
                                         apt_error = True
                                         break
