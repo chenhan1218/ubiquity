@@ -1,7 +1,11 @@
 espresso (0.99.48) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Make the intro message a bit less scary, and make it clear that this is
     a beta release.
+
+  [ Jonathan Riddell ]
+  Remove gtk from kdb_chooser
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 13 Apr 2006 18:18:32 +0100
 
