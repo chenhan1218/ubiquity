@@ -95,7 +95,7 @@ class MyEspressoUI(EspressoUI):
 
     def closeEvent(self, event):
         print "closing!"
-        self.wizard.on_cancel_clicked3()
+        self.wizard.on_cancel_clicked()
 
 class Wizard:
 
@@ -158,7 +158,6 @@ class Wizard:
         # To get a "busy mouse":
         #FIXME self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
     
-        print "4"
         # useful dicts to manage UI data
         self.entries = {
             'hostname' : 0,
@@ -174,18 +173,14 @@ class Wizard:
         # If automatic partitioning fails, it may be disabled toggling on this variable:
         self.discard_automatic_partitioning = False
         
-        print "5"
-
         self.translate_widgets()
 
-        print "6"
         self.customize_installer()
         
         self.autopartition_vbox = QVBoxLayout(self.userinterface.autopartition_frame)
         self.autopartition_buttongroup = QButtonGroup(self.userinterface.autopartition_frame)
         self.autopartition_buttongroup_texts = {}
         
-        print "7"
         self.qtparted_vbox = QVBoxLayout(self.userinterface.qtparted_frame)
         self.embed = QXEmbed(self.userinterface.qtparted_frame, "embed")
         self.embed.setProtocol(QXEmbed.XPLAIN)
@@ -213,7 +208,7 @@ class Wizard:
         #FIXME self.glade.signal_autoconnect(self)
         self.app.connect(self.userinterface.next, SIGNAL("clicked()"), self.on_next_clicked)
         self.app.connect(self.userinterface.back, SIGNAL("clicked()"), self.on_back_clicked)
-        self.app.connect(self.userinterface.cancel, SIGNAL("clicked()"), self.on_cancel_clicked3)
+        self.app.connect(self.userinterface.cancel, SIGNAL("clicked()"), self.on_cancel_clicked)
         self.app.connect(self.userinterface.widgetStack, SIGNAL("aboutToShow(int)"), self.on_steps_switch_page)
         self.app.connect(self.userinterface.keyboardlistview, SIGNAL("selectionChanged()"), self.on_keyboard_selected)
         
@@ -232,6 +227,9 @@ class Wizard:
         
         self.app.connect(self.userinterface.language_treeview, SIGNAL("selectionChanged()"), self.on_language_treeview_selection_changed)
 
+        self.app.connect(self.userinterface.timezone_time_adjust, SIGNAL("clicked()"), self.on_timezone_time_adjust_clicked)
+
+        self.app.connect(self.userinterface.timezone_city_combo, SIGNAL("activated(int)"), self.tzmap.city_combo_changed)
         # Start the interface
         self.set_current_page(0)
         while self.current_page is not None:
@@ -323,11 +321,11 @@ class Wizard:
         pass
 
     def translate_widgets(self, parentWidget=None):
+        print "  translate_widgets(self, parentWidget=None):"
         if parentWidget == None:
             parentWidget = self.userinterface
 
         for widget in parentWidget.children():
-            print "translating widget: " + str(widget.name())
             self.translate_widget(widget, self.locale)
             self.translate_widgets(widget)
 
@@ -542,6 +540,18 @@ class Wizard:
             lang = lang.split('.')[0].lower()
             for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.next, self.userinterface.back, self.userinterface.cancel):
                 self.translate_widget(widget, lang)
+
+    def on_timezone_time_adjust_clicked (self):
+        print "  on_timezone_time_adjust_clicked (self):"
+        #invisible = gtk.Invisible()
+        #invisible.grab_add()
+        time_admin_env = dict(os.environ)
+        tz = self.tzmap.get_selected_tz_name()
+        if tz is not None:
+            time_admin_env['TZ'] = tz
+        time_admin_subp = subprocess.Popen(["kcmshell", "clock"], env=time_admin_env)
+        #gobject.child_watch_add(time_admin_subp.pid, self.on_time_admin_exit,
+        #                        invisible)
 
     def on_back_clicked(self):
         print "  on_back_clicked(self, widget):"
@@ -1483,7 +1493,7 @@ class Wizard:
             self.dbfilter.cancel_handler()
         self.app.exit()
 
-    def on_cancel_clicked3(self):
+    def on_cancel_clicked(self):
         print "  on_cancel_clicked(self, widget):"
         
         response = KMessageBox.warningContinueCancel(self.userinterface, "Do you really want to abort the installation now?", "Abort the Installation?", KGuiItem("Quit"))
@@ -1548,8 +1558,7 @@ class Wizard:
 
     def get_timezone (self):
         print "  get_timezone (self):"
-        name = str(self.userinterface.timezone_city_combo.currentText())
-        return self.tzmap.get_tz_from_name(name)
+        return self.tzmap.get_selected_tz_name()
 
     def refresh (self):
         print "  refresh (self):"
@@ -1648,10 +1657,21 @@ class TimezoneMap(object):
         #self.tzmap.connect("leave-notify-event", self.out_map)
 
         #timezone_city_combo.connect("changed", self.city_changed)
+        self.mapped()
+
+    def city_combo_changed(self, index):
+        print "  city_combo_changed"
+        city = str(self.frontend.userinterface.timezone_city_combo.currentText())
+        try:
+            zone = self.timezone_city_index[city]
+        except KeyError:
+            return
+        self.set_tz_from_name(zone)
 
     def set_tz_from_name(self, name):
         print "  set_tz_from_name(self, name): " + name
-        """
+        """ Gets a long name, Europe/London """
+
         (longitude, latitude) = (0.0, 0.0)
 
         for location in self.tzdb.locations:
@@ -1661,29 +1681,29 @@ class TimezoneMap(object):
         else:
             return
 
-        if self.point_selected is not None:
-            self.tzmap.point_set_color_rgba(self.point_selected, NORMAL_RGBA)
+        #if self.point_selected is not None:
+        #    self.tzmap.point_set_color_rgba(self.point_selected, NORMAL_RGBA)
 
-        self.point_selected = self.tzmap.get_closest_point(longitude, latitude,
-                                                           False)
+        #self.point_selected = self.tzmap.get_closest_point(longitude, latitude,
+        #                                                   False)
+
 
         self.location_selected = location
         self.set_city_text(self.location_selected.zone)
         self.set_zone_text(self.location_selected)
-        """
 
         if name == None or name == "":
             return
 
+    def set_city_text(self, name):
+        """ Gets a long name, Europe/London """
+        print "  set_city_text(self, name): " + name
         timezone_city_combo = self.frontend.userinterface.timezone_city_combo
         count = timezone_city_combo.count()
         found = False
         i = 0
-        print str(self.timezone_city_index)
-        print "text: " + str(timezone_city_combo.text(i))
         zone_bits = name.split('/')
         human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
-        print "human zone" + human_zone
         while not found and i < count:
             if str(timezone_city_combo.text(i)) == human_zone:
                 timezone_city_combo.setCurrentItem(i)
@@ -1693,3 +1713,53 @@ class TimezoneMap(object):
     def get_tz_from_name(self, name):
         print "  set_tz_from_name(self, name): " + name
         return self.timezone_city_index[name]
+
+    def get_selected_tz_name(self):
+        name = str(self.frontend.userinterface.timezone_city_combo.currentText())
+        return self.get_tz_from_name(name)
+
+    def set_zone_text(self, location):
+        offset = location.utc_offset
+        if offset >= datetime.timedelta(0):
+            minuteoffset = int(offset.seconds / 60)
+        else:
+            minuteoffset = int(offset.seconds / 60 - 1440)
+        if location.zone_letters == 'GMT':
+            text = location.zone_letters
+        else:
+            text = "%s (GMT%+d:%02d)" % (location.zone_letters,
+                                         minuteoffset / 60, minuteoffset % 60)
+        self.frontend.userinterface.timezone_zone_text.setText(text)
+        translations = gettext.translation('iso_3166',
+                                           languages=[self.frontend.locale],
+                                           fallback=True)
+        self.frontend.userinterface.timezone_country_text.setText(translations.ugettext(location.human_country))
+        self.update_current_time()
+
+    def update_current_time(self):
+        if self.location_selected is not None:
+            now = datetime.datetime.now(self.location_selected.info)
+            self.frontend.userinterface.timezone_time_text.setText(now.strftime('%X'))
+
+    def timeout(self):
+        self.update_current_time()
+        """
+
+        if self.point_selected is None:
+            return True
+
+        if self.point_selected.get_color_rgba() == SELECTED_1_RGBA:
+            self.tzmap.point_set_color_rgba(self.point_selected,
+                                            SELECTED_2_RGBA)
+        else:
+            self.tzmap.point_set_color_rgba(self.point_selected,
+                                            SELECTED_1_RGBA)
+        """
+
+        return True
+
+    def mapped(self):
+        if self.update_timeout is None:
+            self.update_timeout = QTimer()
+            self.frontend.app.connect(self.update_timeout, SIGNAL("timeout()"), self.timeout)
+            self.update_timeout.start(100)

@@ -7,14 +7,15 @@ espresso (0.99.47) dapper; urgency=low
     - Language page returns the selected language
     - Widgets get translated into selected language
     - Add Kubuntu logo
+    - Timezone page labels work
 
-  [ Ubuntu LiveCD user ]
+  [ Colin Watson ]
   * Automatic update of included source packages: localechooser
     0.27ubuntu15.
 
- -- Ubuntu LiveCD user <ubuntu@ubuntu>  Wed, 12 Apr 2006 18:49:28 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 12 Apr 2006 18:49:28 +0000
 
-espresso (0.99.46) UNRELEASED; urgency=low
+espresso (0.99.46) dapper; urgency=low
 
   * Disable swap before starting gparted or qtparted. partman will enable it
     again after mountpoint selection if any swap partitions were selected.

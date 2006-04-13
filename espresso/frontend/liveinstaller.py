@@ -1963,9 +1963,9 @@ class EspressoUI(QWidget):
 
         layout12.addWidget(self.timezone_city_combo,0,1)
 
-        self.textLabel3_4 = QLabel(self.stepLocation,"textLabel3_4")
+        self.timezone_time_text = QLabel(self.stepLocation,"timezone_time_text")
 
-        layout12.addMultiCellWidget(self.textLabel3_4,1,1,4,5)
+        layout12.addMultiCellWidget(self.timezone_time_text,1,1,4,5)
         spacer33_2 = QSpacerItem(104,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
         layout12.addItem(spacer33_2,1,2)
 
@@ -2338,7 +2338,7 @@ class EspressoUI(QWidget):
         self.timezone_time_label.setText(self.__tr("Current Time:"))
         self.timezone_country_text.setText(QString.null)
         self.timezone_zone_text.setText(QString.null)
-        self.textLabel3_4.setText(QString.null)
+        self.timezone_time_text.setText(QString.null)
         self.keyboard_heading_label.setText(self.__tr("<h2>Keyboard Layout</h2>"))
         self.keyboard_test_label.setText(self.__tr("You can type into this box to test your new keyboard layout."))
         self.keyboardlistview.header().setLabel(0,self.__tr("Layout"))

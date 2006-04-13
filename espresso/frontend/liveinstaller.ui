@@ -492,7 +492,7 @@ Answering the questions should only take a few minutes.</string>
                             </widget>
                             <widget class="QLabel" row="1" column="4" rowspan="1" colspan="2">
                                 <property name="name">
-                                    <cstring>textLabel3_4</cstring>
+                                    <cstring>timezone_time_text</cstring>
                                 </property>
                                 <property name="text">
                                     <string></string>
