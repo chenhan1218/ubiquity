@@ -443,7 +443,7 @@ class Wizard:
         # ordering a list from size dict ( { device : size } ), from higher to lower
         size_ordered, selection = [], {}
         for value in size.values():
-            if not size_ordered.count(value):
+            if value not in size_ordered:
                 size_ordered.append(value)
         size_ordered.sort()
         size_ordered.reverse()
