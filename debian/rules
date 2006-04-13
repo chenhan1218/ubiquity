@@ -81,6 +81,10 @@ endif
 		d-i/source/apt-setup/apt-setup \
 		> debian/espresso/usr/lib/espresso/apt-setup/apt-setup
 	chmod +x debian/espresso/usr/lib/espresso/apt-setup/apt-setup
+	if [ -e "d-i/source/base-installer/kernel/$(DEB_HOST_ARCH).sh" ]; then \
+		install -m644 d-i/source/base-installer/kernel/$(DEB_HOST_ARCH).sh \
+			debian/espresso/usr/lib/espresso/base-installer/kernel.sh; \
+	fi
 	install d-i/source/kbd-chooser/debian/prebaseconfig \
 		debian/espresso/usr/lib/espresso/kbd-chooser/
 	install d-i/source/localechooser/post-base-installer \

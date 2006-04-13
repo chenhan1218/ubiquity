@@ -38,7 +38,8 @@ from apt.cache import Cache
 from apt.progress import FetchProgress, InstallProgress
 from espresso import misc
 from espresso.components import language_apply, apt_setup, timezone_apply, \
-                                kbd_chooser_apply, usersetup_apply
+                                kbd_chooser_apply, usersetup_apply, \
+                                check_kernels
 
 class DebconfFetchProgress(FetchProgress):
     """An object that reports apt's fetching progress using debconf."""
@@ -285,13 +286,19 @@ class Install:
 
         self.db.progress('SET', 96)
         self.db.progress('REGION', 96, 97)
+        if not self.remove_unusable_kernels():
+            self.db.progress('STOP')
+            return False
+
+        self.db.progress('SET', 97)
+        self.db.progress('REGION', 97, 98)
         self.db.progress('INFO', 'espresso/install/bootloader')
         if not self.configure_bootloader():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 97)
-        self.db.progress('REGION', 97, 100)
+        self.db.progress('SET', 98)
+        self.db.progress('REGION', 98, 100)
         self.db.progress('INFO', 'espresso/install/removing')
         if not self.remove_extras():
             self.db.progress('STOP')
@@ -865,28 +872,9 @@ class Install:
         return ret
 
 
-    def remove_extras(self):
-        """Try to remove packages that are needed on the live CD but not on
-        the installed system."""
-
-        if (not os.path.exists("/cdrom/casper/filesystem.manifest-desktop") or
-            not os.path.exists("/cdrom/casper/filesystem.manifest")):
-            return True
-
+    def do_remove(self, to_remove, recursive=False):
         self.db.progress('START', 0, 5, 'espresso/install/title')
-
         self.db.progress('INFO', 'espresso/install/find_removables')
-        desktop_packages = set()
-        for line in open("/cdrom/casper/filesystem.manifest-desktop"):
-            desktop_packages.add(line.split()[0])
-        live_packages = set()
-        for line in open("/cdrom/casper/filesystem.manifest"):
-            live_packages.add(line.split()[0])
-        apt_installed = set()
-        if os.path.exists("/var/lib/espresso/apt-installed"):
-            for line in open("/var/lib/espresso/apt-installed"):
-                apt_installed.add(line.strip())
-        difference = live_packages - desktop_packages - apt_installed
 
         fetchprogress = DebconfFetchProgress(
             self.db, 'espresso/install/title',
@@ -896,7 +884,7 @@ class Install:
 
         while True:
             removed = set()
-            for pkg in difference:
+            for pkg in to_remove:
                 cachedpkg = self.get_cache_pkg(cache, pkg)
                 if cachedpkg is not None and cachedpkg.isInstalled:
                     apt_error = False
@@ -907,15 +895,16 @@ class Install:
                     if apt_error:
                         cachedpkg.markKeep()
                     elif cache._depcache.BrokenCount > 0:
-                        # If all of the broken packages are in the
-                        # difference set, then go ahead and try to remove
+                        # If we're recursively removing packages, or if all
+                        # of the broken packages are in the set of packages
+                        # to remove anyway, then go ahead and try to remove
                         # them too.
                         brokenpkgs = set()
                         for pkg in cache.keys():
                             if cache._depcache.IsInstBroken(cache._cache[pkg]):
                                 brokenpkgs.add(pkg)
                         broken_removed = set()
-                        if brokenpkgs <= difference:
+                        if recursive or brokenpkgs <= to_remove:
                             for pkg in brokenpkgs:
                                 cachedpkg2 = self.get_cache_pkg(cache, pkg)
                                 if cachedpkg2 is not None:
@@ -940,7 +929,7 @@ class Install:
                     assert cache._depcache.BrokenCount == 0
             if len(removed) == 0:
                 break
-            difference -= removed
+            to_remove -= removed
 
         self.db.progress('SET', 1)
         self.db.progress('REGION', 1, 5)
@@ -965,6 +954,116 @@ class Install:
 
         self.db.progress('STOP')
         return True
+
+
+    def remove_unusable_kernels(self):
+        """Remove unusable kernels; keeping them may cause us to be unable
+        to boot."""
+
+        self.db.progress('START', 0, 6, 'espresso/install/title')
+
+        self.db.progress('INFO', 'espresso/install/find_removables')
+
+        # Check for kernel packages to remove.
+        dbfilter = check_kernels.CheckKernels(None)
+        dbfilter.run_command(auto_process=True)
+
+        remove_kernels = set()
+        if os.path.exists("/var/lib/espresso/remove-kernels"):
+            for line in open("/var/lib/espresso/remove-kernels"):
+                remove_kernels.add(line.strip())
+
+        if len(remove_kernels) == 0:
+            self.db.progress('STOP')
+            return True
+
+        self.db.progress('SET', 1)
+        self.db.progress('REGION', 1, 5)
+        if not self.do_remove(remove_kernels, recursive=True):
+            self.db.progress('STOP')
+            return False
+        self.db.progress('SET', 5)
+
+        # Now we need to fix up kernel symlinks. Depending on the
+        # architecture, these may be in / or in /boot.
+        bootdir = os.path.join(self.target, 'boot')
+        if self.db.get('base-installer/kernel/linux/link_in_boot') == 'true':
+            linkdir = bootdir
+            linkprefix = ''
+        else:
+            linkdir = self.target
+            linkprefix = 'boot'
+
+        # Remove old symlinks. We'll set them up from scratch.
+        re_symlink = re.compile('vmlinu[xz]|initrd.img$')
+        for entry in os.listdir(linkdir):
+            if re_symlink.match(entry) is not None:
+                filename = os.path.join(linkdir, entry)
+                if os.path.islink(filename):
+                    os.unlink(filename)
+        if linkdir != self.target:
+            # Remove symlinks in /target too, which may have been created on
+            # the live filesystem. This isn't necessary, but it may help
+            # avoid confusion.
+            for entry in os.listdir(self.target):
+                if re_symlink.match(entry) is not None:
+                    filename = os.path.join(self.target, entry)
+                    if os.path.islink(filename):
+                        os.unlink(filename)
+
+        # Create symlinks. Prefer our current kernel version if possible,
+        # but if not (perhaps due to a customised live filesystem image),
+        # it's better to create some symlinks than none at all.
+        re_image = re.compile('(vmlinu[xz]|initrd.img)-')
+        for entry in os.listdir(bootdir):
+            match = re_image.match(entry)
+            if match is not None:
+                imagetype = match.group(1)
+                linksrc = os.path.join(linkprefix, entry)
+                linkdst = os.path.join(linkdir, imagetype)
+                if os.path.exists(linkdst):
+                    if entry.endswith('-' + self.kernel_version):
+                        os.unlink(linkdst)
+                    else:
+                        continue
+                os.symlink(linksrc, linkdst)
+
+        self.db.progress('SET', 6)
+        self.db.progress('STOP')
+        return True
+
+
+    def remove_extras(self):
+        """Try to remove packages that are needed on the live CD but not on
+        the installed system."""
+
+        # Looking through files for packages to remove is pretty quick, so
+        # don't bother with a progress bar for that.
+
+        # Check for packages specific to the live CD.
+        if (os.path.exists("/cdrom/casper/filesystem.manifest-desktop") and
+            os.path.exists("/cdrom/casper/filesystem.manifest")):
+            desktop_packages = set()
+            for line in open("/cdrom/casper/filesystem.manifest-desktop"):
+                desktop_packages.add(line.split()[0])
+            live_packages = set()
+            for line in open("/cdrom/casper/filesystem.manifest"):
+                live_packages.add(line.split()[0])
+            difference = live_packages - desktop_packages
+        else:
+            difference = set()
+
+        # Keep packages we explicitly installed.
+        apt_installed = set()
+        if os.path.exists("/var/lib/espresso/apt-installed"):
+            for line in open("/var/lib/espresso/apt-installed"):
+                apt_installed.add(line.strip())
+        difference -= apt_installed
+
+        if len(difference) == 0:
+            return True
+
+        return self.do_remove(difference)
 
 
     def chrex(self, *args):

@@ -12,6 +12,9 @@ espresso (0.99.47) UNRELEASED; urgency=low
   [ Colin Watson ]
   * When removing packages that don't belong on the installed system, purge
     their configuration too.
+  * Remove kernels that aren't appropriate for the current system, using
+    base-installer's kernel selection logic. This fixes 32-bit powerpc
+    systems, which otherwise would try to boot a 64-bit kernel by default.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 12 Apr 2006 18:49:28 +0000
 

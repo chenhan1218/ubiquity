@@ -1,4 +1,5 @@
 apt-setup
+base-installer
 choose-mirror
 debian-installer-utils
 hw-detect
