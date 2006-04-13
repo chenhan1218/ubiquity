@@ -1,3 +1,16 @@
+espresso (0.99.47) UNRELEASED; urgency=low
+
+  [ Jonathan Riddell ]
+  * KDE Frontend:
+    - Fix mountpoints page
+    - Update mountpoints_to_summary
+    - Language page returns the selected language
+    - Widgets get translated into selected language
+    - Add Kubuntu logo
+    - Timezone page labels work
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 12 Apr 2006 18:49:28 +0000
+
 espresso (0.99.46) dapper; urgency=low
 
   * Disable swap before starting gparted or qtparted. partman will enable it

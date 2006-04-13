@@ -38,6 +38,12 @@ import xml.sax.saxutils
 
 import gettext
 
+import debconf
+try:
+    from debconf import DebconfCommunicator
+except ImportError:
+    from espresso.debconfcommunicator import DebconfCommunicator
+
 from espresso import filteredcommand, validation
 from espresso.misc import *
 from espresso.settings import *
@@ -89,7 +95,7 @@ class MyEspressoUI(EspressoUI):
 
     def closeEvent(self, event):
         print "closing!"
-        self.wizard.on_cancel_clicked3()
+        self.wizard.on_cancel_clicked()
 
 class Wizard:
 
@@ -115,6 +121,7 @@ class Wizard:
         self.name = ''
         self.manual_choice = None
         self.password = ''
+        self.hostname_edited = False
         self.mountpoint_widgets = []
         self.size_widgets = []
         self.partition_widgets = []
@@ -134,6 +141,17 @@ class Wizard:
         self.installing = False
         self.returncode = 0
         self.translations = get_translations()
+
+        devnull = open('/dev/null', 'w')
+        self.laptop = subprocess.call(["laptop-detect"], stdout=devnull,
+                                      stderr=subprocess.STDOUT) == 0
+        devnull.close()
+
+        # FIXME seems to quit program
+        # set default language
+        dbfilter = language.Language(self, DebconfCommunicator('espresso'))
+        dbfilter.cleanup()
+        dbfilter.db.shutdown()
 
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
     
@@ -155,6 +173,8 @@ class Wizard:
         # If automatic partitioning fails, it may be disabled toggling on this variable:
         self.discard_automatic_partitioning = False
         
+        self.translate_widgets()
+
         self.customize_installer()
         
         self.autopartition_vbox = QVBoxLayout(self.userinterface.autopartition_frame)
@@ -164,6 +184,7 @@ class Wizard:
         self.qtparted_vbox = QVBoxLayout(self.userinterface.qtparted_frame)
         self.embed = QXEmbed(self.userinterface.qtparted_frame, "embed")
         self.embed.setProtocol(QXEmbed.XPLAIN)
+        print "init end"
 
     def run(self):
         """run the interface."""
@@ -185,9 +206,9 @@ class Wizard:
     
         # Declare SignalHandler
         #FIXME self.glade.signal_autoconnect(self)
-        self.app.connect(self.userinterface.nextButton, SIGNAL("clicked()"), self.on_next_clicked)
-        self.app.connect(self.userinterface.backButton, SIGNAL("clicked()"), self.on_back_clicked)
-        self.app.connect(self.userinterface.cancelButton, SIGNAL("clicked()"), self.on_cancel_clicked3)
+        self.app.connect(self.userinterface.next, SIGNAL("clicked()"), self.on_next_clicked)
+        self.app.connect(self.userinterface.back, SIGNAL("clicked()"), self.on_back_clicked)
+        self.app.connect(self.userinterface.cancel, SIGNAL("clicked()"), self.on_cancel_clicked)
         self.app.connect(self.userinterface.widgetStack, SIGNAL("aboutToShow(int)"), self.on_steps_switch_page)
         self.app.connect(self.userinterface.keyboardlistview, SIGNAL("selectionChanged()"), self.on_keyboard_selected)
         
@@ -196,6 +217,7 @@ class Wizard:
         self.app.connect(self.userinterface.password, SIGNAL("textChanged(const QString &)"), self.info_loop)
         self.app.connect(self.userinterface.verified_password, SIGNAL("textChanged(const QString &)"), self.info_loop)
         self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.info_loop)
+        self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.on_hostname_insert_text)
         
         self.app.connect(self.userinterface.fullname, SIGNAL("selectionChanged()"), self.info_loop)
         self.app.connect(self.userinterface.username, SIGNAL("selectionChanged()"), self.info_loop)
@@ -203,6 +225,11 @@ class Wizard:
         self.app.connect(self.userinterface.verified_password, SIGNAL("selectionChanged()"), self.info_loop)
         self.app.connect(self.userinterface.hostname, SIGNAL("selectionChanged()"), self.info_loop)
         
+        self.app.connect(self.userinterface.language_treeview, SIGNAL("selectionChanged()"), self.on_language_treeview_selection_changed)
+
+        self.app.connect(self.userinterface.timezone_time_adjust, SIGNAL("clicked()"), self.on_timezone_time_adjust_clicked)
+
+        self.app.connect(self.userinterface.timezone_city_combo, SIGNAL("activated(int)"), self.tzmap.city_combo_changed)
         # Start the interface
         self.set_current_page(0)
         while self.current_page is not None:
@@ -251,10 +278,10 @@ class Wizard:
     def customize_installer(self):
         """Initial UI setup."""
 
-        iconLoader = KIconLoader()
-        icon = iconLoader.loadIcon("system", KIcon.Small)
-        self.userinterface.logo_image.setPixmap(icon)
-        self.userinterface.backButton.setEnabled(False)
+        #iconLoader = KIconLoader()
+        #icon = iconLoader.loadIcon("system", KIcon.Small)
+        #self.userinterface.logo_image.setPixmap(icon)
+        self.userinterface.back.setEnabled(False)
 
         """
 
@@ -293,10 +320,45 @@ class Wizard:
         gettext.install(domain, LOCALEDIR, unicode=1)
         pass
 
-    def translate_widgets(self):
-        print "translate_widgets(self): TODO"
-        #for widget in self.glade.get_widget_prefix(""):
-        #    self.translate_widget(widget, self.locale)
+    def translate_widgets(self, parentWidget=None):
+        print "  translate_widgets(self, parentWidget=None):"
+        if parentWidget == None:
+            parentWidget = self.userinterface
+
+        for widget in parentWidget.children():
+            self.translate_widget(widget, self.locale)
+            self.translate_widgets(widget)
+
+    def translate_widget(self, widget, lang):
+        
+        #FIXME how to do in KDE?  use kstdactions?
+        #if isinstance(widget, gtk.Button) and widget.get_use_stock():
+        #    widget.set_label(widget.get_label())
+
+        text = get_string('espresso/text/%s' % widget.name(), lang)
+        if text is None:
+            return
+
+        print "  translate_widget(self, widget, lang)"
+        if isinstance(widget, QLabel):
+            name = widget.name()
+            if 'heading_label' in name:
+                print "text: " + text
+                widget.setText(unicode("<h2>" + text + "</h2>"))
+            elif 'extra_label' in name:
+                widget.setText(unicode("<em>" + text + "</em>"))
+            elif name in ('drives_label', 'partition_method_label',
+                          'mountpoint_label', 'size_label', 'device_label',
+                          'format_label'):
+                widget.setText(unicode("<strong>" + text + "</strong>"))
+            else:
+                widget.setText(unicode(text))
+
+        elif isinstance(widget, QPushButton):
+            widget.setText(unicode(text))
+
+        elif isinstance(widget, QWidget) and widget.name() == EspressoUI:
+            widget.setCaption(unicode(text))
 
     def show_intro(self):
         """Show some introductory text, if available."""
@@ -356,13 +418,14 @@ class Wizard:
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
         """
 
-    def on_list_changed(self, widget):
+    def on_list_changed(self, textID):
         print "  on_list_changed(self, widget):"
         """check if partition/mountpoint pair is filled and show the next pair
         on mountpoint screen. Also size label associated with partition combobox
         is changed dynamically to show the size partition."""
-
+        
         """
+
         if widget.get_active_text() not in ['', None]:
             if widget in self.partition_widgets:
                 index = self.partition_widgets.index(widget)
@@ -370,40 +433,42 @@ class Wizard:
                 index = self.mountpoint_widgets.index(widget)
             else:
                 return
+        """
 
-            partition_text = self.partition_widgets[index].get_active_text()
+        index = 0
+        while index < len(self.partition_widgets):
+
+            #set size widget
+            partition_text = self.partition_widgets[index].currentText()
             if partition_text == ' ':
-                self.size_widgets[index].set_text('')
+                self.size_widgets[index].setText('')
             elif partition_text != None:
-                self.size_widgets[index].set_text(self.set_size_msg(self.partition_widgets[index]))
+                self.size_widgets[index].setText(self.set_size_msg(self.partition_widgets[index]))
 
             # Does the Reformat checkbox make sense?
             if (partition_text == ' ' or
                 partition_text not in self.part_devices):
-                self.format_widgets[index].set_sensitive(False)
-                self.format_widgets[index].set_active(False)
+                self.format_widgets[index].setEnabled(False)
+                self.format_widgets[index].setChecked(False)
             else:
                 partition = self.part_devices[partition_text]
                 if partition in self.gparted_fstype:
-                    self.format_widgets[index].set_sensitive(False)
-                    self.format_widgets[index].set_active(True)
+                    self.format_widgets[index].setEnablede(False)
+                    self.format_widgets[index].setChecked(True)
                 else:
-                    self.format_widgets[index].set_sensitive(True)
+                    self.format_widgets[index].setChecked(True)
 
+            #add new row if partitions list is long enough and last row validates
             if len(get_partitions()) > len(self.partition_widgets):
                 for i in range(len(self.partition_widgets)):
-                    partition = self.partition_widgets[i].get_active_text()
-                    mountpoint = self.mountpoint_widgets[i].get_active_text()
+                    partition = self.partition_widgets[i].currentText()
+                    mountpoint = self.mountpoint_widgets[i].currentText()
                     if partition is None or mountpoint == "":
                         break
                 else:
                     # All table rows have been filled; create a new one.
                     self.add_mountpoint_table_row()
-                    self.mountpoint_widgets[-1].connect("changed",
-                                                        self.on_list_changed)
-                    self.partition_widgets[-1].connect("changed",
-                                                       self.on_list_changed)
-        """
+            index += 1
 
     def info_loop(self):
         print "  info_loop(self, widget):"
@@ -419,10 +484,21 @@ class Wizard:
             else:
                 self.entries[widget.name()] = 0
 
+            if widget.name() == 'username' and not self.hostname_edited:
+                if self.laptop:
+                    hostname_suffix = '-laptop'
+                else:
+                    hostname_suffix = '-desktop'
+                self.hostname.set_text(widget.text() + hostname_suffix)
+
         if len(filter(lambda v: v == 1, self.entries.values())) == 5:
-            self.userinterface.nextButton.setEnabled(True)
+            self.userinterface.next.setEnabled(True)
         else:
-            self.userinterface.nextButton.setEnabled(False)
+            self.userinterface.next.setEnabled(False)
+
+    def on_hostname_insert_text(self):
+        print "  on_hostname_insert_text(self):"
+        self.hostname_edited = True
 
     def on_next_clicked(self):
         print "  on_next_clicked(self):"
@@ -454,6 +530,29 @@ class Wizard:
         print "  on_keyboard_selected(self):"
         kbd_chooser.apply_keyboard(self.get_keyboard())
 
+    def on_language_treeview_selection_changed (self):
+        print "  on_language_treeview_selection_changed (self, selection):"
+        selection = self.userinterface.language_treeview.selectedItem()
+        if selection is not None:
+            value = unicode(selection.text(0))
+            lang = self.language_choice_map[value][1]
+            # strip encoding; we use UTF-8 internally no matter what
+            lang = lang.split('.')[0].lower()
+            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.next, self.userinterface.back, self.userinterface.cancel):
+                self.translate_widget(widget, lang)
+
+    def on_timezone_time_adjust_clicked (self):
+        print "  on_timezone_time_adjust_clicked (self):"
+        #invisible = gtk.Invisible()
+        #invisible.grab_add()
+        time_admin_env = dict(os.environ)
+        tz = self.tzmap.get_selected_tz_name()
+        if tz is not None:
+            time_admin_env['TZ'] = tz
+        time_admin_subp = subprocess.Popen(["kcmshell", "clock"], env=time_admin_env)
+        #gobject.child_watch_add(time_admin_subp.pid, self.on_time_admin_exit,
+        #                        invisible)
+
     def on_back_clicked(self):
         print "  on_back_clicked(self, widget):"
         """Callback to set previous screen."""
@@ -461,7 +560,7 @@ class Wizard:
         self.backup = True
 
         # Enabling next button
-        self.userinterface.nextButton.setEnabled(True)
+        self.userinterface.next.setEnabled(True)
         # Setting actual step
         step = self.step_name(self.get_current_page())
         print "step: " + step
@@ -469,7 +568,7 @@ class Wizard:
         changed_page = False
 
         if step == "stepLocation":
-            self.userinterface.backButton.setEnabled(False)
+            self.userinterface.back.setEnabled(False)
         elif step == "stepPartAdvanced":
             """ FIXME jr
             print >>self.gparted_subp.stdin, "undo"
@@ -483,7 +582,7 @@ class Wizard:
         elif step == "stepPartMountpoints":
             self.gparted_loop()
         elif step == "stepReady":
-            self.userinterface.nextButton.setText("Next >")
+            self.userinterface.next.setText("Next >")
         if not changed_page:
             self.userinterface.widgetStack.raiseWidget(self.get_current_page() - 1)
         if self.dbfilter is not None:
@@ -508,7 +607,7 @@ class Wizard:
         elif step == "stepLanguage":
             self.translate_widgets()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepLocation"])
-            self.userinterface.backButton.setEnabled(True)
+            self.userinterface.back.setEnabled(True)
         # Location
         elif step == "stepLocation":
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepKeyboardConf"])
@@ -517,7 +616,7 @@ class Wizard:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepUserInfo"])
             #self.steps.next_page()
             # XXX: Actually do keyboard config here
-            self.userinterface.nextButton.setEnabled(False)
+            self.userinterface.next.setEnabled(False)
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
@@ -679,11 +778,12 @@ class Wizard:
         print "  get_autopartition_resize_percent (self):"
         return self.new_size_scale.value()
 
+    def get_hostname (self):
+        return self.userinterface.hostname.text()
 
     def get_mountpoints (self):
         return dict(self.mountpoints)
 
-  
     def confirm_partitioning_dialog (self, title, description):
         # TODO merge with gtk
         print "  confirm_partitioning_dialog (self, title, description):" + title + " ... " + description
@@ -804,7 +904,7 @@ class Wizard:
 
             # Setting a default partition preselection
             if len(selection.items()) == 0:
-                self.userinterface.nextButton.setEnabled(False)
+                self.userinterface.next.setEnabled(False)
             else:
                 mp = { 'swap' : 0, '/' : 1 }
 
@@ -837,76 +937,17 @@ class Wizard:
 
             # We defer connecting up signals until now to avoid the changed
             # signal firing while we're busy populating the table.
+            """
             for mountpoint in self.mountpoint_widgets:
                 self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
             for partition in self.partition_widgets:
                 self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
+            """
+
+        self.userinterface.mountpoint_error_reason.hide()
+        self.userinterface.mountpoint_error_image.hide()
 
         self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartMountpoints"])
-
-    # OLD! DELETE ME
-    """
-    def gparted_to_mountpoints(self):
-        print "  gparted_to_mountpoints(self):"
-        
-        self.gparted_fstype = {}
-        
-        #I'm doing something wrong in qtparted that it isn't reading stdin
-        self.qtparted_process.writeStdin("apply", 5)
-
-        ""
-        print >>self.gparted_subp.stdin, "apply"
-        gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
-        if not gparted_reply.startswith('0 '):
-            return
-
-        # Shut down gparted
-        self.gparted_subp.stdin.close()
-        self.gparted_subp.wait()
-        self.gparted_subp = None
-        ""
-
-        # Setting items into partition Comboboxes
-        for widget in self.userinterface.stepPartMountpoints.children():
-            print "for widget loop"
-            if QString(widget.name()).contains("partition") > 0:
-                print "found partition widget"
-                self.show_partitions(widget)
-        self.size = self.get_sizes()
-
-        # building mountpoints preselection
-        self.default_partition_selection = self.get_default_partition_selection(self.size, self.gparted_fstype)
-
-        # Setting a default partition preselection
-        if len(self.default_partition_selection.items()) == 0:
-            self.userinterface.nextButton.setEnabled(False)
-        else:
-            count = 0
-            mp = { 'swap' : 0, '/' : 1 }
-
-            # Setting default preselection values into ComboBox
-            # widgets and setting size values. In addition, next row
-            # is showed if they're validated.
-            for j, k in self.default_partition_selection.items():
-                if count == 0:
-                    self.userinterface.partition1.setCurrentItem(self.partitions.index(k)+1)
-                    self.userinterface.mountpoint1.setCurrentItem(mp[j]) # FIXME combox has never been filled
-                    self.userinterface.size1.setText(self.set_size_msg(k))
-                    if ( len(get_partitions()) > 1 ):
-                        self.userinterface.partition2.show()
-                        self.userinterface.mountpoint2.show()
-                    count += 1
-                elif count == 1:
-                    self.userinterface.partition2.setCurrentItem(self.partitions.index(k)+1)
-                    self.userinterface.mountpoint2.setCurrentItem(mp[j])
-                    self.userinterface.size2.setText(self.set_size_msg(k))
-                    if ( len(get_partitions()) > 2 ):
-                        self.userinterface.partition3.show()
-                        self.userinterface.mountpoint3.show()
-                    count += 1
-
-        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartMountpoints"])
-        """
 
     def show_partitions(self, widget):
         print "  show_partitions(self, widget): " + widget.name()
@@ -953,7 +994,7 @@ class Wizard:
         mountpoint.insertItem("")
         for mp in self.mountpoint_choices:
             mountpoint.insertItem(mp)
-        size = QLabel(self.userinterface)
+        size = QLabel(self.userinterface.mountpoint_frame)
         partition = QComboBox(self.userinterface.mountpoint_frame)
         for part in self.partition_choices:
             if part in self.part_labels:
@@ -978,6 +1019,9 @@ class Wizard:
         size.show()
         partition.show()
         format.show()
+
+        self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
+        self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
 
     def get_default_partition_selection(self, size, fstype):
         print "  get_default_partition_selection(self, size):"
@@ -1022,7 +1066,6 @@ class Wizard:
         return selection
 
     def set_size_msg(self, widget):
-        print "  set_size_msg(self, widget):"
         """return a string message with size value about
         the partition target by widget argument."""
 
@@ -1030,7 +1073,7 @@ class Wizard:
         if widget.__class__ == str:
             size = float(self.size[widget.split('/')[2]])
         else:
-            size = float(self.size[self.part_devices[widget.get_active_text()].split('/')[2]])
+            size = float(self.size[self.part_devices[str(widget.currentText())].split('/')[2]])
 
         if size > 1024*1024:
             msg = '%.0f Gb' % (size/1024/1024)
@@ -1038,6 +1081,7 @@ class Wizard:
             msg = '%.0f Mb' % (size/1024)
         else:
             msg = '%.0f Kb' % size
+        print "msg: " + msg
         return msg
 
     def get_partition_widgets(self):
@@ -1055,88 +1099,50 @@ class Wizard:
         return widgets
 
     def mountpoints_to_summary(self):
-        print "  mountpoints_to_summary(self):"
         """Processing mountpoints to summary step tasks."""
 
         # Validating self.mountpoints
-        error_msg = ['\n']
+        error_msg = []
 
-        # creating self.mountpoints list only if the pairs { device :
-        # mountpoint } are selected.
-        list = []
-        list_partitions = []
-        list_mountpoints = []
+        mountpoints = {}
+        for i in range(len(self.mountpoint_widgets)):
+            mountpoint_value = str(self.mountpoint_widgets[i].currentText())
+            partition_value = str(self.partition_widgets[i].currentText())
+            if partition_value is not None:
+                partition_id = self.part_devices[partition_value]
+            else:
+                partition_id = None
+            format_value = self.format_widgets[i].isChecked()
+            fstype = None
+            if partition_id in self.gparted_fstype:
+                fstype = self.gparted_fstype[partition_id]
 
-        # building widget lists to build dev_mnt dict ( { device :
-        # mountpoint } )
-        for widget in self.get_partition_widgets():
-            if widget.currentText() not in [None, ' ']:
-                list_partitions.append(widget)
-        for widget in self.get_mountpoint_widgets():
-            if widget.currentText() != "":
-                list_mountpoints.append(widget)
-        # Only if partitions cout or mountpoints count selected are the same,
-        #     dev_mnt is built.
-        if len(list_partitions) == len(list_mountpoints):
-            dev_mnt = dict( [ (list_partitions[i], list_mountpoints[i]) for i in range(0,len(list_partitions)) ] )
-
-            for dev, mnt in dev_mnt.items():
-                if dev.currentText() is not None \
-                   and mnt.currentText() != "":
-                    foo = self.part_devices[str(dev.currentText())]
-                    # TODO cjwatson 2006-03-08: Add UI to control whether
-                    # the partition is to be formatted; hardcoded to True in
-                    # the meantime.
-                    # TODO cjwatson 2006-03-29: Extract desired filesystem
-                    # type from qtparted; hardcoded to None (i.e. use
-                    # current filesystem type or failing that ext3) in the
-                    # meantime.
-                    self.mountpoints[foo] = (mnt.currentText(), True, None)
-
-        # Processing validation stuff
-        elif len(list_partitions) > len(list_mountpoints):
-            error_msg.append("· Punto de montaje vacío.\n\n")
-        elif len(list_partitions) < len(list_mountpoints):
-            error_msg.append("· Partición sin seleccionar.\n\n")
-        """
-        # turn off automount
-
-        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
-        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
-        gconf_previous = {}
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            subp = subprocess.Popen(['gconftool-2', '--config-source', gconf_dir,
-                                                             '--get', gconf_key],
-                                                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
-            if gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                                 '--type', 'bool', 'false'])
-        """
-
-        if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
-                return
-        
-        """
-        #return gconf back to previous state
-
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            if gconf_previous[gconf_key] == '':
-                subprocess.call(['gconftool-2', '--unset', gconf_key])
-            elif gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                                 '--type', 'bool', gconf_previous[gconf_key]])
-        """
+            if mountpoint_value == "":
+                if partition_value in (None, ' '):
+                    continue
+                else:
+                    error_msg.append(
+                        "No mount point selected for %s." % partition_value)
+                    break
+            else:
+                if partition_value in (None, ' '):
+                    error_msg.append(
+                        "No partition selected for %s." % mountpoint_value)
+                    break
+                else:
+                    mountpoints[partition_id] = (mountpoint_value,
+                                                 format_value, fstype)
+        else:
+            self.mountpoints = mountpoints
+        pre_log('info', 'mountpoints: %s' % self.mountpoints)
 
         # Checking duplicated devices
-        for widget in self.get_partition_widgets:
-            if widget.currentText() != None:
-                list.append(widget.currentText())
+        partitions = [w.currentText() for w in self.partition_widgets]
 
-        for check in list:
-            if list.count(check) > 1:
-                error_msg.append("· Dispositivos duplicados.\n\n")
+        for check in partitions:
+            if partitions.count(check) > 1:
+                error_msg.append("A partition is assigned to more than one "
+                                 "mount point.")
                 break
 
         # Processing more validation stuff
@@ -1144,27 +1150,67 @@ class Wizard:
             for check in validation.check_mountpoint(self.mountpoints,
                                                      self.size):
                 if check == validation.MOUNTPOINT_NOROOT:
-                    error_msg.append("· No se encuentra punto de montaje '/'.\n\n")
+                    error_msg.append(get_string(
+                        'partman-target/no_root', self.locale))
                 elif check == validation.MOUNTPOINT_DUPPATH:
-                    error_msg.append("· Puntos de montaje duplicados.\n\n")
+                    error_msg.append("Two file systems are assigned the same "
+                                     "mount point.")
                 elif check == validation.MOUNTPOINT_BADSIZE:
                     for mountpoint, format, fstype in \
                             self.mountpoints.itervalues():
                         if mountpoint == 'swap':
-                            error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % MINIMAL_PARTITION_SCHEME['root'])
+                            min_root = MINIMAL_PARTITION_SCHEME['root']
                             break
                     else:
-                        error_msg.append("· Tamaño insuficiente para la partición '/' (Tamaño mínimo: %d Mb).\n\n" % (MINIMAL_PARTITION_SCHEME['root'] + MINIMAL_PARTITION_SCHEME['swap']*1024))
+                        min_root = (MINIMAL_PARTITION_SCHEME['root'] +
+                                    MINIMAL_PARTITION_SCHEME['swap'] * 1024)
+                    error_msg.append("The partition assigned to '/' is too "
+                                     "small (minimum size: %d Mb)." % min_root)
                 elif check == validation.MOUNTPOINT_BADCHAR:
-                    error_msg.append("· Carácteres incorrectos para el punto de montaje.\n\n")
+                    error_msg.append(get_string(
+                        'partman-basicfilesystems/bad_mountpoint',
+                        self.locale))
 
         # showing warning messages
-        if len(error_msg) > 1:
-            self.userinterface.mountpoint_error_reason.setText(''.join(error_msg))
+        if len(error_msg) != 0:
+            self.userinterface.mountpoint_error_reason.setText("\n".join(error_msg))
             self.userinterface.mountpoint_error_reason.show()
             self.userinterface.mountpoint_error_image.show()
-        else:
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartReady"])
+            return
+        
+        """
+
+        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
+        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
+        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
+        gconf_previous = {}
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            subp = subprocess.Popen(['gconftool-2', '--config-source',
+                                     gconf_dir, '--get', gconf_key],
+                                    stdout=subprocess.PIPE,
+                                    stderr=subprocess.PIPE)
+            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
+            if gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                 '--type', 'bool', 'false'])
+        """
+
+        if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
+            return
+
+        """
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            if gconf_previous[gconf_key] == '':
+                subprocess.call(['gconftool-2', '--unset', gconf_key])
+            elif gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                 '--type', 'bool', gconf_previous[gconf_key]])
+        """
+
+        # Since we've successfully committed partitioning, the install
+        # progress bar should now be displayed, so we can go straight on to
+        # the installation now.
+        self.progress_loop()
 
     # returns the current wizard page
     def get_current_page(self):
@@ -1447,7 +1493,7 @@ class Wizard:
             self.dbfilter.cancel_handler()
         self.app.exit()
 
-    def on_cancel_clicked3(self):
+    def on_cancel_clicked(self):
         print "  on_cancel_clicked(self, widget):"
         
         response = KMessageBox.warningContinueCancel(self.userinterface, "Do you really want to abort the installation now?", "Abort the Installation?", KGuiItem("Quit"))
@@ -1480,22 +1526,17 @@ class Wizard:
             self.userinterface.language_treeview.insertItem( QListViewItem(self.userinterface.language_treeview, choice) )
 
     def set_language (self, language):
-        print "  set_language (self, language):"
-        #model = self.language_treeview.get_model()
-        #iterator = model.iter_children(None)
-        #while iterator is not None:
-        #    if unicode(model.get_value(iterator, 0)) == language:
-        #        self.language_treeview.get_selection().select_iter(iterator)
-        #        break
-        #    iterator = model.iter_next(iterator)
-        
-        # FIXME, can't change QString to unicode when in ascii, why is this
-        # program in ascii??
+        print "  set_language (self, language): " + language
         iterator = QListViewItemIterator(self.userinterface.language_treeview)
         while iterator.current():
             #print "text: " + unicode(iterator.current().text(0))
             #if unicode(str(iterator.current().text(0).ascii()), 'utf-8') == language:
-            if unicode("English") == language:
+            selection = iterator.current()
+            if selection is None:
+                value = "C"
+            else:
+                value = unicode(selection.text(0))
+            if value == language:
                 self.userinterface.language_treeview.setSelected(iterator.current(), True)
                 break
             iterator += 1
@@ -1503,8 +1544,13 @@ class Wizard:
     def get_language (self):
         print "  get_language (self):"
         selection = self.userinterface.language_treeview.selectedItem()
-        #return unicode(selection.text(0))
-        return unicode("English")
+        if selection is None:
+            print "returning C"
+            return 'C'
+        else:
+            value = unicode(selection.text(0))
+            print "returning: " + self.language_choice_map[value][0]
+            return self.language_choice_map[value][0]
 
     def set_timezone (self, timezone):
         print "  set_timezone (self, timezone): " + timezone + "<<"
@@ -1512,8 +1558,7 @@ class Wizard:
 
     def get_timezone (self):
         print "  get_timezone (self):"
-        #return "Europe/London" #self.tzmap.get_selected_tz_name()
-        return self.userinterface.timezone_city_combo.currentText()
+        return self.tzmap.get_selected_tz_name()
 
     def refresh (self):
         print "  refresh (self):"
@@ -1587,11 +1632,23 @@ class TimezoneMap(object):
         """
 
         timezone_city_combo = self.frontend.userinterface.timezone_city_combo
+        self.timezone_city_index = {}  #map human readable city name to Europe/London style zone
 
+        prev_continent = ''
         for location in self.tzdb.locations:
             #self.tzmap.add_point("", location.longitude, location.latitude,
             #                     NORMAL_RGBA)
-            timezone_city_combo.insertItem(location.zone)
+            zone_bits = location.zone.split('/')
+            if len(zone_bits) == 1:
+                continue
+            continent = zone_bits[0]
+            if continent != prev_continent:
+                timezone_city_combo.insertItem('')
+                timezone_city_combo.insertItem("--- %s ---" % continent)
+                prev_continent = continent
+            human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
+            timezone_city_combo.insertItem(human_zone)
+            self.timezone_city_index[human_zone] = location.zone
 
         #self.tzmap.connect("map-event", self.mapped)
         #self.tzmap.connect("unmap-event", self.unmapped)
@@ -1600,10 +1657,21 @@ class TimezoneMap(object):
         #self.tzmap.connect("leave-notify-event", self.out_map)
 
         #timezone_city_combo.connect("changed", self.city_changed)
+        self.mapped()
+
+    def city_combo_changed(self, index):
+        print "  city_combo_changed"
+        city = str(self.frontend.userinterface.timezone_city_combo.currentText())
+        try:
+            zone = self.timezone_city_index[city]
+        except KeyError:
+            return
+        self.set_tz_from_name(zone)
 
     def set_tz_from_name(self, name):
         print "  set_tz_from_name(self, name): " + name
-        """
+        """ Gets a long name, Europe/London """
+
         (longitude, latitude) = (0.0, 0.0)
 
         for location in self.tzdb.locations:
@@ -1613,23 +1681,85 @@ class TimezoneMap(object):
         else:
             return
 
-        if self.point_selected is not None:
-            self.tzmap.point_set_color_rgba(self.point_selected, NORMAL_RGBA)
+        #if self.point_selected is not None:
+        #    self.tzmap.point_set_color_rgba(self.point_selected, NORMAL_RGBA)
 
-        self.point_selected = self.tzmap.get_closest_point(longitude, latitude,
-                                                           False)
+        #self.point_selected = self.tzmap.get_closest_point(longitude, latitude,
+        #                                                   False)
+
 
         self.location_selected = location
         self.set_city_text(self.location_selected.zone)
         self.set_zone_text(self.location_selected)
-        """
 
+        if name == None or name == "":
+            return
+
+    def set_city_text(self, name):
+        """ Gets a long name, Europe/London """
+        print "  set_city_text(self, name): " + name
         timezone_city_combo = self.frontend.userinterface.timezone_city_combo
         count = timezone_city_combo.count()
         found = False
         i = 0
+        zone_bits = name.split('/')
+        human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
         while not found and i < count:
-            if str(timezone_city_combo.text(i)) == name:
+            if str(timezone_city_combo.text(i)) == human_zone:
                 timezone_city_combo.setCurrentItem(i)
                 found = True
             i += 1
+
+    def get_tz_from_name(self, name):
+        print "  set_tz_from_name(self, name): " + name
+        return self.timezone_city_index[name]
+
+    def get_selected_tz_name(self):
+        name = str(self.frontend.userinterface.timezone_city_combo.currentText())
+        return self.get_tz_from_name(name)
+
+    def set_zone_text(self, location):
+        offset = location.utc_offset
+        if offset >= datetime.timedelta(0):
+            minuteoffset = int(offset.seconds / 60)
+        else:
+            minuteoffset = int(offset.seconds / 60 - 1440)
+        if location.zone_letters == 'GMT':
+            text = location.zone_letters
+        else:
+            text = "%s (GMT%+d:%02d)" % (location.zone_letters,
+                                         minuteoffset / 60, minuteoffset % 60)
+        self.frontend.userinterface.timezone_zone_text.setText(text)
+        translations = gettext.translation('iso_3166',
+                                           languages=[self.frontend.locale],
+                                           fallback=True)
+        self.frontend.userinterface.timezone_country_text.setText(translations.ugettext(location.human_country))
+        self.update_current_time()
+
+    def update_current_time(self):
+        if self.location_selected is not None:
+            now = datetime.datetime.now(self.location_selected.info)
+            self.frontend.userinterface.timezone_time_text.setText(now.strftime('%X'))
+
+    def timeout(self):
+        self.update_current_time()
+        """
+
+        if self.point_selected is None:
+            return True
+
+        if self.point_selected.get_color_rgba() == SELECTED_1_RGBA:
+            self.tzmap.point_set_color_rgba(self.point_selected,
+                                            SELECTED_2_RGBA)
+        else:
+            self.tzmap.point_set_color_rgba(self.point_selected,
+                                            SELECTED_1_RGBA)
+        """
+
+        return True
+
+    def mapped(self):
+        if self.update_timeout is None:
+            self.update_timeout = QTimer()
+            self.frontend.app.connect(self.update_timeout, SIGNAL("timeout()"), self.timeout)
+            self.update_timeout.start(100)
