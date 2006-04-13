@@ -6,6 +6,8 @@ espresso (0.99.48) UNRELEASED; urgency=low
     - Set a busy cursor while waiting for debconffiltered subprocesses.
   * Consider ext2, jfs, reiserfs, and xfs partitions for the default root
     partition selection as well as ext3 partitions.
+  * Stop treating extended partitions as ext3; this just seems dangerously
+    wrong.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 13 Apr 2006 18:18:32 +0100
 
