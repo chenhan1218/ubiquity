@@ -899,7 +899,7 @@ class Wizard:
 
             # Try to get some default mountpoint selections.
             self.size = get_sizes()
-            selection = self.get_default_partition_selection(
+            selection = get_default_partition_selection(
                 self.size, self.gparted_fstype)
 
             # Setting a default partition preselection
@@ -1006,49 +1006,6 @@ class Wizard:
 
         self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
         self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
-
-    def get_default_partition_selection(self, size, fstype):
-        print "  get_default_partition_selection(self, size):"
-        """return a dictionary with a skeleton { mountpoint : device }
-        as a default partition selection. The first partition with max size
-        and ext3 fs will be root, and the first partition it finds as swap
-        will be marked as the swap selection."""
-
-        # ordering a list from size dict ( { device : size } ), from higher to lower
-        size_ordered, selection = [], {}
-        for value in size.values():
-            if value not in size_ordered:
-                size_ordered.append(value)
-        size_ordered.sort()
-        size_ordered.reverse()
-
-        # getting filesystem dict ( { device : fs } )
-        device_list = get_filesystems(fstype)
-
-        # building an initial mountpoint preselection dict. Assigning only
-        # preferred partitions for each mountpoint (the highest ext3 partition
-        # to '/' and the first swap partition to swap).
-        if len(device_list.items()) != 0:
-            root, swap = 0, 0
-            for size_selected in size_ordered:
-                partition = size.keys()[size.values().index(size_selected)]
-                try:
-                    fs = device_list['/dev/%s' % partition]
-                except:
-                    continue
-                if swap == 1 and root == 1:
-                    break
-                elif (fs in ('ext2', 'ext3', 'jfs', 'reiserfs', 'xfs') and
-                      size_selected > 1024):
-                    if root == 0:
-                        selection['/'] = '/dev/%s' % partition
-                        root = 1
-                elif fs == 'linux-swap':
-                    selection['swap'] = '/dev/%s' % partition
-                    swap = 1
-                else:
-                    continue
-        return selection
 
     def set_size_msg(self, widget):
         """return a string message with size value about
