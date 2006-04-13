@@ -19,6 +19,10 @@ espresso (0.99.47) UNRELEASED; urgency=low
     and Xubuntu don't have branding problems. The boot splash image, desktop
     wallpaper, and so on should be enough to indicate what you're
     installing.
+  * GTK frontend:
+    - Go back to using 'gksudo --desktop %k' rather than sudo in the
+      .desktop file, now that it seems to be fixed; this gets us startup
+      notification for free.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 12 Apr 2006 18:49:28 +0000
 
