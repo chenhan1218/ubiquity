@@ -399,22 +399,6 @@ class Wizard:
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
 
 
-    def get_sizes(self):
-        """return a dictionary with skeleton { partition : size }
-        from /proc/partitions ."""
-
-        # parsing /proc/partitions and getting size data
-        size = {}
-        partitions = open('/proc/partitions')
-        for line in partitions:
-            try:
-                size[line.split()[3]] = int(line.split()[2])
-            except:
-                continue
-        partitions.close()
-        return size
-
-
     def set_size_msg(self, widget):
         """return a string message with size value about
         the partition target by widget argument."""
@@ -831,7 +815,7 @@ class Wizard:
             self.add_mountpoint_table_row()
 
             # Try to get some default mountpoint selections.
-            self.size = self.get_sizes()
+            self.size = get_sizes()
             selection = self.get_default_partition_selection(
                 self.size, self.gparted_fstype)
 

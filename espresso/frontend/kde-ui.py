@@ -898,7 +898,7 @@ class Wizard:
             
 
             # Try to get some default mountpoint selections.
-            self.size = self.get_sizes()
+            self.size = get_sizes()
             selection = self.get_default_partition_selection(
                 self.size, self.gparted_fstype)
 
@@ -970,22 +970,6 @@ class Wizard:
             self.part_devices[label] = index
             widget.insertItem(self.part_labels[index])
             self.partitions.append(index)
-
-    def get_sizes(self):
-        print "  get_sizes(self):"
-        """return a dictionary with skeleton { partition : size }
-        from /proc/partitions ."""
-
-        # parsing /proc/partitions and getting size data
-        size = {}
-        partitions = open('/proc/partitions')
-        for line in partitions:
-            try:
-                size[line.split()[3]] = int(line.split()[2])
-            except:
-                continue
-        partitions.close()
-        return size
 
     def add_mountpoint_table_row(self):
         print "  add_mountpoint_table_row(self):"

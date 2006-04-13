@@ -126,6 +126,21 @@ def get_partitions():
     return partition
 
 
+def get_sizes():
+    """Returns a dictionary of {partition: size} from /proc/partitions."""
+
+    # parsing /proc/partitions and getting size data
+    size = {}
+    partitions = open('/proc/partitions')
+    for line in partitions:
+        try:
+            size[line.split()[3]] = int(line.split()[2])
+        except:
+            continue
+    partitions.close()
+    return size
+
+
 def disable_swap():
     """Disable swap so that an external partition manager can be used."""
     if not os.path.exists('/proc/swaps'):
