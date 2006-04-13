@@ -464,7 +464,8 @@ class Wizard:
                     continue
                 if swap == 1 and root == 1:
                     break
-                elif fs == 'ext3' and size_selected > 1024:
+                elif (fs in ('ext2', 'ext3', 'jfs', 'reiserfs', 'xfs') and
+                      size_selected > 1024):
                     if root == 0:
                         selection['/'] = '/dev/%s' % partition
                         root = 1
