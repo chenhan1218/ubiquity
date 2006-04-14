@@ -14,7 +14,7 @@
         </rect>
     </property>
     <property name="caption">
-        <string>Kubuntu Installer</string>
+        <string>Install System Permanently</string>
     </property>
     <property name="icon">
         <pixmap>image0</pixmap>

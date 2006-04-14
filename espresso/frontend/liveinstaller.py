@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'liveinstaller.ui'
 #
-# Created: Fri Apr 14 00:49:18 2006
+# Created: Fri Apr 14 10:32:59 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -2443,7 +2443,7 @@ class EspressoUI(QWidget):
 
 
     def languageChange(self):
-        self.setCaption(self.__tr("Kubuntu Installer"))
+        self.setCaption(self.__tr("Install System Permanently"))
         QWhatsThis.add(self,QString.null)
         self.lblStepNofM.setText(self.__tr("Step N of M"))
         self.introLabel.setText(self.__tr("textLabel2"))
