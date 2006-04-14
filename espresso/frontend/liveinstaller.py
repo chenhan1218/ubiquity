@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'liveinstaller.ui'
 #
-# Created: Tue Apr 11 17:30:27 2006
+# Created: Fri Apr 14 00:49:18 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -1829,17 +1829,6 @@ class EspressoUI(QWidget):
 
         EspressoUILayout = QGridLayout(self,1,1,11,6,"EspressoUILayout")
 
-        layout9_4_2_2 = QHBoxLayout(None,0,6,"layout9_4_2_2")
-        spacer2_2_4_2_2 = QSpacerItem(280,16,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        layout9_4_2_2.addItem(spacer2_2_4_2_2)
-
-        self.logo_image = QLabel(self,"logo_image")
-        self.logo_image.setPixmap(self.image1)
-        self.logo_image.setScaledContents(1)
-        layout9_4_2_2.addWidget(self.logo_image)
-
-        EspressoUILayout.addMultiCellLayout(layout9_4_2_2,0,0,0,5)
-
         self.lblStepNofM = QLabel(self,"lblStepNofM")
 
         EspressoUILayout.addWidget(self.lblStepNofM,2,0)
@@ -1852,38 +1841,53 @@ class EspressoUI(QWidget):
         self.stepWelcome = QWidget(self.widgetStack,"stepWelcome")
         stepWelcomeLayout = QGridLayout(self.stepWelcome,1,1,11,6,"stepWelcomeLayout")
         spacer10 = QSpacerItem(41,130,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        stepWelcomeLayout.addItem(spacer10,2,1)
-        spacer7 = QSpacerItem(51,120,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        stepWelcomeLayout.addItem(spacer7,0,1)
-        spacer27_2 = QSpacerItem(161,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        stepWelcomeLayout.addItem(spacer27_2,1,2)
+        stepWelcomeLayout.addItem(spacer10,4,1)
 
         self.introLabel = QLabel(self.stepWelcome,"introLabel")
         self.introLabel.setTextFormat(QLabel.RichText)
         self.introLabel.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
 
-        stepWelcomeLayout.addWidget(self.introLabel,1,1)
+        stepWelcomeLayout.addWidget(self.introLabel,3,1)
         spacer27 = QSpacerItem(161,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        stepWelcomeLayout.addMultiCell(spacer27,1,2,0,0)
+        stepWelcomeLayout.addItem(spacer27,4,0)
+
+        self.logo_image_2 = QLabel(self.stepWelcome,"logo_image_2")
+        self.logo_image_2.setPixmap(self.image1)
+        self.logo_image_2.setScaledContents(1)
+
+        stepWelcomeLayout.addWidget(self.logo_image_2,0,3)
+        spacer36_3 = QSpacerItem(450,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        stepWelcomeLayout.addMultiCell(spacer36_3,0,0,0,2)
+        spacer7_2 = QSpacerItem(51,170,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        stepWelcomeLayout.addItem(spacer7_2,2,1)
+
+        self.line7 = QFrame(self.stepWelcome,"line7")
+        self.line7.setFrameShape(QFrame.HLine)
+        self.line7.setFrameShadow(QFrame.Sunken)
+        self.line7.setFrameShape(QFrame.HLine)
+
+        stepWelcomeLayout.addMultiCellWidget(self.line7,1,1,0,3)
+        spacer27_2 = QSpacerItem(230,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        stepWelcomeLayout.addMultiCell(spacer27_2,3,3,2,3)
         self.widgetStack.addWidget(self.stepWelcome,0)
 
         self.stepLanguage = QWidget(self.widgetStack,"stepLanguage")
         stepLanguageLayout = QGridLayout(self.stepLanguage,1,1,11,6,"stepLanguageLayout")
-
-        self.line1_2 = QFrame(self.stepLanguage,"line1_2")
-        self.line1_2.setFrameShape(QFrame.HLine)
-        self.line1_2.setFrameShadow(QFrame.Sunken)
-        self.line1_2.setFrameShape(QFrame.HLine)
-
-        stepLanguageLayout.addMultiCellWidget(self.line1_2,1,1,0,2)
-
-        self.welcome_heading_label = QLabel(self.stepLanguage,"welcome_heading_label")
-
-        stepLanguageLayout.addMultiCellWidget(self.welcome_heading_label,0,0,0,2)
         spacer22 = QSpacerItem(211,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
         stepLanguageLayout.addItem(spacer22,3,0)
         spacer21 = QSpacerItem(180,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        stepLanguageLayout.addItem(spacer21,3,2)
+        stepLanguageLayout.addMultiCell(spacer21,3,3,2,3)
+
+        self.logo_image_3 = QLabel(self.stepLanguage,"logo_image_3")
+        self.logo_image_3.setPixmap(self.image1)
+        self.logo_image_3.setScaledContents(1)
+
+        stepLanguageLayout.addWidget(self.logo_image_3,0,3)
+
+        self.welcome_heading_label = QLabel(self.stepLanguage,"welcome_heading_label")
+        self.welcome_heading_label.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,1,0,self.welcome_heading_label.sizePolicy().hasHeightForWidth()))
+
+        stepLanguageLayout.addMultiCellWidget(self.welcome_heading_label,0,0,0,2)
 
         self.language_treeview = KListView(self.stepLanguage,"language_treeview")
         self.language_treeview.addColumn(self.__tr("Language"))
@@ -1895,33 +1899,18 @@ class EspressoUI(QWidget):
         self.welcome_text_label.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,0,self.welcome_text_label.sizePolicy().hasHeightForWidth()))
         self.welcome_text_label.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
 
-        stepLanguageLayout.addMultiCellWidget(self.welcome_text_label,2,2,0,2)
+        stepLanguageLayout.addMultiCellWidget(self.welcome_text_label,2,2,0,3)
+
+        self.line1_2 = QFrame(self.stepLanguage,"line1_2")
+        self.line1_2.setFrameShape(QFrame.HLine)
+        self.line1_2.setFrameShadow(QFrame.Sunken)
+        self.line1_2.setFrameShape(QFrame.HLine)
+
+        stepLanguageLayout.addMultiCellWidget(self.line1_2,1,1,0,3)
         self.widgetStack.addWidget(self.stepLanguage,1)
 
         self.stepLocation = QWidget(self.widgetStack,"stepLocation")
         stepLocationLayout = QGridLayout(self.stepLocation,1,1,11,6,"stepLocationLayout")
-
-        self.frame3 = QFrame(self.stepLocation,"frame3")
-        self.frame3.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,1,self.frame3.sizePolicy().hasHeightForWidth()))
-        self.frame3.setFrameShape(QFrame.StyledPanel)
-        self.frame3.setFrameShadow(QFrame.Raised)
-
-        stepLocationLayout.addWidget(self.frame3,3,0)
-
-        self.line1_2_2 = QFrame(self.stepLocation,"line1_2_2")
-        self.line1_2_2.setFrameShape(QFrame.HLine)
-        self.line1_2_2.setFrameShadow(QFrame.Sunken)
-        self.line1_2_2.setFrameShape(QFrame.HLine)
-
-        stepLocationLayout.addWidget(self.line1_2_2,1,0)
-
-        self.timezone_heading_label = QLabel(self.stepLocation,"timezone_heading_label")
-
-        stepLocationLayout.addWidget(self.timezone_heading_label,0,0)
-
-        self.timezone_comment_label = QLabel(self.stepLocation,"timezone_comment_label")
-
-        stepLocationLayout.addWidget(self.timezone_comment_label,2,0)
 
         layout12 = QGridLayout(None,1,1,0,6,"layout12")
 
@@ -1969,85 +1958,100 @@ class EspressoUI(QWidget):
         spacer33_2 = QSpacerItem(104,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
         layout12.addItem(spacer33_2,1,2)
 
-        stepLocationLayout.addLayout(layout12,4,0)
+        stepLocationLayout.addMultiCellLayout(layout12,4,4,0,1)
+
+        self.timezone_heading_label = QLabel(self.stepLocation,"timezone_heading_label")
+        self.timezone_heading_label.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,1,0,self.timezone_heading_label.sizePolicy().hasHeightForWidth()))
+
+        stepLocationLayout.addWidget(self.timezone_heading_label,0,0)
+
+        self.logo_image_4 = QLabel(self.stepLocation,"logo_image_4")
+        self.logo_image_4.setPixmap(self.image1)
+        self.logo_image_4.setScaledContents(1)
+
+        stepLocationLayout.addWidget(self.logo_image_4,0,1)
+
+        self.frame3 = QFrame(self.stepLocation,"frame3")
+        self.frame3.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,1,self.frame3.sizePolicy().hasHeightForWidth()))
+        self.frame3.setFrameShape(QFrame.StyledPanel)
+        self.frame3.setFrameShadow(QFrame.Raised)
+
+        stepLocationLayout.addMultiCellWidget(self.frame3,3,3,0,1)
+
+        self.timezone_comment_label = QLabel(self.stepLocation,"timezone_comment_label")
+
+        stepLocationLayout.addMultiCellWidget(self.timezone_comment_label,2,2,0,1)
+
+        self.line1_2_2 = QFrame(self.stepLocation,"line1_2_2")
+        self.line1_2_2.setFrameShape(QFrame.HLine)
+        self.line1_2_2.setFrameShadow(QFrame.Sunken)
+        self.line1_2_2.setFrameShape(QFrame.HLine)
+
+        stepLocationLayout.addMultiCellWidget(self.line1_2_2,1,1,0,1)
         self.widgetStack.addWidget(self.stepLocation,2)
 
         self.stepKeyboardConf = QWidget(self.widgetStack,"stepKeyboardConf")
         stepKeyboardConfLayout = QGridLayout(self.stepKeyboardConf,1,1,11,6,"stepKeyboardConfLayout")
 
-        self.keyboard_heading_label = QLabel(self.stepKeyboardConf,"keyboard_heading_label")
+        self.keyboard_test_label = QLabel(self.stepKeyboardConf,"keyboard_test_label")
 
-        stepKeyboardConfLayout.addMultiCellWidget(self.keyboard_heading_label,0,0,0,4)
+        stepKeyboardConfLayout.addMultiCellWidget(self.keyboard_test_label,4,4,0,1)
+        spacer32 = QSpacerItem(20,31,QSizePolicy.Fixed,QSizePolicy.Minimum)
+        stepKeyboardConfLayout.addItem(spacer32,3,0)
+        spacer33 = QSpacerItem(181,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        stepKeyboardConfLayout.addMultiCell(spacer33,3,3,2,3)
+        spacer34 = QSpacerItem(20,21,QSizePolicy.Fixed,QSizePolicy.Minimum)
+        stepKeyboardConfLayout.addItem(spacer34,5,0)
+
+        self.entry1 = QLineEdit(self.stepKeyboardConf,"entry1")
+
+        stepKeyboardConfLayout.addWidget(self.entry1,5,1)
+        spacer35_2 = QSpacerItem(100,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        stepKeyboardConfLayout.addMultiCell(spacer35_2,5,5,2,3)
+
+        self.keyboardlistview = KListView(self.stepKeyboardConf,"keyboardlistview")
+        self.keyboardlistview.addColumn(self.__tr("Layout"))
+
+        stepKeyboardConfLayout.addWidget(self.keyboardlistview,3,1)
+
+        self.keyboard_comment_label = QLabel(self.stepKeyboardConf,"keyboard_comment_label")
+
+        stepKeyboardConfLayout.addMultiCellWidget(self.keyboard_comment_label,2,2,0,3)
 
         self.line3 = QFrame(self.stepKeyboardConf,"line3")
         self.line3.setFrameShape(QFrame.HLine)
         self.line3.setFrameShadow(QFrame.Sunken)
         self.line3.setFrameShape(QFrame.HLine)
 
-        stepKeyboardConfLayout.addMultiCellWidget(self.line3,1,1,0,4)
+        stepKeyboardConfLayout.addMultiCellWidget(self.line3,1,1,0,3)
 
-        self.keyboard_test_label = QLabel(self.stepKeyboardConf,"keyboard_test_label")
+        self.keyboard_heading_label = QLabel(self.stepKeyboardConf,"keyboard_heading_label")
+        self.keyboard_heading_label.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,1,0,self.keyboard_heading_label.sizePolicy().hasHeightForWidth()))
 
-        stepKeyboardConfLayout.addMultiCellWidget(self.keyboard_test_label,4,4,0,2)
+        stepKeyboardConfLayout.addMultiCellWidget(self.keyboard_heading_label,0,0,0,2)
 
-        self.keyboardlistview = KListView(self.stepKeyboardConf,"keyboardlistview")
-        self.keyboardlistview.addColumn(self.__tr("Layout"))
+        self.logo_image_5 = QLabel(self.stepKeyboardConf,"logo_image_5")
+        self.logo_image_5.setPixmap(self.image1)
+        self.logo_image_5.setScaledContents(1)
 
-        stepKeyboardConfLayout.addWidget(self.keyboardlistview,3,2)
-        spacer32 = QSpacerItem(20,31,QSizePolicy.Fixed,QSizePolicy.Minimum)
-        stepKeyboardConfLayout.addMultiCell(spacer32,3,3,0,1)
-
-        self.keyboard_comment_label = QLabel(self.stepKeyboardConf,"keyboard_comment_label")
-
-        stepKeyboardConfLayout.addMultiCellWidget(self.keyboard_comment_label,2,2,0,4)
-        spacer33 = QSpacerItem(181,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        stepKeyboardConfLayout.addMultiCell(spacer33,3,3,3,4)
-        spacer34 = QSpacerItem(20,21,QSizePolicy.Fixed,QSizePolicy.Minimum)
-        stepKeyboardConfLayout.addItem(spacer34,5,0)
-
-        self.entry1 = QLineEdit(self.stepKeyboardConf,"entry1")
-
-        stepKeyboardConfLayout.addMultiCellWidget(self.entry1,5,5,1,3)
-        spacer35_2 = QSpacerItem(100,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        stepKeyboardConfLayout.addItem(spacer35_2,5,4)
+        stepKeyboardConfLayout.addWidget(self.logo_image_5,0,3)
         self.widgetStack.addWidget(self.stepKeyboardConf,3)
 
         self.stepUserInfo = QWidget(self.widgetStack,"stepUserInfo")
-        stepUserInfoLayout = QVBoxLayout(self.stepUserInfo,11,6,"stepUserInfoLayout")
+        stepUserInfoLayout = QGridLayout(self.stepUserInfo,1,1,11,6,"stepUserInfoLayout")
 
         self.userinfo_heading_label = QLabel(self.stepUserInfo,"userinfo_heading_label")
-        stepUserInfoLayout.addWidget(self.userinfo_heading_label)
+        self.userinfo_heading_label.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,1,0,self.userinfo_heading_label.sizePolicy().hasHeightForWidth()))
 
-        self.fullname_label = QLabel(self.stepUserInfo,"fullname_label")
-        stepUserInfoLayout.addWidget(self.fullname_label)
+        stepUserInfoLayout.addWidget(self.userinfo_heading_label,0,0)
 
-        layout18 = QHBoxLayout(None,0,6,"layout18")
-        spacer30 = QSpacerItem(20,20,QSizePolicy.Fixed,QSizePolicy.Minimum)
-        layout18.addItem(spacer30)
+        self.logo_image_6 = QLabel(self.stepUserInfo,"logo_image_6")
+        self.logo_image_6.setPixmap(self.image1)
+        self.logo_image_6.setScaledContents(1)
 
-        self.fullname = QLineEdit(self.stepUserInfo,"fullname")
-        self.fullname.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Fixed,1,0,self.fullname.sizePolicy().hasHeightForWidth()))
-        layout18.addWidget(self.fullname)
-
-        layout16 = QVBoxLayout(None,0,6,"layout16")
-
-        self.fullname_error_image = QLabel(self.stepUserInfo,"fullname_error_image")
-        self.fullname_error_image.setPixmap(self.image2)
-        self.fullname_error_image.setScaledContents(1)
-        layout16.addWidget(self.fullname_error_image)
-        spacer30_4 = QSpacerItem(21,16,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        layout16.addItem(spacer30_4)
-        layout18.addLayout(layout16)
-
-        self.fullname_error_reason = QLabel(self.stepUserInfo,"fullname_error_reason")
-        self.fullname_error_reason.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
-        layout18.addWidget(self.fullname_error_reason)
-        spacer30_2_3 = QSpacerItem(200,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        layout18.addItem(spacer30_2_3)
-        stepUserInfoLayout.addLayout(layout18)
-
-        self.username_label = QLabel(self.stepUserInfo,"username_label")
-        stepUserInfoLayout.addWidget(self.username_label)
+        stepUserInfoLayout.addWidget(self.logo_image_6,0,1)
+        spacer10_2 = QSpacerItem(41,20,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        stepUserInfoLayout.addItem(spacer10_2,10,0)
 
         layout12_2 = QGridLayout(None,1,1,0,6,"layout12_2")
 
@@ -2074,10 +2078,84 @@ class EspressoUI(QWidget):
         layout12_2.addItem(spacer30_2_4,0,4)
         spacer30_2 = QSpacerItem(20,31,QSizePolicy.Fixed,QSizePolicy.Minimum)
         layout12_2.addItem(spacer30_2,1,0)
-        stepUserInfoLayout.addLayout(layout12_2)
+
+        stepUserInfoLayout.addMultiCellLayout(layout12_2,5,5,0,1)
+
+        self.fullname_label = QLabel(self.stepUserInfo,"fullname_label")
+
+        stepUserInfoLayout.addMultiCellWidget(self.fullname_label,2,2,0,1)
+
+        layout23 = QGridLayout(None,1,1,0,6,"layout23")
+        spacer30_2_2 = QSpacerItem(20,20,QSizePolicy.Fixed,QSizePolicy.Minimum)
+        layout23.addItem(spacer30_2_2,1,0)
+
+        self.hostname_extra_label = QLabel(self.stepUserInfo,"hostname_extra_label")
+
+        layout23.addWidget(self.hostname_extra_label,1,1)
+
+        layout22 = QHBoxLayout(None,0,6,"layout22")
+
+        self.hostname = QLineEdit(self.stepUserInfo,"hostname")
+        self.hostname.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Fixed,1,0,self.hostname.sizePolicy().hasHeightForWidth()))
+        layout22.addWidget(self.hostname)
+
+        layout21 = QVBoxLayout(None,0,6,"layout21")
+
+        self.hostname_error_image = QLabel(self.stepUserInfo,"hostname_error_image")
+        self.hostname_error_image.setPixmap(self.image2)
+        self.hostname_error_image.setScaledContents(1)
+        layout21.addWidget(self.hostname_error_image)
+        spacer31_2 = QSpacerItem(21,16,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        layout21.addItem(spacer31_2)
+        layout22.addLayout(layout21)
+
+        self.hostname_error_reason = QLabel(self.stepUserInfo,"hostname_error_reason")
+        self.hostname_error_reason.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
+        layout22.addWidget(self.hostname_error_reason)
+        spacer30_2_6 = QSpacerItem(400,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout22.addItem(spacer30_2_6)
+
+        layout23.addLayout(layout22,0,1)
+
+        stepUserInfoLayout.addMultiCellLayout(layout23,9,9,0,1)
 
         self.password_label = QLabel(self.stepUserInfo,"password_label")
-        stepUserInfoLayout.addWidget(self.password_label)
+
+        stepUserInfoLayout.addMultiCellWidget(self.password_label,6,6,0,1)
+
+        self.username_label = QLabel(self.stepUserInfo,"username_label")
+
+        stepUserInfoLayout.addMultiCellWidget(self.username_label,4,4,0,1)
+
+        layout18 = QHBoxLayout(None,0,6,"layout18")
+        spacer30 = QSpacerItem(20,20,QSizePolicy.Fixed,QSizePolicy.Minimum)
+        layout18.addItem(spacer30)
+
+        self.fullname = QLineEdit(self.stepUserInfo,"fullname")
+        self.fullname.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Fixed,1,0,self.fullname.sizePolicy().hasHeightForWidth()))
+        layout18.addWidget(self.fullname)
+
+        layout16 = QVBoxLayout(None,0,6,"layout16")
+
+        self.fullname_error_image = QLabel(self.stepUserInfo,"fullname_error_image")
+        self.fullname_error_image.setPixmap(self.image2)
+        self.fullname_error_image.setScaledContents(1)
+        layout16.addWidget(self.fullname_error_image)
+        spacer30_4 = QSpacerItem(21,16,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        layout16.addItem(spacer30_4)
+        layout18.addLayout(layout16)
+
+        self.fullname_error_reason = QLabel(self.stepUserInfo,"fullname_error_reason")
+        self.fullname_error_reason.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
+        layout18.addWidget(self.fullname_error_reason)
+        spacer30_2_3 = QSpacerItem(200,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        layout18.addItem(spacer30_2_3)
+
+        stepUserInfoLayout.addMultiCellLayout(layout18,3,3,0,1)
+
+        self.hoatname_label = QLabel(self.stepUserInfo,"hoatname_label")
+
+        stepUserInfoLayout.addMultiCellWidget(self.hoatname_label,8,8,0,1)
 
         layout19 = QGridLayout(None,1,1,0,6,"layout19")
 
@@ -2111,76 +2189,56 @@ class EspressoUI(QWidget):
         self.password.setEchoMode(QLineEdit.Password)
 
         layout19.addWidget(self.password,0,1)
-        stepUserInfoLayout.addLayout(layout19)
 
-        self.hoatname_label = QLabel(self.stepUserInfo,"hoatname_label")
-        stepUserInfoLayout.addWidget(self.hoatname_label)
+        stepUserInfoLayout.addMultiCellLayout(layout19,7,7,0,1)
 
-        layout23 = QGridLayout(None,1,1,0,6,"layout23")
-        spacer30_2_2 = QSpacerItem(20,20,QSizePolicy.Fixed,QSizePolicy.Minimum)
-        layout23.addItem(spacer30_2_2,1,0)
+        self.line8 = QFrame(self.stepUserInfo,"line8")
+        self.line8.setFrameShape(QFrame.HLine)
+        self.line8.setFrameShadow(QFrame.Sunken)
+        self.line8.setFrameShape(QFrame.HLine)
 
-        self.hostname_extra_label = QLabel(self.stepUserInfo,"hostname_extra_label")
-
-        layout23.addWidget(self.hostname_extra_label,1,1)
-
-        layout22 = QHBoxLayout(None,0,6,"layout22")
-
-        self.hostname = QLineEdit(self.stepUserInfo,"hostname")
-        self.hostname.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Fixed,1,0,self.hostname.sizePolicy().hasHeightForWidth()))
-        layout22.addWidget(self.hostname)
-
-        layout21 = QVBoxLayout(None,0,6,"layout21")
-
-        self.hostname_error_image = QLabel(self.stepUserInfo,"hostname_error_image")
-        self.hostname_error_image.setPixmap(self.image2)
-        self.hostname_error_image.setScaledContents(1)
-        layout21.addWidget(self.hostname_error_image)
-        spacer31_2 = QSpacerItem(21,16,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        layout21.addItem(spacer31_2)
-        layout22.addLayout(layout21)
-
-        self.hostname_error_reason = QLabel(self.stepUserInfo,"hostname_error_reason")
-        self.hostname_error_reason.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
-        layout22.addWidget(self.hostname_error_reason)
-        spacer30_2_6 = QSpacerItem(400,31,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        layout22.addItem(spacer30_2_6)
-
-        layout23.addLayout(layout22,0,1)
-        stepUserInfoLayout.addLayout(layout23)
-        spacer10_2 = QSpacerItem(41,20,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        stepUserInfoLayout.addItem(spacer10_2)
+        stepUserInfoLayout.addMultiCellWidget(self.line8,1,1,0,1)
         self.widgetStack.addWidget(self.stepUserInfo,4)
 
         self.stepPartDisk = QWidget(self.widgetStack,"stepPartDisk")
-        stepPartDiskLayout = QVBoxLayout(self.stepPartDisk,11,6,"stepPartDiskLayout")
+        stepPartDiskLayout = QGridLayout(self.stepPartDisk,1,1,11,6,"stepPartDiskLayout")
+
+        self.line5 = QFrame(self.stepPartDisk,"line5")
+        self.line5.setFrameShape(QFrame.HLine)
+        self.line5.setFrameShadow(QFrame.Sunken)
+        self.line5.setFrameShape(QFrame.HLine)
+
+        stepPartDiskLayout.addMultiCellWidget(self.line5,1,1,0,1)
+
+        self.logo_image_7 = QLabel(self.stepPartDisk,"logo_image_7")
+        self.logo_image_7.setPixmap(self.image1)
+        self.logo_image_7.setScaledContents(1)
+
+        stepPartDiskLayout.addWidget(self.logo_image_7,0,1)
 
         self.part_disk_heading_label = QLabel(self.stepPartDisk,"part_disk_heading_label")
-        stepPartDiskLayout.addWidget(self.part_disk_heading_label)
+        self.part_disk_heading_label.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,1,0,self.part_disk_heading_label.sizePolicy().hasHeightForWidth()))
+
+        stepPartDiskLayout.addWidget(self.part_disk_heading_label,0,0)
+        spacer42 = QSpacerItem(51,200,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        stepPartDiskLayout.addItem(spacer42,4,0)
+
+        self.part_disk_frame = QFrame(self.stepPartDisk,"part_disk_frame")
+        self.part_disk_frame.setFrameShape(QFrame.StyledPanel)
+        self.part_disk_frame.setFrameShadow(QFrame.Raised)
+
+        stepPartDiskLayout.addMultiCellWidget(self.part_disk_frame,3,3,0,1)
 
         self.part_disk_comment_label = QLabel(self.stepPartDisk,"part_disk_comment_label")
         self.part_disk_comment_label.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
-        stepPartDiskLayout.addWidget(self.part_disk_comment_label)
 
-        part_disk_vbox = QVBoxLayout(None,0,6,"part_disk_vbox")
-        stepPartDiskLayout.addLayout(part_disk_vbox)
-        spacer42 = QSpacerItem(51,291,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        stepPartDiskLayout.addItem(spacer42)
+        stepPartDiskLayout.addMultiCellWidget(self.part_disk_comment_label,2,2,0,1)
         self.widgetStack.addWidget(self.stepPartDisk,5)
 
         self.stepPartAuto = QWidget(self.widgetStack,"stepPartAuto")
-        stepPartAutoLayout = QVBoxLayout(self.stepPartAuto,11,6,"stepPartAutoLayout")
-
-        self.part_auto_heading_label = QLabel(self.stepPartAuto,"part_auto_heading_label")
-        stepPartAutoLayout.addWidget(self.part_auto_heading_label)
-
-        self.part_auto_comment_label = QLabel(self.stepPartAuto,"part_auto_comment_label")
-        stepPartAutoLayout.addWidget(self.part_auto_comment_label)
-
-        self.autopartition_frame = QFrame(self.stepPartAuto,"autopartition_frame")
-        self.autopartition_frame.setFrameShape(QFrame.StyledPanel)
-        self.autopartition_frame.setFrameShadow(QFrame.Raised)
-        stepPartAutoLayout.addWidget(self.autopartition_frame)
+        stepPartAutoLayout = QGridLayout(self.stepPartAuto,1,1,11,6,"stepPartAutoLayout")
+        spacer18_2_2 = QSpacerItem(31,220,QSizePolicy.Minimum,QSizePolicy.Expanding)
+        stepPartAutoLayout.addItem(spacer18_2_2,5,0)
 
         self.new_size_frame = QFrame(self.stepPartAuto,"new_size_frame")
         self.new_size_frame.setFrameShape(QFrame.StyledPanel)
@@ -2200,42 +2258,85 @@ class EspressoUI(QWidget):
         self.new_size_description = QLabel(self.new_size_frame,"new_size_description")
 
         new_size_frameLayout.addMultiCellWidget(self.new_size_description,0,0,0,1)
-        stepPartAutoLayout.addWidget(self.new_size_frame)
-        spacer18_2_2 = QSpacerItem(31,190,QSizePolicy.Minimum,QSizePolicy.Expanding)
-        stepPartAutoLayout.addItem(spacer18_2_2)
+
+        stepPartAutoLayout.addMultiCellWidget(self.new_size_frame,4,4,0,1)
+
+        self.autopartition_frame = QFrame(self.stepPartAuto,"autopartition_frame")
+        self.autopartition_frame.setFrameShape(QFrame.StyledPanel)
+        self.autopartition_frame.setFrameShadow(QFrame.Raised)
+
+        stepPartAutoLayout.addMultiCellWidget(self.autopartition_frame,3,3,0,1)
+
+        self.part_auto_comment_label = QLabel(self.stepPartAuto,"part_auto_comment_label")
+
+        stepPartAutoLayout.addMultiCellWidget(self.part_auto_comment_label,2,2,0,1)
+
+        self.logo_image_8 = QLabel(self.stepPartAuto,"logo_image_8")
+        self.logo_image_8.setPixmap(self.image1)
+        self.logo_image_8.setScaledContents(1)
+
+        stepPartAutoLayout.addWidget(self.logo_image_8,0,1)
+
+        self.line6 = QFrame(self.stepPartAuto,"line6")
+        self.line6.setFrameShape(QFrame.HLine)
+        self.line6.setFrameShadow(QFrame.Sunken)
+        self.line6.setFrameShape(QFrame.HLine)
+
+        stepPartAutoLayout.addMultiCellWidget(self.line6,1,1,0,1)
+
+        self.part_auto_heading_label = QLabel(self.stepPartAuto,"part_auto_heading_label")
+        self.part_auto_heading_label.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,1,0,self.part_auto_heading_label.sizePolicy().hasHeightForWidth()))
+
+        stepPartAutoLayout.addWidget(self.part_auto_heading_label,0,0)
         self.widgetStack.addWidget(self.stepPartAuto,6)
 
         self.stepPartAdvanced = QWidget(self.widgetStack,"stepPartAdvanced")
         stepPartAdvancedLayout = QGridLayout(self.stepPartAdvanced,1,1,11,6,"stepPartAdvancedLayout")
 
-        self.part_advanced_heading_label = QLabel(self.stepPartAdvanced,"part_advanced_heading_label")
-
-        stepPartAdvancedLayout.addWidget(self.part_advanced_heading_label,0,0)
-
         self.partition_help = QLabel(self.stepPartAdvanced,"partition_help")
         self.partition_help.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
 
-        stepPartAdvancedLayout.addWidget(self.partition_help,2,0)
+        stepPartAdvancedLayout.addMultiCellWidget(self.partition_help,3,3,0,1)
+
+        self.part_advanced_heading_label = QLabel(self.stepPartAdvanced,"part_advanced_heading_label")
+        self.part_advanced_heading_label.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,1,0,self.part_advanced_heading_label.sizePolicy().hasHeightForWidth()))
+
+        stepPartAdvancedLayout.addWidget(self.part_advanced_heading_label,0,0)
+
+        self.logo_image_9 = QLabel(self.stepPartAdvanced,"logo_image_9")
+        self.logo_image_9.setPixmap(self.image1)
+        self.logo_image_9.setScaledContents(1)
+
+        stepPartAdvancedLayout.addWidget(self.logo_image_9,0,1)
 
         self.qtparted_frame = QFrame(self.stepPartAdvanced,"qtparted_frame")
         self.qtparted_frame.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,1,self.qtparted_frame.sizePolicy().hasHeightForWidth()))
         self.qtparted_frame.setFrameShape(QFrame.StyledPanel)
         self.qtparted_frame.setFrameShadow(QFrame.Raised)
 
-        stepPartAdvancedLayout.addWidget(self.qtparted_frame,1,0)
+        stepPartAdvancedLayout.addMultiCellWidget(self.qtparted_frame,2,2,0,1)
+
+        self.line9 = QFrame(self.stepPartAdvanced,"line9")
+        self.line9.setFrameShape(QFrame.HLine)
+        self.line9.setFrameShadow(QFrame.Sunken)
+        self.line9.setFrameShape(QFrame.HLine)
+
+        stepPartAdvancedLayout.addMultiCellWidget(self.line9,1,1,0,1)
         self.widgetStack.addWidget(self.stepPartAdvanced,7)
 
         self.stepPartMountpoints = QWidget(self.widgetStack,"stepPartMountpoints")
         stepPartMountpointsLayout = QGridLayout(self.stepPartMountpoints,1,1,11,6,"stepPartMountpointsLayout")
 
         self.part_mountpoints_heading_label = QLabel(self.stepPartMountpoints,"part_mountpoints_heading_label")
+        self.part_mountpoints_heading_label.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,1,0,self.part_mountpoints_heading_label.sizePolicy().hasHeightForWidth()))
 
         stepPartMountpointsLayout.addWidget(self.part_mountpoints_heading_label,0,0)
 
-        self.mount_help = QLabel(self.stepPartMountpoints,"mount_help")
-        self.mount_help.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
+        self.logo_image_10 = QLabel(self.stepPartMountpoints,"logo_image_10")
+        self.logo_image_10.setPixmap(self.image1)
+        self.logo_image_10.setScaledContents(1)
 
-        stepPartMountpointsLayout.addWidget(self.mount_help,1,0)
+        stepPartMountpointsLayout.addWidget(self.logo_image_10,0,1)
 
         layout21_2 = QGridLayout(None,1,1,0,6,"layout21_2")
 
@@ -2258,26 +2359,36 @@ class EspressoUI(QWidget):
         spacer26 = QSpacerItem(21,20,QSizePolicy.Minimum,QSizePolicy.Expanding)
         layout21_2.addItem(spacer26,3,0)
 
-        stepPartMountpointsLayout.addLayout(layout21_2,3,0)
+        stepPartMountpointsLayout.addMultiCellLayout(layout21_2,4,4,0,1)
 
         self.mountpoint_frame = QFrame(self.stepPartMountpoints,"mountpoint_frame")
         self.mountpoint_frame.setFrameShape(QFrame.StyledPanel)
         self.mountpoint_frame.setFrameShadow(QFrame.Raised)
 
-        stepPartMountpointsLayout.addWidget(self.mountpoint_frame,2,0)
+        stepPartMountpointsLayout.addMultiCellWidget(self.mountpoint_frame,3,3,0,1)
+
+        self.mount_help = QLabel(self.stepPartMountpoints,"mount_help")
+        self.mount_help.setAlignment(QLabel.WordBreak | QLabel.AlignVCenter)
+
+        stepPartMountpointsLayout.addMultiCellWidget(self.mount_help,2,2,0,1)
+
+        self.line10 = QFrame(self.stepPartMountpoints,"line10")
+        self.line10.setFrameShape(QFrame.HLine)
+        self.line10.setFrameShadow(QFrame.Sunken)
+        self.line10.setFrameShape(QFrame.HLine)
+
+        stepPartMountpointsLayout.addMultiCellWidget(self.line10,1,1,0,1)
         self.widgetStack.addWidget(self.stepPartMountpoints,8)
 
         self.stepReady = QWidget(self.widgetStack,"stepReady")
         stepReadyLayout = QGridLayout(self.stepReady,1,1,11,6,"stepReadyLayout")
 
-        self.ready_heading_label = QLabel(self.stepReady,"ready_heading_label")
-
-        stepReadyLayout.addMultiCellWidget(self.ready_heading_label,0,0,0,1)
-
         self.ready_text = QTextEdit(self.stepReady,"ready_text")
         self.ready_text.setEnabled(0)
 
-        stepReadyLayout.addMultiCellWidget(self.ready_text,4,4,0,1)
+        stepReadyLayout.addMultiCellWidget(self.ready_text,4,4,0,3)
+        spacer35 = QSpacerItem(552,20,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        stepReadyLayout.addMultiCell(spacer35,3,3,1,3)
 
         self.textLabel8 = QLabel(self.stepReady,"textLabel8")
 
@@ -2288,13 +2399,25 @@ class EspressoUI(QWidget):
         self.line2.setFrameShadow(QFrame.Sunken)
         self.line2.setFrameShape(QFrame.HLine)
 
-        stepReadyLayout.addMultiCellWidget(self.line2,1,1,0,1)
-        spacer35 = QSpacerItem(552,20,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        stepReadyLayout.addItem(spacer35,3,1)
+        stepReadyLayout.addMultiCellWidget(self.line2,1,1,0,3)
 
         self.ready_description_label = QLabel(self.stepReady,"ready_description_label")
 
-        stepReadyLayout.addMultiCellWidget(self.ready_description_label,2,2,0,1)
+        stepReadyLayout.addMultiCellWidget(self.ready_description_label,2,2,0,3)
+
+        self.logo_image_11 = QLabel(self.stepReady,"logo_image_11")
+        self.logo_image_11.setPixmap(self.image1)
+        self.logo_image_11.setScaledContents(1)
+
+        stepReadyLayout.addWidget(self.logo_image_11,0,3)
+
+        self.ready_heading_label = QLabel(self.stepReady,"ready_heading_label")
+        self.ready_heading_label.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,1,0,self.ready_heading_label.sizePolicy().hasHeightForWidth()))
+        self.ready_heading_label.setAlignment(QLabel.AlignVCenter)
+
+        stepReadyLayout.addMultiCellWidget(self.ready_heading_label,0,0,0,1)
+        spacer39 = QSpacerItem(131,21,QSizePolicy.Expanding,QSizePolicy.Minimum)
+        stepReadyLayout.addItem(spacer39,0,2)
         self.widgetStack.addWidget(self.stepReady,9)
 
         EspressoUILayout.addMultiCellWidget(self.widgetStack,1,1,0,5)
@@ -2315,7 +2438,7 @@ class EspressoUI(QWidget):
 
         self.languageChange()
 
-        self.resize(QSize(647,552).expandedTo(self.minimumSizeHint()))
+        self.resize(QSize(647,574).expandedTo(self.minimumSizeHint()))
         self.clearWState(Qt.WState_Polished)
 
 
@@ -2329,8 +2452,6 @@ class EspressoUI(QWidget):
         self.welcome_text_label.setText(self.__tr("Ready to install? Once you answer a few questions, the contents of the live CD can be installed on this computer so you can run the system at full speed and without the CD.\n"
 "\n"
 "Answering the questions should only take a few minutes."))
-        self.timezone_heading_label.setText(self.__tr("<h2>Where are you?</h2>"))
-        self.timezone_comment_label.setText(self.__tr("Select a city in your country and time zone."))
         self.timezone_country_label.setText(self.__tr("Selected Region:"))
         self.timezone_time_adjust.setText(self.__tr("Set Time..."))
         self.timezone_zone_label.setText(self.__tr("Time zone:"))
@@ -2339,38 +2460,40 @@ class EspressoUI(QWidget):
         self.timezone_country_text.setText(QString.null)
         self.timezone_zone_text.setText(QString.null)
         self.timezone_time_text.setText(QString.null)
-        self.keyboard_heading_label.setText(self.__tr("<h2>Keyboard Layout</h2>"))
+        self.timezone_heading_label.setText(self.__tr("<h2>Where are you?</h2>"))
+        self.timezone_comment_label.setText(self.__tr("Select a city in your country and time zone."))
         self.keyboard_test_label.setText(self.__tr("You can type into this box to test your new keyboard layout."))
         self.keyboardlistview.header().setLabel(0,self.__tr("Layout"))
         self.keyboard_comment_label.setText(self.__tr("Which layout is most similar to your keyboard?"))
+        self.keyboard_heading_label.setText(self.__tr("<h2>Keyboard Layout</h2>"))
         self.userinfo_heading_label.setText(self.__tr("<h2>Who are you?</h2>"))
-        self.fullname_label.setText(self.__tr("What is your name?"))
-        self.fullname_error_reason.setText(QString.null)
-        self.username_label.setText(self.__tr("What name do you want to use to log in?"))
         self.username_error_reason.setText(QString.null)
         self.username_extra_label.setText(self.__tr("<i>If more than one person will use this computer, you can set up multiple accounts after installation.</i>"))
-        self.password_label.setText(self.__tr("Choose a password to keep your account safe."))
-        self.password_error_reason.setText(QString.null)
-        self.password_extra_label.setText(self.__tr("<i>Enter the same password twice, so that it can be checked for typing errors.</i>"))
-        self.hoatname_label.setText(self.__tr("What is the name of this computer?"))
+        self.fullname_label.setText(self.__tr("What is your name?"))
         self.hostname_extra_label.setText(self.__tr("<i>This name will be used if you make the computer visible to others on a network.</i>"))
         self.hostname_error_reason.setText(QString.null)
+        self.password_label.setText(self.__tr("Choose a password to keep your account safe."))
+        self.username_label.setText(self.__tr("What name do you want to use to log in?"))
+        self.fullname_error_reason.setText(QString.null)
+        self.hoatname_label.setText(self.__tr("What is the name of this computer?"))
+        self.password_error_reason.setText(QString.null)
+        self.password_extra_label.setText(self.__tr("<i>Enter the same password twice, so that it can be checked for typing errors.</i>"))
         self.part_disk_heading_label.setText(self.__tr("<h2>Select A Disk</h2>"))
         self.part_disk_comment_label.setText(self.__tr("You can have the installer automatically create space in various ways on any one of the following hard disks. Alternatively, you can partition the disks manually."))
-        self.part_auto_heading_label.setText(self.__tr("<h2>Prepare Disk Space</h2>"))
-        self.part_auto_comment_label.setText(self.__tr("<b>How do you want to partition the disk?</b>"))
         self.new_size_label.setText(self.__tr("New partition size:"))
         self.new_size_description.setText(QString.null)
-        self.part_advanced_heading_label.setText(self.__tr("<h2>Prepare Partitions</h2>"))
+        self.part_auto_comment_label.setText(self.__tr("<b>How do you want to partition the disk?</b>"))
+        self.part_auto_heading_label.setText(self.__tr("<h2>Prepare Disk Space</h2>"))
         self.partition_help.setText(self.__tr("Make sure to allocate space for a root partition (\"/\"), with a minimum size of 1.5 GB, and a swap partition of at least 256 MB."))
+        self.part_advanced_heading_label.setText(self.__tr("<h2>Prepare Partitions</h2>"))
         self.part_mountpoints_heading_label.setText(self.__tr("<h2>Prepare Mount Points</h2>"))
+        self.mountpoint_error_reason.setText(self.__tr("You must supply a root (\"/\") mount point."))
         self.mount_help.setText(self.__tr("Select which partitions you want to use for your new installation, and where you want to mount each of them.\n"
 "\n"
 "You must mount one partition on the root file system (\"/\"), and you must choose at least one partition for use as swap space."))
-        self.mountpoint_error_reason.setText(self.__tr("You must supply a root (\"/\") mount point."))
-        self.ready_heading_label.setText(self.__tr("<h2>Ready to install</h2>"))
         self.textLabel8.setText(self.__tr("Details"))
         self.ready_description_label.setText(self.__tr("The live CD is ready to be installed on this computer."))
+        self.ready_heading_label.setText(self.__tr("<h2>Ready to install</h2>"))
         self.back.setText(self.__tr("< Back"))
         self.next.setText(self.__tr("Next >"))
         self.cancel.setText(self.__tr("Cancel"))

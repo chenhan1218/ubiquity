@@ -20,8 +20,6 @@
 import re
 import os
 from espresso.filteredcommand import FilteredCommand
-from gtk import ListStore
-import gobject
 from subprocess import Popen
 
 class KbdChooser(FilteredCommand):

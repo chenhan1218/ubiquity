@@ -1,5 +1,6 @@
 espresso (0.99.48) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Make the intro message a bit less scary, and make it clear that this is
     a beta release.
   * GTK frontend:
@@ -10,6 +11,11 @@ espresso (0.99.48) UNRELEASED; urgency=low
     wrong.
   * Make the default partition selection prefer partitions that were just
     created in the advanced partitioner (closes: Malone #37581).
+
+  [ Jonathan Riddell ]
+  * Remove gtk from kbd_chooser
+  * KDE Frontend:
+    - Make widget layout more consistent
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 13 Apr 2006 18:18:32 +0100
 
