@@ -1,9 +1,9 @@
-espresso (0.99.49) UNRELEASED; urgency=low
+espresso (0.99.49) dapper; urgency=low
 
   * GTK frontend:
     - Change title bar to "Install System Permanently".
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 14 Apr 2006 02:55:04 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 14 Apr 2006 02:57:02 +0100
 
 espresso (0.99.48) dapper; urgency=low
 
