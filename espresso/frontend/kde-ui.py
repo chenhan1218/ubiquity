@@ -373,7 +373,10 @@ class Wizard:
     
         if os.path.isfile(intro):
             intro_file = open(intro)
-            self.userinterface.introLabel.setText(intro_file.read().rstrip('\n'))
+            text = ""
+            for line in intro_file:
+                text = text + line + "<br>"
+            self.userinterface.introLabel.setText(text)
             intro_file.close()
     
     def step_name(self, step_index):
