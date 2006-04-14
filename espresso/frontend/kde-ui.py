@@ -177,6 +177,10 @@ class Wizard:
 
         self.customize_installer()
         
+        self.part_disk_vbox = QVBoxLayout(self.userinterface.part_disk_frame)
+        self.part_disk_buttongroup = QButtonGroup(self.userinterface.part_disk_frame)
+        self.part_disk_buttongroup_texts = {}
+        
         self.autopartition_vbox = QVBoxLayout(self.userinterface.autopartition_frame)
         self.autopartition_buttongroup = QButtonGroup(self.userinterface.autopartition_frame)
         self.autopartition_buttongroup_texts = {}
@@ -700,14 +704,43 @@ class Wizard:
             ##self.next.set_label("Install") # TODO i18n
 
     def set_disk_choices (self, choices, manual_choice):
-        # TODO cjwatson 2006-03-20: This method should set up a disk
-        # selector UI with the given choices.
-        return False
+        print "  set_disk_choices (self, choices, manual_choice):"
+        children = self.userinterface.part_disk_frame.children()
+        for child in children:
+            if isinstance(child, QVBoxLayout):
+                pass
+            else:
+                print child.name()
+                print str(child)
+                self.part_disk_vbox.remove(child)
+                child.hide()
+
+        self.manual_choice = manual_choice
+        firstbutton = None
+        for choice in choices:
+            button = QRadioButton(choice, self.userinterface.part_disk_frame)
+            self.part_disk_buttongroup.insert(button)
+            id = self.part_disk_buttongroup.id(button)
+            #Qt changes the string by adding accelarators, 
+            #so keep pristine string here as is returned later to partman
+            self.part_disk_buttongroup_texts[id] = choice
+            if firstbutton is None:
+                 firstbutton = button
+            self.part_disk_vbox.addWidget(button)
+            button.show()
+
+        if firstbutton is not None:
+            firstbutton.setChecked(True)
+
+        # make sure we're on the disk selection page
+        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
+
+        return True
 
     def get_disk_choice (self):
-        # TODO cjwatson 2006-03-20: This method should return the current
-        # choice in the disk selector.
-        return None
+        print "  get_disk_choice (self): " + str(self.part_disk_buttongroup.selected().text())
+        id = self.part_disk_buttongroup.id( self.part_disk_buttongroup.selected() )
+        return self.autopartition_buttongroup_texts[id]
 
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
         print "  set_autopartition_choices (self, choices, resize_choice, manual_choice):"
@@ -768,7 +801,7 @@ class Wizard:
         print "  get_autopartition_choice (self): " + str(self.autopartition_buttongroup.selected().text())
         id = self.autopartition_buttongroup.id( self.autopartition_buttongroup.selected() )
         return self.autopartition_buttongroup_texts[id]
-  
+
     def set_autopartition_resize_min_percent (self, min_percent):
         print "  set_autopartition_resize_min_percent (self, min_percent):"
         self.new_size_scale.setMinValue(min_percent)
@@ -1158,54 +1191,11 @@ class Wizard:
     def get_current_page(self):
       return self.userinterface.widgetStack.id(self.userinterface.widgetStack.visibleWidget())
 
-    """
-    def show_error(self, msg):
-      ""show warning message on Identification screen where validation
-      doesn't work properly.""
-      print "  show_error(msg)"
-
-      self.userinterface.warning_info.setText(msg)
-    """
-
     def on_steps_switch_page(self, newPageID):
         print "  on_steps_switch_page(title): " + str(self.get_current_page()) + " " + str(newPageID)
 
         self.set_current_page(newPageID)
         current_name = self.step_name(self.get_current_page())
-        """
-
-        for step in range(0, self.steps.get_n_pages()):
-            breadcrumb = BREADCRUMB_STEPS[self.step_name(step)]
-            if hasattr(self, breadcrumb):
-                breadcrumblbl = getattr(self, breadcrumb)
-                if breadcrumb == BREADCRUMB_STEPS[current_name]:
-                    breadcrumblbl.set_attributes(BREADCRUMB_HIGHLIGHT)
-                else:
-                    breadcrumblbl.set_attributes(BREADCRUMB_NORMAL)
-            else:
-                pre_log('info', 'breadcrumb step %s missing' % breadcrumb)
-        """
-
-        # Populate the drives combo box the first time that page #2 is shown.
-        if current_name == "stepPartAuto" and False:
-            # TODO cjwatson 2006-01-10: update for partman
-
-            # To set a "busy mouse":
-            #JR self.live_installer.window.set_cursor (self.watch)
-
-            ##             while gtk.events_pending ():
-            ##                 gtk.main_iteration ()
-
-            # To set a normal mouse again:
-            #JR self.live_installer.window.set_cursor (None)
-
-            for i in self.__assistant.get_drives ():
-                self.drives.append_text ('%s' % i ['label'])
-
-            model = self.drives.get_model ()
-
-            if len (model) > 0:
-                self.drives.set_active (0)
 
     def get_screen_width(self):
         print "  get_screen_width(): " + str(self.app.desktop().screenGeometry().width())

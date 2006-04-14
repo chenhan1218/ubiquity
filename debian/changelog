@@ -3,6 +3,7 @@ espresso (0.99.50) dapper; urgency=low
   * KDE frontend:
     - Change title bar to "Install System Permanently".
     - Reboot properly using ksmserver
+    - Show and return disk choices
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 14 Apr 2006 02:57:02 +0100
 
