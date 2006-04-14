@@ -215,7 +215,10 @@ class Wizard:
                 self.dbfilter = None
 
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
+                self.live_installer.window.set_cursor(self.watch)
                 self.dbfilter.start(auto_process=True)
+            else:
+                self.live_installer.window.set_cursor(None)
             gtk.main()
 
             if self.installing:
@@ -396,22 +399,6 @@ class Wizard:
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
 
 
-    def get_sizes(self):
-        """return a dictionary with skeleton { partition : size }
-        from /proc/partitions ."""
-
-        # parsing /proc/partitions and getting size data
-        size = {}
-        partitions = open('/proc/partitions')
-        for line in partitions:
-            try:
-                size[line.split()[3]] = int(line.split()[2])
-            except:
-                continue
-        partitions.close()
-        return size
-
-
     def set_size_msg(self, widget):
         """return a string message with size value about
         the partition target by widget argument."""
@@ -429,48 +416,6 @@ class Wizard:
         else:
             msg = '%.0f Kb' % size
         return msg
-
-
-    def get_default_partition_selection(self, size, fstype):
-        """return a dictionary with a skeleton { mountpoint : device }
-        as a default partition selection. The first partition with max size
-        and ext3 fs will be root, and the first partition it finds as swap
-        will be marked as the swap selection."""
-
-        # ordering a list from size dict ( { device : size } ), from higher to lower
-        size_ordered, selection = [], {}
-        for value in size.values():
-            if not size_ordered.count(value):
-                size_ordered.append(value)
-        size_ordered.sort()
-        size_ordered.reverse()
-
-        # getting filesystem dict ( { device : fs } )
-        device_list = get_filesystems(fstype)
-
-        # building an initial mountpoint preselection dict. Assigning only
-        # preferred partitions for each mountpoint (the highest ext3 partition
-        # to '/' and the first swap partition to swap).
-        if len(device_list.items()) != 0:
-            root, swap = 0, 0
-            for size_selected in size_ordered:
-                partition = size.keys()[size.values().index(size_selected)]
-                try:
-                    fs = device_list['/dev/%s' % partition]
-                except:
-                    continue
-                if swap == 1 and root == 1:
-                    break
-                elif fs == 'ext3' and size_selected > 1024:
-                    if root == 0:
-                        selection['/'] = '/dev/%s' % partition
-                        root = 1
-                elif fs == 'linux-swap':
-                    selection['swap'] = '/dev/%s' % partition
-                    swap = 1
-                else:
-                    continue
-        return selection
 
 
     def add_mountpoint_table_row(self):
@@ -672,6 +617,7 @@ class Wizard:
             self.hostname_error_box.hide()
 
         if self.dbfilter is not None:
+            self.live_installer.window.set_cursor(self.watch)
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
@@ -826,8 +772,8 @@ class Wizard:
             self.add_mountpoint_table_row()
 
             # Try to get some default mountpoint selections.
-            self.size = self.get_sizes()
-            selection = self.get_default_partition_selection(
+            self.size = get_sizes()
+            selection = get_default_partition_selection(
                 self.size, self.gparted_fstype)
 
             # Setting a default partition preselection
@@ -1007,6 +953,7 @@ class Wizard:
             self.steps.prev_page()
 
         if self.dbfilter is not None:
+            self.live_installer.window.set_cursor(self.watch)
             self.dbfilter.cancel_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
@@ -1326,6 +1273,7 @@ class Wizard:
         # TODO cjwatson 2006-03-10: Duplication of page logic; I think some
         # of this can go away once we reorganise page handling not to invoke
         # a main loop for each page.
+        self.live_installer.window.set_cursor(self.watch)
         self.next.set_label("Install") # TODO i18n
         self.previous_partitioning_page = self.steps.get_current_page()
         self.steps.set_current_page(self.steps.page_num(self.stepReady))
@@ -1440,6 +1388,7 @@ class Wizard:
 
     def error_dialog (self, msg):
         # TODO: cancel button as well if capb backup
+        self.live_installer.window.set_cursor(None)
         if self.current_page is not None:
             transient = self.live_installer
         else:
@@ -1464,6 +1413,7 @@ class Wizard:
 
     # Run the UI's main loop until it returns control to us.
     def run_main_loop (self):
+        self.live_installer.window.set_cursor(None)
         gtk.main()
 
 

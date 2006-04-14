@@ -126,6 +126,21 @@ def get_partitions():
     return partition
 
 
+def get_sizes():
+    """Returns a dictionary of {partition: size} from /proc/partitions."""
+
+    # parsing /proc/partitions and getting size data
+    size = {}
+    partitions = open('/proc/partitions')
+    for line in partitions:
+        try:
+            size[line.split()[3]] = int(line.split()[2])
+        except:
+            continue
+    partitions.close()
+    return size
+
+
 def disable_swap():
     """Disable swap so that an external partition manager can be used."""
     if not os.path.exists('/proc/swaps'):
@@ -169,6 +184,49 @@ def get_filesystems(fstype={}):
             elif 'NTFS' in filesystem.split():
                 device_list[device] = 'ntfs'
     return device_list
+
+
+def get_default_partition_selection(size, fstype):
+    """Return a default partition selection as a dictionary of
+    {mountpoint: device}. The first partition with the biggest size and a
+    reasonable POSIX filesystem will be marked as the root selection, and
+    the first swap partition will be marked as the swap selection."""
+
+    # ordering a list from size dict ({device: size}), from higher to lower
+    size_ordered, selection = [], {}
+    for value in size.values():
+        if value not in size_ordered:
+            size_ordered.append(value)
+    size_ordered.sort()
+    size_ordered.reverse()
+
+    # getting filesystem dict ({device: fs})
+    device_list = get_filesystems(fstype)
+
+    # building an initial mountpoint preselection dict. Assigning only
+    # preferred partitions for each mountpoint (the highest ext3 partition
+    # to '/' and the first swap partition to swap).
+    if len(device_list.items()) != 0:
+        root, swap = 0, 0
+        for size_selected in size_ordered:
+            partition = size.keys()[size.values().index(size_selected)]
+            try:
+                fs = device_list['/dev/%s' % partition]
+            except:
+                continue
+            if swap == 1 and root == 1:
+                break
+            elif (fs in ('ext2', 'ext3', 'jfs', 'reiserfs', 'xfs') and
+                  size_selected > 1024):
+                if root == 0:
+                    selection['/'] = '/dev/%s' % partition
+                    root = 1
+            elif fs == 'linux-swap':
+                selection['swap'] = '/dev/%s' % partition
+                swap = 1
+            else:
+                continue
+    return selection
 
 
 _supported_locales = None
