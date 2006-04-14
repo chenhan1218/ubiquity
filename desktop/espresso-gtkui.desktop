@@ -4,7 +4,6 @@ Version=1.0
 Encoding=UTF-8
 Name=Install System Permanently
 Comment=Install this system permanently to your hard disk
-NoDisplay=true
 Exec=gksudo --desktop %k espresso gtkui
 Terminal=false
 Categories=GTK;System;

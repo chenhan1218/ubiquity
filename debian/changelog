@@ -11,6 +11,8 @@ espresso (0.99.48) UNRELEASED; urgency=low
     wrong.
   * Make the default partition selection prefer partitions that were just
     created in the advanced partitioner (closes: Malone #37581).
+  * Remove NoDisplay=true from .desktop files, now that espresso removes
+    itself from the target system.
 
   [ Jonathan Riddell ]
   * Remove gtk from kbd_chooser
