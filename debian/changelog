@@ -5,7 +5,9 @@ espresso (0.99.48) UNRELEASED; urgency=low
     a beta release.
 
   [ Jonathan Riddell ]
-  Remove gtk from kdb_chooser
+  * Remove gtk from kdb_chooser
+  * KDE Frontend:
+    - Make widget layout more consistent
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 13 Apr 2006 18:18:32 +0100
 
