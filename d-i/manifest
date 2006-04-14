@@ -1,10 +1,10 @@
 apt-setup 1:0.4ubuntu6
-base-installer 1.42ubuntu7
+base-installer 1.42ubuntu8
 choose-mirror 1.17ubuntu7
 debian-installer-utils 1.22ubuntu7
 grub-installer 1.14ubuntu3
 hw-detect 1.32ubuntu5
-kbd-chooser 1.23ubuntu14
+kbd-chooser 1.23ubuntu15
 localechooser 0.27ubuntu16
 partconf 1.11
 partman-auto 45ubuntu8
