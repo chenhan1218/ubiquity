@@ -1,19 +1,44 @@
-espresso (0.99.48) UNRELEASED; urgency=low
+espresso (0.99.50) dapper; urgency=low
+
+  * KDE frontend:
+    - Change title bar to "Install System Permanently".
+    - Reboot properly using ksmserver
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 14 Apr 2006 02:57:02 +0100
+
+espresso (0.99.49) dapper; urgency=low
+
+  * GTK frontend:
+    - Change title bar to "Install System Permanently".
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 14 Apr 2006 02:57:02 +0100
+
+espresso (0.99.48) dapper; urgency=low
 
   [ Colin Watson ]
   * Make the intro message a bit less scary, and make it clear that this is
     a beta release.
-
-  [ Jonathan Riddell ]
-  * Remove gtk from kdb_chooser
-  * KDE Frontend:
-    - Make widget layout more consistent
   * GTK frontend:
     - Set a busy cursor while waiting for debconffiltered subprocesses.
+    - If GNOME is installed, reboot properly by telling gdm to reboot and
+      then killing the GNOME session (closes: Malone #38027).
   * Consider ext2, jfs, reiserfs, and xfs partitions for the default root
     partition selection as well as ext3 partitions.
+  * Stop treating extended partitions as ext3; this just seems dangerously
+    wrong.
+  * Make the default partition selection prefer partitions that were just
+    created in the advanced partitioner (closes: Malone #37581).
+  * Remove NoDisplay=true from .desktop files, now that espresso removes
+    itself from the target system.
+  * Automatic update of included source packages: base-installer
+    1.42ubuntu8, kbd-chooser 1.23ubuntu15.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 13 Apr 2006 18:18:32 +0100
+  [ Jonathan Riddell ]
+  * Remove gtk from kbd_chooser
+  * KDE Frontend:
+    - Make widget layout more consistent
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 14 Apr 2006 02:36:53 +0100
 
 espresso (0.99.47) dapper; urgency=low
 

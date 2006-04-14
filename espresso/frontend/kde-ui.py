@@ -1423,7 +1423,11 @@ class Wizard:
         print "  do_reboot(self):"
         """Callback for main program to actually reboot the machine."""
 
-        os.system("reboot")
+        if (os.path.exists("/usr/bin/ksmserver") and
+            os.path.exists("/usr/bin/dcop")):
+            subprocess.call(["dcop", "ksmserver", "ksmserver", "logout", "1", "1", "1"])
+        else:
+            subprocess.call(["reboot"])
 
     def quit(self):
         print "  quit(self):"

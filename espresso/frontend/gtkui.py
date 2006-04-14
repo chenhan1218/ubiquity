@@ -494,7 +494,12 @@ class Wizard:
     def do_reboot(self):
         """Callback for main program to actually reboot the machine."""
 
-        os.system("reboot")
+        if (os.path.exists("/usr/bin/gdm-signal") and
+            os.path.exists("/usr/bin/gnome-session-save")):
+            subprocess.call(["gdm-signal", "--reboot"])
+            subprocess.call(["gnome-session-save", "--kill", "--silent"])
+        else:
+            subprocess.call(["reboot"])
 
 
     def quit(self):
