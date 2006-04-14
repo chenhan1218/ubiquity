@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-13 16:02+0100\n"
+"POT-Creation-Date: 2006-04-14 02:53+0100\n"
 "PO-Revision-Date: 2006-03-27 14:55+0000\n"
 "Last-Translator: Baishampayan Ghose <b.ghose@ubuntu.com>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
@@ -17,8 +17,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-msgid "Espresso Installer"
-msgstr "এসপ্রেশো ইনস্টলার"
+#, fuzzy
+msgid "Install System Permanently"
+msgstr "ইনস্টলেশন সম্পূর্ণ হয়েছে"
 
 #. Type: text
 #. Description
@@ -502,3 +503,6 @@ msgstr ""
 #: ../espresso.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
+
+#~ msgid "Espresso Installer"
+#~ msgstr "এসপ্রেশো ইনস্টলার"

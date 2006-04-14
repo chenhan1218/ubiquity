@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-13 16:02+0100\n"
+"POT-Creation-Date: 2006-04-14 02:53+0100\n"
 "PO-Revision-Date: 2006-03-27 15:18+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -17,8 +17,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-msgid "Espresso Installer"
-msgstr "Instalador Espresso"
+#, fuzzy
+msgid "Install System Permanently"
+msgstr "A instalar o sistema"
 
 #. Type: text
 #. Description
@@ -522,3 +523,6 @@ msgstr "A instalar pacotes de idioma"
 #: ../espresso.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "A descarregar pacotes de idioma (${TIME} restantes)..."
+
+#~ msgid "Espresso Installer"
+#~ msgstr "Instalador Espresso"
