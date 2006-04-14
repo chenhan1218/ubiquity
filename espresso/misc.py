@@ -192,13 +192,12 @@ def get_default_partition_selection(size, fstype):
     reasonable POSIX filesystem will be marked as the root selection, and
     the first swap partition will be marked as the swap selection."""
 
-    # ordering a list from size dict ({device: size}), from higher to lower
-    size_ordered, selection = [], {}
-    for value in size.values():
-        if value not in size_ordered:
-            size_ordered.append(value)
-    size_ordered.sort()
-    size_ordered.reverse()
+    # Produce a list from size dict ({device: size}) ordered from largest to
+    # smallest; devices we've just formatted take precedence.
+    new_devices = [d for d in size.keys() if ('/dev/%s' % d) in fstype]
+    new_devices.sort(None, lambda dev: size[dev], True)
+    old_devices = [d for d in size.keys() if ('/dev/%s' % d) not in fstype]
+    old_devices.sort(None, lambda dev: size[dev], True)
 
     # getting filesystem dict ({device: fs})
     device_list = get_filesystems(fstype)
@@ -206,10 +205,11 @@ def get_default_partition_selection(size, fstype):
     # building an initial mountpoint preselection dict. Assigning only
     # preferred partitions for each mountpoint (the highest ext3 partition
     # to '/' and the first swap partition to swap).
+    selection = {}
     if len(device_list.items()) != 0:
         root, swap = 0, 0
-        for size_selected in size_ordered:
-            partition = size.keys()[size.values().index(size_selected)]
+        for partition in new_devices + old_devices:
+            size_selected = size[partition]
             try:
                 fs = device_list['/dev/%s' % partition]
             except:

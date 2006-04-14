@@ -8,6 +8,8 @@ espresso (0.99.48) UNRELEASED; urgency=low
     partition selection as well as ext3 partitions.
   * Stop treating extended partitions as ext3; this just seems dangerously
     wrong.
+  * Make the default partition selection prefer partitions that were just
+    created in the advanced partitioner (closes: Malone #37581).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 13 Apr 2006 18:18:32 +0100
 
