@@ -20,6 +20,7 @@ partman-partitioning 37ubuntu2
 partman-reiserfs 28
 partman-target 41ubuntu0
 partman-xfs 27
+silo-installer 1.02
 tzsetup 1:0.8ubuntu6
 user-setup 0.05ubuntu6
 yaboot-installer 1.1.4ubuntu3
