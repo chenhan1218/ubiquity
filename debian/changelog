@@ -1,3 +1,10 @@
+espresso (0.99.51) UNRELEASED; urgency=low
+
+  * GTK frontend:
+    - Add a separator above the dialog buttons.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 16 Apr 2006 09:25:23 +0100
+
 espresso (0.99.50) dapper; urgency=low
 
   * KDE frontend:
