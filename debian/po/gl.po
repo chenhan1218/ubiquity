@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-14 02:53+0100\n"
+"POT-Creation-Date: 2006-04-18 21:35+0100\n"
 "PO-Revision-Date: 2006-03-27 15:05+0000\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@debian.org>\n"
 "Language-Team: Galego <trasno@ceu.fi.udc.es>\n"
@@ -17,9 +17,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-#, fuzzy
-msgid "Install System Permanently"
-msgstr "Instalación completa"
+msgid "Install"
+msgstr ""
 
 #. Type: text
 #. Description

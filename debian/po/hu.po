@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-14 02:53+0100\n"
+"POT-Creation-Date: 2006-04-18 21:35+0100\n"
 "PO-Revision-Date: 2006-04-08 16:45+0000\n"
 "Last-Translator: Szilveszter Farkas <Szilveszter.Farkas@gmail.com>\n"
 "Language-Team: Ubuntu Hungarian Translators <ubuntu-l10n-hu@lists.ubuntu."
@@ -18,9 +18,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-#, fuzzy
-msgid "Install System Permanently"
-msgstr "A rendszer telepítése"
+msgid "Install"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -526,6 +525,3 @@ msgstr "Nyelvi csomagok telepítése"
 #: ../espresso.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Nyelvi csomagok letöltése (${TIME} van hátra)..."
-
-#~ msgid "Espresso Installer"
-#~ msgstr "Espresso Telepítő"

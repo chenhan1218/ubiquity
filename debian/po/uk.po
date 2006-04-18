@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-14 02:53+0100\n"
+"POT-Creation-Date: 2006-04-18 21:35+0100\n"
 "PO-Revision-Date: 2006-04-05 15:52+0000\n"
 "Last-Translator: Serhey Kusyumoff <gpalco@gmail.com>\n"
 "Language-Team: Ukrainian\n"
@@ -17,9 +17,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-#, fuzzy
-msgid "Install System Permanently"
-msgstr "Встановлення системи"
+msgid "Install"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -526,6 +525,3 @@ msgstr "Встановлення пакунків локалізації"
 #: ../espresso.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Завантаження пакунків локалізації (${TIME} remaining)..."
-
-#~ msgid "Espresso Installer"
-#~ msgstr "Програма прискореного встановлення Espresso"

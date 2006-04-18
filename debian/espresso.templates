@@ -5,7 +5,7 @@ Description: enable frame buffer console on boot
 
 Template: espresso/text/live_installer
 Type: text
-_Description: Install System Permanently
+_Description: Install
 
 Template: espresso/text/welcome_heading_label
 Type: text

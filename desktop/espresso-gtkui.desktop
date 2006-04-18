@@ -2,7 +2,7 @@
 Type=Application
 Version=1.0
 Encoding=UTF-8
-Name=Install System Permanently
+Name=Install
 Comment=Install this system permanently to your hard disk
 Exec=gksudo --desktop %k espresso gtkui
 Icon=espresso.png

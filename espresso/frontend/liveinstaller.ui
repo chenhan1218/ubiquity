@@ -14,7 +14,7 @@
         </rect>
     </property>
     <property name="caption">
-        <string>Install System Permanently</string>
+        <string>Install</string>
     </property>
     <property name="icon">
         <pixmap>image0</pixmap>
