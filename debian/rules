@@ -21,6 +21,10 @@ ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:amd64:i386:))
 else
 ifeq ($(DEB_HOST_ARCH_CPU),powerpc)
   bootloader-depends := yaboot, os-prober, hfsutils
+else
+ifeq ($(DEB_HOST_ARCH_CPU),sparc)
+  bootloader-depends := silo
+endif
 endif
 endif
 
@@ -102,6 +106,11 @@ ifeq ($(DEB_HOST_ARCH),powerpc)
 	dh_installdirs -pespresso usr/lib/espresso/yaboot-installer
 	install d-i/source/yaboot-installer/debian/postinst \
 		debian/espresso/usr/lib/espresso/yaboot-installer/yaboot-installer
+endif
+ifeq ($(DEB_HOST_ARCH),sparc)
+	dh_installdirs -pespresso usr/lib/espresso/silo-installer
+	install d-i/source/silo-installer/debian/silo-installer.postinst \
+		debian/espresso/usr/lib/espresso/silo-installer/silo-installer
 endif
 
 	for locale in $$(find $(BUILDDIR)/ubuntu/ -name \*.mo -exec basename {} .mo \;); do mkdir -p $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/; mv $(BUILDDIR)/ubuntu/$$locale.mo $(CURDIR)/debian/espresso-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/ubuntu-installer.mo; done

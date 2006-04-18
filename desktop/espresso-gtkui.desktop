@@ -5,6 +5,7 @@ Encoding=UTF-8
 Name=Install System Permanently
 Comment=Install this system permanently to your hard disk
 Exec=gksudo --desktop %k espresso gtkui
+Icon=espresso.png
 Terminal=false
 Categories=GTK;System;
 OnlyShowIn=GNOME;XFCE;

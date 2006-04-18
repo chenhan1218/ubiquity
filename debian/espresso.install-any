@@ -6,6 +6,7 @@ espresso/frontend/noui.py usr/lib/python2.4/site-packages/espresso/frontend
 espresso/frontend/__init__.py usr/lib/python2.4/site-packages/espresso/frontend
 compat/* usr/lib/espresso/compat
 scripts/* usr/share/espresso
+desktop/espresso.png usr/share/pixmaps
 
 # apt-setup
 d-i/source/apt-setup/apt-setup-verify usr/lib/espresso/apt-setup
