@@ -1,11 +1,13 @@
-espresso (0.99.51) UNRELEASED; urgency=low
+espresso (0.99.51) dapper; urgency=low
 
   * GTK frontend:
     - Add a separator above the dialog buttons.
   * Add silo-installer integration for sparc.
   * Add an icon (thanks, Pascal Klein; closes: Malone #32358).
+  * Automatic update of included source packages: choose-mirror
+    1.17ubuntu9, partman-base 78ubuntu2, silo-installer 1.03ubuntu1.
 
- -- Colin Watson <cjwatson@debian.org>  Sun, 16 Apr 2006 12:20:15 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Apr 2006 07:37:45 +0100
 
 espresso (0.99.50) dapper; urgency=low
 
