@@ -1,3 +1,11 @@
+espresso (0.99.52) dapper; urgency=low
+
+  * KDE frontend:
+    - Fix unicode/qstring convertion problem
+      Closes Malone #39666
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 18 Apr 2006 12:24:52 +0100
+
 espresso (0.99.51) dapper; urgency=low
 
   * GTK frontend:
