@@ -5,6 +5,7 @@ Encoding=UTF-8
 Name=Install System Permanently
 Comment=Install this system permanently to your hard disk
 Exec=kdesu espresso kde-ui
+Icon=espresso.png
 Terminal=false
 Categories=KDE;Qt;System;
 OnlyShowIn=KDE;
