@@ -1,4 +1,4 @@
-# -*- coding: utf8 -*-
+# -*- coding: UTF-8 -*-
 #
 # Copyright (C) 2006 Canonical Ltd.
 #
@@ -348,21 +348,21 @@ class Wizard:
             name = widget.name()
             if 'heading_label' in name:
                 print "text: " + text
-                widget.setText(unicode("<h2>" + text + "</h2>"))
+                widget.setText(unicode("<h2>" + text + "</h2>", "UTF-8"))
             elif 'extra_label' in name:
-                widget.setText(unicode("<em>" + text + "</em>"))
+                widget.setText(unicode("<em>" + text + "</em>", "UTF-8"))
             elif name in ('drives_label', 'partition_method_label',
                           'mountpoint_label', 'size_label', 'device_label',
                           'format_label'):
-                widget.setText(unicode("<strong>" + text + "</strong>"))
+                widget.setText(unicode("<strong>" + text + "</strong>", "UTF-8"))
             else:
-                widget.setText(unicode(text))
+                widget.setText(unicode(text, "UTF-8"))
 
         elif isinstance(widget, QPushButton):
-            widget.setText(unicode(text))
+            widget.setText(unicode(text, "UTF-8"))
 
         elif isinstance(widget, QWidget) and widget.name() == EspressoUI:
-            widget.setCaption(unicode(text))
+            widget.setCaption(unicode(text, "UTF-8"))
 
     def show_intro(self):
         """Show some introductory text, if available."""
@@ -863,10 +863,8 @@ class Wizard:
         print "  get_keyboard (self):"
         selection = self.userinterface.keyboardlistview.selectedItem()
         if selection is None:
-            print "returning none"
             return None
         else:
-            print "returning value: " + str(selection.text(0))
             value = unicode(selection.text(0))
             return self.keyboard_choice_map[value]
 
@@ -1465,7 +1463,7 @@ class Wizard:
             self.userinterface.language_treeview.insertItem( QListViewItem(self.userinterface.language_treeview, choice) )
 
     def set_language (self, language):
-        print "  set_language (self, language): " + language
+        print "  set_language (self, language): " #+ language
         iterator = QListViewItemIterator(self.userinterface.language_treeview)
         while iterator.current():
             #print "text: " + unicode(iterator.current().text(0))
