@@ -497,7 +497,11 @@ class Wizard:
         if (os.path.exists("/usr/bin/gdm-signal") and
             os.path.exists("/usr/bin/gnome-session-save")):
             subprocess.call(["gdm-signal", "--reboot"])
-            subprocess.call(["gnome-session-save", "--kill", "--silent"])
+            if 'SUDO_UID' in os.environ:
+                user = '#%d' % int(os.environ['SUDO_UID'])
+            else:
+                user = 'ubuntu'
+            subprocess.call(["sudo", "-u", user, "-H", "gnome-session-save", "--kill", "--silent"])
         else:
             subprocess.call(["reboot"])
 

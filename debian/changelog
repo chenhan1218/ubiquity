@@ -1,3 +1,10 @@
+espresso (0.99.53) dapper; urgency=low
+
+   * sudo back to the live CD user to run gnome-session-save, otherwise it
+     fails due to having a different home directory
+
+ -- Matt Zimmerman <mdz@ubuntu.com>  Tue, 18 Apr 2006 09:14:06 -0700
+
 espresso (0.99.52) dapper; urgency=low
 
   * KDE frontend:
