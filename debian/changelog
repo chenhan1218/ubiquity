@@ -1,9 +1,9 @@
-espresso (0.99.54) UNRELEASED; urgency=low
+espresso (0.99.54) dapper; urgency=low
 
   * Change .desktop name and window title from "Install System Permanently"
     to just "Install", to help with limited CD cover space.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Apr 2006 21:40:13 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Apr 2006 21:47:53 +0100
 
 espresso (0.99.53) dapper; urgency=low
 
