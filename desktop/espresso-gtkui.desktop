@@ -7,6 +7,6 @@ Comment=Install this system permanently to your hard disk
 Exec=gksudo --desktop %k espresso gtkui
 Icon=espresso.png
 Terminal=false
-Categories=GTK;System;
+Categories=GTK;System;Settings;
 OnlyShowIn=GNOME;XFCE;
 X-Ubuntu-Gettext-Domain=espresso

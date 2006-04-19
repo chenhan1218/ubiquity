@@ -5,6 +5,9 @@ espresso (0.99.57) UNRELEASED; urgency=low
   * KDE frontend:
     - Remove bogus hostname, fullname, and name instance variables; fix
       default hostname setting in info_loop() (closes: Malone #40143).
+  * GTK frontend:
+    - Add "Settings" category to .desktop file in order to move the menu
+      entry to System -> Applications.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Apr 2006 12:29:50 +0100
 
