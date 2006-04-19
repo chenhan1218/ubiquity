@@ -174,9 +174,6 @@ class Wizard:
             sys.exit(1)
 
         # show interface
-        # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
-        # current dapper (https://bugzilla.ubuntu.com/show_bug.cgi?id=20338).
-        #self.show_browser()
         self.show_intro()
         self.live_installer.window.set_cursor(None)
 
@@ -338,25 +335,6 @@ class Wizard:
 
         elif isinstance(widget, gtk.Window):
             widget.set_title(text)
-
-
-    def show_browser(self):
-        """Embed Mozilla widget into a vbox."""
-
-        import gtkmozembed
-
-        widget = gtkmozembed.MozEmbed()
-        local_uri = os.path.join(PATH, 'htmldocs/', self.distro, 'index.html')
-
-        # Loading branding if htmldocs/ brand exists. In other hand Ubuntu Project
-        #     website is loaded
-        try:
-            widget.load_url("file://" + local_uri)
-        except:
-            widget.load_url("http://www.ubuntu.com/")
-        widget.get_location()
-        self.stepWelcome.add(widget)
-        widget.show()
 
 
     def show_intro(self):
