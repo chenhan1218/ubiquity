@@ -1,3 +1,12 @@
+espresso (0.99.58) dapper; urgency=low
+
+  * KDE frontend:
+    - Fix various QString/unicode compatibility problems
+  * partma.py
+    - Fix QString/unicode compatibility problem
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 19 Apr 2006 14:07:16 +0200
+
 espresso (0.99.57) UNRELEASED; urgency=low
 
   * Remove old (and broken anyway, see Malone #26436) code to embed Mozilla

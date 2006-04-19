@@ -664,7 +664,7 @@ class Wizard:
         # For safety, if we somehow ended up improperly initialised
         # then go to manual partitioning.
         choice = self.get_disk_choice()
-        if self.manual_choice is None or choice == self.manual_choice:
+        if self.manual_choice is None or unicode(choice, "utf-8") == self.manual_choice:
             print " process_disk_selection going to gparted"
             self.gparted_loop()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
@@ -785,9 +785,9 @@ class Wizard:
 
 
     def get_autopartition_choice (self):
-        print "  get_autopartition_choice (self): " + str(self.autopartition_buttongroup.selected().text())
+        print "  get_autopartition_choice (self): "
         id = self.autopartition_buttongroup.id( self.autopartition_buttongroup.selected() )
-        return self.autopartition_buttongroup_texts[id]
+        return self.autopartition_buttongroup_texts[id].encode("utf-8", "ignore")
 
     def set_autopartition_resize_min_percent (self, min_percent):
         print "  set_autopartition_resize_min_percent (self, min_percent):"
@@ -806,7 +806,7 @@ class Wizard:
 
     def confirm_partitioning_dialog (self, title, description):
         # TODO merge with gtk
-        print "  confirm_partitioning_dialog (self, title, description):" + title + " ... " + description
+        print "  confirm_partitioning_dialog (self, title, description):"
         response = KMessageBox.warningYesNo(self.userinterface, description, title)
         if response == KMessageBox.Yes:
             return True
@@ -1430,7 +1430,7 @@ class Wizard:
         self.userinterface.ready_text.setText(text)
 
     def error_dialog (self, msg):
-        print "  error_dialog (self, msg):" + msg
+        print "  error_dialog (self, msg):"
         # TODO: cancel button as well if capb backup
         if self.current_page is not None:
             transient = self.userinterface

@@ -221,6 +221,7 @@ class Partman(FilteredCommand):
             # All locales have the same variables anyway so it doesn't
             # matter.
             self.preseed(self.current_question, autopartition_choice)
+            autopartition_choice = unicode(autopartition_choice, "utf-8")
             if autopartition_choice == self.manual_desc:
                 self.manual_partitioning = True
             else:
