@@ -22,7 +22,8 @@ from espresso.filteredcommand import FilteredCommand
 class GrubInstaller(FilteredCommand):
     def prepare(self):
         return (['/usr/share/grub-installer/grub-installer', '/target'],
-                ['^grub-installer/bootdev$', 'ERROR'])
+                ['^grub-installer/bootdev$', 'ERROR'],
+                {'OVERRIDE_UNSUPPORTED_OS': '1'})
 
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question))

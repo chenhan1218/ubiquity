@@ -1,3 +1,10 @@
+espresso (0.99.56) UNRELEASED; urgency=low
+
+  * Set OVERRIDE_UNSUPPORTED_OS=1 while running grub-installer to force it
+    to use its default MBR selection method (closes: Malone #40131).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Apr 2006 11:28:42 +0100
+
 espresso (0.99.55) dapper; urgency=low
 
   * GTK frontend:
