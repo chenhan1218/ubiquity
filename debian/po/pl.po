@@ -71,9 +71,7 @@ msgstr "Wybrane miasto:"
 #. Description
 #: ../espresso.templates:40
 msgid "Time zone:"
-msgstr ""
-":   \t \t\r\n"
-"Strefa czasowa:"
+msgstr "Strefa czasowa:"
 
 #. Type: text
 #. Description
