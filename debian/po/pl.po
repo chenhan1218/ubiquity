@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-14 02:53+0100\n"
+"POT-Creation-Date: 2006-04-18 21:35+0100\n"
 "PO-Revision-Date: 2006-03-28 16:25+0000\n"
 "Last-Translator: Dominik Zablotny <doza@sztorm.net>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
@@ -17,9 +17,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-#, fuzzy
-msgid "Install System Permanently"
-msgstr "Instalacja systemu"
+msgid "Install"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -30,15 +29,11 @@ msgstr "Witaj"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Czy jesteś gotowy do instalacji? Po udzieleniu odpowiedzi na kilka pytań, "
-"Ubunu będzie mogło zostać zainstalowane na tym komputerze, abyś mógł używać "
-"systemu z pełńą prędkością i bez płyty CD."
 
 #. Type: text
 #. Description
@@ -76,7 +71,9 @@ msgstr "Wybrane miasto:"
 #. Description
 #: ../espresso.templates:40
 msgid "Time zone:"
-msgstr "Strefa czasowa:"
+msgstr ""
+":   \t \t\r\n"
+"Strefa czasowa:"
 
 #. Type: text
 #. Description
@@ -279,9 +276,8 @@ msgstr "Gotowe do instalacji"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Ubuntu jest gotowe do instalacji na tym komputerze"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -338,15 +334,11 @@ msgstr "Ponownie uruchom system"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Ubuntu jest już zainstalowane na tym komputerze. Aby zacząć go używać, "
-"należy uruchomić ponownie komputer. Można kontynuować pracę na CD, lecz "
-"wszelkie zmiany lub zapisywane dokumenty będą utracone."
 
 #. Type: text
 #. Description
@@ -519,6 +511,3 @@ msgstr "Instalowanie pakietów rdzennych"
 #: ../espresso.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Pobieranie pakietów z tłumaczeniami (pozostało ${TIME})..."
-
-#~ msgid "Espresso Installer"
-#~ msgstr "Instalator Espresso"

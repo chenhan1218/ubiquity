@@ -129,7 +129,7 @@ class Wizard:
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 
-        gobject.timeout_add(30000, self.poke_gnome_screensaver)
+        gobject.timeout_add(30000, self.poke_screensaver)
 
         # To get a "busy mouse":
         self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
@@ -174,9 +174,6 @@ class Wizard:
             sys.exit(1)
 
         # show interface
-        # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
-        # current dapper (https://bugzilla.ubuntu.com/show_bug.cgi?id=20338).
-        #self.show_browser()
         self.show_intro()
         self.live_installer.window.set_cursor(None)
 
@@ -235,6 +232,9 @@ class Wizard:
     def customize_installer(self):
         """Initial UI setup."""
 
+        gtk.window_set_default_icon_from_file('/usr/share/pixmaps/'
+                                              'espresso.png')
+
         PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
 
         # set pixmaps
@@ -262,7 +262,7 @@ class Wizard:
         self.back.hide()
 
 
-    def poke_gnome_screensaver(self):
+    def poke_screensaver(self):
         """Attempt to make sure that the screensaver doesn't kick in."""
         def drop_privileges():
             if 'SUDO_GID' in os.environ:
@@ -272,7 +272,14 @@ class Wizard:
                 uid = int(os.environ['SUDO_UID'])
                 os.setreuid(uid, uid)
 
-        gobject.spawn_async(["gnome-screensaver-command", "--poke"],
+        if os.path.exists('/usr/bin/gnome-screensaver-command'):
+            command = ["gnome-screensaver-command", "--poke"]
+        elif os.path.exists('/usr/bin/xscreensaver-command'):
+            command = ["xscreensaver-command", "--disable"]
+        else:
+            return
+
+        gobject.spawn_async(command,
                             flags=(gobject.SPAWN_SEARCH_PATH |
                                    gobject.SPAWN_STDOUT_TO_DEV_NULL),
                             child_setup=drop_privileges)
@@ -328,25 +335,6 @@ class Wizard:
 
         elif isinstance(widget, gtk.Window):
             widget.set_title(text)
-
-
-    def show_browser(self):
-        """Embed Mozilla widget into a vbox."""
-
-        import gtkmozembed
-
-        widget = gtkmozembed.MozEmbed()
-        local_uri = os.path.join(PATH, 'htmldocs/', self.distro, 'index.html')
-
-        # Loading branding if htmldocs/ brand exists. In other hand Ubuntu Project
-        #     website is loaded
-        try:
-            widget.load_url("file://" + local_uri)
-        except:
-            widget.load_url("http://www.ubuntu.com/")
-        widget.get_location()
-        self.stepWelcome.add(widget)
-        widget.show()
 
 
     def show_intro(self):
@@ -497,7 +485,11 @@ class Wizard:
         if (os.path.exists("/usr/bin/gdm-signal") and
             os.path.exists("/usr/bin/gnome-session-save")):
             subprocess.call(["gdm-signal", "--reboot"])
-            subprocess.call(["gnome-session-save", "--kill", "--silent"])
+            if 'SUDO_UID' in os.environ:
+                user = '#%d' % int(os.environ['SUDO_UID'])
+            else:
+                user = 'ubuntu'
+            subprocess.call(["sudo", "-u", user, "-H", "gnome-session-save", "--kill", "--silent"])
         else:
             subprocess.call(["reboot"])
 

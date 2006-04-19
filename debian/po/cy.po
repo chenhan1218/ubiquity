@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-14 02:53+0100\n"
+"POT-Creation-Date: 2006-04-18 21:35+0100\n"
 "PO-Revision-Date: 2006-03-27 14:58+0000\n"
 "Last-Translator: Dafydd Harries <daf@canonical.com>\n"
 "Language-Team: Welsh <daf@muse.19inch.net>\n"
@@ -17,9 +17,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-#, fuzzy
-msgid "Install System Permanently"
-msgstr "Sefydliad yn gyflawn"
+msgid "Install"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -265,9 +264,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Beth yw enw'r cyfrifiadur hwn?"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -504,6 +502,3 @@ msgstr ""
 #: ../espresso.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
-
-#~ msgid "Espresso Installer"
-#~ msgstr "Sefydlydd \"Espresso\""

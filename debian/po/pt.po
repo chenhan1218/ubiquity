@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-14 02:53+0100\n"
+"POT-Creation-Date: 2006-04-18 21:35+0100\n"
 "PO-Revision-Date: 2006-03-27 15:18+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -17,9 +17,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-#, fuzzy
-msgid "Install System Permanently"
-msgstr "A instalar o sistema"
+msgid "Install"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -30,15 +29,11 @@ msgstr "Bem-Vindo"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Preparado para a instalação? Uma vez respondidas algumas questões, o Ubuntu "
-"pode ser instalado neste computador para que possa correr o sistema à "
-"velocidade máxima sem o CD."
 
 #. Type: text
 #. Description
@@ -283,9 +278,8 @@ msgstr "Preparado para instalar"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "O Ubuntu está pronto para instalação neste computador."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -342,15 +336,11 @@ msgstr "Reiniciar o computador"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"O Ubuntu está agora instalado no seu computador. Precisa de reiniciar o "
-"computador para o utilizar. Pode continuar a utilizar este CD live, contudo "
-"quaisquer mudanças que fizer ou documentos que guardar não serão preservados."
 
 #. Type: text
 #. Description
@@ -523,6 +513,3 @@ msgstr "A instalar pacotes de idioma"
 #: ../espresso.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "A descarregar pacotes de idioma (${TIME} restantes)..."
-
-#~ msgid "Espresso Installer"
-#~ msgstr "Instalador Espresso"

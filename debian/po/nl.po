@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-14 02:53+0100\n"
+"POT-Creation-Date: 2006-04-18 21:35+0100\n"
 "PO-Revision-Date: 2006-04-10 13:41+0000\n"
 "Last-Translator: Niels Abspoel <niels.abspoel@wanadoo.nl>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
@@ -17,9 +17,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-#, fuzzy
-msgid "Install System Permanently"
-msgstr "Het systeem wordt geïnstalleerd"
+msgid "Install"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -30,15 +29,11 @@ msgstr "Welkom"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Klaar voor installatie? Nadu u een paar vragen heeft beantwoord, kan Ubuntu "
-"geïnstalleerd worden op deze computer zodat u het systeem kan gebruiken op "
-"volle snelheid en zonder de cd."
 
 #. Type: text
 #. Description
@@ -338,16 +333,11 @@ msgstr "Het systeem opnieuw opstarten"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Ubuntu is nu geïnstalleerd op uw computer. U moet uw computer herstarten om "
-"ubuntu te gebruiken. U kunt verdergaan met het gebruiken van deze live cd, "
-"maar veranderingen die u maakt of documenten die u opslaat zullen niet "
-"bewaard worden."
 
 #. Type: text
 #. Description
@@ -526,6 +516,3 @@ msgstr "Taalpakketten worden geïnstalleerd"
 #: ../espresso.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Downloaden van taalpakketten (${TIME} te gaan)..."
-
-#~ msgid "Espresso Installer"
-#~ msgstr "Espresso Installatieprogramma"

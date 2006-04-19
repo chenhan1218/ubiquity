@@ -2443,7 +2443,7 @@ class EspressoUI(QWidget):
 
 
     def languageChange(self):
-        self.setCaption(self.__tr("Install System Permanently"))
+        self.setCaption(self.__tr("Install"))
         QWhatsThis.add(self,QString.null)
         self.lblStepNofM.setText(self.__tr("Step N of M"))
         self.introLabel.setText(self.__tr("textLabel2"))

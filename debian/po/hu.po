@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-14 02:53+0100\n"
+"POT-Creation-Date: 2006-04-18 21:35+0100\n"
 "PO-Revision-Date: 2006-04-08 16:45+0000\n"
 "Last-Translator: Szilveszter Farkas <Szilveszter.Farkas@gmail.com>\n"
 "Language-Team: Ubuntu Hungarian Translators <ubuntu-l10n-hu@lists.ubuntu."
@@ -18,9 +18,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-#, fuzzy
-msgid "Install System Permanently"
-msgstr "A rendszer telepítése"
+msgid "Install"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -31,15 +30,11 @@ msgstr "Üdvözöljük"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Felkészült a telepítésre? Amennyiben megválaszolja a következő néhány "
-"kérdést, az Ubuntu feltelepül a számítógépre és így teljes sebességgel, CD "
-"nélkül használhatja."
 
 #. Type: text
 #. Description
@@ -285,9 +280,8 @@ msgstr "Készen áll a telepítésre"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "A számítógép kész az Ubuntu telepítésére."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -344,15 +338,11 @@ msgstr "A gép újraindítása"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Az Ubuntu telepítése sikeresen befejeződött. Használatához újra kell "
-"indítani a rendszert. Folytathatja a munkát a live CD-n is, de a "
-"változtatások nem lesznek elmentve."
 
 #. Type: text
 #. Description
@@ -526,6 +516,3 @@ msgstr "Nyelvi csomagok telepítése"
 #: ../espresso.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Nyelvi csomagok letöltése (${TIME} van hátra)..."
-
-#~ msgid "Espresso Installer"
-#~ msgstr "Espresso Telepítő"

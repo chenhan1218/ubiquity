@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-14 02:53+0100\n"
+"POT-Creation-Date: 2006-04-18 21:35+0100\n"
 "PO-Revision-Date: 2006-03-29 11:56+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -17,9 +17,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-#, fuzzy
-msgid "Install System Permanently"
-msgstr "Asennetaan järjestelmä"
+msgid "Install"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -30,15 +29,11 @@ msgstr "Tervetuloa"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Valmiina asennukseen? Vastaamalla muutamiin kysymyksiin Ubuntu voidaan "
-"asentaa koneelle. Tällöin voit käyttää järjestelmää täydellä nopeudella ja "
-"ilman CD-levyä."
 
 #. Type: text
 #. Description
@@ -281,9 +276,8 @@ msgstr "Valmiina asennukseen"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Ubuntu on nyt valmis asennettavaksi tälle koneelle."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -340,15 +334,11 @@ msgstr "Käynnistä tietokone uudelleen"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Ubuntu on nyt asennettu tietokoneellesi. Kone täytyy käynnistää uudelleen "
-"siirtyäksesi siihen. Voit myös jatkaa tämän esittely-CD:n käyttämistä, mutta "
-"tekemäsi muutokset tai dokumentit eivät tallennu."
 
 #. Type: text
 #. Description
@@ -522,6 +512,3 @@ msgstr "Asennetaan kielipaketteja"
 #: ../espresso.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Ladataan kielipaketteja (${TIME} jäljellä)..."
-
-#~ msgid "Espresso Installer"
-#~ msgstr "Espresso-asennin"

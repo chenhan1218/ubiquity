@@ -1,3 +1,53 @@
+espresso (0.99.57) UNRELEASED; urgency=low
+
+  * Remove old (and broken anyway, see Malone #26436) code to embed Mozilla
+    into the welcome page, and drop the python-gnome2-extras dependency.
+  * KDE frontend:
+    - Remove bogus hostname, fullname, and name instance variables; fix
+      default hostname setting in info_loop() (closes: Malone #40143).
+    - Remove old set_locales function, which is no longer needed and
+      apparently causes a crash in pykde.
+    - Comment out translate_widgets call in constructor, which Jonathan says
+      sometimes causes a crash when creating kdialogs.
+  * GTK frontend:
+    - Add "Settings" category to .desktop file in order to move the menu
+      entry to System -> Applications.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Apr 2006 12:29:50 +0100
+
+espresso (0.99.56) dapper; urgency=low
+
+  * Set OVERRIDE_UNSUPPORTED_OS=1 while running grub-installer to force it
+    to use its default MBR selection method (closes: Malone #40131).
+  * Automatic update of included source packages: grub-installer
+    1.14ubuntu4.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Apr 2006 12:04:10 +0100
+
+espresso (0.99.55) dapper; urgency=low
+
+  * GTK frontend:
+    - Add support for disabling xscreensaver as well as gnome-screensaver
+      (thanks, Daniele Favara; closes: Malone #40095).
+    - Set a window icon (closes: Malone #40052).
+  * Update various translations from Rosetta.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Apr 2006 10:59:20 +0100
+
+espresso (0.99.54) dapper; urgency=low
+
+  * Change .desktop name and window title from "Install System Permanently"
+    to just "Install", to help with limited CD cover space.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Apr 2006 21:47:53 +0100
+
+espresso (0.99.53) dapper; urgency=low
+
+   * sudo back to the live CD user to run gnome-session-save, otherwise it
+     fails due to having a different home directory
+
+ -- Matt Zimmerman <mdz@ubuntu.com>  Tue, 18 Apr 2006 09:14:06 -0700
+
 espresso (0.99.52) dapper; urgency=low
 
   * KDE frontend:

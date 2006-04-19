@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-14 02:53+0100\n"
+"POT-Creation-Date: 2006-04-18 21:35+0100\n"
 "PO-Revision-Date: 2006-03-27 15:09+0000\n"
 "Last-Translator: Giuseppe Sacco <eppesuig@debian.org>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
@@ -17,9 +17,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-#, fuzzy
-msgid "Install System Permanently"
-msgstr "Installazione completata"
+msgid "Install"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -30,15 +29,11 @@ msgstr "Benvenuto"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Pronto all'installazione? Dopo aver risposto ad alcune domande, Ubuntu potrà "
-"essere installato su questo computer, e il sistema andrà alla velocità "
-"massima e senza il CD."
 
 #. Type: text
 #. Description
@@ -271,9 +266,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Ubuntu è pronto per essere installato su questo computer."
+msgstr ""
 
 #. Type: title
 #. Description

@@ -2,7 +2,7 @@ apt-setup 1:0.4ubuntu6
 base-installer 1.42ubuntu8
 choose-mirror 1.17ubuntu9
 debian-installer-utils 1.22ubuntu7
-grub-installer 1.14ubuntu3
+grub-installer 1.14ubuntu4
 hw-detect 1.32ubuntu5
 kbd-chooser 1.23ubuntu15
 localechooser 0.27ubuntu16

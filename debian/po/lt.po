@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-14 02:53+0100\n"
+"POT-Creation-Date: 2006-04-18 21:35+0100\n"
 "PO-Revision-Date: 2006-04-07 11:20+0000\n"
 "Last-Translator: Jonas Slivka <jonas.slivka@gmail.com>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -17,9 +17,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-#, fuzzy
-msgid "Install System Permanently"
-msgstr "Įdiegiama sistema"
+msgid "Install"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -30,14 +29,11 @@ msgstr "Sveiki!"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Ar pasiruošę įdiegti? Kai atsakysite į keletą klausimų, „Ubuntu“ bus "
-"įdiegtas į šį kompiuterį, taigi Jūsų sistema veiks visu greičiu ir be CD."
 
 #. Type: text
 #. Description
@@ -272,9 +268,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "„Ubuntu“ yra paruošta įdiegti į šį kompiuterį."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -331,15 +326,11 @@ msgstr "Paleisti kompiuterį iš naujo"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"„Ubuntu“ jau įdiegta Jūsų kompiuteryje. Norėdami ja naudotis, turite iš "
-"naujo paleisti kompiuterį. Galite tęsti naudojimąsi šiuo live CD, tačiau "
-"visi pakeitimai ar išsaugoti dokumentai neišliks."
 
 #. Type: text
 #. Description
@@ -514,6 +505,3 @@ msgstr "Diegiami kalbos paketai"
 #: ../espresso.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Atsiunčiami kalbos paketai (${TIME} liko)..."
-
-#~ msgid "Espresso Installer"
-#~ msgstr "„Espresso“ įdiegiklis"

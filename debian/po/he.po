@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-14 02:53+0100\n"
+"POT-Creation-Date: 2006-04-18 21:35+0100\n"
 "PO-Revision-Date: 2006-03-29 14:41+0000\n"
 "Last-Translator: Yaniv Abir <yanivabir@gmail.com>\n"
 "Language-Team: Debian l10n Hebrew <webmaster@guides.co.il>\n"
@@ -17,9 +17,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:8
-#, fuzzy
-msgid "Install System Permanently"
-msgstr "מתקין את מערכת הבסיס"
+msgid "Install"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -30,14 +29,11 @@ msgstr "ברוכים הבאים"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"מוכנים להתקנה? לאחר שתענו על כמה שאלות תוכלו להתקין את אובונטו על המחשב הזה, "
-"ולהשתמש במערכת במהירות מלאה, ללא התקליטור."
 
 #. Type: text
 #. Description
@@ -274,9 +270,8 @@ msgstr "מוכן להתקנה"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "ניתן להתקין את אובונטו על המחשב."
+msgstr ""
 
 #. Type: title
 #. Description

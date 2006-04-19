@@ -116,9 +116,6 @@ class Wizard:
         # declare attributes
         self.distro = distro
         self.current_keyboard = None
-        self.hostname = ''
-        self.fullname = ''
-        self.name = ''
         self.manual_choice = None
         self.password = ''
         self.hostname_edited = False
@@ -166,14 +163,13 @@ class Wizard:
             'password' : 0,
             'verified_password' : 0
         }
-        
-        # set custom language
-        self.set_locales()
     
         # If automatic partitioning fails, it may be disabled toggling on this variable:
         self.discard_automatic_partitioning = False
         
-        self.translate_widgets()
+        # TODO jr 2006-04-19: sometimes causes pykde crash when creating
+        # kdialogs
+        #self.translate_widgets()
 
         self.customize_installer()
         
@@ -311,18 +307,6 @@ class Wizard:
 
         self.tzmap = TimezoneMap(self)
         #self.tzmap.tzmap.show()
-
-    def set_locales(self):
-        """internationalization config. Use only once."""
-        """gtk only, KDE handles this"""
-        #actually just use gettext??
-        print "  set_locales()"
-        #domain = self.distro + '-installer'
-        domain = "gtkui" + '-installer'
-        gettext.bindtextdomain(domain, LOCALEDIR)
-        gettext.textdomain(domain)
-        gettext.install(domain, LOCALEDIR, unicode=1)
-        pass
 
     def translate_widgets(self, parentWidget=None):
         print "  translate_widgets(self, parentWidget=None):"
@@ -496,7 +480,7 @@ class Wizard:
                     hostname_suffix = '-laptop'
                 else:
                     hostname_suffix = '-desktop'
-                self.hostname.set_text(widget.text() + hostname_suffix)
+                self.userinterface.hostname.setText(unicode(widget.text()) + hostname_suffix)
 
         if len(filter(lambda v: v == 1, self.entries.values())) == 5:
             self.userinterface.next.setEnabled(True)
