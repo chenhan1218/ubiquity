@@ -387,9 +387,7 @@ msgstr "Sedang menyalin file..."
 #. Description
 #: ../espresso.templates:244
 msgid "Copying files (${TIME} remaining)..."
-msgstr ""
-"Sedang menyalin file (${TIME} remaining)...\r\n"
-"Sedang menyalin file (${TIME} lagi)..."
+msgstr "Sedang menyalin file (${TIME} lagi)..."
 
 #. Type: text
 #. Description
