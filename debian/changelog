@@ -1,9 +1,9 @@
 espresso (0.99.58) UNRELEASED; urgency=low
 
+  [ Jonathan Riddell ]
   * KDE frontend:
-    - Fix various QString/unicode compatibility problems
-  * partma.py
-    - Fix QString/unicode compatibility problem
+    - Fix various QString/unicode compatibility problems.
+  * Fix QString/unicode compatibility problem in partman component.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 19 Apr 2006 14:07:16 +0200
 
