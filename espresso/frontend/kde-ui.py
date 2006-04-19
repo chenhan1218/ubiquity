@@ -167,7 +167,9 @@ class Wizard:
         # If automatic partitioning fails, it may be disabled toggling on this variable:
         self.discard_automatic_partitioning = False
         
-        self.translate_widgets()
+        # TODO jr 2006-04-19: sometimes causes pykde crash when creating
+        # kdialogs
+        #self.translate_widgets()
 
         self.customize_installer()
         

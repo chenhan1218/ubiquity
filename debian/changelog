@@ -7,6 +7,8 @@ espresso (0.99.57) UNRELEASED; urgency=low
       default hostname setting in info_loop() (closes: Malone #40143).
     - Remove old set_locales function, which is no longer needed and
       apparently causes a crash in pykde.
+    - Comment out translate_widgets call in constructor, which Jonathan says
+      sometimes causes a crash when creating kdialogs.
   * GTK frontend:
     - Add "Settings" category to .desktop file in order to move the menu
       entry to System -> Applications.
