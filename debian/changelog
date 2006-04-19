@@ -3,6 +3,7 @@ espresso (0.99.55) UNRELEASED; urgency=low
   * GTK frontend:
     - Add support for disabling xscreensaver as well as gnome-screensaver
       (closes: Malone #40095).
+    - Set a window icon (closes: Malone #40052).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Apr 2006 09:33:04 +0100
 

@@ -235,6 +235,9 @@ class Wizard:
     def customize_installer(self):
         """Initial UI setup."""
 
+        gtk.window_set_default_icon_from_file('/usr/share/pixmaps/'
+                                              'espresso.png')
+
         PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
 
         # set pixmaps
