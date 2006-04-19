@@ -1,3 +1,10 @@
+espresso (0.99.55) UNRELEASED; urgency=low
+
+  * Add support for disabling xscreensaver as well as gnome-screensaver
+    (closes: Malone #40095).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Apr 2006 09:33:04 +0100
+
 espresso (0.99.54) dapper; urgency=low
 
   * Change .desktop name and window title from "Install System Permanently"

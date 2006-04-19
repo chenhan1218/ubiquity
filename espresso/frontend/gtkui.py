@@ -129,7 +129,7 @@ class Wizard:
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 
-        gobject.timeout_add(30000, self.poke_gnome_screensaver)
+        gobject.timeout_add(30000, self.poke_screensaver)
 
         # To get a "busy mouse":
         self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
@@ -262,7 +262,7 @@ class Wizard:
         self.back.hide()
 
 
-    def poke_gnome_screensaver(self):
+    def poke_screensaver(self):
         """Attempt to make sure that the screensaver doesn't kick in."""
         def drop_privileges():
             if 'SUDO_GID' in os.environ:
@@ -272,7 +272,14 @@ class Wizard:
                 uid = int(os.environ['SUDO_UID'])
                 os.setreuid(uid, uid)
 
-        gobject.spawn_async(["gnome-screensaver-command", "--poke"],
+        if os.path.exists('/usr/bin/gnome-screensaver-command'):
+            command = ["gnome-screensaver-command", "--poke"]
+        elif os.path.exists('/usr/bin/xscreensaver-command'):
+            command = ["xscreensaver-command", "--disable"]
+        else:
+            return
+
+        gobject.spawn_async(command,
                             flags=(gobject.SPAWN_SEARCH_PATH |
                                    gobject.SPAWN_STDOUT_TO_DEV_NULL),
                             child_setup=drop_privileges)
