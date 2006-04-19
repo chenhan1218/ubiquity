@@ -493,7 +493,7 @@ class Wizard:
                     hostname_suffix = '-laptop'
                 else:
                     hostname_suffix = '-desktop'
-                self.userinterface.hostname.setText(widget.text() + hostname_suffix)
+                self.userinterface.hostname.setText(unicode(widget.text() + hostname_suffix))
 
         if len(filter(lambda v: v == 1, self.entries.values())) == 5:
             self.userinterface.next.setEnabled(True)
