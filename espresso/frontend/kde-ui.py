@@ -163,9 +163,6 @@ class Wizard:
             'password' : 0,
             'verified_password' : 0
         }
-        
-        # set custom language
-        self.set_locales()
     
         # If automatic partitioning fails, it may be disabled toggling on this variable:
         self.discard_automatic_partitioning = False
@@ -308,18 +305,6 @@ class Wizard:
 
         self.tzmap = TimezoneMap(self)
         #self.tzmap.tzmap.show()
-
-    def set_locales(self):
-        """internationalization config. Use only once."""
-        """gtk only, KDE handles this"""
-        #actually just use gettext??
-        print "  set_locales()"
-        #domain = self.distro + '-installer'
-        domain = "gtkui" + '-installer'
-        gettext.bindtextdomain(domain, LOCALEDIR)
-        gettext.textdomain(domain)
-        gettext.install(domain, LOCALEDIR, unicode=1)
-        pass
 
     def translate_widgets(self, parentWidget=None):
         print "  translate_widgets(self, parentWidget=None):"
