@@ -29,14 +29,11 @@ msgstr "Добродојдовте"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Спремни сте за инсталација? Откако ќе одговорите неколку прашања Убунту ќе "
-"биде инсталиран на Вашиот компјутер и ќе можете да го користите без CD."
 
 #. Type: text
 #. Description
@@ -274,9 +271,8 @@ msgstr "Спремно за инсталација"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Убунту е спремно за инсталирање на овој компјутер."
+msgstr ""
 
 #. Type: title
 #. Description

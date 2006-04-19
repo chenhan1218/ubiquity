@@ -29,15 +29,11 @@ msgstr "Välkommen"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Redo att installera? Efter att du har besvarat ett antal frågor kan Ubuntu "
-"installeras på den här datorn så att du kan köra systemet i normal hastighet "
-"och utan cd."
 
 #. Type: text
 #. Description
@@ -282,9 +278,8 @@ msgstr "Klar att installera"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Ubuntu är redo att installeras på den här datorn."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -341,15 +336,11 @@ msgstr "Starta om datorn"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Ubuntu är nu installerad på din dator. Du behöver starta om datorn för att "
-"kunna använda den. Du kan fortsätta att använda denna live-cd, fast de "
-"ändringar du gör eller dokument du sparar inte kommer att behållas."
 
 #. Type: text
 #. Description

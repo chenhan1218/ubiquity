@@ -29,15 +29,11 @@ msgstr "Tervetuloa"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Valmiina asennukseen? Vastaamalla muutamiin kysymyksiin Ubuntu voidaan "
-"asentaa koneelle. Tällöin voit käyttää järjestelmää täydellä nopeudella ja "
-"ilman CD-levyä."
 
 #. Type: text
 #. Description
@@ -280,9 +276,8 @@ msgstr "Valmiina asennukseen"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Ubuntu on nyt valmis asennettavaksi tälle koneelle."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -339,15 +334,11 @@ msgstr "Käynnistä tietokone uudelleen"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Ubuntu on nyt asennettu tietokoneellesi. Kone täytyy käynnistää uudelleen "
-"siirtyäksesi siihen. Voit myös jatkaa tämän esittely-CD:n käyttämistä, mutta "
-"tekemäsi muutokset tai dokumentit eivät tallennu."
 
 #. Type: text
 #. Description

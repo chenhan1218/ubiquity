@@ -29,15 +29,11 @@ msgstr "Добро пожаловать"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Готовы к установке? Как только вы ответите на несколько вопросов, Ubuntu "
-"может быть установлена на этот компьютер так, что вы сможете запустить её на "
-"полной скорости и без использования CD."
 
 #. Type: text
 #. Description
@@ -278,9 +274,8 @@ msgstr "Готов к установке"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Всё готово к установке Ubuntu на этот компьютер."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -335,15 +330,11 @@ msgstr "Перезагрузить компьютер"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Ubuntu установлена на ваш компьютер. Осталось перезагрузиться и начать "
-"использовать. Вы можете продолжать использовать этот LiveCD, но изменения в "
-"документах не будут сохранены."
 
 #. Type: text
 #. Description

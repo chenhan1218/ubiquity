@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-04-18 21:35+0100\n"
-"PO-Revision-Date: 2006-04-11 16:03+0000\n"
+"PO-Revision-Date: 2006-04-11 16:35+0000\n"
 "Last-Translator: Rick Miller <rdmiller3@gmail.com>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -29,15 +29,11 @@ msgstr "Bonvenon"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Ĉu vi pretas instali?  Ekde vi respondos al kelkaj demandoj, Ubuntu povas "
-"esti instalita en ĉi tiu komputilo por ke vi povas uzi la sistemon "
-"plenrapide kaj sen la KD-o."
 
 #. Type: text
 #. Description
@@ -282,9 +278,8 @@ msgstr "Pretas por instalado"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Ubuntu-o pretas por instalado sur ĉi tiu komputilo."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -341,15 +336,11 @@ msgstr "Reiniciati la komputilon"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Ubuntu-o estas nun instalita je via komputilo.  Vi devas reiniciati la "
-"komputilon por uzi ĝin.  Vi povas daŭri uzanta ĉi tiun viv-KD-on, kvankam "
-"iujn ŝanĝojn vi farus (al dokumentoj aŭ ion ajn) estos nekonservitaj."
 
 #. Type: text
 #. Description

@@ -29,15 +29,11 @@ msgstr "Bem-vindo"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Pronto para instalar? Uma vez que você responder algumas questões, o Ubuntu "
-"poderá ser instalado neste computador e então você poderá rodar o sistema "
-"com velocidade total sem o uso do CD."
 
 #. Type: text
 #. Description
@@ -284,9 +280,8 @@ msgstr "Pronto para instalar"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Ubuntu já está pronto para instalar neste computador."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -343,16 +338,11 @@ msgstr "Reiniciar o sistema"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Ubuntu está agora instalado em seu computador. Você precisa reiniciar o "
-"computador para poder utilizá-lo. Você pode continuar a usar este CD, embora "
-"algumas alterações que você fizer ou documentos que você salvar não serão "
-"preservados."
 
 #. Type: text
 #. Description

@@ -29,14 +29,11 @@ msgstr "Velkommen"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Vil du installere? Ubuntu kan installeres ved å svare på noen få spørsmål, "
-"slik at du kan kjøre systemet i full hastighet uten CD."
 
 #. Type: text
 #. Description
@@ -279,9 +276,8 @@ msgstr "Klar til å installere"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Ubuntu er klar for installering på denne datamaskinen."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -338,15 +334,11 @@ msgstr "Start systemet på nytt"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Ubuntu er installert på din datamaskin. Du må starte på nytt for å ta det i "
-"bruk. Du kan fortsatt kjøre fra CDen, men ingen endringer du gjør eller "
-"dokumenter du oppretter blir lagret."
 
 #. Type: text
 #. Description

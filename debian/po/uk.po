@@ -29,15 +29,11 @@ msgstr "Ласкаво просимо"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Готові до встановлення? Відповівши на всі запитання, ви зможете втсановити "
-"Ubuntu на цей компьютер, щоби працювати з жорсткого диску комп'ютера на "
-"повній швидкості, не використовуючи Ubuntu CD для завантащення."
 
 #. Type: text
 #. Description
@@ -182,8 +178,8 @@ msgid ""
 "manually."
 msgstr ""
 "Ви можете призначити програмі встановлення автоматично розподілити місце на "
-"жорсткому дису. Існують різні методи автоматичного розподілу. Також можете "
-"використати ручний спосіб розподілу."
+"жорсткому дису. Існують різні методи автоматичного розподілу. \r\n"
+"Також можете використати ручний спосіб розподілу."
 
 #. Type: text
 #. Description
@@ -278,9 +274,8 @@ msgstr "Готовий до встановлення"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Завершено підготовку Ubuntu до встановлення на кмпютер"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -336,15 +331,11 @@ msgstr "Перезавантажити комп'ютер"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Ubuntu було щойно встановлено на ваш компютер. Перезагрузіть компютер щоб "
-"розпочати роботу. Ви можете також продовжувати працювати з компакт диску, "
-"проте зміни, котрі ви внесете до документів в цьому режимі не буде збережено."
 
 #. Type: text
 #. Description

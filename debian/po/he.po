@@ -29,14 +29,11 @@ msgstr "ברוכים הבאים"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"מוכנים להתקנה? לאחר שתענו על כמה שאלות תוכלו להתקין את אובונטו על המחשב הזה, "
-"ולהשתמש במערכת במהירות מלאה, ללא התקליטור."
 
 #. Type: text
 #. Description
@@ -273,9 +270,8 @@ msgstr "מוכן להתקנה"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "ניתן להתקין את אובונטו על המחשב."
+msgstr ""
 
 #. Type: title
 #. Description

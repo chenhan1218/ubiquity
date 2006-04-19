@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-04-18 21:35+0100\n"
-"PO-Revision-Date: 2006-04-06 10:42+0000\n"
+"PO-Revision-Date: 2006-04-19 07:24+0000\n"
 "Last-Translator: Aldous D. Peñaranda <adpenaranda@gmail.com>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Ang pagsagot sa mga tanong ay mangangailangan lamang ng ilang minuto."
 
 #. Type: text
 #. Description
@@ -59,13 +59,13 @@ msgstr "Nasaan ka?"
 #. Description
 #: ../espresso.templates:32
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Pumili ng lungsod sa inyong zonang orasan:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:36
 msgid "Selected city:"
-msgstr ""
+msgstr "Piniling lungsod:"
 
 #. Type: text
 #. Description
@@ -89,7 +89,7 @@ msgstr "Kasalukuyang oras:"
 #. Description
 #: ../espresso.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Itakda ang Oras..."
 
 #. Type: text
 #. Description
@@ -181,7 +181,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:116
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Maghanda ng lugar sa disk"
 
 #. Type: text
 #. Description
@@ -193,7 +193,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Ihanda ang mga partition"
 
 #. Type: text
 #. Description
@@ -207,7 +207,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Ihanda ang mga mount point"
 
 #. Type: text
 #. Description
@@ -229,7 +229,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:147
 msgid "Mount Point"
-msgstr ""
+msgstr "Mount Point:"
 
 #. Type: text
 #. Description
@@ -264,9 +264,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Ano ang pangalan ng kompyuter na ito?"
+msgstr ""
 
 #. Type: title
 #. Description

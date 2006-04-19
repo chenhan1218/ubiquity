@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-04-18 21:35+0100\n"
-"PO-Revision-Date: 2006-03-27 15:07+0000\n"
-"Last-Translator: Parlin Imanuel Toh <pt@samip-online.com>\n"
+"PO-Revision-Date: 2006-04-15 04:40+0000\n"
+"Last-Translator: Gde Bagus Aryana <gde6195@yahoo.com>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
 "id>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:12
 msgid "Welcome"
-msgstr ""
+msgstr "Selamat Datang"
 
 #. Type: text
 #. Description
@@ -40,7 +40,7 @@ msgstr ""
 #. Description
 #: ../espresso.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Proses menjawab pertanyaan hanya memerlukan waktu beberapa menit."
 
 #. Type: text
 #. Description
@@ -54,25 +54,25 @@ msgstr ""
 #. Description
 #: ../espresso.templates:28
 msgid "Where are you?"
-msgstr ""
+msgstr "Di mana lokasi anda"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:32
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Pilih kota di negara anda dan zona waktu anda:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:36
 msgid "Selected city:"
-msgstr ""
+msgstr "Kota yang dipilih"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:40
 msgid "Time zone:"
-msgstr ""
+msgstr "Zona waktu"
 
 #. Type: text
 #. Description
@@ -84,49 +84,51 @@ msgstr ""
 #. Description
 #: ../espresso.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "Waktu saat ini:"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Atur Waktu..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Susunan keyboard"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Susunan yang mana yang paling mirip dengan keyboard anda?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:64
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
+"Anda dapat mengetik ke dalam kotak ini untuk menguji susunan keyboard baru "
+"anda."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Siapakan anda?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Siapakah nama anda?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Nama apakah yang ingin anda gunakan untuk melakukan log in?"
 
 #. Type: text
 #. Description
@@ -135,12 +137,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Jika lebih dari satu orang akan menggunakan komputer ini, anda dapat "
+"menyiapkan banyak account setelah instalasi."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Pilih sebuah password untuk menjaga agar account anda aman."
 
 #. Type: text
 #. Description
@@ -148,12 +152,14 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Masukkan password yang sama dua kali, sehingga dapat diperiksa jikalau "
+"terjadi kesalahan ketik."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Apakah nama komputer ini?"
 
 #. Type: text
 #. Description
@@ -162,12 +168,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Nama ini akan digunakan jika anda membuat komputer ini tampak bagi komputer "
+"lainnya dalam suatu jaringan."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:105
 msgid "Select a disk"
-msgstr ""
+msgstr "Pilih sebuah disk"
 
 #. Type: text
 #. Description
@@ -177,24 +185,27 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"Anda dapat membuat installer ini secara automatis membuat ruang dalam "
+"berbagai cara pada salah satu dari hard disk berikut ini. Sebagai pilihan "
+"lain, anda dapat membuat partisi disk tersebut secara manual."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:116
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Mempersiapkan ruang disk"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Bagaimana anda ingin membuat partisi disk?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Mempersiapkan partisi"
 
 #. Type: text
 #. Description
@@ -203,12 +214,14 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 1.5 GB, and a swap partition of at least 256 MB."
 msgstr ""
+"Pastikan untuk menyediakan ruang untuk sebuah partisi root (\"/\"), dengan "
+"ukuran minimal 1,5 GB, dan sebuah partisi swap paling tidak 256 MB."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Mempersiapkan titik mount"
 
 #. Type: text
 #. Description
@@ -217,6 +230,9 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Pilih partisi yang mana yang ingin anda gunakan untuk instalasi baru anda, "
+"dan di mana anda ingin melakukan mount untuk masing-masing instalasi "
+"tersebut."
 
 #. Type: text
 #. Description
@@ -225,24 +241,27 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"Anda mesti melakukan mount satu partisi pada sistem file root (\"/\"), dan "
+"anda mesti memilih setidaknya satu partisi untuk digunakan sebagai ruang "
+"swap."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:147
 msgid "Mount Point"
-msgstr ""
+msgstr "Titik Mount"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:151
 msgid "Size"
-msgstr ""
+msgstr "Ukuran"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:155
 msgid "Partition"
-msgstr ""
+msgstr "Partisi"
 
 #. Type: text
 #. Description
@@ -254,13 +273,13 @@ msgstr ""
 #. Description
 #: ../espresso.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "Anda mesti mengisi sebuah titik mount root (\"/\")."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:167
 msgid "Ready to install"
-msgstr ""
+msgstr "Siap untuk install"
 
 #. Type: text
 #. Description
@@ -272,19 +291,19 @@ msgstr ""
 #. Description
 #: ../espresso.templates:175
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Membatalkan instalasi?"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:179
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "Apakah anda benar-benar ingin membatalkan instalasi sekarang?"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:183
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "Proses partisi terputus"
 
 #. Type: text
 #. Description
@@ -293,12 +312,14 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
+"Disk ini tidak mungkin di-partisi secara automatis. Anda mesti memilih cara "
+"partisi yang lainnya."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:193
 msgid "Skip"
-msgstr ""
+msgstr "Lewati"
 
 #. Type: title
 #. Description
@@ -310,13 +331,13 @@ msgstr "Instalasi selesai."
 #. Description
 #: ../espresso.templates:201
 msgid "Quit"
-msgstr ""
+msgstr "Keluar"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:205
 msgid "Reboot the computer"
-msgstr ""
+msgstr "Reboot komputer ini"
 
 #. Type: text
 #. Description
@@ -334,43 +355,47 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Pastikan untuk memindahkan CD ini ketika melakukan restart komputer ini, "
+"kalau tidak, komputer ini akan menggunakan live CD ini kembali bukannya "
+"sistem yang baru ter-install."
 
 #. Type: title
 #. Description
 #: ../espresso.templates:228
-#, fuzzy
 msgid "Installing system"
-msgstr "Instalasi selesai."
+msgstr "Meng-install sistem"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:232
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Mencari distribusi ini untuk disalin..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:236
 msgid "Scanning files..."
-msgstr ""
+msgstr "Memindai file..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:240
 msgid "Copying files..."
-msgstr ""
+msgstr "Sedang menyalin file..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:244
 msgid "Copying files (${TIME} remaining)..."
 msgstr ""
+"Sedang menyalin file (${TIME} remaining)...\r\n"
+"Sedang menyalin file (${TIME} lagi)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:248
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "Sedang menyalin catatan instalasi..."
 
 #. Type: text
 #. Description
@@ -387,9 +412,8 @@ msgstr "Sedang menjalankan ${SCRIPT}..."
 #. Type: text
 #. Description
 #: ../espresso.templates:260
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Sedang mengonfigurasi jaringan..."
+msgstr "Sedang mengkonfigurasi system locales..."
 
 #. Type: text
 #. Description
@@ -400,9 +424,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:268
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Sedang mengonfigurasi jaringan..."
+msgstr "Sedang mengkonfigurasi zona waktu..."
 
 #. Type: text
 #. Description
@@ -413,16 +436,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:276
-#, fuzzy
 msgid "Creating user..."
-msgstr "Sedang membersihkan..."
+msgstr "Sedang mendaftarkan pengguna..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:280
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Sedang mengonfigurasi jaringan..."
+msgstr "Sedang mengonfigurasi perangkat keras..."
 
 #. Type: text
 #. Description
@@ -434,32 +455,31 @@ msgstr "Sedang mengonfigurasi jaringan..."
 #. Description
 #: ../espresso.templates:288
 msgid "Setting computer name..."
-msgstr ""
+msgstr "Sedang mengatur nama komputer..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:292
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Sedang mengonfigurasi jaringan..."
+msgstr "Sedang mengonfigurasi boot loader..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:296
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Sedang menghapus paket-paket tambahan..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:300
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Memeriksa paket yang dihapus..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:304
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Sedang men-download paket (${TIME} lagi)..."
 
 #. Type: text
 #. Description
@@ -471,34 +491,34 @@ msgstr ""
 #. Description
 #: ../espresso.templates:312
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Sedang men-download daftar paket (${TIME} lagi)..."
 
 #. Type: text
 #. Description
 #: ../espresso.templates:321
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Terjadi kekeliruan pada saat instalasi ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:326
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Terjadi kekeliruan pada saat menghapus ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:326
 msgid "${MESSAGE}"
-msgstr ""
+msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
 #: ../espresso.templates:331
 msgid "Installing language packs"
-msgstr ""
+msgstr "Sedang meng-install paket bahasa"
 
 #. Type: text
 #. Description
 #: ../espresso.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Sedang men-download paket bahasa (${TIME} lagi)..."

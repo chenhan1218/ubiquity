@@ -29,15 +29,11 @@ msgstr "Benvenuto"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Pronto all'installazione? Dopo aver risposto ad alcune domande, Ubuntu potrà "
-"essere installato su questo computer, e il sistema andrà alla velocità "
-"massima e senza il CD."
 
 #. Type: text
 #. Description
@@ -270,9 +266,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Ubuntu è pronto per essere installato su questo computer."
+msgstr ""
 
 #. Type: title
 #. Description

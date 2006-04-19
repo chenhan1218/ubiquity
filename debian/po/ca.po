@@ -31,15 +31,11 @@ msgstr "Benvingut"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Esteu preparat per a instla·lar? Després de contestar a unes poques "
-"preguntes, Ubuntu es podrà instal·lar en aquest ordinador per a que pogueu "
-"utilitzar el sistema a la velocitat normal i sense el CD."
 
 #. Type: text
 #. Description
@@ -287,9 +283,8 @@ msgstr "Preparat per a instal·lar"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Ubuntu està preparat per a instal·lar en aquest ordinador."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -346,15 +341,11 @@ msgstr "Torna a iniciar l'ordinador"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"S'ha instal·lat Ubuntu al vostre ordinador. Heu de tornar a iniciar "
-"l'ordinador per a utilitzar-lo. Podeu continuar usant el CD autònom, tot i "
-"que qualsevol canvi que feu o els documents que deseu no es preservaran."
 
 #. Type: text
 #. Description

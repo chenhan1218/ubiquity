@@ -29,15 +29,11 @@ msgstr "Vitajte"
 #. Type: text
 #. Description
 #: ../espresso.templates:16
-#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Ste pripravení na inštaláciu? Keď zodpoviete na pár otázok, Ubuntu sa môže "
-"nainštalovať na tento počítač, takže budete môcť spustiť systém naplno bez "
-"CD."
 
 #. Type: text
 #. Description
@@ -281,9 +277,8 @@ msgstr "Inštalácia je pripravená"
 #. Type: text
 #. Description
 #: ../espresso.templates:171
-#, fuzzy
 msgid "The live CD is ready to be installed on this computer."
-msgstr "Ubuntu je pripravené na inštaláciu na váš počítač."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -340,16 +335,11 @@ msgstr "Reštart počítača"
 #. Type: text
 #. Description
 #: ../espresso.templates:209
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Ubuntu je už nainštalované na vašom počítači. Ak chcete používať "
-"nainštalovaný systém, musíte počítač reštartovať. Samozrejme môžete naďalej "
-"používať toto Live CD, ale všetky zmeny a uložené súbory sa po reštarte "
-"stratia."
 
 #. Type: text
 #. Description
