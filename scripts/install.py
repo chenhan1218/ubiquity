@@ -212,95 +212,95 @@ class Install:
             return False
 
         self.db.progress('SET', 78)
-        self.db.progress('INFO', 'espresso/install/log_files')
-        if not self.copy_logs():
-            self.db.progress('STOP')
-            return False
-
-        self.db.progress('SET', 79)
         self.db.progress('INFO', 'espresso/install/cleanup')
         if self.source == '/source':
             if not self.umount_source():
                 self.db.progress('STOP')
                 return False
 
-        self.db.progress('SET', 80)
-        self.db.progress('REGION', 80, 81)
+        self.db.progress('SET', 79)
+        self.db.progress('REGION', 79, 80)
         if not self.run_target_config_hooks():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 81)
-        self.db.progress('REGION', 81, 82)
+        self.db.progress('SET', 80)
+        self.db.progress('REGION', 80, 81)
         self.db.progress('INFO', 'espresso/install/locales')
         if not self.configure_locales():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 82)
-        self.db.progress('REGION', 82, 83)
+        self.db.progress('SET', 81)
+        self.db.progress('REGION', 81, 82)
         self.db.progress('INFO', 'espresso/install/apt')
         if not self.configure_apt():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 83)
-        self.db.progress('REGION', 83, 87)
+        self.db.progress('SET', 82)
+        self.db.progress('REGION', 82, 86)
         # Ignore failures from language pack installation.
         self.install_language_packs()
 
-        self.db.progress('SET', 87)
-        self.db.progress('REGION', 87, 88)
+        self.db.progress('SET', 86)
+        self.db.progress('REGION', 86, 87)
         self.db.progress('INFO', 'espresso/install/timezone')
         if not self.configure_timezone():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 88)
-        self.db.progress('REGION', 88, 90)
+        self.db.progress('SET', 87)
+        self.db.progress('REGION', 87, 89)
         self.db.progress('INFO', 'espresso/install/keyboard')
         if not self.configure_keyboard():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 90)
-        self.db.progress('REGION', 90, 91)
+        self.db.progress('SET', 89)
+        self.db.progress('REGION', 89, 90)
         self.db.progress('INFO', 'espresso/install/user')
         if not self.configure_user():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 91)
-        self.db.progress('REGION', 91, 95)
+        self.db.progress('SET', 90)
+        self.db.progress('REGION', 90, 94)
         self.db.progress('INFO', 'espresso/install/hardware')
         if not self.configure_hardware():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 95)
-        self.db.progress('REGION', 95, 96)
+        self.db.progress('SET', 94)
+        self.db.progress('REGION', 94, 95)
         self.db.progress('INFO', 'espresso/install/network')
         if not self.configure_network():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 96)
-        self.db.progress('REGION', 96, 97)
+        self.db.progress('SET', 95)
+        self.db.progress('REGION', 95, 96)
         if not self.remove_unusable_kernels():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 97)
-        self.db.progress('REGION', 97, 98)
+        self.db.progress('SET', 96)
+        self.db.progress('REGION', 96, 97)
         self.db.progress('INFO', 'espresso/install/bootloader')
         if not self.configure_bootloader():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 98)
-        self.db.progress('REGION', 98, 100)
+        self.db.progress('SET', 97)
+        self.db.progress('REGION', 97, 99)
         self.db.progress('INFO', 'espresso/install/removing')
         if not self.remove_extras():
+            self.db.progress('STOP')
+            return False
+
+        self.db.progress('SET', 99)
+        self.db.progress('INFO', 'espresso/install/log_files')
+        if not self.copy_logs():
             self.db.progress('STOP')
             return False
 
@@ -1073,7 +1073,7 @@ class Install:
         for word in args:
             msg += str(word) + ' '
         if not misc.ex('chroot', self.target, *args):
-            misc.post_log('error', 'chroot ' + msg)
+            misc.pre_log('error', 'chroot ' + msg)
             return False
         return True
 
