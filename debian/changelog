@@ -2,6 +2,9 @@ espresso (0.99.57) UNRELEASED; urgency=low
 
   * Remove old (and broken anyway, see Malone #26436) code to embed Mozilla
     into the welcome page, and drop the python-gnome2-extras dependency.
+  * KDE frontend:
+    - Remove bogus hostname, fullname, and name instance variables; fix
+      default hostname setting in info_loop() (closes: Malone #40143).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Apr 2006 12:29:50 +0100
 
