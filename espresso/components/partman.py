@@ -49,6 +49,7 @@ class Partman(FilteredCommand):
 
         self.resize_min_percent = 0
         self.manual_partitioning = False
+        self.backup_from_new_size = False
 
         questions = ['^partman-auto/disk$',
                      '^partman-auto/.*automatically_partition$',
@@ -60,6 +61,7 @@ class Partman(FilteredCommand):
         return ('/bin/partman', questions)
 
     def error(self, priority, question):
+        self.backup_from_new_size = True
         self.frontend.error_dialog(self.description(question))
         return super(Partman, self).error(priority, question)
 
@@ -172,12 +174,18 @@ class Partman(FilteredCommand):
                 self.description('partman-auto/text/custom_partitioning')
             self.frontend.set_autopartition_choices(
                 self.choices(question), self.resize_desc, self.manual_desc)
+            self.backup_from_new_size = False
 
         elif question == 'partman-partitioning/new_size':
+            if self.backup_from_new_size:
+                self.backup_from_new_size = False
+                return False
+
             # We have to wait for partman to ask this rather than preseeding
             # it in advance, since partman sets it before asking it.
             percent = self.frontend.get_autopartition_resize_percent()
             self.preseed('partman-partitioning/new_size', '%d%%' % percent)
+            return True
 
         elif question.startswith('partman/confirm'):
             if self.frontend.confirm_partitioning_dialog(
