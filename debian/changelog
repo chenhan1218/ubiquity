@@ -2,6 +2,7 @@ espresso (0.99.59) UNRELEASED; urgency=low
 
   * Copy log files right at the end of the installation, rather than just
     after copying the filesystem.
+  * Log which language packs we're keeping.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 20 Apr 2006 00:27:38 +0100
 
