@@ -1,4 +1,4 @@
-espresso (0.99.57) UNRELEASED; urgency=low
+espresso (0.99.57) dapper; urgency=low
 
   * Remove old (and broken anyway, see Malone #26436) code to embed Mozilla
     into the welcome page, and drop the python-gnome2-extras dependency.
@@ -16,8 +16,9 @@ espresso (0.99.57) UNRELEASED; urgency=low
     selected; back up properly from partman-partitioning/new_size question
     on error (part of Malone #39062).
   * Fix some spurious newlines in Indonesian and Polish translations.
+  * Automatic update of included source packages: partman-auto 45ubuntu9.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Apr 2006 12:29:50 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Apr 2006 15:43:59 +0100
 
 espresso (0.99.56) dapper; urgency=low
 
