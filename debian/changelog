@@ -1,3 +1,12 @@
+espresso (0.99.60) UNRELEASED; urgency=low
+
+  [ Jonathan Riddell ]
+  * KDE frontend:
+    - Change programName passed to KAboutData to "Installer" to avoid
+      crashes creating kdialogs.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 20 Apr 2006 02:58:38 +0100
+
 espresso (0.99.59) dapper; urgency=low
 
   * Copy log files right at the end of the installation, rather than just
