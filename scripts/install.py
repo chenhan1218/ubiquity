@@ -569,7 +569,6 @@ class Install:
 
 
     def mark_install(self, cache, pkg):
-        self.record_installed([pkg])
         cachedpkg = self.get_cache_pkg(cache, pkg)
         if cachedpkg is not None and not cachedpkg.isInstalled:
             apt_error = False
@@ -614,6 +613,20 @@ class Install:
         except debconf.DebconfError:
             return True
 
+        to_install = []
+        for lp in langpacks:
+            # Basic language packs, required to get localisation working at
+            # all. We install these almost unconditionally; if you want to
+            # get rid of even these, you can preseed pkgsel/language-packs
+            # to the empty string.
+            to_install.append('language-pack-%s' % lp)
+            # Other language packs, typically selected by preseeding.
+            for pattern in lppatterns:
+                to_install.append(pattern.replace('$LL', lp))
+            # More extensive language support packages.
+            to_install.append('language-support-%s' % lp)
+        self.record_installed(to_install)
+
         self.db.progress('START', 0, 100, 'espresso/langpacks/title')
 
         self.db.progress('REGION', 0, 10)
@@ -644,17 +657,8 @@ class Install:
             self.db, 'espresso/langpacks/title', 'espresso/install/apt_info',
             'espresso/install/apt_error_install')
 
-        for lp in langpacks:
-            # Basic language packs, required to get localisation working at
-            # all. We install these almost unconditionally; if you want to
-            # get rid of even these, you can preseed pkgsel/language-packs
-            # to the empty string.
-            self.mark_install(cache, 'language-pack-%s' % lp)
-            # Other language packs, typically selected by preseeding.
-            for pattern in lppatterns:
-                self.mark_install(cache, pattern.replace('$LL', lp))
-            # More extensive language support packages.
-            self.mark_install(cache, 'language-support-%s' % lp)
+        for lp in to_install:
+            self.mark_install(cache, lp)
         installed_pkgs = []
         for pkg in cache.keys():
             if (cache[pkg].markedInstall or cache[pkg].markedUpgrade or
