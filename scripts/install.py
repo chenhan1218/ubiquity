@@ -606,7 +606,8 @@ class Install:
         if not langpacks:
             langpack_db = self.db.get('debian-installer/locale')
             langpacks = [langpack_db.split('_')[0]]
-        misc.pre_log('info', 'keeping language packs for' + langpacks)
+        misc.pre_log('info',
+                     'keeping language packs for: %s' % ' '.join(langpacks))
 
         try:
             lppatterns = self.db.get('pkgsel/language-pack-patterns').split()
