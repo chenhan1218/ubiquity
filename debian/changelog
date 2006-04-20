@@ -1,11 +1,11 @@
-espresso (0.99.59) UNRELEASED; urgency=low
+espresso (0.99.59) dapper; urgency=low
 
   * Copy log files right at the end of the installation, rather than just
     after copying the filesystem.
   * Log which language packs we're keeping.
   * Make sure to keep language packs even if the apt update fails.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 20 Apr 2006 00:27:38 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 20 Apr 2006 01:33:34 +0100
 
 espresso (0.99.58) dapper; urgency=low
 
