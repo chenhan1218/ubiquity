@@ -7,7 +7,7 @@ hw-detect 1.32ubuntu5
 kbd-chooser 1.23ubuntu15
 localechooser 0.27ubuntu16
 partconf 1.11
-partman-auto 45ubuntu8
+partman-auto 45ubuntu9
 partman-base 78ubuntu2
 partman-basicfilesystems 46ubuntu4
 partman-basicmethods 29

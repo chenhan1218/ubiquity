@@ -1,3 +1,0 @@
-desktop/espresso-gtkui.desktop usr/share/applications
-espresso/frontend/gtkui.py usr/lib/python2.4/site-packages/espresso/frontend
-glade/liveinstaller.glade* usr/share/espresso/glade

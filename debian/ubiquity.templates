@@ -1,0 +1,347 @@
+Template: debian-installer/framebuffer
+Type: boolean
+Default: true
+Description: enable frame buffer console on boot
+
+Template: ubiquity/text/live_installer
+Type: text
+_Description: Install
+
+Template: ubiquity/text/welcome_heading_label
+Type: text
+_Description: Welcome
+
+Template: ubiquity/text/welcome_text_label
+Type: text
+_Description:
+ Ready to install? Once you answer a few questions, the contents of the live
+ CD can be installed on this computer so you can run the system at full
+ speed and without the CD.
+ .
+ Answering the questions should only take a few minutes.
+ .
+ Please choose the language used for the installation process. This
+ language will be the default language for the final system.
+
+Template: ubiquity/text/timezone_heading_label
+Type: text
+_Description: Where are you?
+
+Template: ubiquity/text/timezone_comment_label
+Type: text
+_Description: Select a city in your country and time zone.
+
+Template: ubiquity/text/timezone_city_label
+Type: text
+_Description: Selected city:
+
+Template: ubiquity/text/timezone_zone_label
+Type: text
+_Description: Time zone:
+
+Template: ubiquity/text/timezone_country_label
+Type: text
+_Description: Selected region:
+
+Template: ubiquity/text/timezone_time_label
+Type: text
+_Description: Current time:
+
+Template: ubiquity/text/timezone_time_adjust
+Type: text
+_Description: Set Time...
+
+Template: ubiquity/text/keyboard_heading_label
+Type: text
+_Description: Keyboard layout
+
+Template: ubiquity/text/keyboard_comment_label
+Type: text
+_Description: Which layout is most similar to your keyboard?
+
+Template: ubiquity/text/keyboard_test_label
+Type: text
+_Description: You can type into this box to test your new keyboard layout.
+
+Template: ubiquity/text/userinfo_heading_label
+Type: text
+_Description: Who are you?
+
+Template: ubiquity/text/fullname_label
+Type: text
+_Description: What is your name?
+
+Template: ubiquity/text/username_label
+Type: text
+_Description: What name do you want to use to log in?
+
+Template: ubiquity/text/username_extra_label
+Type: text
+_Description:
+ If more than one person will use this computer, you can set up multiple
+ accounts after installation.
+
+Template: ubiquity/text/password_label
+Type: text
+_Description: Choose a password to keep your account safe.
+
+Template: ubiquity/text/password_extra_label
+Type: text
+_Description:
+ Enter the same password twice, so that it can be checked for typing errors.
+
+Template: ubiquity/text/hostname_label
+Type: text
+_Description: What is the name of this computer?
+
+Template: ubiquity/text/hostname_extra_label
+Type: text
+_Description:
+ This name will be used if you make the computer visible to others on a
+ network.
+
+Template: ubiquity/text/part_disk_heading_label
+Type: text
+_Description: Select a disk
+
+Template: ubiquity/text/part_disk_comment_label
+Type: text
+_Description:
+ You can have the installer automatically create space in various ways on
+ any one of the following hard disks. Alternatively, you can partition the
+ disks manually.
+
+Template: ubiquity/text/part_auto_heading_label
+Type: text
+_Description: Prepare disk space
+
+Template: ubiquity/text/partition_method_label
+Type: text
+_Description: How do you want to partition the disk?
+
+Template: ubiquity/text/part_advanced_heading_label
+Type: text
+_Description: Prepare partitions
+
+Template: ubiquity/text/partition_help
+Type: text
+_Description:
+ Make sure to allocate space for a root partition ("/"), with a minimum size
+ of 1.5 GB, and a swap partition of at least 256 MB.
+
+Template: ubiquity/text/part_mountpoints_heading_label
+Type: text
+_Description: Prepare mount points
+
+Template: ubiquity/text/mount_help
+Type: text
+_Description:
+ Select which partitions you want to use for your new installation, and
+ where you want to mount each of them.
+ .
+ You must mount one partition on the root file system ("/"), and you must
+ choose at least one partition for use as swap space.
+
+Template: ubiquity/text/mountpoint_label
+Type: text
+_Description: Mount Point
+
+Template: ubiquity/text/size_label
+Type: text
+_Description: Size
+
+Template: ubiquity/text/device_label
+Type: text
+_Description: Partition
+
+Template: ubiquity/text/format_label
+Type: text
+_Description: Reformat?
+
+Template: ubiquity/text/mountpoint_error_reason
+Type: text
+_Description: You must supply a root ("/") mount point.
+
+Template: ubiquity/text/ready_heading_label
+Type: text
+_Description: Ready to install
+
+Template: ubiquity/text/ready_description_label
+Type: text
+_Description: The live CD is ready to be installed on this computer.
+
+Template: ubiquity/text/warning_dialog
+Type: title
+_Description: Abort the installation?
+
+Template: ubiquity/text/warning_dialog_label
+Type: text
+_Description: Do you really want to abort the installation now?
+
+Template: ubiquity/text/abort_dialog
+Type: title
+_Description: Partitioning was interrupted
+
+Template: ubiquity/text/abort_dialog_label
+Type: text
+_Description:
+ It was not possible to partition this disk automatically. You must select
+ another partitioning method.
+
+Template: ubiquity/text/progress_cancel_button
+Type: text
+_Description: Skip
+
+Template: ubiquity/text/finished_dialog
+Type: title
+_Description: Installation complete
+
+Template: ubiquity/text/quit_button
+Type: text
+_Description: Quit
+
+Template: ubiquity/text/reboot_button
+Type: text
+_Description: Reboot the computer
+
+Template: ubiquity/text/finished_label
+Type: text
+_Description:
+ Installation is complete. You need to restart the computer in order to use
+ the new installation. You can continue to use this live CD, although any
+ changes you make or documents you save will not be preserved.
+ .
+ Make sure to remove the CD when restarting the computer, otherwise it will
+ start back up using this live CD rather than the newly-installed system.
+
+Template: ubiquity/summary
+Type: note
+Description: Ready to install
+  Language: ${LANGUAGE}
+  Keyboard layout: ${KEYMAP}
+  Name: ${REALNAME}
+  Login name: ${USERNAME}
+  Location: ${LOCATION}
+
+Template: ubiquity/install/title
+Type: title
+_Description: Installing system
+
+Template: ubiquity/install/mounting_source
+Type: text
+_Description: Finding the distribution to copy...
+
+Template: ubiquity/install/scanning
+Type: text
+_Description: Scanning files...
+
+Template: ubiquity/install/copying
+Type: text
+_Description: Copying files...
+
+Template: ubiquity/install/copying_time
+Type: text
+_Description: Copying files (${TIME} remaining)...
+
+Template: ubiquity/install/log_files
+Type: text
+_Description: Copying installation logs...
+
+Template: ubiquity/install/cleanup
+Type: text
+_Description: Cleaning up...
+
+Template: ubiquity/install/target_hook
+Type: text
+_Description: Running ${SCRIPT}...
+
+Template: ubiquity/install/locales
+Type: text
+_Description: Configuring system locales...
+
+Template: ubiquity/install/apt
+Type: text
+_Description: Configuring apt...
+
+Template: ubiquity/install/timezone
+Type: text
+_Description: Configuring time zone...
+
+Template: ubiquity/install/keyboard
+Type: text
+_Description: Configuring keyboard...
+
+Template: ubiquity/install/user
+Type: text
+_Description: Creating user...
+
+Template: ubiquity/install/hardware
+Type: text
+_Description: Configuring hardware...
+
+Template: ubiquity/install/network
+Type: text
+_Description: Configuring network...
+
+Template: ubiquity/install/hostname
+Type: text
+_Description: Setting computer name...
+
+Template: ubiquity/install/bootloader
+Type: text
+_Description: Configuring boot loader...
+
+Template: ubiquity/install/removing
+Type: text
+_Description: Removing extra packages...
+
+Template: ubiquity/install/find_removables
+Type: text
+_Description: Checking for packages to remove...
+
+Template: ubiquity/install/fetch_remove
+Type: text
+_Description: Downloading packages (${TIME} remaining)...
+
+Template: ubiquity/install/apt_indices_starting
+Type: text
+_Description: Downloading package lists...
+
+Template: ubiquity/install/apt_indices
+Type: text
+_Description: Downloading package lists (${TIME} remaining)...
+
+Template: ubiquity/install/apt_info
+Type: text
+# Not translated; apt emits translated descriptions for us already.
+Description: ${DESCRIPTION}
+
+Template: ubiquity/install/apt_error_install
+Type: text
+_Description: Error installing ${PACKAGE}
+ ${MESSAGE}
+
+Template: ubiquity/install/apt_error_remove
+Type: text
+_Description: Error removing ${PACKAGE}
+ ${MESSAGE}
+
+Template: ubiquity/langpacks/title
+Type: title
+_Description: Installing language packs
+
+Template: ubiquity/langpacks/packages
+Type: text
+_Description: Downloading language packs (${TIME} remaining)...
+
+Template: pkgsel/language-pack-patterns
+Type: text
+Default: language-pack-gnome-$LL
+Description: Patterns for language packs to install
+ This template may be preseeded to modify the packages that will be
+ installed to provide translations for a given language. The selected
+ language will be substituted in place of $LL; multiple patterns may be
+ given, separated by spaces.
+ .
+ language-pack-$LL is required, and is always installed (by localechooser).
+ You do not need to list it here.

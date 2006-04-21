@@ -17,21 +17,21 @@ and configure everything.
 import sys
 import os
 import errno
-import espresso
-from espresso import misc
+import ubiquity
+from ubiquity import misc
 
 cdebconf = False
 
 TARGET = '/target'
 
-log_file = '/var/log/installer/espresso'
+log_file = '/var/log/installer/syslog'
 
 def install(type='gtkui'):
     '''install(type='gtkui') -> none
     
     Get the type of frontend to use and load the module for that.
     '''
-    mod = __import__('espresso.frontend', globals(), locals() , [type])
+    mod = __import__('ubiquity.frontend', globals(), locals() , [type])
     ui = getattr(mod, type)
 
     unmount_target()
@@ -78,17 +78,17 @@ if __name__ == '__main__':
         # imported by anything.
         os.environ['DEBCONF_USE_CDEBCONF'] = '1'
         prepend_path('/usr/lib/cdebconf')
-    prepend_path('/usr/lib/espresso/compat')
+    prepend_path('/usr/lib/ubiquity/compat')
 
-    if 'ESPRESSO_DEBUG' in os.environ:
+    if 'UBIQUITY_DEBUG' in os.environ:
         if 'DEBCONF_DEBUG' not in os.environ:
             os.environ['DEBCONF_DEBUG'] = 'developer|filter'
 
     # Clean up old state.
-    if os.path.exists("/var/lib/espresso/apt-installed"):
-        os.unlink("/var/lib/espresso/apt-installed")
-    if os.path.exists("/var/lib/espresso/remove-kernels"):
-        os.unlink("/var/lib/espresso/remove-kernels")
+    if os.path.exists("/var/lib/ubiquity/apt-installed"):
+        os.unlink("/var/lib/ubiquity/apt-installed")
+    if os.path.exists("/var/lib/ubiquity/remove-kernels"):
+        os.unlink("/var/lib/ubiquity/remove-kernels")
 
     if len(sys.argv) == 2:
         install(sys.argv[1])

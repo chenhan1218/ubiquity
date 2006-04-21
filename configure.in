@@ -1,5 +1,5 @@
 AC_PREREQ(2.52)
-AC_INIT(espresso, 0.99.16, https://launchpad.net/distros/ubuntu/+source/espresso/+filebug)
+AC_INIT(ubiquity, 0.99.16, https://launchpad.net/distros/ubuntu/+source/ubiquity/+filebug)
 AC_CONFIG_SRCDIR(src/cut-and-paste/e-map/e-map.c)
 AM_INIT_AUTOMAKE([foreign])
 
@@ -42,7 +42,7 @@ dnl =====================================================
 dnl Check for Module versions
 dnl =====================================================
 
-PKG_CHECK_MODULES(ESPRESSO_DEPENDS,[
+PKG_CHECK_MODULES(UBIQUITY_DEPENDS,[
 			   gtk+-2.0 >= $GTK_REQUIRED
 			   libart-2.0
 			   ])

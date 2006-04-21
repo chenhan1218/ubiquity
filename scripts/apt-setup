@@ -8,7 +8,7 @@ if CODENAME="$(lsb_release -cs)"; then
 	db_set mirror/codename "$CODENAME"
 fi
 
-OVERRIDE_BASE_INSTALLABLE=1 /usr/lib/espresso/choose-mirror/choose-mirror
+OVERRIDE_BASE_INSTALLABLE=1 /usr/lib/ubiquity/choose-mirror/choose-mirror
 rm -f /target/etc/apt/sources.list
-PATH="/usr/lib/espresso/apt-setup:$PATH" \
-	/usr/lib/espresso/apt-setup/apt-setup /target
+PATH="/usr/lib/ubiquity/apt-setup:$PATH" \
+	/usr/lib/ubiquity/apt-setup/apt-setup /target
