@@ -5,6 +5,7 @@ ubiquity (0.99.62) UNRELEASED; urgency=low
     daily builds.
   * Install a /usr/bin/espresso symlink to /usr/bin/ubiquity, for the same
     reason.
+  * Update various copyright/licence notices.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 22 Apr 2006 00:33:46 +0100
 
