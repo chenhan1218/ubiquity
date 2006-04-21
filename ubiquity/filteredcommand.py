@@ -31,7 +31,7 @@ class FilteredCommand(object):
         self.succeeded = False
 
     def debug(self, fmt, *args):
-        if 'UBIQUITY_DEBUG' in os.environ:
+        if 'UBIQUITY_DEBUG' in os.environ or 'ESPRESSO_DEBUG' in os.environ:
             message = fmt % args
             print >>sys.stderr, '%s: %s' % (PACKAGE, message)
             sys.stderr.flush()
