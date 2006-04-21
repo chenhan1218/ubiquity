@@ -146,6 +146,7 @@ binary-arch: install
 	echo >> debian/ubiquity/DEBIAN/templates
 	cat d-i/templates >> debian/ubiquity/DEBIAN/templates
 #	dh_installman -a
+	dh_link -a
 	dh_strip -a
 	dh_compress -a
 	dh_fixperms -a

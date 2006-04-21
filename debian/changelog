@@ -3,6 +3,8 @@ ubiquity (0.99.62) UNRELEASED; urgency=low
   * Support ESPRESSO_DEBUG as well as UBIQUITY_DEBUG for a while, to make it
     easier to concurrently triage bugs on the Dapper beta release and future
     daily builds.
+  * Install a /usr/bin/espresso symlink to /usr/bin/ubiquity, for the same
+    reason.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 22 Apr 2006 00:33:46 +0100
 
