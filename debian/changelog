@@ -1,10 +1,10 @@
-ubiquity (0.99.61) UNRELEASED; urgency=low
+ubiquity (0.99.61) dapper; urgency=low
 
   * Rename from espresso to ubiquity, to better suggest an association with
     Ubuntu. Log output now written to /var/log/installer/syslog rather than
     using the package name.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 21 Apr 2006 11:14:30 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 21 Apr 2006 12:50:27 +0100
 
 espresso (0.99.60) dapper; urgency=low
 
