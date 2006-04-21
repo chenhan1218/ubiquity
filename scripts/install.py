@@ -36,8 +36,8 @@ import apt_pkg
 from apt.package import Package
 from apt.cache import Cache
 from apt.progress import FetchProgress, InstallProgress
-from espresso import misc
-from espresso.components import language_apply, apt_setup, timezone_apply, \
+from ubiquity import misc
+from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 kbd_chooser_apply, usersetup_apply, \
                                 check_kernels
 
@@ -198,8 +198,8 @@ class Install:
         """Run the install stage: copy everything to the target system, then
         configure it as necessary."""
 
-        self.db.progress('START', 0, 100, 'espresso/install/title')
-        self.db.progress('INFO', 'espresso/install/mounting_source')
+        self.db.progress('START', 0, 100, 'ubiquity/install/title')
+        self.db.progress('INFO', 'ubiquity/install/mounting_source')
         if self.source == '/source':
             if not self.mount_source():
                 self.db.progress('STOP')
@@ -212,7 +212,7 @@ class Install:
             return False
 
         self.db.progress('SET', 78)
-        self.db.progress('INFO', 'espresso/install/cleanup')
+        self.db.progress('INFO', 'ubiquity/install/cleanup')
         if self.source == '/source':
             if not self.umount_source():
                 self.db.progress('STOP')
@@ -226,14 +226,14 @@ class Install:
 
         self.db.progress('SET', 80)
         self.db.progress('REGION', 80, 81)
-        self.db.progress('INFO', 'espresso/install/locales')
+        self.db.progress('INFO', 'ubiquity/install/locales')
         if not self.configure_locales():
             self.db.progress('STOP')
             return False
 
         self.db.progress('SET', 81)
         self.db.progress('REGION', 81, 82)
-        self.db.progress('INFO', 'espresso/install/apt')
+        self.db.progress('INFO', 'ubiquity/install/apt')
         if not self.configure_apt():
             self.db.progress('STOP')
             return False
@@ -245,35 +245,35 @@ class Install:
 
         self.db.progress('SET', 86)
         self.db.progress('REGION', 86, 87)
-        self.db.progress('INFO', 'espresso/install/timezone')
+        self.db.progress('INFO', 'ubiquity/install/timezone')
         if not self.configure_timezone():
             self.db.progress('STOP')
             return False
 
         self.db.progress('SET', 87)
         self.db.progress('REGION', 87, 89)
-        self.db.progress('INFO', 'espresso/install/keyboard')
+        self.db.progress('INFO', 'ubiquity/install/keyboard')
         if not self.configure_keyboard():
             self.db.progress('STOP')
             return False
 
         self.db.progress('SET', 89)
         self.db.progress('REGION', 89, 90)
-        self.db.progress('INFO', 'espresso/install/user')
+        self.db.progress('INFO', 'ubiquity/install/user')
         if not self.configure_user():
             self.db.progress('STOP')
             return False
 
         self.db.progress('SET', 90)
         self.db.progress('REGION', 90, 94)
-        self.db.progress('INFO', 'espresso/install/hardware')
+        self.db.progress('INFO', 'ubiquity/install/hardware')
         if not self.configure_hardware():
             self.db.progress('STOP')
             return False
 
         self.db.progress('SET', 94)
         self.db.progress('REGION', 94, 95)
-        self.db.progress('INFO', 'espresso/install/network')
+        self.db.progress('INFO', 'ubiquity/install/network')
         if not self.configure_network():
             self.db.progress('STOP')
             return False
@@ -286,20 +286,20 @@ class Install:
 
         self.db.progress('SET', 96)
         self.db.progress('REGION', 96, 97)
-        self.db.progress('INFO', 'espresso/install/bootloader')
+        self.db.progress('INFO', 'ubiquity/install/bootloader')
         if not self.configure_bootloader():
             self.db.progress('STOP')
             return False
 
         self.db.progress('SET', 97)
         self.db.progress('REGION', 97, 99)
-        self.db.progress('INFO', 'espresso/install/removing')
+        self.db.progress('INFO', 'ubiquity/install/removing')
         if not self.remove_extras():
             self.db.progress('STOP')
             return False
 
         self.db.progress('SET', 99)
-        self.db.progress('INFO', 'espresso/install/log_files')
+        self.db.progress('INFO', 'ubiquity/install/log_files')
         if not self.copy_logs():
             self.db.progress('STOP')
             return False
@@ -318,11 +318,11 @@ class Install:
         files = []
         total_size = 0
 
-        self.db.progress('START', 0, 100, 'espresso/install/title')
-        self.db.progress('INFO', 'espresso/install/scanning')
+        self.db.progress('START', 0, 100, 'ubiquity/install/title')
+        self.db.progress('INFO', 'ubiquity/install/scanning')
 
         # Obviously doing os.walk() twice is inefficient, but I'd rather not
-        # suck the list into espresso's memory, and I'm guessing that the
+        # suck the list into ubiquity's memory, and I'm guessing that the
         # kernel's dentry cache will avoid most of the slowness anyway.
         walklen = 0
         for entry in os.walk(self.source):
@@ -346,7 +346,7 @@ class Install:
                 files.append(relpath)
 
         self.db.progress('SET', 10)
-        self.db.progress('INFO', 'espresso/install/copying')
+        self.db.progress('INFO', 'ubiquity/install/copying')
 
         # Progress bar handling:
         # We sample progress every half-second (assuming time.time() gives
@@ -417,9 +417,9 @@ class Install:
                              (times[-1][0] - times[0][0]))
                     time_remaining = int((total_size - copied_size) / speed)
                     time_str = "%d:%02d" % divmod(time_remaining, 60)
-                    self.db.subst('espresso/install/copying_time',
+                    self.db.subst('ubiquity/install/copying_time',
                                   'TIME', time_str)
-                    self.db.progress('INFO', 'espresso/install/copying_time')
+                    self.db.progress('INFO', 'ubiquity/install/copying_time')
 
         # Apply timestamps to all directories now that the items within them
         # have been copied.
@@ -438,7 +438,7 @@ class Install:
     def copy_logs(self):
         """copy log files into installed system."""
 
-        log_file = '/var/log/installer/espresso'
+        log_file = '/var/log/installer/syslog'
         target_log_file = os.path.join(self.target, log_file[1:])
 
         if not os.path.exists(os.path.dirname(target_log_file)):
@@ -507,24 +507,24 @@ class Install:
 
 
     def run_target_config_hooks(self):
-        """Run hook scripts from /usr/lib/espresso/target-config. This allows
+        """Run hook scripts from /usr/lib/ubiquity/target-config. This allows
         casper to hook into us and repeat bits of its configuration in the
         target system."""
 
-        hookdir = '/usr/lib/espresso/target-config'
+        hookdir = '/usr/lib/ubiquity/target-config'
 
         if os.path.isdir(hookdir):
             # Exclude hooks containing '.', so that *.dpkg-* et al are avoided.
             hooks = filter(lambda entry: '.' not in entry, os.listdir(hookdir))
-            self.db.progress('START', 0, len(hooks), 'espresso/install/title')
+            self.db.progress('START', 0, len(hooks), 'ubiquity/install/title')
             for hookentry in hooks:
                 hook = os.path.join(hookdir, hookentry)
                 if not os.access(hook, os.X_OK):
                     self.db.progress('STEP', 1)
                     continue
-                self.db.subst('espresso/install/target_hook',
+                self.db.subst('ubiquity/install/target_hook',
                               'SCRIPT', hookentry)
-                self.db.progress('INFO', 'espresso/install/target_hook')
+                self.db.progress('INFO', 'ubiquity/install/target_hook')
                 # Errors are ignored at present, although this may change.
                 subprocess.call(hook)
                 self.db.progress('STEP', 1)
@@ -557,7 +557,7 @@ class Install:
         """Record which packages we've explicitly installed so that we don't
         try to remove them later."""
 
-        record_file = "/var/lib/espresso/apt-installed"
+        record_file = "/var/lib/ubiquity/apt-installed"
         if not os.path.exists(os.path.dirname(record_file)):
             os.makedirs(os.path.dirname(record_file))
         record = open(record_file, "a")
@@ -628,13 +628,13 @@ class Install:
             to_install.append('language-support-%s' % lp)
         self.record_installed(to_install)
 
-        self.db.progress('START', 0, 100, 'espresso/langpacks/title')
+        self.db.progress('START', 0, 100, 'ubiquity/langpacks/title')
 
         self.db.progress('REGION', 0, 10)
         fetchprogress = DebconfFetchProgress(
-            self.db, 'espresso/langpacks/title',
-            'espresso/install/apt_indices_starting',
-            'espresso/install/apt_indices')
+            self.db, 'ubiquity/langpacks/title',
+            'ubiquity/install/apt_indices_starting',
+            'ubiquity/install/apt_indices')
         cache = Cache()
         try:
             # update() returns False on failure and 0 on success. Madness!
@@ -652,11 +652,11 @@ class Install:
 
         self.db.progress('REGION', 10, 100)
         fetchprogress = DebconfFetchProgress(
-            self.db, 'espresso/langpacks/title', None,
-            'espresso/langpacks/packages')
+            self.db, 'ubiquity/langpacks/title', None,
+            'ubiquity/langpacks/packages')
         installprogress = DebconfInstallProgress(
-            self.db, 'espresso/langpacks/title', 'espresso/install/apt_info',
-            'espresso/install/apt_error_install')
+            self.db, 'ubiquity/langpacks/title', 'ubiquity/install/apt_info',
+            'ubiquity/install/apt_error_install')
 
         for lp in to_install:
             self.mark_install(cache, lp)
@@ -861,12 +861,12 @@ class Install:
         misc.ex('mount', '--bind', '/dev', self.target + '/dev')
 
         try:
-            from espresso.components import grubinstaller
+            from ubiquity.components import grubinstaller
             dbfilter = grubinstaller.GrubInstaller(None)
             ret = (dbfilter.run_command(auto_process=True) == 0)
         except ImportError:
             try:
-                from espresso.components import yabootinstaller
+                from ubiquity.components import yabootinstaller
                 dbfilter = yabootinstaller.YabootInstaller(None)
                 ret = (dbfilter.run_command(auto_process=True) == 0)
             except ImportError:
@@ -879,13 +879,13 @@ class Install:
 
 
     def do_remove(self, to_remove, recursive=False):
-        self.db.progress('START', 0, 5, 'espresso/install/title')
-        self.db.progress('INFO', 'espresso/install/find_removables')
+        self.db.progress('START', 0, 5, 'ubiquity/install/title')
+        self.db.progress('INFO', 'ubiquity/install/find_removables')
 
         fetchprogress = DebconfFetchProgress(
-            self.db, 'espresso/install/title',
-            'espresso/install/apt_indices_starting',
-            'espresso/install/apt_indices')
+            self.db, 'ubiquity/install/title',
+            'ubiquity/install/apt_indices_starting',
+            'ubiquity/install/apt_indices')
         cache = Cache()
 
         while True:
@@ -940,11 +940,11 @@ class Install:
         self.db.progress('SET', 1)
         self.db.progress('REGION', 1, 5)
         fetchprogress = DebconfFetchProgress(
-            self.db, 'espresso/install/title', None,
-            'espresso/install/fetch_remove')
+            self.db, 'ubiquity/install/title', None,
+            'ubiquity/install/fetch_remove')
         installprogress = DebconfInstallProgress(
-            self.db, 'espresso/install/title', 'espresso/install/apt_info',
-            'espresso/install/apt_error_remove')
+            self.db, 'ubiquity/install/title', 'ubiquity/install/apt_info',
+            'ubiquity/install/apt_error_remove')
         try:
             if not cache.commit(fetchprogress, installprogress):
                 fetchprogress.stop()
@@ -966,17 +966,17 @@ class Install:
         """Remove unusable kernels; keeping them may cause us to be unable
         to boot."""
 
-        self.db.progress('START', 0, 6, 'espresso/install/title')
+        self.db.progress('START', 0, 6, 'ubiquity/install/title')
 
-        self.db.progress('INFO', 'espresso/install/find_removables')
+        self.db.progress('INFO', 'ubiquity/install/find_removables')
 
         # Check for kernel packages to remove.
         dbfilter = check_kernels.CheckKernels(None)
         dbfilter.run_command(auto_process=True)
 
         remove_kernels = set()
-        if os.path.exists("/var/lib/espresso/remove-kernels"):
-            for line in open("/var/lib/espresso/remove-kernels"):
+        if os.path.exists("/var/lib/ubiquity/remove-kernels"):
+            for line in open("/var/lib/ubiquity/remove-kernels"):
                 remove_kernels.add(line.strip())
 
         if len(remove_kernels) == 0:
@@ -1061,8 +1061,8 @@ class Install:
 
         # Keep packages we explicitly installed.
         apt_installed = set()
-        if os.path.exists("/var/lib/espresso/apt-installed"):
-            for line in open("/var/lib/espresso/apt-installed"):
+        if os.path.exists("/var/lib/ubiquity/apt-installed"):
+            for line in open("/var/lib/ubiquity/apt-installed"):
                 apt_installed.add(line.strip())
         difference -= apt_installed
 
@@ -1101,7 +1101,7 @@ class Install:
     def set_debconf(self, question, value):
         dccomm = subprocess.Popen(['chroot', self.target,
                                    'debconf-communicate',
-                                   '-fnoninteractive', 'espresso'],
+                                   '-fnoninteractive', 'ubiquity'],
                                   stdin=subprocess.PIPE,
                                   stdout=subprocess.PIPE, close_fds=True)
         dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)

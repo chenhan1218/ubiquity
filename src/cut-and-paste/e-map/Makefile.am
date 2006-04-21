@@ -1,8 +1,8 @@
 INCLUDES = \
-	$(ESPRESSO_DEPENDS_CFLAGS) \
+	$(UBIQUITY_DEPENDS_CFLAGS) \
 	-DMAP_DIR=\""$(pixmapsdir)"\"
 
-LDADD = -lm $(ESPRESSO_DEPENDS_LIBS)
+LDADD = -lm $(UBIQUITY_DEPENDS_LIBS)
 LIBS+=$(LDADD)
 
 EXTRA_DIST= e-map-marshal.list
@@ -22,7 +22,7 @@ $(e_map_la_OBJECTS): e-map-marshal.h
 noinst_LIBRARIES = libemap.a
 
 libemap_a_CFLAGS = \
-	-fPIC $(ESPRESSO_DEPENDS_CFLAGS)
+	-fPIC $(UBIQUITY_DEPENDS_CFLAGS)
 	
 BUILT_SOURCES= e-map-marshal.c	e-map-marshal.h
 

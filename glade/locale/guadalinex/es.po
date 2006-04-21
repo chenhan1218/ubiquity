@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: liveinstaller.glade:9
-msgid "Espresso Installer"
+msgid "Ubiquity Installer"
 msgstr "Guadalinex Express"
 
 #: liveinstaller.glade:70

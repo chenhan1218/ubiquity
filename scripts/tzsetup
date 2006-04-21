@@ -25,7 +25,7 @@ else
 	db_register time/zone time/zone # might be registered to something else
 	# tzmap is also in oem-config-timezone (with a different path);
 	# later, this should be moved into a tzsetup.deb.
-	zone=$(grep "^$CC" /usr/lib/espresso/tzsetup/tzmap | cut -d ' ' -f 2)
+	zone=$(grep "^$CC" /usr/lib/ubiquity/tzsetup/tzmap | cut -d ' ' -f 2)
 	db_set time/zone "$zone"
 	db_input high time/zone || true
 	if ! db_go; then
@@ -34,7 +34,7 @@ else
 fi
 
 # Reconfigure locale according to the selected country. We rely on
-# espresso/components/timezone.py having set debian-installer/country for
+# ubiquity/components/timezone.py having set debian-installer/country for
 # us.
 db_get debian-installer/country
 country="$RET"
@@ -42,5 +42,5 @@ db_get debian-installer/locale
 newlocale="$(echo "$RET" | sed "s/_[A-Z][A-Z]*/_$country/")"
 db_set debian-installer/locale "$newlocale"
 db_fset debian-installer/locale seen true
-PATH="/usr/lib/espresso/localechooser:$PATH" \
-	/usr/lib/espresso/localechooser/localechooser
+PATH="/usr/lib/ubiquity/localechooser:$PATH" \
+	/usr/lib/ubiquity/localechooser/localechooser

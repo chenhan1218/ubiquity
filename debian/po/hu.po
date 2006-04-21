@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-18 21:35+0100\n"
+"POT-Creation-Date: 2006-04-21 10:56+0100\n"
 "PO-Revision-Date: 2006-04-08 16:45+0000\n"
 "Last-Translator: Szilveszter Farkas <Szilveszter.Farkas@gmail.com>\n"
 "Language-Team: Ubuntu Hungarian Translators <ubuntu-l10n-hu@lists.ubuntu."
@@ -17,19 +17,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:8
+#: ../ubiquity.templates:8
 msgid "Install"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:12
+#: ../ubiquity.templates:12
 msgid "Welcome"
 msgstr "Üdvözöljük"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:16
+#: ../ubiquity.templates:16
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
@@ -38,13 +38,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:16
+#: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
 msgstr "A kérdések megválaszolása csak pár percig fog tartani."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:16
+#: ../ubiquity.templates:16
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
@@ -52,85 +52,85 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:28
+#: ../ubiquity.templates:28
 msgid "Where are you?"
 msgstr "Hol tartózkodik Ön?"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:32
+#: ../ubiquity.templates:32
 msgid "Select a city in your country and time zone."
 msgstr "Válasszon egy várost az időzónáján belül."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:36
+#: ../ubiquity.templates:36
 msgid "Selected city:"
 msgstr "Kiválasztott város:"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:40
+#: ../ubiquity.templates:40
 msgid "Time zone:"
 msgstr "Időzóna:"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:44
+#: ../ubiquity.templates:44
 msgid "Selected region:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:48
+#: ../ubiquity.templates:48
 msgid "Current time:"
 msgstr "Jelenlegi idő:"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:52
+#: ../ubiquity.templates:52
 msgid "Set Time..."
 msgstr "Idő beállítása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:56
+#: ../ubiquity.templates:56
 msgid "Keyboard layout"
 msgstr "Billentyűzetkiosztás"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:60
+#: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
 msgstr "Melyik kiosztás hasonlít legjobban a billentyűzetére?"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:64
+#: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
 msgstr "A billentyűkiosztás tesztelése céljából írhat ebbe a szövegmezőbe."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:68
+#: ../ubiquity.templates:68
 msgid "Who are you?"
 msgstr "Ki Ön?"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:72
+#: ../ubiquity.templates:72
 msgid "What is your name?"
 msgstr "Mi az Ön neve?"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:76
+#: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
 msgstr "Milyen felhasználói nevet szeretne használni a bejelentkezéshez?"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:80
+#: ../ubiquity.templates:80
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
@@ -140,13 +140,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:86
+#: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
 msgstr "Válasszon jelszót, hogy biztonságban lehessen felhasználói fiókja."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:90
+#: ../ubiquity.templates:90
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
@@ -155,13 +155,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:95
+#: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
 msgstr "Mi a neve ennek a számítógépnek?"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:99
+#: ../ubiquity.templates:99
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
@@ -171,13 +171,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:105
+#: ../ubiquity.templates:105
 msgid "Select a disk"
 msgstr "Válasszon egy lemezt"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:109
+#: ../ubiquity.templates:109
 msgid ""
 "You can have the installer automatically create space in various ways on any "
 "one of the following hard disks. Alternatively, you can partition the disks "
@@ -189,25 +189,25 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:116
+#: ../ubiquity.templates:116
 msgid "Prepare disk space"
 msgstr "Lemezhely előkészítése"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:120
+#: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
 msgstr "Hogyan kívánja particionálni a lemezt?"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:124
+#: ../ubiquity.templates:124
 msgid "Prepare partitions"
 msgstr "Partíciók előkészítése"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:128
+#: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 1.5 GB, and a swap partition of at least 256 MB."
@@ -217,13 +217,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:134
+#: ../ubiquity.templates:134
 msgid "Prepare mount points"
 msgstr "Csatolási pontok előkészítése"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:138
+#: ../ubiquity.templates:138
 msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
@@ -233,7 +233,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:138
+#: ../ubiquity.templates:138
 msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
@@ -243,67 +243,67 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:147
+#: ../ubiquity.templates:147
 msgid "Mount Point"
 msgstr "Csatolási pont"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:151
+#: ../ubiquity.templates:151
 msgid "Size"
 msgstr "Méret"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:155
+#: ../ubiquity.templates:155
 msgid "Partition"
 msgstr "Partíció"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:159
+#: ../ubiquity.templates:159
 msgid "Reformat?"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:163
+#: ../ubiquity.templates:163
 msgid "You must supply a root (\"/\") mount point."
 msgstr "Meg kell adni egy gyökér (\"/\") csatolási pontot."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:167
+#: ../ubiquity.templates:167
 msgid "Ready to install"
 msgstr "Készen áll a telepítésre"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:171
+#: ../ubiquity.templates:171
 msgid "The live CD is ready to be installed on this computer."
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../espresso.templates:175
+#: ../ubiquity.templates:175
 msgid "Abort the installation?"
 msgstr "Megszakítja a telepítést?"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:179
+#: ../ubiquity.templates:179
 msgid "Do you really want to abort the installation now?"
 msgstr "Tényleg meg kívánja szakítani a telepítést?"
 
 #. Type: title
 #. Description
-#: ../espresso.templates:183
+#: ../ubiquity.templates:183
 msgid "Partitioning was interrupted"
 msgstr "A particionálás félbe lett szakítva"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:187
+#: ../ubiquity.templates:187
 msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
@@ -313,31 +313,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:193
+#: ../ubiquity.templates:193
 msgid "Skip"
 msgstr "Kihagyás"
 
 #. Type: title
 #. Description
-#: ../espresso.templates:197
+#: ../ubiquity.templates:197
 msgid "Installation complete"
 msgstr "A telepítés befejeződött"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:201
+#: ../ubiquity.templates:201
 msgid "Quit"
 msgstr "Kilépés"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:205
+#: ../ubiquity.templates:205
 msgid "Reboot the computer"
 msgstr "A gép újraindítása"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:209
+#: ../ubiquity.templates:209
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -346,7 +346,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:209
+#: ../ubiquity.templates:209
 msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
@@ -357,162 +357,162 @@ msgstr ""
 
 #. Type: title
 #. Description
-#: ../espresso.templates:228
+#: ../ubiquity.templates:228
 msgid "Installing system"
 msgstr "A rendszer telepítése"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:232
+#: ../ubiquity.templates:232
 msgid "Finding the distribution to copy..."
 msgstr "A másolandó disztribúció keresése..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:236
+#: ../ubiquity.templates:236
 msgid "Scanning files..."
 msgstr "Fájlok feldolgozása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:240
+#: ../ubiquity.templates:240
 msgid "Copying files..."
 msgstr "Fájlok másolása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:244
+#: ../ubiquity.templates:244
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Fájlok másolása (${TIME} van hátra)..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:248
+#: ../ubiquity.templates:248
 msgid "Copying installation logs..."
 msgstr "Telepítési naplófájlok másolása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:252
+#: ../ubiquity.templates:252
 msgid "Cleaning up..."
 msgstr "Megtisztítás..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:256
+#: ../ubiquity.templates:256
 msgid "Running ${SCRIPT}..."
 msgstr "Parancsfájl (${SCRIPT}) futtatása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:260
+#: ../ubiquity.templates:260
 msgid "Configuring system locales..."
 msgstr "A nyelvi fájlok konfigurálása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:264
+#: ../ubiquity.templates:264
 msgid "Configuring apt..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:268
+#: ../ubiquity.templates:268
 msgid "Configuring time zone..."
 msgstr "Az időzóna konfigurálása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:272
+#: ../ubiquity.templates:272
 msgid "Configuring keyboard..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:276
+#: ../ubiquity.templates:276
 msgid "Creating user..."
 msgstr "Felhasználó létrehozása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:280
+#: ../ubiquity.templates:280
 msgid "Configuring hardware..."
 msgstr "A hardver konfigurálása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:284
+#: ../ubiquity.templates:284
 msgid "Configuring network..."
 msgstr "Hálózat konfigurálása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:288
+#: ../ubiquity.templates:288
 msgid "Setting computer name..."
 msgstr "Gépnév beállítása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:292
+#: ../ubiquity.templates:292
 msgid "Configuring boot loader..."
 msgstr "A rendszerindító konfigurálása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:296
+#: ../ubiquity.templates:296
 msgid "Removing extra packages..."
 msgstr "Extra csomagok eltávolítása..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:300
+#: ../ubiquity.templates:300
 msgid "Checking for packages to remove..."
 msgstr "Törlendő csomagok keresése..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:304
+#: ../ubiquity.templates:304
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Csomagok letöltése (${TIME} van hátra)..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:308
+#: ../ubiquity.templates:308
 msgid "Downloading package lists..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../espresso.templates:312
+#: ../ubiquity.templates:312
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Csomaglisták letöltése (${TIME} van hátra)..."
 
 #. Type: text
 #. Description
-#: ../espresso.templates:321
+#: ../ubiquity.templates:321
 msgid "Error installing ${PACKAGE}"
 msgstr "Hiba a(z) ${PACKAGE} telepítése során"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:326
+#: ../ubiquity.templates:326
 msgid "Error removing ${PACKAGE}"
 msgstr "Hiba a(z) ${PACKAGE} törlésekor"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:326
+#: ../ubiquity.templates:326
 msgid "${MESSAGE}"
 msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
-#: ../espresso.templates:331
+#: ../ubiquity.templates:331
 msgid "Installing language packs"
 msgstr "Nyelvi csomagok telepítése"
 
 #. Type: text
 #. Description
-#: ../espresso.templates:335
+#: ../ubiquity.templates:335
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Nyelvi csomagok letöltése (${TIME} van hátra)..."

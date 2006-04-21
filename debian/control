@@ -1,16 +1,16 @@
-Source: espresso
+Source: ubiquity
 Section: admin
 Priority: optional
 Maintainer: Colin Watson <cjwatson@ubuntu.com>
 Build-Depends: apt, bison, debhelper (>= 5), dpkg-dev (>= 1.9.0), flex, intltool-debian (>= 0.30+20040212), iso-codes (>= 0.35-1), libart-2.0-dev, libdebconfclient0-dev (>= 0.68), libdebian-installer-dev, libdebian-installer4-dev (>= 0.31), libglib2.0-dev, libgtk2.0-dev, libparted1.6-dev (>= 1.6.24), locales, po-debconf (>= 0.5.3), python, python-gtk2-dev, python-xml, python2.4-dev, wget
 Standards-Version: 3.6.2.1
 
-Package: espresso
+Package: ubiquity
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, espresso-frontend, espresso-doc, laptop-detect, lsb-release, espresso-casper, python-apt (>= 0.6.16.2ubuntu4), console-keymaps, console-data (>= 2002.12.04dbs-52.1ubuntu7), localechooser-data (>= 0.27ubuntu12), iso-codes, ${bootloader-depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity-frontend, ubiquity-doc, laptop-detect, lsb-release, ubiquity-casper, python-apt (>= 0.6.16.2ubuntu4), console-keymaps, console-data (>= 2002.12.04dbs-52.1ubuntu7), localechooser-data (>= 0.27ubuntu12), iso-codes, ${bootloader-depends}
 Recommends: gparted
-Conflicts: ubuntu-express, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
-Replaces: ubuntu-express, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
+Conflicts: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
+Replaces: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
 Description: Ubuntu live CD installer
  This is a simple live CD installer designed to integrate well with Debian-
  and Ubuntu-based systems, and to reuse code from d-i for ease of
@@ -18,66 +18,66 @@ Description: Ubuntu live CD installer
  .
  Installing this package on a normal system is unlikely to be useful.
 
-Package: espresso-ubuntu-artwork
+Package: ubiquity-ubuntu-artwork
 Architecture: all
-Conflicts: ubuntu-express-ubuntu-artwork
-Replaces: ubuntu-express-ubuntu-artwork
-Provides: espresso-artwork
-Description: Ubuntu artwork for Espresso live installer
- This package provides Ubuntu-themed user interface artwork for the Espresso
+Conflicts: ubuntu-express-ubuntu-artwork, espresso-ubuntu-artwork
+Replaces: ubuntu-express-ubuntu-artwork, espresso-ubuntu-artwork
+Provides: ubiquity-artwork
+Description: Ubuntu artwork for Ubiquity live installer
+ This package provides Ubuntu-themed user interface artwork for the Ubiquity
  live CD installer.
 
-#Package: espresso-guadalinex-artwork
+#Package: ubiquity-guadalinex-artwork
 #Architecture: all
-#Conflicts: ubuntu-express-guadalinex-artwork
-#Replaces: ubuntu-express-guadalinex-artwork
-#Provides: espresso-artwork
-#Description: Guadalinex artwork for Espresso live installer
+#Conflicts: ubuntu-express-guadalinex-artwork, espresso-guadalinex-artwork
+#Replaces: ubuntu-express-guadalinex-artwork, espresso-guadalinex-artwork
+#Provides: ubiquity-artwork
+#Description: Guadalinex artwork for Ubiquity live installer
 # This package provides Guadalinex-themed user interface artwork for the
-# Espresso live CD installer.
+# Ubiquity live CD installer.
 
-Package: espresso-ubuntu-doc
+Package: ubiquity-ubuntu-doc
 Architecture: all
-Conflicts: ubuntu-express-ubuntu-doc
-Replaces: ubuntu-express-ubuntu-doc
-Provides: espresso-doc
-Description: Ubuntu documentation and help files for Espresso live installer
+Conflicts: ubuntu-express-ubuntu-doc, espresso-ubuntu-doc
+Replaces: ubuntu-express-ubuntu-doc, espresso-ubuntu-doc
+Provides: ubiquity-doc
+Description: Ubuntu documentation and help files for Ubiquity live installer
  This package provides Ubuntu-themed help files and user interface text for
- the Espresso live CD installer.
+ the Ubiquity live CD installer.
 
-#Package: espresso-guadalinex-doc
+#Package: ubiquity-guadalinex-doc
 #Architecture: all
-#Conflicts: ubuntu-express-guadalinex-doc
-#Replaces: ubuntu-express-guadalinex-doc
-#Provides: espresso-doc
-#Description: Guadalinex documentation and help files for Espresso live installer
+#Conflicts: ubuntu-express-guadalinex-doc, espresso-guadalinex-doc
+#Replaces: ubuntu-express-guadalinex-doc, espresso-guadalinex-doc
+#Provides: ubiquity-doc
+#Description: Guadalinex documentation and help files for Ubiquity live installer
 # This package provides Guadalinex-themed help files and user interface text
-# for the Espresso live CD installer.
+# for the Ubiquity live CD installer.
 
-Package: espresso-frontend-gtk
+Package: ubiquity-frontend-gtk
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, espresso, python-glade2, gparted (>= 0.1-0ubuntu3), espresso-artwork, espresso-doc, python-gtk2, iso-codes
-Conflicts: ubuntu-express-frontend-gtk
-Replaces: ubuntu-express-frontend-gtk
-Provides: espresso-frontend
-Description: GTK+ frontend for Espresso live installer
- This package provides a GTK+-based user interface frontend for the Espresso
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity, python-glade2, gparted (>= 0.1-0ubuntu3), ubiquity-artwork, ubiquity-doc, python-gtk2, iso-codes
+Conflicts: ubuntu-express-frontend-gtk, espresso-frontend-gtk
+Replaces: ubuntu-express-frontend-gtk, espresso-frontend-gtk
+Provides: ubiquity-frontend
+Description: GTK+ frontend for Ubiquity live installer
+ This package provides a GTK+-based user interface frontend for the Ubiquity
  live CD installer.
 
-Package: espresso-frontend-kde
+Package: ubiquity-frontend-kde
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, espresso, python-kde3, qtparted
-Provides: espresso-frontend
-Description: KDE frontend for Espresso live installer
- This package provides a KDE-based user interface frontend for the Espresso
+Depends: ${misc:Depends}, ${python:Depends}, ubiquity, python-kde3, qtparted
+Provides: ubiquity-frontend
+Description: KDE frontend for Ubiquity live installer
+ This package provides a KDE-based user interface frontend for the Ubiquity
  live CD installer.
 
-#Package: espresso-frontend-cloner
+#Package: ubiquity-frontend-cloner
 #Architecture: all
-#Depends: ${misc:Depends}, ${python:Depends}, espresso-artwork, espresso-doc
-#Conflicts: ubuntu-express-frontend-cloner
-#Replaces: ubuntu-express-frontend-cloner
-#Provides: espresso-frontend
-#Description: Network Cloner frontend for Espresso live installer
-# This package provides a non-interactive frontend for the Espresso live CD
+#Depends: ${misc:Depends}, ${python:Depends}, ubiquity-artwork, ubiquity-doc
+#Conflicts: ubuntu-express-frontend-cloner, espresso-frontend-cloner
+#Replaces: ubuntu-express-frontend-cloner, espresso-frontend-cloner
+#Provides: ubiquity-frontend
+#Description: Network Cloner frontend for Ubiquity live installer
+# This package provides a non-interactive frontend for the Ubiquity live CD
 # installer which will install the system from a server.

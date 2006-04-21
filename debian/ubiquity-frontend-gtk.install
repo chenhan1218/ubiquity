@@ -1,0 +1,3 @@
+desktop/ubiquity-gtkui.desktop usr/share/applications
+ubiquity/frontend/gtkui.py usr/lib/python2.4/site-packages/ubiquity/frontend
+glade/liveinstaller.glade* usr/share/ubiquity/glade

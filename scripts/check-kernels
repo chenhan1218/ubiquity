@@ -10,8 +10,8 @@ KERNEL_ABI="$(uname -r | cut -d - -f 1,2)"
 MACHINE="$(uname -m)"
 NUMCPUS=
 
-if [ -f /usr/lib/espresso/base-installer/kernel.sh ]; then
-	. /usr/lib/espresso/base-installer/kernel.sh
+if [ -f /usr/lib/ubiquity/base-installer/kernel.sh ]; then
+	. /usr/lib/ubiquity/base-installer/kernel.sh
 else
 	exit 0
 fi
@@ -31,9 +31,9 @@ if [ "$kernels" = "$incompatible" ]; then
 	# We must be wrong. After all, we got this far ...
 	echo 'No usable kernel found; assuming foreign package naming' >&2
 else
-	mkdir -p /var/lib/espresso
+	mkdir -p /var/lib/ubiquity
 	for kernel in $incompatible; do
-		echo "$kernel" >> /var/lib/espresso/remove-kernels
+		echo "$kernel" >> /var/lib/ubiquity/remove-kernels
 	done
 fi
 
