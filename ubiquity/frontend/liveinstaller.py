@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'liveinstaller.ui'
 #
-# Created: Fri Apr 14 10:32:59 2006
+# Created: Sat Apr 22 22:25:16 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -1810,7 +1810,7 @@ image3_data = \
     "\x1d\xff\x0b\xd9\x03\xa5\x10\xde\x04\x0b\x01\x00" \
     "\x00\x00\x00\x49\x45\x4e\x44\xae\x42\x60\x82"
 
-class UbiquityUI(QWidget):
+class UbiquityUIBase(QWidget):
     def __init__(self,parent = None,name = None,fl = 0):
         QWidget.__init__(self,parent,name,fl)
 
@@ -1823,17 +1823,17 @@ class UbiquityUI(QWidget):
         self.image3 = QPixmap()
         self.image3.loadFromData(image3_data,"PNG")
         if not name:
-            self.setName("UbiquityUI")
+            self.setName("UbiquityUIBase")
 
         self.setIcon(self.image0)
 
-        UbiquityUILayout = QGridLayout(self,1,1,11,6,"UbiquityUILayout")
+        UbiquityUIBaseLayout = QGridLayout(self,1,1,11,6,"UbiquityUIBaseLayout")
 
         self.lblStepNofM = QLabel(self,"lblStepNofM")
 
-        UbiquityUILayout.addWidget(self.lblStepNofM,2,0)
+        UbiquityUIBaseLayout.addWidget(self.lblStepNofM,2,0)
         spacer31 = QSpacerItem(260,41,QSizePolicy.Expanding,QSizePolicy.Minimum)
-        UbiquityUILayout.addItem(spacer31,2,1)
+        UbiquityUIBaseLayout.addItem(spacer31,2,1)
 
         self.widgetStack = QWidgetStack(self,"widgetStack")
         self.widgetStack.setSizePolicy(QSizePolicy(QSizePolicy.Preferred,QSizePolicy.Preferred,0,1,self.widgetStack.sizePolicy().hasHeightForWidth()))
@@ -2385,6 +2385,7 @@ class UbiquityUI(QWidget):
 
         self.ready_text = QTextEdit(self.stepReady,"ready_text")
         self.ready_text.setEnabled(0)
+        self.ready_text.setSizePolicy(QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Expanding,0,1,self.ready_text.sizePolicy().hasHeightForWidth()))
 
         stepReadyLayout.addMultiCellWidget(self.ready_text,4,4,0,3)
         spacer35 = QSpacerItem(552,20,QSizePolicy.Expanding,QSizePolicy.Minimum)
@@ -2420,21 +2421,21 @@ class UbiquityUI(QWidget):
         stepReadyLayout.addItem(spacer39,0,2)
         self.widgetStack.addWidget(self.stepReady,9)
 
-        UbiquityUILayout.addMultiCellWidget(self.widgetStack,1,1,0,5)
+        UbiquityUIBaseLayout.addMultiCellWidget(self.widgetStack,1,1,0,5)
 
         self.back = QPushButton(self,"back")
 
-        UbiquityUILayout.addWidget(self.back,2,2)
+        UbiquityUIBaseLayout.addWidget(self.back,2,2)
 
         self.next = QPushButton(self,"next")
 
-        UbiquityUILayout.addWidget(self.next,2,3)
+        UbiquityUIBaseLayout.addWidget(self.next,2,3)
 
         self.cancel = QPushButton(self,"cancel")
 
-        UbiquityUILayout.addWidget(self.cancel,2,5)
+        UbiquityUIBaseLayout.addWidget(self.cancel,2,5)
         spacer40 = QSpacerItem(20,20,QSizePolicy.Fixed,QSizePolicy.Minimum)
-        UbiquityUILayout.addItem(spacer40,2,4)
+        UbiquityUIBaseLayout.addItem(spacer40,2,4)
 
         self.languageChange()
 
@@ -2500,7 +2501,7 @@ class UbiquityUI(QWidget):
 
 
     def __tr(self,s,c = None):
-        return qApp.translate("UbiquityUI",s,c)
+        return qApp.translate("UbiquityUIBase",s,c)
 
 if __name__ == "__main__":
     appname     = ""
@@ -2511,7 +2512,7 @@ if __name__ == "__main__":
     a = KApplication ()
 
     QObject.connect(a,SIGNAL("lastWindowClosed()"),a,SLOT("quit()"))
-    w = UbiquityUI()
+    w = UbiquityUIBase()
     a.setMainWidget(w)
     w.show()
     a.exec_loop()

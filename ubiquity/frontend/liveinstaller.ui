@@ -1,9 +1,9 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>UbiquityUI</class>
+<class>UbiquityUIBase</class>
 <author>Jonathan Riddell</author>
 <widget class="QWidget">
     <property name="name">
-        <cstring>UbiquityUI</cstring>
+        <cstring>UbiquityUIBase</cstring>
     </property>
     <property name="geometry">
         <rect>
@@ -1756,6 +1756,14 @@ You must mount one partition on the root file system ("/"), and you must choose 
                         </property>
                         <property name="enabled">
                             <bool>false</bool>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>7</hsizetype>
+                                <vsizetype>7</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>1</verstretch>
+                            </sizepolicy>
                         </property>
                     </widget>
                     <spacer row="3" column="1" rowspan="1" colspan="3">
