@@ -80,7 +80,7 @@ if __name__ == '__main__':
         prepend_path('/usr/lib/cdebconf')
     prepend_path('/usr/lib/ubiquity/compat')
 
-    if 'UBIQUITY_DEBUG' in os.environ:
+    if 'UBIQUITY_DEBUG' in os.environ or 'ESPRESSO_DEBUG' in os.environ:
         if 'DEBCONF_DEBUG' not in os.environ:
             os.environ['DEBCONF_DEBUG'] = 'developer|filter'
 

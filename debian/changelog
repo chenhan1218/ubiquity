@@ -1,10 +1,19 @@
 ubiquity (0.99.62) dapper; urgency=low
 
+  [ Jonathan Riddell ]
   * KDE Frontend:
     - Rename UbiquityUI to UbiquityUIBase
     - Get rid of KDialog usage, it caused crashes
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Sat, 22 Apr 2006 22:27:16 +0000
+  [ Colin Watson ]
+  * Support ESPRESSO_DEBUG as well as UBIQUITY_DEBUG for a while, to make it
+    easier to concurrently triage bugs on the Dapper beta release and future
+    daily builds.
+  * Install a /usr/bin/espresso symlink to /usr/bin/ubiquity, for the same
+    reason.
+  * Update various copyright/licence notices.
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sat, 22 Apr 2006 00:33:46 +0100
 
 ubiquity (0.99.61) dapper; urgency=low
 
@@ -14,7 +23,7 @@ ubiquity (0.99.61) dapper; urgency=low
   * Automatic update of included source packages: base-installer
     1.42ubuntu10, silo-installer 1.03ubuntu2.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 21 Apr 2006 19:30:54 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 21 Apr 2006 12:50:27 +0100
 
 espresso (0.99.60) dapper; urgency=low
 
