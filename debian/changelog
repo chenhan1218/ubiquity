@@ -4,6 +4,8 @@ ubiquity (0.99.62) dapper; urgency=low
   * KDE Frontend:
     - Rename UbiquityUI to UbiquityUIBase
     - Get rid of KDialog usage, it caused crashes
+    - Add Crystal icon from Ken Wimer
+    - Compile .ui file during package creation
 
   [ Colin Watson ]
   * Support ESPRESSO_DEBUG as well as UBIQUITY_DEBUG for a while, to make it
