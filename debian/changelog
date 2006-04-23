@@ -5,6 +5,7 @@ ubiquity (0.99.63) UNRELEASED; urgency=low
   * Fix 'debian/rules build' to notice when kdepyuic fails.
   * Fix crash in keyboard selector if no keyboard is selected (closes:
     Malone #40658).
+  * Remove ubiquity/frontend/liveinstaller.py on clean.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Apr 2006 11:11:03 +0100
 
