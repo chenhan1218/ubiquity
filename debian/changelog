@@ -1,4 +1,4 @@
-ubiquity (0.99.63) UNRELEASED; urgency=low
+ubiquity (0.99.63) dapper; urgency=low
 
   * Additional base build-dependencies need to go in d-i/update-control to
     survive 'debian/rules update'. Add python-kde3-dev there.
@@ -7,7 +7,7 @@ ubiquity (0.99.63) UNRELEASED; urgency=low
     Malone #40658).
   * Remove ubiquity/frontend/liveinstaller.py on clean.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Apr 2006 11:11:03 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Apr 2006 13:12:31 +0100
 
 ubiquity (0.99.62) dapper; urgency=low
 
