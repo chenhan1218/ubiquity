@@ -5,6 +5,8 @@ ubiquity (0.99.64) UNRELEASED; urgency=low
       #40095).
     - Hide "Set Time..." button if time-admin isn't present.
     - Recommend gnome-system-tools for time-admin.
+  * KDE frontend:
+    - Fix import of UbiquityUIBase (closes: Malone #40939).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Apr 2006 17:14:23 +0100
 
