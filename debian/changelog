@@ -1,3 +1,39 @@
+ubiquity (0.99.65) dapper; urgency=low
+
+  * KDE Frontend:
+    - Fix install paths of Crystal icon 
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sun, 23 Apr 2006 22:37:58 +0000
+
+ubiquity (0.99.64) dapper; urgency=low
+
+  * GTK frontend:
+    - Use xscreensaver-command --deactivate, not --disable (closes: Malone
+      #40095).
+    - Hide "Set Time..." button if time-admin isn't present.
+    - Recommend gnome-system-tools for time-admin.
+  * KDE frontend:
+    - Fix import of UbiquityUIBase (closes: Malone #40939).
+  * Set the SIGPIPE handler back to the default before spawning
+    debconffiltered subprocesses, so that they notice when the UI crashes
+    rather than carrying merrily on and e.g. trashing the partition table
+    (closes: Malone #40464). Whose bright idea was it to have Python install
+    a SIGPIPE handler but then not bother to have the subprocess module
+    remove it, eh?
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Apr 2006 19:07:52 +0100
+
+ubiquity (0.99.63) dapper; urgency=low
+
+  * Additional base build-dependencies need to go in d-i/update-control to
+    survive 'debian/rules update'. Add python-kde3-dev there.
+  * Fix 'debian/rules build' to notice when kdepyuic fails.
+  * Fix crash in keyboard selector if no keyboard is selected (closes:
+    Malone #40658).
+  * Remove ubiquity/frontend/liveinstaller.py on clean.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Apr 2006 13:12:31 +0100
+
 ubiquity (0.99.62) dapper; urgency=low
 
   [ Jonathan Riddell ]
@@ -6,6 +42,8 @@ ubiquity (0.99.62) dapper; urgency=low
     - Get rid of KDialog usage, it caused crashes
     - Add Crystal icon from Ken Wimer
     - Compile .ui file during package creation
+  * Automatic update of included source packages: base-installer
+    1.42ubuntu10, silo-installer 1.03ubuntu2.
 
   [ Colin Watson ]
   * Support ESPRESSO_DEBUG as well as UBIQUITY_DEBUG for a while, to make it
@@ -22,8 +60,6 @@ ubiquity (0.99.61) dapper; urgency=low
   * Rename from espresso to ubiquity, to better suggest an association with
     Ubuntu. Log output now written to /var/log/installer/syslog rather than
     using the package name.
-  * Automatic update of included source packages: base-installer
-    1.42ubuntu10, silo-installer 1.03ubuntu2.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 21 Apr 2006 12:50:27 +0100
 

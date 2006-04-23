@@ -258,6 +258,9 @@ class Wizard:
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
 
+        if not os.path.exists('/usr/bin/time-admin'):
+            self.timezone_time_adjust.hide()
+
         # set initial bottom bar status
         self.back.hide()
 
@@ -275,7 +278,7 @@ class Wizard:
         if os.path.exists('/usr/bin/gnome-screensaver-command'):
             command = ["gnome-screensaver-command", "--poke"]
         elif os.path.exists('/usr/bin/xscreensaver-command'):
-            command = ["xscreensaver-command", "--disable"]
+            command = ["xscreensaver-command", "--deactivate"]
         else:
             return
 
@@ -622,7 +625,9 @@ class Wizard:
             gtk.main_quit()
 
     def on_keyboard_selected(self, start_editing, *args):
-        kbd_chooser.apply_keyboard(self.get_keyboard())
+        keyboard = self.get_keyboard()
+        if keyboard is not None:
+            kbd_chooser.apply_keyboard(keyboard)
 
     def process_step(self):
         """Process and validate the results of this step."""

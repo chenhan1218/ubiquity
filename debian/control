@@ -57,6 +57,7 @@ Description: Ubuntu documentation and help files for Ubiquity live installer
 Package: ubiquity-frontend-gtk
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity, python-glade2, gparted (>= 0.1-0ubuntu3), ubiquity-artwork, ubiquity-doc, python-gtk2, iso-codes
+Recommends: gnome-system-tools
 Conflicts: ubuntu-express-frontend-gtk, espresso-frontend-gtk
 Replaces: ubuntu-express-frontend-gtk, espresso-frontend-gtk
 Provides: ubiquity-frontend

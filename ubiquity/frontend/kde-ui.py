@@ -29,7 +29,7 @@ from qt import *
 from kdeui import *
 from kdecore import *
 #import kdedesigner
-from ubiquity.frontend.liveinstaller import UbiquityUI
+from ubiquity.frontend.liveinstaller import UbiquityUIBase
 from ubiquity.frontend.yesnodialogue import YesNoDialogue
 
 import os
@@ -523,7 +523,9 @@ class Wizard:
 
     def on_keyboard_selected(self):
         print "  on_keyboard_selected(self):"
-        kbd_chooser.apply_keyboard(self.get_keyboard())
+        keyboard = self.get_keyboard()
+        if keyboard is not None:
+            kbd_chooser.apply_keyboard(keyboard)
 
     def on_language_treeview_selection_changed (self):
         print "  on_language_treeview_selection_changed (self, selection):"

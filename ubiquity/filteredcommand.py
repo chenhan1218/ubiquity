@@ -3,6 +3,7 @@
 
 import sys
 import os
+import signal
 import subprocess
 import debconf
 try:
@@ -109,6 +110,11 @@ class FilteredCommand(object):
             def subprocess_setup():
                 for key, value in env.iteritems():
                     os.environ[key] = value
+                # Python installs a SIGPIPE handler by default. This is bad
+                # for non-Python subprocesses, which need SIGPIPE set to the
+                # default action or else they won't notice if the
+                # debconffilter dies.
+                signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 
             ret = subprocess.call(self.command, preexec_fn=subprocess_setup)
             if ret != 0:
