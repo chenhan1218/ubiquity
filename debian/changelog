@@ -1,3 +1,10 @@
+ubiquity (0.99.64) UNRELEASED; urgency=low
+
+  * Use xscreensaver-command --deactivate, not --disable (closes: Malone
+    #40095).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Apr 2006 17:14:23 +0100
+
 ubiquity (0.99.63) dapper; urgency=low
 
   * Additional base build-dependencies need to go in d-i/update-control to

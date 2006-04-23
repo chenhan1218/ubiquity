@@ -275,7 +275,7 @@ class Wizard:
         if os.path.exists('/usr/bin/gnome-screensaver-command'):
             command = ["gnome-screensaver-command", "--poke"]
         elif os.path.exists('/usr/bin/xscreensaver-command'):
-            command = ["xscreensaver-command", "--disable"]
+            command = ["xscreensaver-command", "--deactivate"]
         else:
             return
 
