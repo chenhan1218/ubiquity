@@ -20,6 +20,7 @@
 import sys
 import os
 import fcntl
+import signal
 import errno
 import subprocess
 import re
@@ -152,6 +153,10 @@ class DebconfFilter:
             os.environ['HOME'] = '/root'
             for key, value in extra_env.iteritems():
                 os.environ[key] = value
+            # Python installs a SIGPIPE handler by default. This is bad for
+            # non-Python subprocesses, which need SIGPIPE set to the default
+            # action or else they won't notice if the debconffilter dies.
+            signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 
         self.subp = subprocess.Popen(
             command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,

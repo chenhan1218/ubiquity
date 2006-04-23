@@ -7,6 +7,12 @@ ubiquity (0.99.64) UNRELEASED; urgency=low
     - Recommend gnome-system-tools for time-admin.
   * KDE frontend:
     - Fix import of UbiquityUIBase (closes: Malone #40939).
+  * Set the SIGPIPE handler back to the default before spawning
+    debconffiltered subprocesses, so that they notice when the UI crashes
+    rather than carrying merrily on and e.g. trashing the partition table
+    (closes: Malone #40464). Whose bright idea was it to have Python install
+    a SIGPIPE handler but then not bother to have the subprocess module
+    remove it, eh?
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Apr 2006 17:14:23 +0100
 
