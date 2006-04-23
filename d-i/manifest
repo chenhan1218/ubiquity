@@ -1,5 +1,5 @@
 apt-setup 1:0.4ubuntu6
-base-installer 1.42ubuntu8
+base-installer 1.42ubuntu10
 choose-mirror 1.17ubuntu9
 debian-installer-utils 1.22ubuntu7
 grub-installer 1.14ubuntu4
@@ -20,7 +20,7 @@ partman-partitioning 37ubuntu2
 partman-reiserfs 28
 partman-target 41ubuntu0
 partman-xfs 27
-silo-installer 1.03ubuntu1
+silo-installer 1.03ubuntu2
 tzsetup 1:0.8ubuntu6
 user-setup 0.05ubuntu6
 yaboot-installer 1.1.4ubuntu3

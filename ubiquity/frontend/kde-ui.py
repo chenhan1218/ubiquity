@@ -2,9 +2,14 @@
 #
 # Copyright (C) 2006 Canonical Ltd.
 #
+# Author:
+#   Jonathan Riddell <jriddell@ubuntu.com>
+#
+# This file is part of Ubiquity.
+#
 # Ubiquity is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
-# Software Foundation; either version 2 of the License, or (at your option)
+# Software Foundation; either version 2 of the License, or at your option)
 # any later version.
 #
 # Ubiquity is distributed in the hope that it will be useful, but WITHOUT
@@ -15,9 +20,7 @@
 # You should have received a copy of the GNU General Public License along
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-#
-# Author:
-#   Jonathan Riddell <jriddell@ubuntu.com>
+##################################################################################
 
 print "importing kde-ui"
 
@@ -27,6 +30,7 @@ from kdeui import *
 from kdecore import *
 #import kdedesigner
 from ubiquity.frontend.liveinstaller import UbiquityUI
+from ubiquity.frontend.yesnodialogue import YesNoDialogue
 
 import os
 import time
@@ -88,7 +92,7 @@ WIDGET_STACK_STEPS = {
     "stepReady": 9
 }
 
-class MyUbiquityUI(UbiquityUI):
+class UbiquityUI(UbiquityUIBase):
     
     def setWizard(self, wizardRef):
         self.wizard = wizardRef
@@ -101,14 +105,13 @@ class Wizard:
 
     def __init__(self, distro):
         print "  init(distro)"
-        about=KAboutData("kubuntu-ubiquity","Installer","0.1","Live CD Installer for Kubuntu",KAboutData.License_GPL,"(c) 2006 Canonical Ltd", "http://wiki.kubuntu.org/KubuntuEspresso", "jriddell@ubuntu.com")
+        about=KAboutData("kubuntu-ubiquity","Installer","0.1","Live CD Installer for Kubuntu",KAboutData.License_GPL,"(c) 2006 Canonical Ltd", "http://wiki.kubuntu.org/KubuntuUbiquity", "jriddell@ubuntu.com")
         about.addAuthor("Jonathan Riddell", None,"jriddell@ubuntu.com")
         KCmdLineArgs.init(["./installer"],about)
         
         self.app = KApplication()
         
-        #self.userinterface = UbiquityUI(None, "Ubiquity")
-        self.userinterface = MyUbiquityUI(None, "Ubiquity")
+        self.userinterface = UbiquityUI(None, "Ubiquity")
         self.userinterface.setWizard(self)
         self.app.setMainWidget(self.userinterface)
         self.userinterface.show()
@@ -193,7 +196,8 @@ class Wizard:
         if os.getuid() != 0:
                 print "uid != 0"
                 title = ('This installer must be run with administrative privileges, and cannot continue without them.')
-                KMessageBox.error(self.userinterface, title, "Must run as root")
+                result = QMessageBox.critical(self.userinterface, "Must be root", title)
+
                 sys.exit(1)
 
         # show interface
@@ -807,8 +811,9 @@ class Wizard:
     def confirm_partitioning_dialog (self, title, description):
         # TODO merge with gtk
         print "  confirm_partitioning_dialog (self, title, description):"
-        response = KMessageBox.warningYesNo(self.userinterface, description, title)
-        if response == KMessageBox.Yes:
+        response = QMessageBox.question(self.userinterface, title, description, "Yes", "No", QString.null, 1, 1)
+        
+        if response == 0:
             return True
         else:
             return False
@@ -1279,14 +1284,15 @@ class Wizard:
         """
         
         if self.progress_position.depth() == 0:
-            self.progressDialogue = KProgressDialog(self.userinterface, "progressdialog", progress_title, "", True)
+            total_steps = progress_max - progress_min
+            self.progressDialogue = QProgressDialog(progress_title, "Cancel", total_steps, self.userinterface, "progressdialog", True)
+            #self.progressDialogue = KProgressDialog(self.userinterface, "progressdialog", progress_title, "", True)
             # FIXME jr self.debconf_progress_window.set_title(progress_title)
         
-        self.progressDialogue.setLabel(progress_title)
+        #self.progressDialogue.setLabelText(progress_title)
 
-        bar = self.progressDialogue.progressBar()
-        bar.setTotalSteps(progress_max - progress_min)
         self.progress_position.start(progress_min, progress_max)
+        self.debconf_progress_set(0)
         self.progressDialogue.show()
         return True
 
@@ -1295,7 +1301,11 @@ class Wizard:
         self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             return False
-        self.progressDialogue.progressBar().setProgress(progress_val)
+        self.progress_position.set(progress_val)
+        self.progressDialogue.setProgress(progress_val)
+        #fraction = self.progress_position.fraction()
+        #self.progress_bar.set_fraction(fraction)
+        #self.progress_bar.set_text('%s%%' % int(fraction * 100))
         return True
 
     def debconf_progress_step (self, progress_inc):
@@ -1303,8 +1313,9 @@ class Wizard:
         self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             return False
-        newValue = self.progressDialogue.progressBar().progress() + progress_inc
-        self.progressDialogue.progressBar().setProgress(newValue)
+        self.progress_position.step(progress_inc)
+        newValue = self.progressDialogue.progress() + progress_inc
+        self.progressDialogue.setProgress(newValue)
         return True
 
     def debconf_progress_info (self, progress_info):
@@ -1312,7 +1323,7 @@ class Wizard:
         self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             return False
-        self.progressDialogue.setLabel(progress_info)
+        self.progressDialogue.setLabelText(progress_info)
         return True
 
     def debconf_progress_stop (self):
@@ -1333,9 +1344,10 @@ class Wizard:
     def debconf_progress_cancellable (self, cancellable):
         print "  debconf_progress_cancellable (self, cancellable):"
         if cancellable:
-            self.progressDialogue.showCancelButton(True)
+            #FIXME jr self.progressDialogue.showCancelButton(True)
+            pass
         else:
-            self.progressDialogue.showCancelButton(False)
+            #self.progressDialogue.showCancelButton(False)
             self.progress_cancelled = False
 
     def on_progress_cancel_button_clicked (self, button):
@@ -1375,15 +1387,19 @@ class Wizard:
         print "run_command good"
 
         while self.progress_position.depth() != 0:
+            print "removing a progress position in progress_loop: " + str(self.progress_position.depth())
             self.debconf_progress_stop()
 
         # just to make sure
+        self.progressDialogue.hide()
         #FIXME jr self.debconf_progress_window.hide()
 
         self.installing = False
         quitText = """Ubuntu is now installed on your computer. You need to restart the computer in order to use it. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.\n\nMake sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system."""
-        quitAnswer = KMessageBox.questionYesNo(self.userinterface, quitText, "Installation Complete", KGuiItem("Quit"), KGuiItem("reboot"))
-        if quitAnswer == KMessageBox.No:
+        
+        quitAnswer = QMessageBox.question(self.userinterface, "Finished", quitText, "Quit", "Reboot")
+
+        if quitAnswer == 1:
             self.reboot();
 
     def reboot(self, *args):
@@ -1417,8 +1433,8 @@ class Wizard:
     def on_cancel_clicked(self):
         print "  on_cancel_clicked(self, widget):"
         
-        response = KMessageBox.warningContinueCancel(self.userinterface, "Do you really want to abort the installation now?", "Abort the Installation?", KGuiItem("Quit"))
-        if response == KMessageBox.Continue:
+        response = QMessageBox.question(self.userinterface, "Abort?", "Do you really want to abort the installation now?", "Quit", "Continue")
+        if response == 0:
             self.current_page = None
             self.quit()
             return True
@@ -1432,12 +1448,7 @@ class Wizard:
     def error_dialog (self, msg):
         print "  error_dialog (self, msg):"
         # TODO: cancel button as well if capb backup
-        if self.current_page is not None:
-            transient = self.userinterface
-        else:
-            transient = self.userinterface
-            #transient = self.debconf_progress_dialog FIXME
-        KMessageBox.error(transient, msg)
+        QMessageBox.warning(self.userinterface, "Error", msg, QMessageBox.Ok)
 
     def set_language_choices (self, choice_map):
         print "  set_language_choices (self, choice_map):"

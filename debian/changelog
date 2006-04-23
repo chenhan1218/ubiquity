@@ -1,5 +1,15 @@
-ubiquity (0.99.62) UNRELEASED; urgency=low
+ubiquity (0.99.62) dapper; urgency=low
 
+  [ Jonathan Riddell ]
+  * KDE Frontend:
+    - Rename UbiquityUI to UbiquityUIBase
+    - Get rid of KDialog usage, it caused crashes
+    - Add Crystal icon from Ken Wimer
+    - Compile .ui file during package creation
+  * Automatic update of included source packages: base-installer
+    1.42ubuntu10, silo-installer 1.03ubuntu2.
+
+  [ Colin Watson ]
   * Support ESPRESSO_DEBUG as well as UBIQUITY_DEBUG for a while, to make it
     easier to concurrently triage bugs on the Dapper beta release and future
     daily builds.
@@ -7,7 +17,7 @@ ubiquity (0.99.62) UNRELEASED; urgency=low
     reason.
   * Update various copyright/licence notices.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sat, 22 Apr 2006 00:33:46 +0100
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sat, 22 Apr 2006 00:33:46 +0100
 
 ubiquity (0.99.61) dapper; urgency=low
 
