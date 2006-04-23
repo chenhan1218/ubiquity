@@ -1,4 +1,4 @@
-ubiquity (0.99.64) UNRELEASED; urgency=low
+ubiquity (0.99.64) dapper; urgency=low
 
   * GTK frontend:
     - Use xscreensaver-command --deactivate, not --disable (closes: Malone
@@ -14,7 +14,7 @@ ubiquity (0.99.64) UNRELEASED; urgency=low
     a SIGPIPE handler but then not bother to have the subprocess module
     remove it, eh?
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Apr 2006 17:14:23 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Apr 2006 19:07:52 +0100
 
 ubiquity (0.99.63) dapper; urgency=low
 
