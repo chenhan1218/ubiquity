@@ -258,6 +258,9 @@ class Wizard:
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
 
+        if not os.path.exists('/usr/bin/time-admin'):
+            self.timezone_time_adjust.hide()
+
         # set initial bottom bar status
         self.back.hide()
 

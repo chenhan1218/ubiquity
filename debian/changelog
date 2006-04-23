@@ -3,6 +3,7 @@ ubiquity (0.99.64) UNRELEASED; urgency=low
   * GTK frontend:
     - Use xscreensaver-command --deactivate, not --disable (closes: Malone
       #40095).
+    - Hide "Set Time..." button if time-admin isn't present.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Apr 2006 17:14:23 +0100
 
