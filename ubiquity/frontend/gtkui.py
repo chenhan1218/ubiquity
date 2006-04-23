@@ -622,7 +622,9 @@ class Wizard:
             gtk.main_quit()
 
     def on_keyboard_selected(self, start_editing, *args):
-        kbd_chooser.apply_keyboard(self.get_keyboard())
+        keyboard = self.get_keyboard()
+        if keyboard is not None:
+            kbd_chooser.apply_keyboard(keyboard)
 
     def process_step(self):
         """Process and validate the results of this step."""

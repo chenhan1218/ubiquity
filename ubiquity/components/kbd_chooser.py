@@ -70,10 +70,10 @@ class KbdChooser(FilteredCommand):
     def ok_handler(self):
         if self.keyboard_question is not None:
             keyboard = self.frontend.get_keyboard()
-            keyboard_value = keyboard.lower().replace(" ", "_")
-            self.preseed(self.keyboard_question, keyboard_value)
-
-            update_x_config(keyboard)
+            if keyboard is not None:
+                keyboard_value = keyboard.lower().replace(" ", "_")
+                self.preseed(self.keyboard_question, keyboard_value)
+                update_x_config(keyboard)
 
         return super(KbdChooser, self).ok_handler()
 

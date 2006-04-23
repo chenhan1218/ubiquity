@@ -523,7 +523,9 @@ class Wizard:
 
     def on_keyboard_selected(self):
         print "  on_keyboard_selected(self):"
-        kbd_chooser.apply_keyboard(self.get_keyboard())
+        keyboard = self.get_keyboard()
+        if keyboard is not None:
+            kbd_chooser.apply_keyboard(keyboard)
 
     def on_language_treeview_selection_changed (self):
         print "  on_language_treeview_selection_changed (self, selection):"
