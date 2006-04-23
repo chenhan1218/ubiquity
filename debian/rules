@@ -49,7 +49,7 @@ build-stamp:
 	# Guadalinex-doc
 	for file in $$(ls $(CURDIR)/glade/locale/guadalinex/*.po); do msgfmt -o $(BUILDDIR)/guadalinex/$$(basename $$file .po).mo $(CURDIR)/glade/locale/guadalinex/$$(basename $$file); done || true
 
-	cd ubiquity/frontend; kdepyuic liveinstaller.ui; cd ../..
+	cd ubiquity/frontend && kdepyuic liveinstaller.ui
 	touch build-stamp
 
 clean:

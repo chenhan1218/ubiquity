@@ -2,6 +2,7 @@ ubiquity (0.99.63) UNRELEASED; urgency=low
 
   * Additional base build-dependencies need to go in d-i/update-control to
     survive 'debian/rules update'. Add python-kde3-dev there.
+  * Fix 'debian/rules build' to notice when kdepyuic fails.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun, 23 Apr 2006 11:11:03 +0100
 
