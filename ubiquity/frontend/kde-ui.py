@@ -1511,7 +1511,7 @@ class Wizard:
 
     def set_username(self, value):
         print "  set_username(self, value):"
-        self.userinterface.fullname.setText(str(value))
+        self.userinterface.username.setText(str(value))
 
     def get_username(self):
         print "  get_username(self):"
