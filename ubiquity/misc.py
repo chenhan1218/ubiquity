@@ -322,7 +322,7 @@ def get_string(name, lang):
         else:
             text = translations[name]['c']
 
-    return text
+    return unicode(text, "UTF-8")
 
 
 # vim:ai:et:sts=4:tw=80:sw=4:

@@ -335,21 +335,21 @@ class Wizard:
             name = widget.name()
             if 'heading_label' in name:
                 print "text: " + text
-                widget.setText(unicode("<h2>" + text + "</h2>", "UTF-8"))
+                widget.setText("<h2>" + text + "</h2>")
             elif 'extra_label' in name:
-                widget.setText(unicode("<em>" + text + "</em>", "UTF-8"))
+                widget.setText("<em>" + text + "</em>")
             elif name in ('drives_label', 'partition_method_label',
                           'mountpoint_label', 'size_label', 'device_label',
                           'format_label'):
-                widget.setText(unicode("<strong>" + text + "</strong>", "UTF-8"))
+                widget.setText("<strong>" + text + "</strong>")
             else:
-                widget.setText(unicode(text, "UTF-8"))
+                widget.setText(text)
 
         elif isinstance(widget, QPushButton):
-            widget.setText(unicode(text, "UTF-8"))
+            widget.setText(text)
 
         elif isinstance(widget, QWidget) and widget.name() == UbiquityUI:
-            widget.setCaption(unicode(text, "UTF-8"))
+            widget.setCaption(text)
 
     def show_intro(self):
         """Show some introductory text, if available."""

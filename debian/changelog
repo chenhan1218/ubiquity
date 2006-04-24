@@ -8,6 +8,8 @@ ubiquity (0.99.66) UNRELEASED; urgency=low
     build-dependencies needed when testing on a live CD.
   * If ubiquity is started with no arguments, try both the gtkui and kde-ui
     frontends rather than just gtkui.
+  * Explicitly return Unicode strings from ubiquity.misc.get_string(),
+    simplifying the KDE frontend.
 
   [ Jonathan Riddell ]
   * KDE Frontend:
