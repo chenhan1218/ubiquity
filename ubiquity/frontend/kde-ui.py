@@ -215,18 +215,18 @@ class Wizard:
         self.app.connect(self.userinterface.widgetStack, SIGNAL("aboutToShow(int)"), self.on_steps_switch_page)
         self.app.connect(self.userinterface.keyboardlistview, SIGNAL("selectionChanged()"), self.on_keyboard_selected)
         
-        self.app.connect(self.userinterface.fullname, SIGNAL("textChanged(const QString &)"), self.info_loop)
-        self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.info_loop)
-        self.app.connect(self.userinterface.password, SIGNAL("textChanged(const QString &)"), self.info_loop)
-        self.app.connect(self.userinterface.verified_password, SIGNAL("textChanged(const QString &)"), self.info_loop)
-        self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.info_loop)
+        self.app.connect(self.userinterface.fullname, SIGNAL("textChanged(const QString &)"), self.on_fullname_changed)
+        self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.on_username_changed)
+        self.app.connect(self.userinterface.password, SIGNAL("textChanged(const QString &)"), self.on_password_changed)
+        self.app.connect(self.userinterface.verified_password, SIGNAL("textChanged(const QString &)"), self.on_verified_password_changed)
+        self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.on_hostname_changed)
         self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.on_hostname_insert_text)
         
-        self.app.connect(self.userinterface.fullname, SIGNAL("selectionChanged()"), self.info_loop)
-        self.app.connect(self.userinterface.username, SIGNAL("selectionChanged()"), self.info_loop)
-        self.app.connect(self.userinterface.password, SIGNAL("selectionChanged()"), self.info_loop)
-        self.app.connect(self.userinterface.verified_password, SIGNAL("selectionChanged()"), self.info_loop)
-        self.app.connect(self.userinterface.hostname, SIGNAL("selectionChanged()"), self.info_loop)
+        self.app.connect(self.userinterface.fullname, SIGNAL("selectionChanged()"), self.on_fullname_changed)
+        self.app.connect(self.userinterface.username, SIGNAL("selectionChanged()"), self.on_username_changed)
+        self.app.connect(self.userinterface.password, SIGNAL("selectionChanged()"), self.on_password_changed)
+        self.app.connect(self.userinterface.verified_password, SIGNAL("selectionChanged()"), self.on_verified_password_changed)
+        self.app.connect(self.userinterface.hostname, SIGNAL("selectionChanged()"), self.on_hostname_changed)
         
         self.app.connect(self.userinterface.language_treeview, SIGNAL("selectionChanged()"), self.on_language_treeview_selection_changed)
 
@@ -464,31 +464,45 @@ class Wizard:
                     self.add_mountpoint_table_row()
             index += 1
 
-    def info_loop(self):
+    def info_loop(self, widget):
         print "  info_loop(self, widget):"
-        """check if all entries from Identification screen are filled. Callback
-        defined in glade file."""
+        """check if all entries from Identification screen are filled."""
 
         # each entry is saved as 1 when it's filled and as 0 when it's empty. This
         #     callback is launched when these widgets are modified.
-        counter = 0
-        for widget in [self.userinterface.fullname, self.userinterface.username, self.userinterface.password, self.userinterface.verified_password, self.userinterface.hostname]:
-            if widget.text() != '':
-                self.entries[widget.name()] = 1
-            else:
-                self.entries[widget.name()] = 0
+        if widget.text() != '':
+            self.entries[widget.name()] = 1
+        else:
+            self.entries[widget.name()] = 0
 
-            if widget.name() == 'username' and not self.hostname_edited:
-                if self.laptop:
-                    hostname_suffix = '-laptop'
-                else:
-                    hostname_suffix = '-desktop'
-                self.userinterface.hostname.setText(unicode(widget.text()) + hostname_suffix)
+        if widget.name() == 'username' and not self.hostname_edited:
+            if self.laptop:
+                hostname_suffix = '-laptop'
+            else:
+                hostname_suffix = '-desktop'
+            self.userinterface.hostname.blockSignals(True)
+            self.userinterface.hostname.setText(unicode(widget.text()) + hostname_suffix)
+            self.userinterface.hostname.blockSignals(False)
 
         if len(filter(lambda v: v == 1, self.entries.values())) == 5:
             self.userinterface.next.setEnabled(True)
         else:
             self.userinterface.next.setEnabled(False)
+
+    def on_fullname_changed(self):
+        self.info_loop(self.userinterface.fullname)
+
+    def on_username_changed(self):
+        self.info_loop(self.userinterface.username)
+
+    def on_password_changed(self):
+        self.info_loop(self.userinterface.password)
+
+    def on_verified_password_changed(self):
+        self.info_loop(self.userinterface.verified_password)
+
+    def on_hostname_changed(self):
+        self.info_loop(self.userinterface.hostname)
 
     def on_hostname_insert_text(self):
         print "  on_hostname_insert_text(self):"

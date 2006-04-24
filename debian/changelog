@@ -13,6 +13,7 @@ ubiquity (0.99.66) UNRELEASED; urgency=low
   * Add a no-op anna-install shim for localechooser.
   * KDE frontend:
     - Fix set_username() to really set the username, not the full name.
+    - Fix automatic filling in of values on user information page.
 
   [ Jonathan Riddell ]
   * KDE Frontend:
