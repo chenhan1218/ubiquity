@@ -334,7 +334,7 @@ class Wizard:
         if isinstance(widget, QLabel):
             name = widget.name()
             if 'heading_label' in name:
-                print "text: " + text
+                print "text: " + text.encode("utf-8")
                 widget.setText("<h2>" + text + "</h2>")
             elif 'extra_label' in name:
                 widget.setText("<em>" + text + "</em>")
