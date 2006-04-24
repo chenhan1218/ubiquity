@@ -36,8 +36,8 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
-	./configure --prefix=/usr
 ifndef UBIQUITY_NO_GTK
+	./configure --prefix=/usr
 	$(MAKE)
 endif
 	$(MAKE) -C d-i build
