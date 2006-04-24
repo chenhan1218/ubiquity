@@ -30,7 +30,6 @@ from kdeui import *
 from kdecore import *
 #import kdedesigner
 from ubiquity.frontend.liveinstaller import UbiquityUIBase
-from ubiquity.frontend.yesnodialogue import YesNoDialogue
 
 import os
 import time
