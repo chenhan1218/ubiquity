@@ -12,6 +12,9 @@ ubiquity (0.99.66) UNRELEASED; urgency=low
     simplifying the KDE frontend.
   * Add a no-op anna-install shim for localechooser, ensuring that locales
     are generated.
+  * Ignore errors from locale.setlocale(), although with the above
+    anna-install fix I hope this should not often be necessary (closes:
+    Malone #41132).
   * KDE frontend:
     - Fix set_username() to really set the username, not the full name.
     - Fix automatic filling in of values on user information page.

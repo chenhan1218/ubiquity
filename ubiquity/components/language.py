@@ -85,4 +85,8 @@ class Language(FilteredCommand):
             os.environ['LANG'] = di_locale
             if 'LANGUAGE' in os.environ:
                 del os.environ['LANGUAGE']
-            locale.setlocale(locale.LC_ALL, '')
+            try:
+                locale.setlocale(locale.LC_ALL, '')
+            except locale.Error, e:
+                self.debug('locale.setlocale failed: %s (LANG=%s)',
+                           e, di_locale)
