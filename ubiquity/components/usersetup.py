@@ -47,11 +47,12 @@ class UserSetup(FilteredCommand):
         password = self.frontend.get_password()
         password_confirm = self.frontend.get_verified_password()
 
-        self.preseed('passwd/user-fullname', fullname)
-        self.preseed('passwd/username', username)
+        self.preseed('passwd/user-fullname', fullname.encode("UTF-8"))
+        self.preseed('passwd/username', username.encode("UTF-8"))
         # TODO: maybe encrypt these first
-        self.preseed('passwd/user-password', password)
-        self.preseed('passwd/user-password-again', password_confirm)
+        self.preseed('passwd/user-password', password.encode("UTF-8"))
+        self.preseed('passwd/user-password-again',
+                     password_confirm.encode("UTF-8"))
         self.preseed('passwd/user-uid', '')
 
         super(UserSetup, self).ok_handler()

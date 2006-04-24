@@ -1503,27 +1503,27 @@ class Wizard:
 
     def set_fullname(self, value):
         print "  set_fullname(self, value):"
-        self.userinterface.fullname.setText(str(value))
+        self.userinterface.fullname.setText(unicode(value, "UTF-8"))
 
     def get_fullname(self):
         print "  get_fullname(self):"
-        return str(self.userinterface.fullname.text())
+        return unicode(self.userinterface.fullname.text())
 
     def set_username(self, value):
         print "  set_username(self, value):"
-        self.userinterface.username.setText(str(value))
+        self.userinterface.username.setText(unicode(value, "UTF-8"))
 
     def get_username(self):
         print "  get_username(self):"
-        return str(self.userinterface.username.text())
+        return unicode(self.userinterface.username.text())
   
     def get_password(self):
         print "  get_password(self):"
-        return str(self.userinterface.password.text())
+        return unicode(self.userinterface.password.text())
   
     def get_verified_password(self):
         print "  get_verified_password(self):"
-        return str(self.userinterface.verified_password.text())
+        return unicode(self.userinterface.verified_password.text())
 
     def username_error(self, msg):
         print "  username_error(self, msg):"
