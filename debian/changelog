@@ -1,4 +1,4 @@
-ubiquity (0.99.66) UNRELEASED; urgency=low
+ubiquity (0.99.66) dapper; urgency=low
 
   [ Colin Watson ]
   * Make for loops in debian/rules exit properly on errors.
@@ -27,12 +27,14 @@ ubiquity (0.99.66) UNRELEASED; urgency=low
     frontend.
   * Reconfigure linux-restricted-modules-$KVER as well as linux-image-$KVER
     (closes: Malone #40547).
+  * Automatic update of included source packages: partman-base
+    78ubuntu3.
 
   [ Jonathan Riddell ]
   * KDE Frontend:
     - Remove broken import (closes: Malone #41169).
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 24 Apr 2006 10:16:28 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Apr 2006 00:12:45 +0100
 
 ubiquity (0.99.65) dapper; urgency=low
 
