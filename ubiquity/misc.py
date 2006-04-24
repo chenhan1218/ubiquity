@@ -13,15 +13,16 @@ def part_label(dev):
 
     drive_type = {'hd': 'IDE/ATA', 'sd': 'USB/SCSI/SATA'}
     dev, ext = dev.lower(), dev[7:]
+    # TODO i18n
     try:
         if int(dev[8:]) > 4:
-            partition_type = _('Logical')
+            partition_type = 'Logical'
         else:
-            partition_type = _('Primary')
+            partition_type = 'Primary'
     except:
-        partition_type = _('Unknown')
+        partition_type = 'Unknown'
     try:
-        name = _('Partition %s Disc %s %s (%s) [%s]') % (ext[1:], drive_type[dev[5:7]], ord(ext[0])-ord('a')+1, partition_type, dev[5:])
+        name = 'Partition %s Disc %s %s (%s) [%s]' % (ext[1:], drive_type[dev[5:7]], ord(ext[0])-ord('a')+1, partition_type, dev[5:])
     except:
         """For empty strings, other disk types and disks without partitions, like md1"""
         name = '%s' % (dev[5:])

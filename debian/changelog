@@ -21,6 +21,9 @@ ubiquity (0.99.66) UNRELEASED; urgency=low
   * GTK and KDE frontends:
     - Make the determination of whether to allow going forward from the user
       information page a bit more reliable.
+  * Remove gettext use from ubiquity.misc.part_label(); we'll make those
+    translatable via debconf in the future, but for now this breaks the KDE
+    frontend.
 
   [ Jonathan Riddell ]
   * KDE Frontend:
