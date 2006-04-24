@@ -726,7 +726,8 @@ class Install:
         self.chrex('mount', '-t', 'proc', 'proc', '/proc')
         self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
 
-        packages = ['linux-image-' + self.kernel_version]
+        packages = ['linux-image-' + self.kernel_version,
+                    'linux-restricted-modules-' + self.kernel_version]
 
         try:
             for package in packages:
