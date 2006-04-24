@@ -577,7 +577,6 @@ class Wizard:
 
         # each entry is saved as 1 when it's filled and as 0 when it's empty. This
         #     callback is launched when these widgets are modified.
-        counter = 0
         if widget.get_text() != '':
             self.entries[widget.get_name()] = 1
         else:
