@@ -2,9 +2,3 @@ desktop/ubiquity-kdeui.desktop usr/share/applications/kde
 ubiquity/frontend/kde-ui.py usr/lib/python2.4/site-packages/ubiquity/frontend
 ubiquity/frontend/liveinstaller.ui usr/lib/python2.4/site-packages/ubiquity/frontend
 ubiquity/frontend/liveinstaller.py usr/lib/python2.4/site-packages/ubiquity/frontend
-desktop/cr16-app-ubiquity.png usr/share/icons/crystalsvg/16x16/apps
-desktop/cr22-app-ubiquity.png usr/share/icons/crystalsvg/22x22/apps
-desktop/cr32-app-ubiquity.png usr/share/icons/crystalsvg/32x32/apps
-desktop/cr48-app-ubiquity.png usr/share/icons/crystalsvg/48x48/apps
-desktop/cr64-app-ubiquity.png usr/share/icons/crystalsvg/64x64/apps
-desktop/cr128-app-ubiquity.png usr/share/icons/crystalsvg/128x128/apps

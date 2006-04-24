@@ -1,3 +1,10 @@
+ubiquity (0.99.65) dapper; urgency=low
+
+  * KDE Frontend:
+    - Fix install paths of Crystal icon 
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sun, 23 Apr 2006 22:37:58 +0000
+
 ubiquity (0.99.64) dapper; urgency=low
 
   * GTK frontend:
