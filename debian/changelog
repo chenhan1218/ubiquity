@@ -6,6 +6,8 @@ ubiquity (0.99.66) UNRELEASED; urgency=low
     avoid making use of GTK- or KDE-specific build-dependencies
     (respectively). This is useful to cut down on the number of
     build-dependencies needed when testing on a live CD.
+  * If ubiquity is started with no arguments, try both the gtkui and kde-ui
+    frontends rather than just gtkui.
 
   [ Jonathan Riddell ]
   * KDE Frontend:

@@ -26,13 +26,25 @@ TARGET = '/target'
 
 log_file = '/var/log/installer/syslog'
 
-def install(type='gtkui'):
-    '''install(type='gtkui') -> none
+def install(frontend=None):
+    '''install(frontend=None) -> none
     
     Get the type of frontend to use and load the module for that.
+    If frontend is None, defaults to the first of gtkui and kde-ui that
+    exists.
     '''
-    mod = __import__('ubiquity.frontend', globals(), locals() , [type])
-    ui = getattr(mod, type)
+    if frontend is None:
+        frontends = ['gtkui', 'kde-ui']
+    else:
+        frontends = [frontend]
+    mod = __import__('ubiquity.frontend', globals(), locals(), frontends)
+    for f in frontends:
+        if hasattr(mod, f):
+            ui = getattr(mod, f)
+            break
+    else:
+        raise AttributeError, ('No frontend available; tried %s' %
+                               ', '.join(frontends))
 
     unmount_target()
     distro = misc.distribution().lower()
