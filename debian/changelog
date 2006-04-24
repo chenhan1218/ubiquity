@@ -27,7 +27,7 @@ ubiquity (0.99.66) UNRELEASED; urgency=low
 
   [ Jonathan Riddell ]
   * KDE Frontend:
-    - Remove broken import
+    - Remove broken import (closes: Malone #41169).
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 24 Apr 2006 10:16:28 +0100
 
