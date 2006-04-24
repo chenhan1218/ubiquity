@@ -18,6 +18,9 @@ ubiquity (0.99.66) UNRELEASED; urgency=low
   * KDE frontend:
     - Fix set_username() to really set the username, not the full name.
     - Fix automatic filling in of values on user information page.
+  * GTK and KDE frontends:
+    - Make the determination of whether to allow going forward from the user
+      information page a bit more reliable.
 
   [ Jonathan Riddell ]
   * KDE Frontend:

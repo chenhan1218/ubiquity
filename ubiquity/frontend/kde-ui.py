@@ -157,15 +157,6 @@ class Wizard:
         # To get a "busy mouse":
         #FIXME self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
     
-        # useful dicts to manage UI data
-        self.entries = {
-            'hostname' : 0,
-            'fullname' : 0,
-            'username' : 0,
-            'password' : 0,
-            'verified_password' : 0
-        }
-    
         # If automatic partitioning fails, it may be disabled toggling on this variable:
         self.discard_automatic_partitioning = False
         
@@ -468,13 +459,6 @@ class Wizard:
         print "  info_loop(self, widget):"
         """check if all entries from Identification screen are filled."""
 
-        # each entry is saved as 1 when it's filled and as 0 when it's empty. This
-        #     callback is launched when these widgets are modified.
-        if widget.text() != '':
-            self.entries[widget.name()] = 1
-        else:
-            self.entries[widget.name()] = 0
-
         if widget.name() == 'username' and not self.hostname_edited:
             if self.laptop:
                 hostname_suffix = '-laptop'
@@ -484,10 +468,12 @@ class Wizard:
             self.userinterface.hostname.setText(unicode(widget.text()) + hostname_suffix)
             self.userinterface.hostname.blockSignals(False)
 
-        if len(filter(lambda v: v == 1, self.entries.values())) == 5:
-            self.userinterface.next.setEnabled(True)
-        else:
-            self.userinterface.next.setEnabled(False)
+        complete = True
+        for name in ('fullname', 'username', 'password', 'verified_password',
+                     'hostname'):
+            if getattr(self.userinterface, name).text() == '':
+                complete = False
+        self.userinterface.next.setEnabled(complete)
 
     def on_fullname_changed(self):
         self.info_loop(self.userinterface.fullname)
