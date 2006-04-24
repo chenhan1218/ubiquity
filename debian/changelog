@@ -10,6 +10,7 @@ ubiquity (0.99.66) UNRELEASED; urgency=low
     frontends rather than just gtkui.
   * Explicitly return Unicode strings from ubiquity.misc.get_string(),
     simplifying the KDE frontend.
+  * Add a no-op anna-install shim for localechooser.
 
   [ Jonathan Riddell ]
   * KDE Frontend:
