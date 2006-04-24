@@ -2,6 +2,10 @@ ubiquity (0.99.66) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Make for loops in debian/rules exit properly on errors.
+  * Allow defining UBIQUITY_NO_GTK or UBIQUITY_NO_KDE during the build to
+    avoid making use of GTK- or KDE-specific build-dependencies
+    (respectively). This is useful to cut down on the number of
+    build-dependencies needed when testing on a live CD.
 
   [ Jonathan Riddell ]
   * KDE Frontend:

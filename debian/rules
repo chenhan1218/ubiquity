@@ -37,7 +37,9 @@ build-stamp:
 	dh_testdir
 
 	./configure --prefix=/usr
+ifndef UBIQUITY_NO_GTK
 	$(MAKE)
+endif
 	$(MAKE) -C d-i build
 
 	mkdir -p $(BUILDDIR)/ubuntu
@@ -49,7 +51,9 @@ build-stamp:
 	# Guadalinex-doc
 	for file in $$(ls $(CURDIR)/glade/locale/guadalinex/*.po); do msgfmt -o $(BUILDDIR)/guadalinex/$$(basename $$file .po).mo $(CURDIR)/glade/locale/guadalinex/$$(basename $$file); done || true
 
+ifndef UBIQUITY_NO_KDE
 	cd ubiquity/frontend && kdepyuic liveinstaller.ui
+endif
 	touch build-stamp
 
 clean:
@@ -71,7 +75,9 @@ install:
 
 	# For the meantime, everything automake wants to install is part of
 	# the GTK frontend.
+ifndef UBIQUITY_NO_GTK
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk
+endif
 	$(MAKE) -C d-i install
 
 	cp debian/ubiquity.install-any debian/ubiquity.install
