@@ -1,3 +1,9 @@
+ubiquity (0.99.66) UNRELEASED; urgency=low
+
+  * Make for loops in debian/rules exit properly on errors.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 24 Apr 2006 10:16:28 +0100
+
 ubiquity (0.99.65) dapper; urgency=low
 
   * KDE Frontend:
