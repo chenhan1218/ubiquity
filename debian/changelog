@@ -10,7 +10,8 @@ ubiquity (0.99.66) UNRELEASED; urgency=low
     frontends rather than just gtkui.
   * Explicitly return Unicode strings from ubiquity.misc.get_string(),
     simplifying the KDE frontend.
-  * Add a no-op anna-install shim for localechooser.
+  * Add a no-op anna-install shim for localechooser, ensuring that locales
+    are generated.
   * KDE frontend:
     - Fix set_username() to really set the username, not the full name.
     - Fix automatic filling in of values on user information page.
