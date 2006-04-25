@@ -7,6 +7,9 @@ ubiquity (0.99.67) UNRELEASED; urgency=low
   * Turn internal (non-debconf) debugging on by default; it can be disabled
     by setting UBIQUITY_DEBUG_CORE=0. Debconf debugging is unfortunately not
     safe to enable by default because it logs the user's password.
+  * Write out /target/etc/apt/apt.conf.d/00IgnoreTimeConflict for the
+    duration of post-copy configuration to avoid problems on clock-skewed
+    machines.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Apr 2006 10:46:02 +0100
 

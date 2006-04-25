@@ -188,6 +188,8 @@ class Install:
         apt_pkg.Config.Set("Dir", "/target")
         apt_pkg.Config.Set("APT::GPGV::TrustedKeyring",
                            "/target/etc/apt/trusted.gpg")
+        apt_pkg.Config.Set("Acquire::gpgv::Options::",
+                           "--ignore-time-conflict")
         apt_pkg.Config.Set("DPkg::Options::", "--root=/target")
         # We don't want apt-listchanges or dpkg-preconfigure, so just clear
         # out the list of pre-installation hooks.
@@ -303,6 +305,8 @@ class Install:
         if not self.copy_logs():
             self.db.progress('STOP')
             return False
+
+        self.cleanup()
 
         self.db.progress('SET', 100)
         self.db.progress('STOP')
@@ -541,6 +545,15 @@ class Install:
 
     def configure_apt(self):
         """Configure /etc/apt/sources.list."""
+
+        # Avoid clock skew causing gpg verification issues.
+        # This file will be left in place until the end of the install.
+        apt_conf_itc = open(os.path.join(
+            self.target, 'etc/apt/apt.conf.d/00IgnoreTimeConflict'), 'w')
+        print >>apt_conf_itc, ('Acquire::gpgv::Options {'
+                               ' "--ignore-time-conflict"; };')
+        apt_conf_itc.close()
+
         dbfilter = apt_setup.AptSetup(None)
         return (dbfilter.run_command(auto_process=True) == 0)
 
@@ -1071,6 +1084,12 @@ class Install:
             return True
 
         return self.do_remove(difference)
+
+
+    def cleanup(self):
+        """Miscellaneous cleanup tasks."""
+        os.unlink(os.path.join(
+            self.target, 'etc/apt/apt.conf.d/00IgnoreTimeConflict'))
 
 
     def chrex(self, *args):
