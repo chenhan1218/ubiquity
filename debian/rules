@@ -59,7 +59,8 @@ endif
 clean:
 	dh_testdir
 	dh_testroot
-	rm -fr build-stamp $(BUILDDIR) ubiquity/frontend/liveinstaller.py
+	rm -fr build-stamp $(BUILDDIR) ubiquity/frontend/liveinstaller.py \
+		ubiquity/frontend/crashdialog.py
 	find -type f \( -name \*.pyc -o -name \*.pyo \) -print0 | xargs -0r rm -f
 
 	$(MAKE) -C d-i clean
