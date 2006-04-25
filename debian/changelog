@@ -2,7 +2,7 @@ ubiquity (0.99.67) UNRELEASED; urgency=low
 
   * Don't dh_install to ubiquity-frontend-{gtk,kde} if the respective
     UBIQUITY_NO_{GTK,KDE} is defined.
-  * GTK frontend:
+  * GTK and KDE frontends:
     - Add a crash handler UI.
   * Turn internal (non-debconf) debugging on by default; it can be disabled
     by setting UBIQUITY_DEBUG_CORE=0. Debconf debugging is unfortunately not

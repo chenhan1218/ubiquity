@@ -52,7 +52,7 @@ endif
 	for file in $$(ls $(CURDIR)/glade/locale/guadalinex/*.po); do msgfmt -o $(BUILDDIR)/guadalinex/$$(basename $$file .po).mo $(CURDIR)/glade/locale/guadalinex/$$(basename $$file); done || true
 
 ifndef UBIQUITY_NO_KDE
-	cd ubiquity/frontend && kdepyuic liveinstaller.ui
+	cd ubiquity/frontend && kdepyuic liveinstaller.ui && kdepyuic crashdialog.ui
 endif
 	touch build-stamp
 

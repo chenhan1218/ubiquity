@@ -30,12 +30,14 @@ from kdeui import *
 from kdecore import *
 #import kdedesigner
 from ubiquity.frontend.liveinstaller import UbiquityUIBase
+from ubiquity.frontend.crashdialog import CrashDialog
 
 import os
 import time
 import datetime
 import glob
 import subprocess
+import traceback
 import xml.sax.saxutils
 
 import gettext
@@ -103,6 +105,8 @@ class Wizard:
 
     def __init__(self, distro):
         print "  init(distro)"
+        sys.excepthook = self.excepthook
+
         about=KAboutData("kubuntu-ubiquity","Installer","0.1","Live CD Installer for Kubuntu",KAboutData.License_GPL,"(c) 2006 Canonical Ltd", "http://wiki.kubuntu.org/KubuntuUbiquity", "jriddell@ubuntu.com")
         about.addAuthor("Jonathan Riddell", None,"jriddell@ubuntu.com")
         KCmdLineArgs.init(["./installer"],about)
@@ -177,6 +181,22 @@ class Wizard:
         self.embed = QXEmbed(self.userinterface.qtparted_frame, "embed")
         self.embed.setProtocol(QXEmbed.XPLAIN)
         print "init end"
+
+    def excepthook(self, exctype, excvalue, exctb):
+        """Crash handler."""
+
+        if (issubclass(exctype, KeyboardInterrupt) or
+            issubclass(exctype, SystemExit)):
+            return
+
+        tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
+        print >>sys.stderr, ("Exception in KDE frontend"
+                             " (invoking crash handler):")
+        print >>sys.stderr, tbtext
+        dialog = CrashDialog(self.userinterface)
+        dialog.crash_detail.setText(tbtext)
+        dialog.exec_loop()
+        sys.exit(1)
 
     def run(self):
         """run the interface."""
