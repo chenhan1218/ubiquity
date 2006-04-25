@@ -45,6 +45,7 @@ import datetime
 import glob
 import subprocess
 import thread
+import traceback
 import xml.sax.saxutils
 
 import gettext
@@ -93,6 +94,8 @@ import pango
 class Wizard:
 
     def __init__(self, distro):
+        sys.excepthook = self.excepthook
+
         # declare attributes
         self.distro = distro
         self.current_keyboard = None
@@ -150,6 +153,23 @@ class Wizard:
         self.translate_widgets()
 
         self.customize_installer()
+
+
+    def excepthook(self, exctype, excvalue, exctb):
+        """Crash handler."""
+
+        if (issubclass(exctype, KeyboardInterrupt) or
+            issubclass(exctype, SystemExit)):
+            return
+
+        tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
+        print >>sys.stderr, ("Exception in GTK frontend"
+                             " (invoking crash handler):")
+        print >>sys.stderr, tbtext
+        self.crash_detail_label.set_text(tbtext)
+        self.crash_dialog.run()
+        self.crash_dialog.hide()
+        sys.exit(1)
 
 
     def run(self):
