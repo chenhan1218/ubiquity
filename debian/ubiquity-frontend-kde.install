@@ -2,3 +2,5 @@ desktop/ubiquity-kdeui.desktop usr/share/applications/kde
 ubiquity/frontend/kde-ui.py usr/lib/python2.4/site-packages/ubiquity/frontend
 ubiquity/frontend/liveinstaller.ui usr/lib/python2.4/site-packages/ubiquity/frontend
 ubiquity/frontend/liveinstaller.py usr/lib/python2.4/site-packages/ubiquity/frontend
+ubiquity/frontend/crashdialog.ui usr/lib/python2.4/site-packages/ubiquity/frontend
+ubiquity/frontend/crashdialog.py usr/lib/python2.4/site-packages/ubiquity/frontend
