@@ -1,3 +1,10 @@
+ubiquity (0.99.67) UNRELEASED; urgency=low
+
+  * Don't dh_install to ubiquity-frontend-{gtk,kde} if the respective
+    UBIQUITY_NO_{GTK,KDE} is defined.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Apr 2006 10:46:02 +0100
+
 ubiquity (0.99.66) dapper; urgency=low
 
   [ Colin Watson ]

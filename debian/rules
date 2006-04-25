@@ -84,7 +84,15 @@ endif
 ifneq (,$(wildcard debian/ubiquity.install-$(DEB_HOST_ARCH)))
 	cat debian/ubiquity.install-$(DEB_HOST_ARCH) >> debian/ubiquity.install
 endif
-	dh_install -A
+ifdef UBIQUITY_NO_GTK
+	dh_install -Nubiquity-frontend-gtk
+else
+ifdef UBIQUITY_NO_KDE
+	dh_install -Nubiquity-frontend-kde
+else
+	dh_install
+endif
+endif
 
 	# Bits of manual installation that can't be done by dh_install
 	install installer $(CURDIR)/debian/ubiquity/usr/bin/ubiquity
