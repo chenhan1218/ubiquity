@@ -31,3 +31,5 @@ src/.deps
 src/.libs
 src/e-map.c
 pixmaps/Makefile
+ubiquity/frontend/liveinstaller.py
+ubiquity/frontend/crashdialog.py
