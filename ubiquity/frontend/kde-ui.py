@@ -36,7 +36,6 @@ import time
 import datetime
 import glob
 import subprocess
-import thread
 import xml.sax.saxutils
 
 import gettext

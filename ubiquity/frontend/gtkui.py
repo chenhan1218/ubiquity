@@ -44,7 +44,6 @@ import time
 import datetime
 import glob
 import subprocess
-import thread
 import traceback
 import xml.sax.saxutils
 
