@@ -1,4 +1,4 @@
-ubiquity (0.99.67) UNRELEASED; urgency=low
+ubiquity (0.99.67) dapper; urgency=low
 
   * Don't dh_install to ubiquity-frontend-{gtk,kde} if the respective
     UBIQUITY_NO_{GTK,KDE} is defined.
@@ -13,8 +13,10 @@ ubiquity (0.99.67) UNRELEASED; urgency=low
   * KDE frontend:
     - Fix tab order, chiefly on user info page (closes: Malone #40520).
   * Configure networking before apt, so that we can contact mirrors.
+  * Automatic update of included source packages: apt-setup
+    1:0.10ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Apr 2006 10:46:02 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Apr 2006 20:24:59 +0100
 
 ubiquity (0.99.66) dapper; urgency=low
 

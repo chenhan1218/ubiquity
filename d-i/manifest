@@ -1,4 +1,4 @@
-apt-setup 1:0.4ubuntu6
+apt-setup 1:0.10ubuntu1
 base-installer 1.42ubuntu10
 choose-mirror 1.17ubuntu9
 debian-installer-utils 1.22ubuntu7
