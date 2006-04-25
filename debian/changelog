@@ -10,6 +10,8 @@ ubiquity (0.99.67) UNRELEASED; urgency=low
   * Write out /target/etc/apt/apt.conf.d/00IgnoreTimeConflict for the
     duration of post-copy configuration to avoid problems on clock-skewed
     machines.
+  * KDE frontend:
+    - Fix tab order, chiefly on user info page (closes: Malone #40520).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Apr 2006 10:46:02 +0100
 
