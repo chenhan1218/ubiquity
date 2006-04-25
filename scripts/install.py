@@ -235,48 +235,48 @@ class Install:
 
         self.db.progress('SET', 81)
         self.db.progress('REGION', 81, 82)
+        self.db.progress('INFO', 'ubiquity/install/network')
+        if not self.configure_network():
+            self.db.progress('STOP')
+            return False
+
+        self.db.progress('SET', 82)
+        self.db.progress('REGION', 82, 83)
         self.db.progress('INFO', 'ubiquity/install/apt')
         if not self.configure_apt():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 82)
-        self.db.progress('REGION', 82, 86)
+        self.db.progress('SET', 83)
+        self.db.progress('REGION', 83, 87)
         # Ignore failures from language pack installation.
         self.install_language_packs()
 
-        self.db.progress('SET', 86)
-        self.db.progress('REGION', 86, 87)
+        self.db.progress('SET', 87)
+        self.db.progress('REGION', 87, 88)
         self.db.progress('INFO', 'ubiquity/install/timezone')
         if not self.configure_timezone():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 87)
-        self.db.progress('REGION', 87, 89)
+        self.db.progress('SET', 88)
+        self.db.progress('REGION', 88, 90)
         self.db.progress('INFO', 'ubiquity/install/keyboard')
         if not self.configure_keyboard():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 89)
-        self.db.progress('REGION', 89, 90)
+        self.db.progress('SET', 90)
+        self.db.progress('REGION', 90, 91)
         self.db.progress('INFO', 'ubiquity/install/user')
         if not self.configure_user():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 90)
-        self.db.progress('REGION', 90, 94)
+        self.db.progress('SET', 91)
+        self.db.progress('REGION', 91, 95)
         self.db.progress('INFO', 'ubiquity/install/hardware')
         if not self.configure_hardware():
-            self.db.progress('STOP')
-            return False
-
-        self.db.progress('SET', 94)
-        self.db.progress('REGION', 94, 95)
-        self.db.progress('INFO', 'ubiquity/install/network')
-        if not self.configure_network():
             self.db.progress('STOP')
             return False
 

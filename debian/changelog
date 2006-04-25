@@ -12,6 +12,7 @@ ubiquity (0.99.67) UNRELEASED; urgency=low
     machines.
   * KDE frontend:
     - Fix tab order, chiefly on user info page (closes: Malone #40520).
+  * Configure networking before apt, so that we can contact mirrors.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Apr 2006 10:46:02 +0100
 
