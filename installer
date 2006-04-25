@@ -93,8 +93,14 @@ if __name__ == '__main__':
     prepend_path('/usr/lib/ubiquity/compat')
 
     if 'UBIQUITY_DEBUG' in os.environ or 'ESPRESSO_DEBUG' in os.environ:
+        if 'UBIQUITY_DEBUG_CORE' not in os.environ:
+            os.environ['UBIQUITY_DEBUG_CORE'] = '1'
         if 'DEBCONF_DEBUG' not in os.environ:
             os.environ['DEBCONF_DEBUG'] = 'developer|filter'
+
+    # Default to enabling internal (non-debconf) debugging.
+    if 'UBIQUITY_DEBUG_CORE' not in os.environ:
+        os.environ['UBIQUITY_DEBUG_CORE'] = '1'
 
     # Clean up old state.
     if os.path.exists("/var/lib/ubiquity/apt-installed"):

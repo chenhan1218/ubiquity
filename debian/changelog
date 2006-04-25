@@ -4,6 +4,9 @@ ubiquity (0.99.67) UNRELEASED; urgency=low
     UBIQUITY_NO_{GTK,KDE} is defined.
   * GTK frontend:
     - Add a crash handler UI.
+  * Turn internal (non-debconf) debugging on by default; it can be disabled
+    by setting UBIQUITY_DEBUG_CORE=0. Debconf debugging is unfortunately not
+    safe to enable by default because it logs the user's password.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Apr 2006 10:46:02 +0100
 
