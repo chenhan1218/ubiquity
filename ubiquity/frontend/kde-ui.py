@@ -443,7 +443,7 @@ class Wizard:
         while index < len(self.partition_widgets):
 
             #set size widget
-            partition_text = self.partition_widgets[index].currentText()
+            partition_text = unicode(self.partition_widgets[index].currentText())
             if partition_text == ' ':
                 self.size_widgets[index].setText('')
             elif partition_text != None:
@@ -460,7 +460,7 @@ class Wizard:
                     self.format_widgets[index].setEnabled(False)
                     self.format_widgets[index].setChecked(True)
                 else:
-                    self.format_widgets[index].setChecked(True)
+                    self.format_widgets[index].setEnabled(True)
 
             #add new row if partitions list is long enough and last row validates
             if len(get_partitions()) > len(self.partition_widgets):
@@ -968,9 +968,9 @@ class Wizard:
                         count += 1
                     if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
                         partition in self.gparted_fstype):
-                        self.format_widgets[-1].setEnabled(True)
+                        self.format_widgets[-1].setChecked(True)
                     else:
-                        self.format_widgets[-1].setEnabled(False)
+                        self.format_widgets[-1].setChecked(False)
                     if partition not in self.gparted_fstype:
                         self.format_widgets[-1].setEnabled(True)
                     if len(get_partitions()) > len(self.partition_widgets):

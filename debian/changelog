@@ -15,6 +15,9 @@ ubiquity (0.99.68) UNRELEASED; urgency=low
     - Fix Unicode decoding crash in autopartitioner (closes: Malone #41621).
       Shuffle around a couple of workarounds elsewhere into better places.
     - Fix "setEnablede" typo.
+    - Fix various bits of checked vs. enabled confusion in the manual
+      partitioner, plus a missing unicode() call that prevented the format
+      checkbox from ever being selectable.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 26 Apr 2006 12:42:01 +0100
 
