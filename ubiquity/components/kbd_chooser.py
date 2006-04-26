@@ -152,6 +152,11 @@ def map_keyboard(keyboard):
             variant = "fr"
             break
 
+        if k == "fr_CH-latin1":
+            xmap = "ch"
+            variant = "fr"
+            break
+
         if k == "fr":
             xmap = "fr"
             break
@@ -247,6 +252,16 @@ def map_keyboard(keyboard):
 
         if k == "sg":
             xmap = "ch"
+            variant = "de"
+            break
+
+        if k == "sg-latin1":
+            xmap = "ch"
+            variant = "de"
+            break
+
+        if k == "slovene":
+            xmap = "si"
             variant = "de"
             break
 

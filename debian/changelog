@@ -1,3 +1,11 @@
+ubiquity (0.99.68) UNRELEASED; urgency=low
+
+  [ Tollef Fog Heen ]
+  * Configure French Swiss, German Swiss and Slovenian keyboards correctly
+    in X.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 26 Apr 2006 12:42:01 +0100
+
 ubiquity (0.99.67) dapper; urgency=low
 
   * Don't dh_install to ubiquity-frontend-{gtk,kde} if the respective
