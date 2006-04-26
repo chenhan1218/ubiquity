@@ -7,6 +7,8 @@ ubiquity (0.99.68) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Ignore comments and blank lines in manifest files, so that we can put
     comments there to help out customisers.
+  * GTK frontend:
+    - Make label text selectable (closes: Malone #41618).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 26 Apr 2006 12:42:01 +0100
 
