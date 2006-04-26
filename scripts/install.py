@@ -1065,10 +1065,12 @@ class Install:
             os.path.exists("/cdrom/casper/filesystem.manifest")):
             desktop_packages = set()
             for line in open("/cdrom/casper/filesystem.manifest-desktop"):
-                desktop_packages.add(line.split()[0])
+                if line.strip() != '' and not line.startswith('#'):
+                    desktop_packages.add(line.split()[0])
             live_packages = set()
             for line in open("/cdrom/casper/filesystem.manifest"):
-                live_packages.add(line.split()[0])
+                if line.strip() != '' and not line.startswith('#'):
+                    live_packages.add(line.split()[0])
             difference = live_packages - desktop_packages
         else:
             difference = set()
