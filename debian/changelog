@@ -1,4 +1,4 @@
-ubiquity (0.99.68) UNRELEASED; urgency=low
+ubiquity (0.99.68) dapper; urgency=low
 
   [ Tollef Fog Heen ]
   * Configure French Swiss, German Swiss and Slovenian keyboards correctly
@@ -18,8 +18,10 @@ ubiquity (0.99.68) UNRELEASED; urgency=low
     - Fix various bits of checked vs. enabled confusion in the manual
       partitioner, plus a missing unicode() call that prevented the format
       checkbox from ever being selectable.
+  * Automatic update of included source packages: base-installer
+    1.42ubuntu11.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 26 Apr 2006 12:42:01 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 26 Apr 2006 23:34:52 +0100
 
 ubiquity (0.99.67) dapper; urgency=low
 
