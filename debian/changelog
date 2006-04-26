@@ -1,5 +1,6 @@
 ubiquity (0.99.67) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Don't dh_install to ubiquity-frontend-{gtk,kde} if the respective
     UBIQUITY_NO_{GTK,KDE} is defined.
   * GTK and KDE frontends:
@@ -12,6 +13,10 @@ ubiquity (0.99.67) UNRELEASED; urgency=low
     machines.
   * KDE frontend:
     - Fix tab order, chiefly on user info page (closes: Malone #40520).
+
+  [ Tollef Fog Heen ]
+  * Configure French Swiss, German Swiss and Slovenian keyboards correctly
+    in X.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Apr 2006 10:46:02 +0100
 
