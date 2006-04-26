@@ -262,7 +262,6 @@ def map_keyboard(keyboard):
 
         if k == "slovene":
             xmap = "si"
-            variant = "de"
             break
 
         if k == "sk-qwerty":
