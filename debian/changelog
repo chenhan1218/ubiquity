@@ -9,6 +9,8 @@ ubiquity (0.99.68) UNRELEASED; urgency=low
     comments there to help out customisers.
   * GTK frontend:
     - Make label text selectable (closes: Malone #41618).
+    - Guard against calling gtk.main_quit() outside of a main loop when
+      quitting (closes: Malone #41619).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 26 Apr 2006 12:42:01 +0100
 
