@@ -457,7 +457,7 @@ class Wizard:
             else:
                 partition = self.part_devices[partition_text]
                 if partition in self.gparted_fstype:
-                    self.format_widgets[index].setEnablede(False)
+                    self.format_widgets[index].setEnabled(False)
                     self.format_widgets[index].setChecked(True)
                 else:
                     self.format_widgets[index].setChecked(True)
