@@ -11,6 +11,9 @@ ubiquity (0.99.68) UNRELEASED; urgency=low
     - Make label text selectable (closes: Malone #41618).
     - Guard against calling gtk.main_quit() outside of a main loop when
       quitting (closes: Malone #41619).
+  * KDE frontend:
+    - Fix Unicode decoding crash in autopartitioner (closes: Malone #41621).
+      Shuffle around a couple of workarounds elsewhere into better places.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 26 Apr 2006 12:42:01 +0100
 

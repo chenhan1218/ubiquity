@@ -228,6 +228,7 @@ class FilteredCommand(object):
         raise ValueError, value
 
     def preseed(self, name, value, seen=True):
+        value = value.encode("UTF-8", "ignore")
         try:
             self.db.set(name, value)
         except debconf.DebconfError:

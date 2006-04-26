@@ -751,7 +751,7 @@ class Wizard:
     def get_disk_choice (self):
         print "  get_disk_choice (self): " + str(self.part_disk_buttongroup.selected().text())
         id = self.part_disk_buttongroup.id( self.part_disk_buttongroup.selected() )
-        return self.autopartition_buttongroup_texts[id]
+        return unicode(self.autopartition_buttongroup_texts[id])
 
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
         print "  set_autopartition_choices (self, choices, resize_choice, manual_choice):"
@@ -811,7 +811,7 @@ class Wizard:
     def get_autopartition_choice (self):
         print "  get_autopartition_choice (self): "
         id = self.autopartition_buttongroup.id( self.autopartition_buttongroup.selected() )
-        return self.autopartition_buttongroup_texts[id].encode("utf-8", "ignore")
+        return unicode(self.autopartition_buttongroup_texts[id])
 
     def set_autopartition_resize_min_percent (self, min_percent):
         print "  set_autopartition_resize_min_percent (self, min_percent):"
@@ -823,7 +823,7 @@ class Wizard:
         return self.new_size_scale.value()
 
     def get_hostname (self):
-        return self.userinterface.hostname.text()
+        return unicode(self.userinterface.hostname.text())
 
     def get_mountpoints (self):
         return dict(self.mountpoints)
