@@ -1,3 +1,11 @@
+ubiquity (0.99.69) UNRELEASED; urgency=low
+
+  * GTK frontend:
+    - Make sure labels don't end up in the focus chain, despite being
+      selectable.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 27 Apr 2006 00:17:06 +0100
+
 ubiquity (0.99.68) dapper; urgency=low
 
   [ Tollef Fog Heen ]
