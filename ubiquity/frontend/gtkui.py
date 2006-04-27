@@ -514,7 +514,8 @@ class Wizard:
         self.current_page = None
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
-        gtk.main_quit()
+        if gtk.main_level() > 0:
+            gtk.main_quit()
 
 
     # Callbacks
