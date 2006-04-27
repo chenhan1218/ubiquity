@@ -1,4 +1,4 @@
-apt-setup 1:0.4ubuntu6
+apt-setup 1:0.10ubuntu1
 base-installer 1.42ubuntu10
 choose-mirror 1.17ubuntu9
 debian-installer-utils 1.22ubuntu7
@@ -8,7 +8,7 @@ kbd-chooser 1.23ubuntu15
 localechooser 0.27ubuntu16
 partconf 1.11
 partman-auto 45ubuntu9
-partman-base 78ubuntu2
+partman-base 78ubuntu3
 partman-basicfilesystems 46ubuntu4
 partman-basicmethods 29
 partman-efi 9.1

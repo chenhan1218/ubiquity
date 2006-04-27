@@ -1755,7 +1755,7 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             <cstring>ready_text</cstring>
                         </property>
                         <property name="enabled">
-                            <bool>false</bool>
+                            <bool>true</bool>
                         </property>
                         <property name="sizePolicy">
                             <sizepolicy>
@@ -1764,6 +1764,9 @@ You must mount one partition on the root file system ("/"), and you must choose 
                                 <horstretch>0</horstretch>
                                 <verstretch>1</verstretch>
                             </sizepolicy>
+                        </property>
+                        <property name="readOnly">
+                            <bool>true</bool>
                         </property>
                     </widget>
                     <spacer row="3" column="1" rowspan="1" colspan="3">
@@ -1920,6 +1923,23 @@ You must mount one partition on the root file system ("/"), and you must choose 
         <data format="PNG" length="1727">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af400000686494441545885e5975b6c54d71586bf7399b1c7e31966ec61c66318c6066c27be810173712004e24293224a11c4216ee22454912a912a10456d42dba8512bb5efa8aa94362a44aaaaf4a12ff429511ff2d056b24a25d49098402da49a4bb0c79761983967dffa70f0c4a5e162d42a0fddd292ced967edb5fff5afb5ffad631963f83287fda5ee0eb800ef59d6a2171a7852c38f8188819f01bf5e6c8c678c09003cc0e6ad966dbdbbeed9a186507d94d177defd855ff6c72cf8f362633d100001afb7f6f53474bcf916b82126c73ead39fbc1873f0ac113805a4cac45f78081fe1ad779a6f3f08b4008666ed0393444345ab7dd873d12b85f7b200012de58f5f8b66872c757a030058529ea573f4cd7ee9d6109df5710f99f0150f064245abbaf6364043470e30694cb50ba49c7e02089c6e4061f9e370153f7b42a80fb740e2938deb67b9068571f140a018062116667a989a7e8d93e8082571434fed71910f0cd25a9e440c773cf41c58762112f93a192cf43a50233b33cb4710bcdb96c7b055e568b0170afec7550d7573a0fec239c5b05939fa1221144773762c306643a0dd3055c2bc4ba2d9b31f09284ac0ed6ded1ee1b80841752cbd2bdb9af7e0de68a70b30c6d6dd4d7d612b36decfe7e8cd63033434b2ecf8afcb2ac07afca80b93bdafd02c819f85ed7c1fd84534d30791dd3dc8c9f4a71ead4294e9c38c16c7d3d6cda04d3d338bea4bfb717dbb65f52b0f65e4de8b2e0e50eb57f39bb3a9fcb3fbe1b0ad3a014d6860d8c8e8e323232024072e952860f1c80f7df87cb13b4c493b4b5e662672f5e7a2d0cc3778b7f570634b4d98efd7cef5307b122b1e0dce772100ea3a5c4756f09a994e038b0752bcc15b18a25065a5aa9adad392860ab2290c7dbad0ae02ed91fcff7752f6ddafc084c15c075a1a70780c68606e2f13800d96c3658b07b372c5f0ed305b258f42ccb86caf0960677d14da8e0d1704de850cfd0d3584e38c8bebb1b62310032990c894482baba3a52a954102d1281a1a1401ba66678249124198decf0e0c05d19f882e6080b38b6ba7f6d3851035cb90cb138baadadca4e2a952293c9108fc7696c6cacce9b818180a5ebd7097b25d6e49721e09884980f2cb43b9640c0b6ba64e2eb6d6bdb99f9d54f29fcf227782b9aa0aeaeea63db364d4d4da4d36932994c75deaaa9c11b3ec447c52bfcf5ca055ae251324be2fd15f8c61d19b8ad36350ade6cdfd44778e21cfe9539bcda30a2b32b38eb0b463a9da6b9b9f9f36604b4d698c77670f3b147294d6b8ad7fec99ae634d8f6710d8d5f78172c1c129e4d34a5b7ad6a6da472eeef28079ceffc001a332821d00b4064b3595a5a5a3ea7df18949410ae65d96b3fc4898599bc3645b30bb978bcdd83a3fa36066ed781b882a3edfdbdd897ce2126057a703becdc839c2b623b365816aeeb62db36478e1c410851cd5c2985540ae115a9eddf4262df7e264efe96c9cfaed29b4a717176f6b030e66d0b2e554b390fc004b53f9c6ec975aec8d473f3933154d4453ef52d84b191be87901221044a297cdfe7cc99338c8e8e522a95d05a23a5444a89f07dfc8a4762e4306e438cc2d40d1ab4a023b9a4c983a3f312fd6f0014b4e0386f740fac475ff81bb2a8a80c3e81b7710762ba80effb550b85429c3e7d9a5dbb76b177ef5e4e9e3c89ebbad5ef4208fc99699cae5ee2c3c3480957a7aed3178f12b6ed6f0bd8fc1f3a20e05876f5ca54ca2a5119bf84ae77b9b1ff453ccfc7d30a5f1b8409ac2c044db91c6bd6afa7fde14e56b4aec4530a5feb0566f04a25ea0f1ec25d9a607ace877299ce782cecc1abf300e67ba0cb71dda7bbfabbf0cfff09a1c11885333e8658b10a0f0dd247fb615cd745946fd2b1b295dfffee3d9494241b924c5dbb1af4c0ad32f9be8fc0a2fce97964c547035766e6e86d48f251d1d95b526a27f047cb18c3cf2deb9d8e8d6b5fe8cbc799fbcb87681bb402e98691cbdbd0c6c21850d8c11d612c34168e13421ba8f8026540198332066940698dc6a672691c315744dbe029c8c7a24c58361fcc16fff01b63f60407d8b6772e6f4e612e7f8c1baf47034a832515cef8272803521b50a08cc66830062a0ab4097c95066582777440ab3110762c9c5a17adc0b50cb3658fa6ba0811cb5a572d81d2faecf8d878dee97808d9a0304aa3a5c2688dd106ad145a6bb4d218a5b1b4c6560a576b94d6584ae3288dd60aa3027fb3c0bfba566b6cadb9e0f90863fe510560c3eb631f5f0c9d1f9fe83396a5953126504583c1421b13b082b9558af9ebda0459df12a179355518b4997fbee55bfd09368eafcd050bbe0b60fddfff1dff0bd903a510de040b010000000049454e44ae426082</data>
     </image>
 </images>
+<tabstops>
+    <tabstop>ready_text</tabstop>
+    <tabstop>back</tabstop>
+    <tabstop>next</tabstop>
+    <tabstop>cancel</tabstop>
+    <tabstop>new_size_scale</tabstop>
+    <tabstop>language_treeview</tabstop>
+    <tabstop>timezone_city_combo</tabstop>
+    <tabstop>timezone_time_adjust</tabstop>
+    <tabstop>keyboardlistview</tabstop>
+    <tabstop>entry1</tabstop>
+    <tabstop>fullname</tabstop>
+    <tabstop>username</tabstop>
+    <tabstop>password</tabstop>
+    <tabstop>verified_password</tabstop>
+    <tabstop>hostname</tabstop>
+</tabstops>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
     <includehint>klistview.h</includehint>

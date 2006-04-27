@@ -188,6 +188,8 @@ class Install:
         apt_pkg.Config.Set("Dir", "/target")
         apt_pkg.Config.Set("APT::GPGV::TrustedKeyring",
                            "/target/etc/apt/trusted.gpg")
+        apt_pkg.Config.Set("Acquire::gpgv::Options::",
+                           "--ignore-time-conflict")
         apt_pkg.Config.Set("DPkg::Options::", "--root=/target")
         # We don't want apt-listchanges or dpkg-preconfigure, so just clear
         # out the list of pre-installation hooks.
@@ -233,48 +235,48 @@ class Install:
 
         self.db.progress('SET', 81)
         self.db.progress('REGION', 81, 82)
+        self.db.progress('INFO', 'ubiquity/install/network')
+        if not self.configure_network():
+            self.db.progress('STOP')
+            return False
+
+        self.db.progress('SET', 82)
+        self.db.progress('REGION', 82, 83)
         self.db.progress('INFO', 'ubiquity/install/apt')
         if not self.configure_apt():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 82)
-        self.db.progress('REGION', 82, 86)
+        self.db.progress('SET', 83)
+        self.db.progress('REGION', 83, 87)
         # Ignore failures from language pack installation.
         self.install_language_packs()
 
-        self.db.progress('SET', 86)
-        self.db.progress('REGION', 86, 87)
+        self.db.progress('SET', 87)
+        self.db.progress('REGION', 87, 88)
         self.db.progress('INFO', 'ubiquity/install/timezone')
         if not self.configure_timezone():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 87)
-        self.db.progress('REGION', 87, 89)
+        self.db.progress('SET', 88)
+        self.db.progress('REGION', 88, 90)
         self.db.progress('INFO', 'ubiquity/install/keyboard')
         if not self.configure_keyboard():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 89)
-        self.db.progress('REGION', 89, 90)
+        self.db.progress('SET', 90)
+        self.db.progress('REGION', 90, 91)
         self.db.progress('INFO', 'ubiquity/install/user')
         if not self.configure_user():
             self.db.progress('STOP')
             return False
 
-        self.db.progress('SET', 90)
-        self.db.progress('REGION', 90, 94)
+        self.db.progress('SET', 91)
+        self.db.progress('REGION', 91, 95)
         self.db.progress('INFO', 'ubiquity/install/hardware')
         if not self.configure_hardware():
-            self.db.progress('STOP')
-            return False
-
-        self.db.progress('SET', 94)
-        self.db.progress('REGION', 94, 95)
-        self.db.progress('INFO', 'ubiquity/install/network')
-        if not self.configure_network():
             self.db.progress('STOP')
             return False
 
@@ -303,6 +305,8 @@ class Install:
         if not self.copy_logs():
             self.db.progress('STOP')
             return False
+
+        self.cleanup()
 
         self.db.progress('SET', 100)
         self.db.progress('STOP')
@@ -541,6 +545,15 @@ class Install:
 
     def configure_apt(self):
         """Configure /etc/apt/sources.list."""
+
+        # Avoid clock skew causing gpg verification issues.
+        # This file will be left in place until the end of the install.
+        apt_conf_itc = open(os.path.join(
+            self.target, 'etc/apt/apt.conf.d/00IgnoreTimeConflict'), 'w')
+        print >>apt_conf_itc, ('Acquire::gpgv::Options {'
+                               ' "--ignore-time-conflict"; };')
+        apt_conf_itc.close()
+
         dbfilter = apt_setup.AptSetup(None)
         return (dbfilter.run_command(auto_process=True) == 0)
 
@@ -726,7 +739,8 @@ class Install:
         self.chrex('mount', '-t', 'proc', 'proc', '/proc')
         self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
 
-        packages = ['linux-image-' + self.kernel_version]
+        packages = ['linux-image-' + self.kernel_version,
+                    'linux-restricted-modules-' + self.kernel_version]
 
         try:
             for package in packages:
@@ -1051,10 +1065,12 @@ class Install:
             os.path.exists("/cdrom/casper/filesystem.manifest")):
             desktop_packages = set()
             for line in open("/cdrom/casper/filesystem.manifest-desktop"):
-                desktop_packages.add(line.split()[0])
+                if line.strip() != '' and not line.startswith('#'):
+                    desktop_packages.add(line.split()[0])
             live_packages = set()
             for line in open("/cdrom/casper/filesystem.manifest"):
-                live_packages.add(line.split()[0])
+                if line.strip() != '' and not line.startswith('#'):
+                    live_packages.add(line.split()[0])
             difference = live_packages - desktop_packages
         else:
             difference = set()
@@ -1070,6 +1086,12 @@ class Install:
             return True
 
         return self.do_remove(difference)
+
+
+    def cleanup(self):
+        """Miscellaneous cleanup tasks."""
+        os.unlink(os.path.join(
+            self.target, 'etc/apt/apt.conf.d/00IgnoreTimeConflict'))
 
 
     def chrex(self, *args):

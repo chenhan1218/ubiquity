@@ -44,7 +44,7 @@ import time
 import datetime
 import glob
 import subprocess
-import thread
+import traceback
 import xml.sax.saxutils
 
 import gettext
@@ -93,6 +93,8 @@ import pango
 class Wizard:
 
     def __init__(self, distro):
+        sys.excepthook = self.excepthook
+
         # declare attributes
         self.distro = distro
         self.current_keyboard = None
@@ -134,15 +136,6 @@ class Wizard:
         # To get a "busy mouse":
         self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
 
-        # useful dicts to manage UI data
-        self.entries = {
-            'hostname' : 0,
-            'fullname' : 0,
-            'username' : 0,
-            'password' : 0,
-            'verified_password' : 0
-        }
-
         # set custom language
         self.set_locales()
 
@@ -159,6 +152,23 @@ class Wizard:
         self.translate_widgets()
 
         self.customize_installer()
+
+
+    def excepthook(self, exctype, excvalue, exctb):
+        """Crash handler."""
+
+        if (issubclass(exctype, KeyboardInterrupt) or
+            issubclass(exctype, SystemExit)):
+            return
+
+        tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
+        print >>sys.stderr, ("Exception in GTK frontend"
+                             " (invoking crash handler):")
+        print >>sys.stderr, tbtext
+        self.crash_detail_label.set_text(tbtext)
+        self.crash_dialog.run()
+        self.crash_dialog.hide()
+        sys.exit(1)
 
 
     def run(self):
@@ -575,14 +585,6 @@ class Wizard:
         """check if all entries from Identification screen are filled. Callback
         defined in glade file."""
 
-        # each entry is saved as 1 when it's filled and as 0 when it's empty. This
-        #     callback is launched when these widgets are modified.
-        counter = 0
-        if widget.get_text() != '':
-            self.entries[widget.get_name()] = 1
-        else:
-            self.entries[widget.get_name()] = 0
-
         if widget.get_name() == 'username' and not self.hostname_edited:
             if self.laptop:
                 hostname_suffix = '-laptop'
@@ -594,10 +596,12 @@ class Wizard:
             self.hostname.handler_unblock(self.hostname_insert_text_id)
             self.hostname.handler_unblock(self.hostname_delete_text_id)
 
-        if len(filter(lambda v: v == 1, self.entries.values())) == 5:
-            self.next.set_sensitive(True)
-        else:
-            self.next.set_sensitive(False)
+        complete = True
+        for name in ('fullname', 'username', 'password', 'verified_password',
+                     'hostname'):
+            if getattr(self, name).get_text() == '':
+                complete = False
+        self.next.set_sensitive(complete)
 
     def on_hostname_delete_text(self, widget, start, end):
         self.hostname_edited = True

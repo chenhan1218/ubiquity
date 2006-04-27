@@ -30,13 +30,14 @@ from kdeui import *
 from kdecore import *
 #import kdedesigner
 from ubiquity.frontend.liveinstaller import UbiquityUIBase
+from ubiquity.frontend.crashdialog import CrashDialog
 
 import os
 import time
 import datetime
 import glob
 import subprocess
-import thread
+import traceback
 import xml.sax.saxutils
 
 import gettext
@@ -104,6 +105,8 @@ class Wizard:
 
     def __init__(self, distro):
         print "  init(distro)"
+        sys.excepthook = self.excepthook
+
         about=KAboutData("kubuntu-ubiquity","Installer","0.1","Live CD Installer for Kubuntu",KAboutData.License_GPL,"(c) 2006 Canonical Ltd", "http://wiki.kubuntu.org/KubuntuUbiquity", "jriddell@ubuntu.com")
         about.addAuthor("Jonathan Riddell", None,"jriddell@ubuntu.com")
         KCmdLineArgs.init(["./installer"],about)
@@ -157,15 +160,6 @@ class Wizard:
         # To get a "busy mouse":
         #FIXME self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
     
-        # useful dicts to manage UI data
-        self.entries = {
-            'hostname' : 0,
-            'fullname' : 0,
-            'username' : 0,
-            'password' : 0,
-            'verified_password' : 0
-        }
-    
         # If automatic partitioning fails, it may be disabled toggling on this variable:
         self.discard_automatic_partitioning = False
         
@@ -187,6 +181,22 @@ class Wizard:
         self.embed = QXEmbed(self.userinterface.qtparted_frame, "embed")
         self.embed.setProtocol(QXEmbed.XPLAIN)
         print "init end"
+
+    def excepthook(self, exctype, excvalue, exctb):
+        """Crash handler."""
+
+        if (issubclass(exctype, KeyboardInterrupt) or
+            issubclass(exctype, SystemExit)):
+            return
+
+        tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
+        print >>sys.stderr, ("Exception in KDE frontend"
+                             " (invoking crash handler):")
+        print >>sys.stderr, tbtext
+        dialog = CrashDialog(self.userinterface)
+        dialog.crash_detail.setText(tbtext)
+        dialog.exec_loop()
+        sys.exit(1)
 
     def run(self):
         """run the interface."""
@@ -215,18 +225,18 @@ class Wizard:
         self.app.connect(self.userinterface.widgetStack, SIGNAL("aboutToShow(int)"), self.on_steps_switch_page)
         self.app.connect(self.userinterface.keyboardlistview, SIGNAL("selectionChanged()"), self.on_keyboard_selected)
         
-        self.app.connect(self.userinterface.fullname, SIGNAL("textChanged(const QString &)"), self.info_loop)
-        self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.info_loop)
-        self.app.connect(self.userinterface.password, SIGNAL("textChanged(const QString &)"), self.info_loop)
-        self.app.connect(self.userinterface.verified_password, SIGNAL("textChanged(const QString &)"), self.info_loop)
-        self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.info_loop)
+        self.app.connect(self.userinterface.fullname, SIGNAL("textChanged(const QString &)"), self.on_fullname_changed)
+        self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.on_username_changed)
+        self.app.connect(self.userinterface.password, SIGNAL("textChanged(const QString &)"), self.on_password_changed)
+        self.app.connect(self.userinterface.verified_password, SIGNAL("textChanged(const QString &)"), self.on_verified_password_changed)
+        self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.on_hostname_changed)
         self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.on_hostname_insert_text)
         
-        self.app.connect(self.userinterface.fullname, SIGNAL("selectionChanged()"), self.info_loop)
-        self.app.connect(self.userinterface.username, SIGNAL("selectionChanged()"), self.info_loop)
-        self.app.connect(self.userinterface.password, SIGNAL("selectionChanged()"), self.info_loop)
-        self.app.connect(self.userinterface.verified_password, SIGNAL("selectionChanged()"), self.info_loop)
-        self.app.connect(self.userinterface.hostname, SIGNAL("selectionChanged()"), self.info_loop)
+        self.app.connect(self.userinterface.fullname, SIGNAL("selectionChanged()"), self.on_fullname_changed)
+        self.app.connect(self.userinterface.username, SIGNAL("selectionChanged()"), self.on_username_changed)
+        self.app.connect(self.userinterface.password, SIGNAL("selectionChanged()"), self.on_password_changed)
+        self.app.connect(self.userinterface.verified_password, SIGNAL("selectionChanged()"), self.on_verified_password_changed)
+        self.app.connect(self.userinterface.hostname, SIGNAL("selectionChanged()"), self.on_hostname_changed)
         
         self.app.connect(self.userinterface.language_treeview, SIGNAL("selectionChanged()"), self.on_language_treeview_selection_changed)
 
@@ -334,22 +344,22 @@ class Wizard:
         if isinstance(widget, QLabel):
             name = widget.name()
             if 'heading_label' in name:
-                print "text: " + text
-                widget.setText(unicode("<h2>" + text + "</h2>", "UTF-8"))
+                print "text: " + text.encode("utf-8")
+                widget.setText("<h2>" + text + "</h2>")
             elif 'extra_label' in name:
-                widget.setText(unicode("<em>" + text + "</em>", "UTF-8"))
+                widget.setText("<em>" + text + "</em>")
             elif name in ('drives_label', 'partition_method_label',
                           'mountpoint_label', 'size_label', 'device_label',
                           'format_label'):
-                widget.setText(unicode("<strong>" + text + "</strong>", "UTF-8"))
+                widget.setText("<strong>" + text + "</strong>")
             else:
-                widget.setText(unicode(text, "UTF-8"))
+                widget.setText(text)
 
         elif isinstance(widget, QPushButton):
-            widget.setText(unicode(text, "UTF-8"))
+            widget.setText(text)
 
         elif isinstance(widget, QWidget) and widget.name() == UbiquityUI:
-            widget.setCaption(unicode(text, "UTF-8"))
+            widget.setCaption(text)
 
     def show_intro(self):
         """Show some introductory text, if available."""
@@ -464,31 +474,40 @@ class Wizard:
                     self.add_mountpoint_table_row()
             index += 1
 
-    def info_loop(self):
+    def info_loop(self, widget):
         print "  info_loop(self, widget):"
-        """check if all entries from Identification screen are filled. Callback
-        defined in glade file."""
+        """check if all entries from Identification screen are filled."""
 
-        # each entry is saved as 1 when it's filled and as 0 when it's empty. This
-        #     callback is launched when these widgets are modified.
-        counter = 0
-        for widget in [self.userinterface.fullname, self.userinterface.username, self.userinterface.password, self.userinterface.verified_password, self.userinterface.hostname]:
-            if widget.text() != '':
-                self.entries[widget.name()] = 1
+        if widget.name() == 'username' and not self.hostname_edited:
+            if self.laptop:
+                hostname_suffix = '-laptop'
             else:
-                self.entries[widget.name()] = 0
+                hostname_suffix = '-desktop'
+            self.userinterface.hostname.blockSignals(True)
+            self.userinterface.hostname.setText(unicode(widget.text()) + hostname_suffix)
+            self.userinterface.hostname.blockSignals(False)
 
-            if widget.name() == 'username' and not self.hostname_edited:
-                if self.laptop:
-                    hostname_suffix = '-laptop'
-                else:
-                    hostname_suffix = '-desktop'
-                self.userinterface.hostname.setText(unicode(widget.text()) + hostname_suffix)
+        complete = True
+        for name in ('fullname', 'username', 'password', 'verified_password',
+                     'hostname'):
+            if getattr(self.userinterface, name).text() == '':
+                complete = False
+        self.userinterface.next.setEnabled(complete)
 
-        if len(filter(lambda v: v == 1, self.entries.values())) == 5:
-            self.userinterface.next.setEnabled(True)
-        else:
-            self.userinterface.next.setEnabled(False)
+    def on_fullname_changed(self):
+        self.info_loop(self.userinterface.fullname)
+
+    def on_username_changed(self):
+        self.info_loop(self.userinterface.username)
+
+    def on_password_changed(self):
+        self.info_loop(self.userinterface.password)
+
+    def on_verified_password_changed(self):
+        self.info_loop(self.userinterface.verified_password)
+
+    def on_hostname_changed(self):
+        self.info_loop(self.userinterface.hostname)
 
     def on_hostname_insert_text(self):
         print "  on_hostname_insert_text(self):"
@@ -1503,27 +1522,27 @@ class Wizard:
 
     def set_fullname(self, value):
         print "  set_fullname(self, value):"
-        self.userinterface.fullname.setText(str(value))
+        self.userinterface.fullname.setText(unicode(value, "UTF-8"))
 
     def get_fullname(self):
         print "  get_fullname(self):"
-        return str(self.userinterface.fullname.text())
+        return unicode(self.userinterface.fullname.text())
 
     def set_username(self, value):
         print "  set_username(self, value):"
-        self.userinterface.fullname.setText(str(value))
+        self.userinterface.username.setText(unicode(value, "UTF-8"))
 
     def get_username(self):
         print "  get_username(self):"
-        return str(self.userinterface.username.text())
+        return unicode(self.userinterface.username.text())
   
     def get_password(self):
         print "  get_password(self):"
-        return str(self.userinterface.password.text())
+        return unicode(self.userinterface.password.text())
   
     def get_verified_password(self):
         print "  get_verified_password(self):"
-        return str(self.userinterface.verified_password.text())
+        return unicode(self.userinterface.verified_password.text())
 
     def username_error(self, msg):
         print "  username_error(self, msg):"
