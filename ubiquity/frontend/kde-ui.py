@@ -28,6 +28,7 @@ import sys
 from qt import *
 from kdeui import *
 from kdecore import *
+from kio import KRun
 #import kdedesigner
 from ubiquity.frontend.liveinstaller import UbiquityUIBase
 from ubiquity.frontend.crashdialog import CrashDialog
@@ -194,9 +195,16 @@ class Wizard:
                              " (invoking crash handler):")
         print >>sys.stderr, tbtext
         dialog = CrashDialog(self.userinterface)
+        dialog.connect(dialog.beastie_url, SIGNAL("leftClickedURL(const QString&)"), self.openURL)
         dialog.crash_detail.setText(tbtext)
         dialog.exec_loop()
         sys.exit(1)
+
+    def openURL(self, url):
+        print "openURL(self, url):" + str(url)
+        #need to run this else kdesu can't run Konqueror
+        subprocess.Popen(['su', 'ubuntu', 'xhost', '+localhost'])
+        KRun.runURL(KURL(url), "text/html")
 
     def run(self):
         """run the interface."""
