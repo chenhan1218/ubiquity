@@ -6,6 +6,7 @@ ubiquity (0.99.71) dapper; urgency=low
     - Don't show blank choices in set_disk_choices
     - Delay auto-partitioning until after final step
     - Set busy cursor and disable buttons between steps
+    - Fix reboot
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 27 Apr 2006 19:25:27 +0000
 
