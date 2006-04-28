@@ -141,6 +141,7 @@
 		      <child>
 			<widget class="GtkLabel" id="welcome_heading_label">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Welcome&lt;/b&gt;&lt;/big&gt;</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">True</property>
@@ -178,6 +179,7 @@
 			<widget class="GtkLabel" id="welcome_text_label">
 			  <property name="width_request">600</property>
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">Ready to install? Once you answer a few questions, the contents of the live CD can be installed on this computer so you can run the system at full speed and without the CD.
 
 Answering the questions should only take a few minutes.
@@ -287,6 +289,7 @@ Please choose the language used for the installation process. This language will
 		      <child>
 			<widget class="GtkLabel" id="timezone_heading_label">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Where are you?&lt;/b&gt;&lt;/big&gt;</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">True</property>
@@ -324,6 +327,7 @@ Please choose the language used for the installation process. This language will
 			<widget class="GtkLabel" id="timezone_comment_label">
 			  <property name="width_request">600</property>
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">Select a city in your country and time zone.</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
@@ -399,6 +403,7 @@ Please choose the language used for the installation process. This language will
 				  <child>
 				    <widget class="GtkLabel" id="timezone_city_label">
 				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
 				      <property name="label" translatable="yes">Selected city:</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">False</property>
@@ -427,6 +432,7 @@ Please choose the language used for the installation process. This language will
 				  <child>
 				    <widget class="GtkLabel" id="timezone_zone_label">
 				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
 				      <property name="label" translatable="yes">Time zone:</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">False</property>
@@ -455,6 +461,7 @@ Please choose the language used for the installation process. This language will
 				  <child>
 				    <widget class="GtkLabel" id="timezone_time_label">
 				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
 				      <property name="label" translatable="yes">Current time:</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">False</property>
@@ -503,6 +510,7 @@ Please choose the language used for the installation process. This language will
 				  <child>
 				    <widget class="GtkLabel" id="timezone_country_label">
 				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
 				      <property name="label" translatable="yes">Selected region:</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">False</property>
@@ -682,6 +690,7 @@ Please choose the language used for the installation process. This language will
 		      <child>
 			<widget class="GtkLabel" id="keyboard_heading_label">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Keyboard layout&lt;/b&gt;&lt;/big&gt;</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">True</property>
@@ -718,6 +727,7 @@ Please choose the language used for the installation process. This language will
 		      <child>
 			<widget class="GtkLabel" id="keyboard_comment_label">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">Which layout is most similar to your keyboard?</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
@@ -807,6 +817,7 @@ Please choose the language used for the installation process. This language will
 				<widget class="GtkLabel" id="keyboard_test_label">
 				  <property name="width_request">600</property>
 				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
 				  <property name="label" translatable="yes">You can type into this box to test your new keyboard layout.</property>
 				  <property name="use_underline">False</property>
 				  <property name="use_markup">False</property>
@@ -910,6 +921,7 @@ Please choose the language used for the installation process. This language will
 		      <child>
 			<widget class="GtkLabel" id="userinfo_heading_label">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Who are you?&lt;/b&gt;&lt;/big&gt;</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">True</property>
@@ -964,6 +976,7 @@ Please choose the language used for the installation process. This language will
 				  <child>
 				    <widget class="GtkLabel" id="fullname_label">
 				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
 				      <property name="label" translatable="yes">What is your name?</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">False</property>
@@ -1105,6 +1118,7 @@ Please choose the language used for the installation process. This language will
 				  <child>
 				    <widget class="GtkLabel" id="username_label">
 				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
 				      <property name="label" translatable="yes">What name do you want to use to log in?</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">False</property>
@@ -1237,6 +1251,7 @@ Please choose the language used for the installation process. This language will
 					    <widget class="GtkLabel" id="username_extra_label">
 					      <property name="width_request">650</property>
 					      <property name="visible">True</property>
+					      <property name="can_focus">True</property>
 					      <property name="label" translatable="yes">&lt;i&gt;If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/i&gt;</property>
 					      <property name="use_underline">False</property>
 					      <property name="use_markup">True</property>
@@ -1284,6 +1299,7 @@ Please choose the language used for the installation process. This language will
 				  <child>
 				    <widget class="GtkLabel" id="password_label">
 				      <property name="visible">True</property>
+				      <property name="can_focus">True</property>
 				      <property name="label" translatable="yes">Choose a password to keep your account safe.</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">False</property>
@@ -1450,6 +1466,7 @@ Please choose the language used for the installation process. This language will
 					    <widget class="GtkLabel" id="password_extra_label">
 					      <property name="width_request">650</property>
 					      <property name="visible">True</property>
+					      <property name="can_focus">True</property>
 					      <property name="label" translatable="yes">&lt;i&gt;Enter the same password twice, so that it can be checked for typing errors.&lt;/i&gt;</property>
 					      <property name="use_underline">False</property>
 					      <property name="use_markup">True</property>
@@ -1504,6 +1521,7 @@ Please choose the language used for the installation process. This language will
 			      <child>
 				<widget class="GtkLabel" id="hostname_label">
 				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
 				  <property name="label" translatable="yes">What is the name of this computer?</property>
 				  <property name="use_underline">False</property>
 				  <property name="use_markup">False</property>
@@ -1636,6 +1654,7 @@ Please choose the language used for the installation process. This language will
 					<widget class="GtkLabel" id="hostname_extra_label">
 					  <property name="width_request">650</property>
 					  <property name="visible">True</property>
+					  <property name="can_focus">True</property>
 					  <property name="label" translatable="yes">&lt;i&gt;This name will be used if you make the computer visible to others on a network.&lt;/i&gt;</property>
 					  <property name="use_underline">False</property>
 					  <property name="use_markup">True</property>
@@ -1720,6 +1739,7 @@ Please choose the language used for the installation process. This language will
 		      <child>
 			<widget class="GtkLabel" id="part_disk_heading_label">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Select a disk&lt;/b&gt;&lt;/big&gt;</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">True</property>
@@ -1757,6 +1777,7 @@ Please choose the language used for the installation process. This language will
 			<widget class="GtkLabel" id="part_disk_comment_label">
 			  <property name="width_request">600</property>
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">You can have the installer automatically create space in various ways on any one of the following hard disks. Alternatively, you can partition the disks manually.</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
@@ -1845,6 +1866,7 @@ Please choose the language used for the installation process. This language will
 		      <child>
 			<widget class="GtkLabel" id="part_auto_heading_label">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Prepare disk space&lt;/b&gt;&lt;/big&gt;</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">True</property>
@@ -1881,6 +1903,7 @@ Please choose the language used for the installation process. This language will
 		      <child>
 			<widget class="GtkLabel" id="part_auto_comment_label">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">How do you want to partition the disk?</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
@@ -1958,6 +1981,7 @@ Please choose the language used for the installation process. This language will
 			      <child>
 				<widget class="GtkLabel" id="new_size_label">
 				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
 				  <property name="label">New partition size:</property>
 				  <property name="use_underline">False</property>
 				  <property name="use_markup">False</property>
@@ -2076,6 +2100,7 @@ Please choose the language used for the installation process. This language will
 		      <child>
 			<widget class="GtkLabel" id="part_advanced_heading_label">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Prepare partitions&lt;/b&gt;&lt;/big&gt;</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">True</property>
@@ -2135,6 +2160,7 @@ Please choose the language used for the installation process. This language will
 		      <child>
 			<widget class="GtkLabel" id="partition_help">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">Make sure to allocate space for a root partition (&quot;/&quot;), with a minimum size of 1.5 GB, and a swap partition of at least 256 MB.</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
@@ -2196,6 +2222,7 @@ Please choose the language used for the installation process. This language will
 		      <child>
 			<widget class="GtkLabel" id="part_mountpoints_heading_label">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Prepare mount points&lt;/b&gt;&lt;/big&gt;</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">True</property>
@@ -2232,6 +2259,7 @@ Please choose the language used for the installation process. This language will
 		      <child>
 			<widget class="GtkLabel" id="mount_help">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">Select which partitions you want to use for your new installation, and where you want to mount each of them.
 
 You must mount one partition on the root file system (&quot;/&quot;), and you must choose at least one partition for use as swap space.</property>
@@ -2280,6 +2308,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 			      <child>
 				<widget class="GtkLabel" id="mountpoint_label">
 				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
 				  <property name="label" translatable="yes">&lt;b&gt;Mount Point&lt;/b&gt;</property>
 				  <property name="use_underline">False</property>
 				  <property name="use_markup">True</property>
@@ -2307,6 +2336,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 			      <child>
 				<widget class="GtkLabel" id="size_label">
 				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
 				  <property name="label" translatable="yes">&lt;b&gt;Size&lt;/b&gt;</property>
 				  <property name="use_underline">False</property>
 				  <property name="use_markup">True</property>
@@ -2334,6 +2364,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 			      <child>
 				<widget class="GtkLabel" id="device_label">
 				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
 				  <property name="label" translatable="yes">&lt;b&gt;Partition&lt;/b&gt;</property>
 				  <property name="use_underline">False</property>
 				  <property name="use_markup">True</property>
@@ -2361,6 +2392,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 			      <child>
 				<widget class="GtkLabel" id="format_label">
 				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
 				  <property name="label" translatable="yes">&lt;b&gt;Reformat?&lt;/b&gt;</property>
 				  <property name="use_underline">False</property>
 				  <property name="use_markup">True</property>
@@ -2418,6 +2450,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 
 			  <child>
 			    <widget class="GtkLabel" id="mountpoint_error_reason">
+			      <property name="can_focus">True</property>
 			      <property name="label" translatable="yes">You must supply a root (&quot;/&quot;) mount point.</property>
 			      <property name="use_underline">False</property>
 			      <property name="use_markup">True</property>
@@ -2486,6 +2519,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 		      <child>
 			<widget class="GtkLabel" id="ready_heading_label">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Ready to install&lt;/b&gt;&lt;/big&gt;</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">True</property>
@@ -2522,6 +2556,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 		      <child>
 			<widget class="GtkLabel" id="ready_description_label">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">The live CD is ready to be installed on this computer.</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
@@ -2686,6 +2721,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 		      <child>
 			<widget class="GtkLabel" id="lblStepNofM">
 			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
 			  <property name="label" translatable="yes">Step N of M</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
@@ -2900,6 +2936,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 		  <child>
 		    <widget class="GtkLabel" id="warning_dialog_label">
 		      <property name="visible">True</property>
+		      <property name="can_focus">True</property>
 		      <property name="label" translatable="yes">Do you really want to abort the installation now?</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">False</property>
@@ -3034,6 +3071,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 		  <child>
 		    <widget class="GtkLabel" id="abort_dialog_label">
 		      <property name="visible">True</property>
+		      <property name="can_focus">True</property>
 		      <property name="label" translatable="yes">It was not possible to partition this disk automatically. You must select another partitioning method.</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">False</property>
@@ -3095,6 +3133,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
       <child>
 	<widget class="GtkLabel" id="progress_title">
 	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
 	  <property name="label">&lt;big&gt;&lt;b&gt;Progress bar title&lt;/b&gt;&lt;/big&gt;</property>
 	  <property name="use_underline">False</property>
 	  <property name="use_markup">True</property>
@@ -3143,6 +3182,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 	  <child>
 	    <widget class="GtkLabel" id="progress_info">
 	      <property name="visible">True</property>
+	      <property name="can_focus">True</property>
 	      <property name="label">&lt;i&gt;Progress bar info&lt;/i&gt;</property>
 	      <property name="use_underline">False</property>
 	      <property name="use_markup">True</property>
@@ -3259,6 +3299,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
       <child>
 	<widget class="GtkLabel" id="finished_label">
 	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
 	  <property name="label" translatable="yes">Installation is complete. You need to restart the computer in order to use the new installation. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.
 
 Make sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system.</property>
@@ -3392,6 +3433,7 @@ Make sure to remove the CD when restarting the computer, otherwise it will start
 	      <child>
 		<widget class="GtkLabel" id="crash_text_label">
 		  <property name="visible">True</property>
+		  <property name="can_focus">True</property>
 		  <property name="label" translatable="yes">We're sorry; the installer crashed. Please file a bug report at https://launchpad.net/distros/ubuntu/+source/ubiquity/+filebug and a developer will attend to the problem as soon as possible. To help the developers understand what went wrong, include the following detail in your bug report:</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">False</property>

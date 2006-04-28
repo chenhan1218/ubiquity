@@ -51,7 +51,7 @@ class Partman(FilteredCommand):
         self.manual_partitioning = False
         self.backup_from_new_size = False
 
-        questions = ['^partman-auto/disk$',
+        questions = ['^partman-auto/select_disk$',
                      '^partman-auto/.*automatically_partition$',
                      '^partman-partitioning/new_size$',
                      '^partman/choose_partition$',
@@ -159,7 +159,7 @@ class Partman(FilteredCommand):
 
         self.current_question = question
 
-        if question == 'partman-auto/disk':
+        if question == 'partman-auto/select_disk':
             self.manual_desc = \
                 self.description('partman-auto/text/custom_partitioning')
             if not self.frontend.set_disk_choices(self.choices(question),
@@ -207,7 +207,7 @@ class Partman(FilteredCommand):
             return True
 
     def ok_handler(self):
-        if self.current_question == 'partman-auto/disk':
+        if self.current_question == 'partman-auto/select_disk':
             disk_choice = self.frontend.get_disk_choice()
             # Don't preseed_as_c, because Perl debconf is buggy in that it
             # doesn't expand variables in the result of METAGET choices-c.

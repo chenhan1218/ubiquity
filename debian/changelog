@@ -1,4 +1,4 @@
-ubiquity (0.99.69) dapper; urgency=low
+ubiquity (0.99.71) dapper; urgency=low
 
   * KDE Frontend:
     - Order methods to match gtkui
@@ -6,6 +6,25 @@ ubiquity (0.99.69) dapper; urgency=low
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 27 Apr 2006 19:25:27 +0000
 
+ubiquity (0.99.70) UNRELEASED; urgency=low
+
+  * Ignore errors from locale.setlocale() in timezone component too (closes:
+    Malone #41846).
+  * Account for preseeding changes in partman-auto 45ubuntu10.
+  * Escape passwords when sending them to debconf (closes: Malone #37934).
+    Requires debconf (>= 1.4.72) and won't work with cdebconf yet.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Apr 2006 10:22:57 +0100
+
+ubiquity (0.99.69) dapper; urgency=low
+
+  * GTK frontend:
+    - Make sure labels don't end up in the focus chain, despite being
+      selectable.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 27 Apr 2006 00:19:51 +0100
+
+>>>>>>> MERGE-SOURCE
 ubiquity (0.99.68) dapper; urgency=low
 
   [ Tollef Fog Heen ]

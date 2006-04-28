@@ -148,6 +148,14 @@ class Wizard:
         # get widgets
         for widget in self.glade.get_widget_prefix(""):
             setattr(self, widget.get_name(), widget)
+            # We generally want labels to be selectable so that people can
+            # easily report problems in them
+            # (https://launchpad.net/bugs/41618), but GTK+ likes to put
+            # selectable labels in the focus chain, and I can't seem to turn
+            # this off in glade and have it stick. Accordingly, make sure
+            # labels are unfocusable here.
+            if isinstance(widget, gtk.Label):
+                widget.set_property('can-focus', False)
 
         self.translate_widgets()
 
