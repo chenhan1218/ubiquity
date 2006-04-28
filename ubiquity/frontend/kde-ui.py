@@ -1402,16 +1402,19 @@ class Wizard:
         self.manual_choice = manual_choice
         firstbutton = None
         for choice in choices:
-            button = QRadioButton(choice, self.userinterface.part_disk_frame)
-            self.part_disk_buttongroup.insert(button)
-            id = self.part_disk_buttongroup.id(button)
-            #Qt changes the string by adding accelarators, 
-            #so keep pristine string here as is returned later to partman
-            self.part_disk_buttongroup_texts[id] = choice
-            if firstbutton is None:
-                 firstbutton = button
-            self.part_disk_vbox.addWidget(button)
-            button.show()
+            if choice == '':
+                pass  #FIXME add a spacer
+            else:
+                button = QRadioButton(choice, self.userinterface.part_disk_frame)
+                self.part_disk_buttongroup.insert(button)
+                id = self.part_disk_buttongroup.id(button)
+                #Qt changes the string by adding accelarators, 
+                #so keep pristine string here as is returned later to partman
+                self.part_disk_buttongroup_texts[id] = choice
+                if firstbutton is None:
+                    firstbutton = button
+                self.part_disk_vbox.addWidget(button)
+                button.show()
 
         if firstbutton is not None:
             firstbutton.setChecked(True)

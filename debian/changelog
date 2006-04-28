@@ -3,6 +3,7 @@ ubiquity (0.99.71) dapper; urgency=low
   * KDE Frontend:
     - Order methods to match gtkui
     - Some fixes to crashdialogue
+    - Don't show blank choices in set_disk_choices
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 27 Apr 2006 19:25:27 +0000
 
