@@ -1,3 +1,10 @@
+ubiquity (0.99.70) UNRELEASED; urgency=low
+
+  * Ignore errors from locale.setlocale() in timezone component too (closes:
+    Malone #41846).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Apr 2006 10:22:57 +0100
+
 ubiquity (0.99.69) dapper; urgency=low
 
   * GTK frontend:
