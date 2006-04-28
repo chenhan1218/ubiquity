@@ -1487,14 +1487,71 @@ class Wizard:
         return dict(self.mountpoints)
 
     def confirm_partitioning_dialog (self, title, description):
-        # TODO merge with gtk
         print "  confirm_partitioning_dialog (self, title, description):"
-        response = QMessageBox.question(self.userinterface, title, description, "Yes", "No", QString.null, 1, 1)
-        
-        if response == 0:
-            return True
+        # TODO cjwatson 2006-03-10: Duplication of page logic; I think some
+        # of this can go away once we reorganise page handling not to invoke
+        # a main loop for each page.
+        #self.live_installer.window.set_cursor(self.watch)
+        self.userinterface.next.setText("Install") # TODO i18n
+        self.previous_partitioning_page = self.get_current_page()
+        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
+
+        save_dbfilter = self.dbfilter
+        save_backup = self.backup
+        self.dbfilter = summary.Summary(self, description)
+        self.backup = False
+
+        # Since the partitioner is still running, we need to use a different
+        # database to run the summary page. Fortunately, nothing we set in
+        # the summary script needs to persist, so we can just use a
+        # throwaway database.
+        save_replace, save_override = None, None
+        if 'DEBCONF_DB_REPLACE' in os.environ:
+            save_replace = os.environ['DEBCONF_DB_REPLACE']
+        if 'DEBCONF_DB_OVERRIDE' in os.environ:
+            save_override = os.environ['DEBCONF_DB_OVERRIDE']
+        os.environ['DEBCONF_DB_REPLACE'] = 'configdb'
+        os.environ['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
+        self.dbfilter.run_command(auto_process=True)
+        if save_replace is None:
+            del os.environ['DEBCONF_DB_REPLACE']
         else:
+            os.environ['DEBCONF_DB_REPLACE'] = save_replace
+        if save_override is None:
+            del os.environ['DEBCONF_DB_OVERRIDE']
+        else:
+            os.environ['DEBCONF_DB_OVERRIDE'] = save_override
+
+        self.dbfilter = save_dbfilter
+
+        if self.current_page is None:
+            print "current page none, install cancelled"
+            # installation cancelled; partman should return ASAP after this
             return False
+
+        if self.backup:
+            self.userinterface.widgetStack.raiseWidget(self.previous_partitioning_page)
+            self.userinterface.next.setText("Next >")
+            return False
+        # TODO should this not just force self.backup = False?
+        self.backup = save_backup
+
+        # The user said OK, so we're going to start the installation proper
+        # now. We therefore have to put up the installation progress bar,
+        # return control to partman to do the partitioning in a region of
+        # that, and then let whatever started partman drop through to
+        # progress_loop.
+        # Yes, the control flow is pretty tortuous here. Sorry!
+
+        #self.live_installer.hide()
+        self.current_page = None
+        self.debconf_progress_start(
+            0, 100, get_string('ubiquity/install/title', self.locale))
+        self.debconf_progress_region(0, 15)
+        self.installing = True
+
+        return True
+
 
     def set_keyboard_choices(self, choicemap):
         print "  set_keyboard_choices(self, choicemap):"
@@ -1541,8 +1598,16 @@ class Wizard:
 
     def error_dialog (self, msg):
         print "  error_dialog (self, msg):"
+        #self.live_installer.window.set_cursor(None)
         # TODO: cancel button as well if capb backup
         QMessageBox.warning(self.userinterface, "Error", msg, QMessageBox.Ok)
+        if self.installing:
+            # Go back to the autopartitioner and try again.
+            # TODO self.previous_partitioning_page
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
+            #self.next.set_label("gtk-go-forward")
+            self.backup = True
+            self.installing = False
 
     def refresh (self):
         print "  refresh (self):"
