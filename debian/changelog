@@ -4,6 +4,7 @@ ubiquity (0.99.71) dapper; urgency=low
     - Order methods to match gtkui
     - Some fixes to crashdialogue
     - Don't show blank choices in set_disk_choices
+    - Delay auto-partitioning until after final step
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 27 Apr 2006 19:25:27 +0000
 
