@@ -5,6 +5,7 @@ import sys
 import os
 import signal
 import subprocess
+import re
 import debconf
 try:
     from debconf import DebconfCommunicator
@@ -227,14 +228,24 @@ class FilteredCommand(object):
                 return i
         raise ValueError, value
 
-    def preseed(self, name, value, seen=True):
+    def escape(self, text):
+        escaped = text.replace('\\', '\\\\').replace('\n', '\\n')
+        return re.sub(r'(\s)', r'\\\1', escaped)
+
+    def preseed(self, name, value, seen=True, escape=False):
+        if escape:
+            value = self.escape(value)
         value = value.encode("UTF-8", "ignore")
+        if escape:
+            self.db.capb('escape')
         try:
             self.db.set(name, value)
         except debconf.DebconfError:
             self.db.register('debian-installer/dummy', name)
             self.db.set(name, value)
             self.db.subst(name, 'ID', name)
+        if escape:
+            self.db.capb('')
 
         if seen:
             self.db.fset(name, 'seen', 'true')

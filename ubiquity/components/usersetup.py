@@ -50,9 +50,10 @@ class UserSetup(FilteredCommand):
         self.preseed('passwd/user-fullname', fullname.encode("UTF-8"))
         self.preseed('passwd/username', username.encode("UTF-8"))
         # TODO: maybe encrypt these first
-        self.preseed('passwd/user-password', password.encode("UTF-8"))
+        self.preseed('passwd/user-password',
+                     password.encode("UTF-8"), escape=True)
         self.preseed('passwd/user-password-again',
-                     password_confirm.encode("UTF-8"))
+                     password_confirm.encode("UTF-8"), escape=True)
         self.preseed('passwd/user-uid', '')
 
         super(UserSetup, self).ok_handler()
