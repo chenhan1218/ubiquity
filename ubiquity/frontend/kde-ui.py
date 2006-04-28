@@ -203,7 +203,7 @@ class Wizard:
     def openURL(self, url):
         print "openURL(self, url):" + str(url)
         #need to run this else kdesu can't run Konqueror
-        subprocess.Popen(['su', 'ubuntu', 'xhost', '+localhost'])
+        subprocess.call(['su', 'ubuntu', 'xhost', '+localhost'])
         KRun.runURL(KURL(url), "text/html")
 
     def run(self):
@@ -522,7 +522,7 @@ class Wizard:
         #FIXME jr self.debconf_progress_window.hide()
 
         self.installing = False
-        quitText = """Ubuntu is now installed on your computer. You need to restart the computer in order to use it. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.\n\nMake sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system."""
+        quitText = """Kubuntu is now installed on your computer. You need to restart the computer in order to use it. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.\n\nMake sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system."""
         
         quitAnswer = QMessageBox.question(self.userinterface, "Finished", quitText, "Quit", "Reboot")
 
@@ -541,11 +541,12 @@ class Wizard:
         print "  do_reboot(self):"
         """Callback for main program to actually reboot the machine."""
 
-        if (os.path.exists("/usr/bin/ksmserver") and
-            os.path.exists("/usr/bin/dcop")):
-            subprocess.call(["dcop", "ksmserver", "ksmserver", "logout", "1", "1", "1"])
-        else:
-            subprocess.call(["reboot"])
+        # can't seem to be able to call dcop from kdesu (even if I su back to ubuntu user)
+        #if (os.path.exists("/usr/bin/ksmserver") and
+        #    os.path.exists("/usr/bin/dcop")):
+        #    subprocess.call(["dcop", "ksmserver", "ksmserver", "logout", "1", "1", "1"])
+        #else:
+        subprocess.call(["reboot"])
 
     def quit(self):
         print "  quit(self):"
