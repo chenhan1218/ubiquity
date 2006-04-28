@@ -1,10 +1,18 @@
 ubiquity (0.99.70) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Ignore errors from locale.setlocale() in timezone component too (closes:
     Malone #41846).
   * Account for preseeding changes in partman-auto 45ubuntu10.
   * Escape passwords when sending them to debconf (closes: Malone #37934).
     Requires debconf (>= 1.4.72) and won't work with cdebconf yet.
+
+  [ Jonathan Riddell ]
+  * KDE Frontend:
+    - Order methods to match gtkui
+    - Some fixes to crashdialogue
+    - Don't show blank choices in set_disk_choices
+    - Delay auto-partitioning until after final step
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Apr 2006 10:22:57 +0100
 

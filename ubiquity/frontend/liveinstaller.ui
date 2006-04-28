@@ -1755,7 +1755,7 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             <cstring>ready_text</cstring>
                         </property>
                         <property name="enabled">
-                            <bool>false</bool>
+                            <bool>true</bool>
                         </property>
                         <property name="sizePolicy">
                             <sizepolicy>
@@ -1764,6 +1764,9 @@ You must mount one partition on the root file system ("/"), and you must choose 
                                 <horstretch>0</horstretch>
                                 <verstretch>1</verstretch>
                             </sizepolicy>
+                        </property>
+                        <property name="readOnly">
+                            <bool>true</bool>
                         </property>
                     </widget>
                     <spacer row="3" column="1" rowspan="1" colspan="3">
