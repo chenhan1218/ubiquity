@@ -113,33 +113,6 @@ class DebconfInstallProgress(InstallProgress):
         self.db.subst(self.info, 'DESCRIPTION', status)
         self.db.progress('INFO', self.info)
 
-    def updateInterface(self):
-        # TODO cjwatson 2006-02-28: InstallProgress.updateInterface doesn't
-        # give us a handy way to spot when percentages/statuses change and
-        # aren't pmerror/pmconffile, so we have to reimplement it here.
-        if self.statusfd != None:
-            try:
-                while not self.read.endswith("\n"):
-                    self.read += os.read(self.statusfd.fileno(),1)
-            except OSError, (err,errstr):
-                # resource temporarily unavailable is ignored
-                if err != errno.EAGAIN:
-                    print errstr
-            if self.read.endswith("\n"):
-                s = self.read
-                (status, pkg, percent, status_str) = s.split(":", 3)
-                if status == "pmerror":
-                    self.error(pkg, status_str)
-                elif status == "pmconffile":
-                    # we get a string like this:
-                    # 'current-conffile' 'new-conffile' useredited distedited
-                    match = re.compile("\s*\'(.*)\'\s*\'(.*)\'.*").match(status_str)
-                    if match:
-                        self.conffile(match.group(1), match.group(2))
-                else:
-                    self.statusChange(pkg, float(percent), status_str.strip())
-                self.read = ""
-
     def run(self, pm):
         pid = self.fork()
         if pid == 0:
@@ -196,6 +169,66 @@ class Install:
         apt_pkg.Config.Clear("DPkg::Pre-Install-Pkgs")
         apt_pkg.InitSystem()
 
+
+    def check_for_updated_version(self):
+        self.db.progress('START', 0, 100, 'ubiquity/update_check/title')
+        self.db.progress('UPDATE_CHECK', 0, 50)
+
+        fetchprogress = DebconfFetchProgress(
+            self.db, 'ubiquity/update_check/title',
+            'ubiquity/install/apt_indices_starting',
+            'ubiquity/install/apt_indices')
+        cache = Cache()
+        try:
+            if not cache.update(fetchprogress):
+                fetchprogress.stop()
+                self.db.progress('STOP')
+                return True
+        except IOError, e:
+            print >>sys.stderr, e
+            sys.stderr.flush()
+            self.db.progress('STOP')
+            return False
+        cache.open(None)
+        self.db.progress('SET', 50)
+
+        # FIXME: this should probably go into the debconf db or something
+        espresso_pkgs = ["ubiquity","ubiquity-casper","ubiquity-frontend-gtk"
+                         "ubiquity-frontend-kde","ubiquity-ubuntu-artwork"]
+        upgradable = filter(lambda pkg: cache.has_key(pkg) and cache[pkg].isUpgradable, espresso_pkgs)
+        if len(upgradable) > 0:
+            # FIXME: this should probably be refactored into a
+            # "generic_install" method so that the code can be
+            # shared with the language-pack install
+            fetchprogress = DebconfFetchProgress(
+                self.db, 'ubiquity/update_check/title', None,
+                'ubiquity/langpacks/packages')
+            installprogress = DebconfInstallProgress(
+                self.db, 'ubiquity/update_check/title',
+                'ubiquity/install/apt_info',
+                'ubiquity/install/apt_error_install')
+            map(lambda pkg: pkg.markInstall, upgradable)
+            try:
+                if not cache.commit(fetchprogress, installprogress):
+                    fetchprogress.stop()
+                    installprogress.finishUpdate()
+                    self.db.progress('STOP')
+                    return True
+            except IOError, e:
+                print >>sys.stderr, e
+                sys.stderr.flush()
+                self.db.progress('STOP')
+                return False
+            except SystemError, e:
+                print >>sys.stderr, e
+                sys.stderr.flush()
+                self.db.progress('STOP')
+                return False
+            self.db.progress('SET', 100)
+            self.db.progress('STOP')
+        return True
+
+
     def run(self):
         """Run the install stage: copy everything to the target system, then
         configure it as necessary."""
@@ -206,6 +239,11 @@ class Install:
             if not self.mount_source():
                 self.db.progress('STOP')
                 return False
+            # HACK to test the stuff
+            if not check_for_updated_version():
+                self.db.progress('STOP')
+                return False
+               
 
         self.db.progress('SET', 1)
         self.db.progress('REGION', 1, 78)
@@ -642,26 +680,7 @@ class Install:
         self.record_installed(to_install)
 
         self.db.progress('START', 0, 100, 'ubiquity/langpacks/title')
-
-        self.db.progress('REGION', 0, 10)
-        fetchprogress = DebconfFetchProgress(
-            self.db, 'ubiquity/langpacks/title',
-            'ubiquity/install/apt_indices_starting',
-            'ubiquity/install/apt_indices')
         cache = Cache()
-        try:
-            # update() returns False on failure and 0 on success. Madness!
-            if cache.update(fetchprogress) not in (0, True):
-                fetchprogress.stop()
-                self.db.progress('STOP')
-                return True
-        except IOError, e:
-            print >>sys.stderr, e
-            sys.stderr.flush()
-            self.db.progress('STOP')
-            return False
-        cache.open(None)
-        self.db.progress('SET', 10)
 
         self.db.progress('REGION', 10, 100)
         fetchprogress = DebconfFetchProgress(
