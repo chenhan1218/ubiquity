@@ -46,6 +46,7 @@ import glob
 import subprocess
 import traceback
 import xml.sax.saxutils
+import apt, apt_pkg
 
 import gettext
 
@@ -87,8 +88,61 @@ BREADCRUMB_STEPS = {
 }
 BREADCRUMB_MAX_STEP = 7
 
+MAGIC_MARKER="/var/run/ubiquity.updated"
+ESPRESSO_PKGS = ["ubiquity","ubiquity-casper","ubiquity-frontend-gtk"
+                 "ubiquity-frontend-kde","ubiquity-ubuntu-artwork" ]
+
+
 # For the font wibbling later
 import pango
+
+class CacheProgressDebconfProgressAdapter(apt.progress.OpProgress):
+    def __init__(self, parent):
+        self.parent = parent
+        self.parent.progress_title.set_markup("<big><b>%s</b></big>"%_("Reading package information"))
+    def update(self, percent):
+        self.parent.progress_bar.set_fraction(percent/100.0)
+        while gtk.events_pending():
+            gtk.main_iteration()
+
+class FetchProgressDebconfProgressAdapter(apt.progress.FetchProgress):
+    def __init__(self, parent):
+        apt.progress.FetchProgress.__init__(self)
+        self.parent = parent
+        self.parent.progress_title.set_markup("<big><b>%s</b></big>"%_("Updating package information"))
+    def pulse(self):
+        apt.progress.FetchProgress.pulse(self)
+        if self.currentCPS > 0:
+            self.parent.progress_info.set_text(_("File %s of %s at %s/s" % (self.currentItems+1,self.totalItems,apt_pkg.SizeToStr(self.currentCPS))))
+        else:
+            self.parent.progress_info.set_text(_("File %s of %s" % (self.currentItems+1,self.totalItems)))
+        self.parent.progress_bar.set_fraction(self.percent/100.0)
+        while gtk.events_pending():
+            gtk.main_iteration()
+        return True
+    def stop(self):
+        self.parent.debconf_progress_window.hide()
+    def start(self):
+        self.parent.progress_bar.set_fraction(0.0)
+        self.parent.debconf_progress_window.show()
+
+class InstallProgressDebconfProgressAdapter(apt.progress.InstallProgress):
+    def __init__(self, parent):
+        apt.progress.InstallProgress.__init__(self)
+        self.parent = parent
+        self.parent.progress_title.set_markup("<big><b>%s</b></big>"%_("Installing update"))
+    def statusChange(self, pkg, percent, status):
+        self.parent.progress_bar.set_fraction(percent/100.0)
+    def startUpdate(self):
+        self.parent.progress_info.set_text("")
+        self.parent.progress_bar.set_fraction(0.0)
+        self.parent.debconf_progress_window.show()
+    def finishUpdate(self):
+        self.parent.debconf_progress_window.hide()
+    def updateInterface(self):
+        apt.progress.InstallProgress.updateInterface(self)
+        while gtk.events_pending():
+            gtk.main_iteration()
 
 class Wizard:
 
@@ -349,6 +403,44 @@ class Wizard:
         elif isinstance(widget, gtk.Window):
             widget.set_title(text)
 
+    def check_for_updates(self, cache):
+        """ helper that runs a apt-get update and returns the espresso
+            packages  that can be upgraded """
+        fetchprogress = FetchProgressDebconfProgressAdapter(self)
+        try:
+            cache.update(fetchprogress)
+            cache = apt.Cache(CacheProgressDebconfProgressAdapter(self))
+        except IOError, e:
+            print "ERROR: cache.update() returned: '%s'" % e
+            return []
+        return filter(lambda pkg: cache.has_key(pkg) and cache[pkg].isUpgradable, ESPRESSO_PKGS)
+
+    def on_update_this_installer(self, widget):
+        self.live_installer.set_sensitive(False)
+        self.debconf_progress_window.set_transient_for(self.live_installer)
+        # check if we have updates
+        cache = apt.Cache(CacheProgressDebconfProgressAdapter(self))
+        updates = self.check_for_updates(cache)
+        if len(updates) == 0:
+            # no updates
+            widget.set_sensitive(False)
+            self.live_installer.set_sensitive(True)
+            return
+        # install the updates
+        map(lambda pkg: cache[pkg].markInstall(), updates)
+        try:
+            res = cache.commit(FetchProgressDebconfProgressAdapter(self),
+                               InstallProgressDebconfProgressAdapter(self))
+        except (SystemError, IOError), e:
+            print "ERROR installing the update: '%s'" % e
+            self.live_installer.set_sensitive(True)
+            return
+
+        # all went well, write marker and restart self
+        # FIXME: we probably want some sort of in-between-restart-splash
+        #        or at least a dialog here
+        open(MAGIC_MARKER,"w").write("1")
+        os.execl(sys.argv[0])
 
     def show_intro(self):
         """Show some introductory text, if available."""
@@ -363,8 +455,13 @@ class Wizard:
             intro_file.close()
             self.stepWelcome.add(widget)
             widget.show()
-
-
+        # the update check button goes here
+        if not os.path.exists(MAGIC_MARKER):
+            button = gtk.Button(_("Update this installer"))
+            self.stepWelcome.pack_end(button, expand=False, fill=False)
+            button.show()
+            button.connect("clicked", self.on_update_this_installer)
+        
     def step_name(self, step_index):
         return self.steps.get_nth_page(step_index).get_name()
 
