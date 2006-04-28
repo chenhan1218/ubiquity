@@ -159,7 +159,7 @@ class Wizard:
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
     
         # To get a "busy mouse":
-        #FIXME self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
+        self.userinterface.setCursor(QCursor(Qt.WaitCursor))
     
         # If automatic partitioning fails, it may be disabled toggling on this variable:
         self.discard_automatic_partitioning = False
@@ -223,10 +223,9 @@ class Wizard:
         #self.show_browser()
         self.show_intro()
         
-        #FIXME self.live_installer.window.set_cursor(None)
+        self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
     
         # Declare SignalHandler
-        #FIXME self.glade.signal_autoconnect(self)
         self.app.connect(self.userinterface.next, SIGNAL("clicked()"), self.on_next_clicked)
         self.app.connect(self.userinterface.back, SIGNAL("clicked()"), self.on_back_clicked)
         self.app.connect(self.userinterface.cancel, SIGNAL("clicked()"), self.on_cancel_clicked)
@@ -281,7 +280,14 @@ class Wizard:
             print "checking if dbfilter in not None"
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 print "dbfilter.start"
+                self.userinterface.setCursor(QCursor(Qt.WaitCursor))
                 self.dbfilter.start(auto_process=True)
+            else:
+                self.userinterface.next.setEnabled(True)
+                if not (current_name == "stepIntro" or current_name == "stepLanguage"):
+                    self.userinterface.back.setEnabled(True)
+                self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
+
             print "mainloop"
             self.app.exec_loop()
             print "end mainloop"
@@ -323,8 +329,6 @@ class Wizard:
         self.logo_image.set_from_file(logo)
         self.photo.set_from_file(photo)
         """
-
-        #self.live_installer.window.set_cursor(self.watch)
 
         self.tzmap = TimezoneMap(self)
         #self.tzmap.tzmap.show()
@@ -661,7 +665,9 @@ class Wizard:
 
         step = self.step_name(self.get_current_page())
         print "step: " + step
-
+        self.userinterface.setCursor(QCursor(Qt.WaitCursor))
+        self.userinterface.next.setEnabled(False)
+        self.userinterface.back.setEnabled(False)
         if step == "stepKeyboardConf":
             print "is stepUserInfo"
             self.userinterface.fullname_error_image.hide()
@@ -1070,7 +1076,8 @@ class Wizard:
         # Setting actual step
         step = self.step_name(self.get_current_page())
         print "step: " + step
-
+        self.userinterface.setCursor(QCursor(Qt.WaitCursor))
+        
         changed_page = False
 
         if step == "stepLocation":
@@ -1491,7 +1498,7 @@ class Wizard:
         # TODO cjwatson 2006-03-10: Duplication of page logic; I think some
         # of this can go away once we reorganise page handling not to invoke
         # a main loop for each page.
-        #self.live_installer.window.set_cursor(self.watch)
+        self.userinterface.setCursor(QCursor(Qt.WaitCursor))
         self.userinterface.next.setText("Install") # TODO i18n
         self.previous_partitioning_page = self.get_current_page()
         self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
@@ -1598,7 +1605,7 @@ class Wizard:
 
     def error_dialog (self, msg):
         print "  error_dialog (self, msg):"
-        #self.live_installer.window.set_cursor(None)
+        self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
         # TODO: cancel button as well if capb backup
         QMessageBox.warning(self.userinterface, "Error", msg, QMessageBox.Ok)
         if self.installing:
@@ -1619,6 +1626,11 @@ class Wizard:
     # Run the UI's main loop until it returns control to us.
     def run_main_loop (self):
         print "  run_main_loop()"
+        self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
+        self.userinterface.next.setEnabled(True)
+        step = self.step_name(self.get_current_page())
+        if not (step == "stepIntro" or step == "stepLanguage"):
+            self.userinterface.back.setEnabled(True)
         self.app.exec_loop()
 
     # Return control to the next level up.
