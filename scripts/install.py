@@ -113,33 +113,6 @@ class DebconfInstallProgress(InstallProgress):
         self.db.subst(self.info, 'DESCRIPTION', status)
         self.db.progress('INFO', self.info)
 
-    def updateInterface(self):
-        # TODO cjwatson 2006-02-28: InstallProgress.updateInterface doesn't
-        # give us a handy way to spot when percentages/statuses change and
-        # aren't pmerror/pmconffile, so we have to reimplement it here.
-        if self.statusfd != None:
-            try:
-                while not self.read.endswith("\n"):
-                    self.read += os.read(self.statusfd.fileno(),1)
-            except OSError, (err,errstr):
-                # resource temporarily unavailable is ignored
-                if err != errno.EAGAIN:
-                    print errstr
-            if self.read.endswith("\n"):
-                s = self.read
-                (status, pkg, percent, status_str) = s.split(":", 3)
-                if status == "pmerror":
-                    self.error(pkg, status_str)
-                elif status == "pmconffile":
-                    # we get a string like this:
-                    # 'current-conffile' 'new-conffile' useredited distedited
-                    match = re.compile("\s*\'(.*)\'\s*\'(.*)\'.*").match(status_str)
-                    if match:
-                        self.conffile(match.group(1), match.group(2))
-                else:
-                    self.statusChange(pkg, float(percent), status_str.strip())
-                self.read = ""
-
     def run(self, pm):
         pid = self.fork()
         if pid == 0:
@@ -650,8 +623,7 @@ class Install:
             'ubiquity/install/apt_indices')
         cache = Cache()
         try:
-            # update() returns False on failure and 0 on success. Madness!
-            if cache.update(fetchprogress) not in (0, True):
+            if not cache.update(fetchprogress):
                 fetchprogress.stop()
                 self.db.progress('STOP')
                 return True
