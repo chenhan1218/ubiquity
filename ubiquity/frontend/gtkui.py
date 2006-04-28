@@ -418,6 +418,7 @@ class Wizard:
     def on_update_this_installer(self, widget):
         self.live_installer.set_sensitive(False)
         self.debconf_progress_window.set_transient_for(self.live_installer)
+        self.debconf_progress_window.set_title(_("Checking for updates"))
         # check if we have updates
         cache = apt.Cache(CacheProgressDebconfProgressAdapter(self))
         updates = self.check_for_updates(cache)
