@@ -73,6 +73,7 @@ class PartedServer(object):
             ret = ['']
         else:
             ret = [''] * count
+            count -= 1
         pieces = line.split(None, count)
         ret[0:len(pieces)] = pieces
         return ret
