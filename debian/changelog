@@ -2,6 +2,8 @@ ubiquity (0.99.71) UNRELEASED; urgency=low
 
   * Fix line splitting in parted_server bindings, particularly affecting
     partitions with whitespace in their names (closes: Malone #41768).
+  * Drop duplicate encode("UTF-8") calls while preseeding passwd/* (closes:
+    Malone #42097).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 29 Apr 2006 14:57:45 +0100
 
