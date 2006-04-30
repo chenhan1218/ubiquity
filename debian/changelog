@@ -1,24 +1,37 @@
-ubiquity (0.99.71) dapper; urgency=low
+ubiquity (0.99.71) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
+  * Fix line splitting in parted_server bindings, particularly affecting
+    partitions with whitespace in their names (closes: Malone #41768).
+  * Drop duplicate encode("UTF-8") calls while preseeding passwd/* (closes:
+    Malone #42097).
+
+  [ Jonathan Riddell ]
   * KDE Frontend:
-    - Order methods to match gtkui
-    - Some fixes to crashdialogue
-    - Don't show blank choices in set_disk_choices
-    - Delay auto-partitioning until after final step
     - Set busy cursor and disable buttons between steps
     - Fix reboot
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 27 Apr 2006 19:25:27 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 29 Apr 2006 14:57:45 +0100
 
-ubiquity (0.99.70) UNRELEASED; urgency=low
+ubiquity (0.99.70) dapper; urgency=low
 
+  [ Colin Watson ]
   * Ignore errors from locale.setlocale() in timezone component too (closes:
     Malone #41846).
   * Account for preseeding changes in partman-auto 45ubuntu10.
   * Escape passwords when sending them to debconf (closes: Malone #37934).
     Requires debconf (>= 1.4.72) and won't work with cdebconf yet.
+  * Automatic update of included source packages: debian-installer-utils
+    1.22ubuntu8, partman-auto 45ubuntu10.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Apr 2006 10:22:57 +0100
+  [ Jonathan Riddell ]
+  * KDE Frontend:
+    - Order methods to match gtkui
+    - Some fixes to crashdialogue
+    - Don't show blank choices in set_disk_choices (closes: Malone #41868)
+    - Delay auto-partitioning until after final step
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Apr 2006 21:24:16 +0100
 
 ubiquity (0.99.69) dapper; urgency=low
 
@@ -28,7 +41,6 @@ ubiquity (0.99.69) dapper; urgency=low
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 27 Apr 2006 00:19:51 +0100
 
->>>>>>> MERGE-SOURCE
 ubiquity (0.99.68) dapper; urgency=low
 
   [ Tollef Fog Heen ]
