@@ -12,6 +12,7 @@ ubiquity (0.99.71) UNRELEASED; urgency=low
     - Fix reboot
     - Fix get_disk_choice, Closes Malone #41865
     - Fix unicode problem in get_disk_choice, Closes Malone #41893
+    - Disable new_size_frame
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 29 Apr 2006 14:57:45 +0100
 
