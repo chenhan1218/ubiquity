@@ -222,7 +222,6 @@ class Wizard:
         # current dapper (https://bugzilla.ubuntu.com/show_bug.cgi?id=20338).
         #self.show_browser()
         self.show_intro()
-        
         self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
     
         # Declare SignalHandler
@@ -412,27 +411,13 @@ class Wizard:
 
         disable_swap()
 
-        #label.show()
-        self.qtparted_process = KProcess(self.app)
-        self.qtparted_process.setExecutable("/usr/sbin/qtparted")
-        self.qtparted_process.setArguments(["--installer"])
-        self.app.connect(self.qtparted_process, SIGNAL("receivedStdout(KProcess*, char*, int)"), self.qtparted_stdout)
-        self.app.connect(self.qtparted_process, SIGNAL("processExited(KProcess*)"), self.qtparted_exited)
-        started = self.qtparted_process.start(KProcess.NotifyOnExit, KProcess.All)
-        print "started: " + str(started)
+        self.qtparted_subp = subprocess.Popen(
+            ['/usr/sbin/qtparted', '--installer'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+        qtparted_winid = self.qtparted_subp.stdout.readline().rstrip('\n')
+        self.embed.embed( int(qtparted_winid) )
+        self.embed.resize(250,250)
+        self.qtparted_vbox.addWidget(self.embed)
 
-        """
-
-        socket = gtk.Socket()
-        socket.show()
-        self.embedded.add(socket)
-        window_id = str(socket.get_id())
-
-        # Save pid to kill gparted when install process starts
-        self.gparted_subp = subprocess.Popen(
-            ['gparted', '--installer', window_id],
-            stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
-        """
     def set_size_msg(self, widget):
         """return a string message with size value about
         the partition target by widget argument."""
@@ -802,24 +787,14 @@ class Wizard:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
             ##self.next.set_label("Install") # TODO i18n
 
-    def qtparted_stdout(self, proc, output, bufflen):
-            print " qtparted_stdout " + output
-            self.embed.embed( int(output) )
-            self.embed.resize(250,250)
-            self.qtparted_vbox.addWidget(self.embed)
-
-    def qtparted_exited(self, proc):
-        print "qtparted_exited"
-
     def gparted_to_mountpoints(self):
         """Processing gparted to mountpoints step tasks."""
 
         self.gparted_fstype = {}
         
-        self.qtparted_process.writeStdin("apply", 5)
-        """
         print >>self.gparted_subp.stdin, "apply"
 
+        """
         # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
         gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
         while gparted_reply.startswith('- '):
@@ -832,12 +807,12 @@ class Wizard:
 
         if not gparted_reply.startswith('0 '):
             return
+        """
 
         # Shut down gparted
-        self.gparted_subp.stdin.close()
-        self.gparted_subp.wait()
-        self.gparted_subp = None
-        """
+        self.qtparted_subp.stdin.close()
+        self.qtparted_subp.wait()
+        self.qtparted_subp = None
 
         self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
         mountLabel = QLabel("<b>Mount Point</b>", self.userinterface.mountpoint_frame)
