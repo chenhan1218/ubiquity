@@ -743,6 +743,7 @@ class Wizard:
         pre_log('info', 'Step_after = %s' % step)
 
     def process_identification (self):
+        print "  process_identification (self):"
         """Processing identification step tasks."""
 
         error_msg = []
@@ -1435,7 +1436,7 @@ class Wizard:
     def get_disk_choice (self):
         print "  get_disk_choice (self): " + str(self.part_disk_buttongroup.selected().text())
         id = self.part_disk_buttongroup.id( self.part_disk_buttongroup.selected() )
-        return unicode(self.autopartition_buttongroup_texts[id])
+        return unicode(self.part_disk_buttongroup_texts[id])
 
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
         print "  set_autopartition_choices (self, choices, resize_choice, manual_choice):"
