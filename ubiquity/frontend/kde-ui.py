@@ -1434,7 +1434,7 @@ class Wizard:
         return True
 
     def get_disk_choice (self):
-        print "  get_disk_choice (self): " + str(self.part_disk_buttongroup.selected().text())
+        print "  get_disk_choice (self): "
         id = self.part_disk_buttongroup.id( self.part_disk_buttongroup.selected() )
         return unicode(self.part_disk_buttongroup_texts[id])
 
