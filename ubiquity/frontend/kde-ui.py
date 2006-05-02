@@ -1293,12 +1293,12 @@ class Wizard:
             self.dbfilter = None
             self.app.exit()
 
-    def set_language_choices (self, choice_map):
-        print "  set_language_choices (self, choice_map):"
+    def set_language_choices (self, choices, choice_map):
+        print "  set_language_choices (self, choices, choice_map):"
         self.language_choice_map = dict(choice_map)
         self.userinterface.language_treeview.clear()
-        for key,value in self.language_choice_map.items():
-            self.userinterface.language_treeview.insertItem( KListViewItem(self.userinterface.language_treeview,QString(unicode(key))) )
+        for choice in choices:
+            self.userinterface.language_treeview.insertItem( KListViewItem(self.userinterface.language_treeview, QString(unicode(choice))) )
 
     def set_language (self, language):
         print "  set_language (self, language): " #+ language

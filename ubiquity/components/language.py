@@ -66,7 +66,16 @@ class Language(FilteredCommand):
                 if i == current_language_index:
                     current_language = choice
 
-            self.frontend.set_language_choices(language_display_map)
+            def compare_choice(x, y):
+                result = cmp(language_display_map[x][1],
+                             language_display_map[y][1])
+                if result != 0:
+                    return result
+                return cmp(x, y)
+
+            sorted_choices = sorted(language_display_map, compare_choice)
+            self.frontend.set_language_choices(sorted_choices,
+                                               language_display_map)
             self.frontend.set_language(current_language)
 
         return super(Language, self).run(priority, question)

@@ -1152,7 +1152,7 @@ class Wizard:
             gtk.main_quit()
 
 
-    def set_language_choices (self, choice_map):
+    def set_language_choices (self, choices, choice_map):
         self.language_choice_map = dict(choice_map)
         if len(self.language_treeview.get_columns()) < 1:
             column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
@@ -1163,7 +1163,7 @@ class Wizard:
                               self.on_language_treeview_selection_changed)
         list_store = gtk.ListStore(gobject.TYPE_STRING)
         self.language_treeview.set_model(list_store)
-        for choice in sorted(self.language_choice_map):
+        for choice in choices:
             list_store.append([choice])
 
 

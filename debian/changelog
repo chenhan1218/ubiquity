@@ -1,3 +1,13 @@
+ubiquity (0.99.72) UNRELEASED; urgency=low
+
+  * Sort languages by their ISO-639-1 code rather than by their localised
+    name; this seems to produce slightly better results for most languages
+    whose localised name begins with a non-ASCII name, and is consistent
+    with gfxboot. We can't really win here though, since there's no
+    universally-correct collation order (closes: Malone #39299).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue,  2 May 2006 18:34:54 +0100
+
 ubiquity (0.99.71) dapper; urgency=low
 
   [ Colin Watson ]
