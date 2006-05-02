@@ -16,6 +16,10 @@ ubiquity (0.99.71) UNRELEASED; urgency=low
     - Make qtparted use python subprocess instead of KProcess
     - Fix scrolling on crash dialogue
 
+  [ Stephan Hermann ]
+  * KDE Frontend:
+    - Fixed crash in kde-ui.py on amd64, closes Malone #41883
+
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 29 Apr 2006 14:57:45 +0100
 
 ubiquity (0.99.70) dapper; urgency=low

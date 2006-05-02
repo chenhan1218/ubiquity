@@ -1297,8 +1297,8 @@ class Wizard:
         print "  set_language_choices (self, choice_map):"
         self.language_choice_map = dict(choice_map)
         self.userinterface.language_treeview.clear()
-        for choice in sorted(self.language_choice_map):
-            self.userinterface.language_treeview.insertItem( QListViewItem(self.userinterface.language_treeview, choice) )
+        for key,value in self.language_choice_map.items():
+            self.userinterface.language_treeview.insertItem( KListViewItem(self.userinterface.language_treeview,QString(unicode(key))) )
 
     def set_language (self, language):
         print "  set_language (self, language): " #+ language
