@@ -5,6 +5,9 @@ ubiquity (0.99.71) UNRELEASED; urgency=low
     partitions with whitespace in their names (closes: Malone #41768).
   * Drop duplicate encode("UTF-8") calls while preseeding passwd/* (closes:
     Malone #42097).
+  * Set LC_COLLATE=C for debconffiltered subprocesses; some other collation
+    orderings confuse partman into mounting partitions the wrong way round
+    (closes: Malone #40395).
 
   [ Jonathan Riddell ]
   * KDE Frontend:

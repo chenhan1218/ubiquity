@@ -112,6 +112,7 @@ class FilteredCommand(object):
             def subprocess_setup():
                 for key, value in env.iteritems():
                     os.environ[key] = value
+                os.environ['LC_COLLATE'] = 'C'
                 # Python installs a SIGPIPE handler by default. This is bad
                 # for non-Python subprocesses, which need SIGPIPE set to the
                 # default action or else they won't notice if the
