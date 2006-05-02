@@ -7,7 +7,7 @@ hw-detect 1.32ubuntu5
 kbd-chooser 1.23ubuntu15
 localechooser 0.27ubuntu16
 partconf 1.11
-partman-auto 45ubuntu10
+partman-auto 45ubuntu11
 partman-base 78ubuntu3
 partman-basicfilesystems 46ubuntu4
 partman-basicmethods 29
@@ -20,7 +20,7 @@ partman-partitioning 37ubuntu2
 partman-reiserfs 28
 partman-target 41ubuntu0
 partman-xfs 27
-silo-installer 1.03ubuntu2
+silo-installer 1.03ubuntu3
 tzsetup 1:0.8ubuntu6
 user-setup 0.05ubuntu6
 yaboot-installer 1.1.4ubuntu3
