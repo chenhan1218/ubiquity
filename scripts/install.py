@@ -449,7 +449,7 @@ class Install:
             os.makedirs(os.path.dirname(target_log_file))
 
         if not misc.ex('cp', '-a', log_file, target_log_file):
-            misc.pre_log('error', 'No se pudieron copiar los registros de instalación')
+            misc.pre_log('error', 'Failed to copy installation log file')
         os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
 
         return True
