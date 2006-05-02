@@ -8,6 +8,9 @@ ubiquity (0.99.71) UNRELEASED; urgency=low
   * Set LC_COLLATE=C for debconffiltered subprocesses; some other collation
     orderings confuse partman into mounting partitions the wrong way round
     (closes: Malone #40395).
+  * GTK frontend:
+    - Disable back/forward buttons while waiting for debconffiltered
+      subprocesses (closes: Malone #41948).
 
   [ Jonathan Riddell ]
   * KDE Frontend:
