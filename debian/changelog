@@ -5,6 +5,7 @@ ubiquity (0.99.72) UNRELEASED; urgency=low
     whose localised name begins with a non-ASCII name, and is consistent
     with gfxboot. We can't really win here though, since there's no
     universally-correct collation order (closes: Malone #39299).
+  * Save /var/log/partman to installed system as /var/log/installer/partman.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue,  2 May 2006 18:34:54 +0100
 
