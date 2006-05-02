@@ -11,6 +11,8 @@ ubiquity (0.99.71) UNRELEASED; urgency=low
   * GTK frontend:
     - Disable back/forward buttons while waiting for debconffiltered
       subprocesses (closes: Malone #41948).
+    - Improve widget packing on resize (thanks, Xavier Claessens; closes:
+      Malone #40227).
 
   [ Jonathan Riddell ]
   * KDE Frontend:
