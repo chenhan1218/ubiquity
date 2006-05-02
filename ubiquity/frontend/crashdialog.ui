@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>491</width>
-            <height>478</height>
+            <width>471</width>
+            <height>483</height>
         </rect>
     </property>
     <property name="sizePolicy">
@@ -54,7 +54,7 @@
                         </sizepolicy>
                     </property>
                     <property name="text">
-                        <string>&lt;h2&gt;Installer crashed&lt;/h2&gt;</string>
+                        <string>&lt;h2&gt;Installer Crashed&lt;/h2&gt;</string>
                     </property>
                     <property name="alignment">
                         <set>AlignVCenter</set>
@@ -124,14 +124,14 @@
                     </property>
                     <property name="sizePolicy">
                         <sizepolicy>
-                            <hsizetype>5</hsizetype>
+                            <hsizetype>7</hsizetype>
                             <vsizetype>7</vsizetype>
                             <horstretch>0</horstretch>
                             <verstretch>1</verstretch>
                         </sizepolicy>
                     </property>
                     <property name="resizePolicy">
-                        <enum>AutoOne</enum>
+                        <enum>Manual</enum>
                     </property>
                     <property name="vScrollBarMode">
                         <enum>Auto</enum>
@@ -140,7 +140,7 @@
                         <enum>Auto</enum>
                     </property>
                     <property name="textFormat">
-                        <enum>PlainText</enum>
+                        <enum>AutoText</enum>
                     </property>
                     <property name="wordWrap">
                         <enum>NoWrap</enum>

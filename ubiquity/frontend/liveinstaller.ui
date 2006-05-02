@@ -1371,6 +1371,9 @@ Answering the questions should only take a few minutes.</string>
                         <property name="name">
                             <cstring>new_size_frame</cstring>
                         </property>
+                        <property name="enabled">
+                            <bool>false</bool>
+                        </property>
                         <property name="frameShape">
                             <enum>StyledPanel</enum>
                         </property>
@@ -1384,6 +1387,9 @@ Answering the questions should only take a few minutes.</string>
                             <widget class="QSlider" row="1" column="1">
                                 <property name="name">
                                     <cstring>new_size_scale</cstring>
+                                </property>
+                                <property name="enabled">
+                                    <bool>false</bool>
                                 </property>
                                 <property name="maxValue">
                                     <number>100</number>

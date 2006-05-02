@@ -159,7 +159,7 @@ class Wizard:
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
     
         # To get a "busy mouse":
-        #FIXME self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
+        self.userinterface.setCursor(QCursor(Qt.WaitCursor))
     
         # If automatic partitioning fails, it may be disabled toggling on this variable:
         self.discard_automatic_partitioning = False
@@ -203,7 +203,7 @@ class Wizard:
     def openURL(self, url):
         print "openURL(self, url):" + str(url)
         #need to run this else kdesu can't run Konqueror
-        subprocess.Popen(['su', 'ubuntu', 'xhost', '+localhost'])
+        subprocess.call(['su', 'ubuntu', 'xhost', '+localhost'])
         KRun.runURL(KURL(url), "text/html")
 
     def run(self):
@@ -222,11 +222,9 @@ class Wizard:
         # current dapper (https://bugzilla.ubuntu.com/show_bug.cgi?id=20338).
         #self.show_browser()
         self.show_intro()
-        
-        #FIXME self.live_installer.window.set_cursor(None)
+        self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
     
         # Declare SignalHandler
-        #FIXME self.glade.signal_autoconnect(self)
         self.app.connect(self.userinterface.next, SIGNAL("clicked()"), self.on_next_clicked)
         self.app.connect(self.userinterface.back, SIGNAL("clicked()"), self.on_back_clicked)
         self.app.connect(self.userinterface.cancel, SIGNAL("clicked()"), self.on_cancel_clicked)
@@ -281,7 +279,14 @@ class Wizard:
             print "checking if dbfilter in not None"
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 print "dbfilter.start"
+                self.userinterface.setCursor(QCursor(Qt.WaitCursor))
                 self.dbfilter.start(auto_process=True)
+            else:
+                self.userinterface.next.setEnabled(True)
+                if not (current_name == "stepIntro" or current_name == "stepLanguage"):
+                    self.userinterface.back.setEnabled(True)
+                self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
+
             print "mainloop"
             self.app.exec_loop()
             print "end mainloop"
@@ -323,8 +328,6 @@ class Wizard:
         self.logo_image.set_from_file(logo)
         self.photo.set_from_file(photo)
         """
-
-        #self.live_installer.window.set_cursor(self.watch)
 
         self.tzmap = TimezoneMap(self)
         #self.tzmap.tzmap.show()
@@ -408,27 +411,13 @@ class Wizard:
 
         disable_swap()
 
-        #label.show()
-        self.qtparted_process = KProcess(self.app)
-        self.qtparted_process.setExecutable("/usr/sbin/qtparted")
-        self.qtparted_process.setArguments(["--installer"])
-        self.app.connect(self.qtparted_process, SIGNAL("receivedStdout(KProcess*, char*, int)"), self.qtparted_stdout)
-        self.app.connect(self.qtparted_process, SIGNAL("processExited(KProcess*)"), self.qtparted_exited)
-        started = self.qtparted_process.start(KProcess.NotifyOnExit, KProcess.All)
-        print "started: " + str(started)
+        self.qtparted_subp = subprocess.Popen(
+            ['/usr/sbin/qtparted', '--installer'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+        qtparted_winid = self.qtparted_subp.stdout.readline().rstrip('\n')
+        self.embed.embed( int(qtparted_winid) )
+        self.embed.resize(250,250)
+        self.qtparted_vbox.addWidget(self.embed)
 
-        """
-
-        socket = gtk.Socket()
-        socket.show()
-        self.embedded.add(socket)
-        window_id = str(socket.get_id())
-
-        # Save pid to kill gparted when install process starts
-        self.gparted_subp = subprocess.Popen(
-            ['gparted', '--installer', window_id],
-            stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
-        """
     def set_size_msg(self, widget):
         """return a string message with size value about
         the partition target by widget argument."""
@@ -518,7 +507,7 @@ class Wizard:
         #FIXME jr self.debconf_progress_window.hide()
 
         self.installing = False
-        quitText = """Ubuntu is now installed on your computer. You need to restart the computer in order to use it. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.\n\nMake sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system."""
+        quitText = """Kubuntu is now installed on your computer. You need to restart the computer in order to use it. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.\n\nMake sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system."""
         
         quitAnswer = QMessageBox.question(self.userinterface, "Finished", quitText, "Quit", "Reboot")
 
@@ -537,11 +526,12 @@ class Wizard:
         print "  do_reboot(self):"
         """Callback for main program to actually reboot the machine."""
 
-        if (os.path.exists("/usr/bin/ksmserver") and
-            os.path.exists("/usr/bin/dcop")):
-            subprocess.call(["dcop", "ksmserver", "ksmserver", "logout", "1", "1", "1"])
-        else:
-            subprocess.call(["reboot"])
+        # can't seem to be able to call dcop from kdesu (even if I su back to ubuntu user)
+        #if (os.path.exists("/usr/bin/ksmserver") and
+        #    os.path.exists("/usr/bin/dcop")):
+        #    subprocess.call(["dcop", "ksmserver", "ksmserver", "logout", "1", "1", "1"])
+        #else:
+        subprocess.call(["reboot"])
 
     def quit(self):
         print "  quit(self):"
@@ -661,7 +651,9 @@ class Wizard:
 
         step = self.step_name(self.get_current_page())
         print "step: " + step
-
+        self.userinterface.setCursor(QCursor(Qt.WaitCursor))
+        self.userinterface.next.setEnabled(False)
+        self.userinterface.back.setEnabled(False)
         if step == "stepKeyboardConf":
             print "is stepUserInfo"
             self.userinterface.fullname_error_image.hide()
@@ -736,6 +728,7 @@ class Wizard:
         pre_log('info', 'Step_after = %s' % step)
 
     def process_identification (self):
+        print "  process_identification (self):"
         """Processing identification step tasks."""
 
         error_msg = []
@@ -794,24 +787,14 @@ class Wizard:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
             ##self.next.set_label("Install") # TODO i18n
 
-    def qtparted_stdout(self, proc, output, bufflen):
-            print " qtparted_stdout " + output
-            self.embed.embed( int(output) )
-            self.embed.resize(250,250)
-            self.qtparted_vbox.addWidget(self.embed)
-
-    def qtparted_exited(self, proc):
-        print "qtparted_exited"
-
     def gparted_to_mountpoints(self):
         """Processing gparted to mountpoints step tasks."""
 
         self.gparted_fstype = {}
         
-        self.qtparted_process.writeStdin("apply", 5)
-        """
         print >>self.gparted_subp.stdin, "apply"
 
+        """
         # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
         gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
         while gparted_reply.startswith('- '):
@@ -824,12 +807,12 @@ class Wizard:
 
         if not gparted_reply.startswith('0 '):
             return
+        """
 
         # Shut down gparted
-        self.gparted_subp.stdin.close()
-        self.gparted_subp.wait()
-        self.gparted_subp = None
-        """
+        self.qtparted_subp.stdin.close()
+        self.qtparted_subp.wait()
+        self.qtparted_subp = None
 
         self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
         mountLabel = QLabel("<b>Mount Point</b>", self.userinterface.mountpoint_frame)
@@ -1070,7 +1053,8 @@ class Wizard:
         # Setting actual step
         step = self.step_name(self.get_current_page())
         print "step: " + step
-
+        self.userinterface.setCursor(QCursor(Qt.WaitCursor))
+        
         changed_page = False
 
         if step == "stepLocation":
@@ -1313,8 +1297,8 @@ class Wizard:
         print "  set_language_choices (self, choice_map):"
         self.language_choice_map = dict(choice_map)
         self.userinterface.language_treeview.clear()
-        for choice in sorted(self.language_choice_map):
-            self.userinterface.language_treeview.insertItem( QListViewItem(self.userinterface.language_treeview, choice) )
+        for key,value in self.language_choice_map.items():
+            self.userinterface.language_treeview.insertItem( KListViewItem(self.userinterface.language_treeview,QString(unicode(key))) )
 
     def set_language (self, language):
         print "  set_language (self, language): " #+ language
@@ -1425,9 +1409,9 @@ class Wizard:
         return True
 
     def get_disk_choice (self):
-        print "  get_disk_choice (self): " + str(self.part_disk_buttongroup.selected().text())
+        print "  get_disk_choice (self): "
         id = self.part_disk_buttongroup.id( self.part_disk_buttongroup.selected() )
-        return unicode(self.autopartition_buttongroup_texts[id])
+        return unicode(self.part_disk_buttongroup_texts[id])
 
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
         print "  set_autopartition_choices (self, choices, resize_choice, manual_choice):"
@@ -1491,7 +1475,7 @@ class Wizard:
         # TODO cjwatson 2006-03-10: Duplication of page logic; I think some
         # of this can go away once we reorganise page handling not to invoke
         # a main loop for each page.
-        #self.live_installer.window.set_cursor(self.watch)
+        self.userinterface.setCursor(QCursor(Qt.WaitCursor))
         self.userinterface.next.setText("Install") # TODO i18n
         self.previous_partitioning_page = self.get_current_page()
         self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
@@ -1598,7 +1582,7 @@ class Wizard:
 
     def error_dialog (self, msg):
         print "  error_dialog (self, msg):"
-        #self.live_installer.window.set_cursor(None)
+        self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
         # TODO: cancel button as well if capb backup
         QMessageBox.warning(self.userinterface, "Error", msg, QMessageBox.Ok)
         if self.installing:
@@ -1619,6 +1603,11 @@ class Wizard:
     # Run the UI's main loop until it returns control to us.
     def run_main_loop (self):
         print "  run_main_loop()"
+        self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
+        self.userinterface.next.setEnabled(True)
+        step = self.step_name(self.get_current_page())
+        if not (step == "stepIntro" or step == "stepLanguage"):
+            self.userinterface.back.setEnabled(True)
         self.app.exec_loop()
 
     # Return control to the next level up.
