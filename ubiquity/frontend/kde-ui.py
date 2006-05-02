@@ -792,7 +792,7 @@ class Wizard:
 
         self.gparted_fstype = {}
         
-        print >>self.gparted_subp.stdin, "apply"
+        print >>self.qtparted_subp.stdin, "apply"
 
         """
         # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
