@@ -442,15 +442,16 @@ class Install:
     def copy_logs(self):
         """copy log files into installed system."""
 
-        log_file = '/var/log/installer/syslog'
-        target_log_file = os.path.join(self.target, log_file[1:])
+        target_dir = os.path.join(self.target, 'var/log/installer')
+        if not os.path.exists(target_dir):
+            os.makedirs(target_dir)
 
-        if not os.path.exists(os.path.dirname(target_log_file)):
-            os.makedirs(os.path.dirname(target_log_file))
-
-        if not misc.ex('cp', '-a', log_file, target_log_file):
-            misc.pre_log('error', 'No se pudieron copiar los registros de instalación')
-        os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
+        for log_file in ('/var/log/installer/syslog', '/var/log/partman'):
+            target_log_file = os.path.join(target_dir,
+                                           os.path.basename(log_file))
+            if not misc.ex('cp', '-a', log_file, target_log_file):
+                misc.pre_log('error', 'Failed to copy installation log file')
+            os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
 
         return True
 

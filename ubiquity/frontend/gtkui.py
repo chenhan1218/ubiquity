@@ -120,6 +120,8 @@ class Wizard:
         self.installing = False
         self.returncode = 0
         self.translations = get_translations()
+        self.allowed_change_step = True
+        self.allowed_go_forward = True
 
         devnull = open('/dev/null', 'w')
         self.laptop = subprocess.call(["laptop-detect"], stdout=devnull,
@@ -193,7 +195,7 @@ class Wizard:
 
         # show interface
         self.show_intro()
-        self.live_installer.window.set_cursor(None)
+        self.allow_change_step(True)
 
         # Declare SignalHandler
         self.glade.signal_autoconnect(self)
@@ -230,10 +232,10 @@ class Wizard:
                 self.dbfilter = None
 
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
-                self.live_installer.window.set_cursor(self.watch)
+                self.allow_change_step(False)
                 self.dbfilter.start(auto_process=True)
             else:
-                self.live_installer.window.set_cursor(None)
+                self.allow_change_step(True)
             gtk.main()
 
             if self.installing:
@@ -271,7 +273,7 @@ class Wizard:
         self.photo.set_from_file(photo)
 
         self.live_installer.show()
-        self.live_installer.window.set_cursor(self.watch)
+        self.allow_change_step(False)
 
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
@@ -356,6 +358,21 @@ class Wizard:
 
         elif isinstance(widget, gtk.Window):
             widget.set_title(text)
+
+
+    def allow_change_step(self, allowed):
+        if allowed:
+            cursor = None
+        else:
+            cursor = self.watch
+        self.live_installer.window.set_cursor(cursor)
+        self.back.set_sensitive(allowed)
+        self.next.set_sensitive(allowed and self.allowed_go_forward)
+        self.allowed_change_step = allowed
+
+    def allow_go_forward(self, allowed):
+        self.next.set_sensitive(allowed and self.allowed_change_step)
+        self.allowed_go_forward = allowed
 
 
     def show_intro(self):
@@ -610,7 +627,7 @@ class Wizard:
                      'hostname'):
             if getattr(self, name).get_text() == '':
                 complete = False
-        self.next.set_sensitive(complete)
+        self.allow_go_forward(complete)
 
     def on_hostname_delete_text(self, widget, start, end):
         self.hostname_edited = True
@@ -630,7 +647,7 @@ class Wizard:
             self.hostname_error_box.hide()
 
         if self.dbfilter is not None:
-            self.live_installer.window.set_cursor(self.watch)
+            self.allow_change_step(False)
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
@@ -664,7 +681,7 @@ class Wizard:
         elif step == "stepKeyboardConf":
             self.steps.next_page()
             # XXX: Actually do keyboard config here
-            self.next.set_sensitive(False)
+            self.allow_go_forward(False)
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
@@ -793,7 +810,7 @@ class Wizard:
 
             # Setting a default partition preselection
             if len(selection.items()) == 0:
-                self.next.set_sensitive(False)
+                self.allow_go_forward(False)
             else:
                 mp = { 'swap' : 0, '/' : 1 }
 
@@ -944,7 +961,7 @@ class Wizard:
         self.backup = True
 
         # Enabling next button
-        self.next.set_sensitive(True)
+        self.allow_go_forward(True)
         # Setting actual step
         step = self.step_name(self.steps.get_current_page())
 
@@ -968,7 +985,7 @@ class Wizard:
             self.steps.prev_page()
 
         if self.dbfilter is not None:
-            self.live_installer.window.set_cursor(self.watch)
+            self.allow_change_step(False)
             self.dbfilter.cancel_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
@@ -1135,7 +1152,7 @@ class Wizard:
             gtk.main_quit()
 
 
-    def set_language_choices (self, choice_map):
+    def set_language_choices (self, choices, choice_map):
         self.language_choice_map = dict(choice_map)
         if len(self.language_treeview.get_columns()) < 1:
             column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
@@ -1146,7 +1163,7 @@ class Wizard:
                               self.on_language_treeview_selection_changed)
         list_store = gtk.ListStore(gobject.TYPE_STRING)
         self.language_treeview.set_model(list_store)
-        for choice in sorted(self.language_choice_map):
+        for choice in choices:
             list_store.append([choice])
 
 
@@ -1288,7 +1305,7 @@ class Wizard:
         # TODO cjwatson 2006-03-10: Duplication of page logic; I think some
         # of this can go away once we reorganise page handling not to invoke
         # a main loop for each page.
-        self.live_installer.window.set_cursor(self.watch)
+        self.allow_change_step(False)
         self.next.set_label("Install") # TODO i18n
         self.previous_partitioning_page = self.steps.get_current_page()
         self.steps.set_current_page(self.steps.page_num(self.stepReady))
@@ -1403,7 +1420,7 @@ class Wizard:
 
     def error_dialog (self, msg):
         # TODO: cancel button as well if capb backup
-        self.live_installer.window.set_cursor(None)
+        self.allow_change_step(True)
         if self.current_page is not None:
             transient = self.live_installer
         else:
@@ -1428,7 +1445,7 @@ class Wizard:
 
     # Run the UI's main loop until it returns control to us.
     def run_main_loop (self):
-        self.live_installer.window.set_cursor(None)
+        self.allow_change_step(True)
         gtk.main()
 
 
