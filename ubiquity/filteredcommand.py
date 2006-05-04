@@ -41,7 +41,7 @@ class FilteredCommand(object):
 
     def start(self, auto_process=False):
         self.status = None
-        self.db = DebconfCommunicator(PACKAGE)
+        self.db = DebconfCommunicator(PACKAGE, cloexec=True)
         prep = self.prepare()
         self.command = prep[0]
         question_patterns = prep[1]

@@ -152,7 +152,8 @@ class Wizard:
 
         # FIXME seems to quit program
         # set default language
-        dbfilter = language.Language(self, DebconfCommunicator('ubiquity'))
+        dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
+                                                               cloexec=True))
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 

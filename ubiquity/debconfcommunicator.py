@@ -18,15 +18,19 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import popen2
+import fcntl
 import debconf
 
 class DebconfCommunicator(debconf.Debconf, object):
-    def __init__(self, owner, title=None):
+    def __init__(self, owner, title=None, cloexec=False):
         self.dccomm = popen2.Popen3(['debconf-communicate', '-fnoninteractive',
                                      owner])
         super(DebconfCommunicator, self).__init__(title=title,
                                                   read=self.dccomm.fromchild,
                                                   write=self.dccomm.tochild)
+        if cloexec:
+            fcntl.fcntl(self.read.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
+            fcntl.fcntl(self.write.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
 
     def shutdown(self):
         if self.dccomm is not None:
