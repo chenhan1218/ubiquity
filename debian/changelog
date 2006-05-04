@@ -1,9 +1,9 @@
-ubiquity (0.99.74) UNRELEASED; urgency=low
+ubiquity (0.99.74) dapper; urgency=low
 
   * Tolerate partman doing METAGET on questions that don't exist (closes:
     Malone #42967).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu,  4 May 2006 18:30:25 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  4 May 2006 19:17:45 +0100
 
 ubiquity (0.99.73) dapper; urgency=low
 
