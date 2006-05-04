@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-04 05:34+0100\n"
-"PO-Revision-Date: 2006-04-19 07:24+0000\n"
+"PO-Revision-Date: 2006-05-02 03:12+0000\n"
 "Last-Translator: Aldous D. Peñaranda <adpenaranda@gmail.com>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
 "MIME-Version: 1.0\n"
@@ -18,13 +18,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Iluklok"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12
 msgid "Welcome"
-msgstr ""
+msgstr "Mabuhay"
 
 #. Type: text
 #. Description
@@ -34,6 +34,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Handa nang mag-install? Matapos mong sagutan ang ilang katanungan, ang "
+"nilalaman ng live CD ay maaari nang ma-install sa iyong kompyuter nang sa "
+"gayon ay maitakbo mo ang system na walang habas at kahit wala na ang CD."
 
 #. Type: text
 #. Description
@@ -48,6 +51,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Mangyaring piliin ang wikang gagamitin sa installation process. Ang wikang "
+"ito ang magiging"
 
 #. Type: text
 #. Description
@@ -77,7 +82,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Napiling rehiyon:"
 
 #. Type: text
 #. Description
@@ -95,19 +100,21 @@ msgstr "Itakda ang Oras..."
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Pagkakalatag ng tiklado"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Anong pagkakalatag ang pinakamalapit sa anyo ng iyong tiklado?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
+"Maaari kang mag-type sa box na ito upang masubukan ang bagong pagkakalatag "
+"ng iyong tiklado."
 
 #. Type: text
 #. Description
@@ -125,7 +132,7 @@ msgstr "Ano ang iyong pangalan?"
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Anong pangalan ang nais mong gamitin para mag-log in?"
 
 #. Type: text
 #. Description
@@ -134,6 +141,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Kung mahigit sa isang tao ang gagamit ng kompyuter na ito, maaari kang "
+"magtakda ng iba pang account matapos ang installation."
 
 #. Type: text
 #. Description
@@ -147,6 +156,8 @@ msgstr "Pumili ng password upang mapanatiling ligtas ang iyong account."
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Dalawang beses ibigay ang password, upang ito ay mahanapan ng pagkakamali sa "
+"pag-type"
 
 #. Type: text
 #. Description
@@ -161,6 +172,8 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Ang pangalang ito ang gagamitin kung mamarapatin mong makita ito ng iba pang "
+"kompyuter sa isang network."
 
 #. Type: text
 #. Description
@@ -339,14 +352,14 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:220
 msgid "Go Back"
-msgstr ""
+msgstr "Bumalik"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:225
 msgid "Continue"
-msgstr ""
+msgstr "Ituloy"
 
 #. Type: title
 #. Description

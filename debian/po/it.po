@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-04 05:34+0100\n"
-"PO-Revision-Date: 2006-03-27 15:09+0000\n"
-"Last-Translator: Giuseppe Sacco <eppesuig@debian.org>\n"
+"PO-Revision-Date: 2006-05-02 19:38+0000\n"
+"Last-Translator: MiloCasagrande <milo_casagrande@yahoo.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,7 +47,7 @@ msgstr "Per rispondere alle domande ci vorranno solo pochi minuti."
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
-msgstr ""
+msgstr "Selezionare la lingua"
 
 #. Type: text
 #. Description
@@ -59,13 +59,13 @@ msgstr "Dove sei?"
 #. Description
 #: ../ubiquity.templates:32
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Selezionare una città nel vostro fuso orario:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr ""
+msgstr "Fuso orario selezionato:"
 
 #. Type: text
 #. Description
@@ -77,7 +77,7 @@ msgstr "Fuso orario:"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Regione selezionata:"
 
 #. Type: text
 #. Description
@@ -95,7 +95,7 @@ msgstr "Imposta l'ora"
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Selezionare il layout della tastiera"
 
 #. Type: text
 #. Description
@@ -121,13 +121,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Qual è il vostro nome?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Qual è il nome che volete usare per il log in?"
 
 #. Type: text
 #. Description
@@ -154,7 +154,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Qual è il nome del computer?"
 
 #. Type: text
 #. Description
@@ -163,12 +163,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Questo sarà il nome con cui verrà identificato il vostro computer all'iterno "
+"di una rete."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105
 msgid "Select a disk"
-msgstr ""
+msgstr "Selezionare un disco"
 
 #. Type: text
 #. Description
@@ -209,7 +211,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Preparazione punti di mount"
 
 #. Type: text
 #. Description
@@ -218,6 +220,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Selezionare le partizioni da usare per l'installazione e il punto di mount "
+"per ciascuna di esse."
 
 #. Type: text
 #. Description
@@ -231,7 +235,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:147
 msgid "Mount Point"
-msgstr ""
+msgstr "Punto di mount"
 
 #. Type: text
 #. Description
@@ -243,7 +247,7 @@ msgstr "Dimensione"
 #. Description
 #: ../ubiquity.templates:155
 msgid "Partition"
-msgstr ""
+msgstr "Partizione"
 
 #. Type: text
 #. Description
@@ -273,13 +277,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:175
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Interrompere l'installazione?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:179
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "Interrompere veramente il processo di installazione?"
 
 #. Type: title
 #. Description
@@ -341,14 +345,14 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:220
 msgid "Go Back"
-msgstr ""
+msgstr "Indietro"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:225
 msgid "Continue"
-msgstr ""
+msgstr "Continuare"
 
 #. Type: title
 #. Description
@@ -410,7 +414,7 @@ msgstr "Configurazione della rete in corso."
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Configurazione di apt..."
 
 #. Type: text
 #. Description
@@ -479,7 +483,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:318
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Scaricamento lista dei pacchetti in corso..."
 
 #. Type: text
 #. Description
@@ -503,7 +507,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:336
 msgid "${MESSAGE}"
-msgstr ""
+msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description

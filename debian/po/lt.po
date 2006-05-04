@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-04 05:34+0100\n"
-"PO-Revision-Date: 2006-04-07 11:20+0000\n"
-"Last-Translator: Jonas Slivka <jonas.slivka@gmail.com>\n"
+"PO-Revision-Date: 2006-04-20 06:16+0000\n"
+"Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -347,14 +347,14 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:220
 msgid "Go Back"
-msgstr ""
+msgstr "Grįžti"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:225
 msgid "Continue"
-msgstr ""
+msgstr "Tęsti"
 
 #. Type: title
 #. Description

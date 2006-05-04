@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-04 05:34+0100\n"
-"PO-Revision-Date: 2006-03-31 10:43+0000\n"
-"Last-Translator: Andreas Reinhardt <xxandy@web.de>\n"
+"PO-Revision-Date: 2006-04-25 08:11+0000\n"
+"Last-Translator: Andre Heßling <ahessling@gmx.de>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Installieren"
 
 #. Type: text
 #. Description
@@ -34,6 +34,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Bereit zur Installation? Nachdem Sie einige Fragen beantwortet haben, kann "
+"der Inhalt der Live-CD auf diesem Computer installiert werden, so dass Sie "
+"das System mit voller Geschwindigkeit und ohne die CD benutzen können."
 
 #. Type: text
 #. Description
@@ -49,6 +52,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Bitte wählen Sie die Sprache, die für die Installation benutzt werden soll. "
+"Die Sprache wird auch zur Standardspache für das installierte System."
 
 #. Type: text
 #. Description
@@ -78,7 +83,7 @@ msgstr "Zeitzone:"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Ausgewählte Region:"
 
 #. Type: text
 #. Description
@@ -266,7 +271,7 @@ msgstr "Festplatten partitionieren"
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "Neu formatieren?"
 
 #. Type: text
 #. Description
@@ -284,7 +289,7 @@ msgstr "Bereit zur Installation"
 #. Description
 #: ../ubiquity.templates:171
 msgid "The live CD is ready to be installed on this computer."
-msgstr ""
+msgstr "Die Live-CD ist bereit, um auf diesem Computer installiert zu werden."
 
 #. Type: title
 #. Description
@@ -346,6 +351,10 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Die Installation ist abgeschlossen. Sie müssen jetzt den Computer neu "
+"starten, um die neue Installation zu benutzen. Sie können fortfahren, diese "
+"Live-CD zu benutzen, aber Änderungen, die Sie vornehmen und Dokumente, die "
+"Sie speichern, werden nicht erhalten bleiben."
 
 #. Type: text
 #. Description
@@ -363,14 +372,14 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:220
 msgid "Go Back"
-msgstr ""
+msgstr "Zurück"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:225
 msgid "Continue"
-msgstr ""
+msgstr "Weiter"
 
 #. Type: title
 #. Description
@@ -430,7 +439,7 @@ msgstr "Konfiguriere das System-Gebietsschema..."
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Konfiguriere Apt..."
 
 #. Type: text
 #. Description
@@ -442,7 +451,7 @@ msgstr "Konfiguriere Zeitzone..."
 #. Description
 #: ../ubiquity.templates:282
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Richte die Tastatur ein..."
 
 #. Type: text
 #. Description
@@ -496,7 +505,7 @@ msgstr "Lade Pakete herunter (${TIME} verbleibend)..."
 #. Description
 #: ../ubiquity.templates:318
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Lade die Paketliste herunter..."
 
 #. Type: text
 #. Description

@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-04 05:34+0100\n"
-"PO-Revision-Date: 2006-04-17 23:50+0000\n"
-"Last-Translator: Kamen Lichev <kamenlitchev@abv.bg>\n"
+"PO-Revision-Date: 2006-04-20 05:55+0000\n"
+"Last-Translator: Ognyan Kulev <ogi@fmi.uni-sofia.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,37 +95,38 @@ msgstr "Настройка на часа..."
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Клавиатурна подредба"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Коя подредба е най-близка до вашата клавиатура?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
+"Можете да пишете в това поле за да тествате нова си клавиатурата подредба."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Кой сте Вие?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Как се казвате?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Какво име искате да използвате за вход?"
 
 #. Type: text
 #. Description
@@ -134,12 +135,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Ако повече от един човек ще използват този компютър, то след инсталацията "
+"можете да настроите още потребителски сметки."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Изберете парола, за да защитите вашата сметка."
 
 #. Type: text
 #. Description
@@ -147,12 +150,13 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Въведете паролата два пъти, за да бъде проверена за грешки при изписване."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Какво е името на този компютър?"
 
 #. Type: text
 #. Description
@@ -347,20 +351,23 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Уверете се, че сте извадили компактдиска преди да рестартирате компютъра, в "
+"противен случай той по-скоро ще се стартира отново от това Live CD, "
+"отколкото от новоинсталираната Ви система."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:220
 msgid "Go Back"
-msgstr ""
+msgstr "Назад"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:225
 msgid "Continue"
-msgstr ""
+msgstr "Напред"
 
 #. Type: title
 #. Description
@@ -413,9 +420,8 @@ msgstr "Изпълнение на ${SCRIPT}..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:270
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Настройване на мрежа..."
+msgstr "Настройване системния locale..."
 
 #. Type: text
 #. Description

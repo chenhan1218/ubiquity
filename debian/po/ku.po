@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-04 05:34+0100\n"
-"PO-Revision-Date: 2006-03-27 15:11+0000\n"
+"PO-Revision-Date: 2006-04-20 06:15+0000\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
 "Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -65,13 +65,13 @@ msgstr "Ji welatê xwe bajarekî û demekê hilbijêre."
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr ""
+msgstr "Bajarê hilbijartî:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40
 msgid "Time zone:"
-msgstr ""
+msgstr "Herêma demê:"
 
 #. Type: text
 #. Description
@@ -95,7 +95,7 @@ msgstr "Demê saz bike..."
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Rengê klavyeyê"
 
 #. Type: text
 #. Description
@@ -352,14 +352,14 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:220
 msgid "Go Back"
-msgstr ""
+msgstr "Here Paş"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:225
 msgid "Continue"
-msgstr ""
+msgstr "Bidomîne"
 
 #. Type: title
 #. Description
@@ -498,13 +498,13 @@ msgstr "Lîsteyên paketan tên daxistin (${TIME} ma)..."
 #. Description
 #: ../ubiquity.templates:331
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Di sazkirina ${PACKAGE} de xeletî"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:336
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Di rakirina ${PACKAGE} de xeletî"
 
 #. Type: text
 #. Description

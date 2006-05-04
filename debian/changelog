@@ -9,6 +9,7 @@ ubiquity (0.99.72) UNRELEASED; urgency=low
   * Bump localechooser-data dependency to 0.27ubuntu17.
   * Handle errors and warnings thrown by partman, displaying them to the
     user and possibly returning to the partitioner (closes: Malone #39734).
+  * Update all translations from Rosetta.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue,  2 May 2006 18:34:54 +0100
 

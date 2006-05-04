@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-04 05:34+0100\n"
-"PO-Revision-Date: 2006-04-10 22:53+0000\n"
+"PO-Revision-Date: 2006-04-21 09:39+0000\n"
 "Last-Translator: Арангел Ангов <ufo@linux.net.mk>\n"
 "Language-Team: <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Инсталирај"
 
 #. Type: text
 #. Description
@@ -78,7 +78,7 @@ msgstr "Временска зона:"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Избран регион:"
 
 #. Type: text
 #. Description
@@ -96,7 +96,7 @@ msgstr "Постави време..."
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Распоред на тастатура"
 
 #. Type: text
 #. Description
@@ -114,19 +114,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Кој сте Вие?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Кое е Вашето име?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Кое име сакате да го користите за најава?"
 
 #. Type: text
 #. Description
@@ -272,7 +272,7 @@ msgstr "Спремно за инсталација"
 #. Description
 #: ../ubiquity.templates:171
 msgid "The live CD is ready to be installed on this computer."
-msgstr ""
+msgstr "Живото CD е спремно за инсталација на овој компјутер."
 
 #. Type: title
 #. Description
@@ -346,14 +346,14 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:220
 msgid "Go Back"
-msgstr ""
+msgstr "Назад"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:225
 msgid "Continue"
-msgstr ""
+msgstr "Продолжи"
 
 #. Type: title
 #. Description
@@ -413,7 +413,7 @@ msgstr "Конфигурирање на системското locale..."
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Конфигурирам apt..."
 
 #. Type: text
 #. Description
@@ -425,7 +425,7 @@ msgstr "Конфигурирање на временска зона..."
 #. Description
 #: ../ubiquity.templates:282
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Конфигурирам тастатура..."
 
 #. Type: text
 #. Description
@@ -479,7 +479,7 @@ msgstr "Преземам пакети (преостанато ${TIME})..."
 #. Description
 #: ../ubiquity.templates:318
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Преземам листи со пакети..."
 
 #. Type: text
 #. Description

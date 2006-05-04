@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-04 05:34+0100\n"
-"PO-Revision-Date: 2006-03-27 15:25+0000\n"
+"PO-Revision-Date: 2006-04-20 06:30+0000\n"
 "Last-Translator: Mouhamadou Mamoune Mbacke <mouhamadoumamoune@gmail.com>\n"
 "Language-Team: Wolof <debian-boot@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -339,14 +339,14 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:220
 msgid "Go Back"
-msgstr ""
+msgstr "Delluwaat"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:225
 msgid "Continue"
-msgstr ""
+msgstr "Kontine"
 
 #. Type: title
 #. Description

@@ -1,15 +1,13 @@
 # Catalan messages for debian-installer.
-# Copyright 2002, 2003, 2004, 2005, 2006 Software in the Public Interest, Inc.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-# Jordi Mallach <jordi@debian.org>, 2002, 2003, 2004, 2006.
-# Guillem Jover <guillem@debian.org>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer 1.1\n"
+"Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-04 05:34+0100\n"
-"PO-Revision-Date: 2006-03-29 16:09+0000\n"
+"PO-Revision-Date: 2006-04-26 23:43+0000\n"
 "Last-Translator: Jordi Mallach <jordi@canonical.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Instal·la"
 
 #. Type: text
 #. Description
@@ -36,6 +34,10 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Esteu preparats per a instal·lar? Una vegada hageu contestat a unes poquesp "
+"reguntes, es poden instal·lar els continguts del CD autònom en aquest "
+"ordinador per a que pogueu iniciar el sistema a la velocitat normal i sense "
+"el CD."
 
 #. Type: text
 #. Description
@@ -50,6 +52,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Seleccioneu la llengua a utilitzar per al procés d'instal·lació. Aquesta "
+"llengua serà la predeterminada al sistema final."
 
 #. Type: text
 #. Description
@@ -79,7 +83,7 @@ msgstr "Fus horari:"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Regió seleccionada:"
 
 #. Type: text
 #. Description
@@ -266,7 +270,7 @@ msgstr "Partició"
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "Voleu tornar a donar format?"
 
 #. Type: text
 #. Description
@@ -284,7 +288,7 @@ msgstr "Preparat per a instal·lar"
 #. Description
 #: ../ubiquity.templates:171
 msgid "The live CD is ready to be installed on this computer."
-msgstr ""
+msgstr "El CD autònom està preparat per a instal·lar-se en aquest ordinador."
 
 #. Type: title
 #. Description
@@ -346,6 +350,10 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"S'ha completat la instal·lació. Heu de tornar a iniciar l'ordinador per a "
+"utilitzar la instal·lació nova. Podeu continuar utilitzant aquest CD "
+"autònom, tot i que qualsevol canvi que feu els documents que deseu no es "
+"preservaran."
 
 #. Type: text
 #. Description
@@ -363,14 +371,14 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:220
 msgid "Go Back"
-msgstr ""
+msgstr "Vés enrere"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:225
 msgid "Continue"
-msgstr ""
+msgstr "Continua"
 
 #. Type: title
 #. Description
@@ -430,7 +438,7 @@ msgstr "S'estan configurant els locales del sistema"
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring apt..."
-msgstr ""
+msgstr "S'està configurant l'apt..."
 
 #. Type: text
 #. Description
@@ -442,7 +450,7 @@ msgstr "S'està configurant el fus horari..."
 #. Description
 #: ../ubiquity.templates:282
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "S'està configurant el teclat..."
 
 #. Type: text
 #. Description
@@ -496,7 +504,7 @@ msgstr "S'estan baixant els paquets (${TIME} per a acabar)..."
 #. Description
 #: ../ubiquity.templates:318
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "S'estan baixant les llistes de paquets..."
 
 #. Type: text
 #. Description
