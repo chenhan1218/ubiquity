@@ -160,6 +160,11 @@ class Partman(FilteredCommand):
 
         self.current_question = question
 
+        try:
+            qtype = self.db.metaget(question, 'Type')
+        except debconf.DebconfError:
+            qtype = ''
+
         if question == 'partman-auto/select_disk':
             self.manual_desc = \
                 self.description('partman-auto/text/custom_partitioning')
@@ -199,7 +204,7 @@ class Partman(FilteredCommand):
             self.done = True
             return True
 
-        elif self.db.metaget(question, 'Type') == 'boolean':
+        elif qtype == 'boolean':
             self.backup_from_new_size = True
             response = self.frontend.question_dialog(
                 self.description(question),

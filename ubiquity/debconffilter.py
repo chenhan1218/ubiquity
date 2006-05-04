@@ -137,8 +137,12 @@ class DebconfFilter:
                 for question in questions:
                     matches = False
                     if pattern.startswith('type:') and '/' in question:
-                        if self.db.metaget(question, 'Type') == pattern[5:]:
-                            matches = True
+                        try:
+                            qtype = self.db.metaget(question, 'Type')
+                            if qtype == pattern[5:]:
+                                matches = True
+                        except debconf.DebconfError:
+                            pass
                     elif re.search(pattern, question):
                         matches = True
                     if matches:

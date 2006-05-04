@@ -40,6 +40,11 @@ class PartmanCommit(Partman):
         return True
 
     def run(self, priority, question):
+        try:
+            qtype = self.db.metaget(question, 'Type')
+        except debconf.DebconfError:
+            qtype = ''
+
         if question == 'partman/choose_partition':
             if self.done:
                 # user answered confirmation question, or an error occurred
@@ -111,7 +116,7 @@ class PartmanCommit(Partman):
             self.done = True
             return True
 
-        elif self.db.metaget(question, 'Type') == 'boolean':
+        elif qtype == 'boolean':
             response = self.frontend.question_dialog(
                 self.description(question),
                 self.extended_description(question),
