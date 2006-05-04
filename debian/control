@@ -7,7 +7,7 @@ Standards-Version: 3.6.2.1
 
 Package: ubiquity
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf (>= 1.4.72), ubiquity-frontend, ubiquity-doc, laptop-detect, lsb-release, ubiquity-casper, python-apt (>= 0.6.16.2ubuntu4), console-keymaps, console-data (>= 2002.12.04dbs-52.1ubuntu7), localechooser-data (>= 0.27ubuntu12), iso-codes, ${bootloader-depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf (>= 1.4.72), ubiquity-frontend, ubiquity-doc, laptop-detect, lsb-release, ubiquity-casper, python-apt (>= 0.6.16.2ubuntu4), console-keymaps, console-data (>= 2002.12.04dbs-52.1ubuntu7), localechooser-data (>= 0.27ubuntu17), iso-codes, ${bootloader-depends}
 Recommends: gparted
 Conflicts: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
 Replaces: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
