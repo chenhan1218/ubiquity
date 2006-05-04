@@ -1,9 +1,9 @@
-ubiquity (0.99.73) UNRELEASED; urgency=low
+ubiquity (0.99.73) dapper; urgency=low
 
   * Mark file descriptors connected to debconf-communicate as close-on-exec
     (requires debconf 1.4.72ubuntu5; closes: Malone #42868).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu,  4 May 2006 09:44:54 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  4 May 2006 10:11:46 +0100
 
 ubiquity (0.99.72) dapper; urgency=low
 
