@@ -27,14 +27,22 @@ class PartmanCommit(Partman):
         # partitioning control path.
         questions = ['^partman/choose_partition$',
                      '^partman/confirm.*',
+                     'type:boolean',
                      'ERROR',
                      'PROGRESS']
         return ('/bin/partman', questions)
 
+    def error(self, priority, question):
+        self.frontend.error_dialog(self.description(question))
+        self.succeeded = False
+        # Unlike a normal error handler, we want to force exit.
+        self.done = True
+        return True
+
     def run(self, priority, question):
         if question == 'partman/choose_partition':
             if self.done:
-                # user said no to confirmation question
+                # user answered confirmation question, or an error occurred
                 return False
 
             partitions = {}
@@ -96,9 +104,34 @@ class PartmanCommit(Partman):
             if self.frontend.confirm_partitioning_dialog(
                     self.description(question), self.confirmation_message()):
                 self.preseed(question, 'true')
+                self.succeeded = True
             else:
                 self.preseed(question, 'false')
+                self.succeeded = False
             self.done = True
+            return True
+
+        elif self.db.metaget(question, 'Type') == 'boolean':
+            response = self.frontend.question_dialog(
+                self.description(question),
+                self.extended_description(question),
+                ('ubiquity/text/go_back', 'ubiquity/text/continue'))
+
+            answer_reversed = False
+            if (question == 'partman-jfs/jfs_boot' or
+                question == 'partman-jfs/jfs_root'):
+                answer_reversed = True
+            if response is None or response == 'ubiquity/text/continue':
+                answer = answer_reversed
+            else:
+                answer = not answer_reversed
+                self.succeeded = False
+                self.done = True
+                self.frontend.return_to_autopartitioning()
+            if answer:
+                self.preseed(question, 'true')
+            else:
+                self.preseed(question, 'false')
             return True
 
         else:

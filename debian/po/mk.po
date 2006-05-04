@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-21 10:56+0100\n"
+"POT-Creation-Date: 2006-05-04 05:34+0100\n"
 "PO-Revision-Date: 2006-04-10 22:53+0000\n"
 "Last-Translator: Арангел Ангов <ufo@linux.net.mk>\n"
 "Language-Team: <en@li.org>\n"
@@ -341,164 +341,178 @@ msgid ""
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
 
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:220
+msgid "Go Back"
+msgstr ""
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:225
+msgid "Continue"
+msgstr ""
+
 #. Type: title
 #. Description
-#: ../ubiquity.templates:228
+#: ../ubiquity.templates:238
 msgid "Installing system"
 msgstr "Го инсталирам системот"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232
+#: ../ubiquity.templates:242
 msgid "Finding the distribution to copy..."
 msgstr "Ја наоѓам дистрибуцијата за копирање..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236
+#: ../ubiquity.templates:246
 msgid "Scanning files..."
 msgstr "Скенирам датотеки..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:240
+#: ../ubiquity.templates:250
 msgid "Copying files..."
 msgstr "Копирам датотеки..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:244
+#: ../ubiquity.templates:254
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Копирам датотеки (преостанато ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248
+#: ../ubiquity.templates:258
 msgid "Copying installation logs..."
 msgstr "Копирам инсталациони логови..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:252
+#: ../ubiquity.templates:262
 msgid "Cleaning up..."
 msgstr "Чистење..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:256
+#: ../ubiquity.templates:266
 msgid "Running ${SCRIPT}..."
 msgstr "Извршувам ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:260
+#: ../ubiquity.templates:270
 msgid "Configuring system locales..."
 msgstr "Конфигурирање на системското locale..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:264
+#: ../ubiquity.templates:274
 msgid "Configuring apt..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:268
+#: ../ubiquity.templates:278
 msgid "Configuring time zone..."
 msgstr "Конфигурирање на временска зона..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:272
+#: ../ubiquity.templates:282
 msgid "Configuring keyboard..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:276
+#: ../ubiquity.templates:286
 msgid "Creating user..."
 msgstr "Креирање на корисник..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:280
+#: ../ubiquity.templates:290
 msgid "Configuring hardware..."
 msgstr "Конфигурирација на хардвер..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:284
+#: ../ubiquity.templates:294
 msgid "Configuring network..."
 msgstr "Конфигурирање на мрежа..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:288
+#: ../ubiquity.templates:298
 msgid "Setting computer name..."
 msgstr "Поставување на име на компјутер..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:292
+#: ../ubiquity.templates:302
 msgid "Configuring boot loader..."
 msgstr "Конфигурирање на подигнувач на системот..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:296
+#: ../ubiquity.templates:306
 msgid "Removing extra packages..."
 msgstr "Отстранување на додатни пакети..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:300
+#: ../ubiquity.templates:310
 msgid "Checking for packages to remove..."
 msgstr "Проверка на пакети за отстранување..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:304
+#: ../ubiquity.templates:314
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Преземам пакети (преостанато ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:308
+#: ../ubiquity.templates:318
 msgid "Downloading package lists..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:312
+#: ../ubiquity.templates:322
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Преземам листи со пакети (преостанато ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:321
+#: ../ubiquity.templates:331
 msgid "Error installing ${PACKAGE}"
 msgstr "Грешка при инсталација на ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:326
+#: ../ubiquity.templates:336
 msgid "Error removing ${PACKAGE}"
 msgstr "Грешка при отстранување на ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:326
+#: ../ubiquity.templates:336
 msgid "${MESSAGE}"
 msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:331
+#: ../ubiquity.templates:341
 msgid "Installing language packs"
 msgstr "Инсталирање на јазични пакети"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:335
+#: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Преземање на јазични пакети (преостанато ${TIME})..."

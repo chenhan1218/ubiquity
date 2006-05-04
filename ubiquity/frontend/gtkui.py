@@ -210,6 +210,11 @@ class Wizard:
         # Start the interface
         self.set_current_page(0)
         while self.current_page is not None:
+            if not self.installing:
+                # Make sure any started progress bars are stopped.
+                while self.progress_position.depth() != 0:
+                    self.debconf_progress_stop()
+
             self.backup = False
             current_name = self.step_name(self.current_page)
             old_dbfilter = self.dbfilter
@@ -1418,6 +1423,17 @@ class Wizard:
         self.ready_text.set_text(text)
 
 
+    def return_to_autopartitioning (self):
+        """Return from the install progress bar to autopartitioning."""
+        if self.installing:
+            # Go back to the autopartitioner and try again.
+            # TODO self.previous_partitioning_page
+            self.live_installer.show()
+            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            self.next.set_label("gtk-go-forward")
+            self.backup = True
+            self.installing = False
+
     def error_dialog (self, msg):
         # TODO: cancel button as well if capb backup
         self.allow_change_step(True)
@@ -1429,13 +1445,33 @@ class Wizard:
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
         dialog.run()
         dialog.hide()
-        if self.installing:
-            # Go back to the autopartitioner and try again.
-            # TODO self.previous_partitioning_page
-            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
-            self.next.set_label("gtk-go-forward")
-            self.backup = True
-            self.installing = False
+        self.return_to_autopartitioning()
+
+    def question_dialog (self, title, msg, option_templates):
+        self.allow_change_step(True)
+        if self.current_page is not None:
+            transient = self.live_installer
+        else:
+            transient = self.debconf_progress_window
+        buttons = []
+        for option_template in option_templates:
+            text = get_string(option_template, self.locale)
+            if text is None:
+                text = option_template
+            buttons.extend((text, len(buttons) / 2 + 1))
+        dialog = gtk.Dialog(title, transient, gtk.DIALOG_MODAL, tuple(buttons))
+        label = gtk.Label(msg)
+        label.set_line_wrap(True)
+        label.set_selectable(True)
+        label.show()
+        dialog.vbox.pack_start(label)
+        response = dialog.run()
+        dialog.hide()
+        if response < 0:
+            # something other than a button press, probably destroyed
+            return None
+        else:
+            return option_templates[response - 1]
 
 
     def refresh (self):

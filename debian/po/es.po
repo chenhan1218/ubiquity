@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-21 10:56+0100\n"
+"POT-Creation-Date: 2006-05-04 05:34+0100\n"
 "PO-Revision-Date: 2006-03-29 19:44+0000\n"
 "Last-Translator: Ricardo Pérez López <ricardo@iesdonana.org>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -355,164 +355,178 @@ msgstr ""
 "otro modo, volverá a arrancar este Live CD en lugar del sistema recién "
 "instalado."
 
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:220
+msgid "Go Back"
+msgstr ""
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:225
+msgid "Continue"
+msgstr ""
+
 #. Type: title
 #. Description
-#: ../ubiquity.templates:228
+#: ../ubiquity.templates:238
 msgid "Installing system"
 msgstr "Instalando el sistema"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232
+#: ../ubiquity.templates:242
 msgid "Finding the distribution to copy..."
 msgstr "Buscando la distribución a copiar..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236
+#: ../ubiquity.templates:246
 msgid "Scanning files..."
 msgstr "Analizando archivos..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:240
+#: ../ubiquity.templates:250
 msgid "Copying files..."
 msgstr "Copiando archivos..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:244
+#: ../ubiquity.templates:254
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Copiando archivos (faltan ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248
+#: ../ubiquity.templates:258
 msgid "Copying installation logs..."
 msgstr "Copiando registros de la instalación..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:252
+#: ../ubiquity.templates:262
 msgid "Cleaning up..."
 msgstr "Limpiando..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:256
+#: ../ubiquity.templates:266
 msgid "Running ${SCRIPT}..."
 msgstr "Ejecutando ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:260
+#: ../ubiquity.templates:270
 msgid "Configuring system locales..."
 msgstr "Configurando los idiomas del sistema..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:264
+#: ../ubiquity.templates:274
 msgid "Configuring apt..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:268
+#: ../ubiquity.templates:278
 msgid "Configuring time zone..."
 msgstr "Configurando la zona horaria..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:272
+#: ../ubiquity.templates:282
 msgid "Configuring keyboard..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:276
+#: ../ubiquity.templates:286
 msgid "Creating user..."
 msgstr "Creando usuario..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:280
+#: ../ubiquity.templates:290
 msgid "Configuring hardware..."
 msgstr "Configurando el hardware..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:284
+#: ../ubiquity.templates:294
 msgid "Configuring network..."
 msgstr "Configurando la red..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:288
+#: ../ubiquity.templates:298
 msgid "Setting computer name..."
 msgstr "Asignando el nombre del equipo..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:292
+#: ../ubiquity.templates:302
 msgid "Configuring boot loader..."
 msgstr "Configurando el gestor de arranque..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:296
+#: ../ubiquity.templates:306
 msgid "Removing extra packages..."
 msgstr "Desinstalando los paquetes extra..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:300
+#: ../ubiquity.templates:310
 msgid "Checking for packages to remove..."
 msgstr "Comprobando los paquetes a eliminar..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:304
+#: ../ubiquity.templates:314
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Descargando paquetes (faltan ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:308
+#: ../ubiquity.templates:318
 msgid "Downloading package lists..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:312
+#: ../ubiquity.templates:322
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Descargando listas de paquetes (faltan ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:321
+#: ../ubiquity.templates:331
 msgid "Error installing ${PACKAGE}"
 msgstr "Error instalando ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:326
+#: ../ubiquity.templates:336
 msgid "Error removing ${PACKAGE}"
 msgstr "Error desinstalando ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:326
+#: ../ubiquity.templates:336
 msgid "${MESSAGE}"
 msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:331
+#: ../ubiquity.templates:341
 msgid "Installing language packs"
 msgstr "Instalando los paquetes de idiomas"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:335
+#: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Descargando paquetes de idiomas (faltan ${TIME})..."

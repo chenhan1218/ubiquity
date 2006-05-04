@@ -56,6 +56,7 @@ class Partman(FilteredCommand):
                      '^partman-partitioning/new_size$',
                      '^partman/choose_partition$',
                      '^partman/confirm.*',
+                     'type:boolean',
                      'ERROR',
                      'PROGRESS']
         return ('/bin/partman', questions)
@@ -196,6 +197,27 @@ class Partman(FilteredCommand):
                 self.preseed(question, 'false')
                 self.succeeded = False
             self.done = True
+            return True
+
+        elif self.db.metaget(question, 'Type') == 'boolean':
+            self.backup_from_new_size = True
+            response = self.frontend.question_dialog(
+                self.description(question),
+                self.extended_description(question),
+                ('ubiquity/text/go_back', 'ubiquity/text/continue'))
+
+            answer_reversed = False
+            if (question == 'partman-jfs/jfs_boot' or
+                question == 'partman-jfs/jfs_root'):
+                answer_reversed = True
+            if response is None or response == 'ubiquity/text/continue':
+                answer = answer_reversed
+            else:
+                answer = not answer_reversed
+            if answer:
+                self.preseed(question, 'true')
+            else:
+                self.preseed(question, 'false')
             return True
 
         # We have some odd control flow here, so make sure we always return

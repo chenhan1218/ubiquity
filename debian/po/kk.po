@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-21 10:56+0100\n"
+"POT-Creation-Date: 2006-05-04 05:34+0100\n"
 "PO-Revision-Date: 2006-03-27 15:10+0000\n"
 "Last-Translator: Alastair McKinstry <mckinstry@debian.org>\n"
 "Language-Team: Kazakh\n"
@@ -334,169 +334,183 @@ msgid ""
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
 
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:220
+msgid "Go Back"
+msgstr ""
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:225
+msgid "Continue"
+msgstr ""
+
 #. Type: title
 #. Description
-#: ../ubiquity.templates:228
+#: ../ubiquity.templates:238
 #, fuzzy
 msgid "Installing system"
 msgstr "Орнату аяқталды"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232
+#: ../ubiquity.templates:242
 msgid "Finding the distribution to copy..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236
+#: ../ubiquity.templates:246
 msgid "Scanning files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:240
+#: ../ubiquity.templates:250
 msgid "Copying files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:244
+#: ../ubiquity.templates:254
 msgid "Copying files (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248
+#: ../ubiquity.templates:258
 msgid "Copying installation logs..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:252
+#: ../ubiquity.templates:262
 msgid "Cleaning up..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:256
+#: ../ubiquity.templates:266
 msgid "Running ${SCRIPT}..."
 msgstr "${SCRIPT} іске қосу"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:260
+#: ../ubiquity.templates:270
 #, fuzzy
 msgid "Configuring system locales..."
 msgstr "Жүйені баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:264
+#: ../ubiquity.templates:274
 msgid "Configuring apt..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:268
+#: ../ubiquity.templates:278
 #, fuzzy
 msgid "Configuring time zone..."
 msgstr "Жүйені баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:272
+#: ../ubiquity.templates:282
 msgid "Configuring keyboard..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:276
+#: ../ubiquity.templates:286
 msgid "Creating user..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:280
+#: ../ubiquity.templates:290
 #, fuzzy
 msgid "Configuring hardware..."
 msgstr "Жүйені баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:284
+#: ../ubiquity.templates:294
 msgid "Configuring network..."
 msgstr "Жүйені баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:288
+#: ../ubiquity.templates:298
 msgid "Setting computer name..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:292
+#: ../ubiquity.templates:302
 #, fuzzy
 msgid "Configuring boot loader..."
 msgstr "Жүйені баптау..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:296
+#: ../ubiquity.templates:306
 msgid "Removing extra packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:300
+#: ../ubiquity.templates:310
 msgid "Checking for packages to remove..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:304
+#: ../ubiquity.templates:314
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:308
+#: ../ubiquity.templates:318
 msgid "Downloading package lists..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:312
+#: ../ubiquity.templates:322
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:321
+#: ../ubiquity.templates:331
 msgid "Error installing ${PACKAGE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:326
+#: ../ubiquity.templates:336
 msgid "Error removing ${PACKAGE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:326
+#: ../ubiquity.templates:336
 msgid "${MESSAGE}"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:331
+#: ../ubiquity.templates:341
 msgid "Installing language packs"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:335
+#: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""

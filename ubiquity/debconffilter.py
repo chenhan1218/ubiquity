@@ -135,7 +135,13 @@ class DebconfFilter:
             widget = self.widgets[pattern]
             if widget not in found:
                 for question in questions:
-                    if re.search(pattern, question):
+                    matches = False
+                    if pattern.startswith('type:') and '/' in question:
+                        if self.db.metaget(question, 'Type') == pattern[5:]:
+                            matches = True
+                    elif re.search(pattern, question):
+                        matches = True
+                    if matches:
                         if method is None or hasattr(widget, method):
                             found.add(widget)
                             break

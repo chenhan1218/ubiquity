@@ -7,6 +7,8 @@ ubiquity (0.99.72) UNRELEASED; urgency=low
     universally-correct collation order (closes: Malone #39299).
   * Save /var/log/partman to installed system as /var/log/installer/partman.
   * Bump localechooser-data dependency to 0.27ubuntu17.
+  * Handle errors and warnings thrown by partman, displaying them to the
+    user and possibly returning to the partitioner (closes: Malone #39734).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue,  2 May 2006 18:34:54 +0100
 
