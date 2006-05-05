@@ -5,6 +5,8 @@ ubiquity (0.99.75) UNRELEASED; urgency=low
   * When committing the results of manual partitioning, tell partman to run
     update.d scripts before asking the confirmation question, rather than
     trying to run them ourselves and doing it wrong (closes: Malone #37872).
+  * GTK frontend:
+    - Allow deselecting mount points in manual partitioner.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  5 May 2006 09:17:46 +0100
 

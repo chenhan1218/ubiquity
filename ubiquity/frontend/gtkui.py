@@ -818,13 +818,12 @@ class Wizard:
             if len(selection.items()) == 0:
                 self.allow_go_forward(False)
             else:
-                mp = { 'swap' : 0, '/' : 1 }
-
                 # Setting default preselection values into ComboBox
                 # widgets and setting size values. In addition, next row
                 # is showed if they're validated.
                 for mountpoint, partition in selection.items():
-                    self.mountpoint_widgets[-1].set_active(mp[mountpoint])
+                    self.mountpoint_widgets[-1].set_active(
+                        self.mountpoint_choices.index(mountpoint))
                     self.size_widgets[-1].set_text(
                         self.set_size_msg(partition))
                     self.partition_widgets[-1].set_active(
