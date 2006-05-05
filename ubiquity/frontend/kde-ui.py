@@ -768,7 +768,7 @@ class Wizard:
         # For safety, if we somehow ended up improperly initialised
         # then go to manual partitioning.
         choice = self.get_disk_choice()
-        if self.manual_choice is None or unicode(choice, "utf-8") == self.manual_choice:
+        if self.manual_choice is None or choice == self.manual_choice:
             print " process_disk_selection going to gparted"
             self.gparted_loop()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])

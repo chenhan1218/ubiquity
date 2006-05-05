@@ -2,6 +2,7 @@ ubiquity (0.99.75) UNRELEASED; urgency=low
 
   * KDE frontend:
     - Fix resize slider handling in autopartitioner (closes: Malone #43015).
+    - Fix handling of disk selections (closes: Malone #43125).
   * When committing the results of manual partitioning, tell partman to run
     update.d scripts before asking the confirmation question, rather than
     trying to run them ourselves and doing it wrong (closes: Malone #37872).
