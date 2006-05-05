@@ -31,7 +31,7 @@ class PartmanCommit(Partman):
                      'ERROR',
                      'PROGRESS']
         return ('/bin/partman', questions,
-                {'PARTMAN_UPDATE_BEFORE_COMMIT': '1'})
+                {'PARTMAN_UPDATE_BEFORE_CONFIRM': '1'})
 
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question))
