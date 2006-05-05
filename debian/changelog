@@ -1,3 +1,10 @@
+ubiquity (0.99.76) UNRELEASED; urgency=low
+
+  * Make deselection of mount points actually have a useful effect on
+    partman_commit.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  5 May 2006 23:57:15 +0100
+
 ubiquity (0.99.75) dapper; urgency=low
 
   * KDE frontend:

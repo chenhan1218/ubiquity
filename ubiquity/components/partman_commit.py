@@ -60,9 +60,10 @@ class PartmanCommit(Partman):
                     partitions[p_path] = (disk, p_id)
 
             mountpoints = self.frontend.get_mountpoints()
-            for device, (path, format, fstype) in mountpoints.items():
-                if device in partitions:
-                    (disk, p_id) = partitions[device]
+            for device in partitions:
+                (disk, p_id) = partitions[device]
+                if device in mountpoints:
+                    (path, format, fstype) = mountpoints[device]
                     parted.select_disk(disk)
                     if path == 'swap':
                         parted.write_part_entry(p_id, 'method', 'swap\n')
@@ -94,6 +95,10 @@ class PartmanCommit(Partman):
                                 p_id, 'detected_filesystem', fstype)
                         parted.write_part_entry(p_id, 'use_filesystem', '')
                         parted.write_part_entry(p_id, 'mountpoint', path)
+                else:
+                    parted.remove_part_entry(p_id, 'method')
+                    parted.remove_part_entry(p_id, 'format')
+                    parted.remove_part_entry(p_id, 'use_filesystem')
 
             # Don't preseed_as_c, because Perl debconf is buggy in that it
             # doesn't expand variables in the result of METAGET choices-c.
