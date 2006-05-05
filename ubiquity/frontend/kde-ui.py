@@ -1464,12 +1464,12 @@ class Wizard:
 
     def set_autopartition_resize_min_percent (self, min_percent):
         print "  set_autopartition_resize_min_percent (self, min_percent):"
-        self.new_size_scale.setMinValue(min_percent)
-        self.new_size_scale.setMaxValue(100)
+        self.userinterface.new_size_scale.setMinValue(min_percent)
+        self.userinterface.new_size_scale.setMaxValue(100)
 
     def get_autopartition_resize_percent (self):
         print "  get_autopartition_resize_percent (self):"
-        return self.new_size_scale.value()
+        return self.userinterface.new_size_scale.value()
 
     def get_hostname (self):
         return unicode(self.userinterface.hostname.text())
