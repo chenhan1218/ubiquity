@@ -105,7 +105,7 @@ class Wizard:
         self.size_widgets = []
         self.partition_widgets = []
         self.format_widgets = []
-        self.mountpoint_choices = [' ', 'swap', '/', '/home',
+        self.mountpoint_choices = ['', 'swap', '/', '/home',
                                    '/boot', '/usr', '/var']
         self.partition_choices = []
         self.mountpoints = {}
