@@ -847,6 +847,9 @@ class Wizard:
             for partition in self.partition_widgets:
                 partition.connect("changed", self.on_list_changed)
 
+        self.mountpoint_error_reason.hide()
+        self.mountpoint_error_image.hide()
+
         self.steps.next_page()
 
 
@@ -924,11 +927,14 @@ class Wizard:
                         self.locale))
 
         # showing warning messages
+        self.mountpoint_error_reason.set_text("\n".join(error_msg))
         if len(error_msg) != 0:
-            self.mountpoint_error_reason.set_text("\n".join(error_msg))
             self.mountpoint_error_reason.show()
             self.mountpoint_error_image.show()
             return
+        else:
+            self.mountpoint_error_reason.hide()
+            self.mountpoint_error_image.hide()
 
         gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
         gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'

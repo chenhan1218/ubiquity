@@ -1009,11 +1009,14 @@ class Wizard:
                         self.locale))
 
         # showing warning messages
+        self.userinterface.mountpoint_error_reason.setText("\n".join(error_msg))
         if len(error_msg) != 0:
-            self.userinterface.mountpoint_error_reason.setText("\n".join(error_msg))
             self.userinterface.mountpoint_error_reason.show()
             self.userinterface.mountpoint_error_image.show()
             return
+        else:
+            self.userinterface.mountpoint_error_reason.hide()
+            self.userinterface.mountpoint_error_image.hide()
         
         """
 

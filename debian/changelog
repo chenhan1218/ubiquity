@@ -8,6 +8,8 @@ ubiquity (0.99.75) UNRELEASED; urgency=low
     trying to run them ourselves and doing it wrong (closes: Malone #37872).
   * GTK frontend:
     - Allow deselecting mount points in manual partitioner.
+  * Hide mount point errors after successful manual partitioning, to make
+    sure that they don't appear if you go back from the summary page.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  5 May 2006 09:17:46 +0100
 
