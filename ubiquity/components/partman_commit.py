@@ -30,7 +30,8 @@ class PartmanCommit(Partman):
                      'type:boolean',
                      'ERROR',
                      'PROGRESS']
-        return ('/bin/partman', questions)
+        return ('/bin/partman', questions,
+                {'PARTMAN_UPDATE_BEFORE_COMMIT': '1'})
 
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question))
@@ -93,7 +94,6 @@ class PartmanCommit(Partman):
                                 p_id, 'detected_filesystem', fstype)
                         parted.write_part_entry(p_id, 'use_filesystem', '')
                         parted.write_part_entry(p_id, 'mountpoint', path)
-                    parted.update_partition(p_id)
 
             # Don't preseed_as_c, because Perl debconf is buggy in that it
             # doesn't expand variables in the result of METAGET choices-c.

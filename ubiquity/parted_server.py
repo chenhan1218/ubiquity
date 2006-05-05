@@ -22,7 +22,6 @@
 
 import os
 import shutil
-import subprocess
 
 devices = '/var/lib/partman/devices'
 infifo = '/var/lib/partman/infifo'
@@ -212,20 +211,3 @@ class PartedServer(object):
                                p_fs, p_path, p_name))
         self.close_dialog()
         return partitions
-
-    def update_partition(self, partition):
-        self.open_dialog('PARTITION_INFO', partition)
-        info = self.read_line()[0]
-        self.close_dialog()
-        if info != '':
-            return
-
-        cwd = os.getcwd()
-        os.chdir(os.path.join(devices, self.current_disk))
-        scripts = os.listdir('/lib/partman/update.d')
-        scripts.sort()
-        for name in scripts:
-            script = os.path.join('/lib/partman/update.d', name)
-            if os.access(script, os.X_OK):
-                subprocess.call([script, self.current_disk, partition])
-        os.chdir(cwd)
