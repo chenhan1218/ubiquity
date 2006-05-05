@@ -14,7 +14,8 @@ ubiquity (0.99.75) dapper; urgency=low
     update.d scripts before asking the confirmation question, rather than
     trying to run them ourselves and doing it wrong (closes: Malone #37872).
   * GTK frontend:
-    - Allow deselecting mount points in manual partitioner.
+    - Allow deselecting mount points in manual partitioner (closes: Malone
+      #40588).
   * Hide mount point errors after successful manual partitioning, to make
     sure that they don't appear if you go back from the summary page.
   * Automatic update of included source packages: partman-base
