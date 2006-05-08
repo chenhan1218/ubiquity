@@ -39,7 +39,7 @@ from apt.progress import FetchProgress, InstallProgress
 from ubiquity import misc
 from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 kbd_chooser_apply, usersetup_apply, \
-                                check_kernels
+                                hw_detect, check_kernels
 
 class DebconfFetchProgress(FetchProgress):
     """An object that reports apt's fetching progress using debconf."""
@@ -736,6 +736,13 @@ class Install:
         """reconfiguring several packages which depends on the
         hardware system in which has been installed on and need some
         automatic configurations to get work."""
+
+        dbfilter = hw_detect.HwDetect(None)
+        if dbfilter.run_command(auto_process=True) != 0:
+            return False
+
+        subprocess.call(['/usr/lib/ubiquity/debian-installer-utils'
+                         '/register-module.prebaseconfig'])
 
         self.chrex('mount', '-t', 'proc', 'proc', '/proc')
         self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
