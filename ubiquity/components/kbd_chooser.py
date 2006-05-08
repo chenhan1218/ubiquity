@@ -303,14 +303,14 @@ def apply_keyboard(keyboard):
         message = 'layout %s' % xmap
 
         if model is not None:
-            model = ["-model", model]
             message += ', model %s' % model
+            model = ["-model", model]
         else:
             model = []
 
         if variant is not None:
-            variant = ["-variant", variant]
             message += ', variant %s' % variant
+            variant = ["-variant", variant]
         else:
             variant = []
 
