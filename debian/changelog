@@ -3,6 +3,7 @@ ubiquity (0.99.77) UNRELEASED; urgency=low
   * Run hw-detect to set up /etc/modules properly (closes: Malone #40826).
   * Mimic base-installer's logic to configure initramfs-tools with an
     appropriate resume partition (closes: Malone #42299).
+  * Fix logging in apply_keyboard.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 01:16:21 +0100
 

@@ -296,22 +296,25 @@ def map_keyboard(keyboard):
 def apply_keyboard(keyboard):
     (xmap, model, variant) = map_keyboard(keyboard)
 
-    import syslog
-    syslog.syslog(syslog.LOG_ERR, "kbd: %s" % keyboard)
-    syslog.syslog(syslog.LOG_ERR, "kbd: %s %s %s" % (xmap, model, variant))
+    if keyboard is not None:
+        KbdChooser.debug("apply_keyboard: %s", keyboard)
 
     if xmap is not None:
+        message = 'layout %s' % xmap
 
         if model is not None:
             model = ["-model", model]
+            message += ', model %s' % model
         else:
             model = []
 
         if variant is not None:
             variant = ["-variant", variant]
+            message += ', variant %s' % variant
         else:
             variant = []
 
+        KbdChooser.debug("apply_keyboard: %s", message)
         Popen(["setxkbmap", xmap] + model + variant)
 
 def update_x_config(keyboard):

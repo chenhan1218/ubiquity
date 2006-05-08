@@ -32,6 +32,7 @@ class FilteredCommand(object):
         self.current_question = None
         self.succeeded = False
 
+    @classmethod
     def debug(self, fmt, *args):
         if ('UBIQUITY_DEBUG_CORE' in os.environ and
             os.environ['UBIQUITY_DEBUG_CORE'] == '1'):
