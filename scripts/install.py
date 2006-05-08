@@ -732,6 +732,21 @@ class Install:
         return (dbfilter.run_command(auto_process=True) == 0)
 
 
+    def get_resume_partition(self):
+        biggest_size = 0
+        biggest_partition = None
+        swaps = open('/proc/swaps')
+        for line in swaps:
+            words = line.split()
+            if words[1] != 'partition':
+                continue
+            size = int(words[2])
+            if size > biggest_size:
+                biggest_size = size
+                biggest_partition = words[0]
+        swaps.close()
+        return biggest_partition
+
     def configure_hardware(self):
         """reconfiguring several packages which depends on the
         hardware system in which has been installed on and need some
@@ -743,6 +758,15 @@ class Install:
 
         subprocess.call(['/usr/lib/ubiquity/debian-installer-utils'
                          '/register-module.prebaseconfig'])
+
+        resume = self.get_resume_partition()
+        if resume is not None:
+            configdir = os.path.join(self.target, 'etc/mkinitramfs/conf.d')
+            if not os.path.exists(configdir):
+                os.makedirs(configdir)
+            configfile = open(os.path.join(configdir, 'resume'), 'w')
+            print >>configfile, "RESUME=%s" % resume
+            configfile.close()
 
         self.chrex('mount', '-t', 'proc', 'proc', '/proc')
         self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
