@@ -273,12 +273,12 @@ def map_keyboard(keyboard):
             xmap = "sr"
             break
 
-        if k == "trf":
+        if k == "trf" or k == "trfu":
             xmap = "tr"
             variant = "f"
             break
 
-        if k == "trq":
+        if k == "trq" or k == "trqu":
             xmap = "tr"
             break
 
