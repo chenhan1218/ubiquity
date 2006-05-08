@@ -235,6 +235,14 @@ def map_keyboard(keyboard):
             xmap = "es"
             break
 
+        if k == "mk":
+            xmap = "mk"
+            break
+
+        if k == "nl":
+            xmap = "nl"
+            break
+
         if k == "no":
             xmap = "no"
             break
@@ -245,6 +253,14 @@ def map_keyboard(keyboard):
 
         if k == "pt":
             xmap = "pt"
+            break
+
+        if k == "ro":
+            xmap = "ro"
+            break
+
+        if k == "ru":
+            xmap = "ru"
             break
 
         if k == "uk":

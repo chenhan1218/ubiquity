@@ -12,6 +12,8 @@ ubiquity (0.99.77) UNRELEASED; urgency=low
   * Map et console keymap to ee (closes: Malone #42800).
   * Handle fi-latin1 console keymap the same way as fi (closes: Malone
     #42650).
+  * Map mk, nl, ro, and ru console keymaps to the X keymaps by the same
+    names.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 01:16:21 +0100
 
