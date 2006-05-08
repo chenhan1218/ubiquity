@@ -7,6 +7,8 @@ ubiquity (0.99.77) UNRELEASED; urgency=low
   * Handle trfu/trqu console keymaps the same way as trf/trq (closes: Malone
     #37867).
   * Map croat console keymap to hr (closes: Malone #43598).
+  * Mimic xserver-xorg's logic regarding alternate US layouts for non-Latin
+    keymaps.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 01:16:21 +0100
 
