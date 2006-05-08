@@ -14,6 +14,8 @@ ubiquity (0.99.77) UNRELEASED; urgency=low
     #42650).
   * Map mk, nl, ro, and ru console keymaps to the X keymaps by the same
     names.
+  * Map gr console keymap to gr, and add it to the list of non-Latin
+    keymaps.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 01:16:21 +0100
 

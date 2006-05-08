@@ -183,6 +183,10 @@ def map_keyboard(keyboard):
             xmap = "gb"
             break
 
+        if k == "gr":
+            xmap = "gr"
+            break
+
         if k == "hebrew":
             xmap = "il"
             break
@@ -320,8 +324,8 @@ def map_keyboard(keyboard):
     # layout so they can log in, and then switch to writing native text. Bit
     # hard to work out which one should be the default.
     latin = True
-    if xmap in ("am", "ar", "bg", "by", "el", "il", "ir", "iu", "lo", "mk",
-                "ml", "mm", "mn", "ru", "th", "tj", "ua"):
+    if xmap in ("am", "ar", "bg", "by", "el", "gr", "il", "ir", "iu", "lo",
+                "mk", "ml", "mm", "mn", "ru", "th", "tj", "ua"):
         latin = False
     elif xmap == "tr" and variant == "f":
         latin = False
