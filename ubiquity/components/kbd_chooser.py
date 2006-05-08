@@ -152,6 +152,10 @@ def map_keyboard(keyboard):
             xmap = "es"
             break
 
+        if k == "et":
+            xmap = "ee"
+            break
+
         if k == "fr_CH":
             xmap = "ch"
             variant = "fr"
