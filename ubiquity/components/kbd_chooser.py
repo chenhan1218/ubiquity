@@ -175,7 +175,7 @@ def map_keyboard(keyboard):
             variant = "latin9"
             break
 
-        if k == "fi":
+        if k == "fi" or k == "fi-latin1":
             xmap = "fi"
             break
 
