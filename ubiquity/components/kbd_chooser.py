@@ -120,6 +120,10 @@ def map_keyboard(keyboard):
             xmap = "by"
             break
 
+        if k == "croat":
+            xmap = "hr"
+            break
+
         if k == "cz-lat2":
             xmap = "cz"
             break
