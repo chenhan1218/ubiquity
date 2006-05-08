@@ -343,20 +343,21 @@ class Wizard:
 
             # Ideally, these attributes would be in the glade file somehow ...
             name = widget.get_name()
+            textlen = len(text.encode("UTF-8"))
             if 'heading_label' in name:
                 attrs = pango.AttrList()
-                attrs.insert(pango.AttrScale(pango.SCALE_LARGE, 0, len(text)))
-                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, len(text)))
+                attrs.insert(pango.AttrScale(pango.SCALE_LARGE, 0, textlen))
+                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, textlen))
                 widget.set_attributes(attrs)
             elif 'extra_label' in name:
                 attrs = pango.AttrList()
-                attrs.insert(pango.AttrStyle(pango.STYLE_ITALIC, 0, len(text)))
+                attrs.insert(pango.AttrStyle(pango.STYLE_ITALIC, 0, textlen))
                 widget.set_attributes(attrs)
             elif name in ('drives_label', 'partition_method_label',
                           'mountpoint_label', 'size_label', 'device_label',
                           'format_label'):
                 attrs = pango.AttrList()
-                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, len(text)))
+                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, textlen))
                 widget.set_attributes(attrs)
 
         elif isinstance(widget, gtk.Button):
