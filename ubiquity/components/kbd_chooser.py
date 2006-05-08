@@ -278,10 +278,6 @@ def map_keyboard(keyboard):
             variant = "f"
             break
 
-        if k == "sr-cy":
-            xmap = "sr"
-            break
-
         if k == "trq":
             xmap = "tr"
             break
