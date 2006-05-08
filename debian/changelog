@@ -1,4 +1,4 @@
-ubiquity (0.99.77) UNRELEASED; urgency=low
+ubiquity (0.99.77) dapper; urgency=low
 
   * Run hw-detect to set up /etc/modules properly (closes: Malone #40826).
   * Mimic base-installer's logic to configure initramfs-tools with an
@@ -18,8 +18,9 @@ ubiquity (0.99.77) UNRELEASED; urgency=low
     keymaps.
   * Change sr-cy console keymap to map to cs, not sr, following
     xkeyboard-config changes. Add this to the list of non-Latin keymaps.
+  * Automatic update of included source packages: hw-detect 1.32ubuntu6.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 01:16:21 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 17:39:19 +0100
 
 ubiquity (0.99.76) dapper; urgency=low
 
