@@ -166,7 +166,8 @@ binary-arch: install
 #	dh_installexamples -a
 	dh_installdebconf -a
 	echo >> debian/ubiquity/DEBIAN/templates
-	cat d-i/templates >> debian/ubiquity/DEBIAN/templates
+	grep-dctrl -v -FTemplate base-installer/ d-i/templates \
+		>> debian/ubiquity/DEBIAN/templates
 #	dh_installman -a
 	dh_link -a
 	dh_strip -a
