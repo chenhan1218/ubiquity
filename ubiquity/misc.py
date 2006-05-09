@@ -247,11 +247,28 @@ def get_supported_locales():
 
 _translations = None
 
-def get_translations():
+def get_translations(languages=None, core_names=[]):
     """Returns a dictionary {name: {language: description}} of translatable
-    strings."""
+    strings.
+
+    If languages is set to a list, then only languages in that list will be
+    translated. If core_names is also set to a list, then any names in that
+    list will still be translated into all languages. If either is set, then
+    the dictionary returned will be built from scratch; otherwise, the last
+    cached version will be returned."""
+
     global _translations
-    if _translations is None:
+    if _translations is None or languages is not None or len(core_names) > 0:
+        if languages is None:
+            use_langs = None
+        else:
+            use_langs = set('c')
+            for lang in languages:
+                ll_cc = lang.lower().split('.')[0]
+                ll = ll_cc.split('_')[0]
+                use_langs.add(ll_cc)
+                use_langs.add(ll)
+
         _translations = {}
         devnull = open('/dev/null', 'w')
         db = subprocess.Popen(
@@ -286,7 +303,9 @@ def get_translations():
                     lang = namebits[1].lower()
                     # TODO: recode from specified encoding
                     lang = lang.split('.')[0]
-                descriptions[lang] = value.replace('\\n', '\n')
+                if (use_langs is None or lang in use_langs or
+                    question in core_names):
+                    descriptions[lang] = value.replace('\\n', '\n')
             elif name.startswith('extended_description'):
                 namebits = name.split('-', 1)
                 if len(namebits) == 1:
@@ -295,8 +314,10 @@ def get_translations():
                     lang = namebits[1].lower()
                     # TODO: recode from specified encoding
                     lang = lang.split('.')[0]
-                if lang not in descriptions:
-                    descriptions[lang] = value.replace('\\n', '\n')
+                if (use_langs is None or lang in use_langs or
+                    question in core_names):
+                    if lang not in descriptions:
+                        descriptions[lang] = value.replace('\\n', '\n')
 
         db.wait()
         devnull.close()

@@ -119,7 +119,9 @@ class Wizard:
         self.previous_partitioning_page = None
         self.installing = False
         self.returncode = 0
-        self.translations = get_translations()
+        self.language_questions = ('live_installer', 'welcome_heading_label',
+                                   'welcome_text_label', 'cancel', 'back',
+                                   'next')
         self.allowed_change_step = True
         self.allowed_go_forward = True
 
@@ -327,6 +329,14 @@ class Wizard:
 
 
     def translate_widgets(self):
+        if self.locale is None:
+            languages = []
+        else:
+            languages = [self.locale]
+        get_translations(languages=languages,
+                         core_names=['ubiquity/text/%s' % q
+                                     for q in self.language_questions])
+
         for widget in self.glade.get_widget_prefix(""):
             self.translate_widget(widget, self.locale)
 
@@ -1012,8 +1022,7 @@ class Wizard:
             lang = self.language_choice_map[value][1]
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
-            for widget in ('live_installer', 'welcome_heading_label',
-                           'welcome_text_label', 'cancel', 'back', 'next'):
+            for widget in self.language_questions:
                 self.translate_widget(getattr(self, widget), lang)
 
 
