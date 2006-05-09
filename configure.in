@@ -72,6 +72,7 @@ dnl ==============================================================
 
 AC_OUTPUT([
 Makefile
+desktop/Makefile
 pixmaps/Makefile
 po/Makefile.in
 src/Makefile
