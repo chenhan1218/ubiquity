@@ -235,7 +235,7 @@ scriptsdir = @scriptsdir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-SUBDIRS = pixmaps po src
+SUBDIRS = desktop pixmaps po src
 ACLOCAL_AMFLAGS = -I m4
 EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog
 all: config.h
