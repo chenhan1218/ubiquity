@@ -9,6 +9,8 @@ AM_MAINTAINER_MODE
 
 AM_PROG_LIBTOOL
 
+IT_PROG_INTLTOOL
+
 AC_ISC_POSIX
 AC_PROG_CC
 AC_HEADER_STDC
@@ -68,6 +70,7 @@ dnl ==============================================================
 AC_OUTPUT([
 Makefile
 pixmaps/Makefile
+po/Makefile.in
 src/Makefile
 src/cut-and-paste/Makefile
 src/cut-and-paste/e-map/Makefile
