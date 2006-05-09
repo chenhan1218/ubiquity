@@ -7,6 +7,8 @@ ubiquity (0.99.78) UNRELEASED; urgency=low
   * Filter out base-installer/* from our templates file; saves 350KB.
   * Only load translations for the current language (plus those translations
     needed immediately on the language page), to save memory.
+  * Fix Unicode decoding crash on substituted values in summary component
+    (closes: Malone #43867).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 18:07:31 +0100
 
