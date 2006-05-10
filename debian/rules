@@ -5,6 +5,8 @@
 
 BUILDDIR=$(CURDIR)/debian/build
 
+VERSION := $(shell dpkg-parsechangelog | awk '/^Version:/ { print $$2 }')
+
 DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_ARCH_CPU ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_CPU 2>/dev/null)
 
@@ -97,7 +99,9 @@ endif
 endif
 
 	# Bits of manual installation that can't be done by dh_install
-	install installer $(CURDIR)/debian/ubiquity/usr/bin/ubiquity
+	sed 's/@VERSION@/$(VERSION)/g' installer \
+		> debian/ubiquity/usr/bin/ubiquity
+	chmod +x debian/ubiquity/usr/bin/ubiquity
 	sed 's,/usr/lib/apt-setup,/usr/lib/ubiquity/apt-setup,g' \
 		d-i/source/apt-setup/apt-setup \
 		> debian/ubiquity/usr/lib/ubiquity/apt-setup/apt-setup
