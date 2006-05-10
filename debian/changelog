@@ -16,6 +16,7 @@ ubiquity (0.99.78) UNRELEASED; urgency=low
     ubiquity-ubuntu-doc.
   * Speed up building of subsidiary source packages by running 'debian/rules
     binary' in one go rather than binary-arch and binary-indep separately.
+  * Fix hw-detect not to try to write to non-existent prebaseconfig script.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 18:07:31 +0100
 

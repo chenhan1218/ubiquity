@@ -110,6 +110,10 @@ endif
 		install -m644 d-i/source/base-installer/kernel/$(DEB_HOST_ARCH).sh \
 			debian/ubiquity/usr/lib/ubiquity/base-installer/kernel.sh; \
 	fi
+	sed 's,\(prebaseconfig=\).*,\1/dev/null,' \
+		d-i/source/hw-detect/debian/hw-detect/bin/hw-detect \
+		> debian/ubiquity/bin/hw-detect
+	chmod +x debian/ubiquity/bin/hw-detect
 	install d-i/source/kbd-chooser/debian/prebaseconfig \
 		debian/ubiquity/usr/lib/ubiquity/kbd-chooser/
 	install d-i/source/localechooser/post-base-installer \
