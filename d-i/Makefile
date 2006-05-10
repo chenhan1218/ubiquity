@@ -45,8 +45,7 @@ install:
 		if [ -d "$(SOURCEDIR)/$$package" ]; then \
 			(export NO_PKG_MANGLE=1; \
 			 cd "$(SOURCEDIR)/$$package" && \
-			 debian/rules binary-arch && \
-			 debian/rules binary-indep && \
+			 debian/rules binary && \
 			 rm -rf debian/*/DEBIAN); \
 		fi; \
 	done
