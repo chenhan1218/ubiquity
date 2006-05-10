@@ -7,7 +7,7 @@ Standards-Version: 3.6.2.1
 
 Package: ubiquity
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf (>= 1.4.72ubuntu5), ubiquity-frontend, ubiquity-doc, laptop-detect, lsb-release, ubiquity-casper, python-apt (>= 0.6.16.2ubuntu4), console-keymaps, console-data (>= 2002.12.04dbs-52.1ubuntu7), localechooser-data (>= 0.27ubuntu17), iso-codes, ${bootloader-depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf (>= 1.4.72ubuntu5), ubiquity-frontend, ubiquity-artwork, laptop-detect, lsb-release, ubiquity-casper, python-apt (>= 0.6.16.2ubuntu4), console-keymaps, console-data (>= 2002.12.04dbs-52.1ubuntu7), localechooser-data (>= 0.27ubuntu17), iso-codes, ${bootloader-depends}
 Recommends: gparted
 Conflicts: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
 Replaces: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
@@ -20,43 +20,25 @@ Description: Ubuntu live CD installer
 
 Package: ubiquity-ubuntu-artwork
 Architecture: all
-Conflicts: ubuntu-express-ubuntu-artwork, espresso-ubuntu-artwork
-Replaces: ubuntu-express-ubuntu-artwork, espresso-ubuntu-artwork
+Conflicts: ubuntu-express-ubuntu-artwork, ubuntu-express-ubuntu-doc, espresso-ubuntu-artwork, espresso-ubuntu-doc, ubiquity-ubuntu-doc
+Replaces: ubuntu-express-ubuntu-artwork, ubuntu-express-ubuntu-doc, espresso-ubuntu-artwork, espresso-ubuntu-doc, ubiquity-ubuntu-doc
 Provides: ubiquity-artwork
 Description: Ubuntu artwork for Ubiquity live installer
- This package provides Ubuntu-themed user interface artwork for the Ubiquity
- live CD installer.
+ This package provides Ubuntu-themed user interface artwork, help files, and
+ user interface text for the Ubiquity live CD installer.
 
 #Package: ubiquity-guadalinex-artwork
 #Architecture: all
-#Conflicts: ubuntu-express-guadalinex-artwork, espresso-guadalinex-artwork
-#Replaces: ubuntu-express-guadalinex-artwork, espresso-guadalinex-artwork
+#Conflicts: ubuntu-express-guadalinex-artwork, ubuntu-express-guadalinex-doc, espresso-guadalinex-artwork, espresso-guadalinex-doc, ubiquity-guadalinex-doc
+#Replaces: ubuntu-express-guadalinex-artwork, ubuntu-express-guadalinex-doc, espresso-guadalinex-artwork, espresso-guadalinex-doc, ubiquity-guadalinex-doc
 #Provides: ubiquity-artwork
 #Description: Guadalinex artwork for Ubiquity live installer
-# This package provides Guadalinex-themed user interface artwork for the
-# Ubiquity live CD installer.
-
-Package: ubiquity-ubuntu-doc
-Architecture: all
-Conflicts: ubuntu-express-ubuntu-doc, espresso-ubuntu-doc
-Replaces: ubuntu-express-ubuntu-doc, espresso-ubuntu-doc
-Provides: ubiquity-doc
-Description: Ubuntu documentation and help files for Ubiquity live installer
- This package provides Ubuntu-themed help files and user interface text for
- the Ubiquity live CD installer.
-
-#Package: ubiquity-guadalinex-doc
-#Architecture: all
-#Conflicts: ubuntu-express-guadalinex-doc, espresso-guadalinex-doc
-#Replaces: ubuntu-express-guadalinex-doc, espresso-guadalinex-doc
-#Provides: ubiquity-doc
-#Description: Guadalinex documentation and help files for Ubiquity live installer
-# This package provides Guadalinex-themed help files and user interface text
-# for the Ubiquity live CD installer.
+# This package provides Guadalinex-themed user interface artwork, help
+# files, and user interface text for the Ubiquity live CD installer.
 
 Package: ubiquity-frontend-gtk
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity, python-glade2, gparted (>= 0.1-0ubuntu3), ubiquity-artwork, ubiquity-doc, python-gtk2, iso-codes
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity, python-glade2, gparted (>= 0.1-0ubuntu3), python-gtk2, iso-codes
 Recommends: gnome-system-tools
 Conflicts: ubuntu-express-frontend-gtk, espresso-frontend-gtk
 Replaces: ubuntu-express-frontend-gtk, espresso-frontend-gtk
@@ -75,7 +57,7 @@ Description: KDE frontend for Ubiquity live installer
 
 #Package: ubiquity-frontend-cloner
 #Architecture: all
-#Depends: ${misc:Depends}, ${python:Depends}, ubiquity-artwork, ubiquity-doc
+#Depends: ${misc:Depends}, ${python:Depends}, ubiquity
 #Conflicts: ubuntu-express-frontend-cloner, espresso-frontend-cloner
 #Replaces: ubuntu-express-frontend-cloner, espresso-frontend-cloner
 #Provides: ubiquity-frontend
