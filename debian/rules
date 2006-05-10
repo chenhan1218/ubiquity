@@ -47,12 +47,6 @@ endif
 	mkdir -p $(BUILDDIR)/ubuntu
 	mkdir -p $(BUILDDIR)/guadalinex
 
-	# Ubuntu-doc
-	for file in $$(ls $(CURDIR)/glade/locale/ubuntu/*.po); do msgfmt -o $(BUILDDIR)/ubuntu/$$(basename $$file .po).mo $(CURDIR)/glade/locale/ubuntu/$$(basename $$file); done || true
-
-	# Guadalinex-doc
-	for file in $$(ls $(CURDIR)/glade/locale/guadalinex/*.po); do msgfmt -o $(BUILDDIR)/guadalinex/$$(basename $$file .po).mo $(CURDIR)/glade/locale/guadalinex/$$(basename $$file); done || true
-
 ifndef UBIQUITY_NO_KDE
 	cd ubiquity/frontend && kdepyuic liveinstaller.ui && kdepyuic crashdialog.ui
 endif
@@ -137,9 +131,6 @@ ifeq ($(DEB_HOST_ARCH),sparc)
 	install d-i/source/silo-installer/debian/silo-installer.postinst \
 		debian/ubiquity/usr/lib/ubiquity/silo-installer/silo-installer
 endif
-
-	set -e; for locale in $$(find $(BUILDDIR)/ubuntu/ -name \*.mo -exec basename {} .mo \;); do mkdir -p $(CURDIR)/debian/ubiquity-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES; mv $(BUILDDIR)/ubuntu/$$locale.mo $(CURDIR)/debian/ubiquity-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/ubuntu-installer.mo; done
-	set -e; for locale in $$(find $(BUILDDIR)/guadalinex/ -name \*.mo -exec basename {} .mo \;); do mkdir -p $(CURDIR)/debian/ubiquity-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES; mv $(BUILDDIR)/guadalinex/$$locale.mo $(CURDIR)/debian/ubiquity-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES/guadalinex-installer.mo; done
 
 	set -e; for size in 16 22 32 48 64 128; do \
 		mkdir -p debian/ubiquity-frontend-kde/usr/share/icons/crystalsvg/$${size}x$${size}/apps; \
