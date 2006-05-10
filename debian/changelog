@@ -12,6 +12,8 @@ ubiquity (0.99.78) UNRELEASED; urgency=low
   * Log our own version number to /var/log/installer/syslog and
     /var/log/installer/version on startup. Save /var/log/installer/version
     to installed system.
+  * Remove piles of obsolete screenshots from the source package and
+    ubiquity-ubuntu-doc.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 18:07:31 +0100
 
