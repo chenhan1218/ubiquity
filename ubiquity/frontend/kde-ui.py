@@ -169,7 +169,7 @@ class Wizard:
         
         # TODO jr 2006-04-19: sometimes causes pykde crash when creating
         # kdialogs
-        #self.translate_widgets()
+        self.translate_widgets()
 
         self.customize_installer()
         
@@ -252,6 +252,8 @@ class Wizard:
         self.app.connect(self.userinterface.timezone_time_adjust, SIGNAL("clicked()"), self.on_timezone_time_adjust_clicked)
 
         self.app.connect(self.userinterface.timezone_city_combo, SIGNAL("activated(int)"), self.tzmap.city_combo_changed)
+
+        self.app.connect(self.userinterface.new_size_scale, SIGNAL("valueChanged(int)"), self.update_new_size_label)
         # Start the interface
         self.set_current_page(0)
         while self.current_page is not None:
@@ -318,6 +320,7 @@ class Wizard:
         #self.userinterface.logo_image.setPixmap(icon)
         self.userinterface.back.setEnabled(False)
 
+        self.update_new_size_label(self.userinterface.new_size_scale.value())
         """
 
         PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
@@ -351,14 +354,20 @@ class Wizard:
                          core_names=['ubiquity/text/%s' % q
                                      for q in self.language_questions])
 
+        self.translate_widget_chidren(parentWidget)
+
+    def translate_widget_chidren(self, parentWidget=None):
+        print "  translate_widget_chidren(self, parentWidget=None):"
         if parentWidget == None:
             parentWidget = self.userinterface
 
         for widget in parentWidget.children():
             self.translate_widget(widget, self.locale)
-            self.translate_widgets(widget)
+            self.translate_widget_chidren(widget)
 
     def translate_widget(self, widget, lang):
+
+        print "  translate_widget(self, widget, lang)"
         
         #FIXME how to do in KDE?  use kstdactions?
         #if isinstance(widget, gtk.Button) and widget.get_use_stock():
@@ -368,11 +377,9 @@ class Wizard:
         if text is None:
             return
 
-        print "  translate_widget(self, widget, lang)"
         if isinstance(widget, QLabel):
             name = widget.name()
             if 'heading_label' in name:
-                print "text: " + text.encode("utf-8")
                 widget.setText("<h2>" + text + "</h2>")
             elif 'extra_label' in name:
                 widget.setText("<em>" + text + "</em>")
@@ -1104,12 +1111,15 @@ class Wizard:
     def on_language_treeview_selection_changed (self):
         print "  on_language_treeview_selection_changed (self, selection):"
         selection = self.userinterface.language_treeview.selectedItem()
+        print "selection: " + str(selection)
         if selection is not None:
+            print "selection is not None"
             value = unicode(selection.text(0))
             lang = self.language_choice_map[value][1]
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
             for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.next, self.userinterface.back, self.userinterface.cancel):
+                print "translating widget"
                 self.translate_widget(widget, lang)
 
     def on_timezone_time_adjust_clicked (self):
@@ -1140,9 +1150,11 @@ class Wizard:
         selected."""
 
         self.userinterface.new_size_frame.setEnabled(enable)
-
+        self.userinterface.new_size_scale.setEnabled(enable)
+        
+    def update_new_size_label(self, value):
+        self.userinterface.new_size_value.setText(str(value) + "%")
         ##     def on_abort_dialog_close (self, widget):
-        print "  on_abort_dialog_close (self, widget):"
 
         ##         """ Disable automatic partitioning and reset partitioning method step. """
 
@@ -1563,7 +1575,7 @@ class Wizard:
 
         self.userinterface.keyboardlistview.clear()
         for choice in sorted(choices):
-            self.userinterface.keyboardlistview.insertItem( QListViewItem(self.userinterface.keyboardlistview, choice) )
+            self.userinterface.keyboardlistview.insertItem( KListViewItem(self.userinterface.keyboardlistview, choice) )
 
         if self.current_keyboard is not None:
             self.set_keyboard(self.current_keyboard)
@@ -1759,7 +1771,9 @@ class TimezoneMap(object):
     def update_current_time(self):
         if self.location_selected is not None:
             now = datetime.datetime.now(self.location_selected.info)
-            self.frontend.userinterface.timezone_time_text.setText(now.strftime('%X'))
+            print "now: " + str(now)
+            self.frontend.userinterface.timezone_time_text.setText(unicode(now.strftime('%X'), "utf-8"))
+            print "text: " + now.strftime('%X')
 
     def set_tz_from_name(self, name):
         print "  set_tz_from_name(self, name): " + name

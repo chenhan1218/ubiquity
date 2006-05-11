@@ -211,24 +211,42 @@
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <spacer row="3" column="0">
+                    <widget class="QLabel" row="2" column="0" rowspan="1" colspan="3">
                         <property name="name">
-                            <cstring>spacer22</cstring>
+                            <cstring>welcome_text_label</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>5</hsizetype>
+                                <vsizetype>5</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="text">
+                            <string>Ready to install? Once you answer a few questions, the contents of the live CD can be installed on this computer so you can run the system at full speed and without the CD.
+
+Answering the questions should only take a few minutes.</string>
+                        </property>
+                        <property name="alignment">
+                            <set>WordBreak|AlignVCenter</set>
+                        </property>
+                    </widget>
+                    <widget class="Line" row="1" column="0" rowspan="1" colspan="3">
+                        <property name="name">
+                            <cstring>line1_2</cstring>
+                        </property>
+                        <property name="frameShape">
+                            <enum>HLine</enum>
+                        </property>
+                        <property name="frameShadow">
+                            <enum>Sunken</enum>
                         </property>
                         <property name="orientation">
                             <enum>Horizontal</enum>
                         </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>211</width>
-                                <height>31</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <spacer row="3" column="2" rowspan="1" colspan="2">
+                    </widget>
+                    <spacer row="3" column="2">
                         <property name="name">
                             <cstring>spacer21</cstring>
                         </property>
@@ -240,38 +258,11 @@
                         </property>
                         <property name="sizeHint">
                             <size>
-                                <width>180</width>
+                                <width>175</width>
                                 <height>31</height>
                             </size>
                         </property>
                     </spacer>
-                    <widget class="QLabel" row="0" column="3">
-                        <property name="name">
-                            <cstring>logo_image_3</cstring>
-                        </property>
-                        <property name="pixmap">
-                            <pixmap>image1</pixmap>
-                        </property>
-                        <property name="scaledContents">
-                            <bool>true</bool>
-                        </property>
-                    </widget>
-                    <widget class="QLabel" row="0" column="0" rowspan="1" colspan="3">
-                        <property name="name">
-                            <cstring>welcome_heading_label</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>5</hsizetype>
-                                <vsizetype>5</vsizetype>
-                                <horstretch>1</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="text">
-                            <string>&lt;h2&gt;Welcome&lt;/h2&gt;</string>
-                        </property>
-                    </widget>
                     <widget class="KListView" row="3" column="1">
                         <column>
                             <property name="text">
@@ -296,39 +287,56 @@
                             </sizepolicy>
                         </property>
                     </widget>
-                    <widget class="QLabel" row="2" column="0" rowspan="1" colspan="4">
+                    <spacer row="3" column="0">
                         <property name="name">
-                            <cstring>welcome_text_label</cstring>
+                            <cstring>spacer22</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>175</width>
+                                <height>31</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QLabel" row="0" column="0" rowspan="1" colspan="2">
+                        <property name="name">
+                            <cstring>welcome_heading_label</cstring>
                         </property>
                         <property name="sizePolicy">
                             <sizepolicy>
                                 <hsizetype>5</hsizetype>
                                 <vsizetype>5</vsizetype>
-                                <horstretch>0</horstretch>
+                                <horstretch>1</horstretch>
                                 <verstretch>0</verstretch>
                             </sizepolicy>
                         </property>
                         <property name="text">
-                            <string>Ready to install? Once you answer a few questions, the contents of the live CD can be installed on this computer so you can run the system at full speed and without the CD.
-
-Answering the questions should only take a few minutes.</string>
-                        </property>
-                        <property name="alignment">
-                            <set>WordBreak|AlignVCenter</set>
+                            <string>&lt;h2&gt;Welcome&lt;/h2&gt;</string>
                         </property>
                     </widget>
-                    <widget class="Line" row="1" column="0" rowspan="1" colspan="4">
+                    <widget class="QLabel" row="0" column="2">
                         <property name="name">
-                            <cstring>line1_2</cstring>
+                            <cstring>logo_image_3</cstring>
                         </property>
-                        <property name="frameShape">
-                            <enum>HLine</enum>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>0</hsizetype>
+                                <vsizetype>0</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
                         </property>
-                        <property name="frameShadow">
-                            <enum>Sunken</enum>
+                        <property name="pixmap">
+                            <pixmap>image1</pixmap>
                         </property>
-                        <property name="orientation">
-                            <enum>Horizontal</enum>
+                        <property name="scaledContents">
+                            <bool>true</bool>
                         </property>
                     </widget>
                 </grid>
@@ -819,6 +827,14 @@ Answering the questions should only take a few minutes.</string>
                                 <property name="name">
                                     <cstring>username_error_image</cstring>
                                 </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>0</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
                                 <property name="pixmap">
                                     <pixmap>image2</pixmap>
                                 </property>
@@ -935,6 +951,14 @@ Answering the questions should only take a few minutes.</string>
                                             <widget class="QLabel">
                                                 <property name="name">
                                                     <cstring>hostname_error_image</cstring>
+                                                </property>
+                                                <property name="sizePolicy">
+                                                    <sizepolicy>
+                                                        <hsizetype>0</hsizetype>
+                                                        <vsizetype>0</vsizetype>
+                                                        <horstretch>0</horstretch>
+                                                        <verstretch>0</verstretch>
+                                                    </sizepolicy>
                                                 </property>
                                                 <property name="pixmap">
                                                     <pixmap>image2</pixmap>
@@ -1060,6 +1084,14 @@ Answering the questions should only take a few minutes.</string>
                                         <property name="name">
                                             <cstring>fullname_error_image</cstring>
                                         </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>0</hsizetype>
+                                                <vsizetype>0</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
                                         <property name="pixmap">
                                             <pixmap>image2</pixmap>
                                         </property>
@@ -1135,6 +1167,14 @@ Answering the questions should only take a few minutes.</string>
                             <widget class="QLabel" row="0" column="3">
                                 <property name="name">
                                     <cstring>password_error_image</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>0</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
                                 </property>
                                 <property name="pixmap">
                                     <pixmap>image2</pixmap>
@@ -1384,7 +1424,7 @@ Answering the questions should only take a few minutes.</string>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="QSlider" row="1" column="1">
+                            <widget class="QSlider" row="1" column="1" rowspan="1" colspan="3">
                                 <property name="name">
                                     <cstring>new_size_scale</cstring>
                                 </property>
@@ -1404,6 +1444,31 @@ Answering the questions should only take a few minutes.</string>
                                 </property>
                                 <property name="text">
                                     <string>New partition size:</string>
+                                </property>
+                            </widget>
+                            <spacer row="0" column="2">
+                                <property name="name">
+                                    <cstring>spacer37_2</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>90</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLabel" row="0" column="3">
+                                <property name="name">
+                                    <cstring>new_size_value</cstring>
+                                </property>
+                                <property name="text">
+                                    <string></string>
                                 </property>
                             </widget>
                             <widget class="QLabel" row="0" column="0" rowspan="1" colspan="2">
@@ -1756,7 +1821,7 @@ You must mount one partition on the root file system ("/"), and you must choose 
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="QTextEdit" row="4" column="0" rowspan="1" colspan="4">
+                    <widget class="QTextEdit" row="4" column="0" rowspan="1" colspan="3">
                         <property name="name">
                             <cstring>ready_text</cstring>
                         </property>
@@ -1775,7 +1840,7 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             <bool>true</bool>
                         </property>
                     </widget>
-                    <spacer row="3" column="1" rowspan="1" colspan="3">
+                    <spacer row="3" column="1" rowspan="1" colspan="2">
                         <property name="name">
                             <cstring>spacer35</cstring>
                         </property>
@@ -1800,7 +1865,7 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             <string>Details</string>
                         </property>
                     </widget>
-                    <widget class="Line" row="1" column="0" rowspan="1" colspan="4">
+                    <widget class="Line" row="1" column="0" rowspan="1" colspan="3">
                         <property name="name">
                             <cstring>line2</cstring>
                         </property>
@@ -1814,7 +1879,7 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             <enum>Horizontal</enum>
                         </property>
                     </widget>
-                    <widget class="QLabel" row="2" column="0" rowspan="1" colspan="4">
+                    <widget class="QLabel" row="2" column="0" rowspan="1" colspan="3">
                         <property name="name">
                             <cstring>ready_description_label</cstring>
                         </property>
@@ -1822,9 +1887,17 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             <string>The live CD is ready to be installed on this computer.</string>
                         </property>
                     </widget>
-                    <widget class="QLabel" row="0" column="3">
+                    <widget class="QLabel" row="0" column="2">
                         <property name="name">
                             <cstring>logo_image_11</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>0</hsizetype>
+                                <vsizetype>0</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
                         </property>
                         <property name="pixmap">
                             <pixmap>image1</pixmap>
@@ -1852,23 +1925,6 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             <set>AlignVCenter</set>
                         </property>
                     </widget>
-                    <spacer row="0" column="2">
-                        <property name="name">
-                            <cstring>spacer39</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Horizontal</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>131</width>
-                                <height>21</height>
-                            </size>
-                        </property>
-                    </spacer>
                 </grid>
             </widget>
         </widget>
