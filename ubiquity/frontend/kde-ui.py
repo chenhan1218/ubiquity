@@ -143,7 +143,9 @@ class Wizard:
         self.previous_partitioning_page = None
         self.installing = False
         self.returncode = 0
-        self.translations = get_translations()
+        self.language_questions = ('live_installer', 'welcome_heading_label',
+                                   'welcome_text_label', 'cancel', 'back',
+                                   'next')
 
         devnull = open('/dev/null', 'w')
         self.laptop = subprocess.call(["laptop-detect"], stdout=devnull,
@@ -341,6 +343,14 @@ class Wizard:
 
     def translate_widgets(self, parentWidget=None):
         print "  translate_widgets(self, parentWidget=None):"
+        if self.locale is None:
+            languages = []
+        else:
+            languages = [self.locale]
+        get_translations(languages=languages,
+                         core_names=['ubiquity/text/%s' % q
+                                     for q in self.language_questions])
+
         if parentWidget == None:
             parentWidget = self.userinterface
 

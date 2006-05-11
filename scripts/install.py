@@ -446,7 +446,8 @@ class Install:
         if not os.path.exists(target_dir):
             os.makedirs(target_dir)
 
-        for log_file in ('/var/log/installer/syslog', '/var/log/partman'):
+        for log_file in ('/var/log/installer/syslog', '/var/log/partman',
+                         '/var/log/installer/version'):
             target_log_file = os.path.join(target_dir,
                                            os.path.basename(log_file))
             if not misc.ex('cp', '-a', log_file, target_log_file):
@@ -882,16 +883,13 @@ class Install:
 
                 if if_names[interfaces[j]][0] == ARPHRD_ETHER:
                     dup = True
-                else:
-                    with_arp = True
 
             if dup:
                 continue
 
             line = (interfaces[i] + " mac " +
                     ':'.join(['%02x' % ord(if_name[1][c]) for c in range(6)]))
-            if with_arp:
-                line += " arp %d" % if_name[0]
+            line += " arp %d" % if_name[0]
             print >>iftab, line
 
         iftab.close()

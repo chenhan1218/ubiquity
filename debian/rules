@@ -5,6 +5,8 @@
 
 BUILDDIR=$(CURDIR)/debian/build
 
+VERSION := $(shell dpkg-parsechangelog | awk '/^Version:/ { print $$2 }')
+
 DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_ARCH_CPU ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_CPU 2>/dev/null)
 
@@ -44,12 +46,6 @@ endif
 
 	mkdir -p $(BUILDDIR)/ubuntu
 	mkdir -p $(BUILDDIR)/guadalinex
-
-	# Ubuntu-doc
-	for file in $$(ls $(CURDIR)/glade/locale/ubuntu/*.po); do msgfmt -o $(BUILDDIR)/ubuntu/$$(basename $$file .po).mo $(CURDIR)/glade/locale/ubuntu/$$(basename $$file); done || true
-
-	# Guadalinex-doc
-	for file in $$(ls $(CURDIR)/glade/locale/guadalinex/*.po); do msgfmt -o $(BUILDDIR)/guadalinex/$$(basename $$file .po).mo $(CURDIR)/glade/locale/guadalinex/$$(basename $$file); done || true
 
 ifndef UBIQUITY_NO_KDE
 	cd ubiquity/frontend && kdepyuic liveinstaller.ui && kdepyuic crashdialog.ui
@@ -97,7 +93,9 @@ endif
 endif
 
 	# Bits of manual installation that can't be done by dh_install
-	install installer $(CURDIR)/debian/ubiquity/usr/bin/ubiquity
+	sed 's/@VERSION@/$(VERSION)/g' installer \
+		> debian/ubiquity/usr/bin/ubiquity
+	chmod +x debian/ubiquity/usr/bin/ubiquity
 	sed 's,/usr/lib/apt-setup,/usr/lib/ubiquity/apt-setup,g' \
 		d-i/source/apt-setup/apt-setup \
 		> debian/ubiquity/usr/lib/ubiquity/apt-setup/apt-setup
@@ -106,6 +104,10 @@ endif
 		install -m644 d-i/source/base-installer/kernel/$(DEB_HOST_ARCH).sh \
 			debian/ubiquity/usr/lib/ubiquity/base-installer/kernel.sh; \
 	fi
+	sed 's,\(prebaseconfig=\).*,\1/dev/null,' \
+		d-i/source/hw-detect/debian/hw-detect/bin/hw-detect \
+		> debian/ubiquity/bin/hw-detect
+	chmod +x debian/ubiquity/bin/hw-detect
 	install d-i/source/kbd-chooser/debian/prebaseconfig \
 		debian/ubiquity/usr/lib/ubiquity/kbd-chooser/
 	install d-i/source/localechooser/post-base-installer \
@@ -129,9 +131,6 @@ ifeq ($(DEB_HOST_ARCH),sparc)
 	install d-i/source/silo-installer/debian/silo-installer.postinst \
 		debian/ubiquity/usr/lib/ubiquity/silo-installer/silo-installer
 endif
-
-	set -e; for locale in $$(find $(BUILDDIR)/ubuntu/ -name \*.mo -exec basename {} .mo \;); do mkdir -p $(CURDIR)/debian/ubiquity-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES; mv $(BUILDDIR)/ubuntu/$$locale.mo $(CURDIR)/debian/ubiquity-ubuntu-doc/usr/share/locale/$$locale/LC_MESSAGES/ubuntu-installer.mo; done
-	set -e; for locale in $$(find $(BUILDDIR)/guadalinex/ -name \*.mo -exec basename {} .mo \;); do mkdir -p $(CURDIR)/debian/ubiquity-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES; mv $(BUILDDIR)/guadalinex/$$locale.mo $(CURDIR)/debian/ubiquity-guadalinex-doc/usr/share/locale/$$locale/LC_MESSAGES/guadalinex-installer.mo; done
 
 	set -e; for size in 16 22 32 48 64 128; do \
 		mkdir -p debian/ubiquity-frontend-kde/usr/share/icons/crystalsvg/$${size}x$${size}/apps; \

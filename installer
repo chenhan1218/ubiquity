@@ -22,6 +22,7 @@ from ubiquity import misc
 
 cdebconf = False
 
+VERSION = '@VERSION@'
 TARGET = '/target'
 
 log_file = '/var/log/installer/syslog'
@@ -84,6 +85,11 @@ if __name__ == '__main__':
     except IOError, err:
         if err.errno != errno.EACCES:
             raise
+
+    print >>sys.stderr, "Ubiquity %s" % VERSION
+    version_file = open('/var/log/installer/version', 'w')
+    print >>version_file, 'ubiquity %s' % VERSION
+    version_file.close()
 
     if cdebconf:
         # Note that this needs to be set before DebconfCommunicate is

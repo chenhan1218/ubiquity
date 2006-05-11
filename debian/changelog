@@ -1,10 +1,32 @@
 ubiquity (0.99.78) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * GTK frontend:
     - Fix application of Pango attributes to non-ASCII strings (closes:
       Malone #41769).
   * Internationalise .desktop files (closes: Malone #39064).
   * Filter out base-installer/* from our templates file; saves 350KB.
+  * Only load translations for the current language (plus those translations
+    needed immediately on the language page), to save memory.
+  * Fix Unicode decoding crash on substituted values in summary component
+    (closes: Malone #43867).
+  * Log our own version number to /var/log/installer/syslog and
+    /var/log/installer/version on startup. Save /var/log/installer/version
+    to installed system.
+  * Remove piles of obsolete screenshots and locale files from the source
+    package and ubiquity-ubuntu-doc.
+  * Speed up building of subsidiary source packages by running 'debian/rules
+    binary' in one go rather than binary-arch and binary-indep separately.
+  * Fix hw-detect not to try to write to non-existent prebaseconfig script.
+  * Merge ubiquity-ubuntu-doc into ubiquity-ubuntu-artwork (and likewise
+    move the commented-out pieces of ubiquity-guadalinex-doc into
+    ubiquity-guadalinex-artwork). Both are always required, so there's no
+    point in them being separate.
+
+  [ Scott James Remnant ]
+  * Always write the "arp N" line to /etc/iftab to match netcfg behaviour
+    and to deal with cards that change driver and break (e.g. madwifi ->
+    madwifi-ng).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 18:07:31 +0100
 

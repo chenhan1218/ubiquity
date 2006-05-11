@@ -32,7 +32,6 @@ d-i/source/debian-installer-utils/user-params bin
 
 # hw-detect
 d-i/source/hw-detect/archdetect bin
-d-i/source/hw-detect/debian/hw-detect/bin/hw-detect bin
 d-i/source/hw-detect/debian/hw-detect/bin/sysfs-update-devnames bin
 ubiquity/components/hw_detect.py usr/lib/python2.4/site-packages/ubiquity/components
 
