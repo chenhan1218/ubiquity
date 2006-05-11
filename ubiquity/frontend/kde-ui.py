@@ -465,6 +465,7 @@ class Wizard:
         print "  add_mountpoint_table_row(self):"
         """Add a new empty row to the mountpoints table."""
         mountpoint = QComboBox(self.userinterface.mountpoint_frame)
+        mountpoint.setEditable(True)
         for mp in self.mountpoint_choices:
             mountpoint.insertItem(mp)
         size = QLabel(self.userinterface.mountpoint_frame)
