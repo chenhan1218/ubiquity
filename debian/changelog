@@ -13,11 +13,12 @@ ubiquity (0.99.78) UNRELEASED; urgency=low
   * Log our own version number to /var/log/installer/syslog and
     /var/log/installer/version on startup. Save /var/log/installer/version
     to installed system.
-  * Remove piles of obsolete screenshots and locale files from the source
-    package and ubiquity-ubuntu-doc.
   * Speed up building of subsidiary source packages by running 'debian/rules
     binary' in one go rather than binary-arch and binary-indep separately.
   * Fix hw-detect not to try to write to non-existent prebaseconfig script.
+
+  * Remove piles of obsolete screenshots and locale files from the source
+    package and ubiquity-ubuntu-doc.
   * Merge ubiquity-ubuntu-doc into ubiquity-ubuntu-artwork (and likewise
     move the commented-out pieces of ubiquity-guadalinex-doc into
     ubiquity-guadalinex-artwork). Both are always required, so there's no
