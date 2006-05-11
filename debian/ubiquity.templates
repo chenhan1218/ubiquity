@@ -198,11 +198,11 @@ _Description: Installation complete
 
 Template: ubiquity/text/quit_button
 Type: text
-_Description: Quit
+_Description: Continue using the live CD
 
 Template: ubiquity/text/reboot_button
 Type: text
-_Description: Reboot the computer
+_Description: Restart now
 
 Template: ubiquity/text/finished_label
 Type: text

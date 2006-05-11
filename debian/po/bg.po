@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-20 05:55+0000\n"
 "Last-Translator: Ognyan Kulev <ogi@fmi.uni-sofia.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -327,14 +327,14 @@ msgstr "Завършване на инсталацията"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Изход"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Рестарт на компютъра"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -531,3 +531,9 @@ msgstr "Инсталиране на езиковите пакети"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Изтегляне на езиковите пакети (остават ${TIME})..."
+
+#~ msgid "Quit"
+#~ msgstr "Изход"
+
+#~ msgid "Reboot the computer"
+#~ msgstr "Рестарт на компютъра"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-05-01 22:09+0000\n"
 "Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -329,14 +329,14 @@ msgstr "Namestitev je končana"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Končaj"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Znova zaženi računalnik"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -536,6 +536,12 @@ msgstr "Nameščanje jezikovnih paketov"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Prenašanje jezikovnih paketov (preostaja ${TIME}) ..."
+
+#~ msgid "Quit"
+#~ msgstr "Končaj"
+
+#~ msgid "Reboot the computer"
+#~ msgstr "Znova zaženi računalnik"
 
 #~ msgid "The live CD is ready to be installed on this computer."
 #~ msgstr "Vse je pripravljeno za namestitev CD-ja na računalnik."

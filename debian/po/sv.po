@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-20 06:26+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <debian-boot@lists.debian.org>\n"
@@ -325,14 +325,14 @@ msgstr "Installationen slutförd"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Avsluta"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Starta om datorn"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -528,3 +528,9 @@ msgstr "Installerar språkpaket"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Hämtar språkpaket (${TIME} återstår)..."
+
+#~ msgid "Quit"
+#~ msgstr "Avsluta"
+
+#~ msgid "Reboot the computer"
+#~ msgstr "Starta om datorn"

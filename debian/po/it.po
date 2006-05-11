@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-05-02 19:38+0000\n"
 "Last-Translator: MiloCasagrande <milo_casagrande@yahoo.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
@@ -315,13 +315,13 @@ msgstr "Installazione completata"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
+msgid "Continue using the live CD"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
+msgid "Restart now"
 msgstr ""
 
 #. Type: text

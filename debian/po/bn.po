@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-23 18:46+0000\n"
 "Last-Translator: fahad.shaon <fahad.shaon@gmail.com>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
@@ -318,14 +318,14 @@ msgstr "ইনস্টলেশন সম্পূর্ণ হয়েছে"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "প্রস্থান"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "কম্পিউটার পুনরায় চালু করো"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -524,6 +524,12 @@ msgstr ""
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "ভাষা ভিত্তিক প্যাকেজগুলো ডাউনলোড করা হছে{${TIME}অবশিষ্ট আছে } ..."
+
+#~ msgid "Quit"
+#~ msgstr "প্রস্থান"
+
+#~ msgid "Reboot the computer"
+#~ msgstr "কম্পিউটার পুনরায় চালু করো"
 
 #~ msgid "The live CD is ready to be installed on this computer."
 #~ msgstr "লাইভ সিডিটি এই কম্পিউটারে ইনস্টাল করার জন্য প্রস্তুত"

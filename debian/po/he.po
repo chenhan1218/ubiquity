@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-20 06:08+0000\n"
 "Last-Translator: Lior Kaplan <webmaster@guides.co.il>\n"
 "Language-Team: Debian l10n Hebrew <webmaster@guides.co.il>\n"
@@ -316,15 +316,14 @@ msgstr "ההתקנה הסתיימה"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "יציאה"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-#, fuzzy
-msgid "Reboot the computer"
-msgstr "אין root file system"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -527,3 +526,10 @@ msgstr "מתקין את חבילות הליבה"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
+
+#~ msgid "Quit"
+#~ msgstr "יציאה"
+
+#, fuzzy
+#~ msgid "Reboot the computer"
+#~ msgstr "אין root file system"

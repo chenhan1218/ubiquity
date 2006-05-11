@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-28 20:21+0000\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -333,14 +333,14 @@ msgstr "Installation terminée"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Quitter"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Redémarrer l'ordinateur"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -541,6 +541,12 @@ msgstr "Installation des paquets linguistiques"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Téléchargement des paquets linguistiques (${TIME} restant)..."
+
+#~ msgid "Quit"
+#~ msgstr "Quitter"
+
+#~ msgid "Reboot the computer"
+#~ msgstr "Redémarrer l'ordinateur"
 
 #~ msgid "The live CD is ready to be installed on this computer."
 #~ msgstr "Le Live CD est prêt à être installé sur cet ordinateur."

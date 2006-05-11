@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-20 05:59+0000\n"
 "Last-Translator: Dafydd Harries <daf@canonical.com>\n"
 "Language-Team: Welsh <daf@muse.19inch.net>\n"
@@ -309,13 +309,13 @@ msgstr "Sefydliad yn gyflawn"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Gadael"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
+msgid "Restart now"
 msgstr ""
 
 #. Type: text
@@ -517,3 +517,6 @@ msgstr ""
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
+
+#~ msgid "Quit"
+#~ msgstr "Gadael"

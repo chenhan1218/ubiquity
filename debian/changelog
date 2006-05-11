@@ -18,6 +18,8 @@ ubiquity (0.99.78) UNRELEASED; urgency=low
   * Fix hw-detect not to try to write to non-existent prebaseconfig script.
   * Change text on summary page to "Your new operating system will now be
     installed with the following settings:" (closes: Malone #42618).
+  * Change "Quit" button to "Continue using the live CD" and "Reboot the
+    computer" to "Restart now" (closes: Malone #37605).
 
   * Remove piles of obsolete screenshots and locale files from the source
     package and ubiquity-ubuntu-doc.

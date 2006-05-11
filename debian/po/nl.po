@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-20 06:19+0000\n"
 "Last-Translator: Frans Pop <aragorn@tiscali.nl>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
@@ -322,14 +322,14 @@ msgstr "Installatie is voltooid"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Afsluiten"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Het systeem opnieuw opstarten"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -531,3 +531,9 @@ msgstr "Taalpakketten worden geïnstalleerd"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Downloaden van taalpakketten (${TIME} te gaan)..."
+
+#~ msgid "Quit"
+#~ msgstr "Afsluiten"
+
+#~ msgid "Reboot the computer"
+#~ msgstr "Het systeem opnieuw opstarten"

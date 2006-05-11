@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-20 06:24+0000\n"
 "Last-Translator: Peter Mann <peter.mann@tuke.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -324,14 +324,14 @@ msgstr "Inštalácia je kompletná"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Koniec"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Reštart počítača"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -527,3 +527,9 @@ msgstr "Inštalujú sa jazykové balíky"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Sťahujú sa jazykové balíky (ostáva ${TIME})..."
+
+#~ msgid "Quit"
+#~ msgstr "Koniec"
+
+#~ msgid "Reboot the computer"
+#~ msgstr "Reštart počítača"

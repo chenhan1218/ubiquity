@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-20 06:02+0000\n"
 "Last-Translator: Serge Leblanc <serge.leblanc@wanadoo.fr>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
@@ -325,14 +325,14 @@ msgstr "Kompleta instalado"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Fini"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Reiniciati la komputilon"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -528,3 +528,9 @@ msgstr "Instalante lingvajn pakojn"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Elŝutante lingvajn pakojn (${TIME} restante)..."
+
+#~ msgid "Quit"
+#~ msgstr "Fini"
+
+#~ msgid "Reboot the computer"
+#~ msgstr "Reiniciati la komputilon"

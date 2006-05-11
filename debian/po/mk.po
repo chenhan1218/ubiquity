@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-21 09:39+0000\n"
 "Last-Translator: Арангел Ангов <ufo@linux.net.mk>\n"
 "Language-Team: <en@li.org>\n"
@@ -316,14 +316,14 @@ msgstr "Инсталацијата успешно заврши"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Излез"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Рестартирај го системот"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -517,6 +517,12 @@ msgstr "Инсталирање на јазични пакети"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Преземање на јазични пакети (преостанато ${TIME})..."
+
+#~ msgid "Quit"
+#~ msgstr "Излез"
+
+#~ msgid "Reboot the computer"
+#~ msgstr "Рестартирај го системот"
 
 #~ msgid "The live CD is ready to be installed on this computer."
 #~ msgstr "Живото CD е спремно за инсталација на овој компјутер."

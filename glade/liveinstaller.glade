@@ -3265,7 +3265,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 	      <property name="visible">True</property>
 	      <property name="can_default">True</property>
 	      <property name="can_focus">True</property>
-	      <property name="label" translatable="yes">Quit</property>
+	      <property name="label" translatable="yes">Continue using the live CD</property>
 	      <property name="use_underline">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
 	      <property name="focus_on_click">True</property>
@@ -3279,7 +3279,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 	      <property name="visible">True</property>
 	      <property name="can_default">True</property>
 	      <property name="can_focus">True</property>
-	      <property name="label" translatable="yes">Reboot the computer</property>
+	      <property name="label" translatable="yes">Restart now</property>
 	      <property name="use_underline">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
 	      <property name="focus_on_click">True</property>

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-20 06:15+0000\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
 "Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
@@ -320,14 +320,14 @@ msgstr "Sazkirin temam e"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Derkeve"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Komputerê ji nû ve boot bike"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -524,3 +524,9 @@ msgstr "Paketên zimên saz dike"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Paketên zimên tên daxistin (${TIME} ma)..."
+
+#~ msgid "Quit"
+#~ msgstr "Derkeve"
+
+#~ msgid "Reboot the computer"
+#~ msgstr "Komputerê ji nû ve boot bike"

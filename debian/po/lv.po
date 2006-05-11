@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-21 10:03+0000\n"
 "Last-Translator: Agris Bombiza <agris.bombiza@gmail.com>\n"
 "Language-Team: locale@laka.lv <locale@laka.lv>\n"
@@ -311,14 +311,14 @@ msgstr "Instalācija pabeigta"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
+msgid "Continue using the live CD"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Pārstartēt sistēmu"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -514,3 +514,6 @@ msgstr ""
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
+
+#~ msgid "Reboot the computer"
+#~ msgstr "Pārstartēt sistēmu"

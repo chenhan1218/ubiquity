@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-20 06:11+0000\n"
 "Last-Translator: Parlin Imanuel Toh <pt@samip-online.com>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
@@ -331,14 +331,14 @@ msgstr "Instalasi selesai."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Keluar"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Reboot komputer ini"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -535,3 +535,9 @@ msgstr "Sedang meng-install paket bahasa"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Sedang men-download paket bahasa (${TIME} lagi)..."
+
+#~ msgid "Quit"
+#~ msgstr "Keluar"
+
+#~ msgid "Reboot the computer"
+#~ msgstr "Reboot komputer ini"

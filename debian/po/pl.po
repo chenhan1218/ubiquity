@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-11 16:47+0100\n"
+"POT-Creation-Date: 2006-05-11 16:55+0100\n"
 "PO-Revision-Date: 2006-04-20 06:21+0000\n"
 "Last-Translator: Bartosz Fenski <fenio@debian.org>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
@@ -321,14 +321,14 @@ msgstr "Instalacja zakończona"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Zakończ"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Ponownie uruchom system"
+msgid "Restart now"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -524,3 +524,9 @@ msgstr "Instalowanie pakietów rdzennych"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Pobieranie pakietów z tłumaczeniami (pozostało ${TIME})..."
+
+#~ msgid "Quit"
+#~ msgstr "Zakończ"
+
+#~ msgid "Reboot the computer"
+#~ msgstr "Ponownie uruchom system"
