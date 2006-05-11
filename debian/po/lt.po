@@ -520,6 +520,3 @@ msgstr "Diegiami kalbos paketai"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Atsiunčiami kalbos paketai (${TIME} liko)..."
-
-#~ msgid "Reboot the computer"
-#~ msgstr "Paleisti kompiuterį iš naujo"

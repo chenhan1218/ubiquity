@@ -542,13 +542,3 @@ msgstr "S'estan instal·lant els paquets de llengua"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "S'estan baixant els paquets de llengua (${TIME} per a acabar)..."
-
-#~ msgid "Quit"
-#~ msgstr "Surt"
-
-#~ msgid "Reboot the computer"
-#~ msgstr "Torna a iniciar l'ordinador"
-
-#~ msgid "The live CD is ready to be installed on this computer."
-#~ msgstr ""
-#~ "El CD autònom està preparat per a instal·lar-se en aquest ordinador."

@@ -528,9 +528,3 @@ msgstr "Installerar språkpaket"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Hämtar språkpaket (${TIME} återstår)..."
-
-#~ msgid "Quit"
-#~ msgstr "Avsluta"
-
-#~ msgid "Reboot the computer"
-#~ msgstr "Starta om datorn"

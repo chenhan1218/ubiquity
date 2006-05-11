@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-11 16:55+0100\n"
-"PO-Revision-Date: 2006-04-20 06:15+0000\n"
+"PO-Revision-Date: 2006-05-04 19:23+0000\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
 "Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -18,13 +18,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Sazkirin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12
 msgid "Welcome"
-msgstr "Bixêr hatî"
+msgstr "Tu bi xêr hatî"
 
 #. Type: text
 #. Description
@@ -39,7 +39,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr "Bersivandina pirsan diviya tenê çend xulekek biajota"
+msgstr "Bersivandina pirsan diviya tenê çend xulekek biajota."
 
 #. Type: text
 #. Description
@@ -48,6 +48,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Ji kerema xwe zimana pêvajoya sazkirinê hilbijêre. Ev ziman dê piştre bibe "
+"zimanê standard a sîstemê."
 
 #. Type: text
 #. Description
@@ -89,7 +91,7 @@ msgstr "Dema niha:"
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr "Demê saz bike..."
+msgstr "Sazkirina demê..."
 
 #. Type: text
 #. Description
@@ -255,7 +257,7 @@ msgstr "Partisyon (Dabeşkirina Diskan)"
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "Ji nû ve were formatkirin?"
 
 #. Type: text
 #. Description
@@ -279,7 +281,6 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:175
-#, fuzzy
 msgid "Abort the installation?"
 msgstr "Dixwazî sazkirinê niha betal bikî?"
 
@@ -366,38 +367,37 @@ msgstr "Bidomîne"
 #. Description
 #: ../ubiquity.templates:238
 msgid "Installing system"
-msgstr "Sazkirina pergalê"
+msgstr "Pergal tê sazkirin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:242
 msgid "Finding the distribution to copy..."
-msgstr "Li dîstrîbusyona were jibergirtin digere..."
+msgstr "Li dîstrîbusyona were kopîkirin tê gerandin..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246
-#, fuzzy
 msgid "Scanning files..."
-msgstr "Dosyeyan ji ber digire..."
+msgstr "Dosya tên skenkirin..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250
 msgid "Copying files..."
-msgstr "Dosyeyan ji ber digire..."
+msgstr "Dosya tên kopîkirin..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:254
 msgid "Copying files (${TIME} remaining)..."
-msgstr "Dosyeyan ji ber digire (${TIME} ma..."
+msgstr "Dosya tên kopîkirin (${TIME} ma)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258
 msgid "Copying installation logs..."
-msgstr "Tomarên sazkirinê ji ber digire..."
+msgstr "Tomarên sazkirinê tên kopîkirin..."
 
 #. Type: text
 #. Description
@@ -409,19 +409,19 @@ msgstr "Tê paqijkirin..."
 #. Description
 #: ../ubiquity.templates:266
 msgid "Running ${SCRIPT}..."
-msgstr "${SCRIPT} dimeşîne..."
+msgstr "${SCRIPT} tê meşandin..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:270
 msgid "Configuring system locales..."
-msgstr ""
+msgstr "Herêmî (locale) ya sîstemê tê mîhenkirin..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring apt..."
-msgstr ""
+msgstr "apt tê mîhenkirin..."
 
 #. Type: text
 #. Description
@@ -433,13 +433,13 @@ msgstr "Herêma demê tê saz kirin..."
 #. Description
 #: ../ubiquity.templates:282
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Klavye tê mîhengkirin..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:286
 msgid "Creating user..."
-msgstr "Bikarhêner diafirîne..."
+msgstr "Bikarhêner tê afirandin..."
 
 #. Type: text
 #. Description
@@ -457,7 +457,7 @@ msgstr "Tor tê avakirin..."
 #. Description
 #: ../ubiquity.templates:298
 msgid "Setting computer name..."
-msgstr "Navê komputerê tê mîhenkirin..."
+msgstr "Navê komputerê tê mîhengkirin..."
 
 #. Type: text
 #. Description
@@ -475,7 +475,7 @@ msgstr "Paketên zêdebar tên derxistin..."
 #. Description
 #: ../ubiquity.templates:310
 msgid "Checking for packages to remove..."
-msgstr "Ji bo derxistinê li paketan digere..."
+msgstr "Ji bo rakirinê li paketan digere..."
 
 #. Type: text
 #. Description
@@ -524,9 +524,3 @@ msgstr "Paketên zimên saz dike"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Paketên zimên tên daxistin (${TIME} ma)..."
-
-#~ msgid "Quit"
-#~ msgstr "Derkeve"
-
-#~ msgid "Reboot the computer"
-#~ msgstr "Komputerê ji nû ve boot bike"

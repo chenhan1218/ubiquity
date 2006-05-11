@@ -535,9 +535,3 @@ msgstr "Sedang meng-install paket bahasa"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Sedang men-download paket bahasa (${TIME} lagi)..."
-
-#~ msgid "Quit"
-#~ msgstr "Keluar"
-
-#~ msgid "Reboot the computer"
-#~ msgstr "Reboot komputer ini"

@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-11 16:55+0100\n"
-"PO-Revision-Date: 2006-04-21 10:03+0000\n"
-"Last-Translator: Agris Bombiza <agris.bombiza@gmail.com>\n"
+"PO-Revision-Date: 2006-05-03 15:42+0000\n"
+"Last-Translator: Gints Neimanis <gints@venta.lv>\n"
 "Language-Team: locale@laka.lv <locale@laka.lv>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Instalēt"
 
 #. Type: text
 #. Description
@@ -48,12 +48,14 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Lūdzu izvēlieties valodu instalēšanai. Valoda tiks uzstādīta par pamata "
+"valodu sistēmai."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28
 msgid "Where are you?"
-msgstr ""
+msgstr "Kur jūs atrodaties?"
 
 #. Type: text
 #. Description
@@ -71,13 +73,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40
 msgid "Time zone:"
-msgstr ""
+msgstr "Laika zona:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Izvēlētais reģions:"
 
 #. Type: text
 #. Description
@@ -119,13 +121,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Kāds ir jūsu vārds?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Kādu vārdu lietosiet, lai pieteiktos sistēmā?"
 
 #. Type: text
 #. Description
@@ -134,25 +136,27 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Pēc uzinstalēšanas jūs varēsiet izviedot arī citus kontus, lai šo datoru "
+"izmantotu vairāki cilvēki,"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Uzstādiet paroli, lai pasargātu kontu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:90
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "Ievadiet paroli divas reizes, lai izvairītos no pārrakstīšanās kļūdām."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Kāds būs datora nosaukums?"
 
 #. Type: text
 #. Description
@@ -160,13 +164,13 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
+msgstr "Ar šo nosaukumu dators darbosies tīklā."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105
 msgid "Select a disk"
-msgstr ""
+msgstr "Izvēlieties disku"
 
 #. Type: text
 #. Description
@@ -176,6 +180,8 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"Jūs varat atļaut instalātoram automātiski izveidot nepieciešamās sadaļas uz "
+"šiem diskiem. Jūs varat arī pats izveidot diska sadaļas."
 
 #. Type: text
 #. Description
@@ -280,13 +286,13 @@ msgstr "Atcelt instalāciju"
 #. Description
 #: ../ubiquity.templates:179
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "Vai tiešām vēlaties pārtraukt instalēšanu?"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:183
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "Particionēšana tika pārtraukta"
 
 #. Type: text
 #. Description
@@ -295,12 +301,14 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
+"Automātiska particionēšana neizdevās. Jums jāizvēlas cits particionēšanas "
+"režīms."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:193
 msgid "Skip"
-msgstr ""
+msgstr "Izlaist"
 
 #. Type: title
 #. Description
@@ -328,6 +336,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Instalēšana ir pabeigta. Lai lietotu jauno sistēmu, ir jāpārstartē dators. "
+"Jūs varat arī turpināt lietot šo live CD, bet nekādas izmaiņas dokumentos "
+"netiks saglabātas."
 
 #. Type: text
 #. Description
@@ -336,6 +347,8 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Pārstartējot sistēmu, izņemiet CD, citādi dators startēs nevis jauno "
+"sistēmu, bet vēlreiz ielādēsies no šī CD."
 
 #. Type: text
 #. Description
@@ -361,7 +374,7 @@ msgstr "Instalēju sistēmu"
 #. Description
 #: ../ubiquity.templates:242
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Meklē distributīvu kopēšanai..."
 
 #. Type: text
 #. Description
@@ -379,7 +392,7 @@ msgstr "Kopēju failus..."
 #. Description
 #: ../ubiquity.templates:254
 msgid "Copying files (${TIME} remaining)..."
-msgstr ""
+msgstr "Kopē failus (${TIME} atlicis)..."
 
 #. Type: text
 #. Description
@@ -410,20 +423,19 @@ msgstr "Konfigurēju tīklu..."
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Konfigurē apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Konfigurēju tīklu..."
+msgstr "Konfigurēju laika zonu..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Konfigurēju klaviatūru..."
 
 #. Type: text
 #. Description
@@ -465,25 +477,25 @@ msgstr "Noņemu papildus pakas..."
 #. Description
 #: ../ubiquity.templates:310
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Pārbaudu pakotnes, ko noņemt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:314
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Lejupielādēju pakotnes (${TIME} atlicis)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:318
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Lejupielādēju pakotņu sarakstus..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:322
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Lejupielādē pakotņu sarakstus (${TIME} atlicis)..."
 
 #. Type: text
 #. Description
@@ -495,25 +507,22 @@ msgstr "Nevaru uzinstalēt ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:336
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Kļūda noņemot ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:336
 msgid "${MESSAGE}"
-msgstr ""
+msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:341
 msgid "Installing language packs"
-msgstr ""
+msgstr "Instalēju valodu pakotni"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
-
-#~ msgid "Reboot the computer"
-#~ msgstr "Pārstartēt sistēmu"
+msgstr "Lejupielādēju valodu pakotnes (${TIME} atlicis)..."

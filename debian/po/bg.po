@@ -531,9 +531,3 @@ msgstr "Инсталиране на езиковите пакети"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Изтегляне на езиковите пакети (остават ${TIME})..."
-
-#~ msgid "Quit"
-#~ msgstr "Изход"
-
-#~ msgid "Reboot the computer"
-#~ msgstr "Рестарт на компютъра"

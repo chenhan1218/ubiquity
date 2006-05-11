@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-11 16:55+0100\n"
-"PO-Revision-Date: 2006-05-02 03:12+0000\n"
+"PO-Revision-Date: 2006-05-03 05:34+0000\n"
 "Last-Translator: Aldous D. Peñaranda <adpenaranda@gmail.com>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
 "MIME-Version: 1.0\n"
@@ -200,7 +200,7 @@ msgstr "Maghanda ng lugar sa disk"
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Paano mo gustong hatiin ang iyong disk?"
 
 #. Type: text
 #. Description
@@ -285,7 +285,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:175
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Ihinto ang pagluklok?"
 
 #. Type: text
 #. Description
@@ -529,6 +529,3 @@ msgstr ""
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
-
-#~ msgid "Quit"
-#~ msgstr "Lumiban"

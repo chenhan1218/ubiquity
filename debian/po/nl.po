@@ -531,9 +531,3 @@ msgstr "Taalpakketten worden geïnstalleerd"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Downloaden van taalpakketten (${TIME} te gaan)..."
-
-#~ msgid "Quit"
-#~ msgstr "Afsluiten"
-
-#~ msgid "Reboot the computer"
-#~ msgstr "Het systeem opnieuw opstarten"

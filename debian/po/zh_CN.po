@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-11 16:55+0100\n"
-"PO-Revision-Date: 2006-04-20 06:32+0000\n"
-"Last-Translator: Ming Hua <minghua-list@sbcglobal.net>\n"
+"PO-Revision-Date: 2006-05-05 02:58+0000\n"
+"Last-Translator: firingstone <firingstone@gmail.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "安装"
 
 #. Type: text
 #. Description
@@ -34,6 +34,8 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"确定安装？ 在您回答一些问题后，live CD 里的内容会被安装到这台电脑上。这样您就"
+"可以全速运行这个系统，而不需要这个CD了。"
 
 #. Type: text
 #. Description
@@ -47,7 +49,7 @@ msgstr "回答这些问题只需要您几分钟的时间"
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
-msgstr ""
+msgstr "请选择安装过程使用的语言。这个语言将成为最终的系统默认语言。"
 
 #. Type: text
 #. Description
@@ -65,7 +67,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr ""
+msgstr "所选城市"
 
 #. Type: text
 #. Description
@@ -77,7 +79,7 @@ msgstr "时区?"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "选择区域："
 
 #. Type: text
 #. Description
@@ -95,7 +97,7 @@ msgstr "设置时间..."
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "键盘布局"
 
 #. Type: text
 #. Description
@@ -189,13 +191,13 @@ msgstr "准备硬盘空间"
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "您需要如何分区？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "准备分区"
 
 #. Type: text
 #. Description
@@ -209,7 +211,7 @@ msgstr "请确认根目录\"/\"至少有1.5GB的空间,同时交换分区有至�
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "准备加载点"
 
 #. Type: text
 #. Description
@@ -330,6 +332,8 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"安装完毕。您需要重启电脑一使用新装的系统。您可以继续使用这个live CD，但是您所"
+"做 的任何修改或保存的文件不会被保留。"
 
 #. Type: text
 #. Description
@@ -357,9 +361,8 @@ msgstr "继续"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:238
-#, fuzzy
 msgid "Installing system"
-msgstr "安装完成"
+msgstr "正在安装系统"
 
 #. Type: text
 #. Description
@@ -371,7 +374,7 @@ msgstr "寻找要被复制的发行版"
 #. Description
 #: ../ubiquity.templates:246
 msgid "Scanning files..."
-msgstr ""
+msgstr "正在扫描文件..."
 
 #. Type: text
 #. Description
@@ -390,7 +393,7 @@ msgstr "复制文件中(${TIME} 剩余)..."
 #. Description
 #: ../ubiquity.templates:258
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "正在复制安装记录..."
 
 #. Type: text
 #. Description
@@ -414,7 +417,7 @@ msgstr "正在配置本地设置"
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring apt..."
-msgstr ""
+msgstr "正在设置 apt..."
 
 #. Type: text
 #. Description
@@ -426,14 +429,13 @@ msgstr "正在配置时区..."
 #. Description
 #: ../ubiquity.templates:282
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "正在设置键盘..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:286
-#, fuzzy
 msgid "Creating user..."
-msgstr "正在清理..."
+msgstr "正在创建用户..."
 
 #. Type: text
 #. Description
@@ -451,7 +453,7 @@ msgstr "正在设置网络..."
 #. Description
 #: ../ubiquity.templates:298
 msgid "Setting computer name..."
-msgstr ""
+msgstr "正在设置计算机名称..."
 
 #. Type: text
 #. Description
@@ -464,7 +466,7 @@ msgstr "正在配置本地设置"
 #. Description
 #: ../ubiquity.templates:306
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "正在删除额外的软件包..."
 
 #. Type: text
 #. Description
@@ -512,13 +514,10 @@ msgstr "${信息}"
 #. Description
 #: ../ubiquity.templates:341
 msgid "Installing language packs"
-msgstr ""
+msgstr "正在安装语言支持软件包"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "下载语言软件包 (${TIME} 剩余)..."
-
-#~ msgid "Quit"
-#~ msgstr "退出"

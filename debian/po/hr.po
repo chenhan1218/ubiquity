@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-11 16:55+0100\n"
-"PO-Revision-Date: 2006-04-30 14:34+0000\n"
+"PO-Revision-Date: 2006-05-06 14:36+0000\n"
 "Last-Translator: Ante Karamatić <ivoks@ubuntu.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
@@ -64,7 +64,7 @@ msgstr "Gdje ste?"
 #. Description
 #: ../ubiquity.templates:32
 msgid "Select a city in your country and time zone."
-msgstr "Odaberite grad u zvojoj zemlji i vremensku zonu."
+msgstr "Odaberite grad u svojoj zemlji i vremensku zonu."
 
 #. Type: text
 #. Description
@@ -82,7 +82,7 @@ msgstr "Vremenska zona:"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr "Odabrana regija:"
+msgstr "Odabrana zemlja:"
 
 #. Type: text
 #. Description
@@ -532,12 +532,3 @@ msgstr "Instaliram jezične pakete"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Preuzimam jezične pakete (preostalo vremena: ${TIME})"
-
-#~ msgid "Quit"
-#~ msgstr "Izađi"
-
-#~ msgid "Reboot the computer"
-#~ msgstr "Ponovo pokreni računalo"
-
-#~ msgid "The live CD is ready to be installed on this computer."
-#~ msgstr "Live CD je spreman za instalaciju na ovo računalo."

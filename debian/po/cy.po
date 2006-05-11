@@ -517,6 +517,3 @@ msgstr ""
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
-
-#~ msgid "Quit"
-#~ msgstr "Gadael"

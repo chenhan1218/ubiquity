@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-11 16:55+0100\n"
-"PO-Revision-Date: 2006-04-20 06:21+0000\n"
-"Last-Translator: Bartosz Fenski <fenio@debian.org>\n"
+"PO-Revision-Date: 2006-05-02 21:00+0000\n"
+"Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Zainstaluj"
 
 #. Type: text
 #. Description
@@ -34,6 +34,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Gotowy do instalacji? Jak tylko dasz odpowiedzi na kilka pytań, zawartość "
+"Desktop CD będzie mogła zostać zainstalowana na tym komputerze, aby można "
+"było uruchomić system z pełną wydajnością i bez płyty CD."
 
 #. Type: text
 #. Description
@@ -48,6 +51,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Proszę wybrać język używany podczas procesu instalacji. Ten język będzie "
+"domyślnym językiem dla ostatecznego systemu."
 
 #. Type: text
 #. Description
@@ -77,7 +82,7 @@ msgstr "Strefa czasowa:"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Wybierz region:"
 
 #. Type: text
 #. Description
@@ -257,7 +262,7 @@ msgstr "Partycja"
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "Formatować ponownie?"
 
 #. Type: text
 #. Description
@@ -338,6 +343,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Instalacja zakończona. Konieczne jest ponowne uruchomienie komputera, aby "
+"skorzystać z nowej instalacji. Możesz dalej używać tego Desktop CD, "
+"aczkolwiek wprowadzane zmiany i zapisywane dokumenty nie zostaną zachowane."
 
 #. Type: text
 #. Description
@@ -421,7 +429,7 @@ msgstr "Konfigurowanie locale (lokalizacji)..."
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Konfigurowanie apt..."
 
 #. Type: text
 #. Description
@@ -433,7 +441,7 @@ msgstr "Konfigurowanie strefy czasu..."
 #. Description
 #: ../ubiquity.templates:282
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Konfigurowanie klawiatury ..."
 
 #. Type: text
 #. Description
@@ -487,7 +495,7 @@ msgstr "Pobieranie pakietów (pozostało ${TIME})..."
 #. Description
 #: ../ubiquity.templates:318
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Pobieranie listy pakietów ..."
 
 #. Type: text
 #. Description
@@ -524,9 +532,3 @@ msgstr "Instalowanie pakietów rdzennych"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Pobieranie pakietów z tłumaczeniami (pozostało ${TIME})..."
-
-#~ msgid "Quit"
-#~ msgstr "Zakończ"
-
-#~ msgid "Reboot the computer"
-#~ msgstr "Ponownie uruchom system"

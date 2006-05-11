@@ -28,6 +28,8 @@ ubiquity (0.99.78) UNRELEASED; urgency=low
     ubiquity-guadalinex-artwork). Both are always required, so there's no
     point in them being separate.
 
+  * Update all translations from Rosetta.
+
   [ Scott James Remnant ]
   * Always write the "arp N" line to /etc/iftab to match netcfg behaviour
     and to deal with cards that change driver and break (e.g. madwifi ->

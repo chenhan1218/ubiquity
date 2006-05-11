@@ -1,13 +1,14 @@
 # Finnish messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
+# Translated by Timo Jyrinki, 2006
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-11 16:55+0100\n"
-"PO-Revision-Date: 2006-04-20 10:13+0000\n"
+"PO-Revision-Date: 2006-05-06 00:45+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,9 +35,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Valmiina asennukseen? Muutamaan kysymykseen vastaamalla esittely-CD:n "
-"sisältö voidaan asentaa tälle tietokoneelle, jotta järjestelmää voidaan "
-"käyttää täydellä nopeudella ja ilman CD-levyä."
+"Valmiina asennukseen? Muutamaan kysymykseen vastaamalla Ubuntu-CD:n sisältö "
+"voidaan asentaa tälle tietokoneelle, jotta järjestelmää voitaisiin käyttää "
+"täydellä nopeudella ja ilman CD-levyä."
 
 #. Type: text
 #. Description
@@ -51,7 +52,7 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Valitse kieli, jota käytetään asennuksen aikana. Tämä kieli on oletuskieli  "
+"Valitse kieli, jota käytetään asennuksen aikana. Tämä kieli on oletuskieli "
 "myös asennetussa järjestelmässä."
 
 #. Type: text
@@ -213,8 +214,8 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 1.5 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Varmista juuriosiolle (\"/\") ainakin 1,5Gt tilaa, ja sivutusosiolle ainakin "
-"256Mt."
+"Varmista juuriosiolle (\"/\") ainakin 1,5GiB tilaa, ja sivutusosiolle "
+"ainakin 256MiB."
 
 #. Type: text
 #. Description
@@ -346,7 +347,7 @@ msgid ""
 "changes you make or documents you save will not be preserved."
 msgstr ""
 "Asennus on valmis. Tietokone täytyy käynnistää uudelleen, jotta uutta "
-"asennusta käytettäisiin. Voit myös jatkaa tämän esittely-CD:n käyttöä, mutta "
+"asennusta käytettäisiin. Voit myös jatkaa tämän Ubuntu-CD:n käyttöä, mutta "
 "mitkään tekemäsi muutokset tai tallentamasi asiakirjat eivät säily."
 
 #. Type: text
@@ -357,7 +358,7 @@ msgid ""
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
 "Poista CD-levy asemasta kun käynnistät tietokoneen uudelleen, muuten "
-"tietokone käynnistyy uudelleen tältä esittely-CD:ltä eikä juuri asennettuun "
+"tietokone käynnistyy uudelleen tältä Ubuntu-CD:ltä eikä juuri asennettuun "
 "järjestelmään."
 
 #. Type: text
@@ -378,7 +379,7 @@ msgstr "Jatka"
 #. Description
 #: ../ubiquity.templates:238
 msgid "Installing system"
-msgstr "Asennetaan järjestelmä"
+msgstr "Asennetaan järjestelmää"
 
 #. Type: text
 #. Description
@@ -456,7 +457,7 @@ msgstr "Luodaan käyttäjää..."
 #. Description
 #: ../ubiquity.templates:290
 msgid "Configuring hardware..."
-msgstr "Asetetaan laitteistoa..."
+msgstr "Tehdään laitteiston asetuksia..."
 
 #. Type: text
 #. Description
@@ -535,12 +536,3 @@ msgstr "Asennetaan kielipaketteja"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Ladataan kielipaketteja (${TIME} jäljellä)..."
-
-#~ msgid "Quit"
-#~ msgstr "Lopeta"
-
-#~ msgid "Reboot the computer"
-#~ msgstr "Käynnistä tietokone uudelleen"
-
-#~ msgid "The live CD is ready to be installed on this computer."
-#~ msgstr "Esittely-CD voidaan nyt asentaa tälle tietokoneelle."

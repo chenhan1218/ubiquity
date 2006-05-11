@@ -1,15 +1,17 @@
-# Ukrainian messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
+# Breton translation for debian-installer
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the debian-installer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-11 16:55+0100\n"
-"PO-Revision-Date: 2006-04-20 06:29+0000\n"
-"Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
-"Language-Team: Ukrainian\n"
+"PO-Revision-Date: 2006-04-07 12:15+0000\n"
+"Last-Translator: Jérémy Le Floc'h <jeremy.lefloch@gmail.com>\n"
+"Language-Team: Breton <br@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +26,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:12
 msgid "Welcome"
-msgstr "Ласкаво просимо"
+msgstr "Donedigezh vat"
 
 #. Type: text
 #. Description
@@ -39,7 +41,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr "Відповідь на питання займе лише декілька хвилин."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -53,25 +55,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28
 msgid "Where are you?"
-msgstr "Ваше місце знаходження"
+msgstr "Pelec'h emaoc'h o chom ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32
 msgid "Select a city in your country and time zone."
-msgstr "Оберіть країну, місто, часовий пояс:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr "Оберіть місто знаходження"
+msgstr "Ker diuzet :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40
 msgid "Time zone:"
-msgstr "Часовий пояс:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -83,20 +85,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48
 msgid "Current time:"
-msgstr "Поточний час:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr "Налаштувати час..."
+msgstr "Lakaat an Eur..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "Вибрати розкладку клавіатури"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -114,19 +115,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Piv oc'h ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:76
-msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Petra eo oc'h anv ?"
 
 #. Type: text
 #. Description
@@ -153,7 +148,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Petra eo an anv urzhiataer ?"
 
 #. Type: text
 #. Description
@@ -161,13 +156,13 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr "Ця назва буде відображатись при відображенні цього компютера в мережі."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105
 msgid "Select a disk"
-msgstr "Оберіть диск"
+msgstr "Diuz ur bladenn"
 
 #. Type: text
 #. Description
@@ -177,27 +172,24 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
-"Ви можете призначити програмі встановлення автоматично розподілити місце на "
-"жорсткому дису. Існують різні методи автоматичного розподілу. \r\n"
-"Також можете використати ручний спосіб розподілу."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116
 msgid "Prepare disk space"
-msgstr "Підготуйте місце на диску"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr "Яким чином бажаєте поділити жорсткий диск?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr "Підготування поділів"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -206,14 +198,12 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 1.5 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Не забудьте створити поділ root (\"/\") роміром не більше 1.5 GB, та поділ "
-"swap розміром не меньше 256 MB."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr "Підготування точок монтування"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -222,8 +212,6 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
-"Оберіть поділи, котрі ви бажаєте використовувати для встановлення системи та "
-"місце їх монтування."
 
 #. Type: text
 #. Description
@@ -232,26 +220,24 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
-"Ви повинні змонтувати один поділ як файлову систему root (root file system "
-"\"/\"), та призначити при наймі один поділ як swap."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:147
 msgid "Mount Point"
-msgstr "Точка монтування"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:151
 msgid "Size"
-msgstr "Розмір"
+msgstr "Ment"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155
 msgid "Partition"
-msgstr "Поділ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -263,13 +249,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr "Необхідно зазначити точку монтування root (\"/\")"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:167
 msgid "Ready to install"
-msgstr "Готовий до встановлення"
+msgstr "Prest da staliañ"
 
 #. Type: text
 #. Description
@@ -282,19 +268,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:175
 msgid "Abort the installation?"
-msgstr "Перервати встановлення"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:179
 msgid "Do you really want to abort the installation now?"
-msgstr "Ви справді бажаєте перервати встановлення?"
+msgstr ""
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:183
 msgid "Partitioning was interrupted"
-msgstr "Розбиття диску було перевано"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -303,19 +289,18 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
-"Не вдалось створити поділи автоматично. Оберіть інший спосіб поділу диску."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:193
 msgid "Skip"
-msgstr "Пропустити"
+msgstr "Tremen e-biou"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:197
 msgid "Installation complete"
-msgstr "Встановлення завершено"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -345,46 +330,44 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Не забудьте вийняти Ubuntu CD при перезавантаженні компютера, тому що при "
-"перезавантаженні компьютер знов завантажить систему з компакт диску."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:220
 msgid "Go Back"
-msgstr "Повернутися"
+msgstr "Ditreiñ"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:225
 msgid "Continue"
-msgstr "Продовжити"
+msgstr "War-raok"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:238
 msgid "Installing system"
-msgstr "Встановлення системи"
+msgstr "O staliañ ar reizhiad"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:242
 msgid "Finding the distribution to copy..."
-msgstr "Визначення файлів для копіювання..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246
 msgid "Scanning files..."
-msgstr "Сканування файлів..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250
 msgid "Copying files..."
-msgstr "Копіювання файлів..."
+msgstr "O kopiañ restroù..."
 
 #. Type: text
 #. Description
@@ -395,9 +378,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258
-#, fuzzy
 msgid "Copying installation logs..."
-msgstr "Копіювання розділу..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -409,14 +391,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:266
 msgid "Running ${SCRIPT}..."
-msgstr "Запуск ${SCRIPT}..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:270
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Налаштування мережі..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -427,9 +408,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Налаштування мережі..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -440,55 +420,50 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:286
-#, fuzzy
 msgid "Creating user..."
-msgstr "Створення файлів пристроїв..."
+msgstr "O krouiñ implijer..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:290
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Налаштування мережі..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:294
 msgid "Configuring network..."
-msgstr "Налаштування мережі..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:298
-#, fuzzy
 msgid "Setting computer name..."
-msgstr "Налаштування буфера зображення..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:302
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Налаштування мережі..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:306
-#, fuzzy
 msgid "Removing extra packages..."
-msgstr "Встановлення додаткових пакунків..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:310
 msgid "Checking for packages to remove..."
-msgstr "Пошук пакунків до видалення..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:314
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Завантаження пакунків (${TIME} remaining)..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -500,19 +475,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:322
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Завантаження списків пакунків (${TIME} remaining)..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:331
 msgid "Error installing ${PACKAGE}"
-msgstr "Помилка встановлення ${PACKAGE}"
+msgstr "Fazi o staliañ ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:336
 msgid "Error removing ${PACKAGE}"
-msgstr "Помилка видалення ${PACKAGE}"
+msgstr "Fazi o lemel ${PACKAGE}"
 
 #. Type: text
 #. Description
@@ -524,10 +499,10 @@ msgstr "${MESSAGE}"
 #. Description
 #: ../ubiquity.templates:341
 msgid "Installing language packs"
-msgstr "Встановлення пакунків локалізації"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Завантаження пакунків локалізації (${TIME} remaining)..."
+msgstr ""

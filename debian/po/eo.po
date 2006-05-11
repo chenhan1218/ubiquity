@@ -528,9 +528,3 @@ msgstr "Instalante lingvajn pakojn"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Elŝutante lingvajn pakojn (${TIME} restante)..."
-
-#~ msgid "Quit"
-#~ msgstr "Fini"
-
-#~ msgid "Reboot the computer"
-#~ msgstr "Reiniciati la komputilon"
