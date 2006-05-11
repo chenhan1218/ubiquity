@@ -883,16 +883,13 @@ class Install:
 
                 if if_names[interfaces[j]][0] == ARPHRD_ETHER:
                     dup = True
-                else:
-                    with_arp = True
 
             if dup:
                 continue
 
             line = (interfaces[i] + " mac " +
                     ':'.join(['%02x' % ord(if_name[1][c]) for c in range(6)]))
-            if with_arp:
-                line += " arp %d" % if_name[0]
+            line += " arp %d" % if_name[0]
             print >>iftab, line
 
         iftab.close()

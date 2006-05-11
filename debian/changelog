@@ -1,5 +1,6 @@
 ubiquity (0.99.78) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * GTK frontend:
     - Fix application of Pango attributes to non-ASCII strings (closes:
       Malone #41769).
@@ -21,6 +22,11 @@ ubiquity (0.99.78) UNRELEASED; urgency=low
     move the commented-out pieces of ubiquity-guadalinex-doc into
     ubiquity-guadalinex-artwork). Both are always required, so there's no
     point in them being separate.
+
+  [ Scott James Remnant ]
+  * Always write the "arp N" line to /etc/iftab to match netcfg behaviour
+    and to deal with cards that change driver and break (e.g. madwifi ->
+    madwifi-ng).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 18:07:31 +0100
 
