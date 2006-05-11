@@ -16,6 +16,8 @@ ubiquity (0.99.78) UNRELEASED; urgency=low
   * Speed up building of subsidiary source packages by running 'debian/rules
     binary' in one go rather than binary-arch and binary-indep separately.
   * Fix hw-detect not to try to write to non-existent prebaseconfig script.
+  * Change text on summary page to "Your new operating system will now be
+    installed with the following settings:" (closes: Malone #42618).
 
   * Remove piles of obsolete screenshots and locale files from the source
     package and ubiquity-ubuntu-doc.

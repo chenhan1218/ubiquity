@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-04 05:34+0100\n"
+"POT-Creation-Date: 2006-05-11 16:47+0100\n"
 "PO-Revision-Date: 2006-04-23 16:56+0000\n"
 "Last-Translator: Kiryl Nieviarouski <ubuntu.by@gmail.com>\n"
 "Language-Team: Byelarusian <be@li.org>\n"
@@ -264,7 +264,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:171
-msgid "The live CD is ready to be installed on this computer."
+msgid ""
+"Your new operating system will now be installed with the following settings:"
 msgstr ""
 
 #. Type: title

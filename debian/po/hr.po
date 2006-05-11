@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-04 05:34+0100\n"
+"POT-Creation-Date: 2006-05-11 16:47+0100\n"
 "PO-Revision-Date: 2006-04-30 14:34+0000\n"
 "Last-Translator: Ante Karamatić <ivoks@ubuntu.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -279,8 +279,9 @@ msgstr "Spreman za instalaciju"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:171
-msgid "The live CD is ready to be installed on this computer."
-msgstr "Live CD je spreman za instalaciju na ovo računalo."
+msgid ""
+"Your new operating system will now be installed with the following settings:"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -531,3 +532,6 @@ msgstr "Instaliram jezične pakete"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Preuzimam jezične pakete (preostalo vremena: ${TIME})"
+
+#~ msgid "The live CD is ready to be installed on this computer."
+#~ msgstr "Live CD je spreman za instalaciju na ovo računalo."

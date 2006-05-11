@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-04 05:34+0100\n"
+"POT-Creation-Date: 2006-05-11 16:47+0100\n"
 "PO-Revision-Date: 2006-05-01 09:45+0000\n"
 "Last-Translator: Petr Tomeš <ptomes@ubuntu.cz>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
@@ -281,8 +281,9 @@ msgstr "Připraven instalaci"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:171
-msgid "The live CD is ready to be installed on this computer."
-msgstr "Spustitelné CD je připraveno k instalaci na tento počíač."
+msgid ""
+"Your new operating system will now be installed with the following settings:"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -531,3 +532,6 @@ msgstr "Instalují se jazykové balíky"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Stahují se jazykové balíky (zbývá ${TIME})..."
+
+#~ msgid "The live CD is ready to be installed on this computer."
+#~ msgstr "Spustitelné CD je připraveno k instalaci na tento počíač."

@@ -168,7 +168,7 @@ _Description: Ready to install
 
 Template: ubiquity/text/ready_description_label
 Type: text
-_Description: The live CD is ready to be installed on this computer.
+_Description: Your new operating system will now be installed with the following settings:
 
 Template: ubiquity/text/warning_dialog
 Type: title

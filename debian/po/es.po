@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-04 05:34+0100\n"
+"POT-Creation-Date: 2006-05-11 16:47+0100\n"
 "PO-Revision-Date: 2006-04-21 19:33+0000\n"
 "Last-Translator: Ricardo Pérez López <ricardo@iesdonana.org>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -285,8 +285,9 @@ msgstr "Listo para instalar"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:171
-msgid "The live CD is ready to be installed on this computer."
-msgstr "El Live CD está listo para ser instalado en este equipo."
+msgid ""
+"Your new operating system will now be installed with the following settings:"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -538,3 +539,6 @@ msgstr "Instalando los paquetes de idiomas"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Descargando paquetes de idiomas (faltan ${TIME})..."
+
+#~ msgid "The live CD is ready to be installed on this computer."
+#~ msgstr "El Live CD está listo para ser instalado en este equipo."

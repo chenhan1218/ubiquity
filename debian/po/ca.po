@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-04 05:34+0100\n"
+"POT-Creation-Date: 2006-05-11 16:47+0100\n"
 "PO-Revision-Date: 2006-04-26 23:43+0000\n"
 "Last-Translator: Jordi Mallach <jordi@canonical.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -287,8 +287,9 @@ msgstr "Preparat per a instal·lar"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:171
-msgid "The live CD is ready to be installed on this computer."
-msgstr "El CD autònom està preparat per a instal·lar-se en aquest ordinador."
+msgid ""
+"Your new operating system will now be installed with the following settings:"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -541,3 +542,7 @@ msgstr "S'estan instal·lant els paquets de llengua"
 #: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "S'estan baixant els paquets de llengua (${TIME} per a acabar)..."
+
+#~ msgid "The live CD is ready to be installed on this computer."
+#~ msgstr ""
+#~ "El CD autònom està preparat per a instal·lar-se en aquest ordinador."

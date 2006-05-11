@@ -1819,7 +1819,7 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             <cstring>ready_description_label</cstring>
                         </property>
                         <property name="text">
-                            <string>The live CD is ready to be installed on this computer.</string>
+                            <string>Your new operating system will now be installed with the following settings:</string>
                         </property>
                     </widget>
                     <widget class="QLabel" row="0" column="3">
