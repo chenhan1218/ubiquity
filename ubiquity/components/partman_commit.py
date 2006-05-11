@@ -27,14 +27,28 @@ class PartmanCommit(Partman):
         # partitioning control path.
         questions = ['^partman/choose_partition$',
                      '^partman/confirm.*',
+                     'type:boolean',
                      'ERROR',
                      'PROGRESS']
-        return ('/bin/partman', questions)
+        return ('/bin/partman', questions,
+                {'PARTMAN_UPDATE_BEFORE_CONFIRM': '1'})
+
+    def error(self, priority, question):
+        self.frontend.error_dialog(self.description(question))
+        self.succeeded = False
+        # Unlike a normal error handler, we want to force exit.
+        self.done = True
+        return True
 
     def run(self, priority, question):
+        try:
+            qtype = self.db.metaget(question, 'Type')
+        except debconf.DebconfError:
+            qtype = ''
+
         if question == 'partman/choose_partition':
             if self.done:
-                # user said no to confirmation question
+                # user answered confirmation question, or an error occurred
                 return False
 
             partitions = {}
@@ -46,9 +60,10 @@ class PartmanCommit(Partman):
                     partitions[p_path] = (disk, p_id)
 
             mountpoints = self.frontend.get_mountpoints()
-            for device, (path, format, fstype) in mountpoints.items():
-                if device in partitions:
-                    (disk, p_id) = partitions[device]
+            for device in partitions:
+                (disk, p_id) = partitions[device]
+                if device in mountpoints:
+                    (path, format, fstype) = mountpoints[device]
                     parted.select_disk(disk)
                     if path == 'swap':
                         parted.write_part_entry(p_id, 'method', 'swap\n')
@@ -80,7 +95,10 @@ class PartmanCommit(Partman):
                                 p_id, 'detected_filesystem', fstype)
                         parted.write_part_entry(p_id, 'use_filesystem', '')
                         parted.write_part_entry(p_id, 'mountpoint', path)
-                    parted.update_partition(p_id)
+                else:
+                    parted.remove_part_entry(p_id, 'method')
+                    parted.remove_part_entry(p_id, 'format')
+                    parted.remove_part_entry(p_id, 'use_filesystem')
 
             # Don't preseed_as_c, because Perl debconf is buggy in that it
             # doesn't expand variables in the result of METAGET choices-c.
@@ -96,9 +114,34 @@ class PartmanCommit(Partman):
             if self.frontend.confirm_partitioning_dialog(
                     self.description(question), self.confirmation_message()):
                 self.preseed(question, 'true')
+                self.succeeded = True
             else:
                 self.preseed(question, 'false')
+                self.succeeded = False
             self.done = True
+            return True
+
+        elif qtype == 'boolean':
+            response = self.frontend.question_dialog(
+                self.description(question),
+                self.extended_description(question),
+                ('ubiquity/text/go_back', 'ubiquity/text/continue'))
+
+            answer_reversed = False
+            if (question == 'partman-jfs/jfs_boot' or
+                question == 'partman-jfs/jfs_root'):
+                answer_reversed = True
+            if response is None or response == 'ubiquity/text/continue':
+                answer = answer_reversed
+            else:
+                answer = not answer_reversed
+                self.succeeded = False
+                self.done = True
+                self.frontend.return_to_autopartitioning()
+            if answer:
+                self.preseed(question, 'true')
+            else:
+                self.preseed(question, 'false')
             return True
 
         else:

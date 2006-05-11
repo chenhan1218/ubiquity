@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-21 10:56+0100\n"
-"PO-Revision-Date: 2006-03-27 15:06+0000\n"
-"Last-Translator: Krunoslav Gernhard <kruno@linux.hr>\n"
+"POT-Creation-Date: 2006-05-04 05:34+0100\n"
+"PO-Revision-Date: 2006-04-30 14:34+0000\n"
+"Last-Translator: Ante Karamatić <ivoks@ubuntu.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +18,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Instaliraj"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12
 msgid "Welcome"
-msgstr ""
+msgstr "Dobrodošli"
 
 #. Type: text
 #. Description
@@ -34,12 +34,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Spremi za instalaciju? Nakon što odgovorite na nekoliko pitanja, sadržaj "
+"Live CDa može se instalirati na ovo računalo, pa ćete moći koristiti sustav "
+"pri punoj brzini i bez CDa."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Odgovaranje na pitanja ne bi smjelo trajati duže od par minuta."
 
 #. Type: text
 #. Description
@@ -48,84 +51,86 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Molim odaberite jezik koji će koristiti instalacijski postupak. Ovaj će "
+"jezik također biti i uobičajeni jezik za gotovi sustav."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28
 msgid "Where are you?"
-msgstr ""
+msgstr "Gdje ste?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Odaberite grad u zvojoj zemlji i vremensku zonu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr ""
+msgstr "Odabrani grad:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40
 msgid "Time zone:"
-msgstr ""
+msgstr "Vremenska zona:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Odabrana regija:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "Trenutačno vrijeme:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Postavi vrijeme..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Raspored tipkovnice"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Koji raspored je najsličniji Vašoj tipkovnici?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "Možete pisati u ovo polje kako biste testirali raspored tipkovnice"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Tko ste Vi?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Koje je Vaše ime?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Koje korisničko ime želite koristiti?"
 
 #. Type: text
 #. Description
@@ -134,25 +139,27 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Ukoliko će više osoba koristiti ovo računalo, možete postaviti više "
+"korisničkih oznaka nakon instalacije."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Odaberite lozinku kako biste osigurali svoj korisnički račun."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:90
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "Upišite istu lozinku dva puta, kako bi se mogla provjeriti."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Koje je ime ovog računala?"
 
 #. Type: text
 #. Description
@@ -160,13 +167,13 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
+msgstr "Pod ovim će imenom drugi u mreži vidjeti vaše računalo."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105
 msgid "Select a disk"
-msgstr ""
+msgstr "Odaberite disk"
 
 #. Type: text
 #. Description
@@ -176,24 +183,26 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"Možete prepustiti instaleru da automatski pronađe slobodan prostor na bilo "
+"kojem od narednih diskova. Naravno, možete particionirati disk ručno."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Pripremi prostor na disku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Kako želite particionirati disk?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Pripremi particije"
 
 #. Type: text
 #. Description
@@ -202,12 +211,14 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 1.5 GB, and a swap partition of at least 256 MB."
 msgstr ""
+"Svakako pronađite prostor za root particiju (\"/\"), najmanje 1.5 GB, a za "
+"swap particiju najmanje 256 MB."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Prirpemi lokacije za montiranje"
 
 #. Type: text
 #. Description
@@ -216,6 +227,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Odaberite particije koje ćete koristiti za instalaciju i lokacije gdje svaku "
+"od njih želite montirati."
 
 #. Type: text
 #. Description
@@ -224,66 +237,68 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"Morate odabrati jednu particiju za root datotečni sustav (\"/\") i barem "
+"jednu particiju za swap prostor."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:147
 msgid "Mount Point"
-msgstr ""
+msgstr "Točka montiranja"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:151
 msgid "Size"
-msgstr ""
+msgstr "Veličina"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155
 msgid "Partition"
-msgstr ""
+msgstr "Particija"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "Preformatirati?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "Morate odabrati root (\"/\") točku montiranja."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:167
 msgid "Ready to install"
-msgstr ""
+msgstr "Spreman za instalaciju"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:171
 msgid "The live CD is ready to be installed on this computer."
-msgstr ""
+msgstr "Live CD je spreman za instalaciju na ovo računalo."
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:175
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Prekinuti instalaciju?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:179
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "Doista želite prekinuti instalaciju?"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:183
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "Particioniranje je prekinuto"
 
 #. Type: text
 #. Description
@@ -292,12 +307,14 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
+"Nije bilo moguće automatski particionirati disk. Morate odabrati drugu "
+"metodu particioniranja."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:193
 msgid "Skip"
-msgstr ""
+msgstr "Preskoči"
 
 #. Type: title
 #. Description
@@ -309,13 +326,13 @@ msgstr "Instalacija potpuna"
 #. Description
 #: ../ubiquity.templates:201
 msgid "Quit"
-msgstr ""
+msgstr "Izađi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
 msgid "Reboot the computer"
-msgstr ""
+msgstr "Ponovo pokreni računalo"
 
 #. Type: text
 #. Description
@@ -325,6 +342,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Instalacija je završena. Morate ponovo pokrenuti računalo kako bi ste "
+"podignuli novi sustav. Možete nastaviti koristiti ovaj Live CD, ali promjene "
+"koje napravite na dokumentima, neće biti sačuvane."
 
 #. Type: text
 #. Description
@@ -333,170 +353,181 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Svakako uklonite CD pri ponovnom pokretanju računala, u suprotnom će se "
+"ponovo pokrenuti ovaj Live CD umjesto novoinstaliranog sustava."
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:220
+msgid "Go Back"
+msgstr "Natrag"
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:225
+msgid "Continue"
+msgstr "Nastavi"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:228
-#, fuzzy
+#: ../ubiquity.templates:238
 msgid "Installing system"
-msgstr "Instalacija potpuna"
+msgstr "Instaliram sustav"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232
+#: ../ubiquity.templates:242
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Pronalazim presliku distribucije..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236
+#: ../ubiquity.templates:246
 msgid "Scanning files..."
-msgstr ""
+msgstr "Pretraživanje datoteka..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:240
+#: ../ubiquity.templates:250
 msgid "Copying files..."
-msgstr ""
+msgstr "Kopiram datoteke..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:244
+#: ../ubiquity.templates:254
 msgid "Copying files (${TIME} remaining)..."
-msgstr ""
+msgstr "Kopiram datoteke (preostalo vremena: ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248
+#: ../ubiquity.templates:258
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "Kopiram zapise instalacije..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:252
+#: ../ubiquity.templates:262
 msgid "Cleaning up..."
-msgstr ""
+msgstr "Uklanjam privremene datoteke..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:256
+#: ../ubiquity.templates:266
 msgid "Running ${SCRIPT}..."
 msgstr "Izvršavam ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:260
-#, fuzzy
+#: ../ubiquity.templates:270
 msgid "Configuring system locales..."
-msgstr "Podešavam mrežu..."
+msgstr "Postavljam lokalizirano sučelje..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:264
+#: ../ubiquity.templates:274
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Postavljam apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:268
-#, fuzzy
+#: ../ubiquity.templates:278
 msgid "Configuring time zone..."
-msgstr "Podešavam mrežu..."
+msgstr "Postavljam vremensku zonu..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:272
+#: ../ubiquity.templates:282
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Postavljam tipkovnicu..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:276
+#: ../ubiquity.templates:286
 msgid "Creating user..."
-msgstr ""
+msgstr "Izrađujem korisnika..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:280
-#, fuzzy
+#: ../ubiquity.templates:290
 msgid "Configuring hardware..."
-msgstr "Podešavam mrežu..."
+msgstr "Postavljam hardver..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:284
+#: ../ubiquity.templates:294
 msgid "Configuring network..."
 msgstr "Podešavam mrežu..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:288
+#: ../ubiquity.templates:298
 msgid "Setting computer name..."
-msgstr ""
+msgstr "Postavljanje imena računala..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:292
-#, fuzzy
+#: ../ubiquity.templates:302
 msgid "Configuring boot loader..."
-msgstr "Podešavam mrežu..."
+msgstr "Podešavanje boot upravitelja..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:296
+#: ../ubiquity.templates:306
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Uklanjam ekstra pakete..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:300
+#: ../ubiquity.templates:310
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Provjeravam pakete za uklanjanje..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:304
+#: ../ubiquity.templates:314
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Preuzimam pakete (preostalo vrijeme: ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:308
+#: ../ubiquity.templates:318
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Preuzimam liste paketa..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:312
+#: ../ubiquity.templates:322
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Preuzimam liste paketa (preostalo vrijeme: ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:321
+#: ../ubiquity.templates:331
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Greška prilikom instaliranja paketa ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:326
+#: ../ubiquity.templates:336
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Greška prilikom uklanjanja paketa ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:326
+#: ../ubiquity.templates:336
 msgid "${MESSAGE}"
-msgstr ""
+msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:331
+#: ../ubiquity.templates:341
 msgid "Installing language packs"
-msgstr ""
+msgstr "Instaliram jezične pakete"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:335
+#: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Preuzimam jezične pakete (preostalo vremena: ${TIME})"

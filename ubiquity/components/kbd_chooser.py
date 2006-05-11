@@ -87,6 +87,7 @@ def map_keyboard(keyboard):
     xmap = None
     variant = None
     model = None
+    options = []
 
     if keyboard.startswith("mac-usb-"):
         keyboard = keyboard[len("mac-usb-"):]
@@ -120,6 +121,10 @@ def map_keyboard(keyboard):
             xmap = "by"
             break
 
+        if k == "croat":
+            xmap = "hr"
+            break
+
         if k == "cz-lat2":
             xmap = "cz"
             break
@@ -147,6 +152,10 @@ def map_keyboard(keyboard):
             xmap = "es"
             break
 
+        if k == "et":
+            xmap = "ee"
+            break
+
         if k == "fr_CH":
             xmap = "ch"
             variant = "fr"
@@ -166,12 +175,16 @@ def map_keyboard(keyboard):
             variant = "latin9"
             break
 
-        if k == "fi":
+        if k == "fi" or k == "fi-latin1":
             xmap = "fi"
             break
 
         if k == "gb":
             xmap = "gb"
+            break
+
+        if k == "gr":
+            xmap = "gr"
             break
 
         if k == "hebrew":
@@ -226,6 +239,14 @@ def map_keyboard(keyboard):
             xmap = "es"
             break
 
+        if k == "mk":
+            xmap = "mk"
+            break
+
+        if k == "nl":
+            xmap = "nl"
+            break
+
         if k == "no":
             xmap = "no"
             break
@@ -236,6 +257,14 @@ def map_keyboard(keyboard):
 
         if k == "pt":
             xmap = "pt"
+            break
+
+        if k == "ro":
+            xmap = "ro"
+            break
+
+        if k == "ru":
+            xmap = "ru"
             break
 
         if k == "uk":
@@ -270,19 +299,15 @@ def map_keyboard(keyboard):
             break
 
         if k == "sr-cy":
-            xmap = "sr"
+            xmap = "cs"
             break
 
-        if k == "trf":
+        if k == "trf" or k == "trfu":
             xmap = "tr"
             variant = "f"
             break
 
-        if k == "sr-cy":
-            xmap = "sr"
-            break
-
-        if k == "trq":
+        if k == "trq" or k == "trqu":
             xmap = "tr"
             break
 
@@ -295,28 +320,52 @@ def map_keyboard(keyboard):
             model = "pc104"
             break
 
-    return (xmap, model, variant)
+    # We can't do non-Latin usernames, so people with Latin layouts need a US
+    # layout so they can log in, and then switch to writing native text. Bit
+    # hard to work out which one should be the default.
+    latin = True
+    if xmap in ("am", "ar", "bg", "by", "cs", "el", "gr", "il", "ir", "iu",
+                "lo", "mk", "ml", "mm", "mn", "ru", "th", "tj", "ua"):
+        latin = False
+    elif xmap == "tr" and variant == "f":
+        latin = False
+    if not latin:
+        KbdChooser.debug("selected layout %s from %s is non-Latin; "
+                         "adding us to the layout list, Alt+Shift toggles"
+                         % (xmap, keyboard))
+        options.append("grp:alt_shift_toggle")
+        xmap = "us,%s" % xmap
+
+    return (xmap, model, variant, options)
 
 def apply_keyboard(keyboard):
-    (xmap, model, variant) = map_keyboard(keyboard)
+    (xmap, model, variant, options) = map_keyboard(keyboard)
 
-    import syslog
-    syslog.syslog(syslog.LOG_ERR, "kbd: %s" % keyboard)
-    syslog.syslog(syslog.LOG_ERR, "kbd: %s %s %s" % (xmap, model, variant))
+    if keyboard is not None:
+        KbdChooser.debug("apply_keyboard: %s", keyboard)
 
     if xmap is not None:
+        message = 'layout %s' % xmap
 
         if model is not None:
+            message += ', model %s' % model
             model = ["-model", model]
         else:
             model = []
 
         if variant is not None:
+            message += ', variant %s' % variant
             variant = ["-variant", variant]
         else:
             variant = []
 
-        Popen(["setxkbmap", xmap] + model + variant)
+        xkboptions = ["-option", ""]
+        for opt in options:
+            message += ', option %s' % opt
+            xkboptions.extend(["-option", opt])
+
+        KbdChooser.debug("apply_keyboard: %s", message)
+        Popen(["setxkbmap", xmap] + model + variant + xkboptions)
 
 def update_x_config(keyboard):
     # We also need to rewrite xorg.conf with this new setting, so that (a)
@@ -326,9 +375,13 @@ def update_x_config(keyboard):
     # get xserver-xorg to do this itself, perhaps by splitting out bits of
     # the config script into library code and calling dexconf.
 
-    (layout, model, variant) = map_keyboard(keyboard)
+    (layout, model, variant, optionslist) = map_keyboard(keyboard)
     if layout is None:
         return
+    if len(optionslist) == 0:
+        options = None
+    else:
+        options = ','.join(optionslist)
 
     oldconfigfile = '/etc/X11/xorg.conf'
     newconfigfile = '/etc/X11/xorg.conf.new'
@@ -341,10 +394,11 @@ def update_x_config(keyboard):
     re_option_xkbmodel = re.compile(r'(\s*Option\s*"XkbModel"\s*).*')
     re_option_xkblayout = re.compile(r'(\s*Option\s*"XkbLayout"\s*).*')
     re_option_xkbvariant = re.compile(r'(\s*Option\s*"XkbVariant"\s*).*')
+    re_option_xkboptions = re.compile(r'(\s*Option\s*"XkbOptions"\s*).*')
     in_inputdevice = False
     in_inputdevice_kbd = False
     done = {'model': model is None, 'layout': False,
-            'variant': variant is None}
+            'variant': variant is None, 'options': options is None}
 
     for line in oldconfig:
         line = line.rstrip('\n')
@@ -361,10 +415,13 @@ def update_x_config(keyboard):
                 if not done['variant']:
                     print >>newconfig, \
                           '\tOption\t\t"XkbVariant"\t"%s"' % variant
+                if not done['options']:
+                    print >>newconfig, \
+                          '\tOption\t\t"XkbOptions"\t"%s"' % options
             in_inputdevice = False
             in_inputdevice_kbd = False
             done = {'model': model is None, 'layout': False,
-                    'variant': variant is None}
+                    'variant': variant is None, 'options': options is None}
         elif in_inputdevice_kbd:
             match = re_option_xkbmodel.match(line)
             if match is not None:
@@ -388,6 +445,13 @@ def update_x_config(keyboard):
                         else:
                             line = match.group(1) + '"%s"' % variant
                         done['variant'] = True
+                    else:
+                        match = re_option_xkboptions.match(line)
+                        if match is not None:
+                            if options is None:
+                                continue # delete this line
+                            else:
+                                line = match.group(1) + '"%s"' % options
         print >>newconfig, line
 
     newconfig.close()

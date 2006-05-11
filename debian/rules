@@ -78,6 +78,7 @@ install:
 	# the GTK frontend.
 ifndef UBIQUITY_NO_GTK
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk
+	rm -rf debian/ubiquity-frontend-gtk/usr/share/applications
 endif
 	$(MAKE) -C d-i install
 
@@ -165,7 +166,8 @@ binary-arch: install
 #	dh_installexamples -a
 	dh_installdebconf -a
 	echo >> debian/ubiquity/DEBIAN/templates
-	cat d-i/templates >> debian/ubiquity/DEBIAN/templates
+	grep-dctrl -v -FTemplate base-installer/ d-i/templates \
+		>> debian/ubiquity/DEBIAN/templates
 #	dh_installman -a
 	dh_link -a
 	dh_strip -a

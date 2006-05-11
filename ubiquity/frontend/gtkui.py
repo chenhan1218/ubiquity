@@ -105,7 +105,7 @@ class Wizard:
         self.size_widgets = []
         self.partition_widgets = []
         self.format_widgets = []
-        self.mountpoint_choices = ['swap', '/', '/home',
+        self.mountpoint_choices = ['', 'swap', '/', '/home',
                                    '/boot', '/usr', '/var']
         self.partition_choices = []
         self.mountpoints = {}
@@ -129,7 +129,8 @@ class Wizard:
         devnull.close()
 
         # set default language
-        dbfilter = language.Language(self, DebconfCommunicator('ubiquity'))
+        dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
+                                                               cloexec=True))
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 
@@ -210,6 +211,11 @@ class Wizard:
         # Start the interface
         self.set_current_page(0)
         while self.current_page is not None:
+            if not self.installing:
+                # Make sure any started progress bars are stopped.
+                while self.progress_position.depth() != 0:
+                    self.debconf_progress_stop()
+
             self.backup = False
             current_name = self.step_name(self.current_page)
             old_dbfilter = self.dbfilter
@@ -337,20 +343,21 @@ class Wizard:
 
             # Ideally, these attributes would be in the glade file somehow ...
             name = widget.get_name()
+            textlen = len(text.encode("UTF-8"))
             if 'heading_label' in name:
                 attrs = pango.AttrList()
-                attrs.insert(pango.AttrScale(pango.SCALE_LARGE, 0, len(text)))
-                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, len(text)))
+                attrs.insert(pango.AttrScale(pango.SCALE_LARGE, 0, textlen))
+                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, textlen))
                 widget.set_attributes(attrs)
             elif 'extra_label' in name:
                 attrs = pango.AttrList()
-                attrs.insert(pango.AttrStyle(pango.STYLE_ITALIC, 0, len(text)))
+                attrs.insert(pango.AttrStyle(pango.STYLE_ITALIC, 0, textlen))
                 widget.set_attributes(attrs)
             elif name in ('drives_label', 'partition_method_label',
                           'mountpoint_label', 'size_label', 'device_label',
                           'format_label'):
                 attrs = pango.AttrList()
-                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, len(text)))
+                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, textlen))
                 widget.set_attributes(attrs)
 
         elif isinstance(widget, gtk.Button):
@@ -812,13 +819,12 @@ class Wizard:
             if len(selection.items()) == 0:
                 self.allow_go_forward(False)
             else:
-                mp = { 'swap' : 0, '/' : 1 }
-
                 # Setting default preselection values into ComboBox
                 # widgets and setting size values. In addition, next row
                 # is showed if they're validated.
                 for mountpoint, partition in selection.items():
-                    self.mountpoint_widgets[-1].set_active(mp[mountpoint])
+                    self.mountpoint_widgets[-1].set_active(
+                        self.mountpoint_choices.index(mountpoint))
                     self.size_widgets[-1].set_text(
                         self.set_size_msg(partition))
                     self.partition_widgets[-1].set_active(
@@ -841,6 +847,9 @@ class Wizard:
                 mountpoint.connect("changed", self.on_list_changed)
             for partition in self.partition_widgets:
                 partition.connect("changed", self.on_list_changed)
+
+        self.mountpoint_error_reason.hide()
+        self.mountpoint_error_image.hide()
 
         self.steps.next_page()
 
@@ -919,11 +928,14 @@ class Wizard:
                         self.locale))
 
         # showing warning messages
+        self.mountpoint_error_reason.set_text("\n".join(error_msg))
         if len(error_msg) != 0:
-            self.mountpoint_error_reason.set_text("\n".join(error_msg))
             self.mountpoint_error_reason.show()
             self.mountpoint_error_image.show()
             return
+        else:
+            self.mountpoint_error_reason.hide()
+            self.mountpoint_error_image.hide()
 
         gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
         gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
@@ -1418,6 +1430,17 @@ class Wizard:
         self.ready_text.set_text(text)
 
 
+    def return_to_autopartitioning (self):
+        """Return from the install progress bar to autopartitioning."""
+        if self.installing:
+            # Go back to the autopartitioner and try again.
+            # TODO self.previous_partitioning_page
+            self.live_installer.show()
+            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            self.next.set_label("gtk-go-forward")
+            self.backup = True
+            self.installing = False
+
     def error_dialog (self, msg):
         # TODO: cancel button as well if capb backup
         self.allow_change_step(True)
@@ -1429,13 +1452,33 @@ class Wizard:
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
         dialog.run()
         dialog.hide()
-        if self.installing:
-            # Go back to the autopartitioner and try again.
-            # TODO self.previous_partitioning_page
-            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
-            self.next.set_label("gtk-go-forward")
-            self.backup = True
-            self.installing = False
+        self.return_to_autopartitioning()
+
+    def question_dialog (self, title, msg, option_templates):
+        self.allow_change_step(True)
+        if self.current_page is not None:
+            transient = self.live_installer
+        else:
+            transient = self.debconf_progress_window
+        buttons = []
+        for option_template in option_templates:
+            text = get_string(option_template, self.locale)
+            if text is None:
+                text = option_template
+            buttons.extend((text, len(buttons) / 2 + 1))
+        dialog = gtk.Dialog(title, transient, gtk.DIALOG_MODAL, tuple(buttons))
+        label = gtk.Label(msg)
+        label.set_line_wrap(True)
+        label.set_selectable(True)
+        label.show()
+        dialog.vbox.pack_start(label)
+        response = dialog.run()
+        dialog.hide()
+        if response < 0:
+            # something other than a button press, probably destroyed
+            return None
+        else:
+            return option_templates[response - 1]
 
 
     def refresh (self):

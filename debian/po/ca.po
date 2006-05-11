@@ -1,15 +1,13 @@
 # Catalan messages for debian-installer.
-# Copyright 2002, 2003, 2004, 2005, 2006 Software in the Public Interest, Inc.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-# Jordi Mallach <jordi@debian.org>, 2002, 2003, 2004, 2006.
-# Guillem Jover <guillem@debian.org>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer 1.1\n"
+"Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-21 10:56+0100\n"
-"PO-Revision-Date: 2006-03-29 16:09+0000\n"
+"POT-Creation-Date: 2006-05-04 05:34+0100\n"
+"PO-Revision-Date: 2006-04-26 23:43+0000\n"
 "Last-Translator: Jordi Mallach <jordi@canonical.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Instal·la"
 
 #. Type: text
 #. Description
@@ -36,6 +34,10 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Esteu preparats per a instal·lar? Una vegada hageu contestat a unes poquesp "
+"reguntes, es poden instal·lar els continguts del CD autònom en aquest "
+"ordinador per a que pogueu iniciar el sistema a la velocitat normal i sense "
+"el CD."
 
 #. Type: text
 #. Description
@@ -50,6 +52,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Seleccioneu la llengua a utilitzar per al procés d'instal·lació. Aquesta "
+"llengua serà la predeterminada al sistema final."
 
 #. Type: text
 #. Description
@@ -79,7 +83,7 @@ msgstr "Fus horari:"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Regió seleccionada:"
 
 #. Type: text
 #. Description
@@ -266,7 +270,7 @@ msgstr "Partició"
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "Voleu tornar a donar format?"
 
 #. Type: text
 #. Description
@@ -284,7 +288,7 @@ msgstr "Preparat per a instal·lar"
 #. Description
 #: ../ubiquity.templates:171
 msgid "The live CD is ready to be installed on this computer."
-msgstr ""
+msgstr "El CD autònom està preparat per a instal·lar-se en aquest ordinador."
 
 #. Type: title
 #. Description
@@ -346,6 +350,10 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"S'ha completat la instal·lació. Heu de tornar a iniciar l'ordinador per a "
+"utilitzar la instal·lació nova. Podeu continuar utilitzant aquest CD "
+"autònom, tot i que qualsevol canvi que feu els documents que deseu no es "
+"preservaran."
 
 #. Type: text
 #. Description
@@ -358,164 +366,178 @@ msgstr ""
 "a iniciar-se utilitzant aquest CD autònom, en comptes del sistema que "
 "s'acaba d'instal·lar."
 
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:220
+msgid "Go Back"
+msgstr "Vés enrere"
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:225
+msgid "Continue"
+msgstr "Continua"
+
 #. Type: title
 #. Description
-#: ../ubiquity.templates:228
+#: ../ubiquity.templates:238
 msgid "Installing system"
 msgstr "S'està instal·lant el sistema"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232
+#: ../ubiquity.templates:242
 msgid "Finding the distribution to copy..."
 msgstr "S'està cercant la distribució a copiar..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236
+#: ../ubiquity.templates:246
 msgid "Scanning files..."
 msgstr "S'estan analitzant els fitxers..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:240
+#: ../ubiquity.templates:250
 msgid "Copying files..."
 msgstr "S'estan copiant els fitxers..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:244
+#: ../ubiquity.templates:254
 msgid "Copying files (${TIME} remaining)..."
 msgstr "S'estan copiant els fitxers (${TIME} per a acabar)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248
+#: ../ubiquity.templates:258
 msgid "Copying installation logs..."
 msgstr "S'estan copiant els registres de la instal·lació..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:252
+#: ../ubiquity.templates:262
 msgid "Cleaning up..."
 msgstr "S'està netejant..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:256
+#: ../ubiquity.templates:266
 msgid "Running ${SCRIPT}..."
 msgstr "S'està executant ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:260
+#: ../ubiquity.templates:270
 msgid "Configuring system locales..."
 msgstr "S'estan configurant els locales del sistema"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:264
+#: ../ubiquity.templates:274
 msgid "Configuring apt..."
-msgstr ""
+msgstr "S'està configurant l'apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:268
+#: ../ubiquity.templates:278
 msgid "Configuring time zone..."
 msgstr "S'està configurant el fus horari..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:272
+#: ../ubiquity.templates:282
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "S'està configurant el teclat..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:276
+#: ../ubiquity.templates:286
 msgid "Creating user..."
 msgstr "S'està creant un usuari..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:280
+#: ../ubiquity.templates:290
 msgid "Configuring hardware..."
 msgstr "S'està configurant el maquinari..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:284
+#: ../ubiquity.templates:294
 msgid "Configuring network..."
 msgstr "S'està configurant la xarxa..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:288
+#: ../ubiquity.templates:298
 msgid "Setting computer name..."
 msgstr "S'està establint el nom de l'ordinador..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:292
+#: ../ubiquity.templates:302
 msgid "Configuring boot loader..."
 msgstr "S'està configurant el carregador..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:296
+#: ../ubiquity.templates:306
 msgid "Removing extra packages..."
 msgstr "S'estan suprimint els paquets extra..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:300
+#: ../ubiquity.templates:310
 msgid "Checking for packages to remove..."
 msgstr "S'està comprovant quins paquets s'han de suprimir..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:304
+#: ../ubiquity.templates:314
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "S'estan baixant els paquets (${TIME} per a acabar)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:308
+#: ../ubiquity.templates:318
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "S'estan baixant les llistes de paquets..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:312
+#: ../ubiquity.templates:322
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "S'estan baixant les llistes de paquets (${TIME} per a acabar)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:321
+#: ../ubiquity.templates:331
 msgid "Error installing ${PACKAGE}"
 msgstr "S'ha produït un error en instal·lar ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:326
+#: ../ubiquity.templates:336
 msgid "Error removing ${PACKAGE}"
 msgstr "S'ha produït un error en suprimir ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:326
+#: ../ubiquity.templates:336
 msgid "${MESSAGE}"
 msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:331
+#: ../ubiquity.templates:341
 msgid "Installing language packs"
 msgstr "S'estan instal·lant els paquets de llengua"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:335
+#: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "S'estan baixant els paquets de llengua (${TIME} per a acabar)..."

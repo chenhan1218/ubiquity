@@ -9,6 +9,11 @@ AM_MAINTAINER_MODE
 
 AM_PROG_LIBTOOL
 
+AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.14.5])
+
+IT_PROG_INTLTOOL
+
 AC_ISC_POSIX
 AC_PROG_CC
 AC_HEADER_STDC
@@ -67,7 +72,9 @@ dnl ==============================================================
 
 AC_OUTPUT([
 Makefile
+desktop/Makefile
 pixmaps/Makefile
+po/Makefile.in
 src/Makefile
 src/cut-and-paste/Makefile
 src/cut-and-paste/e-map/Makefile

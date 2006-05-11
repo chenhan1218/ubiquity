@@ -2,8 +2,8 @@
 Type=Application
 Version=1.0
 Encoding=UTF-8
-Name=Install
-Comment=Install this system permanently to your hard disk
+_Name=Install
+_Comment=Install this system permanently to your hard disk
 Exec=kdesu ubiquity kde-ui
 Icon=ubiquity
 Terminal=false

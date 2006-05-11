@@ -129,7 +129,7 @@ class Wizard:
         self.size_widgets = []
         self.partition_widgets = []
         self.format_widgets = []
-        self.mountpoint_choices = ['swap', '/', '/home',
+        self.mountpoint_choices = ['', 'swap', '/', '/home',
                                    '/boot', '/usr', '/var']
         self.partition_choices = []
         self.mountpoints = {}
@@ -152,7 +152,8 @@ class Wizard:
 
         # FIXME seems to quit program
         # set default language
-        dbfilter = language.Language(self, DebconfCommunicator('ubiquity'))
+        dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
+                                                               cloexec=True))
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 
@@ -252,6 +253,12 @@ class Wizard:
         # Start the interface
         self.set_current_page(0)
         while self.current_page is not None:
+            if not self.installing:
+                # Make sure any started progress bars are stopped.
+                while self.progress_position.depth() != 0:
+                    print "removing a progress position in run: " + str(self.progress_position.depth())
+                    self.debconf_progress_stop()
+
             self.backup = False
             current_name = self.step_name(self.current_page)
             old_dbfilter = self.dbfilter
@@ -441,7 +448,6 @@ class Wizard:
         print "  add_mountpoint_table_row(self):"
         """Add a new empty row to the mountpoints table."""
         mountpoint = QComboBox(self.userinterface.mountpoint_frame)
-        mountpoint.insertItem("")
         for mp in self.mountpoint_choices:
             mountpoint.insertItem(mp)
         size = QLabel(self.userinterface.mountpoint_frame)
@@ -761,7 +767,7 @@ class Wizard:
         # For safety, if we somehow ended up improperly initialised
         # then go to manual partitioning.
         choice = self.get_disk_choice()
-        if self.manual_choice is None or unicode(choice, "utf-8") == self.manual_choice:
+        if self.manual_choice is None or choice == self.manual_choice:
             print " process_disk_selection going to gparted"
             self.gparted_loop()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
@@ -1002,11 +1008,14 @@ class Wizard:
                         self.locale))
 
         # showing warning messages
+        self.userinterface.mountpoint_error_reason.setText("\n".join(error_msg))
         if len(error_msg) != 0:
-            self.userinterface.mountpoint_error_reason.setText("\n".join(error_msg))
             self.userinterface.mountpoint_error_reason.show()
             self.userinterface.mountpoint_error_image.show()
             return
+        else:
+            self.userinterface.mountpoint_error_reason.hide()
+            self.userinterface.mountpoint_error_image.hide()
         
         """
 
@@ -1457,12 +1466,12 @@ class Wizard:
 
     def set_autopartition_resize_min_percent (self, min_percent):
         print "  set_autopartition_resize_min_percent (self, min_percent):"
-        self.new_size_scale.setMinValue(min_percent)
-        self.new_size_scale.setMaxValue(100)
+        self.userinterface.new_size_scale.setMinValue(min_percent)
+        self.userinterface.new_size_scale.setMaxValue(100)
 
     def get_autopartition_resize_percent (self):
         print "  get_autopartition_resize_percent (self):"
-        return self.new_size_scale.value()
+        return self.userinterface.new_size_scale.value()
 
     def get_hostname (self):
         return unicode(self.userinterface.hostname.text())
@@ -1580,18 +1589,51 @@ class Wizard:
         print "  set_summary_text (self, text):"
         self.userinterface.ready_text.setText(text)
 
+    def return_to_autopartitioning (self):
+        """Return from the install progress bar to autopartitioning."""
+        if self.installing:
+            # Go back to the autopartitioner and try again.
+            # TODO self.previous_partitioning_page
+            #self.live_installer.show()
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
+            self.userinterface.next.setText("Next >")
+            self.backup = True
+            self.installing = False
+
     def error_dialog (self, msg):
         print "  error_dialog (self, msg):"
         self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
         # TODO: cancel button as well if capb backup
         QMessageBox.warning(self.userinterface, "Error", msg, QMessageBox.Ok)
-        if self.installing:
-            # Go back to the autopartitioner and try again.
-            # TODO self.previous_partitioning_page
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
-            #self.next.set_label("gtk-go-forward")
-            self.backup = True
-            self.installing = False
+        self.return_to_autopartitioning()
+
+    def question_dialog (self, title, msg, option_templates):
+        print "  question_dialog (self, title, msg, option_templates):"
+
+        # I doubt we'll ever need more than three buttons.
+        assert len(option_templates) <= 3, option_templates
+
+        self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
+        buttons = []
+        for option_template in option_templates:
+            text = get_string(option_template, self.locale)
+            if text is None:
+                text = option_template
+            buttons.append(text)
+        # Convention for option_templates is to have the affirmative action
+        # last; KDE convention is to have it first.
+        affirmative = buttons.pop()
+        buttons.insert(0, affirmative)
+
+        response = QMessageBox.question(self.userinterface, title, msg,
+                                        *buttons)
+
+        if response < 0:
+            return None
+        elif response == 0:
+            return option_templates[len(buttons) - 1]
+        else:
+            return option_templates[response - 1]
 
     def refresh (self):
         print "  refresh (self):"

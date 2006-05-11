@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-04-21 10:56+0100\n"
-"PO-Revision-Date: 2006-03-27 14:55+0000\n"
-"Last-Translator: Baishampayan Ghose <b.ghose@ubuntu.com>\n"
+"POT-Creation-Date: 2006-05-04 05:34+0100\n"
+"PO-Revision-Date: 2006-04-23 18:46+0000\n"
+"Last-Translator: fahad.shaon <fahad.shaon@gmail.com>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "ইনস্টল"
 
 #. Type: text
 #. Description
@@ -48,6 +48,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"দয়া করে ইনস্টল করা কালীন সময়ের ভাষা নির্বাচন করুন । এই ভাষাই চুড়ান্ত সিস্টেমের "
+"স্বাভাবিক ভাষা হবে ।"
 
 #. Type: text
 #. Description
@@ -89,7 +91,7 @@ msgstr "বর্তমান সময়:"
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "আপনার সময় নির্বাচন করুন"
 
 #. Type: text
 #. Description
@@ -101,13 +103,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "কোন কীবোর্ড বিন্যস আপনার কীবোর্ডের সাথে সবচেয় সামঞ্জস্যপূর্ন?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "আপনি এই বক্সে টাইপ করে আপনার নতুন কীবোর্ড বিন্যস পরিক্ষা করতে পারেন"
 
 #. Type: text
 #. Description
@@ -139,14 +141,14 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "আপনার আকাউন্টটি নিরাপদ রাখতে একটি পাসওয়ার্ড নির্বাচন করুন"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:90
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "টাইপিং ত্রুটি নিরিক্ষা করার জন্য একই পাসওয়ার্ড দু বার লিখুন"
 
 #. Type: text
 #. Description
@@ -161,6 +163,8 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"যদি আপনি কোন নেটওয়র্কে এই কম্পিউটার অন্যদের কাছে দৃশমান করেন তবে এই নামই ব্যবহার "
+"হবে"
 
 #. Type: text
 #. Description
@@ -187,13 +191,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "আপনি কিভাবে ডিস্কটি পার্টিশন করতে চান?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "পার্টিশন প্রস্ততি"
 
 #. Type: text
 #. Description
@@ -207,7 +211,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "মাউন্ট পয়েন্ট প্রস্ততি"
 
 #. Type: text
 #. Description
@@ -216,6 +220,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"আপনি কোন পার্টিশনগুল ব্যবহার করে নতুন ইনস্টালেশন করতে চান এবং কোথায় আপনি প্রতিটি "
+"মউন্ট করতে চান তা নির্বাচন করুন।"
 
 #. Type: text
 #. Description
@@ -229,7 +235,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:147
 msgid "Mount Point"
-msgstr ""
+msgstr "মাউন্ট পয়েন্ট"
 
 #. Type: text
 #. Description
@@ -247,13 +253,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "আবার ফর"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "আপনাকে অবশ্যই রুট (\"/\") -এর মাউন্ট পয়েন্ট দিতে হবে"
 
 #. Type: text
 #. Description
@@ -265,7 +271,7 @@ msgstr "ইনস্টলের জন্য প্রস্তুত"
 #. Description
 #: ../ubiquity.templates:171
 msgid "The live CD is ready to be installed on this computer."
-msgstr ""
+msgstr "লাইভ সিডিটি এই কম্পিউটারে ইনস্টাল করার জন্য প্রস্তুত"
 
 #. Type: title
 #. Description
@@ -284,7 +290,7 @@ msgstr "ইনস্টলেশন বাতিল করো?"
 #. Description
 #: ../ubiquity.templates:183
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "পার্টিশন প্রক্রিয়া বাধাপ্রাপ্ত হয়েছে"
 
 #. Type: text
 #. Description
@@ -293,12 +299,14 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
+"স্বয়ংক্রিয় ভাবে এই ডিস্কে পার্টিশন করা সম্ভব হয়নি । আপনাকে অবশ্যই অন্য পার্টিশনিং "
+"পদ্ধতি নির্বাচন করতে হবে।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:193
 msgid "Skip"
-msgstr ""
+msgstr "এড়িয়ে যাও"
 
 #. Type: title
 #. Description
@@ -335,169 +343,183 @@ msgid ""
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
 
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:220
+msgid "Go Back"
+msgstr "পেছনে যাও"
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:225
+msgid "Continue"
+msgstr "এগিয়ে যাও"
+
 #. Type: title
 #. Description
-#: ../ubiquity.templates:228
+#: ../ubiquity.templates:238
 #, fuzzy
 msgid "Installing system"
 msgstr "ইনস্টলেশন সম্পূর্ণ হয়েছে"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232
+#: ../ubiquity.templates:242
 msgid "Finding the distribution to copy..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236
+#: ../ubiquity.templates:246
 msgid "Scanning files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:240
+#: ../ubiquity.templates:250
 msgid "Copying files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:244
+#: ../ubiquity.templates:254
 msgid "Copying files (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248
+#: ../ubiquity.templates:258
 msgid "Copying installation logs..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:252
+#: ../ubiquity.templates:262
 msgid "Cleaning up..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:256
+#: ../ubiquity.templates:266
 msgid "Running ${SCRIPT}..."
 msgstr "${SCRIPT} চলছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:260
+#: ../ubiquity.templates:270
 #, fuzzy
 msgid "Configuring system locales..."
 msgstr "নেটওয়ার্ক কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:264
+#: ../ubiquity.templates:274
 msgid "Configuring apt..."
-msgstr ""
+msgstr "এপিটি(apt) কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:268
+#: ../ubiquity.templates:278
 #, fuzzy
 msgid "Configuring time zone..."
 msgstr "নেটওয়ার্ক কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:272
+#: ../ubiquity.templates:282
 msgid "Configuring keyboard..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:276
+#: ../ubiquity.templates:286
 msgid "Creating user..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:280
+#: ../ubiquity.templates:290
 #, fuzzy
 msgid "Configuring hardware..."
 msgstr "নেটওয়ার্ক কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:284
+#: ../ubiquity.templates:294
 msgid "Configuring network..."
 msgstr "নেটওয়ার্ক কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:288
+#: ../ubiquity.templates:298
 msgid "Setting computer name..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:292
+#: ../ubiquity.templates:302
 #, fuzzy
 msgid "Configuring boot loader..."
 msgstr "নেটওয়ার্ক কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:296
+#: ../ubiquity.templates:306
 msgid "Removing extra packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:300
+#: ../ubiquity.templates:310
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "বাদ দেবার জন্য প্যাকেজ খোজা হছে ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:304
+#: ../ubiquity.templates:314
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:308
+#: ../ubiquity.templates:318
 msgid "Downloading package lists..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:312
+#: ../ubiquity.templates:322
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:321
+#: ../ubiquity.templates:331
 msgid "Error installing ${PACKAGE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:326
+#: ../ubiquity.templates:336
 msgid "Error removing ${PACKAGE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:326
+#: ../ubiquity.templates:336
 msgid "${MESSAGE}"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:331
+#: ../ubiquity.templates:341
 msgid "Installing language packs"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:335
+#: ../ubiquity.templates:345
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "ভাষা ভিত্তিক প্যাকেজগুলো ডাউনলোড করা হছে{${TIME}অবশিষ্ট আছে } ..."

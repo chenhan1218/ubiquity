@@ -214,6 +214,16 @@ _Description:
  Make sure to remove the CD when restarting the computer, otherwise it will
  start back up using this live CD rather than the newly-installed system.
 
+Template: ubiquity/text/go_back
+Type: text
+# Translators, this text will appear on a button, so KEEP IT SHORT
+_Description: Go Back
+
+Template: ubiquity/text/continue
+Type: text
+# Translators, this text will appear on a button, so KEEP IT SHORT
+_Description: Continue
+
 Template: ubiquity/summary
 Type: note
 Description: Ready to install

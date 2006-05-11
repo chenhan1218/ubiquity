@@ -1,4 +1,77 @@
-ubiquity (0.99.72) UNRELEASED; urgency=low
+ubiquity (0.99.78) UNRELEASED; urgency=low
+
+  * GTK frontend:
+    - Fix application of Pango attributes to non-ASCII strings (closes:
+      Malone #41769).
+  * Internationalise .desktop files (closes: Malone #39064).
+  * Filter out base-installer/* from our templates file; saves 350KB.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 18:07:31 +0100
+
+ubiquity (0.99.77) dapper; urgency=low
+
+  * Run hw-detect to set up /etc/modules properly (closes: Malone #40826).
+  * Mimic base-installer's logic to configure initramfs-tools with an
+    appropriate resume partition (closes: Malone #42299).
+  * Fix logging in apply_keyboard.
+  * Handle trfu/trqu console keymaps the same way as trf/trq (closes: Malone
+    #37867).
+  * Map croat console keymap to hr (closes: Malone #43598).
+  * Mimic xserver-xorg's logic regarding alternate US layouts for non-Latin
+    keymaps.
+  * Map et console keymap to ee (closes: Malone #42800).
+  * Handle fi-latin1 console keymap the same way as fi (closes: Malone
+    #42650).
+  * Map mk, nl, ro, and ru console keymaps to the X keymaps by the same
+    names.
+  * Map gr console keymap to gr, and add it to the list of non-Latin
+    keymaps.
+  * Change sr-cy console keymap to map to cs, not sr, following
+    xkeyboard-config changes. Add this to the list of non-Latin keymaps.
+  * Automatic update of included source packages: hw-detect 1.32ubuntu6.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 17:39:19 +0100
+
+ubiquity (0.99.76) dapper; urgency=low
+
+  * Make deselection of mount points actually have a useful effect on
+    partman_commit (closes: Malone #35079).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat,  6 May 2006 00:09:22 +0100
+
+ubiquity (0.99.75) dapper; urgency=low
+
+  * KDE frontend:
+    - Fix resize slider handling in autopartitioner (closes: Malone #43015).
+    - Fix handling of disk selections (closes: Malone #43125).
+  * When committing the results of manual partitioning, tell partman to run
+    update.d scripts before asking the confirmation question, rather than
+    trying to run them ourselves and doing it wrong (closes: Malone #37872).
+  * GTK frontend:
+    - Allow deselecting mount points in manual partitioner (closes: Malone
+      #40588).
+  * Hide mount point errors after successful manual partitioning, to make
+    sure that they don't appear if you go back from the summary page.
+  * Automatic update of included source packages: partman-base
+    78ubuntu4.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  5 May 2006 21:11:15 +0100
+
+ubiquity (0.99.74) dapper; urgency=low
+
+  * Tolerate partman doing METAGET on questions that don't exist (closes:
+    Malone #42967).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  4 May 2006 19:17:45 +0100
+
+ubiquity (0.99.73) dapper; urgency=low
+
+  * Mark file descriptors connected to debconf-communicate as close-on-exec
+    (requires debconf 1.4.72ubuntu5; closes: Malone #42868).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  4 May 2006 10:11:46 +0100
+
+ubiquity (0.99.72) dapper; urgency=low
 
   * Sort languages by their ISO-639-1 code rather than by their localised
     name; this seems to produce slightly better results for most languages
@@ -6,8 +79,16 @@ ubiquity (0.99.72) UNRELEASED; urgency=low
     with gfxboot. We can't really win here though, since there's no
     universally-correct collation order (closes: Malone #39299).
   * Save /var/log/partman to installed system as /var/log/installer/partman.
+  * Bump localechooser-data dependency to 0.27ubuntu17.
+  * Handle errors and warnings thrown by partman, displaying them to the
+    user and possibly returning to the partitioner (closes: Malone #39734).
+  * Update all translations from Rosetta.
+  * Automatic update of included source packages: kbd-chooser
+    1.23ubuntu16, localechooser 0.27ubuntu18, partman-basicfilesystems
+    46ubuntu5, partman-ext3 39ubuntu1, partman-jfs 15ubuntu1, partman-
+    reiserfs 28ubuntu1, partman-xfs 27ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue,  2 May 2006 18:34:54 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  4 May 2006 06:23:44 +0100
 
 ubiquity (0.99.71) dapper; urgency=low
 

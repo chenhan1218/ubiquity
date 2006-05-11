@@ -25,10 +25,16 @@ d-i/source/choose-mirror/choose-mirror usr/lib/ubiquity/choose-mirror
 d-i/source/debian-installer-utils/debconf-get bin
 d-i/source/debian-installer-utils/log-output bin
 d-i/source/debian-installer-utils/mapdevfs bin
+d-i/source/debian-installer-utils/register-module bin
+d-i/source/debian-installer-utils/register-module.prebaseconfig usr/lib/ubiquity/debian-installer-utils
+d-i/source/debian-installer-utils/update-dev bin
 d-i/source/debian-installer-utils/user-params bin
 
 # hw-detect
 d-i/source/hw-detect/archdetect bin
+d-i/source/hw-detect/debian/hw-detect/bin/hw-detect bin
+d-i/source/hw-detect/debian/hw-detect/bin/sysfs-update-devnames bin
+ubiquity/components/hw_detect.py usr/lib/python2.4/site-packages/ubiquity/components
 
 # kbd-chooser
 d-i/source/kbd-chooser/kbd-chooser usr/lib/ubiquity/kbd-chooser
