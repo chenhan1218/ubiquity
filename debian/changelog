@@ -9,6 +9,9 @@ ubiquity (0.99.79) UNRELEASED; urgency=low
   * Reduce the number of strings we slurp into memory (only grab
     partman-partitioning*, not partman*).
   * Make "Step N of M" string translatable.
+  * Set LANGUAGE as well as LANG when changing locale; this allows us to get
+    correct debconf translations without needing to run locale-gen (closes:
+    Malone #43071).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 11 May 2006 21:33:28 +0100
 

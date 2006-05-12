@@ -58,8 +58,7 @@ class Timezone(FilteredCommand):
         if di_locale != self.frontend.locale:
             self.frontend.locale = di_locale
             os.environ['LANG'] = di_locale
-            if 'LANGUAGE' in os.environ:
-                del os.environ['LANGUAGE']
+            os.environ['LANGUAGE'] = di_locale
             try:
                 locale.setlocale(locale.LC_ALL, '')
             except locale.Error, e:
