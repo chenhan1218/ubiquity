@@ -440,10 +440,13 @@ class Wizard:
         qtparted_winid = self.qtparted_subp.stdout.readline().rstrip('\n')
         self.embed.embed( int(qtparted_winid) )
         self.qtparted_vbox.addWidget(self.embed)
-        self.embed.resize(self.userinterface.qtparted_frame.width(), self.userinterface.qtparted_frame.height())
         #nasty cludge, we need qtparted to output a line when it's done settings up its window so we can resize then
         QTimer.singleShot(5000, self.resize_qtparted)
-        
+        #uncomment when new version of qt is in the archive
+        #qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+        #if qtparted_reply.startswith('STARTED'):
+            #self.userinterface.qtparted_frame.resize(self.userinterface.qtparted_frame.width()-1,self.userinterface.qtparted_frame.height())
+
     def resize_qtparted(self):
         print "  resize_qtparted"
         self.userinterface.qtparted_frame.resize(self.userinterface.qtparted_frame.width()-1,self.userinterface.qtparted_frame.height())
