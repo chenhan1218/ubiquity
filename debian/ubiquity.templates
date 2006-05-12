@@ -115,7 +115,7 @@ Template: ubiquity/text/part_auto_heading_label
 Type: text
 _Description: Prepare disk space
 
-Template: ubiquity/text/partition_method_label
+Template: ubiquity/text/part_auto_comment_label
 Type: text
 _Description: How do you want to partition the disk?
 
