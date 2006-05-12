@@ -186,10 +186,16 @@ class Wizard:
             item = items[index]
             self.debug("oem-config: Running menu item %s" % item)
 
-            if language != '' and language != os.environ['LANG']:
-                self.debug("oem-config: LANG=%s" % language)
-                os.environ['LANG'] = language
-                language_changed = True
+            if language != '':
+                if language != os.environ['LANG']:
+                    self.debug("oem-config: LANG=%s" % language)
+                    os.environ['LANG'] = language
+                    os.environ['LANGUAGE'] = language
+                    language_changed = True
+            else:
+                # LANGUAGE just confuses matters, so unset it.
+                if 'LANGUAGE' in os.environ:
+                    del os.environ['LANGUAGE']
 
             db = DebconfCommunicator('oem-config')
             debconffilter = DebconfFilter(db, self.widgets)
