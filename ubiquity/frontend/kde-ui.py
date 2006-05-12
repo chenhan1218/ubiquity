@@ -1682,7 +1682,7 @@ class Wizard:
         self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
         self.userinterface.next.setEnabled(True)
         step = self.step_name(self.get_current_page())
-        if not (step == "stepIntro" or step == "stepLanguage"):
+        if not (step == "stepWelcome" or step == "stepLanguage"):
             self.userinterface.back.setEnabled(True)
         self.app.exec_loop()
 
