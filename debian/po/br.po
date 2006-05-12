@@ -125,6 +125,12 @@ msgstr "Petra eo oc'h anv ?"
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:76
+msgid "What name do you want to use to log in?"
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:80
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
