@@ -294,7 +294,7 @@ class Wizard:
                 self.dbfilter.start(auto_process=True)
             else:
                 self.userinterface.next.setEnabled(True)
-                if not (current_name == "stepIntro" or current_name == "stepLanguage"):
+                if not (current_name == "stepWelcome" or current_name == "stepLanguage"):
                     self.userinterface.back.setEnabled(True)
                 self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
 
