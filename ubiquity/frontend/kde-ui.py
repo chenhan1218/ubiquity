@@ -811,27 +811,31 @@ class Wizard:
 
         self.gparted_fstype = {}
         
-        print >>self.qtparted_subp.stdin, "apply"
+        try:
+            try:
+                print >>self.qtparted_subp.stdin, "apply"
+            except IOError:
+                return
 
-        """
-        # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
-        gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
-        while gparted_reply.startswith('- '):
-            pre_log('info', 'gparted replied: %s' % gparted_reply)
-            words = gparted_reply[2:].strip().split()
-            if words[0].lower() == 'format' and len(words) >= 3:
-                self.gparted_fstype[words[1]] = words[2]
+            """
+            # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
             gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
-        
+            while gparted_reply.startswith('- '):
+                pre_log('info', 'gparted replied: %s' % gparted_reply)
+                words = gparted_reply[2:].strip().split()
+                if words[0].lower() == 'format' and len(words) >= 3:
+                    self.gparted_fstype[words[1]] = words[2]
+                gparted_reply = \
+                    self.gparted_subp.stdout.readline().rstrip('\n')
 
-        if not gparted_reply.startswith('0 '):
-            return
-        """
-
-        # Shut down gparted
-        self.qtparted_subp.stdin.close()
-        self.qtparted_subp.wait()
-        self.qtparted_subp = None
+            if not gparted_reply.startswith('0 '):
+                return
+            """
+        finally:
+            # Shut down qtparted
+            self.qtparted_subp.stdin.close()
+            self.qtparted_subp.wait()
+            self.qtparted_subp = None
 
         self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
         mountLabel = QLabel("<b>Mount Point</b>", self.userinterface.mountpoint_frame)

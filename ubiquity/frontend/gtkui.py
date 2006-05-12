@@ -788,24 +788,29 @@ class Wizard:
 
         self.gparted_fstype = {}
 
-        print >>self.gparted_subp.stdin, "apply"
+        try:
+            try:
+                print >>self.gparted_subp.stdin, "apply"
+            except IOError:
+                return
 
-        # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
-        gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
-        while gparted_reply.startswith('- '):
-            pre_log('info', 'gparted replied: %s' % gparted_reply)
-            words = gparted_reply[2:].strip().split()
-            if words[0].lower() == 'format' and len(words) >= 3:
-                self.gparted_fstype[words[1]] = words[2]
+            # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
             gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
+            while gparted_reply.startswith('- '):
+                pre_log('info', 'gparted replied: %s' % gparted_reply)
+                words = gparted_reply[2:].strip().split()
+                if words[0].lower() == 'format' and len(words) >= 3:
+                    self.gparted_fstype[words[1]] = words[2]
+                gparted_reply = \
+                    self.gparted_subp.stdout.readline().rstrip('\n')
 
-        if not gparted_reply.startswith('0 '):
-            return
-
-        # Shut down gparted
-        self.gparted_subp.stdin.close()
-        self.gparted_subp.wait()
-        self.gparted_subp = None
+            if not gparted_reply.startswith('0 '):
+                return
+        finally:
+            # Shut down gparted
+            self.gparted_subp.stdin.close()
+            self.gparted_subp.wait()
+            self.gparted_subp = None
 
         # Set up list of partition names for use in the mountpoints table.
         self.partition_choices = []
