@@ -274,7 +274,8 @@ def get_translations(languages=None, core_names=[]):
         db = subprocess.Popen(
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
-             '--config=InFd:none', '--pattern=^(ubiquity|partman)'],
+             '--config=InFd:none',
+             '--pattern=^(ubiquity|partman-partitioning)'],
             stdout=subprocess.PIPE, stderr=devnull)
         question = None
         descriptions = {}
