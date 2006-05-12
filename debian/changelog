@@ -1,3 +1,11 @@
+oem-config (0.14) UNRELEASED; urgency=low
+
+  * Set LANGUAGE as well as LANG when changing the locale; this allows us to
+    get correct debconf translations without needing to run locale-gen (see
+    Malone #43071).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 May 2006 15:15:43 +0100
+
 oem-config (0.13) dapper; urgency=low
 
   * Depend on xserver-xorg and metacity for oem-config-dm (closes: Malone
