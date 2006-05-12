@@ -439,8 +439,14 @@ class Wizard:
             ['/usr/sbin/qtparted', '--installer'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
         qtparted_winid = self.qtparted_subp.stdout.readline().rstrip('\n')
         self.embed.embed( int(qtparted_winid) )
-        self.embed.resize(250,250)
         self.qtparted_vbox.addWidget(self.embed)
+        self.embed.resize(self.userinterface.qtparted_frame.width(), self.userinterface.qtparted_frame.height())
+        #nasty cludge, we need qtparted to output a line when it's done settings up its window so we can resize then
+        QTimer.singleShot(5000, self.resize_qtparted)
+        
+    def resize_qtparted(self):
+        print "  resize_qtparted"
+        self.userinterface.qtparted_frame.resize(self.userinterface.qtparted_frame.width()-1,self.userinterface.qtparted_frame.height())
 
     def set_size_msg(self, widget):
         """return a string message with size value about
@@ -1772,9 +1778,7 @@ class TimezoneMap(object):
     def update_current_time(self):
         if self.location_selected is not None:
             now = datetime.datetime.now(self.location_selected.info)
-            print "now: " + str(now)
             self.frontend.userinterface.timezone_time_text.setText(unicode(now.strftime('%X'), "utf-8"))
-            print "text: " + now.strftime('%X')
 
     def set_tz_from_name(self, name):
         print "  set_tz_from_name(self, name): " + name

@@ -35,6 +35,7 @@ ubiquity (0.99.78) UNRELEASED; urgency=low
     - Don't call get_translations multiple times
     - Format time properly in non-latin locales
     - Make mountpoint comboboxes editable
+    - Resize qtparted to fit window
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 18:07:31 +0100
 
