@@ -331,7 +331,9 @@ string_questions = {
 
 def get_string(name, lang):
     """Get the translation of a single string."""
-    if name in string_questions:
+    if '/' in name:
+        question = name
+    elif name in string_questions:
         question = string_questions[name]
     else:
         question = 'ubiquity/text/%s' % name

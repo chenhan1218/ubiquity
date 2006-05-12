@@ -3,6 +3,8 @@ ubiquity (0.99.80) UNRELEASED; urgency=low
   * If we get an IOError when trying to tell gparted or qtparted to apply
     changes, just shut it down and try running it again (closes: Malone
     #43504, #44108).
+  * Fix get_string to handle requests for fully-qualified debconf questions
+    again.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 May 2006 16:56:31 +0100
 
