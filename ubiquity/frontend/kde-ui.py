@@ -414,11 +414,13 @@ class Wizard:
         print "  set_current_page(self, current):"
         self.current_page = current
         current_name = self.step_name(current)
-        label_text = "Step %s of %d"
-        curstep = "<i>Unknown?</i>"
+        label_text = get_string("step_label", self.locale)
+        curstep = "<i>?</i>"
         if current_name in BREADCRUMB_STEPS:
             curstep = str(BREADCRUMB_STEPS[current_name])
-        self.userinterface.lblStepNofM.setText(label_text % (curstep, BREADCRUMB_MAX_STEP))
+        label_text = label_text.replace("${INDEX}", curstep)
+        label_text = label_text.replace("${TOTAL}", str(BREADCRUMB_MAX_STEP))
+        self.userinterface.step_label.setText(label_text)
 
     def gparted_loop(self):
         print "  gparted_loop(self):"

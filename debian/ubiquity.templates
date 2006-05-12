@@ -170,6 +170,10 @@ Template: ubiquity/text/ready_description_label
 Type: text
 _Description: Your new operating system will now be installed with the following settings:
 
+Template: ubiquity/text/step_label
+Type: text
+_Description: Step ${INDEX} of ${TOTAL}
+
 Template: ubiquity/text/warning_dialog
 Type: title
 _Description: Abort the installation?

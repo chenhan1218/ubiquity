@@ -414,11 +414,13 @@ class Wizard:
     def set_current_page(self, current):
         self.current_page = current
         current_name = self.step_name(current)
-        label_text = "Step %s of %d"
-        curstep = "<i>Unknown?</i>"
+        label_text = get_string("step_label", self.locale)
+        curstep = "<i>?</i>"
         if current_name in BREADCRUMB_STEPS:
             curstep = str(BREADCRUMB_STEPS[current_name])
-        self.lblStepNofM.set_markup(label_text % (curstep, BREADCRUMB_MAX_STEP))
+        label_text = label_text.replace("${INDEX}", curstep)
+        label_text = label_text.replace("${TOTAL}", str(BREADCRUMB_MAX_STEP))
+        self.step_label.set_markup(label_text)
 
     # Methods
 

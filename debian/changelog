@@ -8,6 +8,7 @@ ubiquity (0.99.79) UNRELEASED; urgency=low
     ubiquity/text/*, including "New partition size:".
   * Reduce the number of strings we slurp into memory (only grab
     partman-partitioning*, not partman*).
+  * Make "Step N of M" string translatable.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 11 May 2006 21:33:28 +0100
 
