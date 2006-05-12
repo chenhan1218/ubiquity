@@ -151,8 +151,8 @@ class Wizard:
         self.laptop = subprocess.call(["laptop-detect"], stdout=devnull,
                                       stderr=subprocess.STDOUT) == 0
         devnull.close()
+        self.qtparted_subp = None
 
-        # FIXME seems to quit program
         # set default language
         dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
                                                                cloexec=True))
@@ -581,6 +581,8 @@ class Wizard:
         
         response = QMessageBox.question(self.userinterface, "Abort?", "Do you really want to abort the installation now?", "Quit", "Continue")
         if response == 0:
+            if self.qtparted_subp is not None:
+                print >>self.qtparted_subp.stdin, "exit"
             self.current_page = None
             self.quit()
             return True
