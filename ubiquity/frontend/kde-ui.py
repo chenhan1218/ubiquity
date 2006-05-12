@@ -1237,6 +1237,8 @@ class Wizard:
         
         if self.progress_position.depth() == 0:
             total_steps = progress_max - progress_min
+            if progress_title is None:
+                progress_title = ""
             self.progressDialogue = QProgressDialog(progress_title, "Cancel", total_steps, self.userinterface, "progressdialog", True)
             #self.progressDialogue = KProgressDialog(self.userinterface, "progressdialog", progress_title, "", True)
             # FIXME jr self.debconf_progress_window.set_title(progress_title)

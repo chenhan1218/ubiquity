@@ -1106,7 +1106,7 @@ class Wizard:
             self.debconf_progress_window.set_transient_for(self.live_installer)
         else:
             self.debconf_progress_window.set_transient_for(None)
-        if self.progress_position.depth() == 0:
+        if self.progress_position.depth() == 0 and progress_title is not None:
             self.debconf_progress_window.set_title(progress_title)
 
         self.progress_title.set_markup(
