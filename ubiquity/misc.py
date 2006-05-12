@@ -324,10 +324,19 @@ def get_translations(languages=None, core_names=[]):
 
     return _translations
 
+string_questions = {
+    'new_size_label': 'partman-partitioning/new_size',
+}
+
 def get_string(name, lang):
     """Get the translation of a single string."""
+    if name in string_questions:
+        question = string_questions[name]
+    else:
+        question = 'ubiquity/text/%s' % name
+
     translations = get_translations()
-    if name not in translations:
+    if question not in translations:
         return None
 
     if lang is None:
@@ -335,14 +344,14 @@ def get_string(name, lang):
     else:
         lang = lang.lower()
 
-    if lang in translations[name]:
-        text = translations[name][lang]
+    if lang in translations[question]:
+        text = translations[question][lang]
     else:
         lang = lang.split('_')[0]
-        if lang in translations[name]:
-            text = translations[name][lang]
+        if lang in translations[question]:
+            text = translations[question][lang]
         else:
-            text = translations[name]['c']
+            text = translations[question]['c']
 
     return unicode(text, "UTF-8")
 

@@ -344,7 +344,7 @@ class Wizard:
         if isinstance(widget, gtk.Button) and widget.get_use_stock():
             widget.set_label(widget.get_label())
 
-        text = get_string('ubiquity/text/%s' % widget.get_name(), lang)
+        text = get_string(widget.get_name(), lang)
         if text is None:
             return
 
