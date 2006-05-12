@@ -441,15 +441,10 @@ class Wizard:
         self.embed.embed( int(qtparted_winid) )
         self.qtparted_vbox.addWidget(self.embed)
         #nasty cludge, we need qtparted to output a line when it's done settings up its window so we can resize then
-        QTimer.singleShot(5000, self.resize_qtparted)
         #uncomment when new version of qt is in the archive
-        #qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
-        #if qtparted_reply.startswith('STARTED'):
-            #self.userinterface.qtparted_frame.resize(self.userinterface.qtparted_frame.width()-1,self.userinterface.qtparted_frame.height())
-
-    def resize_qtparted(self):
-        print "  resize_qtparted"
-        self.userinterface.qtparted_frame.resize(self.userinterface.qtparted_frame.width()-1,self.userinterface.qtparted_frame.height())
+        qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+        if qtparted_reply.startswith('STARTED'):
+            self.userinterface.qtparted_frame.resize(self.userinterface.qtparted_frame.width()-1,self.userinterface.qtparted_frame.height())
 
     def set_size_msg(self, widget):
         """return a string message with size value about
@@ -823,26 +818,28 @@ class Wizard:
             ##self.next.set_label("Install") # TODO i18n
 
     def gparted_to_mountpoints(self):
+        print "  gparted_to_mountpoints(self):"
         """Processing gparted to mountpoints step tasks."""
 
         self.gparted_fstype = {}
         
         print >>self.qtparted_subp.stdin, "apply"
 
-        """
         # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
         gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
-        while gparted_reply.startswith('- '):
-            pre_log('info', 'gparted replied: %s' % gparted_reply)
-            words = gparted_reply[2:].strip().split()
-            if words[0].lower() == 'format' and len(words) >= 3:
-                self.gparted_fstype[words[1]] = words[2]
-            gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
-        
+        print "getting reply: " + gparted_reply + "<<"
+        while not gparted_reply.startswith('0 '):
+            if gparted_reply.startswith('- '):
+                pre_log('info', 'gparted replied: %s' % gparted_reply)
+                words = gparted_reply[2:].strip().split()
+                if words[0].lower() == 'format' and len(words) >= 3:
+                    self.gparted_fstype[words[1]] = words[2]
+            print "getting reply: " + gparted_reply + "<<"
+            gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
 
         if not gparted_reply.startswith('0 '):
+            print "returning from gparted"
             return
-        """
 
         # Shut down gparted
         self.qtparted_subp.stdin.close()
@@ -873,7 +870,6 @@ class Wizard:
         # Initialise the mountpoints table.
         if len(self.mountpoint_widgets) == 0:
             self.add_mountpoint_table_row()
-            
 
             # Try to get some default mountpoint selections.
             self.size = get_sizes()
@@ -884,23 +880,14 @@ class Wizard:
             if len(selection.items()) == 0:
                 self.userinterface.next.setEnabled(False)
             else:
-                mp = { 'swap' : 0, '/' : 1 }
-
                 # Setting default preselection values into ComboBox
                 # widgets and setting size values. In addition, next row
                 # is showed if they're validated.
+                print "selection.items: " + str(selection.items())
                 for mountpoint, partition in selection.items():
-                    count = 0
-                    while count < self.mountpoint_widgets[-1].count():
-                        if self.mountpoint_widgets[-1].text(count) == mp[mountpoint]:
-                            self.mountpoint_widgets[-1].setCurrentItem(count)
-                        count += 1
+                    self.mountpoint_widgets[-1].setCurrentItem(self.mountpoint_choices.index(mountpoint))
                     self.size_widgets[-1].setText(self.set_size_msg(partition))
-                    count = 0
-                    while count < self.partition_widgets[-1].count():
-                        if self.partition_widgets[-1].text(count) == self.partition_choices.index(partition):
-                            self.partition_widgets[-1].setCurrentItem(count)
-                        count += 1
+                    self.partition_widgets[-1].setCurrentItem(self.partition_choices.index(partition))
                     if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
                         partition in self.gparted_fstype):
                         self.format_widgets[-1].setChecked(True)
@@ -915,7 +902,7 @@ class Wizard:
 
             # We defer connecting up signals until now to avoid the changed
             # signal firing while we're busy populating the table.
-            """
+            """  Not needed for KDE
             for mountpoint in self.mountpoint_widgets:
                 self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
             for partition in self.partition_widgets:

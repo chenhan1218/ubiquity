@@ -36,6 +36,8 @@ ubiquity (0.99.78) UNRELEASED; urgency=low
     - Format time properly in non-latin locales
     - Make mountpoint comboboxes editable
     - Resize qtparted to fit window
+    - Quit qtparted cleanly
+    - Select values on mountpoints page correctly
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 18:07:31 +0100
 
