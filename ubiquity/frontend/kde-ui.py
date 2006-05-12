@@ -22,8 +22,6 @@
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ##################################################################################
 
-print "importing kde-ui"
-
 import sys
 from qt import *
 from kdeui import *
@@ -99,13 +97,11 @@ class UbiquityUI(UbiquityUIBase):
         self.wizard = wizardRef
 
     def closeEvent(self, event):
-        print "closing!"
         self.wizard.on_cancel_clicked()
 
 class Wizard:
 
     def __init__(self, distro):
-        print "  init(distro)"
         sys.excepthook = self.excepthook
 
         about=KAboutData("kubuntu-ubiquity","Installer","0.1","Live CD Installer for Kubuntu",KAboutData.License_GPL,"(c) 2006 Canonical Ltd", "http://wiki.kubuntu.org/KubuntuUbiquity", "jriddell@ubuntu.com")
@@ -184,7 +180,6 @@ class Wizard:
         self.qtparted_vbox = QVBoxLayout(self.userinterface.qtparted_frame)
         self.embed = QXEmbed(self.userinterface.qtparted_frame, "embed")
         self.embed.setProtocol(QXEmbed.XPLAIN)
-        print "init end"
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -204,17 +199,14 @@ class Wizard:
         sys.exit(1)
 
     def openURL(self, url):
-        print "openURL(self, url):" + str(url)
         #need to run this else kdesu can't run Konqueror
         subprocess.call(['su', 'ubuntu', 'xhost', '+localhost'])
         KRun.runURL(KURL(url), "text/html")
 
     def run(self):
         """run the interface."""
-        print "  run()"
 
         if os.getuid() != 0:
-                print "uid != 0"
                 title = ('This installer must be run with administrative privileges, and cannot continue without them.')
                 result = QMessageBox.critical(self.userinterface, "Must be root", title)
 
@@ -260,21 +252,18 @@ class Wizard:
             if not self.installing:
                 # Make sure any started progress bars are stopped.
                 while self.progress_position.depth() != 0:
-                    print "removing a progress position in run: " + str(self.progress_position.depth())
                     self.debconf_progress_stop()
 
             self.backup = False
             current_name = self.step_name(self.current_page)
             old_dbfilter = self.dbfilter
             if current_name == "stepLanguage":
-                print "stepLanguage"
                 self.dbfilter = language.Language(self)
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
                 self.dbfilter = kbd_chooser.KbdChooser(self)
             elif current_name == "stepUserInfo":
-                print "stepUserInfo"
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name in ("stepPartDisk", "stepPartAuto"):
                 if isinstance(self.dbfilter, partman.Partman):
@@ -284,12 +273,9 @@ class Wizard:
             elif current_name == "stepReady":
                 self.dbfilter = summary.Summary(self)
             else:
-                print "no filter"
                 self.dbfilter = None
-    
-            print "checking if dbfilter in not None"
+
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
-                print "dbfilter.start"
                 self.userinterface.setCursor(QCursor(Qt.WaitCursor))
                 self.dbfilter.start(auto_process=True)
             else:
@@ -298,16 +284,12 @@ class Wizard:
                     self.userinterface.back.setEnabled(True)
                 self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
 
-            print "mainloop"
             self.app.exec_loop()
-            print "end mainloop"
     
             if self.installing:
                 self.progress_loop()
             elif self.current_page is not None and not self.backup:
-                print "process_step"
                 self.process_step()
-            print "end of while"
             self.app.processEvents(1)
 
 	return self.returncode
@@ -345,7 +327,6 @@ class Wizard:
         #self.tzmap.tzmap.show()
 
     def translate_widgets(self, parentWidget=None):
-        print "  translate_widgets(self, parentWidget=None):"
         if self.locale is None:
             languages = []
         else:
@@ -357,7 +338,6 @@ class Wizard:
         self.translate_widget_chidren(parentWidget)
 
     def translate_widget_chidren(self, parentWidget=None):
-        print "  translate_widget_chidren(self, parentWidget=None):"
         if parentWidget == None:
             parentWidget = self.userinterface
 
@@ -367,7 +347,6 @@ class Wizard:
 
     def translate_widget(self, widget, lang):
 
-        print "  translate_widget(self, widget, lang)"
         
         #FIXME how to do in KDE?  use kstdactions?
         #if isinstance(widget, gtk.Button) and widget.get_use_stock():
@@ -398,7 +377,6 @@ class Wizard:
 
     def show_intro(self):
         """Show some introductory text, if available."""
-        print "  show_intro()"
     
         #intro = os.path.join(PATH, 'htmldocs', self.distro, 'intro.txt')
         intro = "/usr/share/ubiquity/htmldocs/ubuntu/intro.txt"
@@ -412,13 +390,11 @@ class Wizard:
             intro_file.close()
     
     def step_name(self, step_index):
-        print "  step_name(step_index) " + str(step_index)
         if step_index < 0:
             step_index = 0
         return self.userinterface.widgetStack.widget(step_index).name()
 
     def set_current_page(self, current):
-        print "  set_current_page(self, current):"
         self.current_page = current
         current_name = self.step_name(current)
         label_text = get_string("step_label", self.locale)
@@ -430,7 +406,6 @@ class Wizard:
         self.userinterface.step_label.setText(label_text)
 
     def gparted_loop(self):
-        print "  gparted_loop(self):"
         """call gparted and embed it into glade interface."""
 
         pre_log('info', 'gparted_loop()')
@@ -464,11 +439,9 @@ class Wizard:
             msg = '%.0f Mb' % (size/1024)
         else:
             msg = '%.0f Kb' % size
-        print "msg: " + msg
         return msg
 
     def add_mountpoint_table_row(self):
-        print "  add_mountpoint_table_row(self):"
         """Add a new empty row to the mountpoints table."""
         mountpoint = QComboBox(self.userinterface.mountpoint_frame)
         mountpoint.setEditable(True)
@@ -504,7 +477,6 @@ class Wizard:
         self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
 
     def progress_loop(self):
-        print "  progress_loop(self):"
         """prepare, copy and config the system in the core install process."""
 
         pre_log('info', 'progress_loop()')
@@ -517,24 +489,17 @@ class Wizard:
             (start, end) = self.progress_position.get_region()
             self.debconf_progress_region(end, 100)
 
-        print "setting dbfilter"
-
         dbfilter = install.Install(self)
-        print "dbfilter set"
         if dbfilter.run_command(auto_process=True) != 0:
-            print "runcommand != 0"
             self.installing = False
             # TODO cjwatson 2006-02-27: do something nicer than just quitting
             self.quit()
-        print "run_command good"
 
         while self.progress_position.depth() != 0:
-            print "removing a progress position in progress_loop: " + str(self.progress_position.depth())
             self.debconf_progress_stop()
 
         # just to make sure
         self.progressDialogue.hide()
-        #FIXME jr self.debconf_progress_window.hide()
 
         self.installing = False
         quitText = """Kubuntu is now installed on your computer. You need to restart the computer in order to use it. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.\n\nMake sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system."""
@@ -545,7 +510,6 @@ class Wizard:
             self.reboot();
 
     def reboot(self, *args):
-        print "  reboot(self, *args):"
         """reboot the system after installing process."""
 
         self.returncode = 10
@@ -553,7 +517,6 @@ class Wizard:
 
 
     def do_reboot(self):
-        print "  do_reboot(self):"
         """Callback for main program to actually reboot the machine."""
 
         # can't seem to be able to call dcop from kdesu (even if I su back to ubuntu user)
@@ -564,7 +527,6 @@ class Wizard:
         subprocess.call(["reboot"])
 
     def quit(self):
-        print "  quit(self):"
         """quit installer cleanly."""
 
         # exiting from application
@@ -574,8 +536,6 @@ class Wizard:
         self.app.exit()
 
     def on_cancel_clicked(self):
-        print "  on_cancel_clicked(self, widget):"
-        
         response = QMessageBox.question(self.userinterface, "Abort?", "Do you really want to abort the installation now?", "Quit", "Continue")
         if response == 0:
             if self.qtparted_subp is not None:
@@ -587,21 +547,9 @@ class Wizard:
             return False
 
     def on_list_changed(self, textID):
-        print "  on_list_changed(self, widget):"
         """check if partition/mountpoint pair is filled and show the next pair
         on mountpoint screen. Also size label associated with partition combobox
         is changed dynamically to show the size partition."""
-        
-        """
-
-        if widget.get_active_text() not in ['', None]:
-            if widget in self.partition_widgets:
-                index = self.partition_widgets.index(widget)
-            elif widget in self.mountpoint_widgets:
-                index = self.mountpoint_widgets.index(widget)
-            else:
-                return
-        """
 
         index = 0
         while index < len(self.partition_widgets):
@@ -639,7 +587,6 @@ class Wizard:
             index += 1
 
     def info_loop(self, widget):
-        print "  info_loop(self, widget):"
         """check if all entries from Identification screen are filled."""
 
         if widget.name() == 'username' and not self.hostname_edited:
@@ -659,7 +606,6 @@ class Wizard:
         self.userinterface.next.setEnabled(complete)
 
     def on_hostname_insert_text(self):
-        print "  on_hostname_insert_text(self):"
         self.hostname_edited = True
 
     def on_fullname_changed(self):
@@ -678,16 +624,13 @@ class Wizard:
         self.info_loop(self.userinterface.hostname)
 
     def on_next_clicked(self):
-        print "  on_next_clicked(self):"
         """Callback to control the installation process between steps."""
 
         step = self.step_name(self.get_current_page())
-        print "step: " + step
         self.userinterface.setCursor(QCursor(Qt.WaitCursor))
         self.userinterface.next.setEnabled(False)
         self.userinterface.back.setEnabled(False)
         if step == "stepKeyboardConf":
-            print "is stepUserInfo"
             self.userinterface.fullname_error_image.hide()
             self.userinterface.fullname_error_reason.hide()
             self.userinterface.username_error_image.hide()
@@ -696,7 +639,6 @@ class Wizard:
             self.userinterface.password_error_reason.hide()
             self.userinterface.hostname_error_image.hide()
             self.userinterface.hostname_error_reason.hide()
-        print "if stepuserinfo done ***"
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -706,14 +648,12 @@ class Wizard:
             self.app.exit()
 
     def on_keyboard_selected(self):
-        print "  on_keyboard_selected(self):"
         keyboard = self.get_keyboard()
         if keyboard is not None:
             kbd_chooser.apply_keyboard(keyboard)
 
     def process_step(self):
         """Process and validate the results of this step."""
-        print "  process_step() "
 
         # setting actual step
         step = self.step_name(self.get_current_page())
@@ -760,7 +700,6 @@ class Wizard:
         pre_log('info', 'Step_after = %s' % step)
 
     def process_identification (self):
-        print "  process_identification (self):"
         """Processing identification step tasks."""
 
         error_msg = []
@@ -786,7 +725,6 @@ class Wizard:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
 
     def process_disk_selection (self):
-        print "  process_disk_selection (self):"
         """Process disk selection before autopartitioning. This step will be
         skipped if only one disk is present."""
 
@@ -794,15 +732,12 @@ class Wizard:
         # then go to manual partitioning.
         choice = self.get_disk_choice()
         if self.manual_choice is None or choice == self.manual_choice:
-            print " process_disk_selection going to gparted"
             self.gparted_loop()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
         else:
-            print " process_disk_selection going to auto"
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAuto"])
 
     def process_autopartitioning(self):
-        print "  process_autopartitioning(self):"
         """Processing automatic partitioning step tasks."""
 
         self.app.processEvents(1)
@@ -820,7 +755,6 @@ class Wizard:
             ##self.next.set_label("Install") # TODO i18n
 
     def gparted_to_mountpoints(self):
-        print "  gparted_to_mountpoints(self):"
         """Processing gparted to mountpoints step tasks."""
 
         self.gparted_fstype = {}
@@ -833,18 +767,15 @@ class Wizard:
 
             # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
             gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
-            print "getting reply: " + gparted_reply + "<<"
             while not gparted_reply.startswith('0 '):
                 if gparted_reply.startswith('- '):
                     pre_log('info', 'gparted replied: %s' % gparted_reply)
                     words = gparted_reply[2:].strip().split()
                     if words[0].lower() == 'format' and len(words) >= 3:
                         self.gparted_fstype[words[1]] = words[2]
-                print "getting reply: " + gparted_reply + "<<"
                 gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
 
             if not gparted_reply.startswith('0 '):
-                print "returning from gparted"
                 return
 
         finally:
@@ -891,7 +822,6 @@ class Wizard:
                 # Setting default preselection values into ComboBox
                 # widgets and setting size values. In addition, next row
                 # is showed if they're validated.
-                print "selection.items: " + str(selection.items())
                 for mountpoint, partition in selection.items():
                     self.mountpoint_widgets[-1].setCurrentItem(self.mountpoint_choices.index(mountpoint))
                     self.size_widgets[-1].setText(self.set_size_msg(partition))
@@ -923,7 +853,6 @@ class Wizard:
         self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartMountpoints"])
 
     def show_partitions(self, widget):
-        print "  show_partitions(self, widget): " + widget.name()
         """write all values in this widget (GtkComboBox) from local
         partitions values."""
 
@@ -936,7 +865,6 @@ class Wizard:
         widget.clear()
         widget.insertItem(" ")
         for index in partition_list:
-            print "partition:" + index
             index = '/dev/' + index
             label = misc.part_label(index)
             self.part_labels[index] = label
@@ -1041,34 +969,10 @@ class Wizard:
             self.userinterface.mountpoint_error_reason.hide()
             self.userinterface.mountpoint_error_image.hide()
         
-        """
-
-        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
-        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
-        gconf_previous = {}
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            subp = subprocess.Popen(['gconftool-2', '--config-source',
-                                     gconf_dir, '--get', gconf_key],
-                                    stdout=subprocess.PIPE,
-                                    stderr=subprocess.PIPE)
-            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
-            if gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                 '--type', 'bool', 'false'])
-        """
+        # turn off kded media watcher here?
 
         if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
             return
-
-        """
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            if gconf_previous[gconf_key] == '':
-                subprocess.call(['gconftool-2', '--unset', gconf_key])
-            elif gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                 '--type', 'bool', gconf_previous[gconf_key]])
-        """
 
         # Since we've successfully committed partitioning, the install
         # progress bar should now be displayed, so we can go straight on to
@@ -1076,7 +980,6 @@ class Wizard:
         self.progress_loop()
 
     def on_back_clicked(self):
-        print "  on_back_clicked(self, widget):"
         """Callback to set previous screen."""
 
         self.backup = True
@@ -1085,7 +988,6 @@ class Wizard:
         self.userinterface.next.setEnabled(True)
         # Setting actual step
         step = self.step_name(self.get_current_page())
-        print "step: " + step
         self.userinterface.setCursor(QCursor(Qt.WaitCursor))
         
         changed_page = False
@@ -1093,15 +995,12 @@ class Wizard:
         if step == "stepLocation":
             self.userinterface.back.setEnabled(False)
         elif step == "stepPartAdvanced":
-            """ FIXME jr
-            print >>self.gparted_subp.stdin, "undo"
-            self.gparted_subp.stdin.close()
-            self.gparted_subp.wait()
-            self.gparted_subp = None
+            print >>self.qtparted_subp.stdin, "undo"
+            self.qtparted_subp.stdin.close()
+            self.qtparted_subp.wait()
+            self.qtparted_subp = None
             self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
             changed_page = True
-            """
-            pass
         elif step == "stepPartMountpoints":
             self.gparted_loop()
         elif step == "stepReady":
@@ -1116,21 +1015,16 @@ class Wizard:
             self.app.exit()
 
     def on_language_treeview_selection_changed (self):
-        print "  on_language_treeview_selection_changed (self, selection):"
         selection = self.userinterface.language_treeview.selectedItem()
-        print "selection: " + str(selection)
         if selection is not None:
-            print "selection is not None"
             value = unicode(selection.text(0))
             lang = self.language_choice_map[value][1]
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
             for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.next, self.userinterface.back, self.userinterface.cancel):
-                print "translating widget"
                 self.translate_widget(widget, lang)
 
     def on_timezone_time_adjust_clicked (self):
-        print "  on_timezone_time_adjust_clicked (self):"
         #invisible = gtk.Invisible()
         #invisible.grab_add()
         time_admin_env = dict(os.environ)
@@ -1146,13 +1040,10 @@ class Wizard:
       return self.userinterface.widgetStack.id(self.userinterface.widgetStack.visibleWidget())
 
     def on_steps_switch_page(self, newPageID):
-        print "  on_steps_switch_page(title): " + str(self.get_current_page()) + " " + str(newPageID)
-
         self.set_current_page(newPageID)
         current_name = self.step_name(self.get_current_page())
 
     def on_autopartition_resize_toggled (self, enable):
-        print "  on_autopartition_resize_toggled (self, widget):"
         """Update autopartitioning screen when the resize button is
         selected."""
 
@@ -1175,7 +1066,6 @@ class Wizard:
 
     def watch_debconf_fd (self, from_debconf, process_input):
         self.debconf_fd_counter = 0
-        print "  watch_debconf_fd (self, from_debconf, process_input): " +  str(from_debconf) + " " + str(process_input)
         self.socketNotifierRead = QSocketNotifier(from_debconf, QSocketNotifier.Read, self.app, "read-for-" + str(from_debconf))
         self.app.connect(self.socketNotifierRead, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_read)
         
@@ -1196,63 +1086,24 @@ class Wizard:
 
     def watch_debconf_fd_helper_read (self, source):
         self.debconf_fd_counter += 1
-        print "  watch_debconf_fd_helper_read (self, source): " + str(source) + " " + str(self.debconf_fd_counter)
         debconf_condition = 0
         debconf_condition |= filteredcommand.DEBCONF_IO_IN
-        #if (self.debconf_fd_counter == 25):
-        #    print "adding HUP"
-        #    debconf_condition |= filteredcommand.DEBCONF_IO_HUP
         self.debconf_callbacks[source](source, debconf_condition)
-        """
-        if (cb_condition & gobject.IO_ERR) != 0:
-            debconf_condition |= filteredcommand.DEBCONF_IO_ERR
-        if (cb_condition & gobject.IO_HUP) != 0:
-            debconf_condition |= filteredcommand.DEBCONF_IO_HUP
-
-        return callback(source, debconf_condition)
-        """
 
     def watch_debconf_fd_helper_write(self, source):
-        print "  watch_debconf_fd_helper_write(self, source): " + str(source)
-        
         debconf_condition = 0
         debconf_condition |= filteredcommand.DEBCONF_IO_OUT
         self.debconf_callbacks[source](source, debconf_condition)
-        """
-        if (cb_condition & gobject.IO_ERR) != 0:
-            debconf_condition |= filteredcommand.DEBCONF_IO_ERR
-        if (cb_condition & gobject.IO_HUP) != 0:
-            debconf_condition |= filteredcommand.DEBCONF_IO_HUP
-
-        return callback(source, debconf_condition)
-        """
 
     def watch_debconf_fd_helper_exception(self, source):
-        print "  watch_debconf_fd_helper_error(self, source): " + str(source)
-        
         debconf_condition = 0
         debconf_condition |= filteredcommand.DEBCONF_IO_ERR
         self.debconf_callbacks[source](source, debconf_condition)
-        """
-        if (cb_condition & gobject.IO_ERR) != 0:
-            debconf_condition |= filteredcommand.DEBCONF_IO_ERR
-        if (cb_condition & gobject.IO_HUP) != 0:
-            debconf_condition |= filteredcommand.DEBCONF_IO_HUP
 
-        return callback(source, debconf_condition)
-        """
-	
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
-        print "  debconf_progress_start (self, progress_min, progress_max, progress_title) " + str(progress_min) + " " + str(progress_max)
         if self.progress_cancelled:
             return False
-        """
-        if self.current_page is not None:
-            self.debconf_progress_window.set_transient_for(self.live_installer)
-        else:
-            self.debconf_progress_window.set_transient_for(None)
-        """
-        
+
         if progress_title is None:
             progress_title = ""
         if self.progress_position.depth() == 0:
@@ -1269,7 +1120,6 @@ class Wizard:
         return True
 
     def debconf_progress_set (self, progress_val):
-        print "  debconf_progress_set (self, progress_val):"
         self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             return False
@@ -1281,7 +1131,6 @@ class Wizard:
         return True
 
     def debconf_progress_step (self, progress_inc):
-        print "  debconf_progress_step (self, progress_inc): " + str(progress_inc)
         self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             return False
@@ -1291,7 +1140,6 @@ class Wizard:
         return True
 
     def debconf_progress_info (self, progress_info):
-        print "  debconf_progress_info (self, progress_info):"
         self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             return False
@@ -1299,7 +1147,6 @@ class Wizard:
         return True
 
     def debconf_progress_stop (self):
-        print "  debconf_progress_stop (self):"
         self.progress_cancelled = self.progressDialogue.wasCancelled()
         if self.progress_cancelled:
             self.progress_cancelled = False
@@ -1310,11 +1157,9 @@ class Wizard:
         return True
 
     def debconf_progress_region (self, region_start, region_end):
-        print "  debconf_progress_region (self, region_start, region_end):"
         self.progress_position.set_region(region_start, region_end)
 
     def debconf_progress_cancellable (self, cancellable):
-        print "  debconf_progress_cancellable (self, cancellable):"
         if cancellable:
             #FIXME jr self.progressDialogue.showCancelButton(True)
             pass
@@ -1323,29 +1168,23 @@ class Wizard:
             self.progress_cancelled = False
 
     def on_progress_cancel_button_clicked (self, button):
-        print "  on_progress_cancel_button_clicked (self, button):"
         self.progress_cancelled = True
 
     def debconffilter_done (self, dbfilter):
-        print "  debconffilter_done (self, dbfilter): " + str(self.current_debconf_fd)
         # TODO cjwatson 2006-02-10: handle dbfilter.status
         if dbfilter == self.dbfilter:
             self.dbfilter = None
             self.app.exit()
 
     def set_language_choices (self, choices, choice_map):
-        print "  set_language_choices (self, choices, choice_map):"
         self.language_choice_map = dict(choice_map)
         self.userinterface.language_treeview.clear()
         for choice in choices:
             self.userinterface.language_treeview.insertItem( KListViewItem(self.userinterface.language_treeview, QString(unicode(choice))) )
 
     def set_language (self, language):
-        print "  set_language (self, language): " #+ language
         iterator = QListViewItemIterator(self.userinterface.language_treeview)
         while iterator.current():
-            #print "text: " + unicode(iterator.current().text(0))
-            #if unicode(str(iterator.current().text(0).ascii()), 'utf-8') == language:
             selection = iterator.current()
             if selection is None:
                 value = "C"
@@ -1357,69 +1196,53 @@ class Wizard:
             iterator += 1
 
     def get_language (self):
-        print "  get_language (self):"
         selection = self.userinterface.language_treeview.selectedItem()
         if selection is None:
-            print "returning C"
             return 'C'
         else:
             value = unicode(selection.text(0))
-            print "returning: " + self.language_choice_map[value][0]
             return self.language_choice_map[value][0]
 
     def set_timezone (self, timezone):
-        print "  set_timezone (self, timezone): " + timezone + "<<"
         self.tzmap.set_tz_from_name(timezone)
 
     def get_timezone (self):
-        print "  get_timezone (self):"
         return self.tzmap.get_selected_tz_name()
 
     def set_fullname(self, value):
-        print "  set_fullname(self, value):"
         self.userinterface.fullname.setText(unicode(value, "UTF-8"))
 
     def get_fullname(self):
-        print "  get_fullname(self):"
         return unicode(self.userinterface.fullname.text())
 
     def set_username(self, value):
-        print "  set_username(self, value):"
         self.userinterface.username.setText(unicode(value, "UTF-8"))
 
     def get_username(self):
-        print "  get_username(self):"
         return unicode(self.userinterface.username.text())
   
     def get_password(self):
-        print "  get_password(self):"
         return unicode(self.userinterface.password.text())
   
     def get_verified_password(self):
-        print "  get_verified_password(self):"
         return unicode(self.userinterface.verified_password.text())
 
     def username_error(self, msg):
-        print "  username_error(self, msg):"
         self.userinterface.username_error_reason.setText(msg)
         self.userinterface.username_error_image.show()
         self.userinterface.username_error_reason.show()
 
     def password_error(self, msg):
-        print "  password_error(self, msg):"
         self.userinterface.password_error_reason.setText(msg)
         self.userinterface.password_error_image.show()
         self.userinterface.password_error_reason.show()
 
     def set_disk_choices (self, choices, manual_choice):
-        print "  set_disk_choices (self, choices, manual_choice):"
         children = self.userinterface.part_disk_frame.children()
         for child in children:
             if isinstance(child, QVBoxLayout):
                 pass
             else:
-                print child.name()
-                print str(child)
                 self.part_disk_vbox.remove(child)
                 child.hide()
 
@@ -1449,19 +1272,15 @@ class Wizard:
         return True
 
     def get_disk_choice (self):
-        print "  get_disk_choice (self): "
         id = self.part_disk_buttongroup.id( self.part_disk_buttongroup.selected() )
         return unicode(self.part_disk_buttongroup_texts[id])
 
     def set_autopartition_choices (self, choices, resize_choice, manual_choice):
-        print "  set_autopartition_choices (self, choices, resize_choice, manual_choice):"
         children = self.userinterface.autopartition_frame.children()
         for child in children:
             if isinstance(child, QVBoxLayout):
                 pass
             else:
-                print child.name()
-                print str(child)
                 self.autopartition_vbox.remove(child)
                 child.hide()
 
@@ -1491,17 +1310,14 @@ class Wizard:
         self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAuto"])
 
     def get_autopartition_choice (self):
-        print "  get_autopartition_choice (self): "
         id = self.autopartition_buttongroup.id( self.autopartition_buttongroup.selected() )
         return unicode(self.autopartition_buttongroup_texts[id])
 
     def set_autopartition_resize_min_percent (self, min_percent):
-        print "  set_autopartition_resize_min_percent (self, min_percent):"
         self.userinterface.new_size_scale.setMinValue(min_percent)
         self.userinterface.new_size_scale.setMaxValue(100)
 
     def get_autopartition_resize_percent (self):
-        print "  get_autopartition_resize_percent (self):"
         return self.userinterface.new_size_scale.value()
 
     def get_hostname (self):
@@ -1511,7 +1327,6 @@ class Wizard:
         return dict(self.mountpoints)
 
     def confirm_partitioning_dialog (self, title, description):
-        print "  confirm_partitioning_dialog (self, title, description):"
         # TODO cjwatson 2006-03-10: Duplication of page logic; I think some
         # of this can go away once we reorganise page handling not to invoke
         # a main loop for each page.
@@ -1549,7 +1364,6 @@ class Wizard:
         self.dbfilter = save_dbfilter
 
         if self.current_page is None:
-            print "current page none, install cancelled"
             # installation cancelled; partman should return ASAP after this
             return False
 
@@ -1578,7 +1392,6 @@ class Wizard:
 
 
     def set_keyboard_choices(self, choicemap):
-        print "  set_keyboard_choices(self, choicemap):"
         self.keyboard_choice_map = choicemap
         choices = choicemap.keys()
 
@@ -1590,7 +1403,6 @@ class Wizard:
             self.set_keyboard(self.current_keyboard)
 
     def set_keyboard (self, keyboard):
-        print "  set_keyboard (self, keyboard): " + keyboard
         """
         Keyboard is the database name of the keyboard, so untranslated
         """
@@ -1599,8 +1411,6 @@ class Wizard:
 
         iterator = QListViewItemIterator(self.userinterface.keyboardlistview)
         while iterator.current():
-            #print "text: " + unicode(iterator.current().text(0))
-            #if unicode(str(iterator.current().text(0).ascii()), 'utf-8') == language:
             value = unicode(iterator.current().text(0))
             if self.keyboard_choice_map[value] == keyboard:
                 self.userinterface.keyboardlistview.setSelected(iterator.current(), True)
@@ -1608,7 +1418,6 @@ class Wizard:
             iterator += 1
 
     def get_keyboard (self):
-        print "  get_keyboard (self):"
         selection = self.userinterface.keyboardlistview.selectedItem()
         if selection is None:
             return None
@@ -1617,7 +1426,6 @@ class Wizard:
             return self.keyboard_choice_map[value]
 
     def set_summary_text (self, text):
-        print "  set_summary_text (self, text):"
         self.userinterface.ready_text.setText(text)
 
     def return_to_autopartitioning (self):
@@ -1632,15 +1440,12 @@ class Wizard:
             self.installing = False
 
     def error_dialog (self, msg):
-        print "  error_dialog (self, msg):"
         self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
         # TODO: cancel button as well if capb backup
         QMessageBox.warning(self.userinterface, "Error", msg, QMessageBox.Ok)
         self.return_to_autopartitioning()
 
     def question_dialog (self, title, msg, option_templates):
-        print "  question_dialog (self, title, msg, option_templates):"
-
         # I doubt we'll ever need more than three buttons.
         assert len(option_templates) <= 3, option_templates
 
@@ -1667,7 +1472,6 @@ class Wizard:
             return option_templates[response - 1]
 
     def refresh (self):
-        print "  refresh (self):"
         self.app.processEvents(1)
         """
         while gtk.events_pending():
@@ -1675,7 +1479,6 @@ class Wizard:
         """
     # Run the UI's main loop until it returns control to us.
     def run_main_loop (self):
-        print "  run_main_loop()"
         self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
         self.userinterface.next.setEnabled(True)
         step = self.step_name(self.get_current_page())
@@ -1685,13 +1488,11 @@ class Wizard:
 
     # Return control to the next level up.
     def quit_main_loop (self):
-        print "  quit_main_loop()"
         self.app.exit()
 
 
 class TimezoneMap(object):
     def __init__(self, frontend):
-        print "  TimezoneMap.__init__(self, frontend):"
         self.frontend = frontend
         self.tzdb = ubiquity.tz.Database()
         #self.tzmap = ubiquity.emap.EMap()
@@ -1746,7 +1547,6 @@ class TimezoneMap(object):
 
     def set_city_text(self, name):
         """ Gets a long name, Europe/London """
-        print "  set_city_text(self, name): " + name
         timezone_city_combo = self.frontend.userinterface.timezone_city_combo
         count = timezone_city_combo.count()
         found = False
@@ -1783,7 +1583,6 @@ class TimezoneMap(object):
             self.frontend.userinterface.timezone_time_text.setText(unicode(now.strftime('%X'), "utf-8"))
 
     def set_tz_from_name(self, name):
-        print "  set_tz_from_name(self, name): " + name
         """ Gets a long name, Europe/London """
 
         (longitude, latitude) = (0.0, 0.0)
@@ -1810,11 +1609,9 @@ class TimezoneMap(object):
             return
 
     def get_tz_from_name(self, name):
-        print "  set_tz_from_name(self, name): " + name
         return self.timezone_city_index[name]
 
     def city_combo_changed(self, index):
-        print "  city_combo_changed"
         city = str(self.frontend.userinterface.timezone_city_combo.currentText())
         try:
             zone = self.timezone_city_index[city]

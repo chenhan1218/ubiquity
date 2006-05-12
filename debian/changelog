@@ -9,6 +9,7 @@ ubiquity (0.99.81) dapper; urgency=low
     - Resize qtparted to fit window
     - Quit qtparted cleanly
     - Select values on mountpoints page correctly
+    - Remove debugging print lines
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 12 May 2006 22:27:26 +0000
 
