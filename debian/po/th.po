@@ -1,15 +1,16 @@
-# Bulgarian messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
+# Thai translation for debian-installer
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the debian-installer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-04-20 05:55+0000\n"
-"Last-Translator: Ognyan Kulev <ogi@fmi.uni-sofia.bg>\n"
-"Language-Team: Bulgarian <dict@fsa-bg.org>\n"
+"PO-Revision-Date: 2006-05-10 22:25+0000\n"
+"Last-Translator: Roys Hengwatanakul <roysheng@msn.com>\n"
+"Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,13 +19,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "ติดตั้ง"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12
 msgid "Welcome"
-msgstr "Добре дошли"
+msgstr "ยินดีต้อนรับ"
 
 #. Type: text
 #. Description
@@ -39,7 +40,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr "Отговарянето на въпросите би трябвало да отнеме само няколко минути."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -53,25 +54,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28
 msgid "Where are you?"
-msgstr "Къде се намирате?"
+msgstr "คุณอยู่ที่ไหน"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32
 msgid "Select a city in your country and time zone."
-msgstr "Изберете град от държавата си и часови пояс!"
+msgstr "เลือกจังหวัด ประเทศ และช่วงเวลา"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr "Избран град:"
+msgstr "เลือกจังหวัด"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40
 msgid "Time zone:"
-msgstr "Часови пояс:"
+msgstr "เวลา(ตามเวลาโลก)"
 
 #. Type: text
 #. Description
@@ -83,50 +84,49 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48
 msgid "Current time:"
-msgstr "Текущ час:"
+msgstr "เวลาปัจจุบัน"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr "Настройка на часа..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr "Клавиатурна подредба"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Коя подредба е най-близка до вашата клавиатура?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
-"Можете да пишете в това поле за да тествате нова си клавиатурата подредба."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr "Кой сте Вие?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr "Как се казвате?"
+msgstr "ชื่อของคุณ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr "Какво име искате да използвате за вход?"
+msgstr "ชื่อที่คุณต้องการใช้ในการเข้าสู่ระบบ"
 
 #. Type: text
 #. Description
@@ -134,29 +134,26 @@ msgstr "Какво име искате да използвате за вход?"
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
-msgstr ""
-"Ако повече от един човек ще използват този компютър, то след инсталацията "
-"можете да настроите още потребителски сметки."
+msgstr "ถ้าคอมพิวเตอร์เครื่องนี้ไม่ได้มีผู้ใช้เพียงแค่คุณคนเดียว คุณสามารถเพิ่มผู้ใช้อื่นๆได้หลังการติดตั้ง"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr "Изберете парола, за да защитите вашата сметка."
+msgstr "พิมพ์รหัสผ่าน"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:90
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
-"Въведете паролата два пъти, за да бъде проверена за грешки при изписване."
+msgstr "พิมพ์รหัสผ่านอีกครั้ง"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr "Какво е името на този компютър?"
+msgstr "ชื่อของเครื่องคอมพิวเตอร์"
 
 #. Type: text
 #. Description
@@ -165,14 +162,12 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Това име ще се използва в случай, че направите видим компютъра за други в "
-"мрежа."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105
 msgid "Select a disk"
-msgstr "Ибор на диск"
+msgstr "เลือกดิสก์"
 
 #. Type: text
 #. Description
@@ -182,27 +177,26 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
-"Можете да оставите инсталатора автоматично да създаде място по различни "
-"начини на който и да е от дадените по-долу дискове. Или можете ръчно да "
-"разделите на дялове дисковете."
+"คุณสามาถเลือกการติดตั้งแบบอัตโนมัติได้ โดยระบบจะจัดสรรพื้นที่บนฮาร์ดดิสก์ให้โดยอัตโนมัติ "
+"หรือคุณจะจัดการกับพาร์ทิชั่นบนฮาร์ดดิสก์ของคุณด้วยตนเองก็ได้"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116
 msgid "Prepare disk space"
-msgstr "Подготовка на дисковото пространство"
+msgstr "จัดเตรียมพื้นที่บนฮาร์ดดิสก์"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr "Как желаете да разделите диска?"
+msgstr "คุณต้องการพื้นที่เท่าไหร่สำหรับพาร์ทิชั่น"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr "Подготовка на дяловете"
+msgstr "จัดเตรียมพาร์ทิชั่น"
 
 #. Type: text
 #. Description
@@ -211,14 +205,14 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 1.5 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Уверете се, че сте заделили пространство за коренния дял (\"/\") с минимален "
-"размер 1.5 ГБ, както и суап дял с поне 256 МБ."
+"คุณได้จัดสรรพื้นที่สำหรับพาร์ทิชั่น root (\"/\") พื้นที่ไม่ต่ำกว่า 1.5 GB และพาร์ทิชั่น swap "
+"พื้นที่ว่างไม่ต่ำกว่า 256 MB แล้ว?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr "Подготовка точките на монтиране"
+msgstr "จัดเตรียมตำแหน่งเมานท์"
 
 #. Type: text
 #. Description
@@ -226,9 +220,7 @@ msgstr "Подготовка точките на монтиране"
 msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
-msgstr ""
-"Изберете кои дялове желаете да използвате за новата си инсталация и къде "
-"искате да монтирате всеки от тях."
+msgstr "เลือกพาร์ทิชั่นที่คุณต้องการติดตั้ง และระบุตำแหน่งเมานท์ของพาร์ทิชั่นที่คุณเลือก"
 
 #. Type: text
 #. Description
@@ -237,26 +229,24 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
-"Трябва да монтирате един дял в корена на файловата системата (\"/\"), както "
-"и да изберете поне един дял за употреба като суап-пространство."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:147
 msgid "Mount Point"
-msgstr "Точка на монтиране"
+msgstr "จุดเมานท์:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:151
 msgid "Size"
-msgstr "Размер"
+msgstr "ขนาด"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155
 msgid "Partition"
-msgstr "Дял"
+msgstr "พาร์ทิชั่น"
 
 #. Type: text
 #. Description
@@ -268,14 +258,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
-"Трябва да предоставите точка на монтиране за коренната директория (\"/\")!"
+msgstr "คุณควรมีตำแหน่งเมาน์ที่เป็น root (\"/\")"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:167
 msgid "Ready to install"
-msgstr "Готов за инсталация"
+msgstr "พร้อมที่จะติดตั้ง"
 
 #. Type: text
 #. Description
@@ -294,19 +283,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:179
 msgid "Abort the installation?"
-msgstr "Прекъсване на инсталацията?"
+msgstr "การติดตั้งล้มเหลว"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183
 msgid "Do you really want to abort the installation now?"
-msgstr "Настина ли желаете да прекъснете инсталацията?"
+msgstr "คุณต้องการที่จะยกเลิกการติดตั้งในตอนนี้?"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:187
 msgid "Partitioning was interrupted"
-msgstr "Разделянето на дялове бе прекъснато"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -315,20 +304,18 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
-"Не бе възможно автоматичното разделяне на този диск. Трябва да изберете друг "
-"метод за разделяне на дялове."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:197
 msgid "Skip"
-msgstr "Пропусни"
+msgstr "ข้าม"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:201
 msgid "Installation complete"
-msgstr "Завършване на инсталацията"
+msgstr "การติดตั้งเรียบร้อย"
 
 #. Type: text
 #. Description
@@ -350,6 +337,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"การติดตั้งสำเร็จ "
+"คุณต้องเริ่มการทำงานของเครื่องคอมพิวเตอร์ใหม่เพื่อเริ่มใช้งานเครื่องด้วยระบบที่ติดตั้งลงไป "
+"หรือจะทำงานบนแผ่นไลฟ์ซีดีนี้ต่อไปก็ได้ แต่งานต่างๆที่คุณทำไว้จะไม่สามารถบันทึกลงในเครื่องของคุณได้"
 
 #. Type: text
 #. Description
@@ -357,168 +347,165 @@ msgstr ""
 msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Уверете се, че сте извадили компактдиска преди да рестартирате компютъра, в "
-"противен случай той по-скоро ще се стартира отново от това Live CD, "
-"отколкото от новоинсталираната Ви система."
+msgstr "โปรดตรวจสอบว่าคุณได้นำแผ่นซีดีออกแล้วเมื่อรีสตาร์ทคอมพิวเตอร์"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:224
 msgid "Go Back"
-msgstr "Назад"
+msgstr "ถอยหลัง"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:229
 msgid "Continue"
-msgstr "Напред"
+msgstr "ต่อไป"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:242
 msgid "Installing system"
-msgstr "Инсталиране на системата"
+msgstr "กำลังติดตั้งระบบ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246
 msgid "Finding the distribution to copy..."
-msgstr "Откриване на дистрибуцията за копиране..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250
 msgid "Scanning files..."
-msgstr "Сканиране на файловете..."
+msgstr "กำลังค้นหาไฟล์"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:254
 msgid "Copying files..."
-msgstr "Копиране на файловете..."
+msgstr "กำลังคัดลอกไฟล์"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258
 msgid "Copying files (${TIME} remaining)..."
-msgstr "Копиране на файловете (остават ${TIME})..."
+msgstr "กำลังคัดลองไฟล์ (ต้องใช้เวลาอีก ${TIME})..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262
 msgid "Copying installation logs..."
-msgstr "Копиране на инсталационните журнали..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:266
 msgid "Cleaning up..."
-msgstr "Почистване..."
+msgstr "กำลังเก็บกวาด..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:270
 msgid "Running ${SCRIPT}..."
-msgstr "Изпълнение на ${SCRIPT}..."
+msgstr "กำลังทำ ${SCRIPT}..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring system locales..."
-msgstr "Настройване системния locale..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr ""
+msgstr "การตั้งค่า apt"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282
 msgid "Configuring time zone..."
-msgstr "Настройване на часовата зона..."
+msgstr "ตั้งค่าของเวลา"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "ปรับแต่งแป้นพิมพ์"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:290
 msgid "Creating user..."
-msgstr "Създаване на потребител..."
+msgstr "เพิ่มผู้ใช้"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:294
 msgid "Configuring hardware..."
-msgstr "Настройване на хардуера..."
+msgstr "ปรับแต่งฮาร์ดแวร์"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:298
 msgid "Configuring network..."
-msgstr "Настройване на мрежа..."
+msgstr "ปรับแต่งระบบเครือข่าย"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:302
 msgid "Setting computer name..."
-msgstr "Настройване името на компютъра..."
+msgstr "ตั้งค่าชื่อของเครื่องคอมพิวเตอร์"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:306
 msgid "Configuring boot loader..."
-msgstr "Настройване на приложението за начално зареждане..."
+msgstr "กำลังตั้งค่าตัวบูตระบบ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:310
 msgid "Removing extra packages..."
-msgstr "Премахване на допълнителните пакети..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:314
 msgid "Checking for packages to remove..."
-msgstr "Проверка на пакетите за премахване..."
+msgstr "กำลังตรวจสอบแพคเกจที่จะถอดถอน"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:318
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Изтегляне на пакетите (остават ${TIME})..."
+msgstr "กำลังดาวน์โหลดแพคเกจ (ต้องใช้เวลาอีก ${TIME})..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:322
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "รายชื่อของแพคเกจที่กำลังดาวน์โหลด"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:326
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Изтегляне списъка на пакетите (остават ${TIME})..."
+msgstr "รายชื่อของแพคเกจที่กำลังดาวน์โหลด (ต้องใช้เวลาอีก ${TIME})..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
-msgstr "Грешка при инсталацията на ${PACKAGE}"
+msgstr "เกิดการผิดพลาดขณะทำการติดตั้ง ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:340
 msgid "Error removing ${PACKAGE}"
-msgstr "Грешка при премахването на ${PACKAGE}"
+msgstr "เกิดการผิดพลาดขณะกำลังถอน ${PACKAGE}"
 
 #. Type: text
 #. Description
@@ -530,10 +517,10 @@ msgstr "${MESSAGE}"
 #. Description
 #: ../ubiquity.templates:345
 msgid "Installing language packs"
-msgstr "Инсталиране на езиковите пакети"
+msgstr "กำลังติดตั้งชุดภาษา"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:349
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Изтегляне на езиковите пакети (остават ${TIME})..."
+msgstr "กำลังดาวน์โหลดชุดภาษา (ต้องใช้เวลาอีก ${TIME})..."

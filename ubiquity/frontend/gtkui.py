@@ -344,7 +344,7 @@ class Wizard:
         if isinstance(widget, gtk.Button) and widget.get_use_stock():
             widget.set_label(widget.get_label())
 
-        text = get_string('ubiquity/text/%s' % widget.get_name(), lang)
+        text = get_string(widget.get_name(), lang)
         if text is None:
             return
 
@@ -414,11 +414,13 @@ class Wizard:
     def set_current_page(self, current):
         self.current_page = current
         current_name = self.step_name(current)
-        label_text = "Step %s of %d"
-        curstep = "<i>Unknown?</i>"
+        label_text = get_string("step_label", self.locale)
+        curstep = "<i>?</i>"
         if current_name in BREADCRUMB_STEPS:
             curstep = str(BREADCRUMB_STEPS[current_name])
-        self.lblStepNofM.set_markup(label_text % (curstep, BREADCRUMB_MAX_STEP))
+        label_text = label_text.replace("${INDEX}", curstep)
+        label_text = label_text.replace("${TOTAL}", str(BREADCRUMB_MAX_STEP))
+        self.step_label.set_markup(label_text)
 
     # Methods
 
@@ -786,24 +788,29 @@ class Wizard:
 
         self.gparted_fstype = {}
 
-        print >>self.gparted_subp.stdin, "apply"
+        try:
+            try:
+                print >>self.gparted_subp.stdin, "apply"
+            except IOError:
+                return
 
-        # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
-        gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
-        while gparted_reply.startswith('- '):
-            pre_log('info', 'gparted replied: %s' % gparted_reply)
-            words = gparted_reply[2:].strip().split()
-            if words[0].lower() == 'format' and len(words) >= 3:
-                self.gparted_fstype[words[1]] = words[2]
+            # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
             gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
+            while gparted_reply.startswith('- '):
+                pre_log('info', 'gparted replied: %s' % gparted_reply)
+                words = gparted_reply[2:].strip().split()
+                if words[0].lower() == 'format' and len(words) >= 3:
+                    self.gparted_fstype[words[1]] = words[2]
+                gparted_reply = \
+                    self.gparted_subp.stdout.readline().rstrip('\n')
 
-        if not gparted_reply.startswith('0 '):
-            return
-
-        # Shut down gparted
-        self.gparted_subp.stdin.close()
-        self.gparted_subp.wait()
-        self.gparted_subp = None
+            if not gparted_reply.startswith('0 '):
+                return
+        finally:
+            # Shut down gparted
+            self.gparted_subp.stdin.close()
+            self.gparted_subp.wait()
+            self.gparted_subp = None
 
         # Set up list of partition names for use in the mountpoints table.
         self.partition_choices = []
@@ -1106,6 +1113,8 @@ class Wizard:
             self.debconf_progress_window.set_transient_for(self.live_installer)
         else:
             self.debconf_progress_window.set_transient_for(None)
+        if progress_title is None:
+            progress_title = ""
         if self.progress_position.depth() == 0:
             self.debconf_progress_window.set_title(progress_title)
 

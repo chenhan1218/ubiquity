@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-04 05:34+0100\n"
-"PO-Revision-Date: 2006-04-20 06:32+0000\n"
-"Last-Translator: Ming Hua <minghua-list@sbcglobal.net>\n"
+"POT-Creation-Date: 2006-05-12 14:58+0100\n"
+"PO-Revision-Date: 2006-05-05 02:58+0000\n"
+"Last-Translator: firingstone <firingstone@gmail.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "安装"
 
 #. Type: text
 #. Description
@@ -34,6 +34,8 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"确定安装？ 在您回答一些问题后，live CD 里的内容会被安装到这台电脑上。这样您就"
+"可以全速运行这个系统，而不需要这个CD了。"
 
 #. Type: text
 #. Description
@@ -47,7 +49,7 @@ msgstr "回答这些问题只需要您几分钟的时间"
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
-msgstr ""
+msgstr "请选择安装过程使用的语言。这个语言将成为最终的系统默认语言。"
 
 #. Type: text
 #. Description
@@ -65,7 +67,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr ""
+msgstr "所选城市"
 
 #. Type: text
 #. Description
@@ -77,7 +79,7 @@ msgstr "时区?"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "选择区域："
 
 #. Type: text
 #. Description
@@ -95,7 +97,7 @@ msgstr "设置时间..."
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "键盘布局"
 
 #. Type: text
 #. Description
@@ -189,13 +191,13 @@ msgstr "准备硬盘空间"
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "您需要如何分区？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "准备分区"
 
 #. Type: text
 #. Description
@@ -209,7 +211,7 @@ msgstr "请确认根目录\"/\"至少有1.5GB的空间,同时交换分区有至�
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "准备加载点"
 
 #. Type: text
 #. Description
@@ -268,30 +270,37 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:171
-msgid "The live CD is ready to be installed on this computer."
+msgid ""
+"Your new operating system will now be installed with the following settings:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:175
+msgid "Step ${INDEX} of ${TOTAL}"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:175
+#: ../ubiquity.templates:179
 msgid "Abort the installation?"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179
+#: ../ubiquity.templates:183
 msgid "Do you really want to abort the installation now?"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:183
+#: ../ubiquity.templates:187
 msgid "Partitioning was interrupted"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187
+#: ../ubiquity.templates:191
 msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
@@ -299,40 +308,42 @@ msgstr "不能够自动分区这块硬盘,你必须选择另外一种分区方�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193
+#: ../ubiquity.templates:197
 msgid "Skip"
 msgstr "忽略"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:197
+#: ../ubiquity.templates:201
 msgid "Installation complete"
 msgstr "安装完成"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "退出"
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
+msgid "Continue using the live CD"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
+msgid "Restart now"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:213
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"安装完毕。您需要重启电脑一使用新装的系统。您可以继续使用这个live CD，但是您所"
+"做 的任何修改或保存的文件不会被保留。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209
+#: ../ubiquity.templates:213
 msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
@@ -342,179 +353,177 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:220
+#: ../ubiquity.templates:224
 msgid "Go Back"
 msgstr "返回"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:225
+#: ../ubiquity.templates:229
 msgid "Continue"
 msgstr "继续"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:238
-#, fuzzy
+#: ../ubiquity.templates:242
 msgid "Installing system"
-msgstr "安装完成"
+msgstr "正在安装系统"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242
+#: ../ubiquity.templates:246
 msgid "Finding the distribution to copy..."
 msgstr "寻找要被复制的发行版"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:246
+#: ../ubiquity.templates:250
 msgid "Scanning files..."
-msgstr ""
+msgstr "正在扫描文件..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:250
+#: ../ubiquity.templates:254
 #, fuzzy
 msgid "Copying files..."
 msgstr "复制文件中(${TIME} 剩余)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:254
+#: ../ubiquity.templates:258
 msgid "Copying files (${TIME} remaining)..."
 msgstr "复制文件中(${TIME} 剩余)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:258
+#: ../ubiquity.templates:262
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "正在复制安装记录..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:262
+#: ../ubiquity.templates:266
 msgid "Cleaning up..."
 msgstr "正在清理..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:266
+#: ../ubiquity.templates:270
 msgid "Running ${SCRIPT}..."
 msgstr "正在运行 ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:270
+#: ../ubiquity.templates:274
 msgid "Configuring system locales..."
 msgstr "正在配置本地设置"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:274
+#: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr ""
+msgstr "正在设置 apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:278
+#: ../ubiquity.templates:282
 msgid "Configuring time zone..."
 msgstr "正在配置时区..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:282
-msgid "Configuring keyboard..."
-msgstr ""
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:286
-#, fuzzy
-msgid "Creating user..."
-msgstr "正在清理..."
+msgid "Configuring keyboard..."
+msgstr "正在设置键盘..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:290
+msgid "Creating user..."
+msgstr "正在创建用户..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:294
 msgid "Configuring hardware..."
 msgstr "正在配置硬件..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:294
+#: ../ubiquity.templates:298
 msgid "Configuring network..."
 msgstr "正在设置网络..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:298
+#: ../ubiquity.templates:302
 msgid "Setting computer name..."
-msgstr ""
+msgstr "正在设置计算机名称..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:302
+#: ../ubiquity.templates:306
 #, fuzzy
 msgid "Configuring boot loader..."
 msgstr "正在配置本地设置"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:306
+#: ../ubiquity.templates:310
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "正在删除额外的软件包..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:310
+#: ../ubiquity.templates:314
 msgid "Checking for packages to remove..."
 msgstr "正在检测要删除的软件包。。。。。。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:314
+#: ../ubiquity.templates:318
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "下载软件包 (${TIME} 剩余)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:318
+#: ../ubiquity.templates:322
 msgid "Downloading package lists..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:322
+#: ../ubiquity.templates:326
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "下载软件包列表 (${TIME} 剩余)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:331
+#: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:336
+#: ../ubiquity.templates:340
 msgid "Error removing ${PACKAGE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:336
+#: ../ubiquity.templates:340
 msgid "${MESSAGE}"
 msgstr "${信息}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:341
+#: ../ubiquity.templates:345
 msgid "Installing language packs"
-msgstr ""
+msgstr "正在安装语言支持软件包"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:345
+#: ../ubiquity.templates:349
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "下载语言软件包 (${TIME} 剩余)..."

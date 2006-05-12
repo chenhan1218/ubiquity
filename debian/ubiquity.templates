@@ -115,7 +115,7 @@ Template: ubiquity/text/part_auto_heading_label
 Type: text
 _Description: Prepare disk space
 
-Template: ubiquity/text/partition_method_label
+Template: ubiquity/text/part_auto_comment_label
 Type: text
 _Description: How do you want to partition the disk?
 
@@ -168,7 +168,11 @@ _Description: Ready to install
 
 Template: ubiquity/text/ready_description_label
 Type: text
-_Description: The live CD is ready to be installed on this computer.
+_Description: Your new operating system will now be installed with the following settings:
+
+Template: ubiquity/text/step_label
+Type: text
+_Description: Step ${INDEX} of ${TOTAL}
 
 Template: ubiquity/text/warning_dialog
 Type: title
@@ -198,11 +202,11 @@ _Description: Installation complete
 
 Template: ubiquity/text/quit_button
 Type: text
-_Description: Quit
+_Description: Continue using the live CD
 
 Template: ubiquity/text/reboot_button
 Type: text
-_Description: Reboot the computer
+_Description: Restart now
 
 Template: ubiquity/text/finished_label
 Type: text

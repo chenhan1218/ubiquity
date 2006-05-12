@@ -1,4 +1,50 @@
-ubiquity (0.99.78) UNRELEASED; urgency=low
+ubiquity (0.99.81) dapper; urgency=low
+
+  * KDE frontend:
+    - Show % indicator on resize slider
+    - Improve size/layout of some widgets
+    - Don't call get_translations multiple times
+    - Format time properly in non-latin locales
+    - Make mountpoint comboboxes editable
+    - Resize qtparted to fit window
+    - Quit qtparted cleanly
+    - Select values on mountpoints page correctly
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 12 May 2006 22:27:26 +0000
+
+ubiquity (0.99.80) dapper; urgency=low
+
+  * If we get an IOError when trying to tell gparted or qtparted to apply
+    changes, just shut it down and try running it again (closes: Malone
+    #43504, #44108).
+  * Fix get_string to handle requests for fully-qualified debconf questions
+    again.
+  * Defend against progress_title being None in debconf_progress_start a bit
+    harder.
+  * Update Korean translation from Rosetta.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 May 2006 18:56:36 +0100
+
+ubiquity (0.99.79) dapper; urgency=low
+
+  * Defend against progress_title being None in debconf_progress_start
+    (closes: Malone #44219).
+  * Add Brazilian Portuguese .desktop file translation from Malone #39064.
+  * Make translations of "How do you want to partition the disk?" work.
+  * Add support for getting translations from debconf questions other than
+    ubiquity/text/*, including "New partition size:".
+  * Reduce the number of strings we slurp into memory (only grab
+    partman-partitioning*, not partman*).
+  * Make "Step N of M" string translatable.
+  * Set LANGUAGE as well as LANG when changing locale; this allows us to get
+    correct debconf translations without needing to run locale-gen (closes:
+    Malone #43071).
+  * Automatic update of included source packages: localechooser
+    0.27ubuntu19.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 May 2006 15:30:04 +0100
+
+ubiquity (0.99.78) dapper; urgency=low
 
   [ Colin Watson ]
   * GTK frontend:
@@ -13,33 +59,31 @@ ubiquity (0.99.78) UNRELEASED; urgency=low
   * Log our own version number to /var/log/installer/syslog and
     /var/log/installer/version on startup. Save /var/log/installer/version
     to installed system.
-  * Remove piles of obsolete screenshots and locale files from the source
-    package and ubiquity-ubuntu-doc.
   * Speed up building of subsidiary source packages by running 'debian/rules
     binary' in one go rather than binary-arch and binary-indep separately.
   * Fix hw-detect not to try to write to non-existent prebaseconfig script.
+  * Change text on summary page to "Your new operating system will now be
+    installed with the following settings:" (closes: Malone #42618).
+  * Change "Quit" button to "Continue using the live CD" and "Reboot the
+    computer" to "Restart now" (closes: Malone #37605).
+
+  * Remove piles of obsolete screenshots and locale files from the source
+    package and ubiquity-ubuntu-doc.
   * Merge ubiquity-ubuntu-doc into ubiquity-ubuntu-artwork (and likewise
     move the commented-out pieces of ubiquity-guadalinex-doc into
     ubiquity-guadalinex-artwork). Both are always required, so there's no
     point in them being separate.
+
+  * Update all translations from Rosetta.
+  * Automatic update of included source packages: partman-target
+    41ubuntu1.
 
   [ Scott James Remnant ]
   * Always write the "arp N" line to /etc/iftab to match netcfg behaviour
     and to deal with cards that change driver and break (e.g. madwifi ->
     madwifi-ng).
 
-  [ Jonathan Riddell ]
-  * KDE frontend:
-    - Show % indicator on resize slider
-    - Improve size/layout of some widgets
-    - Don't call get_translations multiple times
-    - Format time properly in non-latin locales
-    - Make mountpoint comboboxes editable
-    - Resize qtparted to fit window
-    - Quit qtparted cleanly
-    - Select values on mountpoints page correctly
-
- -- Colin Watson <cjwatson@ubuntu.com>  Mon,  8 May 2006 18:07:31 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 11 May 2006 21:08:52 +0100
 
 ubiquity (0.99.77) dapper; urgency=low
 

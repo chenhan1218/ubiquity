@@ -5,7 +5,7 @@ debian-installer-utils 1.22ubuntu8
 grub-installer 1.14ubuntu4
 hw-detect 1.32ubuntu6
 kbd-chooser 1.23ubuntu16
-localechooser 0.27ubuntu18
+localechooser 0.27ubuntu19
 partconf 1.11
 partman-auto 45ubuntu11
 partman-base 78ubuntu4
@@ -18,7 +18,7 @@ partman-newworld 12
 partman-palo 3
 partman-partitioning 37ubuntu2
 partman-reiserfs 28ubuntu1
-partman-target 41ubuntu0
+partman-target 41ubuntu1
 partman-xfs 27ubuntu1
 silo-installer 1.03ubuntu3
 tzsetup 1:0.8ubuntu6

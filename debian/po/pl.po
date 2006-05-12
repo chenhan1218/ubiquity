@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-04 05:34+0100\n"
-"PO-Revision-Date: 2006-04-20 06:21+0000\n"
-"Last-Translator: Bartosz Fenski <fenio@debian.org>\n"
+"POT-Creation-Date: 2006-05-12 14:58+0100\n"
+"PO-Revision-Date: 2006-05-02 21:00+0000\n"
+"Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Zainstaluj"
 
 #. Type: text
 #. Description
@@ -34,6 +34,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Gotowy do instalacji? Jak tylko dasz odpowiedzi na kilka pytań, zawartość "
+"Desktop CD będzie mogła zostać zainstalowana na tym komputerze, aby można "
+"było uruchomić system z pełną wydajnością i bez płyty CD."
 
 #. Type: text
 #. Description
@@ -48,6 +51,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Proszę wybrać język używany podczas procesu instalacji. Ten język będzie "
+"domyślnym językiem dla ostatecznego systemu."
 
 #. Type: text
 #. Description
@@ -77,7 +82,7 @@ msgstr "Strefa czasowa:"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Wybierz region:"
 
 #. Type: text
 #. Description
@@ -257,7 +262,7 @@ msgstr "Partycja"
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "Formatować ponownie?"
 
 #. Type: text
 #. Description
@@ -274,30 +279,37 @@ msgstr "Gotowe do instalacji"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:171
-msgid "The live CD is ready to be installed on this computer."
+msgid ""
+"Your new operating system will now be installed with the following settings:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:175
+msgid "Step ${INDEX} of ${TOTAL}"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:175
+#: ../ubiquity.templates:179
 msgid "Abort the installation?"
 msgstr "Porzucić instalację?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179
+#: ../ubiquity.templates:183
 msgid "Do you really want to abort the installation now?"
 msgstr "Czy chcesz natychmiast porzucić instalację?"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:183
+#: ../ubiquity.templates:187
 msgid "Partitioning was interrupted"
 msgstr "Ustawianie partycji zostało przerwane"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187
+#: ../ubiquity.templates:191
 msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
@@ -307,40 +319,43 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193
+#: ../ubiquity.templates:197
 msgid "Skip"
 msgstr "Pomiń"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:197
+#: ../ubiquity.templates:201
 msgid "Installation complete"
 msgstr "Instalacja zakończona"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Zakończ"
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Ponownie uruchom system"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:209
-msgid ""
-"Installation is complete. You need to restart the computer in order to use "
-"the new installation. You can continue to use this live CD, although any "
-"changes you make or documents you save will not be preserved."
+msgid "Continue using the live CD"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
+msgid "Restart now"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:213
+msgid ""
+"Installation is complete. You need to restart the computer in order to use "
+"the new installation. You can continue to use this live CD, although any "
+"changes you make or documents you save will not be preserved."
+msgstr ""
+"Instalacja zakończona. Konieczne jest ponowne uruchomienie komputera, aby "
+"skorzystać z nowej instalacji. Możesz dalej używać tego Desktop CD, "
+"aczkolwiek wprowadzane zmiany i zapisywane dokumenty nie zostaną zachowane."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:213
 msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
@@ -351,175 +366,175 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:220
+#: ../ubiquity.templates:224
 msgid "Go Back"
 msgstr "Wstecz"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:225
+#: ../ubiquity.templates:229
 msgid "Continue"
 msgstr "Dalej"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:238
+#: ../ubiquity.templates:242
 msgid "Installing system"
 msgstr "Instalacja systemu"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242
+#: ../ubiquity.templates:246
 msgid "Finding the distribution to copy..."
 msgstr "Wyszukiwanie dystrybucji do kopiowania..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:246
+#: ../ubiquity.templates:250
 msgid "Scanning files..."
 msgstr "Przzeglądanie plików..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:250
+#: ../ubiquity.templates:254
 msgid "Copying files..."
 msgstr "Kopiowanie plików..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:254
+#: ../ubiquity.templates:258
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Kopiowanie plików (pozostało ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:258
+#: ../ubiquity.templates:262
 msgid "Copying installation logs..."
 msgstr "Kopiowanie logów z instalacji..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:262
+#: ../ubiquity.templates:266
 msgid "Cleaning up..."
 msgstr "Sprzątanie..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:266
+#: ../ubiquity.templates:270
 msgid "Running ${SCRIPT}..."
 msgstr "Uruchamianie ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:270
+#: ../ubiquity.templates:274
 msgid "Configuring system locales..."
 msgstr "Konfigurowanie locale (lokalizacji)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:274
+#: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Konfigurowanie apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:278
+#: ../ubiquity.templates:282
 msgid "Configuring time zone..."
 msgstr "Konfigurowanie strefy czasu..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:282
+#: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Konfigurowanie klawiatury ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:286
+#: ../ubiquity.templates:290
 msgid "Creating user..."
 msgstr "Dodawanie użytkownika..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:290
+#: ../ubiquity.templates:294
 msgid "Configuring hardware..."
 msgstr "Konfigurowanie sprzętu..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:294
+#: ../ubiquity.templates:298
 msgid "Configuring network..."
 msgstr "Konfigurowanie sieci..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:298
+#: ../ubiquity.templates:302
 msgid "Setting computer name..."
 msgstr "Ustawianie nazwy komputera..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:302
+#: ../ubiquity.templates:306
 msgid "Configuring boot loader..."
 msgstr "Konfigurowanie programu uruchomieniowego..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:306
+#: ../ubiquity.templates:310
 msgid "Removing extra packages..."
 msgstr "Usuwanie pakietów dodatkowych..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:310
+#: ../ubiquity.templates:314
 msgid "Checking for packages to remove..."
 msgstr "Szukanie pakietów do usunięcia..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:314
+#: ../ubiquity.templates:318
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Pobieranie pakietów (pozostało ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:318
+#: ../ubiquity.templates:322
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Pobieranie listy pakietów ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:322
+#: ../ubiquity.templates:326
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Pobieranie list pakietów (pozostało ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:331
+#: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
 msgstr "Błąd przy instalowaniu ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:336
+#: ../ubiquity.templates:340
 msgid "Error removing ${PACKAGE}"
 msgstr "Błąd przy usuwaniu ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:336
+#: ../ubiquity.templates:340
 msgid "${MESSAGE}"
 msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:341
+#: ../ubiquity.templates:345
 msgid "Installing language packs"
 msgstr "Instalowanie pakietów rdzennych"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:345
+#: ../ubiquity.templates:349
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Pobieranie pakietów z tłumaczeniami (pozostało ${TIME})..."

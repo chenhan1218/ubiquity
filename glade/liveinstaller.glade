@@ -2557,7 +2557,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 			<widget class="GtkLabel" id="ready_description_label">
 			  <property name="visible">True</property>
 			  <property name="can_focus">True</property>
-			  <property name="label" translatable="yes">The live CD is ready to be installed on this computer.</property>
+			  <property name="label" translatable="yes">Your new operating system will now be installed with the following settings:</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
 			  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -2719,10 +2719,10 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 		      <property name="spacing">0</property>
 
 		      <child>
-			<widget class="GtkLabel" id="lblStepNofM">
+			<widget class="GtkLabel" id="step_label">
 			  <property name="visible">True</property>
 			  <property name="can_focus">True</property>
-			  <property name="label" translatable="yes">Step N of M</property>
+			  <property name="label" translatable="yes">Step ${INDEX} of ${TOTAL}</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
 			  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -3265,7 +3265,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 	      <property name="visible">True</property>
 	      <property name="can_default">True</property>
 	      <property name="can_focus">True</property>
-	      <property name="label" translatable="yes">Quit</property>
+	      <property name="label" translatable="yes">Continue using the live CD</property>
 	      <property name="use_underline">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
 	      <property name="focus_on_click">True</property>
@@ -3279,7 +3279,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 	      <property name="visible">True</property>
 	      <property name="can_default">True</property>
 	      <property name="can_focus">True</property>
-	      <property name="label" translatable="yes">Reboot the computer</property>
+	      <property name="label" translatable="yes">Restart now</property>
 	      <property name="use_underline">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
 	      <property name="focus_on_click">True</property>

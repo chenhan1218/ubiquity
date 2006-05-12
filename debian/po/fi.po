@@ -1,13 +1,14 @@
 # Finnish messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
+# Translated by Timo Jyrinki, 2006
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-04 05:34+0100\n"
-"PO-Revision-Date: 2006-04-20 10:13+0000\n"
+"POT-Creation-Date: 2006-05-12 14:58+0100\n"
+"PO-Revision-Date: 2006-05-06 00:45+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,9 +35,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Valmiina asennukseen? Muutamaan kysymykseen vastaamalla esittely-CD:n "
-"sisältö voidaan asentaa tälle tietokoneelle, jotta järjestelmää voidaan "
-"käyttää täydellä nopeudella ja ilman CD-levyä."
+"Valmiina asennukseen? Muutamaan kysymykseen vastaamalla Ubuntu-CD:n sisältö "
+"voidaan asentaa tälle tietokoneelle, jotta järjestelmää voitaisiin käyttää "
+"täydellä nopeudella ja ilman CD-levyä."
 
 #. Type: text
 #. Description
@@ -51,7 +52,7 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Valitse kieli, jota käytetään asennuksen aikana. Tämä kieli on oletuskieli  "
+"Valitse kieli, jota käytetään asennuksen aikana. Tämä kieli on oletuskieli "
 "myös asennetussa järjestelmässä."
 
 #. Type: text
@@ -213,8 +214,8 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 1.5 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Varmista juuriosiolle (\"/\") ainakin 1,5Gt tilaa, ja sivutusosiolle ainakin "
-"256Mt."
+"Varmista juuriosiolle (\"/\") ainakin 1,5GiB tilaa, ja sivutusosiolle "
+"ainakin 256MiB."
 
 #. Type: text
 #. Description
@@ -281,30 +282,37 @@ msgstr "Valmiina asennukseen"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:171
-msgid "The live CD is ready to be installed on this computer."
-msgstr "Esittely-CD voidaan nyt asentaa tälle tietokoneelle."
+msgid ""
+"Your new operating system will now be installed with the following settings:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:175
+msgid "Step ${INDEX} of ${TOTAL}"
+msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:175
+#: ../ubiquity.templates:179
 msgid "Abort the installation?"
 msgstr "Keskeytä asennus?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179
+#: ../ubiquity.templates:183
 msgid "Do you really want to abort the installation now?"
 msgstr "Haluatko varmasti keskeyttää asennuksen nyt?"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:183
+#: ../ubiquity.templates:187
 msgid "Partitioning was interrupted"
 msgstr "Osiointi keskeytettiin"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187
+#: ../ubiquity.templates:191
 msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
@@ -314,223 +322,223 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193
+#: ../ubiquity.templates:197
 msgid "Skip"
 msgstr "Ohita"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:197
+#: ../ubiquity.templates:201
 msgid "Installation complete"
 msgstr "Asennus on valmis"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201
-msgid "Quit"
-msgstr "Lopeta"
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:205
-msgid "Reboot the computer"
-msgstr "Käynnistä tietokone uudelleen"
+msgid "Continue using the live CD"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
+msgid "Restart now"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:213
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
 "Asennus on valmis. Tietokone täytyy käynnistää uudelleen, jotta uutta "
-"asennusta käytettäisiin. Voit myös jatkaa tämän esittely-CD:n käyttöä, mutta "
+"asennusta käytettäisiin. Voit myös jatkaa tämän Ubuntu-CD:n käyttöä, mutta "
 "mitkään tekemäsi muutokset tai tallentamasi asiakirjat eivät säily."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209
+#: ../ubiquity.templates:213
 msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
 "Poista CD-levy asemasta kun käynnistät tietokoneen uudelleen, muuten "
-"tietokone käynnistyy uudelleen tältä esittely-CD:ltä eikä juuri asennettuun "
+"tietokone käynnistyy uudelleen tältä Ubuntu-CD:ltä eikä juuri asennettuun "
 "järjestelmään."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:220
+#: ../ubiquity.templates:224
 msgid "Go Back"
 msgstr "Palaa"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:225
+#: ../ubiquity.templates:229
 msgid "Continue"
 msgstr "Jatka"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:238
+#: ../ubiquity.templates:242
 msgid "Installing system"
-msgstr "Asennetaan järjestelmä"
+msgstr "Asennetaan järjestelmää"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242
+#: ../ubiquity.templates:246
 msgid "Finding the distribution to copy..."
 msgstr "Etsitään kopioitavaa jakelua..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:246
+#: ../ubiquity.templates:250
 msgid "Scanning files..."
 msgstr "Selataan tiedostoja..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:250
+#: ../ubiquity.templates:254
 msgid "Copying files..."
 msgstr "Kopioidaan tiedostoja..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:254
+#: ../ubiquity.templates:258
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Kopioidaan tiedostoja (${TIME} jäljellä)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:258
+#: ../ubiquity.templates:262
 msgid "Copying installation logs..."
 msgstr "Kopioidaan asennuslokeja..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:262
+#: ../ubiquity.templates:266
 msgid "Cleaning up..."
 msgstr "Tehdään jälkitoimenpiteitä..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:266
+#: ../ubiquity.templates:270
 msgid "Running ${SCRIPT}..."
 msgstr "Suoritetaan ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:270
+#: ../ubiquity.templates:274
 msgid "Configuring system locales..."
 msgstr "Asetetaan järjestelmän maa-asetustoja..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:274
+#: ../ubiquity.templates:278
 msgid "Configuring apt..."
 msgstr "Tehdään apt:n asetuksia..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:278
+#: ../ubiquity.templates:282
 msgid "Configuring time zone..."
 msgstr "Asetetaan aikavyöhykettä..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:282
+#: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
 msgstr "Tehdään näppäimistön asetuksia..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:286
+#: ../ubiquity.templates:290
 msgid "Creating user..."
 msgstr "Luodaan käyttäjää..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:290
+#: ../ubiquity.templates:294
 msgid "Configuring hardware..."
-msgstr "Asetetaan laitteistoa..."
+msgstr "Tehdään laitteiston asetuksia..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:294
+#: ../ubiquity.templates:298
 msgid "Configuring network..."
 msgstr "Tehdään verkkoasetukset..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:298
+#: ../ubiquity.templates:302
 msgid "Setting computer name..."
 msgstr "Asetetaan tietokoneen nimeä..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:302
+#: ../ubiquity.templates:306
 msgid "Configuring boot loader..."
 msgstr "Asetetaan alkulatausohjelmaa..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:306
+#: ../ubiquity.templates:310
 msgid "Removing extra packages..."
 msgstr "Poistetaan ylimääräisiä paketteja..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:310
+#: ../ubiquity.templates:314
 msgid "Checking for packages to remove..."
 msgstr "Etsitään poistettavia paketteja..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:314
+#: ../ubiquity.templates:318
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Ladataan paketteja (${TIME} jäljellä)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:318
+#: ../ubiquity.templates:322
 msgid "Downloading package lists..."
 msgstr "Noudetaan pakettiluetteloita..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:322
+#: ../ubiquity.templates:326
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Ladataan pakettiluetteloita (${TIME} jäljellä)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:331
+#: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
 msgstr "Virhe asennettaessa pakettia ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:336
+#: ../ubiquity.templates:340
 msgid "Error removing ${PACKAGE}"
 msgstr "Virhe poistettaessa pakettia ${PACKAGE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:336
+#: ../ubiquity.templates:340
 msgid "${MESSAGE}"
 msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:341
+#: ../ubiquity.templates:345
 msgid "Installing language packs"
 msgstr "Asennetaan kielipaketteja"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:345
+#: ../ubiquity.templates:349
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Ladataan kielipaketteja (${TIME} jäljellä)..."
