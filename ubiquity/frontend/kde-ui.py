@@ -1510,26 +1510,10 @@ class TimezoneMap(object):
         self.point_selected = None
         self.point_hover = None
         self.location_selected = None
-        self.frontend.app.connect(self.tzmap, PYSIGNAL("cityChanged"), self.cityChanged)
-
-        """
-        zoom_in_file = os.path.join(GLADEDIR, 'pixmaps', self.frontend.distro,
-                                    'zoom-in.png')
-        if os.path.exists(zoom_in_file):
-            display = self.frontend.live_installer.get_display()
-            pixbuf = gtk.gdk.pixbuf_new_from_file(zoom_in_file)
-            self.cursor_zoom_in = gtk.gdk.Cursor(display, pixbuf, 10, 10)
-        else:
-            self.cursor_zoom_in = None
-
-        self.tzmap.add_events(gtk.gdk.LEAVE_NOTIFY_MASK |
-                              gtk.gdk.VISIBILITY_NOTIFY_MASK)
-
-        self.frontend.timezone_map_window.add(self.tzmap)
-        """
 
         timezone_city_combo = self.frontend.userinterface.timezone_city_combo
         self.timezone_city_index = {}  #map human readable city name to Europe/London style zone
+        self.city_index = []  # map cities to indexes for the combo box
 
         prev_continent = ''
         for location in self.tzdb.locations:
@@ -1541,21 +1525,17 @@ class TimezoneMap(object):
             continent = zone_bits[0]
             if continent != prev_continent:
                 timezone_city_combo.insertItem('')
+                self.city_index.append('')
                 timezone_city_combo.insertItem("--- %s ---" % continent)
+                self.city_index.append("--- %s ---" % continent)
                 prev_continent = continent
             human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
             timezone_city_combo.insertItem(human_zone)
             self.timezone_city_index[human_zone] = location.zone
+            self.city_index.append(human_zone)
             self.tzmap.cities[human_zone] = [location.latitude, location.longitude]
-        print str(self.tzmap.cities)
 
-        #self.tzmap.connect("map-event", self.mapped)
-        #self.tzmap.connect("unmap-event", self.unmapped)
-        #self.tzmap.connect("motion-notify-event", self.motion)
-        #self.tzmap.connect("button-press-event", self.button_pressed)
-        #self.tzmap.connect("leave-notify-event", self.out_map)
-
-        #timezone_city_combo.connect("changed", self.city_changed)
+        self.frontend.app.connect(self.tzmap, PYSIGNAL("cityChanged"), self.cityChanged)
         self.mapped()
 
     def set_city_text(self, name):
@@ -1607,13 +1587,6 @@ class TimezoneMap(object):
         else:
             return
 
-        #if self.point_selected is not None:
-        #    self.tzmap.point_set_color_rgba(self.point_selected, NORMAL_RGBA)
-
-        #self.point_selected = self.tzmap.get_closest_point(longitude, latitude,
-        #                                                   False)
-
-
         self.location_selected = location
         self.set_city_text(self.location_selected.zone)
         self.set_zone_text(self.location_selected)
@@ -1638,19 +1611,6 @@ class TimezoneMap(object):
 
     def timeout(self):
         self.update_current_time()
-        """
-
-        if self.point_selected is None:
-            return True
-
-        if self.point_selected.get_color_rgba() == SELECTED_1_RGBA:
-            self.tzmap.point_set_color_rgba(self.point_selected,
-                                            SELECTED_2_RGBA)
-        else:
-            self.tzmap.point_set_color_rgba(self.point_selected,
-                                            SELECTED_1_RGBA)
-        """
-
         return True
 
     def mapped(self):
@@ -1660,59 +1620,60 @@ class TimezoneMap(object):
             self.update_timeout.start(100)
 
     def cityChanged(self):
-        print "city changed: " + str(self.tzmap.city)
-        #FIXME set combobox here
+        self.frontend.userinterface.timezone_city_combo.setCurrentItem(self.city_index.index(self.tzmap.city))
+
+class CityIndicator(QLabel):
+    def __init__(self, parent, name="cityindicator"):
+        QLabel.__init__(self, parent, name, Qt.WStyle_StaysOnTop | Qt.WStyle_Customize | Qt.WStyle_NoBorder | Qt.WStyle_Tool | Qt.WX11BypassWM)
+        self.setMouseTracking(True)
+        self.setMargin(1)
+        self.setIndent(0)
+        self.setAutoMask(False)
+        self.setLineWidth(1)
+        self.setAlignment(QLabel.AlignAuto | QLabel.AlignTop)
+        self.setAutoResize(True)
+        self.setFrameStyle(QFrame.Box | QFrame.Plain)
+        self.setPalette(QToolTip.palette())
+        self.setText("hello")
+
+    def mouseMoveEvent(self, mouseEvent):
+        mouseEvent.ignore()
 
 class MapWidget(QWidget):
     def __init__(self, parent, name="mapwidget"):
         QWidget.__init__(self, parent, name)
         self.setBackgroundMode(QWidget.NoBackground)
         self.imagePath = "/usr/share/ubiquity/pixmaps/world_map-960.png"
-        #self.resize(800, 400)
         image = QImage(self.imagePath);
         image = image.smoothScale(self.width(), self.height())
-        #pixmap = QPixmap.convertFromImage(image)
         pixmap = QPixmap(self.imagePath);
         pixmap.convertFromImage(image)
         self.setPaletteBackgroundPixmap(pixmap)
         self.cities = {}
-        self.cities['London'] = [self.coordinate(False, 51, 28, 30), self.coordinate(True, 0, 18, 45)]
-        self.cities['Sydney'] = [self.coordinate(True, 33, 52, 0), self.coordinate(False, 151, 13, 0)]
-        self.cities['LA'] = [self.coordinate(False, 34, 3, 8), self.coordinate(True, 118, 14, 34)]
-        self.cities['Johannesburg'] = [self.coordinate(True, 26, 15, 0), self.coordinate(False, 28, 0, 0)]
+        self.cities['Edinburgh'] = [self.coordinate(False, 55, 50, 0), self.coordinate(True, 3, 15, 0)]
         self.timer = QTimer(self)
         self.connect(self.timer, SIGNAL("timeout()"), self.updateCityIndicator)
         self.setMouseTracking(True)
 
-        self.cityIndicator = QLabel(self, "cityindicator", Qt.WStyle_StaysOnTop | Qt.WStyle_Customize | Qt.WStyle_NoBorder | Qt.WStyle_Tool | Qt.WX11BypassWM )
-        self.cityIndicator.setMargin(1)
-        self.cityIndicator.setIndent(0)
-        self.cityIndicator.setAutoMask(False)
-        self.cityIndicator.setLineWidth(1)
-        self.cityIndicator.setAlignment(QLabel.AlignAuto | QLabel.AlignTop)
-        self.cityIndicator.setAutoResize(True)
-        self.cityIndicator.setFrameStyle(QFrame.Box | QFrame.Plain)
-        self.cityIndicator.setPalette(QToolTip.palette())
-        self.cityIndicator.setText("hello")
-        self.cityIndicator.show()
+        self.cityIndicator = CityIndicator(self)
+        self.cityIndicator.setText("")
+        self.cityIndicator.hide()
 
     def paintEvent(self, paintEvent):
         painter = QPainter(self)
         for city in self.cities:
             self.drawCity(self.cities[city][0], self.cities[city][1], painter)
-    
+
     def drawCity(self, lat, long, painter):
         point = self.getPosition(lat, long, self.width(), self.height())
         painter.setPen(QPen(QColor(0,0,0), 2))
         painter.drawRect(point.x(), point.y(), 3, 3)
         painter.setPen(QPen(QColor(255,0,0), 1))
         painter.drawPoint(point.x() + 1, point.y() + 1)
-        
 
-    def getPosition(self, la, lo, w, h):  #, int offset):
+    def getPosition(self, la, lo, w, h):
         x = (w * (180.0 + lo) / 360.0)
         y = (h * (90.0 - la) / 180.0)
-        #x = (x + offset + w/2) % w
 
         return QPoint(int(x),int(y))
 
@@ -1722,7 +1683,7 @@ class MapWidget(QWidget):
         else :
             return d + m/60.0 + s/3600.0
 
-    def getNearestCity(self, w, h, offset, x, y):
+    def getNearestCity(self, w, h, x, y):
         result = None
         dist = 1.0e10
         for city in self.cities:
@@ -1742,20 +1703,22 @@ class MapWidget(QWidget):
             self.timer.start(25, True)
             
     def updateCityIndicator(self):
-        city = self.getNearestCity(self.width(), self.height(), 0, self.x, self.y)
+        city = self.getNearestCity(self.width(), self.height(), self.x, self.y)
         self.cityIndicator.setText(city)
         self.cityIndicator.move(self.getPosition(self.cities[city][0], self.cities[city][1], self.width(), self.height()))
+        self.cityIndicator.show()
 
     def mouseReleaseEvent(self, mouseEvent):
         pos = mouseEvent.pos()
-  
-        city = self.getNearestCity(self.width(), self.height(), 0, pos.x(), pos.y());
-        print "returning: " + city
-        self.city = city
+
+        city = self.getNearestCity(self.width(), self.height(), pos.x(), pos.y());
+        if city == "Edinburgh":
+            self.city = "London"
+        else:
+            self.city = city
         self.emit(PYSIGNAL("cityChanged"), ())
-        
+
     def resizeEvent(self, resizeEvent):
-        print "resizeEvent" + str(resizeEvent.size().width())
         image = QImage(self.imagePath);
         image = image.smoothScale(self.width(), self.height())
         #pixmap = QPixmap.convertFromImage(image)
