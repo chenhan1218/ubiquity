@@ -1254,7 +1254,8 @@ class Wizard:
         firstbutton = None
         for choice in choices:
             if choice == '':
-                pass  #FIXME add a spacer
+                spacer = QSpacerItem(10, 10, QSizePolicy.Fixed, QSizePolicy.Fixed)
+                self.part_disk_vbox.addItem(spacer)
             else:
                 button = QRadioButton(choice, self.userinterface.part_disk_frame)
                 self.part_disk_buttongroup.insert(button)

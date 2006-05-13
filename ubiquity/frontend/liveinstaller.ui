@@ -1365,6 +1365,9 @@ Answering the questions should only take a few minutes.</string>
                         <property name="frameShadow">
                             <enum>Raised</enum>
                         </property>
+                        <property name="lineWidth">
+                            <number>0</number>
+                        </property>
                     </widget>
                     <widget class="QLabel" row="2" column="0" rowspan="1" colspan="2">
                         <property name="name">
@@ -1490,6 +1493,9 @@ Answering the questions should only take a few minutes.</string>
                         </property>
                         <property name="frameShadow">
                             <enum>Raised</enum>
+                        </property>
+                        <property name="lineWidth">
+                            <number>0</number>
                         </property>
                     </widget>
                     <widget class="QLabel" row="2" column="0" rowspan="1" colspan="2">
