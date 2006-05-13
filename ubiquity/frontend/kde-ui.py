@@ -167,6 +167,8 @@ class Wizard:
         # kdialogs
         self.translate_widgets()
 
+        self.map_vbox = QVBoxLayout(self.userinterface.map_frame)
+        
         self.customize_installer()
         
         self.part_disk_vbox = QVBoxLayout(self.userinterface.part_disk_frame)
@@ -180,6 +182,7 @@ class Wizard:
         self.qtparted_vbox = QVBoxLayout(self.userinterface.qtparted_frame)
         self.embed = QXEmbed(self.userinterface.qtparted_frame, "embed")
         self.embed.setProtocol(QXEmbed.XPLAIN)
+        
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -347,7 +350,6 @@ class Wizard:
 
     def translate_widget(self, widget, lang):
 
-        
         #FIXME how to do in KDE?  use kstdactions?
         #if isinstance(widget, gtk.Button) and widget.get_use_stock():
         #    widget.set_label(widget.get_label())
@@ -1501,6 +1503,9 @@ class TimezoneMap(object):
         self.frontend = frontend
         self.tzdb = ubiquity.tz.Database()
         #self.tzmap = ubiquity.emap.EMap()
+        self.tzmap = MapWidget(self.frontend.userinterface.map_frame)
+        self.frontend.map_vbox.addWidget(self.tzmap)
+        self.tzmap.show()
         self.update_timeout = None
         self.point_selected = None
         self.point_hover = None
@@ -1650,3 +1655,103 @@ class TimezoneMap(object):
             self.update_timeout = QTimer()
             self.frontend.app.connect(self.update_timeout, SIGNAL("timeout()"), self.timeout)
             self.update_timeout.start(100)
+
+class MapWidget(QWidget):
+    def __init__(self, parent, name="mapwidget"):
+        QWidget.__init__(self, parent, name)
+        self.setBackgroundMode(QWidget.NoBackground)
+        self.imagePath = "/usr/share/ubiquity/pixmaps/world_map-960.png"
+        #self.resize(800, 400)
+        image = QImage(self.imagePath);
+        image = image.smoothScale(self.width(), self.height())
+        #pixmap = QPixmap.convertFromImage(image)
+        pixmap = QPixmap(self.imagePath);
+        pixmap.convertFromImage(image)
+        self.setPaletteBackgroundPixmap(pixmap)
+        self.cities = {}
+        self.cities['London'] = [self.coordinate(False, 51, 28, 30), self.coordinate(True, 0, 18, 45)]
+        self.cities['Sydney'] = [self.coordinate(True, 33, 52, 0), self.coordinate(False, 151, 13, 0)]
+        self.cities['LA'] = [self.coordinate(False, 34, 3, 8), self.coordinate(True, 118, 14, 34)]
+        self.cities['Johannesburg'] = [self.coordinate(True, 26, 15, 0), self.coordinate(False, 28, 0, 0)]
+        self.timer = QTimer(self)
+        self.connect(self.timer, SIGNAL("timeout()"), self.updateCityIndicator)
+        self.setMouseTracking(True)
+
+        self.cityIndicator = QLabel(self, "cityindicator", Qt.WStyle_StaysOnTop | Qt.WStyle_Customize | Qt.WStyle_NoBorder | Qt.WStyle_Tool | Qt.WX11BypassWM )
+        self.cityIndicator.setMargin(1)
+        self.cityIndicator.setIndent(0)
+        self.cityIndicator.setAutoMask(False)
+        self.cityIndicator.setLineWidth(1)
+        self.cityIndicator.setAlignment(QLabel.AlignAuto | QLabel.AlignTop)
+        self.cityIndicator.setAutoResize(True)
+        self.cityIndicator.setFrameStyle(QFrame.Box | QFrame.Plain)
+        self.cityIndicator.setPalette(QToolTip.palette())
+        self.cityIndicator.setText("hello")
+        self.cityIndicator.show()
+
+    def paintEvent(self, paintEvent):
+        painter = QPainter(self)
+        for city in self.cities:
+            self.drawCity(self.cities[city][0], self.cities[city][1], painter)
+    
+    def drawCity(self, lat, long, painter):
+        point = self.getPosition(lat, long, self.width(), self.height())
+        painter.setPen(QPen(QColor(0,0,0), 2))
+        painter.drawRect(point.x(), point.y(), 3, 3)
+        painter.setPen(QPen(QColor(255,0,0), 1))
+        painter.drawPoint(point.x() + 1, point.y() + 1)
+        
+
+    def getPosition(self, la, lo, w, h):  #, int offset):
+        x = (w * (180.0 + lo) / 360.0)
+        y = (h * (90.0 - la) / 180.0)
+        #x = (x + offset + w/2) % w
+
+        return QPoint(int(x),int(y))
+
+    def coordinate(self, neg, d, m, s):
+        if neg:
+            return - (d + m/60.0 + s/3600.0)
+        else :
+            return d + m/60.0 + s/3600.0
+
+    def getNearestCity(self, w, h, offset, x, y):
+        result = None
+        dist = 1.0e10
+        for city in self.cities:
+            pos = self.getPosition(self.cities[city][0], self.cities[city][1], self.width(), self.height())
+            
+            d = (pos.x()-x)*(pos.x()-x) + (pos.y()-y)*(pos.y()-y)
+            if d < dist:
+                dist = d
+                self.where = pos
+                result = city
+        return result
+
+    def mouseMoveEvent(self, mouseEvent):
+        self.x = mouseEvent.pos().x()
+        self.y = mouseEvent.pos().y()
+        if not self.timer.isActive():
+            self.timer.start(25, True)
+            
+    def updateCityIndicator(self):
+        city = self.getNearestCity(self.width(), self.height(), 0, self.x, self.y)
+        self.cityIndicator.setText(city)
+        self.cityIndicator.move(self.getPosition(self.cities[city][0], self.cities[city][1], self.width(), self.height()))
+
+    def mouseReleaseEvent(self, mouseEvent):
+        pos = mouseEvent.pos()
+  
+        city = self.getNearestCity(self.width(), self.height(), 0, pos.x(), pos.y());
+        print "returning: " + city
+        #return city
+        
+    def resizeEvent(self, resizeEvent):
+        print "resizeEvent" + str(resizeEvent.size().width())
+        image = QImage(self.imagePath);
+        image = image.smoothScale(self.width(), self.height())
+        #pixmap = QPixmap.convertFromImage(image)
+        pixmap = QPixmap(self.imagePath);
+        pixmap.convertFromImage(image)
+        self.setPaletteBackgroundPixmap(pixmap)
+

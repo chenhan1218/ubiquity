@@ -13,6 +13,8 @@ ubiquity (0.99.81) dapper; urgency=low
     - Fix some i18n strings
     - Enable/disable Cancel button in debconf progress dialogue
     - Add spacers in disk selection
+    - Add Map Widget
+  * Move world_map-960.png from ubiquity-frontend-gtk to ubiquity package
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 12 May 2006 22:27:26 +0000
 

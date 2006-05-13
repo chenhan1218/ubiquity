@@ -528,7 +528,7 @@ Answering the questions should only take a few minutes.</string>
                     </widget>
                     <widget class="QFrame" row="3" column="0" rowspan="1" colspan="2">
                         <property name="name">
-                            <cstring>frame3</cstring>
+                            <cstring>map_frame</cstring>
                         </property>
                         <property name="sizePolicy">
                             <sizepolicy>
