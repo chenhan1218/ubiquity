@@ -1150,7 +1150,7 @@ Answering the questions should only take a few minutes.</string>
                     </widget>
                     <widget class="QLabel" row="8" column="0" rowspan="1" colspan="2">
                         <property name="name">
-                            <cstring>hoatname_label</cstring>
+                            <cstring>hostname_label</cstring>
                         </property>
                         <property name="text">
                             <string>What is the name of this computer?</string>

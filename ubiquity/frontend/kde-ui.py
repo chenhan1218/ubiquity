@@ -404,6 +404,7 @@ class Wizard:
         label_text = label_text.replace("${INDEX}", curstep)
         label_text = label_text.replace("${TOTAL}", str(BREADCRUMB_MAX_STEP))
         self.userinterface.step_label.setText(label_text)
+        print "set current page: " + label_text
 
     def gparted_loop(self):
         """call gparted and embed it into glade interface."""
@@ -786,10 +787,15 @@ class Wizard:
 
         self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
         # FIXME i18n
-        mountLabel = QLabel("<b>Mount Point</b>", self.userinterface.mountpoint_frame)
-        sizeLabel = QLabel("<b>Size</b>", self.userinterface.mountpoint_frame)
-        partitionLabel = QLabel("<b>Partition</b>", self.userinterface.mountpoint_frame)
-        reformatLabel = QLabel("<b>Reformat?</b>", self.userinterface.mountpoint_frame)
+        mountText = "<b>" + get_string("mountpoint_label", self.locale) + "</b>"
+        sizeText = "<b>" + get_string("size_label", self.locale) + "</b>"
+        partitionText = "<b>" + get_string("device_label", self.locale) + "</b>"
+        reformatText = "<b>" + get_string("format_label", self.locale) + "</b>"
+        
+        mountLabel = QLabel(mountText, self.userinterface.mountpoint_frame)
+        sizeLabel = QLabel(sizeText, self.userinterface.mountpoint_frame)
+        partitionLabel = QLabel(partitionText, self.userinterface.mountpoint_frame)
+        reformatLabel = QLabel(reformatText, self.userinterface.mountpoint_frame)
         self.mountpoint_table.addWidget(mountLabel, 0, 0)
         self.mountpoint_table.addWidget(sizeLabel, 0, 1)
         self.mountpoint_table.addWidget(partitionLabel, 0, 2)
