@@ -404,7 +404,6 @@ class Wizard:
         label_text = label_text.replace("${INDEX}", curstep)
         label_text = label_text.replace("${TOTAL}", str(BREADCRUMB_MAX_STEP))
         self.userinterface.step_label.setText(label_text)
-        print "set current page: " + label_text
 
     def gparted_loop(self):
         """call gparted and embed it into glade interface."""
@@ -786,7 +785,6 @@ class Wizard:
             self.qtparted_subp = None
 
         self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
-        # FIXME i18n
         mountText = "<b>" + get_string("mountpoint_label", self.locale) + "</b>"
         sizeText = "<b>" + get_string("size_label", self.locale) + "</b>"
         partitionText = "<b>" + get_string("device_label", self.locale) + "</b>"
@@ -1115,10 +1113,6 @@ class Wizard:
         if self.progress_position.depth() == 0:
             total_steps = progress_max - progress_min
             self.progressDialogue = QProgressDialog(progress_title, "Cancel", total_steps, self.userinterface, "progressdialog", True)
-            #self.progressDialogue = KProgressDialog(self.userinterface, "progressdialog", progress_title, "", True)
-            # FIXME jr self.debconf_progress_window.set_title(progress_title)
-        
-        #self.progressDialogue.setLabelText(progress_title)
 
         self.progress_position.start(progress_min, progress_max)
         self.debconf_progress_set(0)
@@ -1166,12 +1160,16 @@ class Wizard:
         self.progress_position.set_region(region_start, region_end)
 
     def debconf_progress_cancellable (self, cancellable):
-        if cancellable:
-            #FIXME jr self.progressDialogue.showCancelButton(True)
-            pass
-        else:
-            #self.progressDialogue.showCancelButton(False)
+        if not cancellable:
+            cancelButton = QPushButton("Cancel", self.progressDialogue)
+            cancelButton.setEnabled(False)
+            self.progressDialogue.setCancelButton(cancelButton)
             self.progress_cancelled = False
+        else:
+            cancelButton = QPushButton("Cancel", self.progressDialogue)
+            cancelButton.setEnabled(True)
+            self.progressDialogue.setCancelButton(cancelButton)
+            pass
 
     def on_progress_cancel_button_clicked (self, button):
         self.progress_cancelled = True
