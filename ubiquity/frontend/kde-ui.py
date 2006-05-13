@@ -1510,6 +1510,7 @@ class TimezoneMap(object):
         self.point_selected = None
         self.point_hover = None
         self.location_selected = None
+        self.frontend.app.connect(self.tzmap, PYSIGNAL("cityChanged"), self.cityChanged)
 
         """
         zoom_in_file = os.path.join(GLADEDIR, 'pixmaps', self.frontend.distro,
@@ -1545,6 +1546,8 @@ class TimezoneMap(object):
             human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
             timezone_city_combo.insertItem(human_zone)
             self.timezone_city_index[human_zone] = location.zone
+            self.tzmap.cities[human_zone] = [location.latitude, location.longitude]
+        print str(self.tzmap.cities)
 
         #self.tzmap.connect("map-event", self.mapped)
         #self.tzmap.connect("unmap-event", self.unmapped)
@@ -1656,6 +1659,10 @@ class TimezoneMap(object):
             self.frontend.app.connect(self.update_timeout, SIGNAL("timeout()"), self.timeout)
             self.update_timeout.start(100)
 
+    def cityChanged(self):
+        print "city changed: " + str(self.tzmap.city)
+        #FIXME set combobox here
+
 class MapWidget(QWidget):
     def __init__(self, parent, name="mapwidget"):
         QWidget.__init__(self, parent, name)
@@ -1744,7 +1751,8 @@ class MapWidget(QWidget):
   
         city = self.getNearestCity(self.width(), self.height(), 0, pos.x(), pos.y());
         print "returning: " + city
-        #return city
+        self.city = city
+        self.emit(PYSIGNAL("cityChanged"), ())
         
     def resizeEvent(self, resizeEvent):
         print "resizeEvent" + str(resizeEvent.size().width())
