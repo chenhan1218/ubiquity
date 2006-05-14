@@ -1483,6 +1483,9 @@ class Wizard:
             text = get_string(option_template, self.locale)
             if text is None:
                 text = option_template
+            # Work around PyGTK bug; each button text must actually be a
+            # subtype of str, which unicode isn't.
+            text = str(text)
             buttons.extend((text, len(buttons) / 2 + 1))
         dialog = gtk.Dialog(title, transient, gtk.DIALOG_MODAL, tuple(buttons))
         label = gtk.Label(msg)

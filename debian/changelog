@@ -1,3 +1,10 @@
+ubiquity (0.99.81) UNRELEASED; urgency=low
+
+  * Work around PyGTK bug in gtk.Dialog(): each button text must actually be
+    a subtype of str, which unicode isn't (closes: Malone #43012).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 14 May 2006 10:32:29 +0100
+
 ubiquity (0.99.80) dapper; urgency=low
 
   * If we get an IOError when trying to tell gparted or qtparted to apply
