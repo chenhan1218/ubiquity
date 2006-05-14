@@ -70,14 +70,12 @@ install:
 	dh_clean -k
 	dh_installdirs -A
 
-	# For the meantime, everything automake wants to install is part of
-	# the GTK frontend.
+	# For the meantime, nearly everything automake wants to install is
+	# part of the GTK frontend.
 ifndef UBIQUITY_NO_GTK
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk
-	mkdir -p debian/ubiquity/usr/share/ubiquity/pixmaps/
-	mv debian/ubiquity-frontend-gtk/usr/share/ubiquity/pixmaps/world_map-960.png 
-	debian/ubiquity/usr/share/ubiquity/pixmaps/world_map-960.png
-	rm -rf debian/ubiquity-frontend-gtk/usr/share/applications
+	rm -rf debian/ubiquity-frontend-gtk/usr/share/applications \
+		debian/ubiquity-frontend-gtk/usr/share/pixmaps
 endif
 	$(MAKE) -C d-i install
 

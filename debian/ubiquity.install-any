@@ -7,6 +7,7 @@ ubiquity/frontend/__init__.py usr/lib/python2.4/site-packages/ubiquity/frontend
 compat/* usr/lib/ubiquity/compat
 scripts/* usr/share/ubiquity
 desktop/ubiquity.png usr/share/pixmaps
+pixmaps/world_map-960.png usr/share/ubiquity/pixmaps
 
 # apt-setup
 d-i/source/apt-setup/apt-setup-verify usr/lib/ubiquity/apt-setup
