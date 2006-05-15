@@ -3,6 +3,8 @@ ubiquity (0.99.81) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Work around PyGTK bug in gtk.Dialog(): each button text must actually be
     a subtype of str, which unicode isn't (closes: Malone #43012).
+  * New, more descriptive icon (thanks, Antônio Cláudio; closes: Malone
+    #41472).
 
   [ Jonathan Riddell ]
   * KDE frontend:
