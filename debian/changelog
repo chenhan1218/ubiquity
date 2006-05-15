@@ -10,17 +10,17 @@ ubiquity (0.99.81) UNRELEASED; urgency=low
   * KDE frontend:
     - Show % indicator on resize slider
     - Improve size/layout of some widgets
-    - Don't call get_translations multiple times
+    - Don't call get_translations multiple times (closes: Malone #44515)
     - Format time properly in non-latin locales
     - Make mountpoint comboboxes editable
-    - Resize qtparted to fit window
+    - Resize qtparted to fit window (closes: Malone #43122)
     - Quit qtparted cleanly
     - Select values on mountpoints page correctly
     - Remove debugging print lines
     - Fix some i18n strings
     - Enable/disable Cancel button in debconf progress dialogue
     - Add spacers in disk selection
-    - Add Map Widget
+    - Add Map Widget (closes: Malone #43678)
   * Move world_map-960.png from ubiquity-frontend-gtk to ubiquity package
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun, 14 May 2006 10:32:29 +0100
