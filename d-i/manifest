@@ -1,11 +1,12 @@
 apt-setup 1:0.10ubuntu1
 base-installer 1.42ubuntu11
 choose-mirror 1.17ubuntu9
+clock-setup 0.8build1
 debian-installer-utils 1.22ubuntu8
 grub-installer 1.14ubuntu4
 hw-detect 1.32ubuntu6
-kbd-chooser 1.23ubuntu16
-localechooser 0.27ubuntu19
+kbd-chooser 1.23ubuntu17
+localechooser 0.27ubuntu20
 partconf 1.11
 partman-auto 45ubuntu11
 partman-base 78ubuntu4
@@ -21,6 +22,6 @@ partman-reiserfs 28ubuntu1
 partman-target 41ubuntu1
 partman-xfs 27ubuntu1
 silo-installer 1.03ubuntu3
-tzsetup 1:0.8ubuntu6
-user-setup 0.05ubuntu6
+tzsetup 1:0.8ubuntu7
+user-setup 1.1ubuntu2
 yaboot-installer 1.1.4ubuntu3
