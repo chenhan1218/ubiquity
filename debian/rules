@@ -75,7 +75,7 @@ install:
 ifndef UBIQUITY_NO_GTK
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk
 	rm -rf debian/ubiquity-frontend-gtk/usr/share/applications \
-		debian/ubiquity-frontend-gtk/usr/share/pixmaps
+		debian/ubiquity-frontend-gtk/usr/share/ubiquity/pixmaps
 endif
 	$(MAKE) -C d-i install
 
