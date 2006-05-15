@@ -5,6 +5,9 @@ ubiquity (0.99.81) UNRELEASED; urgency=low
     a subtype of str, which unicode isn't (closes: Malone #43012).
   * New, more descriptive icon (thanks, Antônio Cláudio; closes: Malone
     #41472).
+  * Add .desktop file translations from Rosetta: German, Spanish, Finnish,
+    French, Croatian, Hungarian, Italian, Korean, Kurdish, Polish,
+    Portuguese.
 
   [ Jonathan Riddell ]
   * KDE frontend:
