@@ -1,6 +1,7 @@
 apt-setup
 base-installer
 choose-mirror
+clock-setup
 debian-installer-utils
 hw-detect
 kbd-chooser

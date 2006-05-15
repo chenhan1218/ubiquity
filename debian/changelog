@@ -2,6 +2,9 @@ ubiquity (0.99.82) UNRELEASED; urgency=low
 
   * Really remove /usr/share/ubiquity/pixmaps/world_map-960.png from
     ubiquity-frontend-gtk.
+  * Add basic clock-setup integration; there's no UI at present, but it will
+    at least try to guess appropriate UTCness for the hardware clock based
+    on what other operating systems you have installed.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 15 May 2006 18:31:55 +0100
 

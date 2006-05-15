@@ -19,10 +19,10 @@ ifeq ($(DEB_HOST_ARCH_CPU),)
 endif
 
 ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:amd64:i386:))
-  bootloader-depends := grub, os-prober
+  bootloader-depends := grub
 else
 ifeq ($(DEB_HOST_ARCH_CPU),powerpc)
-  bootloader-depends := yaboot, os-prober, hfsutils
+  bootloader-depends := yaboot, hfsutils
 else
 ifeq ($(DEB_HOST_ARCH_CPU),sparc)
   bootloader-depends := silo
@@ -105,6 +105,12 @@ endif
 		install -m644 d-i/source/base-installer/kernel/$(DEB_HOST_ARCH).sh \
 			debian/ubiquity/usr/lib/ubiquity/base-installer/kernel.sh; \
 	fi
+	install d-i/source/clock-setup/debian/clock-setup.postinst \
+		debian/ubiquity/usr/lib/ubiquity/clock-setup/clock-setup
+	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/clock-setup
+	install d-i/source/clock-setup/prebaseconfig.d/10clock-setup \
+		debian/ubiquity/usr/lib/ubiquity/clock-setup/prebaseconfig
+	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/prebaseconfig
 	sed 's,\(prebaseconfig=\).*,\1/dev/null,' \
 		d-i/source/hw-detect/debian/hw-detect/bin/hw-detect \
 		> debian/ubiquity/bin/hw-detect

@@ -22,6 +22,9 @@ ubiquity/components/check_kernels.py usr/lib/python2.4/site-packages/ubiquity/co
 # choose-mirror
 d-i/source/choose-mirror/choose-mirror usr/lib/ubiquity/choose-mirror
 
+# clock-setup
+ubiquity/components/clock_setup.py usr/lib/python2.4/site-packages/ubiquity/components
+
 # debian-installer-utils
 d-i/source/debian-installer-utils/debconf-get bin
 d-i/source/debian-installer-utils/log-output bin
