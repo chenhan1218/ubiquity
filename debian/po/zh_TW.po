@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-01 19:26+0000\n"
+"PO-Revision-Date: 2006-05-14 08:10+0000\n"
 "Last-Translator: Woodman Tuen <wmtuen@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
@@ -84,13 +84,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "目前時間："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "設定時間..."
 
 #. Type: text
 #. Description
@@ -305,7 +305,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:197
 msgid "Skip"
-msgstr ""
+msgstr "略過"
 
 #. Type: title
 #. Description
@@ -359,9 +359,8 @@ msgstr "繼續"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:242
-#, fuzzy
 msgid "Installing system"
-msgstr "安裝作業完成"
+msgstr "安裝系統中"
 
 #. Type: text
 #. Description
@@ -373,13 +372,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:250
 msgid "Scanning files..."
-msgstr ""
+msgstr "掃瞄檔案中..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:254
 msgid "Copying files..."
-msgstr ""
+msgstr "複製檔案中..."
 
 #. Type: text
 #. Description

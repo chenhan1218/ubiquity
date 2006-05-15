@@ -8,6 +8,8 @@ ubiquity (0.99.81) UNRELEASED; urgency=low
   * Add .desktop file translations from Rosetta: German, Spanish, Finnish,
     French, Croatian, Hungarian, Italian, Korean, Kurdish, Polish,
     Portuguese.
+  * Update translations from Rosetta: Belarusian, Frisian, Hungarian,
+    Kurdish, Latvian, Thai, Turkish, Chinese (Taiwan).
 
   [ Jonathan Riddell ]
   * KDE frontend:

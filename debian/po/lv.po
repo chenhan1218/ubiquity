@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-03 15:42+0000\n"
+"PO-Revision-Date: 2006-05-12 21:19+0000\n"
 "Last-Translator: Gints Neimanis <gints@venta.lv>\n"
 "Language-Team: locale@laka.lv <locale@laka.lv>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr "Instalēt"
 #. Description
 #: ../ubiquity.templates:12
 msgid "Welcome"
-msgstr ""
+msgstr "Laipni lūdzam"
 
 #. Type: text
 #. Description
@@ -34,12 +34,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Gatavi instalēt? Līdzko atbildēsiet uz pāris jautājumiem, live CD saturs "
+"uzinstalēsies šajā datorā un jūs varēsiet lietot sistēmu ar maksimālo jaudu "
+"un bez live CD."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Atbildēšana uz jautājumiem ilgs dažas minūtes."
 
 #. Type: text
 #. Description
@@ -61,13 +64,13 @@ msgstr "Kur jūs atrodaties?"
 #. Description
 #: ../ubiquity.templates:32
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Izvēlieties kādu pilsētu savā laika joslā:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr ""
+msgstr "Izvēlētā pilsēta:"
 
 #. Type: text
 #. Description
@@ -85,37 +88,37 @@ msgstr "Izvēlētais reģions:"
 #. Description
 #: ../ubiquity.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "Tekošais laiks:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Uzstādīt laiku..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Izvēlieties klaviatūras izklājumu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Kurš izkārtojums atbilst jūsu klaviatūrai?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "Jūs varat rakstīt šajā rāmī, lai pārbaudītu klaviatūras atbilstību."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Kas jūs esat?"
 
 #. Type: text
 #. Description
@@ -193,13 +196,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Kā jūs vēlaties particionēt disku?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Partīciju sagatavošana"
 
 #. Type: text
 #. Description
@@ -249,19 +252,19 @@ msgstr "Izmērs"
 #. Description
 #: ../ubiquity.templates:155
 msgid "Partition"
-msgstr ""
+msgstr "Partīcija"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "Pārformatēt?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "Jums nepieciešams norādīt saknes (\"/\") montēšanas punktu."
 
 #. Type: text
 #. Description
@@ -404,13 +407,13 @@ msgstr "Kopē failus (${TIME} atlicis)..."
 #. Description
 #: ../ubiquity.templates:262
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "Kopēju instalēšanas žurnālu..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:266
 msgid "Cleaning up..."
-msgstr ""
+msgstr "Attīru ..."
 
 #. Type: text
 #. Description
@@ -421,9 +424,8 @@ msgstr "Palaižu ${SCRIPT}..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Konfigurēju tīklu..."
+msgstr "Konfigurēju sistēmas lokāles..."
 
 #. Type: text
 #. Description

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-10 22:25+0000\n"
+"PO-Revision-Date: 2006-05-14 17:40+0000\n"
 "Last-Translator: Roys Hengwatanakul <roysheng@msn.com>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,12 +35,14 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"พร้อมที่จะติดตั้ง?เมื่อท่านตอบเพียงไม่กี่คำถาม,"
+"ข้อมูลในแผ่นซีดีนี้ก็จะสามารถติดตั้งลงบนเครื่องนี้และท่านจะสามารถใช้ระบบที่รวดเร็วและไม่ต้องใช้แผ่นซีดี."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "ใช้เวลาไม่กี่นาทีในการตอบคำถาม."
 
 #. Type: text
 #. Description
@@ -49,6 +51,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"กรุณาเลือกภาษาที่ต้องการใช้ในการติดตั้ง.ภาษานี้จะเป็นภาษาที่กำหนดไว้(default language )"
+"เมื่อติดตั้งเสร็จแล้ว."
 
 #. Type: text
 #. Description
@@ -78,7 +82,7 @@ msgstr "เวลา(ตามเวลาโลก)"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "กรุณาเลือก เขต:"
 
 #. Type: text
 #. Description
@@ -90,31 +94,31 @@ msgstr "เวลาปัจจุบัน"
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "ตั้งเวลา..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "แบบแป้นพิมพ์"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "แบบแป้นพิมพ์ไหนที่เหมือนกับแบบแป้นพิมพ์ของท่าน?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "ท่านสามารถพิมพ์ลงในช่องนี้เพื่อทดสอบแบบแป้นพิมพ์ใหม่."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "ท่านเป็นใคร?"
 
 #. Type: text
 #. Description
@@ -161,7 +165,7 @@ msgstr "ชื่อของเครื่องคอมพิวเตอร
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
+msgstr "ชื่อนี้จะถูกใช้ถ้าท่านปรับแต่งเครื่องให้แสดงตนได้ในระบบเครือข่าย."
 
 #. Type: text
 #. Description
@@ -229,6 +233,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"ท่านต้องติดตั้ง (mount) พาติชั่นหนึ่งในระบบไฟล์ราก (root file system) (\"/\"),"
+"และท่านต้องเลือกอย่างน้อยหนึ่งพาติชั่นสำหรับใช้ในการสลับพื้นที่."
 
 #. Type: text
 #. Description
@@ -252,7 +258,7 @@ msgstr "พาร์ทิชั่น"
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "ฟอร์แมทใหม่?"
 
 #. Type: text
 #. Description
@@ -295,7 +301,7 @@ msgstr "คุณต้องการที่จะยกเลิกการ
 #. Description
 #: ../ubiquity.templates:187
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "ถูกรบกวนขณะพาติชั่น"
 
 #. Type: text
 #. Description
@@ -303,7 +309,7 @@ msgstr ""
 msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
-msgstr ""
+msgstr "ไม่สามารถที่จะพาติชั่นฮาร์ดดิสก์นี้โดยอัตโนมัติ. ท่านต้องเลือกวิธีพาติชั่นแบบอื่น."
 
 #. Type: text
 #. Description
@@ -373,7 +379,7 @@ msgstr "กำลังติดตั้งระบบ"
 #. Description
 #: ../ubiquity.templates:246
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "ค้นหาชุดเผยแพร่ (distribution) สำหรับทำสำเนา..."
 
 #. Type: text
 #. Description
@@ -397,7 +403,7 @@ msgstr "กำลังคัดลองไฟล์ (ต้องใช้เ�
 #. Description
 #: ../ubiquity.templates:262
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "ทำสำเนาบันทึกของการติดตั้ง( installation logs) ..."
 
 #. Type: text
 #. Description
@@ -415,7 +421,7 @@ msgstr "กำลังทำ ${SCRIPT}..."
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring system locales..."
-msgstr ""
+msgstr "ปรับแต่งระบบสำหรับท้องถิ่น..."
 
 #. Type: text
 #. Description
@@ -469,7 +475,7 @@ msgstr "กำลังตั้งค่าตัวบูตระบบ"
 #. Description
 #: ../ubiquity.templates:310
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "กำลังลบชุดเสริมต่างๆ(extra packages)ออก..."
 
 #. Type: text
 #. Description

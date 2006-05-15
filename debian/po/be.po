@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-04-23 16:56+0000\n"
-"Last-Translator: Kiryl Nieviarouski <ubuntu.by@gmail.com>\n"
+"PO-Revision-Date: 2006-05-14 17:56+0000\n"
+"Last-Translator: Kiryl Nieviarouski <k.nieviarouski@gmail.com>\n"
 "Language-Team: Byelarusian <be@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +18,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Усталяваць"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12
 msgid "Welcome"
-msgstr ""
+msgstr "Вітаем"
 
 #. Type: text
 #. Description
@@ -34,12 +34,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Гатовы да ўсталёўкі? Адказаўшы на некалькі пытаньняў,  зьмест live CD можна "
+"будзе ўсталяваць на гэты кампутар, так каб можна было запускаць сыстэму з "
+"поўнай выдайнасьцю і без дыску CD."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Адказы на пытаньні зоймуць усяго некалькі хвілінаў."
 
 #. Type: text
 #. Description
@@ -48,48 +51,50 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Калі ласка выбяры мову што будзе выкарыстоўвацца ў часе ўсталёўкі. Гэта мова "
+"будзе дапомнай для выніковай сыстэмы."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28
 msgid "Where are you?"
-msgstr ""
+msgstr "Дзе ты знаходзішся?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Выбяры горад ў сваёй краіне і часовай зоне."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr ""
+msgstr "Выбраны горад:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40
 msgid "Time zone:"
-msgstr ""
+msgstr "Часавая зона:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Выбраны рэгіён:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "Бягучы час:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Выстаў час..."
 
 #. Type: text
 #. Description
@@ -101,31 +106,32 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Якая раскладка найбольш падобная да тваёй раскладкі?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
+"Можаш пісаць ў гэтым вакне каб пратэставаць новую раскладку клявіятуры."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Хто ты?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Як цябе клічуць?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Якую назву хочаш ужываць ў часе ўваходу ў сыстэму?"
 
 #. Type: text
 #. Description

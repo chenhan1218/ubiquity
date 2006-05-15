@@ -1,15 +1,17 @@
-# Kurdish messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
+# Frisian translation for debian-installer
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the debian-installer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-13 16:57+0000\n"
-"Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
-"Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2006-05-13 09:49+0000\n"
+"Last-Translator: Mysha <ubuntu@mysha.mynadres.nl>\n"
+"Language-Team: Frisian <fy@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,13 +20,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr "Sazkirin"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12
 msgid "Welcome"
-msgstr "Tu bi xêr hatî"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -39,7 +41,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr "Bersivandina pirsan diviya tenê çend xulekek biajota."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -48,86 +50,84 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Ji kerema xwe zimana pêvajoya sazkirinê hilbijêre. Ev ziman dê piştre bibe "
-"zimanê standard a sîstemê."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28
 msgid "Where are you?"
-msgstr "Tu li ku derê yî?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32
 msgid "Select a city in your country and time zone."
-msgstr "Ji welatê xwe bajarekî û demekê hilbijêre."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr "Bajarê hilbijartî:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40
 msgid "Time zone:"
-msgstr "Herêma demê:"
+msgstr "Tiidsône"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr "Herêma hilbijartî:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48
 msgid "Current time:"
-msgstr "Dema niha:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr "Sazkirina demê..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr "Rengê klavyeyê"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Kîjan zêdetir dişibe klavyeya te?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Ji bo ceribandina klavyeyê dikarî di vê qutîkê de binivîsî."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr "Tu kî yî?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr "Navê te çi ye?"
+msgstr "Wat is jo namme?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr "Ji bo têketinê tu dixwazî kîjan navî bi kar bînî?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -136,14 +136,12 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Heke ji yekê zêdetir kes dê vê komputerê bikar bînin, tu dikarî piştî "
-"sazkirinê hesaban mîheng bikî."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr "Ji bo ewlekariya hesaba xwe şîfreyekê hilbijêre."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -151,14 +149,12 @@ msgstr "Ji bo ewlekariya hesaba xwe şîfreyekê hilbijêre."
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
-"Heman şîfreyê du caran têkevê, bi vî awayê xeletbûn/rastbûna şîfreyê dê "
-"diyar bibe."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr "Navê vê komputerê çi ye?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -167,14 +163,12 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Heke ev komputer li ser torê ji bo kesên din were vekirin, dê ev nav bê "
-"bikaranîn."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105
 msgid "Select a disk"
-msgstr "Dîskekê hilbijêre"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -195,13 +189,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr "Partisyona diskê çawa dixwazî?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr "Partisyonan amade bike"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -215,7 +209,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr "Xalên mountê amade bike"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -224,8 +218,6 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
-"Ji bo sazkirina nû partisyona ku dixwazî bikar bînî û ciyên ji bo "
-"mountkirina her yek ji wan hilbijêre."
 
 #. Type: text
 #. Description
@@ -239,25 +231,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:147
 msgid "Mount Point"
-msgstr "Xala Mountkirinê"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:151
 msgid "Size"
-msgstr "Mezinahî"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155
 msgid "Partition"
-msgstr "Partisyon (Dabeşkirina Diskan)"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr "Ji nû ve were formatkirin?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -269,7 +261,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167
 msgid "Ready to install"
-msgstr "Ji bo sazkirinê amade ye"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -288,19 +280,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:179
 msgid "Abort the installation?"
-msgstr "Dixwazî sazkirinê niha betal bikî?"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183
 msgid "Do you really want to abort the installation now?"
-msgstr "Dixwazî sazkirinê niha betal bikî?"
+msgstr ""
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:187
 msgid "Partitioning was interrupted"
-msgstr "Partisyon hat rawestandin"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -309,20 +301,18 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
-"Partisyonkirina bixeber a vê diskê ne gengaz e. Divê metodeke din a "
-"partisyonkirinê hilbijêrî."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:197
 msgid "Skip"
-msgstr "Derbas be"
+msgstr ""
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:201
 msgid "Installation complete"
-msgstr "Sazkirin temam e"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -352,142 +342,140 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"CD'ê ji komputerê derxe, heke dernexî dê komputer bi CD'a zindî bê "
-"destpêkirin û sazkirineke nû bê destpêkirin."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:224
 msgid "Go Back"
-msgstr "Here Paş"
+msgstr "Tebek"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:229
 msgid "Continue"
-msgstr "Bidomîne"
+msgstr "Troch"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:242
 msgid "Installing system"
-msgstr "Pergal tê sazkirin"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246
 msgid "Finding the distribution to copy..."
-msgstr "Li dîstrîbusyona were kopîkirin tê gerandin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250
 msgid "Scanning files..."
-msgstr "Dosya tên skenkirin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:254
 msgid "Copying files..."
-msgstr "Dosya tên kopîkirin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258
 msgid "Copying files (${TIME} remaining)..."
-msgstr "Dosya tên kopîkirin (${TIME} ma)..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262
 msgid "Copying installation logs..."
-msgstr "Tomarên sazkirinê tên kopîkirin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:266
 msgid "Cleaning up..."
-msgstr "Tê paqijkirin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:270
 msgid "Running ${SCRIPT}..."
-msgstr "${SCRIPT} tê meşandin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring system locales..."
-msgstr "Herêmî (locale) ya sîstemê tê mîhenkirin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr "apt tê mîhenkirin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282
 msgid "Configuring time zone..."
-msgstr "Herêma demê tê saz kirin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
-msgstr "Klavye tê mîhengkirin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:290
 msgid "Creating user..."
-msgstr "Bikarhêner tê afirandin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:294
 msgid "Configuring hardware..."
-msgstr "Hardware tê saz kirin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:298
 msgid "Configuring network..."
-msgstr "Tor tê avakirin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:302
 msgid "Setting computer name..."
-msgstr "Navê komputerê tê mîhengkirin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:306
 msgid "Configuring boot loader..."
-msgstr "Boot loader tê saz kirin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:310
 msgid "Removing extra packages..."
-msgstr "Paketên zêdebar tên derxistin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:314
 msgid "Checking for packages to remove..."
-msgstr "Ji bo rakirinê li paketan digere..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:318
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Paket tên daxistin (${TIME} ma)..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -499,34 +487,34 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:326
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Lîsteyên paketan tên daxistin (${TIME} ma)..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
-msgstr "Di sazkirina ${PACKAGE} de xeletî"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:340
 msgid "Error removing ${PACKAGE}"
-msgstr "Di rakirina ${PACKAGE} de xeletî"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:340
 msgid "${MESSAGE}"
-msgstr "${MESSAGE}"
+msgstr ""
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:345
 msgid "Installing language packs"
-msgstr "Paketên zimên saz dike"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:349
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Paketên zimên tên daxistin (${TIME} ma)..."
+msgstr ""
