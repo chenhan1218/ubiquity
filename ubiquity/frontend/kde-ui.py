@@ -355,6 +355,11 @@ class Wizard:
         #    widget.set_label(widget.get_label())
 
         text = get_string(widget.name(), lang)
+        
+        if widget.name() == "next":
+            text = get_string("continue", lang) + ">"
+        elif widget.name() == "back":
+            text = "<" + get_string("go_back", lang)
         if text is None:
             return
 
@@ -504,9 +509,12 @@ class Wizard:
         self.progressDialogue.hide()
 
         self.installing = False
-        quitText = """Kubuntu is now installed on your computer. You need to restart the computer in order to use it. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.\n\nMake sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system."""
-        
-        quitAnswer = QMessageBox.question(self.userinterface, "Finished", quitText, "Quit", "Reboot")
+        quitText = "<qt>" + get_string("finished_label", self.locale) + "</qt>"
+        quitButtonText = get_string("quit_button", self.locale)
+        rebootButtonText = get_string("reboot_button", self.locale)
+        titleText = get_string("finished_dialog", self.locale)
+
+        quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, quitButtonText, rebootButtonText)
 
         if quitAnswer == 1:
             self.reboot();
@@ -538,7 +546,10 @@ class Wizard:
         self.app.exit()
 
     def on_cancel_clicked(self):
-        response = QMessageBox.question(self.userinterface, "Abort?", "Do you really want to abort the installation now?", "Quit", "Continue")
+        warning_dialog_label = get_string("warning_dialog_label", self.locale)
+        abortTitle = get_string("warning_dialog", self.locale)
+        continueButtonText = get_string("continue", self.locale)
+        response = QMessageBox.question(self.userinterface, abortTitle, warning_dialog_label, abortTitle, continueButtonText)
         if response == 0:
             if self.qtparted_subp is not None:
                 print >>self.qtparted_subp.stdin, "exit"
@@ -1621,6 +1632,7 @@ class TimezoneMap(object):
 
     def cityChanged(self):
         self.frontend.userinterface.timezone_city_combo.setCurrentItem(self.city_index.index(self.tzmap.city))
+        self.city_combo_changed(self.frontend.userinterface.timezone_city_combo.currentItem())
 
 class CityIndicator(QLabel):
     def __init__(self, parent, name="cityindicator"):
