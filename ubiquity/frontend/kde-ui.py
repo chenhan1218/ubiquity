@@ -357,9 +357,9 @@ class Wizard:
         text = get_string(widget.name(), lang)
         
         if widget.name() == "next":
-            text = get_string("continue", lang) + ">"
+            text = get_string("continue", lang) + " >"
         elif widget.name() == "back":
-            text = "<" + get_string("go_back", lang)
+            text = "< " + get_string("go_back", lang)
         if text is None:
             return
 
@@ -1454,7 +1454,8 @@ class Wizard:
             # TODO self.previous_partitioning_page
             #self.live_installer.show()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
-            self.userinterface.next.setText("Next >")
+            nextText = get_string("continue", lang) + " >"
+            self.userinterface.next.setText(nextText)
             self.backup = True
             self.installing = False
 
