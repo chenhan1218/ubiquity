@@ -36,6 +36,7 @@ import time
 import datetime
 import glob
 import subprocess
+import math
 import traceback
 import xml.sax.saxutils
 
@@ -118,6 +119,8 @@ class Wizard:
         # declare attributes
         self.distro = distro
         self.current_keyboard = None
+        self.resize_min_size = None
+        self.resize_max_size = None
         self.manual_choice = None
         self.password = ''
         self.hostname_edited = False
@@ -1068,7 +1071,13 @@ class Wizard:
         self.userinterface.new_size_scale.setEnabled(enable)
         
     def update_new_size_label(self, value):
-        self.userinterface.new_size_value.setText(str(value) + "%")
+        if self.resize_max_size is not None:
+            size = value * self.resize_max_size / 100
+            text = '%d%% (%s)' % (value, format_size(size))
+        else:
+            text = '%d%%' % value
+        self.userinterface.new_size_value.setText(text)
+
         ##     def on_abort_dialog_close (self, widget):
 
         ##         """ Disable automatic partitioning and reset partitioning method step. """
@@ -1331,9 +1340,13 @@ class Wizard:
         id = self.autopartition_buttongroup.id( self.autopartition_buttongroup.selected() )
         return unicode(self.autopartition_buttongroup_texts[id])
 
-    def set_autopartition_resize_min_percent (self, min_percent):
-        self.userinterface.new_size_scale.setMinValue(min_percent)
-        self.userinterface.new_size_scale.setMaxValue(100)
+    def set_autopartition_resize_bounds (self, min_size, max_size):
+        self.resize_min_size = min_size
+        self.resize_max_size = max_size
+        if min_size is not None and max_size is not None:
+            min_percent = int(math.ceil(100 * min_size / max_size))
+            self.userinterface.new_size_scale.setMinValue(min_percent)
+            self.userinterface.new_size_scale.setMaxValue(100)
 
     def get_autopartition_resize_percent (self):
         return self.userinterface.new_size_scale.value()

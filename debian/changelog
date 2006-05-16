@@ -16,6 +16,8 @@ ubiquity (0.99.83) UNRELEASED; urgency=low
   * Round default resize slider position up rather than down.
   * GTK frontend:
     - Show % indicator on resize slider.
+  * Display the actual new partition size as well as the percentage of the
+    existing size on the resize slider.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 15 May 2006 23:28:03 +0000
 

@@ -44,6 +44,7 @@ import time
 import datetime
 import glob
 import subprocess
+import math
 import traceback
 import xml.sax.saxutils
 
@@ -98,6 +99,8 @@ class Wizard:
         # declare attributes
         self.distro = distro
         self.current_keyboard = None
+        self.resize_min_size = None
+        self.resize_max_size = None
         self.manual_choice = None
         self.password = ''
         self.hostname_edited = False
@@ -1051,7 +1054,11 @@ class Wizard:
 
     def on_new_size_scale_format_value (self, widget, value):
         # TODO cjwatson 2006-01-09: get minsize/maxsize through to here
-        return '%d%%' % value
+        if self.resize_max_size is not None:
+            size = value * self.resize_max_size / 100
+            return '%d%% (%s)' % (value, format_size(size))
+        else:
+            return '%d%%' % value
 
 
     def on_steps_switch_page (self, foo, bar, current):
@@ -1315,8 +1322,12 @@ class Wizard:
                 return button.get_label()
 
 
-    def set_autopartition_resize_min_percent (self, min_percent):
-        self.new_size_scale.set_range(min_percent, 100)
+    def set_autopartition_resize_bounds (self, min_size, max_size):
+        self.resize_min_size = min_size
+        self.resize_max_size = max_size
+        if min_size is not None and max_size is not None:
+            min_percent = int(math.ceil(100 * min_size / max_size))
+            self.new_size_scale.set_range(min_percent, 100)
 
 
     def get_autopartition_resize_percent (self):

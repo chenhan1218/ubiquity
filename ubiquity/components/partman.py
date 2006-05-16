@@ -18,7 +18,6 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import os
-import math
 import signal
 import textwrap
 from ubiquity.filteredcommand import FilteredCommand
@@ -66,11 +65,32 @@ class Partman(FilteredCommand):
         self.frontend.error_dialog(self.description(question))
         return super(Partman, self).error(priority, question)
 
+    def parse_size(self, size_str):
+        (num, unit) = size_str.split(' ', 1)
+        if ',' in num:
+            (size_int, size_frac) = num.split(',', 1)
+        else:
+            (size_int, size_frac) = num.split('.', 1)
+        size = float(str("%s.%s" % (size_int, size_frac)))
+        # partman measures sizes in decimal units
+        if unit == 'B':
+            pass
+        elif unit == 'kB':
+            size *= 1000
+        elif unit == 'MB':
+            size *= 1000000
+        elif unit == 'GB':
+            size *= 1000000000
+        elif unit == 'TB':
+            size *= 1000000000000
+        return size
+
     def subst(self, question, key, value):
         if question == 'partman-partitioning/new_size':
-            if key == 'PERCENT':
-                self.frontend.set_autopartition_resize_min_percent(
-                    int(math.ceil(float(value.rstrip('%')))))
+            if key == 'MINSIZE':
+                self.resize_min_size = self.parse_size(value)
+            elif key == 'MAXSIZE':
+                self.resize_max_size = self.parse_size(value)
 
     # partman relies on multi-line SUBSTs to construct the confirmation
     # message, which have no way to work in debconf (and, as far as I can
@@ -200,6 +220,8 @@ class Partman(FilteredCommand):
 
         elif question == 'partman-partitioning/new_size':
             self.backup_from_new_size = None
+            self.frontend.set_autopartition_resize_bounds(self.resize_min_size,
+                                                          self.resize_max_size)
 
         elif question.startswith('partman/confirm'):
             if self.frontend.confirm_partitioning_dialog(

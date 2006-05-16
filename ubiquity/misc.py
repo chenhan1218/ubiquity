@@ -111,6 +111,26 @@ def get_progress(str):
     return num, text
 
 
+def format_size(size):
+    """Format a partition size."""
+    if size < 1024:
+        unit = 'B'
+        factor = 1
+    elif size < 1024 * 1024:
+        unit = 'kB'
+        factor = 1024
+    elif size < 1024 * 1024 * 1024:
+        unit = 'MB'
+        factor = 1024 * 1024
+    elif size < 1024 * 1024 * 1024 * 1024:
+        unit = 'GB'
+        factor = 1024 * 1024 * 1024
+    else:
+        unit = 'TB'
+        factor = 1024 * 1024 * 1024 * 1024
+    return '%.1f %s' % (float(size) / factor, unit)
+
+
 def get_partitions():
     """returns an array with fdisk output related to partition data."""
 
