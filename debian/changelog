@@ -20,6 +20,8 @@ ubiquity (0.99.83) UNRELEASED; urgency=low
     existing size on the resize slider.
   * Add/update .desktop file translations from Rosetta: Breton, French,
     Indonesian, Slovenian.
+  * Add/update translations from Rosetta: Greek, Spanish, Galician,
+    Hungarian, Occitan, Portuguese, Turkish, Vietnamese.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 15 May 2006 23:28:03 +0000
 
