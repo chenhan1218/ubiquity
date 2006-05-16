@@ -355,6 +355,11 @@ class Wizard:
         #    widget.set_label(widget.get_label())
 
         text = get_string(widget.name(), lang)
+        
+        if widget.name() == "next":
+            text = get_string("continue", lang) + " >"
+        elif widget.name() == "back":
+            text = "< " + get_string("go_back", lang)
         if text is None:
             return
 
@@ -504,9 +509,12 @@ class Wizard:
         self.progressDialogue.hide()
 
         self.installing = False
-        quitText = """Kubuntu is now installed on your computer. You need to restart the computer in order to use it. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.\n\nMake sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system."""
-        
-        quitAnswer = QMessageBox.question(self.userinterface, "Finished", quitText, "Quit", "Reboot")
+        quitText = "<qt>" + get_string("finished_label", self.locale) + "</qt>"
+        quitButtonText = get_string("quit_button", self.locale)
+        rebootButtonText = get_string("reboot_button", self.locale)
+        titleText = get_string("finished_dialog", self.locale)
+
+        quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, quitButtonText, rebootButtonText)
 
         if quitAnswer == 1:
             self.reboot();
@@ -538,7 +546,10 @@ class Wizard:
         self.app.exit()
 
     def on_cancel_clicked(self):
-        response = QMessageBox.question(self.userinterface, "Abort?", "Do you really want to abort the installation now?", "Quit", "Continue")
+        warning_dialog_label = get_string("warning_dialog_label", self.locale)
+        abortTitle = get_string("warning_dialog", self.locale)
+        continueButtonText = get_string("continue", self.locale)
+        response = QMessageBox.question(self.userinterface, abortTitle, warning_dialog_label, abortTitle, continueButtonText)
         if response == 0:
             if self.qtparted_subp is not None:
                 print >>self.qtparted_subp.stdin, "exit"
@@ -752,9 +763,9 @@ class Wizard:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
-            # TODO jr kde-ify
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
-            ##self.next.set_label("Install") # TODO i18n
+            installText = get_string("live_installer", self.locale)
+            self.userinterface.next.setText(installText)
 
     def gparted_to_mountpoints(self):
         """Processing gparted to mountpoints step tasks."""
@@ -1114,7 +1125,12 @@ class Wizard:
             progress_title = ""
         if self.progress_position.depth() == 0:
             total_steps = progress_max - progress_min
+
             self.progressDialogue = QProgressDialog(progress_title, "Cancel", total_steps, self.userinterface, "progressdialog", True)
+
+            self.cancelButton = QPushButton("Cancel", self.progressDialogue)
+            self.cancelButton.setEnabled(False)
+            self.progressDialogue.setCancelButton(self.cancelButton)
 
         self.progress_position.start(progress_min, progress_max)
         self.debconf_progress_set(0)
@@ -1162,16 +1178,11 @@ class Wizard:
         self.progress_position.set_region(region_start, region_end)
 
     def debconf_progress_cancellable (self, cancellable):
-        if not cancellable:
-            cancelButton = QPushButton("Cancel", self.progressDialogue)
-            cancelButton.setEnabled(False)
-            self.progressDialogue.setCancelButton(cancelButton)
-            self.progress_cancelled = False
+        if cancellable:
+            self.cancelButton.setEnabled(True)
         else:
-            cancelButton = QPushButton("Cancel", self.progressDialogue)
-            cancelButton.setEnabled(True)
-            self.progressDialogue.setCancelButton(cancelButton)
-            pass
+            self.cancelButton.setEnabled(False)
+            self.progress_cancelled = False
 
     def on_progress_cancel_button_clicked (self, button):
         self.progress_cancelled = True
@@ -1338,7 +1349,8 @@ class Wizard:
         # of this can go away once we reorganise page handling not to invoke
         # a main loop for each page.
         self.userinterface.setCursor(QCursor(Qt.WaitCursor))
-        self.userinterface.next.setText("Install") # TODO i18n
+        installText = get_string("live_installer", self.locale)
+        self.userinterface.next.setText(installText) # TODO i18n
         self.previous_partitioning_page = self.get_current_page()
         self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
 
@@ -1442,7 +1454,8 @@ class Wizard:
             # TODO self.previous_partitioning_page
             #self.live_installer.show()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
-            self.userinterface.next.setText("Next >")
+            nextText = get_string("continue", lang) + " >"
+            self.userinterface.next.setText(nextText)
             self.backup = True
             self.installing = False
 
@@ -1621,6 +1634,7 @@ class TimezoneMap(object):
 
     def cityChanged(self):
         self.frontend.userinterface.timezone_city_combo.setCurrentItem(self.city_index.index(self.tzmap.city))
+        self.city_combo_changed(self.frontend.userinterface.timezone_city_combo.currentItem())
 
 class CityIndicator(QLabel):
     def __init__(self, parent, name="cityindicator"):
