@@ -2014,6 +2014,7 @@ Please choose the language used for the installation process. This language will
 				  <property name="update_policy">GTK_UPDATE_CONTINUOUS</property>
 				  <property name="inverted">False</property>
 				  <property name="adjustment">0 0 100 1 10 0</property>
+				  <signal name="format_value" handler="on_new_size_scale_format_value" last_modification_time="Tue, 16 May 2006 18:23:33 GMT"/>
 				</widget>
 				<packing>
 				  <property name="padding">0</property>
