@@ -1,10 +1,14 @@
 ubiquity (0.99.83) UNRELEASED; urgency=low
 
+  [ Jonathan Riddell ]
   * KDE Frontend:
     - Update timezone information when clicking on map
     - i18n various strings, closes Malone #43818
     - Allow line wrap on Reboot dialogue, closes Malone #43680
     - Fix cancel button on debconf progress dialogue from jumping position
+
+  [ Colin Watson ]
+  * Avoid starting cardmgr while running hw-detect.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 15 May 2006 23:28:03 +0000
 
