@@ -763,9 +763,9 @@ class Wizard:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
-            # TODO jr kde-ify
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
-            ##self.next.set_label("Install") # TODO i18n
+            installText = get_string("live_installer", self.locale)
+            self.userinterface.next.setText(installText)
 
     def gparted_to_mountpoints(self):
         """Processing gparted to mountpoints step tasks."""
@@ -1125,7 +1125,12 @@ class Wizard:
             progress_title = ""
         if self.progress_position.depth() == 0:
             total_steps = progress_max - progress_min
+
             self.progressDialogue = QProgressDialog(progress_title, "Cancel", total_steps, self.userinterface, "progressdialog", True)
+
+            self.cancelButton = QPushButton("Cancel", self.progressDialogue)
+            self.cancelButton.setEnabled(False)
+            self.progressDialogue.setCancelButton(self.cancelButton)
 
         self.progress_position.start(progress_min, progress_max)
         self.debconf_progress_set(0)
@@ -1173,16 +1178,11 @@ class Wizard:
         self.progress_position.set_region(region_start, region_end)
 
     def debconf_progress_cancellable (self, cancellable):
-        if not cancellable:
-            cancelButton = QPushButton("Cancel", self.progressDialogue)
-            cancelButton.setEnabled(False)
-            self.progressDialogue.setCancelButton(cancelButton)
-            self.progress_cancelled = False
+        if cancellable:
+            self.cancelButton.setEnabled(True)
         else:
-            cancelButton = QPushButton("Cancel", self.progressDialogue)
-            cancelButton.setEnabled(True)
-            self.progressDialogue.setCancelButton(cancelButton)
-            pass
+            self.cancelButton.setEnabled(False)
+            self.progress_cancelled = False
 
     def on_progress_cancel_button_clicked (self, button):
         self.progress_cancelled = True
@@ -1349,7 +1349,8 @@ class Wizard:
         # of this can go away once we reorganise page handling not to invoke
         # a main loop for each page.
         self.userinterface.setCursor(QCursor(Qt.WaitCursor))
-        self.userinterface.next.setText("Install") # TODO i18n
+        installText = get_string("live_installer", self.locale)
+        self.userinterface.next.setText(installText) # TODO i18n
         self.previous_partitioning_page = self.get_current_page()
         self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
 
