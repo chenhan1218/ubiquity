@@ -757,7 +757,7 @@ class Install:
         hardware system in which has been installed on and need some
         automatic configurations to get work."""
 
-        dbfilter = hw_detect.HwDetect(None)
+        dbfilter = hw_detect.HwDetect(None, self.db)
         if dbfilter.run_command(auto_process=True) != 0:
             return False
 
