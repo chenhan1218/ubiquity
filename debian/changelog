@@ -10,6 +10,9 @@ ubiquity (0.99.83) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Avoid starting cardmgr while running hw-detect.
   * Remove old partman state each time the installer is started.
+  * Rearrange partman component control flow to set the default resize
+    slider position straight away rather than waiting until the resize
+    option is selected (closes: Malone #39062).
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 15 May 2006 23:28:03 +0000
 

@@ -47,9 +47,9 @@ class Partman(FilteredCommand):
         if os.path.exists('/var/lib/partman/initial_auto'):
             os.unlink('/var/lib/partman/initial_auto')
 
+        self.autopartition_question = None
         self.resize_min_percent = 0
-        self.manual_partitioning = False
-        self.backup_from_new_size = False
+        self.backup_from_new_size = None
 
         questions = ['^partman-auto/select_disk$',
                      '^partman-auto/.*automatically_partition$',
@@ -62,7 +62,6 @@ class Partman(FilteredCommand):
         return ('/bin/partman', questions)
 
     def error(self, priority, question):
-        self.backup_from_new_size = True
         self.frontend.error_dialog(self.description(question))
         return super(Partman, self).error(priority, question)
 
@@ -153,10 +152,7 @@ class Partman(FilteredCommand):
         if self.done:
             # user answered confirmation question or selected manual
             # partitioning
-            if self.manual_partitioning:
-                return False
-            else:
-                return self.succeeded
+            return self.succeeded
 
         self.current_question = question
 
@@ -174,24 +170,35 @@ class Partman(FilteredCommand):
                 return True
 
         elif question.endswith('automatically_partition'):
+            if self.backup_from_new_size is not None:
+                # We backed up from the resize question and now need to
+                # carry on down a different (preseeded) path.
+                self.preseed(question, self.backup_from_new_size)
+                self.backup_from_new_size = None
+                self.succeeded = True
+                return True
+
+            self.autopartition_question = question
             self.resize_desc = \
                 self.description('partman-auto/text/resize_use_free')
             self.manual_desc = \
                 self.description('partman-auto/text/custom_partitioning')
+            choices = self.choices(question)
             self.frontend.set_autopartition_choices(
                 self.choices(question), self.resize_desc, self.manual_desc)
-            self.backup_from_new_size = False
+            if self.resize_desc in choices:
+                # The resize option is available, so we need to present the
+                # user with an accurate resize slider before passing control
+                # to the UI.
+                # Don't preseed_as_c, because Perl debconf is buggy in that
+                # it doesn't expand variables in the result of METAGET
+                # choices-c. All locales have the same variables anyway so
+                # it doesn't matter.
+                self.preseed(question, self.resize_desc)
+                return True
 
         elif question == 'partman-partitioning/new_size':
-            if self.backup_from_new_size:
-                self.backup_from_new_size = False
-                return False
-
-            # We have to wait for partman to ask this rather than preseeding
-            # it in advance, since partman sets it before asking it.
-            percent = self.frontend.get_autopartition_resize_percent()
-            self.preseed('partman-partitioning/new_size', '%d%%' % percent)
-            return True
+            self.backup_from_new_size = None
 
         elif question.startswith('partman/confirm'):
             if self.frontend.confirm_partitioning_dialog(
@@ -205,7 +212,6 @@ class Partman(FilteredCommand):
             return True
 
         elif qtype == 'boolean':
-            self.backup_from_new_size = True
             response = self.frontend.question_dialog(
                 self.description(question),
                 self.extended_description(question),
@@ -225,13 +231,7 @@ class Partman(FilteredCommand):
                 self.preseed(question, 'false')
             return True
 
-        # We have some odd control flow here, so make sure we always return
-        # True until the user leaves the autopartitioning screen.
-        super(Partman, self).run(priority, question)
-        if self.manual_partitioning:
-            return False
-        else:
-            return True
+        return super(Partman, self).run(priority, question)
 
     def ok_handler(self):
         if self.current_question == 'partman-auto/select_disk':
@@ -243,25 +243,52 @@ class Partman(FilteredCommand):
             if disk_choice is not None:
                 self.preseed(self.current_question, disk_choice)
                 if disk_choice == self.manual_desc:
-                    self.manual_partitioning = True
+                    self.succeeded = False
+                    self.done = True
                 else:
-                    # don't exit partman yet
-                    self.exit_ui_loops()
-                    return
+                    # Don't exit partman yet.
+                    pass
+                self.exit_ui_loops()
+                return
 
-        elif self.current_question.endswith('automatically_partition'):
+        elif (self.current_question.endswith('automatically_partition') or
+              self.current_question == 'partman-partitioning/new_size'):
             autopartition_choice = self.frontend.get_autopartition_choice()
             # Don't preseed_as_c, because Perl debconf is buggy in that it
             # doesn't expand variables in the result of METAGET choices-c.
             # All locales have the same variables anyway so it doesn't
             # matter.
-            self.preseed(self.current_question, autopartition_choice)
-            if autopartition_choice == self.manual_desc:
-                self.manual_partitioning = True
+            if self.autopartition_question is not None:
+                self.preseed(self.autopartition_question, autopartition_choice)
             else:
-                # don't exit partman yet
-                self.exit_ui_loops()
-                return
+                self.preseed('partman-auto/init_automatically_partition',
+                             autopartition_choice)
+                self.preseed('partman-auto/automatically_partition',
+                             autopartition_choice)
+
+            if autopartition_choice == self.manual_desc:
+                # Back up all the way out.
+                self.succeeded = False
+                self.done = True
+            else:
+                if autopartition_choice == self.resize_desc:
+                    # We're on the right path. Keep going.
+                    percent = self.frontend.get_autopartition_resize_percent()
+                    self.preseed(self.current_question, '%d%%' % percent)
+                    self.succeeded = True
+                elif self.current_question == 'partman-partitioning/new_size':
+                    # We went forward to the resize question, but that
+                    # turned out to be the wrong choice. Back up as far as
+                    # the autopartitioning question, and then continue based
+                    # on what the user selected for that.
+                    self.backup_from_new_size = autopartition_choice
+                    self.succeeded = False
+                else:
+                    # We're on the right path. Keep going.
+                    self.succeeded = True
+                # Don't exit partman yet.
+            self.exit_ui_loops()
+            return
 
         super(Partman, self).ok_handler()
 
