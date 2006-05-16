@@ -18,6 +18,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import os
+import math
 import signal
 import textwrap
 from ubiquity.filteredcommand import FilteredCommand
@@ -69,7 +70,7 @@ class Partman(FilteredCommand):
         if question == 'partman-partitioning/new_size':
             if key == 'PERCENT':
                 self.frontend.set_autopartition_resize_min_percent(
-                    int(value.rstrip('%')))
+                    int(math.ceil(float(value.rstrip('%')))))
 
     # partman relies on multi-line SUBSTs to construct the confirmation
     # message, which have no way to work in debconf (and, as far as I can
