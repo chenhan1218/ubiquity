@@ -23,5 +23,5 @@ partman-target 41ubuntu1
 partman-xfs 27ubuntu1
 silo-installer 1.03ubuntu3
 tzsetup 1:0.8ubuntu7
-user-setup 1.1ubuntu2
+user-setup 1.1ubuntu3
 yaboot-installer 1.1.4ubuntu3
