@@ -50,6 +50,7 @@ class Partman(FilteredCommand):
         self.autopartition_question = None
         self.resize_min_percent = 0
         self.backup_from_new_size = None
+        self.stashed_auto_mountpoints = None
 
         questions = ['^partman-auto/select_disk$',
                      '^partman-auto/.*automatically_partition$',
@@ -170,6 +171,31 @@ class Partman(FilteredCommand):
         return message
 
     def run(self, priority, question):
+        if self.stashed_auto_mountpoints is None:
+            # We need to extract the automatic mountpoints calculated by
+            # partman at some point while parted_server is running, so that
+            # they can be used later if manual partitioning is selected.
+            # This hack is only necessary because the manual partitioner is
+            # NIHed rather than being based on partman.
+            self.stashed_auto_mountpoints = {}
+            parted = PartedServer()
+            for disk in parted.disks():
+                parted.select_disk(disk)
+                for part in parted.partitions():
+                    (p_num, p_id, p_size, p_type, p_fs, p_path, p_name) = part
+                    if p_fs == 'free':
+                        continue
+                    if not parted.has_part_entry(p_id, 'method'):
+                        continue
+                    method = parted.readline_part_entry(p_id, 'method')
+                    if method == 'swap':
+                        continue
+                    if not parted.has_part_entry(p_id, 'acting_filesystem'):
+                        continue
+                    mountpoint = parted.readline_part_entry(p_id, 'mountpoint')
+                    self.stashed_auto_mountpoints[p_path] = mountpoint
+            self.frontend.set_auto_mountpoints(self.stashed_auto_mountpoints)
+
         if self.done:
             # user answered confirmation question or selected manual
             # partitioning

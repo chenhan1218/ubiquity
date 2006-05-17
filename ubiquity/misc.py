@@ -207,7 +207,7 @@ def get_filesystems(fstype={}):
     return device_list
 
 
-def get_default_partition_selection(size, fstype):
+def get_default_partition_selection(size, fstype, auto_mountpoints):
     """Return a default partition selection as a dictionary of
     {mountpoint: device}. The first partition with the biggest size and a
     reasonable POSIX filesystem will be marked as the root selection, and
@@ -227,6 +227,7 @@ def get_default_partition_selection(size, fstype):
     # preferred partitions for each mountpoint (the highest ext3 partition
     # to '/' and the first swap partition to swap).
     selection = {}
+    mounted = set()
     if len(device_list.items()) != 0:
         root, swap = 0, 0
         for partition in new_devices + old_devices:
@@ -240,13 +241,26 @@ def get_default_partition_selection(size, fstype):
             elif (fs in ('ext2', 'ext3', 'jfs', 'reiserfs', 'xfs') and
                   size_selected > 1024):
                 if root == 0:
-                    selection['/'] = '/dev/%s' % partition
+                    path = '/dev/%s' % partition
+                    selection['/'] = path
+                    mounted.add(path)
                     root = 1
             elif fs == 'linux-swap':
-                selection['swap'] = '/dev/%s' % partition
+                path = '/dev/%s' % partition
+                selection['swap'] = path
+                mounted.add(path)
                 swap = 1
             else:
                 continue
+
+    if auto_mountpoints is not None:
+        for device, mountpoint in auto_mountpoints.items():
+            # Make sure the device isn't in fstype to ensure that the mount
+            # will be read-only.
+            if device not in fstype and device not in mounted:
+                selection[mountpoint] = device
+                mounted.add(device)
+
     return selection
 
 

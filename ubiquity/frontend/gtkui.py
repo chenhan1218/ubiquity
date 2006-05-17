@@ -99,6 +99,7 @@ class Wizard:
         # declare attributes
         self.distro = distro
         self.current_keyboard = None
+        self.auto_mountpoints = None
         self.resize_min_size = None
         self.resize_max_size = None
         self.manual_choice = None
@@ -833,7 +834,7 @@ class Wizard:
             # Try to get some default mountpoint selections.
             self.size = get_sizes()
             selection = get_default_partition_selection(
-                self.size, self.gparted_fstype)
+                self.size, self.gparted_fstype, self.auto_mountpoints)
 
             # Setting a default partition preselection
             if len(selection.items()) == 0:
@@ -843,8 +844,11 @@ class Wizard:
                 # widgets and setting size values. In addition, next row
                 # is showed if they're validated.
                 for mountpoint, partition in selection.items():
-                    self.mountpoint_widgets[-1].set_active(
-                        self.mountpoint_choices.index(mountpoint))
+                    if mountpoint in self.mountpoint_choices:
+                        self.mountpoint_widgets[-1].set_active(
+                            self.mountpoint_choices.index(mountpoint))
+                    else:
+                        self.mountpoint_widgets[-1].child.set_text(mountpoint)
                     self.size_widgets[-1].set_text(
                         self.set_size_msg(partition))
                     self.partition_widgets[-1].set_active(
@@ -1260,6 +1264,10 @@ class Wizard:
     def password_error(self, msg):
         self.password_error_reason.set_text(msg)
         self.password_error_box.show()
+
+
+    def set_auto_mountpoints(self, auto_mountpoints):
+        self.auto_mountpoints = auto_mountpoints
 
 
     def set_disk_choices (self, choices, manual_choice):

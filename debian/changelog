@@ -4,6 +4,9 @@ ubiquity (0.99.84) UNRELEASED; urgency=low
     requirement for / (closes: Malone #42435).
   * Remove all partman state (/var/lib/partman) on startup, not just
     /var/lib/partman/devices.
+  * Automatically offer read-only mounts under /media in the manual
+    partitioner when partman thinks it's appropriate (closes: Malone
+    #40114).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 17 May 2006 09:39:32 +0100
 
