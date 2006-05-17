@@ -80,7 +80,7 @@ def check_mountpoint(mountpoints, size):
 
     import re
     result = set()
-    root = 0
+    root = False
     root_size = 0.0
 
     for mountpoint, format, fstype in mountpoints.itervalues():
@@ -94,7 +94,7 @@ def check_mountpoint(mountpoints, size):
     seen_mountpoints = set()
     for device, (path, format, fstype) in mountpoints.items():
         if path == '/':
-            root = 1
+            root = True
             root_size += float(size[device.split('/')[2]])
         elif '/'.join(path.split('/')[:2]) in ('/boot', '/usr', '/var'):
             root_size += float(size[device.split('/')[2]])
@@ -107,7 +107,7 @@ def check_mountpoint(mountpoints, size):
         if not regex.search(path):
             result.add(MOUNTPOINT_BADCHAR)
 
-    if root != 1:
+    if not root:
         result.add(MOUNTPOINT_NOROOT)
     elif root_size < root_minimum_KB:
         result.add(MOUNTPOINT_BADSIZE)
