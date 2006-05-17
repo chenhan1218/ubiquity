@@ -229,27 +229,27 @@ def get_default_partition_selection(size, fstype, auto_mountpoints):
     selection = {}
     mounted = set()
     if len(device_list.items()) != 0:
-        root, swap = 0, 0
+        root, swap = False, False
         for partition in new_devices + old_devices:
             size_selected = size[partition]
             try:
                 fs = device_list['/dev/%s' % partition]
             except:
                 continue
-            if swap == 1 and root == 1:
+            if swap and root:
                 break
             elif (fs in ('ext2', 'ext3', 'jfs', 'reiserfs', 'xfs') and
                   size_selected > 1024):
-                if root == 0:
+                if not root:
                     path = '/dev/%s' % partition
                     selection['/'] = path
                     mounted.add(path)
-                    root = 1
+                    root = True
             elif fs == 'linux-swap':
                 path = '/dev/%s' % partition
                 selection['swap'] = path
                 mounted.add(path)
-                swap = 1
+                swap = True
             else:
                 continue
 
