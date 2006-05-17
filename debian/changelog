@@ -11,6 +11,8 @@ ubiquity (0.99.84) UNRELEASED; urgency=low
   * GTK frontend:
     - Keep a stack of old progress bar titles, and drop the primary text
       back to the previous title on PROGRESS STEP (closes: Malone #38422).
+  * Add .desktop file translations from Rosetta: Czech, Dutch, Occitan,
+    Russian.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 17 May 2006 09:39:32 +0100
 
