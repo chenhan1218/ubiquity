@@ -2,6 +2,8 @@ ubiquity (0.99.84) UNRELEASED; urgency=low
 
   * Count /boot, /usr, and /var (and subdirectories) towards minimum size
     requirement for / (closes: Malone #42435).
+  * Remove all partman state (/var/lib/partman) on startup, not just
+    /var/lib/partman/devices.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 17 May 2006 09:39:32 +0100
 
