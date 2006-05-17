@@ -1145,7 +1145,8 @@ class Wizard:
             self.cancelButton.setEnabled(False)
             self.progressDialogue.setCancelButton(self.cancelButton)
 
-        self.progress_position.start(progress_min, progress_max)
+        self.progress_position.start(progress_min, progress_max,
+                                     progress_title)
         self.debconf_progress_set(0)
         self.progressDialogue.show()
         return True

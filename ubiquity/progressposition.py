@@ -30,14 +30,14 @@ class ProgressPosition(object):
     """
 
     def __init__(self):
-        # list of [start, end, region_start, region_end]
+        # list of [start, end, region_start, region_end, title]
         # TODO cjwatson 2006-02-25: not the neatest data structure in the
         # world ...
         self.positions = []
         self.inner_position = 0.0
 
-    def start(self, start, end):
-        self.positions.insert(0, [start, end, start, end])
+    def start(self, start, end, title):
+        self.positions.insert(0, [start, end, start, end, title])
 
     def stop(self):
         self.positions.pop(0)
@@ -72,3 +72,6 @@ class ProgressPosition(object):
             fraction = ((position - self.positions[bar][0]) /
                         (self.positions[bar][1] - self.positions[bar][0]))
         return fraction
+
+    def title(self):
+        return self.positions[0][4]

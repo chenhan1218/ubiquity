@@ -1129,10 +1129,12 @@ class Wizard:
         if self.progress_position.depth() == 0:
             self.debconf_progress_window.set_title(progress_title)
 
+        self.progress_position.start(progress_min, progress_max,
+                                     progress_title)
         self.progress_title.set_markup(
-            '<big><b>' + xml.sax.saxutils.escape(progress_title) +
+            '<big><b>' +
+            xml.sax.saxutils.escape(self.progress_position.title()) +
             '</b></big>')
-        self.progress_position.start(progress_min, progress_max)
         self.debconf_progress_set(0)
         self.progress_info.set_text('')
         self.debconf_progress_window.show()
@@ -1170,6 +1172,11 @@ class Wizard:
         self.progress_position.stop()
         if self.progress_position.depth() == 0:
             self.debconf_progress_window.hide()
+        else:
+            self.progress_title.set_markup(
+                '<big><b>' +
+                xml.sax.saxutils.escape(self.progress_position.title()) +
+                '</b></big>')
         return True
 
     def debconf_progress_region (self, region_start, region_end):
