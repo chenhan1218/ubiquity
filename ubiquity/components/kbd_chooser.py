@@ -121,6 +121,11 @@ def map_keyboard(keyboard):
             xmap = "by"
             break
 
+        if k == "cf":
+            xmap = "ca"
+            variant = "fr"
+            break
+
         if k == "croat":
             xmap = "hr"
             break
