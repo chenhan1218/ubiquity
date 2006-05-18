@@ -38,8 +38,8 @@ from apt.cache import Cache
 from apt.progress import FetchProgress, InstallProgress
 from ubiquity import misc
 from ubiquity.components import language_apply, apt_setup, timezone_apply, \
-                                kbd_chooser_apply, usersetup_apply, \
-                                hw_detect, check_kernels
+                                clock_setup, kbd_chooser_apply, \
+                                usersetup_apply, hw_detect, check_kernels
 
 class DebconfFetchProgress(FetchProgress):
     """An object that reports apt's fetching progress using debconf."""
@@ -708,6 +708,10 @@ class Install:
         """Set timezone on installed system."""
 
         dbfilter = timezone_apply.TimezoneApply(None)
+        if dbfilter.run_command(auto_process=True) != 0:
+            return False
+
+        dbfilter = clock_setup.ClockSetup(None)
         return (dbfilter.run_command(auto_process=True) == 0)
 
 
@@ -753,7 +757,7 @@ class Install:
         hardware system in which has been installed on and need some
         automatic configurations to get work."""
 
-        dbfilter = hw_detect.HwDetect(None)
+        dbfilter = hw_detect.HwDetect(None, self.db)
         if dbfilter.run_command(auto_process=True) != 0:
             return False
 

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-04-29 11:13+0000\n"
+"PO-Revision-Date: 2006-05-15 13:25+0000\n"
 "Last-Translator: Rui Az. <astronomy@mail.pt>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
@@ -287,12 +287,13 @@ msgstr "Preparado para instalar"
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
+"O seu novo sistema operativo será instalado com as definições seguintes:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Passo ${INDEX} de ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -338,13 +339,13 @@ msgstr "Instalação completa"
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Continuar a usar o live CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "Reiniciar agora"
 
 #. Type: text
 #. Description

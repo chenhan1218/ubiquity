@@ -1,10 +1,13 @@
+# Portuguese messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-01 00:57+0000\n"
+"PO-Revision-Date: 2006-05-17 21:54+0000\n"
 "Last-Translator: Og Maciel <og.maciel@gmail.com>\n"
 "Language-Team: Debia-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -290,7 +293,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Passo ${INDEX} de ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -336,13 +339,13 @@ msgstr "Instalação finalizada"
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Continue usando este live CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "Reiniciar agora"
 
 #. Type: text
 #. Description

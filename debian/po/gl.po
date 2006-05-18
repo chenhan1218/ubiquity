@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-04-20 06:08+0000\n"
+"PO-Revision-Date: 2006-05-15 11:11+0000\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@debian.org>\n"
 "Language-Team: Galego <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
@@ -402,7 +402,7 @@ msgstr "A limpar..."
 #. Description
 #: ../ubiquity.templates:270
 msgid "Running ${SCRIPT}..."
-msgstr ""
+msgstr "A executar ${SCRIPT}..."
 
 #. Type: text
 #. Description

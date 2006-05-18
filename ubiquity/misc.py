@@ -111,6 +111,26 @@ def get_progress(str):
     return num, text
 
 
+def format_size(size):
+    """Format a partition size."""
+    if size < 1024:
+        unit = 'B'
+        factor = 1
+    elif size < 1024 * 1024:
+        unit = 'kB'
+        factor = 1024
+    elif size < 1024 * 1024 * 1024:
+        unit = 'MB'
+        factor = 1024 * 1024
+    elif size < 1024 * 1024 * 1024 * 1024:
+        unit = 'GB'
+        factor = 1024 * 1024 * 1024
+    else:
+        unit = 'TB'
+        factor = 1024 * 1024 * 1024 * 1024
+    return '%.1f %s' % (float(size) / factor, unit)
+
+
 def get_partitions():
     """returns an array with fdisk output related to partition data."""
 
@@ -187,7 +207,7 @@ def get_filesystems(fstype={}):
     return device_list
 
 
-def get_default_partition_selection(size, fstype):
+def get_default_partition_selection(size, fstype, auto_mountpoints):
     """Return a default partition selection as a dictionary of
     {mountpoint: device}. The first partition with the biggest size and a
     reasonable POSIX filesystem will be marked as the root selection, and
@@ -207,26 +227,40 @@ def get_default_partition_selection(size, fstype):
     # preferred partitions for each mountpoint (the highest ext3 partition
     # to '/' and the first swap partition to swap).
     selection = {}
+    mounted = set()
     if len(device_list.items()) != 0:
-        root, swap = 0, 0
+        root, swap = False, False
         for partition in new_devices + old_devices:
             size_selected = size[partition]
             try:
                 fs = device_list['/dev/%s' % partition]
             except:
                 continue
-            if swap == 1 and root == 1:
+            if swap and root:
                 break
             elif (fs in ('ext2', 'ext3', 'jfs', 'reiserfs', 'xfs') and
                   size_selected > 1024):
-                if root == 0:
-                    selection['/'] = '/dev/%s' % partition
-                    root = 1
+                if not root:
+                    path = '/dev/%s' % partition
+                    selection['/'] = path
+                    mounted.add(path)
+                    root = True
             elif fs == 'linux-swap':
-                selection['swap'] = '/dev/%s' % partition
-                swap = 1
+                path = '/dev/%s' % partition
+                selection['swap'] = path
+                mounted.add(path)
+                swap = True
             else:
                 continue
+
+    if auto_mountpoints is not None:
+        for device, mountpoint in auto_mountpoints.items():
+            # Make sure the device isn't in fstype to ensure that the mount
+            # will be read-only.
+            if device not in fstype and device not in mounted:
+                selection[mountpoint] = device
+                mounted.add(device)
+
     return selection
 
 

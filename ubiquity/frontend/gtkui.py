@@ -44,6 +44,7 @@ import time
 import datetime
 import glob
 import subprocess
+import math
 import traceback
 import xml.sax.saxutils
 
@@ -74,18 +75,17 @@ GLADEDIR = os.path.join(PATH, 'glade')
 LOCALEDIR = "/usr/share/locale"
 
 BREADCRUMB_STEPS = {
-    "stepWelcome": 1,
-    "stepLanguage": 2,
-    "stepLocation": 3,
-    "stepKeyboardConf": 4,
-    "stepUserInfo": 5,
-    "stepPartDisk": 6,
-    "stepPartAuto": 6,
-    "stepPartAdvanced": 6,
-    "stepPartMountpoints": 6,
-    "stepReady": 7
+    "stepLanguage": 1,
+    "stepLocation": 2,
+    "stepKeyboardConf": 3,
+    "stepUserInfo": 4,
+    "stepPartDisk": 5,
+    "stepPartAuto": 5,
+    "stepPartAdvanced": 5,
+    "stepPartMountpoints": 5,
+    "stepReady": 6
 }
-BREADCRUMB_MAX_STEP = 7
+BREADCRUMB_MAX_STEP = 6
 
 # For the font wibbling later
 import pango
@@ -98,6 +98,10 @@ class Wizard:
         # declare attributes
         self.distro = distro
         self.current_keyboard = None
+        self.got_disk_choices = False
+        self.auto_mountpoints = None
+        self.resize_min_size = None
+        self.resize_max_size = None
         self.manual_choice = None
         self.password = ''
         self.hostname_edited = False
@@ -197,7 +201,7 @@ class Wizard:
             sys.exit(1)
 
         # show interface
-        self.show_intro()
+        got_intro = self.show_intro()
         self.allow_change_step(True)
 
         # Declare SignalHandler
@@ -211,7 +215,17 @@ class Wizard:
             'insert_text', self.on_hostname_insert_text)
 
         # Start the interface
-        self.set_current_page(0)
+        if got_intro:
+            global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
+            for step in BREADCRUMB_STEPS:
+                BREADCRUMB_STEPS[step] += 1
+            BREADCRUMB_STEPS["stepWelcome"] = 1
+            BREADCRUMB_MAX_STEP += 1
+            first_step = self.stepWelcome
+        else:
+            first_step = self.stepLanguage
+        self.steps.set_current_page(self.steps.page_num(first_step))
+
         while self.current_page is not None:
             if not self.installing:
                 # Make sure any started progress bars are stopped.
@@ -405,6 +419,9 @@ class Wizard:
             intro_file.close()
             self.stepWelcome.add(widget)
             widget.show()
+            return True
+        else:
+            return False
 
 
     def step_name(self, step_index):
@@ -412,6 +429,7 @@ class Wizard:
 
 
     def set_current_page(self, current):
+        global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         self.current_page = current
         current_name = self.step_name(current)
         label_text = get_string("step_label", self.locale)
@@ -630,7 +648,8 @@ class Wizard:
         """check if all entries from Identification screen are filled. Callback
         defined in glade file."""
 
-        if widget.get_name() == 'username' and not self.hostname_edited:
+        if (widget is not None and widget.get_name() == 'username' and
+            not self.hostname_edited):
             if self.laptop:
                 hostname_suffix = '-laptop'
             else:
@@ -699,11 +718,11 @@ class Wizard:
         # Keyboard
         elif step == "stepKeyboardConf":
             self.steps.next_page()
-            # XXX: Actually do keyboard config here
-            self.allow_go_forward(False)
+            self.info_loop(None)
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
+            self.got_disk_choices = False
         # Disk selection
         elif step == "stepPartDisk":
             self.process_disk_selection()
@@ -830,7 +849,7 @@ class Wizard:
             # Try to get some default mountpoint selections.
             self.size = get_sizes()
             selection = get_default_partition_selection(
-                self.size, self.gparted_fstype)
+                self.size, self.gparted_fstype, self.auto_mountpoints)
 
             # Setting a default partition preselection
             if len(selection.items()) == 0:
@@ -840,8 +859,11 @@ class Wizard:
                 # widgets and setting size values. In addition, next row
                 # is showed if they're validated.
                 for mountpoint, partition in selection.items():
-                    self.mountpoint_widgets[-1].set_active(
-                        self.mountpoint_choices.index(mountpoint))
+                    if mountpoint in self.mountpoint_choices:
+                        self.mountpoint_widgets[-1].set_active(
+                            self.mountpoint_choices.index(mountpoint))
+                    else:
+                        self.mountpoint_widgets[-1].child.set_text(mountpoint)
                     self.size_widgets[-1].set_text(
                         self.set_size_msg(partition))
                     self.partition_widgets[-1].set_active(
@@ -998,6 +1020,13 @@ class Wizard:
 
         if step == "stepLocation":
             self.back.hide()
+        elif step == "stepPartAuto":
+            if self.got_disk_choices:
+                new_step = self.stepPartDisk
+            else:
+                new_step = self.stepUserInfo
+            self.steps.set_current_page(self.steps.page_num(new_step))
+            changed_page = True
         elif step == "stepPartAdvanced":
             print >>self.gparted_subp.stdin, "undo"
             self.gparted_subp.stdin.close()
@@ -1051,7 +1080,11 @@ class Wizard:
 
     def on_new_size_scale_format_value (self, widget, value):
         # TODO cjwatson 2006-01-09: get minsize/maxsize through to here
-        return '%d%%' % value
+        if self.resize_max_size is not None:
+            size = value * self.resize_max_size / 100
+            return '%d%% (%s)' % (value, format_size(size))
+        else:
+            return '%d%%' % value
 
 
     def on_steps_switch_page (self, foo, bar, current):
@@ -1118,10 +1151,12 @@ class Wizard:
         if self.progress_position.depth() == 0:
             self.debconf_progress_window.set_title(progress_title)
 
+        self.progress_position.start(progress_min, progress_max,
+                                     progress_title)
         self.progress_title.set_markup(
-            '<big><b>' + xml.sax.saxutils.escape(progress_title) +
+            '<big><b>' +
+            xml.sax.saxutils.escape(self.progress_position.title()) +
             '</b></big>')
-        self.progress_position.start(progress_min, progress_max)
         self.debconf_progress_set(0)
         self.progress_info.set_text('')
         self.debconf_progress_window.show()
@@ -1159,6 +1194,11 @@ class Wizard:
         self.progress_position.stop()
         if self.progress_position.depth() == 0:
             self.debconf_progress_window.hide()
+        else:
+            self.progress_title.set_markup(
+                '<big><b>' +
+                xml.sax.saxutils.escape(self.progress_position.title()) +
+                '</b></big>')
         return True
 
     def debconf_progress_region (self, region_start, region_end):
@@ -1255,7 +1295,13 @@ class Wizard:
         self.password_error_box.show()
 
 
+    def set_auto_mountpoints(self, auto_mountpoints):
+        self.auto_mountpoints = auto_mountpoints
+
+
     def set_disk_choices (self, choices, manual_choice):
+        self.got_disk_choices = True
+
         for child in self.part_disk_vbox.get_children():
             self.part_disk_vbox.remove(child)
 
@@ -1315,8 +1361,12 @@ class Wizard:
                 return button.get_label()
 
 
-    def set_autopartition_resize_min_percent (self, min_percent):
-        self.new_size_scale.set_range(min_percent, 100)
+    def set_autopartition_resize_bounds (self, min_size, max_size):
+        self.resize_min_size = min_size
+        self.resize_max_size = max_size
+        if min_size is not None and max_size is not None:
+            min_percent = int(math.ceil(100 * min_size / max_size))
+            self.new_size_scale.set_range(min_percent, 100)
 
 
     def get_autopartition_resize_percent (self):

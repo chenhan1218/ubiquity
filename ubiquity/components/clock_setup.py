@@ -19,11 +19,6 @@
 
 from ubiquity.filteredcommand import FilteredCommand
 
-class HwDetect(FilteredCommand):
+class ClockSetup(FilteredCommand):
     def prepare(self):
-        self.preseed('hw-detect/start_pcmcia', 'false')
-        return (['/bin/hw-detect'], ['ERROR', 'PROGRESS'])
-
-    def error(self, priority, question):
-        self.frontend.error_dialog(self.description(question))
-        return super(HwDetect, self).error(priority, question)
+        return (['/usr/share/ubiquity/clock-setup'], [])

@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-04-20 06:11+0000\n"
-"Last-Translator: Parlin Imanuel Toh <pt@samip-online.com>\n"
+"PO-Revision-Date: 2006-05-17 14:21+0000\n"
+"Last-Translator: Gde Bagus Aryana <gde6195@yahoo.com>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
 "id>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Install"
 
 #. Type: text
 #. Description
@@ -35,6 +35,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Siap untuk instalasi? Setelah anda menjawab beberapa pertanyaan, isi dari "
+"live CD ini dapat di-install dalam komputer ini sehingga anda dapat "
+"menjalankan sistem tersebut dalam kecepatan penuh dan tanpa CD tersebut."
 
 #. Type: text
 #. Description
@@ -49,6 +52,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Silakan memilih bahasa yang digunakan untuk proses instalasi. Bahasa ini "
+"akan menjadi bahasa pilihan untuk sistem akhir nanti."
 
 #. Type: text
 #. Description
@@ -78,7 +83,7 @@ msgstr "Zona waktu"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Daerah yang dipilih:"
 
 #. Type: text
 #. Description
@@ -267,7 +272,7 @@ msgstr "Partisi"
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "Format kembali?"
 
 #. Type: text
 #. Description
@@ -287,12 +292,13 @@ msgstr "Siap untuk install"
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
+"Sistem operasi baru anda sekarang akan di-install dengan setting berikut:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Langkah ${INDEX} dari ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -338,13 +344,13 @@ msgstr "Instalasi selesai."
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Lanjut menggukanan live CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "Restart sekarang"
 
 #. Type: text
 #. Description
@@ -354,6 +360,10 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Instalasi telah selesai. Anda perlu melakukan restart komputer ini agar "
+"dapat menggunakan instalasi baru tersebut. Anda dapat melanjutkan "
+"menggunakan live CD ini, walaupun setiap perubahan yang anda buat atau "
+"dokumen yang anda simpan tidak akan disimpan secara permanen."
 
 #. Type: text
 #. Description
@@ -438,7 +448,7 @@ msgstr "Sedang mengkonfigurasi system locales..."
 #. Description
 #: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Mengkonfigurasi apt..."
 
 #. Type: text
 #. Description
@@ -450,7 +460,7 @@ msgstr "Sedang mengkonfigurasi zona waktu..."
 #. Description
 #: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Mengkonfigurasi keyboard..."
 
 #. Type: text
 #. Description
@@ -504,7 +514,7 @@ msgstr "Sedang men-download paket (${TIME} lagi)..."
 #. Description
 #: ../ubiquity.templates:322
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Men-download daftar paket..."
 
 #. Type: text
 #. Description

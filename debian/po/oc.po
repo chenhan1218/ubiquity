@@ -1,15 +1,18 @@
-# Greek messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
+# Occitan (post 1500) translation for debian-installer
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the debian-installer package.
+# Yannig MARCHEGAY <yannick.marchegay@lokanova.com>, 2006.
+# , fuzzy
+#
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-16 06:45+0000\n"
-"Last-Translator: Kostas Papadimas <pkst@gmx.net>\n"
-"Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
+"PO-Revision-Date: 2006-05-16 13:24+0000\n"
+"Last-Translator: Kokoyaya <yannick.marchegay@lokanova.com>\n"
+"Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,13 +21,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr "Εγκατάσταση"
+msgstr "Installar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12
 msgid "Welcome"
-msgstr "Καλώς ήλθατε"
+msgstr "Planvengut"
 
 #. Type: text
 #. Description
@@ -34,15 +37,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Είστε έτοιμοι για εγκατάσταση; Μόλις απαντήσετε σε μερικές ερωτήσεις, τα "
-"περιεχόμενα του live CD θα εγκατασταθούν στον υπολογιστή σας και έτσι θα "
-"χρησιμοποιείτε το σύστημα σας χωρίς το CD."
+"I sètz per installar ? Quant auretz respondut a qualques questions, poiretz "
+"installar lo contengut del Live CD sus l'ordenador per que pòscatz utilisar "
+"lo sistèma a plena velocitat e sens lo CD."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr "Η απάντηση στις ερωτήσεις θα διαρκέσει μόνο λίγα λεπτά."
+msgstr "Vos caldrá sonque qualques minutas per respondre a las questions."
 
 #. Type: text
 #. Description
@@ -51,89 +54,88 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Παρακαλώ επιλέξτε τη γλώσσα που θα χρησιμοποιηθεί για τη διαδικασία "
-"εγκατάστασης. Αυτή η γλώσσα θα είναι και η προεπιλεγμένη για το τελικό "
-"σύστημα."
+"Causissètz la lenga qu'utilisarem pendent l'installacion. Será la lenga "
+"predefinida del sistèma final."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28
 msgid "Where are you?"
-msgstr "Από που είστε;"
+msgstr "Ont sètz ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32
 msgid "Select a city in your country and time zone."
-msgstr "Επιλέξτε μια πόλη στην χρονική σας ζώνη:"
+msgstr "Seleccionatz una ciutat dins su païs e son fus orari."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr "Επιλεγμένη πόλη:"
+msgstr "Ciutat seleccionada :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40
 msgid "Time zone:"
-msgstr "Ζώνη ώρας:"
+msgstr "Fus orari :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr "Επιλεγμένη περιοχή:"
+msgstr "Region seleccionada :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48
 msgid "Current time:"
-msgstr "Τρέχουσα ώρα:"
+msgstr "Ora actuala :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr "Ορισμός ώρας..."
+msgstr "Reglar l'ora..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr "Διάταξη πληκτρολογίου"
+msgstr "Disposicion del clavièr"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Ποία διάταξη είναι παρόμοια με το πληκτρολόγιο σας;"
+msgstr "Que disposicion sembla mai al vòstre clavièr ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
-"Μπορείτε να πληκτρολογείτε σε αυτό το πλαίσιο για να δοκιμάσετε τη νέα "
-"διάταξη του πληκτρολογίου σας."
+"Podètz picar dins aquesta zòna de tèxt per testar la nova disposicion del "
+"clavièr."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr "Ποιος είστε;"
+msgstr "Ont sètz ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr "Ποιο είναι το όνομα σας;"
+msgstr "Cossí vos sonatz ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr "Τι όνομα θέλετε να χρησιμοποιήσετε για την είσοδο στο σύστημα;"
+msgstr "Que nom volètz utilisar per vos connectar ?"
 
 #. Type: text
 #. Description
@@ -142,14 +144,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Αν χρησιμοποιούν παραπάνω από ένας αυτό τον υπολογιστή, τότε μπορείτε να "
-"εγκαταστήσετε πολλαπλούς λογαριασμούς χρηστών μετά τη εγκατάσταση."
+"Se mai d'una persona utilisará l'ordenador, podètz definir mai d'un compte "
+"après l'installacion."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr "Επιλέξτε ένα κωδικό για να διατηρήσετε το λογαριασμό σας ασφαλή."
+msgstr "Causissètz un mot de pas per que su compte siá segur."
 
 #. Type: text
 #. Description
@@ -157,14 +159,13 @@ msgstr "Επιλέξτε ένα κωδικό για να διατηρήσετε 
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
-"Εισάγετε το κωδικό σας δύο φορές, ώστε να ελεγχθεί για τυχόν λάθη στην "
-"πληκτρολόγηση του."
+"Picatz los meteis mot de pas dos còps per verificar s'i a pas de cauquilla."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr "Ποιο είναι το όνομα του υπολογιστή;"
+msgstr "Qual es lo nom d'aqueste ordenador ?"
 
 #. Type: text
 #. Description
@@ -173,14 +174,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Αυτό το όνομα θα χρησιμοποιηθεί αν κάνετε τον υπολογιστή σας ορατό μέσα σε "
-"ένα δίκτυο,"
+"Aqueste nom será utiisat se volètz permetre a autres usuaris veire "
+"l'ordenador dins una ret."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105
 msgid "Select a disk"
-msgstr "Επιλέξτε ένα δίσκο"
+msgstr "Seleccionar un disc"
 
 #. Type: text
 #. Description
@@ -190,27 +191,26 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
-"Μπορείτε να αφήσετε τον εγκαταστάτη να δημιουργήσει αυτόματα χώρο σε "
-"οποιονδήποτε από τους παρακάτω δίσκους. Εναλλακτικά μπορείτε να κατατμήσετε "
-"τους δίσκους χειροκίνητα ."
+"Podètz daissar lo programa d'installacion crear automaticament particions de "
+"mai d'un biais sus cada disc o los podètz particionar manualament."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116
 msgid "Prepare disk space"
-msgstr "Προετοιμασία χώρου στο δίσκο"
+msgstr "Preparar l'espaci del disc"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr "Πως θέλετε να κάνετε τη κατάτμηση του δίσκου;"
+msgstr "Cossí volètz particionar lo disc ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr "Προετοιμασία κατατμήσεων"
+msgstr "Preparar las particions"
 
 #. Type: text
 #. Description
@@ -219,14 +219,14 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 1.5 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Βεβαιωθείτε ότι έχετε διαθέσει αρκετό χώρο στο τμήμα root  (\"/\"), με "
-"ελάχιστο μέγεθος του 1.5 GB, και ενός τμήματος swap τουλάχιστον 256 MB."
+"Asseguratz-vos de crear una particion raiç (\"/\") d'al mens 1,5 Go e una "
+"particion swap d'al mens 256 Mo."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr "Προετοιμασία σημείων προσάρτησης"
+msgstr "Preparar los punts de montatge"
 
 #. Type: text
 #. Description
@@ -235,8 +235,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
-"Επιλέξτε ποια τμήματα του δίσκου θέλετε να χρησιμοποιήσετε για τη νέα σας "
-"εγκατάσταση, και σε ποιο σημείο θα προσαρτήσετε καθένα από αυτά."
+"Seleccionatz las particions que volètz utilisar per vòstra installacion e "
+"ont volètz montar caduna d'elas."
 
 #. Type: text
 #. Description
@@ -245,45 +245,44 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
-"Θα πρέπει να προσαρτήσετε τουλάχιστον ένα τμήμα στο σύστημα αρχείων root  "
-"(\"/\"), και θα πρέπει να επιλέξετε τουλάχιστον ένα τμήμα για να "
-"χρησιμοποιηθεί ως χώρος swap."
+"Debètz montar una particion sus lo sistèma de fichièrs raiç (\"/\") e debètz "
+"causir al mens una particion a utilisar coma espaci swap."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:147
 msgid "Mount Point"
-msgstr "Σημείο προσάρτησης:"
+msgstr "Punt de montatge"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:151
 msgid "Size"
-msgstr "Μέγεθος"
+msgstr "Talha"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155
 msgid "Partition"
-msgstr "Τμήμα δίσκου"
+msgstr "Particion"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr "Μορφοποίηση ξανά;"
+msgstr "Tonar formatar ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr "Θα πρέπει να ρυθμίσετε ένα σημείο προσάρτησης root (\"/\")"
+msgstr "Debètz balhar un punt de montatge raiç (\"/\")."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:167
 msgid "Ready to install"
-msgstr "Έτοιμο για εγκατάσταση"
+msgstr "Prèst a installar"
 
 #. Type: text
 #. Description
@@ -291,32 +290,31 @@ msgstr "Έτοιμο για εγκατάσταση"
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
-"Το νέο σας λειτουργικό σύστημα θα εγκατασταθεί τώρα με τις παρακάτω "
-"ρυθμίσεις:"
+"Anam installar vòstre sistèma d'explotacion amb los paramètres seguents :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "Βήμα ${INDEX} από ${TOTAL}"
+msgstr "Etapa ${INDEX} sus ${TOTAL}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:179
 msgid "Abort the installation?"
-msgstr "Ακύρωση της εγκατάστασης;"
+msgstr "Abandonar l'installacion ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183
 msgid "Do you really want to abort the installation now?"
-msgstr "Θέλετε να ακυρώσετε την εγκατάσταση;"
+msgstr "Volètz realament abandonar l'installation ara ?"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:187
 msgid "Partitioning was interrupted"
-msgstr "Η κατάτμηση διακόπηκε"
+msgstr "Lo particionament s'es arrestat"
 
 #. Type: text
 #. Description
@@ -325,32 +323,32 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
-"Δεν ήταν δυνατή η αυτόματη κατάτμηση αυτού του δίσκου. Θα πρέπει να "
-"επιλέξετε μια άλλη μέθοδο κατάτμησης."
+"Èra pas possible particionar lo disc automaticament. Debètz seleccionar un "
+"autre biais de particionar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:197
 msgid "Skip"
-msgstr "Παράκαμψη"
+msgstr "Sautar"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:201
 msgid "Installation complete"
-msgstr "Η εγκατάσταση ολοκληρώθηκε"
+msgstr "Installacion terminada"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr "Συνέχεια με την χρήση του live CD"
+msgstr "Contunhar a utilisar lo Live CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr "Επανεκκίνηση τώρα"
+msgstr "Tornar aviar ara"
 
 #. Type: text
 #. Description
@@ -360,10 +358,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Η εγκατάσταση ολοκληρώθηκε. Θα χρειαστεί να επανεκκινήσετε τον υπολογιστή "
-"σας για να χρησιμοποιήσετε τη νέα εγκατάσταση. Μπορείτε να συνεχίσετε να "
-"χρησιμοποιείτε το live CD, αλλά δεν θα αποθηκευθούν όποιες αλλαγές κάνετε "
-"από εδώ και πέρα."
+"L'installacion es terminada. Debètz tornar aviar l'ordenador per utilisar lo "
+"sistèma. Podètz contunhar a utilisar aqueste live CD mas los cambis que "
+"farètz o los fichièrs qu'enregistrarètz serán pas conservats."
 
 #. Type: text
 #. Description
@@ -372,166 +369,167 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Βεβαιωθείτε ότι αφαιρέσατε το CD όταν επανεκκινήσετε τον υπολογιστή, αλλιώς "
-"θα χρησιμοποιείτε πάλι το live CD και όχι το νέο σας σύστημα."
+"Asseguratz-vos de levar lo CD abans de tornar aviar l'ordenador, si que non "
+"lo live CD s'executará e poirètz pas utilisar lo sistèma que venètz "
+"d'installar."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:224
 msgid "Go Back"
-msgstr "Επιστροφή"
+msgstr "Tornar"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:229
 msgid "Continue"
-msgstr "Συνέχεια"
+msgstr "Contunhar"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:242
 msgid "Installing system"
-msgstr "Εγκατάσταση του βασικού συστήματος"
+msgstr "Installacion del sistema"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246
 msgid "Finding the distribution to copy..."
-msgstr "Εύρεση της διανομής για αντιγραφή..."
+msgstr "Recèrca de la distribucion a copiar..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250
 msgid "Scanning files..."
-msgstr "Ανίχνευση αρχείων..."
+msgstr "Examèn dels fichièrs..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:254
 msgid "Copying files..."
-msgstr "Αντιγραφή αρχείων..."
+msgstr "Còpia dels fichièrs..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258
 msgid "Copying files (${TIME} remaining)..."
-msgstr "Αντιγραφή αρχείων (${TIME} απομένουν)..."
+msgstr "Còpia dels fichièrs (resta ${TIME})..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262
 msgid "Copying installation logs..."
-msgstr "Αντιγραφή των καταγραφών εγκατάστασης..."
+msgstr "Còpia dels fichièrs jornal de l'installacion..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:266
 msgid "Cleaning up..."
-msgstr "Εκκαθάριση..."
+msgstr "Netejatge..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:270
 msgid "Running ${SCRIPT}..."
-msgstr "Εκτελείται το ${SCRIPT}..."
+msgstr "Execucion de ${SCRIPT}..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring system locales..."
-msgstr "Ρύθμιση των γλωσσικών εντοπιοτήτων συστήματος..."
+msgstr "Configuracion dels paramètres regionales del sistèma"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr "Γίνεται ρύθμιση του apt..."
+msgstr "Configuracion d'apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282
 msgid "Configuring time zone..."
-msgstr "Ρύθμιση ζώνης ώρας..."
+msgstr "Configuracion del fus orari..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
-msgstr "Γίνεται ρύθμιση του πληκτρολογίου..."
+msgstr "Configuracion del clavièr..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:290
 msgid "Creating user..."
-msgstr "Δημιουργία χρήστη..."
+msgstr "Creacion d'un usuari..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:294
 msgid "Configuring hardware..."
-msgstr "Ρύθμιση υλικού..."
+msgstr "Configuracion del material..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:298
 msgid "Configuring network..."
-msgstr "Ρύθμιση δικτύου..."
+msgstr "Configuracion de la ret..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:302
 msgid "Setting computer name..."
-msgstr "Ρύθμιση ονόματος συστήματος...."
+msgstr "Definir lo nom de l'ordenador..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:306
 msgid "Configuring boot loader..."
-msgstr "Ρύθμιση boot loader..."
+msgstr "Configuracion del gestionari d'aviada..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:310
 msgid "Removing extra packages..."
-msgstr "Απομάκρυνση επιπλέον πακέτων..."
+msgstr "Supression dels paquetatges suplementaris..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:314
 msgid "Checking for packages to remove..."
-msgstr "Έλεγχος για πακέτα που θα απομακρυνθούν..."
+msgstr "Verificacion dels paquetatges a suprimir..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:318
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Λήψη πακέτων (${TIME} απομένουν)..."
+msgstr "Telecarga dels paquetatges (resta ${TIME})..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:322
 msgid "Downloading package lists..."
-msgstr "Λήψη λίστας πακέτων..."
+msgstr "Telecarga de las listas de paquetatges"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:326
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Λήψη λίστας πακέτων (${TIME} απομένουν)..."
+msgstr "Telecarga de las listas de paquetatges (resta ${TIME})..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
-msgstr "Σφάλμα εγκατάστασης του ${PACKAGE}"
+msgstr "Error al moment d'installar ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:340
 msgid "Error removing ${PACKAGE}"
-msgstr "Σφάλμα απομάκρυνσης του ${PACKAGE}"
+msgstr "Error al moment de suprimir ${PACKAGE}"
 
 #. Type: text
 #. Description
@@ -543,10 +541,10 @@ msgstr "${MESSAGE}"
 #. Description
 #: ../ubiquity.templates:345
 msgid "Installing language packs"
-msgstr "Εγκατάσταση πακέτων γλωσσικής εντοπιότητας"
+msgstr "Installacion dels paquetatges de lenga"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:349
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Λήψη πακέτων γλωσσικής υποστήριξης (${TIME} απομένουν).."
+msgstr "Telecarga dels paquetatges de lenga (resta ${TIME})..."
