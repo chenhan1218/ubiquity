@@ -36,8 +36,15 @@ class Install(FilteredCommand):
             'progresscancel' in capabilities)
 
     def error(self, priority, question):
-        self.frontend.error_dialog(self.description(question))
-        return super(Install, self).error(priority, question)
+        if question == 'apt-setup/security-updates-failed':
+            fatal = False
+        else:
+            fatal = True
+        self.frontend.error_dialog(self.description(question), fatal)
+        if fatal:
+            return super(Install, self).error(priority, question)
+        else:
+            return True
 
     def run(self, priority, question):
         if question.endswith('/apt-install-failed'):

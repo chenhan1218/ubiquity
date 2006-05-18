@@ -1509,7 +1509,7 @@ class Wizard:
             self.backup = True
             self.installing = False
 
-    def error_dialog (self, msg):
+    def error_dialog (self, msg, fatal=True):
         # TODO: cancel button as well if capb backup
         self.allow_change_step(True)
         if self.current_page is not None:
@@ -1520,7 +1520,8 @@ class Wizard:
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
         dialog.run()
         dialog.hide()
-        self.return_to_autopartitioning()
+        if fatal:
+            self.return_to_autopartitioning()
 
     def question_dialog (self, title, msg, option_templates):
         self.allow_change_step(True)

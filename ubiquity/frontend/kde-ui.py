@@ -1505,11 +1505,12 @@ class Wizard:
             self.backup = True
             self.installing = False
 
-    def error_dialog (self, msg):
+    def error_dialog (self, msg, fatal=True):
         self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
         # TODO: cancel button as well if capb backup
         QMessageBox.warning(self.userinterface, "Error", msg, QMessageBox.Ok)
-        self.return_to_autopartitioning()
+        if fatal:
+            self.return_to_autopartitioning()
 
     def question_dialog (self, title, msg, option_templates):
         # I doubt we'll ever need more than three buttons.
