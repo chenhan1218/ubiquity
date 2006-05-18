@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-04 08:18+0000\n"
+"PO-Revision-Date: 2006-05-18 04:55+0000\n"
 "Last-Translator: Peter Mann <peter.mann@tuke.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -285,12 +285,13 @@ msgstr "Inštalácia je pripravená"
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
+"Váš nový operačný systém sa teraz nainštaluje s nasledujúcimi nastaveniami:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Krok ${INDEX} z ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -336,13 +337,13 @@ msgstr "Inštalácia je kompletná"
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Naďalej používať toto Live CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "Reštartovať"
 
 #. Type: text
 #. Description
