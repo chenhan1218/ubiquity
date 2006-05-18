@@ -1023,7 +1023,7 @@ class Wizard:
             self.qtparted_subp.stdin.close()
             self.qtparted_subp.wait()
             self.qtparted_subp = None
-            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
             changed_page = True
         elif step == "stepPartMountpoints":
             self.gparted_loop()
