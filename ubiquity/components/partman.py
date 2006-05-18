@@ -214,7 +214,7 @@ class Partman(FilteredCommand):
             if not self.frontend.set_disk_choices(self.choices(question),
                                                   self.manual_desc):
                 # disk selector not implemented; just use first disk
-                return True
+                return self.succeeded
 
         elif question.endswith('automatically_partition'):
             if self.backup_from_new_size is not None:
