@@ -1,5 +1,10 @@
 ubiquity (0.99.85) UNRELEASED; urgency=low
 
+  [ Jonathan Riddell ]
+  * KDE frontend:
+    - Fix crash in return_to_autopartitioning(), closes Malone #45396
+
+  [ Colin Watson ]
   * When going forward to the username/password screen, only disable the
     Forward button if not all the fields have been filled in (closes: Malone
     #37870).
