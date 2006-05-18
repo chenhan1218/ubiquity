@@ -265,6 +265,7 @@ class Wizard:
         else:
             first_step = "stepLanguage"
         self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS[first_step])
+        self.set_current_page(self.get_current_page())
 
         while self.current_page is not None:
             if not self.installing:
@@ -310,7 +311,7 @@ class Wizard:
                 self.process_step()
             self.app.processEvents(1)
 
-	return self.returncode
+        return self.returncode
     
     def customize_installer(self):
         """Initial UI setup."""
