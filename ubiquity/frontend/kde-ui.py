@@ -1500,7 +1500,7 @@ class Wizard:
             # TODO self.previous_partitioning_page
             #self.live_installer.show()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
-            nextText = get_string("continue", lang) + " >"
+            nextText = get_string("continue", self.locale) + " >"
             self.userinterface.next.setText(nextText)
             self.backup = True
             self.installing = False

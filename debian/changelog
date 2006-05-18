@@ -5,6 +5,7 @@ ubiquity (0.99.85) UNRELEASED; urgency=low
     #37870).
   * KDE frontend:
     - Fix crash when trying to go back from the manual partitioner.
+    - Fix crash when returning to autopartitioning (closes: Malone #45396).
   * Fix going back from autopartitioning page if there's only one disk and
     thus no disk selector (closes: Malone #39283).
   * If there is no intro.txt installed, then silently skip the welcome
