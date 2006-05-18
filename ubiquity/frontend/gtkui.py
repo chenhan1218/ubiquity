@@ -704,7 +704,6 @@ class Wizard:
         # Keyboard
         elif step == "stepKeyboardConf":
             self.steps.next_page()
-            # XXX: Actually do keyboard config here
             self.info_loop(None)
         # Identification
         elif step == "stepUserInfo":

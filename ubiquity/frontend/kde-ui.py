@@ -692,7 +692,6 @@ class Wizard:
         elif step == "stepKeyboardConf":
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepUserInfo"])
             #self.steps.next_page()
-            # XXX: Actually do keyboard config here
             self.info_loop(None)
         # Identification
         elif step == "stepUserInfo":
