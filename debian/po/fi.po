@@ -1,14 +1,13 @@
 # Finnish messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-# Translated by Timo Jyrinki, 2006
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-06 00:45+0000\n"
+"PO-Revision-Date: 2006-05-17 08:36+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -284,13 +283,13 @@ msgstr "Valmiina asennukseen"
 #: ../ubiquity.templates:171
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "Uusi käyttöjärjestelmä asennetaan seuraavilla asetuksilla:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Vaihe ${INDEX} / ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -336,13 +335,13 @@ msgstr "Asennus on valmis"
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Jatka esittely-CD:n käyttämistä"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "Uudelleenkäynnistä nyt"
 
 #. Type: text
 #. Description
