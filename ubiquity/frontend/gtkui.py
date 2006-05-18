@@ -99,6 +99,7 @@ class Wizard:
         # declare attributes
         self.distro = distro
         self.current_keyboard = None
+        self.got_disk_choices = False
         self.auto_mountpoints = None
         self.resize_min_size = None
         self.resize_max_size = None
@@ -708,6 +709,7 @@ class Wizard:
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
+            self.got_disk_choices = False
         # Disk selection
         elif step == "stepPartDisk":
             self.process_disk_selection()
@@ -1005,6 +1007,13 @@ class Wizard:
 
         if step == "stepLocation":
             self.back.hide()
+        elif step == "stepPartAuto":
+            if self.got_disk_choices:
+                new_step = self.stepPartDisk
+            else:
+                new_step = self.stepUserInfo
+            self.steps.set_current_page(self.steps.page_num(new_step))
+            changed_page = True
         elif step == "stepPartAdvanced":
             print >>self.gparted_subp.stdin, "undo"
             self.gparted_subp.stdin.close()
@@ -1278,6 +1287,8 @@ class Wizard:
 
 
     def set_disk_choices (self, choices, manual_choice):
+        self.got_disk_choices = True
+
         for child in self.part_disk_vbox.get_children():
             self.part_disk_vbox.remove(child)
 

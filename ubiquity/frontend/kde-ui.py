@@ -119,6 +119,7 @@ class Wizard:
         # declare attributes
         self.distro = distro
         self.current_keyboard = None
+        self.got_disk_choices = False
         self.auto_mountpoints = None
         self.resize_min_size = None
         self.resize_max_size = None
@@ -696,6 +697,7 @@ class Wizard:
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
+            self.got_disk_choices = False
         # Disk selection
         elif step == "stepPartDisk":
             self.process_disk_selection()
@@ -1018,6 +1020,13 @@ class Wizard:
 
         if step == "stepLocation":
             self.userinterface.back.setEnabled(False)
+        elif step == "stepPartAuto":
+            if self.got_disk_choices:
+                new_step = "stepPartDisk"
+            else:
+                new_step = "stepUserInfo"
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS[new_step])
+            changed_page = True
         elif step == "stepPartAdvanced":
             print >>self.qtparted_subp.stdin, "undo"
             self.qtparted_subp.stdin.close()
@@ -1272,6 +1281,8 @@ class Wizard:
         self.auto_mountpoints = auto_mountpoints
 
     def set_disk_choices (self, choices, manual_choice):
+        self.got_disk_choices = True
+
         children = self.userinterface.part_disk_frame.children()
         for child in children:
             if isinstance(child, QVBoxLayout):
