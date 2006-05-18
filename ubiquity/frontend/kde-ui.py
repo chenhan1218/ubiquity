@@ -606,7 +606,8 @@ class Wizard:
     def info_loop(self, widget):
         """check if all entries from Identification screen are filled."""
 
-        if widget.name() == 'username' and not self.hostname_edited:
+        if (widget is not None and widget.name() == 'username' and
+            not self.hostname_edited):
             if self.laptop:
                 hostname_suffix = '-laptop'
             else:
@@ -692,7 +693,7 @@ class Wizard:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepUserInfo"])
             #self.steps.next_page()
             # XXX: Actually do keyboard config here
-            self.userinterface.next.setEnabled(False)
+            self.info_loop(None)
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()

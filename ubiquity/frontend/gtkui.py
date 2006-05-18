@@ -634,7 +634,8 @@ class Wizard:
         """check if all entries from Identification screen are filled. Callback
         defined in glade file."""
 
-        if widget.get_name() == 'username' and not self.hostname_edited:
+        if (widget is not None and widget.get_name() == 'username' and
+            not self.hostname_edited):
             if self.laptop:
                 hostname_suffix = '-laptop'
             else:
@@ -704,7 +705,7 @@ class Wizard:
         elif step == "stepKeyboardConf":
             self.steps.next_page()
             # XXX: Actually do keyboard config here
-            self.allow_go_forward(False)
+            self.info_loop(None)
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
