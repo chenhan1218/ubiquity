@@ -66,18 +66,17 @@ GLADEDIR = os.path.join(PATH, 'glade')
 LOCALEDIR = "/usr/share/locale"
 
 BREADCRUMB_STEPS = {
-    "stepWelcome": 1,
-    "stepLanguage": 2,
-    "stepLocation": 3,
-    "stepKeyboardConf": 4,
-    "stepUserInfo": 5,
-    "stepPartDisk": 6,
-    "stepPartAuto": 6,
-    "stepPartAdvanced": 6,
-    "stepPartMountpoints": 6,
-    "stepReady": 7
+    "stepLanguage": 1,
+    "stepLocation": 2,
+    "stepKeyboardConf": 3,
+    "stepUserInfo": 4,
+    "stepPartDisk": 5,
+    "stepPartAuto": 5,
+    "stepPartAdvanced": 5,
+    "stepPartMountpoints": 5,
+    "stepReady": 6
 }
-BREADCRUMB_MAX_STEP = 7
+BREADCRUMB_MAX_STEP = 6
 
 WIDGET_STACK_STEPS = {
     "stepWelcome": 0,
@@ -224,7 +223,7 @@ class Wizard:
         # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
         # current dapper (https://bugzilla.ubuntu.com/show_bug.cgi?id=20338).
         #self.show_browser()
-        self.show_intro()
+        got_intro = self.show_intro()
         self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
     
         # Declare SignalHandler
@@ -254,8 +253,19 @@ class Wizard:
         self.app.connect(self.userinterface.timezone_city_combo, SIGNAL("activated(int)"), self.tzmap.city_combo_changed)
 
         self.app.connect(self.userinterface.new_size_scale, SIGNAL("valueChanged(int)"), self.update_new_size_label)
+
         # Start the interface
-        self.set_current_page(0)
+        if got_intro:
+            global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
+            for step in BREADCRUMB_STEPS:
+                BREADCRUMB_STEPS[step] += 1
+            BREADCRUMB_STEPS["stepWelcome"] = 1
+            BREADCRUMB_MAX_STEP += 1
+            first_step = "stepWelcome"
+        else:
+            first_step = "stepLanguage"
+        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS[first_step])
+
         while self.current_page is not None:
             if not self.installing:
                 # Make sure any started progress bars are stopped.
@@ -400,6 +410,9 @@ class Wizard:
                 text = text + line + "<br>"
             self.userinterface.introLabel.setText(text)
             intro_file.close()
+            return True
+        else:
+            return False
     
     def step_name(self, step_index):
         if step_index < 0:
@@ -407,6 +420,7 @@ class Wizard:
         return self.userinterface.widgetStack.widget(step_index).name()
 
     def set_current_page(self, current):
+        global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         self.current_page = current
         current_name = self.step_name(current)
         label_text = get_string("step_label", self.locale)

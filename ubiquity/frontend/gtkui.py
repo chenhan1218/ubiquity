@@ -75,18 +75,17 @@ GLADEDIR = os.path.join(PATH, 'glade')
 LOCALEDIR = "/usr/share/locale"
 
 BREADCRUMB_STEPS = {
-    "stepWelcome": 1,
-    "stepLanguage": 2,
-    "stepLocation": 3,
-    "stepKeyboardConf": 4,
-    "stepUserInfo": 5,
-    "stepPartDisk": 6,
-    "stepPartAuto": 6,
-    "stepPartAdvanced": 6,
-    "stepPartMountpoints": 6,
-    "stepReady": 7
+    "stepLanguage": 1,
+    "stepLocation": 2,
+    "stepKeyboardConf": 3,
+    "stepUserInfo": 4,
+    "stepPartDisk": 5,
+    "stepPartAuto": 5,
+    "stepPartAdvanced": 5,
+    "stepPartMountpoints": 5,
+    "stepReady": 6
 }
-BREADCRUMB_MAX_STEP = 7
+BREADCRUMB_MAX_STEP = 6
 
 # For the font wibbling later
 import pango
@@ -202,7 +201,7 @@ class Wizard:
             sys.exit(1)
 
         # show interface
-        self.show_intro()
+        got_intro = self.show_intro()
         self.allow_change_step(True)
 
         # Declare SignalHandler
@@ -216,7 +215,17 @@ class Wizard:
             'insert_text', self.on_hostname_insert_text)
 
         # Start the interface
-        self.set_current_page(0)
+        if got_intro:
+            global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
+            for step in BREADCRUMB_STEPS:
+                BREADCRUMB_STEPS[step] += 1
+            BREADCRUMB_STEPS["stepWelcome"] = 1
+            BREADCRUMB_MAX_STEP += 1
+            first_step = self.stepWelcome
+        else:
+            first_step = self.stepLanguage
+        self.steps.set_current_page(self.steps.page_num(first_step))
+
         while self.current_page is not None:
             if not self.installing:
                 # Make sure any started progress bars are stopped.
@@ -410,6 +419,9 @@ class Wizard:
             intro_file.close()
             self.stepWelcome.add(widget)
             widget.show()
+            return True
+        else:
+            return False
 
 
     def step_name(self, step_index):
@@ -417,6 +429,7 @@ class Wizard:
 
 
     def set_current_page(self, current):
+        global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         self.current_page = current
         current_name = self.step_name(current)
         label_text = get_string("step_label", self.locale)
