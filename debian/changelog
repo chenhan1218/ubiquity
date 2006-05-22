@@ -1,11 +1,13 @@
-ubiquity (1.0.2) UNRELEASED; urgency=low
+ubiquity (1.0.2) dapper; urgency=low
 
   * GTK frontend:
     - Delete DESKTOP_STARTUP_ID from environment before running time-admin,
       to stop it opening behind ubiquity (thanks, Michael Vogt; closes:
       Malone #46008).
+  * Automatic update of included source packages: kbd-chooser
+    1.23ubuntu18.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 May 2006 21:52:19 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 May 2006 22:16:23 +0100
 
 ubiquity (1.0.1) dapper; urgency=low
 
