@@ -11,6 +11,8 @@ ubiquity (1.0.1) UNRELEASED; urgency=low
   * Synchronise required space claimed in text alongside manual partitioner
     and actually required in the minimal partitioning scheme; both are now
     set to 2 GB (closes: Malone #45672).
+  * Add/update .desktop file translations from Rosetta: Breton, Greek,
+    Croatian, Lithuanian, Slovak, Tagalog, Chinese (China).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 May 2006 11:26:51 +0100
 
