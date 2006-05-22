@@ -701,6 +701,7 @@ class Wizard:
             self.translate_widgets()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepLocation"])
             self.userinterface.back.setEnabled(True)
+            self.userinterface.next.setEnabled(self.get_timezone() is not None)
         # Location
         elif step == "stepLocation":
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepKeyboardConf"])
@@ -1651,6 +1652,7 @@ class TimezoneMap(object):
         self.location_selected = location
         self.set_city_text(self.location_selected.zone)
         self.set_zone_text(self.location_selected)
+        self.frontend.userinterface.next.setEnabled(True)
 
         if name == None or name == "":
             return

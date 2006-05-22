@@ -712,6 +712,7 @@ class Wizard:
             self.translate_widgets()
             self.steps.next_page()
             self.back.show()
+            self.allow_go_forward(self.get_timezone() is not None)
         # Location
         elif step == "stepLocation":
             self.steps.next_page()
@@ -1686,6 +1687,7 @@ class TimezoneMap(object):
         self.location_selected = location
         self.set_city_text(self.location_selected.zone)
         self.set_zone_text(self.location_selected)
+        self.frontend.allow_go_forward(True)
 
     def city_changed(self, widget):
         iterator = widget.get_active_iter()
@@ -1804,6 +1806,7 @@ class TimezoneMap(object):
                     self.set_city_text(new_location_selected.zone)
                     self.set_zone_text(new_location_selected)
             self.location_selected = new_location_selected
+            self.frontend.allow_go_forward(self.location_selected is not None)
 
         return True
 
