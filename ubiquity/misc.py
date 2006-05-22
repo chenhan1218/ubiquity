@@ -309,7 +309,7 @@ def get_translations(languages=None, core_names=[]):
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
              '--config=InFd:none',
-             '--pattern=^(ubiquity|partman-partitioning)'],
+             '--pattern=^(ubiquity|partman-basicfilesystems/bad_mountpoint|partman-partitioning|partman-target/no_root)'],
             stdout=subprocess.PIPE, stderr=devnull)
         question = None
         descriptions = {}
