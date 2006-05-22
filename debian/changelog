@@ -1,3 +1,12 @@
+ubiquity (1.0.2) UNRELEASED; urgency=low
+
+  * GTK frontend:
+    - Delete DESKTOP_STARTUP_ID from environment before running time-admin,
+      to stop it opening behind ubiquity (thanks, Michael Vogt; closes:
+      Malone #46008).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 May 2006 21:52:19 +0100
+
 ubiquity (1.0.1) dapper; urgency=low
 
   * Clear out all partman state immediately before each time we run partman,
