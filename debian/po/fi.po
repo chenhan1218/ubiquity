@@ -211,10 +211,10 @@ msgstr "Valmistele osiot"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Varmista juuriosiolle (\"/\") ainakin 1,5GiB tilaa, ja sivutusosiolle "
-"ainakin 256MiB."
+"Varmista juuriosiolle (\"/\") ainakin 2GiB tilaa, ja sivutusosiolle ainakin "
+"256MiB."
 
 #. Type: text
 #. Description

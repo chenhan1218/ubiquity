@@ -8,6 +8,9 @@ ubiquity (1.0.1) UNRELEASED; urgency=low
     Malone #45515).
   * Load translations for partman-basicfilesystems/bad_mountpoint and
     partman-target/no_root (bug misfiled as a comment in Malone #45200).
+  * Synchronise required space claimed in text alongside manual partitioner
+    and actually required in the minimal partitioning scheme; both are now
+    set to 2 GB (closes: Malone #45672).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 May 2006 11:26:51 +0100
 

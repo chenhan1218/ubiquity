@@ -217,10 +217,10 @@ msgstr "Προετοιμασία κατατμήσεων"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
 "Βεβαιωθείτε ότι έχετε διαθέσει αρκετό χώρο στο τμήμα root  (\"/\"), με "
-"ελάχιστο μέγεθος του 1.5 GB, και ενός τμήματος swap τουλάχιστον 256 MB."
+"ελάχιστο μέγεθος του 2 GB, και ενός τμήματος swap τουλάχιστον 256 MB."
 
 #. Type: text
 #. Description

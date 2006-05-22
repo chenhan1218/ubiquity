@@ -204,8 +204,8 @@ msgstr "准备分区"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
-msgstr "请确认根目录\"/\"至少有1.5GB的空间,同时交换分区有至少256MB的空间"
+"size of 2 GB, and a swap partition of at least 256 MB."
+msgstr "请确认根目录\"/\"至少有2GB的空间,同时交换分区有至少256MB的空间"
 
 #. Type: text
 #. Description

@@ -204,9 +204,9 @@ msgstr "Підготування поділів"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Не забудьте створити поділ root (\"/\") роміром не більше 1.5 GB, та поділ "
+"Не забудьте створити поділ root (\"/\") роміром не більше 2 GB, та поділ "
 "swap розміром не меньше 256 MB."
 
 #. Type: text

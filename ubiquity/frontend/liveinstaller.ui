@@ -1565,7 +1565,7 @@ Answering the questions should only take a few minutes.</string>
                             <cstring>partition_help</cstring>
                         </property>
                         <property name="text">
-                            <string>Make sure to allocate space for a root partition ("/"), with a minimum size of 1.5 GB, and a swap partition of at least 256 MB.</string>
+                            <string>Make sure to allocate space for a root partition ("/"), with a minimum size of 2 GB, and a swap partition of at least 256 MB.</string>
                         </property>
                         <property name="alignment">
                             <set>WordBreak|AlignVCenter</set>

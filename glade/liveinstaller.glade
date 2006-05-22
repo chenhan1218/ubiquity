@@ -2162,7 +2162,7 @@ Please choose the language used for the installation process. This language will
 			<widget class="GtkLabel" id="partition_help">
 			  <property name="visible">True</property>
 			  <property name="can_focus">True</property>
-			  <property name="label" translatable="yes">Make sure to allocate space for a root partition (&quot;/&quot;), with a minimum size of 1.5 GB, and a swap partition of at least 256 MB.</property>
+			  <property name="label" translatable="yes">Make sure to allocate space for a root partition (&quot;/&quot;), with a minimum size of 2 GB, and a swap partition of at least 256 MB.</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
 			  <property name="justify">GTK_JUSTIFY_LEFT</property>

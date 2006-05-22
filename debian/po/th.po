@@ -207,9 +207,9 @@ msgstr "จัดเตรียมพาร์ทิชั่น"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"คุณได้จัดสรรพื้นที่สำหรับพาร์ทิชั่น root (\"/\") พื้นที่ไม่ต่ำกว่า 1.5 GB และพาร์ทิชั่น swap "
+"คุณได้จัดสรรพื้นที่สำหรับพาร์ทิชั่น root (\"/\") พื้นที่ไม่ต่ำกว่า 2 GB และพาร์ทิชั่น swap "
 "พื้นที่ว่างไม่ต่ำกว่า 256 MB แล้ว?"
 
 #. Type: text

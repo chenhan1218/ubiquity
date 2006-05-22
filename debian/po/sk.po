@@ -212,9 +212,9 @@ msgstr "Pripravujú sa oblasti"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Uistite sa, že koreňová oblasť (\"/\") bude mať najmenej 1.5 GB a odkladací "
+"Uistite sa, že koreňová oblasť (\"/\") bude mať najmenej 2 GB a odkladací "
 "(swap) priestor bude aspoň 256 MB."
 
 #. Type: text

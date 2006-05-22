@@ -216,10 +216,10 @@ msgstr "Die Partitionen vorbereiten"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
 "Bitte stellen Sie sicher, dass Sie Platz für eine root Partition (\"/\") mit "
-"einer minimalen Größe von 1,5 GB und für eine Swap Partition mit einer "
+"einer minimalen Größe von 2 GB und für eine Swap Partition mit einer "
 "minimalen Größe von 256 MB zuteilen."
 
 #. Type: text

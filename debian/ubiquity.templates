@@ -127,7 +127,7 @@ Template: ubiquity/text/partition_help
 Type: text
 _Description:
  Make sure to allocate space for a root partition ("/"), with a minimum size
- of 1.5 GB, and a swap partition of at least 256 MB.
+ of 2 GB, and a swap partition of at least 256 MB.
 
 Template: ubiquity/text/part_mountpoints_heading_label
 Type: text

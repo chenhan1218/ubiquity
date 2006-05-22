@@ -211,10 +211,10 @@ msgstr "Klargjør partisjon"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Sørg for minimum 1,5 GB plass til rotpartisjonen («/»), og en "
-"bufferpartisjon på minst 256 MB."
+"Sørg for minimum 2 GB plass til rotpartisjonen («/»), og en bufferpartisjon "
+"på minst 256 MB."
 
 #. Type: text
 #. Description

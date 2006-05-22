@@ -214,9 +214,9 @@ msgstr "Bölümleri hazırla"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Kök bölümü (\"/\") için en az 1.5 GB ve takas bölümü için en az 256 MB yer "
+"Kök bölümü (\"/\") için en az 2 GB ve takas bölümü için en az 256 MB yer "
 "ayırdığınıza emin olun."
 
 #. Type: text

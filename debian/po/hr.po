@@ -209,9 +209,9 @@ msgstr "Pripremi particije"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Svakako pronađite prostor za root particiju (\"/\"), najmanje 1.5 GB, a za "
+"Svakako pronađite prostor za root particiju (\"/\"), najmanje 2 GB, a za "
 "swap particiju najmanje 256 MB."
 
 #. Type: text
