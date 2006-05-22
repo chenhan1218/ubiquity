@@ -7,8 +7,9 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-02 21:00+0000\n"
-"Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
+"PO-Revision-Date: 2006-05-18 18:00+0000\n"
+"Last-Translator: Krzysztof Lichota <krzysiek-launchpad.ubuntu.com@lichota."
+"net>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -282,12 +283,14 @@ msgstr "Gotowe do instalacji"
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
+"Twój nowy system operacyjny zostanie teraz zainstalowany z następującymi "
+"ustawieniami:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Krok ${INDEX} z ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -333,13 +336,13 @@ msgstr "Instalacja zakończona"
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Używaj dalej systemu na płycie CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "Uruchom ponownie teraz"
 
 #. Type: text
 #. Description
