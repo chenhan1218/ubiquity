@@ -17,6 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import os
+import shutil
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity.parted_server import PartedServer
 from ubiquity.components.partman import Partman
@@ -25,6 +27,12 @@ class PartmanCommit(Partman):
     def prepare(self):
         # Make sure autopartitioning doesn't get run. We rely on the manual
         # partitioning control path.
+        shutil.rmtree('/var/lib/partman', ignore_errors=True)
+        if not os.path.exists('/var/lib/partman'):
+            os.makedirs('/var/lib/partman')
+        initial_auto = open('/var/lib/partman/initial_auto', 'w')
+        initial_auto.close()
+
         questions = ['^partman/choose_partition$',
                      '^partman/confirm.*',
                      'type:boolean',

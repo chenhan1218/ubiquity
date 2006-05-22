@@ -1,3 +1,12 @@
+ubiquity (1.0.1) UNRELEASED; urgency=low
+
+  * Clear out all partman state immediately before each time we run partman,
+    and make sure /var/lib/partman/initial_auto exists before running
+    partman to commit manual partitioning in order to ensure that it never
+    attempts autopartitioning by mistake (closes: Malone #45597).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 May 2006 11:26:51 +0100
+
 ubiquity (1.0.0) dapper; urgency=low
 
   * When going forward to the username/password screen, only disable the
