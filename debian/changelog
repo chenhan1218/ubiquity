@@ -1,4 +1,4 @@
-ubiquity (1.0.3) UNRELEASED; urgency=low
+ubiquity (1.0.3) dapper; urgency=low
 
   * If install.py exits non-zero, invoke the crash handler with some dummy
     text (getting the exact reason for the crash is unfortunately
@@ -6,7 +6,7 @@ ubiquity (1.0.3) UNRELEASED; urgency=low
     /var/log/installer/syslog and /var/log/partman to bug reports so that we
     can figure out why crashes at this point happen.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 23 May 2006 13:52:20 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 23 May 2006 14:29:03 +0100
 
 ubiquity (1.0.2) dapper; urgency=low
 
