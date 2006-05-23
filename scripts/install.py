@@ -761,6 +761,8 @@ class Install:
         if dbfilter.run_command(auto_process=True) != 0:
             return False
 
+        self.db.progress('INFO', 'ubiquity/install/hardware')
+
         subprocess.call(['/usr/lib/ubiquity/debian-installer-utils'
                          '/register-module.prebaseconfig'])
 
