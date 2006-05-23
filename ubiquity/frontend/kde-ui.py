@@ -1660,7 +1660,10 @@ class TimezoneMap(object):
             return
 
     def get_tz_from_name(self, name):
-        return self.timezone_city_index[name]
+        if len(name) != 0:
+            return self.timezone_city_index[name]
+        else:
+            return None
 
     def city_combo_changed(self, index):
         city = str(self.frontend.userinterface.timezone_city_combo.currentText())
