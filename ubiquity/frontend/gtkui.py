@@ -1371,6 +1371,7 @@ class Wizard:
         if min_size is not None and max_size is not None:
             min_percent = int(math.ceil(100 * min_size / max_size))
             self.new_size_scale.set_range(min_percent, 100)
+            self.new_size_scale.set_value(int((min_percent + 100) / 2))
 
 
     def get_autopartition_resize_percent (self):

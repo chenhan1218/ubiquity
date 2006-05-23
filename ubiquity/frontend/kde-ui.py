@@ -1383,6 +1383,7 @@ class Wizard:
             min_percent = int(math.ceil(100 * min_size / max_size))
             self.userinterface.new_size_scale.setMinValue(min_percent)
             self.userinterface.new_size_scale.setMaxValue(100)
+            self.userinterface.new_size_scale.setValue(int((min_percent + 100) / 2))
 
     def get_autopartition_resize_percent (self):
         return self.userinterface.new_size_scale.value()
