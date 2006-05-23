@@ -531,10 +531,11 @@ class Wizard:
             self.debconf_progress_region(end, 100)
 
         dbfilter = install.Install(self)
-        if dbfilter.run_command(auto_process=True) != 0:
+        ret = dbfilter.run_command(auto_process=True)
+        if ret != 0:
             self.installing = False
-            # TODO cjwatson 2006-02-27: do something nicer than just quitting
-            self.quit()
+            # TODO cjwatson 2006-05-23: figure out why Install crashed
+            raise RuntimeError, "Install failed with exit code %s" % ret
 
         while self.progress_position.depth() != 0:
             self.debconf_progress_stop()
