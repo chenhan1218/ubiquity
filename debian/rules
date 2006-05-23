@@ -172,6 +172,12 @@ binary-arch: install
 #	dh_installexamples -a
 	dh_installdebconf -a
 	echo >> debian/ubiquity/DEBIAN/templates
+	grep-dctrl -XFTemplate base-installer/kernel/linux/link_in_boot \
+		d-i/templates | \
+		>> debian/ubiquity/DEBIAN/templates
+	if [ -z "$$(tail -n1 debian/ubiquity/DEBIAN/templates)" ]; then \
+		echo >> debian/ubiquity/DEBIAN/templates; \
+	fi
 	grep-dctrl -v -FTemplate base-installer/ d-i/templates \
 		>> debian/ubiquity/DEBIAN/templates
 #	dh_installman -a
