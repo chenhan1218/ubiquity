@@ -296,7 +296,7 @@ class Partman(FilteredCommand):
                     self.done = True
                 else:
                     # Don't exit partman yet.
-                    pass
+                    self.succeeded = True
                 self.exit_ui_loops()
                 return
 
