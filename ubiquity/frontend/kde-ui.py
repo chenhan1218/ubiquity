@@ -1047,10 +1047,11 @@ class Wizard:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS[new_step])
             changed_page = True
         elif step == "stepPartAdvanced":
-            print >>self.qtparted_subp.stdin, "undo"
-            self.qtparted_subp.stdin.close()
-            self.qtparted_subp.wait()
-            self.qtparted_subp = None
+            if self.qtparted_subp is not None:
+                print >>self.qtparted_subp.stdin, "undo"
+                self.qtparted_subp.stdin.close()
+                self.qtparted_subp.wait()
+                self.qtparted_subp = None
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
             changed_page = True
         elif step == "stepPartMountpoints":

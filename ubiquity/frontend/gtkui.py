@@ -1032,10 +1032,11 @@ class Wizard:
             self.steps.set_current_page(self.steps.page_num(new_step))
             changed_page = True
         elif step == "stepPartAdvanced":
-            print >>self.gparted_subp.stdin, "undo"
-            self.gparted_subp.stdin.close()
-            self.gparted_subp.wait()
-            self.gparted_subp = None
+            if self.gparted_subp is not None:
+                print >>self.gparted_subp.stdin, "undo"
+                self.gparted_subp.stdin.close()
+                self.gparted_subp.wait()
+                self.gparted_subp = None
             self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
             changed_page = True
         elif step == "stepPartMountpoints":
