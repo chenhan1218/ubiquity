@@ -810,28 +810,36 @@ class Wizard:
         self.gparted_fstype = {}
 
         try:
-            try:
-                print >>self.gparted_subp.stdin, "apply"
-            except IOError:
-                return
-
-            # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
-            gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
-            while gparted_reply.startswith('- '):
-                pre_log('info', 'gparted replied: %s' % gparted_reply)
-                words = gparted_reply[2:].strip().split()
-                if words[0].lower() == 'format' and len(words) >= 3:
-                    self.gparted_fstype[words[1]] = words[2]
-                gparted_reply = \
-                    self.gparted_subp.stdout.readline().rstrip('\n')
-
-            if not gparted_reply.startswith('0 '):
-                return
-        finally:
+            print >>self.gparted_subp.stdin, "apply"
+        except IOError:
             # Shut down gparted
             self.gparted_subp.stdin.close()
             self.gparted_subp.wait()
             self.gparted_subp = None
+            return
+
+        # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
+        gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
+        while gparted_reply.startswith('- '):
+            pre_log('info', 'gparted replied: %s' % gparted_reply)
+            words = gparted_reply[2:].strip().split()
+            if words[0].lower() == 'format' and len(words) >= 3:
+                self.gparted_fstype[words[1]] = words[2]
+            gparted_reply = \
+                self.gparted_subp.stdout.readline().rstrip('\n')
+
+        if gparted_reply.startswith('1 '):
+            # Cancel
+            return
+
+        # Shut down gparted
+        self.gparted_subp.stdin.close()
+        self.gparted_subp.wait()
+        self.gparted_subp = None
+
+        if not gparted_reply.startswith('0 '):
+            # something other than OK or Cancel
+            return
 
         # Set up list of partition names for use in the mountpoints table.
         self.partition_choices = []

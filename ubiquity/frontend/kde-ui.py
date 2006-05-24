@@ -796,29 +796,36 @@ class Wizard:
         self.gparted_fstype = {}
 
         try:
-            try:
-                print >>self.qtparted_subp.stdin, "apply"
-            except IOError:
-                return
-
-            # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
-            gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
-            while not gparted_reply.startswith('0 '):
-                if gparted_reply.startswith('- '):
-                    pre_log('info', 'gparted replied: %s' % gparted_reply)
-                    words = gparted_reply[2:].strip().split()
-                    if words[0].lower() == 'format' and len(words) >= 3:
-                        self.gparted_fstype[words[1]] = words[2]
-                gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
-
-            if not gparted_reply.startswith('0 '):
-                return
-
-        finally:
+            print >>self.qtparted_subp.stdin, "apply"
+        except IOError:
             # Shut down qtparted
             self.qtparted_subp.stdin.close()
             self.qtparted_subp.wait()
             self.qtparted_subp = None
+            return
+
+        # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
+        gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+        while not gparted_reply.startswith('0 '):
+            if gparted_reply.startswith('- '):
+                pre_log('info', 'gparted replied: %s' % gparted_reply)
+                words = gparted_reply[2:].strip().split()
+                if words[0].lower() == 'format' and len(words) >= 3:
+                    self.gparted_fstype[words[1]] = words[2]
+            gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+
+        if gparted_reply.startswith('1 '):
+            # Cancel
+            return
+
+        # Shut down qtparted
+        self.qtparted_subp.stdin.close()
+        self.qtparted_subp.wait()
+        self.qtparted_subp = None
+
+        if not gparted_reply.startswith('0 '):
+            # something other than OK or Cancel
+            return
 
         self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
         mountText = "<b>" + get_string("mountpoint_label", self.locale) + "</b>"
