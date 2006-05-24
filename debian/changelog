@@ -1,3 +1,10 @@
+ubiquity (1.0.6) UNRELEASED; urgency=low
+
+  * Don't crash when partitions are deleted in the manual partitioner
+    (closes: Malone #46395).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 24 May 2006 17:45:33 +0100
+
 ubiquity (1.0.5) dapper; urgency=low
 
   * Really include base-installer/kernel/linux/link_in_boot in

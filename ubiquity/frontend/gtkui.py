@@ -861,6 +861,8 @@ class Wizard:
                 # widgets and setting size values. In addition, next row
                 # is showed if they're validated.
                 for mountpoint, partition in selection.items():
+                    if partition.split('/')[2] not in self.size:
+                        continue
                     if mountpoint in self.mountpoint_choices:
                         self.mountpoint_widgets[-1].set_active(
                             self.mountpoint_choices.index(mountpoint))
