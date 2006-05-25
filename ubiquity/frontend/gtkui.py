@@ -972,7 +972,7 @@ class Wizard:
                             break
                     else:
                         min_root = (MINIMAL_PARTITION_SCHEME['root'] +
-                                    MINIMAL_PARTITION_SCHEME['swap'] * 1024)
+                                    MINIMAL_PARTITION_SCHEME['swap'])
                     error_msg.append("The partition assigned to '/' is too "
                                      "small (minimum size: %d Mb)." % min_root)
                 elif check == validation.MOUNTPOINT_BADCHAR:
