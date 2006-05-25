@@ -947,7 +947,7 @@ class Wizard:
         partitions = [w.get_active_text() for w in self.partition_widgets]
 
         for check in partitions:
-            if check is None or check == '' or check == ' ':
+            if check in (None, '', ' '):
                 continue
             if partitions.count(check) > 1:
                 error_msg.append("A partition is assigned to more than one "
