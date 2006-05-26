@@ -1121,7 +1121,12 @@ class Install:
         if len(difference) == 0:
             return True
 
-        return self.do_remove(difference)
+        # Don't worry about failures removing packages; it will be easier
+        # for the user to sort them out with a graphical package manager (or
+        # whatever) after installation than it will be to try to deal with
+        # them automatically here.
+        self.do_remove(difference)
+        return True
 
 
     def cleanup(self):

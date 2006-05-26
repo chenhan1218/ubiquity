@@ -7,6 +7,8 @@ ubiquity (1.0.8) UNRELEASED; urgency=low
       the window is resized (closes: Malone #40227).
     - Hide the "New partition size" box rather than merely making it
       insensitive when not in use (closes: Malone #46749).
+  * Ignore failures while removing extra packages from installed system
+    (closes: Malone #46733).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 26 May 2006 14:52:34 +0100
 
