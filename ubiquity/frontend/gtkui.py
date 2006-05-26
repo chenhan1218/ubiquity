@@ -1043,7 +1043,10 @@ class Wizard:
             changed_page = True
         elif step == "stepPartAdvanced":
             if self.gparted_subp is not None:
-                print >>self.gparted_subp.stdin, "undo"
+                try:
+                    print >>self.gparted_subp.stdin, "undo"
+                except IOError:
+                    pass
                 self.gparted_subp.stdin.close()
                 self.gparted_subp.wait()
                 self.gparted_subp = None

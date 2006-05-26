@@ -573,7 +573,10 @@ class Wizard:
         response = QMessageBox.question(self.userinterface, abortTitle, warning_dialog_label, abortTitle, continueButtonText)
         if response == 0:
             if self.qtparted_subp is not None:
-                print >>self.qtparted_subp.stdin, "exit"
+                try:
+                    print >>self.qtparted_subp.stdin, "exit"
+                except IOError:
+                    pass
             self.current_page = None
             self.quit()
             return True
@@ -1057,7 +1060,10 @@ class Wizard:
             changed_page = True
         elif step == "stepPartAdvanced":
             if self.qtparted_subp is not None:
-                print >>self.qtparted_subp.stdin, "undo"
+                try:
+                    print >>self.qtparted_subp.stdin, "undo"
+                except IOError:
+                    pass
                 self.qtparted_subp.stdin.close()
                 self.qtparted_subp.wait()
                 self.qtparted_subp = None
