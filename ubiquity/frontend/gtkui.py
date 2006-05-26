@@ -1089,6 +1089,7 @@ class Wizard:
             time_admin_env['TZ'] = tz
         if 'DESKTOP_STARTUP_ID' in time_admin_env:
             del time_admin_env['DESKTOP_STARTUP_ID']
+        time_admin_env['GST_NO_INSTALL_NTP'] = '1'
         time_admin_subp = subprocess.Popen(["time-admin"], env=time_admin_env)
         gobject.child_watch_add(time_admin_subp.pid, self.on_time_admin_exit,
                                 invisible)
