@@ -208,10 +208,10 @@ msgstr "Förbered partitioner"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
 "Tänk på att allokera utrymme för en rotpartition (\"/\"), med en minimal "
-"storlek på 1.5 GB, och en växlingspartition på åtminstone 256 MB."
+"storlek på 2 GB, och en växlingspartition på åtminstone 256 MB."
 
 #. Type: text
 #. Description

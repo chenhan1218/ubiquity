@@ -1,21 +1,127 @@
-ubiquity (0.99.85) UNRELEASED; urgency=low
+ubiquity (1.0.8) UNRELEASED; urgency=low
+
+  * Ignore IOError when trying to tell gparted/qtparted to undo or exit
+    (closes: Malone #46387).
+  * GTK frontend:
+    - Make sure the steps notebook expands and fills available space when
+      the window is resized (closes: Malone #40227).
+    - Hide the "New partition size" box rather than merely making it
+      insensitive when not in use (closes: Malone #46749).
+  * Ignore failures while removing extra packages from installed system
+    (closes: Malone #46733).
+  * Tell time-admin to suppress its "Install NTP support" button (closes:
+    Malone #46743).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 26 May 2006 14:52:34 +0100
+
+ubiquity (1.0.7) dapper; urgency=low
+
+  * Fix infinite backup loop in disk selector (closes: Malone #46398).
+  * Fix crash on backup from manual partitioning if gparted/qtparted isn't
+    currently running (closes: Malone #45437, #46211).
+  * Don't close down gparted/qtparted if it returns "1 Cancel" to the
+    "apply" command (i.e. the user cancelled application of changes).
+  * Fix partition-assigned-to-multiple-mount-points check to ignore blank
+    rows in the mountpoints table (closes: Malone #46402).
+  * Fix insanely enormous minimum size quoted for root partition if no swap
+    partition is configured.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 25 May 2006 01:18:28 +0100
+
+ubiquity (1.0.6) dapper; urgency=low
+
+  * Don't crash when partitions are deleted in the manual partitioner
+    (closes: Malone #46395).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 24 May 2006 17:56:19 +0100
+
+ubiquity (1.0.5) dapper; urgency=low
+
+  * Really include base-installer/kernel/linux/link_in_boot in
+    ubiquity.templates (closes: Malone #46246).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 24 May 2006 10:38:37 +0100
+
+ubiquity (1.0.4) dapper; urgency=low
+
+  [ Colin Watson ]
+  * Include base-installer/kernel/linux/link_in_boot in ubiquity.templates,
+    needed by architectures with multiple kernels (closes: Malone #46160).
+  * Set the resize slider to a sensible position by default.
+  * Set a slightly more meaningful progress info message while reconfiguring
+    linux-image-* and linux-restricted-modules-*.
+  * Automatic update of included source packages: partman-auto 45ubuntu13,
+    partman-partitioning 37ubuntu3.
 
   [ Jonathan Riddell ]
   * KDE frontend:
-    - Fix crash in return_to_autopartitioning(), closes Malone #45396
+    - Fix crash in country selector when nothing is pre-set.
 
-  [ Colin Watson ]
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 23 May 2006 19:53:07 +0100
+
+ubiquity (1.0.3) dapper; urgency=low
+
+  * If install.py exits non-zero, invoke the crash handler with some dummy
+    text (getting the exact reason for the crash is unfortunately
+    difficult). Add text to the crash handler to ask the user to attach
+    /var/log/installer/syslog and /var/log/partman to bug reports so that we
+    can figure out why crashes at this point happen.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 23 May 2006 14:29:03 +0100
+
+ubiquity (1.0.2) dapper; urgency=low
+
+  * GTK frontend:
+    - Delete DESKTOP_STARTUP_ID from environment before running time-admin,
+      to stop it opening behind ubiquity (thanks, Michael Vogt; closes:
+      Malone #46008).
+  * Automatic update of included source packages: kbd-chooser
+    1.23ubuntu18.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 May 2006 22:16:23 +0100
+
+ubiquity (1.0.1) dapper; urgency=low
+
+  * Clear out all partman state immediately before each time we run partman,
+    and make sure /var/lib/partman/initial_auto exists before running
+    partman to commit manual partitioning in order to ensure that it never
+    attempts autopartitioning by mistake (closes: Malone #45597).
+  * Disable Forward on timezone page until a location is selected (closes:
+    Malone #45515).
+  * Load translations for partman-basicfilesystems/bad_mountpoint and
+    partman-target/no_root (bug misfiled as a comment in Malone #45200).
+  * Synchronise required space claimed in text alongside manual partitioner
+    and actually required in the minimal partitioning scheme; both are now
+    set to 2 GB (closes: Malone #45672).
+  * Add/update .desktop file translations from Rosetta: Breton, Greek,
+    Croatian, Lithuanian, Slovak, Tagalog, Chinese (China).
+  * Add/update translations from Rosetta: French, Croatian, Lithuanian,
+    Polish, Romanian, Chinese (Hong Kong).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 May 2006 14:40:30 +0100
+
+ubiquity (1.0.0) dapper; urgency=low
+
   * When going forward to the username/password screen, only disable the
     Forward button if not all the fields have been filled in (closes: Malone
     #37870).
   * KDE frontend:
     - Fix crash when trying to go back from the manual partitioner.
+    - Fix crash when returning to autopartitioning (closes: Malone #45396).
   * Fix going back from autopartitioning page if there's only one disk and
     thus no disk selector (closes: Malone #39283).
   * If there is no intro.txt installed, then silently skip the welcome
     screen, and decrement the visible step numbers to match.
+  * Rename intro.txt to intro-beta.txt; we can put it back easily if need be
+    (closes: Malone #38718).
+  * Make apt-setup/security-updates-failed a non-fatal error, i.e. don't
+    throw the user back to autopartitioning if it happens.
+  * Add/update .desktop file translations from Rosetta: Japanese, Occitan,
+    Chinese (China).
+  * Update translations from Rosetta: Slovak.
+  * Let's call it 1.0.0!
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 18 May 2006 12:11:54 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 18 May 2006 19:39:50 +0100
 
 ubiquity (0.99.84) dapper; urgency=low
 

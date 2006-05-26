@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-06 14:36+0000\n"
+"PO-Revision-Date: 2006-05-20 06:32+0000\n"
 "Last-Translator: Ante Karamatić <ivoks@ubuntu.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
@@ -209,9 +209,9 @@ msgstr "Pripremi particije"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Svakako pronađite prostor za root particiju (\"/\"), najmanje 1.5 GB, a za "
+"Svakako pronađite prostor za root particiju (\"/\"), najmanje 2 GB, a za "
 "swap particiju najmanje 256 MB."
 
 #. Type: text
@@ -281,13 +281,13 @@ msgstr "Spreman za instalaciju"
 #: ../ubiquity.templates:171
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "Vaš novi operativni sustav će se instalirati sa slijedećim postavkama:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Korak ${INDEX} od ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -333,13 +333,13 @@ msgstr "Instalacija potpuna"
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Nastaviti koristiti live CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "Odmah ponovo pokreni računalo"
 
 #. Type: text
 #. Description

@@ -531,10 +531,11 @@ class Wizard:
             self.debconf_progress_region(end, 100)
 
         dbfilter = install.Install(self)
-        if dbfilter.run_command(auto_process=True) != 0:
+        ret = dbfilter.run_command(auto_process=True)
+        if ret != 0:
             self.installing = False
-            # TODO cjwatson 2006-02-27: do something nicer than just quitting
-            self.quit()
+            # TODO cjwatson 2006-05-23: figure out why Install crashed
+            raise RuntimeError, "Install failed with exit code %s" % ret
 
         while self.progress_position.depth() != 0:
             self.debconf_progress_stop()
@@ -712,6 +713,7 @@ class Wizard:
             self.translate_widgets()
             self.steps.next_page()
             self.back.show()
+            self.allow_go_forward(self.get_timezone() is not None)
         # Location
         elif step == "stepLocation":
             self.steps.next_page()
@@ -808,28 +810,36 @@ class Wizard:
         self.gparted_fstype = {}
 
         try:
-            try:
-                print >>self.gparted_subp.stdin, "apply"
-            except IOError:
-                return
-
-            # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
-            gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
-            while gparted_reply.startswith('- '):
-                pre_log('info', 'gparted replied: %s' % gparted_reply)
-                words = gparted_reply[2:].strip().split()
-                if words[0].lower() == 'format' and len(words) >= 3:
-                    self.gparted_fstype[words[1]] = words[2]
-                gparted_reply = \
-                    self.gparted_subp.stdout.readline().rstrip('\n')
-
-            if not gparted_reply.startswith('0 '):
-                return
-        finally:
+            print >>self.gparted_subp.stdin, "apply"
+        except IOError:
             # Shut down gparted
             self.gparted_subp.stdin.close()
             self.gparted_subp.wait()
             self.gparted_subp = None
+            return
+
+        # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
+        gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
+        while gparted_reply.startswith('- '):
+            pre_log('info', 'gparted replied: %s' % gparted_reply)
+            words = gparted_reply[2:].strip().split()
+            if words[0].lower() == 'format' and len(words) >= 3:
+                self.gparted_fstype[words[1]] = words[2]
+            gparted_reply = \
+                self.gparted_subp.stdout.readline().rstrip('\n')
+
+        if gparted_reply.startswith('1 '):
+            # Cancel
+            return
+
+        # Shut down gparted
+        self.gparted_subp.stdin.close()
+        self.gparted_subp.wait()
+        self.gparted_subp = None
+
+        if not gparted_reply.startswith('0 '):
+            # something other than OK or Cancel
+            return
 
         # Set up list of partition names for use in the mountpoints table.
         self.partition_choices = []
@@ -859,6 +869,8 @@ class Wizard:
                 # widgets and setting size values. In addition, next row
                 # is showed if they're validated.
                 for mountpoint, partition in selection.items():
+                    if partition.split('/')[2] not in self.size:
+                        continue
                     if mountpoint in self.mountpoint_choices:
                         self.mountpoint_widgets[-1].set_active(
                             self.mountpoint_choices.index(mountpoint))
@@ -935,6 +947,8 @@ class Wizard:
         partitions = [w.get_active_text() for w in self.partition_widgets]
 
         for check in partitions:
+            if check in (None, '', ' '):
+                continue
             if partitions.count(check) > 1:
                 error_msg.append("A partition is assigned to more than one "
                                  "mount point.")
@@ -958,7 +972,7 @@ class Wizard:
                             break
                     else:
                         min_root = (MINIMAL_PARTITION_SCHEME['root'] +
-                                    MINIMAL_PARTITION_SCHEME['swap'] * 1024)
+                                    MINIMAL_PARTITION_SCHEME['swap'])
                     error_msg.append("The partition assigned to '/' is too "
                                      "small (minimum size: %d Mb)." % min_root)
                 elif check == validation.MOUNTPOINT_BADCHAR:
@@ -1028,10 +1042,14 @@ class Wizard:
             self.steps.set_current_page(self.steps.page_num(new_step))
             changed_page = True
         elif step == "stepPartAdvanced":
-            print >>self.gparted_subp.stdin, "undo"
-            self.gparted_subp.stdin.close()
-            self.gparted_subp.wait()
-            self.gparted_subp = None
+            if self.gparted_subp is not None:
+                try:
+                    print >>self.gparted_subp.stdin, "undo"
+                except IOError:
+                    pass
+                self.gparted_subp.stdin.close()
+                self.gparted_subp.wait()
+                self.gparted_subp = None
             self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
             changed_page = True
         elif step == "stepPartMountpoints":
@@ -1069,6 +1087,9 @@ class Wizard:
         tz = self.tzmap.get_selected_tz_name()
         if tz is not None:
             time_admin_env['TZ'] = tz
+        if 'DESKTOP_STARTUP_ID' in time_admin_env:
+            del time_admin_env['DESKTOP_STARTUP_ID']
+        time_admin_env['GST_NO_INSTALL_NTP'] = '1'
         time_admin_subp = subprocess.Popen(["time-admin"], env=time_admin_env)
         gobject.child_watch_add(time_admin_subp.pid, self.on_time_admin_exit,
                                 invisible)
@@ -1098,9 +1119,9 @@ class Wizard:
         selected."""
 
         if widget.get_active():
-            self.new_size_vbox.set_sensitive(True)
+            self.new_size_vbox.show()
         else:
-            self.new_size_vbox.set_sensitive(False)
+            self.new_size_vbox.hide()
 
 
 ##     def on_abort_dialog_close (self, widget):
@@ -1367,6 +1388,7 @@ class Wizard:
         if min_size is not None and max_size is not None:
             min_percent = int(math.ceil(100 * min_size / max_size))
             self.new_size_scale.set_range(min_percent, 100)
+            self.new_size_scale.set_value(int((min_percent + 100) / 2))
 
 
     def get_autopartition_resize_percent (self):
@@ -1509,7 +1531,7 @@ class Wizard:
             self.backup = True
             self.installing = False
 
-    def error_dialog (self, msg):
+    def error_dialog (self, msg, fatal=True):
         # TODO: cancel button as well if capb backup
         self.allow_change_step(True)
         if self.current_page is not None:
@@ -1520,7 +1542,8 @@ class Wizard:
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
         dialog.run()
         dialog.hide()
-        self.return_to_autopartitioning()
+        if fatal:
+            self.return_to_autopartitioning()
 
     def question_dialog (self, title, msg, option_templates):
         self.allow_change_step(True)
@@ -1685,6 +1708,7 @@ class TimezoneMap(object):
         self.location_selected = location
         self.set_city_text(self.location_selected.zone)
         self.set_zone_text(self.location_selected)
+        self.frontend.allow_go_forward(True)
 
     def city_changed(self, widget):
         iterator = widget.get_active_iter()
@@ -1803,6 +1827,7 @@ class TimezoneMap(object):
                     self.set_city_text(new_location_selected.zone)
                     self.set_zone_text(new_location_selected)
             self.location_selected = new_location_selected
+            self.frontend.allow_go_forward(self.location_selected is not None)
 
         return True
 

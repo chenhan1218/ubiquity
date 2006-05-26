@@ -1942,8 +1942,6 @@ Please choose the language used for the installation process. This language will
 
 		      <child>
 			<widget class="GtkVBox" id="new_size_vbox">
-			  <property name="visible">True</property>
-			  <property name="sensitive">False</property>
 			  <property name="homogeneous">False</property>
 			  <property name="spacing">6</property>
 
@@ -2162,7 +2160,7 @@ Please choose the language used for the installation process. This language will
 			<widget class="GtkLabel" id="partition_help">
 			  <property name="visible">True</property>
 			  <property name="can_focus">True</property>
-			  <property name="label" translatable="yes">Make sure to allocate space for a root partition (&quot;/&quot;), with a minimum size of 1.5 GB, and a swap partition of at least 256 MB.</property>
+			  <property name="label" translatable="yes">Make sure to allocate space for a root partition (&quot;/&quot;), with a minimum size of 2 GB, and a swap partition of at least 256 MB.</property>
 			  <property name="use_underline">False</property>
 			  <property name="use_markup">False</property>
 			  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -2670,8 +2668,8 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 		</widget>
 		<packing>
 		  <property name="padding">0</property>
-		  <property name="expand">False</property>
-		  <property name="fill">False</property>
+		  <property name="expand">True</property>
+		  <property name="fill">True</property>
 		</packing>
 	      </child>
 
@@ -2696,8 +2694,8 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 		</widget>
 		<packing>
 		  <property name="padding">0</property>
-		  <property name="expand">True</property>
-		  <property name="fill">True</property>
+		  <property name="expand">False</property>
+		  <property name="fill">False</property>
 		</packing>
 	      </child>
 
@@ -3435,7 +3433,7 @@ Make sure to remove the CD when restarting the computer, otherwise it will start
 		<widget class="GtkLabel" id="crash_text_label">
 		  <property name="visible">True</property>
 		  <property name="can_focus">True</property>
-		  <property name="label" translatable="yes">We're sorry; the installer crashed. Please file a bug report at https://launchpad.net/distros/ubuntu/+source/ubiquity/+filebug and a developer will attend to the problem as soon as possible. To help the developers understand what went wrong, include the following detail in your bug report:</property>
+		  <property name="label" translatable="yes">We're sorry; the installer crashed. Please file a bug report at https://launchpad.net/distros/ubuntu/+source/ubiquity/+filebug and a developer will attend to the problem as soon as possible. To help the developers understand what went wrong, include the following detail in your bug report, and attach the files /var/log/installer/syslog and /var/log/partman:</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">False</property>
 		  <property name="justify">GTK_JUSTIFY_LEFT</property>

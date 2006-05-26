@@ -209,10 +209,10 @@ msgstr "Подготовка на дяловете"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
 "Уверете се, че сте заделили пространство за коренния дял (\"/\") с минимален "
-"размер 1.5 ГБ, както и суап дял с поне 256 МБ."
+"размер 2 ГБ, както и суап дял с поне 256 МБ."
 
 #. Type: text
 #. Description

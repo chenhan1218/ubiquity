@@ -1,15 +1,17 @@
-# Xhosa messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
+# Chinese (Hong Kong) translation for debian-installer
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the debian-installer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-04-20 06:31+0000\n"
-"Last-Translator: Canonical Ltd <translations@canonical.com>\n"
-"Language-Team: Xhosa <xh-translate@ubuntu.com>\n"
+"PO-Revision-Date: 2006-05-20 07:43+0000\n"
+"Last-Translator: Woodman Tuen <wmtuen@gmail.com>\n"
+"Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,13 +20,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "安裝"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12
 msgid "Welcome"
-msgstr ""
+msgstr "歡迎"
 
 #. Type: text
 #. Description
@@ -53,7 +55,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28
 msgid "Where are you?"
-msgstr ""
+msgstr "您在那裡？"
 
 #. Type: text
 #. Description
@@ -83,19 +85,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "目前時間："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "設定時間...."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "鍵盤配置"
 
 #. Type: text
 #. Description
@@ -113,19 +115,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "您是誰？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "您的名字？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "您想用那個名稱來登入？"
 
 #. Type: text
 #. Description
@@ -152,7 +154,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "本電腦的名稱？"
 
 #. Type: text
 #. Description
@@ -181,7 +183,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:116
 msgid "Prepare disk space"
-msgstr ""
+msgstr "準備磁碟空間"
 
 #. Type: text
 #. Description
@@ -193,7 +195,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "準備分割區"
 
 #. Type: text
 #. Description
@@ -235,19 +237,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:151
 msgid "Size"
-msgstr ""
+msgstr "大小"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155
 msgid "Partition"
-msgstr ""
+msgstr "分割區"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "從新格式化？"
 
 #. Type: text
 #. Description
@@ -278,13 +280,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:179
 msgid "Abort the installation?"
-msgstr ""
+msgstr "中止安裝？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "您現在要中止安裝？"
 
 #. Type: title
 #. Description
@@ -304,13 +306,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:197
 msgid "Skip"
-msgstr ""
+msgstr "略過"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:201
 msgid "Installation complete"
-msgstr ""
+msgstr "安裝完成"
 
 #. Type: text
 #. Description
@@ -322,7 +324,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "現在重新啟動"
 
 #. Type: text
 #. Description
@@ -346,14 +348,14 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:224
 msgid "Go Back"
-msgstr "Phinda umva"
+msgstr "返回"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:229
 msgid "Continue"
-msgstr "Qhubeka"
+msgstr "繼續"
 
 #. Type: title
 #. Description
@@ -401,14 +403,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:270
 msgid "Running ${SCRIPT}..."
-msgstr "Iphumeza inkqubo i-${SCRIPT}..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Imisela inkqubo yothungelwano..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -419,9 +420,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Imisela inkqubo yothungelwano..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -438,15 +438,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:294
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Imisela inkqubo yothungelwano..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:298
 msgid "Configuring network..."
-msgstr "Imisela inkqubo yothungelwano..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -457,9 +456,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:306
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Imisela inkqubo yothungelwano..."
+msgstr ""
 
 #. Type: text
 #. Description

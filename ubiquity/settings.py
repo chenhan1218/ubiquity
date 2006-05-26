@@ -33,7 +33,7 @@
 DEBUGGING_STATUS = True
 
 MINIMAL_PARTITION_SCHEME = {'swap':  205,
-                            'root': 2355,
+                            'root': 2048,
                             'home':  512}
 
 LARGER_PARTITION_SCHEME = {'swap':  1024,

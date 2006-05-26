@@ -18,6 +18,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import os
+import shutil
 import signal
 import textwrap
 from ubiquity.filteredcommand import FilteredCommand
@@ -44,8 +45,7 @@ class Partman(FilteredCommand):
                 pass
 
         # Force autopartitioning to be re-run.
-        if os.path.exists('/var/lib/partman/initial_auto'):
-            os.unlink('/var/lib/partman/initial_auto')
+        shutil.rmtree('/var/lib/partman', ignore_errors=True)
 
         self.autopartition_question = None
         self.resize_min_percent = 0
@@ -296,7 +296,7 @@ class Partman(FilteredCommand):
                     self.done = True
                 else:
                     # Don't exit partman yet.
-                    pass
+                    self.succeeded = True
                 self.exit_ui_loops()
                 return
 

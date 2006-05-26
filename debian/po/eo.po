@@ -208,9 +208,9 @@ msgstr "Kreu subdiskojn"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Certiĝu fari spacon por radika diskparto (\"/\"), de minimume 1.5 GB, kaj "
+"Certiĝu fari spacon por radika diskparto (\"/\"), de minimume 2 GB, kaj "
 "\"swap\"-a diskparto de minimume 256 MB."
 
 #. Type: text

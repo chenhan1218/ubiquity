@@ -215,9 +215,9 @@ msgstr "Partíciók előkészítése"
 #: ../ubiquity.templates:128
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 1.5 GB, and a swap partition of at least 256 MB."
+"size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"A gyökérpartíciónak (\"/\") legalább 1,5 GB-osnak, a lapozópartíciónak "
+"A gyökérpartíciónak (\"/\") legalább 2 GB-osnak, a lapozópartíciónak "
 "legalább 256 MB-osnak kell lennie."
 
 #. Type: text

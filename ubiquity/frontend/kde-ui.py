@@ -517,10 +517,11 @@ class Wizard:
             self.debconf_progress_region(end, 100)
 
         dbfilter = install.Install(self)
-        if dbfilter.run_command(auto_process=True) != 0:
+        ret = dbfilter.run_command(auto_process=True)
+        if ret != 0:
             self.installing = False
-            # TODO cjwatson 2006-02-27: do something nicer than just quitting
-            self.quit()
+            # TODO cjwatson 2006-05-23: figure out why Install crashed
+            raise RuntimeError, "Install failed with exit code %s" % ret
 
         while self.progress_position.depth() != 0:
             self.debconf_progress_stop()
@@ -572,7 +573,10 @@ class Wizard:
         response = QMessageBox.question(self.userinterface, abortTitle, warning_dialog_label, abortTitle, continueButtonText)
         if response == 0:
             if self.qtparted_subp is not None:
-                print >>self.qtparted_subp.stdin, "exit"
+                try:
+                    print >>self.qtparted_subp.stdin, "exit"
+                except IOError:
+                    pass
             self.current_page = None
             self.quit()
             return True
@@ -701,6 +705,7 @@ class Wizard:
             self.translate_widgets()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepLocation"])
             self.userinterface.back.setEnabled(True)
+            self.userinterface.next.setEnabled(self.get_timezone() is not None)
         # Location
         elif step == "stepLocation":
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepKeyboardConf"])
@@ -794,29 +799,36 @@ class Wizard:
         self.gparted_fstype = {}
 
         try:
-            try:
-                print >>self.qtparted_subp.stdin, "apply"
-            except IOError:
-                return
-
-            # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
-            gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
-            while not gparted_reply.startswith('0 '):
-                if gparted_reply.startswith('- '):
-                    pre_log('info', 'gparted replied: %s' % gparted_reply)
-                    words = gparted_reply[2:].strip().split()
-                    if words[0].lower() == 'format' and len(words) >= 3:
-                        self.gparted_fstype[words[1]] = words[2]
-                gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
-
-            if not gparted_reply.startswith('0 '):
-                return
-
-        finally:
+            print >>self.qtparted_subp.stdin, "apply"
+        except IOError:
             # Shut down qtparted
             self.qtparted_subp.stdin.close()
             self.qtparted_subp.wait()
             self.qtparted_subp = None
+            return
+
+        # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
+        gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+        while not gparted_reply.startswith('0 '):
+            if gparted_reply.startswith('- '):
+                pre_log('info', 'gparted replied: %s' % gparted_reply)
+                words = gparted_reply[2:].strip().split()
+                if words[0].lower() == 'format' and len(words) >= 3:
+                    self.gparted_fstype[words[1]] = words[2]
+            gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+
+        if gparted_reply.startswith('1 '):
+            # Cancel
+            return
+
+        # Shut down qtparted
+        self.qtparted_subp.stdin.close()
+        self.qtparted_subp.wait()
+        self.qtparted_subp = None
+
+        if not gparted_reply.startswith('0 '):
+            # something other than OK or Cancel
+            return
 
         self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
         mountText = "<b>" + get_string("mountpoint_label", self.locale) + "</b>"
@@ -861,6 +873,8 @@ class Wizard:
                 # widgets and setting size values. In addition, next row
                 # is showed if they're validated.
                 for mountpoint, partition in selection.items():
+                    if partition.split('/')[2] not in self.size:
+                        continue
                     if mountpoint in self.mountpoint_choices:
                         self.mountpoint_widgets[-1].setCurrentItem(self.mountpoint_choices.index(mountpoint))
                     else:
@@ -969,6 +983,8 @@ class Wizard:
         partitions = [w.currentText() for w in self.partition_widgets]
 
         for check in partitions:
+            if check in (None, '', ' '):
+                continue
             if partitions.count(check) > 1:
                 error_msg.append("A partition is assigned to more than one "
                                  "mount point.")
@@ -992,7 +1008,7 @@ class Wizard:
                             break
                     else:
                         min_root = (MINIMAL_PARTITION_SCHEME['root'] +
-                                    MINIMAL_PARTITION_SCHEME['swap'] * 1024)
+                                    MINIMAL_PARTITION_SCHEME['swap'])
                     error_msg.append("The partition assigned to '/' is too "
                                      "small (minimum size: %d Mb)." % min_root)
                 elif check == validation.MOUNTPOINT_BADCHAR:
@@ -1043,10 +1059,14 @@ class Wizard:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS[new_step])
             changed_page = True
         elif step == "stepPartAdvanced":
-            print >>self.qtparted_subp.stdin, "undo"
-            self.qtparted_subp.stdin.close()
-            self.qtparted_subp.wait()
-            self.qtparted_subp = None
+            if self.qtparted_subp is not None:
+                try:
+                    print >>self.qtparted_subp.stdin, "undo"
+                except IOError:
+                    pass
+                self.qtparted_subp.stdin.close()
+                self.qtparted_subp.wait()
+                self.qtparted_subp = None
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
             changed_page = True
         elif step == "stepPartMountpoints":
@@ -1381,6 +1401,7 @@ class Wizard:
             min_percent = int(math.ceil(100 * min_size / max_size))
             self.userinterface.new_size_scale.setMinValue(min_percent)
             self.userinterface.new_size_scale.setMaxValue(100)
+            self.userinterface.new_size_scale.setValue(int((min_percent + 100) / 2))
 
     def get_autopartition_resize_percent (self):
         return self.userinterface.new_size_scale.value()
@@ -1506,11 +1527,12 @@ class Wizard:
             self.backup = True
             self.installing = False
 
-    def error_dialog (self, msg):
+    def error_dialog (self, msg, fatal=True):
         self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
         # TODO: cancel button as well if capb backup
         QMessageBox.warning(self.userinterface, "Error", msg, QMessageBox.Ok)
-        self.return_to_autopartitioning()
+        if fatal:
+            self.return_to_autopartitioning()
 
     def question_dialog (self, title, msg, option_templates):
         # I doubt we'll ever need more than three buttons.
@@ -1650,12 +1672,16 @@ class TimezoneMap(object):
         self.location_selected = location
         self.set_city_text(self.location_selected.zone)
         self.set_zone_text(self.location_selected)
+        self.frontend.userinterface.next.setEnabled(True)
 
         if name == None or name == "":
             return
 
     def get_tz_from_name(self, name):
-        return self.timezone_city_index[name]
+        if len(name) != 0:
+            return self.timezone_city_index[name]
+        else:
+            return None
 
     def city_combo_changed(self, index):
         city = str(self.frontend.userinterface.timezone_city_combo.currentText())
