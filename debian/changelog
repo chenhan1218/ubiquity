@@ -1,3 +1,15 @@
+ubiquity (1.0.9) dapper; urgency=low
+
+  * KDE Frontend:
+    - Allow for "1 Cancel" output from qtparted if Apply changes 
+      is cancelled, closes Malone #46404
+    - Correctly exit and remove qtparted widget when clicking Back, 
+      closes Malone #45430
+    - Remove qtparted widget when clicking Next 
+    - Ensure buttons remain disabled during install
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 26 May 2006 21:33:17 +0000
+
 ubiquity (1.0.8) UNRELEASED; urgency=low
 
   * Ignore IOError when trying to tell gparted/qtparted to undo or exit
