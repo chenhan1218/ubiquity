@@ -1118,9 +1118,9 @@ class Wizard:
         selected."""
 
         if widget.get_active():
-            self.new_size_vbox.set_sensitive(True)
+            self.new_size_vbox.show()
         else:
-            self.new_size_vbox.set_sensitive(False)
+            self.new_size_vbox.hide()
 
 
 ##     def on_abort_dialog_close (self, widget):

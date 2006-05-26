@@ -1942,8 +1942,6 @@ Please choose the language used for the installation process. This language will
 
 		      <child>
 			<widget class="GtkVBox" id="new_size_vbox">
-			  <property name="visible">True</property>
-			  <property name="sensitive">False</property>
 			  <property name="homogeneous">False</property>
 			  <property name="spacing">6</property>
 
