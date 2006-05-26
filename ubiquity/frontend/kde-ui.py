@@ -809,7 +809,7 @@ class Wizard:
 
         # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
         gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
-        while not gparted_reply.startswith('0 '):
+        while not gparted_reply.startswith('0 ') and not gparted_reply.startswith('1 '):
             if gparted_reply.startswith('- '):
                 pre_log('info', 'gparted replied: %s' % gparted_reply)
                 words = gparted_reply[2:].strip().split()
@@ -825,6 +825,7 @@ class Wizard:
         self.qtparted_subp.stdin.close()
         self.qtparted_subp.wait()
         self.qtparted_subp = None
+        self.qtparted_vbox.remove(self.embed)
 
         if not gparted_reply.startswith('0 '):
             # something other than OK or Cancel
@@ -1062,11 +1063,13 @@ class Wizard:
             if self.qtparted_subp is not None:
                 try:
                     print >>self.qtparted_subp.stdin, "undo"
+                    print >>self.qtparted_subp.stdin, "exit"
                 except IOError:
                     pass
                 self.qtparted_subp.stdin.close()
                 self.qtparted_subp.wait()
                 self.qtparted_subp = None
+                self.qtparted_vbox.remove(self.embed)
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
             changed_page = True
         elif step == "stepPartMountpoints":
@@ -1569,9 +1572,10 @@ class Wizard:
     # Run the UI's main loop until it returns control to us.
     def run_main_loop (self):
         self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
-        self.userinterface.next.setEnabled(True)
+        if not self.installing:
+            self.userinterface.next.setEnabled(True)
         step = self.step_name(self.get_current_page())
-        if not (step == "stepWelcome" or step == "stepLanguage"):
+        if not (step == "stepWelcome" or step == "stepLanguage") and not self.installing:
             self.userinterface.back.setEnabled(True)
         self.app.exec_loop()
 
