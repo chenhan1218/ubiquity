@@ -3,6 +3,10 @@ ubiquity (1.0.10) UNRELEASED; urgency=low
   * Explicitly refer to /var/log/installer/syslog and /var/log/syslog for
     more details when install.py fails; not everyone seems to be reading the
     crash dialog text.
+  * Ask for /var/log/syslog in the crash dialog text as well (in case it
+    does get read); some errors land there rather than
+    /var/log/installer/syslog. (I'll consolidate the logging a bit after the
+    Dapper release.)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 27 May 2006 18:36:42 +0100
 
