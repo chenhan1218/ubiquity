@@ -535,7 +535,9 @@ class Wizard:
         if ret != 0:
             self.installing = False
             # TODO cjwatson 2006-05-23: figure out why Install crashed
-            raise RuntimeError, "Install failed with exit code %s" % ret
+            raise RuntimeError, ("Install failed with exit code %s; see "
+                                 "/var/log/installer/syslog and "
+                                 "/var/log/syslog" % ret)
 
         while self.progress_position.depth() != 0:
             self.debconf_progress_stop()
