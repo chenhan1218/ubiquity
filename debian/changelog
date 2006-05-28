@@ -10,7 +10,7 @@ ubiquity (1.0.10) UNRELEASED; urgency=low
   * When copying symlinks, check for existing dangling symlinks as well as
     other types of file (closes: Malone #47054).
   * Fix crash if the default partition selection somehow includes partitions
-    not in the list of choices (closes: Malone #46918).
+    not in the list of choices (closes: Malone #46910).
   * Copy debian-installer/keymap to the installed system (closes: Malone
     #40627).
 
