@@ -878,6 +878,13 @@ class Wizard:
                 for mountpoint, partition in selection.items():
                     if partition.split('/')[2] not in self.size:
                         continue
+                    if partition not in self.partition_choices:
+                        # TODO cjwatson 2006-05-27: I don't know why this
+                        # might happen, but it does
+                        # (https://launchpad.net/bugs/46918). Figure out
+                        # why. In the meantime, ignoring this partition is
+                        # better than crashing.
+                        continue
                     if mountpoint in self.mountpoint_choices:
                         self.mountpoint_widgets[-1].setCurrentItem(self.mountpoint_choices.index(mountpoint))
                     else:
