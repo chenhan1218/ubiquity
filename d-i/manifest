@@ -3,10 +3,10 @@ base-installer 1.42ubuntu11
 choose-mirror 1.17ubuntu10
 clock-setup 0.8ubuntu1
 debian-installer-utils 1.22ubuntu8
-grub-installer 1.14ubuntu4
+grub-installer 1.14ubuntu5
 hw-detect 1.32ubuntu6
 kbd-chooser 1.23ubuntu18
-localechooser 0.27ubuntu20
+localechooser 0.27ubuntu21
 partconf 1.11
 partman-auto 45ubuntu13
 partman-base 78ubuntu4

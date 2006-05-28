@@ -1,4 +1,4 @@
-ubiquity (1.0.10) UNRELEASED; urgency=low
+ubiquity (1.0.10) dapper; urgency=low
 
   * Explicitly refer to /var/log/installer/syslog and /var/log/syslog for
     more details when install.py fails; not everyone seems to be reading the
@@ -13,8 +13,10 @@ ubiquity (1.0.10) UNRELEASED; urgency=low
     not in the list of choices (closes: Malone #46910).
   * Copy debian-installer/keymap to the installed system (closes: Malone
     #40627).
+  * Automatic update of included source packages: grub-installer
+    1.14ubuntu5, localechooser 0.27ubuntu21.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sat, 27 May 2006 18:36:42 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 28 May 2006 15:46:48 +0100
 
 ubiquity (1.0.9) dapper; urgency=low
 
