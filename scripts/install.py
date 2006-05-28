@@ -375,7 +375,7 @@ class Install:
             st = os.lstat(sourcepath)
             mode = stat.S_IMODE(st.st_mode)
             if stat.S_ISLNK(st.st_mode):
-                if not os.path.exists(targetpath):
+                if not os.path.lexists(targetpath):
                     linkto = os.readlink(sourcepath)
                     os.symlink(linkto, targetpath)
             elif stat.S_ISDIR(st.st_mode):
