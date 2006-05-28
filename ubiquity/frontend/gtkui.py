@@ -876,7 +876,7 @@ class Wizard:
                     if partition not in self.partition_choices:
                         # TODO cjwatson 2006-05-27: I don't know why this
                         # might happen, but it does
-                        # (https://launchpad.net/bugs/46918). Figure out
+                        # (https://launchpad.net/bugs/46910). Figure out
                         # why. In the meantime, ignoring this partition is
                         # better than crashing.
                         continue
