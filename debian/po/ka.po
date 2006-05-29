@@ -20,9 +20,38 @@ msgstr ""
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:8
+msgid "Install"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:12
+msgid "Welcome"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16
+msgid ""
+"Ready to install? Once you answer a few questions, the contents of the live "
+"CD can be installed on this computer so you can run the system at full speed "
+"and without the CD."
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
 msgstr "ამ კითხვებზე პასუხს სჭირდება რამდენიმე წუთი"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16
+msgid ""
+"Please choose the language used for the installation process. This language "
+"will be the default language for the final system."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -32,9 +61,27 @@ msgstr "სად იმყოფებით?"
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:32
+msgid "Select a city in your country and time zone."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:36
+msgid "Selected city:"
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:40
 msgid "Time zone:"
 msgstr "დროის სარტყელი:"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:44
+msgid "Selected region:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -89,9 +136,24 @@ msgstr "სისტემაში შესვლისას რომელ�
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:80
+msgid ""
+"If more than one person will use this computer, you can set up multiple "
+"accounts after installation."
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
 msgstr "პაროლის ამორჩევა ანგარიშის დასაცავად."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:90
+msgid ""
+"Enter the same password twice, so that it can be checked for typing errors."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -101,15 +163,74 @@ msgstr "რა უნდა იყოს ამ კომპიუტერი�
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:99
+msgid ""
+"This name will be used if you make the computer visible to others on a "
+"network."
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:105
 msgid "Select a disk"
 msgstr "დისკის ამორჩევა"
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:109
+msgid ""
+"You can have the installer automatically create space in various ways on any "
+"one of the following hard disks. Alternatively, you can partition the disks "
+"manually."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:116
+msgid "Prepare disk space"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:120
+msgid "How do you want to partition the disk?"
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
 msgstr "დანაყოფების მომზადება"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:128
+msgid ""
+"Make sure to allocate space for a root partition (\"/\"), with a minimum "
+"size of 2 GB, and a swap partition of at least 256 MB."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:134
+msgid "Prepare mount points"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:138
+msgid ""
+"Select which partitions you want to use for your new installation, and where "
+"you want to mount each of them."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:138
+msgid ""
+"You must mount one partition on the root file system (\"/\"), and you must "
+"choose at least one partition for use as swap space."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -125,9 +246,27 @@ msgstr "ზომა"
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:155
+msgid "Partition"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:159
+msgid "Reformat?"
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:163
 msgid "You must supply a root (\"/\") mount point."
 msgstr "უნდა მიუთითოთ სათაოს (root) (\"/\") მონტაჟის  წერტილი."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:167
+msgid "Ready to install"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -162,6 +301,14 @@ msgstr "შეწყდა დისკის დაყოფა"
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:191
+msgid ""
+"It was not possible to partition this disk automatically. You must select "
+"another partitioning method."
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:197
 msgid "Skip"
 msgstr "გამოტოვე"
@@ -186,6 +333,23 @@ msgstr "სისტემის გადატვირთვა"
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:213
+msgid ""
+"Installation is complete. You need to restart the computer in order to use "
+"the new installation. You can continue to use this live CD, although any "
+"changes you make or documents you save will not be preserved."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:213
+msgid ""
+"Make sure to remove the CD when restarting the computer, otherwise it will "
+"start back up using this live CD rather than the newly-installed system."
+msgstr ""
+
+#. Type: text
+#. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:224
 msgid "Go Back"
@@ -206,9 +370,33 @@ msgstr "მიმდინარეობს სისტემის ინს�
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:246
+msgid "Finding the distribution to copy..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:250
+msgid "Scanning files..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:254
+msgid "Copying files..."
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:258
 msgid "Copying files (${TIME} remaining)..."
 msgstr "ფაილების გადაწერა (დარჩა ${TIME})..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:262
+msgid "Copying installation logs..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -218,15 +406,81 @@ msgstr "გასუფთავება..."
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:270
+msgid "Running ${SCRIPT}..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:274
+msgid "Configuring system locales..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:278
+msgid "Configuring apt..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:282
+msgid "Configuring time zone..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:286
+msgid "Configuring keyboard..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:290
+msgid "Creating user..."
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:294
 msgid "Configuring hardware..."
 msgstr "მოწყობილობების კონფიგურაცია..."
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:298
+msgid "Configuring network..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:302
+msgid "Setting computer name..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:306
+msgid "Configuring boot loader..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:310
+msgid "Removing extra packages..."
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:314
 msgid "Checking for packages to remove..."
 msgstr "მიმდინარეობს მოსაშორებელი პაკეტების ძიება..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:318
+msgid "Downloading packages (${TIME} remaining)..."
+msgstr ""
 
 #. Type: text
 #. Description

@@ -31,14 +31,43 @@ msgstr "Welkom"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16
+msgid ""
+"Ready to install? Once you answer a few questions, the contents of the live "
+"CD can be installed on this computer so you can run the system at full speed "
+"and without the CD."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
 msgstr "Om die vrae te beantwoord sal net 'n paar minute duur."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16
+msgid ""
+"Please choose the language used for the installation process. This language "
+"will be the default language for the final system."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28
 msgid "Where are you?"
 msgstr "Waar is jy?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:32
+msgid "Select a city in your country and time zone."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:36
+msgid "Selected city:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -115,6 +144,13 @@ msgstr ""
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
 msgstr "Kies 'n wagwoord om jou rekening veilig te hou."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:90
+msgid ""
+"Enter the same password twice, so that it can be checked for typing errors."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -282,6 +318,12 @@ msgstr ""
 "Dit was nie moontlik om hierdie skyf outomaties te partisie.  Jy moet 'n "
 "ander partisiemetode kies."
 
+#. Type: text
+#. Description
+#: ../ubiquity.templates:197
+msgid "Skip"
+msgstr ""
+
 #. Type: title
 #. Description
 #: ../ubiquity.templates:201
@@ -370,6 +412,18 @@ msgstr "Kopieër lêers (${TIME} bly oor)..."
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:262
+msgid "Copying installation logs..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:266
+msgid "Cleaning up..."
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:270
 msgid "Running ${SCRIPT}..."
 msgstr "Laat ${SCRIPT} loop..."
@@ -397,6 +451,12 @@ msgstr "Stel tydsone op..."
 #: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
 msgstr "Stel sleutelbord op..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:290
+msgid "Creating user..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -442,9 +502,27 @@ msgstr "Laai pakette af (${TIME} bly nog oor)..."
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:322
+msgid "Downloading package lists..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:326
+msgid "Downloading package lists (${TIME} remaining)..."
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
 msgstr "Fout met installasie van ${PACKAGE}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:340
+msgid "Error removing ${PACKAGE}"
+msgstr ""
 
 #. Type: text
 #. Description
