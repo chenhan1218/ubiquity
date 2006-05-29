@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-14 17:40+0000\n"
+"PO-Revision-Date: 2006-05-25 18:42+0000\n"
 "Last-Translator: Roys Hengwatanakul <roysheng@msn.com>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -277,13 +277,13 @@ msgstr "พร้อมที่จะติดตั้ง"
 #: ../ubiquity.templates:171
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "ระบบปฏิบัติการใหม่ของคุณจะติดตั้งด้วยค่าที่ตั้งไว้ดังนี้:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "ขั้นที่ ${INDEX} จาก ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -327,13 +327,13 @@ msgstr "การติดตั้งเรียบร้อย"
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "ใช้แผ่น Live ซีดีต่อไป"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "เริ่มใหม่เดี๋ยวนี้"
 
 #. Type: text
 #. Description

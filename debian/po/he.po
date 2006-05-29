@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-04-20 06:08+0000\n"
-"Last-Translator: Lior Kaplan <webmaster@guides.co.il>\n"
+"PO-Revision-Date: 2006-05-28 11:30+0000\n"
+"Last-Translator: Yaniv Abir <yanivabir@gmail.com>\n"
 "Language-Team: Debian l10n Hebrew <webmaster@guides.co.il>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "התקנה"
 
 #. Type: text
 #. Description
@@ -34,6 +34,8 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"מוכן להתקין? ברגע שתענה על מספר שאלות, תוכן ה LIVE CD יותקן על המחשב כדי "
+"שתוכן להריץ את המערכת במהירות וללא התקליטור"
 
 #. Type: text
 #. Description
@@ -47,7 +49,7 @@ msgstr "המענה לשאלות לא ייקח יותר מכמה דקות."
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
-msgstr ""
+msgstr "בחר שפה לשימוש בתוכנית ההתקנה. שפה זו תשמש כברירת מחדל למערכת שתותקן."
 
 #. Type: text
 #. Description
@@ -64,9 +66,8 @@ msgstr "בחר עיר באיזור הזמן והמדינה שלך:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36
-#, fuzzy
 msgid "Selected city:"
-msgstr "איזור זמן נבחר"
+msgstr "בחר עיר:"
 
 #. Type: text
 #. Description
@@ -78,7 +79,7 @@ msgstr "איזור זמן:"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "בחר איזור:"
 
 #. Type: text
 #. Description
@@ -95,39 +96,38 @@ msgstr "כוון שעון..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "בחירת פריסת מקלדת"
+msgstr "פריסת מקלדת"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "איזו פריסה היא הדומה ביותר למקלדת בה אתה משתמש?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "תוכל להקליד בתיבה זו על מנת לבחון את פריסת המקלדת החדשה שלך."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "מי את/ה?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "מה שמך?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "באיזה שם ברצונך להשתמש כדי להיכנס למערכת?"
 
 #. Type: text
 #. Description
@@ -136,12 +136,13 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"אם יותר מאדם אחד ישתמשו במחשב זה, תוכל להוסיף משתמשים נוספים לאחר ההתקנה."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "בחר סיסמה כדי לשמור על חשבונך בטוח."
 
 #. Type: text
 #. Description
@@ -178,6 +179,8 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"תוכנית ההתקנה תוכל ליצור שטח באופן אוטומטי על כל אחד מהכוננים הבאים. באם "
+"תרצה, תוכל לחצוץ את הכוננים באופן ידני."
 
 #. Type: text
 #. Description
@@ -188,9 +191,8 @@ msgstr "צור מקום בדיסק"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:120
-#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr "האם ברצונך להמשיך בחלוקה למחיצות?"
+msgstr "באיזו דרך תרצו לחלק את הכונן למחיצות?"
 
 #. Type: text
 #. Description
@@ -206,6 +208,8 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
+"ודא כי אתה מקצה מספיק שטח למחיצת ה root (\"/\"), בגודל מינימלי של 2GB, "
+"ומחיצת swap בגודל של לפחות 256MB."
 
 #. Type: text
 #. Description
@@ -220,6 +224,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"בחר את המחיצות בהן אתה רוצה להשתמש בהתקנה החדשה, והיכן אתה רוצה לעגן כל אחת "
+"מהן."
 
 #. Type: text
 #. Description
@@ -228,6 +234,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"אתה חייב לעגן מחיצה אחת כמערכת קבצים - root (\"/\"), ואתה חייב לבחור לפחות "
+"מחיצה אחת שתשמש כשטח swap."
 
 #. Type: text
 #. Description
@@ -240,7 +248,7 @@ msgstr "נקודת עגינה:"
 #. Description
 #: ../ubiquity.templates:151
 msgid "Size"
-msgstr ""
+msgstr "גודל"
 
 #. Type: text
 #. Description
@@ -253,13 +261,13 @@ msgstr "חלוקה למחיצות"
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "לפרמט מחדש?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "חובה לקבוע נקודת עגינה ל root (\"/\")"
 
 #. Type: text
 #. Description
@@ -272,13 +280,13 @@ msgstr "מוכן להתקנה"
 #: ../ubiquity.templates:171
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "מערכת ההפעלה החדשה שלך תותקן כעת עם ההגדרות הבאות:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "צעד ${INDEX} מתוך ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -323,13 +331,13 @@ msgstr "ההתקנה הסתיימה"
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "המשך להשתמש ב Live CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "בצע אתחול של המחשב"
 
 #. Type: text
 #. Description
@@ -339,6 +347,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"ההתקנה הושלמה. עליך לאתחל את המחשב על מנת להשתמש בהתקנה החדשה.\r\n"
+"ניתן להמשיך להשתמש ב live CD, על אף ששינוים שייעשו או מסמכים שיווצרו, לא "
+"ישמרו."
 
 #. Type: text
 #. Description
@@ -398,14 +409,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262
-#, fuzzy
 msgid "Copying installation logs..."
-msgstr "מעתיק מחיצה..."
+msgstr "מעתיק רישומי התקנה..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:266
-#, fuzzy
 msgid "Cleaning up..."
 msgstr "מנקה ומסדר..."
 
@@ -425,7 +434,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr ""
+msgstr "מגדיר את apt..."
 
 #. Type: text
 #. Description
@@ -437,7 +446,7 @@ msgstr "מגדיר איזור זמן..."
 #. Description
 #: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "מגדיר את המקלדת..."
 
 #. Type: text
 #. Description
@@ -460,7 +469,6 @@ msgstr "מגדיר רשת..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:302
-#, fuzzy
 msgid "Setting computer name..."
 msgstr "מגדיר את שם המחשב..."
 
@@ -468,7 +476,7 @@ msgstr "מגדיר את שם המחשב..."
 #. Description
 #: ../ubiquity.templates:306
 msgid "Configuring boot loader..."
-msgstr ""
+msgstr "מגדיר את מנהל ההפעלה..."
 
 #. Type: text
 #. Description
@@ -492,43 +500,40 @@ msgstr "מוריד חבילות (${TIME} נותרו)..."
 #. Description
 #: ../ubiquity.templates:322
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "מוריד רשימת חבילות..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:326
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "מוריד רשימת חבילות (${TIME} נותרו)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:335
-#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr "לא ניתן להתקין את GRUB ב-${BOOTDEV}"
+msgstr "שגיאה בהתקנת ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:340
-#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr "מביא את ${PACKAGE}"
+msgstr "שגיאה בהסרת ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:340
 msgid "${MESSAGE}"
-msgstr ""
+msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:345
-#, fuzzy
 msgid "Installing language packs"
-msgstr "מתקין את חבילות הליבה"
+msgstr "מתקין את חבילות השפה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:349
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "מוריד חבילת שפה (${TIME} נותר)..."

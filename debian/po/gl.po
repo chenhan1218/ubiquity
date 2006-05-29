@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-15 11:11+0000\n"
-"Last-Translator: Jacobo Tarrio <jtarrio@debian.org>\n"
+"PO-Revision-Date: 2006-05-28 14:48+0000\n"
+"Last-Translator: Adrian Souto Moure <xouto69@gmail.com>\n"
 "Language-Team: Galego <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +18,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Instalar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12
 msgid "Welcome"
-msgstr ""
+msgstr "Benvido"
 
 #. Type: text
 #. Description
@@ -34,12 +34,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Esta listo para instalar? Unha vez que conteste a unhas preguntas, os "
+"contidos do CD podrán ser instalados na computadora para que asi poida "
+"arrancar o sistema á maxima velocidade sen o CD."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Responder ás preguntas só lle levara uns minutos."
 
 #. Type: text
 #. Description
@@ -48,84 +51,87 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Por favor escolla a linguaxe a usar no proceso de instalacion. Esta linguaxe "
+"será a predeterminada para o sistema final."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28
 msgid "Where are you?"
-msgstr ""
+msgstr "Onde estas?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Escolla a cidade do teu pais e o fuso horario"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr ""
+msgstr "Cidade escollida:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40
 msgid "Time zone:"
-msgstr ""
+msgstr "Fuso horario:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Rexión escollida:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "Hora actual:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Establecer hora..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Disposición das teclas"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Que disposicion é a máis parecida á do seu teclado?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
+"Pode escribir neste cadro para probar a súa nova disposición das teclas."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Quen é vostede?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Como se chama?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Que nome quere usar para iniciar sesión?"
 
 #. Type: text
 #. Description
@@ -134,12 +140,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Se máis dunha persoa vai usar esta computadora, pode configurar varias "
+"contas desois da instalación."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Elixa un contrasinal para asegurar a súa conta."
 
 #. Type: text
 #. Description
@@ -147,12 +155,14 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Introduza o mesmo contrasinal dúas veces, asi poderán ser comprobados os "
+"posibles erros na escrita."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Cal é o nome de esta computadora?"
 
 #. Type: text
 #. Description
@@ -161,12 +171,13 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Este nome será usado por se queres facer visible a tua computadora nuha rede."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105
 msgid "Select a disk"
-msgstr ""
+msgstr "Escolla un disco:"
 
 #. Type: text
 #. Description
@@ -176,24 +187,27 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"Podes escoller que o instalador libere espacio de moitas maneiras nalgun dos "
+"seguintes discos duros.\r\n"
+"Alternativamente,  podes particionar os discos manualmente."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Preparar espacio en disco"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Como quere particionar o disco?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Preparar particións"
 
 #. Type: text
 #. Description
@@ -202,12 +216,14 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
+"Asegurese de asignar suficiente espacio para unha partición raíz (\"/\"), "
+"cun tamaño mínimo de 2 GB, e unha particion de intercambio de ó menos 256 MB"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Preparar puntos de montaxe"
 
 #. Type: text
 #. Description
@@ -278,19 +294,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:179
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Abortar a instalación?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "De verdade quere abortar a instalacion agora?"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:187
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "O particionamento fio interrumpido"
 
 #. Type: text
 #. Description
@@ -299,12 +315,14 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
+"Non foi posible particionar os discos automáticamente. Debe seleccionar "
+"outro método de particionamento"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:197
 msgid "Skip"
-msgstr ""
+msgstr "Omitir"
 
 #. Type: title
 #. Description
@@ -316,13 +334,13 @@ msgstr "Instalación completa"
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Continuar usando o CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "Reiniciar agora"
 
 #. Type: text
 #. Description
@@ -332,6 +350,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Completouse a instalación. É preciso reiniciar a computadora correctamente "
+"para poder usar a nova instalación. Podes continuar usando este CD, sen "
+"embargo os cambios que fagas ou os documnetos que gardes perderanse."
 
 #. Type: text
 #. Description
@@ -340,6 +361,8 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Asegurese de sacar o CD cando reinicie a computadora, da otra maneira "
+"iniciarase a copia desde o CD en vez de o sitema recien instalado."
 
 #. Type: text
 #. Description
@@ -358,39 +381,38 @@ msgstr "Continuar"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:242
-#, fuzzy
 msgid "Installing system"
-msgstr "Instalación completa"
+msgstr "Instalando sistema"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Buscando distribución para copiar..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250
 msgid "Scanning files..."
-msgstr ""
+msgstr "Analizando arquivos..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:254
 msgid "Copying files..."
-msgstr ""
+msgstr "Copiando arquivos..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258
 msgid "Copying files (${TIME} remaining)..."
-msgstr ""
+msgstr "Copiando arquivos (Queda ${TIME})"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "Copiando rexistros de instalación..."
 
 #. Type: text
 #. Description
@@ -407,35 +429,32 @@ msgstr "A executar ${SCRIPT}..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "A configurar a rede..."
+msgstr "Configurando redes do sistema..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Configurando apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "A configurar a rede..."
+msgstr "Configurando fuso horario..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Configurando teclado..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:290
-#, fuzzy
 msgid "Creating user..."
-msgstr "A limpar..."
+msgstr "Creando usuario..."
 
 #. Type: text
 #. Description
@@ -509,16 +528,16 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:340
 msgid "${MESSAGE}"
-msgstr ""
+msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:345
 msgid "Installing language packs"
-msgstr ""
+msgstr "Instalando os paquetes de idioma..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:349
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Descargando paquetes de idioma (quedan ${TIME})"

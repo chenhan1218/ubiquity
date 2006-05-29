@@ -1,21 +1,18 @@
-# Translation of debian-installer.po to Slovenian
 # Slovenian messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
-# Jure Repinc <jlp@holodeck1.com>, 2006.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-01 22:09+0000\n"
+"PO-Revision-Date: 2006-05-27 02:45+0000\n"
 "Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
-"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language-Team: Slovenščina <team@slo-tech.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
 
 #. Type: text
 #. Description
@@ -73,7 +70,7 @@ msgstr "Izberite mesto v svoji državi in časovni pas."
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr "Izberite mesto:"
+msgstr "Izbrano mesto:"
 
 #. Type: text
 #. Description
@@ -115,7 +112,7 @@ msgstr "Katera postavitev je najbolj podobna vaši tipkovnici?"
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Za preizkus svoje nove postavitve lahko tipkate v to polje."
+msgstr "Za preizkus svoje nove postavitve, lahko tipkate v to polje."
 
 #. Type: text
 #. Description
@@ -149,7 +146,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr "Vnesite geslo za varovanje svojega računa."
+msgstr "Vnesite geslo, za varovanje svojega računa."
 
 #. Type: text
 #. Description
@@ -284,13 +281,13 @@ msgstr "Pripravljeno za namestitev"
 #: ../ubiquity.templates:171
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "Vaš novi operacijski sistem bo naložen z naslednjimi nastavitvami:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Korak ${INDEX} od ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -336,13 +333,13 @@ msgstr "Namestitev je končana"
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Nadaljujte uporabo žive zgoščenke."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "Ponoven zagon"
 
 #. Type: text
 #. Description
@@ -353,7 +350,7 @@ msgid ""
 "changes you make or documents you save will not be preserved."
 msgstr ""
 "Namestitev je zaključena. Da bi lahko uporabili novo namestitev, je potrebno "
-"znova zagnati računalnik. Z uporabo tega živega CD-ja lahko nadaljujete, "
+"znova zagnati računalnik. Z uporabo tega živege zgoščenke lahko nadaljujete, "
 "vendar opravljene spremembe in shranjeni dokumenti ne bodo ohranjeni."
 
 #. Type: text
@@ -363,9 +360,9 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Prepričajte se, da pred ponovnim zagonom odstranite CD. V nasprotnem primeru "
-"se bo računalnik spet zagnal s tega živega CD-ja, namesto da bi uporabil "
-"novo nameščeni sistem."
+"Prepričajte se, da pred ponovnim zagonom odstranite zgoščenko. V nasprotnem "
+"primeru se bo računalnik spet zagnal s te žive zgoščenke, namesto da bi "
+"uporabil novo nameščeni sistem."
 
 #. Type: text
 #. Description

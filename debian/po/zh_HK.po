@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-20 07:43+0000\n"
-"Last-Translator: Woodman Tuen <wmtuen@gmail.com>\n"
+"PO-Revision-Date: 2006-05-27 15:41+0000\n"
+"Last-Translator: Alan Tam <Tam@SiuLung.com>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -189,7 +189,7 @@ msgstr "準備磁碟空間"
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "您是否想要重新分割硬碟？"
 
 #. Type: text
 #. Description
@@ -209,7 +209,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "準備好掛載點"
 
 #. Type: text
 #. Description
@@ -261,7 +261,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167
 msgid "Ready to install"
-msgstr ""
+msgstr "準備好安裝"
 
 #. Type: text
 #. Description
@@ -274,7 +274,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "步驟 ${TOTAL} 之 ${INDEX}"
 
 #. Type: title
 #. Description
@@ -292,7 +292,7 @@ msgstr "您現在要中止安裝？"
 #. Description
 #: ../ubiquity.templates:187
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "磁碟分割停止"
 
 #. Type: text
 #. Description
@@ -361,7 +361,7 @@ msgstr "繼續"
 #. Description
 #: ../ubiquity.templates:242
 msgid "Installing system"
-msgstr ""
+msgstr "正在安裝系統"
 
 #. Type: text
 #. Description
@@ -397,13 +397,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:266
 msgid "Cleaning up..."
-msgstr ""
+msgstr "正在清理系統..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:270
 msgid "Running ${SCRIPT}..."
-msgstr ""
+msgstr "正在執行 ${SCRIPT}..."
 
 #. Type: text
 #. Description
@@ -415,43 +415,43 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr ""
+msgstr "設定 apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282
 msgid "Configuring time zone..."
-msgstr ""
+msgstr "正在設定時區..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "正在設定鍵盤..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:290
 msgid "Creating user..."
-msgstr ""
+msgstr "正在設定使用者..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:294
 msgid "Configuring hardware..."
-msgstr ""
+msgstr "正在設定硬體..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:298
 msgid "Configuring network..."
-msgstr ""
+msgstr "正在設定網絡..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:302
 msgid "Setting computer name..."
-msgstr ""
+msgstr "正在設定主機名稱..."
 
 #. Type: text
 #. Description
@@ -517,4 +517,4 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:349
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "正在下載語言封包 (剩餘 ${TIME})..."

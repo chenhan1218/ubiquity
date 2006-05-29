@@ -1,15 +1,17 @@
-# Catalan messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
+# Afrikaans translation for debian-installer
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the debian-installer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-24 17:49+0000\n"
-"Last-Translator: Jordi Mallach <jordi@canonical.com>\n"
-"Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
+"PO-Revision-Date: 2006-05-29 15:17+0000\n"
+"Last-Translator: Robert Schumann <robert@cantab.net>\n"
+"Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,122 +20,85 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr "Instal·la"
+msgstr "Installeer"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12
 msgid "Welcome"
-msgstr "Benvingut"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:16
-msgid ""
-"Ready to install? Once you answer a few questions, the contents of the live "
-"CD can be installed on this computer so you can run the system at full speed "
-"and without the CD."
-msgstr ""
-"Esteu preparats per a instal·lar? Una vegada hageu contestat a unes poquesp "
-"reguntes, es poden instal·lar els continguts del CD autònom en aquest "
-"ordinador per a que pogueu iniciar el sistema a la velocitat normal i sense "
-"el CD."
+msgstr "Welkom"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr "Només trigareu uns minuts en contestar les preguntes."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:16
-msgid ""
-"Please choose the language used for the installation process. This language "
-"will be the default language for the final system."
-msgstr ""
-"Seleccioneu la llengua a utilitzar per al procés d'instal·lació. Aquesta "
-"llengua serà la predeterminada al sistema final."
+msgstr "Om die vrae te beantwoord sal net 'n paar minute duur."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28
 msgid "Where are you?"
-msgstr "On sou?"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:32
-msgid "Select a city in your country and time zone."
-msgstr "Seleccioneu una ciutat en el vostre país i fus horari."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:36
-msgid "Selected city:"
-msgstr "Ciutat seleccionada:"
+msgstr "Waar is jy?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40
 msgid "Time zone:"
-msgstr "Fus horari:"
+msgstr "Tydsone:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr "Regió seleccionada:"
+msgstr "Gekose streek:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48
 msgid "Current time:"
-msgstr "Hora actual:"
+msgstr "Gekose tyd:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr "Establiu l'hora..."
+msgstr "Stel Tyd..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr "Disposició de teclat"
+msgstr "Sleutelbord-uitleg"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Quina disposició és similar al vostre teclat?"
+msgstr "Watter uitleg lyk mees soos jou sleutelbord?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
-"Podeu escriure en aquesta caixa per a provar la vostra disposició de teclat "
-"nova."
+msgstr "Jy kan in hierdie boks tik om jou nuwe sleutelborduitleg te toets."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr "Qui ets?"
+msgstr "Wie is jy?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr "Quin és el teu nom?"
+msgstr "Wat is jou naam?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr "Quin nom voleu utilitzar per a entrar al sistema?"
+msgstr "Watter naam gebruik jy om aan te teken?"
 
 #. Type: text
 #. Description
@@ -142,29 +107,20 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Si més d'una persona ha d'utilitzar aquest ordinador, podeu configurar "
-"múltiples comptes després de la instal·lació."
+"As meer as een persoon hierdie rekenaar gaan gebruik, kan jy verdere "
+"rekeninge na installasie opstel."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr "Seleccioneu una contrasenya per a mantenir el vostre compte segur."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:90
-msgid ""
-"Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
-"Introduïu la mateixa contrasenya dues vegades, per a que es puga comprovar "
-"que no conté errors de tecleig."
+msgstr "Kies 'n wagwoord om jou rekening veilig te hou."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr "Quin és el nom d'aquest ordinador?"
+msgstr "Wat is die naam van hierdie rekenaar?"
 
 #. Type: text
 #. Description
@@ -173,14 +129,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Aquest nom s'utilitzarà si feu que l'ordinador siga visible a altres en una "
-"xarxa."
+"Hierdie naam sal gebruik word as jy hierdie rekenaar sigbaar maak vir ander "
+"op die netwerk."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105
 msgid "Select a disk"
-msgstr "Seleccioneu un disc"
+msgstr "Kies 'n skyf"
 
 #. Type: text
 #. Description
@@ -190,27 +146,27 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
-"Podeu fer que l'instal·lador cree espai automàticament de diverses maneres "
-"en qualsevol dels discs durs següents. Alternativament, podeu partir els "
-"discs manualment."
+"Jy kan die installeerder outomaties laat spasie skep op verskillende maniere "
+"op enige van die volgende hardeskywe. Anders kan jy die skywe met die hand "
+"partisie."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116
 msgid "Prepare disk space"
-msgstr "Prepareu l'espai al disc"
+msgstr "Maak skyf-spasie gereed"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr "Com voleu partir el disc?"
+msgstr "Hoe wil jy die skyf partisie?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr "Prepareu les particions"
+msgstr "Maak partisies gereed"
 
 #. Type: text
 #. Description
@@ -219,14 +175,14 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Assegureu-vos que assigneu espai per a una partició arrel («/»), amb una "
-"mida mínima de 2 GB, i una partició d'intercanvi d'almenys 256 MB."
+"Maak seker daar is genoeg spasie vir 'n lêerstelsel (\"/\") met 'n minimum "
+"grootte van 2GB, en 'n ruillêer van minstens 256MB."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr "Prepareu els punts de muntatge"
+msgstr "Maak hegpunte gereed"
 
 #. Type: text
 #. Description
@@ -235,8 +191,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
-"Seleccioneu quines particions voleu utilitzar per a la vostra instal·lació "
-"nova, i on voleu muntar cadascuna d'elles."
+"Kies watter partisies jy wil gebruik vir jou nuwe installasie, en waar jy "
+"elke een aan die lêerstelsel wil aanheg."
 
 #. Type: text
 #. Description
@@ -245,75 +201,76 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
-"Heu de muntar una partició al sistema de fitxers arrel («/») i heu de "
-"seleccionar almenys una partició per a usar-la com a espai d'intercanvi."
+"Jy moet een partisie as wortellêerstelsel (\"/\") aandui, en jy moet ten "
+"minste een partisie as ruilpartisie kies."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:147
 msgid "Mount Point"
-msgstr "Punt de muntatge"
+msgstr "Hegpunt"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:151
 msgid "Size"
-msgstr "Mida"
+msgstr "Grootte"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155
 msgid "Partition"
-msgstr "Partició"
+msgstr "Partisie"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr "Voleu tornar a donar format?"
+msgstr "Herformateer?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr "Heu de donar un punt de muntatge per a l'arrel («/»)"
+msgstr "Jy moet 'n wortelhegpunt (\"/\") verskaf."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:167
 msgid "Ready to install"
-msgstr "Preparat per a instal·lar"
+msgstr "Gereed om te installeer"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:171
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "El nou sistema operatiu s'instal·larà ara amb els següents paràmetres:"
+msgstr ""
+"Jou nuwe bedryfstelsel sal met die volgende stelings geïnstalleer word:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "Pas ${INDEX} de ${TOTAL}"
+msgstr "Stap ${INDEX} van ${TOTAL}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:179
 msgid "Abort the installation?"
-msgstr "Voleu avortar la instal·lació?"
+msgstr "Staak die installasie?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183
 msgid "Do you really want to abort the installation now?"
-msgstr "Esteu segur de voler avortar la instal·lació ara?"
+msgstr "Wil jy rêrig die installasie nou staak?"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:187
 msgid "Partitioning was interrupted"
-msgstr "S'ha avortat la partició"
+msgstr "Partisionering was onderbreek"
 
 #. Type: text
 #. Description
@@ -322,32 +279,26 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
-"No s'ha pogut partir aquest disc automàticament. Podeu seleccionar un altre "
-"mètode de partició."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:197
-msgid "Skip"
-msgstr "Omet"
+"Dit was nie moontlik om hierdie skyf outomaties te partisie.  Jy moet 'n "
+"ander partisiemetode kies."
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:201
 msgid "Installation complete"
-msgstr "Instal·lació completa"
+msgstr "Installasie is voltooi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr "Continueu utilitzant el CD autònom"
+msgstr "Hou aan om die live CD te geebruik"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr "Reinicia ara"
+msgstr "Restart nou"
 
 #. Type: text
 #. Description
@@ -357,10 +308,10 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"S'ha completat la instal·lació. Heu de tornar a iniciar l'ordinador per a "
-"utilitzar la instal·lació nova. Podeu continuar utilitzant aquest CD "
-"autònom, tot i que qualsevol canvi que feu els documents que deseu no es "
-"preservaran."
+"Installasie is voltooi.  Jy moet die rekenaar laat restart om die nuwe "
+"installasie te gebruik.  Jy mag hierdie live CD aanhou gebruik, maar enige "
+"veranderinge wat jy aanbring of dokumente wat jy stoor sal nie bewaar word "
+"nie."
 
 #. Type: text
 #. Description
@@ -369,167 +320,131 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Assegureu-vos que treieu el CD quan torneu a iniciar l'ordinador, o tornarà "
-"a iniciar-se utilitzant aquest CD autònom, en comptes del sistema que "
-"s'acaba d'instal·lar."
+"Sorg dat jy die CD van die rekenaar verwyder wanneer jy die rekenaar weer "
+"laat loop, anders sal dit weer van hierdie live CD loop in plaas van jou "
+"nuut-geïnstalleerde stelsel."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:224
 msgid "Go Back"
-msgstr "Vés enrere"
+msgstr "Gaan terug"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:229
 msgid "Continue"
-msgstr "Continua"
+msgstr "Gaan voort"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:242
 msgid "Installing system"
-msgstr "S'està instal·lant el sistema"
+msgstr "Installeer stelsel"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246
 msgid "Finding the distribution to copy..."
-msgstr "S'està cercant la distribució a copiar..."
+msgstr "Soek die verspreiding om te kopieër..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250
 msgid "Scanning files..."
-msgstr "S'estan analitzant els fitxers..."
+msgstr "Deursoek lêers..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:254
 msgid "Copying files..."
-msgstr "S'estan copiant els fitxers..."
+msgstr "Kopieër lêers..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258
 msgid "Copying files (${TIME} remaining)..."
-msgstr "S'estan copiant els fitxers (${TIME} per a acabar)..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:262
-msgid "Copying installation logs..."
-msgstr "S'estan copiant els registres de la instal·lació..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:266
-msgid "Cleaning up..."
-msgstr "S'està netejant..."
+msgstr "Kopieër lêers (${TIME} bly oor)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:270
 msgid "Running ${SCRIPT}..."
-msgstr "S'està executant ${SCRIPT}..."
+msgstr "Laat ${SCRIPT} loop..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring system locales..."
-msgstr "S'estan configurant els locales del sistema"
+msgstr "Stel lokaliteitsinstellings op..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr "S'està configurant l'apt..."
+msgstr "Stel apt op..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282
 msgid "Configuring time zone..."
-msgstr "S'està configurant el fus horari..."
+msgstr "Stel tydsone op..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
-msgstr "S'està configurant el teclat..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:290
-msgid "Creating user..."
-msgstr "S'està creant un usuari..."
+msgstr "Stel sleutelbord op..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:294
 msgid "Configuring hardware..."
-msgstr "S'està configurant el maquinari..."
+msgstr "Stel hardeware op..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:298
 msgid "Configuring network..."
-msgstr "S'està configurant la xarxa..."
+msgstr "Stel netwerk op..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:302
 msgid "Setting computer name..."
-msgstr "S'està establint el nom de l'ordinador..."
+msgstr "Stel rekenaarnaam..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:306
 msgid "Configuring boot loader..."
-msgstr "S'està configurant el carregador..."
+msgstr "Stel boot-laaier op..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:310
 msgid "Removing extra packages..."
-msgstr "S'estan suprimint els paquets extra..."
+msgstr "Verwyder ekstra pakette..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:314
 msgid "Checking for packages to remove..."
-msgstr "S'està comprovant quins paquets s'han de suprimir..."
+msgstr "Soek pakette om te verwyder..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:318
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "S'estan baixant els paquets (${TIME} per a acabar)..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:322
-msgid "Downloading package lists..."
-msgstr "S'estan baixant les llistes de paquets..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:326
-msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "S'estan baixant les llistes de paquets (${TIME} per a acabar)..."
+msgstr "Laai pakette af (${TIME} bly nog oor)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
-msgstr "S'ha produït un error en instal·lar ${PACKAGE}"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:340
-msgid "Error removing ${PACKAGE}"
-msgstr "S'ha produït un error en suprimir ${PACKAGE}"
+msgstr "Fout met installasie van ${PACKAGE}"
 
 #. Type: text
 #. Description
@@ -541,10 +456,10 @@ msgstr "${MESSAGE}"
 #. Description
 #: ../ubiquity.templates:345
 msgid "Installing language packs"
-msgstr "S'estan instal·lant els paquets de llengua"
+msgstr "Installeer taalpakette"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:349
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "S'estan baixant els paquets de llengua (${TIME} per a acabar)..."
+msgstr "Laai taalpaketlyste af (${TIME} bly nog oor)..."

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-04-20 06:26+0000\n"
+"PO-Revision-Date: 2006-05-25 15:58+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <debian-boot@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Installera"
 
 #. Type: text
 #. Description
@@ -34,6 +34,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Redo att installera? Så fort du har svarat på några frågor kommer innehållet "
+"från denna live CD att installeras på den här datorn så att du kan köra "
+"systemet med högsta hastighet utan CD-skivan."
 
 #. Type: text
 #. Description
@@ -48,6 +51,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Välj vilket språk som ska användas under installationsprocessen. Det här "
+"språket kommer att bli standardspråket i det installerade systemet."
 
 #. Type: text
 #. Description
@@ -77,7 +82,7 @@ msgstr "Tidszon:"
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Vald region:"
 
 #. Type: text
 #. Description
@@ -261,7 +266,7 @@ msgstr "Partition"
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "Formatera om?"
 
 #. Type: text
 #. Description
@@ -281,12 +286,13 @@ msgstr "Klar att installera"
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
+"Ditt nya operativsystem kommer nu att installeras med följande inställningar:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Steg ${INDEX} av ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -332,13 +338,13 @@ msgstr "Installationen slutförd"
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Fortsätt använda live-CD:n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "Starta om nu"
 
 #. Type: text
 #. Description
@@ -348,6 +354,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Installationen är färdig. Du måste starta om datorn för att använda den nya "
+"installationen. Du kan fortsätta använda den här live-CD:n, men de ändringar "
+"du gör eller de dokument du sparar kommer inte att bevaras."
 
 #. Type: text
 #. Description
@@ -431,7 +440,7 @@ msgstr "Konfigurerar systemlokaler..."
 #. Description
 #: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Konfigurerar apt..."
 
 #. Type: text
 #. Description
@@ -443,7 +452,7 @@ msgstr "Konfigurerar tidszonen..."
 #. Description
 #: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Konfigurerar tangentbord..."
 
 #. Type: text
 #. Description
@@ -497,7 +506,7 @@ msgstr "Hämtar paket (${TIME} återstår)..."
 #. Description
 #: ../ubiquity.templates:322
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Hämtar paketlistor..."
 
 #. Type: text
 #. Description

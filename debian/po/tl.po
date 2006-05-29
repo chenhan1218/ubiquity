@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-03 05:34+0000\n"
+"PO-Revision-Date: 2006-05-29 05:23+0000\n"
 "Last-Translator: Aldous D. Peñaranda <adpenaranda@gmail.com>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
 "MIME-Version: 1.0\n"
@@ -215,6 +215,8 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
+"Siguruhing makapagtabi ng lugar para sa root partition (\"/\"), na may "
+"pinakamaliit na laking 2 GB at isang swap partition na higit sa 256 MB."
 
 #. Type: text
 #. Description
@@ -229,6 +231,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Piliin ang mga partition na nais mong gamitin para sa pagluklok at kung saan "
+"mo nais i-mount ang bawat isa."
 
 #. Type: text
 #. Description
@@ -237,6 +241,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"Kailangan mong mag-mount ng isang partition sa root file system (\"/\"), at "
+"kailangan mong pumili ng isa o higit pa para gamitin bilang swap."
 
 #. Type: text
 #. Description
@@ -260,19 +266,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "I-reformat?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "Kinakailangan mong magbigay ng root (\"/\") mount point."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:167
 msgid "Ready to install"
-msgstr ""
+msgstr "Handa nang iluklok"
 
 #. Type: text
 #. Description

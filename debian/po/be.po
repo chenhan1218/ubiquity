@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-14 17:56+0000\n"
-"Last-Translator: Kiryl Nieviarouski <k.nieviarouski@gmail.com>\n"
+"PO-Revision-Date: 2006-05-29 13:25+0000\n"
+"Last-Translator: Kiryl Nieviarouski <nordenius@gmail.com>\n"
 "Language-Team: Byelarusian <be@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,7 +100,7 @@ msgstr "Выстаў час..."
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Раскладка клявіятуры"
 
 #. Type: text
 #. Description
@@ -140,25 +140,27 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Калі некалькі асобаў будуць карыстацца кампутарам, можна дадаць некалькі "
+"контаў пасьля заканчэньня ўсталёўкі."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Пастаў пароль, каб твой конт быў бясьпечны."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:90
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "Увядзі той самы пароль двойчы, каб пазьбегнуць памылак друку."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Як будзе называцца гэты кампутар?"
 
 #. Type: text
 #. Description
@@ -166,13 +168,13 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
+msgstr "Назва будзе ўжывацца, калі зробіш гэты кампутар бачным ў сеціве."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105
 msgid "Select a disk"
-msgstr ""
+msgstr "Выбяры дыск"
 
 #. Type: text
 #. Description
@@ -199,7 +201,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Падрыхтуй партыцыі"
 
 #. Type: text
 #. Description
@@ -213,7 +215,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Падрыхтуй пункты мантаваньня"
 
 #. Type: text
 #. Description
@@ -222,6 +224,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Выбяры партыцыі, якія ты хочаш выкарыстаць для ўсталёўкі новай сыстэмы і "
+"месцы мантаваньня кожнае зь іх."
 
 #. Type: text
 #. Description
@@ -235,25 +239,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:147
 msgid "Mount Point"
-msgstr ""
+msgstr "Пункт мантаваньня:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:151
 msgid "Size"
-msgstr ""
+msgstr "Памер"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:155
 msgid "Partition"
-msgstr ""
+msgstr "Партыцыя"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "Фарматаваць ізноў?"
 
 #. Type: text
 #. Description
@@ -265,7 +269,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:167
 msgid "Ready to install"
-msgstr ""
+msgstr "Гатовы да ўсталёўкі"
 
 #. Type: text
 #. Description
@@ -273,12 +277,14 @@ msgstr ""
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
+"Твая новая аперацыйная сыстэма зараз будзе ўсталяваная з наступнымі "
+"ўсталёўкамі:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Этап ${INDEX} з ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -365,7 +371,7 @@ msgstr "Працягнуць"
 #. Description
 #: ../ubiquity.templates:242
 msgid "Installing system"
-msgstr ""
+msgstr "Ўсталёўка сыстэмы"
 
 #. Type: text
 #. Description
@@ -377,13 +383,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:250
 msgid "Scanning files..."
-msgstr ""
+msgstr "Сканаваньне файлаў..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:254
 msgid "Copying files..."
-msgstr ""
+msgstr "Капіяваньне файлаў..."
 
 #. Type: text
 #. Description
@@ -395,13 +401,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:262
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "Капіяваньне логаў усталёўкі..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:266
 msgid "Cleaning up..."
-msgstr ""
+msgstr "Прыбіраньне..."
 
 #. Type: text
 #. Description
@@ -413,19 +419,19 @@ msgstr "Выконваецца ${SCRIPT}..."
 #. Description
 #: ../ubiquity.templates:274
 msgid "Configuring system locales..."
-msgstr ""
+msgstr "Канфігураваньне лякаляў..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Канфігураваньне apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282
 msgid "Configuring time zone..."
-msgstr ""
+msgstr "Канфігураваньне часовай зоны..."
 
 #. Type: text
 #. Description
@@ -443,25 +449,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:294
 msgid "Configuring hardware..."
-msgstr ""
+msgstr "Канфігураваньне абсталяваньня..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:298
 msgid "Configuring network..."
-msgstr ""
+msgstr "Канфігураваньне сеткі..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:302
 msgid "Setting computer name..."
-msgstr ""
+msgstr "Устаноўка назвы кампутара..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:306
 msgid "Configuring boot loader..."
-msgstr ""
+msgstr "Канфігураваньне стартавай праграмы..."
 
 #. Type: text
 #. Description
@@ -497,7 +503,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Памылка падчас ўсталёўкі ${PACKAGE}"
 
 #. Type: text
 #. Description

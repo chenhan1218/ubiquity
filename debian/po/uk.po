@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-04-20 06:29+0000\n"
-"Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
+"PO-Revision-Date: 2006-05-28 13:52+0000\n"
+"Last-Translator: zzandy <zzandy+launchpad@gmail.com>\n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Встановити"
 
 #. Type: text
 #. Description
@@ -34,6 +34,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Ви готові до встановлення? Після того, як ви відповісте на декілька питань "
+"вміст цього live CD може бути встановлений на цей комп`ютер і ви зможете "
+"запускати систему на повній швидкості і без компакт диска."
 
 #. Type: text
 #. Description
@@ -48,6 +51,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Будьласка, виберіть мову встановлювача. Ця мова буте типовою для системи "
+"після встановлення."
 
 #. Type: text
 #. Description
@@ -94,39 +99,38 @@ msgstr "Налаштувати час..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "Вибрати розкладку клавіатури"
+msgstr "Розкладка клавіатури"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Яка розкладка найбільш підходить до вашої клавіатури?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "У цьому полі ви можете перевірити вашу нову розкладку клавіатури."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Хто ви?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Ваше ім'я?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Яке ім'я ви хочете використовувати при реєстрації?"
 
 #. Type: text
 #. Description
@@ -135,25 +139,27 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Якщо систему використовуватиме більше, ніж одна людина, то після "
+"встановлення можна налаштувати декілька облікових рахунків."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Виберіть пароль задля безпеки вашого рахунку."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:90
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "Введіть пароль двічі, щоб запобігти механічним помилкам."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Яка назва цього комп'ютера?"
 
 #. Type: text
 #. Description
@@ -257,7 +263,7 @@ msgstr "Поділ"
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "Переформатувати?"
 
 #. Type: text
 #. Description
@@ -277,6 +283,7 @@ msgstr "Готовий до встановлення"
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
+"Вашу нову операційну систему буде встановлено з наступними параметрами:"
 
 #. Type: text
 #. Description
@@ -428,14 +435,13 @@ msgstr "Налаштування мережі..."
 #. Description
 #: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Налаштувати apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Налаштування мережі..."
+msgstr "Налаштування часового поясу..."
 
 #. Type: text
 #. Description
@@ -446,16 +452,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:290
-#, fuzzy
 msgid "Creating user..."
-msgstr "Створення файлів пристроїв..."
+msgstr "Створення користувача..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:294
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Налаштування мережі..."
+msgstr "Налаштування заліза..."
 
 #. Type: text
 #. Description
@@ -466,23 +470,20 @@ msgstr "Налаштування мережі..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:302
-#, fuzzy
 msgid "Setting computer name..."
-msgstr "Налаштування буфера зображення..."
+msgstr "Встановлення назви комп'ютера..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:306
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Налаштування мережі..."
+msgstr "Налаштування завантажувача..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:310
-#, fuzzy
 msgid "Removing extra packages..."
-msgstr "Встановлення додаткових пакунків..."
+msgstr "Видалення зайвих локалей..."
 
 #. Type: text
 #. Description
@@ -500,7 +501,7 @@ msgstr "Завантаження пакунків (${TIME} remaining)..."
 #. Description
 #: ../ubiquity.templates:322
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Завантаження списку пакунків..."
 
 #. Type: text
 #. Description

@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-04-20 06:05+0000\n"
-"Last-Translator: Piarres Beobide <pi@beobide.net>\n"
+"PO-Revision-Date: 2006-05-29 07:40+0000\n"
+"Last-Translator: jon latorre <moebius@etxea.net>\n"
 "Language-Team: librezale.org <librezale@librezale.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +18,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8
 msgid "Install"
-msgstr ""
+msgstr "Instalatu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12
 msgid "Welcome"
-msgstr ""
+msgstr "Ongi etorri"
 
 #. Type: text
 #. Description
@@ -34,12 +34,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Instalatzeko prest? Galdera gutxi batzuk erantzun eta gero zuzeneko CD-ren "
+"edukia zure ordenagailuan instalatuko da, horrela sistema abiadura osoan "
+"erabili ahal izango duzu CD-rik gabe."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Gadelrak erantzutea bakarrik minutu batzuk eramango dizu."
 
 #. Type: text
 #. Description
@@ -48,84 +51,86 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Mesedez aukeratu instaltzeko prosezuaren hizkuntza. Hizkuntz hau "
+"instalatutako sistemaren hizkuntz lehenetsia izango da."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28
 msgid "Where are you?"
-msgstr ""
+msgstr "Non zaude?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Hautatu zure ordu-zonako herria:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36
 msgid "Selected city:"
-msgstr ""
+msgstr "Hautatutako ordu-zonaldea"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40
 msgid "Time zone:"
-msgstr ""
+msgstr "Ordu-zona:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44
 msgid "Selected region:"
-msgstr ""
+msgstr "Hautatu eskualdea:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48
 msgid "Current time:"
-msgstr ""
+msgstr "Uneko ordua:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52
 msgid "Set Time..."
-msgstr ""
+msgstr "Ezari ordua..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr ""
+msgstr "XKB teklatu-diseinua"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Zein teklatu-diseinu da zure teklatuarenaren antzekoena?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "Kutxa honetan idatz dezakezu teklatu-diseinu berria frogatzeko."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68
 msgid "Who are you?"
-msgstr ""
+msgstr "Nor zara?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72
 msgid "What is your name?"
-msgstr ""
+msgstr "Zein da zure izena?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Zein izen erabili nahi duzu saioa hasteko?"
 
 #. Type: text
 #. Description
@@ -134,12 +139,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Ordenagiaulu hau pertsona bat baino gehiagok erabiltzen badu instalatu "
+"andoren kontu gehiago konfigura ditzakezu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Hautatu zure kontua babesteko pasahitza"
 
 #. Type: text
 #. Description
@@ -147,12 +154,13 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Sartu paisaitz berdina birritan, idazteko orduan egindako akatsak sahiesteko"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Zein da ordeganailuaren izena?"
 
 #. Type: text
 #. Description
@@ -161,12 +169,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Izen hau zure ordenagailua sarean dauden beste ordenagailuek ikus dezaten "
+"eraboliko da."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105
 msgid "Select a disk"
-msgstr ""
+msgstr "Hautatu diska."
 
 #. Type: text
 #. Description
@@ -176,24 +186,26 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"Nahi baduzu instaladoreak ondoko diskoetan lekuan prestatu dezaka "
+"automatikoki, edo nahiago baduzu euskuz egin dezakezu partizionaketa."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Prestatu lekua diskan."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:120
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Partizioak nola egin nahi dituzu?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Partizioak prestatu."
 
 #. Type: text
 #. Description
@@ -207,7 +219,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Muntatze-puntu prestatu"
 
 #. Type: text
 #. Description
@@ -229,13 +241,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:147
 msgid "Mount Point"
-msgstr ""
+msgstr "Muntatze-puntua:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:151
 msgid "Size"
-msgstr ""
+msgstr "Tamaina"
 
 #. Type: text
 #. Description
@@ -247,50 +259,50 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr ""
+msgstr "berformatu diska?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:163
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "\"/\" muntatze puntua ezarri behar duzu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:167
 msgid "Ready to install"
-msgstr ""
+msgstr "Instalatzeko prest"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:171
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "Orain zure sistema berria instalatuko da ondoko ezarpenekin:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:175
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "${INDEX} / ${TOTAL} pausua"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:179
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Instalazioa gelditu nahi duzu?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "Partizioak egiteko menura itzuli nahi duzu?"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:187
 msgid "Partitioning was interrupted"
-msgstr ""
+msgstr "Partizionaketa abortatu egin da."
 
 #. Type: text
 #. Description
@@ -299,12 +311,14 @@ msgid ""
 "It was not possible to partition this disk automatically. You must select "
 "another partitioning method."
 msgstr ""
+"Ezin izan da diskaren partizioak automatikoki egin. Beste partizionaketa "
+"modu bat aukeratu beharko duzu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:197
 msgid "Skip"
-msgstr ""
+msgstr "Utzi"
 
 #. Type: title
 #. Description
@@ -316,13 +330,13 @@ msgstr "Instalazioa egin da"
 #. Description
 #: ../ubiquity.templates:205
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Jarraitu zuzeneko CD-a erabiltzen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209
 msgid "Restart now"
-msgstr ""
+msgstr "Berrabiarazi orain"
 
 #. Type: text
 #. Description
@@ -332,6 +346,10 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Instalazioa amaitu egin da. Orain zure sistema berrabiarazi behar duzu zure "
+"sistema berria erabili ahal izateko. Naji baduzu zuzeneko CD hau erabiltzen "
+"jarrai dezakezu, baina edozein dokumentuan egindako aldaketak ez dira "
+"gordeko."
 
 #. Type: text
 #. Description
@@ -358,21 +376,20 @@ msgstr "Jarraitu"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:242
-#, fuzzy
 msgid "Installing system"
-msgstr "Instalazioa egin da"
+msgstr "Instalatzen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Kopiatzeko banaketa bilatzen..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250
 msgid "Scanning files..."
-msgstr ""
+msgstr "Fitxategiak arakatzen..."
 
 #. Type: text
 #. Description
@@ -384,19 +401,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:258
 msgid "Copying files (${TIME} remaining)..."
-msgstr ""
+msgstr "Fitxategiak kopiatzen (falta da ${TIME}...)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "Instalazio loga kopiatzen..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:266
 msgid "Cleaning up..."
-msgstr ""
+msgstr "Garbitezen..."
 
 #. Type: text
 #. Description
@@ -407,20 +424,18 @@ msgstr "${SCRIPT} exekutatzen..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Sarea konfiguratzen..."
+msgstr "Sistemaren lokalak ezartzen..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278
 msgid "Configuring apt..."
-msgstr ""
+msgstr "apt konfiguratzen..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282
-#, fuzzy
 msgid "Configuring time zone..."
 msgstr "Sarea konfiguratzen..."
 
@@ -428,18 +443,17 @@ msgstr "Sarea konfiguratzen..."
 #. Description
 #: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Teklatua konfiguratzen..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:290
 msgid "Creating user..."
-msgstr ""
+msgstr "Erabiltzaileak sortzen..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:294
-#, fuzzy
 msgid "Configuring hardware..."
 msgstr "Sarea konfiguratzen..."
 
@@ -453,12 +467,11 @@ msgstr "Sarea konfiguratzen..."
 #. Description
 #: ../ubiquity.templates:302
 msgid "Setting computer name..."
-msgstr ""
+msgstr "Ordenagailuaren izena konfiguratzen..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:306
-#, fuzzy
 msgid "Configuring boot loader..."
 msgstr "Sarea konfiguratzen..."
 
@@ -466,58 +479,58 @@ msgstr "Sarea konfiguratzen..."
 #. Description
 #: ../ubiquity.templates:310
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Pakete gehigarriak kentzen..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:314
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Kendu beharreko paketeak bilatzen..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:318
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Paketea jeizten (falta da ${TIME})"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:322
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Pakete zerrenda jaisten..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:326
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Pakete zerrenda jaisten (falta da ${TIME}...)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Ezin da ${PACKAGE} instalatu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:340
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Errorea ${PACKAGE} ezabatzean"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:340
 msgid "${MESSAGE}"
-msgstr ""
+msgstr "${MESSAGE}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:345
 msgid "Installing language packs"
-msgstr ""
+msgstr "Hizkuntz-paketeak ezartzen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:349
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Hizkuntz-paketeak deskargatzen (${TIME} faltan)..."

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-17 12:24+0000\n"
+"PO-Revision-Date: 2006-05-23 12:26+0000\n"
 "Last-Translator: Luca Ferretti <elle.uca@libero.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Selezionare la lingua usate per il processo di installazione. La stessa sarà "
+"Selezionare la lingua usata per il processo di installazione. La stessa sarà "
 "usata come lingua predefinita per il sistema installato."
 
 #. Type: text
@@ -107,7 +107,7 @@ msgstr "Disposizione della tastiera"
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Indicare la disposizione più simile a qualla della tastiera in uso:"
+msgstr "Indicare la disposizione più simile a quella della tastiera in uso:"
 
 #. Type: text
 #. Description

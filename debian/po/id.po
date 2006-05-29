@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-05-12 14:58+0100\n"
-"PO-Revision-Date: 2006-05-17 14:21+0000\n"
-"Last-Translator: Gde Bagus Aryana <gde6195@yahoo.com>\n"
+"PO-Revision-Date: 2006-05-28 19:09+0000\n"
+"Last-Translator: Andy Apdhani <imtheface@gmail.com>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
 "id>\n"
 "MIME-Version: 1.0\n"
@@ -101,13 +101,13 @@ msgstr "Atur Waktu..."
 #. Description
 #: ../ubiquity.templates:56
 msgid "Keyboard layout"
-msgstr "Susunan keyboard"
+msgstr "Susunan papan ketik"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Susunan yang mana yang paling mirip dengan keyboard anda?"
+msgstr "Susunan yang mana yang paling mirip dengan papan ketik anda?"
 
 #. Type: text
 #. Description
@@ -180,7 +180,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:105
 msgid "Select a disk"
-msgstr "Pilih sebuah disk"
+msgstr "Pilih cakram"
 
 #. Type: text
 #. Description
@@ -226,7 +226,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:134
 msgid "Prepare mount points"
-msgstr "Mempersiapkan titik mount"
+msgstr "Mempersiapkan lokasi mount"
 
 #. Type: text
 #. Description
@@ -254,7 +254,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:147
 msgid "Mount Point"
-msgstr "Titik Mount"
+msgstr "Lokasi Mount"
 
 #. Type: text
 #. Description
@@ -272,7 +272,7 @@ msgstr "Partisi"
 #. Description
 #: ../ubiquity.templates:159
 msgid "Reformat?"
-msgstr "Format kembali?"
+msgstr "Format ulang?"
 
 #. Type: text
 #. Description
@@ -304,7 +304,7 @@ msgstr "Langkah ${INDEX} dari ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:179
 msgid "Abort the installation?"
-msgstr "Membatalkan instalasi?"
+msgstr "Batalkan instalasi?"
 
 #. Type: text
 #. Description
@@ -406,19 +406,19 @@ msgstr "Mencari distribusi ini untuk disalin..."
 #. Description
 #: ../ubiquity.templates:250
 msgid "Scanning files..."
-msgstr "Memindai file..."
+msgstr "Memindai berkas..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:254
 msgid "Copying files..."
-msgstr "Sedang menyalin file..."
+msgstr "Sedang menyalin berkas..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258
 msgid "Copying files (${TIME} remaining)..."
-msgstr "Sedang menyalin file (${TIME} lagi)..."
+msgstr "Sedang menyalin berkas (${TIME} lagi)..."
 
 #. Type: text
 #. Description
@@ -460,7 +460,7 @@ msgstr "Sedang mengkonfigurasi zona waktu..."
 #. Description
 #: ../ubiquity.templates:286
 msgid "Configuring keyboard..."
-msgstr "Mengkonfigurasi keyboard..."
+msgstr "Mengkonfigurasi papan ketik..."
 
 #. Type: text
 #. Description
@@ -508,31 +508,31 @@ msgstr "Memeriksa paket yang dihapus..."
 #. Description
 #: ../ubiquity.templates:318
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Sedang men-download paket (${TIME} lagi)..."
+msgstr "Sedang mengunduh paket (${TIME} lagi)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:322
 msgid "Downloading package lists..."
-msgstr "Men-download daftar paket..."
+msgstr "Mengunduh senarai paket..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:326
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Sedang men-download daftar paket (${TIME} lagi)..."
+msgstr "Sedang mengunduh senarai paket (${TIME} lagi)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
-msgstr "Terjadi kekeliruan pada saat instalasi ${PACKAGE}"
+msgstr "Kesalahan saat menginstal ${PACKAGE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:340
 msgid "Error removing ${PACKAGE}"
-msgstr "Terjadi kekeliruan pada saat menghapus ${PACKAGE}"
+msgstr "Kesalahan saat menghapus ${PACKAGE}"
 
 #. Type: text
 #. Description
@@ -550,4 +550,4 @@ msgstr "Sedang meng-install paket bahasa"
 #. Description
 #: ../ubiquity.templates:349
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Sedang men-download paket bahasa (${TIME} lagi)..."
+msgstr "Sedang mengunduh paket bahasa (${TIME} lagi)..."
