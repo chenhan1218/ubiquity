@@ -384,9 +384,12 @@ def get_string(name, lang):
     if lang in translations[question]:
         text = translations[question][lang]
     else:
-        lang = lang.split('_')[0]
-        if lang in translations[question]:
-            text = translations[question][lang]
+        ll_cc = lang.split('.')[0]
+        ll = ll_cc.split('_')[0]
+        if ll_cc in translations[question]:
+            text = translations[question][ll_cc]
+        elif ll in translations[question]:
+            text = translations[question][ll]
         else:
             text = translations[question]['c']
 
