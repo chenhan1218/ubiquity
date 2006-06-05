@@ -202,114 +202,107 @@ class Install:
 
         self.db.progress('START', 0, 100, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/mounting_source')
-        if self.source == '/source':
-            if not self.mount_source():
-                self.db.progress('STOP')
+
+        try:
+            if self.source == '/source':
+                if not self.mount_source():
+                    return False
+
+            self.db.progress('SET', 1)
+            self.db.progress('REGION', 1, 78)
+            if not self.copy_all():
                 return False
 
-        self.db.progress('SET', 1)
-        self.db.progress('REGION', 1, 78)
-        if not self.copy_all():
-            self.db.progress('STOP')
-            return False
+            self.db.progress('SET', 78)
+            self.db.progress('INFO', 'ubiquity/install/cleanup')
+            if self.source == '/source':
+                if not self.umount_source():
+                    return False
 
-        self.db.progress('SET', 78)
-        self.db.progress('INFO', 'ubiquity/install/cleanup')
-        if self.source == '/source':
-            if not self.umount_source():
-                self.db.progress('STOP')
+            self.db.progress('SET', 79)
+            self.db.progress('REGION', 79, 80)
+            if not self.run_target_config_hooks():
                 return False
 
-        self.db.progress('SET', 79)
-        self.db.progress('REGION', 79, 80)
-        if not self.run_target_config_hooks():
-            self.db.progress('STOP')
-            return False
+            self.db.progress('SET', 80)
+            self.db.progress('REGION', 80, 81)
+            self.db.progress('INFO', 'ubiquity/install/locales')
+            if not self.configure_locales():
+                return False
 
-        self.db.progress('SET', 80)
-        self.db.progress('REGION', 80, 81)
-        self.db.progress('INFO', 'ubiquity/install/locales')
-        if not self.configure_locales():
-            self.db.progress('STOP')
-            return False
+            self.db.progress('SET', 81)
+            self.db.progress('REGION', 81, 82)
+            self.db.progress('INFO', 'ubiquity/install/network')
+            if not self.configure_network():
+                return False
 
-        self.db.progress('SET', 81)
-        self.db.progress('REGION', 81, 82)
-        self.db.progress('INFO', 'ubiquity/install/network')
-        if not self.configure_network():
-            self.db.progress('STOP')
-            return False
+            self.db.progress('SET', 82)
+            self.db.progress('REGION', 82, 83)
+            self.db.progress('INFO', 'ubiquity/install/apt')
+            if not self.configure_apt():
+                return False
 
-        self.db.progress('SET', 82)
-        self.db.progress('REGION', 82, 83)
-        self.db.progress('INFO', 'ubiquity/install/apt')
-        if not self.configure_apt():
-            self.db.progress('STOP')
-            return False
+            self.db.progress('SET', 83)
+            self.db.progress('REGION', 83, 87)
+            # Ignore failures from language pack installation.
+            self.install_language_packs()
 
-        self.db.progress('SET', 83)
-        self.db.progress('REGION', 83, 87)
-        # Ignore failures from language pack installation.
-        self.install_language_packs()
+            self.db.progress('SET', 87)
+            self.db.progress('REGION', 87, 88)
+            self.db.progress('INFO', 'ubiquity/install/timezone')
+            if not self.configure_timezone():
+                return False
 
-        self.db.progress('SET', 87)
-        self.db.progress('REGION', 87, 88)
-        self.db.progress('INFO', 'ubiquity/install/timezone')
-        if not self.configure_timezone():
-            self.db.progress('STOP')
-            return False
+            self.db.progress('SET', 88)
+            self.db.progress('REGION', 88, 90)
+            self.db.progress('INFO', 'ubiquity/install/keyboard')
+            if not self.configure_keyboard():
+                return False
 
-        self.db.progress('SET', 88)
-        self.db.progress('REGION', 88, 90)
-        self.db.progress('INFO', 'ubiquity/install/keyboard')
-        if not self.configure_keyboard():
-            self.db.progress('STOP')
-            return False
+            self.db.progress('SET', 90)
+            self.db.progress('REGION', 90, 91)
+            self.db.progress('INFO', 'ubiquity/install/user')
+            if not self.configure_user():
+                return False
 
-        self.db.progress('SET', 90)
-        self.db.progress('REGION', 90, 91)
-        self.db.progress('INFO', 'ubiquity/install/user')
-        if not self.configure_user():
-            self.db.progress('STOP')
-            return False
+            self.db.progress('SET', 91)
+            self.db.progress('REGION', 91, 95)
+            self.db.progress('INFO', 'ubiquity/install/hardware')
+            if not self.configure_hardware():
+                return False
 
-        self.db.progress('SET', 91)
-        self.db.progress('REGION', 91, 95)
-        self.db.progress('INFO', 'ubiquity/install/hardware')
-        if not self.configure_hardware():
-            self.db.progress('STOP')
-            return False
+            self.db.progress('SET', 95)
+            self.db.progress('REGION', 95, 96)
+            if not self.remove_unusable_kernels():
+                return False
 
-        self.db.progress('SET', 95)
-        self.db.progress('REGION', 95, 96)
-        if not self.remove_unusable_kernels():
-            self.db.progress('STOP')
-            return False
+            self.db.progress('SET', 96)
+            self.db.progress('REGION', 96, 97)
+            self.db.progress('INFO', 'ubiquity/install/bootloader')
+            if not self.configure_bootloader():
+                return False
 
-        self.db.progress('SET', 96)
-        self.db.progress('REGION', 96, 97)
-        self.db.progress('INFO', 'ubiquity/install/bootloader')
-        if not self.configure_bootloader():
-            self.db.progress('STOP')
-            return False
+            self.db.progress('SET', 97)
+            self.db.progress('REGION', 97, 99)
+            self.db.progress('INFO', 'ubiquity/install/removing')
+            if not self.remove_extras():
+                return False
 
-        self.db.progress('SET', 97)
-        self.db.progress('REGION', 97, 99)
-        self.db.progress('INFO', 'ubiquity/install/removing')
-        if not self.remove_extras():
-            self.db.progress('STOP')
-            return False
+            self.db.progress('SET', 99)
+            self.db.progress('INFO', 'ubiquity/install/log_files')
+            if not self.copy_logs():
+                return False
 
-        self.db.progress('SET', 99)
-        self.db.progress('INFO', 'ubiquity/install/log_files')
-        if not self.copy_logs():
-            self.db.progress('STOP')
-            return False
+            self.cleanup()
 
-        self.cleanup()
-
-        self.db.progress('SET', 100)
-        self.db.progress('STOP')
+            self.db.progress('SET', 100)
+        finally:
+            try:
+                self.db.progress('STOP')
+            except (KeyboardInterrupt, SystemExit):
+                raise
+            except:
+                pass
 
         return True
 

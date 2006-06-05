@@ -1,3 +1,11 @@
+ubiquity (1.1.0) UNRELEASED; urgency=low
+
+  * Use try/finally in install.py to ensure that PROGRESS STOP is always
+    called; ignore errors from PROGRESS STOP (e.g. because debconf has gone
+    away due to a previous error).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Jun 2006 03:11:16 +0100
+
 ubiquity (1.0.12) dapper; urgency=low
 
   * Teach get_string to fetch translations for ll_CC locales (e.g.
