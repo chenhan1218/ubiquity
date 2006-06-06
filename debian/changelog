@@ -4,6 +4,8 @@ ubiquity (1.1.0) UNRELEASED; urgency=low
     called; ignore errors from PROGRESS STOP (e.g. because debconf has gone
     away due to a previous error).
   * Support /KNOPPIX as well as /rofs as the read-only filesystem source.
+  * Don't require entering a full name (see
+    http://www.hermann-uwe.de/blog/os-install-experiences-part-4-ubuntu).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Jun 2006 03:11:16 +0100
 

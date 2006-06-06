@@ -639,8 +639,7 @@ class Wizard:
             self.userinterface.hostname.blockSignals(False)
 
         complete = True
-        for name in ('fullname', 'username', 'password', 'verified_password',
-                     'hostname'):
+        for name in ('username', 'password', 'verified_password', 'hostname'):
             if getattr(self.userinterface, name).text() == '':
                 complete = False
         self.userinterface.next.setEnabled(complete)

@@ -664,8 +664,7 @@ class Wizard:
             self.hostname.handler_unblock(self.hostname_delete_text_id)
 
         complete = True
-        for name in ('fullname', 'username', 'password', 'verified_password',
-                     'hostname'):
+        for name in ('username', 'password', 'verified_password', 'hostname'):
             if getattr(self, name).get_text() == '':
                 complete = False
         self.allow_go_forward(complete)
