@@ -177,6 +177,8 @@ class Install:
 
         if os.path.isdir('/rofs'):
             self.source = '/rofs'
+        elif os.path.isdir('/KNOPPIX'):
+            self.source = '/KNOPPIX'
         else:
             self.source = '/source'
         self.target = '/target'
