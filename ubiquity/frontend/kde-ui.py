@@ -1803,6 +1803,8 @@ class MapWidget(QWidget):
             
     def updateCityIndicator(self):
         city = self.getNearestCity(self.width(), self.height(), self.x, self.y)
+        if city is None:
+            return
         self.cityIndicator.setText(city)
         self.cityIndicator.move(self.getPosition(self.cities[city][0], self.cities[city][1], self.width(), self.height()))
         self.cityIndicator.show()
@@ -1811,7 +1813,9 @@ class MapWidget(QWidget):
         pos = mouseEvent.pos()
 
         city = self.getNearestCity(self.width(), self.height(), pos.x(), pos.y());
-        if city == "Edinburgh":
+        if city is None:
+            return
+        elif city == "Edinburgh":
             self.city = "London"
         else:
             self.city = city
