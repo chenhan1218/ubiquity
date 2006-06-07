@@ -1733,6 +1733,9 @@ class TimezoneMap(object):
             return None
 
     def location_from_point(self, point):
+        if point is None:
+            return None
+
         (longitude, latitude) = point.get_location()
 
         best_location = None
