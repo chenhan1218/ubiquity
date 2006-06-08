@@ -36,7 +36,10 @@ class Install(FilteredCommand):
             'progresscancel' in capabilities)
 
     def error(self, priority, question):
-        if question == 'apt-setup/security-updates-failed':
+        if question == 'hw-detect/modprobe_error':
+            # don't need to display this, and it's non-fatal
+            return True
+        elif question == 'apt-setup/security-updates-failed':
             fatal = False
         else:
             fatal = True
