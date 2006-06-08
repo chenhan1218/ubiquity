@@ -87,7 +87,7 @@
                         </sizepolicy>
                     </property>
                     <property name="text">
-                        <string>We're sorry; the installer crashed. Please file a bug report at</string>
+                        <string>We're sorry; the installer crashed. Please file a new bug report at</string>
                     </property>
                     <property name="alignment">
                         <set>WordBreak|AlignVCenter</set>
@@ -112,7 +112,7 @@
                         <cstring>textLabel1</cstring>
                     </property>
                     <property name="text">
-                        <string>and a developer will attend to the problem as soon as possible. To help the developers understand what went wrong, include the following detail in your bug report, and attach the files /var/log/installer/syslog, /var/log/syslog, and /var/log/partman:</string>
+                        <string>(do not attach your details to any existing bug) and a developer will attend to the problem as soon as possible. To help the developers understand what went wrong, include the following detail in your bug report, and attach the files /var/log/installer/syslog, /var/log/syslog, and /var/log/partman:</string>
                     </property>
                     <property name="alignment">
                         <set>WordBreak|AlignVCenter</set>

@@ -13,6 +13,8 @@ ubiquity (1.1.0) UNRELEASED; urgency=low
     - Add slightly more paranoia in case getNearestCity returns None.
   * Don't show hw-detect/modprobe_error, and make it non-fatal (closes:
     Malone #48524).
+  * Make it clear in the crash dialog that you should file a new bug, not
+    attach your details to an existing bug.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Jun 2006 03:11:16 +0100
 
