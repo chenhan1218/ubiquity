@@ -1,0 +1,23 @@
+#! /bin/sh
+set -e
+
+. /usr/share/debconf/confmodule
+
+export PATH="/usr/lib/oem-config/compat:/usr/lib/oem-config/keyboard:$PATH"
+
+kbd-chooser
+
+# TODO cjwatson 2006-07-07: cloned-and-hacked from
+# kbd-chooser/debian/prebaseconfig
+
+# FIXME Workaround to install some keymaps properly
+case "$KEYMAP" in
+trq|trf|hebrew|lt|lv-latin4|ua)
+	kbd_mode_temp="ascii" ;;
+*)
+	kbd_mode_temp=""      ;;
+esac
+
+[ -n "$kbd_mode_temp" ] && kbd-mode --$kbd_mode_temp
+install-keymap $KEYMAP
+[ -n "$kbd_mode_temp" ] && kbd-mode --unicode

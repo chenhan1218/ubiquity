@@ -1,0 +1,17 @@
+#! /bin/sh
+set -e
+
+. /usr/share/debconf/confmodule
+
+tzsetup
+
+# TODO cjwatson 2006-07-07: cloned-and-hacked from
+# tzsetup/finish-install.d/05tzsetup
+
+db_get time/zone
+zone="$RET"
+echo "$zone" > /etc/timezone
+rm -f /etc/localtime
+ln -sf "/usr/share/zoneinfo/$zone" /etc/localtime
+
+exit 0

@@ -1,0 +1,45 @@
+#! /bin/sh
+set -e
+
+. /usr/share/debconf/confmodule
+
+supported () {
+	grep -q "^$1\$" /usr/share/localechooser/SUPPORTED-short
+}
+
+# Recover from broken debian-installer/locale settings.
+db_get debian-installer/locale
+LOCALE="$RET"
+if ! supported "$LOCALE"; then
+	db_set debian-installer/locale ''
+fi
+
+CODE=$?
+PATH="/usr/lib/oem-config/compat:/usr/lib/oem-config/locale:$PATH" \
+	localechooser || CODE="$?"
+
+# We need to duplicate this code because localechooser has the right to
+# assume that its later scripts are only run once, but oem-config doesn't
+# have that luxury.
+
+db_get debian-installer/locale
+LOCALE="$RET"
+
+db_get debian-installer/language
+LANGLIST="$RET"
+
+db_get localechooser/supported-locales
+EXTRAS="$(echo "$RET" | sed 's/,//g')"
+
+if [ "$CODE" = 0 ]; then
+	sed -i "s,^LANG=.*,LANG=\"$LOCALE\"," /etc/environment
+	sed -i "s,^LANGUAGE=.*,LANGUAGE=\"$LANGLIST\"," /etc/environment
+
+	if [ -e /etc/default/gdm ]; then
+		sed -i "s,^#*LANG=.*,LANG=$LOCALE,g" /etc/default/gdm
+	fi
+fi
+
+# TODO: kbd/cyr handling?
+
+exit "$CODE"

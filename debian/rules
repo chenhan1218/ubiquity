@@ -2,12 +2,17 @@
 
 tmp = $(CURDIR)/debian/oem-config
 
+update:
+	$(MAKE) -C d-i update
+
 build:
+	$(MAKE) -C d-i build
 
 clean:
 	dh_testdir
 	dh_testroot
 	find -type f -name '*.pyc' -print0 | xargs -0r rm -f
+	$(MAKE) -C d-i clean
 	dh_clean
 
 binary-arch:
@@ -17,13 +22,25 @@ binary-indep: build
 	dh_testroot
 	dh_clean -k
 	dh_installdirs -i
+	$(MAKE) -C d-i install
 	dh_install -i
-	set -e; for x in menu/*.templates; do \
-		po2debconf --podir=debian/po $$x \
-			> $(tmp)/usr/lib/oem-config/menu/$${x##*/}; \
+
+	# Bits of manual installation that can't be done by dh_install
+	sed 's,/usr/share/tzsetup,/usr/lib/oem-config/tzsetup,g' \
+		d-i/source/tzsetup/tzsetup \
+		> debian/oem-config/usr/lib/oem-config/timezone/tzsetup
+	chmod +x debian/oem-config/usr/lib/oem-config/timezone/tzsetup
+	for x in user-setup user-setup-ask user-setup-apply; do \
+		sed 's,/usr/lib/user-setup,/usr/lib/oem-config/user,g' \
+			d-i/source/user-setup/$$x \
+			> debian/oem-config/usr/lib/oem-config/user/$$x; \
+		chmod +x debian/oem-config/usr/lib/oem-config/user/$$x; \
 	done
+
 	cp debian/lintian-override $(tmp)/usr/share/lintian/overrides/oem-config
 	dh_installdebconf -i
+	echo >> debian/oem-config/DEBIAN/templates
+	cat d-i/templates >> debian/oem-config/DEBIAN/templates
 	dh_installdocs
 	dh_installchangelogs
 	dh_installinit -n

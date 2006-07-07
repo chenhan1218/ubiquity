@@ -1,4 +1,22 @@
 oem-config oem-config-dm oem-config-firstboot oem-config-prepare usr/sbin
 *.py usr/lib/oem-config
+lib/* usr/lib/oem-config
 compat/* usr/lib/oem-config/compat
-menu/* usr/lib/oem-config/menu
+
+# localechooser
+d-i/source/localechooser/localechooser usr/lib/oem-config/locale
+d-i/source/localechooser/languagemap usr/lib/oem-config/locale
+scripts/localechooser-wrapper usr/lib/oem-config/locale
+
+# kbd-chooser
+d-i/source/kbd-chooser/kbd-chooser usr/lib/oem-config/keyboard
+d-i/source/kbd-chooser/kbd-chooser-apply usr/lib/oem-config/keyboard
+d-i/source/kbd-chooser/kbd-mode usr/lib/oem-config/keyboard
+scripts/kbd-chooser-wrapper usr/lib/oem-config/keyboard
+
+# tzsetup
+d-i/source/tzsetup/tzmap usr/lib/oem-config/timezone
+scripts/tzsetup-wrapper usr/lib/oem-config/timezone
+
+# user-setup
+d-i/source/user-setup/functions.sh usr/lib/oem-config/user

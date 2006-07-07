@@ -1,3 +1,30 @@
+oem-config (1.0) UNRELEASED; urgency=low
+
+  * Reorganise oem-config to have a reasonable frontend/backend separation,
+    thereby allowing for a future KDE port. This involved updating much of
+    the core to look more like ubiquity (since ubiquity's core was an
+    evolution of oem-config's), and a new UI using a single window/notebook
+    rather than a succession of dialogs.
+  * Casualties of this work include the whole base-config-like menu
+    structure and the include/exclude mechanism. The menu structure made it
+    difficult to avoid spawning a new dialog for each step, which was a poor
+    UI; I don't believe the include/exclude mechanism was heavily used, but
+    contact me if you were relying on it and it may be possible to restore
+    it in a new form.
+  * I haven't yet ported the new i18n infrastructure from ubiquity, so the
+    oem-config UI will be untranslated.
+  * Like ubiquity, we now incorporate source for all d-i components we use
+    under d-i/source/ and include them directly in our binary package,
+    reducing the number of complex interdependencies with d-i packages.
+    'debian/rules update' can be used to do automatic updates of these
+    copied source packages.
+  * Remove some leftover code that dealt with restoring the inittab, as we
+    don't do the temporary inittab thing any more.
+  * Fix kbd-chooser wrapper script to actually install the selected keymap
+    (though only for the console at present).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  7 Jul 2006 14:27:23 +0100
+
 oem-config (0.14) dapper; urgency=low
 
   * Set LANGUAGE as well as LANG when changing the locale; this allows us to
