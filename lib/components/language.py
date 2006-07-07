@@ -136,6 +136,7 @@ class Language(FilteredCommand):
 
         if question.startswith('languagechooser/language-name'):
             self.language_question = question
+            return True
         elif question.startswith('countrychooser/'):
             self.country_question = question
         self.update_country_list(question)
