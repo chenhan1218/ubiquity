@@ -1,3 +1,9 @@
+debian/files
+debian/oem-config
+debian/oem-config-gtk
+debian/oem-config-udeb
+debian/*.debhelper
+debian/*.substvars
 d-i/apt
 d-i/manifest.old
 d-i/source
