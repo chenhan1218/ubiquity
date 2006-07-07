@@ -39,9 +39,11 @@ BREADCRUMB_MAX_STEP = 4
 
 class Frontend:
     def __init__(self):
+        self.current_page = None
         self.locale = None
         self.allowed_change_step = True
         self.allowed_go_forward = True
+        self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
 
         # Set default language.
         dbfilter = language.Language(self, DebconfCommunicator('oem-config',
@@ -71,6 +73,9 @@ class Frontend:
         self.glade.signal_autoconnect(self)
 
         self.steps.set_current_page(self.steps.page_num(self.step_language))
+        # TODO cjwatson 2006-07-07: why isn't on_steps_switch_page getting
+        # invoked?
+        self.current_page = self.steps.page_num(self.step_language)
 
         while self.current_page is not None:
             self.backup = False
