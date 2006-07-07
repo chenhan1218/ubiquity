@@ -2,8 +2,9 @@ Template: debian-installer/oem-config-udeb/title
 Type: text
 _Description: Prepare for end-user configuration
 
-Template: prebaseconfig/progress/oem-config-udeb
+Template: finish-install/progress/oem-config-udeb
 Type: text
+# finish-install progress bar item
 _Description: Preparing for end-user configuration...
 
 Template: oem-config-udeb/instructions

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-07-07 14:22+0100\n"
+"POT-Creation-Date: 2006-07-07 14:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,19 +24,20 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../oem-config-udeb.templates:7
+#. finish-install progress bar item
+#: ../oem-config-udeb.templates:8
 msgid "Preparing for end-user configuration..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../oem-config-udeb.templates:11
+#: ../oem-config-udeb.templates:12
 msgid "Ready for end-user configuration"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../oem-config-udeb.templates:11
+#: ../oem-config-udeb.templates:12
 msgid ""
 "When you boot into the new system, you will be able to log in as the 'oem' "
 "user with the password you selected earlier; this user also has "
@@ -46,7 +47,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../oem-config-udeb.templates:11
+#: ../oem-config-udeb.templates:12
 msgid ""
 "Once the system is configured to your satisfaction, run 'sudo oem-config-"
 "prepare'. This will cause the system to delete the temporary 'oem' user and "

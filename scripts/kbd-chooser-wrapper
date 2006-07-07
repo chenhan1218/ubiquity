@@ -8,7 +8,7 @@ export PATH="/usr/lib/oem-config/compat:/usr/lib/oem-config/keyboard:$PATH"
 kbd-chooser
 
 # TODO cjwatson 2006-07-07: cloned-and-hacked from
-# kbd-chooser/debian/prebaseconfig
+# kbd-chooser/debian/finish-install
 
 # FIXME Workaround to install some keymaps properly
 case "$KEYMAP" in
