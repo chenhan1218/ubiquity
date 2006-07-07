@@ -70,6 +70,8 @@ class Frontend:
                 widget.set_property('can-focus', False)
 
     def run(self):
+        self.oem_config.show()
+
         self.glade.signal_autoconnect(self)
 
         self.steps.set_current_page(self.steps.page_num(self.step_language))
