@@ -17,6 +17,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import os
 import pygtk
 pygtk.require('2.0')
 import gobject
@@ -48,7 +49,11 @@ class Frontend:
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 
-        self.glade = gtk.glade.XML('%s/oem-config.glade' % GLADEDIR)
+        if 'OEM_CONFIG_GLADE' in os.environ:
+            gladefile = os.environ['OEM_CONFIG_GLADE']
+        else:
+            gladefile = '%s/oem-config.glade' % GLADEDIR
+        self.glade = gtk.glade.XML(gladefile)
 
         # Map widgets into our namespace.
         for widget in self.glade.get_widget_prefix(""):
