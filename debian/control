@@ -6,7 +6,7 @@ Build-Depends-Indep: apt, bison, debhelper (>= 5), dpkg-dev (>= 1.9), flex, grep
 Standards-Version: 3.6.2
 
 Package: oem-config
-Architecture: all
+Architecture: any
 Depends: ${shlibs:Depends}, ${python:Depends}, debconf (>= 1.4.52), python-gtk2, python-glade2, xserver-xorg, metacity, localechooser-data, iso-codes, apt, locales (>= 2.3.7-1), console-data (>= 2002.12.04dbs-49ubuntu2), passwd, adduser
 Recommends: hwdb-client
 Conflicts: oem-config-keyboard, oem-config-locale, oem-config-timezone

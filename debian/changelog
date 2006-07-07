@@ -23,6 +23,8 @@ oem-config (1.0) UNRELEASED; urgency=low
   * Fix kbd-chooser wrapper script to actually install the selected keymap
     (though only for the console at present).
   * Move from prebaseconfig to finish-install.
+  * Make oem-config Architecture: any, since it now includes kbd-chooser
+    binaries.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  7 Jul 2006 14:27:23 +0100
 
