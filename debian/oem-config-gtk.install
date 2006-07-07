@@ -1,0 +1,2 @@
+lib/frontend/gtk-ui.py usr/lib/oem-config/frontend
+lib/frontend/oem-config.glade* usr/lib/oem-config/frontend

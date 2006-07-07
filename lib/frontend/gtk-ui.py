@@ -22,7 +22,7 @@ from debconf import DebconfCommunicator
 import wizardstep
 from components import locale, keyboard, timezone, user
 
-GLADEDIR = '/usr/share/oem-config/glade'
+GLADEDIR = '/usr/lib/oem-config/frontend'
 
 BREADCRUMB_STEPS = {
     "step_locale": 1,

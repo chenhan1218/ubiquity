@@ -25,6 +25,7 @@ oem-config (1.0) UNRELEASED; urgency=low
   * Move from prebaseconfig to finish-install.
   * Make oem-config Architecture: any, since it now includes kbd-chooser
     binaries.
+  * Add an oem-config-gtk package for the GTK frontend.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  7 Jul 2006 14:27:23 +0100
 

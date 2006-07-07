@@ -7,7 +7,7 @@ Standards-Version: 3.6.2
 
 Package: oem-config
 Architecture: any
-Depends: ${shlibs:Depends}, ${python:Depends}, debconf (>= 1.4.52), python-gtk2, python-glade2, xserver-xorg, metacity, localechooser-data, iso-codes, apt, locales (>= 2.3.7-1), console-data (>= 2002.12.04dbs-49ubuntu2), passwd, adduser
+Depends: ${shlibs:Depends}, ${python:Depends}, debconf (>= 1.4.52), oem-config-gtk | oem-config-frontend, xserver-xorg, metacity, localechooser-data, iso-codes, apt, locales (>= 2.3.7-1), console-data (>= 2002.12.04dbs-49ubuntu2), passwd, adduser
 Recommends: hwdb-client
 Conflicts: oem-config-keyboard, oem-config-locale, oem-config-timezone
 Replaces: oem-config-keyboard, oem-config-locale, oem-config-timezone
@@ -17,6 +17,20 @@ Description: Perform end-user configuration after initial installation
  vendor to install a skeleton system, clone it onto a large number of
  machines, and ship it to end users, while still allowing end users to set
  up their own username and password, language, timezone, and so on.
+
+Package: oem-config-gtk
+Architecture: all
+Depends: ${python:Depends}, oem-config, python-gtk2, python-glade2
+Replaces: oem-config (<< 1.0)
+Provides: oem-config-frontend
+Description: GTK+ frontend for end-user post-install configuration
+ The oem-config script re-asks a number of questions that are normally asked
+ during installation, and reconfigures the system accordingly. This allows a
+ vendor to install a skeleton system, clone it onto a large number of
+ machines, and ship it to end users, while still allowing end users to set
+ up their own username and password, language, timezone, and so on.
+ .
+ This is a GTK+ frontend to oem-config.
 
 Package: oem-config-udeb
 XC-Package-Type: udeb
