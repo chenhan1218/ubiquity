@@ -44,7 +44,7 @@ binary-arch:
 	dh_installinit -a -n
 	dh_compress -a
 	dh_fixperms -a
-	dh_pysupport -a /usr/lib/oem-config
+	dh_pysupport -a
 	dh_python -a
 	dh_installdeb -a
 	dh_gencontrol -a
@@ -59,6 +59,8 @@ binary-indep: build
 	dh_installdebconf -i
 	dh_compress -i
 	dh_fixperms -i
+	dh_pysupport -i /usr/lib/oem-config
+	dh_python -i
 	dh_installdeb -i
 	dh_gencontrol -i
 	dh_md5sums -i
