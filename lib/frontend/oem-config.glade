@@ -36,14 +36,14 @@
 	  <signal name="switch_page" handler="on_steps_switch_page" last_modification_time="Tue, 04 Jul 2006 15:05:58 GMT"/>
 
 	  <child>
-	    <widget class="GtkVBox" id="step_locale">
+	    <widget class="GtkVBox" id="step_language">
 	      <property name="border_width">6</property>
 	      <property name="visible">True</property>
 	      <property name="homogeneous">False</property>
 	      <property name="spacing">0</property>
 
 	      <child>
-		<widget class="GtkLabel" id="locale_heading_label">
+		<widget class="GtkLabel" id="language_heading_label">
 		  <property name="visible">True</property>
 		  <property name="can_focus">True</property>
 		  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Choose language and location&lt;/b&gt;&lt;/big&gt;</property>

@@ -20,12 +20,12 @@
 import gtk
 from debconf import DebconfCommunicator
 import filteredcommand
-from components import locale, keyboard, timezone, user
+from components import language, keyboard, timezone, user
 
 GLADEDIR = '/usr/lib/oem-config/frontend'
 
 BREADCRUMB_STEPS = {
-    "step_locale": 1,
+    "step_language": 1,
     "step_keyboard": 2,
     "step_timezone": 3,
     "step_user": 4,
@@ -39,8 +39,8 @@ class Frontend:
         self.allowed_go_forward = True
 
         # Set default language.
-        dbfilter = locale.Locale(self, DebconfCommunicator('oem-config',
-                                                           cloexec=True))
+        dbfilter = language.Language(self, DebconfCommunicator('oem-config',
+                                                               cloexec=True))
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 
@@ -61,13 +61,13 @@ class Frontend:
     def run(self):
         self.glade.signal_autoconnect(self)
 
-        self.steps.set_current_page(self.steps.page_num(self.step_locale))
+        self.steps.set_current_page(self.steps.page_num(self.step_language))
 
         while self.current_page is not None:
             self.backup = False
             current_name = self.step_name(self.current_page)
-            if current_name == 'step_locale':
-                self.dbfilter = locale.Locale(self)
+            if current_name == 'step_language':
+                self.dbfilter = language.Language(self)
             elif current_name == 'step_keyboard':
                 self.dbfilter = keyboard.Keyboard(self)
             elif current_name == 'step_timezone':
@@ -181,7 +181,7 @@ class Frontend:
     # Callbacks provided to components.
 
     def redo_step(self):
-        """Redo the current step. Used by the locale component to rerun
+        """Redo the current step. Used by the language component to rerun
         itself when the language changes."""
         self.backup = True
 
@@ -215,7 +215,7 @@ class Frontend:
             return self.language_choice_map[value][0]
 
     def on_language_combo_changed(self, widget):
-        if isinstance(self.dbfilter, locale.Locale):
+        if isinstance(self.dbfilter, language.Language):
             self.dbfilter.language_changed()
 
     def set_country_choices(self, choices):

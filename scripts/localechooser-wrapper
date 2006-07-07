@@ -15,7 +15,7 @@ if ! supported "$LOCALE"; then
 fi
 
 CODE=$?
-PATH="/usr/lib/oem-config/compat:/usr/lib/oem-config/locale:$PATH" \
+PATH="/usr/lib/oem-config/compat:/usr/lib/oem-config/language:$PATH" \
 	localechooser || CODE="$?"
 
 # We need to duplicate this code because localechooser has the right to

@@ -5,9 +5,9 @@ lib/frontend/__init__.py usr/lib/oem-config/frontend
 compat/* usr/lib/oem-config/compat
 
 # localechooser
-d-i/source/localechooser/localechooser usr/lib/oem-config/locale
-d-i/source/localechooser/languagemap usr/lib/oem-config/locale
-scripts/localechooser-wrapper usr/lib/oem-config/locale
+d-i/source/localechooser/localechooser usr/lib/oem-config/language
+d-i/source/localechooser/languagemap usr/lib/oem-config/language
+scripts/localechooser-wrapper usr/lib/oem-config/language
 
 # kbd-chooser
 d-i/source/kbd-chooser/kbd-chooser usr/lib/oem-config/keyboard

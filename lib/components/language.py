@@ -36,7 +36,7 @@ def _get_supported_locales():
         supported.close()
     return _supported_locales
 
-class Locale(FilteredCommand):
+class Language(FilteredCommand):
     def prepare(self):
         self.language_question = 'languagechooser/language-name'
         self.country_question = 'countrychooser/country-name'
@@ -90,7 +90,7 @@ class Locale(FilteredCommand):
                      '^countrychooser/country-name$',
                      '^countrychooser/shortlist$',
                      '^localechooser/supported-locales$']
-        return (['/usr/lib/oem-config/locale/localechooser-wrapper'],
+        return (['/usr/lib/oem-config/language/localechooser-wrapper'],
                 questions)
 
     def update_country_list(self, question):
@@ -119,7 +119,7 @@ class Locale(FilteredCommand):
     def ok_handler(self):
         self.preseed_language(self.frontend.get_language())
         self.preseed_country(self.frontend.get_country())
-        super(Locale, self).ok_handler()
+        super(Language, self).ok_handler()
 
     def run(self, priority, question):
         if question == 'localechooser/supported-locales':
@@ -137,7 +137,7 @@ class Locale(FilteredCommand):
             self.country_question = question
         self.update_country_list(question)
 
-        return super(Locale, self).run(priority, question)
+        return super(Language, self).run(priority, question)
 
     def cleanup(self):
         di_locale = self.db.get('debian-installer/locale')
