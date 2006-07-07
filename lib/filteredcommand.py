@@ -32,8 +32,10 @@ DEBCONF_IO_ERR = 4
 DEBCONF_IO_HUP = 8
 
 class FilteredCommand(object):
-    def __init__(self, frontend):
+    def __init__(self, frontend, db=None):
         self.frontend = frontend
+        # db does not normally need to be specified.
+        self.db = db
         self.done = False
         self.current_question = None
         self.succeeded = False
