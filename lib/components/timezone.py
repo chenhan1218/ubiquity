@@ -18,9 +18,9 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import os
-from wizardstep import WizardStep
+from filteredcommand import FilteredCommand
 
-class Timezone(WizardStep):
+class Timezone(FilteredCommand):
     def prepare(self):
         questions = ['^tzsetup/', '^time/zone$']
         return (['/usr/lib/oem-config/timezone/tzsetup-wrapper'], questions)

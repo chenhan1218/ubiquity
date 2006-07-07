@@ -19,7 +19,7 @@
 
 import gtk
 from debconf import DebconfCommunicator
-import wizardstep
+import filteredcommand
 from components import locale, keyboard, timezone, user
 
 GLADEDIR = '/usr/lib/oem-config/frontend'
@@ -103,11 +103,11 @@ class Frontend:
     def watch_debconf_fd_helper (self, source, cb_condition, callback):
         debconf_condition = 0
         if (cb_condition & gobject.IO_IN) != 0:
-            debconf_condition |= wizardstep.DEBCONF_IO_IN
+            debconf_condition |= filteredcommand.DEBCONF_IO_IN
         if (cb_condition & gobject.IO_ERR) != 0:
-            debconf_condition |= wizardstep.DEBCONF_IO_ERR
+            debconf_condition |= filteredcommand.DEBCONF_IO_ERR
         if (cb_condition & gobject.IO_HUP) != 0:
-            debconf_condition |= wizardstep.DEBCONF_IO_HUP
+            debconf_condition |= filteredcommand.DEBCONF_IO_HUP
 
         return callback(source, debconf_condition)
 

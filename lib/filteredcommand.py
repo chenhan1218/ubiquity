@@ -31,7 +31,7 @@ DEBCONF_IO_OUT = 2
 DEBCONF_IO_ERR = 4
 DEBCONF_IO_HUP = 8
 
-class WizardStep(object):
+class FilteredCommand(object):
     def __init__(self, frontend):
         self.frontend = frontend
         self.done = False

@@ -20,7 +20,7 @@
 import os
 import re
 import locale
-from wizardstep import WizardStep
+from filteredcommand import FilteredCommand
 
 _supported_locales = None
 
@@ -36,7 +36,7 @@ def _get_supported_locales():
         supported.close()
     return _supported_locales
 
-class Locale(WizardStep):
+class Locale(FilteredCommand):
     def prepare(self):
         self.language_question = 'languagechooser/language-name'
         self.country_question = 'countrychooser/country-name'

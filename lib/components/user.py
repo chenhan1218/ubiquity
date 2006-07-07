@@ -17,11 +17,11 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from wizardstep import WizardStep
+from filteredcommand import FilteredCommand
 
 # TODO: skip this if there's already a user configured, or re-ask and create
 # a new one, or what?
-class User(WizardStep):
+class User(FilteredCommand):
     def prepare(self):
         questions = ['^passwd/user-fullname$', '^passwd/username$',
                      '^passwd/user-password$', '^passwd/user-password-again$',

@@ -17,9 +17,9 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-from wizardstep import WizardStep
+from filteredcommand import FilteredCommand
 
-class Keyboard(WizardStep):
+class Keyboard(FilteredCommand):
     def prepare(self):
         self.default_keymap = None
 
