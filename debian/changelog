@@ -27,6 +27,9 @@ oem-config (1.0) UNRELEASED; urgency=low
     binaries.
   * Add an oem-config-gtk package for the GTK frontend.
   * Convert to python-support.
+  * Fix apt-install compatibility wrapper to use debconf's noninteractive
+    frontend, tell debconf not to send e-mail, avoid upgrading, ignore GPG
+    time conflicts, and suppress prompts.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  7 Jul 2006 14:27:23 +0100
 
