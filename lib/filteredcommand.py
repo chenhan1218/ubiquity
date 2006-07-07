@@ -21,6 +21,7 @@ import sys
 import os
 import debconf
 from debconf import DebconfCommunicator
+from debconffilter import DebconfFilter
 
 # We identify as this to debconf.
 PACKAGE = 'oem-config'
