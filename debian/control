@@ -2,7 +2,7 @@ Source: oem-config
 Section: admin
 Priority: extra
 Maintainer: Colin Watson <cjwatson@ubuntu.com>
-Build-Depends: apt, bison, debhelper (>= 5), dpkg-dev (>= 1.9), flex, grep-dctrl, intltool-debian (>= 0.30+20040212), iso-codes (>= 0.21-1), libdebconfclient0-dev (>= 0.49), libdebian-installer4-dev (>= 0.31), locales, po-debconf (>= 0.5.0), python
+Build-Depends: apt, bison, debhelper (>= 5.0.37.2), dpkg-dev (>= 1.9), flex, grep-dctrl, intltool-debian (>= 0.30+20040212), iso-codes (>= 0.21-1), libdebconfclient0-dev (>= 0.49), libdebian-installer4-dev (>= 0.31), locales, po-debconf (>= 0.5.0), python, python-support (>= 0.3)
 Standards-Version: 3.6.2
 
 Package: oem-config
@@ -11,6 +11,7 @@ Depends: ${shlibs:Depends}, ${python:Depends}, debconf (>= 1.4.52), oem-config-g
 Recommends: hwdb-client
 Conflicts: oem-config-keyboard, oem-config-locale, oem-config-timezone
 Replaces: oem-config-keyboard, oem-config-locale, oem-config-timezone
+XB-Python-Version: ${python:Versions}
 Description: Perform end-user configuration after initial installation
  The oem-config script re-asks a number of questions that are normally asked
  during installation, and reconfigures the system accordingly. This allows a
@@ -23,6 +24,7 @@ Architecture: all
 Depends: ${python:Depends}, oem-config, python-gtk2, python-glade2
 Replaces: oem-config (<< 1.0)
 Provides: oem-config-frontend
+XB-Python-Version: ${python:Versions}
 Description: GTK+ frontend for end-user post-install configuration
  The oem-config script re-asks a number of questions that are normally asked
  during installation, and reconfigures the system accordingly. This allows a
