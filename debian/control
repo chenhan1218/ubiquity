@@ -2,7 +2,7 @@ Source: oem-config
 Section: admin
 Priority: extra
 Maintainer: Colin Watson <cjwatson@ubuntu.com>
-Build-Depends-Indep: apt, bison, debhelper (>= 5), dpkg-dev (>= 1.9), flex, grep-dctrl, intltool-debian (>= 0.30+20040212), iso-codes (>= 0.21-1), libdebconfclient0-dev (>= 0.49), libdebian-installer4-dev (>= 0.31), locales, po-debconf (>= 0.5.0), python
+Build-Depends: apt, bison, debhelper (>= 5), dpkg-dev (>= 1.9), flex, grep-dctrl, intltool-debian (>= 0.30+20040212), iso-codes (>= 0.21-1), libdebconfclient0-dev (>= 0.49), libdebian-installer4-dev (>= 0.31), locales, po-debconf (>= 0.5.0), python
 Standards-Version: 3.6.2
 
 Package: oem-config

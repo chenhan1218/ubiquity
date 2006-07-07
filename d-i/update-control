@@ -85,7 +85,7 @@ my $builddeps =
 open IN, '<', $control or die "can't open $control: $!";
 open OUT, '>', "$control.tmp" or die "can't open $control.tmp for writing: $!";
 foreach (<IN>) {
-	s/^(Build-Depends-Indep:\s*)(.*)/$1$builddeps/;
+	s/^(Build-Depends:\s*)(.*)/$1$builddeps/;
 	print OUT or die "can't print to $control.tmp: $!";
 }
 close OUT or die "can't close $control.tmp: $!";
