@@ -201,7 +201,7 @@ class Frontend:
 
     def set_language_choices(self, choices, choice_map):
         self.language_choice_map = dict(choice_map)
-        self.language_combo.clear_attributes()
+        self.language_combo.clear()
         cell = gtk.CellRendererText()
         self.language_combo.pack_start(cell, True)
         self.language_combo.add_attribute(cell, 'text', 0)
@@ -233,7 +233,7 @@ class Frontend:
             self.dbfilter.language_changed()
 
     def set_country_choices(self, choices):
-        self.country_combo.clear_attributes()
+        self.country_combo.clear()
         cell = gtk.CellRendererText()
         self.country_combo.pack_start(cell, True)
         self.country_combo.add_attribute(cell, 'text', 0)
@@ -243,7 +243,7 @@ class Frontend:
             list_store.append([choice])
 
     def set_country(self, country):
-        model = self.country_combo.set_model()
+        model = self.country_combo.get_model()
         iterator = model.iter_children(None)
         while iterator is not None:
             if unicode(model.get_value(iterator, 0)) == country:
