@@ -42,9 +42,14 @@ class Language(FilteredCommand):
         self.country_question = 'countrychooser/country-name'
         self.restart = False
 
-        current_language_index = self.value_index(
-            'languagechooser/language-name')
-        current_language = "English"
+        try:
+            current_language = self.db.get('languagechooser/language-name')
+        except debconf.DebconfError:
+            current_language = ''
+        if current_language:
+            current_language = re.sub(r'.*? *- (.*)', r'\1', current_language)
+        else:
+            current_language = 'English'
 
         language_choices = self.split_choices(
             unicode(self.db.metaget('languagechooser/language-name',
@@ -69,8 +74,6 @@ class Language(FilteredCommand):
             if choice_c not in language_codes:
                 continue
             language_display_map[choice] = (choice_c, language_codes[choice_c])
-            if i == current_language_index:
-                current_language = choice
 
         def compare_choice(x, y):
             result = cmp(language_display_map[x][1],
