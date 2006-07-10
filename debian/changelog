@@ -30,6 +30,8 @@ oem-config (1.0) UNRELEASED; urgency=low
   * Fix apt-install compatibility wrapper to use debconf's noninteractive
     frontend, tell debconf not to send e-mail, avoid upgrading, ignore GPG
     time conflicts, and suppress prompts.
+  * Update localechooser wrapper to handle /etc/default/locale (based on
+    localechooser 0.19).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  7 Jul 2006 14:27:23 +0100
 
