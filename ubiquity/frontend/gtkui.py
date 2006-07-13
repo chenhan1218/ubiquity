@@ -1476,7 +1476,7 @@ class Wizard:
         return True
 
     def set_keyboard_choices(self, choicemap):
-        self.keyboard_choice_map = choicemap
+        self.keyboard_choice_map = dict(choicemap)
         choices = choicemap.keys()
 
         kbdlayouts = gtk.ListStore(gobject.TYPE_STRING)

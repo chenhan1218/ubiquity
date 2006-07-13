@@ -1490,7 +1490,7 @@ class Wizard:
 
 
     def set_keyboard_choices(self, choicemap):
-        self.keyboard_choice_map = choicemap
+        self.keyboard_choice_map = dict(choicemap)
         choices = choicemap.keys()
 
         self.userinterface.keyboardlistview.clear()
