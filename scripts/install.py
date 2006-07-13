@@ -177,8 +177,10 @@ class Install:
 
         if os.path.isdir('/rofs'):
             self.source = '/rofs'
-        elif os.path.isdir('/KNOPPIX'):
-            self.source = '/KNOPPIX'
+        elif os.path.isdir('/UNIONFS'):
+            # Klaus Knopper says this may not actually work very well
+            # because it'll copy the WHOLE WORLD (~12GB).
+            self.source = '/UNIONFS'
         else:
             self.source = '/source'
         self.target = '/target'
