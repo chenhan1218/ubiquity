@@ -18,6 +18,8 @@ ubiquity (1.1.0) UNRELEASED; urgency=low
     attach your details to an existing bug.
   * Add passwd and adduser dependencies from user-setup.
   * Take a copy of the supplied choice map in set_keyboard_choices.
+  * Save tracebacks from install.py and slurp them back into the traceback
+    displayed if install.py exits non-zero.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Jun 2006 03:11:16 +0100
 

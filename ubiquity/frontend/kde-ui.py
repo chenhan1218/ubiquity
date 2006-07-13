@@ -520,10 +520,16 @@ class Wizard:
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
             self.installing = False
-            # TODO cjwatson 2006-05-23: figure out why Install crashed
-            raise RuntimeError, ("Install failed with exit code %s; see "
-                                 "/var/log/installer/syslog and "
-                                 "/var/log/syslog" % ret)
+            if os.path.exists('/var/lib/ubiquity/install.trace'):
+                tbfile = open('/var/lib/ubiquity/install.trace')
+                realtb = tbfile.read()
+                tbfile.close()
+                raise RuntimeError, ("Install failed with exit code %s\n%s" %
+                                     realtb)
+            else:
+                raise RuntimeError, ("Install failed with exit code %s; see "
+                                     "/var/log/installer/syslog and "
+                                     "/var/log/syslog" % ret)
 
         while self.progress_position.depth() != 0:
             self.debconf_progress_stop()

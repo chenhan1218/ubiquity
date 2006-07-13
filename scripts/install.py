@@ -31,6 +31,7 @@ import time
 import struct
 import socket
 import fcntl
+import traceback
 import debconf
 import apt_pkg
 from apt.package import Package
@@ -199,6 +200,23 @@ class Install:
         # out the list of pre-installation hooks.
         apt_pkg.Config.Clear("DPkg::Pre-Install-Pkgs")
         apt_pkg.InitSystem()
+
+    def excepthook(self, exctype, excvalue, exctb):
+        """Crash handler. Dump the traceback to a file so that it can be
+        read by the caller."""
+
+        if (issubclass(exctype, KeyboardInterrupt) or
+            issubclass(exctype, SystemExit)):
+            return
+
+        tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
+        print >>sys.stderr, "Exception during installation:"
+        print >>sys.stderr, tbtext
+        tbfile = open('/var/lib/ubiquity/install.trace', 'w')
+        print >>tbfile, tbtext
+        tbfile.close()
+
+        sys.exit(1)
 
     def run(self):
         """Run the install stage: copy everything to the target system, then
@@ -1179,7 +1197,14 @@ class Install:
 
 
 if __name__ == '__main__':
-    if Install().run():
+    if not os.path.exists('/var/lib/ubiquity'):
+        os.makedirs('/var/lib/ubiquity')
+    if os.path.exists('/var/lib/ubiquity/install.trace'):
+        os.unlink('/var/lib/ubiquity/install.trace')
+
+    install = Install()
+    sys.excepthook = install.excepthook
+    if install.run():
         sys.exit(0)
     else:
         sys.exit(1)
