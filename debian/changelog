@@ -16,6 +16,7 @@ ubiquity (1.1.0) UNRELEASED; urgency=low
     Malone #48524).
   * Make it clear in the crash dialog that you should file a new bug, not
     attach your details to an existing bug.
+  * Add passwd and adduser dependencies from user-setup.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Jun 2006 03:11:16 +0100
 
