@@ -3,4 +3,4 @@ d-i/source/hw-detect/debian/hw-detect/bin/discover-ibm bin
 d-i/source/hw-detect/debian/hw-detect/bin/discover-mac-io bin
 
 # yaboot-installer
-ubiquity/components/yabootinstaller.py usr/lib/python2.4/site-packages/ubiquity/components
+ubiquity/components/yabootinstaller.py usr/lib/ubiquity/ubiquity/components

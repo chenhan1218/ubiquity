@@ -1,2 +1,2 @@
-ubiquity/frontend/netcloner.py usr/lib/python2.4/site-packages/ubiquity/frontend
+ubiquity/frontend/netcloner.py usr/lib/ubiquity/ubiquity/frontend
 netcloner usr/sbin

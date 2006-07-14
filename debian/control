@@ -2,8 +2,9 @@ Source: ubiquity
 Section: admin
 Priority: optional
 Maintainer: Colin Watson <cjwatson@ubuntu.com>
-Build-Depends: apt, bison, debhelper (>= 5), dpkg-dev (>= 1.9.0), flex, grep-dctrl, intltool-debian (>= 0.30+20040212), iso-codes (>= 0.35-1), libart-2.0-dev, libdebconfclient0-dev (>= 0.68), libdebian-installer-dev, libdebian-installer4-dev (>= 0.31), libglib2.0-dev, libgtk2.0-dev, libparted1.6-dev (>= 1.6.24), libxml-parser-perl, locales, po-debconf (>= 0.5.3), python, python-gtk2-dev, python-kde3-dev, python-xml, python2.4-dev, wget
+Build-Depends: apt, bison, debhelper (>= 5), dpkg-dev (>= 1.9.0), flex, grep-dctrl, intltool-debian (>= 0.30+20040212), iso-codes (>= 0.35-1), libart-2.0-dev, libdebconfclient0-dev (>= 0.68), libdebian-installer-dev, libdebian-installer4-dev (>= 0.31), libglib2.0-dev, libgtk2.0-dev, libparted1.6-dev (>= 1.6.24), libxml-parser-perl, locales, po-debconf (>= 0.5.3), python, python-all-dev (>= 2.3.5-11), python-central (>= 0.4.17), python-gtk2-dev, python-kde3-dev, python-xml, wget
 Standards-Version: 3.6.2.1
+XS-Python-Version: 2.4
 
 Package: ubiquity
 Architecture: any
@@ -11,6 +12,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf (>= 1.4.
 Recommends: gparted
 Conflicts: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
 Replaces: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot, ubiquity-frontend-gtk (<< 0.99.82)
+XB-Python-Version: ${python:Versions}
 Description: Ubuntu live CD installer
  This is a simple live CD installer designed to integrate well with Debian-
  and Ubuntu-based systems, and to reuse code from d-i for ease of
@@ -43,6 +45,7 @@ Recommends: gnome-system-tools
 Conflicts: ubuntu-express-frontend-gtk, espresso-frontend-gtk
 Replaces: ubuntu-express-frontend-gtk, espresso-frontend-gtk
 Provides: ubiquity-frontend
+XB-Python-Version: ${python:Versions}
 Description: GTK+ frontend for Ubiquity live installer
  This package provides a GTK+-based user interface frontend for the Ubiquity
  live CD installer.
@@ -51,6 +54,7 @@ Package: ubiquity-frontend-kde
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends}, ubiquity, python-kde3, qtparted
 Provides: ubiquity-frontend
+XB-Python-Version: ${python:Versions}
 Description: KDE frontend for Ubiquity live installer
  This package provides a KDE-based user interface frontend for the Ubiquity
  live CD installer.
@@ -61,6 +65,7 @@ Description: KDE frontend for Ubiquity live installer
 #Conflicts: ubuntu-express-frontend-cloner, espresso-frontend-cloner
 #Replaces: ubuntu-express-frontend-cloner, espresso-frontend-cloner
 #Provides: ubiquity-frontend
+#XB-Python-Version: ${python:Versions}
 #Description: Network Cloner frontend for Ubiquity live installer
 # This package provides a non-interactive frontend for the Ubiquity live CD
 # installer which will install the system from a server.

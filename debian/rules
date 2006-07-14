@@ -18,6 +18,8 @@ ifeq ($(DEB_HOST_ARCH_CPU),)
   endif
 endif
 
+PYTHON := $(shell pyversions -r)
+
 ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU):,:amd64:i386:))
   bootloader-depends := grub
 else
@@ -39,7 +41,7 @@ build-stamp:
 	dh_testdir
 
 ifndef UBIQUITY_NO_GTK
-	./configure --prefix=/usr
+	PYTHON=$(PYTHON) ./configure --prefix=/usr
 	$(MAKE)
 endif
 	$(MAKE) -C d-i build
@@ -156,7 +158,8 @@ binary-indep: install
 	dh_strip -i
 	dh_compress -i
 	dh_fixperms -i
-	dh_python -i
+	dh_pycentral -i
+	dh_python -i /usr/lib/ubiquity
 	dh_installdeb -i
 	dh_shlibdeps -i
 	dh_gencontrol -i
@@ -185,7 +188,8 @@ binary-arch: install
 	dh_strip -a
 	dh_compress -a
 	dh_fixperms -a
-	dh_python -a
+	dh_pycentral -a
+	dh_python -a /usr/lib/ubiquity
 	dh_installdeb -a
 	dh_shlibdeps -a
 ifdef bootloader-depends

@@ -1,5 +1,4 @@
 usr/bin
 usr/lib/ubiquity/base-installer
 usr/lib/ubiquity/clock-setup
-usr/lib/python2.4/site-packages/ubiquity/frontend
 usr/share/applications/
