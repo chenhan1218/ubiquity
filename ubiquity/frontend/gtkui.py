@@ -993,6 +993,15 @@ class Wizard:
                     error_msg.append(get_string(
                         'partman-basicfilesystems/bad_mountpoint',
                         self.locale))
+                elif check == validation.MOUNTPOINT_XFSROOT:
+                    error_msg.append("XFS may not be used on the filesystem "
+                                     "containing /boot. Either use a "
+                                     "different filesystem for / or create a "
+                                     "non-XFS filesystem for /boot.")
+                elif check == validation.MOUNTPOINT_XFSBOOT:
+                    error_msg.append("XFS may not be used on the /boot "
+                                     "filesystem. Use a different filesystem "
+                                     "type for /boot.")
 
         # showing warning messages
         self.mountpoint_error_reason.set_text("\n".join(error_msg))

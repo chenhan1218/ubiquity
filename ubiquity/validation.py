@@ -67,6 +67,8 @@ MOUNTPOINT_NOROOT = 1
 MOUNTPOINT_DUPPATH = 2
 MOUNTPOINT_BADSIZE = 3
 MOUNTPOINT_BADCHAR = 4
+MOUNTPOINT_XFSROOT = 5
+MOUNTPOINT_XFSBOOT = 6
 
 def check_mountpoint(mountpoints, size):
 
@@ -76,12 +78,16 @@ def check_mountpoint(mountpoints, size):
             - C{MOUNTPOINT_NOROOT} Doesn't exist root path.
             - C{MOUNTPOINT_DUPPATH} Path duplicated.
             - C{MOUNTPOINT_BADSIZE} Size incorrect.
-            - C{MOUNTPOINT_BADCHAR} Contains invalid characters."""
+            - C{MOUNTPOINT_BADCHAR} Contains invalid characters.
+            - C{MOUNTPOINT_XFSROOT} XFS used on / (with no /boot).
+            - C{MOUNTPOINT_XFSBOOT} XFS used on /boot."""
 
     import re
     result = set()
     root = False
     root_size = 0.0
+    xfs_root = False
+    xfs_boot = False
 
     for mountpoint, format, fstype in mountpoints.itervalues():
         if mountpoint == 'swap':
@@ -107,9 +113,22 @@ def check_mountpoint(mountpoints, size):
         if not regex.search(path):
             result.add(MOUNTPOINT_BADCHAR)
 
+        if fstype == 'xfs':
+            if path == '/':
+                xfs_root = True
+            elif path == '/boot':
+                xfs_boot = True
+
     if not root:
         result.add(MOUNTPOINT_NOROOT)
     elif root_size < root_minimum_KB:
         result.add(MOUNTPOINT_BADSIZE)
+
+    if '/boot' in seen_mountpoints:
+        if xfs_boot:
+            result.add(MOUNTPOINT_XFSBOOT)
+    else:
+        if xfs_root:
+            result.add(MOUNTPOINT_XFSROOT)
 
     return sorted(result)

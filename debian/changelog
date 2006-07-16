@@ -23,6 +23,8 @@ ubiquity (1.1.0) UNRELEASED; urgency=low
   * Convert to new Python policy (python-central). Install Python
     modules/extensions to /usr/lib/ubiquity/ubiquity rather than into the
     public module path.
+  * Warn in the partitioner if you try to use XFS for /boot (closes: Malone
+    #47848).
 
   * Automatic update of included source packages: apt-setup 1:0.11ubuntu1,
     base-installer 1.63ubuntu2, choose-mirror 2.04ubuntu1, clock-setup
