@@ -21,4 +21,4 @@ from ubiquity.filteredcommand import FilteredCommand
 
 class KbdChooserApply(FilteredCommand):
     def prepare(self):
-        return (['/usr/lib/ubiquity/kbd-chooser/prebaseconfig'], [])
+        return (['/usr/lib/ubiquity/kbd-chooser/post-base-installer'], [])

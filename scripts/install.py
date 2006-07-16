@@ -779,7 +779,7 @@ class Install:
         self.db.progress('INFO', 'ubiquity/install/hardware')
 
         subprocess.call(['/usr/lib/ubiquity/debian-installer-utils'
-                         '/register-module.prebaseconfig'])
+                         '/register-module.post-base-installer'])
 
         resume = self.get_resume_partition()
         if resume is not None:

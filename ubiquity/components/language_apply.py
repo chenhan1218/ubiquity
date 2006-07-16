@@ -23,4 +23,4 @@ class LanguageApply(FilteredCommand):
     def prepare(self):
         return (['sh', '-c',
                  '/usr/lib/ubiquity/localechooser/post-base-installer ' +
-                 '&& /usr/lib/ubiquity/localechooser/prebaseconfig'], [])
+                 '&& /usr/lib/ubiquity/localechooser/finish-install'], [])

@@ -110,20 +110,20 @@ endif
 	install d-i/source/clock-setup/debian/clock-setup.postinst \
 		debian/ubiquity/usr/lib/ubiquity/clock-setup/clock-setup
 	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/clock-setup
-	install d-i/source/clock-setup/prebaseconfig.d/10clock-setup \
-		debian/ubiquity/usr/lib/ubiquity/clock-setup/prebaseconfig
-	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/prebaseconfig
-	sed 's,\(prebaseconfig=\).*,\1/dev/null,' \
+	install d-i/source/clock-setup/finish-install.d/10clock-setup \
+		debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
+	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
+	sed 's,\(finish-install=\).*,\1/dev/null,' \
 		d-i/source/hw-detect/debian/hw-detect/bin/hw-detect \
 		> debian/ubiquity/bin/hw-detect
 	chmod +x debian/ubiquity/bin/hw-detect
-	install d-i/source/kbd-chooser/debian/prebaseconfig \
+	install d-i/source/kbd-chooser/debian/post-base-installer \
 		debian/ubiquity/usr/lib/ubiquity/kbd-chooser/
 	install d-i/source/localechooser/post-base-installer \
-		d-i/source/localechooser/prebaseconfig \
+		d-i/source/localechooser/finish-install \
 		debian/ubiquity/usr/lib/ubiquity/localechooser/
-	install d-i/source/tzsetup/prebaseconfig.d/*tzsetup \
-		debian/ubiquity/usr/lib/ubiquity/tzsetup/prebaseconfig
+	install d-i/source/tzsetup/finish-install.d/*tzsetup \
+		debian/ubiquity/usr/lib/ubiquity/tzsetup/finish-install
 	set -e; for x in user-setup user-setup-ask user-setup-apply; do \
 		sed 's,/usr/lib/user-setup,/usr/lib/ubiquity/user-setup,g' \
 			d-i/source/user-setup/$$x \

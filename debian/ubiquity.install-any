@@ -30,7 +30,7 @@ d-i/source/debian-installer-utils/debconf-get bin
 d-i/source/debian-installer-utils/log-output bin
 d-i/source/debian-installer-utils/mapdevfs bin
 d-i/source/debian-installer-utils/register-module bin
-d-i/source/debian-installer-utils/register-module.prebaseconfig usr/lib/ubiquity/debian-installer-utils
+d-i/source/debian-installer-utils/register-module.post-base-installer usr/lib/ubiquity/debian-installer-utils
 d-i/source/debian-installer-utils/update-dev bin
 d-i/source/debian-installer-utils/user-params bin
 
