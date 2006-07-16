@@ -1039,6 +1039,13 @@ class Wizard:
                     error_msg.append("XFS may not be used on the /boot "
                                      "filesystem. Use a different filesystem "
                                      "type for /boot.")
+                elif check == validation.MOUNTPOINT_UNFORMATTED:
+                    error_msg.append("Filesystems used by the system (/, "
+                                     "/boot, /usr, /var) must be reformatted "
+                                     "for use by this installer. Other "
+                                     "filesystems (/home, /media/*,
+                                     /usr/local, etc.) may be used without "
+                                     "reformatting.")
 
         # showing warning messages
         self.userinterface.mountpoint_error_reason.setText("\n".join(error_msg))
