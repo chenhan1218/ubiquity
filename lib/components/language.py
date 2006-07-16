@@ -120,8 +120,8 @@ class Language(FilteredCommand):
         self.exit_ui_loops()
 
     def ok_handler(self):
-        self.preseed_language(self.frontend.get_language())
-        self.preseed_country(self.frontend.get_country())
+        self.preseed_language()
+        self.preseed_country()
         super(Language, self).ok_handler()
 
     def run(self, priority, question):
