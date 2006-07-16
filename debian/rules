@@ -158,7 +158,7 @@ binary-indep: install
 	dh_strip -i
 	dh_compress -i
 	dh_fixperms -i
-	dh_pycentral -i
+	dh_pycentral -pubiquity-frontend-kde
 	dh_python -i /usr/lib/ubiquity
 	dh_installdeb -i
 	dh_shlibdeps -i
