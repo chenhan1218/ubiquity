@@ -129,6 +129,7 @@ class Frontend:
 
     # Run the UI's main loop until it returns control to us.
     def run_main_loop(self):
+        self.allow_change_step(True)
         gtk.main()
 
     # Return control to the next level up.
