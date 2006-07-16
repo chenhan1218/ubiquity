@@ -1,7 +1,7 @@
 oem-config oem-config-dm oem-config-firstboot oem-config-prepare usr/sbin
-lib/*.py usr/lib/oem-config
-lib/components/*.py usr/lib/oem-config/components
-lib/frontend/__init__.py usr/lib/oem-config/frontend
+lib/*.py usr/lib/oem-config/oem_config
+lib/components/*.py usr/lib/oem-config/oem_config/components
+lib/frontend/__init__.py usr/lib/oem-config/oem_config/frontend
 compat/* usr/lib/oem-config/compat
 
 # localechooser

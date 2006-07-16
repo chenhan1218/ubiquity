@@ -24,10 +24,10 @@ import gobject
 import gtk
 import gtk.glade
 from debconf import DebconfCommunicator
-import filteredcommand
-from components import language, keyboard, timezone, user
+from oem_config import filteredcommand
+from oem_config.components import language, keyboard, timezone, user
 
-GLADEDIR = '/usr/lib/oem-config/frontend'
+GLADEDIR = '/usr/lib/oem-config/oem_config/frontend'
 
 BREADCRUMB_STEPS = {
     "step_language": 1,

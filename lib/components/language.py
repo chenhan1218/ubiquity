@@ -20,7 +20,7 @@
 import os
 import re
 import locale
-from filteredcommand import FilteredCommand
+from oem_config.filteredcommand import FilteredCommand
 
 _supported_locales = None
 

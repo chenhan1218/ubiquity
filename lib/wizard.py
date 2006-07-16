@@ -27,7 +27,8 @@ class Wizard:
             frontend_names = ['gtk-ui']
         else:
             frontend_names = [frontend_name]
-        mod = __import__('frontend', globals(), locals(), frontend_names)
+        mod = __import__('oem_config.frontend', globals(), locals(),
+                         frontend_names)
         for f in frontend_names:
             if hasattr(mod, f):
                 ui = getattr(mod, f)
