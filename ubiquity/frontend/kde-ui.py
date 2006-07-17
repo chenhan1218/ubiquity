@@ -1043,8 +1043,8 @@ class Wizard:
                     error_msg.append("Filesystems used by the system (/, "
                                      "/boot, /usr, /var) must be reformatted "
                                      "for use by this installer. Other "
-                                     "filesystems (/home, /media/*,
-                                     /usr/local, etc.) may be used without "
+                                     "filesystems (/home, /media/*, "
+                                     "/usr/local, etc.) may be used without "
                                      "reformatting.")
 
         # showing warning messages
