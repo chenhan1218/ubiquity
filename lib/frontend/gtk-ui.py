@@ -235,7 +235,10 @@ class Frontend:
         if isinstance(self.dbfilter, language.Language):
             self.dbfilter.language_changed()
 
-    def set_country_choices(self, choices):
+    def set_country_choices(self, choice_map):
+        self.country_choice_map = dict(choice_map)
+        choices = choice_map.keys()
+        choices.sort()
         self.country_combo.clear()
         cell = gtk.CellRendererText()
         self.country_combo.pack_start(cell, True)
@@ -249,7 +252,8 @@ class Frontend:
         model = self.country_combo.get_model()
         iterator = model.iter_children(None)
         while iterator is not None:
-            if unicode(model.get_value(iterator, 0)) == country:
+            value = unicode(model.get_value(iterator, 0))
+            if self.country_choice_map[value] == country:
                 self.country_combo.set_active_iter(iterator)
                 break
             iterator = model.iter_next(iterator)

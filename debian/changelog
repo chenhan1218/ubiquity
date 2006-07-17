@@ -32,6 +32,7 @@ oem-config (1.0) UNRELEASED; urgency=low
     time conflicts, and suppress prompts.
   * Update localechooser wrapper to handle /etc/default/locale (based on
     localechooser 0.19).
+  * Make more of an effort to display translated country names.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  7 Jul 2006 14:27:23 +0100
 

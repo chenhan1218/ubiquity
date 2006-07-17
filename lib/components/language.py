@@ -97,7 +97,7 @@ class Language(FilteredCommand):
                 questions)
 
     def update_country_list(self, question):
-        self.frontend.set_country_choices(self.choices(question))
+        self.frontend.set_country_choices(self.choices_display_map(question))
         try:
             self.frontend.set_country(self.db.get(question))
         except ValueError:
@@ -147,6 +147,11 @@ class Language(FilteredCommand):
         di_locale = self.db.get('debian-installer/locale')
         if di_locale not in _get_supported_locales():
             di_locale = self.db.get('debian-installer/fallbacklocale')
+        if di_locale == '':
+            # TODO cjwatson 2006-07-17: maybe fetch
+            # languagechooser/language-name and set a language based on
+            # that?
+            di_locale = 'en_US.UTF-8'
         if di_locale != self.frontend.locale:
             self.frontend.locale = di_locale
             os.environ['LANG'] = di_locale
