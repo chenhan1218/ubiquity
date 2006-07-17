@@ -539,7 +539,7 @@ class Wizard:
                 realtb = tbfile.read()
                 tbfile.close()
                 raise RuntimeError, ("Install failed with exit code %s\n%s" %
-                                     realtb)
+                                     (ret, realtb))
             else:
                 raise RuntimeError, ("Install failed with exit code %s; see "
                                      "/var/log/installer/syslog and "
