@@ -1,4 +1,4 @@
-ubiquity (1.1.0) UNRELEASED; urgency=low
+ubiquity (1.1.0) edgy; urgency=low
 
   * Use try/finally in install.py to ensure that PROGRESS STOP is always
     called; ignore errors from PROGRESS STOP (e.g. because debconf has gone
@@ -51,7 +51,7 @@ ubiquity (1.1.0) UNRELEASED; urgency=low
   * Install search-path from debian-installer-utils; partman-auto needs it
     now.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Jun 2006 03:11:16 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Jul 2006 00:18:21 +0100
 
 ubiquity (1.0.12) dapper; urgency=low
 
