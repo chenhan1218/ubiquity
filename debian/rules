@@ -186,7 +186,6 @@ binary-arch: install
 	grep-dctrl -v -FTemplate base-installer/ d-i/templates \
 		>> debian/ubiquity/DEBIAN/templates
 #	dh_installman -a
-	dh_link -a
 	dh_strip -a
 	dh_compress -a
 	dh_fixperms -a
