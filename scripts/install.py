@@ -37,6 +37,9 @@ import apt_pkg
 from apt.package import Package
 from apt.cache import Cache
 from apt.progress import FetchProgress, InstallProgress
+
+sys.path.insert(0, '/usr/lib/ubiquity')
+
 from ubiquity import misc
 from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 clock_setup, kbd_chooser_apply, \
