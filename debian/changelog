@@ -28,6 +28,10 @@ ubiquity (1.1.0) UNRELEASED; urgency=low
   * Warn in the partitioner if system filesystems are not reformatted
     (closes: Malone #47046).
   * Remove /usr/bin/espresso compatibility symlink.
+  * Use os._exit() rather than sys.exit() in the apt install progress child
+    process after forking, fixing a lot of strange "PROGRESS STOP" messages
+    in /var/log/installer/syslog and bizarre debconf exceptions. See also
+    Malone #53298.
 
   * Automatic update of included source packages: apt-setup 1:0.11ubuntu1,
     base-installer 1.63ubuntu2, choose-mirror 2.04ubuntu1, clock-setup

@@ -164,7 +164,7 @@ class DebconfInstallProgress(InstallProgress):
                 del os.environ['DEBCONF_USE_CDEBCONF']
 
             res = pm.DoInstall(self.writefd)
-            sys.exit(res)
+            os._exit(res)
         self.child_pid = pid
         res = self.waitChild()
         return res
