@@ -41,6 +41,8 @@ ubiquity (1.1.0) UNRELEASED; urgency=low
     1.2ubuntu2, yaboot-installer 1.1.7ubuntu1.
   * Handle move of prebaseconfig scripts to (variously) post-base-installer
     or finish-install.
+  * Install search-path from debian-installer-utils; partman-auto needs it
+    now.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Jun 2006 03:11:16 +0100
 
