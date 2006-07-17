@@ -270,6 +270,7 @@ class Frontend:
         self.keyboard_choice_map = dict(choice_map)
         choices = choice_map.keys()
         choices.sort()
+        self.select_keyboard_combo.clear()
         cell = gtk.CellRendererText()
         self.select_keyboard_combo.pack_start(cell, True)
         self.select_keyboard_combo.add_attribute(cell, 'text', 0)
