@@ -834,6 +834,7 @@ class Wizard:
                 self.gparted_fstype[words[1]] = words[2]
             gparted_reply = \
                 self.gparted_subp.stdout.readline().rstrip('\n')
+        pre_log('info', 'gparted replied: %s' % gparted_reply)
 
         if gparted_reply.startswith('1 '):
             # Cancel

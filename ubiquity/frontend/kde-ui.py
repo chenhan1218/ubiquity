@@ -817,12 +817,13 @@ class Wizard:
         # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
         gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
         while not gparted_reply.startswith('0 ') and not gparted_reply.startswith('1 '):
+            pre_log('info', 'gparted replied: %s' % gparted_reply)
             if gparted_reply.startswith('- '):
-                pre_log('info', 'gparted replied: %s' % gparted_reply)
                 words = gparted_reply[2:].strip().split()
                 if words[0].lower() == 'format' and len(words) >= 3:
                     self.gparted_fstype[words[1]] = words[2]
             gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+        pre_log('info', 'gparted replied: %s' % gparted_reply)
 
         if gparted_reply.startswith('1 '):
             # Cancel
