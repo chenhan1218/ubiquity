@@ -41,6 +41,7 @@ class Language(FilteredCommand):
         self.language_question = 'languagechooser/language-name'
         self.country_question = 'countrychooser/country-name'
         self.restart = False
+        self.preparing = True
 
         try:
             current_language = self.db.get('languagechooser/language-name')
@@ -89,6 +90,7 @@ class Language(FilteredCommand):
 
         self.update_country_list('countrychooser/country-name')
 
+        self.preparing = False
         questions = ['^languagechooser/language-name',
                      '^countrychooser/country-name$',
                      '^countrychooser/shortlist$',
@@ -105,19 +107,23 @@ class Language(FilteredCommand):
 
     def preseed_language(self):
         self.preseed(self.language_question, self.frontend.get_language())
+        if self.language_question != 'languagechooser/language-name':
+            self.preseed('languagechooser/language-name',
+                         self.frontend.get_language())
 
     def preseed_country(self):
         self.preseed_as_c(self.country_question, self.frontend.get_country())
 
-    def language_handler(self, widget, data=None):
-        self.preseed_language()
-        # We now need to run through most of localechooser, but stop just
-        # before the end. This can be done by backing up from
-        # localechooser/supported-locales, so leave a note for ourselves to
-        # do so.
-        self.restart = True
-        self.succeeded = True
-        self.exit_ui_loops()
+    def language_changed(self):
+        if not self.preparing:
+            self.preseed_language()
+            # We now need to run through most of localechooser, but stop
+            # just before the end. This can be done by backing up from
+            # localechooser/supported-locales, so leave a note for ourselves
+            # to do so.
+            self.restart = True
+            self.succeeded = True
+            self.exit_ui_loops()
 
     def ok_handler(self):
         self.preseed_language()
