@@ -32,6 +32,8 @@ ubiquity (1.1.0) UNRELEASED; urgency=low
     process after forking, fixing a lot of strange "PROGRESS STOP" messages
     in /var/log/installer/syslog and bizarre debconf exceptions. See also
     Malone #53298.
+  * Use exceptions to communicate all failures in install.py, so that we get
+    more useful tracebacks.
 
   * Automatic update of included source packages: apt-setup 1:0.11ubuntu1,
     base-installer 1.63ubuntu2, choose-mirror 2.04ubuntu1, clock-setup
