@@ -99,7 +99,7 @@ class Language(FilteredCommand):
     def update_country_list(self, question):
         self.frontend.set_country_choices(self.choices(question))
         try:
-            self.frontend.set_country(self.value_index(question))
+            self.frontend.set_country(self.db.get(question))
         except ValueError:
             pass
 
