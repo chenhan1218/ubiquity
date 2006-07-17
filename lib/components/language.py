@@ -63,8 +63,8 @@ class Language(FilteredCommand):
             if line.startswith('#'):
                 continue
             bits = line.split(';')
-            if len(bits) >= 4:
-                language_codes[bits[0]] = bits[3]
+            if len(bits) >= 3:
+                language_codes[bits[0]] = bits[2]
         languagelist.close()
 
         language_display_map = {}
