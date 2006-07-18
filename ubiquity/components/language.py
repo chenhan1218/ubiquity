@@ -41,7 +41,8 @@ class Language(FilteredCommand):
 
             language_choices = self.split_choices(
                 unicode(self.db.metaget('languagechooser/language-name',
-                                        'choices-en.utf-8'), 'utf-8'))
+                                        'choices-en.utf-8'),
+                        'utf-8', 'replace'))
             language_choices_c = self.choices_untranslated(
                 'languagechooser/language-name')
 

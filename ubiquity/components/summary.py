@@ -33,7 +33,7 @@ class Summary(FilteredCommand):
         return (['/usr/share/ubiquity/summary'], ['^ubiquity/summary$'])
 
     def subst(self, question, key, value):
-        self.substcache[key] = unicode(value, "UTF-8")
+        self.substcache[key] = unicode(value, 'utf-8', 'replace')
 
     def run(self, question, priority):
         # TODO: untranslatable

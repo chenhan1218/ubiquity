@@ -1,3 +1,10 @@
+ubiquity (1.1.1) UNRELEASED; urgency=low
+
+  * Use 'replace' Unicode error handling when dealing with data coming from
+    debconf (closes: Malone #44595, #48732).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Jul 2006 11:43:48 +0100
+
 ubiquity (1.1.0) edgy; urgency=low
 
   * Use try/finally in install.py to ensure that PROGRESS STOP is always

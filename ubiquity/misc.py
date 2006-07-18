@@ -393,7 +393,7 @@ def get_string(name, lang):
         else:
             text = translations[question]['c']
 
-    return unicode(text, "UTF-8")
+    return unicode(text, 'utf-8', 'replace')
 
 
 # vim:ai:et:sts=4:tw=80:sw=4:
