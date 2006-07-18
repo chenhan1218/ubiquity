@@ -353,16 +353,16 @@ class Wizard:
                          core_names=['ubiquity/text/%s' % q
                                      for q in self.language_questions])
 
-        self.translate_widget_chidren(parentWidget)
+        self.translate_widget_children(parentWidget)
 
-    def translate_widget_chidren(self, parentWidget=None):
+    def translate_widget_children(self, parentWidget=None):
         if parentWidget == None:
             parentWidget = self.userinterface
 
         if parentWidget.children() != None:
             for widget in parentWidget.children():
                 self.translate_widget(widget, self.locale)
-                self.translate_widget_chidren(widget)
+                self.translate_widget_children(widget)
 
     def translate_widget(self, widget, lang):
 
