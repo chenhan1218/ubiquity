@@ -804,12 +804,33 @@ class Wizard:
             installText = get_string("live_installer", self.locale)
             self.userinterface.next.setText(installText)
 
+    def qtparted_crashed(self):
+        """qtparted crashed. Ask the user if they want to continue."""
+
+        # TODO cjwatson 2006-07-18: i18n
+        text = ('The advanced partitioner (qtparted) crashed. Further '
+                'information may be found in /var/log/installer/syslog, '
+                'or by running qtparted directly. Do you want to try the '
+                'advanced partitioner again, return to automatic '
+                'partitioning, or quit this installer?')
+        answer = QMessageBox.warning(self.userinterface, 'QTParted crashed',
+                                     text, 'Try again',
+                                     'Automatic partitioning', 'Quit', 0, 0)
+        if answer == 1:
+            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
+        elif answer == 2:
+            self.current_page = None
+            self.quit()
+        else:
+            return
+
     def gparted_to_mountpoints(self):
         """Processing gparted to mountpoints step tasks."""
 
         self.gparted_fstype = {}
 
         if self.qtparted_subp is None:
+            self.qtparted_crashed()
             return
 
         try:
@@ -819,6 +840,7 @@ class Wizard:
             self.qtparted_subp.stdin.close()
             self.qtparted_subp.wait()
             self.qtparted_subp = None
+            self.qtparted_crashed()
             return
 
         # read gparted output of format "- FORMAT /dev/hda2 linux-swap"

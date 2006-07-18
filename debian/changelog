@@ -7,6 +7,10 @@ ubiquity (1.1.1) UNRELEASED; urgency=low
     (closes: Malone #53258).
   * Install more defence against gparted/qtparted crashing (closes: Malone
     #47194, #48856).
+  * If gparted or qtparted crashes, put up a dialog allowing the user to try
+    again, return to autopartitioning, or quit the installer. This is a
+    pretty awful hack, but hopefully we won't be using gparted/qtparted for
+    all that much longer ...
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Jul 2006 11:43:48 +0100
 

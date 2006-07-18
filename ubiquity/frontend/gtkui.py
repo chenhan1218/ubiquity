@@ -815,12 +815,40 @@ class Wizard:
             self.next.set_label("Install") # TODO i18n
 
 
+    def gparted_crashed(self):
+        """gparted crashed. Ask the user if they want to continue."""
+
+        # TODO cjwatson 2006-07-18: i18n
+        text = ('The advanced partitioner (gparted) crashed. Further '
+                'information may be found in /var/log/installer/syslog, '
+                'or by running gparted directly. Do you want to try the '
+                'advanced partitioner again, return to automatic '
+                'partitioning, or quit this installer?')
+        dialog = gtk.Dialog('GParted crashed', self.live_installer,
+                            gtk.DIALOG_MODAL,
+                            (gtk.STOCK_QUIT, gtk.RESPONSE_CLOSE,
+                             'Automatic partitioning', 1,
+                             'Try again', 2))
+        label = gtk.Label(text)
+        label.set_selectable(True)
+        dialog.vbox.add(label)
+        response = dialog.run()
+        if response == 1:
+            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+        elif response == gtk.RESPONSE_CLOSE:
+            self.current_page = None
+            self.quit()
+        else:
+            return
+
+
     def gparted_to_mountpoints(self):
         """Processing gparted to mountpoints step tasks."""
 
         self.gparted_fstype = {}
 
         if self.gparted_subp is None:
+            self.gparted_crashed()
             return
 
         try:
@@ -830,6 +858,7 @@ class Wizard:
             self.gparted_subp.stdin.close()
             self.gparted_subp.wait()
             self.gparted_subp = None
+            self.gparted_crashed()
             return
 
         # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
