@@ -331,12 +331,12 @@ Type: text
 Description: ${DESCRIPTION}
 
 Template: ubiquity/install/apt_error_install
-Type: text
+Type: error
 _Description: Error installing ${PACKAGE}
  ${MESSAGE}
 
 Template: ubiquity/install/apt_error_remove
-Type: text
+Type: error
 _Description: Error removing ${PACKAGE}
  ${MESSAGE}
 
