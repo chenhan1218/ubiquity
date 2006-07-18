@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-12 14:58+0100\n"
+"POT-Creation-Date: 2006-07-18 22:08+0100\n"
 "PO-Revision-Date: 2006-05-17 16:07+0000\n"
 "Last-Translator: Istvan Nyitrai <sianis@gmail.com>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
@@ -516,19 +516,19 @@ msgstr "Csomaglisták letöltése..."
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Csomaglisták letöltése (${TIME} van hátra)..."
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
 msgstr "Hiba a(z) ${PACKAGE} telepítése során"
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:340
 msgid "Error removing ${PACKAGE}"
 msgstr "Hiba a(z) ${PACKAGE} törlésekor"
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:340
 msgid "${MESSAGE}"

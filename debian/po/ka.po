@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 260506\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-12 14:58+0100\n"
+"POT-Creation-Date: 2006-07-18 22:08+0100\n"
 "PO-Revision-Date: 2006-05-27 19:59+0000\n"
 "Last-Translator: Vladimer Sichinava <alinux@siena.linux.it>\n"
 "Language-Team: Georgian <geognome@googlegroups.com>\n"
@@ -494,19 +494,19 @@ msgstr "პაკეტების სიის გადმოწერა..."
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "პაკეტების სიის გადმოწერა (დარჩენილი დრო ${TIME})..."
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
 msgstr "${PACKAGE} ვერ დაყენდა"
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:340
 msgid "Error removing ${PACKAGE}"
 msgstr "${PACKAGE} ვერ წაიშალა"
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:340
 msgid "${MESSAGE}"

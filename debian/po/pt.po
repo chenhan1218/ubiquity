@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-12 14:58+0100\n"
+"POT-Creation-Date: 2006-07-18 22:08+0100\n"
 "PO-Revision-Date: 2006-05-15 13:25+0000\n"
 "Last-Translator: Rui Az. <astronomy@mail.pt>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -515,19 +515,19 @@ msgstr "A descarregar listas de pacotes..."
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "A descarregar lista de pacotes (${TIME} restantes)..."
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
 msgstr "Erro ao instalar ${PACKAGE}"
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:340
 msgid "Error removing ${PACKAGE}"
 msgstr "Erro a remover ${PACKAGE}"
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:340
 msgid "${MESSAGE}"

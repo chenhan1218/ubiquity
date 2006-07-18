@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-12 14:58+0100\n"
+"POT-Creation-Date: 2006-07-18 22:08+0100\n"
 "PO-Revision-Date: 2006-05-28 14:12+0000\n"
 "Last-Translator: tangi.bzh <tangidan@yahoo.fr>\n"
 "Language-Team: Breton <br@li.org>\n"
@@ -489,19 +489,19 @@ msgstr "O pellgargañ roll ar pakadoù..."
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "O pellgargañ roll ar pakadoù (${TIME} a chom)..."
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
 msgstr "Fazi o staliañ ${PACKAGE}"
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:340
 msgid "Error removing ${PACKAGE}"
 msgstr "Fazi o lemel ${PACKAGE}"
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:340
 msgid "${MESSAGE}"

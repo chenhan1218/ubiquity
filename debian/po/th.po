@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-05-12 14:58+0100\n"
+"POT-Creation-Date: 2006-07-18 22:08+0100\n"
 "PO-Revision-Date: 2006-05-25 18:42+0000\n"
 "Last-Translator: Roys Hengwatanakul <roysheng@msn.com>\n"
 "Language-Team: Thai <th@li.org>\n"
@@ -501,19 +501,19 @@ msgstr "รายชื่อของแพคเกจที่กำลัง
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "รายชื่อของแพคเกจที่กำลังดาวน์โหลด (ต้องใช้เวลาอีก ${TIME})..."
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:335
 msgid "Error installing ${PACKAGE}"
 msgstr "เกิดการผิดพลาดขณะทำการติดตั้ง ${PACKAGE}"
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:340
 msgid "Error removing ${PACKAGE}"
 msgstr "เกิดการผิดพลาดขณะกำลังถอน ${PACKAGE}"
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:340
 msgid "${MESSAGE}"
