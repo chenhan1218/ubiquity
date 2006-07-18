@@ -823,7 +823,7 @@ class Wizard:
             self.current_page = None
             self.quit()
         else:
-            return
+            self.gparted_loop()
 
     def gparted_to_mountpoints(self):
         """Processing gparted to mountpoints step tasks."""

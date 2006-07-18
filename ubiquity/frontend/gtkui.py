@@ -830,16 +830,19 @@ class Wizard:
                              'Automatic partitioning', 1,
                              'Try again', 2))
         label = gtk.Label(text)
+        label.set_line_wrap(True)
         label.set_selectable(True)
         dialog.vbox.add(label)
+        dialog.show_all()
         response = dialog.run()
+        dialog.hide()
         if response == 1:
             self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
         elif response == gtk.RESPONSE_CLOSE:
             self.current_page = None
             self.quit()
         else:
-            return
+            self.gparted_loop()
 
 
     def gparted_to_mountpoints(self):
