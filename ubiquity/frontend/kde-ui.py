@@ -184,9 +184,8 @@ class Wizard:
         self.autopartition_buttongroup_texts = {}
         
         self.qtparted_vbox = QVBoxLayout(self.userinterface.qtparted_frame)
-        self.embed = QXEmbed(self.userinterface.qtparted_frame, "embed")
-        self.embed.setProtocol(QXEmbed.XPLAIN)
-        
+        self.embed = None
+
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -438,6 +437,11 @@ class Wizard:
         pre_log('info', 'gparted_loop()')
 
         disable_swap()
+
+        if self.embed is not None:
+            del self.embed
+        self.embed = QXEmbed(self.userinterface.qtparted_frame, "embed")
+        self.embed.setProtocol(QXEmbed.XPLAIN)
 
         self.qtparted_subp = subprocess.Popen(
             ['/usr/sbin/qtparted', '--installer'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
@@ -805,6 +809,9 @@ class Wizard:
 
         self.gparted_fstype = {}
 
+        if self.qtparted_subp is None:
+            return
+
         try:
             print >>self.qtparted_subp.stdin, "apply"
         except IOError:
@@ -833,7 +840,9 @@ class Wizard:
         self.qtparted_subp.stdin.close()
         self.qtparted_subp.wait()
         self.qtparted_subp = None
-        self.qtparted_vbox.remove(self.embed)
+        if self.embed is not None:
+            del self.embed
+            self.embed = None
 
         if not gparted_reply.startswith('0 '):
             # something other than OK or Cancel
@@ -1100,7 +1109,9 @@ class Wizard:
                 self.qtparted_subp.stdin.close()
                 self.qtparted_subp.wait()
                 self.qtparted_subp = None
-                self.qtparted_vbox.remove(self.embed)
+                if self.embed is not None:
+                    del self.embed
+                    self.embed = None
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
             changed_page = True
         elif step == "stepPartMountpoints":

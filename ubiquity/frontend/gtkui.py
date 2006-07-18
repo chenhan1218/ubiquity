@@ -449,6 +449,10 @@ class Wizard:
 
         disable_swap()
 
+        child = self.embedded.get_child()
+        if child is not None:
+            self.embedded.remove(child)
+
         socket = gtk.Socket()
         socket.show()
         self.embedded.add(socket)
@@ -815,6 +819,9 @@ class Wizard:
         """Processing gparted to mountpoints step tasks."""
 
         self.gparted_fstype = {}
+
+        if self.gparted_subp is None:
+            return
 
         try:
             print >>self.gparted_subp.stdin, "apply"

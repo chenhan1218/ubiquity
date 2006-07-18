@@ -5,6 +5,8 @@ ubiquity (1.1.1) UNRELEASED; urgency=low
   * Fix ubiquity/install/apt_error_install and
     ubiquity/install/apt_error_remove templates to be of type 'error'
     (closes: Malone #53258).
+  * Install more defence against gparted/qtparted crashing (closes: Malone
+    #47194, #48856).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Jul 2006 11:43:48 +0100
 
