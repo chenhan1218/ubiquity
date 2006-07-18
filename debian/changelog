@@ -11,6 +11,8 @@ ubiquity (1.1.1) UNRELEASED; urgency=low
     again, return to autopartitioning, or quit the installer. This is a
     pretty awful hack, but hopefully we won't be using gparted/qtparted for
     all that much longer ...
+  * Fix crash in KDE frontend while translating widgets (closes: Malone
+    #53367).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Jul 2006 11:43:48 +0100
 

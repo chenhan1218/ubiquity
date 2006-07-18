@@ -359,9 +359,10 @@ class Wizard:
         if parentWidget == None:
             parentWidget = self.userinterface
 
-        for widget in parentWidget.children():
-            self.translate_widget(widget, self.locale)
-            self.translate_widget_chidren(widget)
+        if parentWidget.children() != None:
+            for widget in parentWidget.children():
+                self.translate_widget(widget, self.locale)
+                self.translate_widget_chidren(widget)
 
     def translate_widget(self, widget, lang):
 
