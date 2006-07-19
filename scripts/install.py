@@ -99,6 +99,12 @@ class DebconfInstallProgress(InstallProgress):
         self.info = info
         self.error_template = error
         self.started = False
+        # InstallProgress uses a non-blocking status fd; our run()
+        # implementation doesn't need that, and in fact we spin unless the
+        # fd is blocking.
+        flags = fcntl.fcntl(self.statusfd.fileno(), fcntl.F_GETFL)
+        fcntl.fcntl(self.statusfd.fileno(), fcntl.F_SETFL,
+                    flags & ~os.O_NONBLOCK)
 
     def startUpdate(self):
         self.db.progress('START', 0, 100, self.title)
@@ -121,52 +127,98 @@ class DebconfInstallProgress(InstallProgress):
         # TODO cjwatson 2006-02-28: InstallProgress.updateInterface doesn't
         # give us a handy way to spot when percentages/statuses change and
         # aren't pmerror/pmconffile, so we have to reimplement it here.
-        if self.statusfd != None:
-            try:
-                while not self.read.endswith("\n"):
-                    self.read += os.read(self.statusfd.fileno(),1)
-            except OSError, (err,errstr):
-                # resource temporarily unavailable is ignored
-                if err != errno.EAGAIN:
-                    print errstr
-            if self.read.endswith("\n"):
-                s = self.read
-                (status, pkg, percent, status_str) = s.split(":", 3)
-                if status == "pmerror":
-                    self.error(pkg, status_str)
-                elif status == "pmconffile":
-                    # we get a string like this:
-                    # 'current-conffile' 'new-conffile' useredited distedited
-                    match = re.compile("\s*\'(.*)\'\s*\'(.*)\'.*").match(status_str)
-                    if match:
-                        self.conffile(match.group(1), match.group(2))
-                else:
-                    self.statusChange(pkg, float(percent), status_str.strip())
-                self.read = ""
+        if self.statusfd is None:
+            return False
+        try:
+            while not self.read.endswith("\n"):
+                r = os.read(self.statusfd.fileno(),1)
+                if not r:
+                    return False
+                self.read += r
+        except OSError, (err,errstr):
+            print errstr
+        if self.read.endswith("\n"):
+            s = self.read
+            (status, pkg, percent, status_str) = s.split(":", 3)
+            if status == "pmerror":
+                self.error(pkg, status_str)
+            elif status == "pmconffile":
+                # we get a string like this:
+                # 'current-conffile' 'new-conffile' useredited distedited
+                match = re.compile("\s*\'(.*)\'\s*\'(.*)\'.*").match(status_str)
+                if match:
+                    self.conffile(match.group(1), match.group(2))
+            else:
+                self.statusChange(pkg, float(percent), status_str.strip())
+            self.read = ""
+        return True
 
     def run(self, pm):
-        pid = self.fork()
-        if pid == 0:
+        # Create a subprocess to deal with turning apt status messages into
+        # debconf protocol messages.
+        child_pid = self.fork()
+        if child_pid == 0:
             # child
+            os.close(self.writefd)
+            try:
+                while self.updateInterface():
+                    pass
+            except (KeyboardInterrupt, SystemExit):
+                pass # we're going to exit anyway
+            except:
+                traceback.print_exc(file=sys.stderr)
+            os._exit(0)
 
-            # Redirect stdout to stderr to avoid it interfering with our
-            # debconf protocol stream.
-            os.dup2(2, 1)
+        self.statusfd.close()
 
-            # Make sure all packages are installed non-interactively. We
-            # don't have enough passthrough magic here to deal with any
-            # debconf questions they might ask.
-            os.environ['DEBIAN_FRONTEND'] = 'noninteractive'
-            if 'DEBIAN_HAS_FRONTEND' in os.environ:
-                del os.environ['DEBIAN_HAS_FRONTEND']
-            if 'DEBCONF_USE_CDEBCONF' in os.environ:
-                # Probably not a good idea to use this in /target too ...
-                del os.environ['DEBCONF_USE_CDEBCONF']
+        # Redirect stdout to stderr to avoid it interfering with our
+        # debconf protocol stream.
+        saved_stdout = os.dup(1)
+        os.dup2(2, 1)
 
+        # Make sure all packages are installed non-interactively. We
+        # don't have enough passthrough magic here to deal with any
+        # debconf questions they might ask.
+        saved_environ_keys = ('DEBIAN_FRONTEND', 'DEBIAN_HAS_FRONTEND',
+                              'DEBCONF_USE_CDEBCONF')
+        saved_environ = {}
+        for key in saved_environ_keys:
+            if key in os.environ:
+                saved_environ[key] = os.environ[key]
+        os.environ['DEBIAN_FRONTEND'] = 'noninteractive'
+        if 'DEBIAN_HAS_FRONTEND' in os.environ:
+            del os.environ['DEBIAN_HAS_FRONTEND']
+        if 'DEBCONF_USE_CDEBCONF' in os.environ:
+            # Probably not a good idea to use this in /target too ...
+            del os.environ['DEBCONF_USE_CDEBCONF']
+
+        res = pm.ResultFailed
+        try:
             res = pm.DoInstall(self.writefd)
-            os._exit(res)
-        self.child_pid = pid
-        res = self.waitChild()
+        finally:
+            # Reap the status-to-debconf subprocess.
+            os.close(self.writefd)
+            while True:
+                try:
+                    (pid, status) = os.waitpid(child_pid, 0)
+                    if pid != child_pid:
+                        break
+                    if os.WIFEXITED(status) or os.WIFSIGNALED(status):
+                        break
+                except OSError:
+                    break
+
+            # Put back stdout.
+            os.dup2(saved_stdout, 1)
+            os.close(saved_stdout)
+
+            # Put back the environment.
+            for key in saved_environ_keys:
+                if key in saved_environ:
+                    os.environ[key] = saved_environ[key]
+                elif key in os.environ:
+                    del os.environ[key]
+
         return res
 
     def finishUpdate(self):

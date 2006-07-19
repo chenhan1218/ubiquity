@@ -6,6 +6,11 @@ ubiquity (1.1.3) UNRELEASED; urgency=low
     (https://launchpad.net/distros/ubuntu/+spec/ubiquity-advanced-partitioner).
   * When an error occurs with the install progress bar up, only return to
     autopartitioning if the partitioner is still running.
+  * Turn DebconfInstallProgress upside-down so that the main process handles
+    apt installation and the subprocess handles the translation of apt
+    status messages into debconf protocol messages, rather than the other
+    way round. The previous approach resulted in exceptions from apt ending
+    up in the wrong process.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Jul 2006 08:23:23 +0100
 
