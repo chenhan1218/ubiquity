@@ -1,9 +1,9 @@
-ubiquity (1.1.2) UNRELEASED; urgency=low
+ubiquity (1.1.2) edgy; urgency=low
 
   * Automatic update of included source packages: apt-setup 1:0.11ubuntu2,
     hw-detect 1.38ubuntu3.
 
- -- Colin Watson <cjwatson@debian.org>  Wed, 19 Jul 2006 07:59:31 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Jul 2006 08:00:00 +0100
 
 ubiquity (1.1.1) edgy; urgency=low
 
