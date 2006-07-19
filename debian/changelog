@@ -11,6 +11,8 @@ ubiquity (1.1.3) UNRELEASED; urgency=low
     status messages into debconf protocol messages, rather than the other
     way round. The previous approach resulted in exceptions from apt ending
     up in the wrong process.
+  * Silence apt errors while installing language packs, since we ignore them
+    anyway.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Jul 2006 08:23:23 +0100
 

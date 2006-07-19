@@ -92,7 +92,7 @@ class DebconfFetchProgress(FetchProgress):
 class DebconfInstallProgress(InstallProgress):
     """An object that reports apt's installation progress using debconf."""
 
-    def __init__(self, db, title, info, error):
+    def __init__(self, db, title, info, error=None):
         InstallProgress.__init__(self)
         self.db = db
         self.title = title
@@ -111,10 +111,11 @@ class DebconfInstallProgress(InstallProgress):
         self.started = True
 
     def error(self, pkg, errormsg):
-        self.db.subst(self.error_template, 'PACKAGE', pkg)
-        self.db.subst(self.error_template, 'MESSAGE', errormsg)
-        self.db.input('critical', self.error_template)
-        self.db.go()
+        if self.error_template is not None:
+            self.db.subst(self.error_template, 'PACKAGE', pkg)
+            self.db.subst(self.error_template, 'MESSAGE', errormsg)
+            self.db.input('critical', self.error_template)
+            self.db.go()
 
     def statusChange(self, pkg, percent, status):
         self.percent = percent
@@ -737,8 +738,7 @@ class Install:
             self.db, 'ubiquity/langpacks/title', None,
             'ubiquity/langpacks/packages')
         installprogress = DebconfInstallProgress(
-            self.db, 'ubiquity/langpacks/title', 'ubiquity/install/apt_info',
-            'ubiquity/install/apt_error_install')
+            self.db, 'ubiquity/langpacks/title', 'ubiquity/install/apt_info')
 
         for lp in to_install:
             self.mark_install(cache, lp)
