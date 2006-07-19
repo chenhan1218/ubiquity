@@ -1591,8 +1591,11 @@ class Wizard:
 
 
     def return_to_autopartitioning (self):
-        """Return from the install progress bar to autopartitioning."""
-        if self.installing:
+        """If the install progress bar is up but still at the partitioning
+        stage, then errors can safely return us to autopartitioning.
+        """
+
+        if self.installing and self.current_page is not None:
             # Go back to the autopartitioner and try again.
             # TODO self.previous_partitioning_page
             self.live_installer.show()

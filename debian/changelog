@@ -4,6 +4,8 @@ ubiquity (1.1.3) UNRELEASED; urgency=low
   * Rename Partman component to PartmanAuto to allow for a future all-in-one
     partman component
     (https://launchpad.net/distros/ubuntu/+spec/ubiquity-advanced-partitioner).
+  * When an error occurs with the install progress bar up, only return to
+    autopartitioning if the partitioner is still running.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Jul 2006 08:23:23 +0100
 
