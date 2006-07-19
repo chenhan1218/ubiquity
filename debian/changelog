@@ -13,6 +13,8 @@ ubiquity (1.1.3) UNRELEASED; urgency=low
     up in the wrong process.
   * Silence apt errors while installing language packs, since we ignore them
     anyway.
+  * Point apt at /target/var/lib/dpkg/status rather than
+    /var/lib/dpkg/status (closes: Malone #47859).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Jul 2006 08:23:23 +0100
 

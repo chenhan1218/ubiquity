@@ -258,6 +258,7 @@ class Install:
 
         apt_pkg.InitConfig()
         apt_pkg.Config.Set("Dir", "/target")
+        apt_pkg.Config.Set("Dir::State::status", "/target/var/lib/dpkg/status")
         apt_pkg.Config.Set("APT::GPGV::TrustedKeyring",
                            "/target/etc/apt/trusted.gpg")
         apt_pkg.Config.Set("Acquire::gpgv::Options::",
