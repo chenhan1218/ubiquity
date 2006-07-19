@@ -24,9 +24,9 @@ import textwrap
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity.parted_server import PartedServer
 
-class Partman(FilteredCommand):
+class PartmanAuto(FilteredCommand):
     def __init__(self, frontend=None):
-        super(Partman, self).__init__(frontend)
+        super(PartmanAuto, self).__init__(frontend)
         self.resize_desc = ''
         self.manual_desc = ''
 
@@ -64,7 +64,7 @@ class Partman(FilteredCommand):
 
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question))
-        return super(Partman, self).error(priority, question)
+        return super(PartmanAuto, self).error(priority, question)
 
     def parse_size(self, size_str):
         (num, unit) = size_str.split(' ', 1)
@@ -280,7 +280,7 @@ class Partman(FilteredCommand):
                 self.preseed(question, 'false')
             return True
 
-        return super(Partman, self).run(priority, question)
+        return super(PartmanAuto, self).run(priority, question)
 
     def ok_handler(self):
         if self.current_question == 'partman-auto/select_disk':
@@ -339,7 +339,7 @@ class Partman(FilteredCommand):
             self.exit_ui_loops()
             return
 
-        super(Partman, self).ok_handler()
+        super(PartmanAuto, self).ok_handler()
 
 # Notes:
 #

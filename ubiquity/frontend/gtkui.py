@@ -60,7 +60,7 @@ from ubiquity import filteredcommand, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
 from ubiquity.components import language, kbd_chooser, timezone, usersetup, \
-                                partman, partman_commit, summary, install
+                                partman_auto, partman_commit, summary, install
 import ubiquity.emap
 import ubiquity.tz
 import ubiquity.progressposition
@@ -244,10 +244,10 @@ class Wizard:
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name in ("stepPartDisk", "stepPartAuto"):
-                if isinstance(self.dbfilter, partman.Partman):
+                if isinstance(self.dbfilter, partman_auto.PartmanAuto):
                     pre_log('info', 'reusing running partman')
                 else:
-                    self.dbfilter = partman.Partman(self)
+                    self.dbfilter = partman_auto.PartmanAuto(self)
             elif current_name == "stepReady":
                 self.dbfilter = summary.Summary(self)
             else:

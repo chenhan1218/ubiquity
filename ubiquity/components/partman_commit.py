@@ -21,9 +21,9 @@ import os
 import shutil
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity.parted_server import PartedServer
-from ubiquity.components.partman import Partman
+from ubiquity.components.partman_auto import PartmanAuto
 
-class PartmanCommit(Partman):
+class PartmanCommit(PartmanAuto):
     def prepare(self):
         # Make sure autopartitioning doesn't get run. We rely on the manual
         # partitioning control path.
@@ -153,8 +153,8 @@ class PartmanCommit(Partman):
             return True
 
         else:
-            return super(Partman, self).run(priority, question)
+            return super(PartmanAuto, self).run(priority, question)
 
-    # Partman's ok_handler isn't appropriate here.
+    # PartmanAuto's ok_handler isn't appropriate here.
     def ok_handler(self):
-        return super(Partman, self).ok_handler()
+        return super(PartmanAuto, self).ok_handler()
