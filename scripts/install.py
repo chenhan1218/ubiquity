@@ -555,7 +555,7 @@ class Install:
         dbfilter = language_apply.LanguageApply(None)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
-            raise InstallStepError("LanguageApply failed with code %d" % code)
+            raise InstallStepError("LanguageApply failed with code %d" % ret)
 
 
     def configure_apt(self):
@@ -572,7 +572,7 @@ class Install:
         dbfilter = apt_setup.AptSetup(None)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
-            raise InstallStepError("AptSetup failed with code %d" % code)
+            raise InstallStepError("AptSetup failed with code %d" % ret)
 
 
     def get_cache_pkg(self, cache, pkg):
@@ -724,12 +724,12 @@ class Install:
         dbfilter = timezone_apply.TimezoneApply(None)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
-            raise InstallStepError("TimezoneApply failed with code %d" % code)
+            raise InstallStepError("TimezoneApply failed with code %d" % ret)
 
         dbfilter = clock_setup.ClockSetup(None)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
-            raise InstallStepError("ClockSetup failed with code %d" % code)
+            raise InstallStepError("ClockSetup failed with code %d" % ret)
 
 
     def configure_keyboard(self):
@@ -744,8 +744,7 @@ class Install:
         dbfilter = kbd_chooser_apply.KbdChooserApply(None)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
-            raise InstallStepError(
-                "KbdChooserApply failed with code %d" % code)
+            raise InstallStepError("KbdChooserApply failed with code %d" % ret)
 
 
     def configure_user(self):
@@ -756,7 +755,7 @@ class Install:
         dbfilter = usersetup_apply.UserSetupApply(None)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
-            raise InstallStepError("UserSetupApply failed with code %d" % code)
+            raise InstallStepError("UserSetupApply failed with code %d" % ret)
 
 
     def get_resume_partition(self):
@@ -782,7 +781,7 @@ class Install:
         dbfilter = hw_detect.HwDetect(None, self.db)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
-            raise InstallStepError("HwDetect failed with code %d" % code)
+            raise InstallStepError("HwDetect failed with code %d" % ret)
 
         self.db.progress('INFO', 'ubiquity/install/hardware')
 
@@ -936,7 +935,7 @@ class Install:
             ret = dbfilter.run_command(auto_process=True)
             if ret != 0:
                 raise InstallStepError(
-                    "GrubInstaller failed with code %d" % code)
+                    "GrubInstaller failed with code %d" % ret)
         except ImportError:
             try:
                 from ubiquity.components import yabootinstaller
@@ -944,7 +943,7 @@ class Install:
                 ret = dbfilter.run_command(auto_process=True)
                 if ret != 0:
                     raise InstallStepError(
-                        "YabootInstaller failed with code %d" % code)
+                        "YabootInstaller failed with code %d" % ret)
             except ImportError:
                 raise InstallStepError("No bootloader installer found")
 
