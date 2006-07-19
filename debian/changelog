@@ -1,3 +1,10 @@
+ubiquity (1.1.2) UNRELEASED; urgency=low
+
+  * Automatic update of included source packages: apt-setup 1:0.11ubuntu2,
+    hw-detect 1.38ubuntu3.
+
+ -- Colin Watson <cjwatson@debian.org>  Wed, 19 Jul 2006 07:59:31 +0100
+
 ubiquity (1.1.1) edgy; urgency=low
 
   * Use 'replace' Unicode error handling when dealing with data coming from
