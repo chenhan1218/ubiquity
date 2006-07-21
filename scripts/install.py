@@ -843,12 +843,20 @@ class Install:
 
         resume = self.get_resume_partition()
         if resume is not None:
-            configdir = os.path.join(self.target, 'etc/mkinitramfs/conf.d')
-            if not os.path.exists(configdir):
-                os.makedirs(configdir)
-            configfile = open(os.path.join(configdir, 'resume'), 'w')
-            print >>configfile, "RESUME=%s" % resume
-            configfile.close()
+            if os.path.exists(os.path.join(self.target,
+                                           'etc/initramfs-tools/conf.d')):
+                configdir = os.path.join(self.target,
+                                         'etc/initramfs-tools/conf.d')
+            elif os.path.exists(os.path.join(self.target,
+                                             'etc/mkinitramfs/conf.d')):
+                configdir = os.path.join(self.target,
+                                         'etc/mkinitramfs/conf.d')
+            else:
+                configdir = None
+            if configdir is not None:
+                configfile = open(os.path.join(configdir, 'resume'), 'w')
+                print >>configfile, "RESUME=%s" % resume
+                configfile.close()
 
         self.chrex('mount', '-t', 'proc', 'proc', '/proc')
         self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
