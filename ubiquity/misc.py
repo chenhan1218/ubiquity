@@ -184,8 +184,8 @@ def get_filesystems(fstype={}):
     device_list = {}
 
     # building device_list dicts from "file -s" output from get_partitions
-    #   returned list (only devices formatted as ext3, fat, ntfs or swap are
-    #   parsed).
+    #   returned list (only devices formatted as ext3, fat, ntfs, xfs, or
+    #   swap are parsed).
     partition_list = get_partitions()
     for device in partition_list:
         device = '/dev/' + device
@@ -204,6 +204,8 @@ def get_filesystems(fstype={}):
             device_list[device] = 'vfat'
         elif 'NTFS' in words:
             device_list[device] = 'ntfs'
+        elif 'XFS' in words:
+            device_list[device] = 'xfs'
     return device_list
 
 

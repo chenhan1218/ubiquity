@@ -1010,7 +1010,15 @@ class Wizard:
 
         # Processing more validation stuff
         if len(self.mountpoints) > 0:
-            for check in validation.check_mountpoint(self.mountpoints,
+            # Supplement filesystem types from gparted FORMAT instructions
+            # with those detected from the disk.
+            validate_mountpoints = dict(self.mountpoints)
+            validate_filesystems = get_filesystems(self.gparted_fstype)
+            for device, (path, format, fstype) in validate_mountpoints.items():
+                if fstype is None:
+                    validate_mountpoints[device] = \
+                        (path, format, validate_filesystems[device])
+            for check in validation.check_mountpoint(validate_mountpoints,
                                                      self.size):
                 if check == validation.MOUNTPOINT_NOROOT:
                     error_msg.append(get_string(
