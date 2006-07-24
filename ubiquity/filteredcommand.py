@@ -230,8 +230,11 @@ class FilteredCommand(object):
                        'utf-8', 'replace')
 
     def extended_description(self, question):
-        return unicode(self.db.metaget(question, 'extended_description'),
+        self.db.capb('escape')
+        data = unicode(self.db.metaget(question, 'extended_description'),
                        'utf-8', 'replace')
+        self.db.capb('')
+        return data
 
     def translate_to_c(self, question, value):
         choices = self.choices(question)
