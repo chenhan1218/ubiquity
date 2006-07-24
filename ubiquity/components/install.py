@@ -26,6 +26,7 @@ class Install(FilteredCommand):
             self.preseed('netcfg/get_hostname', hostname)
 
         questions = ['^.*/apt-install-failed$',
+                     'grub-installer/install_to_xfs',
                      'CAPB',
                      'ERROR',
                      'PROGRESS']
@@ -52,5 +53,16 @@ class Install(FilteredCommand):
     def run(self, priority, question):
         if question.endswith('/apt-install-failed'):
             return self.error(priority, question)
+
+        elif question == 'grub-installer/install_to_xfs':
+            response = self.frontend.question_dialog(
+                self.description(question),
+                self.extended_description(question),
+                ('ubiquity/text/go_back', 'ubiquity/text/continue'))
+            if response is None or response == 'ubiquity/text/continue':
+                self.preseed(question, 'true')
+            else:
+                self.preseed(question, 'false')
+            return True
 
         return super(Install, self).run(priority, question)
