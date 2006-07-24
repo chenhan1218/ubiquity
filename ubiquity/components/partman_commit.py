@@ -70,9 +70,9 @@ class PartmanCommit(PartmanAuto):
             mountpoints = self.frontend.get_mountpoints()
             for device in partitions:
                 (disk, p_id) = partitions[device]
+                parted.select_disk(disk)
                 if device in mountpoints:
                     (path, format, fstype) = mountpoints[device]
-                    parted.select_disk(disk)
                     if path == 'swap':
                         parted.write_part_entry(p_id, 'method', 'swap\n')
                         if format:
@@ -103,6 +103,10 @@ class PartmanCommit(PartmanAuto):
                                 p_id, 'detected_filesystem', fstype)
                         parted.write_part_entry(p_id, 'use_filesystem', '')
                         parted.write_part_entry(p_id, 'mountpoint', path)
+                elif (parted.has_part_entry('method') and
+                      parted.readline_part_entry('method') == 'newworld'):
+                    # Leave existing newworld boot partitions alone.
+                    pass
                 else:
                     parted.remove_part_entry(p_id, 'method')
                     parted.remove_part_entry(p_id, 'format')
