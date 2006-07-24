@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-07-24 15:53+0100\n"
+"POT-Creation-Date: 2006-07-24 16:36+0100\n"
 "PO-Revision-Date: 2006-05-25 12:20+0000\n"
 "Last-Translator: Alexandre Rocha Lima e Marcondes <alexandre@psl-pr."
 "softwarelivre.org>\n"
@@ -279,7 +279,9 @@ msgstr "Você deve suprir o ponto de montagem da raiz (\"/\")"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
+#. Type: note
+#. Description
+#: ../ubiquity.templates:36001 ../ubiquity.templates:50001
 msgid "Ready to install"
 msgstr "Pronto para instalar"
 
@@ -385,6 +387,42 @@ msgstr "Voltar"
 #: ../ubiquity.templates:49001
 msgid "Continue"
 msgstr "Continuar"
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Language: ${LANGUAGE}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Keyboard layout: ${KEYMAP}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Name: ${REALNAME}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Login name: ${USERNAME}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Location: ${LOCATION}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Partitioning:"
+msgstr ""
 
 #. Type: title
 #. Description

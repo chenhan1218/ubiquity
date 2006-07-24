@@ -230,12 +230,18 @@ _Description: Continue
 
 Template: ubiquity/summary
 Type: note
-Description: Ready to install
-  Language: ${LANGUAGE}
-  Keyboard layout: ${KEYMAP}
-  Name: ${REALNAME}
-  Login name: ${USERNAME}
-  Location: ${LOCATION}
+_Description: Ready to install
+ Language: ${LANGUAGE}
+ .
+ Keyboard layout: ${KEYMAP}
+ .
+ Name: ${REALNAME}
+ .
+ Login name: ${USERNAME}
+ .
+ Location: ${LOCATION}
+ .
+ Partitioning:
 
 Template: ubiquity/install/title
 Type: title

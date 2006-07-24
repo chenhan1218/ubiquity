@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-07-24 15:53+0100\n"
+"POT-Creation-Date: 2006-07-24 16:36+0100\n"
 "PO-Revision-Date: 2006-05-12 21:19+0000\n"
 "Last-Translator: Gints Neimanis <gints@venta.lv>\n"
 "Language-Team: locale@laka.lv <locale@laka.lv>\n"
@@ -268,7 +268,9 @@ msgstr "Jums nepieciešams norādīt saknes (\"/\") montēšanas punktu."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
+#. Type: note
+#. Description
+#: ../ubiquity.templates:36001 ../ubiquity.templates:50001
 msgid "Ready to install"
 msgstr "Gatavs instalēšanai"
 
@@ -372,6 +374,42 @@ msgstr "Atpakaļ"
 #: ../ubiquity.templates:49001
 msgid "Continue"
 msgstr "Turpināt"
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Language: ${LANGUAGE}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Keyboard layout: ${KEYMAP}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Name: ${REALNAME}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Login name: ${USERNAME}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Location: ${LOCATION}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Partitioning:"
+msgstr ""
 
 #. Type: title
 #. Description

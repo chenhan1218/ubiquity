@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-07-24 15:53+0100\n"
+"POT-Creation-Date: 2006-07-24 16:36+0100\n"
 "PO-Revision-Date: 2006-04-21 09:39+0000\n"
 "Last-Translator: Арангел Ангов <ufo@linux.net.mk>\n"
 "Language-Team: <en@li.org>\n"
@@ -264,7 +264,9 @@ msgstr "Мора да одредите root (\"/\") точка на монтир
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
+#. Type: note
+#. Description
+#: ../ubiquity.templates:36001 ../ubiquity.templates:50001
 msgid "Ready to install"
 msgstr "Спремно за инсталација"
 
@@ -361,6 +363,42 @@ msgstr "Назад"
 #: ../ubiquity.templates:49001
 msgid "Continue"
 msgstr "Продолжи"
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Language: ${LANGUAGE}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Keyboard layout: ${KEYMAP}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Name: ${REALNAME}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Login name: ${USERNAME}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Location: ${LOCATION}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Partitioning:"
+msgstr ""
 
 #. Type: title
 #. Description

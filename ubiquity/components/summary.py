@@ -29,24 +29,12 @@ class Summary(FilteredCommand):
         self.partition_info = partition_info
 
     def prepare(self):
-        self.substcache = {}
         return (['/usr/share/ubiquity/summary'], ['^ubiquity/summary$'])
 
-    def subst(self, question, key, value):
-        self.substcache[key] = unicode(value, 'utf-8', 'replace')
-
-    def run(self, question, priority):
-        # TODO: untranslatable
-        text = textwrap.dedent("""\
-        Language: %(LANGUAGE)s
-        Keyboard layout: %(KEYMAP)s
-        Name: %(FULLNAME)s
-        Login name: %(USERNAME)s
-        Location: %(LOCATION)s
-        """ % self.substcache)
+    def run(self, priority, question):
+        text = self.extended_description(question).replace("\n\n", "\n") + "\n"
 
         if self.partition_info is not None:
-            text += "Partitioning:\n"
             wrapper = textwrap.TextWrapper(
                 initial_indent='  ', subsequent_indent='  ', width=76)
             for line in self.partition_info.split("\n"):

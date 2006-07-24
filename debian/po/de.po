@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-07-24 15:53+0100\n"
+"POT-Creation-Date: 2006-07-24 16:36+0100\n"
 "PO-Revision-Date: 2006-05-28 10:26+0000\n"
 "Last-Translator: Martin Jürgens <martin@gamesplace.info>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
@@ -281,7 +281,9 @@ msgstr "Es muss ein root (\"/\") Einhängepunkt (Mount-Point) angegeben werden."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
+#. Type: note
+#. Description
+#: ../ubiquity.templates:36001 ../ubiquity.templates:50001
 msgid "Ready to install"
 msgstr "Bereit zur Installation"
 
@@ -387,6 +389,42 @@ msgstr "Zurück"
 #: ../ubiquity.templates:49001
 msgid "Continue"
 msgstr "Weiter"
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Language: ${LANGUAGE}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Keyboard layout: ${KEYMAP}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Name: ${REALNAME}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Login name: ${USERNAME}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Location: ${LOCATION}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Partitioning:"
+msgstr ""
 
 #. Type: title
 #. Description

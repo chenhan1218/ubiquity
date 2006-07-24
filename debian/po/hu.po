@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-07-24 15:53+0100\n"
+"POT-Creation-Date: 2006-07-24 16:36+0100\n"
 "PO-Revision-Date: 2006-05-17 16:07+0000\n"
 "Last-Translator: Istvan Nyitrai <sianis@gmail.com>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
@@ -278,7 +278,9 @@ msgstr "Meg kell adni egy gyökér (\"/\") csatlakoztatási pontot."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
+#. Type: note
+#. Description
+#: ../ubiquity.templates:36001 ../ubiquity.templates:50001
 msgid "Ready to install"
 msgstr "Készen áll a telepítésre"
 
@@ -383,6 +385,42 @@ msgstr "Vissza"
 #: ../ubiquity.templates:49001
 msgid "Continue"
 msgstr "Tovább"
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Language: ${LANGUAGE}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Keyboard layout: ${KEYMAP}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Name: ${REALNAME}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Login name: ${USERNAME}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Location: ${LOCATION}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Partitioning:"
+msgstr ""
 
 #. Type: title
 #. Description
