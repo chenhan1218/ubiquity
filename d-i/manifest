@@ -6,10 +6,10 @@ debian-installer-utils 1.32ubuntu1
 grub-installer 1.17ubuntu1
 hw-detect 1.38ubuntu3
 kbd-chooser 1.29ubuntu1
-localechooser 1.20ubuntu3
+localechooser 1.20ubuntu4
 partconf 1.16
-partman-auto 54ubuntu1
-partman-base 90ubuntu1
+partman-auto 54ubuntu2
+partman-base 90ubuntu2
 partman-basicfilesystems 47ubuntu1
 partman-basicmethods 30
 partman-efi 9.1
