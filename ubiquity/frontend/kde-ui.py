@@ -432,10 +432,10 @@ class Wizard:
         label_text = label_text.replace("${TOTAL}", str(BREADCRUMB_MAX_STEP))
         self.userinterface.step_label.setText(label_text)
 
-    def gparted_loop(self):
-        """call gparted and embed it into glade interface."""
+    def qtparted_loop(self):
+        """call qtparted and embed it into the interface."""
 
-        pre_log('info', 'gparted_loop()')
+        pre_log('info', 'qtparted_loop()')
 
         disable_swap()
 
@@ -618,7 +618,7 @@ class Wizard:
                 self.format_widgets[index].setChecked(False)
             else:
                 partition = self.part_devices[partition_text]
-                if partition in self.gparted_fstype:
+                if partition in self.qtparted_fstype:
                     self.format_widgets[index].setEnabled(False)
                     self.format_widgets[index].setChecked(True)
                 else:
@@ -738,7 +738,7 @@ class Wizard:
             self.process_autopartitioning()
         # Advanced partitioning
         elif step == "stepPartAdvanced":
-            self.gparted_to_mountpoints()
+            self.qtparted_to_mountpoints()
         # Mountpoints
         elif step == "stepPartMountpoints":
             self.mountpoints_to_summary()
@@ -783,7 +783,7 @@ class Wizard:
         # then go to manual partitioning.
         choice = self.get_disk_choice()
         if self.manual_choice is None or choice == self.manual_choice:
-            self.gparted_loop()
+            self.qtparted_loop()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
         else:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAuto"])
@@ -797,7 +797,7 @@ class Wizard:
         # then go to manual partitioning.
         choice = self.get_autopartition_choice()
         if self.manual_choice is None or choice == self.manual_choice:
-            self.gparted_loop()
+            self.qtparted_loop()
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
@@ -823,12 +823,12 @@ class Wizard:
             self.current_page = None
             self.quit()
         else:
-            self.gparted_loop()
+            self.qtparted_loop()
 
-    def gparted_to_mountpoints(self):
-        """Processing gparted to mountpoints step tasks."""
+    def qtparted_to_mountpoints(self):
+        """Processing qtparted to mountpoints step tasks."""
 
-        self.gparted_fstype = {}
+        self.qtparted_fstype = {}
 
         if self.qtparted_subp is None:
             self.qtparted_crashed()
@@ -844,18 +844,18 @@ class Wizard:
             self.qtparted_crashed()
             return
 
-        # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
-        gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
-        while not gparted_reply.startswith('0 ') and not gparted_reply.startswith('1 '):
-            pre_log('info', 'gparted replied: %s' % gparted_reply)
-            if gparted_reply.startswith('- '):
-                words = gparted_reply[2:].strip().split()
+        # read qtparted output of format "- FORMAT /dev/hda2 linux-swap"
+        qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+        while not qtparted_reply.startswith('0 ') and not qtparted_reply.startswith('1 '):
+            pre_log('info', 'qtparted replied: %s' % qtparted_reply)
+            if qtparted_reply.startswith('- '):
+                words = qtparted_reply[2:].strip().split()
                 if words[0].lower() == 'format' and len(words) >= 3:
-                    self.gparted_fstype[words[1]] = words[2]
-            gparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
-        pre_log('info', 'gparted replied: %s' % gparted_reply)
+                    self.qtparted_fstype[words[1]] = words[2]
+            qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+        pre_log('info', 'qtparted replied: %s' % qtparted_reply)
 
-        if gparted_reply.startswith('1 '):
+        if qtparted_reply.startswith('1 '):
             # Cancel
             return
 
@@ -867,7 +867,7 @@ class Wizard:
             del self.embed
             self.embed = None
 
-        if not gparted_reply.startswith('0 '):
+        if not qtparted_reply.startswith('0 '):
             # something other than OK or Cancel
             return
 
@@ -904,7 +904,7 @@ class Wizard:
             # Try to get some default mountpoint selections.
             self.size = get_sizes()
             selection = get_default_partition_selection(
-                self.size, self.gparted_fstype, self.auto_mountpoints)
+                self.size, self.qtparted_fstype, self.auto_mountpoints)
 
             # Setting a default partition preselection
             if len(selection.items()) == 0:
@@ -930,11 +930,11 @@ class Wizard:
                     self.size_widgets[-1].setText(self.set_size_msg(partition))
                     self.partition_widgets[-1].setCurrentItem(self.partition_choices.index(partition))
                     if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
-                        partition in self.gparted_fstype):
+                        partition in self.qtparted_fstype):
                         self.format_widgets[-1].setChecked(True)
                     else:
                         self.format_widgets[-1].setChecked(False)
-                    if partition not in self.gparted_fstype:
+                    if partition not in self.qtparted_fstype:
                         self.format_widgets[-1].setEnabled(True)
                     if len(get_partitions()) > len(self.partition_widgets):
                         self.add_mountpoint_table_row()
@@ -1005,8 +1005,8 @@ class Wizard:
                 partition_id = None
             format_value = self.format_widgets[i].isChecked()
             fstype = None
-            if partition_id in self.gparted_fstype:
-                fstype = self.gparted_fstype[partition_id]
+            if partition_id in self.qtparted_fstype:
+                fstype = self.qtparted_fstype[partition_id]
 
             if mountpoint_value == "":
                 if partition_value in (None, ' '):
@@ -1043,7 +1043,7 @@ class Wizard:
             # Supplement filesystem types from qtparted FORMAT instructions
             # with those detected from the disk.
             validate_mountpoints = dict(self.mountpoints)
-            validate_filesystems = get_filesystems(self.gparted_fstype)
+            validate_filesystems = get_filesystems(self.qtparted_fstype)
             for device, (path, format, fstype) in validate_mountpoints.items():
                 if fstype is None:
                     validate_mountpoints[device] = \
@@ -1146,7 +1146,7 @@ class Wizard:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
             changed_page = True
         elif step == "stepPartMountpoints":
-            self.gparted_loop()
+            self.qtparted_loop()
         elif step == "stepReady":
             self.userinterface.next.setText("Next >")
         if not changed_page:

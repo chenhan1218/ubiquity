@@ -26,6 +26,7 @@ ubiquity (1.1.3) UNRELEASED; urgency=low
   * Fix get_filesystems() not to assume ext3 in quite so many situations.
   * Detect XFS for validation purposes even when it wasn't just formatted by
     gparted/qtparted (closes: Malone #53642).
+  * Fix all mentions of gparted in the KDE frontend.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Jul 2006 08:23:23 +0100
 
