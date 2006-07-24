@@ -195,8 +195,8 @@ def get_filesystems(fstype={}):
             continue
         filesystem_pipe = subprocess.Popen(['file', '-s', device], stdout=subprocess.PIPE)
         filesystem = filesystem_pipe.communicate()[0]
-        if re.match('.*((ext3)|(swap)|(data)).*', filesystem, re.I):
-            if 'ext3' in filesystem.split() or 'data' in filesystem.split():
+        if re.match('.*((ext3)|(swap)).*', filesystem, re.I):
+            if 'ext3' in filesystem.split():
                 device_list[device] = 'ext3'
             elif 'swap' in filesystem.split():
                 device_list[device] = 'linux-swap'
