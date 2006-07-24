@@ -189,6 +189,7 @@ class DebconfFilter:
         if line == '':
             return False
 
+        # TODO: handle escaped input
         line = line.rstrip('\n')
         params = line.split(' ')
         if not params:
