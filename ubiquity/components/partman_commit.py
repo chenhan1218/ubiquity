@@ -120,7 +120,8 @@ class PartmanCommit(PartmanAuto):
         elif question.startswith('partman/confirm'):
             self.current_question = question
             if self.frontend.confirm_partitioning_dialog(
-                    self.description(question), self.confirmation_message()):
+                    self.description(question),
+                    self.extended_description(question)):
                 self.preseed(question, 'true')
                 self.succeeded = True
             else:

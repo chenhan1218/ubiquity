@@ -93,83 +93,6 @@ class PartmanAuto(FilteredCommand):
             elif key == 'MAXSIZE':
                 self.resize_max_size = self.parse_size(value)
 
-    # partman relies on multi-line SUBSTs to construct the confirmation
-    # message, which have no way to work in debconf (and, as far as I can
-    # tell, only work in cdebconf by dumb luck). Furthermore, debconf
-    # truncates multi-line METAGET returns to the first line, so we can't
-    # get hold of the extended description anyway. This could politely be
-    # described as a total mess.
-    #
-    # Thus, we have to construct a confirmation message ourselves.
-    def confirmation_message(self):
-        # TODO: untranslatable
-        message = textwrap.dedent("""\
-        If you continue, the changes listed below will be written to the disks. Otherwise, you will be able to make further changes manually.
-
-        WARNING: This will destroy all data on any partitions you have removed as well as on the partitions that are going to be formatted.
-
-        """)
-
-        items = []
-        parted = PartedServer()
-        for disk in parted.disks():
-            parted.select_disk(disk)
-            for part in parted.partitions():
-                (p_num, p_id, p_size, p_type, p_fs, p_path, p_name) = part
-                if p_fs == 'free':
-                    continue
-
-                if not parted.has_part_entry(p_id, 'method'):
-                    continue
-                if not parted.has_part_entry(p_id, 'format'):
-                    continue
-                if not parted.has_part_entry(p_id, 'visual_filesystem'):
-                    continue
-                # If no filesystem (e.g. swap), then we will format it if
-                # either (a) it is unformatted or (b) it was formatted
-                # before the method was specified.
-                if (not parted.has_part_entry(p_id, 'filesystem')):
-                    if not parted.has_part_entry(p_id, 'formatted'):
-                        pass
-                    else:
-                        formatted_mtime = os.path.getmtime(
-                            parted.part_entry(p_id, 'formatted'))
-                        method_mtime = os.path.getmtime(
-                            parted.part_entry(p_id, 'method'))
-                        if formatted_mtime >= method_mtime:
-                            continue
-                # If the partition was already formatted, then we will
-                # reformat it if it was formatted before the method or
-                # filesystem was specified.
-                if (parted.has_part_entry(p_id, 'filesystem') and
-                    parted.has_part_entry(p_id, 'formatted')):
-                    formatted_mtime = os.path.getmtime(
-                        parted.part_entry(p_id, 'formatted'))
-                    method_mtime = os.path.getmtime(
-                        parted.part_entry(p_id, 'method'))
-                    filesystem_mtime = os.path.getmtime(
-                        parted.part_entry(p_id, 'filesystem'))
-                    if (formatted_mtime >= method_mtime and
-                        formatted_mtime >= filesystem_mtime):
-                        continue
-                filesystem = parted.readline_part_entry(
-                    p_id, 'visual_filesystem')
-                self.db.subst('partman/text/confirm_item', 'TYPE', filesystem)
-                self.db.subst('partman/text/confirm_item', 'PARTITION', p_num)
-                # TODO: humandev
-                device = parted.readline_device_entry('device')
-                self.db.subst('partman/text/confirm_item', 'DEVICE', device)
-                items.append(self.description('partman/text/confirm_item'))
-
-        # TODO: need to show which partition tables have changed as well
-
-        if len(items) > 0:
-            message += self.description('partman/text/confirm_item_header')
-            for item in items:
-                message += '\n   ' + item
-
-        return message
-
     def run(self, priority, question):
         if self.stashed_auto_mountpoints is None:
             # We need to extract the automatic mountpoints calculated by
@@ -251,7 +174,8 @@ class PartmanAuto(FilteredCommand):
 
         elif question.startswith('partman/confirm'):
             if self.frontend.confirm_partitioning_dialog(
-                    self.description(question), self.confirmation_message()):
+                    self.description(question),
+                    self.extended_description(question)):
                 self.preseed(question, 'true')
                 self.succeeded = True
             else:
