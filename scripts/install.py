@@ -843,6 +843,15 @@ class Install:
 
         resume = self.get_resume_partition()
         if resume is not None:
+            resume_uuid = None
+            try:
+                resume_uuid = subprocess.Popen(
+                    ['vol_id', '-u', resume],
+                    stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
+            except OSError:
+                pass
+            if resume_uuid:
+                resume = "UUID=%s" % resume_uuid
             if os.path.exists(os.path.join(self.target,
                                            'etc/initramfs-tools/conf.d')):
                 configdir = os.path.join(self.target,
