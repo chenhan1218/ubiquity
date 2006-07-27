@@ -27,6 +27,7 @@ from ubiquity import misc
 class Language(FilteredCommand):
     def prepare(self):
         self.language_question = None
+        self.db.set('localechooser/alreadyrun', 'false')
         questions = ['^languagechooser/language-name']
         return (['/usr/lib/ubiquity/localechooser/localechooser'], questions,
                 {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH']})

@@ -6,6 +6,7 @@ ubiquity (1.1.4) UNRELEASED; urgency=low
     #40107).
   * Adapt apt-setup wrapper to new apt-setup, which calls choose-mirror
     itself.
+  * Tell localechooser to reprocess preseeding every time we run it.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Jul 2006 12:12:39 +0100
 

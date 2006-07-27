@@ -43,5 +43,6 @@ db_get debian-installer/locale
 newlocale="$(echo "$RET" | sed "s/_[A-Z][A-Z]*/_$country/")"
 db_set debian-installer/locale "$newlocale"
 db_fset debian-installer/locale seen true
+db_set localechooser/alreadyrun false
 PATH="/usr/lib/ubiquity/localechooser:$PATH" \
 	/usr/lib/ubiquity/localechooser/localechooser
