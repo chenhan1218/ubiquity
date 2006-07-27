@@ -38,6 +38,7 @@ fi
 # us.
 db_get debian-installer/country
 country="$RET"
+db_set mirror/country "$country"
 db_get debian-installer/locale
 newlocale="$(echo "$RET" | sed "s/_[A-Z][A-Z]*/_$country/")"
 db_set debian-installer/locale "$newlocale"
