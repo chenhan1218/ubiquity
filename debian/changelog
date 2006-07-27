@@ -4,6 +4,8 @@ ubiquity (1.1.4) UNRELEASED; urgency=low
   * Always set mirror/country to the country selected on the timezone page,
     regardless of what localechooser does thereafter (closes: Malone
     #40107).
+  * Adapt apt-setup wrapper to new apt-setup, which calls choose-mirror
+    itself.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Jul 2006 12:12:39 +0100
 
