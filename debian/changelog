@@ -7,6 +7,7 @@ ubiquity (1.1.4) UNRELEASED; urgency=low
   * Adapt apt-setup wrapper to new apt-setup, which calls choose-mirror
     itself.
   * Tell localechooser to reprocess preseeding every time we run it.
+  * debian/rules install target depends on build (closes: Malone #54503).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Jul 2006 12:12:39 +0100
 
