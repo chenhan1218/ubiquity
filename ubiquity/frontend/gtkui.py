@@ -473,8 +473,13 @@ class Wizard:
         # widget is studied in a different manner depending on object type
         if widget.__class__ == str:
             size = float(self.size[widget.split('/')[2]])
-        else:
+        elif widget.get_active_text() in self.part_devices:
             size = float(self.size[self.part_devices[widget.get_active_text()].split('/')[2]])
+        else:
+            # TODO cjwatson 2006-07-31: Why isn't it in part_devices? This
+            # indicates a deeper problem somewhere, but for now we'll just
+            # try our best to ignore it.
+            return ''
 
         if size > 1024*1024:
             msg = '%.0f Gb' % (size/1024/1024)
@@ -970,7 +975,10 @@ class Wizard:
             mountpoint_value = self.mountpoint_widgets[i].get_active_text()
             partition_value = self.partition_widgets[i].get_active_text()
             if partition_value is not None:
-                partition_id = self.part_devices[partition_value]
+                if partition_value in self.part_devices:
+                    partition_id = self.part_devices[partition_value]
+                else:
+                    partition_id = partition_value
             else:
                 partition_id = None
             format_value = self.format_widgets[i].get_active()

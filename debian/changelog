@@ -3,6 +3,11 @@ ubiquity (1.1.5) UNRELEASED; urgency=low
   * Add 3% to the "Removing extra packages" stage of the installation
     progress bar, since in Ubuntu installations it often has a lot of
     language packs to remove.
+  * Work around weirdness regarding some partitions going missing from
+    part_labels/part_devices in frontends. The right fix is probably to
+    update part_labels/part_devices with information from gparted/qtparted,
+    but since that system is due to be replaced anyway it's probably not
+    worth the effort (closes: Malone #45200).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 31 Jul 2006 23:05:34 +0100
 
