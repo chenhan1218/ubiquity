@@ -298,35 +298,35 @@ class Install:
                 self.mount_source()
 
             self.db.progress('SET', 1)
-            self.db.progress('REGION', 1, 78)
+            self.db.progress('REGION', 1, 75)
             self.copy_all()
 
-            self.db.progress('SET', 78)
+            self.db.progress('SET', 75)
             self.db.progress('INFO', 'ubiquity/install/cleanup')
             if self.source == '/source':
                 self.umount_source()
 
-            self.db.progress('SET', 79)
-            self.db.progress('REGION', 79, 80)
+            self.db.progress('SET', 76)
+            self.db.progress('REGION', 76, 77)
             self.run_target_config_hooks()
 
-            self.db.progress('SET', 80)
-            self.db.progress('REGION', 80, 81)
+            self.db.progress('SET', 77)
+            self.db.progress('REGION', 77, 78)
             self.db.progress('INFO', 'ubiquity/install/locales')
             self.configure_locales()
 
-            self.db.progress('SET', 81)
-            self.db.progress('REGION', 81, 82)
+            self.db.progress('SET', 78)
+            self.db.progress('REGION', 78, 79)
             self.db.progress('INFO', 'ubiquity/install/network')
             self.configure_network()
 
-            self.db.progress('SET', 82)
-            self.db.progress('REGION', 82, 83)
+            self.db.progress('SET', 79)
+            self.db.progress('REGION', 79, 80)
             self.db.progress('INFO', 'ubiquity/install/apt')
             self.configure_apt()
 
-            self.db.progress('SET', 83)
-            self.db.progress('REGION', 83, 87)
+            self.db.progress('SET', 80)
+            self.db.progress('REGION', 80, 84)
             # Ignore failures from language pack installation.
             try:
                 self.install_language_packs()
@@ -337,37 +337,37 @@ class Install:
             except SystemError:
                 pass
 
-            self.db.progress('SET', 87)
-            self.db.progress('REGION', 87, 88)
+            self.db.progress('SET', 84)
+            self.db.progress('REGION', 84, 85)
             self.db.progress('INFO', 'ubiquity/install/timezone')
             self.configure_timezone()
 
-            self.db.progress('SET', 88)
-            self.db.progress('REGION', 88, 90)
+            self.db.progress('SET', 85)
+            self.db.progress('REGION', 85, 87)
             self.db.progress('INFO', 'ubiquity/install/keyboard')
             self.configure_keyboard()
 
-            self.db.progress('SET', 90)
-            self.db.progress('REGION', 90, 91)
+            self.db.progress('SET', 87)
+            self.db.progress('REGION', 87, 88)
             self.db.progress('INFO', 'ubiquity/install/user')
             self.configure_user()
 
-            self.db.progress('SET', 91)
-            self.db.progress('REGION', 91, 95)
+            self.db.progress('SET', 88)
+            self.db.progress('REGION', 88, 92)
             self.db.progress('INFO', 'ubiquity/install/hardware')
             self.configure_hardware()
 
-            self.db.progress('SET', 95)
-            self.db.progress('REGION', 95, 96)
+            self.db.progress('SET', 92)
+            self.db.progress('REGION', 92, 93)
             self.remove_unusable_kernels()
 
-            self.db.progress('SET', 96)
-            self.db.progress('REGION', 96, 97)
+            self.db.progress('SET', 93)
+            self.db.progress('REGION', 93, 94)
             self.db.progress('INFO', 'ubiquity/install/bootloader')
             self.configure_bootloader()
 
-            self.db.progress('SET', 97)
-            self.db.progress('REGION', 97, 99)
+            self.db.progress('SET', 94)
+            self.db.progress('REGION', 94, 99)
             self.db.progress('INFO', 'ubiquity/install/removing')
             self.remove_extras()
 
