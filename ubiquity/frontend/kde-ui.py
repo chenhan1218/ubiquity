@@ -59,9 +59,6 @@ import ubiquity.progressposition
 # Define global path
 PATH = '/usr/share/ubiquity'
 
-# Define glade path
-GLADEDIR = os.path.join(PATH, 'glade')
-
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
@@ -323,7 +320,7 @@ class Wizard:
         self.update_new_size_label(self.userinterface.new_size_scale.value())
         """
 
-        PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
+        PIXMAPSDIR = os.path.join(PATH, 'pixmaps', self.distro)
 
         # set pixmaps
         if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):

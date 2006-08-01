@@ -277,7 +277,7 @@ class Wizard:
         gtk.window_set_default_icon_from_file('/usr/share/pixmaps/'
                                               'ubiquity.png')
 
-        PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
+        PIXMAPSDIR = os.path.join(PATH, 'pixmaps', self.distro)
 
         # set pixmaps
         if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):

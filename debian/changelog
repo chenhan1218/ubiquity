@@ -16,6 +16,8 @@ ubiquity (1.1.5) UNRELEASED; urgency=low
     rename it to ubiquity.glade.
   * Update debian/copyright regarding the status of Ubiquity with respect to
     the original Guadalinex work.
+  * Move glade/pixmaps/* to pixmaps/*; they can be used in non-GTK frontends
+    too.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 31 Jul 2006 23:05:34 +0100
 
