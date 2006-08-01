@@ -1921,9 +1921,3 @@ class TimezoneMap(object):
             self.frontend.allow_go_forward(self.location_selected is not None)
 
         return True
-
-
-if __name__ == '__main__':
-    w = Wizard('ubuntu')
-    w.run()
-
