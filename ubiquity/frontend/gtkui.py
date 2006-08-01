@@ -1699,8 +1699,7 @@ class TimezoneMap(object):
         self.point_hover = None
         self.location_selected = None
 
-        zoom_in_file = os.path.join(GLADEDIR, 'pixmaps', self.frontend.distro,
-                                    'zoom-in.png')
+        zoom_in_file = os.path.join(PATH, 'pixmaps', 'zoom-in.png')
         if os.path.exists(zoom_in_file):
             display = self.frontend.live_installer.get_display()
             pixbuf = gtk.gdk.pixbuf_new_from_file(zoom_in_file)

@@ -219,7 +219,7 @@ scriptsdir = @scriptsdir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-pixmaps_DATA = world_map-960.png
+pixmaps_DATA = world_map-960.png zoom-in.png
 EXTRA_DIST = $(pixmaps_DATA)
 all: all-am
 
