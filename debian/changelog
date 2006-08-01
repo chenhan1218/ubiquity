@@ -22,6 +22,7 @@ ubiquity (1.1.5) UNRELEASED; urgency=low
     be an init script or similar instead.
   * Move documentation to doc/ directory; remove obsolete TODO; note that
     the README is largely obsolete.
+  * Stop installing README.es.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 31 Jul 2006 23:05:34 +0100
 
