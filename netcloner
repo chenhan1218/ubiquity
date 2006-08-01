@@ -1,9 +1,0 @@
-#!/bin/sh
-
-if [ -x /sbin/usplash_write ]; then
-     /sbin/usplash_write "QUIT"
-fi
-
-/usr/bin/ubiquity netcloner
-
-exec /bin/bash

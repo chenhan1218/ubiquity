@@ -18,6 +18,8 @@ ubiquity (1.1.5) UNRELEASED; urgency=low
     the original Guadalinex work.
   * Move glade/pixmaps/* to pixmaps/*; they can be used in non-GTK frontends
     too.
+  * Remove netcloner script; if this is ever resurrected, it should probably
+    be an init script or similar instead.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 31 Jul 2006 23:05:34 +0100
 
