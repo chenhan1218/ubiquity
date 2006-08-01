@@ -11,6 +11,7 @@ ubiquity (1.1.5) UNRELEASED; urgency=low
   * Suppress unnecessary translations of "${MESSAGE}".
   * Remove some cruft from the source package.
   * Make zoom-in.png global rather than distribution-specific.
+  * Remove intltool-* on distclean; configure creates them.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 31 Jul 2006 23:05:34 +0100
 

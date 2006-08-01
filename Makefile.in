@@ -243,6 +243,7 @@ target_alias = @target_alias@
 SUBDIRS = desktop pixmaps po src
 ACLOCAL_AMFLAGS = -I m4
 EXTRA_DIST = config.rpath mkinstalldirs m4/ChangeLog
+DISTCLEANFILES = intltool-extract intltool-merge intltool-update
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -593,6 +594,7 @@ clean-generic:
 
 distclean-generic:
 	-rm -f $(CONFIG_CLEAN_FILES)
+	-test -z "$(DISTCLEANFILES)" || rm -f $(DISTCLEANFILES)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
