@@ -409,7 +409,7 @@ class Wizard:
     def show_intro(self):
         """Show some introductory text, if available."""
 
-        intro = os.path.join(PATH, 'htmldocs', self.distro, 'intro.txt')
+        intro = os.path.join(PATH, 'intro.txt')
 
         if os.path.isfile(intro):
             widget = gtk.Label()
