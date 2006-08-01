@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-07-24 16:36+0100\n"
+"POT-Creation-Date: 2006-08-01 01:44+0100\n"
 "PO-Revision-Date: 2006-05-28 13:52+0000\n"
 "Last-Translator: zzandy <zzandy+launchpad@gmail.com>\n"
 "Language-Team: Ukrainian\n"
@@ -552,14 +552,6 @@ msgstr "Завантаження списків пакунків (${TIME} remain
 #: ../ubiquity.templates:74001
 msgid "Error installing ${PACKAGE}"
 msgstr "Помилка встановлення ${PACKAGE}"
-
-#. Type: error
-#. Description
-#. Type: error
-#. Description
-#: ../ubiquity.templates:74001 ../ubiquity.templates:75001
-msgid "${MESSAGE}"
-msgstr "${MESSAGE}"
 
 #. Type: error
 #. Description

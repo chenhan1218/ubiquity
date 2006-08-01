@@ -338,11 +338,13 @@ Description: ${DESCRIPTION}
 
 Template: ubiquity/install/apt_error_install
 Type: error
+#flag:translate!:2
 _Description: Error installing ${PACKAGE}
  ${MESSAGE}
 
 Template: ubiquity/install/apt_error_remove
 Type: error
+#flag:translate!:2
 _Description: Error removing ${PACKAGE}
  ${MESSAGE}
 
