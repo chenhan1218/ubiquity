@@ -152,7 +152,7 @@ endif
 binary-indep: install
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs -i Changelog.Guadalinex
+	dh_installchangelogs -i doc/Changelog.Guadalinex
 	dh_installdocs -i
 #	dh_installexamples -i
 	dh_installdebconf -i
@@ -172,7 +172,7 @@ binary-indep: install
 binary-arch: install
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs -a Changelog.Guadalinex
+	dh_installchangelogs -a doc/Changelog.Guadalinex
 	dh_installdocs -a
 #	dh_installexamples -a
 	dh_installdebconf -a
