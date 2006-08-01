@@ -152,7 +152,7 @@ class Wizard:
         self.discard_automatic_partitioning = False
 
         # load the interface
-        self.glade = gtk.glade.XML('%s/liveinstaller.glade' % GLADEDIR)
+        self.glade = gtk.glade.XML('%s/ubiquity.glade' % GLADEDIR)
 
         # get widgets
         for widget in self.glade.get_widget_prefix(""):
