@@ -124,8 +124,8 @@ class Wizard:
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
-                                   'welcome_text_label', 'cancel', 'back',
-                                   'next')
+                                   'welcome_text_label', 'step_label',
+                                   'cancel', 'back', 'next')
         self.allowed_change_step = True
         self.allowed_go_forward = True
 
@@ -363,10 +363,19 @@ class Wizard:
             return
 
         if isinstance(widget, gtk.Label):
+            name = widget.get_name()
+
+            if name == 'step_label':
+                global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
+                current_name = self.step_name(self.current_page)
+                curstep = '?'
+                if current_name in BREADCRUMB_STEPS:
+                    curstep = str(BREADCRUMB_STEPS[current_name])
+                text = text.replace('${INDEX}', curstep)
+                text = text.replace('${TOTAL}', str(BREADCRUMB_MAX_STEP))
             widget.set_text(text)
 
             # Ideally, these attributes would be in the glade file somehow ...
-            name = widget.get_name()
             textlen = len(text.encode("UTF-8"))
             if 'heading_label' in name:
                 attrs = pango.AttrList()
@@ -431,14 +440,7 @@ class Wizard:
     def set_current_page(self, current):
         global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         self.current_page = current
-        current_name = self.step_name(current)
-        label_text = get_string("step_label", self.locale)
-        curstep = "<i>?</i>"
-        if current_name in BREADCRUMB_STEPS:
-            curstep = str(BREADCRUMB_STEPS[current_name])
-        label_text = label_text.replace("${INDEX}", curstep)
-        label_text = label_text.replace("${TOTAL}", str(BREADCRUMB_MAX_STEP))
-        self.step_label.set_markup(label_text)
+        self.translate_widget(self.step_label, self.locale)
 
     # Methods
 

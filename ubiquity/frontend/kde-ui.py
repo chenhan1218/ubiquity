@@ -141,8 +141,8 @@ class Wizard:
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
-                                   'welcome_text_label', 'cancel', 'back',
-                                   'next')
+                                   'welcome_text_label', 'step_label',
+                                   'cancel', 'back', 'next')
 
         devnull = open('/dev/null', 'w')
         self.laptop = subprocess.call(["laptop-detect"], stdout=devnull,
@@ -378,6 +378,16 @@ class Wizard:
 
         if isinstance(widget, QLabel):
             name = widget.name()
+
+            if name == 'step_label':
+                global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
+                current_name = self.step_name(self.current_page)
+                curstep = '?'
+                if current_name in BREADCRUMB_STEPS:
+                    curstep = str(BREADCRUMB_STEPS[current_name])
+                text = text.replace('${INDEX}', curstep)
+                text = text.replace('${TOTAL}', str(BREADCRUMB_MAX_STEP))
+
             if 'heading_label' in name:
                 widget.setText("<h2>" + text + "</h2>")
             elif 'extra_label' in name:
@@ -419,14 +429,7 @@ class Wizard:
     def set_current_page(self, current):
         global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         self.current_page = current
-        current_name = self.step_name(current)
-        label_text = get_string("step_label", self.locale)
-        curstep = "<i>?</i>"
-        if current_name in BREADCRUMB_STEPS:
-            curstep = str(BREADCRUMB_STEPS[current_name])
-        label_text = label_text.replace("${INDEX}", curstep)
-        label_text = label_text.replace("${TOTAL}", str(BREADCRUMB_MAX_STEP))
-        self.userinterface.step_label.setText(label_text)
+        self.translate_widget(self.userinterface.step_label, self.locale)
 
     def qtparted_loop(self):
         """call qtparted and embed it into the interface."""
