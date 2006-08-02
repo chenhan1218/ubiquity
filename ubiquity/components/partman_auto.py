@@ -60,7 +60,7 @@ class PartmanAuto(FilteredCommand):
                      'type:boolean',
                      'ERROR',
                      'PROGRESS']
-        return ('/bin/partman', questions)
+        return ('/bin/partman', questions, {'PARTMAN_SNOOP': '1'})
 
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question))
