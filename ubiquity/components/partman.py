@@ -82,6 +82,7 @@ class Partman(PartmanAuto):
         return menu_options
 
     def run(self, priority, question):
+        self.current_question = question
         options = self.snoop()
         menu_options = self.snoop_menu(options)
 
@@ -274,3 +275,7 @@ class Partman(PartmanAuto):
                 # In the all-in-one Partman, we keep on going in this case.
                 self.succeeded = True
                 self.done = False
+
+    def rebuild_cache(self):
+        assert self.current_question == 'partman/choose_partition'
+        self.building_cache = True
