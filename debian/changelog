@@ -6,6 +6,7 @@ ubiquity (1.1.7) UNRELEASED; urgency=low
     partitions got out of sync with that of the external partitioner.
     Instead, reinitialise the mountpoints table from scratch every time the
     user goes forward to that page.
+  * Fix syntax error when dealing with existing newworld boot partitions.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  3 Aug 2006 16:24:06 +0100
 

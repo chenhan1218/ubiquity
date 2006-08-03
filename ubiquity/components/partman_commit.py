@@ -103,8 +103,8 @@ class PartmanCommit(PartmanAuto):
                                 p_id, 'detected_filesystem', fstype)
                         parted.write_part_entry(p_id, 'use_filesystem', '')
                         parted.write_part_entry(p_id, 'mountpoint', path)
-                elif (parted.has_part_entry('method') and
-                      parted.readline_part_entry('method') == 'newworld'):
+                elif (parted.has_part_entry(p_id, 'method') and
+                      parted.readline_part_entry(p_id, 'method') == 'newworld'):
                     # Leave existing newworld boot partitions alone.
                     pass
                 else:
