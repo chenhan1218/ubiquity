@@ -1,9 +1,9 @@
-ubiquity (1.1.6) UNRELEASED; urgency=low
+ubiquity (1.1.6) edgy; urgency=low
 
   * Automatic update of included source packages: localechooser 1.20ubuntu5,
     partman-base 90ubuntu3.
 
- -- Colin Watson <cjwatson@debian.org>  Thu,  3 Aug 2006 14:33:04 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  3 Aug 2006 14:33:22 +0100
 
 ubiquity (1.1.5) edgy; urgency=low
 
