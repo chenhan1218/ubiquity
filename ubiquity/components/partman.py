@@ -290,8 +290,6 @@ class Partman(PartmanAuto):
                 else:
                     request = self.editing_partition
 
-                # TODO cjwatson 2006-08-02: presumably we're planning to do
-                # something in a submenu, so do that
                 state = self.state[-1]
                 partition = self.partition_cache[state[1]][1]
 
