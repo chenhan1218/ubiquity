@@ -89,6 +89,20 @@ class Partman(PartmanAuto):
                 menu_options.append((script, arg, option))
         return menu_options
 
+    def find_script(self, menu_options, want_script):
+        scripts = []
+        for (script, arg, option) in menu_options:
+            if script[2:] == want_script:
+                scripts.append[(script, arg, option)]
+
+    def must_find_one_script(self, question, menu_options, want_script):
+        for (script, arg, option) in menu_options:
+            if script[2:] == want_script:
+                return (script, arg, option)
+        else:
+            raise AssertionError, "%s should have %s option" % (question,
+                                                                want_script)
+
     def run(self, priority, question):
         self.current_question = question
         options = self.snoop()
@@ -114,27 +128,27 @@ class Partman(PartmanAuto):
                     self.partition_cache = []
                     parted = parted_server.PartedServer()
 
-                    for (script, arg, option) in menu_options:
-                        if script[2:] == 'partition_tree':
-                            (dev, part_id) = arg.split('//', 1)
-                            if dev.startswith(parted_server.devices + '/'):
-                                dev = dev[len(parted_server.devices) + 1:]
-                            else:
-                                continue
-                            parted.select_disk(dev)
-                            if part_id:
-                                self.partition_cache.append((arg, {
-                                    'dev': dev,
-                                    'id': part_id,
-                                    'display': option,
-                                    'parted': parted.partition_info(part_id)
-                                }))
-                            else:
-                                self.disk_cache.append((arg, {
-                                    'dev': dev,
-                                    'display': option,
-                                    'device': parted.readline_device_entry('device')
-                                }))
+                    matches = self.find_script(menu_options, 'partition_tree')
+                    for (script, arg, option) in matches:
+                        (dev, part_id) = arg.split('//', 1)
+                        if dev.startswith(parted_server.devices + '/'):
+                            dev = dev[len(parted_server.devices) + 1:]
+                        else:
+                            continue
+                        parted.select_disk(dev)
+                        if part_id:
+                            self.partition_cache.append((arg, {
+                                'dev': dev,
+                                'id': part_id,
+                                'display': option,
+                                'parted': parted.partition_info(part_id)
+                            }))
+                        else:
+                            self.disk_cache.append((arg, {
+                                'dev': dev,
+                                'display': option,
+                                'device': parted.readline_device_entry('device')
+                            }))
 
                     # Selecting a disk will ask to create a new disklabel,
                     # so don't bother with that.
@@ -158,13 +172,9 @@ class Partman(PartmanAuto):
 
             if self.done:
                 if self.succeeded:
-                    for (script, arg, option) in menu_options:
-                        if script[2:] == 'finish':
-                            self.preseed(question, option)
-                            break
-                    else:
-                        raise AssertionError, ("%s should have a finish "
-                                               "option" % question)
+                    (script, arg, option) = self.must_find_one_script(
+                        question, self.menu_options, 'finish')
+                    self.preseed(question, option)
                 return self.succeeded
 
             elif self.creating_partition:
@@ -196,13 +206,10 @@ class Partman(PartmanAuto):
                 # Back up to the previous menu.
                 return False
             elif self.creating_partition:
-                for (script, arg, option) in menu_options:
-                    if script[2:] == 'new':
-                        self.preseed(question, option)
-                        return True
-                else:
-                    raise AssertionError, ("%s should have a new option" %
-                                           question)
+                (script, arg, option) = self.must_find_one_script(
+                    question, menu_options, 'new')
+                self.preseed(question, option)
+                return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
@@ -305,13 +312,9 @@ class Partman(PartmanAuto):
                 for item in ('method', 'mountpoint'):
                     if self.editing_partition[item] is None:
                         continue
-                    for (script, arg, option) in menu_options:
-                        if arg == item:
-                            visit.append((script, arg, option))
-                            break
-                    else:
-                        raise AssertionError, ("%s has no %s choice" %
-                                               (question, item))
+                    (script, arg, option) = self.must_find_one_script(
+                        question, menu_options, item)
+                    visit.append((script, arg, option))
                 if visit:
                     partition['active_partition_visit'] = visit
                     self.state.append([question, 0])
@@ -319,13 +322,9 @@ class Partman(PartmanAuto):
                     return True
                 else:
                     # Finish editing this partition.
-                    for (script, arg, method) in menu_options:
-                        if script[2:] == 'finish':
-                            self.preseed(question, option)
-                            break
-                    else:
-                        raise AssertionError, ("%s should have a finish "
-                                               "option" % question)
+                    (script, arg, option) = self.must_find_one_script(
+                        question, menu_options, 'finish')
+                    self.preseed(question, option)
                     return True
 
             else:
@@ -342,14 +341,10 @@ class Partman(PartmanAuto):
                 # Back up to the previous menu.
                 return False
             elif self.editing_partition:
-                for (script, arg, option) in menu_options:
-                    if arg == self.editing_partition['method']:
-                        self.preseed(question, option)
-                        return True
-                else:
-                    raise AssertionError, ("Partition %s has no method %s" %
-                                           (self.editing_partition['part_id'],
-                                            self.editing_partition['method']))
+                (script, arg, option) = self.find_one_script(
+                    question, menu_options, self.editing_partition['method'])
+                self.preseed(question, option)
+                return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
