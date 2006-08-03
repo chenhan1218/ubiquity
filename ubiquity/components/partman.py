@@ -45,6 +45,7 @@ class Partman(PartmanAuto):
         self.partition_cache = []
         self.creating_partition = None
         self.editing_partition = None
+        self.deleting_partition = None
 
         questions = list(prep[1])
         questions.extend(['^partman/free_space$',
@@ -167,6 +168,7 @@ class Partman(PartmanAuto):
             self.state = [['', '']]
             self.creating_partition = None
             self.editing_partition = None
+            self.deleting_partition = None
 
             super(Partman, self).run(priority, question)
 
@@ -185,6 +187,11 @@ class Partman(PartmanAuto):
 
             elif self.editing_partition:
                 part_id = self.editing_partition['part_id']
+                partition = self.partition_cache[part_id][1]
+                self.preseed(question, partition['display'], escape=True)
+
+            elif self.deleting_partition:
+                part_id = self.deleting_partition
                 partition = self.partition_cache[part_id][1]
                 self.preseed(question, partition['display'], escape=True)
 
@@ -331,6 +338,12 @@ class Partman(PartmanAuto):
                     self.preseed(question, option)
                     return True
 
+            elif self.deleting_partition:
+                (script, arg, option) = self.must_find_one_script(
+                    question, menu_options, 'delete')
+                self.preseed(question, option)
+                return True
+
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
@@ -424,3 +437,7 @@ class Partman(PartmanAuto):
             'method': method,
             'mountpoint': mountpoint
         }
+
+    def delete_partition(self, part_id):
+        assert self.current_question == 'partman/choose_partition'
+        self.deleting_partition = part_id
