@@ -283,6 +283,13 @@ class Partman(PartmanAuto):
                     # Back up to the previous menu.
                     return False
 
+            elif self.creating_partition:
+                # Finish editing this partition.
+                (script, arg, option) = self.must_find_one_script(
+                    question, menu_options, 'finish')
+                self.preseed(question, option)
+                return True
+
             elif self.editing_partition:
                 # TODO cjwatson 2006-08-02: presumably we're planning to do
                 # something in a submenu, so do that
