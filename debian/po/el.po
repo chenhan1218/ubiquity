@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-07-24 16:36+0100\n"
+"POT-Creation-Date: 2006-08-01 01:44+0100\n"
 "PO-Revision-Date: 2006-05-16 06:45+0000\n"
 "Last-Translator: Kostas Papadimas <pkst@gmx.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -564,14 +564,6 @@ msgstr "Λήψη λίστας πακέτων (${TIME} απομένουν)..."
 #: ../ubiquity.templates:74001
 msgid "Error installing ${PACKAGE}"
 msgstr "Σφάλμα εγκατάστασης του ${PACKAGE}"
-
-#. Type: error
-#. Description
-#. Type: error
-#. Description
-#: ../ubiquity.templates:74001 ../ubiquity.templates:75001
-msgid "${MESSAGE}"
-msgstr "${MESSAGE}"
 
 #. Type: error
 #. Description

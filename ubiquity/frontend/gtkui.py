@@ -124,8 +124,8 @@ class Wizard:
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
-                                   'welcome_text_label', 'cancel', 'back',
-                                   'next')
+                                   'welcome_text_label', 'step_label',
+                                   'cancel', 'back', 'next')
         self.allowed_change_step = True
         self.allowed_go_forward = True
 
@@ -152,7 +152,7 @@ class Wizard:
         self.discard_automatic_partitioning = False
 
         # load the interface
-        self.glade = gtk.glade.XML('%s/liveinstaller.glade' % GLADEDIR)
+        self.glade = gtk.glade.XML('%s/ubiquity.glade' % GLADEDIR)
 
         # get widgets
         for widget in self.glade.get_widget_prefix(""):
@@ -277,7 +277,7 @@ class Wizard:
         gtk.window_set_default_icon_from_file('/usr/share/pixmaps/'
                                               'ubiquity.png')
 
-        PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
+        PIXMAPSDIR = os.path.join(PATH, 'pixmaps', self.distro)
 
         # set pixmaps
         if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
@@ -363,10 +363,20 @@ class Wizard:
             return
 
         if isinstance(widget, gtk.Label):
+            name = widget.get_name()
+
+            if name == 'step_label':
+                global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
+                curstep = '?'
+                if self.current_page is not None:
+                    current_name = self.step_name(self.current_page)
+                    if current_name in BREADCRUMB_STEPS:
+                        curstep = str(BREADCRUMB_STEPS[current_name])
+                text = text.replace('${INDEX}', curstep)
+                text = text.replace('${TOTAL}', str(BREADCRUMB_MAX_STEP))
             widget.set_text(text)
 
             # Ideally, these attributes would be in the glade file somehow ...
-            name = widget.get_name()
             textlen = len(text.encode("UTF-8"))
             if 'heading_label' in name:
                 attrs = pango.AttrList()
@@ -409,7 +419,7 @@ class Wizard:
     def show_intro(self):
         """Show some introductory text, if available."""
 
-        intro = os.path.join(PATH, 'htmldocs', self.distro, 'intro.txt')
+        intro = os.path.join(PATH, 'intro.txt')
 
         if os.path.isfile(intro):
             widget = gtk.Label()
@@ -431,14 +441,7 @@ class Wizard:
     def set_current_page(self, current):
         global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         self.current_page = current
-        current_name = self.step_name(current)
-        label_text = get_string("step_label", self.locale)
-        curstep = "<i>?</i>"
-        if current_name in BREADCRUMB_STEPS:
-            curstep = str(BREADCRUMB_STEPS[current_name])
-        label_text = label_text.replace("${INDEX}", curstep)
-        label_text = label_text.replace("${TOTAL}", str(BREADCRUMB_MAX_STEP))
-        self.step_label.set_markup(label_text)
+        self.translate_widget(self.step_label, self.locale)
 
     # Methods
 
@@ -473,8 +476,13 @@ class Wizard:
         # widget is studied in a different manner depending on object type
         if widget.__class__ == str:
             size = float(self.size[widget.split('/')[2]])
-        else:
+        elif widget.get_active_text() in self.part_devices:
             size = float(self.size[self.part_devices[widget.get_active_text()].split('/')[2]])
+        else:
+            # TODO cjwatson 2006-07-31: Why isn't it in part_devices? This
+            # indicates a deeper problem somewhere, but for now we'll just
+            # try our best to ignore it.
+            return ''
 
         if size > 1024*1024:
             msg = '%.0f Gb' % (size/1024/1024)
@@ -970,7 +978,10 @@ class Wizard:
             mountpoint_value = self.mountpoint_widgets[i].get_active_text()
             partition_value = self.partition_widgets[i].get_active_text()
             if partition_value is not None:
-                partition_id = self.part_devices[partition_value]
+                if partition_value in self.part_devices:
+                    partition_id = self.part_devices[partition_value]
+                else:
+                    partition_id = partition_value
             else:
                 partition_id = None
             format_value = self.format_widgets[i].get_active()
@@ -1691,8 +1702,7 @@ class TimezoneMap(object):
         self.point_hover = None
         self.location_selected = None
 
-        zoom_in_file = os.path.join(GLADEDIR, 'pixmaps', self.frontend.distro,
-                                    'zoom-in.png')
+        zoom_in_file = os.path.join(PATH, 'pixmaps', 'zoom-in.png')
         if os.path.exists(zoom_in_file):
             display = self.frontend.live_installer.get_display()
             pixbuf = gtk.gdk.pixbuf_new_from_file(zoom_in_file)
@@ -1914,9 +1924,3 @@ class TimezoneMap(object):
             self.frontend.allow_go_forward(self.location_selected is not None)
 
         return True
-
-
-if __name__ == '__main__':
-    w = Wizard('ubuntu')
-    w.run()
-

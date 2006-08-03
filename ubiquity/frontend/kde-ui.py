@@ -59,9 +59,6 @@ import ubiquity.progressposition
 # Define global path
 PATH = '/usr/share/ubiquity'
 
-# Define glade path
-GLADEDIR = os.path.join(PATH, 'glade')
-
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
@@ -144,8 +141,8 @@ class Wizard:
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
-                                   'welcome_text_label', 'cancel', 'back',
-                                   'next')
+                                   'welcome_text_label', 'step_label',
+                                   'cancel', 'back', 'next')
 
         devnull = open('/dev/null', 'w')
         self.laptop = subprocess.call(["laptop-detect"], stdout=devnull,
@@ -323,7 +320,7 @@ class Wizard:
         self.update_new_size_label(self.userinterface.new_size_scale.value())
         """
 
-        PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
+        PIXMAPSDIR = os.path.join(PATH, 'pixmaps', self.distro)
 
         # set pixmaps
         if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
@@ -381,6 +378,17 @@ class Wizard:
 
         if isinstance(widget, QLabel):
             name = widget.name()
+
+            if name == 'step_label':
+                global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
+                curstep = '?'
+                if self.current_page is not None:
+                    current_name = self.step_name(self.current_page)
+                    if current_name in BREADCRUMB_STEPS:
+                        curstep = str(BREADCRUMB_STEPS[current_name])
+                text = text.replace('${INDEX}', curstep)
+                text = text.replace('${TOTAL}', str(BREADCRUMB_MAX_STEP))
+
             if 'heading_label' in name:
                 widget.setText("<h2>" + text + "</h2>")
             elif 'extra_label' in name:
@@ -401,8 +409,7 @@ class Wizard:
     def show_intro(self):
         """Show some introductory text, if available."""
     
-        #intro = os.path.join(PATH, 'htmldocs', self.distro, 'intro.txt')
-        intro = "/usr/share/ubiquity/htmldocs/ubuntu/intro.txt"
+        intro = os.path.join(PATH, 'intro.txt')
     
         if os.path.isfile(intro):
             intro_file = open(intro)
@@ -423,14 +430,7 @@ class Wizard:
     def set_current_page(self, current):
         global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         self.current_page = current
-        current_name = self.step_name(current)
-        label_text = get_string("step_label", self.locale)
-        curstep = "<i>?</i>"
-        if current_name in BREADCRUMB_STEPS:
-            curstep = str(BREADCRUMB_STEPS[current_name])
-        label_text = label_text.replace("${INDEX}", curstep)
-        label_text = label_text.replace("${TOTAL}", str(BREADCRUMB_MAX_STEP))
-        self.userinterface.step_label.setText(label_text)
+        self.translate_widget(self.userinterface.step_label, self.locale)
 
     def qtparted_loop(self):
         """call qtparted and embed it into the interface."""
@@ -462,8 +462,13 @@ class Wizard:
         # widget is studied in a different manner depending on object type
         if widget.__class__ == str:
             size = float(self.size[widget.split('/')[2]])
-        else:
+        elif str(widget.currentText()) in self.part_devices:
             size = float(self.size[self.part_devices[str(widget.currentText())].split('/')[2]])
+        else:
+            # TODO cjwatson 2006-07-31: Why isn't it in part_devices? This
+            # indicates a deeper problem somewhere, but for now we'll just
+            # try our best to ignore it.
+            return ''
 
         if size > 1024*1024:
             msg = '%.0f Gb' % (size/1024/1024)
@@ -1000,7 +1005,10 @@ class Wizard:
             mountpoint_value = str(self.mountpoint_widgets[i].currentText())
             partition_value = str(self.partition_widgets[i].currentText())
             if partition_value is not None:
-                partition_id = self.part_devices[partition_value]
+                if partition_value in self.part_devices:
+                    partition_id = self.part_devices[partition_value]
+                else:
+                    partition_id = partition_value
             else:
                 partition_id = None
             format_value = self.format_widgets[i].isChecked()

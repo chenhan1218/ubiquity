@@ -48,8 +48,10 @@ ubiquity/components/kbd_chooser.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/kbd_chooser_apply.py usr/lib/ubiquity/ubiquity/components
 
 # localechooser
-d-i/source/localechooser/localechooser usr/lib/ubiquity/localechooser
-d-i/source/localechooser/languagemap usr/lib/ubiquity/localechooser
+d-i/source/localechooser/default-country usr/lib/ubiquity/localechooser
+d-i/source/localechooser/languagelist usr/lib/ubiquity/localechooser
+d-i/source/localechooser/regionmap usr/lib/ubiquity/localechooser
+d-i/source/localechooser/debian/short-tmp/shortlists usr/lib/ubiquity/localechooser
 ubiquity/components/language.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/language_apply.py usr/lib/ubiquity/ubiquity/components
 
