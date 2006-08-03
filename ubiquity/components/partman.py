@@ -26,6 +26,12 @@ from ubiquity.components.partman_auto import PartmanAuto
 # involved in this inheritance gets too great, the necessary parts of
 # PartmanAuto should be moved here.
 
+PARTITION_TYPE_PRIMARY = 0
+PARTITION_TYPE_LOGICAL = 1
+
+PARTITION_PLACE_BEGINNING = 0
+PARTITION_PLACE_END = 1
+
 class Partman(PartmanAuto):
     def prepare(self):
         prep = super(Partman, self).prepare()
@@ -141,10 +147,30 @@ class Partman(PartmanAuto):
                         self.building_cache = False
 
             self.debug('partition_cache: %s', str(self.partition_cache))
-            import sys
-            sys.exit(1)
 
-            # TODO cjwatson 2006-07-27: wait for user input
+            self.creating_partition = None
+
+            super(Partman, self).run(priority, question)
+
+            if self.done:
+                if self.succeeded:
+                    for (script, arg, option) in menu_options:
+                        if script[2:] == 'finish':
+                            self.preseed(question, option)
+                            break
+                    else:
+                        raise AssertionError, ("%s should have a finish "
+                                               "option" % question)
+                return self.succeeded
+
+            if self.creating_partition:
+                free_id = self.creating_partition[0]
+                partition = self.partition_cache[free_id][1]
+                self.preseed(question, partition['display'], escape=True)
+                return True
+
+            raise AssertionError, ("Returned to %s with nothing to do" %
+                                   question)
 
         elif question == 'partman/free_space':
             if self.building_cache:
@@ -159,10 +185,45 @@ class Partman(PartmanAuto):
                 partition['can_new'] = can_new
                 # Back up to the previous menu.
                 return False
+            elif self.creating_partition:
+                for (script, arg, option) in menu_options:
+                    if script[2:] == 'new':
+                        self.preseed(question, option)
+                        return True
+                else:
+                    raise AssertionError, ("%s should have a new option" %
+                                           question)
             else:
-                # TODO cjwatson 2006-08-02: presumably we're being told to
-                # create a partition here; do so
-                pass
+                raise AssertionError, "Arrived at %s unexpectedly" % question
+
+        elif question == 'partman-partitioning/new_partition_size':
+            # TODO cjwatson 2006-08-03: handle error
+            # (partman-partitioning/bad_new_partition_size)
+            if self.creating_partition:
+                self.preseed(question, self.creating_partition[1])
+                return True
+            else:
+                raise AssertionError, "Arrived at %s unexpectedly" % question
+
+        elif question == 'partman-partitioning/new_partition_type':
+            if self.creating_partition:
+                if self.creating_partition[2] == PARTITION_TYPE_PRIMARY:
+                    self.preseed(question, 'Primary')
+                else:
+                    self.preseed(question, 'Logical')
+                return True
+            else:
+                raise AssertionError, "Arrived at %s unexpectedly" % question
+
+        elif question == 'partman-partitioning/new_partition_place':
+            if self.creating_partition:
+                if self.creating_partition[3] == PARTITION_PLACE_BEGINNING:
+                    self.preseed(question, 'Beginning')
+                else:
+                    self.preseed(question, 'End')
+                return True
+            else:
+                raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman/active_partition':
             if self.building_cache:
@@ -209,18 +270,6 @@ class Partman(PartmanAuto):
                 # TODO cjwatson 2006-08-02: presumably we're planning to do
                 # something in a submenu, so do that
                 pass
-
-        elif question == 'partman-partitioning/new_partition_size':
-            # TODO cjwatson 2006-08-02: fill in user-requested size
-            pass
-
-        elif question == 'partman-partitioning/new_partition_type':
-            # TODO cjwatson 2006-08-02: fill in user-requested type
-            pass
-
-        elif question == 'partman-partitioning/new_partition_place':
-            # TODO cjwatson 2006-08-02: fill in user-requested place
-            pass
 
         elif question == 'partman-target/choose_method':
             if self.building_cache:
@@ -279,3 +328,7 @@ class Partman(PartmanAuto):
     def rebuild_cache(self):
         assert self.current_question == 'partman/choose_partition'
         self.building_cache = True
+
+    def create_partition(self, free_id, size, prilog, place):
+        assert self.current_question == 'partman/choose_partition'
+        self.creating_partition = (free_id, size, prilog, place)
