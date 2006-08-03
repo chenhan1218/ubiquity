@@ -408,4 +408,4 @@ class Partman(PartmanAuto):
             'part_id': part_id,
             'method': method,
             'mountpoint': mountpoint
-        })
+        }
