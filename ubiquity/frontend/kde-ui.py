@@ -902,58 +902,62 @@ class Wizard:
             self.part_devices[label] = partition
             self.partition_choices.append(partition)
 
-        # Initialise the mountpoints table.
-        if len(self.mountpoint_widgets) == 0:
-            self.add_mountpoint_table_row()
+        # Reinitialise the mountpoints table.
+        self.mountpoint_widgets = []
+        self.size_widgets = []
+        self.partition_widgets = []
+        self.format_widgets = []
 
-            # Try to get some default mountpoint selections.
-            self.size = get_sizes()
-            selection = get_default_partition_selection(
-                self.size, self.qtparted_fstype, self.auto_mountpoints)
+        self.add_mountpoint_table_row()
 
-            # Setting a default partition preselection
-            if len(selection.items()) == 0:
-                self.userinterface.next.setEnabled(False)
-            else:
-                # Setting default preselection values into ComboBox
-                # widgets and setting size values. In addition, next row
-                # is showed if they're validated.
-                for mountpoint, partition in selection.items():
-                    if partition.split('/')[2] not in self.size:
-                        continue
-                    if partition not in self.partition_choices:
-                        # TODO cjwatson 2006-05-27: I don't know why this
-                        # might happen, but it does
-                        # (https://launchpad.net/bugs/46910). Figure out
-                        # why. In the meantime, ignoring this partition is
-                        # better than crashing.
-                        continue
-                    if mountpoint in self.mountpoint_choices:
-                        self.mountpoint_widgets[-1].setCurrentItem(self.mountpoint_choices.index(mountpoint))
-                    else:
-                        self.mountpoint_widgets[-1].setCurrentText(mountpoint)
-                    self.size_widgets[-1].setText(self.set_size_msg(partition))
-                    self.partition_widgets[-1].setCurrentItem(self.partition_choices.index(partition))
-                    if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
-                        partition in self.qtparted_fstype):
-                        self.format_widgets[-1].setChecked(True)
-                    else:
-                        self.format_widgets[-1].setChecked(False)
-                    if partition not in self.qtparted_fstype:
-                        self.format_widgets[-1].setEnabled(True)
-                    if len(get_partitions()) > len(self.partition_widgets):
-                        self.add_mountpoint_table_row()
-                    else:
-                        break
+        # Try to get some default mountpoint selections.
+        self.size = get_sizes()
+        selection = get_default_partition_selection(
+            self.size, self.qtparted_fstype, self.auto_mountpoints)
 
-            # We defer connecting up signals until now to avoid the changed
-            # signal firing while we're busy populating the table.
-            """  Not needed for KDE
-            for mountpoint in self.mountpoint_widgets:
-                self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
-            for partition in self.partition_widgets:
-                self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
-            """
+        # Setting a default partition preselection
+        if len(selection.items()) == 0:
+            self.userinterface.next.setEnabled(False)
+        else:
+            # Setting default preselection values into ComboBox widgets and
+            # setting size values. In addition, the next row is shown if
+            # they're validated.
+            for mountpoint, partition in selection.items():
+                if partition.split('/')[2] not in self.size:
+                    continue
+                if partition not in self.partition_choices:
+                    # TODO cjwatson 2006-05-27: I don't know why this might
+                    # happen, but it does
+                    # (https://launchpad.net/bugs/46910). Figure out why. In
+                    # the meantime, ignoring this partition is better than
+                    # crashing.
+                    continue
+                if mountpoint in self.mountpoint_choices:
+                    self.mountpoint_widgets[-1].setCurrentItem(self.mountpoint_choices.index(mountpoint))
+                else:
+                    self.mountpoint_widgets[-1].setCurrentText(mountpoint)
+                self.size_widgets[-1].setText(self.set_size_msg(partition))
+                self.partition_widgets[-1].setCurrentItem(self.partition_choices.index(partition))
+                if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
+                    partition in self.qtparted_fstype):
+                    self.format_widgets[-1].setChecked(True)
+                else:
+                    self.format_widgets[-1].setChecked(False)
+                if partition not in self.qtparted_fstype:
+                    self.format_widgets[-1].setEnabled(True)
+                if len(get_partitions()) > len(self.partition_widgets):
+                    self.add_mountpoint_table_row()
+                else:
+                    break
+
+        # We defer connecting up signals until now to avoid the changed
+        # signal firing while we're busy populating the table.
+        """  Not needed for KDE
+        for mountpoint in self.mountpoint_widgets:
+            self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
+        for partition in self.partition_widgets:
+            self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
+        """
 
         self.userinterface.mountpoint_error_reason.hide()
         self.userinterface.mountpoint_error_image.hide()

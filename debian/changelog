@@ -1,3 +1,14 @@
+ubiquity (1.1.7) UNRELEASED; urgency=low
+
+  * Don't attempt to preserve previous mountpoint selections when going back
+    to gparted/qtparted and forward again; this resulted in far too many
+    strange bugs when the mountpoints page's idea of currently available
+    partitions got out of sync with that of the external partitioner.
+    Instead, reinitialise the mountpoints table from scratch every time the
+    user goes forward to that page.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  3 Aug 2006 16:24:06 +0100
+
 ubiquity (1.1.6) edgy; urgency=low
 
   * Automatic update of included source packages: localechooser 1.20ubuntu5,
