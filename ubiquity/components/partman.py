@@ -178,7 +178,7 @@ class Partman(PartmanAuto):
                 return self.succeeded
 
             elif self.creating_partition:
-                free_id = self.creating_partition[0]
+                free_id = self.creating_partition['free_id']
                 partition = self.partition_cache[free_id][1]
                 self.preseed(question, partition['display'], escape=True)
                 return True
@@ -217,14 +217,14 @@ class Partman(PartmanAuto):
             # TODO cjwatson 2006-08-03: handle error
             # (partman-partitioning/bad_new_partition_size)
             if self.creating_partition:
-                self.preseed(question, self.creating_partition[1])
+                self.preseed(question, self.creating_partition['size'])
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman-partitioning/new_partition_type':
             if self.creating_partition:
-                if self.creating_partition[2] == PARTITION_TYPE_PRIMARY:
+                if self.creating_partition['type'] == PARTITION_TYPE_PRIMARY:
                     self.preseed(question, 'Primary')
                 else:
                     self.preseed(question, 'Logical')
@@ -234,7 +234,8 @@ class Partman(PartmanAuto):
 
         elif question == 'partman-partitioning/new_partition_place':
             if self.creating_partition:
-                if self.creating_partition[3] == PARTITION_PLACE_BEGINNING:
+                if (self.creating_partition['place'] ==
+                    PARTITION_PLACE_BEGINNING):
                     self.preseed(question, 'Beginning')
                 else:
                     self.preseed(question, 'End')
@@ -400,7 +401,12 @@ class Partman(PartmanAuto):
 
     def create_partition(self, free_id, size, prilog, place):
         assert self.current_question == 'partman/choose_partition'
-        self.creating_partition = (free_id, size, prilog, place)
+        self.creating_partition = {
+            'free_id': free_id,
+            'size': size,
+            'type': prilog,
+            'place': place
+        }
 
     def edit_partition(self, part_id, method=None, mountpoint=None):
         assert self.current_question == 'partman/choose_partition'
