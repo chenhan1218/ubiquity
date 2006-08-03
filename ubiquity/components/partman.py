@@ -284,14 +284,12 @@ class Partman(PartmanAuto):
                     # Back up to the previous menu.
                     return False
 
-            elif self.creating_partition:
-                # Finish editing this partition.
-                (script, arg, option) = self.must_find_one_script(
-                    question, menu_options, 'finish')
-                self.preseed(question, option)
-                return True
+            elif self.creating_partition or self.editing_partition:
+                if self.creating_partition:
+                    request = self.creating_partition
+                else:
+                    request = self.editing_partition
 
-            elif self.editing_partition:
                 # TODO cjwatson 2006-08-02: presumably we're planning to do
                 # something in a submenu, so do that
                 state = self.state[-1]
@@ -318,7 +316,7 @@ class Partman(PartmanAuto):
 
                 visit = []
                 for item in ('method', 'mountpoint'):
-                    if self.editing_partition[item] is None:
+                    if request[item] is None:
                         continue
                     (script, arg, option) = self.must_find_one_script(
                         question, menu_options, item)
@@ -348,9 +346,14 @@ class Partman(PartmanAuto):
                     partition['method_choices'].append((script, arg, option))
                 # Back up to the previous menu.
                 return False
-            elif self.editing_partition:
+            elif self.creating_partition or self.editing_partition:
+                if self.creating_partition:
+                    request = self.creating_partition
+                else:
+                    request = self.editing_partition
+
                 (script, arg, option) = self.find_one_script(
-                    question, menu_options, self.editing_partition['method'])
+                    question, menu_options, request['method'])
                 self.preseed(question, option)
                 return True
             else:
@@ -378,8 +381,13 @@ class Partman(PartmanAuto):
                 return True
 
         elif question == 'partman-basicfilesystems/mountpoint_manual':
-            if self.editing_partition:
-                self.preseed(question, self.editing_partition['mountpoint'])
+            if self.creating_partition or self.editing_partition:
+                if self.creating_partition:
+                    request = self.creating_partition
+                else:
+                    request = self.editing_partition
+
+                self.preseed(question, request['mountpoint'])
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
@@ -399,13 +407,16 @@ class Partman(PartmanAuto):
         assert self.current_question == 'partman/choose_partition'
         self.building_cache = True
 
-    def create_partition(self, free_id, size, prilog, place):
+    def create_partition(self, free_id, size, prilog, place,
+                         method=None, mountpoint=None):
         assert self.current_question == 'partman/choose_partition'
         self.creating_partition = {
             'free_id': free_id,
             'size': size,
             'type': prilog,
-            'place': place
+            'place': place,
+            'method': method,
+            'mountpoint': mountpoint
         }
 
     def edit_partition(self, part_id, method=None, mountpoint=None):
