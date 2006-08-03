@@ -43,6 +43,7 @@ class Partman(PartmanAuto):
         self.build_cache_state = [['', '']]
         self.disk_cache = []
         self.partition_cache = []
+        self.creating_partition = None
 
         questions = list(prep[1])
         questions.extend(['^partman/free_space$',
