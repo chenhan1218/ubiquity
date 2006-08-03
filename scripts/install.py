@@ -539,8 +539,9 @@ class Install:
 
         # Autodetection on unionfs systems
         for line in open('/proc/mounts'):
-            if line.split()[2] == 'squashfs':
-                misc.ex('mount', '--bind', line.split()[1], self.source)
+            (device, fstype) = line.split()[1:3]
+            if fstype == 'squashfs' and os.path.exists(device):
+                misc.ex('mount', '--bind', device, self.source)
                 self.unionfs = True
                 return
 
