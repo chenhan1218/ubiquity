@@ -381,10 +381,11 @@ class Wizard:
 
             if name == 'step_label':
                 global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
-                current_name = self.step_name(self.current_page)
                 curstep = '?'
-                if current_name in BREADCRUMB_STEPS:
-                    curstep = str(BREADCRUMB_STEPS[current_name])
+                if self.current_page is not None:
+                    current_name = self.step_name(self.current_page)
+                    if current_name in BREADCRUMB_STEPS:
+                        curstep = str(BREADCRUMB_STEPS[current_name])
                 text = text.replace('${INDEX}', curstep)
                 text = text.replace('${TOTAL}', str(BREADCRUMB_MAX_STEP))
 
