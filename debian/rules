@@ -124,8 +124,13 @@ endif
 	chmod +x debian/ubiquity/bin/hw-detect
 	install d-i/source/kbd-chooser/debian/post-base-installer \
 		debian/ubiquity/usr/lib/ubiquity/kbd-chooser/
-	install d-i/source/localechooser/post-base-installer \
-		d-i/source/localechooser/finish-install \
+	set -e; for x in languagemap localechooser post-base-installer; do \
+		sed 's,/usr/share/localechooser,/usr/lib/ubiquity/localechooser,g' \
+			d-i/source/localechooser/$$x \
+			> debian/ubiquity/usr/lib/ubiquity/localechooser/$$x; \
+		chmod +x debian/ubiquity/usr/lib/ubiquity/localechooser/$$x; \
+	done
+	install d-i/source/localechooser/finish-install \
 		debian/ubiquity/usr/lib/ubiquity/localechooser/
 	install d-i/source/tzsetup/finish-install.d/*tzsetup \
 		debian/ubiquity/usr/lib/ubiquity/tzsetup/finish-install
