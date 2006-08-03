@@ -1,4 +1,4 @@
-ubiquity (1.1.5) UNRELEASED; urgency=low
+ubiquity (1.1.5) edgy; urgency=low
 
   * Add 3% to the "Removing extra packages" stage of the installation
     progress bar, since in Ubuntu installations it often has a lot of
@@ -32,7 +32,7 @@ ubiquity (1.1.5) UNRELEASED; urgency=low
   * Ship all the bits of localechooser we need, and drop our dependency on
     localechooser-data (closes: Malone #40364).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 31 Jul 2006 23:05:34 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  3 Aug 2006 14:13:43 +0100
 
 ubiquity (1.1.4) edgy; urgency=low
 
