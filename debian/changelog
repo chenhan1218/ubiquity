@@ -26,6 +26,8 @@ ubiquity (1.1.5) UNRELEASED; urgency=low
   * Remove cruft from ubiquity.settings.
   * Retranslate "Step N of M" immediately when the language is changed.
   * Tighten ubiquity's dependencies on frontend and artwork packages.
+  * Don't build ubiquity-frontend-{gtk,kde}_*.deb if the respective
+    UBIQUITY_NO_{GTK,KDE} is defined.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 31 Jul 2006 23:05:34 +0100
 
