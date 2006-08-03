@@ -40,10 +40,11 @@ class Partman(PartmanAuto):
         self.stashed_auto_mountpoints = {}
 
         self.building_cache = True
-        self.build_cache_state = [['', '']]
+        self.state = [['', '']]
         self.disk_cache = []
         self.partition_cache = []
         self.creating_partition = None
+        self.editing_partition = None
 
         questions = list(prep[1])
         questions.extend(['^partman/free_space$',
@@ -95,7 +96,7 @@ class Partman(PartmanAuto):
 
         if question == 'partman/choose_partition':
             if self.building_cache:
-                state = self.build_cache_state[-1]
+                state = self.state[-1]
                 if state[0] == question:
                     state[1] += 1
                     if state[1] < len(self.partition_cache):
@@ -106,7 +107,7 @@ class Partman(PartmanAuto):
                         return True
                     else:
                         # Finished building the cache.
-                        self.build_cache_state.pop()
+                        self.state.pop()
                         self.building_cache = False
                 else:
                     self.disk_cache = []
@@ -139,7 +140,7 @@ class Partman(PartmanAuto):
                     # so don't bother with that.
 
                     if self.partition_cache:
-                        self.build_cache_state.append([question, 0])
+                        self.state.append([question, 0])
                         self.preseed(question,
                                      self.partition_cache[0][1]['display'],
                                      escape=True)
@@ -149,7 +150,9 @@ class Partman(PartmanAuto):
 
             self.debug('partition_cache: %s', str(self.partition_cache))
 
+            self.state = [['', '']]
             self.creating_partition = None
+            self.editing_partition = None
 
             super(Partman, self).run(priority, question)
 
@@ -164,18 +167,24 @@ class Partman(PartmanAuto):
                                                "option" % question)
                 return self.succeeded
 
-            if self.creating_partition:
+            elif self.creating_partition:
                 free_id = self.creating_partition[0]
                 partition = self.partition_cache[free_id][1]
                 self.preseed(question, partition['display'], escape=True)
                 return True
 
-            raise AssertionError, ("Returned to %s with nothing to do" %
-                                   question)
+            elif self.editing_partition:
+                part_id = self.editing_partition['part_id']
+                partition = self.partition_cache[part_id][1]
+                self.preseed(question, partition['display'], escape=True)
+
+            else:
+                raise AssertionError, ("Returned to %s with nothing to do" %
+                                       question)
 
         elif question == 'partman/free_space':
             if self.building_cache:
-                state = self.build_cache_state[-1]
+                state = self.state[-1]
                 assert state[0] == 'partman/choose_partition'
                 partition = self.partition_cache[state[1]][1]
                 can_new = False
@@ -228,7 +237,7 @@ class Partman(PartmanAuto):
 
         elif question == 'partman/active_partition':
             if self.building_cache:
-                state = self.build_cache_state[-1]
+                state = self.state[-1]
                 partition = self.partition_cache[state[1]][1]
 
                 if state[0] == question:
@@ -241,7 +250,7 @@ class Partman(PartmanAuto):
                         # Finished building the cache for this submenu; go
                         # back to the previous one.
                         del partition['active_partition_visit']
-                        self.build_cache_state.pop()
+                        self.state.pop()
                         return False
 
                 assert state[0] == 'partman/choose_partition'
@@ -260,21 +269,71 @@ class Partman(PartmanAuto):
                         visit.append((script, arg, option))
                 if visit:
                     partition['active_partition_visit'] = visit
-                    self.build_cache_state.append([question, 0])
+                    self.state.append([question, 0])
                     self.preseed(question, visit[0][2], escape=True)
                     return True
                 else:
                     # Back up to the previous menu.
                     return False
 
-            else:
+            elif self.editing_partition:
                 # TODO cjwatson 2006-08-02: presumably we're planning to do
                 # something in a submenu, so do that
-                pass
+                state = self.state[-1]
+                partition = self.partition_cache[state[1]][1]
+
+                if state[0] == question:
+                    state[1] += 1
+                    if state[1] < len(partition['active_partition_visit']):
+                        # Move on to the next item.
+                        self.preseed(question, visit[state[1]][2], escape=True)
+                        return True
+                    else:
+                        # Finish editing this partition.
+                        del partition['active_partition_visit']
+                        self.state.pop()
+                        for (script, arg, method) in menu_options:
+                            if script[2:] == 'finish':
+                                self.preseed(question, option)
+                                break
+                        else:
+                            raise AssertionError, ("%s should have a finish "
+                                                   "option" % question)
+                        return True
+
+                visit = []
+                for item in ('method', 'mountpoint'):
+                    if self.editing_partition[item] is None:
+                        continue
+                    for (script, arg, option) in menu_options:
+                        if arg == item:
+                            visit.append((script, arg, option))
+                            break
+                    else:
+                        raise AssertionError, ("%s has no %s choice" %
+                                               (question, item))
+                if visit:
+                    partition['active_partition_visit'] = visit
+                    self.state.append([question, 0])
+                    self.preseed(question, visit[0][2], escape=True)
+                    return True
+                else:
+                    # Finish editing this partition.
+                    for (script, arg, method) in menu_options:
+                        if script[2:] == 'finish':
+                            self.preseed(question, option)
+                            break
+                    else:
+                        raise AssertionError, ("%s should have a finish "
+                                               "option" % question)
+                    return True
+
+            else:
+                raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman-target/choose_method':
             if self.building_cache:
-                state = self.build_cache_state[-1]
+                state = self.state[-1]
                 assert state[0] == 'partman/active_partition'
                 partition = self.partition_cache[state[1]][1]
                 partition['method_choices'] = []
@@ -282,18 +341,22 @@ class Partman(PartmanAuto):
                     partition['method_choices'].append((script, arg, option))
                 # Back up to the previous menu.
                 return False
+            elif self.editing_partition:
+                for (script, arg, option) in menu_options:
+                    if arg == self.editing_partition['method']:
+                        self.preseed(question, option)
+                        return True
+                else:
+                    raise AssertionError, ("Partition %s has no method %s" %
+                                           (self.editing_partition['part_id'],
+                                            self.editing_partition['method']))
             else:
-                # TODO cjwatson 2006-08-02: fill in user-requested method
-                pass
+                raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question in ('partman-basicfilesystems/mountpoint',
                           'partman-basicfilesystems/fat_mountpoint'):
-            # TODO cjwatson 2006-08-02: if building cache, get choices
-            # (excluding "Enter manually" and "Do not mount it" at least),
-            # fill into cache, back up; otherwise, fill in user-requested
-            # mountpoint
             if self.building_cache:
-                state = self.build_cache_state[-1]
+                state = self.state[-1]
                 assert state[0] == 'partman/active_partition'
                 partition = self.partition_cache[state[1]][1]
                 partition['mountpoint_choices'] = []
@@ -312,8 +375,11 @@ class Partman(PartmanAuto):
                 return True
 
         elif question == 'partman-basicfilesystems/mountpoint_manual':
-            # TODO cjwatson 2006-08-02: fill in user-requested mountpoint
-            pass
+            if self.editing_partition:
+                self.preseed(question, self.editing_partition['mountpoint'])
+                return True
+            else:
+                raise AssertionError, "Arrived at %s unexpectedly" % question
 
         return super(Partman, self).run(priority, question)
 
@@ -333,3 +399,11 @@ class Partman(PartmanAuto):
     def create_partition(self, free_id, size, prilog, place):
         assert self.current_question == 'partman/choose_partition'
         self.creating_partition = (free_id, size, prilog, place)
+
+    def edit_partition(self, part_id, method=None, mountpoint=None):
+        assert self.current_question == 'partman/choose_partition'
+        self.editing_partition = {
+            'part_id': part_id,
+            'method': method,
+            'mountpoint': mountpoint
+        })
