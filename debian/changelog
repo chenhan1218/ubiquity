@@ -35,7 +35,8 @@ ubiquity (1.1.5) edgy; urgency=low
   * Tighten ubiquity's dependencies on frontend and artwork packages.
   * Don't build ubiquity-frontend-{gtk,kde}_*.deb if the respective
     UBIQUITY_NO_{GTK,KDE} is defined.
-  * Check whether squashfs devices exist before trying to mount them.
+  * Check whether squashfs devices exist before trying to mount them
+    (closes: Malone #55019).
   * Ship all the bits of localechooser we need, and drop our dependency on
     localechooser-data (closes: Malone #40364).
 
