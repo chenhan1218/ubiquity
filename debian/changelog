@@ -1,3 +1,10 @@
+ubiquity (1.1.8) UNRELEASED; urgency=low
+
+  [ Jonathan Riddell ]
+  * Remove existing widgets when launching qtparted and mountpoints pages.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  4 Aug 2006 17:12:26 +0100
+
 ubiquity (1.1.7) edgy; urgency=low
 
   * Don't attempt to preserve previous mountpoint selections when going back

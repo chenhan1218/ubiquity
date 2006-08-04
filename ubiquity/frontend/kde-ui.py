@@ -182,7 +182,7 @@ class Wizard:
         
         self.qtparted_vbox = QVBoxLayout(self.userinterface.qtparted_frame)
         self.embed = None
-
+        self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -440,6 +440,7 @@ class Wizard:
         disable_swap()
 
         if self.embed is not None:
+            self.qtparted_vbox.remove(self.embed)
             del self.embed
         self.embed = QXEmbed(self.userinterface.qtparted_frame, "embed")
         self.embed.setProtocol(QXEmbed.XPLAIN)
@@ -869,6 +870,7 @@ class Wizard:
         self.qtparted_subp.wait()
         self.qtparted_subp = None
         if self.embed is not None:
+            self.qtparted_vbox.remove(self.embed)
             del self.embed
             self.embed = None
 
@@ -876,7 +878,14 @@ class Wizard:
             # something other than OK or Cancel
             return
 
-        self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
+        children = self.userinterface.mountpoint_frame.children()
+        for child in children:
+            if isinstance(child, QGridLayout):
+                pass
+            else:
+                self.mountpoint_table.remove(child)
+                del child
+
         mountText = "<b>" + get_string("mountpoint_label", self.locale) + "</b>"
         sizeText = "<b>" + get_string("size_label", self.locale) + "</b>"
         partitionText = "<b>" + get_string("device_label", self.locale) + "</b>"
@@ -1153,6 +1162,7 @@ class Wizard:
                 self.qtparted_subp.wait()
                 self.qtparted_subp = None
                 if self.embed is not None:
+                    self.qtparted_vbox.remove(self.embed)
                     del self.embed
                     self.embed = None
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
