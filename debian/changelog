@@ -1,4 +1,4 @@
-ubiquity (1.1.8) UNRELEASED; urgency=low
+ubiquity (1.1.8) edgy; urgency=low
 
   [ Jonathan Riddell ]
   * Remove existing widgets when launching qtparted and mountpoints pages.
@@ -8,7 +8,7 @@ ubiquity (1.1.8) UNRELEASED; urgency=low
   * Fix crash when a partition not formatted by gparted/qtparted isn't in
     the list detected by get_filesystems either (closes: Malone #55328).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri,  4 Aug 2006 17:12:26 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat,  5 Aug 2006 18:30:18 +0100
 
 ubiquity (1.1.7) edgy; urgency=low
 
