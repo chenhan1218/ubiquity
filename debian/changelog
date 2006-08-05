@@ -3,6 +3,9 @@ ubiquity (1.1.8) UNRELEASED; urgency=low
   [ Jonathan Riddell ]
   * Remove existing widgets when launching qtparted and mountpoints pages.
 
+  [ Colin Watson ]
+  * Install discover-sbus and sbus.list from hw-detect on sparc.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  4 Aug 2006 17:12:26 +0100
 
 ubiquity (1.1.7) edgy; urgency=low
