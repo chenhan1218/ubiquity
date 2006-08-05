@@ -5,6 +5,8 @@ ubiquity (1.1.8) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Install discover-sbus and sbus.list from hw-detect on sparc.
+  * Fix crash when a partition not formatted by gparted/qtparted isn't in
+    the list detected by get_filesystems either (closes: Malone #55328).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  4 Aug 2006 17:12:26 +0100
 
