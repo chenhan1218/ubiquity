@@ -4,7 +4,7 @@ set -e
 . /usr/share/debconf/confmodule
 
 supported () {
-	grep -q "^$1\$" /usr/share/localechooser/SUPPORTED-short
+	grep -q "^$1 " /usr/share/i18n/SUPPORTED
 }
 
 # Recover from broken debian-installer/locale settings.
