@@ -19,3 +19,4 @@ partman-target
 partman-xfs
 tzsetup
 user-setup
+migration-assistant

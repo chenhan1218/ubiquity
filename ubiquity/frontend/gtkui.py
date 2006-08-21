@@ -60,7 +60,8 @@ from ubiquity import filteredcommand, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
 from ubiquity.components import language, kbd_chooser, timezone, usersetup, \
-                                partman_auto, partman_commit, summary, install
+                                partman_auto, partman_commit, summary, \
+                                install, migrationassistant
 import ubiquity.emap
 import ubiquity.tz
 import ubiquity.progressposition
@@ -83,9 +84,13 @@ BREADCRUMB_STEPS = {
     "stepPartAuto": 5,
     "stepPartAdvanced": 5,
     "stepPartMountpoints": 5,
-    "stepReady": 6
+    "stepMigrateOS": 6,
+    "stepMigrateUsers": 6,
+    "stepMigrateItems": 6,
+    "stepMigrateUser": 6,
+    "stepReady": 7
 }
-BREADCRUMB_MAX_STEP = 6
+BREADCRUMB_MAX_STEP = 7
 
 # For the font wibbling later
 import pango
@@ -237,6 +242,9 @@ class Wizard:
             old_dbfilter = self.dbfilter
             if current_name == "stepLanguage":
                 self.dbfilter = language.Language(self)
+            elif current_name in ("stepMigrateOS", "stepMigrateUsers", "stepMigrateItems", "stepMigrateUser"):
+                if not isinstance(self.dbfilter, migrationassistant.MigrationAssistant):
+                    self.dbfilter = migrationassistant.MigrationAssistant(self)
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
@@ -678,6 +686,16 @@ class Wizard:
             if getattr(self, name).get_text() == '':
                 complete = False
         self.allow_go_forward(complete)
+        
+    def ma_info_loop(self, widget):
+        """check if all entries from Identification screen are filled. Callback
+        defined in glade file."""
+        
+        complete = True
+        for name in ('ma_username', 'ma_password', 'ma_verified_password'):
+            if getattr(self, name).get_text() == '':
+                complete = False
+        self.allow_go_forward(complete)
 
     def on_hostname_delete_text(self, widget, start, end):
         self.hostname_edited = True
@@ -695,6 +713,10 @@ class Wizard:
             self.username_error_box.hide()
             self.password_error_box.hide()
             self.hostname_error_box.hide()
+            
+        if step == "stepMigrateUser":
+            self.ma_username_error_box.hide()
+            self.password_error_box.hide()
 
         if self.dbfilter is not None:
             self.allow_change_step(False)
@@ -748,6 +770,23 @@ class Wizard:
         # Mountpoints
         elif step == "stepPartMountpoints":
             self.mountpoints_to_summary()
+        # Operating systems
+	elif step == "stepMigrateOS":
+            # Quite the messy way of doing this, but I've been at this for about
+            # two hours and cannot think of anything else.
+            if self.get_ma_os_choices():
+                self.steps.next_page()
+            else:
+                self.steps.set_current_page(self.steps.page_num(self.stepReady))
+        # User selection
+        elif step == "stepMigrateUsers":
+            self.steps.next_page()
+        # Item selection
+        elif step == "stepMigrateItems":
+            self.steps.next_page()
+        # User details
+        elif step == "stepMigrateUser":
+            self.steps.next_page()
         # Ready to install
         elif step == "stepReady":
             self.live_installer.hide()
@@ -780,7 +819,6 @@ class Wizard:
             self.hostname_error_box.show()
         else:
             self.steps.next_page()
-
 
     def process_disk_selection (self):
         """Process disk selection before autopartitioning. This step will be
@@ -1358,6 +1396,135 @@ class Wizard:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][0]
 
+    def set_ma_os_choices(self, os_choices):
+        for child in self.migrate_os_vbox.get_children():
+            self.migrate_os_vbox.remove(child)
+
+        for choice in os_choices:
+            button = gtk.CheckButton(choice, False)
+            self.migrate_os_vbox.add(button)
+
+        self.migrate_os_vbox.show_all()
+        self.allow_go_forward(True)
+
+    def get_ma_os_choices (self):
+        ret = []
+        for widget in self.migrate_os_vbox.get_children():
+            if isinstance(widget, gtk.Button) and widget.get_active():
+                ret.append(widget.get_label())
+        return ret
+    
+    def set_ma_user_choices(self, user_choices):
+        for child in self.migrate_users_vbox.get_children():
+            self.migrate_users_vbox.remove(child)
+
+        for choice in user_choices:
+            button = gtk.CheckButton(choice, False)
+            self.migrate_users_vbox.add(button)
+
+        self.migrate_users_vbox.show_all()
+        self.steps.set_current_page(self.steps.page_num(self.stepMigrateUsers))
+        self.allow_go_forward(True)
+    
+    def set_ma_user_label(self, label):
+        self.migrate_users_comment_label.set_text(label)
+
+    def get_ma_user_choices (self):
+        ret = []
+        for widget in self.migrate_users_vbox.get_children():
+            if isinstance(widget, gtk.Button) and widget.get_active():
+                ret.append(widget.get_label())
+        return ret
+        
+    def set_ma_item_choices(self, item_choices, user):
+        model = self.ma_items_treeview.get_model()
+        if not model:
+            model = gtk.ListStore(gobject.TYPE_BOOLEAN, gobject.TYPE_STRING)
+            self.ma_items_treeview.set_model(model)
+            
+            renderer = gtk.CellRendererToggle()
+            col = gtk.TreeViewColumn(None, renderer, active=0) 
+            def toggled_cb(cell, path, model=None):
+                iter = model.get_iter(path)
+                model.set_value(iter, 0, not cell.get_active())
+                
+            renderer.connect('toggled', toggled_cb, model)
+            self.ma_items_treeview.append_column(col)
+            
+            col = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=1)
+            self.ma_items_treeview.append_column(col)
+            self.ma_items_treeview.set_headers_visible(False)
+            
+        else:
+            model.clear()
+        
+        for choice in item_choices:
+            model.append([True, choice])
+            
+        self.ma_username_heading.set_markup("<big><b>" + user + "</b></big>")
+        # TODO: Set user picture.
+        
+        self.steps.set_current_page(self.steps.page_num(self.stepMigrateItems))
+        self.allow_go_forward(True)
+
+    def get_ma_item_choices (self):
+        ret = []
+        def get_choices(model, path, iter):
+            if model.get_value(iter,0) == True:
+                ret.append(model.get_value(iter,1))
+        
+        model = self.ma_items_treeview.get_model()
+        model.foreach(get_choices)
+
+        return ret
+        
+    def set_ma_item_users (self, users):
+        list_store = self.ma_user_combo.get_model()
+        self.ma_user_combo.set_active(0)
+        for u in users:
+            list_store.append([u])
+    
+    def get_ma_item_user (self):
+        if self.ma_user_combo.get_active() == 0:
+            return "add-user"
+        else:
+            return self.ma_user_combo.get_active_text()
+    
+    def get_ma_fullname(self):
+        return self.ma_fullname.get_text()
+    
+    def get_ma_username(self):
+        return self.ma_username.get_text()
+    
+    def get_ma_password(self):
+        return self.ma_password.get_text()
+    
+    def get_ma_verified_password(self):
+        return self.ma_verified_password.get_text()
+        
+    def get_ma_administrator(self):
+        if self.ma_administrator.get_active():
+            return "true"
+        else:
+            return "false"
+            
+    def set_ma_user (self):
+        self.ma_username_error_box.hide()
+        self.ma_password_error_box.hide()
+        self.ma_fullname_error_box.hide()
+        
+        self.ma_username.set_text('')
+        self.ma_password.set_text('')
+        self.ma_verified_password.set_text('')
+        self.ma_fullname.set_text('')
+        self.ma_administrator.set_active(False)
+        
+        self.steps.set_current_page(self.steps.page_num(self.stepMigrateUser))
+        self.allow_go_forward(True)
+        
+    def ma_password_error(self, msg):
+        self.ma_password_error_reason.set_text(msg)
+        self.ma_password_error_box.show()
 
     def set_timezone (self, timezone):
         self.tzmap.set_tz_from_name(timezone)
