@@ -3,7 +3,7 @@ set -e
 
 . /usr/share/debconf/confmodule
 
-tzsetup
+PATH="/usr/lib/oem-config/timezone:$PATH" tzsetup
 
 # TODO cjwatson 2006-07-07: cloned-and-hacked from
 # tzsetup/finish-install.d/05tzsetup
