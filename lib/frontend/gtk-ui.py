@@ -146,6 +146,8 @@ class Frontend:
         self.current_page = current
         if current == 0:
             self.back.hide()
+        else:
+            self.back.show()
         current_name = self.step_name(current)
         # TODO cjwatson 2006-07-04: i18n infrastructure
         #label_text = get_string("step_label", self.locale)
