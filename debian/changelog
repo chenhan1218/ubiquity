@@ -1,4 +1,4 @@
-oem-config (1.0) UNRELEASED; urgency=low
+oem-config (1.0) edgy; urgency=low
 
   * Reorganise oem-config to have a reasonable frontend/backend separation,
     thereby allowing for a future KDE port. This involved updating much of
@@ -38,7 +38,7 @@ oem-config (1.0) UNRELEASED; urgency=low
   * Language names are now sorted according to the local name for each
     language (closes: Malone #47724).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri,  7 Jul 2006 14:27:23 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 22 Aug 2006 16:26:07 +0100
 
 oem-config (0.14) dapper; urgency=low
 
