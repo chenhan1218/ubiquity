@@ -1,3 +1,9 @@
+ubiquity (1.1.9) UNRELEASED; urgency=low
+
+  * Use /bin/bash for user-setup due to a dash test(1) bug.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 22 Aug 2006 15:37:18 +0100
+
 ubiquity (1.1.8) edgy; urgency=low
 
   [ Jonathan Riddell ]
