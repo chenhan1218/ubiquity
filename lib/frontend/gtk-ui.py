@@ -334,19 +334,19 @@ class Frontend:
             return self.timezone_choice_map[value]
 
     def set_fullname(self, value):
-        self.fullname.set_text(value)
+        self.user_fullname_entry.set_text(value)
 
     def get_fullname(self):
-        return self.fullname.get_text()
+        return self.user_fullname_entry.get_text()
 
     def set_username(self, value):
-        self.username.set_text(value)
+        self.user_name_entry.set_text(value)
 
     def get_username(self):
-        return self.username.get_text()
+        return self.user_name_entry.get_text()
 
     def get_password(self):
-        return self.password.get_text()
+        return self.user_password_entry.get_text()
 
     def get_verified_password(self):
-        return self.verified_password.get_text()
+        return self.user_password_confirm_entry.get_text()
