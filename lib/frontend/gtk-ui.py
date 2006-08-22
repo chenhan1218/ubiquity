@@ -291,8 +291,8 @@ class Frontend:
 
     # Give this the untranslated keyboard name.
     def get_keyboard(self):
-        keyboard = self.select_keyboard_combo.get_active_iter()
-        if keyboard is None:
+        iterator = self.select_keyboard_combo.get_active_iter()
+        if iterator is None:
             return 'C'
         else:
             model = self.select_keyboard_combo.get_model()
