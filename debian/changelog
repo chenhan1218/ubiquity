@@ -34,6 +34,7 @@ oem-config (1.0) UNRELEASED; urgency=low
     localechooser 0.19) and to use /usr/share/i18n/SUPPORTED (based on
     localechooser 1.20ubuntu5).
   * Make more of an effort to display translated country names.
+  * Use /bin/bash for user-setup due to a dash test(1) bug.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  7 Jul 2006 14:27:23 +0100
 

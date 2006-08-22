@@ -29,7 +29,8 @@ binary-arch: build
 		> debian/oem-config/usr/lib/oem-config/timezone/tzsetup
 	chmod +x debian/oem-config/usr/lib/oem-config/timezone/tzsetup
 	for x in user-setup user-setup-ask user-setup-apply; do \
-		sed 's,/usr/lib/user-setup,/usr/lib/oem-config/user,g' \
+		sed -e 's,/usr/lib/user-setup,/usr/lib/oem-config/user,g' \
+		    -e 's,/bin/sh,/bin/bash,g' \
 			d-i/source/user-setup/$$x \
 			> debian/oem-config/usr/lib/oem-config/user/$$x; \
 		chmod +x debian/oem-config/usr/lib/oem-config/user/$$x; \
