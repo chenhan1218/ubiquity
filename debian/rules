@@ -24,7 +24,7 @@ binary-arch: build
 	dh_install -a
 
 	# Bits of manual installation that can't be done by dh_install
-	sed 's,/usr/share/tzsetup,/usr/lib/oem-config/tzsetup,g' \
+	sed 's,/usr/share/tzsetup,/usr/lib/oem-config/timezone,g' \
 		d-i/source/tzsetup/tzsetup \
 		> debian/oem-config/usr/lib/oem-config/timezone/tzsetup
 	chmod +x debian/oem-config/usr/lib/oem-config/timezone/tzsetup
