@@ -325,8 +325,8 @@ class Frontend:
             iterator = model.iter_next(iterator)
 
     def get_timezone(self):
-        timezone = self.select_zone_combo.get_active_iter()
-        if timezone is None:
+        iterator = self.select_zone_combo.get_active_iter()
+        if iterator is None:
             return None
         else:
             model = self.select_zone_combo.get_model()
