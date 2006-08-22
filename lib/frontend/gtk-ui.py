@@ -77,7 +77,7 @@ class Frontend:
         self.steps.set_current_page(self.steps.page_num(self.step_language))
         # TODO cjwatson 2006-07-07: why isn't on_steps_switch_page getting
         # invoked?
-        self.current_page = self.steps.page_num(self.step_language)
+        self.set_current_page(self.steps.page_num(self.step_language))
 
         while self.current_page is not None:
             self.backup = False
