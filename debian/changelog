@@ -35,6 +35,8 @@ oem-config (1.0) UNRELEASED; urgency=low
     localechooser 1.20ubuntu5).
   * Make more of an effort to display translated country names.
   * Use /bin/bash for user-setup due to a dash test(1) bug.
+  * Language names are now sorted according to the local name for each
+    language (closes: Malone #47724).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  7 Jul 2006 14:27:23 +0100
 
