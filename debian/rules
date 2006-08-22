@@ -15,7 +15,7 @@ clean:
 	$(MAKE) -C d-i clean
 	dh_clean
 
-binary-arch:
+binary-arch: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k
@@ -51,7 +51,7 @@ binary-arch:
 	dh_md5sums -a
 	dh_builddeb -a
 
-binary-indep: build
+binary-indep:
 	dh_testdir
 	dh_testroot
 	dh_clean -k
