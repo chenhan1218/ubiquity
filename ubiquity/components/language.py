@@ -48,7 +48,7 @@ class Language(FilteredCommand):
                 'languagechooser/language-name')
 
             language_codes = {}
-            languagelist = open('/usr/share/localechooser/languagelist')
+            languagelist = open('/usr/lib/ubiquity/localechooser/languagelist')
             for line in languagelist:
                 if line.startswith('#'):
                     continue
