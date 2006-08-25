@@ -1,3 +1,10 @@
+ubiquity (1.1.10) UNRELEASED; urgency=low
+
+  * GTK frontend: Add apport integration to crash handler. (Not done yet for
+    KDE frontend, pending the existence of apport-kde.)
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 24 Aug 2006 16:38:27 +0100
+
 ubiquity (1.1.9) edgy; urgency=low
 
   * Use /bin/bash for user-setup due to a dash test(1) bug.

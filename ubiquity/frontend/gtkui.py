@@ -56,6 +56,12 @@ try:
 except ImportError:
     from ubiquity.debconfcommunicator import DebconfCommunicator
 
+try:
+    import problem_report
+    import apport_utils
+except ImportError:
+    pass
+
 from ubiquity import filteredcommand, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
@@ -179,12 +185,39 @@ class Wizard:
             return
 
         tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
+
+        if 'problem_report' in sys.modules and 'apport_utils' in sys.modules:
+            try:
+                pr = problem_report.ProblemReport()
+                apport_utils.report_add_package_info(pr, 'ubiquity-frontend-gtk')
+                apport_utils.report_add_os_info(pr)
+                apport_utils.report_add_proc_info(pr)
+                pr['BugDisplayMode'] = 'file'
+                pr['ExecutablePath'] = '/usr/bin/ubiquity'
+                pr['PythonTraceback'] = tbtext
+                if os.path.exists('/var/log/installer/syslog'):
+                    pr['UbiquityInstallerSyslog'] = ('/var/log/installer/syslog',)
+                if os.path.exists('/var/log/syslog'):
+                    pr['UbiquitySyslog'] = ('/var/log/syslog',)
+                if os.path.exists('/var/log/partman'):
+                    pr['UbiquityPartman'] = ('/var/log/partman',)
+                reportfile = open(apport_utils.make_report_path(pr), 'w')
+                pr.write(reportfile)
+                reportfile.close()
+                sys.exit(1)
+            except (KeyboardInterrupt, SystemExit):
+                raise
+            except:
+                # Out of disk space? Fall back to our own crash handler.
+                pass
+
         print >>sys.stderr, ("Exception in GTK frontend"
                              " (invoking crash handler):")
         print >>sys.stderr, tbtext
         self.crash_detail_label.set_text(tbtext)
         self.crash_dialog.run()
         self.crash_dialog.hide()
+
         sys.exit(1)
 
 
