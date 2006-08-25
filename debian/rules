@@ -122,6 +122,12 @@ endif
 		d-i/source/hw-detect/debian/hw-detect/bin/hw-detect \
 		> debian/ubiquity/bin/hw-detect
 	chmod +x debian/ubiquity/bin/hw-detect
+ifeq ($(DEB_HOST_ARCH),sparc)
+	sed 's,/usr/share/hw-detect,/usr/lib/ubiquity/hw-detect,g' \
+		d-i/source/hw-detect/discover-sbus.sh \
+		> debian/ubiquity/bin/discover-sbus
+	chmod +x debian/ubiquity/bin/discover-sbus
+endif
 	install d-i/source/kbd-chooser/debian/post-base-installer \
 		debian/ubiquity/usr/lib/ubiquity/kbd-chooser/
 	set -e; for x in languagemap localechooser post-base-installer; do \
@@ -135,7 +141,8 @@ endif
 	install d-i/source/tzsetup/finish-install.d/*tzsetup \
 		debian/ubiquity/usr/lib/ubiquity/tzsetup/finish-install
 	set -e; for x in user-setup user-setup-ask user-setup-apply; do \
-		sed 's,/usr/lib/user-setup,/usr/lib/ubiquity/user-setup,g' \
+		sed -e 's,/usr/lib/user-setup,/usr/lib/ubiquity/user-setup,g' \
+		    -e 's,/bin/sh,/bin/bash,g' \
 			d-i/source/user-setup/$$x \
 			> debian/ubiquity/usr/lib/ubiquity/user-setup/$$x; \
 		chmod +x debian/ubiquity/usr/lib/ubiquity/user-setup/$$x; \
