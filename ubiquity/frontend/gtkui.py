@@ -154,9 +154,6 @@ class Wizard:
         # set custom language
         self.set_locales()
 
-        # If automatic partitioning fails, it may be disabled toggling on this variable:
-        self.discard_automatic_partitioning = False
-
         # load the interface
         self.glade = gtk.glade.XML('%s/ubiquity.glade' % GLADEDIR)
 
@@ -1253,15 +1250,6 @@ class Wizard:
         else:
             self.new_size_vbox.hide()
 
-
-##     def on_abort_dialog_close (self, widget):
-
-##         """ Disable automatic partitioning and reset partitioning method step. """
-
-##         sys.stderr.write ('\non_abort_dialog_close.\n\n')
-
-##         self.discard_automatic_partitioning = True
-##         self.on_drives_changed (None)
 
     def on_abort_ok_button_clicked (self, widget):
 
