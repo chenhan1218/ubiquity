@@ -771,7 +771,7 @@ class Wizard:
         elif step == "stepPartMountpoints":
             self.mountpoints_to_summary()
         # Operating systems
-	elif step == "stepMigrateOS":
+        elif step == "stepMigrateOS":
             # Quite the messy way of doing this, but I've been at this for about
             # two hours and cannot think of anything else.
             if self.get_ma_os_choices():

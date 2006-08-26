@@ -73,6 +73,9 @@ class MigrationAssistant(FilteredCommand):
             self.frontend.set_ma_item_users(self.existing_users)
             self.frontend.set_ma_item_choices(item_choices, user)
             
+            # Apparently needed to stop the UI from skipping past the item selection and user setup pages for any users beyond the first one.
+            self.done = False
+            
         elif question.endswith('user'):
             self.current_question = question
             self.frontend.set_ma_user()
@@ -90,9 +93,13 @@ class MigrationAssistant(FilteredCommand):
                 
                 self.preseed(self.current_question, formatted_choice)
                 
+                #FIXME: Why did I do this again?
                 self.succeeded = True
                 self.done = False
                 self.exit_ui_loops()
+                return
+            else:
+                self.done = True
                 return
     
         elif self.current_question.endswith('users'):
