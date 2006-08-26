@@ -3,6 +3,8 @@ ubiquity (1.1.10) UNRELEASED; urgency=low
   * GTK frontend: Add apport integration to crash handler. (Not done yet for
     KDE frontend, pending the existence of apport-kde.)
   * Remove abort_dialog cruft.
+  * Rewrite doc/README to be reasonably up to date. Among other things, it
+    now contains a brief explanation of the debconffilter framework.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 24 Aug 2006 16:38:27 +0100
 
