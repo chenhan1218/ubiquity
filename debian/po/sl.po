@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-08-01 01:44+0100\n"
+"POT-Creation-Date: 2006-08-26 11:59+0100\n"
 "PO-Revision-Date: 2006-05-27 02:45+0000\n"
 "Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
 "Language-Team: Slovenščina <team@slo-tech.com>\n"
@@ -274,7 +274,7 @@ msgstr "Določiti morate eno korensko (»/«) priklopno točko."
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:36001 ../ubiquity.templates:50001
+#: ../ubiquity.templates:36001 ../ubiquity.templates:48001
 msgid "Ready to install"
 msgstr "Pripravljeno za namestitev"
 
@@ -303,49 +303,33 @@ msgstr "Prekinem namestitev?"
 msgid "Do you really want to abort the installation now?"
 msgstr "Ste prepričani, da želite prekiniti namestitev?"
 
-#. Type: title
+#. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-msgid "Partitioning was interrupted"
-msgstr "Razdeljevanje je bilo prekinjeno"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:42001
-msgid ""
-"It was not possible to partition this disk automatically. You must select "
-"another partitioning method."
-msgstr ""
-"Tega diska ni bilo moč razdeliti samodejno. Izbrati morate drug način "
-"razdeljevanja."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:43001
 msgid "Skip"
 msgstr "Preskoči"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:42001
 msgid "Installation complete"
 msgstr "Namestitev je končana"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:43001
 msgid "Continue using the live CD"
 msgstr "Nadaljujte uporabo žive zgoščenke."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:44001
 msgid "Restart now"
 msgstr "Ponoven zagon"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:45001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -357,7 +341,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:45001
 msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
@@ -369,205 +353,205 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:46001
 msgid "Go Back"
 msgstr "Pojdi nazaj"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:47001
 msgid "Continue"
 msgstr "Nadaljuj"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001
 msgid "Language: ${LANGUAGE}"
 msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001
 msgid "Keyboard layout: ${KEYMAP}"
 msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001
 msgid "Name: ${REALNAME}"
 msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001
 msgid "Login name: ${USERNAME}"
 msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001
 msgid "Location: ${LOCATION}"
 msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001
 msgid "Partitioning:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:49001
 msgid "Installing system"
 msgstr "Nameščanje sistema"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:50001
 msgid "Finding the distribution to copy..."
 msgstr "Iskanje distribucije za kopiranje ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:51001
 msgid "Scanning files..."
 msgstr "Pregledovanje datotek ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:52001
 msgid "Copying files..."
 msgstr "Kopiranje datotek ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:53001
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Kopiranje datotek (preostaja ${TIME}) ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:54001
 msgid "Copying installation logs..."
 msgstr "Kopiranje dnevnikov namestitve ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:55001
 msgid "Cleaning up..."
 msgstr "Čistim ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:56001
 msgid "Running ${SCRIPT}..."
 msgstr "Poganjam ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:57001
 msgid "Configuring system locales..."
 msgstr "Nastavljanje lokalizacije ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:58001
 msgid "Configuring apt..."
 msgstr "Nastavljanje apt ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:59001
 msgid "Configuring time zone..."
 msgstr "Nastavljanje časovnega pasu ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:60001
 msgid "Configuring keyboard..."
 msgstr "Nastavljanje tipkovnice ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:61001
 msgid "Creating user..."
 msgstr "Ustvarjanje uporabnika ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:62001
 msgid "Configuring hardware..."
 msgstr "Nastavljanje strojne opreme ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:63001
 msgid "Configuring network..."
 msgstr "Nastavljam mrežo..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:64001
 msgid "Setting computer name..."
 msgstr "Nastavljanje imena računalnika ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:65001
 msgid "Configuring boot loader..."
 msgstr "Nastavljanje zagonskega nalagalnika ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:66001
 msgid "Removing extra packages..."
 msgstr "Odstranjevanje odvečnih paketov ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:67001
 msgid "Checking for packages to remove..."
 msgstr "Iskanje paketov za odstranitev ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:68001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Prenašanje paketov (preostaja ${TIME}) ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:69001
 msgid "Downloading package lists..."
 msgstr "Prenašanje seznamov paketov ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:70001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Prenašanje seznamov paketov (preostaja ${TIME}) ..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:72001
 msgid "Error installing ${PACKAGE}"
 msgstr "Napaka pri nameščanju ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:73001
 msgid "Error removing ${PACKAGE}"
 msgstr "Napaka pri odstranjevanju ${PACKAGE}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:74001
 msgid "Installing language packs"
 msgstr "Nameščanje jezikovnih paketov"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:75001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Prenašanje jezikovnih paketov (preostaja ${TIME}) ..."

@@ -182,16 +182,6 @@ Template: ubiquity/text/warning_dialog_label
 Type: text
 _Description: Do you really want to abort the installation now?
 
-Template: ubiquity/text/abort_dialog
-Type: title
-_Description: Partitioning was interrupted
-
-Template: ubiquity/text/abort_dialog_label
-Type: text
-_Description:
- It was not possible to partition this disk automatically. You must select
- another partitioning method.
-
 Template: ubiquity/text/progress_cancel_button
 Type: text
 _Description: Skip

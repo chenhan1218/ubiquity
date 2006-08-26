@@ -1251,13 +1251,6 @@ class Wizard:
             self.new_size_vbox.hide()
 
 
-    def on_abort_ok_button_clicked (self, widget):
-
-        """ Close this dialog. """
-
-        self.abort_dialog.hide ()
-
-
     # Callbacks provided to components.
 
     def watch_debconf_fd (self, from_debconf, process_input):
