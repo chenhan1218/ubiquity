@@ -182,6 +182,9 @@ class Wizard:
             return
 
         tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
+        print >>sys.stderr, ("Exception in GTK frontend"
+                             " (invoking crash handler):")
+        print >>sys.stderr, tbtext
 
         if 'problem_report' in sys.modules and 'apport_utils' in sys.modules:
             try:
@@ -208,9 +211,6 @@ class Wizard:
                 # Out of disk space? Fall back to our own crash handler.
                 pass
 
-        print >>sys.stderr, ("Exception in GTK frontend"
-                             " (invoking crash handler):")
-        print >>sys.stderr, tbtext
         self.crash_detail_label.set_text(tbtext)
         self.crash_dialog.run()
         self.crash_dialog.hide()
