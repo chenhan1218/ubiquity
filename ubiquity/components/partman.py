@@ -40,7 +40,7 @@ class Partman(PartmanAuto):
         self.stashed_auto_mountpoints = {}
 
         self.building_cache = True
-        self.state = [['', '']]
+        self.state = [['', None, None]]
         self.disk_cache = []
         self.partition_cache = []
         self.creating_partition = None
@@ -94,7 +94,8 @@ class Partman(PartmanAuto):
         scripts = []
         for (script, arg, option) in menu_options:
             if script[2:] == want_script:
-                scripts.append[(script, arg, option)]
+                scripts.append((script, arg, option))
+        return scripts
 
     def must_find_one_script(self, question, menu_options, want_script):
         for (script, arg, option) in menu_options:
@@ -130,7 +131,7 @@ class Partman(PartmanAuto):
                     parted = parted_server.PartedServer()
 
                     matches = self.find_script(menu_options, 'partition_tree')
-                    for (script, arg, option) in matches:
+                    for script, arg, option in matches:
                         (dev, part_id) = arg.split('//', 1)
                         if dev.startswith(parted_server.devices + '/'):
                             dev = dev[len(parted_server.devices) + 1:]
@@ -155,7 +156,7 @@ class Partman(PartmanAuto):
                     # so don't bother with that.
 
                     if self.partition_cache:
-                        self.state.append([question, 0])
+                        self.state.append([question, 0, None])
                         self.preseed(question,
                                      self.partition_cache[0][1]['display'],
                                      escape=True)
@@ -165,7 +166,7 @@ class Partman(PartmanAuto):
 
             self.debug('partition_cache: %s', str(self.partition_cache))
 
-            self.state = [['', '']]
+            self.state = [['', None, None]]
             self.creating_partition = None
             self.editing_partition = None
             self.deleting_partition = None
@@ -175,7 +176,7 @@ class Partman(PartmanAuto):
             if self.done:
                 if self.succeeded:
                     (script, arg, option) = self.must_find_one_script(
-                        question, self.menu_options, 'finish')
+                        question, menu_options, 'finish')
                     self.preseed(question, option)
                 return self.succeeded
 
@@ -256,10 +257,11 @@ class Partman(PartmanAuto):
                 partition = self.partition_cache[state[1]][1]
 
                 if state[0] == question:
-                    state[1] += 1
-                    if state[1] < len(partition['active_partition_visit']):
+                    state[2] += 1
+                    if state[2] < len(partition['active_partition_visit']):
                         # Move on to the next item.
-                        self.preseed(question, visit[state[1]][2], escape=True)
+                        visit = partition['active_partition_visit']
+                        self.preseed(question, visit[state[2]][2], escape=True)
                         return True
                     else:
                         # Finished building the cache for this submenu; go
@@ -272,8 +274,11 @@ class Partman(PartmanAuto):
                 parted = parted_server.PartedServer()
 
                 parted.select_disk(partition['dev'])
-                for entry in ('method', 'detected_filesystem',
-                              'acting_filesystem'):
+                for entry in ('method',
+                              'filesystem', 'detected_filesystem',
+                              'acting_filesystem',
+                              'existing', 'formatable',
+                              'mountpoint'):
                     if parted.has_part_entry(partition['id'], entry):
                         partition[entry] = \
                             parted.readline_part_entry(partition['id'], entry)
@@ -284,7 +289,7 @@ class Partman(PartmanAuto):
                         visit.append((script, arg, option))
                 if visit:
                     partition['active_partition_visit'] = visit
-                    self.state.append([question, 0])
+                    self.state.append([question, state[1], 0])
                     self.preseed(question, visit[0][2], escape=True)
                     return True
                 else:
@@ -301,10 +306,11 @@ class Partman(PartmanAuto):
                 partition = self.partition_cache[state[1]][1]
 
                 if state[0] == question:
-                    state[1] += 1
-                    if state[1] < len(partition['active_partition_visit']):
+                    state[2] += 1
+                    if state[2] < len(partition['active_partition_visit']):
                         # Move on to the next item.
-                        self.preseed(question, visit[state[1]][2], escape=True)
+                        visit = partition['active_partition_visit']
+                        self.preseed(question, visit[state[2]][2], escape=True)
                         return True
                     else:
                         # Finish editing this partition.
@@ -328,7 +334,7 @@ class Partman(PartmanAuto):
                     visit.append((script, arg, option))
                 if visit:
                     partition['active_partition_visit'] = visit
-                    self.state.append([question, 0])
+                    self.state.append([question, state[1], 0])
                     self.preseed(question, visit[0][2], escape=True)
                     return True
                 else:
