@@ -204,7 +204,6 @@ class Wizard:
                 reportfile = open(apport_utils.make_report_path(pr), 'w')
                 pr.write(reportfile)
                 reportfile.close()
-                sys.exit(1)
             except (KeyboardInterrupt, SystemExit):
                 raise
             except:
