@@ -1,9 +1,9 @@
-ubiquity (1.1.11) UNRELEASED; urgency=low
+ubiquity (1.1.11) edgy; urgency=low
 
   * Automatic update of included source packages: apt-setup
     1:0.11ubuntu4.
 
- -- Colin Watson <cjwatson@debian.org>  Wed, 30 Aug 2006 13:35:43 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 30 Aug 2006 13:35:52 +0100
 
 ubiquity (1.1.10) edgy; urgency=low
 
