@@ -40,6 +40,7 @@ class PartedServerError(Exception):
     """
 
     def __init__(self, exctype, message, options):
+        Exception.__init__(self, exctype, message, options)
         self.exctype = exctype
         self.message = message
         self.options = list(options)

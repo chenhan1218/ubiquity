@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-08-01 01:44+0100\n"
+"POT-Creation-Date: 2006-08-26 11:59+0100\n"
 "PO-Revision-Date: 2006-05-24 17:49+0000\n"
 "Last-Translator: Jordi Mallach <jordi@canonical.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -282,7 +282,7 @@ msgstr "Heu de donar un punt de muntatge per a l'arrel («/»)"
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:36001 ../ubiquity.templates:50001
+#: ../ubiquity.templates:36001 ../ubiquity.templates:48001
 msgid "Ready to install"
 msgstr "Preparat per a instal·lar"
 
@@ -311,49 +311,33 @@ msgstr "Voleu avortar la instal·lació?"
 msgid "Do you really want to abort the installation now?"
 msgstr "Esteu segur de voler avortar la instal·lació ara?"
 
-#. Type: title
+#. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-msgid "Partitioning was interrupted"
-msgstr "S'ha avortat la partició"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:42001
-msgid ""
-"It was not possible to partition this disk automatically. You must select "
-"another partitioning method."
-msgstr ""
-"No s'ha pogut partir aquest disc automàticament. Podeu seleccionar un altre "
-"mètode de partició."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:43001
 msgid "Skip"
 msgstr "Omet"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:42001
 msgid "Installation complete"
 msgstr "Instal·lació completa"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:43001
 msgid "Continue using the live CD"
 msgstr "Continueu utilitzant el CD autònom"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:44001
 msgid "Restart now"
 msgstr "Reinicia ara"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:45001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -366,7 +350,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:45001
 msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
@@ -378,205 +362,205 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:46001
 msgid "Go Back"
 msgstr "Vés enrere"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:47001
 msgid "Continue"
 msgstr "Continua"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001
 msgid "Language: ${LANGUAGE}"
 msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001
 msgid "Keyboard layout: ${KEYMAP}"
 msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001
 msgid "Name: ${REALNAME}"
 msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001
 msgid "Login name: ${USERNAME}"
 msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001
 msgid "Location: ${LOCATION}"
 msgstr ""
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001
 msgid "Partitioning:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:49001
 msgid "Installing system"
 msgstr "S'està instal·lant el sistema"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:50001
 msgid "Finding the distribution to copy..."
 msgstr "S'està cercant la distribució a copiar..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:51001
 msgid "Scanning files..."
 msgstr "S'estan analitzant els fitxers..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:52001
 msgid "Copying files..."
 msgstr "S'estan copiant els fitxers..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:53001
 msgid "Copying files (${TIME} remaining)..."
 msgstr "S'estan copiant els fitxers (${TIME} per a acabar)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:54001
 msgid "Copying installation logs..."
 msgstr "S'estan copiant els registres de la instal·lació..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:55001
 msgid "Cleaning up..."
 msgstr "S'està netejant..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:56001
 msgid "Running ${SCRIPT}..."
 msgstr "S'està executant ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:57001
 msgid "Configuring system locales..."
 msgstr "S'estan configurant els locales del sistema"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:58001
 msgid "Configuring apt..."
 msgstr "S'està configurant l'apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:59001
 msgid "Configuring time zone..."
 msgstr "S'està configurant el fus horari..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:60001
 msgid "Configuring keyboard..."
 msgstr "S'està configurant el teclat..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:61001
 msgid "Creating user..."
 msgstr "S'està creant un usuari..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:62001
 msgid "Configuring hardware..."
 msgstr "S'està configurant el maquinari..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:63001
 msgid "Configuring network..."
 msgstr "S'està configurant la xarxa..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:64001
 msgid "Setting computer name..."
 msgstr "S'està establint el nom de l'ordinador..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:65001
 msgid "Configuring boot loader..."
 msgstr "S'està configurant el carregador..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:66001
 msgid "Removing extra packages..."
 msgstr "S'estan suprimint els paquets extra..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:67001
 msgid "Checking for packages to remove..."
 msgstr "S'està comprovant quins paquets s'han de suprimir..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:68001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "S'estan baixant els paquets (${TIME} per a acabar)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:69001
 msgid "Downloading package lists..."
 msgstr "S'estan baixant les llistes de paquets..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:70001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "S'estan baixant les llistes de paquets (${TIME} per a acabar)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:72001
 msgid "Error installing ${PACKAGE}"
 msgstr "S'ha produït un error en instal·lar ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:73001
 msgid "Error removing ${PACKAGE}"
 msgstr "S'ha produït un error en suprimir ${PACKAGE}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:74001
 msgid "Installing language packs"
 msgstr "S'estan instal·lant els paquets de llengua"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:75001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "S'estan baixant els paquets de llengua (${TIME} per a acabar)..."

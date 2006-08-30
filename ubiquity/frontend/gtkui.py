@@ -154,9 +154,6 @@ class Wizard:
         # set custom language
         self.set_locales()
 
-        # If automatic partitioning fails, it may be disabled toggling on this variable:
-        self.discard_automatic_partitioning = False
-
         # load the interface
         self.glade = gtk.glade.XML('%s/ubiquity.glade' % GLADEDIR)
 
@@ -185,6 +182,9 @@ class Wizard:
             return
 
         tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
+        print >>sys.stderr, ("Exception in GTK frontend"
+                             " (invoking crash handler):")
+        print >>sys.stderr, tbtext
 
         if 'problem_report' in sys.modules and 'apport_utils' in sys.modules:
             try:
@@ -204,16 +204,12 @@ class Wizard:
                 reportfile = open(apport_utils.make_report_path(pr), 'w')
                 pr.write(reportfile)
                 reportfile.close()
-                sys.exit(1)
             except (KeyboardInterrupt, SystemExit):
                 raise
             except:
                 # Out of disk space? Fall back to our own crash handler.
                 pass
 
-        print >>sys.stderr, ("Exception in GTK frontend"
-                             " (invoking crash handler):")
-        print >>sys.stderr, tbtext
         self.crash_detail_label.set_text(tbtext)
         self.crash_dialog.run()
         self.crash_dialog.hide()
@@ -1252,22 +1248,6 @@ class Wizard:
             self.new_size_vbox.show()
         else:
             self.new_size_vbox.hide()
-
-
-##     def on_abort_dialog_close (self, widget):
-
-##         """ Disable automatic partitioning and reset partitioning method step. """
-
-##         sys.stderr.write ('\non_abort_dialog_close.\n\n')
-
-##         self.discard_automatic_partitioning = True
-##         self.on_drives_changed (None)
-
-    def on_abort_ok_button_clicked (self, widget):
-
-        """ Close this dialog. """
-
-        self.abort_dialog.hide ()
 
 
     # Callbacks provided to components.

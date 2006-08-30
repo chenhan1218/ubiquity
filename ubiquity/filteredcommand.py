@@ -218,12 +218,8 @@ class FilteredCommand(object):
         choices = self.choices(question)
         choices_c = self.choices_untranslated(question)
         for i in range(len(choices)):
-#            print >>sys.stderr, i
-#            print >>sys.stderr, choices[i]
-#            print >>sys.stderr, choices_c[i]
-            
             _map[choices[i]] = choices_c[i]
-        return _map        
+        return _map
 
     def description(self, question):
         return unicode(self.db.metaget(question, 'description'),

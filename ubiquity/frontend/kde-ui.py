@@ -161,9 +161,6 @@ class Wizard:
         # To get a "busy mouse":
         self.userinterface.setCursor(QCursor(Qt.WaitCursor))
     
-        # If automatic partitioning fails, it may be disabled toggling on this variable:
-        self.discard_automatic_partitioning = False
-        
         # TODO jr 2006-04-19: sometimes causes pykde crash when creating
         # kdialogs
         self.translate_widgets()
@@ -1223,15 +1220,6 @@ class Wizard:
         else:
             text = '%d%%' % value
         self.userinterface.new_size_value.setText(text)
-
-        ##     def on_abort_dialog_close (self, widget):
-
-        ##         """ Disable automatic partitioning and reset partitioning method step. """
-
-        ##         sys.stderr.write ('\non_abort_dialog_close.\n\n')
-
-        ##         self.discard_automatic_partitioning = True
-        ##         self.on_drives_changed (None)
 
 
     # Callbacks provided to components.

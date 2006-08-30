@@ -1,167 +1,133 @@
-NOTE
-====
+Ubiquity
+========
 
-The following documentation is hopelessly obsolete and needs to be
-rewritten. In the meantime, your best bet is probably to ask me
-(Colin Watson <cjwatson@ubuntu.com>) if you have questions regarding
-ubiquity's workings.
+This is a graphical installer for Ubuntu, written largely in Python, using
+d-i as a backend for many of its functions. The authors are indebted to the
+efforts of the Guadalinex project in developing the original
+"ubuntu-express" code used as a basis for this project.
 
+Background
+----------
 
+Around 2000, the debian-installer (later just "d-i") project started to
+replace the old Debian "boot-floppies" installer. The goals of this project
+included long-term maintainability, modularity, and code reuse. After a
+hiatus during the Debian 3.0 release, this project matured into a usable
+installer in 2004 in time for, among others, the releases of Debian 3.1 and
+Ubuntu 4.10. From Ubuntu 4.10 to Ubuntu 5.10, d-i was used as the primary
+installation program.
 
-The Ubuntu Package ubuntu-express
----------------------------------
+d-i continues to provide flexibility and (for a certain significant class of
+users) ease of use that a simplified graphical installer will always be
+hard-pushed to provide. It is therefore important to continue to support it
+in Ubuntu. From a maintainability point of view, it follows that it is
+important for any graphical installer supported by Ubuntu to share
+substantial amounts of code with d-i, particularly where the backend logic
+is intrinsically difficult and has accumulated large quantities of expertise
+and bug fixes. Accordingly, Ubiquity is designed to use logic from d-i where
+possible, and tries to confine itself to being a high-quality frontend.
 
-The installer of Ubuntu has characterized itself until now by being very
-simple, friendly and graphical.
+(Of course, there remain some areas where d-i does not provide suitable
+logic, or where its logic has not proven amenable to direct use within
+Ubiquity, so there is still some backend-style logic and code duplication
+in Ubiquity. Eventually, as much of this as possible should go away.)
 
-For this version we will develop a new installer, still more powerful, using
-Python as a programming language.
-
-We will put special attention at the partitioning process, in order to make it
-as automatic and safe as possible.
-
-
-Specifications
-==============
-
-Introduction
-------------
-
-The Ubuntu’s installer Live will be a simple one and well integrated
-with Debian and Ubuntu based systems.
-
-
-Use Cases
+UI Design
 ---------
 
-    * A user takes Ubuntu, she likes it and she wants to install it,
-as is, in her computer.
-    * A user takes Ubuntu, she likes it, she tests it, she configures
-it and she wants to have it installed, keeping the present configuration , in
-her computer.
-    * A user has tried Ubuntu, she knows that she likes it and she
-wants to install it, but neither wants nor needs to launch the complete distro
-(Desktop and so on), she just wants a fast and simple way to install.
-    * A user has installed Ubuntu from its Live version and wants to
-be able to have a configuration file with the chosen options, in case she
-needs to reinstall or to install in a similar computer.
+The primary focus of Ubiquity's UI is ease of use for new users.
+Accordingly, it does not try to provide all possible options, deferring
+advanced installation scenarios to d-i so that it does not have to be all
+things to all people. See http://wiki.ubuntu.com/UbuntuExpress for the
+original details of its user interface design.
 
+Debconf Integration
+-------------------
 
-Preconditions
+The most challenging part of Ubiquity to understand is undoubtedly its
+integration with d-i. Before getting to grips with this, I assume that the
+reader has a basic developer-level grasp of the "debconf" configuration
+system. Reading the debconf-devel(7) man page is a good idea.
+
+d-i uses debconf for all user interaction. The extant graphical debconf
+frontends are functional, but crude from a human interface design
+perspective; although this could be improved, the problem is to some extent
+intrinsic because they must generate a user interface based on the questions
+asked by the confmodule. It is possible to do much better using custom user
+interface code. However, at present debconf has no support for doing this
+directly (although cdebconf does).
+
+To deal with this, Ubiquity uses the noninteractive debconf frontend, and
+instead uses a layer called the "debconffilter". This sits between d-i code
+and the debconf frontend, intercepting the debconf protocol, and transforms
+relevant debconf protocol messages into events which can be handled in much
+the same way as UI events from widget libraries like GTK+ or Qt. While this
+requires insider knowledge of the questions which may be asked by each piece
+of d-i code, which must often be updated as d-i evolves, it seems to be the
+most practical approach at present.
+
+Each piece of d-i code used in Ubiquity is accompanied by a "component",
+written in Python, which defines the backend code to be called and any
+necessary event handlers. To allow for multiple frontend implementations, it
+typically calls methods in the frontend when UI operations are needed.
+
+It is important to remember that each call to component event handlers is
+blocking (though non-reentrant). If UI interaction is required in order to
+provide an answer to debconf, this must be handled by calling into suitable
+frontend functions from the component to wait for the user. The component is
+responsible for maintaining its own state machine if necessary.
+
+Partitioning
+------------
+
+At present, automatic partitioning is handled by d-i code (partman), while
+advanced partitioning is handled by embedding gparted or qtparted in
+Ubiquity's interface. This has a number of problems, and we plan to replace
+this scheme by using partman throughout together with a custom-written
+partitioning frontend.
+
+Installation
+------------
+
+The actual installation takes place by copying the read-only part of the
+live filesystem. The writable part of the live filesystem (i.e. the running
+live session) is intentionally not copied, to ensure maximum reproducibility
+of the installed system. Thus, any customisations applied by the live boot
+process must be re-applied after the read-only filesystem is copied. The
+live boot process is responsible for installing hooks in
+/usr/lib/ubiquity/target-config/ to take care of this.
+
+After copying the live filesystem, certain unnecessary packages (such as
+Ubiquity itself) will be removed. The set of packages to be removed is
+computed by taking those packages present in
+/cdrom/casper/filesystem.manifest but not present in
+/cdrom/casper/filesystem.manifest-desktop, and removing any packages
+explicitly requested for installation by installer code. Language packs for
+languages which are not to be supported on the installed system will also be
+removed.
+
+Logs of the installation will be saved in /var/log/installer/syslog (for
+messages emitted by Ubiquity itself), /var/log/syslog (for some messages
+emitted by d-i code), and /var/log/partman (for a trace of the operation of
+the automatic partitioner). /var/log/installer/syslog and /var/log/partman
+are saved in /var/log/installer/ on the installed system. In future,
+/var/log/installer/syslog and /var/log/syslog will be consolidated in order
+to reduce confusion and to allow /var/log/syslog to be saved on the
+installed system as well.
+
+Customisation
 -------------
 
-(Conditions to be satisfied before using the installer)
+Where d-i code is used, it is generally possible to preseed it to change
+default behaviour. See the installation guide for details. However, at
+present Ubiquity will not skip over preseeded steps. This may be fixed in
+the future.
 
-    * The installer must run on a live system
-    * An image of the distribution must exist in:
-/cdrom/casper/filesystem.cloop or /cdrom/META/META.squashfs .
-    * It’s necessary to have, installed in the distribution (inside of the
-image), Python , his libraries for debconf and all the necessary ones for the
-user interface which is going to be used (graphical or nongraphical).
-
-
-Postconditions
---------------
-
-(Conditions to be met after using the installer)
-
-    * Disc has been partitioned with a partition for the distribution and
-other for the swap, at least.
-    * Distribution partition has been formated.
-    * Distribution has been copied from the image to the formated partition.
-    * Hardware has been configured.
-    * A user has been created.
-    * Language, keyboard, network and name of the machine have been
-configured.
-    * Other operating systems existing on the box have been detected and added
-to the Grub and fstab .
-    * The installed system must have been configured Debian alike, as the
-debian-installer does.
-    * If something (network, language, hour, tecaldo, X, sound, etc) has been
-configured in the Live session, it must be configured in the installed version
-as well.
-    * It must have been generated enough complete logs to be able to trace and
-debug the system.
-    * A file with the selected configurations (preseed file) must be
-generated, to be used in case of reinstall, or to be able to do it in
-automated way.
+The read-only live filesystem should generally be mounted on /rofs.
+Alternatively, an image may be present as /cdrom/casper/filesystem.cloop,
+/cdrom/casper/filesystem.squashfs, or (for Guadalinex/Metadistros)
+/cdrom/META/META.squashfs.
 
 
-Outstanding Issues
-------------------
-
-    * Questions should be reduced to a minimum.
-    * It must be possible to personalize it.
-    * It must support different interfaces for users: graph (Gtk+, Qt, etc),
-nongraphical and even noninteractive .
-    * Not to use configuration files, but debconf and conventions of names.
-    * It has to inform to the user, in a clear and simple way, about what it
-is happening at every moment.
-    * It has to be possible to preseed everything or part of the information
-required for the installation.
-    * If the information gathered by a dialogue is preseed, the dialogue will
-not be shown.
-    * It has to be possible to install the HOME in a partition aside.
-    * The default option for the partitioning step must be “automatic
-partitioning” .
-    * Options that can not be used will not be offered (example:
-auto-partitioning).
-    * It has to be able to be internationalized.
-    * It must respect the existing data and operating systems in the disc
-before installing.
-    * It has to be able to resize a partition, with enough available space, if
-there is no space unpartitioned available in the disc.
-
-
-Sequence
---------
-
-   1. Greetings and information of what is going on in each step.
-   2. User’s name, full name and password. Name of the system (Hostname).
-   3. Partitioning.
-   4. Progress bar (format, copy of distro and configuration)
-   5. Goodbye.
-
-
-Dependences
------------
-
-    * A live Ubuntu or Metadistro based distribution.
-    * Gparted.
-    * partman.
-    * Python.
-    * A Debconf package, called express[1], loaded from the live system.
-    * Network’s state detection and notification from the Live system. (At the
-beginning of the session)
-
-
-To discuss
-==========
-
-Points
-------
-
-   1. Sepparate /home partition.
-   2. Possibility of keeping the selections from an installation.
-   3. Possibility of adding modules in real time.
-   4. To eliminate the locales and network dialogs.
-
-(the debate is to be developed in the Mail Lists )
-
-Do not hesitate to make postings in english. Also you have a English Mail List
-Conclusions
-
-   1. No problem with this point. In fact, it makes easy any migration and so
-on.
-   2. The chosen options during the installation process are going to be saved
-into a file.
-   3. We must talk more about this one.
-   4. The locales stuff doesn’t affect to Ubuntu. About the network was
-said it is better for the usability but no decision has been taken yet.
-
-
-[1] It’s just a debconf template with the questions and answers needed for
-presseding the installer
-
---
-Javier Carranza <javier.carranza@interactors.coop>, Fri, 29 Jul 2005 17:04:51 +0200
+Feel free to ask me (Colin Watson <cjwatson@ubuntu.com>) if you have any
+questions regarding Ubiquity's workings.
