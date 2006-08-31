@@ -30,16 +30,6 @@
 # Global settings.
 # Created by Antonio Olmo <aolmo#emergya._info> on 7 oct 2005.
 
-DEBUGGING_STATUS = True
-
 MINIMAL_PARTITION_SCHEME = {'swap':  205,
                             'root': 2048,
                             'home':  512}
-
-LARGER_PARTITION_SCHEME = {'swap':  1024,
-                           'root': 20480,
-                           'home': 30720}
-
-# WARNING: next variable controls whether partitioning will be actually
-#          performed, or not. Enable it at your own risk!
-ACTUAL_PARTITIONING = True

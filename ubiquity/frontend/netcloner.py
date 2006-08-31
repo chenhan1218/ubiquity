@@ -173,10 +173,4 @@ class Wizard:
         return self.info['hostname']
 
 
-if __name__ == '__main__':
-    distro = misc.distribution().lower()
-    w = Wizard(distro)
-    w.run()
-
-
 # vim:ai:et:sts=4:tw=80:sw=4:

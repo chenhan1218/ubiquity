@@ -1,3 +1,6 @@
+# hw-detect
+d-i/source/hw-detect/sbus.list usr/lib/ubiquity/hw-detect
+
 # silo-installer
 d-i/source/silo-installer/debian/silo-installer/lib/partman lib
 ubiquity/components/siloinstaller.py usr/lib/ubiquity/ubiquity/components

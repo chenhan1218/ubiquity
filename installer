@@ -4,13 +4,13 @@
 Installer
 
 This is a installer program for a Ubuntu or Metadistros Live system.
-This is the main program, but there is also a couple of libraries to
-help it to work. For example the frontends library.
-The way it works is simple. It detect the Frontend to use, then
+This is the main program, but there are also a couple of libraries to
+help it to work, such as the frontend.
+The way it works is simple. It detects the frontend to use, then
 load the module for that frontend. After that, it makes some calls
 through the frontend in order to get the info necessary to install.
 
-Once it has the info, partitioning, format, copy de distro to the disk
+Once it has the info, partitioning, format, copy the distro to the disk
 and configure everything.
 '''
 

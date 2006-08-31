@@ -56,6 +56,12 @@ try:
 except ImportError:
     from ubiquity.debconfcommunicator import DebconfCommunicator
 
+try:
+    import problem_report
+    import apport_utils
+except ImportError:
+    pass
+
 from ubiquity import filteredcommand, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
@@ -129,8 +135,8 @@ class Wizard:
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
-                                   'welcome_text_label', 'cancel', 'back',
-                                   'next')
+                                   'welcome_text_label', 'step_label',
+                                   'cancel', 'back', 'next')
         self.allowed_change_step = True
         self.allowed_go_forward = True
 
@@ -153,11 +159,8 @@ class Wizard:
         # set custom language
         self.set_locales()
 
-        # If automatic partitioning fails, it may be disabled toggling on this variable:
-        self.discard_automatic_partitioning = False
-
         # load the interface
-        self.glade = gtk.glade.XML('%s/liveinstaller.glade' % GLADEDIR)
+        self.glade = gtk.glade.XML('%s/ubiquity.glade' % GLADEDIR)
 
         # get widgets
         for widget in self.glade.get_widget_prefix(""):
@@ -187,9 +190,35 @@ class Wizard:
         print >>sys.stderr, ("Exception in GTK frontend"
                              " (invoking crash handler):")
         print >>sys.stderr, tbtext
+
+        if 'problem_report' in sys.modules and 'apport_utils' in sys.modules:
+            try:
+                pr = problem_report.ProblemReport()
+                apport_utils.report_add_package_info(pr, 'ubiquity-frontend-gtk')
+                apport_utils.report_add_os_info(pr)
+                apport_utils.report_add_proc_info(pr)
+                pr['BugDisplayMode'] = 'file'
+                pr['ExecutablePath'] = '/usr/bin/ubiquity'
+                pr['PythonTraceback'] = tbtext
+                if os.path.exists('/var/log/installer/syslog'):
+                    pr['UbiquityInstallerSyslog'] = ('/var/log/installer/syslog',)
+                if os.path.exists('/var/log/syslog'):
+                    pr['UbiquitySyslog'] = ('/var/log/syslog',)
+                if os.path.exists('/var/log/partman'):
+                    pr['UbiquityPartman'] = ('/var/log/partman',)
+                reportfile = open(apport_utils.make_report_path(pr), 'w')
+                pr.write(reportfile)
+                reportfile.close()
+            except (KeyboardInterrupt, SystemExit):
+                raise
+            except:
+                # Out of disk space? Fall back to our own crash handler.
+                pass
+
         self.crash_detail_label.set_text(tbtext)
         self.crash_dialog.run()
         self.crash_dialog.hide()
+
         sys.exit(1)
 
 
@@ -285,7 +314,7 @@ class Wizard:
         gtk.window_set_default_icon_from_file('/usr/share/pixmaps/'
                                               'ubiquity.png')
 
-        PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
+        PIXMAPSDIR = os.path.join(PATH, 'pixmaps', self.distro)
 
         # set pixmaps
         if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
@@ -371,10 +400,20 @@ class Wizard:
             return
 
         if isinstance(widget, gtk.Label):
+            name = widget.get_name()
+
+            if name == 'step_label':
+                global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
+                curstep = '?'
+                if self.current_page is not None:
+                    current_name = self.step_name(self.current_page)
+                    if current_name in BREADCRUMB_STEPS:
+                        curstep = str(BREADCRUMB_STEPS[current_name])
+                text = text.replace('${INDEX}', curstep)
+                text = text.replace('${TOTAL}', str(BREADCRUMB_MAX_STEP))
             widget.set_text(text)
 
             # Ideally, these attributes would be in the glade file somehow ...
-            name = widget.get_name()
             textlen = len(text.encode("UTF-8"))
             if 'heading_label' in name:
                 attrs = pango.AttrList()
@@ -417,7 +456,7 @@ class Wizard:
     def show_intro(self):
         """Show some introductory text, if available."""
 
-        intro = os.path.join(PATH, 'htmldocs', self.distro, 'intro.txt')
+        intro = os.path.join(PATH, 'intro.txt')
 
         if os.path.isfile(intro):
             widget = gtk.Label()
@@ -439,14 +478,7 @@ class Wizard:
     def set_current_page(self, current):
         global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         self.current_page = current
-        current_name = self.step_name(current)
-        label_text = get_string("step_label", self.locale)
-        curstep = "<i>?</i>"
-        if current_name in BREADCRUMB_STEPS:
-            curstep = str(BREADCRUMB_STEPS[current_name])
-        label_text = label_text.replace("${INDEX}", curstep)
-        label_text = label_text.replace("${TOTAL}", str(BREADCRUMB_MAX_STEP))
-        self.step_label.set_markup(label_text)
+        self.translate_widget(self.step_label, self.locale)
 
     # Methods
 
@@ -481,8 +513,13 @@ class Wizard:
         # widget is studied in a different manner depending on object type
         if widget.__class__ == str:
             size = float(self.size[widget.split('/')[2]])
-        else:
+        elif widget.get_active_text() in self.part_devices:
             size = float(self.size[self.part_devices[widget.get_active_text()].split('/')[2]])
+        else:
+            # TODO cjwatson 2006-07-31: Why isn't it in part_devices? This
+            # indicates a deeper problem somewhere, but for now we'll just
+            # try our best to ignore it.
+            return ''
 
         if size > 1024*1024:
             msg = '%.0f Gb' % (size/1024/1024)
@@ -937,59 +974,67 @@ class Wizard:
             self.part_devices[label] = partition
             self.partition_choices.append(partition)
 
-        # Initialise the mountpoints table.
-        if len(self.mountpoint_widgets) == 0:
-            self.add_mountpoint_table_row()
+        # Reinitialise the mountpoints table.
+        for child in self.mountpoint_table.get_children():
+            if child.get_name() not in ('mountpoint_label', 'size_label',
+                                        'device_label', 'format_label'):
+                self.mountpoint_table.remove(child)
+        self.mountpoint_widgets = []
+        self.size_widgets = []
+        self.partition_widgets = []
+        self.format_widgets = []
 
-            # Try to get some default mountpoint selections.
-            self.size = get_sizes()
-            selection = get_default_partition_selection(
-                self.size, self.gparted_fstype, self.auto_mountpoints)
+        self.add_mountpoint_table_row()
 
-            # Setting a default partition preselection
-            if len(selection.items()) == 0:
-                self.allow_go_forward(False)
-            else:
-                # Setting default preselection values into ComboBox
-                # widgets and setting size values. In addition, next row
-                # is showed if they're validated.
-                for mountpoint, partition in selection.items():
-                    if partition.split('/')[2] not in self.size:
-                        continue
-                    if partition not in self.partition_choices:
-                        # TODO cjwatson 2006-05-27: I don't know why this
-                        # might happen, but it does
-                        # (https://launchpad.net/bugs/46910). Figure out
-                        # why. In the meantime, ignoring this partition is
-                        # better than crashing.
-                        continue
-                    if mountpoint in self.mountpoint_choices:
-                        self.mountpoint_widgets[-1].set_active(
-                            self.mountpoint_choices.index(mountpoint))
-                    else:
-                        self.mountpoint_widgets[-1].child.set_text(mountpoint)
-                    self.size_widgets[-1].set_text(
-                        self.set_size_msg(partition))
-                    self.partition_widgets[-1].set_active(
-                        self.partition_choices.index(partition))
-                    if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
-                        partition in self.gparted_fstype):
-                        self.format_widgets[-1].set_active(True)
-                    else:
-                        self.format_widgets[-1].set_active(False)
-                    if partition not in self.gparted_fstype:
-                        self.format_widgets[-1].set_sensitive(True)
-                    if len(get_partitions()) > len(self.partition_widgets):
-                        self.add_mountpoint_table_row()
-                    else:
-                        break
+        # Try to get some default mountpoint selections.
+        self.size = get_sizes()
+        selection = get_default_partition_selection(
+            self.size, self.gparted_fstype, self.auto_mountpoints)
 
-            # We defer connecting up signals until now to avoid the changed
-            # signal firing while we're busy populating the table.
-            for mountpoint in self.mountpoint_widgets:
-                mountpoint.connect("changed", self.on_list_changed)
-            for partition in self.partition_widgets:
-                partition.connect("changed", self.on_list_changed)
+        # Setting a default partition preselection
+        if len(selection.items()) == 0:
+            self.allow_go_forward(False)
+        else:
+            # Setting default preselection values into ComboBox widgets and
+            # setting size values. In addition, the next row is shown if
+            # they're validated.
+            for mountpoint, partition in selection.items():
+                if partition.split('/')[2] not in self.size:
+                    continue
+                if partition not in self.partition_choices:
+                    # TODO cjwatson 2006-05-27: I don't know why this might
+                    # happen, but it does
+                    # (https://launchpad.net/bugs/46910). Figure out why. In
+                    # the meantime, ignoring this partition is better than
+                    # crashing.
+                    continue
+                if mountpoint in self.mountpoint_choices:
+                    self.mountpoint_widgets[-1].set_active(
+                        self.mountpoint_choices.index(mountpoint))
+                else:
+                    self.mountpoint_widgets[-1].child.set_text(mountpoint)
+                self.size_widgets[-1].set_text(
+                    self.set_size_msg(partition))
+                self.partition_widgets[-1].set_active(
+                    self.partition_choices.index(partition))
+                if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
+                    partition in self.gparted_fstype):
+                    self.format_widgets[-1].set_active(True)
+                else:
+                    self.format_widgets[-1].set_active(False)
+                if partition not in self.gparted_fstype:
+                    self.format_widgets[-1].set_sensitive(True)
+                if len(get_partitions()) > len(self.partition_widgets):
+                    self.add_mountpoint_table_row()
+                else:
+                    break
+
+        # We defer connecting up signals until now to avoid the changed
+        # signal firing while we're busy populating the table.
+        for mountpoint in self.mountpoint_widgets:
+            mountpoint.connect("changed", self.on_list_changed)
+        for partition in self.partition_widgets:
+            partition.connect("changed", self.on_list_changed)
 
         self.mountpoint_error_reason.hide()
         self.mountpoint_error_image.hide()
@@ -1008,7 +1053,10 @@ class Wizard:
             mountpoint_value = self.mountpoint_widgets[i].get_active_text()
             partition_value = self.partition_widgets[i].get_active_text()
             if partition_value is not None:
-                partition_id = self.part_devices[partition_value]
+                if partition_value in self.part_devices:
+                    partition_id = self.part_devices[partition_value]
+                else:
+                    partition_id = partition_value
             else:
                 partition_id = None
             format_value = self.format_widgets[i].get_active()
@@ -1053,7 +1101,7 @@ class Wizard:
             validate_mountpoints = dict(self.mountpoints)
             validate_filesystems = get_filesystems(self.gparted_fstype)
             for device, (path, format, fstype) in validate_mountpoints.items():
-                if fstype is None:
+                if fstype is None and device in validate_filesystems:
                     validate_mountpoints[device] = \
                         (path, format, validate_filesystems[device])
             for check in validation.check_mountpoint(validate_mountpoints,
@@ -1238,22 +1286,6 @@ class Wizard:
             self.new_size_vbox.show()
         else:
             self.new_size_vbox.hide()
-
-
-##     def on_abort_dialog_close (self, widget):
-
-##         """ Disable automatic partitioning and reset partitioning method step. """
-
-##         sys.stderr.write ('\non_abort_dialog_close.\n\n')
-
-##         self.discard_automatic_partitioning = True
-##         self.on_drives_changed (None)
-
-    def on_abort_ok_button_clicked (self, widget):
-
-        """ Close this dialog. """
-
-        self.abort_dialog.hide ()
 
 
     # Callbacks provided to components.
@@ -1858,8 +1890,7 @@ class TimezoneMap(object):
         self.point_hover = None
         self.location_selected = None
 
-        zoom_in_file = os.path.join(GLADEDIR, 'pixmaps', self.frontend.distro,
-                                    'zoom-in.png')
+        zoom_in_file = os.path.join(PATH, 'pixmaps', 'zoom-in.png')
         if os.path.exists(zoom_in_file):
             display = self.frontend.live_installer.get_display()
             pixbuf = gtk.gdk.pixbuf_new_from_file(zoom_in_file)
@@ -2081,9 +2112,3 @@ class TimezoneMap(object):
             self.frontend.allow_go_forward(self.location_selected is not None)
 
         return True
-
-
-if __name__ == '__main__':
-    w = Wizard('ubuntu')
-    w.run()
-

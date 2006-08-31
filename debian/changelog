@@ -1,6 +1,114 @@
-ubiquity (1.1.4) UNRELEASED; urgency=low
+ubiquity (1.1.11) edgy; urgency=low
 
   [ Colin Watson ]
+  * Automatic update of included source packages: apt-setup
+    1:0.11ubuntu4.
+
+  [ Evan Dandrea ]
+  * Added migration-assistant.
+
+ -- Evan Dandrea <evan@evalicious.com>  Thu, 31 Aug 2006 16:25:18 -0400
+
+ubiquity (1.1.10) edgy; urgency=low
+
+  * GTK frontend: Add apport integration to crash handler. (Not done yet for
+    KDE frontend, pending the existence of apport-kde.)
+  * Remove abort_dialog cruft.
+  * Rewrite doc/README to be reasonably up to date. Among other things, it
+    now contains a brief explanation of the debconffilter framework.
+  * Fix stringification of our derived exceptions (InstallStepError and
+    PartedServerError).
+  * Set mirror/suite and mirror/codename instead of the non-existent
+    cdrom/suite and cdrom/codename in the apt-setup wrapper (closes: Malone
+    #56725).
+  * Automatic update of included source packages: hw-detect 1.41ubuntu2,
+    kbd-chooser 1.30ubuntu1, partconf 1.17.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 30 Aug 2006 13:27:12 +0100
+
+ubiquity (1.1.9) edgy; urgency=low
+
+  * Use /bin/bash for user-setup due to a dash test(1) bug.
+  * GTK frontend: Enable keyboard searching for the keyboard list (closes:
+    Malone #56306).
+  * Fix incorrect path to languagelist in language component (closes: Malone
+    #56721).
+  * Automatic update of included source packages: debian-installer-utils
+    1.35ubuntu1, kbd-chooser 1.29ubuntu2, localechooser 1.20ubuntu6,
+    tzsetup 1:0.10ubuntu2, user-setup 1.2ubuntu3.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 24 Aug 2006 15:25:53 +0100
+
+ubiquity (1.1.8) edgy; urgency=low
+
+  [ Jonathan Riddell ]
+  * Remove existing widgets when launching qtparted and mountpoints pages.
+
+  [ Colin Watson ]
+  * Install discover-sbus and sbus.list from hw-detect on sparc.
+  * Fix crash when a partition not formatted by gparted/qtparted isn't in
+    the list detected by get_filesystems either (closes: Malone #55328).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat,  5 Aug 2006 18:30:18 +0100
+
+ubiquity (1.1.7) edgy; urgency=low
+
+  * Don't attempt to preserve previous mountpoint selections when going back
+    to gparted/qtparted and forward again; this resulted in far too many
+    strange bugs when the mountpoints page's idea of currently available
+    partitions got out of sync with that of the external partitioner.
+    Instead, reinitialise the mountpoints table from scratch every time the
+    user goes forward to that page.
+  * Fix syntax error when dealing with existing newworld boot partitions.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  3 Aug 2006 17:27:05 +0100
+
+ubiquity (1.1.6) edgy; urgency=low
+
+  * Automatic update of included source packages: localechooser 1.20ubuntu5,
+    partman-base 90ubuntu3.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  3 Aug 2006 14:33:22 +0100
+
+ubiquity (1.1.5) edgy; urgency=low
+
+  * Add 3% to the "Removing extra packages" stage of the installation
+    progress bar, since in Ubuntu installations it often has a lot of
+    language packs to remove.
+  * Work around weirdness regarding some partitions going missing from
+    part_labels/part_devices in frontends. The right fix is probably to
+    update part_labels/part_devices with information from gparted/qtparted,
+    but since that system is due to be replaced anyway it's probably not
+    worth the effort (closes: Malone #45200).
+  * Suppress unnecessary translations of "${MESSAGE}".
+  * Remove some cruft from the source package.
+  * Make zoom-in.png global rather than distribution-specific.
+  * Remove intltool-* on distclean; configure creates them.
+  * Move liveinstaller.glade to a better place in the source package, and
+    rename it to ubiquity.glade.
+  * Update debian/copyright regarding the status of Ubiquity with respect to
+    the original Guadalinex work.
+  * Move glade/pixmaps/* to pixmaps/*; they can be used in non-GTK frontends
+    too.
+  * Remove netcloner script; if this is ever resurrected, it should probably
+    be an init script or similar instead.
+  * Move documentation to doc/ directory; remove obsolete TODO; note that
+    the README is largely obsolete.
+  * Stop installing README.es.
+  * Remove cruft from ubiquity.settings.
+  * Retranslate "Step N of M" immediately when the language is changed.
+  * Tighten ubiquity's dependencies on frontend and artwork packages.
+  * Don't build ubiquity-frontend-{gtk,kde}_*.deb if the respective
+    UBIQUITY_NO_{GTK,KDE} is defined.
+  * Check whether squashfs devices exist before trying to mount them
+    (closes: Malone #55019).
+  * Ship all the bits of localechooser we need, and drop our dependency on
+    localechooser-data (closes: Malone #40364).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  3 Aug 2006 14:13:43 +0100
+
+ubiquity (1.1.4) edgy; urgency=low
+
   * Write out the resume partition as a UUID if possible.
   * Always set mirror/country to the country selected on the timezone page,
     regardless of what localechooser does thereafter (closes: Malone
@@ -8,11 +116,11 @@ ubiquity (1.1.4) UNRELEASED; urgency=low
   * Adapt apt-setup wrapper to new apt-setup, which calls choose-mirror
     itself.
   * Tell localechooser to reprocess preseeding every time we run it.
+  * debian/rules install target depends on build (closes: Malone #54503).
+  * Automatic update of included source packages: apt-setup
+    1:0.11ubuntu3, base-installer 1.63ubuntu3, partman-target 42ubuntu2.
 
-  [ Evan Dandrea ]
-  * Added migration-assistant support.
-
- -- Evan Dandrea <evan@evalicious.com>  Fri,  4 Aug 2006 01:27:24 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 31 Jul 2006 15:34:40 +0100
 
 ubiquity (1.1.3) edgy; urgency=low
 

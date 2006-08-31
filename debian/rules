@@ -3,6 +3,8 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+export DH_OPTIONS
+
 BUILDDIR=$(CURDIR)/debian/build
 
 VERSION := $(shell dpkg-parsechangelog | awk '/^Version:/ { print $$2 }')
@@ -66,7 +68,8 @@ clean:
 
 	dh_clean debian/ubiquity.install
 
-install:
+install: DH_OPTIONS=
+install: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k
@@ -119,15 +122,27 @@ endif
 		d-i/source/hw-detect/debian/hw-detect/bin/hw-detect \
 		> debian/ubiquity/bin/hw-detect
 	chmod +x debian/ubiquity/bin/hw-detect
+ifeq ($(DEB_HOST_ARCH),sparc)
+	sed 's,/usr/share/hw-detect,/usr/lib/ubiquity/hw-detect,g' \
+		d-i/source/hw-detect/discover-sbus.sh \
+		> debian/ubiquity/bin/discover-sbus
+	chmod +x debian/ubiquity/bin/discover-sbus
+endif
 	install d-i/source/kbd-chooser/debian/post-base-installer \
 		debian/ubiquity/usr/lib/ubiquity/kbd-chooser/
-	install d-i/source/localechooser/post-base-installer \
-		d-i/source/localechooser/finish-install \
+	set -e; for x in languagemap localechooser post-base-installer; do \
+		sed 's,/usr/share/localechooser,/usr/lib/ubiquity/localechooser,g' \
+			d-i/source/localechooser/$$x \
+			> debian/ubiquity/usr/lib/ubiquity/localechooser/$$x; \
+		chmod +x debian/ubiquity/usr/lib/ubiquity/localechooser/$$x; \
+	done
+	install d-i/source/localechooser/finish-install \
 		debian/ubiquity/usr/lib/ubiquity/localechooser/
 	install d-i/source/tzsetup/finish-install.d/*tzsetup \
 		debian/ubiquity/usr/lib/ubiquity/tzsetup/finish-install
 	set -e; for x in user-setup user-setup-ask user-setup-apply; do \
-		sed 's,/usr/lib/user-setup,/usr/lib/ubiquity/user-setup,g' \
+		sed -e 's,/usr/lib/user-setup,/usr/lib/ubiquity/user-setup,g' \
+		    -e 's,/bin/sh,/bin/bash,g' \
 			d-i/source/user-setup/$$x \
 			> debian/ubiquity/usr/lib/ubiquity/user-setup/$$x; \
 		chmod +x debian/ubiquity/usr/lib/ubiquity/user-setup/$$x; \
@@ -149,33 +164,43 @@ endif
 	done
 
 # Build architecture-independent files here.
+ifdef UBIQUITY_NO_KDE
+binary-indep: DH_OPTIONS=-i -Nubiquity-frontend-kde
+else
+binary-indep: DH_OPTIONS=-i
+endif
 binary-indep: install
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs -i Changelog.Guadalinex
-	dh_installdocs -i
-#	dh_installexamples -i
-	dh_installdebconf -i
-#	dh_installman -i
-	dh_strip -i
-	dh_compress -i
-	dh_fixperms -i
-	dh_pycentral -pubiquity-frontend-kde
-	dh_python -i /usr/lib/ubiquity
-	dh_installdeb -i
-	dh_shlibdeps -i
-	dh_gencontrol -i
-	dh_md5sums -i
-	dh_builddeb -i
+	dh_installchangelogs doc/Changelog.Guadalinex
+	dh_installdocs
+#	dh_installexamples
+	dh_installdebconf
+#	dh_installman
+	dh_strip
+	dh_compress
+	dh_fixperms
+	DH_OPTIONS= dh_pycentral -pubiquity-frontend-kde
+	dh_python /usr/lib/ubiquity
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
 
 # Build architecture-dependent files here.
+ifdef UBIQUITY_NO_GTK
+binary-arch: DH_OPTIONS=-a -Nubiquity-frontend-gtk
+else
+binary-arch: DH_OPTIONS=-a
+endif
 binary-arch: install
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs -a Changelog.Guadalinex
-	dh_installdocs -a
-#	dh_installexamples -a
-	dh_installdebconf -a
+	dh_installchangelogs doc/Changelog.Guadalinex
+	dh_installdocs
+#	dh_installexamples
+	dh_installdebconf
 	echo >> debian/ubiquity/DEBIAN/templates
 	grep-dctrl -XFTemplate base-installer/kernel/linux/link_in_boot \
 		d-i/templates \
@@ -185,21 +210,21 @@ binary-arch: install
 	fi
 	grep-dctrl -v -FTemplate base-installer/ d-i/templates \
 		>> debian/ubiquity/DEBIAN/templates
-#	dh_installman -a
-	dh_strip -a
-	dh_compress -a
-	dh_fixperms -a
-	dh_pycentral -a
-	dh_python -a /usr/lib/ubiquity
-	dh_installdeb -a
-	dh_shlibdeps -a
+#	dh_installman
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_pycentral
+	dh_python /usr/lib/ubiquity
+	dh_installdeb
+	dh_shlibdeps
 ifdef bootloader-depends
-	dh_gencontrol -a -- -V'bootloader-depends=$(bootloader-depends)'
+	dh_gencontrol -- -V'bootloader-depends=$(bootloader-depends)'
 else
-	dh_gencontrol -a
+	dh_gencontrol
 endif
-	dh_md5sums -a
-	dh_builddeb -a
+	dh_md5sums
+	dh_builddeb
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install

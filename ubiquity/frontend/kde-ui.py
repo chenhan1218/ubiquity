@@ -59,9 +59,6 @@ import ubiquity.progressposition
 # Define global path
 PATH = '/usr/share/ubiquity'
 
-# Define glade path
-GLADEDIR = os.path.join(PATH, 'glade')
-
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
@@ -144,8 +141,8 @@ class Wizard:
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
-                                   'welcome_text_label', 'cancel', 'back',
-                                   'next')
+                                   'welcome_text_label', 'step_label',
+                                   'cancel', 'back', 'next')
 
         devnull = open('/dev/null', 'w')
         self.laptop = subprocess.call(["laptop-detect"], stdout=devnull,
@@ -164,9 +161,6 @@ class Wizard:
         # To get a "busy mouse":
         self.userinterface.setCursor(QCursor(Qt.WaitCursor))
     
-        # If automatic partitioning fails, it may be disabled toggling on this variable:
-        self.discard_automatic_partitioning = False
-        
         # TODO jr 2006-04-19: sometimes causes pykde crash when creating
         # kdialogs
         self.translate_widgets()
@@ -185,7 +179,7 @@ class Wizard:
         
         self.qtparted_vbox = QVBoxLayout(self.userinterface.qtparted_frame)
         self.embed = None
-
+        self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -323,7 +317,7 @@ class Wizard:
         self.update_new_size_label(self.userinterface.new_size_scale.value())
         """
 
-        PIXMAPSDIR = os.path.join(GLADEDIR, 'pixmaps', self.distro)
+        PIXMAPSDIR = os.path.join(PATH, 'pixmaps', self.distro)
 
         # set pixmaps
         if ( gtk.gdk.get_default_root_window().get_screen().get_width() > 1024 ):
@@ -381,6 +375,17 @@ class Wizard:
 
         if isinstance(widget, QLabel):
             name = widget.name()
+
+            if name == 'step_label':
+                global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
+                curstep = '?'
+                if self.current_page is not None:
+                    current_name = self.step_name(self.current_page)
+                    if current_name in BREADCRUMB_STEPS:
+                        curstep = str(BREADCRUMB_STEPS[current_name])
+                text = text.replace('${INDEX}', curstep)
+                text = text.replace('${TOTAL}', str(BREADCRUMB_MAX_STEP))
+
             if 'heading_label' in name:
                 widget.setText("<h2>" + text + "</h2>")
             elif 'extra_label' in name:
@@ -401,8 +406,7 @@ class Wizard:
     def show_intro(self):
         """Show some introductory text, if available."""
     
-        #intro = os.path.join(PATH, 'htmldocs', self.distro, 'intro.txt')
-        intro = "/usr/share/ubiquity/htmldocs/ubuntu/intro.txt"
+        intro = os.path.join(PATH, 'intro.txt')
     
         if os.path.isfile(intro):
             intro_file = open(intro)
@@ -423,14 +427,7 @@ class Wizard:
     def set_current_page(self, current):
         global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         self.current_page = current
-        current_name = self.step_name(current)
-        label_text = get_string("step_label", self.locale)
-        curstep = "<i>?</i>"
-        if current_name in BREADCRUMB_STEPS:
-            curstep = str(BREADCRUMB_STEPS[current_name])
-        label_text = label_text.replace("${INDEX}", curstep)
-        label_text = label_text.replace("${TOTAL}", str(BREADCRUMB_MAX_STEP))
-        self.userinterface.step_label.setText(label_text)
+        self.translate_widget(self.userinterface.step_label, self.locale)
 
     def qtparted_loop(self):
         """call qtparted and embed it into the interface."""
@@ -440,6 +437,7 @@ class Wizard:
         disable_swap()
 
         if self.embed is not None:
+            self.qtparted_vbox.remove(self.embed)
             del self.embed
         self.embed = QXEmbed(self.userinterface.qtparted_frame, "embed")
         self.embed.setProtocol(QXEmbed.XPLAIN)
@@ -462,8 +460,13 @@ class Wizard:
         # widget is studied in a different manner depending on object type
         if widget.__class__ == str:
             size = float(self.size[widget.split('/')[2]])
-        else:
+        elif str(widget.currentText()) in self.part_devices:
             size = float(self.size[self.part_devices[str(widget.currentText())].split('/')[2]])
+        else:
+            # TODO cjwatson 2006-07-31: Why isn't it in part_devices? This
+            # indicates a deeper problem somewhere, but for now we'll just
+            # try our best to ignore it.
+            return ''
 
         if size > 1024*1024:
             msg = '%.0f Gb' % (size/1024/1024)
@@ -864,6 +867,7 @@ class Wizard:
         self.qtparted_subp.wait()
         self.qtparted_subp = None
         if self.embed is not None:
+            self.qtparted_vbox.remove(self.embed)
             del self.embed
             self.embed = None
 
@@ -871,7 +875,14 @@ class Wizard:
             # something other than OK or Cancel
             return
 
-        self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
+        children = self.userinterface.mountpoint_frame.children()
+        for child in children:
+            if isinstance(child, QGridLayout):
+                pass
+            else:
+                self.mountpoint_table.remove(child)
+                del child
+
         mountText = "<b>" + get_string("mountpoint_label", self.locale) + "</b>"
         sizeText = "<b>" + get_string("size_label", self.locale) + "</b>"
         partitionText = "<b>" + get_string("device_label", self.locale) + "</b>"
@@ -897,58 +908,62 @@ class Wizard:
             self.part_devices[label] = partition
             self.partition_choices.append(partition)
 
-        # Initialise the mountpoints table.
-        if len(self.mountpoint_widgets) == 0:
-            self.add_mountpoint_table_row()
+        # Reinitialise the mountpoints table.
+        self.mountpoint_widgets = []
+        self.size_widgets = []
+        self.partition_widgets = []
+        self.format_widgets = []
 
-            # Try to get some default mountpoint selections.
-            self.size = get_sizes()
-            selection = get_default_partition_selection(
-                self.size, self.qtparted_fstype, self.auto_mountpoints)
+        self.add_mountpoint_table_row()
 
-            # Setting a default partition preselection
-            if len(selection.items()) == 0:
-                self.userinterface.next.setEnabled(False)
-            else:
-                # Setting default preselection values into ComboBox
-                # widgets and setting size values. In addition, next row
-                # is showed if they're validated.
-                for mountpoint, partition in selection.items():
-                    if partition.split('/')[2] not in self.size:
-                        continue
-                    if partition not in self.partition_choices:
-                        # TODO cjwatson 2006-05-27: I don't know why this
-                        # might happen, but it does
-                        # (https://launchpad.net/bugs/46910). Figure out
-                        # why. In the meantime, ignoring this partition is
-                        # better than crashing.
-                        continue
-                    if mountpoint in self.mountpoint_choices:
-                        self.mountpoint_widgets[-1].setCurrentItem(self.mountpoint_choices.index(mountpoint))
-                    else:
-                        self.mountpoint_widgets[-1].setCurrentText(mountpoint)
-                    self.size_widgets[-1].setText(self.set_size_msg(partition))
-                    self.partition_widgets[-1].setCurrentItem(self.partition_choices.index(partition))
-                    if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
-                        partition in self.qtparted_fstype):
-                        self.format_widgets[-1].setChecked(True)
-                    else:
-                        self.format_widgets[-1].setChecked(False)
-                    if partition not in self.qtparted_fstype:
-                        self.format_widgets[-1].setEnabled(True)
-                    if len(get_partitions()) > len(self.partition_widgets):
-                        self.add_mountpoint_table_row()
-                    else:
-                        break
+        # Try to get some default mountpoint selections.
+        self.size = get_sizes()
+        selection = get_default_partition_selection(
+            self.size, self.qtparted_fstype, self.auto_mountpoints)
 
-            # We defer connecting up signals until now to avoid the changed
-            # signal firing while we're busy populating the table.
-            """  Not needed for KDE
-            for mountpoint in self.mountpoint_widgets:
-                self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
-            for partition in self.partition_widgets:
-                self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
-            """
+        # Setting a default partition preselection
+        if len(selection.items()) == 0:
+            self.userinterface.next.setEnabled(False)
+        else:
+            # Setting default preselection values into ComboBox widgets and
+            # setting size values. In addition, the next row is shown if
+            # they're validated.
+            for mountpoint, partition in selection.items():
+                if partition.split('/')[2] not in self.size:
+                    continue
+                if partition not in self.partition_choices:
+                    # TODO cjwatson 2006-05-27: I don't know why this might
+                    # happen, but it does
+                    # (https://launchpad.net/bugs/46910). Figure out why. In
+                    # the meantime, ignoring this partition is better than
+                    # crashing.
+                    continue
+                if mountpoint in self.mountpoint_choices:
+                    self.mountpoint_widgets[-1].setCurrentItem(self.mountpoint_choices.index(mountpoint))
+                else:
+                    self.mountpoint_widgets[-1].setCurrentText(mountpoint)
+                self.size_widgets[-1].setText(self.set_size_msg(partition))
+                self.partition_widgets[-1].setCurrentItem(self.partition_choices.index(partition))
+                if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
+                    partition in self.qtparted_fstype):
+                    self.format_widgets[-1].setChecked(True)
+                else:
+                    self.format_widgets[-1].setChecked(False)
+                if partition not in self.qtparted_fstype:
+                    self.format_widgets[-1].setEnabled(True)
+                if len(get_partitions()) > len(self.partition_widgets):
+                    self.add_mountpoint_table_row()
+                else:
+                    break
+
+        # We defer connecting up signals until now to avoid the changed
+        # signal firing while we're busy populating the table.
+        """  Not needed for KDE
+        for mountpoint in self.mountpoint_widgets:
+            self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
+        for partition in self.partition_widgets:
+            self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
+        """
 
         self.userinterface.mountpoint_error_reason.hide()
         self.userinterface.mountpoint_error_image.hide()
@@ -1000,7 +1015,10 @@ class Wizard:
             mountpoint_value = str(self.mountpoint_widgets[i].currentText())
             partition_value = str(self.partition_widgets[i].currentText())
             if partition_value is not None:
-                partition_id = self.part_devices[partition_value]
+                if partition_value in self.part_devices:
+                    partition_id = self.part_devices[partition_value]
+                else:
+                    partition_id = partition_value
             else:
                 partition_id = None
             format_value = self.format_widgets[i].isChecked()
@@ -1045,7 +1063,7 @@ class Wizard:
             validate_mountpoints = dict(self.mountpoints)
             validate_filesystems = get_filesystems(self.qtparted_fstype)
             for device, (path, format, fstype) in validate_mountpoints.items():
-                if fstype is None:
+                if fstype is None and device in validate_filesystems:
                     validate_mountpoints[device] = \
                         (path, format, validate_filesystems[device])
             for check in validation.check_mountpoint(validate_mountpoints,
@@ -1141,6 +1159,7 @@ class Wizard:
                 self.qtparted_subp.wait()
                 self.qtparted_subp = None
                 if self.embed is not None:
+                    self.qtparted_vbox.remove(self.embed)
                     del self.embed
                     self.embed = None
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
@@ -1201,15 +1220,6 @@ class Wizard:
         else:
             text = '%d%%' % value
         self.userinterface.new_size_value.setText(text)
-
-        ##     def on_abort_dialog_close (self, widget):
-
-        ##         """ Disable automatic partitioning and reset partitioning method step. """
-
-        ##         sys.stderr.write ('\non_abort_dialog_close.\n\n')
-
-        ##         self.discard_automatic_partitioning = True
-        ##         self.on_drives_changed (None)
 
 
     # Callbacks provided to components.

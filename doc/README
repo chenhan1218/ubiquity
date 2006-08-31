@@ -1,0 +1,133 @@
+Ubiquity
+========
+
+This is a graphical installer for Ubuntu, written largely in Python, using
+d-i as a backend for many of its functions. The authors are indebted to the
+efforts of the Guadalinex project in developing the original
+"ubuntu-express" code used as a basis for this project.
+
+Background
+----------
+
+Around 2000, the debian-installer (later just "d-i") project started to
+replace the old Debian "boot-floppies" installer. The goals of this project
+included long-term maintainability, modularity, and code reuse. After a
+hiatus during the Debian 3.0 release, this project matured into a usable
+installer in 2004 in time for, among others, the releases of Debian 3.1 and
+Ubuntu 4.10. From Ubuntu 4.10 to Ubuntu 5.10, d-i was used as the primary
+installation program.
+
+d-i continues to provide flexibility and (for a certain significant class of
+users) ease of use that a simplified graphical installer will always be
+hard-pushed to provide. It is therefore important to continue to support it
+in Ubuntu. From a maintainability point of view, it follows that it is
+important for any graphical installer supported by Ubuntu to share
+substantial amounts of code with d-i, particularly where the backend logic
+is intrinsically difficult and has accumulated large quantities of expertise
+and bug fixes. Accordingly, Ubiquity is designed to use logic from d-i where
+possible, and tries to confine itself to being a high-quality frontend.
+
+(Of course, there remain some areas where d-i does not provide suitable
+logic, or where its logic has not proven amenable to direct use within
+Ubiquity, so there is still some backend-style logic and code duplication
+in Ubiquity. Eventually, as much of this as possible should go away.)
+
+UI Design
+---------
+
+The primary focus of Ubiquity's UI is ease of use for new users.
+Accordingly, it does not try to provide all possible options, deferring
+advanced installation scenarios to d-i so that it does not have to be all
+things to all people. See http://wiki.ubuntu.com/UbuntuExpress for the
+original details of its user interface design.
+
+Debconf Integration
+-------------------
+
+The most challenging part of Ubiquity to understand is undoubtedly its
+integration with d-i. Before getting to grips with this, I assume that the
+reader has a basic developer-level grasp of the "debconf" configuration
+system. Reading the debconf-devel(7) man page is a good idea.
+
+d-i uses debconf for all user interaction. The extant graphical debconf
+frontends are functional, but crude from a human interface design
+perspective; although this could be improved, the problem is to some extent
+intrinsic because they must generate a user interface based on the questions
+asked by the confmodule. It is possible to do much better using custom user
+interface code. However, at present debconf has no support for doing this
+directly (although cdebconf does).
+
+To deal with this, Ubiquity uses the noninteractive debconf frontend, and
+instead uses a layer called the "debconffilter". This sits between d-i code
+and the debconf frontend, intercepting the debconf protocol, and transforms
+relevant debconf protocol messages into events which can be handled in much
+the same way as UI events from widget libraries like GTK+ or Qt. While this
+requires insider knowledge of the questions which may be asked by each piece
+of d-i code, which must often be updated as d-i evolves, it seems to be the
+most practical approach at present.
+
+Each piece of d-i code used in Ubiquity is accompanied by a "component",
+written in Python, which defines the backend code to be called and any
+necessary event handlers. To allow for multiple frontend implementations, it
+typically calls methods in the frontend when UI operations are needed.
+
+It is important to remember that each call to component event handlers is
+blocking (though non-reentrant). If UI interaction is required in order to
+provide an answer to debconf, this must be handled by calling into suitable
+frontend functions from the component to wait for the user. The component is
+responsible for maintaining its own state machine if necessary.
+
+Partitioning
+------------
+
+At present, automatic partitioning is handled by d-i code (partman), while
+advanced partitioning is handled by embedding gparted or qtparted in
+Ubiquity's interface. This has a number of problems, and we plan to replace
+this scheme by using partman throughout together with a custom-written
+partitioning frontend.
+
+Installation
+------------
+
+The actual installation takes place by copying the read-only part of the
+live filesystem. The writable part of the live filesystem (i.e. the running
+live session) is intentionally not copied, to ensure maximum reproducibility
+of the installed system. Thus, any customisations applied by the live boot
+process must be re-applied after the read-only filesystem is copied. The
+live boot process is responsible for installing hooks in
+/usr/lib/ubiquity/target-config/ to take care of this.
+
+After copying the live filesystem, certain unnecessary packages (such as
+Ubiquity itself) will be removed. The set of packages to be removed is
+computed by taking those packages present in
+/cdrom/casper/filesystem.manifest but not present in
+/cdrom/casper/filesystem.manifest-desktop, and removing any packages
+explicitly requested for installation by installer code. Language packs for
+languages which are not to be supported on the installed system will also be
+removed.
+
+Logs of the installation will be saved in /var/log/installer/syslog (for
+messages emitted by Ubiquity itself), /var/log/syslog (for some messages
+emitted by d-i code), and /var/log/partman (for a trace of the operation of
+the automatic partitioner). /var/log/installer/syslog and /var/log/partman
+are saved in /var/log/installer/ on the installed system. In future,
+/var/log/installer/syslog and /var/log/syslog will be consolidated in order
+to reduce confusion and to allow /var/log/syslog to be saved on the
+installed system as well.
+
+Customisation
+-------------
+
+Where d-i code is used, it is generally possible to preseed it to change
+default behaviour. See the installation guide for details. However, at
+present Ubiquity will not skip over preseeded steps. This may be fixed in
+the future.
+
+The read-only live filesystem should generally be mounted on /rofs.
+Alternatively, an image may be present as /cdrom/casper/filesystem.cloop,
+/cdrom/casper/filesystem.squashfs, or (for Guadalinex/Metadistros)
+/cdrom/META/META.squashfs.
+
+
+Feel free to ask me (Colin Watson <cjwatson@ubuntu.com>) if you have any
+questions regarding Ubiquity's workings.
