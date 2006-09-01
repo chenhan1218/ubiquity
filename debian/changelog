@@ -1,3 +1,9 @@
+ubiquity (1.1.12) UNRELEASED; urgency=low
+
+  * Install apt-setup cdrom generator.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  1 Sep 2006 12:11:33 +0100
+
 ubiquity (1.1.11) edgy; urgency=low
 
   * Automatic update of included source packages: apt-setup
