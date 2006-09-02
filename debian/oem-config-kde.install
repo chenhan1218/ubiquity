@@ -1,0 +1,3 @@
+lib/frontend/kde-ui.py usr/lib/oem-config/oem_config/frontend
+lib/frontend/sysconf.py usr/lib/oem-config/oem_config/frontend
+lib/frontend/sysconf.ui usr/lib/oem-config/oem_config/frontend
