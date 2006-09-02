@@ -132,7 +132,6 @@ class Frontend:
 	            index = index + 1
     
     def set_country_choices(self, choice_map):
-	    print "Set country choices entered"
 	    self.country_choice_map = dict(choice_map)
 	    choices = choice_map.keys()
 	    choices.sort()
@@ -142,11 +141,9 @@ class Frontend:
 		    self.userinterface.location_combo.insertItem(choice)
 
     def set_country(self, country):
-	    print "Set country entered"
-	    print country
 	    index = 0
 	    while index < len(self.loc_list):
-		    if unicode(self.country_choice_map[self.loc_list[index]]) == country:
+		    if unicode(self.loc_list[index]) == country:
 			    self.userinterface.location_combo.setCurrentItem(index)
 			    print country
 			    break
@@ -256,6 +253,7 @@ class Frontend:
 	    #pass
     
     def debconffilter_done (self, dbfilter):
+	print "debconffilter_done called"
 	if dbfilter == self.dbfilter:
             self.dbfilter = None
             self.app.exit()
