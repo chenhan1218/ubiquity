@@ -1234,11 +1234,7 @@ class Install:
 
     def chrex(self, *args):
         """executes commands on chroot system (provided by *args)."""
-
-        if not misc.ex('chroot', self.target, *args):
-            syslog.syslog(syslog.LOG_ERROR, 'chroot ' + ' '.join(args))
-            return False
-        return True
+        return misc.ex('chroot', self.target, *args)
 
 
     def copy_debconf(self, package):
