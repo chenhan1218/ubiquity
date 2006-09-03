@@ -1235,11 +1235,8 @@ class Install:
     def chrex(self, *args):
         """executes commands on chroot system (provided by *args)."""
 
-        msg = ''
-        for word in args:
-            msg += str(word) + ' '
         if not misc.ex('chroot', self.target, *args):
-            syslog.syslog(syslog.LOG_ERROR, 'chroot ' + msg)
+            syslog.syslog(syslog.LOG_ERROR, 'chroot ' + ' '.join(args))
             return False
         return True
 
