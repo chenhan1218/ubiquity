@@ -23,6 +23,7 @@ import os
 import signal
 import subprocess
 import re
+import syslog
 import debconf
 try:
     from debconf import DebconfCommunicator
@@ -53,8 +54,7 @@ class FilteredCommand(object):
         if ('UBIQUITY_DEBUG_CORE' in os.environ and
             os.environ['UBIQUITY_DEBUG_CORE'] == '1'):
             message = fmt % args
-            print >>sys.stderr, '%s: %s' % (PACKAGE, message)
-            sys.stderr.flush()
+            syslog.syslog(syslog.LOG_DEBUG, '%s: %s' % (PACKAGE, message))
 
     def start(self, auto_process=False):
         self.status = None

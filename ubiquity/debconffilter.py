@@ -24,6 +24,7 @@ import signal
 import errno
 import subprocess
 import re
+import syslog
 import debconf
 
 # Each widget should have a run(self, priority, question) method; this
@@ -93,7 +94,8 @@ class DebconfFilter:
 
     def debug(self, key, *args):
         if self.debug_re is not None and self.debug_re.search(key):
-            print >>sys.stderr, "debconf (%s):" % key, ' '.join(args)
+            syslog.syslog(syslog.LOG_DEBUG,
+                          "debconf (%s):" % key, ' '.join(args))
 
     # Returns None if non-blocking and can't read a full line right now;
     # returns '' at end of file; otherwise as fileobj.readline().

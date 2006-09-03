@@ -6,6 +6,7 @@ import os
 import stat
 import re
 import subprocess
+import syslog
 
 
 def part_label(dev):
@@ -47,60 +48,16 @@ def ex(*args):
     try:
         status = subprocess.call(msg, shell=True)
     except IOError, e:
-        pre_log('error', msg)
-        pre_log('error', "OS error(%s): %s" % (e.errno, e.strerror))
+        syslog.syslog(syslog.LOG_ERROR, msg)
+        syslog.syslog(syslog.LOG_ERROR,
+                      "OS error(%s): %s" % (e.errno, e.strerror))
         return False
     else:
         if status != 0:
-            pre_log('error', msg)
+            syslog.syslog(syslog.LOG_ERROR, msg)
             return False
-        pre_log('info', msg)
+        syslog.syslog(msg)
         return True
-
-
-def ret_ex(*args):
-    import subprocess
-    msg = ''
-    for word in args:
-        msg += str(word) + ' '
-    try:
-        proc = subprocess.Popen(args, stdout=subprocess.PIPE, close_fds=True)
-    except IOError, e:
-        pre_log('error', msg)
-        pre_log('error', "I/O error(%s): %s" % (e.errno, e.strerror))
-        return None
-    else:
-        pre_log('info', msg)
-        return proc.stdout
-
-
-def pre_log(code, msg=''):
-    """logs install messages into /var/log on live filesystem."""
-
-    import logging
-    logging.basicConfig(level=logging.DEBUG,
-                        format='%(asctime)s %(levelname)-8s %(message)s',
-                        datefmt='%a, %d %b %Y %H:%M:%S',
-                        stream=sys.stderr)
-    getattr(logging, code)(msg)
-
-
-def post_log(code, msg=''):
-    """logs install messages into /var/log on installed filesystem."""
-
-    log_file = '/target/var/log/installer/syslog'
-
-    if not os.path.exists(os.path.dirname(log_file)):
-        os.makedirs(os.path.dirname(log_file))
-
-    import logging
-    logging.basicConfig(level=logging.DEBUG,
-                        format='%(asctime)s %(levelname)-8s %(message)s',
-                        datefmt='%a, %d %b %Y %H:%M:%S',
-                        filename=log_file,
-                        filemode='a')
-    getattr(logging, code)(msg)
-    os.chmod(log_file, stat.S_IRUSR | stat.S_IWUSR)
 
 
 def get_progress(str):
@@ -170,7 +127,7 @@ def disable_swap():
     for swap in swaps:
         if swap.startswith('/dev'):
             device = swap.split()[0]
-            pre_log('info', "Disabling swap on %s" % device)
+            syslog.syslog("Disabling swap on %s" % device)
             subprocess.call(['swapoff', device])
     swaps.close()
 

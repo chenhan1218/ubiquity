@@ -38,6 +38,7 @@ import glob
 import subprocess
 import math
 import traceback
+import syslog
 import xml.sax.saxutils
 
 import gettext
@@ -189,9 +190,10 @@ class Wizard:
             return
 
         tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
-        print >>sys.stderr, ("Exception in KDE frontend"
-                             " (invoking crash handler):")
-        print >>sys.stderr, tbtext
+        syslog.syslog(syslog.LOG_ERROR,
+                      "Exception in KDE frontend (invoking crash handler):")
+        for line in tbtext.split('\n'):
+            syslog.syslog(syslog.LOG_ERROR, line)
         dialog = CrashDialog(self.userinterface)
         dialog.connect(dialog.beastie_url, SIGNAL("leftClickedURL(const QString&)"), self.openURL)
         dialog.crash_detail.setText(tbtext)
@@ -279,7 +281,7 @@ class Wizard:
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name in ("stepPartDisk", "stepPartAuto"):
                 if isinstance(self.dbfilter, partman_auto.PartmanAuto):
-                    pre_log('info', 'reusing running partman')
+                    syslog.syslog('reusing running partman')
                 else:
                     self.dbfilter = partman_auto.PartmanAuto(self)
             elif current_name == "stepReady":
@@ -432,7 +434,7 @@ class Wizard:
     def qtparted_loop(self):
         """call qtparted and embed it into the interface."""
 
-        pre_log('info', 'qtparted_loop()')
+        syslog.syslog('qtparted_loop()')
 
         disable_swap()
 
@@ -514,7 +516,7 @@ class Wizard:
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
 
-        pre_log('info', 'progress_loop()')
+        syslog.syslog('progress_loop()')
 
         self.current_page = None
 
@@ -710,7 +712,7 @@ class Wizard:
 
         # setting actual step
         step = self.step_name(self.get_current_page())
-        pre_log('info', 'Step_before = %s' % step)
+        syslog.syslog('Step_before = %s' % step)
 
         # Welcome
         if step == "stepWelcome":
@@ -751,7 +753,7 @@ class Wizard:
             self.progress_loop()
 
         step = self.step_name(self.get_current_page())
-        pre_log('info', 'Step_after = %s' % step)
+        syslog.syslog('Step_after = %s' % step)
 
     def process_identification (self):
         """Processing identification step tasks."""
@@ -850,13 +852,13 @@ class Wizard:
         # read qtparted output of format "- FORMAT /dev/hda2 linux-swap"
         qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
         while not qtparted_reply.startswith('0 ') and not qtparted_reply.startswith('1 '):
-            pre_log('info', 'qtparted replied: %s' % qtparted_reply)
+            syslog.syslog('qtparted replied: %s' % qtparted_reply)
             if qtparted_reply.startswith('- '):
                 words = qtparted_reply[2:].strip().split()
                 if words[0].lower() == 'format' and len(words) >= 3:
                     self.qtparted_fstype[words[1]] = words[2]
             qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
-        pre_log('info', 'qtparted replied: %s' % qtparted_reply)
+        syslog.syslog('qtparted replied: %s' % qtparted_reply)
 
         if qtparted_reply.startswith('1 '):
             # Cancel
@@ -1043,7 +1045,7 @@ class Wizard:
                                                  format_value, fstype)
         else:
             self.mountpoints = mountpoints
-        pre_log('info', 'mountpoints: %s' % self.mountpoints)
+        syslog.syslog('mountpoints: %s' % self.mountpoints)
 
         # Checking duplicated devices
         partitions = [w.currentText() for w in self.partition_widgets]

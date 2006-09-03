@@ -4,6 +4,7 @@ import sys
 import os
 import gobject
 import glob
+import syslog
 
 import gettext
 
@@ -68,24 +69,24 @@ class Wizard:
 
         def copy_thread(queue):
             """copy thread for copy process."""
-            pre_log('info', 'Copying the system...')
+            syslog.syslog('Copying the system...')
             cp = copy.Copy()
             if not cp.run(queue):
-                pre_log('error','fail the copy fase')
+                syslog.syslog(syslog.LOG_ERROR, 'fail the copy phase')
                 self.quit()
             else:
-                pre_log('info', 'Copy: ok')
+                syslog.syslog('Copy: ok')
             queue.put('101')
             
         def config_thread(queue):
             """config thread for config process."""
-            pre_log('info', 'Configuring the system...')
+            syslog.syslog('Configuring the system...')
             cf = config.Config(self)
             if not cf.run(queue):
-                pre_log('error','fail the configure fase')
+                syslog.syslog(syslog.LOG_ERROR, 'fail the configure phase')
                 self.quit()
             else:
-                pre_log('info', 'Configure: ok')
+                syslog.syslog('Configure: ok')
             queue.put('101')
 
         for function in [copy_thread,config_thread]:
@@ -104,14 +105,14 @@ class Wizard:
 
     def clean_up(self):
         ex('rm','-f','/cdrom/META/META.squashfs')
-        post_log('info','Cleaned up')
+        syslog.syslog('Cleaned up')
 
 
     def set_progress(self, msg):
         num , text = get_progress(msg)
         if num == self.per:
             return True
-        post_log('info','%d: %s' % ((num/100.0), text))
+        syslog.syslog('%d: %s' % ((num/100.0), text))
         print '%d: %s' % ((num/100.0), text)
         self.per = num
         return True
@@ -137,8 +138,7 @@ class Wizard:
 
 
     def show_error(self, msg):
-        pre_log('error', msg)
-        print >>sys.stderr, "ERROR: " + msg
+        syslog.syslog(syslog.LOG_ERROR, msg)
 
 
     def quit(self):

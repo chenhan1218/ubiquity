@@ -46,6 +46,7 @@ import glob
 import subprocess
 import math
 import traceback
+import syslog
 import xml.sax.saxutils
 
 import gettext
@@ -182,9 +183,10 @@ class Wizard:
             return
 
         tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
-        print >>sys.stderr, ("Exception in GTK frontend"
-                             " (invoking crash handler):")
-        print >>sys.stderr, tbtext
+        syslog.syslog(syslog.LOG_ERROR,
+                      "Exception in GTK frontend (invoking crash handler):")
+        for line in tbtext.split('\n'):
+            syslog.syslog(syslog.LOG_ERROR, line)
 
         if 'problem_report' in sys.modules and 'apport_utils' in sys.modules:
             try:
@@ -274,7 +276,7 @@ class Wizard:
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name in ("stepPartDisk", "stepPartAuto"):
                 if isinstance(self.dbfilter, partman_auto.PartmanAuto):
-                    pre_log('info', 'reusing running partman')
+                    syslog.syslog('reusing running partman')
                 else:
                     self.dbfilter = partman_auto.PartmanAuto(self)
             elif current_name == "stepReady":
@@ -477,7 +479,7 @@ class Wizard:
     def gparted_loop(self):
         """call gparted and embed it into glade interface."""
 
-        pre_log('info', 'gparted_loop()')
+        syslog.syslog('gparted_loop()')
 
         disable_swap()
 
@@ -561,7 +563,7 @@ class Wizard:
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
 
-        pre_log('info', 'progress_loop()')
+        syslog.syslog('progress_loop()')
 
         self.current_page = None
 
@@ -751,7 +753,7 @@ class Wizard:
 
         # setting actual step
         step = self.step_name(self.steps.get_current_page())
-        pre_log('info', 'Step_before = %s' % step)
+        syslog.syslog('Step_before = %s' % step)
 
         # Welcome
         if step == "stepWelcome":
@@ -791,7 +793,7 @@ class Wizard:
             self.progress_loop()
 
         step = self.step_name(self.steps.get_current_page())
-        pre_log('info', 'Step_after = %s' % step)
+        syslog.syslog('Step_after = %s' % step)
 
     def process_identification (self):
         """Processing identification step tasks."""
@@ -904,13 +906,13 @@ class Wizard:
         # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
         gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
         while gparted_reply.startswith('- '):
-            pre_log('info', 'gparted replied: %s' % gparted_reply)
+            syslog.syslog('gparted replied: %s' % gparted_reply)
             words = gparted_reply[2:].strip().split()
             if words[0].lower() == 'format' and len(words) >= 3:
                 self.gparted_fstype[words[1]] = words[2]
             gparted_reply = \
                 self.gparted_subp.stdout.readline().rstrip('\n')
-        pre_log('info', 'gparted replied: %s' % gparted_reply)
+        syslog.syslog('gparted replied: %s' % gparted_reply)
 
         if gparted_reply.startswith('1 '):
             # Cancel
@@ -1043,7 +1045,7 @@ class Wizard:
                                                  format_value, fstype)
         else:
             self.mountpoints = mountpoints
-        pre_log('info', 'mountpoints: %s' % self.mountpoints)
+        syslog.syslog('mountpoints: %s' % self.mountpoints)
 
         # Checking duplicated devices
         partitions = [w.get_active_text() for w in self.partition_widgets]
@@ -1237,7 +1239,7 @@ class Wizard:
     def on_steps_switch_page (self, foo, bar, current):
         self.set_current_page(current)
         current_name = self.step_name(current)
-        pre_log('info', 'switched to page %s' % current_name)
+        syslog.syslog('switched to page %s' % current_name)
 
 
     def on_autopartition_resize_toggled (self, widget):

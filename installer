@@ -19,6 +19,7 @@ import os
 import errno
 import shutil
 import subprocess
+import syslog
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -98,8 +99,9 @@ if __name__ == '__main__':
     except IOError, err:
         if err.errno != errno.EACCES:
             raise
+    syslog.openlog('ubiquity', syslog.LOG_NOWAIT | syslog.LOG_PID)
 
-    print >>sys.stderr, "Ubiquity %s" % VERSION
+    syslog.syslog("Ubiquity %s" % VERSION)
     version_file = open('/var/log/installer/version', 'w')
     print >>version_file, 'ubiquity %s' % VERSION
     version_file.close()
