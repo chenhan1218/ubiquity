@@ -18,7 +18,6 @@ import sys
 import os
 import errno
 import shutil
-import subprocess
 import syslog
 
 sys.path.insert(0, '/usr/lib/ubiquity')
@@ -65,9 +64,9 @@ def copy_debconf():
     """Copy a few important questions into the installed system."""
     targetdb = '/target/var/cache/debconf/config.dat'
     for q in ('^debian-installer/keymap$',):
-        subprocess.call(['debconf-copydb', 'configdb', 'targetdb', '-p', q,
-                         '--config=Name:targetdb', '--config=Driver:File',
-                         '--config=Filename:%s' % targetdb])
+        misc.ex(['debconf-copydb', 'configdb', 'targetdb', '-p', q,
+                 '--config=Name:targetdb', '--config=Driver:File',
+                 '--config=Filename:%s' % targetdb])
 
 def unmount_target():
     paths = []

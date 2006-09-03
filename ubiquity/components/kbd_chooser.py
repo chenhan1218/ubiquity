@@ -20,7 +20,7 @@
 import re
 import os
 from ubiquity.filteredcommand import FilteredCommand
-from subprocess import Popen
+from ubiquity import misc
 
 class KbdChooser(FilteredCommand):
 
@@ -370,7 +370,7 @@ def apply_keyboard(keyboard):
             xkboptions.extend(["-option", opt])
 
         KbdChooser.debug("apply_keyboard: %s", message)
-        Popen(["setxkbmap", xmap] + model + variant + xkboptions)
+        misc.ex(["setxkbmap", xmap] + model + variant + xkboptions)
 
 def update_x_config(keyboard):
     # We also need to rewrite xorg.conf with this new setting, so that (a)

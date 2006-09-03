@@ -136,10 +136,7 @@ class Wizard:
         self.allowed_change_step = True
         self.allowed_go_forward = True
 
-        devnull = open('/dev/null', 'w')
-        self.laptop = subprocess.call(["laptop-detect"], stdout=devnull,
-                                      stderr=subprocess.STDOUT) == 0
-        devnull.close()
+        self.laptop = ex(["laptop-detect"])
 
         # set default language
         dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
@@ -496,7 +493,8 @@ class Wizard:
 
         # Save pid to kill gparted when install process starts
         self.gparted_subp = subprocess.Popen(
-            ['gparted', '--installer', window_id],
+            ['log-output', '-t', 'ubiquity', '--pass-stdout',
+             'gparted', '--installer', window_id],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
 
 
@@ -611,14 +609,15 @@ class Wizard:
 
         if (os.path.exists("/usr/bin/gdm-signal") and
             os.path.exists("/usr/bin/gnome-session-save")):
-            subprocess.call(["gdm-signal", "--reboot"])
+            ex(["gdm-signal", "--reboot"])
             if 'SUDO_UID' in os.environ:
                 user = '#%d' % int(os.environ['SUDO_UID'])
             else:
                 user = 'ubuntu'
-            subprocess.call(["sudo", "-u", user, "-H", "gnome-session-save", "--kill", "--silent"])
+            ex(["sudo", "-u", user, "-H",
+                "gnome-session-save", "--kill", "--silent"])
         else:
-            subprocess.call(["reboot"])
+            ex(["reboot"])
 
 
     def quit(self):
@@ -1137,10 +1136,10 @@ class Wizard:
 
         for gconf_key in (gvm_automount_drives, gvm_automount_media):
             if gconf_previous[gconf_key] == '':
-                subprocess.call(['gconftool-2', '--unset', gconf_key])
+                ex(['gconftool-2', '--unset', gconf_key])
             elif gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                 '--type', 'bool', gconf_previous[gconf_key]])
+                ex(['gconftool-2', '--set', gconf_key,
+                    '--type', 'bool', gconf_previous[gconf_key]])
 
         # Since we've successfully committed partitioning, the install
         # progress bar should now be displayed, so we can go straight on to
@@ -1218,7 +1217,8 @@ class Wizard:
         if 'DESKTOP_STARTUP_ID' in time_admin_env:
             del time_admin_env['DESKTOP_STARTUP_ID']
         time_admin_env['GST_NO_INSTALL_NTP'] = '1'
-        time_admin_subp = subprocess.Popen(["time-admin"], env=time_admin_env)
+        time_admin_subp = subprocess.Popen(["log-output", "-t", "ubiquity",
+                                            "time-admin"], env=time_admin_env)
         gobject.child_watch_add(time_admin_subp.pid, self.on_time_admin_exit,
                                 invisible)
 

@@ -40,18 +40,20 @@ def distribution():
 def ex(*args):
     """runs args* in shell mode. Output status is taken."""
 
+    log_args = ['log-output', '-t', 'ubiquity'] + args
+
     try:
-        status = subprocess.call(args)
+        status = subprocess.call(log_args)
     except IOError, e:
-        syslog.syslog(syslog.LOG_ERROR, ' '.join(args))
+        syslog.syslog(syslog.LOG_ERROR, ' '.join(log_args))
         syslog.syslog(syslog.LOG_ERROR,
                       "OS error(%s): %s" % (e.errno, e.strerror))
         return False
     else:
         if status != 0:
-            syslog.syslog(syslog.LOG_ERROR, ' '.join(args))
+            syslog.syslog(syslog.LOG_ERROR, ' '.join(log_args))
             return False
-        syslog.syslog(' '.join(args))
+        syslog.syslog(' '.join(log_args))
         return True
 
 

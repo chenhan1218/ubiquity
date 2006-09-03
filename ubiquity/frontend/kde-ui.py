@@ -145,10 +145,7 @@ class Wizard:
                                    'welcome_text_label', 'step_label',
                                    'cancel', 'back', 'next')
 
-        devnull = open('/dev/null', 'w')
-        self.laptop = subprocess.call(["laptop-detect"], stdout=devnull,
-                                      stderr=subprocess.STDOUT) == 0
-        devnull.close()
+        self.laptop = ex(["laptop-detect"])
         self.qtparted_subp = None
 
         # set default language
@@ -202,7 +199,7 @@ class Wizard:
 
     def openURL(self, url):
         #need to run this else kdesu can't run Konqueror
-        subprocess.call(['su', 'ubuntu', 'xhost', '+localhost'])
+        ex(['su', 'ubuntu', 'xhost', '+localhost'])
         KRun.runURL(KURL(url), "text/html")
 
     def run(self):
@@ -445,7 +442,9 @@ class Wizard:
         self.embed.setProtocol(QXEmbed.XPLAIN)
 
         self.qtparted_subp = subprocess.Popen(
-            ['/usr/sbin/qtparted', '--installer'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+            ['log-output', '-t', 'ubiquity', '--pass-stdout',
+             '/usr/sbin/qtparted', '--installer'],
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
         qtparted_winid = self.qtparted_subp.stdout.readline().rstrip('\n')
         self.embed.embed( int(qtparted_winid) )
         self.qtparted_vbox.addWidget(self.embed)
@@ -571,9 +570,9 @@ class Wizard:
         # can't seem to be able to call dcop from kdesu (even if I su back to ubuntu user)
         #if (os.path.exists("/usr/bin/ksmserver") and
         #    os.path.exists("/usr/bin/dcop")):
-        #    subprocess.call(["dcop", "ksmserver", "ksmserver", "logout", "1", "1", "1"])
+        #    ex(["dcop", "ksmserver", "ksmserver", "logout", "1", "1", "1"])
         #else:
-        subprocess.call(["reboot"])
+        ex(["reboot"])
 
     def quit(self):
         """quit installer cleanly."""
@@ -1196,7 +1195,8 @@ class Wizard:
         tz = self.tzmap.get_selected_tz_name()
         if tz is not None:
             time_admin_env['TZ'] = tz
-        time_admin_subp = subprocess.Popen(["kcmshell", "clock"], env=time_admin_env)
+        time_admin_subp = subprocess.Popen(["log-output", "-t", "ubiquity",
+                                            "kcmshell", "clock"], env=time_admin_env)
         #gobject.child_watch_add(time_admin_subp.pid, self.on_time_admin_exit,
         #                        invisible)
 

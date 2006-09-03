@@ -60,7 +60,8 @@ class FilteredCommand(object):
         self.status = None
         self.db = DebconfCommunicator(PACKAGE, cloexec=True)
         prep = self.prepare()
-        self.command = prep[0]
+        self.command = ['log-output', '-t', 'ubiquity',
+                        '--pass-stdout'] + prep[0]
         question_patterns = prep[1]
         if len(prep) > 2:
             env = prep[2]
@@ -118,7 +119,8 @@ class FilteredCommand(object):
         # from within the debconffiltered Config class.
         if self.frontend is None:
             prep = self.prepare()
-            self.command = prep[0]
+            self.command = ['log-output', '-t', 'ubiquity',
+                            '--pass-stdout'] + prep[0]
             self.debug("Starting up '%s' for %s.%s", self.command,
                        self.__class__.__module__, self.__class__.__name__)
             if len(prep) > 2:

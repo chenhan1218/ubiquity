@@ -605,7 +605,7 @@ class Install:
                               'SCRIPT', hookentry)
                 self.db.progress('INFO', 'ubiquity/install/target_hook')
                 # Errors are ignored at present, although this may change.
-                subprocess.call(hook)
+                misc.ex(hook)
                 self.db.progress('STEP', 1)
             self.db.progress('STOP')
 
@@ -843,8 +843,8 @@ class Install:
 
         self.db.progress('INFO', 'ubiquity/install/hardware')
 
-        subprocess.call(['/usr/lib/ubiquity/debian-installer-utils'
-                         '/register-module.post-base-installer'])
+        misc.ex(['/usr/lib/ubiquity/debian-installer-utils'
+                 '/register-module.post-base-installer'])
 
         resume = self.get_resume_partition()
         if resume is not None:
@@ -1252,7 +1252,9 @@ class Install:
 
 
     def set_debconf(self, question, value):
-        dccomm = subprocess.Popen(['chroot', self.target,
+        dccomm = subprocess.Popen(['log-output', '-t', 'ubiquity',
+                                   '--pass-stdout',
+                                   'chroot', self.target,
                                    'debconf-communicate',
                                    '-fnoninteractive', 'ubiquity'],
                                   stdin=subprocess.PIPE,
