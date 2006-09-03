@@ -3,6 +3,8 @@ ubiquity (1.1.12) UNRELEASED; urgency=low
   * Install apt-setup cdrom generator.
   * Send all internal log messages to syslog rather than stderr.
   * Remove several obsolete functions from ubiquity.misc.
+  * Fix misc.ex to use subprocess.call properly rather than smashing
+    arguments together and invoking them via the shell.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  1 Sep 2006 12:11:33 +0100
 
