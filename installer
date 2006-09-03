@@ -29,8 +29,6 @@ cdebconf = False
 VERSION = '@VERSION@'
 TARGET = '/target'
 
-log_file = '/var/log/installer/syslog'
-
 def install(frontend=None):
     '''install(frontend=None) -> none
     
@@ -88,16 +86,8 @@ def prepend_path(directory):
         os.environ['PATH'] = directory
 
 if __name__ == '__main__':
-    if not os.path.exists(os.path.dirname(log_file)):
-        os.makedirs(os.path.dirname(log_file))
-    # The frontend should take care of displaying a helpful message if we
-    # are being run without root privileges.
-    try:
-        sys.stderr = open(log_file, 'a', 1)
-        os.dup2(sys.stderr.fileno(), 2)
-    except IOError, err:
-        if err.errno != errno.EACCES:
-            raise
+    if not os.path.exists('/var/log/installer'):
+        os.makedirs('/var/log/installer')
     syslog.openlog('ubiquity', syslog.LOG_NOWAIT | syslog.LOG_PID)
 
     syslog.syslog("Ubiquity %s" % VERSION)

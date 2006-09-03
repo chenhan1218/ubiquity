@@ -191,6 +191,10 @@ class Wizard:
                       "Exception in KDE frontend (invoking crash handler):")
         for line in tbtext.split('\n'):
             syslog.syslog(syslog.LOG_ERROR, line)
+        print >>sys.stderr, ("Exception in KDE frontend"
+                             " (invoking crash handler):")
+        print >>sys.stderr, tbtext
+
         dialog = CrashDialog(self.userinterface)
         dialog.connect(dialog.beastie_url, SIGNAL("leftClickedURL(const QString&)"), self.openURL)
         dialog.crash_detail.setText(tbtext)
@@ -537,7 +541,6 @@ class Wizard:
                                      (ret, realtb))
             else:
                 raise RuntimeError, ("Install failed with exit code %s; see "
-                                     "/var/log/installer/syslog and "
                                      "/var/log/syslog" % ret)
 
         while self.progress_position.depth() != 0:
@@ -814,8 +817,8 @@ class Wizard:
 
         # TODO cjwatson 2006-07-18: i18n
         text = ('The advanced partitioner (qtparted) crashed. Further '
-                'information may be found in /var/log/installer/syslog, '
-                'or by running qtparted directly. Do you want to try the '
+                'information may be found in /var/log/syslog, or by '
+                'running qtparted directly. Do you want to try the '
                 'advanced partitioner again, return to automatic '
                 'partitioning, or quit this installer?')
         answer = QMessageBox.warning(self.userinterface, 'QTParted crashed',

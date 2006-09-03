@@ -7,6 +7,9 @@ ubiquity (1.1.12) UNRELEASED; urgency=low
   * Fix misc.ex to use subprocess.call properly rather than smashing
     arguments together and invoking them via the shell.
   * Remove duplicate logging from Install.chrex.
+  * Remove /var/log/installer/syslog from all error messages etc., as
+    everything goes to /var/log/syslog now. /var/log/syslog is now copied to
+    /var/log/installer/syslog on the target system.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  1 Sep 2006 12:11:33 +0100
 

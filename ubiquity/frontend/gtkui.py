@@ -184,6 +184,9 @@ class Wizard:
                       "Exception in GTK frontend (invoking crash handler):")
         for line in tbtext.split('\n'):
             syslog.syslog(syslog.LOG_ERROR, line)
+        print >>sys.stderr, ("Exception in GTK frontend"
+                             " (invoking crash handler):")
+        print >>sys.stderr, tbtext
 
         if 'problem_report' in sys.modules and 'apport_utils' in sys.modules:
             try:
@@ -194,8 +197,6 @@ class Wizard:
                 pr['BugDisplayMode'] = 'file'
                 pr['ExecutablePath'] = '/usr/bin/ubiquity'
                 pr['PythonTraceback'] = tbtext
-                if os.path.exists('/var/log/installer/syslog'):
-                    pr['UbiquityInstallerSyslog'] = ('/var/log/installer/syslog',)
                 if os.path.exists('/var/log/syslog'):
                     pr['UbiquitySyslog'] = ('/var/log/syslog',)
                 if os.path.exists('/var/log/partman'):
@@ -583,7 +584,6 @@ class Wizard:
                                      (ret, realtb))
             else:
                 raise RuntimeError, ("Install failed with exit code %s; see "
-                                     "/var/log/installer/syslog and "
                                      "/var/log/syslog" % ret)
 
         while self.progress_position.depth() != 0:
@@ -858,8 +858,8 @@ class Wizard:
 
         # TODO cjwatson 2006-07-18: i18n
         text = ('The advanced partitioner (gparted) crashed. Further '
-                'information may be found in /var/log/installer/syslog, '
-                'or by running gparted directly. Do you want to try the '
+                'information may be found in /var/log/syslog, or by '
+                'running gparted directly. Do you want to try the '
                 'advanced partitioner again, return to automatic '
                 'partitioning, or quit this installer?')
         dialog = gtk.Dialog('GParted crashed', self.live_installer,
