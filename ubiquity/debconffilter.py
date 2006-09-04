@@ -86,6 +86,7 @@ class DebconfFilter:
             self.debug_re = re.compile(os.environ['DEBCONF_DEBUG'])
         else:
             self.debug_re = None
+        self.escaping = False
         self.progress_bars = []
         self.toread = ''
         self.toreadpos = 0
@@ -125,6 +126,9 @@ class DebconfFilter:
                     raise
 
     def reply(self, code, text='', log=False):
+        if self.escaping and code == 0:
+            text = text.replace('\\', '\\\\').replace('\n', '\\n')
+            code = 1
         ret = '%d %s' % (code, text)
         if log:
             self.debug('filter', '-->', ret)
@@ -209,6 +213,7 @@ class DebconfFilter:
             return True
 
         if command == 'CAPB':
+            self.escaping = 'escape' in params
             for widget in self.find_widgets(['CAPB'], 'capb'):
                 self.debug('filter', 'capb widget found')
                 widget.capb(params)
