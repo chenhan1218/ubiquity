@@ -145,7 +145,7 @@ class Wizard:
                                    'welcome_text_label', 'step_label',
                                    'cancel', 'back', 'next')
 
-        self.laptop = ex(["laptop-detect"])
+        self.laptop = ex("laptop-detect")
         self.qtparted_subp = None
 
         # set default language
@@ -203,7 +203,7 @@ class Wizard:
 
     def openURL(self, url):
         #need to run this else kdesu can't run Konqueror
-        ex(['su', 'ubuntu', 'xhost', '+localhost'])
+        ex('su', 'ubuntu', 'xhost', '+localhost')
         KRun.runURL(KURL(url), "text/html")
 
     def run(self):
@@ -573,9 +573,9 @@ class Wizard:
         # can't seem to be able to call dcop from kdesu (even if I su back to ubuntu user)
         #if (os.path.exists("/usr/bin/ksmserver") and
         #    os.path.exists("/usr/bin/dcop")):
-        #    ex(["dcop", "ksmserver", "ksmserver", "logout", "1", "1", "1"])
+        #    ex("dcop", "ksmserver", "ksmserver", "logout", "1", "1", "1")
         #else:
-        ex(["reboot"])
+        ex("reboot")
 
     def quit(self):
         """quit installer cleanly."""

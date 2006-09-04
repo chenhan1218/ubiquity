@@ -136,7 +136,7 @@ class Wizard:
         self.allowed_change_step = True
         self.allowed_go_forward = True
 
-        self.laptop = ex(["laptop-detect"])
+        self.laptop = ex("laptop-detect")
 
         # set default language
         dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
@@ -609,15 +609,15 @@ class Wizard:
 
         if (os.path.exists("/usr/bin/gdm-signal") and
             os.path.exists("/usr/bin/gnome-session-save")):
-            ex(["gdm-signal", "--reboot"])
+            ex("gdm-signal", "--reboot")
             if 'SUDO_UID' in os.environ:
                 user = '#%d' % int(os.environ['SUDO_UID'])
             else:
                 user = 'ubuntu'
-            ex(["sudo", "-u", user, "-H",
-                "gnome-session-save", "--kill", "--silent"])
+            ex("sudo", "-u", user, "-H",
+               "gnome-session-save", "--kill", "--silent")
         else:
-            ex(["reboot"])
+            ex("reboot")
 
 
     def quit(self):
@@ -1136,10 +1136,10 @@ class Wizard:
 
         for gconf_key in (gvm_automount_drives, gvm_automount_media):
             if gconf_previous[gconf_key] == '':
-                ex(['gconftool-2', '--unset', gconf_key])
+                ex('gconftool-2', '--unset', gconf_key)
             elif gconf_previous[gconf_key] != 'false':
-                ex(['gconftool-2', '--set', gconf_key,
-                    '--type', 'bool', gconf_previous[gconf_key]])
+                ex('gconftool-2', '--set', gconf_key,
+                   '--type', 'bool', gconf_previous[gconf_key])
 
         # Since we've successfully committed partitioning, the install
         # progress bar should now be displayed, so we can go straight on to

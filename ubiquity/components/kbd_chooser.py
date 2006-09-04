@@ -351,26 +351,23 @@ def apply_keyboard(keyboard):
 
     if xmap is not None:
         message = 'layout %s' % xmap
+        args = [xmap]
 
         if model is not None:
             message += ', model %s' % model
-            model = ["-model", model]
-        else:
-            model = []
+            args.extend(["-model", model])
 
         if variant is not None:
             message += ', variant %s' % variant
-            variant = ["-variant", variant]
-        else:
-            variant = []
+            args.extend(["-variant", variant])
 
-        xkboptions = ["-option", ""]
+        args.extend(["-option", ""])
         for opt in options:
             message += ', option %s' % opt
-            xkboptions.extend(["-option", opt])
+            args.extend(["-option", opt])
 
         KbdChooser.debug("apply_keyboard: %s", message)
-        misc.ex(["setxkbmap", xmap] + model + variant + xkboptions)
+        misc.ex("setxkbmap", *args)
 
 def update_x_config(keyboard):
     # We also need to rewrite xorg.conf with this new setting, so that (a)

@@ -843,8 +843,8 @@ class Install:
 
         self.db.progress('INFO', 'ubiquity/install/hardware')
 
-        misc.ex(['/usr/lib/ubiquity/debian-installer-utils'
-                 '/register-module.post-base-installer'])
+        misc.ex('/usr/lib/ubiquity/debian-installer-utils'
+                '/register-module.post-base-installer')
 
         resume = self.get_resume_partition()
         if resume is not None:
