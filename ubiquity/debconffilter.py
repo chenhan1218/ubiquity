@@ -95,7 +95,7 @@ class DebconfFilter:
     def debug(self, key, *args):
         if self.debug_re is not None and self.debug_re.search(key):
             syslog.syslog(syslog.LOG_DEBUG,
-                          "debconf (%s):" % key, ' '.join(args))
+                          "debconf (%s): %s" % (key, ' '.join(args)))
 
     # Returns None if non-blocking and can't read a full line right now;
     # returns '' at end of file; otherwise as fileobj.readline().
