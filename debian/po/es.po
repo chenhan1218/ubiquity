@@ -386,7 +386,7 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity.templates:48001
-msgid "Name: ${REALNAME}"
+msgid "Name: ${FULLNAME}"
 msgstr ""
 
 #. Type: note

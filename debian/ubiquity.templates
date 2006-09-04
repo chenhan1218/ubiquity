@@ -225,7 +225,7 @@ _Description: Ready to install
  .
  Keyboard layout: ${KEYMAP}
  .
- Name: ${REALNAME}
+ Name: ${FULLNAME}
  .
  Login name: ${USERNAME}
  .

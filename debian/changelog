@@ -15,6 +15,7 @@ ubiquity (1.1.12) UNRELEASED; urgency=low
     GTK frontend, kdepyuic for the KDE frontend). This should never happen
     in normal builds, but saves typing when building test versions.
   * Teach DebconfFilter to send escaped replies when CAPB escape is set.
+  * Fix substitution variable for full name in ubiquity/summary.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  1 Sep 2006 12:11:33 +0100
 
