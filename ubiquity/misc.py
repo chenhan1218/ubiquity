@@ -40,7 +40,8 @@ def distribution():
 def ex(*args):
     """runs args* in shell mode. Output status is taken."""
 
-    log_args = ['log-output', '-t', 'ubiquity'] + args
+    log_args = ['log-output', '-t', 'ubiquity']
+    log_args.extend(args)
 
     try:
         status = subprocess.call(log_args)
