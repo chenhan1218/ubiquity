@@ -1,3 +1,9 @@
+ubiquity (1.1.13) UNRELEASED; urgency=low
+
+  * Rename configure.in to configure.ac.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  4 Sep 2006 23:12:42 +0100
+
 ubiquity (1.1.12) edgy; urgency=low
 
   * Install apt-setup cdrom generator.

@@ -1,5 +1,5 @@
 AC_PREREQ(2.52)
-AC_INIT(ubiquity, 0.99.16, https://launchpad.net/distros/ubuntu/+source/ubiquity/+filebug)
+AC_INIT(ubiquity, 1.1.13, https://launchpad.net/distros/ubuntu/+source/ubiquity/+filebug)
 AC_CONFIG_SRCDIR(src/cut-and-paste/e-map/e-map.c)
 AM_INIT_AUTOMAKE([foreign])
 
