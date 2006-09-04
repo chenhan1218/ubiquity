@@ -129,6 +129,7 @@ class Wizard:
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
         self.previous_partitioning_page = None
+        self.summary_device_button = None
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
@@ -1594,7 +1595,41 @@ class Wizard:
             return self.keyboard_choice_map[value]
 
     def set_summary_text (self, text):
-        self.ready_text.set_text(text)
+        for child in self.ready_text.get_children():
+            self.ready_text.remove(child)
+
+        ready_buffer = gtk.TextBuffer()
+        ready_buffer.set_text(text)
+        self.ready_text.set_buffer(ready_buffer)
+        device_index = text.find("DEVICE")
+        if device_index != -1:
+            device_start_iter = ready_buffer.get_iter_at_offset(device_index)
+            device_end_iter = ready_buffer.get_iter_at_offset(device_index + 6)
+            ready_buffer.delete(device_start_iter, device_end_iter)
+            device_anchor = ready_buffer.create_child_anchor(device_start_iter)
+            self.summary_device_button = gtk.Button()
+            self.summary_device_button.connect(
+                'clicked', self.on_summary_device_button_clicked)
+            self.summary_device_button.show()
+            self.ready_text.add_child_at_anchor(self.summary_device_button,
+                                                device_anchor)
+
+    def set_summary_device (self, device):
+        # i.e. set_summary_text has been called
+        assert self.summary_device_button is not None
+
+        self.summary_device_button.set_label(device)
+
+    def get_summary_device (self):
+        return self.summary_device_button.get_label()
+
+    def on_summary_device_button_clicked (self, button):
+        self.grub_device_entry.set_text(self.get_summary_device())
+        response = self.grub_device_dialog.run()
+        self.grub_device_dialog.hide()
+        if response == gtk.RESPONSE_OK:
+            self.set_summary_device(self.grub_device_entry.get_text())
+        return True
 
 
     def return_to_autopartitioning (self):

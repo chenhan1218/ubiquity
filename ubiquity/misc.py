@@ -266,7 +266,7 @@ def get_translations(languages=None, core_names=[]):
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
              '--config=InFd:none',
-             '--pattern=^(ubiquity|partman-basicfilesystems/bad_mountpoint|partman-partitioning|partman-target/no_root)'],
+             '--pattern=^(ubiquity|partman-basicfilesystems/bad_mountpoint|partman-partitioning|partman-target/no_root|grub-installer/bootdev)'],
             stdout=subprocess.PIPE, stderr=devnull)
         question = None
         descriptions = {}
@@ -310,6 +310,11 @@ def get_translations(languages=None, core_names=[]):
                     question in core_names):
                     if lang not in descriptions:
                         descriptions[lang] = value.replace('\\n', '\n')
+                    # TODO cjwatson 2006-09-04: a bit of a hack to get the
+                    # description and extended description separately ...
+                    if question == 'grub-installer/bootdev':
+                        descriptions["extended:%s" % lang] = \
+                            value.replace('\\n', '\n')
 
         db.wait()
         devnull.close()
@@ -318,7 +323,11 @@ def get_translations(languages=None, core_names=[]):
 
 string_questions = {
     'new_size_label': 'partman-partitioning/new_size',
+    'grub_device_dialog': 'grub-installer/bootdev',
+    'grub_device_label': 'grub-installer/bootdev',
 }
+
+string_extended = set('grub_device_label')
 
 def get_string(name, lang):
     """Get the translation of a single string."""
@@ -337,6 +346,8 @@ def get_string(name, lang):
         lang = 'c'
     else:
         lang = lang.lower()
+    if name in string_extended:
+        lang = 'extended:%s' % lang
 
     if lang in translations[question]:
         text = translations[question][lang]
@@ -347,6 +358,8 @@ def get_string(name, lang):
             text = translations[question][ll_cc]
         elif ll in translations[question]:
             text = translations[question][ll]
+        elif lang.startswith('extended:'):
+            text = translations[question]['extended:c']
         else:
             text = translations[question]['c']
 

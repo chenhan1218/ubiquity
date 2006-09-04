@@ -21,8 +21,16 @@ import textwrap
 from ubiquity.filteredcommand import FilteredCommand
 
 class Summary(FilteredCommand):
+    def __init__(self, frontend):
+        super(Summary, self).__init__(frontend)
+        self.using_grub = False
+
     def prepare(self):
-        return (['/usr/share/ubiquity/summary'], ['^ubiquity/summary$'])
+        return (['/usr/share/ubiquity/summary'], ['^ubiquity/summary.*'])
+
+    def metaget(self, question, field):
+        if question == 'ubiquity/summary/grub':
+            self.using_grub = True
 
     def run(self, priority, question):
         text = ''
@@ -31,6 +39,10 @@ class Summary(FilteredCommand):
             text += wrapper.fill(line) + "\n"
 
         self.frontend.set_summary_text(text)
+        if self.using_grub:
+            # TODO cjwatson 2006-09-04: a bit inelegant, and possibly
+            # Ubuntu-specific?
+            self.frontend.set_summary_device('(hd0)')
 
         # This component exists only to gather some information and then get
         # out of the way.

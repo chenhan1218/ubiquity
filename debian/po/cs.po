@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 20:16+0100\n"
+"POT-Creation-Date: 2006-09-04 22:38+0100\n"
 "PO-Revision-Date: 2006-05-25 11:48+0000\n"
 "Last-Translator: Tomáš Hála <tomas@monty.cz>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
@@ -374,161 +374,171 @@ msgid ""
 " Keyboard layout: ${KEYMAP}\n"
 " Name: ${FULLNAME}\n"
 " Login name: ${USERNAME}\n"
-" Location: ${LOCATION}"
+" Location: ${LOCATION}\n"
+" ${EXTRAS}"
+msgstr ""
+
+#. Type: text
+#. Description
+#. Translators, please leave "DEVICE" untranslated. It will be replaced by a
+#. button displaying the current boot device and allowing the user to select
+#. a different one.
+#: ../ubiquity.templates:49001
+msgid "GRUB will be installed to DEVICE"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:50001
 msgid "Installing system"
 msgstr "Instaluje se systém"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:51001
 msgid "Finding the distribution to copy..."
 msgstr "Hledá se distribuce ke kopírování"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:52001
 msgid "Scanning files..."
 msgstr "Prohledávají se soubory..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Copying files..."
 msgstr "Kopírují se soubory..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Kopírují se soubory (zbývá ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying installation logs..."
 msgstr "Kopírují se instalační záznamy..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Cleaning up..."
 msgstr "Probíhá úklid..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:57001
 msgid "Running ${SCRIPT}..."
 msgstr "Spouští se ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
 msgid "Configuring system locales..."
 msgstr "Konfiguruje se místní nastavení systému..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:59001
 msgid "Configuring apt..."
 msgstr "Konfiguruje se apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:60001
 msgid "Configuring time zone..."
 msgstr "Nastavuje se časové pásmo..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:61001
 msgid "Configuring keyboard..."
 msgstr "Nastavuje se klávesnice..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:62001
 msgid "Creating user..."
 msgstr "Vytvářím uživatele..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:63001
 msgid "Configuring hardware..."
 msgstr "Nastavuje se hardware..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:64001
 msgid "Configuring network..."
 msgstr "Nastavuje se síť..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:65001
 msgid "Setting computer name..."
 msgstr "Nastavuje se jméno počítače..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:66001
 msgid "Configuring boot loader..."
 msgstr "Nastavuje se zavaděč..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:67001
 msgid "Removing extra packages..."
 msgstr "Odstraňují se extra balíky..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:68001
 msgid "Checking for packages to remove..."
 msgstr "Kontrolují se balíky, které se odstraní..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:69001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Stahuji balíky (zbývá ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:70001
 msgid "Downloading package lists..."
 msgstr "Stahuji seznamy balíků"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:71001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Stahuji seznam balíků (zbývá ${TIME})..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:73001
 msgid "Error installing ${PACKAGE}"
 msgstr "Chyba při instalaci ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:74001
 msgid "Error removing ${PACKAGE}"
 msgstr "Chyba při odebírání ${PACKAGE}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:75001
 msgid "Installing language packs"
 msgstr "Instalují se jazykové balíky"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Stahují se jazykové balíky (zbývá ${TIME})..."

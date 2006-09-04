@@ -26,6 +26,9 @@ ubiquity (1.1.12) UNRELEASED; urgency=low
     database.
   * Configure locales and the user account before running target-config
     hooks (closes: Malone #50319).
+  * GTK frontend: Put a button on the summary page to allow the user to
+    install GRUB to somewhere other than the MBR of the first hard disk
+    (closes: Malone #41579).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  1 Sep 2006 12:11:33 +0100
 

@@ -140,6 +140,8 @@ class Wizard:
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
         self.previous_partitioning_page = None
+        # TODO cjwatson 2006-09-04: replace this by a button
+        self.summary_device = ''
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
@@ -1567,6 +1569,16 @@ class Wizard:
 
     def set_summary_text (self, text):
         self.userinterface.ready_text.setText(text)
+        # TODO cjwatson 2006-09-04: turn DEVICE into a button to launch GRUB
+        # configuration
+
+    def set_summary_device (self, device):
+        # TODO cjwatson 2006-09-04: set text of device button
+        self.summary_device = device
+
+    def get_summary_device (self):
+        # TODO cjwatson 2006-09-04: get text of device button
+        return self.summary_device
 
     def return_to_autopartitioning (self):
         """If the install progress bar is up but still at the partitioning
