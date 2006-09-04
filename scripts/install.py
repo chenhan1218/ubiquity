@@ -312,25 +312,30 @@ class Install:
 
             self.db.progress('SET', 76)
             self.db.progress('REGION', 76, 77)
-            self.run_target_config_hooks()
-
-            self.db.progress('SET', 77)
-            self.db.progress('REGION', 77, 78)
             self.db.progress('INFO', 'ubiquity/install/locales')
             self.configure_locales()
 
+            self.db.progress('SET', 77)
+            self.db.progress('REGION', 77, 78)
+            self.db.progress('INFO', 'ubiquity/install/user')
+            self.configure_user()
+
             self.db.progress('SET', 78)
             self.db.progress('REGION', 78, 79)
-            self.db.progress('INFO', 'ubiquity/install/network')
-            self.configure_network()
+            self.run_target_config_hooks()
 
             self.db.progress('SET', 79)
             self.db.progress('REGION', 79, 80)
+            self.db.progress('INFO', 'ubiquity/install/network')
+            self.configure_network()
+
+            self.db.progress('SET', 80)
+            self.db.progress('REGION', 80, 81)
             self.db.progress('INFO', 'ubiquity/install/apt')
             self.configure_apt()
 
-            self.db.progress('SET', 80)
-            self.db.progress('REGION', 80, 84)
+            self.db.progress('SET', 81)
+            self.db.progress('REGION', 81, 85)
             # Ignore failures from language pack installation.
             try:
                 self.install_language_packs()
@@ -341,20 +346,15 @@ class Install:
             except SystemError:
                 pass
 
-            self.db.progress('SET', 84)
-            self.db.progress('REGION', 84, 85)
+            self.db.progress('SET', 85)
+            self.db.progress('REGION', 85, 86)
             self.db.progress('INFO', 'ubiquity/install/timezone')
             self.configure_timezone()
 
-            self.db.progress('SET', 85)
-            self.db.progress('REGION', 85, 87)
+            self.db.progress('SET', 86)
+            self.db.progress('REGION', 86, 88)
             self.db.progress('INFO', 'ubiquity/install/keyboard')
             self.configure_keyboard()
-
-            self.db.progress('SET', 87)
-            self.db.progress('REGION', 87, 88)
-            self.db.progress('INFO', 'ubiquity/install/user')
-            self.configure_user()
 
             self.db.progress('SET', 88)
             self.db.progress('REGION', 88, 92)
