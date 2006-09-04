@@ -1,4 +1,4 @@
-ubiquity (1.1.12) UNRELEASED; urgency=low
+ubiquity (1.1.12) edgy; urgency=low
 
   * Install apt-setup cdrom generator.
   * Send all log messages to syslog rather than stderr. Use log-output from
@@ -33,7 +33,7 @@ ubiquity (1.1.12) UNRELEASED; urgency=low
   * Automatic update of included source packages: debian-installer-utils
     1.35ubuntu2, partman-base 90ubuntu5, partman-target 45ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri,  1 Sep 2006 12:11:33 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  4 Sep 2006 22:54:02 +0100
 
 ubiquity (1.1.11) edgy; urgency=low
 
