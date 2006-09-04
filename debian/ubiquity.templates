@@ -220,18 +220,15 @@ _Description: Continue
 
 Template: ubiquity/summary
 Type: note
+#flag:translate!:3
 _Description: Ready to install
- Language: ${LANGUAGE}
+  Language: ${LANGUAGE}
+  Keyboard layout: ${KEYMAP}
+  Name: ${FULLNAME}
+  Login name: ${USERNAME}
+  Location: ${LOCATION}
  .
- Keyboard layout: ${KEYMAP}
- .
- Name: ${FULLNAME}
- .
- Login name: ${USERNAME}
- .
- Location: ${LOCATION}
- .
- Partitioning:
+ ${PARTMAN_CHANGES}
 
 Template: ubiquity/install/title
 Type: title
@@ -357,3 +354,8 @@ Description: Patterns for language packs to install
  .
  language-pack-$LL is required, and is always installed (by localechooser).
  You do not need to list it here.
+
+Template: ubiquity/partman-made-changes
+Type: boolean
+Default: true
+Description: for internal use; record whether partman asked for confirmation of changes

@@ -21,25 +21,17 @@ import textwrap
 from ubiquity.filteredcommand import FilteredCommand
 
 class Summary(FilteredCommand):
-    # TODO cjwatson 2006-03-10: Having partition_info passed this way is a
-    # hack; it should really live in debconf. However, this is a lot easier
-    # to deal with for now.
-    def __init__(self, frontend, partition_info=None):
-        super(Summary, self).__init__(frontend)
-        self.partition_info = partition_info
-
     def prepare(self):
         return (['/usr/share/ubiquity/summary'], ['^ubiquity/summary$'])
 
     def run(self, priority, question):
-        text = self.extended_description(question).replace("\n\n", "\n") + "\n"
-
-        if self.partition_info is not None:
-            wrapper = textwrap.TextWrapper(
-                initial_indent='  ', subsequent_indent='  ', width=76)
-            for line in self.partition_info.split("\n"):
-                text += wrapper.fill(line) + "\n"
+        text = ''
+        wrapper = textwrap.TextWrapper(width=76)
+        for line in self.extended_description(question).split("\n"):
+            text += wrapper.fill(line) + "\n"
 
         self.frontend.set_summary_text(text)
 
-        return super(Summary, self).run(question, priority)
+        # This component exists only to gather some information and then get
+        # out of the way.
+        return True

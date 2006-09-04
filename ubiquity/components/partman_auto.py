@@ -60,7 +60,7 @@ class PartmanAuto(FilteredCommand):
                      'type:boolean',
                      'ERROR',
                      'PROGRESS']
-        return ('/bin/partman', questions)
+        return ('/bin/partman', questions, {'PARTMAN_NO_COMMIT': '1'})
 
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question))
@@ -173,14 +173,12 @@ class PartmanAuto(FilteredCommand):
                                                           self.resize_max_size)
 
         elif question.startswith('partman/confirm'):
-            if self.frontend.confirm_partitioning_dialog(
-                    self.description(question),
-                    self.extended_description(question)):
-                self.preseed(question, 'true')
-                self.succeeded = True
+            if question == 'partman/confirm':
+                self.db.set('ubiquity/partman-made-changes', 'true')
             else:
-                self.preseed(question, 'false')
-                self.succeeded = False
+                self.db.set('ubiquity/partman-made-changes', 'false')
+            self.preseed(question, 'true')
+            self.succeeded = True
             self.done = True
             return True
 

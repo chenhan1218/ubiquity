@@ -121,6 +121,7 @@ class Wizard:
         self.resize_min_size = None
         self.resize_max_size = None
         self.manual_choice = None
+        self.manual_partitioning = False
         self.password = ''
         self.hostname_edited = False
         self.mountpoint_widgets = []
@@ -523,11 +524,18 @@ class Wizard:
 
         self.current_page = None
 
-        if self.progress_position.depth() != 0:
-            # A progress bar is already up for the partitioner. Use the rest
-            # of it.
-            (start, end) = self.progress_position.get_region()
-            self.debconf_progress_region(end, 100)
+        self.debconf_progress_start(
+            0, 100, get_string('ubiquity/install/title', self.locale))
+        self.debconf_progress_region(0, 15)
+
+        # turn off kded media watcher here?
+
+        dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
+        if dbfilter.run_command(auto_process=True) != 0:
+            # TODO cjwatson 2006-09-03: return to partitioning?
+            return
+
+        self.debconf_progress_region(15, 100)
 
         dbfilter = install.Install(self)
         ret = dbfilter.run_command(auto_process=True)
@@ -713,8 +721,12 @@ class Wizard:
         """Process and validate the results of this step."""
 
         # setting actual step
-        step = self.step_name(self.get_current_page())
+        step_num = self.get_current_page()
+        step = self.step_name(step_num)
         syslog.syslog('Step_before = %s' % step)
+
+        if step.startswith("stepPart"):
+            self.previous_partitioning_page = step_num
 
         # Welcome
         if step == "stepWelcome":
@@ -752,10 +764,17 @@ class Wizard:
         # Ready to install
         elif step == "stepReady":
             # FIXME self.live_installer.hide()
+            self.current_page = None
+            self.installing = True
             self.progress_loop()
+            return
 
         step = self.step_name(self.get_current_page())
         syslog.syslog('Step_after = %s' % step)
+
+        if step == "stepReady":
+            installText = get_string("live_installer", self.locale)
+            self.userinterface.next.setText(installText)
 
     def process_identification (self):
         """Processing identification step tasks."""
@@ -808,9 +827,8 @@ class Wizard:
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
+            self.manual_partitioning = False
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
-            installText = get_string("live_installer", self.locale)
-            self.userinterface.next.setText(installText)
 
     def qtparted_crashed(self):
         """qtparted crashed. Ask the user if they want to continue."""
@@ -1119,16 +1137,9 @@ class Wizard:
         else:
             self.userinterface.mountpoint_error_reason.hide()
             self.userinterface.mountpoint_error_image.hide()
-        
-        # turn off kded media watcher here?
 
-        if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
-            return
-
-        # Since we've successfully committed partitioning, the install
-        # progress bar should now be displayed, so we can go straight on to
-        # the installation now.
-        self.progress_loop()
+        self.manual_partitioning = True
+        self.steps.next_page()
 
     def on_back_clicked(self):
         """Callback to set previous screen."""
@@ -1172,6 +1183,7 @@ class Wizard:
             self.qtparted_loop()
         elif step == "stepReady":
             self.userinterface.next.setText("Next >")
+            self.userinterface.widgetStack.raiseWidget(self.previous_partitioning_page)
         if not changed_page:
             self.userinterface.widgetStack.raiseWidget(self.get_current_page() - 1)
         if self.dbfilter is not None:
@@ -1338,9 +1350,25 @@ class Wizard:
 
     def debconffilter_done (self, dbfilter):
         # TODO cjwatson 2006-02-10: handle dbfilter.status
+        if dbfilter is None:
+            name = 'None'
+        else:
+            name = dbfilter.__class__.__name__
+        if self.dbfilter is None:
+            currentname = 'None'
+        else:
+            currentname = self.dbfilter.__class__.__name__
+        syslog.syslog(syslog.LOG_DEBUG,
+                      "debconffilter_done: %s (current: %s)" %
+                      (name, currentname))
         if dbfilter == self.dbfilter:
             self.dbfilter = None
-            self.app.exit()
+            if isinstance(dbfilter, summary.Summary):
+                # The Summary component is just there to gather information,
+                # and won't call run_main_loop() for itself.
+                self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
+            else:
+                self.app.exit()
 
     def set_language_choices (self, choices, choice_map):
         self.language_choice_map = dict(choice_map)
@@ -1502,72 +1530,6 @@ class Wizard:
 
     def get_mountpoints (self):
         return dict(self.mountpoints)
-
-    def confirm_partitioning_dialog (self, title, description):
-        # TODO cjwatson 2006-03-10: Duplication of page logic; I think some
-        # of this can go away once we reorganise page handling not to invoke
-        # a main loop for each page.
-        self.userinterface.setCursor(QCursor(Qt.WaitCursor))
-        installText = get_string("live_installer", self.locale)
-        self.userinterface.next.setText(installText) # TODO i18n
-        self.previous_partitioning_page = self.get_current_page()
-        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
-
-        save_dbfilter = self.dbfilter
-        save_backup = self.backup
-        self.dbfilter = summary.Summary(self, description)
-        self.backup = False
-
-        # Since the partitioner is still running, we need to use a different
-        # database to run the summary page. Fortunately, nothing we set in
-        # the summary script needs to persist, so we can just use a
-        # throwaway database.
-        save_replace, save_override = None, None
-        if 'DEBCONF_DB_REPLACE' in os.environ:
-            save_replace = os.environ['DEBCONF_DB_REPLACE']
-        if 'DEBCONF_DB_OVERRIDE' in os.environ:
-            save_override = os.environ['DEBCONF_DB_OVERRIDE']
-        os.environ['DEBCONF_DB_REPLACE'] = 'configdb'
-        os.environ['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
-        self.dbfilter.run_command(auto_process=True)
-        if save_replace is None:
-            del os.environ['DEBCONF_DB_REPLACE']
-        else:
-            os.environ['DEBCONF_DB_REPLACE'] = save_replace
-        if save_override is None:
-            del os.environ['DEBCONF_DB_OVERRIDE']
-        else:
-            os.environ['DEBCONF_DB_OVERRIDE'] = save_override
-
-        self.dbfilter = save_dbfilter
-
-        if self.current_page is None:
-            # installation cancelled; partman should return ASAP after this
-            return False
-
-        if self.backup:
-            self.userinterface.widgetStack.raiseWidget(self.previous_partitioning_page)
-            self.userinterface.next.setText("Next >")
-            return False
-        # TODO should this not just force self.backup = False?
-        self.backup = save_backup
-
-        # The user said OK, so we're going to start the installation proper
-        # now. We therefore have to put up the installation progress bar,
-        # return control to partman to do the partitioning in a region of
-        # that, and then let whatever started partman drop through to
-        # progress_loop.
-        # Yes, the control flow is pretty tortuous here. Sorry!
-
-        #self.live_installer.hide()
-        self.current_page = None
-        self.debconf_progress_start(
-            0, 100, get_string('ubiquity/install/title', self.locale))
-        self.debconf_progress_region(0, 15)
-        self.installing = True
-
-        return True
-
 
     def set_keyboard_choices(self, choicemap):
         self.keyboard_choice_map = dict(choicemap)

@@ -16,6 +16,14 @@ ubiquity (1.1.12) UNRELEASED; urgency=low
     in normal builds, but saves typing when building test versions.
   * Teach DebconfFilter to send escaped replies when CAPB escape is set.
   * Fix substitution variable for full name in ubiquity/summary.
+  * I never really understood the whole control flow around the summary
+    page, and I wrote it! Take advantage of the partman-commit script added
+    in partman-base 90ubuntu4, so that instead we shut down partman, run the
+    summary page, and then start it back up to commit changes. The
+    PartmanCommit component is now used for both automatic and manual
+    partitioning, and is simply called directly from progress_loop; and the
+    Summary component no longer needs to be run with a temporary debconf
+    database.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  1 Sep 2006 12:11:33 +0100
 

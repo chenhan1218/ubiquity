@@ -110,6 +110,7 @@ class Wizard:
         self.resize_min_size = None
         self.resize_max_size = None
         self.manual_choice = None
+        self.manual_partitioning = False
         self.password = ''
         self.hostname_edited = False
         self.mountpoint_widgets = []
@@ -566,11 +567,37 @@ class Wizard:
 
         self.current_page = None
 
-        if self.progress_position.depth() != 0:
-            # A progress bar is already up for the partitioner. Use the rest
-            # of it.
-            (start, end) = self.progress_position.get_region()
-            self.debconf_progress_region(end, 100)
+        self.debconf_progress_start(
+            0, 100, get_string('ubiquity/install/title', self.locale))
+        self.debconf_progress_region(0, 15)
+
+        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
+        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
+        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
+        gconf_previous = {}
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            subp = subprocess.Popen(['gconftool-2', '--config-source',
+                                     gconf_dir, '--get', gconf_key],
+                                    stdout=subprocess.PIPE,
+                                    stderr=subprocess.PIPE)
+            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
+            if gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                 '--type', 'bool', 'false'])
+
+        dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
+        if dbfilter.run_command(auto_process=True) != 0:
+            # TODO cjwatson 2006-09-03: return to partitioning?
+            return
+
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            if gconf_previous[gconf_key] == '':
+                ex('gconftool-2', '--unset', gconf_key)
+            elif gconf_previous[gconf_key] != 'false':
+                ex('gconftool-2', '--set', gconf_key,
+                   '--type', 'bool', gconf_previous[gconf_key])
+
+        self.debconf_progress_region(15, 100)
 
         dbfilter = install.Install(self)
         ret = dbfilter.run_command(auto_process=True)
@@ -751,8 +778,12 @@ class Wizard:
         """Process and validate the results of this step."""
 
         # setting actual step
-        step = self.step_name(self.steps.get_current_page())
+        step_num = self.steps.get_current_page()
+        step = self.step_name(step_num)
         syslog.syslog('Step_before = %s' % step)
+
+        if step.startswith("stepPart"):
+            self.previous_partitioning_page = step_num
 
         # Welcome
         if step == "stepWelcome":
@@ -789,10 +820,16 @@ class Wizard:
         # Ready to install
         elif step == "stepReady":
             self.live_installer.hide()
+            self.current_page = None
+            self.installing = True
             self.progress_loop()
+            return
 
         step = self.step_name(self.steps.get_current_page())
         syslog.syslog('Step_after = %s' % step)
+
+        if step == "stepReady":
+            self.next.set_label("Install")
 
     def process_identification (self):
         """Processing identification step tasks."""
@@ -849,8 +886,8 @@ class Wizard:
             self.steps.next_page()
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
+            self.manual_partitioning = False
             self.steps.set_current_page(self.steps.page_num(self.stepReady))
-            self.next.set_label("Install") # TODO i18n
 
 
     def gparted_crashed(self):
@@ -1117,34 +1154,8 @@ class Wizard:
             self.mountpoint_error_reason.hide()
             self.mountpoint_error_image.hide()
 
-        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
-        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
-        gconf_previous = {}
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            subp = subprocess.Popen(['gconftool-2', '--config-source',
-                                     gconf_dir, '--get', gconf_key],
-                                    stdout=subprocess.PIPE,
-                                    stderr=subprocess.PIPE)
-            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
-            if gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                 '--type', 'bool', 'false'])
-
-        if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
-            return
-
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            if gconf_previous[gconf_key] == '':
-                ex('gconftool-2', '--unset', gconf_key)
-            elif gconf_previous[gconf_key] != 'false':
-                ex('gconftool-2', '--set', gconf_key,
-                   '--type', 'bool', gconf_previous[gconf_key])
-
-        # Since we've successfully committed partitioning, the install
-        # progress bar should now be displayed, so we can go straight on to
-        # the installation now.
-        self.progress_loop()
+        self.manual_partitioning = True
+        self.steps.next_page()
 
 
     def on_back_clicked(self, widget):
@@ -1183,6 +1194,8 @@ class Wizard:
             self.gparted_loop()
         elif step == "stepReady":
             self.next.set_label("gtk-go-forward")
+            self.steps.set_current_page(self.previous_partitioning_page)
+            changed_page = True
 
         if not changed_page:
             self.steps.prev_page()
@@ -1350,9 +1363,25 @@ class Wizard:
 
     def debconffilter_done (self, dbfilter):
         # TODO cjwatson 2006-02-10: handle dbfilter.status
+        if dbfilter is None:
+            name = 'None'
+        else:
+            name = dbfilter.__class__.__name__
+        if self.dbfilter is None:
+            currentname = 'None'
+        else:
+            currentname = self.dbfilter.__class__.__name__
+        syslog.syslog(syslog.LOG_DEBUG,
+                      "debconffilter_done: %s (current: %s)" %
+                      (name, currentname))
         if dbfilter == self.dbfilter:
             self.dbfilter = None
-            gtk.main_quit()
+            if isinstance(dbfilter, summary.Summary):
+                # The Summary component is just there to gather information,
+                # and won't call run_main_loop() for itself.
+                self.allow_change_step(True)
+            else:
+                gtk.main_quit()
 
 
     def set_language_choices (self, choices, choice_map):
@@ -1514,70 +1543,6 @@ class Wizard:
     def get_mountpoints (self):
         return dict(self.mountpoints)
 
-
-    def confirm_partitioning_dialog (self, title, description):
-        # TODO cjwatson 2006-03-10: Duplication of page logic; I think some
-        # of this can go away once we reorganise page handling not to invoke
-        # a main loop for each page.
-        self.allow_change_step(False)
-        self.next.set_label("Install") # TODO i18n
-        self.previous_partitioning_page = self.steps.get_current_page()
-        self.steps.set_current_page(self.steps.page_num(self.stepReady))
-
-        save_dbfilter = self.dbfilter
-        save_backup = self.backup
-        self.dbfilter = summary.Summary(self, description)
-        self.backup = False
-
-        # Since the partitioner is still running, we need to use a different
-        # database to run the summary page. Fortunately, nothing we set in
-        # the summary script needs to persist, so we can just use a
-        # throwaway database.
-        save_replace, save_override = None, None
-        if 'DEBCONF_DB_REPLACE' in os.environ:
-            save_replace = os.environ['DEBCONF_DB_REPLACE']
-        if 'DEBCONF_DB_OVERRIDE' in os.environ:
-            save_override = os.environ['DEBCONF_DB_OVERRIDE']
-        os.environ['DEBCONF_DB_REPLACE'] = 'configdb'
-        os.environ['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
-        self.dbfilter.run_command(auto_process=True)
-        if save_replace is None:
-            del os.environ['DEBCONF_DB_REPLACE']
-        else:
-            os.environ['DEBCONF_DB_REPLACE'] = save_replace
-        if save_override is None:
-            del os.environ['DEBCONF_DB_OVERRIDE']
-        else:
-            os.environ['DEBCONF_DB_OVERRIDE'] = save_override
-
-        self.dbfilter = save_dbfilter
-
-        if self.current_page is None:
-            # installation cancelled; partman should return ASAP after this
-            return False
-
-        if self.backup:
-            self.steps.set_current_page(self.previous_partitioning_page)
-            self.next.set_label("gtk-go-forward")
-            return False
-        # TODO should this not just force self.backup = False?
-        self.backup = save_backup
-
-        # The user said OK, so we're going to start the installation proper
-        # now. We therefore have to put up the installation progress bar,
-        # return control to partman to do the partitioning in a region of
-        # that, and then let whatever started partman drop through to
-        # progress_loop.
-        # Yes, the control flow is pretty tortuous here. Sorry!
-
-        self.live_installer.hide()
-        self.current_page = None
-        self.debconf_progress_start(
-            0, 100, get_string('ubiquity/install/title', self.locale))
-        self.debconf_progress_region(0, 15)
-        self.installing = True
-
-        return True
 
     def set_keyboard_choices(self, choicemap):
         self.keyboard_choice_map = dict(choicemap)
