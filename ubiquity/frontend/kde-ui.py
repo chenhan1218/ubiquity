@@ -187,10 +187,10 @@ class Wizard:
             return
 
         tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
-        syslog.syslog(syslog.LOG_ERROR,
+        syslog.syslog(syslog.LOG_ERR,
                       "Exception in KDE frontend (invoking crash handler):")
         for line in tbtext.split('\n'):
-            syslog.syslog(syslog.LOG_ERROR, line)
+            syslog.syslog(syslog.LOG_ERR, line)
         print >>sys.stderr, ("Exception in KDE frontend"
                              " (invoking crash handler):")
         print >>sys.stderr, tbtext

@@ -281,9 +281,9 @@ class Install:
             return
 
         tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
-        syslog.syslog(syslog.LOG_ERROR, "Exception during installation:")
+        syslog.syslog(syslog.LOG_ERR, "Exception during installation:")
         for line in tbtext.split('\n'):
-            syslog.syslog(syslog.LOG_ERROR, line)
+            syslog.syslog(syslog.LOG_ERR, line)
         tbfile = open('/var/lib/ubiquity/install.trace', 'w')
         print >>tbfile, tbtext
         tbfile.close()
@@ -526,7 +526,7 @@ class Install:
             target_log_file = os.path.join(target_dir,
                                            os.path.basename(log_file))
             if not misc.ex('cp', '-a', log_file, target_log_file):
-                syslog.syslog(syslog.LOG_ERROR,
+                syslog.syslog(syslog.LOG_ERR,
                               'Failed to copy installation log file')
             os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
 
@@ -1101,7 +1101,7 @@ class Install:
                 return
         except SystemError, e:
             for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_ERROR, line)
+                syslog.syslog(syslog.LOG_ERR, line)
             self.db.progress('STOP')
             raise
         self.db.progress('SET', 5)

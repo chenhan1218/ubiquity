@@ -46,13 +46,13 @@ def ex(*args):
     try:
         status = subprocess.call(log_args)
     except IOError, e:
-        syslog.syslog(syslog.LOG_ERROR, ' '.join(log_args))
-        syslog.syslog(syslog.LOG_ERROR,
+        syslog.syslog(syslog.LOG_ERR, ' '.join(log_args))
+        syslog.syslog(syslog.LOG_ERR,
                       "OS error(%s): %s" % (e.errno, e.strerror))
         return False
     else:
         if status != 0:
-            syslog.syslog(syslog.LOG_ERROR, ' '.join(log_args))
+            syslog.syslog(syslog.LOG_ERR, ' '.join(log_args))
             return False
         syslog.syslog(' '.join(log_args))
         return True

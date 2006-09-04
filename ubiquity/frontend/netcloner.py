@@ -72,7 +72,7 @@ class Wizard:
             syslog.syslog('Copying the system...')
             cp = copy.Copy()
             if not cp.run(queue):
-                syslog.syslog(syslog.LOG_ERROR, 'fail the copy phase')
+                syslog.syslog(syslog.LOG_ERR, 'fail the copy phase')
                 self.quit()
             else:
                 syslog.syslog('Copy: ok')
@@ -83,7 +83,7 @@ class Wizard:
             syslog.syslog('Configuring the system...')
             cf = config.Config(self)
             if not cf.run(queue):
-                syslog.syslog(syslog.LOG_ERROR, 'fail the configure phase')
+                syslog.syslog(syslog.LOG_ERR, 'fail the configure phase')
                 self.quit()
             else:
                 syslog.syslog('Configure: ok')
@@ -138,7 +138,7 @@ class Wizard:
 
 
     def show_error(self, msg):
-        syslog.syslog(syslog.LOG_ERROR, msg)
+        syslog.syslog(syslog.LOG_ERR, msg)
 
 
     def quit(self):
