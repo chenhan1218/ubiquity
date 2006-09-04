@@ -605,7 +605,8 @@ class Install:
                               'SCRIPT', hookentry)
                 self.db.progress('INFO', 'ubiquity/install/target_hook')
                 # Errors are ignored at present, although this may change.
-                misc.ex(hook)
+                subprocess.call(['log-output', '-t', 'ubiquity',
+                                 '--pass-stdout', hook])
                 self.db.progress('STEP', 1)
             self.db.progress('STOP')
 
