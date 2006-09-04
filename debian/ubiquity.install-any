@@ -28,6 +28,7 @@ ubiquity/components/clock_setup.py usr/lib/ubiquity/ubiquity/components
 
 # debian-installer-utils
 d-i/source/debian-installer-utils/debconf-get bin
+d-i/source/debian-installer-utils/list-devices bin
 d-i/source/debian-installer-utils/log-output bin
 d-i/source/debian-installer-utils/mapdevfs bin
 d-i/source/debian-installer-utils/register-module bin

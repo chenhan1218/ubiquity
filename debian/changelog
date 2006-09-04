@@ -29,6 +29,7 @@ ubiquity (1.1.12) UNRELEASED; urgency=low
   * GTK frontend: Put a button on the summary page to allow the user to
     install GRUB to somewhere other than the MBR of the first hard disk
     (closes: Malone #41579).
+  * Install list-devices, since a fair bit of backend code now uses it.
   * Automatic update of included source packages: debian-installer-utils
     1.35ubuntu2, partman-base 90ubuntu5, partman-target 45ubuntu1.
 
