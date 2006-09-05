@@ -675,16 +675,10 @@ class Install:
     def install_language_packs(self):
         langpacks = []
         try:
-            langpack_db = self.db.get('base-config/language-packs')
+            langpack_db = self.db.get('pkgsel/language-packs')
             langpacks = langpack_db.replace(',', '').split()
         except debconf.DebconfError:
             pass
-        if not langpacks:
-            try:
-                langpack_db = self.db.get('pkgsel/language-packs')
-                langpacks = langpack_db.replace(',', '').split()
-            except debconf.DebconfError:
-                pass
         if not langpacks:
             try:
                 langpack_db = self.db.get('localechooser/supported-locales')
