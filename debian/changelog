@@ -1,6 +1,8 @@
 oem-config (1.1) UNRELEASED; urgency=low
 
   * Merge KDE frontend from Anirudh Ramesh.
+  * Automatic update of included source packages: kbd-chooser 1.30ubuntu1,
+    localechooser 1.20ubuntu6, tzsetup 1:0.10ubuntu2, user-setup 1.2ubuntu3.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue,  5 Sep 2006 16:43:29 +0100
 
