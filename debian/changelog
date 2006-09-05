@@ -1,3 +1,9 @@
+oem-config (1.1) UNRELEASED; urgency=low
+
+  * Merge KDE frontend from Anirudh Ramesh.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue,  5 Sep 2006 16:43:29 +0100
+
 oem-config (1.0) edgy; urgency=low
 
   * Reorganise oem-config to have a reasonable frontend/backend separation,
