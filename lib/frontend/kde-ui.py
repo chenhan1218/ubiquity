@@ -34,19 +34,9 @@ class OEMConfUI(OEMConfKDEUI):
 
 class Frontend:
     def __init__(self):
-	
-	
 	about=KAboutData("kubuntu-oem-config","OEM Installer","1.0","OEM Installer for Kubuntu",KAboutData.License_GPL,"(c) 2006 Canonical Ltd", "http://wiki.kubuntu.org/KubuntuUbiquity", "the.abattoir@gmail.com")
         about.addAuthor("Anirudh Ramesh", None,"the.abattoir@gmail.com")
-        KCmdLineArgs.init(["./installer"],about)
-	
-	self.app=KApplication()
-	
-	#Create an instance of the sysconf widget and run it.
-	self.userinterface = OEMConfUI(None, "OEM-Config")
-        self.userinterface.setFrontend(self)
-        self.app.setMainWidget(self.userinterface)
-        self.userinterface.show()
+        KCmdLineArgs.init(["./oem-config"],about)
 	
 	self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
 	
@@ -56,16 +46,27 @@ class Frontend:
 	self.key_list = []
 	self.tz_list = []
 	
+	self.locale = None
+	self.current_step = None
+	
+	# Set default language.
+        dbfilter = language.Language(self, DebconfCommunicator('oem-config',
+                                                               cloexec=True))
+        dbfilter.cleanup()
+        dbfilter.db.shutdown()
+	
+	self.app=KApplication()
+	
+	#Create an instance of the sysconf widget and run it.
+	self.userinterface = OEMConfUI(None, "OEM-Config")
+        self.userinterface.setFrontend(self)
+        self.app.setMainWidget(self.userinterface)
+        self.userinterface.show()
+	
 	# To get a "busy mouse":
         self.userinterface.setCursor(QCursor(Qt.WaitCursor))
 	
-	self.locale = None
-	self.current_step = None
-	# Set default language.
-        self.dbfilter = language.Language(self, DebconfCommunicator('oem-config',cloexec=True))
-        self.dbfilter.cleanup()
-        self.dbfilter.db.shutdown()
-
+	
     def run(self):
 	    global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP, WIDGET_STACK_STEPS, WIDGET_STACK_MAX_STEPS
 	    
@@ -74,6 +75,7 @@ class Frontend:
 	    #Signals and Slots
 	    self.app.connect(self.userinterface.button_forward, SIGNAL("clicked()"), self.on_forward_clicked)
 	    self.app.connect(self.userinterface.button_back, SIGNAL("clicked()"), self.on_back_clicked)
+	    self.app.connect(self.userinterface.language_combo, SIGNAL("activated(int)"), self.on_language_combo_changed)
 	    
 	    first_step = "step_language"
 	    self.userinterface.widgetStack.raiseWidget(self.userinterface.step_language)
@@ -86,9 +88,9 @@ class Frontend:
 	    while self.current_step is not None:
 		    self.backup = False
 		    self.current_step = self.get_current_step()
-		    print self.current_step
 		    if self.current_step == 'step_language':
-			    self.dbfiler = language.Language(self)
+			    self.dbfilter = language.Language(self)
+			    #print self.dbfilter
 	            elif self.current_step == 'step_keyboard':
 			    self.dbfilter = keyboard.Keyboard(self)
 		    elif self.current_step == 'step_timezone':
@@ -120,13 +122,14 @@ class Frontend:
 	    self.language_choice_map = dict(choice_map)
 	    self.userinterface.language_combo.clear()
 	    for choice in choices:
-		    self.lang_list.append(choice)
+		    self.lang_list.append(unicode(choice))
 		    self.userinterface.language_combo.insertItem(choice)
 	    
     def set_language(self, language):
 	    index = 0
 	    while index < len(self.lang_list):
-		    if unicode(self.lang_list[index]) == language:
+		    #print self.lang_list[index]
+		    if self.lang_list[index] == language:
 			    self.userinterface.language_combo.setCurrentItem(index)
 			    break
 	            index = index + 1
@@ -145,16 +148,16 @@ class Frontend:
 	    while index < len(self.loc_list):
 		    if unicode(self.loc_list[index]) == country:
 			    self.userinterface.location_combo.setCurrentItem(index)
-			    print country
 			    break
                     index = index + 1
 
     def get_language(self):
-	    return unicode(self.userinterface.language_combo.currentText())
+	    value = unicode(self.userinterface.language_combo.currentText())
+	    return self.language_choice_map[value][0]
 	    pass
 	
     def on_language_combo_changed(self, widget):
-        if isinstance(self.dbfilter, language.Language):
+	if isinstance(self.dbfilter, language.Language):
             self.dbfilter.language_changed()
 	
     def get_country(self):
@@ -217,7 +220,7 @@ class Frontend:
         return unicode(self.userinterface.user_pass_lineedit.text())
 
     def get_verified_password(self):
-        return unicode(self.userinterface.user_pass_lineedit.text())
+        return unicode(self.userinterface.user_repass_lineedit.text())
     
     def watch_debconf_fd (self, from_debconf, process_input):
 	self.debconf_fd_counter = 0
@@ -253,7 +256,6 @@ class Frontend:
 	    #pass
     
     def debconffilter_done (self, dbfilter):
-	print "debconffilter_done called"
 	if dbfilter == self.dbfilter:
             self.dbfilter = None
             self.app.exit()
