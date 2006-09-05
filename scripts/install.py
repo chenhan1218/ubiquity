@@ -43,7 +43,8 @@ sys.path.insert(0, '/usr/lib/ubiquity')
 from ubiquity import misc
 from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 clock_setup, kbd_chooser_apply, \
-                                usersetup_apply, hw_detect, check_kernels
+                                usersetup_apply, migrationassistant_apply, \
+                                hw_detect, check_kernels
 
 class DebconfFetchProgress(FetchProgress):
     """An object that reports apt's fetching progress using debconf."""
@@ -344,14 +345,19 @@ class Install:
             self.configure_timezone()
 
             self.db.progress('SET', 85)
-            self.db.progress('REGION', 85, 87)
+            self.db.progress('REGION', 85, 86)
             self.db.progress('INFO', 'ubiquity/install/keyboard')
             self.configure_keyboard()
 
-            self.db.progress('SET', 87)
-            self.db.progress('REGION', 87, 88)
+            self.db.progress('SET', 86)
+            self.db.progress('REGION', 86, 87)
             self.db.progress('INFO', 'ubiquity/install/user')
             self.configure_user()
+            
+            self.db.progress('SET', 87)
+            self.db.progress('REGION', 87, 88)
+            self.db.progress('INFO', 'ubiquity/install/migrationassistant')
+            self.configure_ma()
 
             self.db.progress('SET', 88)
             self.db.progress('REGION', 88, 92)
@@ -811,6 +817,15 @@ class Install:
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("UserSetupApply failed with code %d" % ret)
+    
+    def configure_ma(self):
+        """import documents, settings, and users from previous operating
+        systems."""
+
+        dbfilter = migrationassistant_apply.MigrationAssistantApply(None)
+        ret = dbfilter.run_command(auto_process=True)
+        if ret != 0:
+            raise InstallStepError("MigrationAssistantApply failed with code %d" % ret)
 
 
     def get_resume_partition(self):

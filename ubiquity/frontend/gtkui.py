@@ -886,8 +886,9 @@ class Wizard:
             self.steps.next_page()
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
-            self.steps.set_current_page(self.steps.page_num(self.stepReady))
-            self.next.set_label("Install") # TODO i18n
+	    self.steps.set_current_page(self.steps.page_num(self.stepMigrateOS))
+	    #self.steps.set_current_page(self.steps.page_num(self.stepReady))
+            #self.next.set_label("Install") # TODO i18n
 
 
     def gparted_crashed(self):

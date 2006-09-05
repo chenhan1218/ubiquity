@@ -36,7 +36,8 @@ class MigrationAssistant(FilteredCommand):
                             '^migration-assistant/.*/user$',
                             '^migration-assistant/.*/password$',
                             'ERROR']
-        return (['/usr/lib/ubiquity/migration-assistant/ma-ask'], questions)
+        return (['/usr/lib/ubiquity/migration-assistant/ma-ask',
+		'/usr/lib/ubiquity/migration-assistant'], questions)
 
     def run(self, priority, question):
         if question.startswith('migration-assistant/partitions'):

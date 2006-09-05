@@ -173,16 +173,28 @@ class PartmanAuto(FilteredCommand):
                                                           self.resize_max_size)
 
         elif question.startswith('partman/confirm'):
-            if self.frontend.confirm_partitioning_dialog(
-                    self.description(question),
-                    self.extended_description(question)):
-                self.preseed(question, 'true')
-                self.succeeded = True
+            response = self.frontend.question_dialog(
+                self.description(question),
+                self.extended_description(question),
+                ('ubiquity/text/go_back', 'ubiquity/text/continue'))
+
+            if response is None:
+                return True
             else:
-                self.preseed(question, 'false')
-                self.succeeded = False
-            self.done = True
-            return True
+                self.preseed(question, 'true')
+		self.succeeded = True
+		self.done = True
+		return True
+            #if self.frontend.confirm_partitioning_dialog(
+            #        self.description(question),
+            #        self.extended_description(question)):
+            #    self.preseed(question, 'true')
+            #    self.succeeded = True
+            #else:
+            #    self.preseed(question, 'false')
+            #    self.succeeded = False
+            #self.done = True
+            #return True
 
         elif qtype == 'boolean':
             response = self.frontend.question_dialog(
