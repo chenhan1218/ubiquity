@@ -540,7 +540,9 @@ class Install:
         for sysloop in sysloops:
             try:
                 sysloopf = open(os.path.join('/sys/block', sysloop, 'size'))
-                if sysloopf.readline().strip() == '0':
+                sysloopsize = sysloopf.readline().strip()
+                sysloopf.close()
+                if sysloopsize = '0':
                     devnull = open('/dev/null')
                     udevinfo = subprocess.Popen(
                         ['udevinfo', '-q', 'name',
