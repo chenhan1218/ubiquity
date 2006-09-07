@@ -13,6 +13,8 @@ ubiquity (1.1.13) UNRELEASED; urgency=low
     space-separated images are given, then they will be overlaid using
     unionfs
     (https://launchpad.net/distros/ubuntu/+spec/live-cd-stacked-filesystems).
+  * Unset DEBIAN_HAS_FRONTEND in apt-install to make sure that debconf-using
+    packages start up a new noninteractive frontend.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  4 Sep 2006 23:12:42 +0100
 
