@@ -1,3 +1,17 @@
+oem-config (1.2) UNRELEASED; urgency=low
+
+  * Merge from ubiquity:
+    - Move from kbd-chooser to console-setup
+      (https://launchpad.net/distros/ubuntu/+spec/sane-installer-keyboard).
+      We still need to add a UI element for the keyboard variant, and
+      translations of layout and variant names are missing, but it mostly
+      seems to work.
+    - Strip Fonts and Keyboard directories from our copy of console-setup;
+      they're very large, and not needed since we don't actually build
+      console-setup, but just copy a few scripts from it.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  7 Sep 2006 20:32:13 +0100
+
 oem-config (1.1) edgy; urgency=low
 
   * Merge KDE frontend from Anirudh Ramesh.

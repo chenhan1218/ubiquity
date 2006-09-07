@@ -5,7 +5,10 @@ tmp = $(CURDIR)/debian/oem-config
 update:
 	$(MAKE) -C d-i update
 
-build:
+lib/keyboard_names.py: d-i/source/console-setup/Keyboard/KeyboardNames.pl
+	d-i/make-keyboard-names $< > $@
+
+build: lib/keyboard_names.py
 	$(MAKE) -C d-i build
 
 clean:
@@ -13,7 +16,7 @@ clean:
 	dh_testroot
 	find -type f -name '*.pyc' -print0 | xargs -0r rm -f
 	$(MAKE) -C d-i clean
-	dh_clean
+	dh_clean lib/keyboard_names.py
 
 binary-arch: build
 	dh_testdir
@@ -24,6 +27,10 @@ binary-arch: build
 	dh_install -a
 
 	# Bits of manual installation that can't be done by dh_install
+	sed 's,/usr/share/console-setup-mini,/usr/lib/oem-config/console-setup,g' \
+		d-i/source/console-setup/debian/console-setup.postinst \
+		> debian/oem-config/usr/lib/oem-config/console-setup/console-setup.postinst
+	chmod +x debian/oem-config/usr/lib/oem-config/console-setup/console-setup.postinst
 	sed 's,/usr/share/tzsetup,/usr/lib/oem-config/timezone,g' \
 		d-i/source/tzsetup/tzsetup \
 		> debian/oem-config/usr/lib/oem-config/timezone/tzsetup
@@ -43,6 +50,7 @@ binary-arch: build
 	dh_installdocs -a
 	dh_installchangelogs -a
 	dh_installinit -a -n
+	dh_link -a
 	dh_compress -a
 	dh_fixperms -a
 	dh_pysupport -a

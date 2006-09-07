@@ -25,7 +25,7 @@ import gtk
 import gtk.glade
 from debconf import DebconfCommunicator
 from oem_config import filteredcommand
-from oem_config.components import language, keyboard, timezone, user
+from oem_config.components import console_setup, language, timezone, user
 
 GLADEDIR = '/usr/lib/oem-config/oem_config/frontend'
 
@@ -85,7 +85,7 @@ class Frontend:
             if current_name == 'step_language':
                 self.dbfilter = language.Language(self)
             elif current_name == 'step_keyboard':
-                self.dbfilter = keyboard.Keyboard(self)
+                self.dbfilter = console_setup.ConsoleSetup(self)
             elif current_name == 'step_timezone':
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == 'step_user':
@@ -268,10 +268,7 @@ class Frontend:
             model = self.country_combo.get_model()
             return unicode(model.get_value(iterator, 0))
 
-    def set_keyboard_choices(self, choice_map):
-        self.keyboard_choice_map = dict(choice_map)
-        choices = choice_map.keys()
-        choices.sort()
+    def set_keyboard_choices(self, choices):
         self.select_keyboard_combo.clear()
         cell = gtk.CellRendererText()
         self.select_keyboard_combo.pack_start(cell, True)
@@ -285,8 +282,7 @@ class Frontend:
         model = self.select_keyboard_combo.get_model()
         iterator = model.iter_children(None)
         while iterator is not None:
-            value = unicode(model.get_value(iterator, 0))
-            if self.keyboard_choice_map[value] == keyboard:
+            if unicode(model.get_value(iterator, 0)) == keyboard:
                 self.select_keyboard_combo.set_active_iter(iterator)
                 break
             iterator = model.iter_next(iterator)
@@ -298,8 +294,7 @@ class Frontend:
             return 'C'
         else:
             model = self.select_keyboard_combo.get_model()
-            value = unicode(model.get_value(iterator, 0))
-            return self.keyboard_choice_map[value]
+            return unicode(model.get_value(iterator, 0))
 
     def set_timezone_choices(self, choice_map):
         self.timezone_choice_map = dict(choice_map)
