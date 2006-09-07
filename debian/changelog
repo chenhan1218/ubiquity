@@ -1,10 +1,10 @@
-ubiquity (1.1.14) UNRELEASED; urgency=low
+ubiquity (1.1.14) edgy; urgency=low
 
   * Put some of console-setup/Keyboard back, as we need KeyboardNames.pl
     from there.
   * Don't include console-setup's build-dependencies in our own.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu,  7 Sep 2006 20:00:09 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  7 Sep 2006 20:10:07 +0100
 
 ubiquity (1.1.13) edgy; urgency=low
 
