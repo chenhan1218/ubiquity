@@ -3,6 +3,11 @@ ubiquity (1.1.13) UNRELEASED; urgency=low
   * Rename configure.in to configure.ac.
   * Drop backward compatibility for base-config/language-packs preseeding
     from Breezy.
+  * Move from kbd-chooser to console-setup
+    (https://launchpad.net/distros/ubuntu/+spec/sane-installer-keyboard). We
+    still need to add a UI element for the keyboard variant, and
+    translations of layout and variant names are missing, but it mostly
+    seems to work.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  4 Sep 2006 23:12:42 +0100
 

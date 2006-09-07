@@ -52,7 +52,7 @@ except ImportError:
 from ubiquity import filteredcommand, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
-from ubiquity.components import language, kbd_chooser, timezone, usersetup, \
+from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman_auto, partman_commit, summary, install
 import ubiquity.tz
 import ubiquity.progressposition
@@ -280,7 +280,7 @@ class Wizard:
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
-                self.dbfilter = kbd_chooser.KbdChooser(self)
+                self.dbfilter = console_setup.ConsoleSetup(self)
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name in ("stepPartDisk", "stepPartAuto"):
@@ -715,9 +715,10 @@ class Wizard:
             self.app.exit()
 
     def on_keyboard_selected(self):
-        keyboard = self.get_keyboard()
-        if keyboard is not None:
-            kbd_chooser.apply_keyboard(keyboard)
+        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+            keyboard = self.get_keyboard()
+            if keyboard is not None:
+                self.dbfilter.apply_keyboard(keyboard)
 
     def process_step(self):
         """Process and validate the results of this step."""
@@ -1533,10 +1534,7 @@ class Wizard:
     def get_mountpoints (self):
         return dict(self.mountpoints)
 
-    def set_keyboard_choices(self, choicemap):
-        self.keyboard_choice_map = dict(choicemap)
-        choices = choicemap.keys()
-
+    def set_keyboard_choices(self, choices):
         self.userinterface.keyboardlistview.clear()
         for choice in sorted(choices):
             self.userinterface.keyboardlistview.insertItem( KListViewItem(self.userinterface.keyboardlistview, choice) )
@@ -1545,16 +1543,11 @@ class Wizard:
             self.set_keyboard(self.current_keyboard)
 
     def set_keyboard (self, keyboard):
-        """
-        Keyboard is the database name of the keyboard, so untranslated
-        """
-
         self.current_keyboard = keyboard
 
         iterator = QListViewItemIterator(self.userinterface.keyboardlistview)
         while iterator.current():
-            value = unicode(iterator.current().text(0))
-            if self.keyboard_choice_map[value] == keyboard:
+            if unicode(iterator.current().text(0)) == keyboard:
                 self.userinterface.keyboardlistview.setSelected(iterator.current(), True)
                 break
             iterator += 1
@@ -1564,8 +1557,7 @@ class Wizard:
         if selection is None:
             return None
         else:
-            value = unicode(selection.text(0))
-            return self.keyboard_choice_map[value]
+            return unicode(selection.text(0))
 
     def set_summary_text (self, text):
         self.userinterface.ready_text.setText(text)

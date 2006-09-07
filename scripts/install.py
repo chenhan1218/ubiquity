@@ -43,7 +43,7 @@ sys.path.insert(0, '/usr/lib/ubiquity')
 
 from ubiquity import misc
 from ubiquity.components import language_apply, apt_setup, timezone_apply, \
-                                clock_setup, kbd_chooser_apply, \
+                                clock_setup, console_setup_apply, \
                                 usersetup_apply, hw_detect, check_kernels
 
 class DebconfFetchProgress(FetchProgress):
@@ -788,16 +788,11 @@ class Install:
     def configure_keyboard(self):
         """Set keyboard in installed system."""
 
-        try:
-            keymap = self.db.get('debian-installer/keymap')
-            self.set_debconf('debian-installer/keymap', keymap)
-        except debconf.DebconfError:
-            pass
-
-        dbfilter = kbd_chooser_apply.KbdChooserApply(None)
+        dbfilter = console_setup_apply.ConsoleSetupApply(None)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
-            raise InstallStepError("KbdChooserApply failed with code %d" % ret)
+            raise InstallStepError(
+                "ConsoleSetupApply failed with code %d" % ret)
 
 
     def configure_user(self):

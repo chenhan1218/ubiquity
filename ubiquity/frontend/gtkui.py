@@ -66,7 +66,7 @@ except ImportError:
 from ubiquity import filteredcommand, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
-from ubiquity.components import language, kbd_chooser, timezone, usersetup, \
+from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman_auto, partman_commit, summary, install
 import ubiquity.emap
 import ubiquity.tz
@@ -271,7 +271,7 @@ class Wizard:
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
-                self.dbfilter = kbd_chooser.KbdChooser(self)
+                self.dbfilter = console_setup.ConsoleSetup(self)
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name in ("stepPartDisk", "stepPartAuto"):
@@ -771,9 +771,10 @@ class Wizard:
             gtk.main_quit()
 
     def on_keyboard_selected(self, start_editing, *args):
-        keyboard = self.get_keyboard()
-        if keyboard is not None:
-            kbd_chooser.apply_keyboard(keyboard)
+        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+            keyboard = self.get_keyboard()
+            if keyboard is not None:
+                self.dbfilter.apply_keyboard(keyboard)
 
     def process_step(self):
         """Process and validate the results of this step."""
@@ -1545,10 +1546,7 @@ class Wizard:
         return dict(self.mountpoints)
 
 
-    def set_keyboard_choices(self, choicemap):
-        self.keyboard_choice_map = dict(choicemap)
-        choices = choicemap.keys()
-
+    def set_keyboard_choices(self, choices):
         kbdlayouts = gtk.ListStore(gobject.TYPE_STRING)
         self.keyboardlistview.set_model(kbdlayouts)
         for v in sorted(choices):
@@ -1566,18 +1564,13 @@ class Wizard:
             self.set_keyboard(self.current_keyboard)
     
     def set_keyboard (self, keyboard):
-        """
-        Keyboard is the database name of the keyboard, so untranslated
-        """
-
         self.current_keyboard = keyboard
         model = self.keyboardlistview.get_model()
         if model is None:
             return
         iterator = model.iter_children(None)
         while iterator is not None:
-            value = unicode(model.get_value(iterator, 0))
-            if self.keyboard_choice_map[value] == keyboard:
+            if unicode(model.get_value(iterator, 0)) == keyboard:
                 path = model.get_path(iterator)
                 self.keyboardlistview.get_selection().select_path(path)
                 self.keyboardlistview.scroll_to_cell(
@@ -1591,8 +1584,7 @@ class Wizard:
         if iterator is None:
             return None
         else:
-            value = unicode(model.get_value(iterator, 0))
-            return self.keyboard_choice_map[value]
+            return unicode(model.get_value(iterator, 0))
 
     def set_summary_text (self, text):
         for child in self.ready_text.get_children():
