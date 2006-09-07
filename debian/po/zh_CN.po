@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 22:38+0100\n"
+"POT-Creation-Date: 2006-09-07 18:36+0100\n"
 "PO-Revision-Date: 2006-05-28 19:03+0000\n"
 "Last-Translator: Ziyu Zhang <zhangzy@stanford.edu>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -387,33 +387,27 @@ msgstr "寻找要被复制的发行版"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr "正在扫描文件..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr "正在复制文件……"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
 msgstr "复制文件中(${TIME} 剩余)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Copying installation logs..."
 msgstr "正在复制安装记录..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
-msgid "Cleaning up..."
-msgstr "正在清理..."
 
 #. Type: text
 #. Description
@@ -528,3 +522,6 @@ msgstr "正在安装语言支持软件包"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "下载语言软件包 (${TIME} 剩余)..."
+
+#~ msgid "Cleaning up..."
+#~ msgstr "正在清理..."

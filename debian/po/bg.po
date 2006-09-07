@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 22:38+0100\n"
+"POT-Creation-Date: 2006-09-07 18:36+0100\n"
 "PO-Revision-Date: 2006-04-20 05:55+0000\n"
 "Last-Translator: Ognyan Kulev <ogi@fmi.uni-sofia.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -397,33 +397,27 @@ msgstr "Откриване на дистрибуцията за копиране
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr "Сканиране на файловете..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr "Копиране на файловете..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Копиране на файловете (остават ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Copying installation logs..."
 msgstr "Копиране на инсталационните журнали..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
-msgid "Cleaning up..."
-msgstr "Почистване..."
 
 #. Type: text
 #. Description
@@ -538,3 +532,6 @@ msgstr "Инсталиране на езиковите пакети"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Изтегляне на езиковите пакети (остават ${TIME})..."
+
+#~ msgid "Cleaning up..."
+#~ msgstr "Почистване..."

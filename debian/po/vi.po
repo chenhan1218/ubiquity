@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 22:38+0100\n"
+"POT-Creation-Date: 2006-09-07 18:36+0100\n"
 "PO-Revision-Date: 2006-05-15 11:36+0000\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <debian-l10n-vietnamese@lists.debian.org>\n"
@@ -379,32 +379,26 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
-msgid "Copying installation logs..."
-msgstr ""
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:56001
-msgid "Cleaning up..."
+msgid "Copying installation logs..."
 msgstr ""
 
 #. Type: text

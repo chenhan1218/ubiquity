@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 22:38+0100\n"
+"POT-Creation-Date: 2006-09-07 18:36+0100\n"
 "PO-Revision-Date: 2006-05-28 19:09+0000\n"
 "Last-Translator: Andy Apdhani <imtheface@gmail.com>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
@@ -411,33 +411,27 @@ msgstr "Mencari distribusi ini untuk disalin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr "Memindai berkas..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr "Sedang menyalin berkas..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Sedang menyalin berkas (${TIME} lagi)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Copying installation logs..."
 msgstr "Sedang menyalin catatan instalasi..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
-msgid "Cleaning up..."
-msgstr "Sedang membersihkan..."
 
 #. Type: text
 #. Description
@@ -552,3 +546,6 @@ msgstr "Sedang meng-install paket bahasa"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Sedang mengunduh paket bahasa (${TIME} lagi)..."
+
+#~ msgid "Cleaning up..."
+#~ msgstr "Sedang membersihkan..."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 22:38+0100\n"
+"POT-Creation-Date: 2006-09-07 18:36+0100\n"
 "PO-Revision-Date: 2006-05-16 00:28+0000\n"
 "Last-Translator: Alperen Yusuf Aybar <alperen@aybar.biz>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -403,33 +403,27 @@ msgstr "Kopyalanacak dağıtım bulunuyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr "Dosyalar taranıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr "Dosyalar kopyalanıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Dosyalar kopyalanıyor (${TIME} kaldı)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Copying installation logs..."
 msgstr "Kurulum kayıtları kopyalanıyor..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
-msgid "Cleaning up..."
-msgstr "Temizleniyor..."
 
 #. Type: text
 #. Description
@@ -544,3 +538,6 @@ msgstr "Dil paketleri kuruluyor"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Dil paketleri indiriliyor (${TIME} kaldı)..."
+
+#~ msgid "Cleaning up..."
+#~ msgstr "Temizleniyor..."

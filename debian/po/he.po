@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 22:38+0100\n"
+"POT-Creation-Date: 2006-09-07 18:36+0100\n"
 "PO-Revision-Date: 2006-05-28 11:30+0000\n"
 "Last-Translator: Yaniv Abir <yanivabir@gmail.com>\n"
 "Language-Team: Debian l10n Hebrew <webmaster@guides.co.il>\n"
@@ -396,35 +396,29 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 #, fuzzy
 msgid "Scanning files..."
 msgstr "סורק כוננים..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 #, fuzzy
 msgid "Copying files..."
 msgstr "מעתיק מחיצה..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Copying installation logs..."
 msgstr "מעתיק רישומי התקנה..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
-msgid "Cleaning up..."
-msgstr "מנקה ומסדר..."
 
 #. Type: text
 #. Description
@@ -539,3 +533,6 @@ msgstr "מתקין את חבילות השפה"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "מוריד חבילת שפה (${TIME} נותר)..."
+
+#~ msgid "Cleaning up..."
+#~ msgstr "מנקה ומסדר..."

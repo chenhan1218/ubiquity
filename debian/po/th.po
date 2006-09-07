@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 22:38+0100\n"
+"POT-Creation-Date: 2006-09-07 18:36+0100\n"
 "PO-Revision-Date: 2006-05-25 18:42+0000\n"
 "Last-Translator: Roys Hengwatanakul <roysheng@msn.com>\n"
 "Language-Team: Thai <th@li.org>\n"
@@ -392,33 +392,27 @@ msgstr "ค้นหาชุดเผยแพร่ (distribution) สำห�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr "กำลังค้นหาไฟล์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr "กำลังคัดลอกไฟล์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
 msgstr "กำลังคัดลองไฟล์ (ต้องใช้เวลาอีก ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Copying installation logs..."
 msgstr "ทำสำเนาบันทึกของการติดตั้ง( installation logs) ..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
-msgid "Cleaning up..."
-msgstr "กำลังเก็บกวาด..."
 
 #. Type: text
 #. Description
@@ -533,3 +527,6 @@ msgstr "กำลังติดตั้งชุดภาษา"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "กำลังดาวน์โหลดชุดภาษา (ต้องใช้เวลาอีก ${TIME})..."
+
+#~ msgid "Cleaning up..."
+#~ msgstr "กำลังเก็บกวาด..."

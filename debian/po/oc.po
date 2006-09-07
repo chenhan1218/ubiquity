@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 22:38+0100\n"
+"POT-Creation-Date: 2006-09-07 18:36+0100\n"
 "PO-Revision-Date: 2006-05-27 21:41+0000\n"
 "Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannick.marchegay@lokanova."
 "com>\n"
@@ -409,33 +409,27 @@ msgstr "Recèrca de la distribucion a copiar..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr "Examèn dels fichièrs..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr "Còpia dels fichièrs..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Còpia dels fichièrs (resta ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Copying installation logs..."
 msgstr "Còpia dels fichièrs jornal de l'installacion..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
-msgid "Cleaning up..."
-msgstr "Netejatge..."
 
 #. Type: text
 #. Description
@@ -550,3 +544,6 @@ msgstr "Installacion dels paquetatges de lenga"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Telecarga dels paquetatges de lenga (resta ${TIME})..."
+
+#~ msgid "Cleaning up..."
+#~ msgstr "Netejatge..."

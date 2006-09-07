@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 22:38+0100\n"
+"POT-Creation-Date: 2006-09-07 18:36+0100\n"
 "PO-Revision-Date: 2006-05-25 11:48+0000\n"
 "Last-Translator: Tomáš Hála <tomas@monty.cz>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
@@ -401,33 +401,27 @@ msgstr "Hledá se distribuce ke kopírování"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr "Prohledávají se soubory..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr "Kopírují se soubory..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Kopírují se soubory (zbývá ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Copying installation logs..."
 msgstr "Kopírují se instalační záznamy..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
-msgid "Cleaning up..."
-msgstr "Probíhá úklid..."
 
 #. Type: text
 #. Description
@@ -542,3 +536,6 @@ msgstr "Instalují se jazykové balíky"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Stahují se jazykové balíky (zbývá ${TIME})..."
+
+#~ msgid "Cleaning up..."
+#~ msgstr "Probíhá úklid..."

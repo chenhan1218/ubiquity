@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 22:38+0100\n"
+"POT-Creation-Date: 2006-09-07 18:36+0100\n"
 "PO-Revision-Date: 2006-04-20 05:59+0000\n"
 "Last-Translator: Dafydd Harries <daf@canonical.com>\n"
 "Language-Team: Welsh <daf@muse.19inch.net>\n"
@@ -379,34 +379,28 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 #, fuzzy
 msgid "Copying files..."
 msgstr "Copïo ffeiliau (${TIME} ar ôl)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Copïo ffeiliau (${TIME} ar ôl)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Copying installation logs..."
 msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
-msgid "Cleaning up..."
-msgstr "Clirio i fyny..."
 
 #. Type: text
 #. Description
@@ -526,3 +520,6 @@ msgstr ""
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
+
+#~ msgid "Cleaning up..."
+#~ msgstr "Clirio i fyny..."

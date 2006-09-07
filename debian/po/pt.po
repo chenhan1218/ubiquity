@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 22:38+0100\n"
+"POT-Creation-Date: 2006-09-07 18:36+0100\n"
 "PO-Revision-Date: 2006-05-15 13:25+0000\n"
 "Last-Translator: Rui Az. <astronomy@mail.pt>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -404,33 +404,27 @@ msgstr "A procurar distribuição para copiar..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr "A verificar ficheiros..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr "A copiar ficheiros..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
 msgstr "A copiar ficheiros (${TIME} restantes)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Copying installation logs..."
 msgstr "A copiar registos de instalação..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
-msgid "Cleaning up..."
-msgstr "A limpar..."
 
 #. Type: text
 #. Description
@@ -545,3 +539,6 @@ msgstr "A instalar pacotes de idioma"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "A descarregar pacotes de idioma (${TIME} restantes)..."
+
+#~ msgid "Cleaning up..."
+#~ msgstr "A limpar..."

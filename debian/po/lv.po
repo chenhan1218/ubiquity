@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 22:38+0100\n"
+"POT-Creation-Date: 2006-09-07 18:36+0100\n"
 "PO-Revision-Date: 2006-05-12 21:19+0000\n"
 "Last-Translator: Gints Neimanis <gints@venta.lv>\n"
 "Language-Team: locale@laka.lv <locale@laka.lv>\n"
@@ -394,33 +394,27 @@ msgstr "Meklē distributīvu kopēšanai..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr "Skanēju failus..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr "Kopēju failus..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
 msgstr "Kopē failus (${TIME} atlicis)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Copying installation logs..."
 msgstr "Kopēju instalēšanas žurnālu..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
-msgid "Cleaning up..."
-msgstr "Attīru ..."
 
 #. Type: text
 #. Description
@@ -535,3 +529,6 @@ msgstr "Instalēju valodu pakotni"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Lejupielādēju valodu pakotnes (${TIME} atlicis)..."
+
+#~ msgid "Cleaning up..."
+#~ msgstr "Attīru ..."

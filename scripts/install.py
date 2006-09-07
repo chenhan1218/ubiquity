@@ -253,9 +253,8 @@ class Install:
             # because it'll copy the WHOLE WORLD (~12GB).
             self.source = '/UNIONFS'
         else:
-            self.source = '/source'
+            self.source = '/var/lib/ubiquity/source'
         self.target = '/target'
-        self.unionfs = False
         self.kernel_version = platform.release()
         self.db = debconf.Debconf()
 
@@ -298,7 +297,7 @@ class Install:
         self.db.progress('INFO', 'ubiquity/install/mounting_source')
 
         try:
-            if self.source == '/source':
+            if self.source == '/var/lib/ubiquity/source':
                 self.mount_source()
 
             self.db.progress('SET', 1)
@@ -306,36 +305,31 @@ class Install:
             self.copy_all()
 
             self.db.progress('SET', 75)
-            self.db.progress('INFO', 'ubiquity/install/cleanup')
-            if self.source == '/source':
-                self.umount_source()
-
-            self.db.progress('SET', 76)
-            self.db.progress('REGION', 76, 77)
+            self.db.progress('REGION', 75, 76)
             self.db.progress('INFO', 'ubiquity/install/locales')
             self.configure_locales()
 
-            self.db.progress('SET', 77)
-            self.db.progress('REGION', 77, 78)
+            self.db.progress('SET', 76)
+            self.db.progress('REGION', 76, 77)
             self.db.progress('INFO', 'ubiquity/install/user')
             self.configure_user()
 
-            self.db.progress('SET', 78)
-            self.db.progress('REGION', 78, 79)
+            self.db.progress('SET', 77)
+            self.db.progress('REGION', 77, 78)
             self.run_target_config_hooks()
 
-            self.db.progress('SET', 79)
-            self.db.progress('REGION', 79, 80)
+            self.db.progress('SET', 78)
+            self.db.progress('REGION', 78, 79)
             self.db.progress('INFO', 'ubiquity/install/network')
             self.configure_network()
 
-            self.db.progress('SET', 80)
-            self.db.progress('REGION', 80, 81)
+            self.db.progress('SET', 79)
+            self.db.progress('REGION', 79, 80)
             self.db.progress('INFO', 'ubiquity/install/apt')
             self.configure_apt()
 
-            self.db.progress('SET', 81)
-            self.db.progress('REGION', 81, 85)
+            self.db.progress('SET', 80)
+            self.db.progress('REGION', 80, 85)
             # Ignore failures from language pack installation.
             try:
                 self.install_language_packs()
@@ -379,10 +373,9 @@ class Install:
             self.db.progress('INFO', 'ubiquity/install/log_files')
             self.copy_logs()
 
-            self.cleanup()
-
             self.db.progress('SET', 100)
         finally:
+            self.cleanup()
             try:
                 self.db.progress('STOP')
             except (KeyboardInterrupt, SystemExit):
@@ -531,58 +524,125 @@ class Install:
             os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
 
 
+    def mount_one_image(self, fsfile, mountpoint=None):
+        if os.path.splitext(fsfile)[1] == '.cloop':
+            blockdev_prefix = 'cloop'
+        elif os.path.splitext(fsfile)[1] == '.squashfs':
+            blockdev_prefix = 'loop'
+
+        if blockdev_prefix == '':
+            raise InstallStepError("No source device found for %s" % fsfile)
+
+        dev = ''
+        sysloops = filter(lambda x: x.startswith(blockdev_prefix),
+                          os.listdir('/sys/block'))
+        sysloops.sort()
+        for sysloop in sysloops:
+            try:
+                sysloopf = open(os.path.join('/sys/block', sysloop, 'size'))
+                if sysloopf.readline().strip() == '0':
+                    devnull = open('/dev/null')
+                    udevinfo = subprocess.Popen(
+                        ['udevinfo', '-q', 'name',
+                         '-p', os.path.join('/block', sysloop)],
+                        stdout=subprocess.PIPE, stderr=devnull)
+                    devbase = udevinfo.communicate()[0]
+                    devnull.close()
+                    if udevinfo.returncode == 0:
+                        devbase = sysloop
+                    dev = '/dev/%s' % devbase
+                    break
+            except:
+                continue
+
+        if dev == '':
+            raise InstallStepError("No loop device available for %s" % fsfile)
+
+        misc.ex('losetup', dev, file)
+        if mountpoint is None:
+            mountpoint = '/var/lib/ubiquity/%s' % sysloop
+        if not os.path.isdir(mountpoint):
+            os.mkdir(mountpoint)
+        misc.ex('mount', dev, mountpoint)
+
+        return (dev, mountpoint)
+
     def mount_source(self):
         """mounting loop system from cloop or squashfs system."""
 
-        self.dev = ''
+        self.devs = []
+        self.mountpoints = []
+
         if not os.path.isdir(self.source):
-            try:
-                os.mkdir(self.source)
-            except Exception, e:
-                print e
             syslog.syslog('mkdir %s' % self.source)
+            os.mkdir(self.source)
 
-        # Autodetection on unionfs systems
-        for line in open('/proc/mounts'):
-            (device, fstype) = line.split()[1:3]
-            if fstype == 'squashfs' and os.path.exists(device):
-                misc.ex('mount', '--bind', device, self.source)
-                self.unionfs = True
-                return
+        fs_preseed = self.db.get('ubiquity/install/filesystem-images')
 
-        # Manual Detection on non unionfs systems
-        fsfiles = ['/cdrom/casper/filesystem.cloop',
-                   '/cdrom/casper/filesystem.squashfs',
-                   '/cdrom/META/META.squashfs']
+        if fs_preseed == '':
+            # Simple autodetection on unionfs systems
+            for line in open('/proc/mounts'):
+                (device, fstype) = line.split()[1:3]
+                if fstype == 'squashfs' and os.path.exists(device):
+                    misc.ex('mount', '--bind', device, self.source)
+                    self.mountpoints.append(self.source)
+                    return
 
-        for fsfile in fsfiles:
-            if os.path.isfile(fsfile):
-                if os.path.splitext(fsfile)[1] == '.cloop':
-                    self.dev = '/dev/cloop1'
-                    break
-                elif os.path.splitext(fsfile)[1] == '.squashfs':
-                    self.dev = '/dev/loop3'
-                    break
+            # Manual detection on non-unionfs systems
+            fsfiles = ['/cdrom/casper/filesystem.cloop',
+                       '/cdrom/casper/filesystem.squashfs',
+                       '/cdrom/META/META.squashfs']
 
-        if self.dev == '':
-            raise InstallStepError("No source device found")
+            for fsfile in fsfiles:
+                if fsfile != '' and os.path.isfile(fsfile):
+                    dev, mountpoint = self.mount_one_image(fsfile, self.source)
+                    self.devs.insert(dev)
+                    self.mountpoints.append(mountpoint)
 
-        misc.ex('losetup', self.dev, file)
-        try:
-            misc.ex('mount', self.dev, self.source)
-        except Exception, e:
-            print e
+        elif len(fs_preseed.split()) == 1:
+            # Just one preseeded image.
+            if not os.path.isfile(fs_preseed):
+                raise InstallStepError(
+                    "Preseeded filesystem image %s not found" % fs_preseed)
 
+                dev, mountpoint = self.mount_one_image(fsfile, self.source)
+                self.devs.insert(dev)
+                self.mountpoints.append(mountpoint)
+        else:
+            # OK, so we need to mount multiple images and unionfs them
+            # together.
+            for fsfile in fs_preseed.split():
+                if not os.path.isfile(fsfile):
+                    raise InstallStepError(
+                        "Preseeded filesystem image %s not found" % fsfile)
+
+                dev, mountpoint = self.mount_one_image(fsfile)
+                self.devs.append(dev)
+                self.mountpoints.append(mountpoint)
+
+            assert self.devs
+            assert self.mountpoints
+
+            misc.ex('mount', '-t', 'unionfs', '-o',
+                    'dirs=' + map(lambda x: '%s=ro' % x, self.mountpoints),
+                    'unionfs', self.source)
+            self.mountpoints.append(self.source)
 
     def umount_source(self):
         """umounting loop system from cloop or squashfs system."""
 
-        if not misc.ex('umount', self.source):
-            raise InstallStepError("Failed to unmount source device")
-        if self.unionfs:
-            return
-        if not misc.ex('losetup', '-d', self.dev) and self.dev != '':
-            raise InstallStepError("Failed to detach loopback source device")
+        devs = self.devs
+        devs.reverse()
+        mountpoints = self.mountpoints
+        mountpoints.reverse()
+
+        for mountpoint in mountpoints:
+            if not misc.ex('umount', mountpoint):
+                raise InstallStepError("Failed to unmount %s" % mountpoint)
+        for dev in devs:
+            if dev != '' and not misc.ex('losetup', '-d', dev):
+                raise InstallStepError(
+                    "Failed to detach loopback device %s" % dev)
 
 
     def run_target_config_hooks(self):
@@ -1218,8 +1278,13 @@ class Install:
 
     def cleanup(self):
         """Miscellaneous cleanup tasks."""
-        os.unlink(os.path.join(
-            self.target, 'etc/apt/apt.conf.d/00IgnoreTimeConflict'))
+        try:
+            os.unlink(os.path.join(
+                self.target, 'etc/apt/apt.conf.d/00IgnoreTimeConflict'))
+        except:
+            pass
+        if self.source == '/var/lib/ubiquity/source':
+            self.umount_source()
 
 
     def chrex(self, *args):

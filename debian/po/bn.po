@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-04 22:38+0100\n"
+"POT-Creation-Date: 2006-09-07 18:36+0100\n"
 "PO-Revision-Date: 2006-05-28 12:49+0000\n"
 "Last-Translator: shuvro <shuvro_paul@walla.com>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
@@ -397,33 +397,27 @@ msgstr "কপি করবার জন্য ডিস্ট্রিবিউ
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr "ফাইলসমূহ পরীক্ষা করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr "ফাইলসমূহ কপি করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Copying installation logs..."
 msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
-msgid "Cleaning up..."
-msgstr "পরিষ্কার করা হচ্ছে ..."
 
 #. Type: text
 #. Description
@@ -539,3 +533,6 @@ msgstr "ভাষার প্যাকেজ ইনস্টল করা হ�
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "ভাষা ভিত্তিক প্যাকেজগুলো ডাউনলোড করা হছে{${TIME}অবশিষ্ট আছে } ..."
+
+#~ msgid "Cleaning up..."
+#~ msgstr "পরিষ্কার করা হচ্ছে ..."
