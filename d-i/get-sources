@@ -101,4 +101,6 @@ if [ -n "$PACKAGES" ]; then (
 
 # We don't build console-setup, as it takes too long, so these aren't
 # needed; we just need a couple of scripts from it.
-rm -rf $SOURCEDIR/console-setup/Fonts
+for subdir in Fonts Keyboard/acm Keyboard/ckb Keyboard/locale; do
+	rm -rf "$SOURCEDIR/console-setup/$subdir"
+done
