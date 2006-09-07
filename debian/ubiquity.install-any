@@ -26,6 +26,10 @@ d-i/source/choose-mirror/choose-mirror usr/lib/ubiquity/choose-mirror
 # clock-setup
 ubiquity/components/clock_setup.py usr/lib/ubiquity/ubiquity/components
 
+# console-setup
+ubiquity/components/console_setup.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/console_setup_apply.py usr/lib/ubiquity/ubiquity/components
+
 # debian-installer-utils
 d-i/source/debian-installer-utils/debconf-get bin
 d-i/source/debian-installer-utils/list-devices bin
@@ -41,13 +45,6 @@ d-i/source/debian-installer-utils/user-params bin
 d-i/source/hw-detect/archdetect bin
 d-i/source/hw-detect/debian/hw-detect/bin/sysfs-update-devnames bin
 ubiquity/components/hw_detect.py usr/lib/ubiquity/ubiquity/components
-
-# kbd-chooser
-d-i/source/kbd-chooser/kbd-chooser usr/lib/ubiquity/kbd-chooser
-d-i/source/kbd-chooser/kbd-chooser-apply usr/lib/ubiquity/kbd-chooser
-d-i/source/kbd-chooser/kbd-mode usr/lib/ubiquity/kbd-chooser
-ubiquity/components/kbd_chooser.py usr/lib/ubiquity/ubiquity/components
-ubiquity/components/kbd_chooser_apply.py usr/lib/ubiquity/ubiquity/components
 
 # localechooser
 d-i/source/localechooser/default-country usr/lib/ubiquity/localechooser
