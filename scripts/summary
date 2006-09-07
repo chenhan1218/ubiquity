@@ -6,10 +6,10 @@ set -e
 db_get languagechooser/language-name
 db_subst ubiquity/summary LANGUAGE "$RET"
 if db_get console-setup/variant && [ "$RET" ]; then
-	db_subst ubiquity/summary KEYMAP "$variant"
+	db_subst ubiquity/summary KEYMAP "$RET"
 else
 	db_get console-setup/layout
-	db_subst ubiquity/summary KEYMAP "$layout"
+	db_subst ubiquity/summary KEYMAP "$RET"
 fi
 db_get passwd/user-fullname
 db_subst ubiquity/summary FULLNAME "$RET"
