@@ -101,4 +101,4 @@ if [ -n "$PACKAGES" ]; then (
 
 # We don't build console-setup, as it takes too long, so these aren't
 # needed; we just need a couple of scripts from it.
-rm -rf $SOURCEDIR/console-setup/Fonts $SOURCEDIR/console-setup/Keyboard
+rm -rf $SOURCEDIR/console-setup/Fonts
