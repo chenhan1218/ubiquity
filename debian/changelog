@@ -8,6 +8,9 @@ ubiquity (1.1.13) UNRELEASED; urgency=low
     still need to add a UI element for the keyboard variant, and
     translations of layout and variant names are missing, but it mostly
     seems to work.
+  * Strip Fonts and Keyboard directories from our copy of console-setup;
+    they're very large, and not needed since we don't actually build
+    console-setup, but just copy a few scripts from it.
   * Add a ubiquity/install/filesystem-images template, which can be
     preseeded to mount and copy a different filesystem image. If multiple
     space-separated images are given, then they will be overlaid using
