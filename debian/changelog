@@ -1,4 +1,4 @@
-ubiquity (1.1.13) UNRELEASED; urgency=low
+ubiquity (1.1.13) edgy; urgency=low
 
   * Rename configure.in to configure.ac.
   * Drop backward compatibility for base-config/language-packs preseeding
@@ -21,7 +21,7 @@ ubiquity (1.1.13) UNRELEASED; urgency=low
   * Bump debhelper build-dependency to 5.0.37.2 and python-central to 0.5
     for new Python policy, per lintian.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon,  4 Sep 2006 23:12:42 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  7 Sep 2006 19:43:46 +0100
 
 ubiquity (1.1.12) edgy; urgency=low
 
