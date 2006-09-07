@@ -15,8 +15,8 @@ ubiquity (1.1.13) UNRELEASED; urgency=low
     (https://launchpad.net/distros/ubuntu/+spec/live-cd-stacked-filesystems).
   * Unset DEBIAN_HAS_FRONTEND in apt-install to make sure that debconf-using
     packages start up a new noninteractive frontend.
-  * Bump debhelper build-dependency to 5.0.37.2 for new Python policy, per
-    lintian.
+  * Bump debhelper build-dependency to 5.0.37.2 and python-central to 0.5
+    for new Python policy, per lintian.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon,  4 Sep 2006 23:12:42 +0100
 
