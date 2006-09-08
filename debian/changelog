@@ -1,6 +1,9 @@
 ubiquity (1.1.15) UNRELEASED; urgency=low
 
   * syslog.LOG_WARN -> syslog.LOG_WARNING (closes: Malone #59257).
+  * Point console-setup.postinst at /var/lib/dpkg/info/console-setup.config
+    directly, rather than trying to make a symlink to it and apparently
+    failing (closes: Malone #59496).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri,  8 Sep 2006 11:39:30 +0100
 

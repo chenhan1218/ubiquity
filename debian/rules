@@ -131,7 +131,7 @@ endif
 	install d-i/source/clock-setup/finish-install.d/10clock-setup \
 		debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
 	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
-	sed 's,/usr/share/console-setup-mini,/usr/lib/ubiquity/console-setup,g' \
+	sed 's,/usr/share/console-setup-mini/console-setup.config,/var/lib/dpkg/info/console-setup.config,g' \
 		d-i/source/console-setup/debian/console-setup.postinst \
 		> debian/ubiquity/usr/lib/ubiquity/console-setup/console-setup.postinst
 	chmod +x debian/ubiquity/usr/lib/ubiquity/console-setup/console-setup.postinst
@@ -199,7 +199,6 @@ binary-indep: install
 #	dh_installexamples
 	dh_installdebconf
 #	dh_installman
-	dh_link
 	dh_strip
 	dh_compress
 	dh_fixperms
