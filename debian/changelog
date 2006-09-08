@@ -1,3 +1,9 @@
+ubiquity (1.1.15) UNRELEASED; urgency=low
+
+  * syslog.LOG_WARN -> syslog.LOG_WARNING (closes: Malone #59257).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  8 Sep 2006 11:39:30 +0100
+
 ubiquity (1.1.14) edgy; urgency=low
 
   * Put some of console-setup/Keyboard back, as we need KeyboardNames.pl

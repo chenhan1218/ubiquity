@@ -169,7 +169,7 @@ class DebconfInstallProgress(InstallProgress):
                 pass # we're going to exit anyway
             except:
                 for line in traceback.format_exc().split('\n'):
-                    syslog.syslog(syslog.LOG_WARN, line)
+                    syslog.syslog(syslog.LOG_WARNING, line)
             os._exit(0)
 
         self.statusfd.close()
@@ -790,7 +790,7 @@ class Install:
                 return
         except IOError, e:
             for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_WARN, line)
+                syslog.syslog(syslog.LOG_WARNING, line)
             self.db.progress('STOP')
             raise
         cache.open(None)
@@ -820,12 +820,12 @@ class Install:
                 return
         except IOError, e:
             for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_WARN, line)
+                syslog.syslog(syslog.LOG_WARNING, line)
             self.db.progress('STOP')
             raise
         except SystemError, e:
             for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_WARN, line)
+                syslog.syslog(syslog.LOG_WARNING, line)
             self.db.progress('STOP')
             raise
         self.db.progress('SET', 100)

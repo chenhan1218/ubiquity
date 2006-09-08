@@ -71,7 +71,6 @@ for my $source (<source/*/debian/control>) {
 				# TODO: doesn't handle or-ed dependencies
 				my $dep = parsedep($bd, 1, 1)->[0][0];
 				my $package = $dep->[0];
-				next if $package eq 'keymapper';
 				if (not exists $builddeps{$package} or
 				    stricter($dep, $builddeps{$package})) {
 					$builddeps{$package} = $dep;
