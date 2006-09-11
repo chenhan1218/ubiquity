@@ -1849,10 +1849,26 @@ class MapWidget(QWidget):
 
     def drawCity(self, lat, long, painter):
         point = self.getPosition(lat, long, self.width(), self.height())
-        painter.setPen(QPen(QColor(0,0,0), 2))
-        painter.drawRect(point.x(), point.y(), 3, 3)
-        painter.setPen(QPen(QColor(255,0,0), 1))
-        painter.drawPoint(point.x() + 1, point.y() + 1)
+        #painter.setPen(QPen(QColor(0,0,0), 2))
+        #painter.drawRect(point.x(), point.y(), 3, 3)
+        #painter.setPen(QPen(QColor(255,0,0), 1))
+        #painter.drawPoint(point.x() + 1, point.y() + 1)
+        painter.setPen(QPen(QColor(250,100,100), 1))
+        painter.drawPoint(point.x(), point.y()-1)
+        painter.drawPoint(point.x()-1, point.y())
+        painter.drawPoint(point.x(), point.y())
+        painter.drawPoint(point.x()+1, point.y())
+        painter.drawPoint(point.x(), point.y()+1)
+        painter.setPen(QPen(QColor(0,0,0), 1))
+        painter.drawPoint(point.x(), point.y()-2)
+        painter.drawPoint(point.x()-1, point.y()-1)
+        painter.drawPoint(point.x()+1, point.y()-1)
+        painter.drawPoint(point.x()-2, point.y())
+        painter.drawPoint(point.x()+2, point.y())
+        painter.drawPoint(point.x()-1, point.y()+1)
+        painter.drawPoint(point.x()+1, point.y()+1)
+        painter.drawPoint(point.x(), point.y()+2)
+        
 
     def getPosition(self, la, lo, w, h):
         x = (w * (180.0 + lo) / 360.0)
