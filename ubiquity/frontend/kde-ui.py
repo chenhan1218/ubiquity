@@ -187,6 +187,18 @@ class Wizard:
         self.ready_text.setReadOnly(True)
         self.ready_text.setTextFormat(Qt.RichText)
         summary_vbox.addWidget(self.ready_text)
+        
+        logo = QPixmap("/usr/lib/ubiquity/ubiquity/frontend/distro-logo.png")
+        self.userinterface.logo_image_2.setPixmap(logo)
+        self.userinterface.logo_image_3.setPixmap(logo)
+        self.userinterface.logo_image_4.setPixmap(logo)
+        self.userinterface.logo_image_5.setPixmap(logo)
+        self.userinterface.logo_image_6.setPixmap(logo)
+        self.userinterface.logo_image_7.setPixmap(logo)
+        self.userinterface.logo_image_8.setPixmap(logo)
+        self.userinterface.logo_image_9.setPixmap(logo)
+        self.userinterface.logo_image_10.setPixmap(logo)
+        self.userinterface.logo_image_11.setPixmap(logo)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -1902,6 +1914,7 @@ class MapWidget(QWidget):
         self.setPaletteBackgroundPixmap(pixmap)
 
 class UbiquityTextEdit(QTextEdit):
+    """A text edit widget that listens for clicks on the link"""
     def __init__ (self, mainwin, parent):
         QTextEdit.__init__(self, parent)
         self.setMouseTracking(True)
