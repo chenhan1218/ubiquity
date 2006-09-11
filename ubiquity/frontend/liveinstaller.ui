@@ -1827,25 +1827,6 @@ You must mount one partition on the root file system ("/"), and you must choose 
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="QTextEdit" row="4" column="0" rowspan="1" colspan="3">
-                        <property name="name">
-                            <cstring>ready_text</cstring>
-                        </property>
-                        <property name="enabled">
-                            <bool>true</bool>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>7</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>1</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="readOnly">
-                            <bool>true</bool>
-                        </property>
-                    </widget>
                     <spacer row="3" column="1" rowspan="1" colspan="2">
                         <property name="name">
                             <cstring>spacer35</cstring>
@@ -1931,6 +1912,17 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             <set>AlignVCenter</set>
                         </property>
                     </widget>
+                    <widget class="QFrame" row="4" column="0" rowspan="1" colspan="3">
+                        <property name="name">
+                            <cstring>summary_frame</cstring>
+                        </property>
+                        <property name="frameShape">
+                            <enum>NoFrame</enum>
+                        </property>
+                        <property name="frameShadow">
+                            <enum>Raised</enum>
+                        </property>
+                    </widget>
                 </grid>
             </widget>
         </widget>
@@ -1977,6 +1969,8 @@ You must mount one partition on the root file system ("/"), and you must choose 
         </spacer>
     </grid>
 </widget>
+<customwidgets>
+</customwidgets>
 <images>
     <image name="image0">
         <data format="PNG" length="2592">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af4000009e7494441545885ad977b8c1dd57dc73f67ce99b9cfbdbb77f77a5f66bdb6d78f201e067c7130213871718c014786a46a28a55528a55589dcf20f75a4160515556e835c62ba415508954a705356506ac7b2a9491cd9b8d8709dc446b08eedf56bbd0f7befdebdef993bafd33fee7a0d12559db63f6934733433e7f73ddfdff77c7f33426bcd6f12bd1bff75f34c7ee6b9d6642459b71b35b3a5e3bee93dbf7df0379ae41321ae1540ef033b5e29956a8ff464d2d6f2c53db4c6253a0c383e7c9633979c8fdbbae6af98787383ffff0ae0cbdfda1d3d71aeb8af5469dcd939afcbb8ae274d54092c099602d300536aaa159b0f8e9f0967fce88bce8147fffcff0c60f51fef5e7c66b4f076a91e0eb465e68bb6549c881273492da967cfb363d51c5f18bdcce1e189b296ed1dfe7bdfb82636d42707abfe68d703672e16ff69a62e32b1f402922913431ad8010480176a2c097ed84cec071a536afc00eaf506531589502da9649b1c021ebc6600d96ffedb5f9e1e2f7fbbd488c6492c8494410341e84b3c0d16e0ebd9a42178011884e8c0a75a75c917ea68a989a64c223ded7445dd65d7921c402d7ce8c767cecf588b482c868804c30061e00b811f821382f435426b0843c2c027f403741060843e1ded8ade81566c5f335d6e60bb3e3a8ab86600e97474e19491a1ee1a20251812840142801068adf1b5061d36df106059d0d715a5b35d3253f719cbdb546c1f34b42422a45bacd2b50230421188759f6fe3966531949220152805ca9cbd9e3d4b493221c95e1f67c35dedb4b69b7c34e17062bc46a5ee909255362daff2f49d0564f1782a9bcdf65d0b00d1fdb5d7c272b25fac5a92a2af3dca07675c4e4c88ab2c684d6732e0b68592deb46478bccef173456aa502717b942df7a5d9b066257d3df3686949e0ba2e4ec3d5bee7566ab55a756262e2d2e0e0e03f0c0d0dbdf29900363ef52ffeaea93e0906bd69937537b66108c9fe1301a682d58b25f352064746aafce25c957aa584b0a7f96adf45b66f7984aece0e945208d12c7b100468ad1142d06868a40cf0fdc0deb56be7d16ddbb63d92cbe52e7c0ac073db87dcd6ee1ef3c5c30627a72542c06dfd0936ded286067efa7199f7cfd4703d1fea532c8b5e66ebef2c64fdda3b31cd66e22bc9017cdf476b4da110303838c5d898c7aa55091e7f3c43b158cc3ffbecb3cf0f0e0efeed9c069454e10ddd8ae7d76b9ebc3da03526383aea303ce9f2fe399b77476c3c2db8b5079ebc2bcd5f6fea62497f2770d5c03e69665a6bb4d61c3d5ae38d378aac5811e3f9e7273976cc2193c964b66eddfaed7beeb967fd95e79521a5564a619a065f5a1c70f33c97374f2902400bc1fa9be6b16e6902a39e67e6f43e3eb7f48ba452298ac522e9747a8efe7ffe77187adbe0e4398b440c1ecc169012cae500d7d574755900442291d66ddbb6bd9ccd6657e472b982925286a669a2fc00a5048998c183cb02069677a0ac04859ae0e2e839cefdfa307ff0d53544a3166118120401a5528991723b7ded824209f61c14306b0123a3bdfce1ba061f9ff0d8bd7b393d3d264110108621fdfdfdf31f7becb121e0b70c434a2d9542298552264a2a945444954144496ad52a6ec3e38eebdbf1bdc61cc55a6b4e4e49fee22dc50b3f33f8d38735372fd3f4766afa7b436ab6e047471671646a80bffac7044110e0fb3e9ee7a1b5161b366cb83d9bcd6695324ddd64c040fa015209a432d0ba69bb0da741697a92ee15192291c85cf2500bfee6a7691cdfe0c069182f05bcfb6a15dbb61142f0d6fe145bfedee2fcb8e0fc38bcf89ae689afbbf8be4f100428a592030303f71aa652facaaae758508a50431082ed38e4274648c6a368ada93b0617262d0e5f8891af377bd9979634b0dc49eaf53a6118e2fb3e1bef9ee13f5f6b60aaa6405ffb89c475dda64f380e954a45ac59b3e6cbca3455689a0ae51b4d16548094827056d80db7418b695398cef3eeafd21cfa6801857284d5b7782853e387824dd717f13c8fb397ea7c77e82c0fdc14541e5abfaa2561e5f9fa57baf8f11ec5c723920be33e71abc8d4d4149ee7313030b0c8688ad09a5d7d9301a94c3457412ce869476bcdf1914e041e1bbf98e740ce626587d3dc4a784829f9d19e5f73d4bf97e75e9f1809c3d0abd56a6cdf52e2fcde8b7c387492a031cac4c4048d4683300c89442271c33415732234cd39201ad01a4c33c2f854916432c9fad54586cfb6b0fbdd766e5ed660a46636cdc7732997cb3cfac0adac8eece5d9dfed5b5a2814cc7c3ecfd34f5fe00b5f1863edda02172e540982a0e98042502a95ca86942a9c5bb954cd4399a00d420da61565aa1ac134235cd72d7971cb04ebeeb0f9ca5a8f822d0178fbfc750064a2550637dfc29adb97242627272995a2bcfaaacbe82880a6b53598332ccbb23875ead479434a439ba6ba5a825916e618b022a47b9652773c96f44b562cd73cf9b0c3dd377ab4469b35da336c11e958866559944a250cc360727280cd9b7dfcd90fb3fbeff73ed5840cc3d0870e1d3aa49465864a29a4122865206553845a341988c492b474cc273f739af93d192ccb424a896549be757783e7de8e7243af2613b5d9f48d0abe2fa9d71d8e1db3696b33c8cc0bb96945c8430f35e64c6ab66794474747f72a292457ac5879577d8059111a86416b7b37ff71e8200be677715d228194926834cafd2b4c840ce84e38fcf087531c3ce8cc259012fe6cfbe7b09524ce652ac145da64f3be699ac1debd7b0fe672b9c3c691338da8eb0b9a2c28cc591fd05a70a5c758d138dd37dccbce777294ca65a2d128b1588c300c59b3a8467faac6cc8ccbca9592785cd0d525f9ce0bfd7c584bb0b85bf2cb421f95203527beb1b1b1d177de79e7f7008c8972a81e79699c377355a49448d51422b325b81289d6794cc5efe2c8b1d3f8be4f1886d8b68de338d8b6cda38f1abcfcb2c9a54b3770f2e4729e78388198ed991153e02707b02c8b20084a2fbdf4d213b95cae04206fbdf789cdda6a4deefc659d5dc7ea2ced8a904e9af881c00d04ae0f3557f3b3e12a6f7d14f093f727e9d6e788999a8865ce01701c8746a341269369b665e0b6be80378e59dcd813b071c924954aa5b47dfbf62dfbf6ed7b7dae54f77ded9be335dbb93f966c51862179f54895917cc0b22e0b10ec1baef3fd9f4ff3e1988d176864b485e1b1307ff6c89bbfeae98825851031dff7711c07cff3e8eeee6e4e6c406b34e4f3f38b7486a7fc03070efc62ebd6ad77eddfbfffe79fdc0d426bcd33af1c4e8f4e87af17695f5b313246be1672763a24d402dbd5c44d8d081de6ab42296d792f1cfaee1ddf01c866b3d76fdab46970c182058b62b1583c9148c4fafafa92aeeb868d46c3b56ddbb97cf9f2f88e1d3bbeb76bd7ae1ff019f1a95fb3a7beff5e76b42877cc189d4b1d23c58c0d81d720adf37602fb0789887c6ae7332bc3cf9a289bcdb60237b7b5b5dd5e2a95ce6aad3fc8e572173febd9ff16c095f8fdbf7bef4ff26efc990691784c5777a622c6e33b9ebecdfd9f26fbdfc47f0116d5a11a3619b6120000000049454e44ae426082</data>
@@ -1992,7 +1986,6 @@ You must mount one partition on the root file system ("/"), and you must choose 
     </image>
 </images>
 <tabstops>
-    <tabstop>ready_text</tabstop>
     <tabstop>back</tabstop>
     <tabstop>next</tabstop>
     <tabstop>cancel</tabstop>
