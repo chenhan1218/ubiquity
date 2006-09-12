@@ -1,3 +1,10 @@
+ubiquity (1.1.16) edgy; urgency=low
+
+  * KDE frontend: Put a link on the summary page to allow the user to
+    install GRUB to somewhere other than the MBR of the first hard disk
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 12 Sep 2006 11:38:27 +0100
+
 ubiquity (1.1.15) edgy; urgency=low
 
   * syslog.LOG_WARN -> syslog.LOG_WARNING (closes: Malone #59257).
