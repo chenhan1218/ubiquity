@@ -1,6 +1,11 @@
 ubiquity (1.1.16) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Reconfigure popularity-contest.
+
+  [ Jonathan Riddell ]
+  * KDE frontend: Put a link on the summary page to allow the user to
+    install GRUB to somewhere other than the MBR of the first hard disk
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 12 Sep 2006 09:00:54 +0100
 

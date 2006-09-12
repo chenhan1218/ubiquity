@@ -182,6 +182,24 @@ class Wizard:
         self.embed = None
         self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
 
+        summary_vbox = QVBoxLayout(self.userinterface.summary_frame)
+        self.ready_text = UbiquityTextEdit(self, self.userinterface.summary_frame)
+        self.ready_text.setReadOnly(True)
+        self.ready_text.setTextFormat(Qt.RichText)
+        summary_vbox.addWidget(self.ready_text)
+        
+        logo = QPixmap("/usr/lib/ubiquity/ubiquity/frontend/distro-logo.png")
+        self.userinterface.logo_image_2.setPixmap(logo)
+        self.userinterface.logo_image_3.setPixmap(logo)
+        self.userinterface.logo_image_4.setPixmap(logo)
+        self.userinterface.logo_image_5.setPixmap(logo)
+        self.userinterface.logo_image_6.setPixmap(logo)
+        self.userinterface.logo_image_7.setPixmap(logo)
+        self.userinterface.logo_image_8.setPixmap(logo)
+        self.userinterface.logo_image_9.setPixmap(logo)
+        self.userinterface.logo_image_10.setPixmap(logo)
+        self.userinterface.logo_image_11.setPixmap(logo)
+
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
 
@@ -1560,17 +1578,34 @@ class Wizard:
             return unicode(selection.text(0))
 
     def set_summary_text (self, text):
-        self.userinterface.ready_text.setText(text)
-        # TODO cjwatson 2006-09-04: turn DEVICE into a button to launch GRUB
-        # configuration
+        i = text.find("\n")
+        while i != -1:
+            text = text[:i] + "<br>" + text[i+1:]
+            i = text.find("\n")
+        self.ready_text.setText(text)
+        self.summary_device = "DEVICE"
 
     def set_summary_device (self, device):
-        # TODO cjwatson 2006-09-04: set text of device button
+        text = self.ready_text.text()
+        device_index = text.find(self.summary_device)
+        if device_index != -1:
+            newstring = text[:device_index] + '<a href="device">' + device + '</a>' + text[device_index+6:]
+            self.ready_text.setText(newstring)
         self.summary_device = device
 
     def get_summary_device (self):
-        # TODO cjwatson 2006-09-04: get text of device button
         return self.summary_device
+
+    def change_device(self):
+        """prompt user to set new Grub device"""
+        answer = QInputDialog.getText("hello", "blah", QLineEdit.Normal, self.summary_device)
+        newdevice = unicode(answer[0])
+
+        text = unicode(self.ready_text.text())
+        device_index = text.find(self.summary_device)
+        newstring = text[:device_index-17] + '<a href="device">' + newdevice + '</a>' + text[device_index+len(self.summary_device)+4:]
+        self.ready_text.setText(newstring)
+        self.summary_device = newdevice
 
     def return_to_autopartitioning (self):
         """If the install progress bar is up but still at the partitioning
@@ -1814,10 +1849,26 @@ class MapWidget(QWidget):
 
     def drawCity(self, lat, long, painter):
         point = self.getPosition(lat, long, self.width(), self.height())
-        painter.setPen(QPen(QColor(0,0,0), 2))
-        painter.drawRect(point.x(), point.y(), 3, 3)
-        painter.setPen(QPen(QColor(255,0,0), 1))
-        painter.drawPoint(point.x() + 1, point.y() + 1)
+        #painter.setPen(QPen(QColor(0,0,0), 2))
+        #painter.drawRect(point.x(), point.y(), 3, 3)
+        #painter.setPen(QPen(QColor(255,0,0), 1))
+        #painter.drawPoint(point.x() + 1, point.y() + 1)
+        painter.setPen(QPen(QColor(250,100,100), 1))
+        painter.drawPoint(point.x(), point.y()-1)
+        painter.drawPoint(point.x()-1, point.y())
+        painter.drawPoint(point.x(), point.y())
+        painter.drawPoint(point.x()+1, point.y())
+        painter.drawPoint(point.x(), point.y()+1)
+        painter.setPen(QPen(QColor(0,0,0), 1))
+        painter.drawPoint(point.x(), point.y()-2)
+        painter.drawPoint(point.x()-1, point.y()-1)
+        painter.drawPoint(point.x()+1, point.y()-1)
+        painter.drawPoint(point.x()-2, point.y())
+        painter.drawPoint(point.x()+2, point.y())
+        painter.drawPoint(point.x()-1, point.y()+1)
+        painter.drawPoint(point.x()+1, point.y()+1)
+        painter.drawPoint(point.x(), point.y()+2)
+        
 
     def getPosition(self, la, lo, w, h):
         x = (w * (180.0 + lo) / 360.0)
@@ -1878,3 +1929,14 @@ class MapWidget(QWidget):
         pixmap.convertFromImage(image)
         self.setPaletteBackgroundPixmap(pixmap)
 
+class UbiquityTextEdit(QTextEdit):
+    """A text edit widget that listens for clicks on the link"""
+    def __init__ (self, mainwin, parent):
+        QTextEdit.__init__(self, parent)
+        self.setMouseTracking(True)
+        self.mainwin = mainwin
+
+    def contentsMouseReleaseEvent(self, event):
+        if len(self.anchorAt(event.pos())) > 0:
+            self.mainwin.change_device()
+        QTextEdit.contentsMouseReleaseEvent(self, event)
