@@ -924,11 +924,17 @@ class Install:
                 print >>configfile, "RESUME=%s" % resume
                 configfile.close()
 
+        try:
+            os.unlink('/etc/popularity-contest.conf')
+        except OSError:
+            pass
+
         self.chrex('mount', '-t', 'proc', 'proc', '/proc')
         self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
 
         packages = ['linux-image-' + self.kernel_version,
-                    'linux-restricted-modules-' + self.kernel_version]
+                    'linux-restricted-modules-' + self.kernel_version,
+                    'popularity-contest']
 
         try:
             for package in packages:
