@@ -1160,7 +1160,7 @@ class Wizard:
             self.userinterface.mountpoint_error_image.hide()
 
         self.manual_partitioning = True
-        self.steps.next_page()
+        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
 
     def on_back_clicked(self):
         """Callback to set previous screen."""

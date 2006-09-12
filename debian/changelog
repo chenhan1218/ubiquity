@@ -2,6 +2,8 @@ ubiquity (1.1.16) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Reconfigure popularity-contest.
+  * KDE frontend: Fix crash when moving off the mountpoints page (closes:
+    Malone #60045).
   * Automatic update of included source packages: base-installer
     1.63ubuntu4, console-setup 1.7ubuntu8.
 
