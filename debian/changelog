@@ -1,4 +1,4 @@
-ubiquity (1.1.16) UNRELEASED; urgency=low
+ubiquity (1.1.16) edgy; urgency=low
 
   [ Colin Watson ]
   * Reconfigure popularity-contest.
@@ -11,7 +11,7 @@ ubiquity (1.1.16) UNRELEASED; urgency=low
   * KDE frontend: Put a link on the summary page to allow the user to
     install GRUB to somewhere other than the MBR of the first hard disk
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 12 Sep 2006 09:00:54 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 12 Sep 2006 12:39:34 +0100
 
 ubiquity (1.1.15) edgy; urgency=low
 
