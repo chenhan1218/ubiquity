@@ -925,7 +925,7 @@ class Install:
                 configfile.close()
 
         try:
-            os.unlink('/etc/popularity-contest.conf')
+            os.unlink('/target/etc/popularity-contest.conf')
         except OSError:
             pass
 
