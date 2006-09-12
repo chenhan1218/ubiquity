@@ -4,4 +4,4 @@ ubiquity/frontend/liveinstaller.ui usr/lib/ubiquity/ubiquity/frontend
 ubiquity/frontend/liveinstaller.py usr/lib/ubiquity/ubiquity/frontend
 ubiquity/frontend/crashdialog.ui usr/lib/ubiquity/ubiquity/frontend
 ubiquity/frontend/crashdialog.py usr/lib/ubiquity/ubiquity/frontend
-ubiquity/frontend/distro-logo.png usr/lib/ubiquity/ubiquity/frontend
+ubiquity/frontend/kde-distro-logo.png usr/lib/ubiquity/ubiquity/frontend

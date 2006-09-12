@@ -188,7 +188,7 @@ class Wizard:
         self.ready_text.setTextFormat(Qt.RichText)
         summary_vbox.addWidget(self.ready_text)
         
-        logo = QPixmap("/usr/lib/ubiquity/ubiquity/frontend/distro-logo.png")
+        logo = QPixmap("/usr/lib/ubiquity/ubiquity/frontend/kde-distro-logo.png")
         self.userinterface.logo_image_2.setPixmap(logo)
         self.userinterface.logo_image_3.setPixmap(logo)
         self.userinterface.logo_image_4.setPixmap(logo)
