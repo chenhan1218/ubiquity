@@ -2,6 +2,8 @@ ubiquity (1.1.16) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Reconfigure popularity-contest.
+  * Automatic update of included source packages: base-installer
+    1.63ubuntu4, console-setup 1.7ubuntu8.
 
   [ Jonathan Riddell ]
   * KDE frontend: Put a link on the summary page to allow the user to
