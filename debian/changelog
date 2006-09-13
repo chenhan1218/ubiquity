@@ -1,6 +1,8 @@
 ubiquity (1.1.18) UNRELEASED; urgency=low
 
   * Reconfigure usplash (closes: Malone #59320).
+  * Divert away update-initramfs while configuring hardware-specific
+    packages, and run it just once at the end.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 13 Sep 2006 18:12:49 +0100
 

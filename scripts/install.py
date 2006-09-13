@@ -937,6 +937,13 @@ class Install:
         self.chrex('mount', '-t', 'proc', 'proc', '/proc')
         self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
 
+        self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
+                   '--quiet', '--add', '/usr/sbin/update-initramfs')
+        try:
+            os.symlink('/bin/true', '/target/usr/sbin/update-initramfs')
+        except OSError:
+            pass
+
         packages = ['linux-image-' + self.kernel_version,
                     'linux-restricted-modules-' + self.kernel_version,
                     'usplash',
@@ -948,6 +955,13 @@ class Install:
         finally:
             self.chrex('umount', '/proc')
             self.chrex('umount', '/sys')
+            try:
+                os.unlink('/target/usr/sbin/update-initramfs')
+            except OSError:
+                pass
+            self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
+                       '--quiet', '--remove', '/usr/sbin/update-initramfs')
+            self.chrex('update-initramfs', '-u')
 
 
     def get_all_interfaces(self):
