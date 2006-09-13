@@ -1,4 +1,4 @@
-ubiquity (1.1.17) UNRELEASED; urgency=low
+ubiquity (1.1.17) edgy; urgency=low
 
   [ Jonathan Riddell ]
   * KDE Frontend
@@ -6,7 +6,7 @@ ubiquity (1.1.17) UNRELEASED; urgency=low
     - Don't accept a blank string for the grub device
     - Use correct strings for grub dialogue box
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 13 Sep 2006 14:00:56 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 13 Sep 2006 14:01:52 +0100
 
 ubiquity (1.1.16) edgy; urgency=low
 
