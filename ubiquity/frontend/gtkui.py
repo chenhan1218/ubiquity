@@ -1145,6 +1145,12 @@ class Wizard:
                                      "filesystems (/home, /media/*, "
                                      "/usr/local, etc.) may be used without "
                                      "reformatting.")
+                elif check == validation.MOUNTPOINT_NEEDPOSIX:
+                    error_msg.append("FAT and NTFS filesystems may not be "
+                                     "used on filesystems used by the system "
+                                     "(/, /boot, /home, /usr, /var, etc.). "
+                                     "It is usually best to mount them "
+                                     "somewhere under /media/.")
 
         # showing warning messages
         self.mountpoint_error_reason.set_text("\n".join(error_msg))

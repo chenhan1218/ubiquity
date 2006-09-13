@@ -70,6 +70,7 @@ MOUNTPOINT_BADCHAR = 4
 MOUNTPOINT_XFSROOT = 5
 MOUNTPOINT_XFSBOOT = 6
 MOUNTPOINT_UNFORMATTED = 7
+MOUNTPOINT_NEEDPOSIX = 8
 
 def check_mountpoint(mountpoints, size):
 
@@ -82,7 +83,8 @@ def check_mountpoint(mountpoints, size):
             - C{MOUNTPOINT_BADCHAR} Contains invalid characters.
             - C{MOUNTPOINT_XFSROOT} XFS used on / (with no /boot).
             - C{MOUNTPOINT_XFSBOOT} XFS used on /boot.
-            - C{MOUNTPOINT_UNFORMATTED} System filesystem not reformatted."""
+            - C{MOUNTPOINT_UNFORMATTED} System filesystem not reformatted.
+            - C{MOUNTPOINT_NEEDPOSIX} Non-POSIX filesystem required here."""
 
     import re
     result = set()
@@ -126,6 +128,14 @@ def check_mountpoint(mountpoints, size):
             if (pathtop in ('/', '/boot', '/usr', '/var') and
                 path not in ('/usr/local', '/var/local')):
                 result.add(MOUNTPOINT_UNFORMATTED)
+
+        # TODO cjwatson 2006-09-13: Duplication from
+        # partman-basicfilesystems/finish.d/mountpoint_fat; as if the rest
+        # of all this doesn't duplicate partman too ...
+        if fstype in ('vfat', 'ntfs'):
+            if path in ('/', '/boot', '/home', '/opt', '/srv', '/tmp', '/usr',
+                        '/usr/local', '/var'):
+                result.add(MOUNTPOINT_NEEDPOSIX)
 
     if not root:
         result.add(MOUNTPOINT_NOROOT)
