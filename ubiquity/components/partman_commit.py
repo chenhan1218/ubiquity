@@ -21,25 +21,18 @@ import os
 import shutil
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity.parted_server import PartedServer
-from ubiquity.components.partman_auto import PartmanAuto
 
-class PartmanCommit(PartmanAuto):
+class PartmanCommit(FilteredCommand):
+    def __init__(self, frontend=None, manual_input=False):
+        super(PartmanCommit, self).__init__(frontend)
+        self.manual_input = manual_input
+
     def prepare(self):
-        # Make sure autopartitioning doesn't get run. We rely on the manual
-        # partitioning control path.
-        shutil.rmtree('/var/lib/partman', ignore_errors=True)
-        if not os.path.exists('/var/lib/partman'):
-            os.makedirs('/var/lib/partman')
-        initial_auto = open('/var/lib/partman/initial_auto', 'w')
-        initial_auto.close()
-
-        questions = ['^partman/choose_partition$',
-                     '^partman/confirm.*',
-                     'type:boolean',
+        questions = ['type:boolean',
                      'ERROR',
                      'PROGRESS']
-        return ('/bin/partman', questions,
-                {'PARTMAN_UPDATE_BEFORE_CONFIRM': '1'})
+        return ('/bin/partman-commit', questions,
+                {'PARTMAN_UPDATE_BEFORE_COMMIT': '1'})
 
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question))
@@ -48,17 +41,14 @@ class PartmanCommit(PartmanAuto):
         self.done = True
         return True
 
-    def run(self, priority, question):
-        try:
-            qtype = self.db.metaget(question, 'Type')
-        except debconf.DebconfError:
-            qtype = ''
+    # This is, uh, an "inventive" way to spot when partman-commit has
+    # finished starting up parted_server so that we can feed information
+    # into it.
+    def progress_stop(self, progress_title):
+        ret = super(PartmanCommit, self).progress_stop(progress_title)
 
-        if question == 'partman/choose_partition':
-            if self.done:
-                # user answered confirmation question, or an error occurred
-                return False
-
+        if (progress_title == 'partman/progress/init/title' and
+            self.manual_input):
             partitions = {}
             parted = PartedServer()
             for disk in parted.disks():
@@ -112,29 +102,15 @@ class PartmanCommit(PartmanAuto):
                     parted.remove_part_entry(p_id, 'format')
                     parted.remove_part_entry(p_id, 'use_filesystem')
 
-            # Don't preseed_as_c, because Perl debconf is buggy in that it
-            # doesn't expand variables in the result of METAGET choices-c.
-            # All locales have the same variables anyway so it doesn't
-            # matter.
-            self.preseed('partman/choose_partition',
-                         self.description('partman/text/end_the_partitioning'))
-            self.current_question = question
-            return True
+        return ret
 
-        elif question.startswith('partman/confirm'):
-            self.current_question = question
-            if self.frontend.confirm_partitioning_dialog(
-                    self.description(question),
-                    self.extended_description(question)):
-                self.preseed(question, 'true')
-                self.succeeded = True
-            else:
-                self.preseed(question, 'false')
-                self.succeeded = False
-            self.done = True
-            return True
+    def run(self, priority, question):
+        try:
+            qtype = self.db.metaget(question, 'Type')
+        except debconf.DebconfError:
+            qtype = ''
 
-        elif qtype == 'boolean':
+        if qtype == 'boolean':
             response = self.frontend.question_dialog(
                 self.description(question),
                 self.extended_description(question),
@@ -158,8 +134,4 @@ class PartmanCommit(PartmanAuto):
             return True
 
         else:
-            return super(PartmanAuto, self).run(priority, question)
-
-    # PartmanAuto's ok_handler isn't appropriate here.
-    def ok_handler(self):
-        return super(PartmanAuto, self).ok_handler()
+            return super(PartmanCommit, self).run(priority, question)

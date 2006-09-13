@@ -12,6 +12,8 @@ PACKAGES := $(shell cat $(LISTDIR)/any)
 ifneq (,$(wildcard $(LISTDIR)/$(DEB_HOST_ARCH)))
 PACKAGES += $(shell cat $(LISTDIR)/$(DEB_HOST_ARCH))
 endif
+# We don't need to build console-setup.
+PACKAGES := $(filter-out console-setup,$(PACKAGES))
 
 update:
 	./get-sources update

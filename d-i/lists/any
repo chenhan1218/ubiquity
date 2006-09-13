@@ -2,9 +2,9 @@ apt-setup
 base-installer
 choose-mirror
 clock-setup
+console-setup
 debian-installer-utils
 hw-detect
-kbd-chooser
 localechooser
 migration-assistant
 partconf

@@ -220,18 +220,23 @@ _Description: Continue
 
 Template: ubiquity/summary
 Type: note
+#flag:translate!:3
 _Description: Ready to install
- Language: ${LANGUAGE}
+  Language: ${LANGUAGE}
+  Keyboard layout: ${KEYMAP}
+  Name: ${FULLNAME}
+  Login name: ${USERNAME}
+  Location: ${LOCATION}
+  ${EXTRAS}
  .
- Keyboard layout: ${KEYMAP}
- .
- Name: ${REALNAME}
- .
- Login name: ${USERNAME}
- .
- Location: ${LOCATION}
- .
- Partitioning:
+ ${PARTMAN_CHANGES}
+
+Template: ubiquity/summary/grub
+Type: text
+# Translators, please leave "DEVICE" untranslated. It will be replaced by a
+# button displaying the current boot device and allowing the user to select
+# a different one.
+_Description: GRUB will be installed to DEVICE
 
 Template: ubiquity/install/title
 Type: title
@@ -240,6 +245,14 @@ _Description: Installing system
 Template: ubiquity/install/mounting_source
 Type: text
 _Description: Finding the distribution to copy...
+
+Template: ubiquity/install/filesystem-images
+Type: string
+Description: Only for preseeding; not translated.
+ This may be preseeded to a space-separated list of paths to the filesystem
+ image to copy to the hard disk. (Normally, these paths would begin with
+ /cdrom.) If more than one filesystem image is given, they will be overlaid
+ using unionfs.
 
 Template: ubiquity/install/scanning
 Type: text
@@ -256,10 +269,6 @@ _Description: Copying files (${TIME} remaining)...
 Template: ubiquity/install/log_files
 Type: text
 _Description: Copying installation logs...
-
-Template: ubiquity/install/cleanup
-Type: text
-_Description: Cleaning up...
 
 Template: ubiquity/install/target_hook
 Type: text
@@ -361,3 +370,8 @@ Description: Patterns for language packs to install
  .
  language-pack-$LL is required, and is always installed (by localechooser).
  You do not need to list it here.
+
+Template: ubiquity/partman-made-changes
+Type: boolean
+Default: true
+Description: for internal use; record whether partman asked for confirmation of changes

@@ -106,14 +106,11 @@ explicitly requested for installation by installer code. Language packs for
 languages which are not to be supported on the installed system will also be
 removed.
 
-Logs of the installation will be saved in /var/log/installer/syslog (for
-messages emitted by Ubiquity itself), /var/log/syslog (for some messages
-emitted by d-i code), and /var/log/partman (for a trace of the operation of
-the automatic partitioner). /var/log/installer/syslog and /var/log/partman
-are saved in /var/log/installer/ on the installed system. In future,
-/var/log/installer/syslog and /var/log/syslog will be consolidated in order
-to reduce confusion and to allow /var/log/syslog to be saved on the
-installed system as well.
+Logs of the installation will be saved in /var/log/syslog (for messages
+emitted by Ubiquity itself and messages emitted by d-i code), and
+/var/log/partman (for a trace of the operation of the automatic
+partitioner). /var/log/syslog and /var/log/partman are saved in
+/var/log/installer/ on the installed system.
 
 Customisation
 -------------

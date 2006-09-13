@@ -2,13 +2,13 @@ Source: ubiquity
 Section: admin
 Priority: optional
 Maintainer: Colin Watson <cjwatson@ubuntu.com>
-Build-Depends: apt, bison, dash, debconf (>= 0.5.0), debhelper (>> 5.0.22), dpkg-dev (>= 1.9.0), flex, grep-dctrl, intltool-debian (>= 0.30+20040212), iso-codes (>= 0.35-1), libart-2.0-dev, libdebconfclient0-dev (>= 0.68), libdebian-installer4-dev (>= 0.41), libglib2.0-dev, libgtk2.0-dev, libparted1.7-dev (>= 1.7.1-1), libxml-parser-perl, libxml2-dev (>= 2.6.24), locales, po-debconf (>= 0.5.3), python, python-all-dev (>= 2.3.5-11), python-central (>= 0.4.17), python-gtk2-dev, python-kde3-dev, python-xml, wget
+Build-Depends: apt, dash, debhelper (>= 5.0.37.2), dpkg-dev (>= 1.9.0), grep-dctrl, intltool-debian (>= 0.30+20040212), iso-codes (>= 0.35-1), libart-2.0-dev, libdebconfclient0-dev (>= 0.68), libdebian-installer4-dev (>= 0.41), libglib2.0-dev, libgtk2.0-dev, libparted1.7-dev (>= 1.7.1-1), libxml-parser-perl, libxml2-dev (>= 2.6.24), locales, po-debconf (>= 0.5.3), python, python-all-dev (>= 2.3.5-11), python-central (>= 0.5), python-gtk2-dev, python-kde3-dev, python-xml, wget
 Standards-Version: 3.6.2.1
 XS-Python-Version: current, >= 2.4
 
 Package: ubiquity
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf (>= 1.4.72ubuntu5), ubiquity-frontend-${source:Version}, ubiquity-artwork-${source:Version}, laptop-detect, lsb-release, ubiquity-casper, python-apt (>= 0.6.16.2ubuntu4), console-keymaps, console-data (>= 2002.12.04dbs-52.1ubuntu7), iso-codes, passwd, adduser, os-prober, ${bootloader-depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf (>= 1.4.72ubuntu5), ubiquity-frontend-${source:Version}, ubiquity-artwork-${source:Version}, laptop-detect, lsb-release, ubiquity-casper, python-apt (>= 0.6.16.2ubuntu4), console-setup, iso-codes, passwd, adduser, os-prober, ${bootloader-depends}
 Recommends: gparted
 Conflicts: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
 Replaces: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot, ubiquity-frontend-gtk (<< 0.99.82)

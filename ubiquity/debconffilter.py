@@ -24,6 +24,7 @@ import signal
 import errno
 import subprocess
 import re
+import syslog
 import debconf
 
 # Each widget should have a run(self, priority, question) method; this
@@ -85,6 +86,7 @@ class DebconfFilter:
             self.debug_re = re.compile(os.environ['DEBCONF_DEBUG'])
         else:
             self.debug_re = None
+        self.escaping = False
         self.progress_bars = []
         self.toread = ''
         self.toreadpos = 0
@@ -93,7 +95,8 @@ class DebconfFilter:
 
     def debug(self, key, *args):
         if self.debug_re is not None and self.debug_re.search(key):
-            print >>sys.stderr, "debconf (%s):" % key, ' '.join(args)
+            syslog.syslog(syslog.LOG_DEBUG,
+                          "debconf (%s): %s" % (key, ' '.join(args)))
 
     # Returns None if non-blocking and can't read a full line right now;
     # returns '' at end of file; otherwise as fileobj.readline().
@@ -123,6 +126,9 @@ class DebconfFilter:
                     raise
 
     def reply(self, code, text='', log=False):
+        if self.escaping and code == 0:
+            text = text.replace('\\', '\\\\').replace('\n', '\\n')
+            code = 1
         ret = '%d %s' % (code, text)
         if log:
             self.debug('filter', '-->', ret)
@@ -207,6 +213,7 @@ class DebconfFilter:
             return True
 
         if command == 'CAPB':
+            self.escaping = 'escape' in params
             for widget in self.find_widgets(['CAPB'], 'capb'):
                 self.debug('filter', 'capb widget found')
                 widget.capb(params)
