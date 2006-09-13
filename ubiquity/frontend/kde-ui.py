@@ -1160,6 +1160,8 @@ class Wizard:
             self.userinterface.mountpoint_error_image.hide()
 
         self.manual_partitioning = True
+        self.userinterface.next.setEnabled(True)
+        self.userinterface.back.setEnabled(True)
         self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
 
     def on_back_clicked(self):
@@ -1598,14 +1600,15 @@ class Wizard:
 
     def change_device(self):
         """prompt user to set new Grub device"""
-        answer = QInputDialog.getText("hello", "blah", QLineEdit.Normal, self.summary_device)
+        answer = QInputDialog.getText("Device for boot loader installation:", "Device for boot loader installation:", QLineEdit.Normal, self.summary_device)
         newdevice = unicode(answer[0])
+        if newdevice != "" and newdevice != None:
 
-        text = unicode(self.ready_text.text())
-        device_index = text.find(self.summary_device)
-        newstring = text[:device_index-17] + '<a href="device">' + newdevice + '</a>' + text[device_index+len(self.summary_device)+4:]
-        self.ready_text.setText(newstring)
-        self.summary_device = newdevice
+            text = unicode(self.ready_text.text())
+            device_index = text.find(self.summary_device)
+            newstring = text[:device_index-17] + '<a href="device">' + newdevice + '</a>' + text[device_index+len(self.summary_device)+4:]
+            self.ready_text.setText(newstring)
+            self.summary_device = newdevice
 
     def return_to_autopartitioning (self):
         """If the install progress bar is up but still at the partitioning

@@ -1,3 +1,13 @@
+ubiquity (1.1.17) UNRELEASED; urgency=low
+
+  [ Jonathan Riddell ]
+  * KDE Frontend
+    - Enable buttons on summary page
+    - Don't accept a blank string for the grub device
+    - Use correct strings for grub dialogue box
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 13 Sep 2006 14:00:56 +0100
+
 ubiquity (1.1.16) edgy; urgency=low
 
   [ Colin Watson ]
