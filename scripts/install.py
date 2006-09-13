@@ -925,6 +925,11 @@ class Install:
                 configfile.close()
 
         try:
+            os.unlink('/target/etc/usplash.conf')
+        except OSError:
+            pass
+
+        try:
             os.unlink('/target/etc/popularity-contest.conf')
         except OSError:
             pass
@@ -934,6 +939,7 @@ class Install:
 
         packages = ['linux-image-' + self.kernel_version,
                     'linux-restricted-modules-' + self.kernel_version,
+                    'usplash',
                     'popularity-contest']
 
         try:
