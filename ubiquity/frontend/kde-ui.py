@@ -849,6 +849,8 @@ class Wizard:
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.manual_partitioning = False
+            self.userinterface.next.setEnabled(True)
+            self.userinterface.back.setEnabled(True)
             self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
 
     def qtparted_crashed(self):
