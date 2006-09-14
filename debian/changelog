@@ -1,10 +1,10 @@
-ubiquity (1.1.18) UNRELEASED; urgency=low
+ubiquity (1.1.18) edgy; urgency=low
 
   [ Jonathan Riddell ]
   * KDE frontend: Enable buttons on summary page when performing automatic
     partitioning too.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 14 Sep 2006 13:08:09 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 14 Sep 2006 13:09:33 +0100
 
 ubiquity (1.1.17) edgy; urgency=low
 
