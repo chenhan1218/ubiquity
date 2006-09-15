@@ -85,7 +85,7 @@ def prepend_path(directory):
     else:
         os.environ['PATH'] = directory
 
-if __name__ == '__main__':
+def main():
     if not os.path.exists('/var/log/installer'):
         os.makedirs('/var/log/installer')
     syslog.openlog('ubiquity', syslog.LOG_NOWAIT | syslog.LOG_PID)
@@ -123,5 +123,8 @@ if __name__ == '__main__':
         install(sys.argv[1])
     else:
         install()
+
+if __name__ == '__main__':
+    main()
 
 # vim:ai:et:sts=4:tw=80:sw=4:
