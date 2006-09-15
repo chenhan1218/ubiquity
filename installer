@@ -87,6 +87,12 @@ def prepend_path(directory):
     else:
         os.environ['PATH'] = directory
 
+def release_lock():
+    try:
+        os.unlink(PIDFILE)
+    except OSError:
+        pass
+
 def acquire_lock():
     if os.path.exists(PIDFILE):
         pidf = open(PIDFILE)
@@ -101,18 +107,12 @@ def acquire_lock():
         if exists:
             print >>sys.stderr, "Ubiquity is already running (pid %d)!" % pid
             sys.exit(1)
+    atexit.register(release_lock)
     pidf = open(PIDFILE, 'w')
     print >>pidf, os.getpid()
     pidf.close()
 
-def release_lock():
-    try:
-        os.unlink(PIDFILE)
-    except OSError:
-        pass
-
 def main():
-    atexit.register(release_lock)
     acquire_lock()
 
     if not os.path.exists('/var/log/installer'):
