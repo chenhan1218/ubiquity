@@ -14,6 +14,8 @@ ubiquity (1.1.19) UNRELEASED; urgency=low
     you try to run more than one instance of it at once; previously it blew
     up much more spectacularly upon finding that the debconf database was
     locked (closes: Malone #46569).
+  * Run gnome-screensaver-command/xscreensaver-command with LC_ALL=C to
+    reduce noise on stderr.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 13 Sep 2006 18:12:49 +0100
 

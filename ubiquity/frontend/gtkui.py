@@ -355,7 +355,9 @@ class Wizard:
         else:
             return
 
-        gobject.spawn_async(command,
+        env = dict(os.environ)
+        env['LC_ALL'] = 'C'
+        gobject.spawn_async(command, env=env,
                             flags=(gobject.SPAWN_SEARCH_PATH |
                                    gobject.SPAWN_STDOUT_TO_DEV_NULL),
                             child_setup=drop_privileges)
