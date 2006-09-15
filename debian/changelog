@@ -2,6 +2,8 @@ oem-config (1.3) UNRELEASED; urgency=low
 
   * Import subprocess in console-setup component (closes: Malone #60409).
   * Fix language name handling (closes: Malone #60410).
+  * GTK frontend: Make the Forward button the default widget so that it's
+    activated when Enter is pressed.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 15 Sep 2006 09:39:02 +0100
 
