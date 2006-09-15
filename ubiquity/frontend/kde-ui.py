@@ -548,7 +548,7 @@ class Wizard:
             0, 100, get_string('ubiquity/install/title', self.locale))
         self.debconf_progress_region(0, 15)
 
-        # turn off kded media watcher here?
+        # TODO: turn off kded media watcher here?
 
         dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
         if dbfilter.run_command(auto_process=True) != 0:
