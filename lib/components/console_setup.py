@@ -20,6 +20,7 @@
 
 import re
 import os
+import subprocess
 from oem_config.filteredcommand import FilteredCommand
 from oem_config import keyboard_names
 
