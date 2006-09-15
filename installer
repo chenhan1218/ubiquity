@@ -96,7 +96,7 @@ def release_lock():
 def acquire_lock():
     if os.path.exists(PIDFILE):
         pidf = open(PIDFILE)
-        pid = pidf.read().strip()
+        pid = int(pidf.read().strip())
         pidf.close()
         exists = True
         try:
