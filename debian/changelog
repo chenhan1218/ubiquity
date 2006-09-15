@@ -16,6 +16,8 @@ ubiquity (1.1.19) UNRELEASED; urgency=low
     locked (closes: Malone #46569).
   * Run gnome-screensaver-command/xscreensaver-command with LC_ALL=C to
     reduce noise on stderr.
+  * Automatic update of included source packages: console-setup 1.7ubuntu9,
+    partman-auto 54ubuntu3, partman-basicfilesystems 47ubuntu2.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 13 Sep 2006 18:12:49 +0100
 
