@@ -36,6 +36,8 @@ class Language(FilteredCommand):
         if question.startswith('languagechooser/language-name'):
             self.language_question = question
 
+            # Get index of untranslated value; we'll map this to the
+            # translated value later.
             current_language_index = self.value_index(
                 'languagechooser/language-name')
             current_language = "English"
