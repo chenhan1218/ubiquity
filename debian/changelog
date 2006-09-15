@@ -7,6 +7,9 @@ ubiquity (1.1.19) UNRELEASED; urgency=low
     POSIX semantics are required (closes: Malone #48410).
   * GTK frontend: Scroll the mount points table if required (closes: Malone
     #51796).
+  * Ignore failures from os.utime on directories. I don't know why I get a
+    disproportionate number of reports of this failing, but to be honest I
+    don't care enough about directory timestamps to investigate.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 13 Sep 2006 18:12:49 +0100
 

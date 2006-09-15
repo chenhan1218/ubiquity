@@ -499,7 +499,12 @@ class Install:
         # have been copied.
         for dirtime in directory_times:
             (directory, atime, mtime) = dirtime
-            os.utime(directory, (atime, mtime))
+            try:
+                os.utime(directory, (atime, mtime))
+            except OSError:
+                # I have no idea why I've been getting lots of bug reports
+                # about this failing, but I really don't care. Ignore it.
+                pass
 
         os.umask(old_umask)
 
