@@ -19,6 +19,7 @@ import os
 import errno
 import shutil
 import syslog
+import atexit
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -28,6 +29,7 @@ cdebconf = False
 
 VERSION = '@VERSION@'
 TARGET = '/target'
+PIDFILE = '/var/run/ubiquity.pid'
 
 def install(frontend=None):
     '''install(frontend=None) -> none
@@ -85,7 +87,34 @@ def prepend_path(directory):
     else:
         os.environ['PATH'] = directory
 
+def acquire_lock():
+    if os.path.exists(PID_FILE):
+        pidf = open(PID_FILE)
+        pid = pidf.read().strip()
+        pidf.close()
+        exists = True
+        try:
+            os.kill(pid, 0)
+        except OSError, e:
+            if e.errno == errno.ESRCH:
+                exists = False
+        if exists:
+            print >>sys.stderr, "Ubiquity is already running (pid %d)!" % pid
+            sys.exit(1)
+    pidf = open(PID_FILE, 'w')
+    print >>pidf, os.getpid()
+    pidf.close()
+
+def release_lock():
+    try:
+        os.unlink(PID_FILE)
+    except OSError:
+        pass
+
 def main():
+    atexit.register(release_lock)
+    acquire_lock()
+
     if not os.path.exists('/var/log/installer'):
         os.makedirs('/var/log/installer')
     syslog.openlog('ubiquity', syslog.LOG_NOWAIT | syslog.LOG_PID)

@@ -10,6 +10,10 @@ ubiquity (1.1.19) UNRELEASED; urgency=low
   * Ignore failures from os.utime on directories. I don't know why I get a
     disproportionate number of reports of this failing, but to be honest I
     don't care enough about directory timestamps to investigate.
+  * Add trivial pid file locking, allowing ubiquity to exit gracefully if
+    you try to run more than one instance of it at once; previously it blew
+    up much more spectacularly upon finding that the debconf database was
+    locked (closes: Malone #46569).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 13 Sep 2006 18:12:49 +0100
 
