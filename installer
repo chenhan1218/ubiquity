@@ -88,8 +88,8 @@ def prepend_path(directory):
         os.environ['PATH'] = directory
 
 def acquire_lock():
-    if os.path.exists(PID_FILE):
-        pidf = open(PID_FILE)
+    if os.path.exists(PIDFILE):
+        pidf = open(PIDFILE)
         pid = pidf.read().strip()
         pidf.close()
         exists = True
@@ -101,13 +101,13 @@ def acquire_lock():
         if exists:
             print >>sys.stderr, "Ubiquity is already running (pid %d)!" % pid
             sys.exit(1)
-    pidf = open(PID_FILE, 'w')
+    pidf = open(PIDFILE, 'w')
     print >>pidf, os.getpid()
     pidf.close()
 
 def release_lock():
     try:
-        os.unlink(PID_FILE)
+        os.unlink(PIDFILE)
     except OSError:
         pass
 
