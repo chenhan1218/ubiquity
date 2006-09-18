@@ -438,6 +438,11 @@ class Install:
         long_enough = False
         time_last_update = time_start
 
+        # TODO cjwatson 2006-09-18: Handle certain types of copying errors
+        # and provide possible explanations. For example:
+        #   * ENOENT, ENOTDIR: CD or hard disk faulty
+        #   * EROFS: kernel got bored of errors and remounted read-only
+
         old_umask = os.umask(0)
         for path in files:
             sourcepath = os.path.join(self.source, path)
