@@ -2,6 +2,8 @@ ubiquity (1.1.20) UNRELEASED; urgency=low
 
   * Only return 30 in reply to a PROGRESS command if the progresscancel
     capability is set (closes: Malone #48005).
+  * Don't crash if a progress bar is set up to have the same start and end
+    points (closes: Malone #56789).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Sep 2006 12:13:49 +0100
 
