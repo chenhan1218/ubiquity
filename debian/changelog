@@ -1,3 +1,10 @@
+ubiquity (1.1.20) UNRELEASED; urgency=low
+
+  * Only return 30 in reply to a PROGRESS command if the progresscancel
+    capability is set (closes: Malone #48005).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Sep 2006 12:13:49 +0100
+
 ubiquity (1.1.19) edgy; urgency=low
 
   * Reconfigure usplash (closes: Malone #59320).

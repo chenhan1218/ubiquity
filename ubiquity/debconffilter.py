@@ -87,6 +87,7 @@ class DebconfFilter:
         else:
             self.debug_re = None
         self.escaping = False
+        self.progress_cancel = False
         self.progress_bars = []
         self.toread = ''
         self.toreadpos = 0
@@ -214,6 +215,7 @@ class DebconfFilter:
 
         if command == 'CAPB':
             self.escaping = 'escape' in params
+            self.progress_cancel = 'progresscancel' in params
             for widget in self.find_widgets(['CAPB'], 'capb'):
                 self.debug('filter', 'capb widget found')
                 widget.capb(params)
@@ -336,7 +338,7 @@ class DebconfFilter:
                                                progress_region_end)
             # We handle all progress bars ourselves; don't pass them through
             # to the debconf frontend.
-            if cancelled:
+            if self.progress_cancel and cancelled:
                 self.reply(30, 'progress bar cancelled', log=True)
             else:
                 self.reply(0, 'OK', log=True)
