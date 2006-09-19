@@ -28,7 +28,8 @@ class Language(FilteredCommand):
     def prepare(self):
         self.language_question = None
         self.db.set('localechooser/alreadyrun', 'false')
-        questions = ['^languagechooser/language-name']
+        questions = ['^languagechooser/language-name',
+                     '^countrychooser/shortlist$']
         return (['/usr/lib/ubiquity/localechooser/localechooser'], questions,
                 {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH']})
 
@@ -81,6 +82,14 @@ class Language(FilteredCommand):
             self.frontend.set_language_choices(sorted_choices,
                                                language_display_map)
             self.frontend.set_language(current_language)
+
+        elif question == 'countrychooser/shortlist':
+            if 'DEBCONF_USE_CDEBCONF' not in os.environ:
+                # Normally this default is handled by Default-$LL, but since
+                # we can't change debconf's language on the fly (unlike
+                # cdebconf), we have to fake it.
+                self.db.set(question, self.db.get('debian-installer/country'))
+            return True
 
         return super(Language, self).run(priority, question)
 
