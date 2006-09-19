@@ -44,7 +44,10 @@ class Timezone(FilteredCommand):
 
     def ok_handler(self):
         zone = self.frontend.get_timezone()
-        self.preseed('time/zone', zone)
+        if zone is None:
+            zone = self.db.get('time/zone')
+        else:
+            self.preseed('time/zone', zone)
         for location in self.tzdb.locations:
             if location.zone == zone:
                 self.preseed('debian-installer/country', location.country)
