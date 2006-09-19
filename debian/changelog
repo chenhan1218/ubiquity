@@ -9,6 +9,8 @@ ubiquity (1.1.20) UNRELEASED; urgency=low
   * Use more sensible default cities for languages with country shortlists
     (i.e. the intended default rather than the first in alphabetical order
     of country code), working around a missing feature in debconf.
+  * Pick a sensible default city for countries with multiple zones but no
+    explicit default city (closes: Malone #43914).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Sep 2006 12:13:49 +0100
 
