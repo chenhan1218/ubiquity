@@ -579,11 +579,11 @@ class Wizard:
 
         self.installing = False
         quitText = "<qt>" + get_string("finished_label", self.locale) + "</qt>"
-        quitButtonText = get_string("quit_button", self.locale)
         rebootButtonText = get_string("reboot_button", self.locale)
+        quitButtonText = get_string("quit_button", self.locale)
         titleText = get_string("finished_dialog", self.locale)
 
-        quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, quitButtonText, rebootButtonText)
+        quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, rebootButtonText, quitButtonText)
 
         if quitAnswer == 1:
             self.reboot();

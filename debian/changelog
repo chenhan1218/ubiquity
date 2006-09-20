@@ -18,6 +18,8 @@ ubiquity (1.1.20) UNRELEASED; urgency=low
     you go back (requires gparted 0.2.5-1.1ubuntu7; closes: Malone #40404).
   * Fix use of gobject.spawn_async in
     gnome-screensaver-command/xscreensaver-command, broken in 1.1.19.
+  * Make sure that "Restart now" is the default option on the final dialog
+    (closes: Malone #61517).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Sep 2006 12:13:49 +0100
 
