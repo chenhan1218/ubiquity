@@ -191,7 +191,7 @@ class Frontend:
     def set_timezone(self, timezone):
         index = 0
         while index < len(self.tz_list):
-            if unicode(self.tz_list[index]) == keyboard:
+            if unicode(self.tz_list[index]) == timezone:
                 self.userinterface.timezone_combo.setCurrentItem(index)
                 break
             index = index + 1 
