@@ -13,6 +13,20 @@ class DM:
         self.vt = vt
         self.display = display
 
+        # Try to import the frontend; we won't actually use it (yet), but
+        # this lets us find out which window manager etc. to launch.
+        frontend_names = ['gtk-ui', 'kde-ui'])
+        self.frontend = None
+        mod = __import__('oem_config.frontend', globals(), locals(),
+                         frontend_names)
+        for f in frontend_names:
+            if hasattr(mod, f):
+                self.frontend = f
+                break
+        else:
+            raise AttributeError, ('No frontend available; tried %s' %
+                                   ', '.join(frontend_names))
+
     def run(self, *program):
         null = open('/dev/null', 'w')
         logfile = open('/var/log/oem-config.log', 'w')
@@ -24,17 +38,19 @@ class DM:
         time.sleep(5)
 
         if os.access(background, os.R_OK):
-            import gtk
-            pixbuf = gtk.gdk.pixbuf_new_from_file(background)
-            root = gtk.gdk.get_default_root_window()
-            (root_width, root_height) = root.get_size()
-            scaled = pixbuf.scale_simple(root_width, root_height, gtk.gdk.INTERP_BILINEAR)
-            (pixmap, mask) = scaled.render_pixmap_and_mask(0)
-            root.set_back_pixmap(pixmap, False)
-            root.clear()
-            gtk.gdk.flush()
+            if self.frontend == 'gtk-ui':
+                import gtk
+                pixbuf = gtk.gdk.pixbuf_new_from_file(background)
+                root = gtk.gdk.get_default_root_window()
+                (root_width, root_height) = root.get_size()
+                scaled = pixbuf.scale_simple(root_width, root_height, gtk.gdk.INTERP_BILINEAR)
+                (pixmap, mask) = scaled.render_pixmap_and_mask(0)
+                root.set_back_pixmap(pixmap, False)
+                root.clear()
+                gtk.gdk.flush()
 
-        wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
+        if self.frontend == 'gtk-ui':
+            wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()
