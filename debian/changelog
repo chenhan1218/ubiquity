@@ -1,3 +1,11 @@
+oem-config (1.4) UNRELEASED; urgency=low
+
+  [ Anirudh Ramesh ]
+  * KDE frontend: Reindented to match rest of project.
+  * KDE frontend: Fixed crash in set_timezone.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 20 Sep 2006 11:35:15 +0100
+
 oem-config (1.3) edgy; urgency=low
 
   * Import subprocess in console-setup component (closes: Malone #60409).
