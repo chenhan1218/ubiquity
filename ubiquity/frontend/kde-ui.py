@@ -975,6 +975,9 @@ class Wizard:
             # they're validated.
             for mountpoint, partition in selection.items():
                 if partition.split('/')[2] not in self.size:
+                    syslog.syslog(syslog.LOG_WARNING,
+                                  "No size available for partition %s; "
+                                  "skipping" % partition)
                     continue
                 if partition not in self.partition_choices:
                     # TODO cjwatson 2006-05-27: I don't know why this might
@@ -982,6 +985,9 @@ class Wizard:
                     # (https://launchpad.net/bugs/46910). Figure out why. In
                     # the meantime, ignoring this partition is better than
                     # crashing.
+                    syslog.syslog(syslog.LOG_WARNING,
+                                  "Partition %s not in /proc/partitions?" %
+                                  partition)
                     continue
                 if mountpoint in self.mountpoint_choices:
                     self.mountpoint_widgets[-1].setCurrentItem(self.mountpoint_choices.index(mountpoint))
