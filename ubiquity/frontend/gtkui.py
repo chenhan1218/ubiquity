@@ -113,6 +113,7 @@ class Wizard:
         self.manual_partitioning = False
         self.password = ''
         self.hostname_edited = False
+        self.gparted_fstype = {}
         self.mountpoint_widgets = []
         self.size_widgets = []
         self.partition_widgets = []
