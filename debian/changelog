@@ -13,6 +13,9 @@ ubiquity (1.1.20) UNRELEASED; urgency=low
     explicit default city (closes: Malone #43914).
   * Remove obsolete Recommends: gparted from ubiquity; ubiquity-frontend-gtk
     already depends on it.
+  * Feed not-yet-formatted partition state back into gparted when starting
+    it up, so that newly-created partitions aren't listed as "unknown" when
+    you go back (requires gparted 0.2.5-1.1ubuntu6; closes: Malone #40404).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Sep 2006 12:13:49 +0100
 

@@ -494,12 +494,15 @@ class Wizard:
         self.embedded.add(socket)
         window_id = str(socket.get_id())
 
-        self.gparted_fstype = {}
+        args = ['log-output', '-t', 'ubiquity', '--pass-stdout',
+                'gparted', '--installer', window_id]
+        for part in self.gparted_fstype:
+            args.extend(['--filesystem',
+                         '%s:%s' % (part, self.gparted_fstype[part])])
 
         # Save pid to kill gparted when install process starts
         self.gparted_subp = subprocess.Popen(
-            ['log-output', '-t', 'ubiquity', '--pass-stdout',
-             'gparted', '--installer', window_id],
+            args,
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
 
 
