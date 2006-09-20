@@ -30,7 +30,7 @@ sys.path.insert(0, '/usr/lib/oem-config')
 class Wizard:
     def __init__(self, frontend_name=None):
         if frontend_name is None:
-            frontend_names = ['gtk-ui']
+            frontend_names = ['gtk-ui', 'kde-ui']
         else:
             frontend_names = [frontend_name]
         mod = __import__('oem_config.frontend', globals(), locals(),

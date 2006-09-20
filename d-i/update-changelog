@@ -25,6 +25,7 @@ for changed in $(sort -u manifest.old manifest | cut -d' ' -f1 | uniq -d); do
 done
 MESSAGE="$MESSAGE."
 
+echo "$MESSAGE"
 (cd $TOPDIR && dch -D UNRELEASED "$MESSAGE")
 
 rm -f manifest.old

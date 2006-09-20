@@ -5,7 +5,7 @@ from kdecore import *
 
 from debconf import DebconfCommunicator
 from oem_config import filteredcommand
-from oem_config.components import language, keyboard, timezone, user
+from oem_config.components import console_setup, language, timezone, user
 
 #Import the UI Dialog
 from sysconf import OEMConfKDEUI
@@ -92,7 +92,7 @@ class Frontend:
 			    self.dbfilter = language.Language(self)
 			    #print self.dbfilter
 	            elif self.current_step == 'step_keyboard':
-			    self.dbfilter = keyboard.Keyboard(self)
+			    self.dbfilter = console_setup.ConsoleSetup(self)
 		    elif self.current_step == 'step_timezone':
 			    self.dbfilter = timezone.Timezone(self)
 	            elif self.current_step == 'step_user':
@@ -164,10 +164,7 @@ class Frontend:
 	    return unicode(self.userinterface.location_combo.currentText())
 	    pass
     
-    def set_keyboard_choices(self, choice_map):
-	    self.keyboard_choice_map = dict(choice_map)
-	    choices=choice_map.keys()
-	    choices.sort()
+    def set_keyboard_choices(self, choices):
 	    self.userinterface.keyboard_combo.clear()
 	    for choice in choices:
 		    self.key_list.append(choice)

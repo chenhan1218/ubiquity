@@ -62,6 +62,8 @@ for my $bd (@{parsedep($basebd, 1, 1)}) {
 }
 
 for my $source (<source/*/debian/control>) {
+	# We don't build console-setup, so skip its build-dependencies.
+	next if $source eq 'source/console-setup/debian/control';
 	open SOURCE, '<', $source or die "can't open $source: $!";
 	while (<SOURCE>) {
 		if (/^Build-Depends(?:-Indep)?:\s*(.*)/i) {

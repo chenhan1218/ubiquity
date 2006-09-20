@@ -9,12 +9,6 @@ d-i/source/localechooser/localechooser usr/lib/oem-config/language
 d-i/source/localechooser/languagemap usr/lib/oem-config/language
 scripts/localechooser-wrapper usr/lib/oem-config/language
 
-# kbd-chooser
-d-i/source/kbd-chooser/kbd-chooser usr/lib/oem-config/keyboard
-d-i/source/kbd-chooser/kbd-chooser-apply usr/lib/oem-config/keyboard
-d-i/source/kbd-chooser/kbd-mode usr/lib/oem-config/keyboard
-scripts/kbd-chooser-wrapper usr/lib/oem-config/keyboard
-
 # tzsetup
 d-i/source/tzsetup/tzmap usr/lib/oem-config/timezone
 scripts/tzsetup-wrapper usr/lib/oem-config/timezone

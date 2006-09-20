@@ -9,3 +9,4 @@ d-i/manifest.old
 d-i/source
 d-i/templates
 d-i/udeb-control
+lib/keyboard_names.py
