@@ -1,3 +1,10 @@
+ubiquity (1.1.22) edgy; urgency=low
+
+  * KDE Frontend:
+    - Make the mountpoints page use a scroll view
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 21 Sep 2006 15:39:26 +0100
+
 ubiquity (1.1.21) edgy; urgency=low
 
   * Handle partman-partitioning/impossible_resize errors while trying to set
