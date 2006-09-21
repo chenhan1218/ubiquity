@@ -37,6 +37,7 @@ import sys
 import pygtk
 pygtk.require('2.0')
 
+import pdb
 import gobject
 import gtk.glade
 import os
@@ -67,8 +68,8 @@ from ubiquity import filteredcommand, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
-                                partman_auto, partman_commit, summary, install \
-				migration_assistant
+                                partman_auto, partman_commit, summary, install, \
+				migrationassistant
 import ubiquity.emap
 import ubiquity.tz
 import ubiquity.progressposition
@@ -91,11 +92,11 @@ BREADCRUMB_STEPS = {
     "stepPartAuto": 5,
     "stepPartAdvanced": 5,
     "stepPartMountpoints": 5,
-    "stepMigrateOS": 6,
-    "stepMigrateUsers": 6,
-    "stepMigrateItems": 6,
-    "stepMigrateUser": 6,
-    "stepReady": 7
+    "stepReady": 6,
+    "stepMigrateOS": 7,
+    "stepMigrateUsers": 7,
+    "stepMigrateItems": 7,
+    "stepMigrateUser": 7
 }
 BREADCRUMB_MAX_STEP = 7
 
@@ -291,6 +292,7 @@ class Wizard:
                 self.dbfilter = summary.Summary(self)
             else:
                 self.dbfilter = None
+		import pdb; pdb.set_trace()
 
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.allow_change_step(False)
@@ -568,6 +570,37 @@ class Wizard:
                                      xoptions=0, yoptions=0)
         self.mountpoint_table.show_all()
 
+    def commit_partition_changes(self):
+	"""commit the changes to the partition table before we proceed."""
+	syslog.syslog('commit_partition_changes()')
+
+	gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
+	gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
+	gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
+	gconf_previous = {}
+	for gconf_key in (gvm_automount_drives, gvm_automount_media):
+	    subp = subprocess.Popen(['gconftool-2', '--config-source',
+				     gconf_dir, '--get', gconf_key],
+				    stdout=subprocess.PIPE,
+				    stderr=subprocess.PIPE)
+	    gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
+	    if gconf_previous[gconf_key] != 'false':
+		subprocess.call(['gconftool-2', '--set', gconf_key,
+				 '--type', 'bool', 'false'])
+
+	dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
+
+	#pdb.set_trace()
+	if dbfilter.run_command(auto_process=True) != 0:
+	    # TODO cjwatson 2006-09-03: return to partitioning?
+	    return
+
+	for gconf_key in (gvm_automount_drives, gvm_automount_media):
+	    if gconf_previous[gconf_key] == '':
+		ex('gconftool-2', '--unset', gconf_key)
+	    elif gconf_previous[gconf_key] != 'false':
+		ex('gconftool-2', '--set', gconf_key,
+		   '--type', 'bool', gconf_previous[gconf_key])
 
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
@@ -580,33 +613,8 @@ class Wizard:
             0, 100, get_string('ubiquity/install/title', self.locale))
         self.debconf_progress_region(0, 15)
 
-        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
-        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
-        gconf_previous = {}
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            subp = subprocess.Popen(['gconftool-2', '--config-source',
-                                     gconf_dir, '--get', gconf_key],
-                                    stdout=subprocess.PIPE,
-                                    stderr=subprocess.PIPE)
-            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
-            if gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                 '--type', 'bool', 'false'])
 
-        dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
-        if dbfilter.run_command(auto_process=True) != 0:
-            # TODO cjwatson 2006-09-03: return to partitioning?
-            return
-
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            if gconf_previous[gconf_key] == '':
-                ex('gconftool-2', '--unset', gconf_key)
-            elif gconf_previous[gconf_key] != 'false':
-                ex('gconftool-2', '--set', gconf_key,
-                   '--type', 'bool', gconf_previous[gconf_key])
-
-        self.debconf_progress_region(15, 100)
+        #self.debconf_progress_region(15, 100)
 
         dbfilter = install.Install(self)
         ret = dbfilter.run_command(auto_process=True)
@@ -849,6 +857,7 @@ class Wizard:
                 self.steps.next_page()
             else:
                 self.steps.set_current_page(self.steps.page_num(self.stepReady))
+	# FIXME: I don't think these next two are ever hit.
         # User selection
         elif step == "stepMigrateUsers":
             self.steps.next_page()
@@ -857,20 +866,22 @@ class Wizard:
             self.steps.next_page()
         # User details
         elif step == "stepMigrateUser":
-            self.steps.next_page()
+	    # TODO: make sure /mnt/tmp is not mounted at this point.
+	    self.live_installer.hide()
+	    self.current_page = None
+	    self.installing = True
+	    self.progress_loop()
+	    return
         # Ready to install
         elif step == "stepReady":
-            self.live_installer.hide()
-            self.current_page = None
-            self.installing = True
-            self.progress_loop()
-            return
+	    self.commit_partition_changes()
+	    self.steps.next_page()
 
         step = self.step_name(self.steps.get_current_page())
         syslog.syslog('Step_after = %s' % step)
 
-        if step == "stepReady":
-            self.next.set_label("Install")
+        #if step == "stepReady":
+            #self.next.set_label("Install")
 
     def process_identification (self):
         """Processing identification step tasks."""
@@ -928,8 +939,8 @@ class Wizard:
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.manual_partitioning = False
-	    self.steps.set_current_page(self.steps.page_num(self.stepMigrateOS))
-            #self.steps.set_current_page(self.steps.page_num(self.stepReady))
+	    #self.steps.set_current_page(self.steps.page_num(self.stepMigrateOS))
+            self.steps.set_current_page(self.steps.page_num(self.stepReady))
 
 
     def gparted_crashed(self):

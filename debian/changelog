@@ -1,8 +1,10 @@
 ubiquity (1.1.17) UNRELEASED; urgency=low
 
   * Merged with Ubiquity HEAD
+  * Automatic update of included source packages.
+  * Moved m-a to after stepReady.
 
- -- Evan Dandrea <evan@evalicious.com>  Tue, 12 Sep 2006 22:00:14 -0400
+ -- Evan Dandrea <evan@evalicious.com>  Sat, 16 Sep 2006 17:54:23 -0400
 
 ubiquity (1.1.16) edgy; urgency=low
 
