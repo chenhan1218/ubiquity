@@ -502,6 +502,7 @@ class Wizard:
         for part in self.gparted_fstype:
             args.extend(['--filesystem',
                          '%s:%s' % (part, self.gparted_fstype[part])])
+        syslog.syslog(syslog.LOG_DEBUG, 'Running gparted: %s' % ' '.join(args))
 
         # Save pid to kill gparted when install process starts
         self.gparted_subp = subprocess.Popen(
