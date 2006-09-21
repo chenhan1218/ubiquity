@@ -180,7 +180,20 @@ class Wizard:
         
         self.qtparted_vbox = QVBoxLayout(self.userinterface.qtparted_frame)
         self.embed = None
-        self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame, 2, 4, 11, 6)
+        
+        self.mount_vbox = QVBoxLayout(self.userinterface.mountpoint_frame_parent)
+        self.mountpoint_scrollview = QScrollView(self.userinterface.mountpoint_frame_parent)
+        self.mount_vbox.addWidget(self.mountpoint_scrollview)
+        self.mountpoint_scrollview.setResizePolicy(QScrollView.AutoOneFit)
+        self.userinterface.mountpoint_frame = QFrame(self.mountpoint_scrollview)
+        self.userinterface.mountpoint_frame.setFrameShape(QFrame.NoFrame)
+        self.userinterface.mountpoint_frame.setFrameShadow(QFrame.Plain)
+        self.mountpoint_scrollview.setFrameShape(QFrame.NoFrame)
+        self.mountpoint_scrollview.setFrameShadow(QFrame.Plain)
+        self.mountpoint_scrollview.addChild(self.userinterface.mountpoint_frame)
+        self.mountpoint_vbox = QVBoxLayout(self.userinterface.mountpoint_frame)
+        self.mountpoint_table = QGridLayout(self.mountpoint_vbox, 2, 4, 6)
+        self.mountpoint_vbox.addStretch()
 
         summary_vbox = QVBoxLayout(self.userinterface.summary_frame)
         self.ready_text = UbiquityTextEdit(self, self.userinterface.summary_frame)
@@ -922,7 +935,7 @@ class Wizard:
 
         children = self.userinterface.mountpoint_frame.children()
         for child in children:
-            if isinstance(child, QGridLayout):
+            if isinstance(child, QGridLayout) or isinstance(child, QVBoxLayout):
                 pass
             else:
                 self.mountpoint_table.remove(child)

@@ -1663,40 +1663,6 @@ Answering the questions should only take a few minutes.</string>
                                     <bool>true</bool>
                                 </property>
                             </widget>
-                            <spacer row="0" column="1">
-                                <property name="name">
-                                    <cstring>spacer36</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Vertical</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>41</width>
-                                        <height>161</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <spacer row="1" column="0">
-                                <property name="name">
-                                    <cstring>spacer35_3</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Vertical</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>21</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
                             <widget class="QLabel" row="1" column="1" rowspan="3" colspan="1">
                                 <property name="name">
                                     <cstring>mountpoint_error_reason</cstring>
@@ -1713,48 +1679,22 @@ Answering the questions should only take a few minutes.</string>
                                     <string>You must supply a root ("/") mount point.</string>
                                 </property>
                             </widget>
-                            <spacer row="0" column="2">
-                                <property name="name">
-                                    <cstring>spacer34_2</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>278</width>
-                                        <height>21</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <spacer row="3" column="0">
-                                <property name="name">
-                                    <cstring>spacer26</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Vertical</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>21</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
                         </grid>
                     </widget>
                     <widget class="QFrame" row="3" column="0" rowspan="1" colspan="2">
                         <property name="name">
-                            <cstring>mountpoint_frame</cstring>
+                            <cstring>mountpoint_frame_parent</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>7</hsizetype>
+                                <vsizetype>7</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
                         </property>
                         <property name="frameShape">
-                            <enum>StyledPanel</enum>
+                            <enum>NoFrame</enum>
                         </property>
                         <property name="frameShadow">
                             <enum>Raised</enum>
