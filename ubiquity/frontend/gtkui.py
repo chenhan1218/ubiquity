@@ -1046,6 +1046,10 @@ class Wizard:
                 else:
                     break
 
+        # For some reason, GtkTable doesn't seem to queue a resize itself
+        # when you attach children to it.
+        self.mountpoint_table.queue_resize()
+
         # We defer connecting up signals until now to avoid the changed
         # signal firing while we're busy populating the table.
         for mountpoint in self.mountpoint_widgets:
