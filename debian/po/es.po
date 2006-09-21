@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-09-07 18:36+0100\n"
-"PO-Revision-Date: 2006-05-16 14:18+0000\n"
-"Last-Translator: Daniel Fuertes Pérez (DaniFP) <danifp25@yahoo.es>\n"
+"PO-Revision-Date: 2006-09-07 20:31+0000\n"
+"Last-Translator: Javier Fernández-Sanguino <jfs@debian.org>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -162,7 +162,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:21001
 msgid "What is the name of this computer?"
-msgstr "¿Cuál es el nombre de este ordenador?"
+msgstr "¿Cuál es el nombre de este equipo?"
 
 #. Type: text
 #. Description
@@ -171,8 +171,8 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Este nombre se usará para hacer visible este ordenador a otros ordenadores "
-"de la red."
+"Este nombre se usará para hacer visible este equipo a otros equipos de la "
+"red."
 
 #. Type: text
 #. Description
@@ -498,7 +498,7 @@ msgstr "Desinstalando los paquetes extra..."
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Checking for packages to remove..."
-msgstr "Comprobando los paquetes a eliminar..."
+msgstr "Comprobando los paquetes a desinstalar..."
 
 #. Type: text
 #. Description
@@ -541,6 +541,3 @@ msgstr "Instalando los paquetes de idiomas"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Descargando paquetes de idiomas (faltan ${TIME})..."
-
-#~ msgid "Cleaning up..."
-#~ msgstr "Limpiando..."

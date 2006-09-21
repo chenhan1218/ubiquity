@@ -7,9 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-09-07 18:36+0100\n"
-"PO-Revision-Date: 2006-05-25 12:20+0000\n"
-"Last-Translator: Alexandre Rocha Lima e Marcondes <alexandre@psl-pr."
-"softwarelivre.org>\n"
+"PO-Revision-Date: 2006-09-20 19:38+0000\n"
+"Last-Translator: Alexsandro Felix <felix.foruns@gmail.com>\n"
 "Language-Team: Debia-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,7 +94,7 @@ msgstr "Hora atual:"
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Set Time..."
-msgstr "Setar Hora..."
+msgstr "Configurar Hora..."
 
 #. Type: text
 #. Description
@@ -421,7 +420,7 @@ msgstr "Copiando arquivos..."
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
-msgstr "Copiando arquivos (${TIME} restando)..."
+msgstr "Copiando arquivos (${TIME} restantes)..."
 
 #. Type: text
 #. Description
@@ -505,7 +504,7 @@ msgstr "Verificando por pacotes a serem removidos..."
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Fazendo download de pacotes (${TIME} restando)..."
+msgstr "Fazendo download de pacotes (${TIME} restantes)..."
 
 #. Type: text
 #. Description
@@ -517,7 +516,7 @@ msgstr "Fazendo download da lista de pacotes..."
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Fazendo download da lista de pacotes (${TIME} restando)..."
+msgstr "Fazendo download da lista de pacotes (${TIME} restantes)..."
 
 #. Type: error
 #. Description
@@ -541,7 +540,4 @@ msgstr "Instalando pacotes de idioma"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Fazendo download do pacote de linguagens (${TIME} restando)..."
-
-#~ msgid "Cleaning up..."
-#~ msgstr "Limpando..."
+msgstr "Fazendo download do pacote de linguagens (${TIME} restantes)..."

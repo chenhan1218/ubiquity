@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-09-07 18:36+0100\n"
-"PO-Revision-Date: 2006-04-20 06:09+0000\n"
+"PO-Revision-Date: 2006-09-07 20:39+0000\n"
 "Last-Translator: Nishant Sharma <nishantsharma.in@gmail.com>\n"
 "Language-Team: <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Welcome"
-msgstr ""
+msgstr "सुस्वागतम"
 
 #. Type: text
 #. Description
@@ -53,43 +53,43 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Where are you?"
-msgstr ""
+msgstr "आप कहाँ हैं?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "अपने देश में कोई शहर और समय क्षेत्र चुनें।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Selected city:"
-msgstr ""
+msgstr "चुना गया शहर:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Time zone:"
-msgstr ""
+msgstr "समय क्षेत्र:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:9001
 msgid "Selected region:"
-msgstr ""
+msgstr "चुना गया क्षेत्र:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
 msgid "Current time:"
-msgstr ""
+msgstr "अभी का समय"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Set Time..."
-msgstr ""
+msgstr "समय नियत करें..."
 
 #. Type: text
 #. Description
@@ -101,31 +101,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "आपका कीबोर्ड किस बनावट की तरह है?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "आप अपने नये कीबोर्ड की बनावट जानने के लिए इस बक्से में लिखें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Who are you?"
-msgstr ""
+msgstr "आप कौन है?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "What is your name?"
-msgstr ""
+msgstr "आपका नाम क्या है?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "आप लॉग इन करने के लिए किस नाम का प्रयोग करना चाहते है?"
 
 #. Type: text
 #. Description
@@ -134,25 +134,27 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"अगर इस कम्प्युटर का एक से ज्यादा व्यक्ति उपयोग करेंगें तो आप संस्थापना के बाद बहुखाते बना "
+"सकते है।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "अपने खाते को सुरक्षित रखने के लिए पासर्वड चुनें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "एक ही पासर्वड दो बार एन्टर करे,ताकि लिखने में हुई त्रुटियों कि जाँच की जा सके।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "इस कंप्यूटर का नाम क्या है?"
 
 #. Type: text
 #. Description
@@ -161,12 +163,13 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"यह नाम आपके कंप्यूटर को नेटवर्क के अंदर दुसरों को दिखाने के लिए प्रयोग में लाया जाएगा।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Select a disk"
-msgstr ""
+msgstr "एक डिस्क चुनें"
 
 #. Type: text
 #. Description
@@ -176,12 +179,14 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"संस्थापक स्वतः निम्न हार्ड डिस्कों में कई प्रकार से जगह बना सकता है।दुसरे तरीके से आप डिस्कों "
+"को अपने हाथ से बाटँ सकते है।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Prepare disk space"
-msgstr ""
+msgstr "डिस्क में जगह तैयार करें।"
 
 #. Type: text
 #. Description
@@ -216,6 +221,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"किस विभाजन का प्रयोग आप नए संस्थापन के लिए करना चाहते है,चुनें और कहाँ आप प्रत्येक को "
+"माउंट कराना चाहते है।"
 
 #. Type: text
 #. Description
@@ -224,6 +231,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"एक विभाजन को रुट संचिका तंत्र (\"/\"), तथा कम से कम एक विभाजन को स्वैप जगह के प्रयोग "
+"के लिए चुनना आवश्यक है।"
 
 #. Type: text
 #. Description
@@ -235,7 +244,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Size"
-msgstr ""
+msgstr "आकार"
 
 #. Type: text
 #. Description
@@ -247,13 +256,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Reformat?"
-msgstr ""
+msgstr "रीफॉर्मेट"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "आपको एक रुट (\"/\") माउंट प्वाइंट देना आवश्यक है।"
 
 #. Type: text
 #. Description
@@ -268,7 +277,7 @@ msgstr ""
 #: ../ubiquity.templates:37001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "आपका नया प्रचालन तंत्र निम्न सेटिंग के साथ संस्थापित हैं।ं"
 
 #. Type: text
 #. Description
@@ -292,25 +301,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Skip"
-msgstr ""
+msgstr "छोड़े"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Installation complete"
-msgstr "संस्थापना सम्पन्न"
+msgstr "संस्थापना सम्पन्न।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "लाइव सीडी के साथ जारी रखें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Restart now"
-msgstr ""
+msgstr "पुनः चालू करें।"
 
 #. Type: text
 #. Description

@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-09-07 18:36+0100\n"
-"PO-Revision-Date: 2006-05-12 21:19+0000\n"
-"Last-Translator: Gints Neimanis <gints@venta.lv>\n"
+"PO-Revision-Date: 2006-09-20 20:13+0000\n"
+"Last-Translator: mixat <miks.latvis@gmail.com>\n"
 "Language-Team: locale@laka.lv <locale@laka.lv>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,7 +190,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Sagatavoju diska vietu"
 
 #. Type: text
 #. Description
@@ -216,7 +216,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Sagatavot montēšanas punktus"
 
 #. Type: text
 #. Description
@@ -235,6 +235,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"Jums jāmontē viena partīcija root failu sistēmai (\"/\") un jāizvēlas viena "
+"partīcija swap apgabalam."
 
 #. Type: text
 #. Description
@@ -279,13 +281,13 @@ msgstr "Gatavs instalēšanai"
 #: ../ubiquity.templates:37001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "Jūsu jaunā operētājsistēma tiks uzstādīta ar sekojošiem parametriem:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Solis ${INDEX} no ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -315,13 +317,13 @@ msgstr "Instalācija pabeigta"
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Turpināt lielot live CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Restart now"
-msgstr ""
+msgstr "Restartēt tūlīt"
 
 #. Type: text
 #. Description
@@ -370,6 +372,12 @@ msgid ""
 " Location: ${LOCATION}\n"
 " ${EXTRAS}"
 msgstr ""
+" Valoda: ${LANGUAGE}\n"
+" Klaviatūras izkārtojums: ${KEYMAP}\n"
+" Vārds: ${FULLNAME}\n"
+" Lietotājvārds: ${USERNAME}\n"
+" Atrašanās vieta: ${LOCATION}\n"
+" ${EXTRAS}"
 
 #. Type: text
 #. Description
@@ -529,6 +537,3 @@ msgstr "Instalēju valodu pakotni"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Lejupielādēju valodu pakotnes (${TIME} atlicis)..."
-
-#~ msgid "Cleaning up..."
-#~ msgstr "Attīru ..."

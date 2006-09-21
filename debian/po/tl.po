@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-09-07 18:36+0100\n"
-"PO-Revision-Date: 2006-05-29 05:23+0000\n"
+"PO-Revision-Date: 2006-09-18 17:07+0000\n"
 "Last-Translator: Aldous D. Peñaranda <adpenaranda@gmail.com>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
 "MIME-Version: 1.0\n"
@@ -288,12 +288,13 @@ msgstr "Handa nang iluklok"
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
+"Ang iyong bagong operating system ay iluluklok na ganito ang pagkakaayos:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Hakbang bilang ${INDEX} ng ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -323,13 +324,13 @@ msgstr "Kumpleto ang pagluklok"
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Patuloy na gamitin ang live CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Restart now"
-msgstr ""
+msgstr "Mag-restart ngayon"
 
 #. Type: text
 #. Description
@@ -339,6 +340,10 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Tapos na ang pag-iinstall. Kailangan mong i-restart ang kompyuter para "
+"magamit ang bagong installation. Maari mong ituloy ang paggamit ng live CD "
+"na ito subalit anumang pagbabagong iyong gagawin o mga dokumentong iyong "
+"nais i-save ay mawawala."
 
 #. Type: text
 #. Description
@@ -347,6 +352,9 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Siguraduhing alisin ang CD kapag i-restart ang kompyuter dahil ang kompyuter "
+"babalik sa paggamit ng live CD na ito sa halip na gamitin ang bagong install "
+"na system."
 
 #. Type: text
 #. Description
@@ -381,7 +389,7 @@ msgstr ""
 #. a different one.
 #: ../ubiquity.templates:49001
 msgid "GRUB will be installed to DEVICE"
-msgstr ""
+msgstr "Ang GRUB ay iluluklok sa DEVICE"
 
 #. Type: title
 #. Description
@@ -412,7 +420,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
-msgstr ""
+msgstr "Sinisipi ang mga files (${TIME} ang natitira)..."
 
 #. Type: text
 #. Description
@@ -437,7 +445,7 @@ msgstr "Isinasaayos ng network..."
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Isinasaayos ang apt..."
 
 #. Type: text
 #. Description
@@ -450,7 +458,7 @@ msgstr "Isinasaayos ng network..."
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Isinasaayos ang tiklado..."
 
 #. Type: text
 #. Description
@@ -495,25 +503,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Tinitingnan ang mga paketeng aalisin..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Kinukuha ang mga pakete (${TIME} ang natitira)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Kinukuha ang listahan ng mga pakete..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Kinukuha ang mga listahan ng pakete (${TIME} ang natitira)..."
 
 #. Type: error
 #. Description
@@ -537,7 +545,4 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
-
-#~ msgid "Cleaning up..."
-#~ msgstr "Nagliligpit..."
+msgstr "Kinukuha ang mga pakete ng wika (${TIME} ang natitira)..."

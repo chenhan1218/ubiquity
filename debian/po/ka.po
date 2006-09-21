@@ -1,28 +1,24 @@
-# translation of 260506.po to Georgian
-# Georgian translation for debian-installer
-# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
-# This file is distributed under the same license as the debian-installer package.
+# Georgian messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
 #
-# Alexander Didebulidze <didebuli@in.tum.de>, 2006.
-# Vladimer Sichinava <alinux@siena.linux.it>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: 260506\n"
+"Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-09-07 18:36+0100\n"
-"PO-Revision-Date: 2006-05-27 19:59+0000\n"
+"PO-Revision-Date: 2006-09-19 02:43+0000\n"
 "Last-Translator: Vladimer Sichinava <alinux@siena.linux.it>\n"
-"Language-Team: Georgian <geognome@googlegroups.com>\n"
+"Language-Team: Debian Georgian <ka@aiet.qartuli.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr ""
+msgstr "ჩადგმა"
 
 #. Type: text
 #. Description
@@ -183,18 +179,20 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"შეგიძლიათ ინსტალატორს მიანდოთ თავისუფალი ადგილის შერჩევა რომელიმე დისკზე, ან "
+"თქვენ თვითონ დაყოთ დისკი."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Prepare disk space"
-msgstr ""
+msgstr "დისკზე ადგილის მომზადება"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "როგორ გნებავთ დისკის დაყოფა?"
 
 #. Type: text
 #. Description
@@ -214,7 +212,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Prepare mount points"
-msgstr ""
+msgstr "მონტაჟის პუნქტების მომზადება"
 
 #. Type: text
 #. Description
@@ -248,13 +246,13 @@ msgstr "ზომა"
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Partition"
-msgstr ""
+msgstr "განაყოფი"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Reformat?"
-msgstr ""
+msgstr "გადავაფორმატოთ?"
 
 #. Type: text
 #. Description
@@ -411,7 +409,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Running ${SCRIPT}..."
-msgstr ""
+msgstr "${SCRIPT}-ის გაშვება..."
 
 #. Type: text
 #. Description
@@ -520,6 +518,3 @@ msgstr "ენის პაკეტების ინსტალაცია"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "ენის პაკეტების ჩამოტვირთვა (დარჩენილი დრო ${TIME})..."
-
-#~ msgid "Cleaning up..."
-#~ msgstr "გასუფთავება..."

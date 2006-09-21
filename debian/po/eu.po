@@ -7,9 +7,9 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-09-07 18:36+0100\n"
-"PO-Revision-Date: 2006-05-29 07:40+0000\n"
-"Last-Translator: jon latorre <moebius@etxea.net>\n"
-"Language-Team: librezale.org <librezale@librezale.org>\n"
+"PO-Revision-Date: 2006-09-20 15:40+0000\n"
+"Last-Translator: julen <julen.ugalde@gmail.com>\n"
+"Language-Team: librezale <librezale@librezale.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -228,6 +228,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Aukeratu zein partizioak nahi dituzun zure instalazio berrirako, eta non "
+"muntatu nahi duzun bakoitza."
 
 #. Type: text
 #. Description
@@ -236,6 +238,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"Partizio bat muntatu behar duzu root fitxategi sisteman (\"/\"), eta "
+"partizio bat aukeratu behar duzu gutxienez \"swap space\" moduan erabiltzeko."
 
 #. Type: text
 #. Description
@@ -344,6 +348,8 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"CD-a kendu ordenagailua berriabiaraztean. Bestela berriro hasiko da CD hau "
+"erabiliz, zure sistemaren instalazio berriaren ordez."
 
 #. Type: text
 #. Description
@@ -370,6 +376,12 @@ msgid ""
 " Location: ${LOCATION}\n"
 " ${EXTRAS}"
 msgstr ""
+" Hizkuntza: ${LANGUAGE}\n"
+" Teklatu eredua: ${KEYMAP}\n"
+" Izena: ${FULLNAME}\n"
+" Login izena: ${USERNAME}\n"
+" Kokalekua: ${LOCATION}\n"
+" ${EXTRAS}"
 
 #. Type: text
 #. Description
@@ -402,7 +414,7 @@ msgstr "Fitxategiak arakatzen..."
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Copying files..."
-msgstr ""
+msgstr "Fitxategiak kopiatzen..."
 
 #. Type: text
 #. Description
@@ -529,6 +541,3 @@ msgstr "Hizkuntz-paketeak ezartzen"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Hizkuntz-paketeak deskargatzen (${TIME} faltan)..."
-
-#~ msgid "Cleaning up..."
-#~ msgstr "Garbitezen..."

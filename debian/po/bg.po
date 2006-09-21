@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-09-07 18:36+0100\n"
-"PO-Revision-Date: 2006-04-20 05:55+0000\n"
+"PO-Revision-Date: 2006-09-07 20:22+0000\n"
 "Last-Translator: Ognyan Kulev <ogi@fmi.uni-sofia.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr ""
+msgstr "Инсталиране"
 
 #. Type: text
 #. Description
@@ -532,6 +532,3 @@ msgstr "Инсталиране на езиковите пакети"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Изтегляне на езиковите пакети (остават ${TIME})..."
-
-#~ msgid "Cleaning up..."
-#~ msgstr "Почистване..."

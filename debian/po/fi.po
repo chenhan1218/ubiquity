@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-09-07 18:36+0100\n"
-"PO-Revision-Date: 2006-05-17 08:36+0000\n"
+"PO-Revision-Date: 2006-09-19 07:06+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -377,6 +377,12 @@ msgid ""
 " Location: ${LOCATION}\n"
 " ${EXTRAS}"
 msgstr ""
+" Kieli: ${LANGUAGE}\n"
+" Näppäimistön asettelu: ${KEYMAP}\n"
+" Nimi: ${FULLNAME}\n"
+" Kirjautumisnimi: ${USERNAME}\n"
+" Sijainti: ${LOCATION}\n"
+" ${EXTRAS}"
 
 #. Type: text
 #. Description
@@ -385,7 +391,7 @@ msgstr ""
 #. a different one.
 #: ../ubiquity.templates:49001
 msgid "GRUB will be installed to DEVICE"
-msgstr ""
+msgstr "GRUB asennetaan laitteelle DEVICE"
 
 #. Type: title
 #. Description
@@ -536,6 +542,3 @@ msgstr "Asennetaan kielipaketteja"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Ladataan kielipaketteja (${TIME} jäljellä)..."
-
-#~ msgid "Cleaning up..."
-#~ msgstr "Tehdään jälkitoimenpiteitä..."

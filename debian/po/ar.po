@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-09-07 18:36+0100\n"
-"PO-Revision-Date: 2006-04-20 05:54+0000\n"
+"PO-Revision-Date: 2006-09-07 20:20+0000\n"
 "Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr ""
+msgstr "تثبيت"
 
 #. Type: text
 #. Description
@@ -39,7 +39,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "الإجابة على الأسئلة سيدوم دقائق معدودة."
 
 #. Type: text
 #. Description
@@ -53,25 +53,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Where are you?"
-msgstr ""
+msgstr "أين أنت؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "اختار مدينة ضمن دولتك و منطقتك الزمنية."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Selected city:"
-msgstr ""
+msgstr "المدينة المختارة:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Time zone:"
-msgstr ""
+msgstr "المنطقة الزمنيّة:"
 
 #. Type: text
 #. Description
@@ -83,19 +83,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:10001
 msgid "Current time:"
-msgstr ""
+msgstr "الوقت الحالي:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Set Time..."
-msgstr ""
+msgstr "حدد الوقت..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Keyboard layout"
-msgstr ""
+msgstr "نموذج لوحة المفاتيح"
 
 #. Type: text
 #. Description
@@ -139,20 +139,20 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "اختر كلمة السر لحفظ حسابك."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "ادخل نفس كلمة السر مرتين للتأكد من عدم وجود أخطاء طباعية."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "ما هو اسم هذا الحاسوب؟"
 
 #. Type: text
 #. Description
@@ -160,13 +160,13 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
+msgstr "هذا الاسم سيستخدم إذا جعلت هذا الحاسوب ظاهرآ على الشبكة."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Select a disk"
-msgstr ""
+msgstr "اختر قرصآ"
 
 #. Type: text
 #. Description
@@ -181,19 +181,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Prepare disk space"
-msgstr ""
+msgstr "حضر الفراغ على القرص"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "كيف تريد أن تجزئ الاسطوانة؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Prepare partitions"
-msgstr ""
+msgstr "حضر التجزئة"
 
 #. Type: text
 #. Description
@@ -207,7 +207,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Prepare mount points"
-msgstr ""
+msgstr "حضر نقاط الاسناد"
 
 #. Type: text
 #. Description
@@ -229,7 +229,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Mount Point"
-msgstr ""
+msgstr "نقطة الاسناد"
 
 #. Type: text
 #. Description
@@ -261,7 +261,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001 ../ubiquity.templates:48001
 msgid "Ready to install"
-msgstr ""
+msgstr "مستعد للتثبيت"
 
 #. Type: text
 #. Description
@@ -280,19 +280,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:39001
 msgid "Abort the installation?"
-msgstr ""
+msgstr "هل تريد إلغاء التثبيت؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "هل تريد حقآ أن تلغي التثبيت؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Skip"
-msgstr ""
+msgstr "تخطّي"
 
 #. Type: title
 #. Description
@@ -367,9 +367,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
 msgid "Installing system"
-msgstr "اكتمل التثبيت"
+msgstr "تثبيت النظام"
 
 #. Type: text
 #. Description
@@ -418,7 +417,7 @@ msgstr "تهيئة الشبكة..."
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Configuring apt..."
-msgstr ""
+msgstr "تهيئة apt..."
 
 #. Type: text
 #. Description
@@ -436,9 +435,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
-#, fuzzy
 msgid "Creating user..."
-msgstr "التنظيف..."
+msgstr "إحداث المستخدم ..."
 
 #. Type: text
 #. Description
@@ -457,7 +455,7 @@ msgstr "تهيئة الشبكة..."
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Setting computer name..."
-msgstr ""
+msgstr "تهيئة اسم الحاسوب..."
 
 #. Type: text
 #. Description
@@ -500,25 +498,22 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "خطأ تثبيت ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "خطأ إزالة ${PACKAGE}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Installing language packs"
-msgstr ""
+msgstr "تثبيت حزم اللغات"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
-
-#~ msgid "Cleaning up..."
-#~ msgstr "التنظيف..."

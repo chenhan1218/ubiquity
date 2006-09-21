@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-09-07 18:36+0100\n"
-"PO-Revision-Date: 2006-05-27 21:41+0000\n"
+"PO-Revision-Date: 2006-09-20 17:47+0000\n"
 "Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannick.marchegay@lokanova."
 "com>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
@@ -38,15 +38,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"I sètz per installar ? Quant auretz respondut a qualques questions, poiretz "
-"installar lo contengut del Live CD sus l'ordenador per que pòscatz utilisar "
-"lo sistèma a plena velocitat e sens lo CD."
+"I sètz per installar ? Quant auretz respondut a qualquas questions, poiretz "
+"installar lo contengut del Live CD sul ordenador per que pòscatz utilisar lo "
+"sistèma a plena velocitat e sens lo CD."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Answering the questions should only take a few minutes."
-msgstr "Vos caldrá sonque qualques minutas per respondre a las questions."
+msgstr "Vos caldrà sonque qualques minutas per respondre a las questions."
 
 #. Type: text
 #. Description
@@ -55,7 +55,7 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Causissètz la lenga qu'utilisarem pendent l'installacion. Será la lenga "
+"Causissètz la lenga qu'utilisarem pendent l'installacion. Serà la lenga "
 "predefinida del sistèma final."
 
 #. Type: text
@@ -117,8 +117,7 @@ msgstr "Que disposicion sembla mai al vòstre clavièr ?"
 #: ../ubiquity.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
-"Podètz picar dins aquesta zòna de tèxt per testar la nova disposicion del "
-"clavièr."
+"Podètz picar dins la zòna de tèxt per testar la nòva disposicion del clavièr."
 
 #. Type: text
 #. Description
@@ -145,14 +144,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Se mai d'una persona utilisará l'ordenador, podètz definir mai d'un compte "
+"Se mai d'una persona utilisarà l'ordenador, podètz definir mai d'un compte "
 "après l'installacion."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Choose a password to keep your account safe."
-msgstr "Causissètz un mot de pas per que su compte siá segur."
+msgstr "Causissètz un mot de pas per que su compte sià segur."
 
 #. Type: text
 #. Description
@@ -160,13 +159,13 @@ msgstr "Causissètz un mot de pas per que su compte siá segur."
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
-"Picatz los meteis mot de pas dos còps per verificar s'i a pas de cauquilla."
+"Picatz los meteis mot de pas dos còps per verificar se i a pas de cauquilla."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "What is the name of this computer?"
-msgstr "Qual es lo nom d'aqueste ordenador ?"
+msgstr "Qual es lo nom de l'ordenador ?"
 
 #. Type: text
 #. Description
@@ -175,7 +174,7 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Aqueste nom será utiisat se volètz permetre a autres usuaris veire "
+"Aqueste nom serà utilisat se volètz permetre a d'autres usuaris de véser "
 "l'ordenador dins una ret."
 
 #. Type: text
@@ -192,8 +191,8 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
-"Podètz daissar lo programa d'installacion crear automaticament particions de "
-"mai d'un biais sus cada disc o los podètz particionar manualament."
+"Podètz daissar lo programa d'installacion crear automaticament de particions "
+"de mai d'un biais sus cada disc o los podètz particionar manualament."
 
 #. Type: text
 #. Description
@@ -220,8 +219,6 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"Asseguratz-vos de crear una particion raiç (\"/\") d'al mens 2 Go e una "
-"particion swap d'al mens 256 Mo."
 
 #. Type: text
 #. Description
@@ -246,7 +243,7 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
-"Debètz montar una particion sus lo sistèma de fichièrs raiç (\"/\") e debètz "
+"Debètz montar una particion sul sistèma de fichièrs rasiga (\"/\") e debètz "
 "causir al mens una particion a utilisar coma espaci swap."
 
 #. Type: text
@@ -271,13 +268,13 @@ msgstr "Particion"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Reformat?"
-msgstr "Tonar formatar ?"
+msgstr "Tornar formatar ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "You must supply a root (\"/\") mount point."
-msgstr "Debètz balhar un punt de montatge raiç (\"/\")."
+msgstr "Debètz balhar un punt de montatge rasiga (\"/\")."
 
 #. Type: text
 #. Description
@@ -329,7 +326,7 @@ msgstr "Installacion terminada"
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Continue using the live CD"
-msgstr "Contunhar a utilisar lo Live CD"
+msgstr "Contunhar amb lo Live CD"
 
 #. Type: text
 #. Description
@@ -346,8 +343,8 @@ msgid ""
 "changes you make or documents you save will not be preserved."
 msgstr ""
 "L'installacion es terminada. Debètz tornar aviar l'ordenador per utilisar lo "
-"sistèma. Podètz contunhar a utilisar aqueste live CD mas los cambis que "
-"farètz o los fichièrs qu'enregistrarètz serán pas conservats."
+"sistèma nòu. Podètz contunhar a utilisar lo live CD mas los cambis que "
+"farètz o los fichièrs qu'enregistrarètz seràn pas conservats."
 
 #. Type: text
 #. Description
@@ -356,8 +353,8 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Asseguratz-vos de levar lo CD abans de tornar aviar l'ordenador, si que non "
-"lo live CD s'executará e poirètz pas utilisar lo sistèma que venètz "
+"Asseguratz-vos de levar lo CD abans de tornar aviar l'ordenador ; si que non "
+"lo live CD s'executarà e poirètz pas utilisar lo sistèma que venètz "
 "d'installar."
 
 #. Type: text
@@ -385,6 +382,12 @@ msgid ""
 " Location: ${LOCATION}\n"
 " ${EXTRAS}"
 msgstr ""
+" Lenga : ${LANGUAGE}\n"
+" Clavièr: ${KEYMAP}\n"
+" Nom : ${FULLNAME}\n"
+" Nom d'usancièr : ${USERNAME}\n"
+" Emplaçament : ${LOCATION}\n"
+" ${EXTRAS}"
 
 #. Type: text
 #. Description
@@ -393,7 +396,7 @@ msgstr ""
 #. a different one.
 #: ../ubiquity.templates:49001
 msgid "GRUB will be installed to DEVICE"
-msgstr ""
+msgstr "GRUB serà installat sus DEVICE"
 
 #. Type: title
 #. Description
@@ -405,7 +408,7 @@ msgstr "Installacion del sistèma"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Finding the distribution to copy..."
-msgstr "Recèrca de la distribucion a copiar..."
+msgstr "Recèrca de la distribucion de copiar..."
 
 #. Type: text
 #. Description
@@ -465,7 +468,7 @@ msgstr "Configuracion del clavièr..."
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Creating user..."
-msgstr "Creacion d'un usuari..."
+msgstr "Creacion d'un usancièr..."
 
 #. Type: text
 #. Description
@@ -483,7 +486,7 @@ msgstr "Configuracion de la ret..."
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Setting computer name..."
-msgstr "Definir lo nom de l'ordenador..."
+msgstr "Definicion del nom de l'ordenador..."
 
 #. Type: text
 #. Description
@@ -501,7 +504,7 @@ msgstr "Supression dels paquetatges suplementaris..."
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Checking for packages to remove..."
-msgstr "Verificacion dels paquetatges a suprimir..."
+msgstr "Verificacion dels paquetatges de suprimir..."
 
 #. Type: text
 #. Description
@@ -513,13 +516,13 @@ msgstr "Telecarga dels paquetatges (resta ${TIME})..."
 #. Description
 #: ../ubiquity.templates:70001
 msgid "Downloading package lists..."
-msgstr "Telecarga de las listas de paquetatges"
+msgstr "Telecarga de las tièras de paquetatges"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Telecarga de las listas de paquetatges (resta ${TIME})..."
+msgstr "Telecarga de las tièras de paquetatges (resta ${TIME})..."
 
 #. Type: error
 #. Description
@@ -544,6 +547,3 @@ msgstr "Installacion dels paquetatges de lenga"
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Telecarga dels paquetatges de lenga (resta ${TIME})..."
-
-#~ msgid "Cleaning up..."
-#~ msgstr "Netejatge..."

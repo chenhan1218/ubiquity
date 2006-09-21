@@ -7,9 +7,9 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-09-07 18:36+0100\n"
-"PO-Revision-Date: 2006-04-20 06:00+0000\n"
-"Last-Translator: Claus Hindsgaul <claus_h@image.dk>\n"
-"Language-Team: Danish <dansk@klid.dk>\n"
+"PO-Revision-Date: 2006-09-07 20:26+0000\n"
+"Last-Translator: Claus Hindsgaul <claus.hindsgaul@gmail.com>\n"
+"Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,13 +18,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr ""
+msgstr "Installér"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Welcome"
-msgstr ""
+msgstr "Velkommen"
 
 #. Type: text
 #. Description
@@ -34,12 +34,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Klar til at installere? Når du har svaret på et par spørgsmål kan indholdet "
+"af denne live-cd blive installeret på computeren. Så kan du bruge systemet i "
+"fuld hastighed, uden brug af cd'en."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Det tager kun få minutter at svare på spørgsmålene."
 
 #. Type: text
 #. Description
@@ -48,48 +51,50 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Vælg det sprog der skal bruges under installationen. Det valgte sprog vil "
+"også være det forvalgte sprog i det installerede system."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Where are you?"
-msgstr ""
+msgstr "Angiv din lokation"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "Vælg en by i dit land og din tidszone."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Selected city:"
-msgstr ""
+msgstr "Valgt by:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Time zone:"
-msgstr ""
+msgstr "Tidszone:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:9001
 msgid "Selected region:"
-msgstr ""
+msgstr "Valgt region:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
 msgid "Current time:"
-msgstr ""
+msgstr "Aktuelt tidspunkt:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Set Time..."
-msgstr ""
+msgstr "Indstil tiden..."
 
 #. Type: text
 #. Description
@@ -101,31 +106,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Hvilket layout minder mest om dit tastatur?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "Du kan skrive i denne boks for at teste dit nye tastaturlayout."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Who are you?"
-msgstr ""
+msgstr "Hvem er du?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "What is your name?"
-msgstr ""
+msgstr "Hvad er dit navn?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Hvilket navn vil du bruge til at logge ind med?"
 
 #. Type: text
 #. Description
@@ -134,12 +139,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Hvis der er flere end én person der skal bruge denne computer kan du oprette "
+"flere brugerkonti efter installationen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Vælg et password der skal beskytte din brugerkonto."
 
 #. Type: text
 #. Description
@@ -147,12 +154,14 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Indtast det samme kodeord to gange, så det kan blive kontrolleret for "
+"tastefejl."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Hvad er navnet på denne computer?"
 
 #. Type: text
 #. Description
@@ -161,12 +170,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Dette navn vil blive brugt, hvis du gør computeren synlig for andre på "
+"netværket."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Select a disk"
-msgstr ""
+msgstr "Vælg en disk"
 
 #. Type: text
 #. Description
@@ -176,24 +187,27 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"Du kan vælge at få installations programmet til automatisk at angive plads "
+"på forskellige måder på hvilken som helst af de følgende harddisk-drev. "
+"Alternativt kan du partitionere diskene manuelt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Klargør diskplads"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Hvordan vil du partitionere disken?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Klargør partitioner"
 
 #. Type: text
 #. Description
@@ -207,7 +221,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Prepare mount points"
-msgstr ""
+msgstr "Klargør monteringspunkter"
 
 #. Type: text
 #. Description
@@ -216,6 +230,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Angiv hvilke partitioner du vil bruge til din nye installation og hvor du "
+"ønsker at montere hvert af disse."
 
 #. Type: text
 #. Description
@@ -224,6 +240,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"Du skal montere en partition for root filsystemet (\"/\") og du skal vælge "
+"mindst en partition til brug som swap."
 
 #. Type: text
 #. Description
@@ -235,7 +253,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Size"
-msgstr ""
+msgstr "Størrelse"
 
 #. Type: text
 #. Description
@@ -247,13 +265,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Reformat?"
-msgstr ""
+msgstr "Genformater?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "Du skal angive et root (\"/\") monteringspunkt."
 
 #. Type: text
 #. Description
@@ -269,30 +287,32 @@ msgstr ""
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
+"Dit nye operativsystem vil nu blive installeret med de følgende "
+"indstillinger:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Skridt ${INDEX} af ${TOTAL}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:39001
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Afbryd installationen?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "Vil du virkelig afbryde installationen nu?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Skip"
-msgstr ""
+msgstr "Spring over"
 
 #. Type: title
 #. Description
@@ -304,13 +324,13 @@ msgstr "Installation fuldført"
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Forsæt med at bruge live-cd'en"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Restart now"
-msgstr ""
+msgstr "Genstart nu"
 
 #. Type: text
 #. Description
@@ -320,6 +340,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Installationen er færdig. Du skal genstarte computeren, for at kunne bruge "
+"den nye installation. Du kan forsætte med at bruge denne live-cd, men de "
+"ændringer du foretager eller dokumenter du gemmer, vil ikke blive gemt."
 
 #. Type: text
 #. Description
@@ -328,6 +351,8 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Sørg for at fjerne cd'en når du genstarter computeren, ellers vil den starte "
+"op via live-cd'en i stedet for det nyligt installerede system."
 
 #. Type: text
 #. Description
@@ -367,9 +392,8 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
 msgid "Installing system"
-msgstr "Installation fuldført"
+msgstr "Installerer systemet"
 
 #. Type: text
 #. Description
@@ -393,7 +417,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Copying files (${TIME} remaining)..."
-msgstr ""
+msgstr "Kopierer filer (${time} tilbage)..."
 
 #. Type: text
 #. Description
@@ -418,7 +442,7 @@ msgstr "Sætter netværket op..."
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Sætter apt op..."
 
 #. Type: text
 #. Description
@@ -431,7 +455,7 @@ msgstr "Sætter netværket op..."
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Konfigurerer tastatur..."
 
 #. Type: text
 #. Description
@@ -443,9 +467,8 @@ msgstr "Rydder op..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Sætter netværket op..."
+msgstr "Konfigurerer hardware..."
 
 #. Type: text
 #. Description
@@ -457,56 +480,55 @@ msgstr "Sætter netværket op..."
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Setting computer name..."
-msgstr ""
+msgstr "Indstiller computernavn..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Sætter netværket op..."
+msgstr "Konfigurerer bootloader..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Fjerner ekstrapakker..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Leder efter pakker der skal fjernes..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Henter pakker (${TIME} tilbage)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Henter pakkelister..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Henter pakkelister (${TIME} tilbage)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Fejl ved installation af ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Fejl ved fjernelse af ${PACKAGE}"
 
 #. Type: title
 #. Description
@@ -518,7 +540,4 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
-
-#~ msgid "Cleaning up..."
-#~ msgstr "Rydder op..."
+msgstr "Downloader sprogpakker (${TIME} remaining)..."

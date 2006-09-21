@@ -25,6 +25,11 @@ ubiquity (1.1.20) UNRELEASED; urgency=low
   * GTK frontend: For some reason GtkTable doesn't seem to queue a resize
     itself when you attach children to it, so the mountpoints table was
     showing up blank the first time through. Worked around this.
+  * Add/update translations from Rosetta: Arabic, Belarusian, Bulgarian,
+    Breton, Danish, German, Greek, Spanish, Basque, Finnish, French, Hindi,
+    Hungarian, Icelandic, Italian, Georgian, Korean, Kurdish, Latvian,
+    Nepali, Norwegian Nynorsk, Occitan, Portuguese (Brazil), Russian,
+    Serbian, Tagalog.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Sep 2006 12:13:49 +0100
 
