@@ -1542,6 +1542,8 @@ class Wizard:
             button.show()
         if firstbutton is not None:
             firstbutton.setChecked(True)
+        if resize_choice not in choices:
+            self.on_autopartition_resize_toggled(False)
 
         # make sure we're on the autopartitioning page
         self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAuto"])

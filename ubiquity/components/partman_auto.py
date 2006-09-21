@@ -48,6 +48,7 @@ class PartmanAuto(FilteredCommand):
         shutil.rmtree('/var/lib/partman', ignore_errors=True)
 
         self.autopartition_question = None
+        self.resize_allowed = True
         self.resize_min_percent = 0
         self.backup_from_new_size = None
         self.stashed_auto_mountpoints = None
@@ -93,6 +94,13 @@ class PartmanAuto(FilteredCommand):
             elif key == 'MAXSIZE':
                 self.resize_max_size = self.parse_size(value)
 
+    def error(self, priority, question):
+        if question == 'partman-partitioning/impossible_resize':
+            if self.resize_allowed:
+                self.resize_allowed = False
+                return False
+        return super(PartmanAuto, self).error(priority, question)
+
     def run(self, priority, question):
         if self.stashed_auto_mountpoints is None:
             # We need to extract the automatic mountpoints calculated by
@@ -132,6 +140,7 @@ class PartmanAuto(FilteredCommand):
             qtype = ''
 
         if question == 'partman-auto/select_disk':
+            self.resize_allowed = True
             self.manual_desc = \
                 self.description('partman-auto/text/custom_partitioning')
             if not self.frontend.set_disk_choices(self.choices(question),
@@ -154,8 +163,13 @@ class PartmanAuto(FilteredCommand):
             self.manual_desc = \
                 self.description('partman-auto/text/custom_partitioning')
             choices = self.choices(question)
+            if not self.resize_allowed:
+                try:
+                    del choices[choices.index(self.resize_desc)]
+                except ValueError:
+                    pass
             self.frontend.set_autopartition_choices(
-                self.choices(question), self.resize_desc, self.manual_desc)
+                choices, self.resize_desc, self.manual_desc)
             if self.resize_desc in choices:
                 # The resize option is available, so we need to present the
                 # user with an accurate resize slider before passing control

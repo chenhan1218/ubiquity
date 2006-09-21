@@ -1537,6 +1537,8 @@ class Wizard:
                 button.connect('toggled', self.on_autopartition_resize_toggled)
         if firstbutton is not None:
             firstbutton.set_active(True)
+        if resize_choice not in choices:
+            self.new_size_vbox.hide()
 
         self.autopartition_vbox.show_all()
 
