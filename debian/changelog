@@ -15,7 +15,7 @@ ubiquity (1.1.20) UNRELEASED; urgency=low
     already depends on it.
   * Feed not-yet-formatted partition state back into gparted when starting
     it up, so that newly-created partitions aren't listed as "unknown" when
-    you go back (requires gparted 0.2.5-1.1ubuntu7; closes: Malone #40404).
+    you go back (requires gparted 0.2.5-1.1ubuntu8; closes: Malone #40404).
   * Fix use of gobject.spawn_async in
     gnome-screensaver-command/xscreensaver-command, broken in 1.1.19.
   * Make sure that "Restart now" is the default option on the final dialog
