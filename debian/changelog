@@ -1,7 +1,13 @@
 ubiquity (1.1.22) UNRELEASED; urgency=low
 
+  [ Jonathan Riddell ]
   * KDE Frontend:
     - Make the mountpoints page use a scroll view
+
+  [ Colin Watson ]
+  * GTK frontend: Make the debconf progress title and info labels ellipsise
+    rather than stretching the window if they get too long (closes: Malone
+    #61516).
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 21 Sep 2006 15:39:26 +0100
 
