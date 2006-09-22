@@ -8,6 +8,9 @@ oem-config (1.4) UNRELEASED; urgency=low
   * Add frontend detection to oem-config-dm, so that KDE support can be
     filled in.
 
+  [ Anirudh Ramesh ]
+  * Add KDE support to oem-config-dm.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 20 Sep 2006 11:35:15 +0100
 
 oem-config (1.3) edgy; urgency=low

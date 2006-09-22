@@ -37,8 +37,8 @@ class DM:
 
         time.sleep(5)
 
-        if os.access(background, os.R_OK):
-            if self.frontend == 'gtk-ui':
+        if self.frontend == 'gtk-ui':
+            if os.access(background, os.R_OK):
                 import gtk
                 pixbuf = gtk.gdk.pixbuf_new_from_file(background)
                 root = gtk.gdk.get_default_root_window()
@@ -48,9 +48,13 @@ class DM:
                 root.set_back_pixmap(pixmap, False)
                 root.clear()
                 gtk.gdk.flush()
+        elif self.frontend == 'kde-ui':
+            bg = subprocess.Popen(['/usr/bin/xsetroot', '-display', ':0', '-solid', 'lightblue'])
 
         if self.frontend == 'gtk-ui':
             wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
+        elif self.frontend == 'kde-ui':
+            wm = subprocess.Popen('/usr/bin/kwin', stdin=null, stdout=logfile, stderr=logfile)
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()
