@@ -1,4 +1,4 @@
-ubiquity (1.1.22) UNRELEASED; urgency=low
+ubiquity (1.1.22) edgy; urgency=low
 
   [ Jonathan Riddell ]
   * KDE Frontend:
@@ -9,7 +9,7 @@ ubiquity (1.1.22) UNRELEASED; urgency=low
     rather than stretching the window if they get too long (closes: Malone
     #61516).
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 21 Sep 2006 15:39:26 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 22 Sep 2006 10:28:34 +0100
 
 ubiquity (1.1.21) edgy; urgency=low
 
