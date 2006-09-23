@@ -1,3 +1,11 @@
+ubiquity (1.1.23) UNRELEASED; urgency=low
+
+  * Move /etc/default/console-setup aside before running the keyboard
+    configuration page, to avoid console-setup thinking that it's already
+    configured and behaving differently.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 23 Sep 2006 08:40:54 +0100
+
 ubiquity (1.1.22) edgy; urgency=low
 
   [ Jonathan Riddell ]

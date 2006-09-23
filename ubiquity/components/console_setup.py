@@ -27,6 +27,24 @@ from ubiquity import misc
 class ConsoleSetup(FilteredCommand):
     def prepare(self):
         self.preseed('console-setup/ask_detect', 'false')
+
+        # We need to get rid of /etc/default/console-setup, or console-setup
+        # will think it's already configured and behave differently. Try to
+        # save the old file for interest's sake, but it's not a big deal if
+        # we can't.
+        try:
+            os.unlink('/etc/default/console-setup.pre-ubiquity')
+        except OSError:
+            pass
+        try:
+            os.rename('/etc/default/console-setup',
+                      '/etc/default/console-setup.pre-ubiquity')
+        except OSError:
+            try:
+                os.unlink('/etc/default/console-setup')
+            except OSError:
+                pass
+
         # Technically we should provide a version as the second argument,
         # but that isn't currently needed and it would require querying
         # apt/dpkg for the current version, which would be slow, so we don't
