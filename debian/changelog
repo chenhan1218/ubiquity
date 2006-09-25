@@ -1,8 +1,8 @@
-oem-config (1.5) UNRELEASED; urgency=low
+oem-config (1.5) edgy; urgency=low
 
   * Fix syntax error in oem-config-dm.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 25 Sep 2006 10:31:53 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 25 Sep 2006 10:45:58 +0100
 
 oem-config (1.4) edgy; urgency=low
 
