@@ -1,4 +1,4 @@
-ubiquity (1.1.23) UNRELEASED; urgency=low
+ubiquity (1.1.23) edgy; urgency=low
 
   * Move /etc/default/console-setup aside before running the keyboard
     configuration page, to avoid console-setup thinking that it's already
@@ -6,7 +6,7 @@ ubiquity (1.1.23) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup 1.7ubuntu12,
     partman-basicfilesystems 47ubuntu3, partman-target 45ubuntu2.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sat, 23 Sep 2006 08:40:54 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 25 Sep 2006 13:11:27 +0100
 
 ubiquity (1.1.22) edgy; urgency=low
 
