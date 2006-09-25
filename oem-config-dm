@@ -15,7 +15,7 @@ class DM:
 
         # Try to import the frontend; we won't actually use it (yet), but
         # this lets us find out which window manager etc. to launch.
-        frontend_names = ['gtk-ui', 'kde-ui'])
+        frontend_names = ['gtk-ui', 'kde-ui']
         self.frontend = None
         mod = __import__('oem_config.frontend', globals(), locals(),
                          frontend_names)
