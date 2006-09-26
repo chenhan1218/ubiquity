@@ -19,7 +19,7 @@ partman-newworld 13
 partman-palo 4
 partman-partitioning 40ubuntu1
 partman-reiserfs 31
-partman-target 45ubuntu2
+partman-target 45ubuntu3
 partman-xfs 29
 silo-installer 1.04ubuntu1
 tzsetup 1:0.10ubuntu2

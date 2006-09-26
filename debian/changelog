@@ -6,6 +6,7 @@ ubiquity (1.1.24) UNRELEASED; urgency=low
     being substituted in the wrong order).
   * Depend on a version of console-setup without the misguided
     /etc/X11/xorg.conf handling.
+  * Automatic update of included source packages: partman-target 45ubuntu3.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 26 Sep 2006 23:11:14 +0100
 
