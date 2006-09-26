@@ -4,6 +4,8 @@ ubiquity (1.1.24) UNRELEASED; urgency=low
     starting console-setup, to avoid incorrect variant choices (although I
     think there's also a console-setup bug here in that the variants are
     being substituted in the wrong order).
+  * Depend on a version of console-setup without the misguided
+    /etc/X11/xorg.conf handling.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 26 Sep 2006 23:11:14 +0100
 
