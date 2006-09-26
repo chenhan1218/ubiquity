@@ -1,3 +1,12 @@
+ubiquity (1.1.24) UNRELEASED; urgency=low
+
+  * Mark console-setup/layout and console-setup/variant as unseen before
+    starting console-setup, to avoid incorrect variant choices (although I
+    think there's also a console-setup bug here in that the variants are
+    being substituted in the wrong order).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 26 Sep 2006 23:11:14 +0100
+
 ubiquity (1.1.23) edgy; urgency=low
 
   * Move /etc/default/console-setup aside before running the keyboard
