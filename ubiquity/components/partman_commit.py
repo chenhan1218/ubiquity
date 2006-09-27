@@ -71,26 +71,30 @@ class PartmanCommit(FilteredCommand):
                             parted.remove_part_entry(p_id, 'format')
                         parted.remove_part_entry(p_id, 'use_filesystem')
                     else:
-                        detected = parted.has_part_entry(
-                            p_id, 'detected_filesystem')
-                        if fstype is None:
-                            if detected:
-                                fstype = parted.readline_part_entry(
-                                    p_id, 'detected_filesystem')
-                            else:
-                                fstype = 'ext3'
-
-                        if format or not detected:
+                        if format:
                             parted.write_part_entry(p_id, 'method', 'format\n')
                             parted.write_part_entry(p_id, 'format', '')
+                            if fstype is None:
+                                if parted.has_part_entry(
+                                        p_id, 'detected_filesystem'):
+                                    fstype = parted.readline_part_entry(
+                                        p_id, 'detected_filesystem')
+                                else:
+                                    # TODO cjwatson 2006-09-27: Why don't we
+                                    # know the filesystem type? Fortunately,
+                                    # we have an explicit indication from
+                                    # the user that it's OK to format this
+                                    # filesystem.
+                                    fstype = 'ext3'
                             parted.write_part_entry(p_id, 'filesystem', fstype)
                             parted.remove_part_entry(p_id, 'options')
                             parted.mkdir_part_entry(p_id, 'options')
                         else:
                             parted.write_part_entry(p_id, 'method', 'keep\n')
                             parted.remove_part_entry(p_id, 'format')
-                            parted.write_part_entry(
-                                p_id, 'detected_filesystem', fstype)
+                            if fstype is not None:
+                                parted.write_part_entry(
+                                    p_id, 'detected_filesystem', fstype)
                         parted.write_part_entry(p_id, 'use_filesystem', '')
                         parted.write_part_entry(p_id, 'mountpoint', path)
                 elif (parted.has_part_entry(p_id, 'method') and

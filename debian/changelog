@@ -1,3 +1,11 @@
+ubiquity (1.1.25) UNRELEASED; urgency=high
+
+  * Not knowing the filesystem type for a partition apparently doesn't
+    necessarily mean that it's unformatted, so don't format partitions
+    without a detected filesystem type (closes: Malone #61732).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 27 Sep 2006 16:43:09 +0100
+
 ubiquity (1.1.24) edgy; urgency=low
 
   * Mark console-setup/layout and console-setup/variant as unseen before
