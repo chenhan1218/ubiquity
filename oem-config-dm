@@ -6,6 +6,8 @@ import subprocess
 import time
 import signal
 
+sys.path.insert(0, '/usr/lib/oem-config')
+
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
 
 class DM:
