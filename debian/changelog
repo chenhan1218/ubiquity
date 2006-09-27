@@ -1,9 +1,9 @@
-oem-config (1.6) UNRELEASED; urgency=low
+oem-config (1.6) edgy; urgency=low
 
   * Add /usr/lib/oem-config to sys.path in oem-config-dm so that it can
     import frontend modules.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 27 Sep 2006 13:37:55 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 27 Sep 2006 13:38:57 +0100
 
 oem-config (1.5) edgy; urgency=low
 
