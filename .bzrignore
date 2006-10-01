@@ -17,6 +17,7 @@ debian/ubiquity.install
 debian/*.debhelper
 debian/*.substvars
 ./Makefile
+./autom4te.cache
 ./intltool-*
 ./libtool
 d-i/apt
