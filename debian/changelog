@@ -6,6 +6,8 @@ ubiquity (1.1.26) UNRELEASED; urgency=low
   * Document ubiquity/install/filesystem-images in doc/README.
   * autogen.sh: Force use of automake-1.8 and aclocal-1.8.
   * Move auxiliary autotools files to a build subdirectory.
+  * Add a check to debian/rules to remind me to bump the version number in
+    configure.ac.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun,  1 Oct 2006 21:40:35 +0100
 
