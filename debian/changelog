@@ -1,3 +1,10 @@
+ubiquity (1.1.26) UNRELEASED; urgency=low
+
+  * Build-depend on po-debconf (>= 1.0) for new translation-handling
+    features.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun,  1 Oct 2006 21:40:35 +0100
+
 ubiquity (1.1.25) edgy; urgency=high
 
   * Not knowing the filesystem type for a partition apparently doesn't
