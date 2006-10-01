@@ -123,7 +123,10 @@ the future.
 The read-only live filesystem should generally be mounted on /rofs.
 Alternatively, an image may be present as /cdrom/casper/filesystem.cloop,
 /cdrom/casper/filesystem.squashfs, or (for Guadalinex/Metadistros)
-/cdrom/META/META.squashfs.
+/cdrom/META/META.squashfs. You can preseed
+ubiquity/install/filesystem-images with a space-separated list of image
+paths to override this; if you provide more than one image, then they will
+be overlaid using unionfs.
 
 Frequently Asked Questions
 --------------------------
