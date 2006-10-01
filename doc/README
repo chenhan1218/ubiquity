@@ -125,6 +125,48 @@ Alternatively, an image may be present as /cdrom/casper/filesystem.cloop,
 /cdrom/casper/filesystem.squashfs, or (for Guadalinex/Metadistros)
 /cdrom/META/META.squashfs.
 
+Frequently Asked Questions
+--------------------------
+
+Q. Can I backport the version of Ubiquity from the current Ubuntu
+   development release to the previous stable release?
+
+A. Not without quite a bit of work. At present, Ubiquity is still a complex
+   piece of software with several bleeding-edge dependencies, and at the
+   moment I have no compunctions about making it depend on new packages or
+   newer versions of existing packages in order to get the job done
+   properly. In future, things may settle down such that there can be more
+   compatibility guarantees, particularly if Ubiquity is adopted by other
+   Debian-based distributions.
+
+   At the moment, I can think of the following specific issues with
+   backporting Ubiquity from Ubuntu 6.10 to Ubuntu 6.06:
+
+     * Ubiquity now uses the new Python policy, which involves a number of
+       packaging changes and even a couple of code changes that are
+       incompatible with Ubuntu 6.06. These would need to be reverted.
+
+     * Ubiquity now uses console-setup as the backend for the keyboard
+       screen rather than kbd-chooser. console-setup will not work on Ubuntu
+       6.06, so the kbd-chooser code would need to be resurrected.
+
+     * Ubiquity's GTK frontend now relies on new features in gparted in
+       order to fix some user interface bugs.
+
+     * Ubiquity now integrates with the apport crash reporting facility in
+       Ubuntu 6.10, which is not available in Ubuntu 6.06. (This would just
+       be a matter of removing dependencies; it's optional as far as the
+       code is concerned.)
+
+     * Ubiquity's debconf template translations now rely on new features in
+       po-debconf 1.0, which was not available in Ubuntu 6.06.
+
+   While I'm aware that there were a number of serious issues with the
+   version of Ubiquity that shipped with Ubuntu 6.06 (many of which were
+   corrected in Ubuntu 6.06.1), I feel that the right answer to these is to
+   backport selected fixes to that branch of Ubiquity rather than trying to
+   backport the whole package.
+
 
 Feel free to ask me (Colin Watson <cjwatson@ubuntu.com>) if you have any
 questions regarding Ubiquity's workings.
