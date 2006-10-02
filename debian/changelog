@@ -1,3 +1,10 @@
+ubiquity (1.1.27) UNRELEASED; urgency=low
+
+  * KDE Frontend:
+   - Add ensureItemVisible in set_keyboard, fixes No 61710
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon,  2 Oct 2006 13:37:24 +0100
+
 ubiquity (1.1.26) UNRELEASED; urgency=low
 
   * Build-depend on po-debconf (>= 1.0) for new translation-handling
