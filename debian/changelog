@@ -1,5 +1,6 @@
 ubiquity (1.1.26) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Build-depend on po-debconf (>= 1.0) for new translation-handling
     features.
   * Add a FAQ about backporting to doc/README.
@@ -12,6 +13,10 @@ ubiquity (1.1.26) UNRELEASED; urgency=low
     error on the mountpoints page if running on powerpc and there is no HFS
     partition with the boot flag set. Treat HFS partitions with the boot
     flag set as NewWorld bootstrap partitions (closes: Malone #43768).
+
+  [ Jonathan Riddell ]
+  * KDE Frontend:
+   - Add ensureItemVisible in set_keyboard (closes: Malone #61710).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun,  1 Oct 2006 21:40:35 +0100
 

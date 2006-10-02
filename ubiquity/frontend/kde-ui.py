@@ -1607,6 +1607,7 @@ class Wizard:
         while iterator.current():
             if unicode(iterator.current().text(0)) == keyboard:
                 self.userinterface.keyboardlistview.setSelected(iterator.current(), True)
+                self.userinterface.keyboardlistview.ensureItemVisible(iterator.current())
                 break
             iterator += 1
 
