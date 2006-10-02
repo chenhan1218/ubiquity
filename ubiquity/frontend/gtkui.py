@@ -104,7 +104,7 @@ class Wizard:
 
         # declare attributes
         self.distro = distro
-        self.current_keyboard = None
+        self.current_layout = None
         self.got_disk_choices = False
         self.auto_mountpoints = None
         self.resize_min_size = None
@@ -780,11 +780,19 @@ class Wizard:
         else:
             gtk.main_quit()
 
-    def on_keyboard_selected(self, start_editing, *args):
+    def on_keyboard_layout_selected(self, start_editing, *args):
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):
-            keyboard = self.get_keyboard()
-            if keyboard is not None:
-                self.dbfilter.apply_keyboard(keyboard)
+            layout = self.get_keyboard()
+            if layout is not None:
+                self.current_layout = layout
+                self.dbfilter.change_layout(layout)
+
+    def on_keyboard_variant_selected(self, start_editing, *args):
+        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+            layout = self.get_keyboard()
+            variant = self.get_keyboard_variant()
+            if layout is not None and variant is not None:
+                self.dbfilter.apply_keyboard(layout, variant)
 
     def process_step(self):
         """Process and validate the results of this step."""
@@ -1585,39 +1593,75 @@ class Wizard:
 
 
     def set_keyboard_choices(self, choices):
-        kbdlayouts = gtk.ListStore(gobject.TYPE_STRING)
-        self.keyboardlistview.set_model(kbdlayouts)
+        layouts = gtk.ListStore(gobject.TYPE_STRING)
+        self.keyboardlayoutview.set_model(layouts)
         for v in sorted(choices):
-            kbdlayouts.append([v])
+            layouts.append([v])
 
-        if len(self.keyboardlistview.get_columns()) < 1:
+        if len(self.keyboardlayoutview.get_columns()) < 1:
             column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
             column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-            self.keyboardlistview.append_column(column)
-            selection = self.keyboardlistview.get_selection()
+            self.keyboardlayoutview.append_column(column)
+            selection = self.keyboardlayoutview.get_selection()
             selection.connect('changed',
-                              self.on_keyboard_selected)
+                              self.on_keyboard_layout_selected)
 
-        if self.current_keyboard is not None:
-            self.set_keyboard(self.current_keyboard)
-    
-    def set_keyboard (self, keyboard):
-        self.current_keyboard = keyboard
-        model = self.keyboardlistview.get_model()
+        if self.current_layout is not None:
+            self.set_keyboard(self.current_layout)
+
+    def set_keyboard (self, layout):
+        self.current_layout = layout
+        model = self.keyboardlayoutview.get_model()
         if model is None:
             return
         iterator = model.iter_children(None)
         while iterator is not None:
-            if unicode(model.get_value(iterator, 0)) == keyboard:
+            if unicode(model.get_value(iterator, 0)) == layout:
                 path = model.get_path(iterator)
-                self.keyboardlistview.get_selection().select_path(path)
-                self.keyboardlistview.scroll_to_cell(
+                self.keyboardlayoutview.get_selection().select_path(path)
+                self.keyboardlayoutview.scroll_to_cell(
                     path, use_align=True, row_align=0.5)
                 break
             iterator = model.iter_next(iterator)
 
     def get_keyboard (self):
-        selection = self.keyboardlistview.get_selection()
+        selection = self.keyboardlayoutview.get_selection()
+        (model, iterator) = selection.get_selected()
+        if iterator is None:
+            return None
+        else:
+            return unicode(model.get_value(iterator, 0))
+
+    def set_keyboard_variant_choices(self, choices):
+        variants = gtk.ListStore(gobject.TYPE_STRING)
+        self.keyboardvariantview.set_model(variants)
+        for v in sorted(choices):
+            variants.append([v])
+
+        if len(self.keyboardvariantview.get_columns()) < 1:
+            column = gtk.TreeViewColumn("Variant", gtk.CellRendererText(), text=0)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            self.keyboardvariantview.append_column(column)
+            selection = self.keyboardvariantview.get_selection()
+            selection.connect('changed',
+                              self.on_keyboard_variant_selected)
+
+    def set_keyboard_variant (self, variant):
+        model = self.keyboardvariantview.get_model()
+        if model is None:
+            return
+        iterator = model.iter_children(None)
+        while iterator is not None:
+            if unicode(model.get_value(iterator, 0)) == variant:
+                path = model.get_path(iterator)
+                self.keyboardvariantview.get_selection().select_path(path)
+                self.keyboardvariantview.scroll_to_cell(
+                    path, use_align=True, row_align=0.5)
+                break
+            iterator = model.iter_next(iterator)
+
+    def get_keyboard_variant (self):
+        selection = self.keyboardvariantview.get_selection()
         (model, iterator) = selection.get_selected()
         if iterator is None:
             return None

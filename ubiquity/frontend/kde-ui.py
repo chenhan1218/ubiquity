@@ -115,7 +115,7 @@ class Wizard:
         
         # declare attributes
         self.distro = distro
-        self.current_keyboard = None
+        self.current_layout = None
         self.got_disk_choices = False
         self.auto_mountpoints = None
         self.resize_min_size = None
@@ -261,7 +261,7 @@ class Wizard:
         self.app.connect(self.userinterface.back, SIGNAL("clicked()"), self.on_back_clicked)
         self.app.connect(self.userinterface.cancel, SIGNAL("clicked()"), self.on_cancel_clicked)
         self.app.connect(self.userinterface.widgetStack, SIGNAL("aboutToShow(int)"), self.on_steps_switch_page)
-        self.app.connect(self.userinterface.keyboardlistview, SIGNAL("selectionChanged()"), self.on_keyboard_selected)
+        self.app.connect(self.userinterface.keyboardlayoutview, SIGNAL("selectionChanged()"), self.on_keyboard_layout_selected)
         
         self.app.connect(self.userinterface.fullname, SIGNAL("textChanged(const QString &)"), self.on_fullname_changed)
         self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.on_username_changed)
@@ -745,11 +745,14 @@ class Wizard:
         else:
             self.app.exit()
 
-    def on_keyboard_selected(self):
+    def on_keyboard_layout_selected(self):
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):
-            keyboard = self.get_keyboard()
-            if keyboard is not None:
-                self.dbfilter.apply_keyboard(keyboard)
+            layout = self.get_keyboard()
+            if layout is not None:
+                self.dbfilter.change_layout(layout)
+                # TODO cjwatson 2006-10-02: This should go away once we have
+                # a separate variant selection widget.
+                self.dbfilter.apply_keyboard(layout)
 
     def process_step(self):
         """Process and validate the results of this step."""
@@ -1593,30 +1596,42 @@ class Wizard:
         return dict(self.mountpoints)
 
     def set_keyboard_choices(self, choices):
-        self.userinterface.keyboardlistview.clear()
+        self.userinterface.keyboardlayoutview.clear()
         for choice in sorted(choices):
-            self.userinterface.keyboardlistview.insertItem( KListViewItem(self.userinterface.keyboardlistview, choice) )
+            self.userinterface.keyboardlayoutview.insertItem( KListViewItem(self.userinterface.keyboardlayoutview, choice) )
 
-        if self.current_keyboard is not None:
-            self.set_keyboard(self.current_keyboard)
+        if self.current_layout is not None:
+            self.set_keyboard(self.current_layout)
 
-    def set_keyboard (self, keyboard):
-        self.current_keyboard = keyboard
+    def set_keyboard (self, layout):
+        self.current_layout = layout
 
-        iterator = QListViewItemIterator(self.userinterface.keyboardlistview)
+        iterator = QListViewItemIterator(self.userinterface.keyboardlayoutview)
         while iterator.current():
-            if unicode(iterator.current().text(0)) == keyboard:
-                self.userinterface.keyboardlistview.setSelected(iterator.current(), True)
-                self.userinterface.keyboardlistview.ensureItemVisible(iterator.current())
+            if unicode(iterator.current().text(0)) == layout:
+                self.userinterface.keyboardlayoutview.setSelected(iterator.current(), True)
+                self.userinterface.keyboardlayoutview.ensureItemVisible(iterator.current())
                 break
             iterator += 1
 
     def get_keyboard (self):
-        selection = self.userinterface.keyboardlistview.selectedItem()
+        selection = self.userinterface.keyboardlayoutview.selectedItem()
         if selection is None:
             return None
         else:
             return unicode(selection.text(0))
+
+    def set_keyboard_variant_choices(self, choices):
+        # TODO cjwatson 2006-10-02: fill in variant selection widget
+        pass
+
+    def set_keyboard_variant(self, variant):
+        # TODO cjwatson 2006-10-02: set current variant
+        pass
+
+    def get_keyboard_variant(self):
+        # TODO cjwatson 2006-10-02: return current variant
+        return None
 
     def set_summary_text (self, text):
         i = text.find("\n")

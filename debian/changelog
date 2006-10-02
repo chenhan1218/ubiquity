@@ -13,6 +13,8 @@ ubiquity (1.1.26) UNRELEASED; urgency=low
     error on the mountpoints page if running on powerpc and there is no HFS
     partition with the boot flag set. Treat HFS partitions with the boot
     flag set as NewWorld bootstrap partitions (closes: Malone #43768).
+  * GTK frontend: Add a keyboard variant selector (closes: Malone #61729).
+    (The same needs to be done for the KDE frontend.)
 
   [ Jonathan Riddell ]
   * KDE Frontend:

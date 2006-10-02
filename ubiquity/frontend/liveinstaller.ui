@@ -665,7 +665,7 @@ Answering the questions should only take a few minutes.</string>
                             </property>
                         </column>
                         <property name="name">
-                            <cstring>keyboardlistview</cstring>
+                            <cstring>keyboardlayoutview</cstring>
                         </property>
                     </widget>
                     <widget class="QLabel" row="2" column="0" rowspan="1" colspan="4">
@@ -1900,7 +1900,7 @@ You must mount one partition on the root file system ("/"), and you must choose 
     <tabstop>language_treeview</tabstop>
     <tabstop>timezone_city_combo</tabstop>
     <tabstop>timezone_time_adjust</tabstop>
-    <tabstop>keyboardlistview</tabstop>
+    <tabstop>keyboardlayoutview</tabstop>
     <tabstop>entry1</tabstop>
     <tabstop>fullname</tabstop>
     <tabstop>username</tabstop>
