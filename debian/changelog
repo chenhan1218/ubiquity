@@ -15,6 +15,7 @@ ubiquity (1.1.26) UNRELEASED; urgency=low
     flag set as NewWorld bootstrap partitions (closes: Malone #43768).
   * GTK frontend: Add a keyboard variant selector (closes: Malone #61729).
     (The same needs to be done for the KDE frontend.)
+  * Remove old kbd-chooser component, which won't be usable any more.
 
   [ Jonathan Riddell ]
   * KDE Frontend:
