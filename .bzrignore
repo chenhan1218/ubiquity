@@ -41,6 +41,7 @@ src/.deps
 src/.libs
 src/e-map.c
 pixmaps/Makefile
+ubiquity/frontend/*.bak
 ubiquity/frontend/liveinstaller.py
 ubiquity/frontend/crashdialog.py
 ubiquity/keyboard_names.py
