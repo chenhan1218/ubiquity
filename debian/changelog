@@ -8,6 +8,10 @@ ubiquity (1.1.26) UNRELEASED; urgency=low
   * Move auxiliary autotools files to a build subdirectory.
   * Add a check to debian/rules to remind me to bump the version number in
     configure.ac.
+  * Read partition flags from gparted (>= 0.2.5-1.1ubuntu9). Display an
+    error on the mountpoints page if running on powerpc and there is no HFS
+    partition with the boot flag set. Treat HFS partitions with the boot
+    flag set as NewWorld bootstrap partitions (closes: Malone #43768).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun,  1 Oct 2006 21:40:35 +0100
 

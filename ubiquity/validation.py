@@ -34,6 +34,7 @@
 # Created by Antonio Olmo <aolmo#emergya._info> on 26 jul 2005.
 
 from string            import whitespace, uppercase
+import glob
 from ubiquity.settings import *
 
 HOSTNAME_LENGTH = 1
@@ -71,6 +72,7 @@ MOUNTPOINT_XFSROOT = 5
 MOUNTPOINT_XFSBOOT = 6
 MOUNTPOINT_UNFORMATTED = 7
 MOUNTPOINT_NEEDPOSIX = 8
+MOUNTPOINT_NONEWWORLD = 9
 
 def check_mountpoint(mountpoints, size):
 
@@ -84,7 +86,8 @@ def check_mountpoint(mountpoints, size):
             - C{MOUNTPOINT_XFSROOT} XFS used on / (with no /boot).
             - C{MOUNTPOINT_XFSBOOT} XFS used on /boot.
             - C{MOUNTPOINT_UNFORMATTED} System filesystem not reformatted.
-            - C{MOUNTPOINT_NEEDPOSIX} Non-POSIX filesystem required here."""
+            - C{MOUNTPOINT_NEEDPOSIX} Non-POSIX filesystem required here.
+            - C{MOUNTPOINT_NONEWWORLD} NewWorld boot partition missing."""
 
     import re
     result = set()
@@ -101,8 +104,11 @@ def check_mountpoint(mountpoints, size):
         root_minimum_KB = (MINIMAL_PARTITION_SCHEME['root'] +
                            MINIMAL_PARTITION_SCHEME['swap']) * 1024
 
+    if glob.glob('/lib/partman/finish.d/*newworld'):
+        result.add(MOUNTPOINT_NONEWWORLD)
+
     seen_mountpoints = set()
-    for device, (path, format, fstype) in mountpoints.items():
+    for device, (path, format, fstype, flags) in mountpoints.items():
         if path == '/':
             root = True
             root_size += float(size[device.split('/')[2]])
@@ -136,6 +142,11 @@ def check_mountpoint(mountpoints, size):
             if path in ('/', '/boot', '/home', '/opt', '/srv', '/tmp', '/usr',
                         '/usr/local', '/var'):
                 result.add(MOUNTPOINT_NEEDPOSIX)
+
+        # TODO cjwatson 2006-09-26: Duplication from
+        # partman-newworld/finish.d/newworld.
+        if fstype == 'hfs' and (flags is None or 'boot' in flags):
+            result.remove(MOUNTPOINT_NONEWWORLD)
 
     if not root:
         result.add(MOUNTPOINT_NOROOT)

@@ -266,7 +266,7 @@ def get_translations(languages=None, core_names=[]):
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
              '--config=InFd:none',
-             '--pattern=^(ubiquity|partman-basicfilesystems/bad_mountpoint|partman-partitioning|partman-target/no_root|grub-installer/bootdev)'],
+             '--pattern=^(ubiquity|partman-basicfilesystems/bad_mountpoint|partman-newworld/no_newworld|partman-partitioning|partman-target/no_root|grub-installer/bootdev)'],
             stdout=subprocess.PIPE, stderr=devnull)
         question = None
         descriptions = {}
@@ -312,7 +312,8 @@ def get_translations(languages=None, core_names=[]):
                         descriptions[lang] = value.replace('\\n', '\n')
                     # TODO cjwatson 2006-09-04: a bit of a hack to get the
                     # description and extended description separately ...
-                    if question == 'grub-installer/bootdev':
+                    if question in ('grub-installer/bootdev',
+                                    'partman-newworld/no_newworld'):
                         descriptions["extended:%s" % lang] = \
                             value.replace('\\n', '\n')
 

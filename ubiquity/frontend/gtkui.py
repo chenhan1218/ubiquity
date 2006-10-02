@@ -114,6 +114,7 @@ class Wizard:
         self.password = ''
         self.hostname_edited = False
         self.gparted_fstype = {}
+        self.gparted_flags = {}
         self.mountpoint_widgets = []
         self.size_widgets = []
         self.partition_widgets = []
@@ -935,6 +936,7 @@ class Wizard:
         """Processing gparted to mountpoints step tasks."""
 
         self.gparted_fstype = {}
+        self.gparted_flags = {}
 
         if self.gparted_subp is None:
             self.gparted_crashed()
@@ -957,6 +959,7 @@ class Wizard:
             words = gparted_reply[2:].strip().split()
             if words[0].lower() == 'format' and len(words) >= 3:
                 self.gparted_fstype[words[1]] = words[2]
+                self.gparted_flags[words[1]] = words[3:]
             gparted_reply = \
                 self.gparted_subp.stdout.readline().rstrip('\n')
         syslog.syslog('gparted replied: %s' % gparted_reply)
@@ -1098,8 +1101,11 @@ class Wizard:
                         "No partition selected for %s." % mountpoint_value)
                     break
                 else:
-                    mountpoints[partition_id] = (mountpoint_value,
-                                                 format_value, fstype)
+                    flags = None
+                    if partition_id in self.gparted_flags:
+                        flags = self.gparted_flags[partition_id]
+                    mountpoints[partition_id] = \
+                        (mountpoint_value, format_value, fstype, flags)
         else:
             self.mountpoints = mountpoints
         syslog.syslog('mountpoints: %s' % self.mountpoints)
@@ -1121,10 +1127,11 @@ class Wizard:
             # with those detected from the disk.
             validate_mountpoints = dict(self.mountpoints)
             validate_filesystems = get_filesystems(self.gparted_fstype)
-            for device, (path, format, fstype) in validate_mountpoints.items():
+            for device, (path, format, fstype,
+                         flags) in validate_mountpoints.items():
                 if fstype is None and device in validate_filesystems:
                     validate_mountpoints[device] = \
-                        (path, format, validate_filesystems[device])
+                        (path, format, validate_filesystems[device], None)
             for check in validation.check_mountpoint(validate_mountpoints,
                                                      self.size):
                 if check == validation.MOUNTPOINT_NOROOT:
@@ -1134,7 +1141,7 @@ class Wizard:
                     error_msg.append("Two file systems are assigned the same "
                                      "mount point.")
                 elif check == validation.MOUNTPOINT_BADSIZE:
-                    for mountpoint, format, fstype in \
+                    for mountpoint, format, fstype, flags in \
                             self.mountpoints.itervalues():
                         if mountpoint == 'swap':
                             min_root = MINIMAL_PARTITION_SCHEME['root']
@@ -1170,6 +1177,10 @@ class Wizard:
                                      "(/, /boot, /home, /usr, /var, etc.). "
                                      "It is usually best to mount them "
                                      "somewhere under /media/.")
+                elif check == validation.MOUNTPOINT_NONEWWORLD:
+                    error_msg.append(get_string(
+                        'partman-newworld/no_newworld',
+                        'extended:%s' % self.locale))
 
         # showing warning messages
         self.mountpoint_error_reason.set_text("\n".join(error_msg))

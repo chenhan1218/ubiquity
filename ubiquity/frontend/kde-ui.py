@@ -1103,8 +1103,12 @@ class Wizard:
                         "No partition selected for %s." % mountpoint_value)
                     break
                 else:
-                    mountpoints[partition_id] = (mountpoint_value,
-                                                 format_value, fstype)
+                    # TODO cjwatson 2006-09-26: Replace None with flags once
+                    # qtparted can export the list of flags set on formatted
+                    # filesystems (or just ignore until
+                    # ubiquity-advanced-partitioner happens!).
+                    mountpoints[partition_id] = \
+                        (mountpoint_value, format_value, fstype, None)
         else:
             self.mountpoints = mountpoints
         syslog.syslog('mountpoints: %s' % self.mountpoints)
@@ -1126,10 +1130,11 @@ class Wizard:
             # with those detected from the disk.
             validate_mountpoints = dict(self.mountpoints)
             validate_filesystems = get_filesystems(self.qtparted_fstype)
-            for device, (path, format, fstype) in validate_mountpoints.items():
+            for device, (path, format, fstype,
+                         flags) in validate_mountpoints.items():
                 if fstype is None and device in validate_filesystems:
                     validate_mountpoints[device] = \
-                        (path, format, validate_filesystems[device])
+                        (path, format, validate_filesystems[device], None)
             for check in validation.check_mountpoint(validate_mountpoints,
                                                      self.size):
                 if check == validation.MOUNTPOINT_NOROOT:
@@ -1139,7 +1144,7 @@ class Wizard:
                     error_msg.append("Two file systems are assigned the same "
                                      "mount point.")
                 elif check == validation.MOUNTPOINT_BADSIZE:
-                    for mountpoint, format, fstype in \
+                    for mountpoint, format, fstype, flags in \
                             self.mountpoints.itervalues():
                         if mountpoint == 'swap':
                             min_root = MINIMAL_PARTITION_SCHEME['root']
@@ -1175,6 +1180,10 @@ class Wizard:
                                      "(/, /boot, /home, /usr, /var, etc.). "
                                      "It is usually best to mount them "
                                      "somewhere under /media/.")
+                elif check == validation.MOUNTPOINT_NONEWWORLD:
+                    error_msg.append(get_string(
+                        'partman-newworld/no_newworld',
+                        'extended:%s' % self.locale))
 
         # showing warning messages
         self.userinterface.mountpoint_error_reason.setText("\n".join(error_msg))

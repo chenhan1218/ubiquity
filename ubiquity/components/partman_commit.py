@@ -62,7 +62,7 @@ class PartmanCommit(FilteredCommand):
                 (disk, p_id) = partitions[device]
                 parted.select_disk(disk)
                 if device in mountpoints:
-                    (path, format, fstype) = mountpoints[device]
+                    (path, format, fstype, flags) = mountpoints[device]
                     if path == 'swap':
                         parted.write_part_entry(p_id, 'method', 'swap\n')
                         if format:
@@ -71,7 +71,15 @@ class PartmanCommit(FilteredCommand):
                             parted.remove_part_entry(p_id, 'format')
                         parted.remove_part_entry(p_id, 'use_filesystem')
                     else:
-                        if format:
+                        if (fstype == 'hfs' and
+                            flags is not None and 'boot' in flags):
+                            parted.write_part_entry(
+                                p_id, 'method', 'newworld\n')
+                            parted.write_part_entry(
+                                p_id, 'filesystem', 'newworld')
+                            parted.remove_part_entry(p_id, 'format')
+                            path = None
+                        elif format:
                             parted.write_part_entry(p_id, 'method', 'format\n')
                             parted.write_part_entry(p_id, 'format', '')
                             if fstype is None:
@@ -96,7 +104,10 @@ class PartmanCommit(FilteredCommand):
                                 parted.write_part_entry(
                                     p_id, 'detected_filesystem', fstype)
                         parted.write_part_entry(p_id, 'use_filesystem', '')
-                        parted.write_part_entry(p_id, 'mountpoint', path)
+                        if path is not None:
+                            parted.write_part_entry(p_id, 'mountpoint', path)
+                        else:
+                            parted.remove_part_entry(p_id, 'mountpoint')
                 elif (parted.has_part_entry(p_id, 'method') and
                       parted.readline_part_entry(p_id, 'method') == 'newworld'):
                     # Leave existing newworld boot partitions alone.
