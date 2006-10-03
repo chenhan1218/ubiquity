@@ -21,6 +21,7 @@ ubiquity (1.1.26) UNRELEASED; urgency=low
     interleaved with DEBCONF_DEBUG=developer output.
   * Throw away stderr from gnome-screensaver-command; it outputs far too
     much rubbish and confuses users.
+  * KDE frontend: Fix reboot dialog button handling (closes: Malone #62765).
 
   [ Jonathan Riddell ]
   * KDE Frontend:

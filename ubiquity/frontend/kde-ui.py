@@ -598,8 +598,8 @@ class Wizard:
 
         quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, rebootButtonText, quitButtonText)
 
-        if quitAnswer == 1:
-            self.reboot();
+        if quitAnswer == 0:
+            self.reboot()
 
     def reboot(self, *args):
         """reboot the system after installing process."""
