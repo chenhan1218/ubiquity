@@ -1,4 +1,4 @@
-ubiquity (1.1.26) UNRELEASED; urgency=low
+ubiquity (1.1.26) edgy; urgency=low
 
   [ Colin Watson ]
   * Build-depend on po-debconf (>= 1.0) for new translation-handling
@@ -30,7 +30,7 @@ ubiquity (1.1.26) UNRELEASED; urgency=low
   * KDE Frontend:
    - Add ensureItemVisible in set_keyboard (closes: Malone #61710).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sun,  1 Oct 2006 21:40:35 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue,  3 Oct 2006 17:04:38 +0100
 
 ubiquity (1.1.25) edgy; urgency=high
 
