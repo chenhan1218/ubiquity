@@ -3,6 +3,8 @@ oem-config (1.7) UNRELEASED; urgency=low
   * Add oem-config-udeb/frontend question, defaulting to gtk; preseed this
     to install a different oem-config frontend on the target system (closes:
     Malone #62777).
+  * Wait more or less properly by means of SIGUSR1 for the X server to start
+    up, rather than arbitrarily sleeping for five seconds.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue,  3 Oct 2006 19:03:26 +0100
 

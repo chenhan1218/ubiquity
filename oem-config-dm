@@ -10,10 +10,14 @@ sys.path.insert(0, '/usr/lib/oem-config')
 
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
 
+class XStartupError(EnvironmentError):
+    pass
+
 class DM:
     def __init__(self, vt, display):
         self.vt = vt
         self.display = display
+        self.server_started = False
 
         # Try to import the frontend; we won't actually use it (yet), but
         # this lets us find out which window manager etc. to launch.
@@ -29,15 +33,31 @@ class DM:
             raise AttributeError, ('No frontend available; tried %s' %
                                    ', '.join(frontend_names))
 
+    def sigusr1_handler(self, signum, frame):
+        self.server_started = True
+
+    def server_preexec(self):
+        signal.signal(signal.SIGUSR1, signal.SIG_IGN)
+
     def run(self, *program):
         null = open('/dev/null', 'w')
         logfile = open('/var/log/oem-config.log', 'w')
 
-        server = subprocess.Popen(['X', '-br', '-ac', '-noreset', self.vt, self.display], stdin=null, stdout=logfile, stderr=logfile)
+        signal.signal(signal.SIGUSR1, self.sigusr1_handler)
+        signal.signal(signal.SIGTTIN, signal.SIG_IGN)
+        signal.signal(signal.SIGTTOU, signal.SIG_IGN)
+        server = subprocess.Popen(['X', '-br', '-ac', '-noreset', self.vt, self.display], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.server_preexec)
 
         os.environ['DISPLAY'] = self.display
 
-        time.sleep(5)
+        # Really we should select on a pipe or something, but it's not worth
+        # the effort for now.
+        timeout = 60
+        while not self.server_started:
+            if timeout == 0:
+                raise XStartupError, "X server failed to start after 60 seconds"
+            time.sleep(1)
+            timeout -= 1
 
         if self.frontend == 'gtk-ui':
             if os.access(background, os.R_OK):
