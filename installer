@@ -136,6 +136,15 @@ def main():
             os.environ['UBIQUITY_DEBUG_CORE'] = '1'
         if 'DEBCONF_DEBUG' not in os.environ:
             os.environ['DEBCONF_DEBUG'] = 'developer|filter'
+        # The frontend should take care of displaying a helpful message if
+        # we are being run without root privileges.
+        try:
+            sys.stderr = open('/var/log/installer/debug', 'a', 1)
+            os.dup2(sys.stderr.fileno(), 2)
+            print >>sys.stderr, "Ubiquity %s" % VERSION)
+        except IOError, err:
+            if err.errno != errno.EACCES:
+                raise
 
     # Default to enabling internal (non-debconf) debugging.
     if 'UBIQUITY_DEBUG_CORE' not in os.environ:

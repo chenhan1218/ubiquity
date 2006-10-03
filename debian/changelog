@@ -16,6 +16,7 @@ ubiquity (1.1.26) UNRELEASED; urgency=low
   * GTK frontend: Add a keyboard variant selector (closes: Malone #61729).
     (The same needs to be done for the KDE frontend.)
   * Remove old kbd-chooser component, which won't be usable any more.
+  * Send stderr to /var/log/installer/debug if UBIQUITY_DEBUG is set.
 
   [ Jonathan Riddell ]
   * KDE Frontend:
