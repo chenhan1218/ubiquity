@@ -22,6 +22,9 @@ ubiquity (1.1.26) UNRELEASED; urgency=low
   * GTK frontend: Throw away stderr from gnome-screensaver-command; it
     outputs far too much rubbish and confuses users.
   * KDE frontend: Fix reboot dialog button handling (closes: Malone #62765).
+  * Replace the rather jittery time-remaining message while copying files
+    with a message that appears when there's less than a minute remaining
+    (closes: Malone #61514).
 
   [ Jonathan Riddell ]
   * KDE Frontend:

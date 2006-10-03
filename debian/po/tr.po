@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-07 18:36+0100\n"
+"POT-Creation-Date: 2006-10-03 17:03+0100\n"
 "PO-Revision-Date: 2006-05-16 00:28+0000\n"
 "Last-Translator: Alperen Yusuf Aybar <alperen@aybar.biz>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -416,7 +416,8 @@ msgstr "Dosyalar kopyalanıyor..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-msgid "Copying files (${TIME} remaining)..."
+#, fuzzy
+msgid "Copying files (less than a minute remaining)..."
 msgstr "Dosyalar kopyalanıyor (${TIME} kaldı)..."
 
 #. Type: text

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-07 18:36+0100\n"
+"POT-Creation-Date: 2006-10-03 17:03+0100\n"
 "PO-Revision-Date: 2006-04-20 06:02+0000\n"
 "Last-Translator: Serge Leblanc <serge.leblanc@wanadoo.fr>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
@@ -407,7 +407,8 @@ msgstr "Kopianta dosierojn..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-msgid "Copying files (${TIME} remaining)..."
+#, fuzzy
+msgid "Copying files (less than a minute remaining)..."
 msgstr "Kopianta dosierojn (${TIME} restas)..."
 
 #. Type: text

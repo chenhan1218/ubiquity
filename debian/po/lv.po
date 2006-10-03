@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-07 18:36+0100\n"
+"POT-Creation-Date: 2006-10-03 17:03+0100\n"
 "PO-Revision-Date: 2006-09-20 20:13+0000\n"
 "Last-Translator: mixat <miks.latvis@gmail.com>\n"
 "Language-Team: locale@laka.lv <locale@laka.lv>\n"
@@ -415,7 +415,8 @@ msgstr "Kopēju failus..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-msgid "Copying files (${TIME} remaining)..."
+#, fuzzy
+msgid "Copying files (less than a minute remaining)..."
 msgstr "Kopē failus (${TIME} atlicis)..."
 
 #. Type: text

@@ -495,10 +495,9 @@ class Install:
                     speed = ((times[-1][1] - times[0][1]) /
                              (times[-1][0] - times[0][0]))
                     time_remaining = int((total_size - copied_size) / speed)
-                    time_str = "%d:%02d" % divmod(time_remaining, 60)
-                    self.db.subst('ubiquity/install/copying_time',
-                                  'TIME', time_str)
-                    self.db.progress('INFO', 'ubiquity/install/copying_time')
+                    if time_remaining < 60:
+                        self.db.progress(
+                            'INFO', 'ubiquity/install/copying_minute')
 
         # Apply timestamps to all directories now that the items within them
         # have been copied.

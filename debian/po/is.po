@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-07 18:36+0100\n"
+"POT-Creation-Date: 2006-10-03 17:03+0100\n"
 "PO-Revision-Date: 2006-09-07 20:43+0000\n"
 "Last-Translator: David Steinn Geirsson <davidgeirs@gmail.com>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
@@ -412,7 +412,8 @@ msgstr "Afrita skrár..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-msgid "Copying files (${TIME} remaining)..."
+#, fuzzy
+msgid "Copying files (less than a minute remaining)..."
 msgstr "Afrita skrár (${TIME} eftir)..."
 
 #. Type: text

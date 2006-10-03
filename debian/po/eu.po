@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-07 18:36+0100\n"
+"POT-Creation-Date: 2006-10-03 17:03+0100\n"
 "PO-Revision-Date: 2006-09-20 15:40+0000\n"
 "Last-Translator: julen <julen.ugalde@gmail.com>\n"
 "Language-Team: librezale <librezale@librezale.org>\n"
@@ -419,7 +419,8 @@ msgstr "Fitxategiak kopiatzen..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-msgid "Copying files (${TIME} remaining)..."
+#, fuzzy
+msgid "Copying files (less than a minute remaining)..."
 msgstr "Fitxategiak kopiatzen (falta da ${TIME}...)"
 
 #. Type: text

@@ -262,9 +262,9 @@ Template: ubiquity/install/copying
 Type: text
 _Description: Copying files...
 
-Template: ubiquity/install/copying_time
+Template: ubiquity/install/copying_minute
 Type: text
-_Description: Copying files (${TIME} remaining)...
+_Description: Copying files (less than a minute remaining)...
 
 Template: ubiquity/install/log_files
 Type: text

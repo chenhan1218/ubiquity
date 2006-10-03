@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-07 18:36+0100\n"
+"POT-Creation-Date: 2006-10-03 17:03+0100\n"
 "PO-Revision-Date: 2006-05-25 18:42+0000\n"
 "Last-Translator: Roys Hengwatanakul <roysheng@msn.com>\n"
 "Language-Team: Thai <th@li.org>\n"
@@ -405,7 +405,8 @@ msgstr "กำลังคัดลอกไฟล์"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-msgid "Copying files (${TIME} remaining)..."
+#, fuzzy
+msgid "Copying files (less than a minute remaining)..."
 msgstr "กำลังคัดลองไฟล์ (ต้องใช้เวลาอีก ${TIME})..."
 
 #. Type: text
