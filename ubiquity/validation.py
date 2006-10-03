@@ -96,7 +96,7 @@ def check_mountpoint(mountpoints, size):
     xfs_root = False
     xfs_boot = False
 
-    for mountpoint, format, fstype in mountpoints.itervalues():
+    for mountpoint, format, fstype, flags in mountpoints.itervalues():
         if mountpoint == 'swap':
             root_minimum_KB = MINIMAL_PARTITION_SCHEME['root'] * 1024
             break
