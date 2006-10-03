@@ -19,6 +19,8 @@ ubiquity (1.1.26) UNRELEASED; urgency=low
   * Send stderr to /var/log/installer/debug if UBIQUITY_DEBUG is set.
   * Send DEBCONF_DEBUG=filter output to stderr, not syslog; it should be
     interleaved with DEBCONF_DEBUG=developer output.
+  * Throw away stderr from gnome-screensaver-command; it outputs far too
+    much rubbish and confuses users.
 
   [ Jonathan Riddell ]
   * KDE Frontend:
