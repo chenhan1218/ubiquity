@@ -17,6 +17,8 @@ ubiquity (1.1.26) UNRELEASED; urgency=low
     (The same needs to be done for the KDE frontend.)
   * Remove old kbd-chooser component, which won't be usable any more.
   * Send stderr to /var/log/installer/debug if UBIQUITY_DEBUG is set.
+  * Send DEBCONF_DEBUG=filter output to stderr, not syslog; it should be
+    interleaved with DEBCONF_DEBUG=developer output.
 
   [ Jonathan Riddell ]
   * KDE Frontend:
