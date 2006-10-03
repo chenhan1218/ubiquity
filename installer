@@ -141,7 +141,7 @@ def main():
         try:
             sys.stderr = open('/var/log/installer/debug', 'a', 1)
             os.dup2(sys.stderr.fileno(), 2)
-            print >>sys.stderr, "Ubiquity %s" % VERSION)
+            print >>sys.stderr, "Ubiquity %s" % VERSION
         except IOError, err:
             if err.errno != errno.EACCES:
                 raise

@@ -1,3 +1,9 @@
+ubiquity (1.1.27) UNRELEASED; urgency=low
+
+  * Fix syntax error in /usr/bin/ubiquity. Whoops!
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue,  3 Oct 2006 22:53:41 +0100
+
 ubiquity (1.1.26) edgy; urgency=low
 
   [ Colin Watson ]
