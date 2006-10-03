@@ -5,8 +5,11 @@ import sys
 import subprocess
 import time
 import signal
+import imp
 
 sys.path.insert(0, '/usr/lib/oem-config')
+
+import oem_config.frontend
 
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
 
@@ -19,16 +22,19 @@ class DM:
         self.display = display
         self.server_started = False
 
-        # Try to import the frontend; we won't actually use it (yet), but
-        # this lets us find out which window manager etc. to launch.
+        # Look for a frontend module; we won't actually use it (yet), but
+        # this lets us find out which window manager etc. to launch. Be
+        # careful that importing this here will cause the underlying library
+        # to try to talk to the X server, which won't go well.
         frontend_names = ['gtk-ui', 'kde-ui']
         self.frontend = None
-        mod = __import__('oem_config.frontend', globals(), locals(),
-                         frontend_names)
         for f in frontend_names:
-            if hasattr(mod, f):
+            try:
+                imp.find_module(f, oem_config.frontend.__path__)
                 self.frontend = f
                 break
+            except ImportError:
+                pass
         else:
             raise AttributeError, ('No frontend available; tried %s' %
                                    ', '.join(frontend_names))
