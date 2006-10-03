@@ -1,4 +1,4 @@
-oem-config (1.7) UNRELEASED; urgency=low
+oem-config (1.7) edgy; urgency=low
 
   * Add oem-config-udeb/frontend question, defaulting to gtk; preseed this
     to install a different oem-config frontend on the target system (closes:
@@ -10,7 +10,7 @@ oem-config (1.7) UNRELEASED; urgency=low
     server at import time and get very confused when it predictably isn't
     there (closes: Malone #62814).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue,  3 Oct 2006 19:03:26 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue,  3 Oct 2006 22:04:48 +0100
 
 oem-config (1.6) edgy; urgency=low
 
