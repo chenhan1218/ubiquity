@@ -1,6 +1,7 @@
 ubiquity (1.1.28) UNRELEASED; urgency=low
 
   * KDE frontend: Ensure that the selected language is visible.
+  * KDE frontend: Add a keyboard variant selector.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed,  4 Oct 2006 09:40:40 +0100
 

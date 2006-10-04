@@ -147,7 +147,7 @@ class ConsoleSetup(FilteredCommand):
 
         return (model, real_layout, real_variant, real_options)
 
-    def apply_keyboard(self, layout, variant=''):
+    def apply_keyboard(self, layout, variant):
         model = self.db.get('console-setup/modelcode')
 
         if layout not in keyboard_names.layouts:
@@ -155,9 +155,7 @@ class ConsoleSetup(FilteredCommand):
             return
         layout = keyboard_names.layouts[layout]
 
-        if variant == '':
-            pass
-        elif variant in keyboard_names.variants[layout]:
+        if variant in keyboard_names.variants[layout]:
             variant = keyboard_names.variants[layout][variant]
         else:
             self.debug("Unknown keyboard variant '%s' for layout '%s'" %

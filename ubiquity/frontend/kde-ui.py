@@ -262,6 +262,7 @@ class Wizard:
         self.app.connect(self.userinterface.cancel, SIGNAL("clicked()"), self.on_cancel_clicked)
         self.app.connect(self.userinterface.widgetStack, SIGNAL("aboutToShow(int)"), self.on_steps_switch_page)
         self.app.connect(self.userinterface.keyboardlayoutview, SIGNAL("selectionChanged()"), self.on_keyboard_layout_selected)
+        self.app.connect(self.userinterface.keyboardvariantview, SIGNAL("selectionChanged()"), self.on_keyboard_variant_selected)
         
         self.app.connect(self.userinterface.fullname, SIGNAL("textChanged(const QString &)"), self.on_fullname_changed)
         self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.on_username_changed)
@@ -749,10 +750,15 @@ class Wizard:
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):
             layout = self.get_keyboard()
             if layout is not None:
+                self.current_layout = layout
                 self.dbfilter.change_layout(layout)
-                # TODO cjwatson 2006-10-02: This should go away once we have
-                # a separate variant selection widget.
-                self.dbfilter.apply_keyboard(layout)
+
+    def on_keyboard_variant_selected(self):
+        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+            layout = self.get_keyboard()
+            variant = self.get_keyboard_variant()
+            if layout is not None and variant is not None:
+                self.dbfilter.apply_keyboard(layout, variant)
 
     def process_step(self):
         """Process and validate the results of this step."""
@@ -1623,16 +1629,24 @@ class Wizard:
             return unicode(selection.text(0))
 
     def set_keyboard_variant_choices(self, choices):
-        # TODO cjwatson 2006-10-02: fill in variant selection widget
-        pass
+        self.userinterface.keyboardvariantview.clear()
+        for choice in sorted(choices):
+            self.userinterface.keyboardvariantview.insertItem( KListViewItem(self.userinterface.keyboardvariantview, choice) )
 
     def set_keyboard_variant(self, variant):
-        # TODO cjwatson 2006-10-02: set current variant
-        pass
+        iterator = QListViewItemIterator(self.userinterface.keyboardvariantview)
+        while iterator.current():
+            if unicode(iterator.current().text(0)) == variant:
+                self.userinterface.keyboardvariantview.setSelected(iterator.current(), True)
+                self.userinterface.keyboardvariantview.ensureItemVisible(iterator.current())
+            iterator += 1
 
     def get_keyboard_variant(self):
-        # TODO cjwatson 2006-10-02: return current variant
-        return None
+        selection = self.userinterface.keyboardvariantview.selectedItem()
+        if selection is None:
+            return None
+        else:
+            return unicode(selection.text(0))
 
     def set_summary_text (self, text):
         i = text.find("\n")
