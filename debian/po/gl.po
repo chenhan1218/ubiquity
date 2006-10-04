@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-10-03 17:03+0100\n"
+"POT-Creation-Date: 2006-10-04 16:48+0100\n"
 "PO-Revision-Date: 2006-05-28 14:48+0000\n"
 "Last-Translator: Adrian Souto Moure <xouto69@gmail.com>\n"
 "Language-Team: Galego <trasno@ceu.fi.udc.es>\n"
@@ -416,125 +416,186 @@ msgstr "Copiando arquivos..."
 msgid "Copying files (less than a minute remaining)..."
 msgstr "Copiando arquivos (Queda ${TIME})"
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:56001
+msgid "Failed to copy files; faulty CD/DVD?"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001 ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
+msgid "The installer encountered an error copying files to the hard disk:"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive. It may "
+"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
+"the CD/DVD drive lens (cleaning kits are often available from electronics "
+"suppliers)."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:57001
+msgid "Failed to copy files; faulty hard disk?"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:57001
+msgid ""
+"This particular error is often due to a faulty hard disk. It may help to "
+"check whether the hard disk is old and in need of replacement, or to move "
+"the system to a cooler environment."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:58001
+msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+msgstr ""
+
+#. Type: error
+#. Description
+#. This is used when we don't know whether the CD/DVD or the hard disk is at
+#. fault.
+#: ../ubiquity.templates:58001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive, or a "
+"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
+"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+"available from electronics suppliers), to check whether the hard disk is old "
+"and in need of replacement, or to move the system to a cooler environment."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:59001
 msgid "Copying installation logs..."
 msgstr "Copiando rexistros de instalación..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:60001
 msgid "Running ${SCRIPT}..."
 msgstr "A executar ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:61001
 msgid "Configuring system locales..."
 msgstr "Configurando redes do sistema..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:62001
 msgid "Configuring apt..."
 msgstr "Configurando apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:63001
 msgid "Configuring time zone..."
 msgstr "Configurando fuso horario..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:64001
 msgid "Configuring keyboard..."
 msgstr "Configurando teclado..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:65001
 msgid "Creating user..."
 msgstr "Creando usuario..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:66001
 #, fuzzy
 msgid "Configuring hardware..."
 msgstr "A configurar a rede..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:67001
 msgid "Configuring network..."
 msgstr "A configurar a rede..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:68001
 msgid "Setting computer name..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:69001
 #, fuzzy
 msgid "Configuring boot loader..."
 msgstr "A configurar a rede..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:70001
 msgid "Removing extra packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:71001
 msgid "Checking for packages to remove..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:72001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:73001
 msgid "Downloading package lists..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:74001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:76001
 msgid "Error installing ${PACKAGE}"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:77001
 msgid "Error removing ${PACKAGE}"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:78001
 msgid "Installing language packs"
 msgstr "Instalando os paquetes de idioma..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:79001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Descargando paquetes de idioma (quedan ${TIME})"
 

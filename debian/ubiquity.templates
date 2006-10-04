@@ -266,6 +266,49 @@ Template: ubiquity/install/copying_minute
 Type: text
 _Description: Copying files (less than a minute remaining)...
 
+Template: ubiquity/install/copying_error/cd_fault
+Type: error
+#flag:translate!:3
+_Description: Failed to copy files; faulty CD/DVD?
+ The installer encountered an error copying files to the hard disk:
+ .
+ ${ERROR}
+ .
+ This particular error is often due to a faulty CD/DVD disk or drive. It may
+ help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean
+ the CD/DVD drive lens (cleaning kits are often available from electronics
+ suppliers).
+
+Template: ubiquity/install/copying_error/hd_fault
+Type: error
+#flag:translate!:3
+_Description: Failed to copy files; faulty hard disk?
+ The installer encountered an error copying files to the hard disk:
+ .
+ ${ERROR}
+ .
+ This particular error is often due to a faulty hard disk. It may help to
+ check whether the hard disk is old and in need of replacement, or to move
+ the system to a cooler environment.
+
+Template: ubiquity/install/copying_error/cd_hd_fault
+Type: error
+#flag:translate!:3
+#flag:comment:4
+# This is used when we don't know whether the CD/DVD or the hard disk is at
+# fault.
+_Description: Failed to copy files; faulty CD/DVD or hard disk?
+ The installer encountered an error copying files to the hard disk:
+ .
+ ${ERROR}
+ .
+ This particular error is often due to a faulty CD/DVD disk or drive, or a
+ faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a
+ lower speed, to clean the CD/DVD drive lens (cleaning kits are often
+ available from electronics suppliers), to check whether the hard disk is
+ old and in need of replacement, or to move the system to a cooler
+ environment.
+
 Template: ubiquity/install/log_files
 Type: text
 _Description: Copying installation logs...

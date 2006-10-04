@@ -615,7 +615,10 @@ class Wizard:
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
             self.installing = False
-            if os.path.exists('/var/lib/ubiquity/install.trace'):
+            if ret == 3:
+                # error already handled by Install
+                sys.exit(ret)
+            elif os.path.exists('/var/lib/ubiquity/install.trace'):
                 tbfile = open('/var/lib/ubiquity/install.trace')
                 realtb = tbfile.read()
                 tbfile.close()

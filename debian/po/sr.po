@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-10-03 17:03+0100\n"
+"POT-Creation-Date: 2006-10-04 16:48+0100\n"
 "PO-Revision-Date: 2006-06-21 10:27+0000\n"
 "Last-Translator: Aleksandar Selaković <seal71@gmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -413,122 +413,183 @@ msgstr "Kopiram datoteke..."
 msgid "Copying files (less than a minute remaining)..."
 msgstr "Kopiram datoteke (${TIME} vremena ostalo)..."
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:56001
-msgid "Copying installation logs..."
-msgstr "Kopiram instalacione beleške..."
+msgid "Failed to copy files; faulty CD/DVD?"
+msgstr ""
 
-#. Type: text
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001 ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
+msgid "The installer encountered an error copying files to the hard disk:"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive. It may "
+"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
+"the CD/DVD drive lens (cleaning kits are often available from electronics "
+"suppliers)."
+msgstr ""
+
+#. Type: error
 #. Description
 #: ../ubiquity.templates:57001
-msgid "Running ${SCRIPT}..."
-msgstr "Pokrećem ${SCRIPT}..."
+msgid "Failed to copy files; faulty hard disk?"
+msgstr ""
 
-#. Type: text
+#. Type: error
+#. Description
+#: ../ubiquity.templates:57001
+msgid ""
+"This particular error is often due to a faulty hard disk. It may help to "
+"check whether the hard disk is old and in need of replacement, or to move "
+"the system to a cooler environment."
+msgstr ""
+
+#. Type: error
 #. Description
 #: ../ubiquity.templates:58001
-msgid "Configuring system locales..."
+msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+msgstr ""
+
+#. Type: error
+#. Description
+#. This is used when we don't know whether the CD/DVD or the hard disk is at
+#. fault.
+#: ../ubiquity.templates:58001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive, or a "
+"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
+"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+"available from electronics suppliers), to check whether the hard disk is old "
+"and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
+msgid "Copying installation logs..."
+msgstr "Kopiram instalacione beleške..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:60001
+msgid "Running ${SCRIPT}..."
+msgstr "Pokrećem ${SCRIPT}..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:61001
+msgid "Configuring system locales..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:62001
 msgid "Configuring apt..."
 msgstr "Podešavam apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:63001
 msgid "Configuring time zone..."
 msgstr "Podešavam vremensku zonu..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:64001
 msgid "Configuring keyboard..."
 msgstr "Podešavam tastaturu..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:65001
 msgid "Creating user..."
 msgstr "Pravim korisnika..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:66001
 msgid "Configuring hardware..."
 msgstr "Podešavam fizičke komponente..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:67001
 msgid "Configuring network..."
 msgstr "Podešavam mrežu..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:68001
 msgid "Setting computer name..."
 msgstr "Postavljam ime računara..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:69001
 msgid "Configuring boot loader..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:70001
 msgid "Removing extra packages..."
 msgstr "Uklanjam dodatne pakete..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:71001
 msgid "Checking for packages to remove..."
 msgstr "Proveravam pakete za uklanjanje..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:72001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Preuzimam pakete (${TIME} preostalo)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:73001
 msgid "Downloading package lists..."
 msgstr "Preuzimam spisak paketa..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:74001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Preuzimam spisak paketa (${TIME} preostalo)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:76001
 msgid "Error installing ${PACKAGE}"
 msgstr "Greška prilikom instalacije ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:77001
 msgid "Error removing ${PACKAGE}"
 msgstr "Greška prilikom uklanjanja ${PACKAGE}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:78001
 msgid "Installing language packs"
 msgstr "Instaliram jezičke pakete"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:79001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Preuzimam jezičke pakete (${TIME} preostalo)..."

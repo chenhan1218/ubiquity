@@ -302,7 +302,27 @@ class Install:
 
             self.db.progress('SET', 1)
             self.db.progress('REGION', 1, 75)
-            self.copy_all()
+            try:
+                self.copy_all()
+            except OSError, e:
+                if e.errno in (errno.ENOENT, errno.EIO, errno.ENOTDIR,
+                               errno.EROFS):
+                    if e.filename is None:
+                        error_template = 'cd_hd_fault'
+                    elif e.filename.startswith('/target'):
+                        error_template = 'hd_fault'
+                    else:
+                        error_template = 'cd_fault'
+                    error_template = ('ubiquity/install/copying_error/%s' %
+                                      error_template)
+                    self.db.subst(error_template, 'ERROR', str(e))
+                    self.db.input('critical', error_template)
+                    self.db.go()
+                    # Exit code 3 signals to the frontend that we have
+                    # handled this error.
+                    sys.exit(3)
+                else:
+                    raise
 
             self.db.progress('SET', 75)
             self.db.progress('REGION', 75, 76)
@@ -437,11 +457,6 @@ class Install:
         times = [(time_start, copied_size)]
         long_enough = False
         time_last_update = time_start
-
-        # TODO cjwatson 2006-09-18: Handle certain types of copying errors
-        # and provide possible explanations. For example:
-        #   * ENOENT, ENOTDIR, EIO: CD or hard disk faulty
-        #   * EROFS: kernel got bored of errors and remounted read-only
 
         old_umask = os.umask(0)
         for path in files:

@@ -3,6 +3,10 @@ ubiquity (1.1.28) UNRELEASED; urgency=low
   * KDE frontend: Ensure that the selected language is visible.
   * KDE frontend: Add a keyboard variant selector.
   * Incorporate user-setup reserved usernames fix (closes: Malone #47861).
+  * Catch ENOENT, EIO, ENOTDIR, and EROFS while copying files, try to figure
+    out what filename they relate to, and display a useful error message
+    explaining that this is probably a CD or hard disk fault (as
+    appropriate) and how to deal with this. Closes about a million bugs.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed,  4 Oct 2006 09:40:40 +0100
 
