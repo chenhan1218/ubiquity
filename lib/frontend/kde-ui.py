@@ -133,6 +133,7 @@ class Frontend:
             index = index + 1
 
     def set_country_choices(self, choice_map):
+        self.loc_list=[]
         self.country_choice_map = dict(choice_map)
         choices = choice_map.keys()
         choices.sort()
@@ -144,7 +145,7 @@ class Frontend:
     def set_country(self, country):
         index = 0
         while index < len(self.loc_list):
-            if unicode(self.loc_list[index]) == country:
+            if (unicode(self.loc_list[index]) == country) or (unicode(self.country_choice_map[self.loc_list[index]]) == country):
                 self.userinterface.location_combo.setCurrentItem(index)
                 break
             index = index + 1
