@@ -6,6 +6,9 @@ set -e
 if getent passwd oem >/dev/null; then
 	deluser --quiet --remove-home oem || true
 fi
+# KDM stores the default user here, and apparently gets upset that we've
+# just removed its previous default user.
+rm -f /var/lib/kdm/kdmsts
 # Revert to creating a user at uid 1000.
 echo RESET passwd/user-uid | debconf-communicate >/dev/null
 # These two templates have been preseeded, which does nasty things to their
