@@ -3,7 +3,8 @@ set -e
 
 . /usr/share/debconf/confmodule
 
-apt-install oem-config
+db_get oem-config-udeb/frontend
+apt-install "oem-config${RET:+-$RET}"
 
 db_input high oem-config-udeb/instructions || true
 db_go || true

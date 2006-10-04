@@ -5,40 +5,68 @@ import sys
 import subprocess
 import time
 import signal
+import imp
+
+sys.path.insert(0, '/usr/lib/oem-config')
+
+import oem_config.frontend
 
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
+
+class XStartupError(EnvironmentError):
+    pass
 
 class DM:
     def __init__(self, vt, display):
         self.vt = vt
         self.display = display
+        self.server_started = False
 
-        # Try to import the frontend; we won't actually use it (yet), but
-        # this lets us find out which window manager etc. to launch.
-        frontend_names = ['gtk-ui', 'kde-ui'])
+        # Look for a frontend module; we won't actually use it (yet), but
+        # this lets us find out which window manager etc. to launch. Be
+        # careful that importing this here will cause the underlying library
+        # to try to talk to the X server, which won't go well.
+        frontend_names = ['gtk-ui', 'kde-ui']
         self.frontend = None
-        mod = __import__('oem_config.frontend', globals(), locals(),
-                         frontend_names)
         for f in frontend_names:
-            if hasattr(mod, f):
+            try:
+                imp.find_module(f, oem_config.frontend.__path__)
                 self.frontend = f
                 break
+            except ImportError:
+                pass
         else:
             raise AttributeError, ('No frontend available; tried %s' %
                                    ', '.join(frontend_names))
+
+    def sigusr1_handler(self, signum, frame):
+        self.server_started = True
+
+    def server_preexec(self):
+        signal.signal(signal.SIGUSR1, signal.SIG_IGN)
 
     def run(self, *program):
         null = open('/dev/null', 'w')
         logfile = open('/var/log/oem-config.log', 'w')
 
-        server = subprocess.Popen(['X', '-br', '-ac', '-noreset', self.vt, self.display], stdin=null, stdout=logfile, stderr=logfile)
+        signal.signal(signal.SIGUSR1, self.sigusr1_handler)
+        signal.signal(signal.SIGTTIN, signal.SIG_IGN)
+        signal.signal(signal.SIGTTOU, signal.SIG_IGN)
+        server = subprocess.Popen(['X', '-br', '-ac', '-noreset', self.vt, self.display], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.server_preexec)
 
         os.environ['DISPLAY'] = self.display
 
-        time.sleep(5)
+        # Really we should select on a pipe or something, but it's not worth
+        # the effort for now.
+        timeout = 60
+        while not self.server_started:
+            if timeout == 0:
+                raise XStartupError, "X server failed to start after 60 seconds"
+            time.sleep(1)
+            timeout -= 1
 
-        if os.access(background, os.R_OK):
-            if self.frontend == 'gtk-ui':
+        if self.frontend == 'gtk-ui':
+            if os.access(background, os.R_OK):
                 import gtk
                 pixbuf = gtk.gdk.pixbuf_new_from_file(background)
                 root = gtk.gdk.get_default_root_window()
@@ -48,9 +76,13 @@ class DM:
                 root.set_back_pixmap(pixmap, False)
                 root.clear()
                 gtk.gdk.flush()
+        elif self.frontend == 'kde-ui':
+            bg = subprocess.Popen(['/usr/bin/xsetroot', '-display', ':0', '-solid', 'lightblue'])
 
         if self.frontend == 'gtk-ui':
             wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
+        elif self.frontend == 'kde-ui':
+            wm = subprocess.Popen('/usr/bin/kwin', stdin=null, stdout=logfile, stderr=logfile)
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()

@@ -19,3 +19,8 @@ _Description: Ready for end-user configuration
  oem-config-prepare'. This will cause the system to delete the temporary
  'oem' user and ask the end user various configuration questions the next
  time it boots.
+
+Template: oem-config-udeb/frontend
+Type: string
+Default: gtk
+Description: frontend package to install (gtk or kde)
