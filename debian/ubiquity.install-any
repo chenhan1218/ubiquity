@@ -69,5 +69,6 @@ ubiquity/components/timezone_apply.py usr/lib/ubiquity/ubiquity/components
 
 # user-setup
 d-i/source/user-setup/functions.sh usr/lib/ubiquity/user-setup
+d-i/source/user-setup/reserved-usernames usr/lib/ubiquity/user-setup
 ubiquity/components/usersetup.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/usersetup_apply.py usr/lib/ubiquity/ubiquity/components
