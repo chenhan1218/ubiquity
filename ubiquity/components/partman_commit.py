@@ -35,7 +35,8 @@ class PartmanCommit(FilteredCommand):
                 {'PARTMAN_UPDATE_BEFORE_COMMIT': '1'})
 
     def error(self, priority, question):
-        self.frontend.error_dialog(self.description(question))
+        self.frontend.error_dialog(self.description(question),
+                                   self.extended_description(question))
         self.succeeded = False
         # Unlike a normal error handler, we want to force exit.
         self.done = True

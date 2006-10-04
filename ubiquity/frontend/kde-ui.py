@@ -1697,10 +1697,10 @@ class Wizard:
             self.backup = True
             self.installing = False
 
-    def error_dialog (self, msg, fatal=True):
+    def error_dialog (self, title, msg, fatal=True):
         self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
         # TODO: cancel button as well if capb backup
-        QMessageBox.warning(self.userinterface, "Error", msg, QMessageBox.Ok)
+        QMessageBox.warning(self.userinterface, title, msg, QMessageBox.Ok)
         if fatal:
             self.return_to_autopartitioning()
 

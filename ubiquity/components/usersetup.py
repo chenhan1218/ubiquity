@@ -63,5 +63,6 @@ class UserSetup(FilteredCommand):
         elif question.startswith('user-setup/password-'):
             self.frontend.password_error(self.extended_description(question))
         else:
-            self.frontend.error_dialog(self.extended_description(question))
+            self.frontend.error_dialog(self.description(question),
+                                       self.extended_description(question))
         return super(UserSetup, self).error(priority, question)

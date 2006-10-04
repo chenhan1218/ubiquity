@@ -53,7 +53,8 @@ class Install(FilteredCommand):
             fatal = False
         else:
             fatal = True
-        self.frontend.error_dialog(self.description(question), fatal)
+        self.frontend.error_dialog(self.description(question),
+                                   self.extended_description(question), fatal)
         if fatal:
             return super(Install, self).error(priority, question)
         else:

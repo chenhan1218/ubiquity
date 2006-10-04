@@ -24,5 +24,6 @@ class SiloInstaller(FilteredCommand):
         return (['/usr/lib/ubiquity/silo-installer/silo-installer'], ['ERROR'])
 
     def error(self, priority, question):
-        self.frontend.error_dialog(self.description(question))
+        self.frontend.error_dialog(self.description(question),
+                                   self.extended_description(question))
         return super(SiloInstaller, self).error(priority, question)

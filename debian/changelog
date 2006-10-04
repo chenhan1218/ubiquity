@@ -7,6 +7,7 @@ ubiquity (1.1.28) UNRELEASED; urgency=low
     out what filename they relate to, and display a useful error message
     explaining that this is probably a CD or hard disk fault (as
     appropriate) and how to deal with this. Closes about a million bugs.
+  * Display extended descriptions as well in debconf error dialogs.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed,  4 Oct 2006 09:40:40 +0100
 

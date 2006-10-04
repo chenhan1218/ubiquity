@@ -1724,7 +1724,7 @@ class Wizard:
             self.backup = True
             self.installing = False
 
-    def error_dialog (self, msg, fatal=True):
+    def error_dialog (self, title, msg, fatal=True):
         # TODO: cancel button as well if capb backup
         self.allow_change_step(True)
         if self.current_page is not None:
@@ -1733,6 +1733,7 @@ class Wizard:
             transient = self.debconf_progress_window
         dialog = gtk.MessageDialog(transient, gtk.DIALOG_MODAL,
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
+        dialog.set_title(title)
         dialog.run()
         dialog.hide()
         if fatal:

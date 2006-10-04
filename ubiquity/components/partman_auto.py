@@ -64,7 +64,8 @@ class PartmanAuto(FilteredCommand):
         return ('/bin/partman', questions, {'PARTMAN_NO_COMMIT': '1'})
 
     def error(self, priority, question):
-        self.frontend.error_dialog(self.description(question))
+        self.frontend.error_dialog(self.description(question),
+                                   self.extended_description(question))
         return super(PartmanAuto, self).error(priority, question)
 
     def parse_size(self, size_str):
