@@ -1448,6 +1448,7 @@ class Wizard:
                 value = unicode(selection.text(0))
             if value == language:
                 self.userinterface.language_treeview.setSelected(iterator.current(), True)
+                self.userinterface.language_treeview.ensureItemVisible(iterator.current())
                 break
             iterator += 1
 
