@@ -1,7 +1,12 @@
 oem-config (1.8) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Remove /var/lib/kdm/kdmsts in oem-config-firstboot after removing the
     oem user; KDM stores the default user there.
+
+  [ Anirudh Ramesh ]
+  * KDE frontend: Fixed bug where set_country combobox was not being
+    updated.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed,  4 Oct 2006 16:51:40 +0100
 
