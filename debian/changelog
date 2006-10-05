@@ -5,6 +5,8 @@ ubiquity (1.1.29) UNRELEASED; urgency=low
     user's DCOP server.
   * KDE frontend: Reboot the machine properly using ksmserver (closes:
     Malone #41784).
+  * KDE frontend: Unload the kded medianotifier while committing
+    partitioning changes (closes: Malone #48051).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  5 Oct 2006 10:33:02 +0100
 

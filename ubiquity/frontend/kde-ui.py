@@ -562,12 +562,14 @@ class Wizard:
             0, 100, get_string('ubiquity/install/title', self.locale))
         self.debconf_progress_region(0, 15)
 
-        # TODO: turn off kded media watcher here?
+        ex('dcop', 'kded', 'kded', 'unloadModule', 'medianotifier')
 
         dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
         if dbfilter.run_command(auto_process=True) != 0:
             # TODO cjwatson 2006-09-03: return to partitioning?
             return
+
+        ex('dcop', 'kded', 'kded', 'loadModule', 'medianotifier')
 
         self.debconf_progress_region(15, 100)
 
