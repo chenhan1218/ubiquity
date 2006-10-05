@@ -615,12 +615,9 @@ class Wizard:
     def do_reboot(self):
         """Callback for main program to actually reboot the machine."""
 
-        # can't seem to be able to call dcop from kdesu (even if I su back to ubuntu user)
-        #if (os.path.exists("/usr/bin/ksmserver") and
-        #    os.path.exists("/usr/bin/dcop")):
-        #    ex("dcop", "ksmserver", "ksmserver", "logout", "1", "1", "1")
-        #else:
-        ex("reboot")
+        ex('dcop', 'ksmserver', 'ksmserver', 'logout',
+           # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
+           '0', '1', '2')
 
     def quit(self):
         """quit installer cleanly."""
