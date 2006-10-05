@@ -8,6 +8,8 @@ ubiquity (1.1.28) UNRELEASED; urgency=low
     explaining that this is probably a CD or hard disk fault (as
     appropriate) and how to deal with this. Closes about a million bugs.
   * Display extended descriptions as well in debconf error dialogs.
+  * Remove stub hppa support for now, since partman-palo is no longer in
+    main.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed,  4 Oct 2006 09:40:40 +0100
 
