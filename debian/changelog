@@ -1,6 +1,8 @@
 ubiquity (1.1.29) UNRELEASED; urgency=low
 
   * Move drop_privileges helper function into ubiquity.misc.
+  * KDE frontend: Use kdesu --nonewdcop to ensure that we can talk to the
+    user's DCOP server.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  5 Oct 2006 10:33:02 +0100
 
