@@ -342,14 +342,6 @@ class Wizard:
 
     def poke_screensaver(self):
         """Attempt to make sure that the screensaver doesn't kick in."""
-        def drop_privileges():
-            if 'SUDO_GID' in os.environ:
-                gid = int(os.environ['SUDO_GID'])
-                os.setregid(gid, gid)
-            if 'SUDO_UID' in os.environ:
-                uid = int(os.environ['SUDO_UID'])
-                os.setreuid(uid, uid)
-
         if os.path.exists('/usr/bin/gnome-screensaver-command'):
             command = ["gnome-screensaver-command", "--poke"]
         elif os.path.exists('/usr/bin/xscreensaver-command'):

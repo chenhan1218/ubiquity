@@ -367,4 +367,13 @@ def get_string(name, lang):
     return unicode(text, 'utf-8', 'replace')
 
 
+def drop_privileges():
+    if 'SUDO_GID' in os.environ:
+        gid = int(os.environ['SUDO_GID'])
+        os.setregid(gid, gid)
+    if 'SUDO_UID' in os.environ:
+        uid = int(os.environ['SUDO_UID'])
+        os.setreuid(uid, uid)
+
+
 # vim:ai:et:sts=4:tw=80:sw=4:
