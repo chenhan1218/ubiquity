@@ -329,8 +329,6 @@ class Wizard:
                 self.dbfilter.start(auto_process=True)
             else:
                 self.allow_change_step(True)
-                if current_name == "stepWelcome" or current_name == "stepLanguage":
-                    self.userinterface.back.setEnabled(False)
 
             self.app.exec_loop()
     
