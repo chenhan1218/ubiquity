@@ -13,6 +13,8 @@ ubiquity (1.1.29) UNRELEASED; urgency=low
   * Forbid going back or forward when the UI is already processing a
     previous back or forward action (closes: Malone #54163 and lots of
     duplicates).
+  * GTK frontend: Disable back and forward buttons while gparted is starting
+    up. Requires gparted (>= 0.2.5-1.1ubuntu11).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  5 Oct 2006 10:33:02 +0100
 

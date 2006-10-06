@@ -290,6 +290,11 @@ class Wizard:
                 self.allow_change_step(False)
                 self.dbfilter.start(auto_process=True)
             else:
+                # Non-debconf steps don't have a mechanism for turning this
+                # back on, so we do it here. process_step should block until
+                # the next step has started up; this will block the UI, but
+                # that's probably unavoidable for now. (We only use this for
+                # gparted, which has its own UI loop.)
                 self.allow_change_step(True)
             gtk.main()
 
@@ -502,6 +507,11 @@ class Wizard:
         self.gparted_subp = subprocess.Popen(
             args,
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+
+        # Wait for gparted to start up before enabling back/forward buttons
+        gparted_reply = ''
+        while gparted_reply != '- READY':
+            gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
 
 
     def set_size_msg(self, widget):
