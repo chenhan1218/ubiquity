@@ -761,6 +761,11 @@ class Wizard:
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""
 
+        if not self.allowed_change_step or not self.allowed_go_forward:
+            return
+
+        self.allow_change_step(False)
+
         step = self.step_name(self.steps.get_current_page())
 
         if step == "stepUserInfo":
@@ -769,7 +774,6 @@ class Wizard:
             self.hostname_error_box.hide()
 
         if self.dbfilter is not None:
-            self.allow_change_step(False)
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
@@ -1203,6 +1207,11 @@ class Wizard:
     def on_back_clicked(self, widget):
         """Callback to set previous screen."""
 
+        if not self.allowed_change_step:
+            return
+
+        self.allow_change_step(False)
+
         self.backup = True
 
         # Enabling next button
@@ -1243,7 +1252,6 @@ class Wizard:
             self.steps.prev_page()
 
         if self.dbfilter is not None:
-            self.allow_change_step(False)
             self.dbfilter.cancel_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits

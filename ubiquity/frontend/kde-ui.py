@@ -739,8 +739,12 @@ class Wizard:
     def on_next_clicked(self):
         """Callback to control the installation process between steps."""
 
-        step = self.step_name(self.get_current_page())
+        if not self.allowed_change_step or not self.allowed_go_forward:
+            return
+
         self.allow_change_step(False)
+
+        step = self.step_name(self.get_current_page())
         if step == "stepKeyboardConf":
             self.userinterface.fullname_error_image.hide()
             self.userinterface.fullname_error_reason.hide()
@@ -1219,6 +1223,11 @@ class Wizard:
 
     def on_back_clicked(self):
         """Callback to set previous screen."""
+
+        if not self.allowed_change_step:
+            return
+
+        self.allow_change_step(False)
 
         self.backup = True
 

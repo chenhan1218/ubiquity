@@ -10,6 +10,9 @@ ubiquity (1.1.29) UNRELEASED; urgency=low
   * KDE frontend: Convert to allow_change_step/allow_go_forward system from
     GTK frontend so that the back and next buttons are more consistently
     enabled/disabled. Hide the back button on the first page.
+  * Forbid going back or forward when the UI is already processing a
+    previous back or forward action (closes: Malone #54163 and lots of
+    duplicates).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  5 Oct 2006 10:33:02 +0100
 
