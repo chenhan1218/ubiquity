@@ -15,6 +15,8 @@ ubiquity (1.1.29) UNRELEASED; urgency=low
     duplicates).
   * GTK frontend: Disable back and forward buttons while gparted is starting
     up. Requires gparted (>= 0.2.5-1.1ubuntu11).
+  * GTK frontend: Avoid calling gtk.main_quit if a main loop isn't running,
+    as further insurance against Malone #54163.
   * Fix various bugs when mounting source filesystems natively rather than
     relying on casper to have mounted them already (closes: Malone #64348).
 

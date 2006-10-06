@@ -787,7 +787,7 @@ class Wizard:
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
-        else:
+        elif gtk.main_level() > 0:
             gtk.main_quit()
 
     def on_keyboard_layout_selected(self, start_editing, *args):
@@ -1265,7 +1265,7 @@ class Wizard:
             self.dbfilter.cancel_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
-        else:
+        elif gtk.main_level() > 0:
             gtk.main_quit()
 
 
@@ -1440,7 +1440,7 @@ class Wizard:
                 # The Summary component is just there to gather information,
                 # and won't call run_main_loop() for itself.
                 self.allow_change_step(True)
-            else:
+            elif gtk.main_level() > 0:
                 gtk.main_quit()
 
 
@@ -1792,7 +1792,8 @@ class Wizard:
 
     # Return control to the next level up.
     def quit_main_loop (self):
-        gtk.main_quit()
+        if gtk.main_level() > 0:
+            gtk.main_quit()
 
 
 # Much of this timezone map widget is a rough translation of
