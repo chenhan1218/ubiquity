@@ -1,4 +1,4 @@
-ubiquity (1.1.29) UNRELEASED; urgency=low
+ubiquity (1.1.29) edgy; urgency=low
 
   * Move drop_privileges helper function into ubiquity.misc.
   * KDE frontend: Use kdesu --nonewdcop to ensure that we can talk to the
@@ -22,7 +22,7 @@ ubiquity (1.1.29) UNRELEASED; urgency=low
   * Automatic update of included source packages: debian-installer-utils
     1.36ubuntu2.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu,  5 Oct 2006 10:33:02 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  6 Oct 2006 21:32:43 +0100
 
 ubiquity (1.1.28) edgy; urgency=low
 
