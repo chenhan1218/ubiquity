@@ -19,6 +19,8 @@ ubiquity (1.1.29) UNRELEASED; urgency=low
     as further insurance against Malone #54163.
   * Fix various bugs when mounting source filesystems natively rather than
     relying on casper to have mounted them already (closes: Malone #64348).
+  * Automatic update of included source packages: debian-installer-utils
+    1.36ubuntu2.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  5 Oct 2006 10:33:02 +0100
 
