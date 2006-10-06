@@ -574,7 +574,7 @@ class Install:
                         stdout=subprocess.PIPE, stderr=devnull)
                     devbase = udevinfo.communicate()[0]
                     devnull.close()
-                    if udevinfo.returncode == 0:
+                    if udevinfo.returncode != 0:
                         devbase = sysloop
                     dev = '/dev/%s' % devbase
                     break
@@ -584,7 +584,7 @@ class Install:
         if dev == '':
             raise InstallStepError("No loop device available for %s" % fsfile)
 
-        misc.ex('losetup', dev, file)
+        misc.ex('losetup', dev, fsfile)
         if mountpoint is None:
             mountpoint = '/var/lib/ubiquity/%s' % sysloop
         if not os.path.isdir(mountpoint):
@@ -622,7 +622,7 @@ class Install:
             for fsfile in fsfiles:
                 if fsfile != '' and os.path.isfile(fsfile):
                     dev, mountpoint = self.mount_one_image(fsfile, self.source)
-                    self.devs.insert(dev)
+                    self.devs.append(dev)
                     self.mountpoints.append(mountpoint)
 
         elif len(fs_preseed.split()) == 1:
@@ -632,7 +632,7 @@ class Install:
                     "Preseeded filesystem image %s not found" % fs_preseed)
 
                 dev, mountpoint = self.mount_one_image(fsfile, self.source)
-                self.devs.insert(dev)
+                self.devs.append(dev)
                 self.mountpoints.append(mountpoint)
         else:
             # OK, so we need to mount multiple images and unionfs them
