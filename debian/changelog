@@ -26,6 +26,8 @@ ubiquity (1.1.30) UNRELEASED; urgency=low
     Dutch, Occitan, Polish, Portuguese, Portuguese (Brazil), Romanian,
     Russian, Northern Sami, Slovak, Slovenian, Serbian, Swedish, Tamil,
     Thai, Tagalog, Turkish, Chinese (China), Chinese (Hong Kong).
+  * Automatic update of included source packages: base-installer
+    1.63ubuntu5, localechooser 1.20ubuntu7, partman-base 90ubuntu6.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat,  7 Oct 2006 01:17:57 +0100
 
