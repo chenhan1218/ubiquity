@@ -320,7 +320,7 @@ class Wizard:
                 else:
                     self.dbfilter = partman_auto.PartmanAuto(self)
             elif current_name == "stepReady":
-                self.dbfilter = summary.Summary(self)
+                self.dbfilter = summary.Summary(self, self.manual_partitioning)
             else:
                 self.dbfilter = None
 

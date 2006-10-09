@@ -5,6 +5,10 @@ ubiquity (1.1.30) UNRELEASED; urgency=low
     encourages console-setup to select an appropriate keyboard layout
     (closes: Malone #60067).
   * Don't set PARTMAN_UPDATE_BEFORE_COMMIT for automatic partitioning.
+  * Run partman-commit while generating the installation summary to make
+    sure that we have a partitioning summary even for manual partitioning
+    (closes: Malone #61572). Take care to stop partman-commit proceeding
+    past the confirmation question.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat,  7 Oct 2006 01:17:57 +0100
 

@@ -23,12 +23,14 @@ from ubiquity.filteredcommand import FilteredCommand
 from ubiquity.parted_server import PartedServer
 
 class PartmanCommit(FilteredCommand):
-    def __init__(self, frontend=None, manual_input=False):
+    def __init__(self, frontend=None, manual_input=False, get_summary=False):
         super(PartmanCommit, self).__init__(frontend)
         self.manual_input = manual_input
+        self.get_summary = get_summary
 
     def prepare(self):
-        questions = ['type:boolean',
+        questions = ['^partman/confirm.*',
+                     'type:boolean',
                      'ERROR',
                      'PROGRESS']
         if self.manual_input:
@@ -124,12 +126,30 @@ class PartmanCommit(FilteredCommand):
         return ret
 
     def run(self, priority, question):
+        if self.done:
+            return self.succeeded
+
         try:
             qtype = self.db.metaget(question, 'Type')
         except debconf.DebconfError:
             qtype = ''
 
-        if qtype == 'boolean':
+        if question.startswith('partman/confirm'):
+            if question == 'partman/confirm':
+                self.db.set('ubiquity/partman-made-changes', 'true')
+            else:
+                self.db.set('ubiquity/partman-made-changes', 'false')
+            # If we're being run to get the partitioning summary, then stop
+            # here.
+            if self.get_summary:
+                self.preseed(question, 'false')
+                self.succeeded = False
+                self.done = True
+            else:
+                self.preseed(question, 'true')
+            return True
+
+        elif qtype == 'boolean':
             response = self.frontend.question_dialog(
                 self.description(question),
                 self.extended_description(question),
