@@ -419,9 +419,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Sinisipi ang mga files (${TIME} ang natitira)..."
+msgstr ""
 
 #. Type: error
 #. Description

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-05-24 17:49+0000\n"
+"PO-Revision-Date: 2006-09-07 20:24+0000\n"
 "Last-Translator: Jordi Mallach <jordi@canonical.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -421,9 +421,8 @@ msgstr "S'estan copiant els fitxers..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "S'estan copiant els fitxers (${TIME} per a acabar)..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -605,6 +604,3 @@ msgstr "S'estan instal·lant els paquets de llengua"
 #: ../ubiquity.templates:79001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "S'estan baixant els paquets de llengua (${TIME} per a acabar)..."
-
-#~ msgid "Cleaning up..."
-#~ msgstr "S'està netejant..."

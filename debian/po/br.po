@@ -403,9 +403,8 @@ msgstr "O kopiañ restroù..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "O kopiañ restroù (${TIME} a chom)..."
+msgstr ""
 
 #. Type: error
 #. Description

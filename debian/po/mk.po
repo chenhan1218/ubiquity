@@ -7,9 +7,9 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-04-21 09:39+0000\n"
-"Last-Translator: Арангел Ангов <ufo@linux.net.mk>\n"
-"Language-Team: <en@li.org>\n"
+"PO-Revision-Date: 2006-09-07 20:54+0000\n"
+"Last-Translator: Georgi Stanojevski <glisha@gmail.com>\n"
+"Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -398,9 +398,8 @@ msgstr "Копирам датотеки..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Копирам датотеки (преостанато ${TIME})..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -582,6 +581,3 @@ msgstr "Инсталирање на јазични пакети"
 #: ../ubiquity.templates:79001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Преземање на јазични пакети (преостанато ${TIME})..."
-
-#~ msgid "Cleaning up..."
-#~ msgstr "Чистење..."

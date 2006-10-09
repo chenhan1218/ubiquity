@@ -576,6 +576,3 @@ msgstr ""
 #: ../ubiquity.templates:79001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "正在下載語言封包 (剩餘 ${TIME})..."
-
-#~ msgid "Cleaning up..."
-#~ msgstr "正在清理系統..."

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-09-19 07:06+0000\n"
+"PO-Revision-Date: 2006-09-30 09:29+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -420,9 +420,8 @@ msgstr "Kopioidaan tiedostoja..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Kopioidaan tiedostoja (${TIME} jäljellä)..."
+msgstr ""
 
 #. Type: error
 #. Description

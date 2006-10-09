@@ -410,9 +410,8 @@ msgstr "Копиране на файловете..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Копиране на файловете (остават ${TIME})..."
+msgstr ""
 
 #. Type: error
 #. Description

@@ -429,9 +429,8 @@ msgstr "Copie des fichiers..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Copie des fichiers (${TIME} restant)..."
+msgstr ""
 
 #. Type: error
 #. Description

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-05-29 15:17+0000\n"
+"PO-Revision-Date: 2006-05-29 18:00+0000\n"
 "Last-Translator: Robert Schumann <robert@cantab.net>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -414,9 +414,8 @@ msgstr "Kopieër lêers..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Kopieër lêers (${TIME} bly oor)..."
+msgstr ""
 
 #. Type: error
 #. Description

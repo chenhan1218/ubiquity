@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-09-20 21:59+0000\n"
+"PO-Revision-Date: 2006-09-28 20:31+0000\n"
 "Last-Translator: Jannick Kuhr <jannick.kuhr@kdemail.net>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -391,7 +391,7 @@ msgstr ""
 " Tastaturlayout: ${KEYMAP}\n"
 " Name: ${FULLNAME}\n"
 " Benutzername: ${USERNAME}\n"
-" Pfad: ${LOCATION}\n"
+" Standort: ${LOCATION}\n"
 " ${EXTRAS}"
 
 #. Type: text
@@ -430,9 +430,8 @@ msgstr "Kopiere Dateien..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Kopiere Dateien (${TIME} verbleibend)..."
+msgstr ""
 
 #. Type: error
 #. Description

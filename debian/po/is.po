@@ -412,9 +412,8 @@ msgstr "Afrita skrár..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Afrita skrár (${TIME} eftir)..."
+msgstr ""
 
 #. Type: error
 #. Description

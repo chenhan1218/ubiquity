@@ -429,9 +429,8 @@ msgstr "Αντιγραφή αρχείων..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Αντιγραφή αρχείων (${TIME} απομένουν)..."
+msgstr ""
 
 #. Type: error
 #. Description

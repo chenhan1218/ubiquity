@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-09-20 06:29+0000\n"
+"PO-Revision-Date: 2006-10-09 06:44+0000\n"
 "Last-Translator: ElîxanLoran <elixanloran@hotmail.com>\n"
 "Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -187,6 +187,8 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"Tu dikarî bikî ku bernameya sazkirinê li diskeke jêrîn bixweber cih li ser "
+"riyên cuda biafirîne. An jî tu dikarî bi dest dîskan parve bikî."
 
 #. Type: text
 #. Description
@@ -376,11 +378,11 @@ msgid ""
 " Location: ${LOCATION}\n"
 " ${EXTRAS}"
 msgstr ""
-" Ziman: ${LANGUAGE}\n"
-" Plana bişkokan: ${KEYMAP}\n"
-" Nav: ${FULLNAME}\n"
-" Navê têketinê: ${USERNAME}\n"
-" Cih: ${LOCATION}\n"
+" Ziman: ${LANGUAGE}↵\n"
+" Plana bişkokan: ${KEYMAP}↵\n"
+" Nav: ${FULLNAME}↵\n"
+" Navê têketinê: ${USERNAME}↵\n"
+" Cih: ${LOCATION}↵\n"
 " ${EXTRAS}"
 
 #. Type: text
@@ -390,7 +392,7 @@ msgstr ""
 #. a different one.
 #: ../ubiquity.templates:49001
 msgid "GRUB will be installed to DEVICE"
-msgstr ""
+msgstr "GRUB wê li cîhaza DEVICE were sazkirin"
 
 #. Type: title
 #. Description
@@ -419,9 +421,8 @@ msgstr "Dosya tên kopîkirin..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Dosya tên kopîkirin (${TIME} ma)..."
+msgstr ""
 
 #. Type: error
 #. Description

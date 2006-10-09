@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-04-20 05:59+0000\n"
+"PO-Revision-Date: 2006-09-07 20:26+0000\n"
 "Last-Translator: Dafydd Harries <daf@canonical.com>\n"
 "Language-Team: Welsh <daf@muse.19inch.net>\n"
 "MIME-Version: 1.0\n"
@@ -393,9 +393,8 @@ msgstr "Copïo ffeiliau (${TIME} ar ôl)..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Copïo ffeiliau (${TIME} ar ôl)..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -582,6 +581,3 @@ msgstr ""
 #: ../ubiquity.templates:79001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
-
-#~ msgid "Cleaning up..."
-#~ msgstr "Clirio i fyny..."

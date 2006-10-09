@@ -7,9 +7,9 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-05-27 02:45+0000\n"
-"Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
-"Language-Team: Slovenščina <team@slo-tech.com>\n"
+"PO-Revision-Date: 2006-09-07 21:08+0000\n"
+"Last-Translator: Jure Cuhalev <gandalf@owca.info>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -412,9 +412,8 @@ msgstr "Kopiranje datotek ..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Kopiranje datotek (preostaja ${TIME}) ..."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -596,6 +595,3 @@ msgstr "Nameščanje jezikovnih paketov"
 #: ../ubiquity.templates:79001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Prenašanje jezikovnih paketov (preostaja ${TIME}) ..."
-
-#~ msgid "Cleaning up..."
-#~ msgstr "Čistim ..."
