@@ -20,7 +20,9 @@ db_subst ubiquity/summary LOCATION "$RET"
 
 # We need to run this to get hold of the partitioning summary. Our component
 # takes care of ensuring that changes are not actually committed.
-partman-commit || true
+if [ "$PARTMAN_UPDATE_BEFORE_COMMIT" ]; then
+	partman-commit || true
+fi
 
 db_capb escape
 db_get ubiquity/partman-made-changes
