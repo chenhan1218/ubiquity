@@ -4,6 +4,7 @@ ubiquity (1.1.30) UNRELEASED; urgency=low
     output of locale with the value of debian-installer/locale if set; this
     encourages console-setup to select an appropriate keyboard layout
     (closes: Malone #60067).
+  * Don't set PARTMAN_UPDATE_BEFORE_COMMIT for automatic partitioning.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat,  7 Oct 2006 01:17:57 +0100
 

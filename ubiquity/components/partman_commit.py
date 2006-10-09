@@ -31,8 +31,11 @@ class PartmanCommit(FilteredCommand):
         questions = ['type:boolean',
                      'ERROR',
                      'PROGRESS']
-        return ('/bin/partman-commit', questions,
-                {'PARTMAN_UPDATE_BEFORE_COMMIT': '1'})
+        if self.manual_input:
+            env = {'PARTMAN_UPDATE_BEFORE_COMMIT': '1'}
+        else:
+            env = {}
+        return ('/bin/partman-commit', questions, env)
 
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question),
