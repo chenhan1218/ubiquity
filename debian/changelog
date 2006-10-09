@@ -12,6 +12,11 @@ ubiquity (1.1.30) UNRELEASED; urgency=low
   * Don't reset the locale or run localechooser again if the country
     selected on the timezone page isn't one for which we have a locale in
     the current language (closes: Malone #61387).
+
+  * Add/update .desktop file translations from Rosetta: Arabic, Belarusian,
+    Czech, Kashubian, Spanish, Estonian, French, Frisian, Irish,
+    Luxembourgish, Lithuanian, Macedonian, Malay, Portuguese (Brazil),
+    Slovak, Swedish, Tajik, Ukrainian, Chinese (Taiwan).
   * Add/update translations from Rosetta: Afrikaans, Amharic, Bulgarian,
     Bengali, Breton, Catalan, Czech, Kashubian, Welsh, Danish, German,
     Divehi, Dzongkha, Greek, Esperanto, Spanish, Basque, Persian, Finnish,
