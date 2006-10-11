@@ -1,3 +1,10 @@
+ubiquity (1.1.31) UNRELEASED; urgency=low
+
+  * If /proc/cmdline contains access=v3, run 'orca -n' and sleep for a bit
+    before starting the installer UI.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 11 Oct 2006 16:06:02 +0100
+
 ubiquity (1.1.30) edgy; urgency=low
 
   * Add /usr/lib/ubiquity/console-setup/locale wrapper that overrides the
