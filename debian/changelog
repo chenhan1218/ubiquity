@@ -1,7 +1,8 @@
-ubiquity (1.1.31) UNRELEASED; urgency=low
+ubiquity (1.2.0) edgy; urgency=low
 
   * If /proc/cmdline contains access=v3, run 'orca -n' and sleep for a bit
     before starting the installer UI.
+
   * Update .desktop file translations from Rosetta: Georgian.
   * Update translations from Rosetta: Bengali, Czech, German, Greek,
     Spanish, Finnish, French, Galician, Hindi, Croatian, Hungarian, Italian,
@@ -11,7 +12,7 @@ ubiquity (1.1.31) UNRELEASED; urgency=low
     1.63ubuntu6, choose-mirror 2.04ubuntu2, console-setup 1.7ubuntu18,
     partman-base 90ubuntu8.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 11 Oct 2006 16:06:02 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Oct 2006 11:40:02 +0100
 
 ubiquity (1.1.30) edgy; urgency=low
 
