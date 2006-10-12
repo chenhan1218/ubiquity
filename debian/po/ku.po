@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-10-09 06:44+0000\n"
+"PO-Revision-Date: 2006-10-12 06:21+0000\n"
 "Last-Translator: ElîxanLoran <elixanloran@hotmail.com>\n"
 "Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr "Sazkirin"
+msgstr "Saz Bike"
 
 #. Type: text
 #. Description
@@ -378,11 +378,11 @@ msgid ""
 " Location: ${LOCATION}\n"
 " ${EXTRAS}"
 msgstr ""
-" Ziman: ${LANGUAGE}↵\n"
-" Plana bişkokan: ${KEYMAP}↵\n"
-" Nav: ${FULLNAME}↵\n"
-" Navê têketinê: ${USERNAME}↵\n"
-" Cih: ${LOCATION}↵\n"
+" Ziman: ${LANGUAGE}\n"
+" Plana bişkokan: ${KEYMAP}\n"
+" Nav: ${FULLNAME}\n"
+" Navê têketinê: ${USERNAME}\n"
+" Cih: ${LOCATION}\n"
 " ${EXTRAS}"
 
 #. Type: text
@@ -422,13 +422,13 @@ msgstr "Dosya tên kopîkirin..."
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Pel têne jibergirtin (ji xulekekê kêmtir mawe ma)"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Jibergirtina dosya bi serneket; xirabûna CD/DVD?"
 
 #. Type: error
 #. Description
@@ -440,6 +440,8 @@ msgstr ""
 #: ../ubiquity.templates:58001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
+"Sazker di dema jibergirtina dosyayê ji reqe dîsketê de li çewtiyekê rast "
+"nehat:"
 
 #. Type: error
 #. Description
@@ -450,12 +452,16 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Ev çewtî, piranî ji ber dîskên CD/DVD yan jî ji ajokeran çêdibe. Heke tu CD/"
+"DVDyê paqij bike, di lezeke hêdî de nivîsandin yan jî lensa ajokera CD/DVD "
+"paqij bike wê pirsgirêk çareser bibe (aparatên paqijkirina lensan li cem "
+"mixazeyên elekronîk rehetî tê dîtin)"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Jibergirtina dosya biserneket;çewtiya reqe dîsketê?"
 
 #. Type: error
 #. Description
@@ -465,12 +471,15 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Ev çewtî, piranî ji ber dîska req ya xerabe çêdibe. Heke tu dîska xwe "
+"kontrol bike bê ka kevn e yan na yan jî tu pergala xwe bibe cihekî sar wê "
+"pirsgirêkê çareser bike."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Jibergirtin ne serkeftî ye, CD/DVDya xerabe yan jî dîska req?"
 
 #. Type: error
 #. Description

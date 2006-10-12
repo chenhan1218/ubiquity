@@ -7,9 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-09-20 11:49+0000\n"
-"Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannick.marchegay@lokanova."
-"com>\n"
+"PO-Revision-Date: 2006-10-10 09:56+0000\n"
+"Last-Translator: Claude Paroz <paroz@email.ch>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -430,13 +429,13 @@ msgstr "Copie des fichiers..."
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Copie des fichiers en cours (moins d'une minute restante)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Échec lors de la copie des fichiers ; CD/DVD défectueux ?"
 
 #. Type: error
 #. Description
@@ -448,6 +447,8 @@ msgstr ""
 #: ../ubiquity.templates:58001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
+"Le programme d'installation a rencontré une erreur lors de la copie des "
+"fichiers sur le disque dur :"
 
 #. Type: error
 #. Description
@@ -458,12 +459,17 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Cette erreur est souvent due à un disque ou lecteur CD/DVD défectueux. Il "
+"peut être utile de nettoyer le CD/DVD, graver le CD/DVD à une vitesse "
+"inférieure, ou nettoyer la lentille du lecteur de CD/DVD (des kits de "
+"nettoyage sont souvent disponibles chez les fournisseurs d'équipements "
+"électroniques)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Échec lors de la copie des fichiers ; disque dur défectueux ?"
 
 #. Type: error
 #. Description
@@ -473,12 +479,16 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Cette erreur est souvent due à un disque disque dur défectueux. Il peut être "
+"utile de contrôler si le disque dur est ancien et doit être remplacé ou s'il "
+"est nécessaire de déplacer le système dans un environnement plus frais."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr ""
+"Échec lors de la copie des fichiers ; CD/DVD ou disque dur défectueux ?"
 
 #. Type: error
 #. Description
@@ -492,6 +502,13 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Cette erreur est souvent due à un disque ou lecteur CD/DVD défectueux ou à "
+"un disque disque dur défectueux. Il peut être utile de nettoyer le CD/DVD, "
+"graver le CD/DVD à une vitesse inférieure, ou nettoyer la lentille du "
+"lecteur de CD/DVD (des kits de nettoyage sont souvent disponibles chez les "
+"fournisseurs d'équipements électroniques), contrôler si le disque dur est "
+"ancien et doit être remplacé ou s'il est nécessaire de déplacer le système "
+"dans un environnement plus frais."
 
 #. Type: text
 #. Description

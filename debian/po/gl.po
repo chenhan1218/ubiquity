@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-09-07 20:37+0000\n"
-"Last-Translator: Jacobo Tarrio <jtarrio@debian.org>\n"
+"PO-Revision-Date: 2006-10-10 22:15+0000\n"
+"Last-Translator: Felipe Gil Castiñeira <xil@det.uvigo.es>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -232,6 +232,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"Escolla que particións desexa utilizar para a súa nova instalación, e onde "
+"as quere montar."
 
 #. Type: text
 #. Description
@@ -240,36 +242,38 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"Debe montar unha partición no sistema raiz (\"/\"), e debe escoller polo "
+"menos unha partición como swap."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Mount Point"
-msgstr ""
+msgstr "Punto de montaxe"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Size"
-msgstr ""
+msgstr "Tamaño"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Partition"
-msgstr ""
+msgstr "Partición"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Reformat?"
-msgstr ""
+msgstr "¿Volver a formatar?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "Debe proporcionar un punto de montaxe raiz (\"/\")."
 
 #. Type: text
 #. Description
@@ -277,20 +281,20 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:36001 ../ubiquity.templates:48001
 msgid "Ready to install"
-msgstr ""
+msgstr "Listo para instalar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "O seu novo sistema operativo instalarase coas seguintes opcións:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Paso ${INDEX} de ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -375,6 +379,12 @@ msgid ""
 " Location: ${LOCATION}\n"
 " ${EXTRAS}"
 msgstr ""
+" Idioma: ${LANGUAGE}\n"
+" Mapa de teclado: ${KEYMAP}\n"
+" Nome completo: ${FULLNAME}\n"
+" Nome de usuario: ${USERNAME}\n"
+" Localización: ${LOCATION}\n"
+" ${EXTRAS}"
 
 #. Type: text
 #. Description
@@ -383,7 +393,7 @@ msgstr ""
 #. a different one.
 #: ../ubiquity.templates:49001
 msgid "GRUB will be installed to DEVICE"
-msgstr ""
+msgstr "GRUB vaise instalar en DEVICE"
 
 #. Type: title
 #. Description
@@ -413,13 +423,13 @@ msgstr "Copiando arquivos..."
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Copiando ficheiros (falta menos dun minuto)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Houbo un fallo ao copiar ficheiros; ¿CD/DVD defectuoso?"
 
 #. Type: error
 #. Description
@@ -431,6 +441,7 @@ msgstr ""
 #: ../ubiquity.templates:58001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
+"O programa de instalación atopou un erro copiando ficheiros ao disco duro:"
 
 #. Type: error
 #. Description
@@ -441,12 +452,16 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Este erro en concreto débese a miúdo a un disco ou unidade de CD/DVD "
+"defectouso. Pode axudar a limpeza do CD/DVD, a gravación do CD/DVD á "
+"velocidade máis baixa, ou a limpeza das lentes do CD/DVD (os kits de limpeza "
+"soen estar dispoñibles nas tendas de electrónica)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Houbo un fallo ao copiar ficheiros; ¿disco duro defectuoso?"
 
 #. Type: error
 #. Description
@@ -456,12 +471,15 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Este erro en concreto débese a miúdo a un disco duro defectouso. Pode axudar "
+"a comprobación de que o disco duro non sexa vello e precise a substitución, "
+"ou levar o sistema a un sitio máis fresco."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Houbo un fallo ao copiar ficheiros; ¿CD/DVD ou disco duro defectuosos?"
 
 #. Type: error
 #. Description
@@ -475,6 +493,12 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Este erro en concreto débese a miúdo a un disco ou unidade de CD/DVD "
+"defectouso ou a un disco duro defectuoso. Pode axudar a limpeza do CD/DVD, a "
+"gravación do CD/DVD á velocidade máis baixa, ou a limpeza das lentes do CD/"
+"DVD (os kits de limpeza soen estar dispoñibles nas tendas de electrónica), a "
+"comprobación de que o disco duro non sexa vello e precise a substitución, ou "
+"levar o sistema a un sitio máis fresco."
 
 #. Type: text
 #. Description
@@ -521,9 +545,8 @@ msgstr "Creando usuario..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "A configurar a rede..."
+msgstr "A configurar o hardware..."
 
 #. Type: text
 #. Description
@@ -535,56 +558,55 @@ msgstr "A configurar a rede..."
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Setting computer name..."
-msgstr ""
+msgstr "Establecendo o nome do ordenador..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "A configurar a rede..."
+msgstr "Configurando o xestor de inicio..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Desinstalando os paquetes extra..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Comprobando os paquetes a desinstalar..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Descargando paquetes (faltan ${TIME})..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Descargando a lista de paquetes..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Descargando as listas de paquetes (quedan ${TIME})..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "Erro instalando ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "Erro desinstalando ${PACKAGE}"
 
 #. Type: title
 #. Description

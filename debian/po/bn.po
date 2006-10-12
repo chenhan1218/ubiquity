@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-09-07 20:22+0000\n"
-"Last-Translator: Progga <progga@bengalinux.org>\n"
+"PO-Revision-Date: 2006-10-10 04:31+0000\n"
+"Last-Translator: Khandakar Mujahidul Islam <suzan@bengalinux.org>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -214,6 +214,8 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
+"নিশ্চিত করুন যে রুট পার্টিশনের (\"/\") জন্য নির্ধারিত জায়গা কমপক্ষে ২ গিগাবাইট, এবং "
+"সোয়াপ পার্টিশনের জন্য কমপক্ষে ২৫৬ মেগাবাইট।"
 
 #. Type: text
 #. Description
@@ -372,6 +374,12 @@ msgid ""
 " Location: ${LOCATION}\n"
 " ${EXTRAS}"
 msgstr ""
+" ভাষা: ${LANGUAGE}\n"
+" কীবোর্ড লেআউট: ${KEYMAP}\n"
+" নাম: ${FULLNAME}\n"
+" লগইন নাম: ${USERNAME}\n"
+" অবস্থান: ${LOCATION}\n"
+" ${EXTRAS}"
 
 #. Type: text
 #. Description
@@ -380,7 +388,7 @@ msgstr ""
 #. a different one.
 #: ../ubiquity.templates:49001
 msgid "GRUB will be installed to DEVICE"
-msgstr ""
+msgstr "DEVICE এ GRUB ইনস্টল করা হবে"
 
 #. Type: title
 #. Description
@@ -411,13 +419,13 @@ msgstr "ফাইলসমূহ কপি করা হচ্ছে..."
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "ফাইল কপি করা হচ্ছে (একটি মিনিটের চেয়ে কম সময় অবশিষ্ট)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "ফাইল কপি করতে ব্যর্থ; সিডি/ডিভিডি তে সমস্যা?"
 
 #. Type: error
 #. Description
@@ -428,7 +436,7 @@ msgstr ""
 #: ../ubiquity.templates:56001 ../ubiquity.templates:57001
 #: ../ubiquity.templates:58001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "ফাইলগুলো হার্ড ডিস্কে কপি করার সময় ইনস্টলার একটি ত্রুটির মুখোমুখি হয়েছে:"
 
 #. Type: error
 #. Description
@@ -444,7 +452,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "ফাইল কপি করতে ব্যর্থ; হার্ড ডিস্কে সমস্যা?"
 
 #. Type: error
 #. Description
@@ -459,7 +467,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "ফাইল কপি করতে ব্যর্থ; সিডি/ডিভিডি অথবা হার্ড ডিস্কে সমস্যা?"
 
 #. Type: error
 #. Description

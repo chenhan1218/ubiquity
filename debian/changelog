@@ -2,6 +2,10 @@ ubiquity (1.1.31) UNRELEASED; urgency=low
 
   * If /proc/cmdline contains access=v3, run 'orca -n' and sleep for a bit
     before starting the installer UI.
+  * Update translations from Rosetta: Bengali, Czech, German, Greek,
+    Spanish, Finnish, French, Galician, Hindi, Croatian, Hungarian, Italian,
+    Georgian, Kazakh, Kurdish, Dutch, Polish, Portuguese, Portuguese
+    (Brazil), Russian, Slovak, Swedish, Turkish, Chinese (China).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 11 Oct 2006 16:06:02 +0100
 

@@ -1,18 +1,21 @@
+# translation of del.po to Greek
 # Greek messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
+# Kostas Papadimas <pkst@gnome.org>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: del\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-09-15 16:45+0000\n"
+"PO-Revision-Date: 2006-10-12 08:16+0000\n"
 "Last-Translator: Kostas Papadimas <pkst@gmx.net>\n"
-"Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
+"Language-Team: Greek <team@gnome.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #. Type: text
 #. Description
@@ -65,7 +68,7 @@ msgstr "Από που είστε;"
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Select a city in your country and time zone."
-msgstr "Επιλέξτε μια πόλη και μια ζώνη ώρας :"
+msgstr "Επιλέξτε μια πόλη στην χρονική σας ζώνη:"
 
 #. Type: text
 #. Description
@@ -430,13 +433,13 @@ msgstr "Αντιγραφή αρχείων..."
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Αντιγραφή αρχείων (απομένει λιγότερο από ένα λεπτό)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Αποτυχία αντιγραφής αρχείων. Μήπως έχει πρόβλημα το CD/DVD σας;"
 
 #. Type: error
 #. Description
@@ -448,6 +451,8 @@ msgstr ""
 #: ../ubiquity.templates:58001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
+"Η εγκατάσταση αντιμετώπισε πρόβλημα κατά την εγγραφή αρχείων στο σκληρό "
+"δίσκο:"
 
 #. Type: error
 #. Description
@@ -458,12 +463,16 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Αυτό το σφάλμα συνήθως συμβαίνει λόγω ενός ελαττωματικού δίσκου CD/DVD ή "
+"οδηγού. Πιθανώς να βοηθούσε αν καθαρίζατε το CD/DVD, αν ξανακάνατε αντιγραφή "
+"του CD/DVD σε χαμηλότερη ταχύτητα, ή αν καθαρίζατε το φακό του οδηγού CD/DVD."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr ""
+"Αποτυχία αντιγραφής αρχείων. Μήπως υπάρχει πρόβλημα στο σκληρό σας δίσκο;"
 
 #. Type: error
 #. Description
@@ -473,12 +482,17 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Αυτό το σφάλμα συνήθως συμβαίνει λόγω ενός ελαττωματικού σκληρού δίσκου. "
+"Ελέγξτε το αν ο δίσκος είναι παλιός και χρειάζεται αντικατάσταση, ή "
+"μετακινήστε το σύστημα σε ένα πιο δροσερό περιβάλλον."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr ""
+"Αποτυχία αντιγραφής αρχείων. Μήπως υπάρχει πρόβλημα στο σκληρό σας δίσκο ή "
+"στο CD/DVD;"
 
 #. Type: error
 #. Description
@@ -492,6 +506,11 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Αυτό το σφάλμα συνήθως συμβαίνει λόγω ενός ελαττωματικού δίσκου CD/DVD ή "
+"οδηγού. Πιθανώς να βοηθούσε αν καθαρίζατε το CD/DVD, αν ξανακάνατε αντιγραφή "
+"του CD/DVD σε χαμηλότερη ταχύτητα, ή αν καθαρίζατε το φακό του οδηγού CD/"
+"DVD. Ακόμα ελέγξτε το αν ο δίσκος είναι παλιός και χρειάζεται αντικατάσταση, "
+"ή μετακινήστε το σύστημα σε ένα πιο δροσερό περιβάλλον."
 
 #. Type: text
 #. Description
@@ -605,7 +624,7 @@ msgstr "Σφάλμα απομάκρυνσης του ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Installing language packs"
-msgstr "Εγκατάσταση πακέτων γλωσσικής υποστήριξης"
+msgstr "Εγκατάσταση πακέτων γλωσσικής εντοπιότητας"
 
 #. Type: text
 #. Description

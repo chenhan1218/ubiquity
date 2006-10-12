@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-09-29 20:45+0000\n"
-"Last-Translator: Petr Tomeš <ptomes@ubuntu.cz>\n"
+"PO-Revision-Date: 2006-10-11 20:56+0000\n"
+"Last-Translator: Martin Böhm <necteno@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -421,13 +421,13 @@ msgstr "Kopírují se soubory..."
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Kopírují se soubory (zbývá méně než minuta)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Kopírování souborů selhalo; možná je CD/DVD vadné?"
 
 #. Type: error
 #. Description
@@ -438,7 +438,7 @@ msgstr ""
 #: ../ubiquity.templates:56001 ../ubiquity.templates:57001
 #: ../ubiquity.templates:58001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "Při kopírování souborů na pevný disk oznámil instalátor chybu:"
 
 #. Type: error
 #. Description
@@ -449,12 +449,16 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Chyba, ke které došlo, je často způsobena vadným CD/DVD diskem nebo "
+"mechanikou. Zkuste CD/DVD vyčistit, vypálit je při nižší rychlosti, nebo "
+"vyčistit čtecí optiku CD/DVD mechaniky (čisticí soubravy bývají dostupné v "
+"obchodech s elektronikou)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Nepodařilo se zkopírovat soubory; možná je vadný pevný disk?"
 
 #. Type: error
 #. Description
@@ -464,12 +468,15 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Chyba, ke které došlo, je často způsobena vadným pevným diskem. Zkuste "
+"zkontrolovat, zda pevný disk není starý a nepotřebuje výměnu, nebo zkuste "
+"přemístit počítač do chladnějšího prostředí."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Kopírování souborů selhalo; možná je vadné CD/DVD nebo pevný disk?"
 
 #. Type: error
 #. Description
@@ -483,6 +490,12 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Chyba, ke které došlo, je často způsobena vadným CD/DVD diskem, mechanikou "
+"či vadným pevným diskem. Zkuste CD/DVD vyčistit, vypálit je při nižší "
+"rychlosti, nebo vyčistit čtecí optiku CD/DVD mechaniky (čisticí soubravy "
+"bývají dostupné v obchodech s elektronikou). Také ověřte, zda pevný disk "
+"není starý a nepotřebuje výměnu, nebo zkuste přemístit počítač do "
+"chladnějšího prostředí."
 
 #. Type: text
 #. Description

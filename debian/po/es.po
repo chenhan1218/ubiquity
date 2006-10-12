@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-09-07 20:31+0000\n"
-"Last-Translator: Javier Fernández-Sanguino <jfs@debian.org>\n"
+"PO-Revision-Date: 2006-10-09 22:06+0000\n"
+"Last-Translator: Ricardo Pérez López <ricardo@iesdonana.org>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -382,6 +382,12 @@ msgid ""
 " Location: ${LOCATION}\n"
 " ${EXTRAS}"
 msgstr ""
+" Idioma: ${LANGUAGE}\n"
+" Distribución del teclado: ${KEYMAP}\n"
+" Nombre completo: ${FULLNAME}\n"
+" Nombre de usuario: ${USERNAME}\n"
+" Localización: ${LOCATION}\n"
+" ${EXTRAS}"
 
 #. Type: text
 #. Description
@@ -390,7 +396,7 @@ msgstr ""
 #. a different one.
 #: ../ubiquity.templates:49001
 msgid "GRUB will be installed to DEVICE"
-msgstr ""
+msgstr "GRUB se instalará en DEVICE"
 
 #. Type: title
 #. Description
@@ -420,13 +426,13 @@ msgstr "Copiando archivos..."
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Copiando archivos (falta menos de un minuto)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Error al copiar archivos; ¿CD/DVD defectuoso?"
 
 #. Type: error
 #. Description
@@ -437,7 +443,7 @@ msgstr ""
 #: ../ubiquity.templates:56001 ../ubiquity.templates:57001
 #: ../ubiquity.templates:58001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "El instalador encontró un error al copiar los archivos al disco duro:"
 
 #. Type: error
 #. Description
@@ -448,12 +454,16 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Este error en particular a menudo se debe a un disco o unidad de CD/DVD "
+"defectuosos. A veces se resuelve limpiando el CD/DVD, grabándolo a menor "
+"velocidad o limpiando la lente de la unidad de CD/DVD (puede encontrar kits "
+"limpiadores en tiendas de electrónica)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Error al copiar archivos; ¿disco duro defectuoso?"
 
 #. Type: error
 #. Description
@@ -463,12 +473,15 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Este error en particular a menudo se debe a un disco duro defectuoso. A "
+"veces puede ser de ayuda comprobar si el disco duro es antiguo y si necesita "
+"una sustitución, o mover el sistema a un ambiente más fresco."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Error al copiar archivos; ¿CD/DVD o disco duro defectuosos?"
 
 #. Type: error
 #. Description
@@ -482,6 +495,12 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Este error en particular a menudo se debe a un disco, unidad de CD/DVD o "
+"disco duro defectuosos. A veces se resuelve limpiando el CD/DVD, grabándolo "
+"a menor velocidad o limpiando la lente de la unidad de CD/DVD (puede "
+"encontrar kits limpiadores en tiendas de electrónica). También puede ser de "
+"ayuda comprobar si el disco duro es antiguo y si necesita una sustitución, o "
+"mover el sistema a un ambiente más fresco."
 
 #. Type: text
 #. Description

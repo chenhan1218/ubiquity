@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2006-10-04 16:48+0100\n"
-"PO-Revision-Date: 2006-09-26 10:33+0000\n"
+"PO-Revision-Date: 2006-10-11 23:49+0000\n"
 "Last-Translator: Gabor Kelemen <kelemengabor@linuxforum.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
 "MIME-Version: 1.0\n"
@@ -425,13 +425,13 @@ msgstr "Fájlok másolása..."
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Fájlok másolása (kevesebb, mint egy perc van hátra)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "A fájlok másolása meghiúsult, hibás a CD/DVD?"
 
 #. Type: error
 #. Description
@@ -442,7 +442,7 @@ msgstr ""
 #: ../ubiquity.templates:56001 ../ubiquity.templates:57001
 #: ../ubiquity.templates:58001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "A telepítő hibát észlelt a fájlok merevlemezre másolása közben."
 
 #. Type: error
 #. Description
@@ -453,12 +453,16 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Ezt a hibát gyakran egy hibás CD/DVD lemez vagy meghajtó okozza. A CD/DVD "
+"megtisztítása, a CD/DVD alacsonyabb sebességen írása vagy a CD/DVD meghajtó "
+"lencséjének tisztítása (a legtöbb számítástechnikai üzletben kaphatók "
+"tisztítócsomagok) segíthet megoldani a problémát."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "A fájlok másolása meghiúsult, hibás a merevlemez?"
 
 #. Type: error
 #. Description
@@ -468,12 +472,15 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Ezt a hibát gyakran egy hibás merevlemez okozza. A probléma megoldásában "
+"segíthet a merevlemez ellenőrzése és esetleges cseréje, vagy a rendszer "
+"hűvösebb környezetbe helyezése."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "A fájlok másolása meghiúsult, hibás a CD/DVD vagy merevlemez?"
 
 #. Type: error
 #. Description
@@ -487,6 +494,12 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Ezt a hibát gyakran egy hibás CD/DVD lemez vagy meghajtó, vagy hibás "
+"merevlemez okozza. A CD/DVD megtisztítása, a CD/DVD alacsonyabb sebességen "
+"írása vagy a CD/DVD meghajtó lencséjének tisztítása (a legtöbb "
+"számítástechnikai üzletben kaphatók tisztítócsomagok),  a merevlemez "
+"ellenőrzése és esetleges cseréje, vagy a rendszer hűvösebb környezetbe "
+"helyezése segíthet megoldani a problémát."
 
 #. Type: text
 #. Description
