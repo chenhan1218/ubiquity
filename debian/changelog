@@ -1,3 +1,12 @@
+ubiquity (1.2.1) UNRELEASED; urgency=low
+
+  * Back out orca change from 1.2.0: it doesn't work properly because the
+    orca process running as the calling user needs to be killed first. At
+    this stage, we feel that it's better to document the workaround than to
+    try to fix it.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Oct 2006 14:27:29 +0100
+
 ubiquity (1.2.0) edgy; urgency=low
 
   * If /proc/cmdline contains access=v3, run 'orca -n' and sleep for a bit

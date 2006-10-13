@@ -20,8 +20,6 @@ import errno
 import shutil
 import syslog
 import atexit
-import subprocess
-import time
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -158,27 +156,6 @@ def main():
     if os.path.exists("/var/lib/ubiquity/remove-kernels"):
         os.unlink("/var/lib/ubiquity/remove-kernels")
     shutil.rmtree("/var/lib/partman", ignore_errors=True)
-
-    orca = False
-    cmdline = None
-    try:
-        try:
-            cmdline = open('/proc/cmdline')
-            for line in cmdline:
-                if 'access=v3' in line.split():
-                    orca = True
-                    break
-        except IOError:
-            pass
-    finally:
-        if cmdline:
-            cmdline.close()
-    if orca:
-        subprocess.Popen(['orca', '-n'])
-        # Orca doesn't know how to fork itself into the background and exit
-        # only once it's started up properly, so we need to sleep for a bit
-        # and hope.
-        time.sleep(2)
 
     if len(sys.argv) == 2:
         install(sys.argv[1])
