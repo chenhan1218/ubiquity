@@ -1852,7 +1852,7 @@ class TimezoneMap(object):
         self.location_selected = location
         self.set_city_text(self.location_selected.zone)
         self.set_zone_text(self.location_selected)
-        self.frontend.userinterface.next.setEnabled(True)
+        self.frontend.allow_go_forward(True)
 
         if name == None or name == "":
             return
@@ -1888,6 +1888,7 @@ class TimezoneMap(object):
     def cityChanged(self):
         self.frontend.userinterface.timezone_city_combo.setCurrentItem(self.city_index.index(self.tzmap.city))
         self.city_combo_changed(self.frontend.userinterface.timezone_city_combo.currentItem())
+        self.frontend.allow_go_forward(True)
 
 class CityIndicator(QLabel):
     def __init__(self, parent, name="cityindicator"):
