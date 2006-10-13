@@ -1,4 +1,4 @@
-ubiquity (1.2.1) UNRELEASED; urgency=low
+ubiquity (1.2.1) edgy; urgency=low
 
   * Back out orca change from 1.2.0: it doesn't work properly because the
     orca process running as the calling user needs to be killed first. At
@@ -7,7 +7,7 @@ ubiquity (1.2.1) UNRELEASED; urgency=low
   * KDE frontend: Enable the forward button at the right times on the
     timezone page (closes: Malone #66022).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Oct 2006 14:27:29 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 14 Oct 2006 00:07:48 +0100
 
 ubiquity (1.2.0) edgy; urgency=low
 
