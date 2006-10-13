@@ -1674,6 +1674,8 @@ class Wizard:
         self.summary_device = "DEVICE"
 
     def set_summary_device (self, device):
+        if not device.startswith('(') and not device.startswith('/dev/'):
+            device = '/dev/%s' % device
         text = self.ready_text.text()
         device_index = text.find(self.summary_device)
         if device_index != -1:

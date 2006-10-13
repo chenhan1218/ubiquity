@@ -1706,6 +1706,8 @@ class Wizard:
         # i.e. set_summary_text has been called
         assert self.summary_device_button is not None
 
+        if not device.startswith('(') and not device.startswith('/dev/'):
+            device = '/dev/%s' % device
         self.summary_device_button.set_label(device)
 
     def get_summary_device (self):

@@ -1,3 +1,10 @@
+ubiquity (1.2.2) UNRELEASED; urgency=low
+
+  * Make sure supplied GRUB device names are either GRUB-style (e.g.
+    "(hd0)") or start with "/dev/" (closes: Malone #62479).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 14 Oct 2006 00:45:03 +0100
+
 ubiquity (1.2.1) edgy; urgency=low
 
   * Back out orca change from 1.2.0: it doesn't work properly because the
