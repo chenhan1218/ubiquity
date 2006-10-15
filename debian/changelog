@@ -1,4 +1,4 @@
-ubiquity (1.2.2) UNRELEASED; urgency=low
+ubiquity (1.2.2) edgy; urgency=low
 
   * Make sure supplied GRUB device names are either GRUB-style (e.g.
     "(hd0)") or start with "/dev/" (closes: Malone #62479).
@@ -8,7 +8,7 @@ ubiquity (1.2.2) UNRELEASED; urgency=low
   * GTK frontend: Weaken assertion in set_summary_device and make this
     generally more robust (closes: Malone #66100).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sat, 14 Oct 2006 00:45:03 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 15 Oct 2006 23:41:55 +0100
 
 ubiquity (1.2.1) edgy; urgency=low
 
