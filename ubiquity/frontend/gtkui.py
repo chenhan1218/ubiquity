@@ -131,6 +131,7 @@ class Wizard:
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
         self.previous_partitioning_page = None
+        self.summary_device = None
         self.summary_device_button = None
         self.installing = False
         self.returncode = 0
@@ -1703,19 +1704,20 @@ class Wizard:
                                                 device_anchor)
 
     def set_summary_device (self, device):
+        if not device.startswith('(') and not device.startswith('/dev/'):
+            device = '/dev/%s' % device
+        self.summary_device = device
+
         # i.e. set_summary_text has been called
         if self.summary_device_button is None:
             syslog.syslog(syslog.LOG_ERR,
                           "summary_device_button missing (broken "
                           "ubiquity/summary/grub translation?)")
             return
-
-        if not device.startswith('(') and not device.startswith('/dev/'):
-            device = '/dev/%s' % device
         self.summary_device_button.set_label(device)
 
     def get_summary_device (self):
-        return self.summary_device_button.get_label()
+        return self.summary_device
 
     def on_summary_device_button_clicked (self, button):
         self.grub_device_entry.set_text(self.get_summary_device())
