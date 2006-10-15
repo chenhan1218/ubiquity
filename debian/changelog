@@ -5,6 +5,8 @@ ubiquity (1.2.2) UNRELEASED; urgency=low
   * Exclude Dzongkha and Khmer from the language list for now, as we don't
     ship fonts for them and we don't have enough installer translations yet
     to make it worth rushing those fonts in for Edgy.
+  * GTK frontend: Weaken assertion in set_summary_device (closes: Malone
+    #66100).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 14 Oct 2006 00:45:03 +0100
 

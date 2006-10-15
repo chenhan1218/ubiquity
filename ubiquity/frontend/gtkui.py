@@ -1704,7 +1704,11 @@ class Wizard:
 
     def set_summary_device (self, device):
         # i.e. set_summary_text has been called
-        assert self.summary_device_button is not None
+        if self.summary_device_button is None:
+            syslog.syslog(syslog.LOG_ERR,
+                          "summary_device_button missing (broken "
+                          "ubiquity/summary/grub translation?)")
+            return
 
         if not device.startswith('(') and not device.startswith('/dev/'):
             device = '/dev/%s' % device
