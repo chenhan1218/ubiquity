@@ -57,6 +57,11 @@ class Language(FilteredCommand):
                     continue
                 bits = line.split(';')
                 if len(bits) >= 3:
+                    if bits[2] in ('dz', 'km'):
+                        # Exclude these languages for now, as we don't ship
+                        # fonts for them and we don't have sufficient
+                        # translations anyway.
+                        continue
                     language_codes[bits[0]] = bits[2]
             languagelist.close()
 

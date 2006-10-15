@@ -2,6 +2,9 @@ ubiquity (1.2.2) UNRELEASED; urgency=low
 
   * Make sure supplied GRUB device names are either GRUB-style (e.g.
     "(hd0)") or start with "/dev/" (closes: Malone #62479).
+  * Exclude Dzongkha and Khmer from the language list for now, as we don't
+    ship fonts for them and we don't have enough installer translations yet
+    to make it worth rushing those fonts in for Edgy.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 14 Oct 2006 00:45:03 +0100
 
