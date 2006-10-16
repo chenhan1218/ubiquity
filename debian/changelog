@@ -8,6 +8,10 @@ ubiquity (1.2.3) UNRELEASED; urgency=low
     and take account of them while validating mountpoints (closes: Malone
     #66384).
   * Fix crash on keyboard page if you select a layout with no variants.
+  * Remove kernels before running update-initramfs so that we update the
+    correct initramfs on powerpc. Make sure to fix up kernel/initrd symlinks
+    after running update-initramfs, so that we have something to which to
+    point the initrd symlink.
 
   [ Michael Vogt ]
   * Run fontconfig-voodoo to tweak fontconfig configuration for the selected

@@ -257,6 +257,7 @@ class Install:
         self.target = '/target'
         self.kernel_version = platform.release()
         self.db = debconf.Debconf()
+        self.remove_kernels = set()
 
         apt_pkg.InitConfig()
         apt_pkg.Config.Set("Dir", "/target")
@@ -371,13 +372,13 @@ class Install:
             self.configure_keyboard()
 
             self.db.progress('SET', 88)
-            self.db.progress('REGION', 88, 92)
+            self.db.progress('REGION', 88, 89)
+            self.remove_unusable_kernels()
+
+            self.db.progress('SET', 89)
+            self.db.progress('REGION', 89, 93)
             self.db.progress('INFO', 'ubiquity/install/hardware')
             self.configure_hardware()
-
-            self.db.progress('SET', 92)
-            self.db.progress('REGION', 92, 93)
-            self.remove_unusable_kernels()
 
             self.db.progress('SET', 93)
             self.db.progress('REGION', 93, 94)
@@ -992,6 +993,50 @@ class Install:
                        '--quiet', '--remove', '/usr/sbin/update-initramfs')
             self.chrex('update-initramfs', '-u')
 
+        # Fix up kernel symlinks now that the initrd exists. Depending on
+        # the architecture, these may be in / or in /boot.
+        bootdir = os.path.join(self.target, 'boot')
+        if self.db.get('base-installer/kernel/linux/link_in_boot') == 'true':
+            linkdir = bootdir
+            linkprefix = ''
+        else:
+            linkdir = self.target
+            linkprefix = 'boot'
+
+        # Remove old symlinks. We'll set them up from scratch.
+        re_symlink = re.compile('vmlinu[xz]|initrd.img$')
+        for entry in os.listdir(linkdir):
+            if re_symlink.match(entry) is not None:
+                filename = os.path.join(linkdir, entry)
+                if os.path.islink(filename):
+                    os.unlink(filename)
+        if linkdir != self.target:
+            # Remove symlinks in /target too, which may have been created on
+            # the live filesystem. This isn't necessary, but it may help
+            # avoid confusion.
+            for entry in os.listdir(self.target):
+                if re_symlink.match(entry) is not None:
+                    filename = os.path.join(self.target, entry)
+                    if os.path.islink(filename):
+                        os.unlink(filename)
+
+        # Create symlinks. Prefer our current kernel version if possible,
+        # but if not (perhaps due to a customised live filesystem image),
+        # it's better to create some symlinks than none at all.
+        re_image = re.compile('(vmlinu[xz]|initrd.img)-')
+        for entry in os.listdir(bootdir):
+            match = re_image.match(entry)
+            if match is not None:
+                imagetype = match.group(1)
+                linksrc = os.path.join(linkprefix, entry)
+                linkdst = os.path.join(linkdir, imagetype)
+                if os.path.exists(linkdst):
+                    if entry.endswith('-' + self.kernel_version):
+                        os.unlink(linkdst)
+                    else:
+                        continue
+                os.symlink(linksrc, linkdst)
+
 
     def get_all_interfaces(self):
         """Get all non-local network interfaces."""
@@ -1230,7 +1275,7 @@ class Install:
         """Remove unusable kernels; keeping them may cause us to be unable
         to boot."""
 
-        self.db.progress('START', 0, 6, 'ubiquity/install/title')
+        self.db.progress('START', 0, 5, 'ubiquity/install/title')
 
         self.db.progress('INFO', 'ubiquity/install/find_removables')
 
@@ -1238,69 +1283,23 @@ class Install:
         dbfilter = check_kernels.CheckKernels(None)
         dbfilter.run_command(auto_process=True)
 
-        remove_kernels = set()
+        self.remove_kernels = set()
         if os.path.exists("/var/lib/ubiquity/remove-kernels"):
             for line in open("/var/lib/ubiquity/remove-kernels"):
-                remove_kernels.add(line.strip())
+                self.remove_kernels.add(line.strip())
 
-        if len(remove_kernels) == 0:
+        if len(self.remove_kernels) == 0:
             self.db.progress('STOP')
             return
 
         self.db.progress('SET', 1)
         self.db.progress('REGION', 1, 5)
         try:
-            self.do_remove(remove_kernels, recursive=True)
+            self.do_remove(self.remove_kernels, recursive=True)
         except:
             self.db.progress('STOP')
             raise
         self.db.progress('SET', 5)
-
-        # Now we need to fix up kernel symlinks. Depending on the
-        # architecture, these may be in / or in /boot.
-        bootdir = os.path.join(self.target, 'boot')
-        if self.db.get('base-installer/kernel/linux/link_in_boot') == 'true':
-            linkdir = bootdir
-            linkprefix = ''
-        else:
-            linkdir = self.target
-            linkprefix = 'boot'
-
-        # Remove old symlinks. We'll set them up from scratch.
-        re_symlink = re.compile('vmlinu[xz]|initrd.img$')
-        for entry in os.listdir(linkdir):
-            if re_symlink.match(entry) is not None:
-                filename = os.path.join(linkdir, entry)
-                if os.path.islink(filename):
-                    os.unlink(filename)
-        if linkdir != self.target:
-            # Remove symlinks in /target too, which may have been created on
-            # the live filesystem. This isn't necessary, but it may help
-            # avoid confusion.
-            for entry in os.listdir(self.target):
-                if re_symlink.match(entry) is not None:
-                    filename = os.path.join(self.target, entry)
-                    if os.path.islink(filename):
-                        os.unlink(filename)
-
-        # Create symlinks. Prefer our current kernel version if possible,
-        # but if not (perhaps due to a customised live filesystem image),
-        # it's better to create some symlinks than none at all.
-        re_image = re.compile('(vmlinu[xz]|initrd.img)-')
-        for entry in os.listdir(bootdir):
-            match = re_image.match(entry)
-            if match is not None:
-                imagetype = match.group(1)
-                linksrc = os.path.join(linkprefix, entry)
-                linkdst = os.path.join(linkdir, imagetype)
-                if os.path.exists(linkdst):
-                    if entry.endswith('-' + self.kernel_version):
-                        os.unlink(linkdst)
-                    else:
-                        continue
-                os.symlink(linksrc, linkdst)
-
-        self.db.progress('SET', 6)
         self.db.progress('STOP')
 
 
