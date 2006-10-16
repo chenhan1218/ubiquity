@@ -1133,6 +1133,13 @@ class Install:
         misc.ex('umount', '-f', self.target + '/dev')
 
 
+    def broken_packages(self, cache):
+        brokenpkgs = set()
+        for pkg in cache.keys():
+            if cache._depcache.IsInstBroken(cache._cache[pkg]):
+                brokenpkgs.add(pkg)
+        return brokenpkgs
+
     def do_remove(self, to_remove, recursive=False):
         self.db.progress('START', 0, 5, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/find_removables')
@@ -1160,22 +1167,25 @@ class Install:
                         # of the broken packages are in the set of packages
                         # to remove anyway, then go ahead and try to remove
                         # them too.
-                        brokenpkgs = set()
-                        for pkg2 in cache.keys():
-                            if cache._depcache.IsInstBroken(cache._cache[pkg2]):
-                                brokenpkgs.add(pkg2)
+                        brokenpkgs = self.broken_packages(cache)
                         broken_removed = set()
-                        if recursive or brokenpkgs <= to_remove:
+                        while brokenpkgs and (recursive or
+                                              brokenpkgs <= to_remove):
+                            broken_removed_inner = set()
                             for pkg2 in brokenpkgs:
                                 cachedpkg2 = self.get_cache_pkg(cache, pkg2)
                                 if cachedpkg2 is not None:
-                                    broken_removed.add(pkg2)
+                                    broken_removed_inner.add(pkg2)
                                     try:
                                         cachedpkg2.markDelete(autoFix=False,
                                                               purge=True)
                                     except SystemError:
                                         apt_error = True
                                         break
+                            broken_removed |= broken_removed_inner
+                            if apt_error or not broken_removed_inner:
+                                break
+                            brokenpkgs = self.broken_packages(cache)
                         if apt_error or cache._depcache.BrokenCount > 0:
                             # That didn't work. Revert all the removals we
                             # just tried.
@@ -1188,7 +1198,7 @@ class Install:
                     else:
                         removed.add(pkg)
                     assert cache._depcache.BrokenCount == 0
-            if len(removed) == 0:
+            if not removed:
                 break
             to_remove -= removed
 

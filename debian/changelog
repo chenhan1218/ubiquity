@@ -1,7 +1,9 @@
 ubiquity (1.2.3) UNRELEASED; urgency=low
 
   [ Colin Watson ]
-  * Fix incorrect loop variable reuse in do_remove (closes: Malone #66406).
+  * Fix incorrect loop variable reuse in do_remove, and attempt multiple
+    broken package resolution passes while removing packages (closes: Malone
+    #66406).
   * Detect existing HFS bootstrap partitions during automatic partitioning
     and take account of them while validating mountpoints (closes: Malone
     #66384).
