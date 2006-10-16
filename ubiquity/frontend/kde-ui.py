@@ -1159,7 +1159,7 @@ class Wizard:
                     validate_mountpoints[device] = \
                         (path, format, validate_filesystems[device], None)
             # Check for some special-purpose partitions detected by partman.
-            for device, mountpoint in self.auto_mountpoints:
+            for device, mountpoint in self.auto_mountpoints.iteritems():
                 if not mountpoint.startswith('/'):
                     validate_mountpoints[device] = \
                         (mountpoint, False, None, None)
