@@ -704,6 +704,11 @@ class Install:
         if ret != 0:
             raise InstallStepError("LanguageApply failed with code %d" % ret)
 
+        # fontconfig configuration needs to be adjusted based on the
+        # selected locale (from language-selector-common.postinst). Ignore
+        # errors.
+        self.chrex('fontconfig-voodoo', '--auto', '--quiet')
+
 
     def configure_apt(self):
         """Configure /etc/apt/sources.list."""
