@@ -122,10 +122,12 @@ class PartmanAuto(FilteredCommand):
                     method = parted.readline_part_entry(p_id, 'method')
                     if method == 'swap':
                         continue
-                    if not parted.has_part_entry(p_id, 'acting_filesystem'):
-                        continue
-                    mountpoint = parted.readline_part_entry(p_id, 'mountpoint')
-                    self.stashed_auto_mountpoints[p_path] = mountpoint
+                    elif p_fs == 'hfs' and method == 'newworld':
+                        self.stashed_auto_mountpoints[p_path] = 'newworld'
+                    elif parted.has_part_entry(p_id, 'acting_filesystem'):
+                        mountpoint = parted.readline_part_entry(p_id,
+                                                                'mountpoint')
+                        self.stashed_auto_mountpoints[p_path] = mountpoint
             self.frontend.set_auto_mountpoints(self.stashed_auto_mountpoints)
 
         if self.done:

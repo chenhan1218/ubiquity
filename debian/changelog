@@ -1,6 +1,9 @@
 ubiquity (1.2.3) UNRELEASED; urgency=low
 
   * Fix incorrect loop variable reuse in do_remove (closes: Malone #66406).
+  * Detect existing HFS bootstrap partitions during automatic partitioning
+    and take account of them while validating mountpoints (closes: Malone
+    #66384).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 16 Oct 2006 14:52:31 +0100
 

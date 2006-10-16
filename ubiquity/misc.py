@@ -215,8 +215,12 @@ def get_default_partition_selection(size, fstype, auto_mountpoints):
             # Make sure the device isn't in fstype to ensure that the mount
             # will be read-only.
             if device not in fstype and device not in mounted:
-                selection[mountpoint] = device
-                mounted.add(device)
+                # "Mountpoints" not beginning with / are used for some
+                # special-purpose partitions about which the validation code
+                # needs to know. We ignore them here.
+                if mountpoint.startswith('/'):
+                    selection[mountpoint] = device
+                    mounted.add(device)
 
     return selection
 

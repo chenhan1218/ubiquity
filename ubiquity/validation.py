@@ -109,6 +109,16 @@ def check_mountpoint(mountpoints, size):
 
     seen_mountpoints = set()
     for device, (path, format, fstype, flags) in mountpoints.items():
+        # TODO cjwatson 2006-09-26: Duplication from
+        # partman-newworld/finish.d/newworld.
+        if path == 'newworld':
+            result.remove(MOUNTPOINT_NONEWWORLD)
+            continue
+        elif fstype is None:
+            # Some other special-purpose partition we don't know about for
+            # whatever reason.
+            continue
+
         if path == '/':
             root = True
             root_size += float(size[device.split('/')[2]])
@@ -142,11 +152,6 @@ def check_mountpoint(mountpoints, size):
             if path in ('/', '/boot', '/home', '/opt', '/srv', '/tmp', '/usr',
                         '/usr/local', '/var'):
                 result.add(MOUNTPOINT_NEEDPOSIX)
-
-        # TODO cjwatson 2006-09-26: Duplication from
-        # partman-newworld/finish.d/newworld.
-        if fstype == 'hfs' and (flags is None or 'boot' in flags):
-            result.remove(MOUNTPOINT_NONEWWORLD)
 
     if not root:
         result.add(MOUNTPOINT_NOROOT)
