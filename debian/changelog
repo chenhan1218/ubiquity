@@ -15,7 +15,7 @@ ubiquity (1.2.3) edgy; urgency=low
 
   [ Michael Vogt ]
   * Run fontconfig-voodoo to tweak fontconfig configuration for the selected
-    language.
+    language (closes: Malone #49334).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 16 Oct 2006 23:49:28 +0100
 
