@@ -257,7 +257,6 @@ class Install:
         self.target = '/target'
         self.kernel_version = platform.release()
         self.db = debconf.Debconf()
-        self.remove_kernels = set()
 
         apt_pkg.InitConfig()
         apt_pkg.Config.Set("Dir", "/target")
@@ -1283,19 +1282,19 @@ class Install:
         dbfilter = check_kernels.CheckKernels(None)
         dbfilter.run_command(auto_process=True)
 
-        self.remove_kernels = set()
+        remove_kernels = set()
         if os.path.exists("/var/lib/ubiquity/remove-kernels"):
             for line in open("/var/lib/ubiquity/remove-kernels"):
-                self.remove_kernels.add(line.strip())
+                remove_kernels.add(line.strip())
 
-        if len(self.remove_kernels) == 0:
+        if len(remove_kernels) == 0:
             self.db.progress('STOP')
             return
 
         self.db.progress('SET', 1)
         self.db.progress('REGION', 1, 5)
         try:
-            self.do_remove(self.remove_kernels, recursive=True)
+            self.do_remove(remove_kernels, recursive=True)
         except:
             self.db.progress('STOP')
             raise
