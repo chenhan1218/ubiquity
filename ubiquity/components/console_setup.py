@@ -155,7 +155,10 @@ class ConsoleSetup(FilteredCommand):
             return
         layout = keyboard_names.layouts[layout]
 
-        if variant in keyboard_names.variants[layout]:
+        if layout not in keyboard_names.variants:
+            self.debug("No known variants for layout '%s'" % layout)
+            variant = ''
+        elif variant in keyboard_names.variants[layout]:
             variant = keyboard_names.variants[layout][variant]
         else:
             self.debug("Unknown keyboard variant '%s' for layout '%s'" %
