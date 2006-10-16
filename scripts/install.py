@@ -1156,15 +1156,15 @@ class Install:
                         # to remove anyway, then go ahead and try to remove
                         # them too.
                         brokenpkgs = set()
-                        for pkg in cache.keys():
-                            if cache._depcache.IsInstBroken(cache._cache[pkg]):
-                                brokenpkgs.add(pkg)
+                        for pkg2 in cache.keys():
+                            if cache._depcache.IsInstBroken(cache._cache[pkg2]):
+                                brokenpkgs.add(pkg2)
                         broken_removed = set()
                         if recursive or brokenpkgs <= to_remove:
-                            for pkg in brokenpkgs:
-                                cachedpkg2 = self.get_cache_pkg(cache, pkg)
+                            for pkg2 in brokenpkgs:
+                                cachedpkg2 = self.get_cache_pkg(cache, pkg2)
                                 if cachedpkg2 is not None:
-                                    broken_removed.add(pkg)
+                                    broken_removed.add(pkg2)
                                     try:
                                         cachedpkg2.markDelete(autoFix=False,
                                                               purge=True)
@@ -1174,8 +1174,8 @@ class Install:
                         if apt_error or cache._depcache.BrokenCount > 0:
                             # That didn't work. Revert all the removals we
                             # just tried.
-                            for pkg in broken_removed:
-                                self.get_cache_pkg(cache, pkg).markKeep()
+                            for pkg2 in broken_removed:
+                                self.get_cache_pkg(cache, pkg2).markKeep()
                             cachedpkg.markKeep()
                         else:
                             removed.add(pkg)
