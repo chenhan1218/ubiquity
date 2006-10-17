@@ -1,3 +1,11 @@
+ubiquity (1.2.4) UNRELEASED; urgency=low
+
+  * Use update-initramfs -c -k "$(uname -r)" rather than update-initramfs
+    -u, as the latter gets very confused if we need to remove kernels, as on
+    powerpc (really closes: Malone #66406).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Oct 2006 13:03:12 +0100
+
 ubiquity (1.2.3) edgy; urgency=low
 
   [ Colin Watson ]

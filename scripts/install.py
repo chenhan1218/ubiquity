@@ -990,7 +990,7 @@ class Install:
                 pass
             self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
                        '--quiet', '--remove', '/usr/sbin/update-initramfs')
-            self.chrex('update-initramfs', '-u')
+            self.chrex('update-initramfs', '-c', '-k', os.uname()[2])
 
         # Fix up kernel symlinks now that the initrd exists. Depending on
         # the architecture, these may be in / or in /boot.
