@@ -6,7 +6,7 @@ console-setup 1.7ubuntu18
 debian-installer-utils 1.36ubuntu2
 grub-installer 1.17ubuntu1
 hw-detect 1.41ubuntu2
-localechooser 1.20ubuntu7
+localechooser 1.20ubuntu8
 partconf 1.17
 partman-auto 54ubuntu4
 partman-base 90ubuntu8
