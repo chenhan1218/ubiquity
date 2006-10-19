@@ -1,19 +1,20 @@
-# Thai translation for debian-installer
-# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
-# This file is distributed under the same license as the debian-installer package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+# Thai messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-08-26 11:59+0100\n"
-"PO-Revision-Date: 2006-05-25 18:42+0000\n"
-"Last-Translator: Roys Hengwatanakul <roysheng@msn.com>\n"
-"Language-Team: Thai <th@li.org>\n"
+"POT-Creation-Date: 2006-10-04 16:48+0100\n"
+"PO-Revision-Date: 2006-10-09 09:31+0000\n"
+"Last-Translator: gumara <gumara@msn.com>\n"
+"Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Thai\n"
+"X-Poedit-Country: THAILAND\n"
 
 #. Type: text
 #. Description
@@ -35,8 +36,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"พร้อมที่จะติดตั้ง?เมื่อท่านตอบเพียงไม่กี่คำถาม,"
-"ข้อมูลในแผ่นซีดีนี้ก็จะสามารถติดตั้งลงบนเครื่องนี้และท่านจะสามารถใช้ระบบที่รวดเร็วและไม่ต้องใช้แผ่นซีดี."
+"พร้อมที่จะติดตั้งแล้วหรือยัง? เพียงแค่คุณตอบคำถามง่ายๆไม่กี่คำถาม "
+"ข้อมูลในแผ่นซีดีนี้ก็จะสามารถติดตั้งระบบลงบนเครื่องของคุณ "
+"เพื่อที่คุณจะได้ใช้ระบบที่รวดเร็วและไม่ต้องใช้แผ่นซีดีอีก"
 
 #. Type: text
 #. Description
@@ -50,15 +52,13 @@ msgstr "ใช้เวลาไม่กี่นาทีในการตอ
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
-msgstr ""
-"กรุณาเลือกภาษาที่ต้องการใช้ในการติดตั้ง.ภาษานี้จะเป็นภาษาที่กำหนดไว้(default language )"
-"เมื่อติดตั้งเสร็จแล้ว."
+msgstr "กรุณาเลือกภาษาที่ต้องการใช้ในการติดตั้ง ภาษานี้จะเป็นภาษาปริยายเมื่อติดตั้งเสร็จแล้ว."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Where are you?"
-msgstr "คุณอยู่ที่ไหน"
+msgstr "คุณอยู่ที่ไหน?"
 
 #. Type: text
 #. Description
@@ -70,25 +70,25 @@ msgstr "เลือกจังหวัด ประเทศ และช่�
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Selected city:"
-msgstr "เลือกจังหวัด"
+msgstr "เลือกจังหวัด:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Time zone:"
-msgstr "เวลา(ตามเวลาโลก)"
+msgstr "เวลา(ตามเวลาโลก):"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:9001
 msgid "Selected region:"
-msgstr "กรุณาเลือก เขต:"
+msgstr "กรุณาเลือก ภูมิภาค:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
 msgid "Current time:"
-msgstr "เวลาปัจจุบัน"
+msgstr "เวลาปัจจุบัน:"
 
 #. Type: text
 #. Description
@@ -106,19 +106,19 @@ msgstr "แบบแป้นพิมพ์"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "แบบแป้นพิมพ์ไหนที่เหมือนกับแบบแป้นพิมพ์ของท่าน?"
+msgstr "แบบแป้นพิมพ์ไหนที่เหมือนกับแบบแป้นพิมพ์ของคุณ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "ท่านสามารถพิมพ์ลงในช่องนี้เพื่อทดสอบแบบแป้นพิมพ์ใหม่."
+msgstr "คุณสามารถพิมพ์ลงในช่องนี้เพื่อทดสอบแบบแป้นพิมพ์ใหม่(กด Alt+Shift เพื่อสลับภาษา)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Who are you?"
-msgstr "ท่านเป็นใคร?"
+msgstr "คุณคือใคร?"
 
 #. Type: text
 #. Description
@@ -165,7 +165,7 @@ msgstr "ชื่อของเครื่องคอมพิวเตอร
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr "ชื่อนี้จะถูกใช้ถ้าท่านปรับแต่งเครื่องให้แสดงตนได้ในระบบเครือข่าย."
+msgstr "ชื่อนี้จะถูกใช้ถ้าคุณปรับแต่งเครื่องให้แสดงตนได้ในระบบเครือข่าย."
 
 #. Type: text
 #. Description
@@ -182,7 +182,7 @@ msgid ""
 "manually."
 msgstr ""
 "คุณสามาถเลือกการติดตั้งแบบอัตโนมัติได้ โดยระบบจะจัดสรรพื้นที่บนฮาร์ดดิสก์ให้โดยอัตโนมัติ "
-"หรือคุณจะจัดการกับพาร์ทิชั่นบนฮาร์ดดิสก์ของคุณด้วยตนเองก็ได้"
+"หรือคุณจะจัดการกับพาร์ทิชันบนฮาร์ดดิสก์ของคุณด้วยตนเองก็ได้"
 
 #. Type: text
 #. Description
@@ -194,13 +194,13 @@ msgstr "จัดเตรียมพื้นที่บนฮาร์ดด
 #. Description
 #: ../ubiquity.templates:26001
 msgid "How do you want to partition the disk?"
-msgstr "คุณต้องการพื้นที่เท่าไหร่สำหรับพาร์ทิชั่น"
+msgstr "คุณต้องการพาร์ทิชันดิสก์อย่างไร?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Prepare partitions"
-msgstr "จัดเตรียมพาร์ทิชั่น"
+msgstr "จัดเตรียมพาร์ทิชัน"
 
 #. Type: text
 #. Description
@@ -209,8 +209,8 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
-"คุณได้จัดสรรพื้นที่สำหรับพาร์ทิชั่น root (\"/\") พื้นที่ไม่ต่ำกว่า 2 GB และพาร์ทิชั่น swap "
-"พื้นที่ว่างไม่ต่ำกว่า 256 MB แล้ว?"
+"คุณควรจัดสรรพื้นที่สำหรับพาร์ทิชัน root (\"/\")ไม่ต่ำกว่า 2 GB และพาร์ทิชัน swap ไม่ต่ำกว่า 256 "
+"MB"
 
 #. Type: text
 #. Description
@@ -224,7 +224,7 @@ msgstr "จัดเตรียมตำแหน่งเมานท์"
 msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
-msgstr "เลือกพาร์ทิชั่นที่คุณต้องการติดตั้ง และระบุตำแหน่งเมานท์ของพาร์ทิชั่นที่คุณเลือก"
+msgstr "เลือกพาร์ทิชันที่คุณต้องการติดตั้ง และระบุตำแหน่งเมานท์ของพาร์ทิชันที่คุณเลือก"
 
 #. Type: text
 #. Description
@@ -233,8 +233,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
-"ท่านต้องติดตั้ง (mount) พาติชั่นหนึ่งในระบบไฟล์ราก (root file system) (\"/\"),"
-"และท่านต้องเลือกอย่างน้อยหนึ่งพาติชั่นสำหรับใช้ในการสลับพื้นที่."
+"คุณต้องเมานท์หนึ่งพาร์ทิชันสำหรับระบบไฟล์รูท (\"/\") "
+"และคุณต้องเลือกอย่างน้อยหนึ่งพาร์ทิชันสำหรับใช้ในการสลับพื้นที่"
 
 #. Type: text
 #. Description
@@ -252,13 +252,13 @@ msgstr "ขนาด"
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Partition"
-msgstr "พาร์ทิชั่น"
+msgstr "พาร์ทิชัน"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Reformat?"
-msgstr "ฟอร์แมทใหม่?"
+msgstr "ฟอร์แมตใหม่?"
 
 #. Type: text
 #. Description
@@ -272,7 +272,7 @@ msgstr "คุณควรมีตำแหน่งเมาน์ที่เ
 #. Description
 #: ../ubiquity.templates:36001 ../ubiquity.templates:48001
 msgid "Ready to install"
-msgstr "พร้อมที่จะติดตั้ง"
+msgstr "พร้อมที่จะติดตั้งแล้ว"
 
 #. Type: text
 #. Description
@@ -331,9 +331,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"การติดตั้งสำเร็จ "
-"คุณต้องเริ่มการทำงานของเครื่องคอมพิวเตอร์ใหม่เพื่อเริ่มใช้งานเครื่องด้วยระบบที่ติดตั้งลงไป "
-"หรือจะทำงานบนแผ่นไลฟ์ซีดีนี้ต่อไปก็ได้ แต่งานต่างๆที่คุณทำไว้จะไม่สามารถบันทึกลงในเครื่องของคุณได้"
+"การติดตั้งสำเร็จแล้วคุณจะต้องเริ่มการทำงานของเครื่องคอมพิวเตอร์ใหม่ "
+"เพื่อเริ่มใช้งานระบบที่ติดตั้งลงไป หรือจะทำงานบนแผ่นไลฟ์ซีดีนี้ต่อไปก็ได้ "
+"แต่งานต่างๆที่คุณทำไว้จะไม่สามารถบันทึกลงในเครื่องของคุณได้"
 
 #. Type: text
 #. Description
@@ -348,7 +348,7 @@ msgstr "โปรดตรวจสอบว่าคุณได้นำแผ
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:46001
 msgid "Go Back"
-msgstr "ถอยหลัง"
+msgstr "ย้อนกลับ"
 
 #. Type: text
 #. Description
@@ -360,191 +360,237 @@ msgstr "ต่อไป"
 #. Type: note
 #. Description
 #: ../ubiquity.templates:48001
-msgid "Language: ${LANGUAGE}"
+msgid ""
+" Language: ${LANGUAGE}\n"
+" Keyboard layout: ${KEYMAP}\n"
+" Name: ${FULLNAME}\n"
+" Login name: ${USERNAME}\n"
+" Location: ${LOCATION}\n"
+" ${EXTRAS}"
 msgstr ""
+" ภาษา: ${LANGUAGE}\n"
+" แป้นพิมพ์: ${KEYMAP}\n"
+" ชื่อ: ${FULLNAME}\n"
+" ชื่อในการเข้าระบบ: ${USERNAME}\n"
+" ตำแหน่งที่อยู่: ${LOCATION}\n"
+" ${EXTRAS}"
 
-#. Type: note
+#. Type: text
 #. Description
-#: ../ubiquity.templates:48001
-msgid "Keyboard layout: ${KEYMAP}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity.templates:48001
-msgid "Name: ${REALNAME}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity.templates:48001
-msgid "Login name: ${USERNAME}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity.templates:48001
-msgid "Location: ${LOCATION}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity.templates:48001
-msgid "Partitioning:"
-msgstr ""
+#. Translators, please leave "DEVICE" untranslated. It will be replaced by a
+#. button displaying the current boot device and allowing the user to select
+#. a different one.
+#: ../ubiquity.templates:49001
+msgid "GRUB will be installed to DEVICE"
+msgstr "GRUB จะถูกติดตั้งที่ DEVICE"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:50001
 msgid "Installing system"
 msgstr "กำลังติดตั้งระบบ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:50001
-msgid "Finding the distribution to copy..."
-msgstr "ค้นหาชุดเผยแพร่ (distribution) สำหรับทำสำเนา..."
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:51001
-msgid "Scanning files..."
-msgstr "กำลังค้นหาไฟล์"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:52001
-msgid "Copying files..."
-msgstr "กำลังคัดลอกไฟล์"
+msgid "Finding the distribution to copy..."
+msgstr "ค้นหาชุดเผยแพร่สำหรับคัดลอก..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-msgid "Copying files (${TIME} remaining)..."
-msgstr "กำลังคัดลองไฟล์ (ต้องใช้เวลาอีก ${TIME})..."
+msgid "Scanning files..."
+msgstr "กำลังค้นหาไฟล์..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
-msgid "Copying installation logs..."
-msgstr "ทำสำเนาบันทึกของการติดตั้ง( installation logs) ..."
+msgid "Copying files..."
+msgstr "กำลังคัดลอกไฟล์..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-msgid "Cleaning up..."
-msgstr "กำลังเก็บกวาด..."
+msgid "Copying files (less than a minute remaining)..."
+msgstr ""
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:56001
-msgid "Running ${SCRIPT}..."
-msgstr "กำลังทำ ${SCRIPT}..."
+msgid "Failed to copy files; faulty CD/DVD?"
+msgstr ""
 
-#. Type: text
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001 ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
+msgid "The installer encountered an error copying files to the hard disk:"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive. It may "
+"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
+"the CD/DVD drive lens (cleaning kits are often available from electronics "
+"suppliers)."
+msgstr ""
+
+#. Type: error
 #. Description
 #: ../ubiquity.templates:57001
-msgid "Configuring system locales..."
-msgstr "ปรับแต่งระบบสำหรับท้องถิ่น..."
+msgid "Failed to copy files; faulty hard disk?"
+msgstr ""
 
-#. Type: text
+#. Type: error
+#. Description
+#: ../ubiquity.templates:57001
+msgid ""
+"This particular error is often due to a faulty hard disk. It may help to "
+"check whether the hard disk is old and in need of replacement, or to move "
+"the system to a cooler environment."
+msgstr ""
+
+#. Type: error
 #. Description
 #: ../ubiquity.templates:58001
-msgid "Configuring apt..."
-msgstr "การตั้งค่า apt"
+msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+msgstr ""
+
+#. Type: error
+#. Description
+#. This is used when we don't know whether the CD/DVD or the hard disk is at
+#. fault.
+#: ../ubiquity.templates:58001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive, or a "
+"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
+"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+"available from electronics suppliers), to check whether the hard disk is old "
+"and in need of replacement, or to move the system to a cooler environment."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
-msgid "Configuring time zone..."
-msgstr "ตั้งค่าของเวลา"
+msgid "Copying installation logs..."
+msgstr "กำลังทำสำเนาบันทึกของการติดตั้ง( installation logs) ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
-msgid "Configuring keyboard..."
-msgstr "ปรับแต่งแป้นพิมพ์"
+msgid "Running ${SCRIPT}..."
+msgstr "กำลังดำเนินการ ${SCRIPT}..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
-msgid "Creating user..."
-msgstr "เพิ่มผู้ใช้"
+msgid "Configuring system locales..."
+msgstr "กำลังปรับแต่งระบบสำหรับท้องถิ่น..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
-msgid "Configuring hardware..."
-msgstr "ปรับแต่งฮาร์ดแวร์"
+msgid "Configuring apt..."
+msgstr "กำลังตั้งค่า apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
-msgid "Configuring network..."
-msgstr "ปรับแต่งระบบเครือข่าย"
+msgid "Configuring time zone..."
+msgstr "กำลังตั้งค่าเวลา..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
-msgid "Setting computer name..."
-msgstr "ตั้งค่าชื่อของเครื่องคอมพิวเตอร์"
+msgid "Configuring keyboard..."
+msgstr "กำลังปรับแต่งแป้นพิมพ์..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
-msgid "Configuring boot loader..."
-msgstr "กำลังตั้งค่าตัวบูตระบบ"
+msgid "Creating user..."
+msgstr "กำลังเพิ่มผู้ใช้..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
+msgid "Configuring hardware..."
+msgstr "กำลังปรับแต่งฮาร์ดแวร์..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:67001
+msgid "Configuring network..."
+msgstr "กำลังปรับแต่งระบบเครือข่าย..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:68001
+msgid "Setting computer name..."
+msgstr "กำลังตั้งชื่อของเครื่องคอมพิวเตอร์..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:69001
+msgid "Configuring boot loader..."
+msgstr "กำลังตั้งค่าตัวบูตระบบ..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:70001
 msgid "Removing extra packages..."
 msgstr "กำลังลบชุดเสริมต่างๆ(extra packages)ออก..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:71001
 msgid "Checking for packages to remove..."
-msgstr "กำลังตรวจสอบแพคเกจที่จะถอดถอน"
+msgstr "กำลังตรวจสอบแพ็กเกจที่จะถอดถอน..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:72001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "กำลังดาวน์โหลดแพคเกจ (ต้องใช้เวลาอีก ${TIME})..."
+msgstr "กำลังดาวน์โหลดแพ็กเกจ (ต้องใช้เวลาอีก ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:73001
 msgid "Downloading package lists..."
-msgstr "รายชื่อของแพคเกจที่กำลังดาวน์โหลด"
+msgstr "รายชื่อของแพ็กเกจที่กำลังดาวน์โหลด..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:74001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "รายชื่อของแพคเกจที่กำลังดาวน์โหลด (ต้องใช้เวลาอีก ${TIME})..."
+msgstr "รายชื่อของแพ็กเกจที่กำลังดาวน์โหลด (ต้องใช้เวลาอีก ${TIME})..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:76001
 msgid "Error installing ${PACKAGE}"
 msgstr "เกิดการผิดพลาดขณะทำการติดตั้ง ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:77001
 msgid "Error removing ${PACKAGE}"
 msgstr "เกิดการผิดพลาดขณะกำลังถอน ${PACKAGE}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:78001
 msgid "Installing language packs"
 msgstr "กำลังติดตั้งชุดภาษา"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:79001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "กำลังดาวน์โหลดชุดภาษา (ต้องใช้เวลาอีก ${TIME})..."

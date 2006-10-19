@@ -6,6 +6,7 @@ import os
 import stat
 import re
 import subprocess
+import syslog
 
 
 def part_label(dev):
@@ -39,68 +40,22 @@ def distribution():
 def ex(*args):
     """runs args* in shell mode. Output status is taken."""
 
-    import subprocess
-    msg = ''
-    for word in args:
-        msg += str(word) + ' '
-      
+    log_args = ['log-output', '-t', 'ubiquity']
+    log_args.extend(args)
+
     try:
-        status = subprocess.call(msg, shell=True)
+        status = subprocess.call(log_args)
     except IOError, e:
-        pre_log('error', msg)
-        pre_log('error', "OS error(%s): %s" % (e.errno, e.strerror))
+        syslog.syslog(syslog.LOG_ERR, ' '.join(log_args))
+        syslog.syslog(syslog.LOG_ERR,
+                      "OS error(%s): %s" % (e.errno, e.strerror))
         return False
     else:
         if status != 0:
-            pre_log('error', msg)
+            syslog.syslog(syslog.LOG_ERR, ' '.join(log_args))
             return False
-        pre_log('info', msg)
+        syslog.syslog(' '.join(log_args))
         return True
-
-
-def ret_ex(*args):
-    import subprocess
-    msg = ''
-    for word in args:
-        msg += str(word) + ' '
-    try:
-        proc = subprocess.Popen(args, stdout=subprocess.PIPE, close_fds=True)
-    except IOError, e:
-        pre_log('error', msg)
-        pre_log('error', "I/O error(%s): %s" % (e.errno, e.strerror))
-        return None
-    else:
-        pre_log('info', msg)
-        return proc.stdout
-
-
-def pre_log(code, msg=''):
-    """logs install messages into /var/log on live filesystem."""
-
-    import logging
-    logging.basicConfig(level=logging.DEBUG,
-                        format='%(asctime)s %(levelname)-8s %(message)s',
-                        datefmt='%a, %d %b %Y %H:%M:%S',
-                        stream=sys.stderr)
-    getattr(logging, code)(msg)
-
-
-def post_log(code, msg=''):
-    """logs install messages into /var/log on installed filesystem."""
-
-    log_file = '/target/var/log/installer/syslog'
-
-    if not os.path.exists(os.path.dirname(log_file)):
-        os.makedirs(os.path.dirname(log_file))
-
-    import logging
-    logging.basicConfig(level=logging.DEBUG,
-                        format='%(asctime)s %(levelname)-8s %(message)s',
-                        datefmt='%a, %d %b %Y %H:%M:%S',
-                        filename=log_file,
-                        filemode='a')
-    getattr(logging, code)(msg)
-    os.chmod(log_file, stat.S_IRUSR | stat.S_IWUSR)
 
 
 def get_progress(str):
@@ -170,7 +125,7 @@ def disable_swap():
     for swap in swaps:
         if swap.startswith('/dev'):
             device = swap.split()[0]
-            pre_log('info', "Disabling swap on %s" % device)
+            syslog.syslog("Disabling swap on %s" % device)
             subprocess.call(['swapoff', device])
     swaps.close()
 
@@ -260,8 +215,12 @@ def get_default_partition_selection(size, fstype, auto_mountpoints):
             # Make sure the device isn't in fstype to ensure that the mount
             # will be read-only.
             if device not in fstype and device not in mounted:
-                selection[mountpoint] = device
-                mounted.add(device)
+                # "Mountpoints" not beginning with / are used for some
+                # special-purpose partitions about which the validation code
+                # needs to know. We ignore them here.
+                if mountpoint.startswith('/'):
+                    selection[mountpoint] = device
+                    mounted.add(device)
 
     return selection
 
@@ -311,7 +270,7 @@ def get_translations(languages=None, core_names=[]):
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
              '--config=InFd:none',
-             '--pattern=^(ubiquity|partman-basicfilesystems/bad_mountpoint|partman-partitioning|partman-target/no_root)'],
+             '--pattern=^(ubiquity|partman-basicfilesystems/bad_mountpoint|partman-newworld/no_newworld|partman-partitioning|partman-target/no_root|grub-installer/bootdev)'],
             stdout=subprocess.PIPE, stderr=devnull)
         question = None
         descriptions = {}
@@ -355,6 +314,12 @@ def get_translations(languages=None, core_names=[]):
                     question in core_names):
                     if lang not in descriptions:
                         descriptions[lang] = value.replace('\\n', '\n')
+                    # TODO cjwatson 2006-09-04: a bit of a hack to get the
+                    # description and extended description separately ...
+                    if question in ('grub-installer/bootdev',
+                                    'partman-newworld/no_newworld'):
+                        descriptions["extended:%s" % lang] = \
+                            value.replace('\\n', '\n')
 
         db.wait()
         devnull.close()
@@ -363,7 +328,11 @@ def get_translations(languages=None, core_names=[]):
 
 string_questions = {
     'new_size_label': 'partman-partitioning/new_size',
+    'grub_device_dialog': 'grub-installer/bootdev',
+    'grub_device_label': 'grub-installer/bootdev',
 }
+
+string_extended = set('grub_device_label')
 
 def get_string(name, lang):
     """Get the translation of a single string."""
@@ -382,6 +351,8 @@ def get_string(name, lang):
         lang = 'c'
     else:
         lang = lang.lower()
+    if name in string_extended:
+        lang = 'extended:%s' % lang
 
     if lang in translations[question]:
         text = translations[question][lang]
@@ -392,10 +363,21 @@ def get_string(name, lang):
             text = translations[question][ll_cc]
         elif ll in translations[question]:
             text = translations[question][ll]
+        elif lang.startswith('extended:'):
+            text = translations[question]['extended:c']
         else:
             text = translations[question]['c']
 
     return unicode(text, 'utf-8', 'replace')
+
+
+def drop_privileges():
+    if 'SUDO_GID' in os.environ:
+        gid = int(os.environ['SUDO_GID'])
+        os.setregid(gid, gid)
+    if 'SUDO_UID' in os.environ:
+        uid = int(os.environ['SUDO_UID'])
+        os.setreuid(uid, uid)
 
 
 # vim:ai:et:sts=4:tw=80:sw=4:

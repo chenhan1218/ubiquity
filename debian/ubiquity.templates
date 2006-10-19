@@ -220,18 +220,23 @@ _Description: Continue
 
 Template: ubiquity/summary
 Type: note
+#flag:translate!:3
 _Description: Ready to install
- Language: ${LANGUAGE}
+  Language: ${LANGUAGE}
+  Keyboard layout: ${KEYMAP}
+  Name: ${FULLNAME}
+  Login name: ${USERNAME}
+  Location: ${LOCATION}
+  ${EXTRAS}
  .
- Keyboard layout: ${KEYMAP}
- .
- Name: ${REALNAME}
- .
- Login name: ${USERNAME}
- .
- Location: ${LOCATION}
- .
- Partitioning:
+ ${PARTMAN_CHANGES}
+
+Template: ubiquity/summary/grub
+Type: text
+# Translators, please leave "DEVICE" untranslated. It will be replaced by a
+# button displaying the current boot device and allowing the user to select
+# a different one.
+_Description: GRUB will be installed to DEVICE
 
 Template: ubiquity/install/title
 Type: title
@@ -241,6 +246,14 @@ Template: ubiquity/install/mounting_source
 Type: text
 _Description: Finding the distribution to copy...
 
+Template: ubiquity/install/filesystem-images
+Type: string
+Description: Only for preseeding; not translated.
+ This may be preseeded to a space-separated list of paths to the filesystem
+ image to copy to the hard disk. (Normally, these paths would begin with
+ /cdrom.) If more than one filesystem image is given, they will be overlaid
+ using unionfs.
+
 Template: ubiquity/install/scanning
 Type: text
 _Description: Scanning files...
@@ -249,17 +262,56 @@ Template: ubiquity/install/copying
 Type: text
 _Description: Copying files...
 
-Template: ubiquity/install/copying_time
+Template: ubiquity/install/copying_minute
 Type: text
-_Description: Copying files (${TIME} remaining)...
+_Description: Copying files (less than a minute remaining)...
+
+Template: ubiquity/install/copying_error/cd_fault
+Type: error
+#flag:translate!:3
+_Description: Failed to copy files; faulty CD/DVD?
+ The installer encountered an error copying files to the hard disk:
+ .
+ ${ERROR}
+ .
+ This particular error is often due to a faulty CD/DVD disk or drive. It may
+ help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean
+ the CD/DVD drive lens (cleaning kits are often available from electronics
+ suppliers).
+
+Template: ubiquity/install/copying_error/hd_fault
+Type: error
+#flag:translate!:3
+_Description: Failed to copy files; faulty hard disk?
+ The installer encountered an error copying files to the hard disk:
+ .
+ ${ERROR}
+ .
+ This particular error is often due to a faulty hard disk. It may help to
+ check whether the hard disk is old and in need of replacement, or to move
+ the system to a cooler environment.
+
+Template: ubiquity/install/copying_error/cd_hd_fault
+Type: error
+#flag:translate!:3
+#flag:comment:4
+# This is used when we don't know whether the CD/DVD or the hard disk is at
+# fault.
+_Description: Failed to copy files; faulty CD/DVD or hard disk?
+ The installer encountered an error copying files to the hard disk:
+ .
+ ${ERROR}
+ .
+ This particular error is often due to a faulty CD/DVD disk or drive, or a
+ faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a
+ lower speed, to clean the CD/DVD drive lens (cleaning kits are often
+ available from electronics suppliers), to check whether the hard disk is
+ old and in need of replacement, or to move the system to a cooler
+ environment.
 
 Template: ubiquity/install/log_files
 Type: text
 _Description: Copying installation logs...
-
-Template: ubiquity/install/cleanup
-Type: text
-_Description: Cleaning up...
 
 Template: ubiquity/install/target_hook
 Type: text
@@ -357,3 +409,8 @@ Description: Patterns for language packs to install
  .
  language-pack-$LL is required, and is always installed (by localechooser).
  You do not need to list it here.
+
+Template: ubiquity/partman-made-changes
+Type: boolean
+Default: true
+Description: for internal use; record whether partman asked for confirmation of changes

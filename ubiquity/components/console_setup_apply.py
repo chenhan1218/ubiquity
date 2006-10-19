@@ -19,6 +19,6 @@
 
 from ubiquity.filteredcommand import FilteredCommand
 
-class KbdChooserApply(FilteredCommand):
+class ConsoleSetupApply(FilteredCommand):
     def prepare(self):
-        return (['/usr/lib/ubiquity/kbd-chooser/post-base-installer'], [])
+        return (['/usr/lib/ubiquity/console-setup/post-base-installer'], [])

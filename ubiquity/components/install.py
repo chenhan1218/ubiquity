@@ -17,6 +17,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import os
 from ubiquity.filteredcommand import FilteredCommand
 
 class Install(FilteredCommand):
@@ -24,6 +25,14 @@ class Install(FilteredCommand):
         hostname = self.frontend.get_hostname()
         if hostname is not None and hostname != '':
             self.preseed('netcfg/get_hostname', hostname)
+
+        if os.access('/usr/share/grub-installer/grub-installer', os.X_OK):
+            bootdev = self.frontend.get_summary_device()
+            if bootdev is None or bootdev == '':
+                bootdev = '(hd0)'
+            self.preseed('grub-installer/with_other_os', 'false')
+            self.preseed('grub-installer/only_debian', 'false')
+            self.preseed('grub-installer/bootdev', bootdev)
 
         questions = ['^.*/apt-install-failed$',
                      'grub-installer/install_to_xfs',
@@ -44,7 +53,8 @@ class Install(FilteredCommand):
             fatal = False
         else:
             fatal = True
-        self.frontend.error_dialog(self.description(question), fatal)
+        self.frontend.error_dialog(self.description(question),
+                                   self.extended_description(question), fatal)
         if fatal:
             return super(Install, self).error(priority, question)
         else:

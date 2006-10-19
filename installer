@@ -18,7 +18,8 @@ import sys
 import os
 import errno
 import shutil
-import subprocess
+import syslog
+import atexit
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -28,8 +29,7 @@ cdebconf = False
 
 VERSION = '@VERSION@'
 TARGET = '/target'
-
-log_file = '/var/log/installer/syslog'
+PIDFILE = '/var/run/ubiquity.pid'
 
 def install(frontend=None):
     '''install(frontend=None) -> none
@@ -63,10 +63,10 @@ def install(frontend=None):
 def copy_debconf():
     """Copy a few important questions into the installed system."""
     targetdb = '/target/var/cache/debconf/config.dat'
-    for q in ('^debian-installer/keymap$',):
-        subprocess.call(['debconf-copydb', 'configdb', 'targetdb', '-p', q,
-                         '--config=Name:targetdb', '--config=Driver:File',
-                         '--config=Filename:%s' % targetdb])
+    for q in ('^console-setup/',):
+        misc.ex('debconf-copydb', 'configdb', 'targetdb', '-p', q,
+                '--config=Name:targetdb', '--config=Driver:File',
+                '--config=Filename:%s' % targetdb)
 
 def unmount_target():
     paths = []
@@ -87,19 +87,39 @@ def prepend_path(directory):
     else:
         os.environ['PATH'] = directory
 
-if __name__ == '__main__':
-    if not os.path.exists(os.path.dirname(log_file)):
-        os.makedirs(os.path.dirname(log_file))
-    # The frontend should take care of displaying a helpful message if we
-    # are being run without root privileges.
+def release_lock():
     try:
-        sys.stderr = open(log_file, 'a', 1)
-        os.dup2(sys.stderr.fileno(), 2)
-    except IOError, err:
-        if err.errno != errno.EACCES:
-            raise
+        os.unlink(PIDFILE)
+    except OSError:
+        pass
 
-    print >>sys.stderr, "Ubiquity %s" % VERSION
+def acquire_lock():
+    if os.path.exists(PIDFILE):
+        pidf = open(PIDFILE)
+        pid = int(pidf.read().strip())
+        pidf.close()
+        exists = True
+        try:
+            os.kill(pid, 0)
+        except OSError, e:
+            if e.errno == errno.ESRCH:
+                exists = False
+        if exists:
+            print >>sys.stderr, "Ubiquity is already running (pid %d)!" % pid
+            sys.exit(1)
+    atexit.register(release_lock)
+    pidf = open(PIDFILE, 'w')
+    print >>pidf, os.getpid()
+    pidf.close()
+
+def main():
+    acquire_lock()
+
+    if not os.path.exists('/var/log/installer'):
+        os.makedirs('/var/log/installer')
+    syslog.openlog('ubiquity', syslog.LOG_NOWAIT | syslog.LOG_PID)
+
+    syslog.syslog("Ubiquity %s" % VERSION)
     version_file = open('/var/log/installer/version', 'w')
     print >>version_file, 'ubiquity %s' % VERSION
     version_file.close()
@@ -116,6 +136,15 @@ if __name__ == '__main__':
             os.environ['UBIQUITY_DEBUG_CORE'] = '1'
         if 'DEBCONF_DEBUG' not in os.environ:
             os.environ['DEBCONF_DEBUG'] = 'developer|filter'
+        # The frontend should take care of displaying a helpful message if
+        # we are being run without root privileges.
+        try:
+            sys.stderr = open('/var/log/installer/debug', 'a', 1)
+            os.dup2(sys.stderr.fileno(), 2)
+            print >>sys.stderr, "Ubiquity %s" % VERSION
+        except IOError, err:
+            if err.errno != errno.EACCES:
+                raise
 
     # Default to enabling internal (non-debconf) debugging.
     if 'UBIQUITY_DEBUG_CORE' not in os.environ:
@@ -132,5 +161,8 @@ if __name__ == '__main__':
         install(sys.argv[1])
     else:
         install()
+
+if __name__ == '__main__':
+    main()
 
 # vim:ai:et:sts=4:tw=80:sw=4:

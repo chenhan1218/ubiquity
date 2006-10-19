@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-08-26 11:59+0100\n"
-"PO-Revision-Date: 2006-04-20 06:09+0000\n"
-"Last-Translator: Nishant Sharma <nishantsharma.in@gmail.com>\n"
+"POT-Creation-Date: 2006-10-04 16:48+0100\n"
+"PO-Revision-Date: 2006-10-12 08:20+0000\n"
+"Last-Translator: Aniruddha Shankar <karim@sarai.net>\n"
 "Language-Team: <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Welcome"
-msgstr ""
+msgstr "सुस्वागतम"
 
 #. Type: text
 #. Description
@@ -53,43 +53,43 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Where are you?"
-msgstr ""
+msgstr "आप कहाँ हैं?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Select a city in your country and time zone."
-msgstr ""
+msgstr "अपने देश में कोई शहर और समय क्षेत्र चुनें।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Selected city:"
-msgstr ""
+msgstr "चुना गया शहर:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Time zone:"
-msgstr ""
+msgstr "समय क्षेत्र:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:9001
 msgid "Selected region:"
-msgstr ""
+msgstr "चुना गया क्षेत्र:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
 msgid "Current time:"
-msgstr ""
+msgstr "अभी का समय"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Set Time..."
-msgstr ""
+msgstr "समय नियत करें..."
 
 #. Type: text
 #. Description
@@ -101,31 +101,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "आपका कीबोर्ड किस बनावट की तरह है?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "आप अपने नये कीबोर्ड की बनावट जानने के लिए इस बक्से में लिखें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Who are you?"
-msgstr ""
+msgstr "आप कौन है?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "What is your name?"
-msgstr ""
+msgstr "आपका नाम क्या है?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "आप लॉग इन करने के लिए किस नाम का प्रयोग करना चाहते है?"
 
 #. Type: text
 #. Description
@@ -134,25 +134,27 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"अगर इस कम्प्युटर का एक से ज्यादा व्यक्ति उपयोग करेंगें तो आप संस्थापना के बाद बहुखाते बना "
+"सकते है।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "अपने खाते को सुरक्षित रखने के लिए पासर्वड चुनें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "एक ही पासर्वड दो बार एन्टर करे,ताकि लिखने में हुई त्रुटियों कि जाँच की जा सके।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "इस कंप्यूटर का नाम क्या है?"
 
 #. Type: text
 #. Description
@@ -161,12 +163,13 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"यह नाम आपके कंप्यूटर को नेटवर्क के अंदर दुसरों को दिखाने के लिए प्रयोग में लाया जाएगा।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Select a disk"
-msgstr ""
+msgstr "एक डिस्क चुनें"
 
 #. Type: text
 #. Description
@@ -176,12 +179,14 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"संस्थापक स्वतः निम्न हार्ड डिस्कों में कई प्रकार से जगह बना सकता है।दुसरे तरीके से आप डिस्कों "
+"को अपने हाथ से बाटँ सकते है।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Prepare disk space"
-msgstr ""
+msgstr "डिस्क में जगह तैयार करें।"
 
 #. Type: text
 #. Description
@@ -202,6 +207,8 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
+"रूट पार्टिशन (\"/\") कम-से-कम २ जी-बी बडा होना चाहिये, और स्वैप पार्टिशन कम-से-कम "
+"२५६ एम-बी।"
 
 #. Type: text
 #. Description
@@ -216,6 +223,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"किस विभाजन का प्रयोग आप नए संस्थापन के लिए करना चाहते है,चुनें और कहाँ आप प्रत्येक को "
+"माउंट कराना चाहते है।"
 
 #. Type: text
 #. Description
@@ -224,6 +233,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"एक विभाजन को रुट संचिका तंत्र (\"/\"), तथा कम से कम एक विभाजन को स्वैप जगह के प्रयोग "
+"के लिए चुनना आवश्यक है।"
 
 #. Type: text
 #. Description
@@ -235,7 +246,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Size"
-msgstr ""
+msgstr "आकार"
 
 #. Type: text
 #. Description
@@ -247,13 +258,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Reformat?"
-msgstr ""
+msgstr "रीफॉर्मेट"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "आपको एक रुट (\"/\") माउंट प्वाइंट देना आवश्यक है।"
 
 #. Type: text
 #. Description
@@ -268,7 +279,7 @@ msgstr ""
 #: ../ubiquity.templates:37001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "आपका नया प्रचालन तंत्र निम्न सेटिंग के साथ संस्थापित हैं।ं"
 
 #. Type: text
 #. Description
@@ -292,25 +303,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Skip"
-msgstr ""
+msgstr "छोड़े"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Installation complete"
-msgstr "संस्थापना सम्पन्न"
+msgstr "संस्थापना सम्पन्न।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "लाइव सीडी के साथ जारी रखें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Restart now"
-msgstr ""
+msgstr "पुनः चालू करें।"
 
 #. Type: text
 #. Description
@@ -320,6 +331,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"संस्थापना पूरा हो चुका है। नई संस्थापना का इस्तेमाल करने के लिए आपको कम्प्यूटर फिर से चालू "
+"करना होगा। इस जीवंत सीडी का इस्तेमाल आप जारी रख सकते हैं, मगर जो परिवर्तन आप करेंगे या "
+"दस्तावेज़ सहेजेंगे, वे सुरक्षित सहेजे नहीं जाऐंगे।"
 
 #. Type: text
 #. Description
@@ -328,6 +342,8 @@ msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"जब आप कम्प्यूटर को फिर से चालू करते हैं, तो सीडी निकालना न भूलिये, नहीं तो कम्प्यूटर अभी "
+"संस्थापित ओपरेटिंग सिस्टम से नहीं, जीवंत सीडी से शुरु होगी।"
 
 #. Type: text
 #. Description
@@ -346,196 +362,254 @@ msgstr "जारी रखें"
 #. Type: note
 #. Description
 #: ../ubiquity.templates:48001
-msgid "Language: ${LANGUAGE}"
+msgid ""
+" Language: ${LANGUAGE}\n"
+" Keyboard layout: ${KEYMAP}\n"
+" Name: ${FULLNAME}\n"
+" Login name: ${USERNAME}\n"
+" Location: ${LOCATION}\n"
+" ${EXTRAS}"
 msgstr ""
+" भाषा: ${LANGUAGE}\n"
+" कीबोर्ड विन्यास: ${KEYMAP}\n"
+" नाम: ${FULLNAME}\n"
+" उपयोक्ता नाम: ${USERNAME}\n"
+" स्थान: ${LOCATION}\n"
+" ${EXTRAS}"
 
-#. Type: note
+#. Type: text
 #. Description
-#: ../ubiquity.templates:48001
-msgid "Keyboard layout: ${KEYMAP}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity.templates:48001
-msgid "Name: ${REALNAME}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity.templates:48001
-msgid "Login name: ${USERNAME}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity.templates:48001
-msgid "Location: ${LOCATION}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity.templates:48001
-msgid "Partitioning:"
-msgstr ""
+#. Translators, please leave "DEVICE" untranslated. It will be replaced by a
+#. button displaying the current boot device and allowing the user to select
+#. a different one.
+#: ../ubiquity.templates:49001
+msgid "GRUB will be installed to DEVICE"
+msgstr "ग्रब DEVICE में संस्थापित होगा"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:50001
 #, fuzzy
 msgid "Installing system"
 msgstr "संस्थापना सम्पन्न"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:51001
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "नकल किये जाने वाले वितरण को ढूंढा जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
-msgid "Copying files (${TIME} remaining)..."
+#: ../ubiquity.templates:55001
+msgid "Copying files (less than a minute remaining)..."
+msgstr "फाईल नकल किये जा रहे हैं (एक मिनट से कम समय बाकी)..."
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001
+msgid "Failed to copy files; faulty CD/DVD?"
+msgstr "फाईल नकल नहीं हो पाये; क्या सी-डी/डी-वी-डी खराब है?"
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001 ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
+msgid "The installer encountered an error copying files to the hard disk:"
+msgstr "हार्ड डिस्क पर फाईल का नकल त्रुटि के कारण से नहीं हो पाया:"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive. It may "
+"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
+"the CD/DVD drive lens (cleaning kits are often available from electronics "
+"suppliers)."
 msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:57001
+msgid "Failed to copy files; faulty hard disk?"
+msgstr "फाईल का नकल नहीं हो पाया; क्या हार्ड डिस्क खराब है?"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:57001
+msgid ""
+"This particular error is often due to a faulty hard disk. It may help to "
+"check whether the hard disk is old and in need of replacement, or to move "
+"the system to a cooler environment."
+msgstr ""
+"इस त्रुटि का कारण अक्सर खराब हार्ड डिस्क का होना है। जाँच कीजिये कि क्या हार्ड डिस्क "
+"पुराना हो गया है और उसे बदलने की ज़रूरत है? हार्ड डिस्क में खराबी हद से ज़्यादा गर्मी से भी "
+"हो सकती है। आप पूरे कम्प्यूटर को एक कम गर्म जगह ले जाकर फिर से संस्थापन की कोशिश कर सकते "
+"हैं।"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:58001
+msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+msgstr ""
+"फाईल का नकल नहीं हो पाया; क्या हार्ड डिस्क या सीडी/डीवीडी डिस्क या ड्राईव खराब है?"
+
+#. Type: error
+#. Description
+#. This is used when we don't know whether the CD/DVD or the hard disk is at
+#. fault.
+#: ../ubiquity.templates:58001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive, or a "
+"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
+"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+"available from electronics suppliers), to check whether the hard disk is old "
+"and in need of replacement, or to move the system to a cooler environment."
+msgstr ""
+"इस त्रुटि का कारण अक्सर खराब हार्ड डिस्क, सीडी/डी-वी-डी डिस्क या ड्राईव है। त्रुटि को "
+"सुलझाने के लिये आप डिस्क को साफ कर के दोबारा कोशिश कीजिये, सीडी को कम तेज़ रफतार में "
+"काट के दोबारा कोशिश कीजिये या सीडी ड्राईव के लेन्स को ही साफ करने की कोशिश कीजिये "
+"(लेन्स साफ करने के लिये उपकरण इलेक्ट्रॉनिक्स के दुकान में मिलते हैं)। जाँच कीजिये कि क्या हार्ड "
+"डिस्क पुराना हो गया है और उसे बदलने की ज़रूरत है? हार्ड डिस्क में खराबी हद से ज़्यादा गर्मी "
+"से भी हो सकती है। आप पूरे कम्प्यूटर को एक कम गर्म जगह ले जाकर फिर से संस्थापन की कोशिश "
+"कर सकते हैं।"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:59001
 msgid "Copying installation logs..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
-msgid "Cleaning up..."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:60001
 msgid "Running ${SCRIPT}..."
 msgstr "चलाया जा रहा है ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:61001
 #, fuzzy
 msgid "Configuring system locales..."
 msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:62001
 msgid "Configuring apt..."
-msgstr ""
+msgstr "एप्ट कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:63001
 #, fuzzy
 msgid "Configuring time zone..."
 msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:64001
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "की-बोर्ड कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:65001
 msgid "Creating user..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:66001
 #, fuzzy
 msgid "Configuring hardware..."
 msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:67001
 msgid "Configuring network..."
 msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:68001
 msgid "Setting computer name..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:69001
 #, fuzzy
 msgid "Configuring boot loader..."
 msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:70001
 msgid "Removing extra packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:71001
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "पैकेज जिनको मिटाने हैं ढूँढे जा रहे हैं..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:72001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "पैकेज डाउनलोड हो रहे हैं (${TIME} बाकी)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:73001
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "पैकेज सूची डाउनलोड हो रहे हैं..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:74001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "पैकेज सूची डाउनलोड हो रहे हैं (${TIME} बाकी)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:76001
 msgid "Error installing ${PACKAGE}"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:77001
 msgid "Error removing ${PACKAGE}"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:78001
 msgid "Installing language packs"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:79001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "भाषा पेटी डाउनलोड हो रहे हैं (${TIME} बाकी)..."

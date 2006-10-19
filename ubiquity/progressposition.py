@@ -63,6 +63,9 @@ class ProgressPosition(object):
         return len(self.positions)
 
     def fraction(self):
+        if self.positions[0][0] == self.positions[0][1]:
+            # Somebody screwed up when creating this bar. Deal.
+            return 0.0
         fraction = ((self.inner_position - self.positions[0][0]) /
                     (self.positions[0][1] - self.positions[0][0]))
         for bar in range(1, len(self.positions)):

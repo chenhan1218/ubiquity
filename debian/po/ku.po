@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-08-26 11:59+0100\n"
-"PO-Revision-Date: 2006-05-13 16:57+0000\n"
-"Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
+"POT-Creation-Date: 2006-10-04 16:48+0100\n"
+"PO-Revision-Date: 2006-10-12 06:21+0000\n"
+"Last-Translator: ElîxanLoran <elixanloran@hotmail.com>\n"
 "Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr "Sazkirin"
+msgstr "Saz Bike"
 
 #. Type: text
 #. Description
@@ -34,12 +34,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Ma tu ji bo sazkirinê amade yî? Piştî bersivandina çend pirsan dê naveroka "
+"live CD'yê li komputera te bête barkirin. Bi vî rengî tê bikaribî pergala "
+"xwe bi lez û bê CD bixebitînî."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Answering the questions should only take a few minutes."
-msgstr "Bersivandina pirsan diviya tenê çend xulekek biajota."
+msgstr "Bersivandina pirsan diviya tenê çend xulekan bidomiya."
 
 #. Type: text
 #. Description
@@ -48,8 +51,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Ji kerema xwe zimana pêvajoya sazkirinê hilbijêre. Ev ziman dê piştre bibe "
-"zimanê standard a sîstemê."
+"Ji kerema xwe re zimanê pêvajoya sazkirinê hilbijêre. Ev ziman dê piştre "
+"bibe zimanê standard ê pergalê."
 
 #. Type: text
 #. Description
@@ -91,13 +94,13 @@ msgstr "Dema niha:"
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Set Time..."
-msgstr "Sazkirina demê..."
+msgstr "Saetê bimîhengîne..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Keyboard layout"
-msgstr "Rengê klavyeyê"
+msgstr "Plana klavyeyê"
 
 #. Type: text
 #. Description
@@ -109,13 +112,13 @@ msgstr "Kîjan zêdetir dişibe klavyeya te?"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Ji bo ceribandina klavyeyê dikarî di vê qutîkê de binivîsî."
+msgstr "Ji bo ceribandina klavyeyê tu dikarî di vê qutîkê de binivîsî."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Who are you?"
-msgstr "Tu kî yî?"
+msgstr "Tu ki yî?"
 
 #. Type: text
 #. Description
@@ -184,12 +187,14 @@ msgid ""
 "one of the following hard disks. Alternatively, you can partition the disks "
 "manually."
 msgstr ""
+"Tu dikarî bikî ku bernameya sazkirinê li diskeke jêrîn bixweber cih li ser "
+"riyên cuda biafirîne. An jî tu dikarî bi dest dîskan parve bikî."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Cîhê dîskê amade bike"
 
 #. Type: text
 #. Description
@@ -210,6 +215,8 @@ msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 2 GB, and a swap partition of at least 256 MB."
 msgstr ""
+"Bi xwe bawer bî ku te ji bo beşa kok (\"/\") herî kêm 2 GB û ji bo beşa "
+"pevguhartinê jî herî kêm 256 MB cih veqetandibe."
 
 #. Type: text
 #. Description
@@ -234,6 +241,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"Divê tu beşekê li pergala dosyeyan a kok (\"/\") re girê bide û ji bo weke "
+"beşa pevguhertinê were bikaranîn divê tu herî kêm beşekê hilbijêre."
 
 #. Type: text
 #. Description
@@ -251,7 +260,7 @@ msgstr "Mezinahî"
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Partition"
-msgstr "Partisyon (Dabeşkirina Diskan)"
+msgstr "Partisyon (partîsiyonkirina Diskan)"
 
 #. Type: text
 #. Description
@@ -263,7 +272,7 @@ msgstr "Ji nû ve were formatkirin?"
 #. Description
 #: ../ubiquity.templates:35001
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "Divê tu xaleke girêdanê ya kok (\"/\") diyar bike."
 
 #. Type: text
 #. Description
@@ -278,13 +287,13 @@ msgstr "Ji bo sazkirinê amade ye"
 #: ../ubiquity.templates:37001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "Pergala xebatê ya nû wê bi van taybetmendiyan re were barkirin."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Gav ${INDEX} / ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -314,13 +323,13 @@ msgstr "Sazkirin temam e"
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "CD ya dixebite bikarbîne û bidomîne"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Restart now"
-msgstr ""
+msgstr "Ji nû ve bide destpêkirin"
 
 #. Type: text
 #. Description
@@ -330,6 +339,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Sazkirin qediya. Ji bo ku tu karibe sazkirina nû bikar bîne divê tu "
+"kompîtura xwe ji nû ve bide destpêkirin. Tu dikarî vê CDya zindî bikar bîne "
+"lê guherîn û pelgeyên ku tu yê tomar bike dê neyên hilanîn."
 
 #. Type: text
 #. Description
@@ -358,191 +370,246 @@ msgstr "Bidomîne"
 #. Type: note
 #. Description
 #: ../ubiquity.templates:48001
-msgid "Language: ${LANGUAGE}"
+msgid ""
+" Language: ${LANGUAGE}\n"
+" Keyboard layout: ${KEYMAP}\n"
+" Name: ${FULLNAME}\n"
+" Login name: ${USERNAME}\n"
+" Location: ${LOCATION}\n"
+" ${EXTRAS}"
 msgstr ""
+" Ziman: ${LANGUAGE}\n"
+" Plana bişkokan: ${KEYMAP}\n"
+" Nav: ${FULLNAME}\n"
+" Navê têketinê: ${USERNAME}\n"
+" Cih: ${LOCATION}\n"
+" ${EXTRAS}"
 
-#. Type: note
+#. Type: text
 #. Description
-#: ../ubiquity.templates:48001
-msgid "Keyboard layout: ${KEYMAP}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity.templates:48001
-msgid "Name: ${REALNAME}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity.templates:48001
-msgid "Login name: ${USERNAME}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity.templates:48001
-msgid "Location: ${LOCATION}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity.templates:48001
-msgid "Partitioning:"
-msgstr ""
+#. Translators, please leave "DEVICE" untranslated. It will be replaced by a
+#. button displaying the current boot device and allowing the user to select
+#. a different one.
+#: ../ubiquity.templates:49001
+msgid "GRUB will be installed to DEVICE"
+msgstr "GRUB wê li cîhaza DEVICE were sazkirin"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:50001
 msgid "Installing system"
 msgstr "Pergal tê sazkirin"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:51001
 msgid "Finding the distribution to copy..."
 msgstr "Li dîstrîbusyona were kopîkirin tê gerandin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr "Dosya tên skenkirin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr "Dosya tên kopîkirin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
-msgid "Copying files (${TIME} remaining)..."
-msgstr "Dosya tên kopîkirin (${TIME} ma)..."
+#: ../ubiquity.templates:55001
+msgid "Copying files (less than a minute remaining)..."
+msgstr "Pel têne jibergirtin (ji xulekekê kêmtir mawe ma)"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001
+msgid "Failed to copy files; faulty CD/DVD?"
+msgstr "Jibergirtina dosya bi serneket; xirabûna CD/DVD?"
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001 ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
+msgid "The installer encountered an error copying files to the hard disk:"
+msgstr ""
+"Sazker di dema jibergirtina dosyayê ji reqe dîsketê de li çewtiyekê rast "
+"nehat:"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive. It may "
+"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
+"the CD/DVD drive lens (cleaning kits are often available from electronics "
+"suppliers)."
+msgstr ""
+"Ev çewtî, piranî ji ber dîskên CD/DVD yan jî ji ajokeran çêdibe. Heke tu CD/"
+"DVDyê paqij bike, di lezeke hêdî de nivîsandin yan jî lensa ajokera CD/DVD "
+"paqij bike wê pirsgirêk çareser bibe (aparatên paqijkirina lensan li cem "
+"mixazeyên elekronîk rehetî tê dîtin)"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:57001
+msgid "Failed to copy files; faulty hard disk?"
+msgstr "Jibergirtina dosya biserneket;çewtiya reqe dîsketê?"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:57001
+msgid ""
+"This particular error is often due to a faulty hard disk. It may help to "
+"check whether the hard disk is old and in need of replacement, or to move "
+"the system to a cooler environment."
+msgstr ""
+"Ev çewtî, piranî ji ber dîska req ya xerabe çêdibe. Heke tu dîska xwe "
+"kontrol bike bê ka kevn e yan na yan jî tu pergala xwe bibe cihekî sar wê "
+"pirsgirêkê çareser bike."
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:58001
+msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+msgstr "Jibergirtin ne serkeftî ye, CD/DVDya xerabe yan jî dîska req?"
+
+#. Type: error
+#. Description
+#. This is used when we don't know whether the CD/DVD or the hard disk is at
+#. fault.
+#: ../ubiquity.templates:58001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive, or a "
+"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
+"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+"available from electronics suppliers), to check whether the hard disk is old "
+"and in need of replacement, or to move the system to a cooler environment."
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:59001
 msgid "Copying installation logs..."
 msgstr "Tomarên sazkirinê tên kopîkirin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
-msgid "Cleaning up..."
-msgstr "Tê paqijkirin..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:60001
 msgid "Running ${SCRIPT}..."
-msgstr "${SCRIPT} tê meşandin..."
+msgstr "Dixebitîne ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:61001
 msgid "Configuring system locales..."
 msgstr "Herêmî (locale) ya sîstemê tê mîhenkirin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:62001
 msgid "Configuring apt..."
 msgstr "apt tê mîhenkirin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:63001
 msgid "Configuring time zone..."
 msgstr "Herêma demê tê saz kirin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:64001
 msgid "Configuring keyboard..."
 msgstr "Klavye tê mîhengkirin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:65001
 msgid "Creating user..."
 msgstr "Bikarhêner tê afirandin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:66001
 msgid "Configuring hardware..."
 msgstr "Hardware tê saz kirin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:67001
 msgid "Configuring network..."
 msgstr "Tor tê avakirin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:68001
 msgid "Setting computer name..."
 msgstr "Navê komputerê tê mîhengkirin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:69001
 msgid "Configuring boot loader..."
 msgstr "Boot loader tê saz kirin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:70001
 msgid "Removing extra packages..."
 msgstr "Paketên zêdebar tên derxistin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:71001
 msgid "Checking for packages to remove..."
 msgstr "Ji bo rakirinê li paketan digere..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:72001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Paket tên daxistin (${TIME} ma)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:73001
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Lîsteyên pakêtan tê daxistin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:74001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Lîsteyên paketan tên daxistin (${TIME} ma)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:76001
 msgid "Error installing ${PACKAGE}"
 msgstr "Di sazkirina ${PACKAGE} de xeletî"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:77001
 msgid "Error removing ${PACKAGE}"
 msgstr "Di rakirina ${PACKAGE} de xeletî"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:78001
 msgid "Installing language packs"
 msgstr "Paketên zimên saz dike"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:79001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Paketên zimên tên daxistin (${TIME} ma)..."

@@ -1,0 +1,390 @@
+# Irish messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
+"POT-Creation-Date: 2006-10-04 16:48+0100\n"
+"PO-Revision-Date: 2006-09-07 20:36+0000\n"
+"Last-Translator: Kevin Patrick Scannell <scannell@slu.edu>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:2001
+msgid "Install"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:3001
+msgid "Welcome"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:4001
+msgid ""
+"Ready to install? Once you answer a few questions, the contents of the live "
+"CD can be installed on this computer so you can run the system at full speed "
+"and without the CD."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:4001
+msgid "Answering the questions should only take a few minutes."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:4001
+msgid ""
+"Please choose the language used for the installation process. This language "
+"will be the default language for the final system."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:5001
+msgid "Where are you?"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:8001
+msgid "Time zone:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:10001
+msgid "Current time:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:11001
+msgid "Set Time..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:13001
+msgid "Which layout is most similar to your keyboard?"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:14001
+msgid "You can type into this box to test your new keyboard layout."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Who are you?"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "What is your name?"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:17001
+msgid "What name do you want to use to log in?"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:18001
+msgid ""
+"If more than one person will use this computer, you can set up multiple "
+"accounts after installation."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:19001
+msgid "Choose a password to keep your account safe."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:20001
+msgid ""
+"Enter the same password twice, so that it can be checked for typing errors."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:21001
+msgid "What is the name of this computer?"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:22001
+msgid ""
+"This name will be used if you make the computer visible to others on a "
+"network."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:24001
+msgid ""
+"You can have the installer automatically create space in various ways on any "
+"one of the following hard disks. Alternatively, you can partition the disks "
+"manually."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:25001
+msgid "Prepare disk space"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:28001
+msgid ""
+"Make sure to allocate space for a root partition (\"/\"), with a minimum "
+"size of 2 GB, and a swap partition of at least 256 MB."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:30001
+msgid ""
+"Select which partitions you want to use for your new installation, and where "
+"you want to mount each of them."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:30001
+msgid ""
+"You must mount one partition on the root file system (\"/\"), and you must "
+"choose at least one partition for use as swap space."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:32001
+msgid "Size"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:34001
+msgid "Reformat?"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:35001
+msgid "You must supply a root (\"/\") mount point."
+msgstr ""
+
+#. Type: text
+#. Description
+#. Type: note
+#. Description
+#: ../ubiquity.templates:36001 ../ubiquity.templates:48001
+msgid "Ready to install"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:37001
+msgid ""
+"Your new operating system will now be installed with the following settings:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:38001
+msgid "Step ${INDEX} of ${TOTAL}"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:41001
+msgid "Skip"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:43001
+msgid "Continue using the live CD"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:44001
+msgid "Restart now"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:45001
+msgid ""
+"Installation is complete. You need to restart the computer in order to use "
+"the new installation. You can continue to use this live CD, although any "
+"changes you make or documents you save will not be preserved."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:45001
+msgid ""
+"Make sure to remove the CD when restarting the computer, otherwise it will "
+"start back up using this live CD rather than the newly-installed system."
+msgstr ""
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:46001
+msgid "Go Back"
+msgstr "Téigh Siar"
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:47001
+msgid "Continue"
+msgstr "Lean ar aghaidh"
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:48001
+msgid ""
+" Language: ${LANGUAGE}\n"
+" Keyboard layout: ${KEYMAP}\n"
+" Name: ${FULLNAME}\n"
+" Login name: ${USERNAME}\n"
+" Location: ${LOCATION}\n"
+" ${EXTRAS}"
+msgstr ""
+
+#. Type: text
+#. Description
+#. Translators, please leave "DEVICE" untranslated. It will be replaced by a
+#. button displaying the current boot device and allowing the user to select
+#. a different one.
+#: ../ubiquity.templates:49001
+msgid "GRUB will be installed to DEVICE"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:51001
+msgid "Finding the distribution to copy..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:55001
+msgid "Copying files (less than a minute remaining)..."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001
+msgid "Failed to copy files; faulty CD/DVD?"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001 ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
+msgid "The installer encountered an error copying files to the hard disk:"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive. It may "
+"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
+"the CD/DVD drive lens (cleaning kits are often available from electronics "
+"suppliers)."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:57001
+msgid "Failed to copy files; faulty hard disk?"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:57001
+msgid ""
+"This particular error is often due to a faulty hard disk. It may help to "
+"check whether the hard disk is old and in need of replacement, or to move "
+"the system to a cooler environment."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:58001
+msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+msgstr ""
+
+#. Type: error
+#. Description
+#. This is used when we don't know whether the CD/DVD or the hard disk is at
+#. fault.
+#: ../ubiquity.templates:58001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive, or a "
+"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
+"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+"available from electronics suppliers), to check whether the hard disk is old "
+"and in need of replacement, or to move the system to a cooler environment."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:60001
+msgid "Running ${SCRIPT}..."
+msgstr "${SCRIPT} á rith..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:71001
+msgid "Checking for packages to remove..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:72001
+msgid "Downloading packages (${TIME} remaining)..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:74001
+msgid "Downloading package lists (${TIME} remaining)..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:79001
+msgid "Downloading language packs (${TIME} remaining)..."
+msgstr ""

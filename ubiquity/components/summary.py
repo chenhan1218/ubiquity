@@ -18,28 +18,39 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import textwrap
-from ubiquity.filteredcommand import FilteredCommand
+from ubiquity.components.partman_commit import PartmanCommit
 
-class Summary(FilteredCommand):
-    # TODO cjwatson 2006-03-10: Having partition_info passed this way is a
-    # hack; it should really live in debconf. However, this is a lot easier
-    # to deal with for now.
-    def __init__(self, frontend, partition_info=None):
-        super(Summary, self).__init__(frontend)
-        self.partition_info = partition_info
+class Summary(PartmanCommit):
+    def __init__(self, frontend, manual_partitioning=False):
+        super(Summary, self).__init__(frontend, manual_partitioning, True)
+        self.using_grub = False
 
     def prepare(self):
-        return (['/usr/share/ubiquity/summary'], ['^ubiquity/summary$'])
+        prep = list(super(Summary, self).prepare())
+        prep[0] = '/usr/share/ubiquity/summary'
+        prep[1].append('^ubiquity/summary.*')
+        return prep
+
+    def metaget(self, question, field):
+        if question == 'ubiquity/summary/grub':
+            self.using_grub = True
 
     def run(self, priority, question):
-        text = self.extended_description(question).replace("\n\n", "\n") + "\n"
-
-        if self.partition_info is not None:
-            wrapper = textwrap.TextWrapper(
-                initial_indent='  ', subsequent_indent='  ', width=76)
-            for line in self.partition_info.split("\n"):
+        if question == 'ubiquity/summary':
+            text = ''
+            wrapper = textwrap.TextWrapper(width=76)
+            for line in self.extended_description(question).split("\n"):
                 text += wrapper.fill(line) + "\n"
 
-        self.frontend.set_summary_text(text)
+            self.frontend.set_summary_text(text)
+            if self.using_grub:
+                # TODO cjwatson 2006-09-04: a bit inelegant, and possibly
+                # Ubuntu-specific?
+                self.frontend.set_summary_device('(hd0)')
 
-        return super(Summary, self).run(question, priority)
+            # This component exists only to gather some information and then
+            # get out of the way.
+            return True
+
+        else:
+            return super(Summary, self).run(priority, question)

@@ -46,6 +46,7 @@ import glob
 import subprocess
 import math
 import traceback
+import syslog
 import xml.sax.saxutils
 
 import gettext
@@ -65,7 +66,7 @@ except ImportError:
 from ubiquity import filteredcommand, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
-from ubiquity.components import language, kbd_chooser, timezone, usersetup, \
+from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman_auto, partman_commit, summary, install
 import ubiquity.emap
 import ubiquity.tz
@@ -103,14 +104,17 @@ class Wizard:
 
         # declare attributes
         self.distro = distro
-        self.current_keyboard = None
+        self.current_layout = None
         self.got_disk_choices = False
         self.auto_mountpoints = None
         self.resize_min_size = None
         self.resize_max_size = None
         self.manual_choice = None
+        self.manual_partitioning = False
         self.password = ''
         self.hostname_edited = False
+        self.gparted_fstype = {}
+        self.gparted_flags = {}
         self.mountpoint_widgets = []
         self.size_widgets = []
         self.partition_widgets = []
@@ -127,6 +131,8 @@ class Wizard:
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
         self.previous_partitioning_page = None
+        self.summary_device = None
+        self.summary_device_button = None
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
@@ -135,10 +141,7 @@ class Wizard:
         self.allowed_change_step = True
         self.allowed_go_forward = True
 
-        devnull = open('/dev/null', 'w')
-        self.laptop = subprocess.call(["laptop-detect"], stdout=devnull,
-                                      stderr=subprocess.STDOUT) == 0
-        devnull.close()
+        self.laptop = ex("laptop-detect")
 
         # set default language
         dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
@@ -182,6 +185,10 @@ class Wizard:
             return
 
         tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
+        syslog.syslog(syslog.LOG_ERR,
+                      "Exception in GTK frontend (invoking crash handler):")
+        for line in tbtext.split('\n'):
+            syslog.syslog(syslog.LOG_ERR, line)
         print >>sys.stderr, ("Exception in GTK frontend"
                              " (invoking crash handler):")
         print >>sys.stderr, tbtext
@@ -195,8 +202,6 @@ class Wizard:
                 pr['BugDisplayMode'] = 'file'
                 pr['ExecutablePath'] = '/usr/bin/ubiquity'
                 pr['PythonTraceback'] = tbtext
-                if os.path.exists('/var/log/installer/syslog'):
-                    pr['UbiquityInstallerSyslog'] = ('/var/log/installer/syslog',)
                 if os.path.exists('/var/log/syslog'):
                     pr['UbiquitySyslog'] = ('/var/log/syslog',)
                 if os.path.exists('/var/log/partman'):
@@ -269,16 +274,16 @@ class Wizard:
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
-                self.dbfilter = kbd_chooser.KbdChooser(self)
+                self.dbfilter = console_setup.ConsoleSetup(self)
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name in ("stepPartDisk", "stepPartAuto"):
                 if isinstance(self.dbfilter, partman_auto.PartmanAuto):
-                    pre_log('info', 'reusing running partman')
+                    syslog.syslog('reusing running partman')
                 else:
                     self.dbfilter = partman_auto.PartmanAuto(self)
             elif current_name == "stepReady":
-                self.dbfilter = summary.Summary(self)
+                self.dbfilter = summary.Summary(self, self.manual_partitioning)
             else:
                 self.dbfilter = None
 
@@ -286,6 +291,11 @@ class Wizard:
                 self.allow_change_step(False)
                 self.dbfilter.start(auto_process=True)
             else:
+                # Non-debconf steps don't have a mechanism for turning this
+                # back on, so we do it here. process_step should block until
+                # the next step has started up; this will block the UI, but
+                # that's probably unavoidable for now. (We only use this for
+                # gparted, which has its own UI loop.)
                 self.allow_change_step(True)
             gtk.main()
 
@@ -338,14 +348,6 @@ class Wizard:
 
     def poke_screensaver(self):
         """Attempt to make sure that the screensaver doesn't kick in."""
-        def drop_privileges():
-            if 'SUDO_GID' in os.environ:
-                gid = int(os.environ['SUDO_GID'])
-                os.setregid(gid, gid)
-            if 'SUDO_UID' in os.environ:
-                uid = int(os.environ['SUDO_UID'])
-                os.setreuid(uid, uid)
-
         if os.path.exists('/usr/bin/gnome-screensaver-command'):
             command = ["gnome-screensaver-command", "--poke"]
         elif os.path.exists('/usr/bin/xscreensaver-command'):
@@ -353,9 +355,14 @@ class Wizard:
         else:
             return
 
-        gobject.spawn_async(command,
+        env = ['LC_ALL=C']
+        for key, value in os.environ.iteritems():
+            if key != 'LC_ALL':
+                env.append('%s=%s' % (key, value))
+        gobject.spawn_async(command, envp=env,
                             flags=(gobject.SPAWN_SEARCH_PATH |
-                                   gobject.SPAWN_STDOUT_TO_DEV_NULL),
+                                   gobject.SPAWN_STDOUT_TO_DEV_NULL |
+                                   gobject.SPAWN_STDERR_TO_DEV_NULL),
                             child_setup=drop_privileges)
         return True
 
@@ -477,7 +484,7 @@ class Wizard:
     def gparted_loop(self):
         """call gparted and embed it into glade interface."""
 
-        pre_log('info', 'gparted_loop()')
+        syslog.syslog('gparted_loop()')
 
         disable_swap()
 
@@ -490,12 +497,22 @@ class Wizard:
         self.embedded.add(socket)
         window_id = str(socket.get_id())
 
-        self.gparted_fstype = {}
+        args = ['log-output', '-t', 'ubiquity', '--pass-stdout',
+                'gparted', '--installer', window_id]
+        for part in self.gparted_fstype:
+            args.extend(['--filesystem',
+                         '%s:%s' % (part, self.gparted_fstype[part])])
+        syslog.syslog(syslog.LOG_DEBUG, 'Running gparted: %s' % ' '.join(args))
 
         # Save pid to kill gparted when install process starts
         self.gparted_subp = subprocess.Popen(
-            ['gparted', '--installer', window_id],
+            args,
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+
+        # Wait for gparted to start up before enabling back/forward buttons
+        gparted_reply = ''
+        while gparted_reply != '- READY':
+            gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
 
 
     def set_size_msg(self, widget):
@@ -561,21 +578,50 @@ class Wizard:
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
 
-        pre_log('info', 'progress_loop()')
+        syslog.syslog('progress_loop()')
 
         self.current_page = None
 
-        if self.progress_position.depth() != 0:
-            # A progress bar is already up for the partitioner. Use the rest
-            # of it.
-            (start, end) = self.progress_position.get_region()
-            self.debconf_progress_region(end, 100)
+        self.debconf_progress_start(
+            0, 100, get_string('ubiquity/install/title', self.locale))
+        self.debconf_progress_region(0, 15)
+
+        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
+        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
+        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
+        gconf_previous = {}
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            subp = subprocess.Popen(['gconftool-2', '--config-source',
+                                     gconf_dir, '--get', gconf_key],
+                                    stdout=subprocess.PIPE,
+                                    stderr=subprocess.PIPE)
+            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
+            if gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                 '--type', 'bool', 'false'])
+
+        dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
+        if dbfilter.run_command(auto_process=True) != 0:
+            # TODO cjwatson 2006-09-03: return to partitioning?
+            return
+
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            if gconf_previous[gconf_key] == '':
+                ex('gconftool-2', '--unset', gconf_key)
+            elif gconf_previous[gconf_key] != 'false':
+                ex('gconftool-2', '--set', gconf_key,
+                   '--type', 'bool', gconf_previous[gconf_key])
+
+        self.debconf_progress_region(15, 100)
 
         dbfilter = install.Install(self)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
             self.installing = False
-            if os.path.exists('/var/lib/ubiquity/install.trace'):
+            if ret == 3:
+                # error already handled by Install
+                sys.exit(ret)
+            elif os.path.exists('/var/lib/ubiquity/install.trace'):
                 tbfile = open('/var/lib/ubiquity/install.trace')
                 realtb = tbfile.read()
                 tbfile.close()
@@ -583,7 +629,6 @@ class Wizard:
                                      (ret, realtb))
             else:
                 raise RuntimeError, ("Install failed with exit code %s; see "
-                                     "/var/log/installer/syslog and "
                                      "/var/log/syslog" % ret)
 
         while self.progress_position.depth() != 0:
@@ -609,14 +654,15 @@ class Wizard:
 
         if (os.path.exists("/usr/bin/gdm-signal") and
             os.path.exists("/usr/bin/gnome-session-save")):
-            subprocess.call(["gdm-signal", "--reboot"])
+            ex("gdm-signal", "--reboot")
             if 'SUDO_UID' in os.environ:
                 user = '#%d' % int(os.environ['SUDO_UID'])
             else:
                 user = 'ubuntu'
-            subprocess.call(["sudo", "-u", user, "-H", "gnome-session-save", "--kill", "--silent"])
+            ex("sudo", "-u", user, "-H",
+               "gnome-session-save", "--kill", "--silent")
         else:
-            subprocess.call(["reboot"])
+            ex("reboot")
 
 
     def quit(self):
@@ -726,6 +772,11 @@ class Wizard:
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""
 
+        if not self.allowed_change_step or not self.allowed_go_forward:
+            return
+
+        self.allow_change_step(False)
+
         step = self.step_name(self.steps.get_current_page())
 
         if step == "stepUserInfo":
@@ -734,24 +785,36 @@ class Wizard:
             self.hostname_error_box.hide()
 
         if self.dbfilter is not None:
-            self.allow_change_step(False)
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
-        else:
+        elif gtk.main_level() > 0:
             gtk.main_quit()
 
-    def on_keyboard_selected(self, start_editing, *args):
-        keyboard = self.get_keyboard()
-        if keyboard is not None:
-            kbd_chooser.apply_keyboard(keyboard)
+    def on_keyboard_layout_selected(self, start_editing, *args):
+        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+            layout = self.get_keyboard()
+            if layout is not None:
+                self.current_layout = layout
+                self.dbfilter.change_layout(layout)
+
+    def on_keyboard_variant_selected(self, start_editing, *args):
+        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+            layout = self.get_keyboard()
+            variant = self.get_keyboard_variant()
+            if layout is not None and variant is not None:
+                self.dbfilter.apply_keyboard(layout, variant)
 
     def process_step(self):
         """Process and validate the results of this step."""
 
         # setting actual step
-        step = self.step_name(self.steps.get_current_page())
-        pre_log('info', 'Step_before = %s' % step)
+        step_num = self.steps.get_current_page()
+        step = self.step_name(step_num)
+        syslog.syslog('Step_before = %s' % step)
+
+        if step.startswith("stepPart"):
+            self.previous_partitioning_page = step_num
 
         # Welcome
         if step == "stepWelcome":
@@ -788,10 +851,16 @@ class Wizard:
         # Ready to install
         elif step == "stepReady":
             self.live_installer.hide()
+            self.current_page = None
+            self.installing = True
             self.progress_loop()
+            return
 
         step = self.step_name(self.steps.get_current_page())
-        pre_log('info', 'Step_after = %s' % step)
+        syslog.syslog('Step_after = %s' % step)
+
+        if step == "stepReady":
+            self.next.set_label("Install")
 
     def process_identification (self):
         """Processing identification step tasks."""
@@ -848,8 +917,8 @@ class Wizard:
             self.steps.next_page()
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
+            self.manual_partitioning = False
             self.steps.set_current_page(self.steps.page_num(self.stepReady))
-            self.next.set_label("Install") # TODO i18n
 
 
     def gparted_crashed(self):
@@ -857,8 +926,8 @@ class Wizard:
 
         # TODO cjwatson 2006-07-18: i18n
         text = ('The advanced partitioner (gparted) crashed. Further '
-                'information may be found in /var/log/installer/syslog, '
-                'or by running gparted directly. Do you want to try the '
+                'information may be found in /var/log/syslog, or by '
+                'running gparted directly. Do you want to try the '
                 'advanced partitioner again, return to automatic '
                 'partitioning, or quit this installer?')
         dialog = gtk.Dialog('GParted crashed', self.live_installer,
@@ -886,6 +955,7 @@ class Wizard:
         """Processing gparted to mountpoints step tasks."""
 
         self.gparted_fstype = {}
+        self.gparted_flags = {}
 
         if self.gparted_subp is None:
             self.gparted_crashed()
@@ -904,13 +974,14 @@ class Wizard:
         # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
         gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
         while gparted_reply.startswith('- '):
-            pre_log('info', 'gparted replied: %s' % gparted_reply)
+            syslog.syslog('gparted replied: %s' % gparted_reply)
             words = gparted_reply[2:].strip().split()
             if words[0].lower() == 'format' and len(words) >= 3:
                 self.gparted_fstype[words[1]] = words[2]
+                self.gparted_flags[words[1]] = words[3:]
             gparted_reply = \
                 self.gparted_subp.stdout.readline().rstrip('\n')
-        pre_log('info', 'gparted replied: %s' % gparted_reply)
+        syslog.syslog('gparted replied: %s' % gparted_reply)
 
         if gparted_reply.startswith('1 '):
             # Cancel
@@ -962,6 +1033,9 @@ class Wizard:
             # they're validated.
             for mountpoint, partition in selection.items():
                 if partition.split('/')[2] not in self.size:
+                    syslog.syslog(syslog.LOG_WARNING,
+                                  "No size available for partition %s; "
+                                  "skipping" % partition)
                     continue
                 if partition not in self.partition_choices:
                     # TODO cjwatson 2006-05-27: I don't know why this might
@@ -969,6 +1043,9 @@ class Wizard:
                     # (https://launchpad.net/bugs/46910). Figure out why. In
                     # the meantime, ignoring this partition is better than
                     # crashing.
+                    syslog.syslog(syslog.LOG_WARNING,
+                                  "Partition %s not in /proc/partitions?" %
+                                  partition)
                     continue
                 if mountpoint in self.mountpoint_choices:
                     self.mountpoint_widgets[-1].set_active(
@@ -990,6 +1067,10 @@ class Wizard:
                     self.add_mountpoint_table_row()
                 else:
                     break
+
+        # For some reason, GtkTable doesn't seem to queue a resize itself
+        # when you attach children to it.
+        self.mountpoint_table.queue_resize()
 
         # We defer connecting up signals until now to avoid the changed
         # signal firing while we're busy populating the table.
@@ -1039,11 +1120,14 @@ class Wizard:
                         "No partition selected for %s." % mountpoint_value)
                     break
                 else:
-                    mountpoints[partition_id] = (mountpoint_value,
-                                                 format_value, fstype)
+                    flags = None
+                    if partition_id in self.gparted_flags:
+                        flags = self.gparted_flags[partition_id]
+                    mountpoints[partition_id] = \
+                        (mountpoint_value, format_value, fstype, flags)
         else:
             self.mountpoints = mountpoints
-        pre_log('info', 'mountpoints: %s' % self.mountpoints)
+        syslog.syslog('mountpoints: %s' % self.mountpoints)
 
         # Checking duplicated devices
         partitions = [w.get_active_text() for w in self.partition_widgets]
@@ -1062,10 +1146,19 @@ class Wizard:
             # with those detected from the disk.
             validate_mountpoints = dict(self.mountpoints)
             validate_filesystems = get_filesystems(self.gparted_fstype)
-            for device, (path, format, fstype) in validate_mountpoints.items():
+            for device, (path, format, fstype,
+                         flags) in validate_mountpoints.items():
                 if fstype is None and device in validate_filesystems:
                     validate_mountpoints[device] = \
-                        (path, format, validate_filesystems[device])
+                        (path, format, validate_filesystems[device], None)
+            # Check for some special-purpose partitions detected by partman.
+            for device, mountpoint in self.auto_mountpoints.iteritems():
+                if device in validate_mountpoints:
+                    continue
+                if not mountpoint.startswith('/'):
+                    validate_mountpoints[device] = \
+                        (mountpoint, False, None, None)
+
             for check in validation.check_mountpoint(validate_mountpoints,
                                                      self.size):
                 if check == validation.MOUNTPOINT_NOROOT:
@@ -1075,7 +1168,7 @@ class Wizard:
                     error_msg.append("Two file systems are assigned the same "
                                      "mount point.")
                 elif check == validation.MOUNTPOINT_BADSIZE:
-                    for mountpoint, format, fstype in \
+                    for mountpoint, format, fstype, flags in \
                             self.mountpoints.itervalues():
                         if mountpoint == 'swap':
                             min_root = MINIMAL_PARTITION_SCHEME['root']
@@ -1105,6 +1198,16 @@ class Wizard:
                                      "filesystems (/home, /media/*, "
                                      "/usr/local, etc.) may be used without "
                                      "reformatting.")
+                elif check == validation.MOUNTPOINT_NEEDPOSIX:
+                    error_msg.append("FAT and NTFS filesystems may not be "
+                                     "used on filesystems used by the system "
+                                     "(/, /boot, /home, /usr, /var, etc.). "
+                                     "It is usually best to mount them "
+                                     "somewhere under /media/.")
+                elif check == validation.MOUNTPOINT_NONEWWORLD:
+                    error_msg.append(get_string(
+                        'partman-newworld/no_newworld',
+                        'extended:%s' % self.locale))
 
         # showing warning messages
         self.mountpoint_error_reason.set_text("\n".join(error_msg))
@@ -1116,38 +1219,17 @@ class Wizard:
             self.mountpoint_error_reason.hide()
             self.mountpoint_error_image.hide()
 
-        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
-        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
-        gconf_previous = {}
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            subp = subprocess.Popen(['gconftool-2', '--config-source',
-                                     gconf_dir, '--get', gconf_key],
-                                    stdout=subprocess.PIPE,
-                                    stderr=subprocess.PIPE)
-            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
-            if gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                 '--type', 'bool', 'false'])
-
-        if partman_commit.PartmanCommit(self).run_command(auto_process=True) != 0:
-            return
-
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            if gconf_previous[gconf_key] == '':
-                subprocess.call(['gconftool-2', '--unset', gconf_key])
-            elif gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                 '--type', 'bool', gconf_previous[gconf_key]])
-
-        # Since we've successfully committed partitioning, the install
-        # progress bar should now be displayed, so we can go straight on to
-        # the installation now.
-        self.progress_loop()
+        self.manual_partitioning = True
+        self.steps.next_page()
 
 
     def on_back_clicked(self, widget):
         """Callback to set previous screen."""
+
+        if not self.allowed_change_step:
+            return
+
+        self.allow_change_step(False)
 
         self.backup = True
 
@@ -1182,16 +1264,17 @@ class Wizard:
             self.gparted_loop()
         elif step == "stepReady":
             self.next.set_label("gtk-go-forward")
+            self.steps.set_current_page(self.previous_partitioning_page)
+            changed_page = True
 
         if not changed_page:
             self.steps.prev_page()
 
         if self.dbfilter is not None:
-            self.allow_change_step(False)
             self.dbfilter.cancel_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
-        else:
+        elif gtk.main_level() > 0:
             gtk.main_quit()
 
 
@@ -1216,7 +1299,8 @@ class Wizard:
         if 'DESKTOP_STARTUP_ID' in time_admin_env:
             del time_admin_env['DESKTOP_STARTUP_ID']
         time_admin_env['GST_NO_INSTALL_NTP'] = '1'
-        time_admin_subp = subprocess.Popen(["time-admin"], env=time_admin_env)
+        time_admin_subp = subprocess.Popen(["log-output", "-t", "ubiquity",
+                                            "time-admin"], env=time_admin_env)
         gobject.child_watch_add(time_admin_subp.pid, self.on_time_admin_exit,
                                 invisible)
 
@@ -1237,7 +1321,7 @@ class Wizard:
     def on_steps_switch_page (self, foo, bar, current):
         self.set_current_page(current)
         current_name = self.step_name(current)
-        pre_log('info', 'switched to page %s' % current_name)
+        syslog.syslog('switched to page %s' % current_name)
 
 
     def on_autopartition_resize_toggled (self, widget):
@@ -1348,9 +1432,25 @@ class Wizard:
 
     def debconffilter_done (self, dbfilter):
         # TODO cjwatson 2006-02-10: handle dbfilter.status
+        if dbfilter is None:
+            name = 'None'
+        else:
+            name = dbfilter.__class__.__name__
+        if self.dbfilter is None:
+            currentname = 'None'
+        else:
+            currentname = self.dbfilter.__class__.__name__
+        syslog.syslog(syslog.LOG_DEBUG,
+                      "debconffilter_done: %s (current: %s)" %
+                      (name, currentname))
         if dbfilter == self.dbfilter:
             self.dbfilter = None
-            gtk.main_quit()
+            if isinstance(dbfilter, summary.Summary):
+                # The Summary component is just there to gather information,
+                # and won't call run_main_loop() for itself.
+                self.allow_change_step(True)
+            elif gtk.main_level() > 0:
+                gtk.main_quit()
 
 
     def set_language_choices (self, choices, choice_map):
@@ -1479,6 +1579,8 @@ class Wizard:
                 button.connect('toggled', self.on_autopartition_resize_toggled)
         if firstbutton is not None:
             firstbutton.set_active(True)
+        if resize_choice not in choices:
+            self.new_size_vbox.hide()
 
         self.autopartition_vbox.show_all()
 
@@ -1513,121 +1615,125 @@ class Wizard:
         return dict(self.mountpoints)
 
 
-    def confirm_partitioning_dialog (self, title, description):
-        # TODO cjwatson 2006-03-10: Duplication of page logic; I think some
-        # of this can go away once we reorganise page handling not to invoke
-        # a main loop for each page.
-        self.allow_change_step(False)
-        self.next.set_label("Install") # TODO i18n
-        self.previous_partitioning_page = self.steps.get_current_page()
-        self.steps.set_current_page(self.steps.page_num(self.stepReady))
-
-        save_dbfilter = self.dbfilter
-        save_backup = self.backup
-        self.dbfilter = summary.Summary(self, description)
-        self.backup = False
-
-        # Since the partitioner is still running, we need to use a different
-        # database to run the summary page. Fortunately, nothing we set in
-        # the summary script needs to persist, so we can just use a
-        # throwaway database.
-        save_replace, save_override = None, None
-        if 'DEBCONF_DB_REPLACE' in os.environ:
-            save_replace = os.environ['DEBCONF_DB_REPLACE']
-        if 'DEBCONF_DB_OVERRIDE' in os.environ:
-            save_override = os.environ['DEBCONF_DB_OVERRIDE']
-        os.environ['DEBCONF_DB_REPLACE'] = 'configdb'
-        os.environ['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
-        self.dbfilter.run_command(auto_process=True)
-        if save_replace is None:
-            del os.environ['DEBCONF_DB_REPLACE']
-        else:
-            os.environ['DEBCONF_DB_REPLACE'] = save_replace
-        if save_override is None:
-            del os.environ['DEBCONF_DB_OVERRIDE']
-        else:
-            os.environ['DEBCONF_DB_OVERRIDE'] = save_override
-
-        self.dbfilter = save_dbfilter
-
-        if self.current_page is None:
-            # installation cancelled; partman should return ASAP after this
-            return False
-
-        if self.backup:
-            self.steps.set_current_page(self.previous_partitioning_page)
-            self.next.set_label("gtk-go-forward")
-            return False
-        # TODO should this not just force self.backup = False?
-        self.backup = save_backup
-
-        # The user said OK, so we're going to start the installation proper
-        # now. We therefore have to put up the installation progress bar,
-        # return control to partman to do the partitioning in a region of
-        # that, and then let whatever started partman drop through to
-        # progress_loop.
-        # Yes, the control flow is pretty tortuous here. Sorry!
-
-        self.live_installer.hide()
-        self.current_page = None
-        self.debconf_progress_start(
-            0, 100, get_string('ubiquity/install/title', self.locale))
-        self.debconf_progress_region(0, 15)
-        self.installing = True
-
-        return True
-
-    def set_keyboard_choices(self, choicemap):
-        self.keyboard_choice_map = dict(choicemap)
-        choices = choicemap.keys()
-
-        kbdlayouts = gtk.ListStore(gobject.TYPE_STRING)
-        self.keyboardlistview.set_model(kbdlayouts)
+    def set_keyboard_choices(self, choices):
+        layouts = gtk.ListStore(gobject.TYPE_STRING)
+        self.keyboardlayoutview.set_model(layouts)
         for v in sorted(choices):
-            kbdlayouts.append([v])
+            layouts.append([v])
 
-        if len(self.keyboardlistview.get_columns()) < 1:
+        if len(self.keyboardlayoutview.get_columns()) < 1:
             column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
             column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-            self.keyboardlistview.append_column(column)
-            selection = self.keyboardlistview.get_selection()
+            self.keyboardlayoutview.append_column(column)
+            selection = self.keyboardlayoutview.get_selection()
             selection.connect('changed',
-                              self.on_keyboard_selected)
+                              self.on_keyboard_layout_selected)
 
-        if self.current_keyboard is not None:
-            self.set_keyboard(self.current_keyboard)
-    
-    def set_keyboard (self, keyboard):
-        """
-        Keyboard is the database name of the keyboard, so untranslated
-        """
+        if self.current_layout is not None:
+            self.set_keyboard(self.current_layout)
 
-        self.current_keyboard = keyboard
-        model = self.keyboardlistview.get_model()
+    def set_keyboard (self, layout):
+        self.current_layout = layout
+        model = self.keyboardlayoutview.get_model()
         if model is None:
             return
         iterator = model.iter_children(None)
         while iterator is not None:
-            value = unicode(model.get_value(iterator, 0))
-            if self.keyboard_choice_map[value] == keyboard:
+            if unicode(model.get_value(iterator, 0)) == layout:
                 path = model.get_path(iterator)
-                self.keyboardlistview.get_selection().select_path(path)
-                self.keyboardlistview.scroll_to_cell(
+                self.keyboardlayoutview.get_selection().select_path(path)
+                self.keyboardlayoutview.scroll_to_cell(
                     path, use_align=True, row_align=0.5)
                 break
             iterator = model.iter_next(iterator)
 
     def get_keyboard (self):
-        selection = self.keyboardlistview.get_selection()
+        selection = self.keyboardlayoutview.get_selection()
         (model, iterator) = selection.get_selected()
         if iterator is None:
             return None
         else:
-            value = unicode(model.get_value(iterator, 0))
-            return self.keyboard_choice_map[value]
+            return unicode(model.get_value(iterator, 0))
+
+    def set_keyboard_variant_choices(self, choices):
+        variants = gtk.ListStore(gobject.TYPE_STRING)
+        self.keyboardvariantview.set_model(variants)
+        for v in sorted(choices):
+            variants.append([v])
+
+        if len(self.keyboardvariantview.get_columns()) < 1:
+            column = gtk.TreeViewColumn("Variant", gtk.CellRendererText(), text=0)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            self.keyboardvariantview.append_column(column)
+            selection = self.keyboardvariantview.get_selection()
+            selection.connect('changed',
+                              self.on_keyboard_variant_selected)
+
+    def set_keyboard_variant (self, variant):
+        model = self.keyboardvariantview.get_model()
+        if model is None:
+            return
+        iterator = model.iter_children(None)
+        while iterator is not None:
+            if unicode(model.get_value(iterator, 0)) == variant:
+                path = model.get_path(iterator)
+                self.keyboardvariantview.get_selection().select_path(path)
+                self.keyboardvariantview.scroll_to_cell(
+                    path, use_align=True, row_align=0.5)
+                break
+            iterator = model.iter_next(iterator)
+
+    def get_keyboard_variant (self):
+        selection = self.keyboardvariantview.get_selection()
+        (model, iterator) = selection.get_selected()
+        if iterator is None:
+            return None
+        else:
+            return unicode(model.get_value(iterator, 0))
 
     def set_summary_text (self, text):
-        self.ready_text.set_text(text)
+        for child in self.ready_text.get_children():
+            self.ready_text.remove(child)
+
+        ready_buffer = gtk.TextBuffer()
+        ready_buffer.set_text(text)
+        self.ready_text.set_buffer(ready_buffer)
+        device_index = text.find("DEVICE")
+        if device_index != -1:
+            device_start_iter = ready_buffer.get_iter_at_offset(device_index)
+            device_end_iter = ready_buffer.get_iter_at_offset(device_index + 6)
+            ready_buffer.delete(device_start_iter, device_end_iter)
+            device_anchor = ready_buffer.create_child_anchor(device_start_iter)
+            self.summary_device_button = gtk.Button()
+            self.summary_device_button.connect(
+                'clicked', self.on_summary_device_button_clicked)
+            self.summary_device_button.show()
+            self.ready_text.add_child_at_anchor(self.summary_device_button,
+                                                device_anchor)
+
+    def set_summary_device (self, device):
+        if not device.startswith('(') and not device.startswith('/dev/'):
+            device = '/dev/%s' % device
+        self.summary_device = device
+
+        # i.e. set_summary_text has been called
+        if self.summary_device_button is None:
+            syslog.syslog(syslog.LOG_ERR,
+                          "summary_device_button missing (broken "
+                          "ubiquity/summary/grub translation?)")
+            return
+        self.summary_device_button.set_label(device)
+
+    def get_summary_device (self):
+        return self.summary_device
+
+    def on_summary_device_button_clicked (self, button):
+        self.grub_device_entry.set_text(self.get_summary_device())
+        response = self.grub_device_dialog.run()
+        self.grub_device_dialog.hide()
+        if response == gtk.RESPONSE_OK:
+            self.set_summary_device(self.grub_device_entry.get_text())
+        return True
 
 
     def return_to_autopartitioning (self):
@@ -1644,7 +1750,7 @@ class Wizard:
             self.backup = True
             self.installing = False
 
-    def error_dialog (self, msg, fatal=True):
+    def error_dialog (self, title, msg, fatal=True):
         # TODO: cancel button as well if capb backup
         self.allow_change_step(True)
         if self.current_page is not None:
@@ -1653,6 +1759,7 @@ class Wizard:
             transient = self.debconf_progress_window
         dialog = gtk.MessageDialog(transient, gtk.DIALOG_MODAL,
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
+        dialog.set_title(title)
         dialog.run()
         dialog.hide()
         if fatal:
@@ -1701,7 +1808,8 @@ class Wizard:
 
     # Return control to the next level up.
     def quit_main_loop (self):
-        gtk.main_quit()
+        if gtk.main_level() > 0:
+            gtk.main_quit()
 
 
 # Much of this timezone map widget is a rough translation of

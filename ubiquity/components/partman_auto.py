@@ -48,6 +48,7 @@ class PartmanAuto(FilteredCommand):
         shutil.rmtree('/var/lib/partman', ignore_errors=True)
 
         self.autopartition_question = None
+        self.resize_allowed = True
         self.resize_min_percent = 0
         self.backup_from_new_size = None
         self.stashed_auto_mountpoints = None
@@ -60,10 +61,12 @@ class PartmanAuto(FilteredCommand):
                      'type:boolean',
                      'ERROR',
                      'PROGRESS']
-        return ('/bin/partman', questions, {'PARTMAN_SNOOP': '1'})
+        return ('/bin/partman', questions,
+                {'PARTMAN_NO_COMMIT': '1', 'PARTMAN_SNOOP': '1'})
 
     def error(self, priority, question):
-        self.frontend.error_dialog(self.description(question))
+        self.frontend.error_dialog(self.description(question),
+                                   self.extended_description(question))
         return super(PartmanAuto, self).error(priority, question)
 
     def parse_size(self, size_str):
@@ -93,6 +96,13 @@ class PartmanAuto(FilteredCommand):
             elif key == 'MAXSIZE':
                 self.resize_max_size = self.parse_size(value)
 
+    def error(self, priority, question):
+        if question == 'partman-partitioning/impossible_resize':
+            if self.resize_allowed:
+                self.resize_allowed = False
+                return False
+        return super(PartmanAuto, self).error(priority, question)
+
     def run(self, priority, question):
         if self.stashed_auto_mountpoints is None:
             # We need to extract the automatic mountpoints calculated by
@@ -113,10 +123,12 @@ class PartmanAuto(FilteredCommand):
                     method = parted.readline_part_entry(p_id, 'method')
                     if method == 'swap':
                         continue
-                    if not parted.has_part_entry(p_id, 'acting_filesystem'):
-                        continue
-                    mountpoint = parted.readline_part_entry(p_id, 'mountpoint')
-                    self.stashed_auto_mountpoints[p_path] = mountpoint
+                    elif p_fs == 'hfs' and method == 'newworld':
+                        self.stashed_auto_mountpoints[p_path] = 'newworld'
+                    elif parted.has_part_entry(p_id, 'acting_filesystem'):
+                        mountpoint = parted.readline_part_entry(p_id,
+                                                                'mountpoint')
+                        self.stashed_auto_mountpoints[p_path] = mountpoint
             self.frontend.set_auto_mountpoints(self.stashed_auto_mountpoints)
 
         if self.done:
@@ -132,6 +144,7 @@ class PartmanAuto(FilteredCommand):
             qtype = ''
 
         if question == 'partman-auto/select_disk':
+            self.resize_allowed = True
             self.manual_desc = \
                 self.description('partman-auto/text/custom_partitioning')
             if not self.frontend.set_disk_choices(self.choices(question),
@@ -154,8 +167,13 @@ class PartmanAuto(FilteredCommand):
             self.manual_desc = \
                 self.description('partman-auto/text/custom_partitioning')
             choices = self.choices(question)
+            if not self.resize_allowed:
+                try:
+                    del choices[choices.index(self.resize_desc)]
+                except ValueError:
+                    pass
             self.frontend.set_autopartition_choices(
-                self.choices(question), self.resize_desc, self.manual_desc)
+                choices, self.resize_desc, self.manual_desc)
             if self.resize_desc in choices:
                 # The resize option is available, so we need to present the
                 # user with an accurate resize slider before passing control
@@ -173,14 +191,12 @@ class PartmanAuto(FilteredCommand):
                                                           self.resize_max_size)
 
         elif question.startswith('partman/confirm'):
-            if self.frontend.confirm_partitioning_dialog(
-                    self.description(question),
-                    self.extended_description(question)):
-                self.preseed(question, 'true')
-                self.succeeded = True
+            if question == 'partman/confirm':
+                self.db.set('ubiquity/partman-made-changes', 'true')
             else:
-                self.preseed(question, 'false')
-                self.succeeded = False
+                self.db.set('ubiquity/partman-made-changes', 'false')
+            self.preseed(question, 'true')
+            self.succeeded = True
             self.done = True
             return True
 
