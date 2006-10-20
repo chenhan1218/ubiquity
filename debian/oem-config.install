@@ -15,3 +15,4 @@ scripts/tzsetup-wrapper usr/lib/oem-config/timezone
 
 # user-setup
 d-i/source/user-setup/functions.sh usr/lib/oem-config/user
+d-i/source/user-setup/reserved-usernames usr/lib/oem-config/user
