@@ -1,3 +1,11 @@
+ubiquity (1.2.5) UNRELEASED; urgency=low
+
+  * Automatic update of included source packages: apt-setup 1:0.11ubuntu5,
+    console-setup 1.7ubuntu19, partman-base 90ubuntu9, yaboot-installer
+    1.1.7ubuntu2.
+
+ -- Colin Watson <cjwatson@debian.org>  Fri, 20 Oct 2006 23:36:22 +0100
+
 ubiquity (1.2.4) edgy; urgency=low
 
   * Use update-initramfs -c -k "$(uname -r)" rather than update-initramfs
