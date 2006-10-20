@@ -62,8 +62,6 @@ class ConsoleSetup(FilteredCommand):
         if self.done:
             return self.succeeded
 
-        # TODO cjwatson 2006-09-07: we're going to need a separate UI
-        # element for variant
         if question == 'console-setup/layout':
             # Reset this in case we just backed up from the variant
             # question.
