@@ -3,8 +3,8 @@ oem-config (1.8) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Remove /var/lib/kdm/kdmsts in oem-config-firstboot after removing the
     oem user; KDM stores the default user there.
-  * Automatic update of included source packages: console-setup
-    1.7ubuntu19, localechooser 1.20ubuntu8, user-setup 1.2ubuntu4.
+  * Automatic update of included source packages: console-setup 1.7ubuntu19,
+    localechooser 1.20ubuntu8, user-setup 1.2ubuntu4.
 
   [ Anirudh Ramesh ]
   * KDE frontend: Fixed bug where set_country combobox was not being
