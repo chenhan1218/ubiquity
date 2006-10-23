@@ -1180,6 +1180,9 @@ class Install:
     def broken_packages(self, cache):
         brokenpkgs = set()
         for pkg in cache.keys():
+            # Apparently sometimes the cache goes a bit bonkers ...
+            if pkg not in cache._cache:
+                continue
             if cache._depcache.IsInstBroken(cache._cache[pkg]):
                 brokenpkgs.add(pkg)
         return brokenpkgs

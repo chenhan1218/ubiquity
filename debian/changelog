@@ -1,3 +1,10 @@
+ubiquity (1.2.6) UNRELEASED; urgency=low
+
+  * Defend a bit more against the apt cache going insane (closes: Malone
+    #67689).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 23 Oct 2006 11:00:32 +0100
+
 ubiquity (1.2.5) edgy; urgency=low
 
   * Automatic update of included source packages: apt-setup 1:0.11ubuntu5,
