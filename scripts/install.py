@@ -304,9 +304,9 @@ class Install:
             self.db.progress('REGION', 1, 75)
             try:
                 self.copy_all()
-            except OSError, e:
-                if e.errno in (errno.ENOENT, errno.EIO, errno.ENOTDIR,
-                               errno.EROFS):
+            except EnvironmentError, e:
+                if e.errno in (errno.ENOENT, errno.EIO, errno.EFAULT,
+                               errno.ENOTDIR, errno.EROFS):
                     if e.filename is None:
                         error_template = 'cd_hd_fault'
                     elif e.filename.startswith('/target'):
