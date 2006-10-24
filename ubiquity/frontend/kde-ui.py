@@ -137,6 +137,7 @@ class Wizard:
         self.current_page = None
         self.dbfilter = None
         self.locale = None
+        self.progressDialogue = None
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
         self.previous_partitioning_page = None
@@ -1378,18 +1379,20 @@ class Wizard:
 
         if progress_title is None:
             progress_title = ""
-        if self.progress_position.depth() == 0:
-            total_steps = progress_max - progress_min
-
-            self.progressDialogue = QProgressDialog(progress_title, "Cancel", total_steps, self.userinterface, "progressdialog", True)
-
+        total_steps = progress_max - progress_min
+        if self.progressDialogue is None:
+            self.progressDialogue = QProgressDialog('', "Cancel", total_steps, self.userinterface, "progressdialog", True)
             self.cancelButton = QPushButton("Cancel", self.progressDialogue)
-            self.cancelButton.setEnabled(False)
+            self.cancelButton.hide()
             self.progressDialogue.setCancelButton(self.cancelButton)
+        elif self.progress_position.depth() == 0:
+            self.progressDialogue.setTotalSteps(total_steps)
 
         self.progress_position.start(progress_min, progress_max,
                                      progress_title)
+        self.progressDialogue.setCaption(progress_title)
         self.debconf_progress_set(0)
+        self.progressDialogue.setLabelText('')
         self.progressDialogue.show()
         return True
 
@@ -1398,10 +1401,9 @@ class Wizard:
         if self.progress_cancelled:
             return False
         self.progress_position.set(progress_val)
-        self.progressDialogue.setProgress(progress_val)
-        #fraction = self.progress_position.fraction()
-        #self.progress_bar.set_fraction(fraction)
-        #self.progress_bar.set_text('%s%%' % int(fraction * 100))
+        fraction = self.progress_position.fraction()
+        self.progressDialogue.setProgress(
+            int(fraction * self.progressDialogue.totalSteps()))
         return True
 
     def debconf_progress_step (self, progress_inc):
@@ -1409,8 +1411,9 @@ class Wizard:
         if self.progress_cancelled:
             return False
         self.progress_position.step(progress_inc)
-        newValue = self.progressDialogue.progress() + progress_inc
-        self.progressDialogue.setProgress(newValue)
+        fraction = self.progress_position.fraction()
+        self.progressDialogue.setProgress(
+            int(fraction * self.progressDialogue.totalSteps()))
         return True
 
     def debconf_progress_info (self, progress_info):
@@ -1428,6 +1431,8 @@ class Wizard:
         self.progress_position.stop()
         if self.progress_position.depth() == 0:
             self.progressDialogue.hide()
+        else:
+            self.progressDialogue.setCaption(self.progress_position.title())
         return True
 
     def debconf_progress_region (self, region_start, region_end):
@@ -1435,9 +1440,9 @@ class Wizard:
 
     def debconf_progress_cancellable (self, cancellable):
         if cancellable:
-            self.cancelButton.setEnabled(True)
+            self.cancelButton.show()
         else:
-            self.cancelButton.setEnabled(False)
+            self.cancelButton.hide()
             self.progress_cancelled = False
 
     def on_progress_cancel_button_clicked (self, button):
