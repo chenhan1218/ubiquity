@@ -1320,9 +1320,11 @@ class Wizard:
         """Update autopartitioning screen when the resize button is
         selected."""
 
-        self.userinterface.new_size_frame.setEnabled(enable)
-        self.userinterface.new_size_scale.setEnabled(enable)
-        
+        if enable:
+            self.userinterface.new_size_frame.show()
+        else:
+            self.userinterface.new_size_frame.hide()
+
     def update_new_size_label(self, value):
         if self.resize_max_size is not None:
             size = value * self.resize_max_size / 100

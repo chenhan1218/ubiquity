@@ -6,6 +6,7 @@ ubiquity (1.2.6) UNRELEASED; urgency=low
     #67598).
   * KDE frontend: Treat more user-entered strings as Unicode rather than
     ASCII (closes: Malone #66742).
+  * KDE frontend: Hide auto-resize frame rather than merely disabling it.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 23 Oct 2006 11:00:32 +0100
 
