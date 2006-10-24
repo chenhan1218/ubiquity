@@ -512,8 +512,8 @@ class Wizard:
         # widget is studied in a different manner depending on object type
         if widget.__class__ == str:
             size = float(self.size[widget.split('/')[2]])
-        elif str(widget.currentText()) in self.part_devices:
-            size = float(self.size[self.part_devices[str(widget.currentText())].split('/')[2]])
+        elif unicode(widget.currentText()) in self.part_devices:
+            size = float(self.size[self.part_devices[unicode(widget.currentText())].split('/')[2]])
         else:
             # TODO cjwatson 2006-07-31: Why isn't it in part_devices? This
             # indicates a deeper problem somewhere, but for now we'll just
@@ -845,7 +845,7 @@ class Wizard:
 
         # checking hostname entry
         hostname = self.userinterface.hostname.text()
-        for result in validation.check_hostname(str(hostname)):
+        for result in validation.check_hostname(unicode(hostname)):
             if result == validation.HOSTNAME_LENGTH:
                 error_msg.append("The hostname must be between 3 and 18 characters long.")
             elif result == validation.HOSTNAME_WHITESPACE:
@@ -1099,8 +1099,8 @@ class Wizard:
 
         mountpoints = {}
         for i in range(len(self.mountpoint_widgets)):
-            mountpoint_value = str(self.mountpoint_widgets[i].currentText())
-            partition_value = str(self.partition_widgets[i].currentText())
+            mountpoint_value = unicode(self.mountpoint_widgets[i].currentText())
+            partition_value = unicode(self.partition_widgets[i].currentText())
             if partition_value is not None:
                 if partition_value in self.part_devices:
                     partition_id = self.part_devices[partition_value]
