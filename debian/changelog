@@ -9,6 +9,8 @@ ubiquity (1.3.0) UNRELEASED; urgency=low
   * KDE frontend: Hide auto-resize frame rather than merely disabling it.
   * KDE frontend: Use a single progress bar for all copy and configuration
     steps.
+  * KDE frontend: Disable going back or forward once the install progress
+    bar is up. (Why is the main window still visible at this point, anyway?)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 23 Oct 2006 11:00:32 +0100
 

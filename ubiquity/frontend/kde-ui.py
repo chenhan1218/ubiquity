@@ -329,7 +329,7 @@ class Wizard:
                 self.allow_change_step(False)
                 self.dbfilter.start(auto_process=True)
             else:
-                self.allow_change_step(True)
+                self.allow_change_step(not self.installing)
 
             self.app.exec_loop()
     
