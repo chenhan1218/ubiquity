@@ -67,7 +67,8 @@ from ubiquity import filteredcommand, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
-                                partman_auto, partman_commit, summary, install
+                                partman, partman_auto, partman_commit, \
+                                summary, install
 import ubiquity.emap
 import ubiquity.tz
 import ubiquity.progressposition
@@ -281,7 +282,16 @@ class Wizard:
                 if isinstance(self.dbfilter, partman_auto.PartmanAuto):
                     syslog.syslog('reusing running partman')
                 else:
-                    self.dbfilter = partman_auto.PartmanAuto(self)
+                    if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
+                        self.dbfilter = partman.Partman(self)
+                    else:
+                        self.dbfilter = partman_auto.PartmanAuto(self)
+            elif (current_name == "stepPartAdvanced" and
+                  'UBIQUITY_NEW_PARTITIONER' in os.environ):
+                if isinstance(self.dbfilter, partman.Partman):
+                    pre_log('info', 'reusing running partman')
+                else:
+                    self.dbfilter = partman.Partman(self)
             elif current_name == "stepReady":
                 self.dbfilter = summary.Summary(self, self.manual_partitioning)
             else:
@@ -341,6 +351,10 @@ class Wizard:
 
         if not os.path.exists('/usr/bin/time-admin'):
             self.timezone_time_adjust.hide()
+
+        if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
+            self.embedded.hide()
+            self.part_advanced_vpaned.show()
 
         # set initial bottom bar status
         self.back.hide()
@@ -896,7 +910,8 @@ class Wizard:
         # then go to manual partitioning.
         choice = self.get_disk_choice()
         if self.manual_choice is None or choice == self.manual_choice:
-            self.gparted_loop()
+            if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
+                self.gparted_loop()
             self.steps.set_current_page(
                 self.steps.page_num(self.stepPartAdvanced))
         else:
@@ -913,7 +928,8 @@ class Wizard:
         # then go to manual partitioning.
         choice = self.get_autopartition_choice()
         if self.manual_choice is None or choice == self.manual_choice:
-            self.gparted_loop()
+            if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
+                self.gparted_loop()
             self.steps.next_page()
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
@@ -1605,6 +1621,112 @@ class Wizard:
 
     def get_autopartition_resize_percent (self):
         return self.new_size_scale.get_value()
+
+
+    def partman_column_name (self, column, cell, model, iterator):
+        devpart, partition = model.get_value(iterator, 0)
+        if partition['parted']['fs'] == 'free':
+            # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
+            # feels a bit too SHOUTY for this interface.
+            cell.set_property('text', 'free space')
+        else:
+            cell.set_property('text', partition['parted']['path'])
+
+    def partman_column_type (self, column, cell, model, iterator):
+        devpart, partition = model.get_value(iterator, 0)
+        if 'method' not in partition:
+            cell.set_property('text', '')
+        elif ('filesystem' in partition and
+              partition['method'] in ('format', 'keep')):
+            cell.set_property('text', partition['acting_filesystem'])
+        else:
+            cell.set_property('text', partition['method'])
+
+    def partman_column_mountpoint (self, column, cell, model, iterator):
+        devpart, partition = model.get_value(iterator, 0)
+        if 'mountpoint' in partition:
+            cell.set_property('text', partition['mountpoint'])
+        else:
+            cell.set_property('text', '')
+
+    def partman_column_format (self, column, cell, model, iterator):
+        devpart, partition = model.get_value(iterator, 0)
+        if 'method' in partition:
+            cell.set_property('active', partition['method'] == 'format')
+            cell.set_property('activatable', 'can_activate_format' in partition)
+        else:
+            cell.set_property('active', False)
+            cell.set_property('activatable', False)
+
+    def partman_column_format_toggled (self, cell, path, user_data):
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        model = user_data
+        devpart, partition = \
+            model.get_value(model.get_iter_from_string(path), 0)
+        if 'method' not in partition:
+            return
+        self.dbfilter.edit_partition(devpart, format='dummy')
+
+    def partman_column_size (self, column, cell, model, iterator):
+        devpart, partition = model.get_value(iterator, 0)
+        cell.set_property('text', partition['parted']['size'])
+
+    def update_partman (self, partition_cache):
+        partition_tree_model = self.partition_list_treeview.get_model()
+        if partition_tree_model is None:
+            partition_tree_model = gtk.ListStore(gobject.TYPE_PYOBJECT)
+            for item in partition_cache:
+                partition_tree_model.append([item])
+
+            # TODO cjwatson 2006-08-05: i18n
+            cell_name = gtk.CellRendererText()
+            column_name = gtk.TreeViewColumn("Device", cell_name)
+            column_name.set_cell_data_func(cell_name, self.partman_column_name)
+            column_name.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_name)
+
+            cell_type = gtk.CellRendererText()
+            column_type = gtk.TreeViewColumn("Type", cell_type)
+            column_type.set_cell_data_func(cell_type, self.partman_column_type)
+            column_type.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_type)
+
+            cell_mountpoint = gtk.CellRendererText()
+            column_mountpoint = gtk.TreeViewColumn("Mount point", cell_mountpoint)
+            column_mountpoint.set_cell_data_func(
+                cell_mountpoint, self.partman_column_mountpoint)
+            column_mountpoint.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_mountpoint)
+
+            cell_format = gtk.CellRendererToggle()
+            column_format = gtk.TreeViewColumn("Format?", cell_format)
+            column_format.set_cell_data_func(
+                cell_format, self.partman_column_format)
+            column_format.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            cell_format.connect("toggled", self.partman_column_format_toggled,
+                                partition_tree_model)
+            self.partition_list_treeview.append_column(column_format)
+
+            cell_size = gtk.CellRendererText()
+            column_size = gtk.TreeViewColumn("Size", cell_size)
+            column_size.set_cell_data_func(cell_size, self.partman_column_size)
+            column_size.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_size)
+
+            self.partition_list_treeview.set_model(partition_tree_model)
+        else:
+            # TODO cjwatson 2006-08-31: inefficient, but will do for now
+            partition_tree_model.clear()
+            for device, info in partition_cache:
+                partition_tree_model.append(info)
+
+        # make sure we're on the advanced partitioning page
+        self.steps.set_current_page(self.steps.page_num(self.stepPartAdvanced))
+
+    def update_partman_one (self, devpart, partition):
+        # TODO cjwatson 2006-09-01
+        pass
 
 
     def get_hostname (self):

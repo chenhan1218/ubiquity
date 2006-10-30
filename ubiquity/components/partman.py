@@ -105,6 +105,13 @@ class Partman(PartmanAuto):
             raise AssertionError, "%s should have %s option" % (question,
                                                                 want_script)
 
+    def find_partition(self, want_devpart):
+        for devpart, partition in self.partition_cache:
+            if devpart == want_devpart:
+                return partition
+        else:
+            return want_devpart
+
     def run(self, priority, question):
         self.current_question = question
         options = self.snoop()
@@ -125,6 +132,7 @@ class Partman(PartmanAuto):
                         # Finished building the cache.
                         self.state.pop()
                         self.building_cache = False
+                        self.frontend.update_partman(self.partition_cache)
                 else:
                     self.disk_cache = []
                     self.partition_cache = []
@@ -139,11 +147,20 @@ class Partman(PartmanAuto):
                             continue
                         parted.select_disk(dev)
                         if part_id:
+                            info = parted.partition_info(part_id)
                             self.partition_cache.append((arg, {
                                 'dev': dev,
                                 'id': part_id,
                                 'display': option,
-                                'parted': parted.partition_info(part_id)
+                                'parted': {
+                                    'num': info[0],
+                                    'id': info[1],
+                                    'size': info[2],
+                                    'type': info[3],
+                                    'fs': info[4],
+                                    'path': info[5],
+                                    'name': info[6]
+                                }
                             }))
                         else:
                             self.disk_cache.append((arg, {
@@ -163,6 +180,19 @@ class Partman(PartmanAuto):
                         return True
                     else:
                         self.building_cache = False
+                        self.frontend.update_partman(self.partition_cache)
+            elif self.creating_partition:
+                devpart = self.creating_partition['devpart']
+                partition = self.find_partition(devpart)
+                self.frontend.update_partman_one(devpart, partition)
+            elif self.editing_partition:
+                devpart = self.editing_partition['devpart']
+                partition = self.find_partition(devpart)
+                self.frontend.update_partman_one(devpart, partition)
+            elif self.deleting_partition:
+                # TODO work out how to disappear a partition from the
+                # frontend
+                raise NotImplementedError, "can't delete partitions yet"
 
             self.debug('partition_cache: %s', str(self.partition_cache))
 
@@ -181,19 +211,19 @@ class Partman(PartmanAuto):
                 return self.succeeded
 
             elif self.creating_partition:
-                free_id = self.creating_partition['free_id']
-                partition = self.partition_cache[free_id][1]
+                devpart = self.creating_partition['devpart']
+                partition = self.partition_cache[devpart][1]
                 self.preseed(question, partition['display'], escape=True)
                 return True
 
             elif self.editing_partition:
-                part_id = self.editing_partition['part_id']
-                partition = self.partition_cache[part_id][1]
+                devpart = self.editing_partition['devpart']
+                partition = self.partition_cache[devpart][1]
                 self.preseed(question, partition['display'], escape=True)
 
             elif self.deleting_partition:
-                part_id = self.deleting_partition
-                partition = self.partition_cache[part_id][1]
+                devpart = self.deleting_partition
+                partition = self.partition_cache[devpart][1]
                 self.preseed(question, partition['display'], escape=True)
 
             else:
@@ -287,6 +317,8 @@ class Partman(PartmanAuto):
                 for (script, arg, option) in menu_options:
                     if arg in ('method', 'mountpoint'):
                         visit.append((script, arg, option))
+                    elif arg == 'format':
+                        partition['can_activate_format'] = True
                 if visit:
                     partition['active_partition_visit'] = visit
                     self.state.append([question, state[1], 0])
@@ -326,7 +358,7 @@ class Partman(PartmanAuto):
                         return True
 
                 visit = []
-                for item in ('method', 'mountpoint'):
+                for item in ('method', 'mountpoint', 'format'):
                     if request[item] is None:
                         continue
                     (script, arg, option) = self.must_find_one_script(
@@ -424,11 +456,11 @@ class Partman(PartmanAuto):
         assert self.current_question == 'partman/choose_partition'
         self.building_cache = True
 
-    def create_partition(self, free_id, size, prilog, place,
+    def create_partition(self, devpart, size, prilog, place,
                          method=None, mountpoint=None):
         assert self.current_question == 'partman/choose_partition'
         self.creating_partition = {
-            'free_id': free_id,
+            'free_id': devpart,
             'size': size,
             'type': prilog,
             'place': place,
@@ -436,14 +468,16 @@ class Partman(PartmanAuto):
             'mountpoint': mountpoint
         }
 
-    def edit_partition(self, part_id, method=None, mountpoint=None):
+    def edit_partition(self, devpart,
+                       method=None, mountpoint=None, format=None):
         assert self.current_question == 'partman/choose_partition'
         self.editing_partition = {
-            'part_id': part_id,
+            'devpart': devpart,
             'method': method,
-            'mountpoint': mountpoint
+            'mountpoint': mountpoint,
+            'format': format
         }
 
-    def delete_partition(self, part_id):
+    def delete_partition(self, devpart):
         assert self.current_question == 'partman/choose_partition'
-        self.deleting_partition = part_id
+        self.deleting_partition = devpart
