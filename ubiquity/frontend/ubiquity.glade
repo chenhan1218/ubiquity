@@ -2189,7 +2189,7 @@ Please choose the language used for the installation process. This language will
 
 			  <child>
 			    <placeholder/>
- 			  </child>
+			  </child>
 			</widget>
 			<packing>
 			  <property name="padding">6</property>
@@ -2252,6 +2252,8 @@ Please choose the language used for the installation process. This language will
 				      <property name="fixed_height_mode">False</property>
 				      <property name="hover_selection">False</property>
 				      <property name="hover_expand">False</property>
+				      <signal name="button_press_event" handler="on_partition_list_treeview_button_press_event" last_modification_time="Mon, 30 Oct 2006 18:11:59 GMT"/>
+				      <signal name="popup_menu" handler="on_partition_list_treeview_popup_menu" last_modification_time="Tue, 31 Oct 2006 15:57:07 GMT"/>
 				    </widget>
 				  </child>
 				</widget>
@@ -3848,6 +3850,18 @@ Make sure to remove the CD when restarting the computer, otherwise it will start
 	  <property name="fill">True</property>
 	</packing>
       </child>
+    </widget>
+  </child>
+</widget>
+
+<widget class="GtkMenu" id="partition_list_menu">
+
+  <child>
+    <widget class="GtkMenuItem" id="delete">
+      <property name="visible">True</property>
+      <property name="label" translatable="yes">Delete</property>
+      <property name="use_underline">True</property>
+      <signal name="activate" handler="on_delete_activate" last_modification_time="Mon, 30 Oct 2006 18:16:04 GMT"/>
     </widget>
   </child>
 </widget>

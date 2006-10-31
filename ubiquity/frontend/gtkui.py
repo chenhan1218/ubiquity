@@ -1672,6 +1672,40 @@ class Wizard:
         devpart, partition = model.get_value(iterator, 0)
         cell.set_property('text', partition['parted']['size'])
 
+    def partman_popup (self, widget, event):
+        model, iterator = widget.get_selection().get_selected()
+        if iterator is None:
+            return
+        devpart, partition = model.get_value(iterator, 0)
+        for menuitem in self.partition_list_menu.get_children():
+            sensitive = True
+            if menuitem.get_name() == 'delete':
+                sensitive = (partition['parted']['fs'] != 'free')
+            menuitem.set_sensitive(sensitive)
+
+        if event:
+            button = event.button
+            time = event.get_time()
+        else:
+            button = 0
+            time = 0
+        self.partition_list_menu.popup(None, None, None, button, time)
+
+    def on_partition_list_treeview_button_press_event (self, widget, event):
+        if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
+            path_at_pos = widget.get_path_at_pos(event.x, event.y)
+            if path_at_pos is not None:
+                selection = widget.get_selection()
+                selection.unselect_all()
+                selection.select_path(path_at_pos[0])
+
+            self.partman_popup(widget, event)
+            return True
+
+    def on_partition_list_treeview_popup_menu (self, widget):
+        self.partman_popup(widget, None)
+        return True
+
     def update_partman (self, partition_cache):
         partition_tree_model = self.partition_list_treeview.get_model()
         if partition_tree_model is None:
