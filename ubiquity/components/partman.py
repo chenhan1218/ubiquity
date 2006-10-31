@@ -192,7 +192,7 @@ class Partman(PartmanAuto):
                 if partition is not None:
                     self.frontend.update_partman_one(devpart, partition)
             elif self.deleting_partition:
-                self.frontend.update_partman(self.partition_cache)
+                raise AssertionError, "Deleting partition didn't rebuild cache?"
 
             self.debug('partition_cache: %s', str(self.partition_cache))
 
@@ -382,16 +382,11 @@ class Partman(PartmanAuto):
                     return True
 
             elif self.deleting_partition:
-                if 'done' in self.deleting_partition:
-                    (script, arg, option) = self.must_find_one_script(
-                        question, menu_options, 'finish')
-                else:
-                    (script, arg, option) = self.must_find_one_script(
-                        question, menu_options, 'delete')
-                    # TODO cjwatson 2006-10-31: handle errors after
-                    # selecting this option
-                    self.deleting_partition['done'] = True
+                (script, arg, option) = self.must_find_one_script(
+                    question, menu_options, 'delete')
                 self.preseed(question, option)
+                self.building_cache = True
+                self.deleting_partition = None
                 return True
 
             else:

@@ -1773,8 +1773,8 @@ class Wizard:
         else:
             # TODO cjwatson 2006-08-31: inefficient, but will do for now
             partition_tree_model.clear()
-            for device, info in partition_cache:
-                partition_tree_model.append(info)
+            for item in partition_cache:
+                partition_tree_model.append([item])
 
         # make sure we're on the advanced partitioning page
         self.steps.set_current_page(self.steps.page_num(self.stepPartAdvanced))
