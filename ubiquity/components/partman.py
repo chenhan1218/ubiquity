@@ -105,10 +105,17 @@ class Partman(PartmanAuto):
             raise AssertionError, "%s should have %s option" % (question,
                                                                 want_script)
 
+    def find_partition_index(self, want_devpart):
+        for i in range(len(self.partition_cache)):
+            if self.partition_cache[i][0] == want_devpart:
+                return i
+        else:
+            return None
+
     def find_partition(self, want_devpart):
-        for devpart, partition in self.partition_cache:
-            if devpart == want_devpart:
-                return partition
+        index = self.find_partition_index(want_devpart)
+        if index is not None:
+            return self.partition_cache[index][1]
         else:
             return None
 
@@ -212,22 +219,28 @@ class Partman(PartmanAuto):
 
             elif self.creating_partition:
                 devpart = self.creating_partition['devpart']
-                partition = self.find_partition(devpart)
-                if partition is not None:
+                partition_index = self.find_partition(devpart)
+                if partition_index is not None:
+                    partition = self.partition_cache[partition_index][1]
+                    self.state.append([question, partition_index, None])
                     self.preseed(question, partition['display'], escape=True)
                 return True
 
             elif self.editing_partition:
                 devpart = self.editing_partition['devpart']
-                partition = self.find_partition(devpart)
-                if partition is not None:
+                partition_index = self.find_partition_index(devpart)
+                if partition_index is not None:
+                    partition = self.partition_cache[partition_index][1]
+                    self.state.append([question, partition_index, None])
                     self.preseed(question, partition['display'], escape=True)
                 return True
 
             elif self.deleting_partition:
                 devpart = self.deleting_partition['devpart']
-                partition = self.find_partition(devpart)
-                if partition is not None:
+                partition_index = self.find_partition_index(devpart)
+                if partition_index is not None:
+                    partition = self.partition_cache[partition_index][1]
+                    # No need to use self.state to keep track of this.
                     self.preseed(question, partition['display'], escape=True)
                 return True
 
