@@ -1685,11 +1685,18 @@ class Wizard:
         if iterator is None:
             return
         devpart, partition = model.get_value(iterator, 0)
-        for menuitem in self.partition_list_menu.get_children():
-            sensitive = True
-            if menuitem.get_name() == 'delete':
-                sensitive = (partition['parted']['fs'] != 'free')
-            menuitem.set_sensitive(sensitive)
+
+        partition_list_menu = gtk.Menu()
+        if partition['parted']['fs'] != 'free':
+            # TODO cjwatson 2006-10-31: i18n
+            delete_item = gtk.MenuItem('Delete')
+            delete_item.connect('activate',
+                                self.on_partition_list_menu_delete_activate,
+                                devpart, partition)
+            partition_list_menu.append(delete_item)
+        if not partition_list_menu.get_children():
+            return
+        partition_list_menu.show_all()
 
         if event:
             button = event.button
@@ -1697,11 +1704,11 @@ class Wizard:
         else:
             button = 0
             time = 0
-        self.partition_list_menu.popup(None, None, None, button, time)
+        partition_list_menu.popup(None, None, None, button, time)
 
     def on_partition_list_treeview_button_press_event (self, widget, event):
         if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
-            path_at_pos = widget.get_path_at_pos(event.x, event.y)
+            path_at_pos = widget.get_path_at_pos(int(event.x), int(event.y))
             if path_at_pos is not None:
                 selection = widget.get_selection()
                 selection.unselect_all()
@@ -1713,6 +1720,12 @@ class Wizard:
     def on_partition_list_treeview_popup_menu (self, widget):
         self.partman_popup(widget, None)
         return True
+
+    def on_partition_list_menu_delete_activate (self, menuitem,
+                                                devpart, partition):
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        self.dbfilter.delete_partition(devpart)
 
     def update_partman (self, partition_cache):
         partition_tree_model = self.partition_list_treeview.get_model()
