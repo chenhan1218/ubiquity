@@ -970,6 +970,14 @@ class Wizard:
     def gparted_to_mountpoints(self):
         """Processing gparted to mountpoints step tasks."""
 
+        if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
+            dialog = gtk.MessageDialog(self.live_installer, gtk.DIALOG_MODAL,
+                                       gtk.MESSAGE_ERROR, gtk.BUTTONS_CLOSE,
+                                       'Committing results of new partitioner '
+                                       'not implemented yet.')
+            dialog.run()
+            sys.exit(1)
+
         self.gparted_fstype = {}
         self.gparted_flags = {}
 
