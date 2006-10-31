@@ -110,7 +110,7 @@ class Partman(PartmanAuto):
             if devpart == want_devpart:
                 return partition
         else:
-            return want_devpart
+            return None
 
     def run(self, priority, question):
         self.current_question = question
@@ -184,15 +184,15 @@ class Partman(PartmanAuto):
             elif self.creating_partition:
                 devpart = self.creating_partition['devpart']
                 partition = self.find_partition(devpart)
-                self.frontend.update_partman_one(devpart, partition)
+                if partition is not None:
+                    self.frontend.update_partman_one(devpart, partition)
             elif self.editing_partition:
                 devpart = self.editing_partition['devpart']
                 partition = self.find_partition(devpart)
-                self.frontend.update_partman_one(devpart, partition)
+                if partition is not None:
+                    self.frontend.update_partman_one(devpart, partition)
             elif self.deleting_partition:
-                # TODO work out how to disappear a partition from the
-                # frontend
-                raise NotImplementedError, "can't delete partitions yet"
+                self.frontend.update_partman(self.partition_cache)
 
             self.debug('partition_cache: %s', str(self.partition_cache))
 
@@ -201,7 +201,7 @@ class Partman(PartmanAuto):
             self.editing_partition = None
             self.deleting_partition = None
 
-            super(Partman, self).run(priority, question)
+            super(PartmanAuto, self).run(priority, question)
 
             if self.done:
                 if self.succeeded:
@@ -212,19 +212,24 @@ class Partman(PartmanAuto):
 
             elif self.creating_partition:
                 devpart = self.creating_partition['devpart']
-                partition = self.partition_cache[devpart][1]
-                self.preseed(question, partition['display'], escape=True)
+                partition = self.find_partition(devpart)
+                if partition is not None:
+                    self.preseed(question, partition['display'], escape=True)
                 return True
 
             elif self.editing_partition:
                 devpart = self.editing_partition['devpart']
-                partition = self.partition_cache[devpart][1]
-                self.preseed(question, partition['display'], escape=True)
+                partition = self.find_partition(devpart)
+                if partition is not None:
+                    self.preseed(question, partition['display'], escape=True)
+                return True
 
             elif self.deleting_partition:
-                devpart = self.deleting_partition
-                partition = self.partition_cache[devpart][1]
-                self.preseed(question, partition['display'], escape=True)
+                devpart = self.deleting_partition['devpart']
+                partition = self.find_partition(devpart)
+                if partition is not None:
+                    self.preseed(question, partition['display'], escape=True)
+                return True
 
             else:
                 raise AssertionError, ("Returned to %s with nothing to do" %
@@ -377,8 +382,15 @@ class Partman(PartmanAuto):
                     return True
 
             elif self.deleting_partition:
-                (script, arg, option) = self.must_find_one_script(
-                    question, menu_options, 'delete')
+                if 'done' in self.deleting_partition:
+                    (script, arg, option) = self.must_find_one_script(
+                        question, menu_options, 'finish')
+                else:
+                    (script, arg, option) = self.must_find_one_script(
+                        question, menu_options, 'delete')
+                    # TODO cjwatson 2006-10-31: handle errors after
+                    # selecting this option
+                    self.deleting_partition['done'] = True
                 self.preseed(question, option)
                 return True
 
@@ -467,6 +479,7 @@ class Partman(PartmanAuto):
             'method': method,
             'mountpoint': mountpoint
         }
+        self.exit_ui_loops()
 
     def edit_partition(self, devpart,
                        method=None, mountpoint=None, format=None):
@@ -477,7 +490,11 @@ class Partman(PartmanAuto):
             'mountpoint': mountpoint,
             'format': format
         }
+        self.exit_ui_loops()
 
     def delete_partition(self, devpart):
         assert self.current_question == 'partman/choose_partition'
-        self.deleting_partition = devpart
+        self.deleting_partition = {
+            'devpart': devpart
+        }
+        self.exit_ui_loops()
