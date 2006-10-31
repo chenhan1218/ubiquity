@@ -1681,6 +1681,9 @@ class Wizard:
         cell.set_property('text', partition['parted']['size'])
 
     def partman_popup (self, widget, event):
+        if not self.allowed_change_step:
+            return
+
         model, iterator = widget.get_selection().get_selected()
         if iterator is None:
             return
@@ -1725,6 +1728,7 @@ class Wizard:
                                                 devpart, partition):
         if not isinstance(self.dbfilter, partman.Partman):
             return
+        self.allow_change_step(False)
         self.dbfilter.delete_partition(devpart)
 
     def update_partman (self, partition_cache):
