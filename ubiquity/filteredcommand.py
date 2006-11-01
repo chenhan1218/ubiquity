@@ -51,9 +51,13 @@ class FilteredCommand(object):
         self.succeeded = False
 
     @classmethod
+    def debug_enabled(self):
+        return ('UBIQUITY_DEBUG_CORE' in os.environ and
+                os.environ['UBIQUITY_DEBUG_CORE'] == '1')
+
+    @classmethod
     def debug(self, fmt, *args):
-        if ('UBIQUITY_DEBUG_CORE' in os.environ and
-            os.environ['UBIQUITY_DEBUG_CORE'] == '1'):
+        if self.debug_enabled():
             message = fmt % args
             syslog.syslog(syslog.LOG_DEBUG, '%s: %s' % (PACKAGE, message))
 

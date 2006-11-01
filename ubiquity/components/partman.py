@@ -201,7 +201,13 @@ class Partman(PartmanAuto):
             elif self.deleting_partition:
                 raise AssertionError, "Deleting partition didn't rebuild cache?"
 
-            self.debug('partition_cache: %s', str(self.partition_cache))
+            if self.debug_enabled():
+                import pprint
+                self.debug('partition_cache:')
+                printer = pprint.PrettyPrinter()
+                for line in printer.pformat(self.partition_cache).split('\n'):
+                    self.debug('%s', line)
+                self.debug('partition_cache end')
 
             self.state = [['', None, None]]
             self.creating_partition = None
