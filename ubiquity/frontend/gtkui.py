@@ -1693,6 +1693,13 @@ class Wizard:
         devpart, partition = model.get_value(iterator, 0)
 
         partition_list_menu = gtk.Menu()
+        if 'can_new' in partition and partition['can_new']:
+            # TODO cjwatson 2006-10-31: i18n
+            new_item = gtk.MenuItem('New')
+            new_item.connect('activate',
+                             self.on_partition_list_menu_new_activate,
+                             devpart, partition)
+            partition_list_menu.append(new_item)
         if partition['parted']['fs'] != 'free':
             # TODO cjwatson 2006-10-31: i18n
             delete_item = gtk.MenuItem('Delete')
@@ -1726,6 +1733,76 @@ class Wizard:
     def on_partition_list_treeview_popup_menu (self, widget):
         self.partman_popup(widget, None)
         return True
+
+    def on_partition_list_menu_new_activate (self, menuitem,
+                                             devpart, partition):
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+
+        self.partition_create_dialog.show_all()
+
+        # TODO cjwatson 2006-11-01: Because partman doesn't use a question
+        # group for these, we have to figure out in advance whether each
+        # question is going to be asked.
+
+        if partition['parted']['type'] == 'pri/log':
+            # Is there already an extended partition?
+            model = self.partition_list_treeview.get_model()
+            for otherpart in [row[0][1] for row in model]:
+                if (otherpart['dev'] == partition['dev'] and
+                    otherpart['parted']['type'] == 'logical'):
+                    self.partition_create_type_logical.set_active(True)
+                    break
+            else:
+                self.partition_create_type_primary.set_active(True)
+        else:
+            self.partition_create_type_label.hide()
+            self.partition_create_type_primary.hide()
+            self.partition_create_type_logical.hide()
+
+        self.partition_create_use_combo.clear()
+        child = self.partition_create_use_combo.get_child()
+        if child is not None:
+            self.partition_create_use_combo.remove(child)
+        renderer = gtk.CellRendererText()
+        self.partition_create_use_combo.pack_start(renderer)
+        self.partition_create_use_combo.add_attribute(renderer, 'text', 0)
+        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        for method in partman.Partman.create_use_as():
+            list_store.append([method])
+        self.partition_create_use_combo.set_model(list_store)
+
+        # TODO cjwatson 2006-11-01: set up mount point combo
+
+        response = self.partition_create_dialog.run()
+        self.partition_create_dialog.hide()
+
+        if response == gtk.RESPONSE_OK:
+            if partition['parted']['type'] == 'primary':
+                prilog = partman.PARTITION_TYPE_PRIMARY
+            elif partition['parted']['type'] == 'logical':
+                prilog = partman.PARTITION_TYPE_LOGICAL
+            elif partition['parted']['type'] == 'pri/log':
+                if self.partition_create_type_primary.get_active():
+                    prilog = partman.PARTITION_TYPE_PRIMARY
+                else:
+                    prilog = partman.PARTITION_TYPE_LOGICAL
+
+            if self.partition_create_place_beginning.get_active():
+                place = partman.PARTITION_PLACE_BEGINNING
+            else:
+                place = partman.PARTITION_PLACE_END
+
+            method_iter = self.partition_create_use_combo.get_active_iter()
+            if method_iter is None:
+                method = None
+            else:
+                model = self.partition_create_use_combo.get_model()
+                method = model.get_value(method_iter, 0)
+
+            self.dbfilter.create_partition(
+                devpart, self.partition_create_size_entry.get_text(),
+                prilog, place, method)
 
     def on_partition_list_menu_delete_activate (self, menuitem,
                                                 devpart, partition):

@@ -17,6 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import os
+
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import parted_server
 from ubiquity.components.partman_auto import PartmanAuto
@@ -124,6 +126,36 @@ class Partman(PartmanAuto):
             return self.partition_cache[index][1]
         else:
             return None
+
+    @classmethod
+    def subdirectories(self, directory):
+        for name in sorted(os.listdir(directory)):
+            if os.path.isdir(os.path.join(directory, name)):
+                yield name[2:]
+
+    @classmethod
+    def scripts(self, directory):
+        for name in sorted(os.listdir(directory)):
+            if os.access(os.path.join(directory, name), os.X_OK):
+                yield name[2:]
+
+    @classmethod
+    def create_use_as(self):
+        """Yields the possible methods that a new partition may use."""
+
+        # TODO cjwatson 2006-11-01: This is a particular pain; we can't find
+        # out the real list of possible uses from partman until after the
+        # partition has been created, so we have to partially hardcode this.
+        # TODO cjwatson 2006-11-01: Get human-readable names.
+
+        for method in self.subdirectories('/lib/partman/choose_method'):
+            if method == 'filesystem':
+                for fs in self.scripts('/lib/partman/valid_filesystems'):
+                    if fs == 'ntfs':
+                        continue
+                    yield fs
+            else:
+                yield method
 
     def set(self, question, value):
         if question == 'ubiquity/partman-rebuild-cache':
