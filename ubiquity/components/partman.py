@@ -105,6 +105,11 @@ class Partman(PartmanAuto):
             raise AssertionError, "%s should have %s option" % (question,
                                                                 want_script)
 
+    def preseed_script(self, question, menu_options, want_script):
+        (script, arg, option) = self.must_find_one_script(
+            question, menu_options, want_script)
+        self.preseed(question, option)
+
     def find_partition_index(self, want_devpart):
         for i in range(len(self.partition_cache)):
             if self.partition_cache[i][0] == want_devpart:
@@ -218,9 +223,7 @@ class Partman(PartmanAuto):
 
             if self.done:
                 if self.succeeded:
-                    (script, arg, option) = self.must_find_one_script(
-                        question, menu_options, 'finish')
-                    self.preseed(question, option)
+                    self.preseed_script(question, menu_options, 'finish')
                 return self.succeeded
 
             elif self.creating_partition:
@@ -260,17 +263,13 @@ class Partman(PartmanAuto):
                 assert state[0] == 'partman/choose_partition'
                 partition = self.partition_cache[state[1]][1]
                 can_new = False
-                for (script, arg, option) in menu_options:
-                    if script[2:] == 'new':
-                        can_new = True
-                        break
+                if self.find_script(menu_options, 'new'):
+                    can_new = True
                 partition['can_new'] = can_new
                 # Back up to the previous menu.
                 return False
             elif self.creating_partition:
-                (script, arg, option) = self.must_find_one_script(
-                    question, menu_options, 'new')
-                self.preseed(question, option)
+                self.preseed_script(question, menu_options, option)
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
@@ -372,13 +371,7 @@ class Partman(PartmanAuto):
                         # Finish editing this partition.
                         del partition['active_partition_visit']
                         self.state.pop()
-                        for (script, arg, option) in menu_options:
-                            if script[2:] == 'finish':
-                                self.preseed(question, option)
-                                break
-                        else:
-                            raise AssertionError, ("%s should have a finish "
-                                                   "option" % question)
+                        self.preseed_script(question, menu_options, 'finish')
                         return True
 
                 visit = []
@@ -395,15 +388,11 @@ class Partman(PartmanAuto):
                     return True
                 else:
                     # Finish editing this partition.
-                    (script, arg, option) = self.must_find_one_script(
-                        question, menu_options, 'finish')
-                    self.preseed(question, option)
+                    self.preseed_script(question, menu_options, 'finish')
                     return True
 
             elif self.deleting_partition:
-                (script, arg, option) = self.must_find_one_script(
-                    question, menu_options, 'delete')
-                self.preseed(question, option)
+                self.preseed_script(question, menu_options, 'delete')
                 self.building_cache = True
                 self.deleting_partition = None
                 return True
@@ -427,9 +416,7 @@ class Partman(PartmanAuto):
                 else:
                     request = self.editing_partition
 
-                (script, arg, option) = self.find_one_script(
-                    question, menu_options, request['method'])
-                self.preseed(question, option)
+                self.preseed_script(question, menu_options, request['method'])
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
