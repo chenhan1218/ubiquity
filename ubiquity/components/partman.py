@@ -39,6 +39,7 @@ class Partman(PartmanAuto):
         # We don't need this weirdness for the all-in-one Partman.
         self.stashed_auto_mountpoints = {}
 
+        self.update_partitions = None
         self.building_cache = True
         self.state = [['', None, None]]
         self.disk_cache = []
@@ -124,20 +125,49 @@ class Partman(PartmanAuto):
         else:
             return None
 
+    def set(self, question, value):
+        if question == 'ubiquity/partman-rebuild-cache':
+            if not self.building_cache:
+                self.debug('Partman: Partition %s updated', value)
+                if self.update_partitions is None:
+                    self.update_partitions = []
+                if value not in self.update_partitions:
+                    self.update_partitions.append(value)
+
     def run(self, priority, question):
         self.current_question = question
         options = self.snoop()
         menu_options = self.snoop_menu(options)
+        self.debug('Partman: state = %s', self.state)
 
         if question == 'partman/choose_partition':
+            if not self.building_cache and self.update_partitions:
+                # Rebuild our cache of just these partitions.
+                self.state = [['', None, None]]
+                self.building_cache = True
+
             if self.building_cache:
                 state = self.state[-1]
                 if state[0] == question:
-                    state[1] += 1
-                    if state[1] < len(self.partition_cache):
+                    # advance to next partition
+                    self.debug('Partman: update_partitions = %s',
+                               self.update_partitions)
+                    state[1] = None
+                    while self.update_partitions:
+                        partition = self.update_partitions[0]
+                        del self.update_partitions[0]
+                        state[1] = self.find_partition_index(partition)
+                        if state[1] is None:
+                            self.debug('Partman: %s not found in cache',
+                                       partition)
+                        else:
+                            break
+
+                    if state[1] is not None:
                         # Move on to the next partition.
-                        self.debug('Partman: Building cache (%d)', state[1])
                         partition = self.partition_cache[state[1]][1]
+                        self.debug('Partman: Building cache (%d %s)',
+                                   state[1], partition['parted']['path'])
                         self.preseed(question, partition['display'],
                                      escape=True)
                         return True
@@ -145,6 +175,7 @@ class Partman(PartmanAuto):
                         # Finished building the cache.
                         self.debug('Partman: Finished building cache')
                         self.state.pop()
+                        self.update_partitions = None
                         self.building_cache = False
                         self.frontend.update_partman(self.partition_cache)
                 else:
@@ -184,19 +215,39 @@ class Partman(PartmanAuto):
                                 'device': parted.readline_device_entry('device')
                             }))
 
+                    if self.update_partitions is None:
+                        self.update_partitions = \
+                            [item[0] for item in self.partition_cache]
+                    self.debug('Partman: update_partitions = %s',
+                               self.update_partitions)
+
                     # Selecting a disk will ask to create a new disklabel,
                     # so don't bother with that.
 
+                    partition_index = None
                     if self.partition_cache:
-                        self.debug('Partman: Building cache (0)')
-                        self.state.append([question, 0, None])
-                        self.preseed(question,
-                                     self.partition_cache[0][1]['display'],
+                        while self.update_partitions:
+                            partition = self.update_partitions[0]
+                            del self.update_partitions[0]
+                            partition_index = \
+                                self.find_partition_index(partition)
+                            if partition_index is None:
+                                self.debug('Partman: %s not found in cache',
+                                           partition)
+                            else:
+                                break
+                    if partition_index is not None:
+                        partition = self.partition_cache[partition_index][1]
+                        self.debug('Partman: Building cache (%d %s)',
+                                   partition_index, partition['parted']['path'])
+                        self.state.append([question, partition_index, None])
+                        self.preseed(question, partition['display'],
                                      escape=True)
                         return True
                     else:
                         self.debug('Partman: Finished building cache '
-                                   '(no partitions found)')
+                                   '(no partitions to update)')
+                        self.update_partitions = None
                         self.building_cache = False
                         self.frontend.update_partman(self.partition_cache)
             elif self.creating_partition:
@@ -401,7 +452,6 @@ class Partman(PartmanAuto):
 
             elif self.deleting_partition:
                 self.preseed_script(question, menu_options, 'delete')
-                self.building_cache = True
                 self.deleting_partition = None
                 return True
 
@@ -473,6 +523,7 @@ class Partman(PartmanAuto):
                 self.succeeded = True
                 self.done = False
 
+    # TODO cjwatson 2006-11-01: Do we still need this?
     def rebuild_cache(self):
         assert self.current_question == 'partman/choose_partition'
         self.building_cache = True

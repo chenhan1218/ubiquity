@@ -414,3 +414,8 @@ Template: ubiquity/partman-made-changes
 Type: boolean
 Default: true
 Description: for internal use; record whether partman asked for confirmation of changes
+
+Template: ubiquity/partman-rebuild-cache
+Type: boolean
+Default: true
+Description: for internal use; set when the partman cache needs to be rebuilt
