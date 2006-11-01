@@ -394,6 +394,8 @@ class Partman(PartmanAuto):
                     return True
                 else:
                     # Finish editing this partition.
+                    del partition['active_partition_visit']
+                    self.state.pop()
                     self.preseed_script(question, menu_options, 'finish')
                     return True
 
