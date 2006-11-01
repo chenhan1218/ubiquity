@@ -131,7 +131,7 @@ def main():
         prepend_path('/usr/lib/cdebconf')
     prepend_path('/usr/lib/ubiquity/compat')
 
-    if 'UBIQUITY_DEBUG' in os.environ or 'ESPRESSO_DEBUG' in os.environ:
+    if 'UBIQUITY_DEBUG' in os.environ:
         if 'UBIQUITY_DEBUG_CORE' not in os.environ:
             os.environ['UBIQUITY_DEBUG_CORE'] = '1'
         if 'DEBCONF_DEBUG' not in os.environ:
