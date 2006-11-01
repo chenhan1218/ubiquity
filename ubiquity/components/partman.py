@@ -564,7 +564,7 @@ class Partman(PartmanAuto):
                          method=None, mountpoint=None):
         assert self.current_question == 'partman/choose_partition'
         self.creating_partition = {
-            'free_id': devpart,
+            'devpart': devpart,
             'size': size,
             'type': prilog,
             'place': place,
