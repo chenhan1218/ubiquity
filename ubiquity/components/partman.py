@@ -34,6 +34,9 @@ PARTITION_TYPE_LOGICAL = 1
 PARTITION_PLACE_BEGINNING = 0
 PARTITION_PLACE_END = 1
 
+class PartmanOptionError(LookupError):
+    pass
+
 class Partman(PartmanAuto):
     def prepare(self):
         prep = super(Partman, self).prepare()
@@ -93,24 +96,32 @@ class Partman(PartmanAuto):
                 menu_options.append((script, arg, option))
         return menu_options
 
-    def find_script(self, menu_options, want_script):
+    def find_script(self, menu_options, want_script, want_arg=None):
         scripts = []
         for (script, arg, option) in menu_options:
             if script[2:] == want_script:
-                scripts.append((script, arg, option))
+                if want_arg is None or arg == want_arg:
+                    scripts.append((script, arg, option))
         return scripts
 
-    def must_find_one_script(self, question, menu_options, want_script):
+    def must_find_one_script(self, question, menu_options,
+                             want_script, want_arg=None):
         for (script, arg, option) in menu_options:
             if script[2:] == want_script:
-                return (script, arg, option)
+                if want_arg is None or arg == want_arg:
+                    return (script, arg, option)
         else:
-            raise AssertionError, "%s should have %s option" % (question,
-                                                                want_script)
+            if want_arg is None:
+                raise PartmanOptionError, ("%s should have %s option" %
+                                           (question, want_script))
+            else:
+                raise PartmanOptionError, ("%s should have %s (%s) option" %
+                                           (question, want_script, want_arg))
 
-    def preseed_script(self, question, menu_options, want_script):
+    def preseed_script(self, question, menu_options,
+                       want_script, want_arg=None):
         (script, arg, option) = self.must_find_one_script(
-            question, menu_options, want_script)
+            question, menu_options, want_script, want_arg)
         self.preseed(question, option)
 
     def find_partition_index(self, want_devpart):
@@ -506,7 +517,12 @@ class Partman(PartmanAuto):
                 else:
                     request = self.editing_partition
 
-                self.preseed_script(question, menu_options, request['method'])
+                try:
+                    self.preseed_script(question, menu_options,
+                                        request['method'])
+                except PartmanOptionError:
+                    self.preseed_script(question, menu_options,
+                                        'filesystem', request['method'])
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
