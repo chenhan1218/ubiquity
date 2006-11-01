@@ -58,8 +58,11 @@ class FilteredCommand(object):
     @classmethod
     def debug(self, fmt, *args):
         if self.debug_enabled():
+            import time
+            # bizarre time formatting code per syslogd
+            time_str = time.ctime()[4:19]
             message = fmt % args
-            syslog.syslog(syslog.LOG_DEBUG, '%s: %s' % (PACKAGE, message))
+            print >>sys.stderr, '%s %s: %s' % (time_str, PACKAGE, message)
 
     def start(self, auto_process=False):
         self.status = None
