@@ -1771,6 +1771,8 @@ class Wizard:
         for method in partman.Partman.create_use_as():
             list_store.append([method])
         self.partition_create_use_combo.set_model(list_store)
+        if list_store.get_iter_first():
+            self.partition_create_use_combo.set_active(0)
 
         # TODO cjwatson 2006-11-01: set up mount point combo
 
