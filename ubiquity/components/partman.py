@@ -317,7 +317,7 @@ class Partman(PartmanAuto):
 
             elif self.creating_partition:
                 devpart = self.creating_partition['devpart']
-                partition_index = self.find_partition(devpart)
+                partition_index = self.find_partition_index(devpart)
                 if partition_index is not None:
                     partition = self.partition_cache[partition_index][1]
                     self.state.append([question, partition_index, None])
@@ -358,7 +358,7 @@ class Partman(PartmanAuto):
                 # Back up to the previous menu.
                 return False
             elif self.creating_partition:
-                self.preseed_script(question, menu_options, option)
+                self.preseed_script(question, menu_options, 'new')
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
@@ -465,7 +465,7 @@ class Partman(PartmanAuto):
 
                 visit = []
                 for item in ('method', 'mountpoint', 'format'):
-                    if request[item] is None:
+                    if item not in request or request[item] is None:
                         continue
                     (script, arg, option) = self.must_find_one_script(
                         question, menu_options, item)
