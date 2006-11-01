@@ -136,16 +136,19 @@ class Partman(PartmanAuto):
                     state[1] += 1
                     if state[1] < len(self.partition_cache):
                         # Move on to the next partition.
+                        self.debug('Partman: Building cache (%d)', state[1])
                         partition = self.partition_cache[state[1]][1]
                         self.preseed(question, partition['display'],
                                      escape=True)
                         return True
                     else:
                         # Finished building the cache.
+                        self.debug('Partman: Finished building cache')
                         self.state.pop()
                         self.building_cache = False
                         self.frontend.update_partman(self.partition_cache)
                 else:
+                    self.debug('Partman: Building cache')
                     self.disk_cache = []
                     self.partition_cache = []
                     parted = parted_server.PartedServer()
@@ -185,12 +188,15 @@ class Partman(PartmanAuto):
                     # so don't bother with that.
 
                     if self.partition_cache:
+                        self.debug('Partman: Building cache (0)')
                         self.state.append([question, 0, None])
                         self.preseed(question,
                                      self.partition_cache[0][1]['display'],
                                      escape=True)
                         return True
                     else:
+                        self.debug('Partman: Finished building cache '
+                                   '(no partitions found)')
                         self.building_cache = False
                         self.frontend.update_partman(self.partition_cache)
             elif self.creating_partition:
