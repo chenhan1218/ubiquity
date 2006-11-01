@@ -192,12 +192,12 @@ class Partman(PartmanAuto):
                 devpart = self.creating_partition['devpart']
                 partition = self.find_partition(devpart)
                 if partition is not None:
-                    self.frontend.update_partman_one(devpart, partition)
+                    self.frontend.update_partman(self.partition_cache)
             elif self.editing_partition:
                 devpart = self.editing_partition['devpart']
                 partition = self.find_partition(devpart)
                 if partition is not None:
-                    self.frontend.update_partman_one(devpart, partition)
+                    self.frontend.update_partman(self.partition_cache)
             elif self.deleting_partition:
                 raise AssertionError, "Deleting partition didn't rebuild cache?"
 

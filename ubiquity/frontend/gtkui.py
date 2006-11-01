@@ -1783,10 +1783,6 @@ class Wizard:
         # make sure we're on the advanced partitioning page
         self.steps.set_current_page(self.steps.page_num(self.stepPartAdvanced))
 
-    def update_partman_one (self, devpart, partition):
-        # TODO cjwatson 2006-09-01
-        pass
-
 
     def get_hostname (self):
         return self.hostname.get_text()
