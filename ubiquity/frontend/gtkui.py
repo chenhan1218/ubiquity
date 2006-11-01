@@ -1667,6 +1667,8 @@ class Wizard:
             cell.set_property('activatable', False)
 
     def partman_column_format_toggled (self, cell, path, user_data):
+        if not self.allowed_change_step:
+            return
         if not isinstance(self.dbfilter, partman.Partman):
             return
         model = user_data
@@ -1674,6 +1676,7 @@ class Wizard:
             model.get_value(model.get_iter_from_string(path), 0)
         if 'method' not in partition:
             return
+        self.allow_change_step(False)
         self.dbfilter.edit_partition(devpart, format='dummy')
 
     def partman_column_size (self, column, cell, model, iterator):
