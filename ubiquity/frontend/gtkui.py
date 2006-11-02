@@ -1702,6 +1702,11 @@ class Wizard:
             partition_list_menu.append(new_item)
         if partition['parted']['fs'] != 'free':
             # TODO cjwatson 2006-10-31: i18n
+            edit_item = gtk.MenuItem('Edit')
+            edit_item.connect('activate',
+                              self.on_partition_list_menu_edit_activate,
+                              devpart, partition)
+            partition_list_menu.append(edit_item)
             delete_item = gtk.MenuItem('Delete')
             delete_item.connect('activate',
                                 self.on_partition_list_menu_delete_activate,
@@ -1745,9 +1750,6 @@ class Wizard:
             self.partition_create_type_logical.hide()
 
         self.partition_create_use_combo.clear()
-        child = self.partition_create_use_combo.get_child()
-        if child is not None:
-            self.partition_create_use_combo.remove(child)
         renderer = gtk.CellRendererText()
         self.partition_create_use_combo.pack_start(renderer)
         self.partition_create_use_combo.add_attribute(renderer, 'text', 0)
@@ -1790,6 +1792,74 @@ class Wizard:
                 devpart, self.partition_create_size_entry.get_text(),
                 prilog, place, method)
 
+    def partman_edit_dialog (self, devpart, partition):
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+
+        self.partition_edit_dialog.show_all()
+
+        if 'can_resize' not in partition or not partition['can_resize']:
+            self.partition_edit_size_label.hide()
+            self.partition_edit_size_entry.hide()
+
+        self.partition_edit_use_combo.clear()
+        renderer = gtk.CellRendererText()
+        self.partition_edit_use_combo.pack_start(renderer)
+        self.partition_edit_use_combo.add_attribute(renderer, 'text', 0)
+        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        for script, arg, option in partition['method_choices']:
+            list_store.append([arg])
+        self.partition_edit_use_combo.set_model(list_store)
+        current_method = self.dbfilter.get_current_method(partition)
+        if current_method:
+            iterator = list_store.get_iter_first()
+            while iterator:
+                if list_store[iterator][0] == current_method:
+                    self.partition_edit_use_combo.set_active_iter(iterator)
+                    break
+                iterator = list_store.iter_next(iterator)
+
+        # TODO cjwatson 2006-11-02: mountpoint_choices won't be available
+        # unless the method is already one that can be mounted, so we may
+        # need to calculate this dynamically based on the method instead of
+        # relying on cached information from partman
+        self.partition_edit_mount_combo.clear()
+        renderer = gtk.CellRendererText()
+        self.partition_edit_mount_combo.pack_start(renderer)
+        self.partition_edit_mount_combo.add_attribute(renderer, 'text', 1)
+        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        if 'mountpoint_choices' in partition:
+            for mp, choice_c, choice in partition['mountpoint_choices']:
+                list_store.append([mp, choice])
+        self.partition_edit_mount_combo.set_model(list_store)
+        self.partition_edit_mount_combo.set_text_column(0)
+        if 'mountpoint' in partition:
+            self.partition_edit_mount_combo.child.set_text(
+                partition['mountpoint'])
+            iterator = list_store.get_iter_first()
+            while iterator:
+                if list_store[iterator][0] == partition['mountpoint']:
+                    self.partition_edit_use_combo.set_active_iter(iterator)
+                    break
+                iterator = list_store.iter_next(iterator)
+
+        response = self.partition_edit_dialog.run()
+        self.partition_edit_dialog.hide()
+
+        if response == gtk.RESPONSE_OK:
+            method_iter = self.partition_edit_use_combo.get_active_iter()
+            if method_iter is None:
+                method = None
+            else:
+                model = self.partition_edit_use_combo.get_model()
+                method = model.get_value(method_iter, 0)
+
+            mountpoint = self.partition_edit_mount_combo.child.get_text()
+            if mountpoint == '':
+                mountpoint = None
+
+            self.dbfilter.edit_partition(devpart, method, mountpoint)
+
     def on_partition_list_treeview_button_press_event (self, widget, event):
         if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
             path_at_pos = widget.get_path_at_pos(int(event.x), int(event.y))
@@ -1816,12 +1886,16 @@ class Wizard:
         if partition['parted']['fs'] == 'free':
             if 'can_new' in partition and partition['can_new']:
                 self.partman_create_dialog(devpart, partition)
-        # TODO cjwatson 2006-11-02: pop up edit dialog for other kinds of
-        # partitions
+        else:
+            self.partman_edit_dialog(devpart, partition)
 
     def on_partition_list_menu_new_activate (self, menuitem,
                                              devpart, partition):
         self.partman_create_dialog(devpart, partition)
+
+    def on_partition_list_menu_edit_activate (self, menuitem,
+                                              devpart, partition):
+        self.partman_edit_dialog(devpart, partition)
 
     def on_partition_list_menu_delete_activate (self, menuitem,
                                                 devpart, partition):

@@ -168,6 +168,18 @@ class Partman(PartmanAuto):
             else:
                 yield method
 
+    def get_current_method(self, partition):
+        if 'method' in partition:
+            if partition['method'] in ('format', 'keep'):
+                if 'filesystem' in partition:
+                    return partition['filesystem']
+                else:
+                    return None
+            else:
+                return partition['method']
+        else:
+            return 'dont_use'
+
     def set(self, question, value):
         if question == 'ubiquity/partman-rebuild-cache':
             if not self.building_cache:
@@ -456,6 +468,8 @@ class Partman(PartmanAuto):
                         visit.append((script, arg, option))
                     elif arg == 'format':
                         partition['can_activate_format'] = True
+                    elif arg == 'resize':
+                        partition['can_resize'] = True
                 if visit:
                     partition['active_partition_visit'] = visit
                     self.state.append([question, state[1], 0])
