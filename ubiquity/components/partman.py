@@ -120,6 +120,22 @@ class Partman(PartmanAuto):
             question, menu_options, want_script, want_arg)
         self.preseed(question, option)
 
+    @classmethod
+    def split_devpart(self, devpart):
+        dev, part_id = devpart.split('//', 1)
+        if dev.startswith(parted_server.devices + '/'):
+            dev = dev[len(parted_server.devices) + 1:]
+            return dev, part_id
+        else:
+            return None, None
+
+    def find_disk(self, want_devpart):
+        for i in range(len(self.disk_cache)):
+            if self.disk_cache[i][0] == want_devpart:
+                return self.disk_cache[i][1]
+        else:
+            return None
+
     def find_partition_index(self, want_devpart):
         for i in range(len(self.partition_cache)):
             if self.partition_cache[i][0] == want_devpart:
@@ -237,44 +253,74 @@ class Partman(PartmanAuto):
                         self.frontend.update_partman(self.partition_cache)
                 else:
                     self.debug('Partman: Building cache')
-                    self.disk_cache = []
-                    self.partition_cache = []
                     parted = parted_server.PartedServer()
-
                     matches = self.find_script(menu_options, 'partition_tree')
+
+                    # If we're only updating our cache for certain
+                    # partitions, then self.update_partitions will be a list
+                    # of the partitions to update; otherwise, we build the
+                    # cache from scratch.
+                    rebuild_all = self.update_partitions is None
+
+                    if rebuild_all:
+                        self.disk_cache = []
+                        self.partition_cache = []
+
+                    # Initialise any items we haven't heard of yet.
                     for script, arg, option in matches:
-                        (dev, part_id) = arg.split('//', 1)
-                        if dev.startswith(parted_server.devices + '/'):
-                            dev = dev[len(parted_server.devices) + 1:]
-                        else:
+                        dev, part_id = self.split_devpart(arg)
+                        if not dev:
                             continue
                         parted.select_disk(dev)
                         if part_id:
-                            info = parted.partition_info(part_id)
-                            self.partition_cache.append((arg, {
-                                'dev': dev,
-                                'id': part_id,
-                                'display': option,
-                                'parted': {
-                                    'num': info[0],
-                                    'id': info[1],
-                                    'size': info[2],
-                                    'type': info[3],
-                                    'fs': info[4],
-                                    'path': info[5],
-                                    'name': info[6]
-                                }
-                            }))
+                            if rebuild_all or self.find_partition(arg) is None:
+                                self.partition_cache.append((arg, {
+                                    'dev': dev,
+                                    'id': part_id
+                                }))
                         else:
-                            self.disk_cache.append((arg, {
-                                'dev': dev,
-                                'display': option,
-                                'device': parted.readline_device_entry('device')
-                            }))
+                            if rebuild_all or self.find_disk(arg) is None:
+                                device = parted.readline_device_entry('device')
+                                self.disk_cache.append((arg, {
+                                    'dev': dev,
+                                    'device': device
+                                }))
 
-                    if self.update_partitions is None:
                         self.update_partitions = \
                             [item[0] for item in self.partition_cache]
+
+                    # Update the display names of all disks and partitions.
+                    for script, arg, option in matches:
+                        dev, part_id = self.split_devpart(arg)
+                        if not dev:
+                            continue
+                        parted.select_disk(dev)
+                        if part_id:
+                            partition = self.find_partition(arg)
+                            partition['display'] = option
+                        else:
+                            disk = self.find_disk(arg)
+                            disk['display'] = option
+
+                    # Get basic information from parted_server for each
+                    # partition being updated.
+                    for devpart in self.update_partitions:
+                        dev, part_id = self.split_devpart(devpart)
+                        if not dev:
+                            continue
+                        partition = self.find_partition(devpart)
+                        parted.select_disk(dev)
+                        info = parted.partition_info(part_id)
+                        partition['parted'] = {
+                            'num': info[0],
+                            'id': info[1],
+                            'size': info[2],
+                            'type': info[3],
+                            'fs': info[4],
+                            'path': info[5],
+                            'name': info[6]
+                        }
+
                     self.frontend.debconf_progress_start(
                         0, len(self.update_partitions),
                         self.description('partman/progress/init/parted'))
