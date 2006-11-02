@@ -107,16 +107,12 @@ class Partman(PartmanAuto):
     def must_find_one_script(self, question, menu_options,
                              want_script, want_arg=None):
         for (script, arg, option) in menu_options:
-            if script[2:] == want_script:
-                if want_arg is None or arg == want_arg:
-                    return (script, arg, option)
+            if ((want_script is None or script[2:] == want_script) and
+                (want_arg is None or arg == want_arg)):
+                return (script, arg, option)
         else:
-            if want_arg is None:
-                raise PartmanOptionError, ("%s should have %s option" %
-                                           (question, want_script))
-            else:
-                raise PartmanOptionError, ("%s should have %s (%s) option" %
-                                           (question, want_script, want_arg))
+            raise PartmanOptionError, ("%s should have %s (%s) option" %
+                                       (question, want_script, want_arg))
 
     def preseed_script(self, question, menu_options,
                        want_script, want_arg=None):
@@ -507,7 +503,7 @@ class Partman(PartmanAuto):
                     if item not in request or request[item] is None:
                         continue
                     (script, arg, option) = self.must_find_one_script(
-                        question, menu_options, item)
+                        question, menu_options, None, item)
                     visit.append((script, arg, option))
                 if visit:
                     partition['active_partition_visit'] = visit
