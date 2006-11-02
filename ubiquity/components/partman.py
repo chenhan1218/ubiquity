@@ -266,6 +266,15 @@ class Partman(PartmanAuto):
                         self.disk_cache = []
                         self.partition_cache = []
 
+                    # Clear out the partitions we're updating to make sure
+                    # stale keys are removed.
+                    if self.update_partitions is not None:
+                        for devpart in self.update_partitions:
+                            partition_index = \
+                                self.find_partition_index(devpart)
+                            if partition_index is not None:
+                                del self.partition_cache[partition_index]
+
                     # Initialise any items we haven't heard of yet.
                     for script, arg, option in matches:
                         dev, part_id = self.split_devpart(arg)
