@@ -47,8 +47,10 @@ class Partman(PartmanAuto):
         self.update_partitions = None
         self.building_cache = True
         self.state = [['', None, None]]
-        self.disk_cache = []
-        self.partition_cache = []
+        self.disk_cache = {}
+        self.partition_cache = {}
+        self.disk_order = []
+        self.partition_order = []
         self.creating_partition = None
         self.editing_partition = None
         self.deleting_partition = None
@@ -129,27 +131,6 @@ class Partman(PartmanAuto):
         else:
             return None, None
 
-    def find_disk(self, want_devpart):
-        for i in range(len(self.disk_cache)):
-            if self.disk_cache[i][0] == want_devpart:
-                return self.disk_cache[i][1]
-        else:
-            return None
-
-    def find_partition_index(self, want_devpart):
-        for i in range(len(self.partition_cache)):
-            if self.partition_cache[i][0] == want_devpart:
-                return i
-        else:
-            return None
-
-    def find_partition(self, want_devpart):
-        index = self.find_partition_index(want_devpart)
-        if index is not None:
-            return self.partition_cache[index][1]
-        else:
-            return None
-
     @classmethod
     def subdirectories(self, directory):
         for name in sorted(os.listdir(directory)):
@@ -223,12 +204,12 @@ class Partman(PartmanAuto):
                                self.update_partitions)
                     state[1] = None
                     while self.update_partitions:
-                        partition = self.update_partitions[0]
+                        state[1] = self.update_partitions[0]
                         del self.update_partitions[0]
-                        state[1] = self.find_partition_index(partition)
-                        if state[1] is None:
+                        if state[1] not in self.partition_cache:
                             self.debug('Partman: %s not found in cache',
                                        partition)
+                            state[1] = None
                             self.frontend.debconf_progress_step(1)
                             self.frontend.refresh()
                         else:
@@ -236,9 +217,9 @@ class Partman(PartmanAuto):
 
                     if state[1] is not None:
                         # Move on to the next partition.
-                        partition = self.partition_cache[state[1]][1]
-                        self.debug('Partman: Building cache (%d %s)',
-                                   state[1], partition['parted']['path'])
+                        partition = self.partition_cache[state[1]]
+                        self.debug('Partman: Building cache (%s)',
+                                   partition['parted']['path'])
                         self.preseed(question, partition['display'],
                                      escape=True)
                         return True
@@ -250,7 +231,8 @@ class Partman(PartmanAuto):
                         self.building_cache = False
                         self.frontend.debconf_progress_stop()
                         self.frontend.refresh()
-                        self.frontend.update_partman(self.partition_cache)
+                        self.frontend.update_partman(self.partition_cache,
+                                                     self.partition_order)
                 else:
                     self.debug('Partman: Building cache')
                     parted = parted_server.PartedServer()
@@ -263,17 +245,17 @@ class Partman(PartmanAuto):
                     rebuild_all = self.update_partitions is None
 
                     if rebuild_all:
-                        self.disk_cache = []
-                        self.partition_cache = []
+                        self.disk_cache = {}
+                        self.partition_cache = {}
+                    self.disk_order = []
+                    self.partition_order = []
 
                     # Clear out the partitions we're updating to make sure
                     # stale keys are removed.
                     if self.update_partitions is not None:
                         for devpart in self.update_partitions:
-                            partition_index = \
-                                self.find_partition_index(devpart)
-                            if partition_index is not None:
-                                del self.partition_cache[partition_index]
+                            if devpart in self.partition_cache:
+                                del self.partition_cache[devpart]
 
                     # Initialise any items we haven't heard of yet.
                     for script, arg, option in matches:
@@ -282,21 +264,22 @@ class Partman(PartmanAuto):
                             continue
                         parted.select_disk(dev)
                         if part_id:
-                            if rebuild_all or self.find_partition(arg) is None:
-                                self.partition_cache.append((arg, {
+                            self.partition_order.append(arg)
+                            if rebuild_all or arg not in self.partition_cache:
+                                self.partition_cache[arg] = {
                                     'dev': dev,
                                     'id': part_id
-                                }))
+                                }
                         else:
-                            if rebuild_all or self.find_disk(arg) is None:
+                            self.disk_order.append(arg)
+                            if rebuild_all or arg not in self.disk_cache:
                                 device = parted.readline_device_entry('device')
-                                self.disk_cache.append((arg, {
+                                self.disk_cache[arg] = {
                                     'dev': dev,
                                     'device': device
-                                }))
+                                }
 
-                        self.update_partitions = \
-                            [item[0] for item in self.partition_cache]
+                        self.update_partitions = self.partition_cache.keys()
 
                     # Update the display names of all disks and partitions.
                     for script, arg, option in matches:
@@ -305,11 +288,9 @@ class Partman(PartmanAuto):
                             continue
                         parted.select_disk(dev)
                         if part_id:
-                            partition = self.find_partition(arg)
-                            partition['display'] = option
+                            self.partition_cache[arg]['display'] = option
                         else:
-                            disk = self.find_disk(arg)
-                            disk['display'] = option
+                            self.disk_cache[arg]['display'] = option
 
                     # Get basic information from parted_server for each
                     # partition being updated.
@@ -317,10 +298,9 @@ class Partman(PartmanAuto):
                         dev, part_id = self.split_devpart(devpart)
                         if not dev:
                             continue
-                        partition = self.find_partition(devpart)
                         parted.select_disk(dev)
                         info = parted.partition_info(part_id)
-                        partition['parted'] = {
+                        self.partition_cache[devpart]['parted'] = {
                             'num': info[0],
                             'id': info[1],
                             'size': info[2],
@@ -340,25 +320,24 @@ class Partman(PartmanAuto):
                     # Selecting a disk will ask to create a new disklabel,
                     # so don't bother with that.
 
-                    partition_index = None
+                    devpart = None
                     if self.partition_cache:
                         while self.update_partitions:
-                            partition = self.update_partitions[0]
+                            devpart = self.update_partitions[0]
                             del self.update_partitions[0]
-                            partition_index = \
-                                self.find_partition_index(partition)
-                            if partition_index is None:
+                            if devpart not in self.partition_cache:
                                 self.debug('Partman: %s not found in cache',
                                            partition)
+                                devpart = None
                                 self.frontend.debconf_progress_step(1)
                                 self.frontend.refresh()
                             else:
                                 break
-                    if partition_index is not None:
-                        partition = self.partition_cache[partition_index][1]
-                        self.debug('Partman: Building cache (%d %s)',
-                                   partition_index, partition['parted']['path'])
-                        self.state.append([question, partition_index, None])
+                    if devpart is not None:
+                        partition = self.partition_cache[devpart]
+                        self.debug('Partman: Building cache (%s)',
+                                   partition['parted']['path'])
+                        self.state.append([question, devpart, None])
                         self.preseed(question, partition['display'],
                                      escape=True)
                         return True
@@ -369,17 +348,18 @@ class Partman(PartmanAuto):
                         self.building_cache = False
                         self.frontend.debconf_progress_stop()
                         self.frontend.refresh()
-                        self.frontend.update_partman(self.partition_cache)
+                        self.frontend.update_partman(self.partition_cache,
+                                                     self.partition_order)
             elif self.creating_partition:
                 devpart = self.creating_partition['devpart']
-                partition = self.find_partition(devpart)
-                if partition is not None:
-                    self.frontend.update_partman(self.partition_cache)
+                if devpart in self.partition_cache:
+                    self.frontend.update_partman(self.partition_cache,
+                                                 self.partition_order)
             elif self.editing_partition:
                 devpart = self.editing_partition['devpart']
-                partition = self.find_partition(devpart)
-                if partition is not None:
-                    self.frontend.update_partman(self.partition_cache)
+                if devpart in self.partition_cache:
+                    self.frontend.update_partman(self.partition_cache,
+                                                 self.partition_order)
             elif self.deleting_partition:
                 raise AssertionError, "Deleting partition didn't rebuild cache?"
 
@@ -405,27 +385,24 @@ class Partman(PartmanAuto):
 
             elif self.creating_partition:
                 devpart = self.creating_partition['devpart']
-                partition_index = self.find_partition_index(devpart)
-                if partition_index is not None:
-                    partition = self.partition_cache[partition_index][1]
-                    self.state.append([question, partition_index, None])
+                if devpart in self.partition_cache:
+                    partition = self.partition_cache[devpart]
+                    self.state.append([question, devpart, None])
                     self.preseed(question, partition['display'], escape=True)
                 return True
 
             elif self.editing_partition:
                 devpart = self.editing_partition['devpart']
-                partition_index = self.find_partition_index(devpart)
-                if partition_index is not None:
-                    partition = self.partition_cache[partition_index][1]
-                    self.state.append([question, partition_index, None])
+                if devpart in self.partition_cache:
+                    partition = self.partition_cache[devpart]
+                    self.state.append([question, devpart, None])
                     self.preseed(question, partition['display'], escape=True)
                 return True
 
             elif self.deleting_partition:
                 devpart = self.deleting_partition['devpart']
-                partition_index = self.find_partition_index(devpart)
-                if partition_index is not None:
-                    partition = self.partition_cache[partition_index][1]
+                if devpart in self.partition_cache:
+                    partition = self.partition_cache[devpart]
                     # No need to use self.state to keep track of this.
                     self.preseed(question, partition['display'], escape=True)
                 return True
@@ -438,7 +415,7 @@ class Partman(PartmanAuto):
             if self.building_cache:
                 state = self.state[-1]
                 assert state[0] == 'partman/choose_partition'
-                partition = self.partition_cache[state[1]][1]
+                partition = self.partition_cache[state[1]]
                 can_new = False
                 if self.find_script(menu_options, 'new'):
                     can_new = True
@@ -484,7 +461,7 @@ class Partman(PartmanAuto):
         elif question == 'partman/active_partition':
             if self.building_cache:
                 state = self.state[-1]
-                partition = self.partition_cache[state[1]][1]
+                partition = self.partition_cache[state[1]]
 
                 if state[0] == question:
                     state[2] += 1
@@ -537,7 +514,7 @@ class Partman(PartmanAuto):
                     request = self.editing_partition
 
                 state = self.state[-1]
-                partition = self.partition_cache[state[1]][1]
+                partition = self.partition_cache[state[1]]
 
                 if state[0] == question:
                     state[2] += 1
@@ -584,7 +561,7 @@ class Partman(PartmanAuto):
             if self.building_cache:
                 state = self.state[-1]
                 assert state[0] == 'partman/active_partition'
-                partition = self.partition_cache[state[1]][1]
+                partition = self.partition_cache[state[1]]
                 partition['method_choices'] = []
                 for (script, arg, option) in menu_options:
                     partition['method_choices'].append((script, arg, option))
@@ -607,7 +584,7 @@ class Partman(PartmanAuto):
             if self.building_cache:
                 state = self.state[-1]
                 assert state[0] == 'partman/active_partition'
-                partition = self.partition_cache[state[1]][1]
+                partition = self.partition_cache[state[1]]
                 partition['mountpoint_choices'] = []
                 choices_c = self.choices_untranslated(question)
                 choices = self.choices(question)

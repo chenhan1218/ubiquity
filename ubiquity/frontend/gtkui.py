@@ -1632,7 +1632,7 @@ class Wizard:
 
 
     def partman_column_name (self, column, cell, model, iterator):
-        devpart, partition = model.get_value(iterator, 0)
+        partition = model[iterator][1]
         if partition['parted']['fs'] == 'free':
             # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
             # feels a bit too SHOUTY for this interface.
@@ -1641,7 +1641,7 @@ class Wizard:
             cell.set_property('text', partition['parted']['path'])
 
     def partman_column_type (self, column, cell, model, iterator):
-        devpart, partition = model.get_value(iterator, 0)
+        partition = model[iterator][1]
         if 'method' not in partition:
             cell.set_property('text', '')
         elif ('filesystem' in partition and
@@ -1651,14 +1651,14 @@ class Wizard:
             cell.set_property('text', partition['method'])
 
     def partman_column_mountpoint (self, column, cell, model, iterator):
-        devpart, partition = model.get_value(iterator, 0)
+        partition = model[iterator][1]
         if 'mountpoint' in partition:
             cell.set_property('text', partition['mountpoint'])
         else:
             cell.set_property('text', '')
 
     def partman_column_format (self, column, cell, model, iterator):
-        devpart, partition = model.get_value(iterator, 0)
+        partition = model[iterator][1]
         if 'method' in partition:
             cell.set_property('active', partition['method'] == 'format')
             cell.set_property('activatable', 'can_activate_format' in partition)
@@ -1672,15 +1672,15 @@ class Wizard:
         if not isinstance(self.dbfilter, partman.Partman):
             return
         model = user_data
-        devpart, partition = \
-            model.get_value(model.get_iter_from_string(path), 0)
+        devpart = model[path][0]
+        partition = model[path][1]
         if 'method' not in partition:
             return
         self.allow_change_step(False)
         self.dbfilter.edit_partition(devpart, format='dummy')
 
     def partman_column_size (self, column, cell, model, iterator):
-        devpart, partition = model.get_value(iterator, 0)
+        partition = model[iterator][1]
         cell.set_property('text', partition['parted']['size'])
 
     def partman_popup (self, widget, event):
@@ -1690,7 +1690,8 @@ class Wizard:
         model, iterator = widget.get_selection().get_selected()
         if iterator is None:
             return
-        devpart, partition = model.get_value(iterator, 0)
+        devpart = model[iterator][0]
+        partition = model[iterator][1]
 
         partition_list_menu = gtk.Menu()
         if 'can_new' in partition and partition['can_new']:
@@ -1878,10 +1879,11 @@ class Wizard:
     def on_partition_list_treeview_row_activated (self, treeview,
                                                   path, view_column):
         model = treeview.get_model()
-        iterator = model.get_iter(path)
-        if iterator is None:
+        try:
+            devpart = model[path][0]
+            partition = model[path][1]
+        except (IndexError, KeyError):
             return
-        devpart, partition = model.get_value(iterator, 0)
 
         if partition['parted']['fs'] == 'free':
             if 'can_new' in partition and partition['can_new']:
@@ -1904,12 +1906,13 @@ class Wizard:
         self.allow_change_step(False)
         self.dbfilter.delete_partition(devpart)
 
-    def update_partman (self, partition_cache):
+    def update_partman (self, partition_cache, partition_order):
         partition_tree_model = self.partition_list_treeview.get_model()
         if partition_tree_model is None:
-            partition_tree_model = gtk.ListStore(gobject.TYPE_PYOBJECT)
-            for item in partition_cache:
-                partition_tree_model.append([item])
+            partition_tree_model = gtk.ListStore(gobject.TYPE_STRING,
+                                                 gobject.TYPE_PYOBJECT)
+            for item in partition_order:
+                partition_tree_model.append([item, partition_cache[item]])
 
             # TODO cjwatson 2006-08-05: i18n
             cell_name = gtk.CellRendererText()
@@ -1950,8 +1953,8 @@ class Wizard:
         else:
             # TODO cjwatson 2006-08-31: inefficient, but will do for now
             partition_tree_model.clear()
-            for item in partition_cache:
-                partition_tree_model.append([item])
+            for item in partition_order:
+                partition_tree_model.append([item, partition_cache[item]])
 
         # make sure we're on the advanced partitioning page
         self.steps.set_current_page(self.steps.page_num(self.stepPartAdvanced))
