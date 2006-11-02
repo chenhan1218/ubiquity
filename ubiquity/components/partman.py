@@ -99,9 +99,9 @@ class Partman(PartmanAuto):
     def find_script(self, menu_options, want_script, want_arg=None):
         scripts = []
         for (script, arg, option) in menu_options:
-            if script[2:] == want_script:
-                if want_arg is None or arg == want_arg:
-                    scripts.append((script, arg, option))
+            if ((want_script is None or script[2:] == want_script) and
+                (want_arg is None or arg == want_arg)):
+                scripts.append((script, arg, option))
         return scripts
 
     def must_find_one_script(self, question, menu_options,
@@ -548,9 +548,9 @@ class Partman(PartmanAuto):
                 for item in ('method', 'mountpoint', 'format'):
                     if item not in request or request[item] is None:
                         continue
-                    (script, arg, option) = self.must_find_one_script(
-                        question, menu_options, None, item)
-                    visit.append((script, arg, option))
+                    scripts = self.find_script(menu_options, None, item)
+                    if scripts:
+                        visit.append(scripts[0])
                 if visit:
                     partition['active_partition_visit'] = visit
                     self.state.append([question, state[1], 0])
@@ -587,12 +587,8 @@ class Partman(PartmanAuto):
                 else:
                     request = self.editing_partition
 
-                try:
-                    self.preseed_script(question, menu_options,
-                                        request['method'])
-                except PartmanOptionError:
-                    self.preseed_script(question, menu_options,
-                                        'filesystem', request['method'])
+                self.preseed_script(question, menu_options,
+                                    None, request['method'])
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
