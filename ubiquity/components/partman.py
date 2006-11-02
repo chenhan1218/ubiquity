@@ -193,6 +193,8 @@ class Partman(PartmanAuto):
                 state = self.state[-1]
                 if state[0] == question:
                     # advance to next partition
+                    self.frontend.debconf_progress_step(1)
+                    self.frontend.refresh()
                     self.debug('Partman: update_partitions = %s',
                                self.update_partitions)
                     state[1] = None
@@ -203,6 +205,8 @@ class Partman(PartmanAuto):
                         if state[1] is None:
                             self.debug('Partman: %s not found in cache',
                                        partition)
+                            self.frontend.debconf_progress_step(1)
+                            self.frontend.refresh()
                         else:
                             break
 
@@ -220,6 +224,8 @@ class Partman(PartmanAuto):
                         self.state.pop()
                         self.update_partitions = None
                         self.building_cache = False
+                        self.frontend.debconf_progress_stop()
+                        self.frontend.refresh()
                         self.frontend.update_partman(self.partition_cache)
                 else:
                     self.debug('Partman: Building cache')
@@ -261,6 +267,10 @@ class Partman(PartmanAuto):
                     if self.update_partitions is None:
                         self.update_partitions = \
                             [item[0] for item in self.partition_cache]
+                    self.frontend.debconf_progress_start(
+                        0, len(self.update_partitions),
+                        self.description('partman/progress/init/parted'))
+                    self.frontend.refresh()
                     self.debug('Partman: update_partitions = %s',
                                self.update_partitions)
 
@@ -277,6 +287,8 @@ class Partman(PartmanAuto):
                             if partition_index is None:
                                 self.debug('Partman: %s not found in cache',
                                            partition)
+                                self.frontend.debconf_progress_step(1)
+                                self.frontend.refresh()
                             else:
                                 break
                     if partition_index is not None:
@@ -292,6 +304,8 @@ class Partman(PartmanAuto):
                                    '(no partitions to update)')
                         self.update_partitions = None
                         self.building_cache = False
+                        self.frontend.debconf_progress_stop()
+                        self.frontend.refresh()
                         self.frontend.update_partman(self.partition_cache)
             elif self.creating_partition:
                 devpart = self.creating_partition['devpart']
