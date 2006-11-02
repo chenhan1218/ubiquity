@@ -2254,6 +2254,7 @@ Please choose the language used for the installation process. This language will
 				      <property name="hover_expand">False</property>
 				      <signal name="button_press_event" handler="on_partition_list_treeview_button_press_event" last_modification_time="Mon, 30 Oct 2006 18:11:59 GMT"/>
 				      <signal name="popup_menu" handler="on_partition_list_treeview_popup_menu" last_modification_time="Tue, 31 Oct 2006 15:57:07 GMT"/>
+				      <signal name="row_activated" handler="on_partition_list_treeview_row_activated" last_modification_time="Thu, 02 Nov 2006 08:41:01 GMT"/>
 				    </widget>
 				  </child>
 				</widget>

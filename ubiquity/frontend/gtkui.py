@@ -1719,23 +1719,7 @@ class Wizard:
             time = 0
         partition_list_menu.popup(None, None, None, button, time)
 
-    def on_partition_list_treeview_button_press_event (self, widget, event):
-        if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
-            path_at_pos = widget.get_path_at_pos(int(event.x), int(event.y))
-            if path_at_pos is not None:
-                selection = widget.get_selection()
-                selection.unselect_all()
-                selection.select_path(path_at_pos[0])
-
-            self.partman_popup(widget, event)
-            return True
-
-    def on_partition_list_treeview_popup_menu (self, widget):
-        self.partman_popup(widget, None)
-        return True
-
-    def on_partition_list_menu_new_activate (self, menuitem,
-                                             devpart, partition):
+    def partman_create_dialog (self, devpart, partition):
         if not isinstance(self.dbfilter, partman.Partman):
             return
 
@@ -1805,6 +1789,39 @@ class Wizard:
             self.dbfilter.create_partition(
                 devpart, self.partition_create_size_entry.get_text(),
                 prilog, place, method)
+
+    def on_partition_list_treeview_button_press_event (self, widget, event):
+        if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
+            path_at_pos = widget.get_path_at_pos(int(event.x), int(event.y))
+            if path_at_pos is not None:
+                selection = widget.get_selection()
+                selection.unselect_all()
+                selection.select_path(path_at_pos[0])
+
+            self.partman_popup(widget, event)
+            return True
+
+    def on_partition_list_treeview_popup_menu (self, widget):
+        self.partman_popup(widget, None)
+        return True
+
+    def on_partition_list_treeview_row_activated (self, treeview,
+                                                  path, view_column):
+        model = treeview.get_model()
+        iterator = model.get_iter(path)
+        if iterator is None:
+            return
+        devpart, partition = model.get_value(iterator, 0)
+
+        if partition['parted']['fs'] == 'free':
+            if 'can_new' in partition and partition['can_new']:
+                self.partman_create_dialog(devpart, partition)
+        # TODO cjwatson 2006-11-02: pop up edit dialog for other kinds of
+        # partitions
+
+    def on_partition_list_menu_new_activate (self, menuitem,
+                                             devpart, partition):
+        self.partman_create_dialog(devpart, partition)
 
     def on_partition_list_menu_delete_activate (self, menuitem,
                                                 devpart, partition):
