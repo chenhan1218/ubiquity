@@ -37,7 +37,6 @@ import sys
 import pygtk
 pygtk.require('2.0')
 
-import pdb
 import gobject
 import gtk.glade
 import os
@@ -276,7 +275,13 @@ class Wizard:
                 self.dbfilter = language.Language(self)
             elif current_name in ("stepMigrateOS", "stepMigrateUsers", "stepMigrateItems", "stepMigrateUser"):
                 if not isinstance(self.dbfilter, migrationassistant.MigrationAssistant):
-                    self.dbfilter = migrationassistant.MigrationAssistant(self)
+		    # FIXME: don't use commands.
+		    import commands
+		    if commands.getoutput('/usr/bin/os-prober') == '':
+			self.dbfilter = None
+		        self.progress_loop()
+		    else:
+                        self.dbfilter = migrationassistant.MigrationAssistant(self)
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
@@ -292,7 +297,6 @@ class Wizard:
                 self.dbfilter = summary.Summary(self)
             else:
                 self.dbfilter = None
-		import pdb; pdb.set_trace()
 
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.allow_change_step(False)
@@ -572,7 +576,13 @@ class Wizard:
 
     def commit_partition_changes(self):
 	"""commit the changes to the partition table before we proceed."""
+	
 	syslog.syslog('commit_partition_changes()')
+
+        # I don't know what I'm doing wrong here, but I can only get the forward button to disable itself.
+	#self.back.set_sensitive(False)
+	self.allow_go_forward(False)
+	#self.allow_change_step(False)
 
 	gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
 	gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
@@ -590,7 +600,6 @@ class Wizard:
 
 	dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
 
-	#pdb.set_trace()
 	if dbfilter.run_command(auto_process=True) != 0:
 	    # TODO cjwatson 2006-09-03: return to partitioning?
 	    return
@@ -607,7 +616,9 @@ class Wizard:
 
         syslog.syslog('progress_loop()')
 
-        self.current_page = None
+	self.live_installer.hide()
+	self.current_page = None
+	self.installing = True
 
         self.debconf_progress_start(
             0, 100, get_string('ubiquity/install/title', self.locale))
@@ -851,25 +862,22 @@ class Wizard:
             self.mountpoints_to_summary()
         # Operating systems
         elif step == "stepMigrateOS":
-            # Quite the messy way of doing this, but I've been at this for about
+	    # Quite the messy way of doing this, but I've been at this for about
             # two hours and cannot think of anything else.
             if self.get_ma_os_choices():
                 self.steps.next_page()
             else:
-                self.steps.set_current_page(self.steps.page_num(self.stepReady))
-	# FIXME: I don't think these next two are ever hit.
-        # User selection
-        elif step == "stepMigrateUsers":
-            self.steps.next_page()
+		#self.steps.set_current_page(self.steps.page_num(self.stepReady))
+		# TODO: make sure /mnt/tmp is not mounted at this point.
+		self.progress_loop()
+		return
+	# FIXME: I don't this next one is ever hit.
         # Item selection
         elif step == "stepMigrateItems":
-            self.steps.next_page()
+	    self.steps.next_page()
         # User details
-        elif step == "stepMigrateUser":
-	    # TODO: make sure /mnt/tmp is not mounted at this point.
-	    self.live_installer.hide()
-	    self.current_page = None
-	    self.installing = True
+        elif step == "stepMigrateUser" or step == "stepMigrateUsers":
+	    # This gets called when we're done asking questions in m-a.
 	    self.progress_loop()
 	    return
         # Ready to install

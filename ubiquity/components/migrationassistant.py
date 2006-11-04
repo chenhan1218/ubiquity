@@ -17,7 +17,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import os
-import commands
+#import commands
 
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import misc
@@ -39,23 +39,15 @@ class MigrationAssistant(FilteredCommand):
         return (['/usr/lib/ubiquity/migration-assistant/ma-ask',
 		'/usr/lib/ubiquity/migration-assistant'], questions)
 
-    def run(self, priority, question):
-        if question.startswith('migration-assistant/partitions'):
-            self.current_question = question
-    
-            # parse os-prober logic
-            def reformat_output(x):
-                ret = x.split(':')
-                return (ret[1] + ' (' + ret[0] + ')')
-    
-            # FIME: replace this with pulling the already set question data using metaget.
-            os_choices = commands.getoutput('/usr/bin/os-prober').split('\n')
-            os_choices = map(reformat_output, os_choices)
-    
-            self.frontend.set_ma_os_choices(os_choices)
+    def subst(self, question, key, value):
 
+	if question == 'migration-assistant/partitions':
+		os_choices = value.split(',')
+		self.frontend.set_ma_os_choices(os_choices)
+
+    def run(self, priority, question):
             
-        elif question.endswith('users'):
+        if question.endswith('users'):
             self.current_question = question
             user_choices = self.choices(question)
             label = self.extended_description(question)
@@ -86,28 +78,25 @@ class MigrationAssistant(FilteredCommand):
     def ok_handler(self):
         if self.current_question == 'migration-assistant/partitions':
             os_choice = self.frontend.get_ma_os_choices()
-            if os_choice:
-                if len(os_choice) != 1:
-                    formatted_choice = ', '.join(os_choice)
-                else:
-                    formatted_choice = "".join(os_choice)
-                
-                self.preseed(self.current_question, formatted_choice)
-                
-                #FIXME: Why did I do this again?
-                self.succeeded = True
-                self.done = False
-                self.exit_ui_loops()
-                return
-            else:
-                self.done = True
-                return
+	    
+	    if len(os_choice) != 1:
+		formatted_choice = ', '.join(os_choice)
+	    else:
+		formatted_choice = "".join(os_choice)
+	    
+	    self.preseed(self.current_question, formatted_choice)
+	    
+	    #FIXME: Why did I do this again?
+	    self.succeeded = True
+	    self.done = False
+	    self.exit_ui_loops()
+	    return
     
         elif self.current_question.endswith('users'):
             user_choice = self.frontend.get_ma_user_choices()
             if not user_choice:
-                # we should either skip passed m-a or throw an error in the user's face
-                print "oh noes!"
+		# needed?
+		self.preseed(self.current_question, "")
             else:
                 if len(user_choice) != 1:
                     formatted_choice = ', '.join(user_choice)
@@ -133,13 +122,22 @@ class MigrationAssistant(FilteredCommand):
                 # To user
                 user = self.frontend.get_ma_item_user()
                 if user != "add-user":
-                    q = self.current_question.replace('/items', '/user')
+		    # If the user selected one of the existing accounts to
+		    # import into, then we should seed the username and move to
+		    # the next user.
+		    
+		    q = self.current_question.replace('/items', '/user')
+		    print 'preseeding %s with %s.' % (q, user)
+		    self.db.register('migration-assistant/user', q)
                     self.preseed(q, user)
-            
-            self.succeeded = True
-            self.done = False
-            self.exit_ui_loops()
-            return
+		else:
+		    # If the user selected "Add new user", then we move to the
+		    # create account page.
+
+		    self.succeeded = True
+		    self.done = False
+		    self.exit_ui_loops()
+		    return
         
         elif self.current_question.endswith('password'):
             # If the user triggered mismatched passwords, this will get called.
@@ -169,7 +167,7 @@ class MigrationAssistant(FilteredCommand):
             
             self.existing_users.append(username)
     
-        super(MigrationAssistant, self).ok_handler()
+	super(MigrationAssistant, self).ok_handler()
         
     def error(self, priority, question):
         if question.startswith('migration-assistant/password-'):
