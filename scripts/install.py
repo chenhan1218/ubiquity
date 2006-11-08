@@ -33,6 +33,7 @@ import socket
 import fcntl
 import traceback
 import syslog
+import gzip
 import debconf
 import apt_pkg
 from apt.package import Package
@@ -546,6 +547,17 @@ class Install:
                 syslog.syslog(syslog.LOG_ERR,
                               'Failed to copy installation log file')
             os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
+        try:
+            status = open(os.path.join(self.target, 'var/lib/dpkg/status'))
+            status_gz = gzip.open(os.path.join(target_dir,
+                                               'initial-status.gz'), 'w')
+            while True:
+                data = status.read(65536)
+                status_gz.write(data)
+            status_gz.close()
+            status.close()
+        except IOError:
+            pass
 
 
     def mount_one_image(self, fsfile, mountpoint=None):

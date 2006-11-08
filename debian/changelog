@@ -19,6 +19,9 @@ ubiquity (1.3.0) UNRELEASED; urgency=low
     Malone #68238).
   * Drop support for old ESPRESSO_DEBUG environment variable.
   * Add an intro message noting that we're alpha again.
+  * Save /target/var/lib/dpkg/status to
+    /target/var/log/installer/initial-status.gz; suggested by Jason
+    Whitlark.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 23 Oct 2006 11:00:32 +0100
 
