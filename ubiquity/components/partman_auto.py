@@ -20,7 +20,7 @@
 import os
 import shutil
 import signal
-import textwrap
+import debconf
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity.parted_server import PartedServer
 

@@ -31,7 +31,7 @@
 # Validation library.
 # Created by Antonio Olmo <aolmo#emergya._info> on 26 jul 2005.
 
-from string            import whitespace, uppercase
+from string import whitespace
 import glob
 from ubiquity.settings import *
 

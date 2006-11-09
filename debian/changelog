@@ -22,6 +22,8 @@ ubiquity (1.3.0) UNRELEASED; urgency=low
   * Save /target/var/lib/dpkg/status to
     /target/var/log/installer/initial-status.gz; suggested by Jason
     Whitlark.
+  * Remove a bunch of unnecessary imports noticed by pyflakes, and add a
+    couple of missing ones.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 23 Oct 2006 11:00:32 +0100
 

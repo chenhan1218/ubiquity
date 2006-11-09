@@ -36,7 +36,6 @@ import syslog
 import gzip
 import debconf
 import apt_pkg
-from apt.package import Package
 from apt.cache import Cache
 from apt.progress import FetchProgress, InstallProgress
 

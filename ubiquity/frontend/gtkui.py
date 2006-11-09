@@ -37,9 +37,7 @@ pygtk.require('2.0')
 import gobject
 import gtk.glade
 import os
-import time
 import datetime
-import glob
 import subprocess
 import math
 import traceback
@@ -48,7 +46,6 @@ import xml.sax.saxutils
 
 import gettext
 
-import debconf
 try:
     from debconf import DebconfCommunicator
 except ImportError:

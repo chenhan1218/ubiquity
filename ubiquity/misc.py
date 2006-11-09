@@ -1,9 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import sys
 import os
-import stat
 import re
 import subprocess
 import syslog
@@ -89,8 +87,6 @@ def format_size(size):
 def get_partitions():
     """returns an array with fdisk output related to partition data."""
 
-    import re
-
     # parsing partitions from the procfs
     # attention with the output format. the partitions list is without '/dev/'
     partitions = open('/proc/partitions')
@@ -135,7 +131,7 @@ def get_filesystems(fstype={}):
     with data from local hard disks. Only swap and ext3 filesystems
     are available."""
 
-    import re, subprocess
+    import subprocess
     device_list = {}
 
     # building device_list dicts from "file -s" output from get_partitions

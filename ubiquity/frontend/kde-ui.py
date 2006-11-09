@@ -32,18 +32,14 @@ from ubiquity.frontend.liveinstaller import UbiquityUIBase
 from ubiquity.frontend.crashdialog import CrashDialog
 
 import os
-import time
 import datetime
-import glob
 import subprocess
 import math
 import traceback
 import syslog
-import xml.sax.saxutils
 
 import gettext
 
-import debconf
 try:
     from debconf import DebconfCommunicator
 except ImportError:
