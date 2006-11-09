@@ -30,9 +30,6 @@
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ##################################################################################
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: -28.40!!! (bad
-        indentation and accesses to undefined members) """
-
 import sys
 import pygtk
 pygtk.require('2.0')

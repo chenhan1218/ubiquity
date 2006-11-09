@@ -24,9 +24,6 @@
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: -5.00! (wrong
-    encoding) """
-
 # Global settings.
 # Created by Antonio Olmo <aolmo#emergya._info> on 7 oct 2005.
 
