@@ -252,7 +252,7 @@ class Wizard:
             first_step = self.stepWelcome
         else:
             first_step = self.stepLanguage
-        self.steps.set_current_page(self.steps.page_num(first_step))
+        self.set_current_page(self.steps.page_num(first_step))
 
         while self.current_page is not None:
             if not self.installing:
@@ -469,9 +469,13 @@ class Wizard:
 
 
     def set_current_page(self, current):
-        global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
-        self.current_page = current
-        self.translate_widget(self.step_label, self.locale)
+        if self.steps.get_current_page() == current:
+            # self.steps.set_current_page() will do nothing. Update state
+            # ourselves.
+            self.on_steps_switch_page(
+                self.steps, self.steps.get_nth_page(current), current)
+        else:
+            self.steps.set_current_page(current)
 
     # Methods
 
@@ -891,8 +895,7 @@ class Wizard:
         choice = self.get_disk_choice()
         if self.manual_choice is None or choice == self.manual_choice:
             self.gparted_loop()
-            self.steps.set_current_page(
-                self.steps.page_num(self.stepPartAdvanced))
+            self.set_current_page(self.steps.page_num(self.stepPartAdvanced))
         else:
             self.steps.next_page()
 
@@ -912,7 +915,7 @@ class Wizard:
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.manual_partitioning = False
-            self.steps.set_current_page(self.steps.page_num(self.stepReady))
+            self.set_current_page(self.steps.page_num(self.stepReady))
 
 
     def gparted_crashed(self):
@@ -937,7 +940,7 @@ class Wizard:
         response = dialog.run()
         dialog.hide()
         if response == 1:
-            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            self.set_current_page(self.steps.page_num(self.stepPartDisk))
         elif response == gtk.RESPONSE_CLOSE:
             self.current_page = None
             self.quit()
@@ -1241,7 +1244,7 @@ class Wizard:
                 new_step = self.stepPartDisk
             else:
                 new_step = self.stepUserInfo
-            self.steps.set_current_page(self.steps.page_num(new_step))
+            self.set_current_page(self.steps.page_num(new_step))
             changed_page = True
         elif step == "stepPartAdvanced":
             if self.gparted_subp is not None:
@@ -1252,13 +1255,13 @@ class Wizard:
                 self.gparted_subp.stdin.close()
                 self.gparted_subp.wait()
                 self.gparted_subp = None
-            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            self.set_current_page(self.steps.page_num(self.stepPartDisk))
             changed_page = True
         elif step == "stepPartMountpoints":
             self.gparted_loop()
         elif step == "stepReady":
             self.next.set_label("gtk-go-forward")
-            self.steps.set_current_page(self.previous_partitioning_page)
+            self.set_current_page(self.previous_partitioning_page)
             changed_page = True
 
         if not changed_page:
@@ -1313,9 +1316,9 @@ class Wizard:
 
 
     def on_steps_switch_page (self, foo, bar, current):
-        self.set_current_page(current)
-        current_name = self.step_name(current)
-        syslog.syslog('switched to page %s' % current_name)
+        self.current_page = current
+        self.translate_widget(self.step_label, self.locale)
+        syslog.syslog('switched to page %s' % self.step_name(current))
 
 
     def on_autopartition_resize_toggled (self, widget):
@@ -1546,7 +1549,7 @@ class Wizard:
         self.part_disk_vbox.show_all()
 
         # make sure we're on the disk selection page
-        self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+        self.set_current_page(self.steps.page_num(self.stepPartDisk))
 
         return True
 
@@ -1579,7 +1582,7 @@ class Wizard:
         self.autopartition_vbox.show_all()
 
         # make sure we're on the autopartitioning page
-        self.steps.set_current_page(self.steps.page_num(self.stepPartAuto))
+        self.set_current_page(self.steps.page_num(self.stepPartAuto))
 
 
     def get_autopartition_choice (self):
@@ -1739,7 +1742,7 @@ class Wizard:
             # Go back to the autopartitioner and try again.
             # TODO self.previous_partitioning_page
             self.live_installer.show()
-            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            self.set_current_page(self.steps.page_num(self.stepPartDisk))
             self.next.set_label("gtk-go-forward")
             self.backup = True
             self.installing = False

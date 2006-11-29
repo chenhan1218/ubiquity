@@ -291,8 +291,7 @@ class Wizard:
             first_step = "stepWelcome"
         else:
             first_step = "stepLanguage"
-        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS[first_step])
-        self.set_current_page(self.get_current_page())
+        self.set_current_page(WIDGET_STACK_STEPS[first_step])
 
         while self.current_page is not None:
             if not self.installing:
@@ -472,9 +471,13 @@ class Wizard:
         return self.userinterface.widgetStack.widget(step_index).name()
 
     def set_current_page(self, current):
-        global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
-        self.current_page = current
-        self.translate_widget(self.userinterface.step_label, self.locale)
+        widget = self.userinterface.widgetStack.widget(current)
+        if self.userinterface.widgetStack.visibleWidget() == widget:
+            # self.userinterface.widgetStack.raiseWidget() will do nothing.
+            # Update state ourselves.
+            self.on_steps_switch_page(current)
+        else:
+            self.userinterface.widgetStack.raiseWidget(widget)
 
     def qtparted_loop(self):
         """call qtparted and embed it into the interface."""
@@ -786,19 +789,19 @@ class Wizard:
 
         # Welcome
         if step == "stepWelcome":
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepLanguage"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepLanguage"])
         # Language
         elif step == "stepLanguage":
             self.translate_widgets()
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepLocation"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepLocation"])
             self.userinterface.back.show()
             self.allow_go_forward(self.get_timezone() is not None)
         # Location
         elif step == "stepLocation":
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepKeyboardConf"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepKeyboardConf"])
         # Keyboard
         elif step == "stepKeyboardConf":
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepUserInfo"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
             #self.steps.next_page()
             self.info_loop(None)
         # Identification
@@ -855,7 +858,7 @@ class Wizard:
             self.userinterface.hostname_error_reason.setText("\n".join(error_msg))
             self.userinterface.hostname_error_reason.show()
         else:
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartDisk"])
 
     def process_disk_selection (self):
         """Process disk selection before autopartitioning. This step will be
@@ -866,9 +869,9 @@ class Wizard:
         choice = self.get_disk_choice()
         if self.manual_choice is None or choice == self.manual_choice:
             self.qtparted_loop()
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
         else:
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAuto"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
 
     def process_autopartitioning(self):
         """Processing automatic partitioning step tasks."""
@@ -880,11 +883,11 @@ class Wizard:
         choice = self.get_autopartition_choice()
         if self.manual_choice is None or choice == self.manual_choice:
             self.qtparted_loop()
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAdvanced"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.manual_partitioning = False
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
 
     def qtparted_crashed(self):
         """qtparted crashed. Ask the user if they want to continue."""
@@ -899,7 +902,7 @@ class Wizard:
                                      text, 'Try again',
                                      'Automatic partitioning', 'Quit', 0, 0)
         if answer == 1:
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartDisk"])
         elif answer == 2:
             self.current_page = None
             self.quit()
@@ -1052,7 +1055,7 @@ class Wizard:
         self.userinterface.mountpoint_error_reason.hide()
         self.userinterface.mountpoint_error_image.hide()
 
-        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartMountpoints"])
+        self.set_current_page(WIDGET_STACK_STEPS["stepPartMountpoints"])
 
     def show_partitions(self, widget):
         """write all values in this widget (GtkComboBox) from local
@@ -1224,7 +1227,7 @@ class Wizard:
             self.userinterface.mountpoint_error_image.hide()
 
         self.manual_partitioning = True
-        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepReady"])
+        self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
 
     def on_back_clicked(self):
         """Callback to set previous screen."""
@@ -1251,7 +1254,7 @@ class Wizard:
                 new_step = "stepPartDisk"
             else:
                 new_step = "stepUserInfo"
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS[new_step])
+            self.set_current_page(WIDGET_STACK_STEPS[new_step])
             changed_page = True
         elif step == "stepPartAdvanced":
             if self.qtparted_subp is not None:
@@ -1267,15 +1270,15 @@ class Wizard:
                     self.qtparted_vbox.remove(self.embed)
                     del self.embed
                     self.embed = None
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartDisk"])
             changed_page = True
         elif step == "stepPartMountpoints":
             self.qtparted_loop()
         elif step == "stepReady":
             self.userinterface.next.setText("Next >")
-            self.userinterface.widgetStack.raiseWidget(self.previous_partitioning_page)
+            self.set_current_page(self.previous_partitioning_page)
         if not changed_page:
-            self.userinterface.widgetStack.raiseWidget(self.get_current_page() - 1)
+            self.set_current_page(self.get_current_page() - 1)
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
             # expect recursive main loops to be exited and
@@ -1310,8 +1313,9 @@ class Wizard:
       return self.userinterface.widgetStack.id(self.userinterface.widgetStack.visibleWidget())
 
     def on_steps_switch_page(self, newPageID):
-        self.set_current_page(newPageID)
-        current_name = self.step_name(self.get_current_page())
+        self.current_page = newPageID
+        self.translate_widget(self.userinterface.step_label, self.locale)
+        syslog.syslog('switched to page %s' % self.step_name(newPageID))
 
     def on_autopartition_resize_toggled (self, enable):
         """Update autopartitioning screen when the resize button is
@@ -1564,7 +1568,7 @@ class Wizard:
             firstbutton.setChecked(True)
 
         # make sure we're on the disk selection page
-        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
+        self.set_current_page(WIDGET_STACK_STEPS["stepPartDisk"])
 
         return True
 
@@ -1606,7 +1610,7 @@ class Wizard:
             self.on_autopartition_resize_toggled(False)
 
         # make sure we're on the autopartitioning page
-        self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartAuto"])
+        self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
 
     def get_autopartition_choice (self):
         id = self.autopartition_buttongroup.id( self.autopartition_buttongroup.selected() )
@@ -1718,7 +1722,7 @@ class Wizard:
             # Go back to the autopartitioner and try again.
             # TODO self.previous_partitioning_page
             #self.live_installer.show()
-            self.userinterface.widgetStack.raiseWidget(WIDGET_STACK_STEPS["stepPartDisk"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartDisk"])
             nextText = get_string("continue", self.locale) + " >"
             self.userinterface.next.setText(nextText)
             self.backup = True
