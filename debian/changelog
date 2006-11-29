@@ -1,4 +1,4 @@
-ubiquity (1.3.0) UNRELEASED; urgency=low
+ubiquity (1.3.0) feisty; urgency=low
 
   * Defend a bit more against the apt cache going insane (closes: Malone
     #67689).
@@ -37,7 +37,7 @@ ubiquity (1.3.0) UNRELEASED; urgency=low
     tzsetup 1:0.14, user-setup 1.7ubuntu1, yaboot-installer 1.1.8ubuntu1.
     (partman-* will be updated next time round, when we're ready for it.)
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 23 Oct 2006 11:00:32 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Nov 2006 20:33:42 +0000
 
 ubiquity (1.2.5) edgy; urgency=low
 
