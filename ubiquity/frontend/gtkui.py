@@ -1577,7 +1577,7 @@ class Wizard:
         if firstbutton is not None:
             firstbutton.set_active(True)
         if resize_choice not in choices:
-            self.on_autopartition_resize_toggled(False)
+            self.new_size_vbox.hide()
 
         self.autopartition_vbox.show_all()
 
