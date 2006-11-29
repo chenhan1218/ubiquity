@@ -166,8 +166,8 @@ endif
 	done
 	install d-i/source/localechooser/finish-install \
 		debian/ubiquity/usr/lib/ubiquity/localechooser/
-	install d-i/source/tzsetup/finish-install.d/*tzsetup \
-		debian/ubiquity/usr/lib/ubiquity/tzsetup/finish-install
+	install d-i/source/tzsetup/post-base-installer.d/*tzsetup \
+		debian/ubiquity/usr/lib/ubiquity/tzsetup/post-base-installer
 	set -e; for x in user-setup user-setup-ask user-setup-apply; do \
 		sed -e 's,/usr/lib/user-setup,/usr/lib/ubiquity/user-setup,g' \
 		    -e 's,/bin/sh,/bin/bash,g' \
