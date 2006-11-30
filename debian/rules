@@ -40,6 +40,8 @@ endif
 endif
 endif
 
+console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $2}'))
+
 ifeq (,$(strip $(foreach dir,$(subst :, ,$(PATH)),$(wildcard $(dir)/pygtk-codegen-2.0))))
 $(warning pygtk-codegen-2.0 missing; disabling GTK frontend)
 UBIQUITY_NO_GTK := 1
@@ -249,9 +251,9 @@ binary-arch: install
 	dh_installdeb
 	dh_shlibdeps
 ifdef bootloader-depends
-	dh_gencontrol -- -V'bootloader-depends=$(bootloader-depends)'
+	dh_gencontrol -- -V'bootloader-depends=$(bootloader-depends)' -V'console-setup-depends=$(console-setup-depends)'
 else
-	dh_gencontrol
+	dh_gencontrol -- -V'console-setup-depends=$(console-setup-depends)'
 endif
 	dh_md5sums
 	dh_builddeb
