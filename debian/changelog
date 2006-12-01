@@ -4,6 +4,8 @@ ubiquity (1.3.1) UNRELEASED; urgency=low
     semi-manual update).
   * Depend on a version of console-setup at least as new as the one in our
     source tree.
+  * Work around a crash in broken_packages() due to inadequate python-apt
+    Python protocol support.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 30 Nov 2006 21:43:33 +0000
 
