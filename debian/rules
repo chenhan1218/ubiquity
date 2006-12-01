@@ -40,7 +40,7 @@ endif
 endif
 endif
 
-console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $2}'))
+console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $$2}'))
 
 ifeq (,$(strip $(foreach dir,$(subst :, ,$(PATH)),$(wildcard $(dir)/pygtk-codegen-2.0))))
 $(warning pygtk-codegen-2.0 missing; disabling GTK frontend)
