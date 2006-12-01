@@ -552,6 +552,8 @@ class Install:
                                                'initial-status.gz'), 'w')
             while True:
                 data = status.read(65536)
+                if not data:
+                    break
                 status_gz.write(data)
             status_gz.close()
             status.close()
