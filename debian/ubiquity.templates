@@ -100,17 +100,6 @@ _Description:
  This name will be used if you make the computer visible to others on a
  network.
 
-Template: ubiquity/text/part_disk_heading_label
-Type: text
-_Description: Select a disk
-
-Template: ubiquity/text/part_disk_comment_label
-Type: text
-_Description:
- You can have the installer automatically create space in various ways on
- any one of the following hard disks. Alternatively, you can partition the
- disks manually.
-
 Template: ubiquity/text/part_auto_heading_label
 Type: text
 _Description: Prepare disk space
