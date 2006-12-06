@@ -84,7 +84,7 @@ WIDGET_STACK_STEPS = {
 }
 
 class UbiquityUI(UbiquityUIBase):
-    
+
     def setWizard(self, wizardRef):
         self.wizard = wizardRef
 
@@ -99,14 +99,14 @@ class Wizard:
         about=KAboutData("kubuntu-ubiquity","Installer","0.1","Live CD Installer for Kubuntu",KAboutData.License_GPL,"(c) 2006 Canonical Ltd", "http://wiki.kubuntu.org/KubuntuUbiquity", "jriddell@ubuntu.com")
         about.addAuthor("Jonathan Riddell", None,"jriddell@ubuntu.com")
         KCmdLineArgs.init(["./installer"],about)
-        
+
         self.app = KApplication()
-        
+
         self.userinterface = UbiquityUI(None, "Ubiquity")
         self.userinterface.setWizard(self)
         self.app.setMainWidget(self.userinterface)
         self.userinterface.show()
-        
+
         # declare attributes
         self.distro = distro
         self.current_layout = None
@@ -157,15 +157,15 @@ class Wizard:
         dbfilter.db.shutdown()
 
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
-    
+
         # TODO jr 2006-04-19: sometimes causes pykde crash when creating
         # kdialogs
         self.translate_widgets()
 
         self.map_vbox = QVBoxLayout(self.userinterface.map_frame)
-        
+
         self.customize_installer()
-        
+
         self.autopartition_vbox = QVBoxLayout(self.userinterface.autopartition_frame)
         self.autopartition_buttongroup = QButtonGroup(self.userinterface.autopartition_frame)
         self.autopartition_buttongroup_texts = {}
@@ -175,7 +175,7 @@ class Wizard:
 
         self.qtparted_vbox = QVBoxLayout(self.userinterface.qtparted_frame)
         self.embed = None
-        
+
         self.mount_vbox = QVBoxLayout(self.userinterface.mountpoint_frame_parent)
         self.mountpoint_scrollview = QScrollView(self.userinterface.mountpoint_frame_parent)
         self.mount_vbox.addWidget(self.mountpoint_scrollview)
@@ -195,7 +195,7 @@ class Wizard:
         self.ready_text.setReadOnly(True)
         self.ready_text.setTextFormat(Qt.RichText)
         summary_vbox.addWidget(self.ready_text)
-        
+
         logo = QPixmap("/usr/lib/ubiquity/ubiquity/frontend/kde-distro-logo.png")
         self.userinterface.logo_image_2.setPixmap(logo)
         self.userinterface.logo_image_3.setPixmap(logo)
@@ -250,7 +250,7 @@ class Wizard:
         #self.show_browser()
         got_intro = self.show_intro()
         self.allow_change_step(True)
-    
+
         # Declare SignalHandler
         self.app.connect(self.userinterface.next, SIGNAL("clicked()"), self.on_next_clicked)
         self.app.connect(self.userinterface.back, SIGNAL("clicked()"), self.on_back_clicked)
@@ -258,20 +258,20 @@ class Wizard:
         self.app.connect(self.userinterface.widgetStack, SIGNAL("aboutToShow(int)"), self.on_steps_switch_page)
         self.app.connect(self.userinterface.keyboardlayoutview, SIGNAL("selectionChanged()"), self.on_keyboard_layout_selected)
         self.app.connect(self.userinterface.keyboardvariantview, SIGNAL("selectionChanged()"), self.on_keyboard_variant_selected)
-        
+
         self.app.connect(self.userinterface.fullname, SIGNAL("textChanged(const QString &)"), self.on_fullname_changed)
         self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.on_username_changed)
         self.app.connect(self.userinterface.password, SIGNAL("textChanged(const QString &)"), self.on_password_changed)
         self.app.connect(self.userinterface.verified_password, SIGNAL("textChanged(const QString &)"), self.on_verified_password_changed)
         self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.on_hostname_changed)
         self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.on_hostname_insert_text)
-        
+
         self.app.connect(self.userinterface.fullname, SIGNAL("selectionChanged()"), self.on_fullname_changed)
         self.app.connect(self.userinterface.username, SIGNAL("selectionChanged()"), self.on_username_changed)
         self.app.connect(self.userinterface.password, SIGNAL("selectionChanged()"), self.on_password_changed)
         self.app.connect(self.userinterface.verified_password, SIGNAL("selectionChanged()"), self.on_verified_password_changed)
         self.app.connect(self.userinterface.hostname, SIGNAL("selectionChanged()"), self.on_hostname_changed)
-        
+
         self.app.connect(self.userinterface.language_treeview, SIGNAL("selectionChanged()"), self.on_language_treeview_selection_changed)
 
         self.app.connect(self.userinterface.timezone_time_adjust, SIGNAL("clicked()"), self.on_timezone_time_adjust_clicked)
@@ -321,7 +321,7 @@ class Wizard:
                 self.allow_change_step(not self.installing)
 
             self.app.exec_loop()
-    
+
             if self.installing:
                 self.progress_loop()
             elif self.current_page is not None and not self.backup:
@@ -329,7 +329,7 @@ class Wizard:
             self.app.processEvents(1)
 
         return self.returncode
-    
+
     def customize_installer(self):
         """Initial UI setup."""
 
@@ -388,7 +388,7 @@ class Wizard:
         #    widget.set_label(widget.get_label())
 
         text = get_string(widget.name(), lang)
-        
+
         if widget.name() == "next":
             text = get_string("continue", lang) + " >"
         elif widget.name() == "back":
@@ -444,9 +444,9 @@ class Wizard:
 
     def show_intro(self):
         """Show some introductory text, if available."""
-    
+
         intro = os.path.join(PATH, 'intro.txt')
-    
+
         if os.path.isfile(intro):
             intro_file = open(intro)
             text = ""
@@ -457,7 +457,7 @@ class Wizard:
             return True
         else:
             return False
-    
+
     def step_name(self, step_index):
         if step_index < 0:
             step_index = 0
@@ -944,7 +944,7 @@ class Wizard:
         sizeText = "<b>" + get_string("size_label", self.locale) + "</b>"
         partitionText = "<b>" + get_string("device_label", self.locale) + "</b>"
         reformatText = "<b>" + get_string("format_label", self.locale) + "</b>"
-        
+
         mountLabel = QLabel(mountText, self.userinterface.mountpoint_frame)
         sizeLabel = QLabel(sizeText, self.userinterface.mountpoint_frame)
         partitionLabel = QLabel(partitionText, self.userinterface.mountpoint_frame)
@@ -1221,7 +1221,7 @@ class Wizard:
         # Setting actual step
         step = self.step_name(self.get_current_page())
         self.userinterface.setCursor(QCursor(Qt.WaitCursor))
-        
+
         changed_page = False
 
         if step == "stepLocation":
@@ -1314,13 +1314,13 @@ class Wizard:
         self.debconf_fd_counter = 0
         self.socketNotifierRead = QSocketNotifier(from_debconf, QSocketNotifier.Read, self.app, "read-for-" + str(from_debconf))
         self.app.connect(self.socketNotifierRead, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_read)
-        
+
         self.socketNotifierWrite = QSocketNotifier(from_debconf, QSocketNotifier.Write, self.app, "read-for-" + str(from_debconf))
         self.app.connect(self.socketNotifierWrite, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_write)
 
         self.socketNotifierException = QSocketNotifier(from_debconf, QSocketNotifier.Exception, self.app, "read-for-" + str(from_debconf))
         self.app.connect(self.socketNotifierException, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_exception)
-        
+
         self.debconf_callbacks[from_debconf] = process_input
         self.current_debconf_fd = from_debconf
         """
@@ -1488,10 +1488,10 @@ class Wizard:
 
     def get_username(self):
         return unicode(self.userinterface.username.text())
-  
+
     def get_password(self):
         return unicode(self.userinterface.password.text())
-  
+
     def get_verified_password(self):
         return unicode(self.userinterface.verified_password.text())
 
@@ -1525,7 +1525,7 @@ class Wizard:
             button = QRadioButton(choice, self.userinterface.autopartition_frame)
             self.autopartition_buttongroup.insert(button)
             id = self.autopartition_buttongroup.id(button)
-            
+
             #Qt changes the string by adding accelarators, 
             #so keep pristine string here as is returned later to partman
             self.autopartition_buttongroup_texts[id] = choice
@@ -1959,7 +1959,7 @@ class MapWidget(QWidget):
         painter.drawPoint(point.x()-1, point.y()+1)
         painter.drawPoint(point.x()+1, point.y()+1)
         painter.drawPoint(point.x(), point.y()+2)
-        
+
 
     def getPosition(self, la, lo, w, h):
         x = (w * (180.0 + lo) / 360.0)
@@ -1978,7 +1978,7 @@ class MapWidget(QWidget):
         dist = 1.0e10
         for city in self.cities:
             pos = self.getPosition(self.cities[city][0], self.cities[city][1], self.width(), self.height())
-            
+
             d = (pos.x()-x)*(pos.x()-x) + (pos.y()-y)*(pos.y()-y)
             if d < dist:
                 dist = d
@@ -1991,7 +1991,7 @@ class MapWidget(QWidget):
         self.y = mouseEvent.pos().y()
         if not self.timer.isActive():
             self.timer.start(25, True)
-            
+
     def updateCityIndicator(self):
         city = self.getNearestCity(self.width(), self.height(), self.x, self.y)
         if city is None:
