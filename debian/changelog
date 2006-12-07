@@ -4,6 +4,9 @@ ubiquity (1.3.3) UNRELEASED; urgency=low
   * GTK frontend: Work around disappearing input focus on intro page.
   * GTK frontend: Activate Forward button when a row in the language or
     keyboard treeviews is activated.
+  * Remove use of dh_python, since it's a no-op now. Bump debhelper
+    build-dependency to 5.0.37.3ubuntu2 (a.k.a. dh_python from 5.0.38) for
+    this.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  7 Dec 2006 09:55:28 +0000
 
