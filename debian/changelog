@@ -11,6 +11,8 @@ ubiquity (1.3.3) UNRELEASED; urgency=low
     that widget doesn't exist there any more.
   * KDE frontend: Fix logo image widgets to take account of removed disk
     page.
+  * KDE frontend: Fix various crashes in set_autopartition_choices due to
+    botched use of Qt.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  7 Dec 2006 09:55:28 +0000
 

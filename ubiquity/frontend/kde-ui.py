@@ -1541,9 +1541,11 @@ class Wizard:
                                             new_size_hbox, 'new_size_label')
                     self.translate_widget(new_size_label, self.locale)
                     new_size_hbox.addWidget(new_size_label)
+                    new_size_label.show()
                     new_size_scale_vbox = QVBoxLayout(new_size_hbox)
                     self.new_size_value = QLabel(new_size_scale_vbox)
                     new_size_scale_vbox.addWidget(self.new_size_value)
+                    self.new_size_value.show()
                     self.new_size_scale = QSlider(Qt.Horizontal,
                                                   new_size_scale_vbox)
                     self.new_size_scale.setMaxValue(100)
@@ -1553,6 +1555,7 @@ class Wizard:
                                      SIGNAL("valueChanged(int)"),
                                      self.update_new_size_label)
                     new_size_scale_vbox.addWidget(self.new_size_scale)
+                    self.new_size_scale.show()
                     self.resize_min_size, self.resize_max_size = \
                         extra_options[choice]
                     if (self.resize_min_size is not None and
@@ -1565,14 +1568,16 @@ class Wizard:
                             int((min_percent + 100) / 2))
                 elif choice != manual_choice:
                     disk_vbox = QVBoxLayout(indent_hbox)
-                    disk_buttongroup = QButtonGroup(indent_hbox)
+                    disk_buttongroup = QButtonGroup(
+                        self.userinterface.autopartition_frame)
                     disk_buttongroup_texts = {}
                     extra_firstbutton = None
                     for extra in extra_options[choice]:
                         if extra == '':
                             disk_vbox.addSpacing(10)
                         else:
-                            extra_button = QRadioButton(extra, disk_vbox)
+                            extra_button = QRadioButton(
+                                extra, self.userinterface.autopartition_frame)
                             disk_buttongroup.insert(extra_button)
                             extra_id = disk_buttongroup.id(extra_button)
                             # Qt changes the string by adding accelerators,
@@ -1586,7 +1591,7 @@ class Wizard:
                         disk_buttongroup
                     self.autopartition_extra_buttongroup_texts[choice] = \
                         disk_buttongroup_texts
-                indent_hbox.show()
+                    disk_buttongroup.show()
                 self.autopartition_extras[choice] = indent_hbox
 
             self.on_autopartition_toggled(choice, button.isChecked())
