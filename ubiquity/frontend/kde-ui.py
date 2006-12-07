@@ -206,7 +206,6 @@ class Wizard:
         self.userinterface.logo_image_8.setPixmap(logo)
         self.userinterface.logo_image_9.setPixmap(logo)
         self.userinterface.logo_image_10.setPixmap(logo)
-        self.userinterface.logo_image_11.setPixmap(logo)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
