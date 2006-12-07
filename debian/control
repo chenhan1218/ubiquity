@@ -8,7 +8,7 @@ XS-Python-Version: current, >= 2.4
 
 Package: ubiquity
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf (>= 1.4.72ubuntu5), ubiquity-frontend-${source:Version}, ubiquity-artwork-${source:Version}, laptop-detect, lsb-release, ubiquity-casper, python-apt (>= 0.6.16.2ubuntu4), console-setup (>= 1.7ubuntu12), iso-codes, passwd, adduser, os-prober, ${bootloader-depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf (>= 1.4.72ubuntu5), ubiquity-frontend-${source:Version}, ubiquity-artwork-${source:Version}, laptop-detect, lsb-release, ubiquity-casper, python-apt (>= 0.6.16.2ubuntu4), ${console-setup-depends}, iso-codes, passwd, adduser, os-prober, ${bootloader-depends}
 Conflicts: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
 Replaces: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot, ubiquity-frontend-gtk (<< 0.99.82)
 XB-Python-Version: ${python:Versions}

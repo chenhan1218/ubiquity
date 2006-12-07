@@ -21,4 +21,4 @@ from ubiquity.filteredcommand import FilteredCommand
 
 class TimezoneApply(FilteredCommand):
     def prepare(self):
-        return (['/usr/lib/ubiquity/tzsetup/finish-install'], [])
+        return (['/usr/lib/ubiquity/tzsetup/post-base-installer'], [])

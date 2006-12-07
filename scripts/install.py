@@ -33,9 +33,9 @@ import socket
 import fcntl
 import traceback
 import syslog
+import gzip
 import debconf
 import apt_pkg
-from apt.package import Package
 from apt.cache import Cache
 from apt.progress import FetchProgress, InstallProgress
 
@@ -304,9 +304,9 @@ class Install:
             self.db.progress('REGION', 1, 75)
             try:
                 self.copy_all()
-            except OSError, e:
-                if e.errno in (errno.ENOENT, errno.EIO, errno.ENOTDIR,
-                               errno.EROFS):
+            except EnvironmentError, e:
+                if e.errno in (errno.ENOENT, errno.EIO, errno.EFAULT,
+                               errno.ENOTDIR, errno.EROFS):
                     if e.filename is None:
                         error_template = 'cd_hd_fault'
                     elif e.filename.startswith('/target'):
@@ -546,6 +546,19 @@ class Install:
                 syslog.syslog(syslog.LOG_ERR,
                               'Failed to copy installation log file')
             os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
+        try:
+            status = open(os.path.join(self.target, 'var/lib/dpkg/status'))
+            status_gz = gzip.open(os.path.join(target_dir,
+                                               'initial-status.gz'), 'w')
+            while True:
+                data = status.read(65536)
+                if not data:
+                    break
+                status_gz.write(data)
+            status_gz.close()
+            status.close()
+        except IOError:
+            pass
 
 
     def mount_one_image(self, fsfile, mountpoint=None):
@@ -1180,8 +1193,12 @@ class Install:
     def broken_packages(self, cache):
         brokenpkgs = set()
         for pkg in cache.keys():
-            if cache._depcache.IsInstBroken(cache._cache[pkg]):
-                brokenpkgs.add(pkg)
+            try:
+                if cache._depcache.IsInstBroken(cache._cache[pkg]):
+                    brokenpkgs.add(pkg)
+            except KeyError:
+                # Apparently sometimes the cache goes a bit bonkers ...
+                continue
         return brokenpkgs
 
     def do_remove(self, to_remove, recursive=False):

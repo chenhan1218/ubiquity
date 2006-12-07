@@ -30,9 +30,6 @@
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ##################################################################################
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: -28.40!!! (bad
-        indentation and accesses to undefined members) """
-
 import sys
 import pygtk
 pygtk.require('2.0')
@@ -40,9 +37,7 @@ pygtk.require('2.0')
 import gobject
 import gtk.glade
 import os
-import time
 import datetime
-import glob
 import subprocess
 import math
 import traceback
@@ -51,7 +46,6 @@ import xml.sax.saxutils
 
 import gettext
 
-import debconf
 try:
     from debconf import DebconfCommunicator
 except ImportError:
@@ -87,7 +81,6 @@ BREADCRUMB_STEPS = {
     "stepLocation": 2,
     "stepKeyboardConf": 3,
     "stepUserInfo": 4,
-    "stepPartDisk": 5,
     "stepPartAuto": 5,
     "stepPartAdvanced": 5,
     "stepPartMountpoints": 5,
@@ -106,14 +99,16 @@ class Wizard:
         # declare attributes
         self.distro = distro
         self.current_layout = None
-        self.got_disk_choices = False
+        self.password = ''
+        self.hostname_edited = False
+        self.autopartition_extras = {}
         self.auto_mountpoints = None
         self.resize_min_size = None
         self.resize_max_size = None
+        self.resize_choice = None
         self.manual_choice = None
         self.manual_partitioning = False
-        self.password = ''
-        self.hostname_edited = False
+        self.new_size_scale = None
         self.gparted_fstype = {}
         self.gparted_flags = {}
         self.mountpoint_widgets = []
@@ -259,7 +254,7 @@ class Wizard:
             first_step = self.stepWelcome
         else:
             first_step = self.stepLanguage
-        self.steps.set_current_page(self.steps.page_num(first_step))
+        self.set_current_page(self.steps.page_num(first_step))
 
         while self.current_page is not None:
             if not self.installing:
@@ -278,14 +273,11 @@ class Wizard:
                 self.dbfilter = console_setup.ConsoleSetup(self)
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
-            elif current_name in ("stepPartDisk", "stepPartAuto"):
-                if isinstance(self.dbfilter, partman_auto.PartmanAuto):
-                    syslog.syslog('reusing running partman')
+            elif current_name == "stepPartAuto":
+                if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
+                    self.dbfilter = partman.Partman(self)
                 else:
-                    if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
-                        self.dbfilter = partman.Partman(self)
-                    else:
-                        self.dbfilter = partman_auto.PartmanAuto(self)
+                    self.dbfilter = partman_auto.PartmanAuto(self)
             elif (current_name == "stepPartAdvanced" and
                   'UBIQUITY_NEW_PARTITIONER' in os.environ):
                 if isinstance(self.dbfilter, partman.Partman):
@@ -489,9 +481,13 @@ class Wizard:
 
 
     def set_current_page(self, current):
-        global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
-        self.current_page = current
-        self.translate_widget(self.step_label, self.locale)
+        if self.steps.get_current_page() == current:
+            # self.steps.set_current_page() will do nothing. Update state
+            # ourselves.
+            self.on_steps_switch_page(
+                self.steps, self.steps.get_nth_page(current), current)
+        else:
+            self.steps.set_current_page(current)
 
     # Methods
 
@@ -849,10 +845,6 @@ class Wizard:
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
-            self.got_disk_choices = False
-        # Disk selection
-        elif step == "stepPartDisk":
-            self.process_disk_selection()
         # Automatic partitioning
         elif step == "stepPartAuto":
             self.process_autopartitioning()
@@ -902,22 +894,6 @@ class Wizard:
             self.steps.next_page()
 
 
-    def process_disk_selection (self):
-        """Process disk selection before autopartitioning. This step will be
-        skipped if only one disk is present."""
-
-        # For safety, if we somehow ended up improperly initialised
-        # then go to manual partitioning.
-        choice = self.get_disk_choice()
-        if self.manual_choice is None or choice == self.manual_choice:
-            if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
-                self.gparted_loop()
-            self.steps.set_current_page(
-                self.steps.page_num(self.stepPartAdvanced))
-        else:
-            self.steps.next_page()
-
-
     def process_autopartitioning(self):
         """Processing automatic partitioning step tasks."""
 
@@ -926,7 +902,7 @@ class Wizard:
 
         # For safety, if we somehow ended up improperly initialised
         # then go to manual partitioning.
-        choice = self.get_autopartition_choice()
+        choice = self.get_autopartition_choice()[0]
         if self.manual_choice is None or choice == self.manual_choice:
             if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
                 self.gparted_loop()
@@ -934,7 +910,7 @@ class Wizard:
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.manual_partitioning = False
-            self.steps.set_current_page(self.steps.page_num(self.stepReady))
+            self.set_current_page(self.steps.page_num(self.stepReady))
 
 
     def gparted_crashed(self):
@@ -959,7 +935,7 @@ class Wizard:
         response = dialog.run()
         dialog.hide()
         if response == 1:
-            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            self.set_current_page(self.steps.page_num(self.stepPartAuto))
         elif response == gtk.RESPONSE_CLOSE:
             self.current_page = None
             self.quit()
@@ -1176,12 +1152,13 @@ class Wizard:
                     validate_mountpoints[device] = \
                         (path, format, validate_filesystems[device], None)
             # Check for some special-purpose partitions detected by partman.
-            for device, mountpoint in self.auto_mountpoints.iteritems():
-                if device in validate_mountpoints:
-                    continue
-                if not mountpoint.startswith('/'):
-                    validate_mountpoints[device] = \
-                        (mountpoint, False, None, None)
+            if self.auto_mountpoints is not None:
+                for device, mountpoint in self.auto_mountpoints.iteritems():
+                    if device in validate_mountpoints:
+                        continue
+                    if not mountpoint.startswith('/'):
+                        validate_mountpoints[device] = \
+                            (mountpoint, False, None, None)
 
             for check in validation.check_mountpoint(validate_mountpoints,
                                                      self.size):
@@ -1267,11 +1244,7 @@ class Wizard:
         if step == "stepLocation":
             self.back.hide()
         elif step == "stepPartAuto":
-            if self.got_disk_choices:
-                new_step = self.stepPartDisk
-            else:
-                new_step = self.stepUserInfo
-            self.steps.set_current_page(self.steps.page_num(new_step))
+            self.set_current_page(self.steps.page_num(self.stepUserInfo))
             changed_page = True
         elif step == "stepPartAdvanced":
             if self.gparted_subp is not None:
@@ -1282,13 +1255,13 @@ class Wizard:
                 self.gparted_subp.stdin.close()
                 self.gparted_subp.wait()
                 self.gparted_subp = None
-            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            self.set_current_page(self.steps.page_num(self.stepPartAuto))
             changed_page = True
         elif step == "stepPartMountpoints":
             self.gparted_loop()
         elif step == "stepReady":
             self.next.set_label("gtk-go-forward")
-            self.steps.set_current_page(self.previous_partitioning_page)
+            self.set_current_page(self.previous_partitioning_page)
             changed_page = True
 
         if not changed_page:
@@ -1343,19 +1316,21 @@ class Wizard:
 
 
     def on_steps_switch_page (self, foo, bar, current):
-        self.set_current_page(current)
-        current_name = self.step_name(current)
-        syslog.syslog('switched to page %s' % current_name)
+        self.current_page = current
+        self.translate_widget(self.step_label, self.locale)
+        syslog.syslog('switched to page %s' % self.step_name(current))
 
 
-    def on_autopartition_resize_toggled (self, widget):
-        """Update autopartitioning screen when the resize button is
-        selected."""
+    def on_autopartition_toggled (self, widget):
+        """Update autopartitioning screen when a button is selected."""
 
-        if widget.get_active():
-            self.new_size_vbox.show()
-        else:
-            self.new_size_vbox.hide()
+        choice = widget.get_label()
+        if choice is not None and choice in self.autopartition_extras:
+            element = self.autopartition_extras[choice]
+            if widget.get_active():
+                element.set_sensitive(True)
+            else:
+                element.set_sensitive(False)
 
 
     # Callbacks provided to components.
@@ -1554,43 +1529,12 @@ class Wizard:
         self.auto_mountpoints = auto_mountpoints
 
 
-    def set_disk_choices (self, choices, manual_choice):
-        self.got_disk_choices = True
-
-        for child in self.part_disk_vbox.get_children():
-            self.part_disk_vbox.remove(child)
-
-        self.manual_choice = manual_choice
-        firstbutton = None
-        for choice in choices:
-            if choice == '':
-                self.part_disk_vbox.add(gtk.Alignment())
-            else:
-                button = gtk.RadioButton(firstbutton, choice, False)
-                if firstbutton is None:
-                    firstbutton = button
-                self.part_disk_vbox.add(button)
-        if firstbutton is not None:
-            firstbutton.set_active(True)
-
-        self.part_disk_vbox.show_all()
-
-        # make sure we're on the disk selection page
-        self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
-
-        return True
-
-
-    def get_disk_choice (self):
-        for widget in self.part_disk_vbox.get_children():
-            if isinstance(widget, gtk.Button) and widget.get_active():
-                return widget.get_label()
-
-
-    def set_autopartition_choices (self, choices, resize_choice, manual_choice):
+    def set_autopartition_choices (self, choices, extra_options,
+                                   resize_choice, manual_choice):
         for child in self.autopartition_vbox.get_children():
             self.autopartition_vbox.remove(child)
 
+        self.resize_choice = resize_choice
         self.manual_choice = manual_choice
         firstbutton = None
         for choice in choices:
@@ -1598,37 +1542,86 @@ class Wizard:
             if firstbutton is None:
                 firstbutton = button
             self.autopartition_vbox.add(button)
-            if choice == resize_choice:
-                self.on_autopartition_resize_toggled(button)
-                button.connect('toggled', self.on_autopartition_resize_toggled)
+
+            if choice in extra_options:
+                alignment = gtk.Alignment(xscale=1, yscale=1)
+                alignment.set_padding(0, 0, 12, 0)
+                if choice == resize_choice:
+                    hbox = gtk.HBox(spacing=6)
+                    alignment.add(hbox)
+                    new_size_label = gtk.Label("New partition size:")
+                    new_size_label.set_name('new_size_label')
+                    self.translate_widget(new_size_label, self.locale)
+                    new_size_label.set_selectable(True)
+                    new_size_label.set_property('can-focus', False)
+                    hbox.pack_start(new_size_label, expand=False, fill=False)
+                    self.new_size_scale = gtk.HScale(
+                        gtk.Adjustment(0, 0, 100, 1, 10, 0))
+                    self.new_size_scale.set_draw_value(True)
+                    self.new_size_scale.set_value_pos(gtk.POS_TOP)
+                    self.new_size_scale.set_digits(0)
+                    self.new_size_scale.update_policy(gtk.UPDATE_CONTINUOUS)
+                    self.new_size_scale.connect(
+                        'format_value', self.on_new_size_scale_format_value)
+                    self.resize_min_size, self.resize_max_size = \
+                        extra_options[choice]
+                    if (self.resize_min_size is not None and
+                        self.resize_max_size is not None):
+                        min_percent = int(math.ceil(
+                            100 * self.resize_min_size / self.resize_max_size))
+                        self.new_size_scale.set_range(min_percent, 100)
+                        self.new_size_scale.set_value(
+                            int((min_percent + 100) / 2))
+                    hbox.pack_start(new_size_scale, expand=True, fill=True)
+                elif choice != manual_choice:
+                    vbox = gtk.VBox(spacing=6)
+                    alignment.add(vbox)
+                    extra_firstbutton = None
+                    for extra in extra_options[choice]:
+                        extra_button = gtk.RadioButton(
+                            extra_firstbutton, extra, False)
+                        if extra_firstbutton is None:
+                            extra_firstbutton = extra_button
+                        vbox.add(extra_button)
+                self.autopartition_vbox.pack_start(alignment,
+                                                   expand=False, fill=False)
+                self.autopartition_extras[choice] = alignment
+
+                self.on_autopartition_toggled(button)
+                button.connect('toggled', self.on_autopartition_toggled)
         if firstbutton is not None:
             firstbutton.set_active(True)
-        if resize_choice not in choices:
-            self.new_size_vbox.hide()
 
         self.autopartition_vbox.show_all()
 
         # make sure we're on the autopartitioning page
-        self.steps.set_current_page(self.steps.page_num(self.stepPartAuto))
+        self.set_current_page(self.steps.page_num(self.stepPartAuto))
 
 
     def get_autopartition_choice (self):
         for button in self.autopartition_vbox.get_children():
-            if button.get_active():
-                return button.get_label()
+            if isinstance(button, gtk.Button):
+                if button.get_active():
+                    choice = button.get_label()
+                    break
+        else:
+            raise AssertionError, "no active autopartitioning choice"
 
-
-    def set_autopartition_resize_bounds (self, min_size, max_size):
-        self.resize_min_size = min_size
-        self.resize_max_size = max_size
-        if min_size is not None and max_size is not None:
-            min_percent = int(math.ceil(100 * min_size / max_size))
-            self.new_size_scale.set_range(min_percent, 100)
-            self.new_size_scale.set_value(int((min_percent + 100) / 2))
-
-
-    def get_autopartition_resize_percent (self):
-        return self.new_size_scale.get_value()
+        if choice == self.resize_choice:
+            # resize_choice should have been hidden otherwise
+            assert self.new_size_scale is not None
+            return choice, self.new_size_scale.get_value()
+        elif (choice != self.manual_choice and
+              choice in self.autopartition_extras):
+            vbox = self.autopartition_extras[choice].child
+            for button in vbox.get_children():
+                if isinstance(button, gtk.Button):
+                    if button.get_active():
+                        return choice, button.get_label()
+            else:
+                return choice, None
+        else:
+            return choice, None
 
 
     def partman_column_name (self, column, cell, model, iterator):
@@ -1957,7 +1950,7 @@ class Wizard:
                 partition_tree_model.append([item, partition_cache[item]])
 
         # make sure we're on the advanced partitioning page
-        self.steps.set_current_page(self.steps.page_num(self.stepPartAdvanced))
+        self.set_current_page(self.steps.page_num(self.stepPartAdvanced))
 
 
     def get_hostname (self):
@@ -2096,9 +2089,8 @@ class Wizard:
 
         if self.installing and self.current_page is not None:
             # Go back to the autopartitioner and try again.
-            # TODO self.previous_partitioning_page
             self.live_installer.show()
-            self.steps.set_current_page(self.steps.page_num(self.stepPartDisk))
+            self.set_current_page(self.steps.page_num(self.stepPartAuto))
             self.next.set_label("gtk-go-forward")
             self.backup = True
             self.installing = False

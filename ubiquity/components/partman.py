@@ -616,9 +616,8 @@ class Partman(PartmanAuto):
 
     def ok_handler(self):
         super(Partman, self).ok_handler()
-        if (self.current_question.endswith('automatically_partition') or
-            self.current_question == 'partman-partitioning/new_size'):
-            if self.frontend.get_autopartition_choice() == self.manual_desc:
+        if self.current_question.endswith('automatically_partition'):
+            if self.frontend.get_autopartition_choice()[0] == self.manual_desc:
                 # In the all-in-one Partman, we keep on going in this case.
                 self.succeeded = True
                 self.done = False

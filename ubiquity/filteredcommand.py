@@ -376,6 +376,5 @@ class FilteredCommand(object):
                                               progress_region_end)
 
 if __name__ == '__main__':
-    import sys
     fc = FilteredCommand()
     fc.run(sys.argv[1])

@@ -1,3 +1,79 @@
+ubiquity (1.3.2) feisty; urgency=low
+
+  * Update to new partman-auto, merging the "Select a disk" page into
+    "Prepare disk space".
+  * Automatic update of included source packages: debian-installer-utils
+    1.41ubuntu1, partman-auto 60ubuntu2, partman-base 97ubuntu2,
+    partman-basicfilesystems 49ubuntu1, partman-basicmethods 32, partman-efi
+    11, partman-ext3 43, partman-jfs 18, partman-newworld 15,
+    partman-partitioning 44ubuntu1, partman-reiserfs 32, partman-target
+    46ubuntu1, partman-xfs 30.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  7 Dec 2006 00:02:42 +0000
+
+ubiquity (1.3.1) feisty; urgency=low
+
+  * Strip out unnecessary parts from console-setup source (accidental due to
+    semi-manual update).
+  * Depend on a version of console-setup at least as new as the one in our
+    source tree.
+  * Work around a crash in broken_packages() due to inadequate python-apt
+    Python protocol support.
+  * Fix crash if auto_mountpoints somehow ends up still set to None while
+    validating partitions (LP: #71046).
+  * Fix infinite loop while creating initial-status log.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  1 Dec 2006 11:03:11 +0000
+
+ubiquity (1.3.0) feisty; urgency=low
+
+  * Defend a bit more against the apt cache going insane (closes: Malone
+    #67689).
+  * Handle EFAULT IOError exceptions while copying files (closes: Malone
+    #67598).
+  * KDE frontend: Treat more user-entered strings as Unicode rather than
+    ASCII (closes: Malone #64667, #66742).
+  * KDE frontend: Hide auto-resize frame rather than merely disabling it.
+  * KDE frontend: Use a single progress bar for all copy and configuration
+    steps.
+  * KDE frontend: Disable going back or forward once the install progress
+    bar is up. (Why is the main window still visible at this point, anyway?)
+  * Fix mount point validation to avoid accidentally skipping a number of
+    checks on pre-existing partitions, including the "is there a root file
+    system?" check (closes: Malone #67130).
+  * GTK frontend: Include zoom-in.png in ubiquity-frontend-gtk so that the
+    magnifying glass cursor is displayed on the timezone page (closes:
+    Malone #68238).
+  * Drop support for old ESPRESSO_DEBUG environment variable.
+  * Add an intro message noting that we're alpha again.
+  * Save /target/var/lib/dpkg/status to
+    /target/var/log/installer/initial-status.gz; suggested by Jason
+    Whitlark.
+  * Remove a bunch of unnecessary imports noticed by pyflakes, and add a
+    couple of missing ones.
+  * Account for a new file shipped by grub-installer.
+  * Account for tzsetup's finish-install script becoming a
+    post-base-installer script.
+  * Fix the way we switch pages to update state properly if "switching" to
+    the current page.
+  * Automatic update of included source packages: apt-setup 1:0.16ubuntu1,
+    base-installer 1.68ubuntu1, choose-mirror 2.08ubuntu1, clock-setup
+    0.12ubuntu1, console-setup 1.13ubuntu3, debian-installer-utils
+    1.38ubuntu1, grub-installer 1.19ubuntu1, hw-detect 1.43ubuntu1,
+    localechooser 1.30ubuntu1, partconf 1.19, silo-installer 1.07ubuntu1,
+    tzsetup 1:0.14, user-setup 1.7ubuntu1, yaboot-installer 1.1.8ubuntu1.
+    (partman-* will be updated next time round, when we're ready for it.)
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Nov 2006 20:33:42 +0000
+
+ubiquity (1.2.5) edgy; urgency=low
+
+  * Automatic update of included source packages: apt-setup 1:0.11ubuntu5,
+    console-setup 1.7ubuntu19, partman-base 90ubuntu9, yaboot-installer
+    1.1.7ubuntu2.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 20 Oct 2006 23:45:10 +0100
+
 ubiquity (1.2.4) edgy; urgency=low
 
   * Use update-initramfs -c -k "$(uname -r)" rather than update-initramfs

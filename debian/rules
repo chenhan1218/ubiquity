@@ -40,6 +40,8 @@ endif
 endif
 endif
 
+console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $$2}'))
+
 ifeq (,$(strip $(foreach dir,$(subst :, ,$(PATH)),$(wildcard $(dir)/pygtk-codegen-2.0))))
 $(warning pygtk-codegen-2.0 missing; disabling GTK frontend)
 UBIQUITY_NO_GTK := 1
@@ -166,8 +168,8 @@ endif
 	done
 	install d-i/source/localechooser/finish-install \
 		debian/ubiquity/usr/lib/ubiquity/localechooser/
-	install d-i/source/tzsetup/finish-install.d/*tzsetup \
-		debian/ubiquity/usr/lib/ubiquity/tzsetup/finish-install
+	install d-i/source/tzsetup/post-base-installer.d/*tzsetup \
+		debian/ubiquity/usr/lib/ubiquity/tzsetup/post-base-installer
 	set -e; for x in user-setup user-setup-ask user-setup-apply; do \
 		sed -e 's,/usr/lib/user-setup,/usr/lib/ubiquity/user-setup,g' \
 		    -e 's,/bin/sh,/bin/bash,g' \
@@ -185,6 +187,8 @@ ifeq ($(DEB_HOST_ARCH),sparc)
 	install d-i/source/silo-installer/debian/silo-installer.postinst \
 		debian/ubiquity/usr/lib/ubiquity/silo-installer/silo-installer
 endif
+	install -m644 debian/intro-alpha.txt \
+		debian/ubiquity/usr/share/ubiquity/intro.txt
 
 	set -e; for size in 16 22 32 48 64 128; do \
 		mkdir -p debian/ubiquity-frontend-kde/usr/share/icons/crystalsvg/$${size}x$${size}/apps; \
@@ -247,9 +251,9 @@ binary-arch: install
 	dh_installdeb
 	dh_shlibdeps
 ifdef bootloader-depends
-	dh_gencontrol -- -V'bootloader-depends=$(bootloader-depends)'
+	dh_gencontrol -- -V'bootloader-depends=$(bootloader-depends)' -V'console-setup-depends=$(console-setup-depends)'
 else
-	dh_gencontrol
+	dh_gencontrol -- -V'console-setup-depends=$(console-setup-depends)'
 endif
 	dh_md5sums
 	dh_builddeb
