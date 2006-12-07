@@ -254,6 +254,11 @@ class Wizard:
         else:
             first_step = self.stepLanguage
         self.set_current_page(self.steps.page_num(first_step))
+        if got_intro:
+            # intro_label was the only focusable widget, but got can-focus
+            # removed, so we end up with no input focus and thus pressing
+            # Enter doesn't activate the default widget. Work around this.
+            self.next.grab_focus()
 
         while self.current_page is not None:
             if not self.installing:
