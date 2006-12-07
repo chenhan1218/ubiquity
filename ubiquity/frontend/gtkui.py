@@ -450,13 +450,9 @@ class Wizard:
         intro = os.path.join(PATH, 'intro.txt')
 
         if os.path.isfile(intro):
-            widget = gtk.Label()
-            widget.set_line_wrap(True)
             intro_file = open(intro)
-            widget.set_markup(intro_file.read().rstrip('\n'))
+            self.intro_label.set_markup(intro_file.read().rstrip('\n'))
             intro_file.close()
-            self.stepWelcome.add(widget)
-            widget.show()
             return True
         else:
             return False

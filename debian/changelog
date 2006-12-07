@@ -1,3 +1,9 @@
+ubiquity (1.3.3) UNRELEASED; urgency=low
+
+  * GTK frontend: Move intro label widget from code to glade.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  7 Dec 2006 09:55:28 +0000
+
 ubiquity (1.3.2) feisty; urgency=low
 
   * Update to new partman-auto, merging the "Select a disk" page into
