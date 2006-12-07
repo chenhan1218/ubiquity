@@ -7,6 +7,8 @@ ubiquity (1.3.3) UNRELEASED; urgency=low
   * Remove use of dh_python, since it's a no-op now. Bump debhelper
     build-dependency to 5.0.37.3ubuntu2 (a.k.a. dh_python from 5.0.38) for
     this.
+  * KDE frontend: Remove tabstop for new_size_scale from .ui file, since
+    that widget doesn't exist there any more.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  7 Dec 2006 09:55:28 +0000
 
