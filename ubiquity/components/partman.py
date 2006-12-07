@@ -46,7 +46,7 @@ class Partman(PartmanAuto):
 
         self.update_partitions = None
         self.building_cache = True
-        self.state = [['', None, None]]
+        self.__state = [['', None, None]]
         self.disk_cache = {}
         self.partition_cache = {}
         self.disk_order = []
@@ -186,16 +186,16 @@ class Partman(PartmanAuto):
         self.current_question = question
         options = self.snoop()
         menu_options = self.snoop_menu(options)
-        self.debug('Partman: state = %s', self.state)
+        self.debug('Partman: state = %s', self.__state)
 
         if question == 'partman/choose_partition':
             if not self.building_cache and self.update_partitions:
                 # Rebuild our cache of just these partitions.
-                self.state = [['', None, None]]
+                self.__state = [['', None, None]]
                 self.building_cache = True
 
             if self.building_cache:
-                state = self.state[-1]
+                state = self.__state[-1]
                 if state[0] == question:
                     # advance to next partition
                     self.frontend.debconf_progress_step(1)
@@ -226,7 +226,7 @@ class Partman(PartmanAuto):
                     else:
                         # Finished building the cache.
                         self.debug('Partman: Finished building cache')
-                        self.state.pop()
+                        self.__state.pop()
                         self.update_partitions = None
                         self.building_cache = False
                         self.frontend.debconf_progress_stop()
@@ -337,7 +337,7 @@ class Partman(PartmanAuto):
                         partition = self.partition_cache[devpart]
                         self.debug('Partman: Building cache (%s)',
                                    partition['parted']['path'])
-                        self.state.append([question, devpart, None])
+                        self.__state.append([question, devpart, None])
                         self.preseed(question, partition['display'],
                                      escape=True)
                         return True
@@ -371,7 +371,7 @@ class Partman(PartmanAuto):
                     self.debug('%s', line)
                 self.debug('partition_cache end')
 
-            self.state = [['', None, None]]
+            self.__state = [['', None, None]]
             self.creating_partition = None
             self.editing_partition = None
             self.deleting_partition = None
@@ -387,7 +387,7 @@ class Partman(PartmanAuto):
                 devpart = self.creating_partition['devpart']
                 if devpart in self.partition_cache:
                     partition = self.partition_cache[devpart]
-                    self.state.append([question, devpart, None])
+                    self.__state.append([question, devpart, None])
                     self.preseed(question, partition['display'], escape=True)
                 return True
 
@@ -395,7 +395,7 @@ class Partman(PartmanAuto):
                 devpart = self.editing_partition['devpart']
                 if devpart in self.partition_cache:
                     partition = self.partition_cache[devpart]
-                    self.state.append([question, devpart, None])
+                    self.__state.append([question, devpart, None])
                     self.preseed(question, partition['display'], escape=True)
                 return True
 
@@ -403,7 +403,7 @@ class Partman(PartmanAuto):
                 devpart = self.deleting_partition['devpart']
                 if devpart in self.partition_cache:
                     partition = self.partition_cache[devpart]
-                    # No need to use self.state to keep track of this.
+                    # No need to use self.__state to keep track of this.
                     self.preseed(question, partition['display'], escape=True)
                 return True
 
@@ -413,7 +413,7 @@ class Partman(PartmanAuto):
 
         elif question == 'partman/free_space':
             if self.building_cache:
-                state = self.state[-1]
+                state = self.__state[-1]
                 assert state[0] == 'partman/choose_partition'
                 partition = self.partition_cache[state[1]]
                 can_new = False
@@ -460,7 +460,7 @@ class Partman(PartmanAuto):
 
         elif question == 'partman/active_partition':
             if self.building_cache:
-                state = self.state[-1]
+                state = self.__state[-1]
                 partition = self.partition_cache[state[1]]
 
                 if state[0] == question:
@@ -474,7 +474,7 @@ class Partman(PartmanAuto):
                         # Finished building the cache for this submenu; go
                         # back to the previous one.
                         del partition['active_partition_visit']
-                        self.state.pop()
+                        self.__state.pop()
                         return False
 
                 assert state[0] == 'partman/choose_partition'
@@ -500,7 +500,7 @@ class Partman(PartmanAuto):
                         partition['can_resize'] = True
                 if visit:
                     partition['active_partition_visit'] = visit
-                    self.state.append([question, state[1], 0])
+                    self.__state.append([question, state[1], 0])
                     self.preseed(question, visit[0][2], escape=True)
                     return True
                 else:
@@ -513,7 +513,7 @@ class Partman(PartmanAuto):
                 else:
                     request = self.editing_partition
 
-                state = self.state[-1]
+                state = self.__state[-1]
                 partition = self.partition_cache[state[1]]
 
                 if state[0] == question:
@@ -526,7 +526,7 @@ class Partman(PartmanAuto):
                     else:
                         # Finish editing this partition.
                         del partition['active_partition_visit']
-                        self.state.pop()
+                        self.__state.pop()
                         self.preseed_script(question, menu_options, 'finish')
                         return True
 
@@ -539,13 +539,13 @@ class Partman(PartmanAuto):
                         visit.append(scripts[0])
                 if visit:
                     partition['active_partition_visit'] = visit
-                    self.state.append([question, state[1], 0])
+                    self.__state.append([question, state[1], 0])
                     self.preseed(question, visit[0][2], escape=True)
                     return True
                 else:
                     # Finish editing this partition.
                     del partition['active_partition_visit']
-                    self.state.pop()
+                    self.__state.pop()
                     self.preseed_script(question, menu_options, 'finish')
                     return True
 
@@ -559,7 +559,7 @@ class Partman(PartmanAuto):
 
         elif question == 'partman-target/choose_method':
             if self.building_cache:
-                state = self.state[-1]
+                state = self.__state[-1]
                 assert state[0] == 'partman/active_partition'
                 partition = self.partition_cache[state[1]]
                 partition['method_choices'] = []
@@ -582,7 +582,7 @@ class Partman(PartmanAuto):
         elif question in ('partman-basicfilesystems/mountpoint',
                           'partman-basicfilesystems/fat_mountpoint'):
             if self.building_cache:
-                state = self.state[-1]
+                state = self.__state[-1]
                 assert state[0] == 'partman/active_partition'
                 partition = self.partition_cache[state[1]]
                 partition['mountpoint_choices'] = []
