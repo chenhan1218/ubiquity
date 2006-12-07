@@ -260,6 +260,7 @@ Please choose the language used for the installation process. This language will
 				  <property name="fixed_height_mode">True</property>
 				  <property name="hover_selection">False</property>
 				  <property name="hover_expand">False</property>
+				  <signal name="row_activated" handler="on_language_treeview_row_activated" last_modification_time="Thu, 07 Dec 2006 10:52:34 GMT"/>
 				</widget>
 			      </child>
 			    </widget>
@@ -810,6 +811,7 @@ Please choose the language used for the installation process. This language will
 				      <property name="fixed_height_mode">True</property>
 				      <property name="hover_selection">False</property>
 				      <property name="hover_expand">False</property>
+				      <signal name="row_activated" handler="on_keyboardlayoutview_row_activated" last_modification_time="Thu, 07 Dec 2006 10:52:49 GMT"/>
 				    </widget>
 				  </child>
 				</widget>
@@ -840,6 +842,7 @@ Please choose the language used for the installation process. This language will
 				      <property name="fixed_height_mode">True</property>
 				      <property name="hover_selection">False</property>
 				      <property name="hover_expand">False</property>
+				      <signal name="row_activated" handler="on_keyboardvariantview_row_activated" last_modification_time="Thu, 07 Dec 2006 10:52:53 GMT"/>
 				    </widget>
 				  </child>
 				</widget>

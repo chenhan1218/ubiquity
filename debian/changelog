@@ -2,6 +2,8 @@ ubiquity (1.3.3) UNRELEASED; urgency=low
 
   * GTK frontend: Move intro label widget from code to glade.
   * GTK frontend: Work around disappearing input focus on intro page.
+  * GTK frontend: Activate Forward button when a row in the language or
+    keyboard treeviews is activated.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  7 Dec 2006 09:55:28 +0000
 

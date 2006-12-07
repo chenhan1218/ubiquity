@@ -788,12 +788,19 @@ class Wizard:
         elif gtk.main_level() > 0:
             gtk.main_quit()
 
+    def on_keyboardlayoutview_row_activated(self, treeview, path, view_column):
+        self.next.activate()
+
     def on_keyboard_layout_selected(self, start_editing, *args):
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):
             layout = self.get_keyboard()
             if layout is not None:
                 self.current_layout = layout
                 self.dbfilter.change_layout(layout)
+
+    def on_keyboardvariantview_row_activated(self, treeview, path,
+                                             view_column):
+        self.next.activate()
 
     def on_keyboard_variant_selected(self, start_editing, *args):
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):
@@ -1252,6 +1259,9 @@ class Wizard:
         elif gtk.main_level() > 0:
             gtk.main_quit()
 
+
+    def on_language_treeview_row_activated (self, treeview, path, view_column):
+        self.next.activate()
 
     def on_language_treeview_selection_changed (self, selection):
         (model, iterator) = selection.get_selected()
