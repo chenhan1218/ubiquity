@@ -677,9 +677,28 @@ class Wizard:
             QListWidgetItem(QString(unicode(choice)), self.userinterface.language_treeview)
             #self.userinterface.language_treeview.insertItem( KListViewItem(self.userinterface.language_treeview, QString(unicode(choice))) )
 
-    def set_language(self, language):
-        ##FIXME
-        pass
+    def set_language (self, language):
+        print "language: " + language
+        counter = 0
+        max = self.userinterface.language_treeview.count()
+        while counter < max:
+            selection = self.userinterface.language_treeview.item(counter)
+            if selection is None:
+                value = "C"
+            else:
+                value = unicode(selection.text())
+                #value = selection.text()
+                #print unicode("value: ")
+                #print value
+                print str(counter)
+            if value == language:
+                print "setting item for value"
+                selection.setSelected(True)
+                #self.userinterface.language_treeview.setSelected(iterator.current(), True)
+                self.userinterface.language_treeview.scrollToItem(selection)
+                #self.userinterface.language_treeview.ensureItemVisible(iterator.current())
+                break
+            counter += 1
 
     def get_language (self):
         items = self.userinterface.language_treeview.selectedItems()
@@ -690,6 +709,72 @@ class Wizard:
             return self.language_choice_map[value][0]
         else:
             return 'C'
+
+    def set_timezone (self, timezone):
+        ##FIXMEself.tzmap.set_tz_from_name(timezone)
+        pass
+
+    def get_timezone (self):
+        return "London"
+        ##return self.tzmap.get_selected_tz_name()
+
+    def set_keyboard_choices(self, choices):
+        self.userinterface.keyboardlayoutview.clear()
+        for choice in sorted(choices):
+            QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardlayoutview)
+            #self.userinterface.keyboardlayoutview.insertItem( KListViewItem(self.userinterface.keyboardlayoutview, choice) )
+
+        if self.current_layout is not None:
+            self.set_keyboard(self.current_layout)
+
+    def set_keyboard (self, layout):
+        print "set_keyboard: " + layout
+        self.current_layout = layout
+
+        counter = 0
+        max = self.userinterface.keyboardlayoutview.count()
+        while counter < max:
+            selection = self.userinterface.keyboardlayoutview.item(counter)
+            print "item: " + selection.text()
+            if unicode(selection.text()) == layout:
+                print "selecting keyboard item"
+                selection.setSelected(True)
+                self.userinterface.keyboardlayoutview.scrollToItem(selection)
+                break
+            counter += 1
+
+    def get_keyboard (self):
+        items = self.userinterface.keyboardlayoutview.selectedItems()
+        if len(items) == 1:
+            return unicode(items[0].text())
+        else:
+            return None
+
+    def set_keyboard_variant_choices(self, choices):
+        self.userinterface.keyboardvariantview.clear()
+        for choice in sorted(choices):
+            QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardvariantview)
+            #self.userinterface.keyboardvariantview.insertItem( KListViewItem(self.userinterface.keyboardvariantview, choice) )
+
+    def set_keyboard_variant(self, variant):
+        counter = 0
+        max = self.userinterface.keyboardvariantview.count()
+        while counter < max:
+            selection = self.userinterface.keyboardvariantview.item(counter)
+            print "item: " + selection.text()
+            if unicode(selection.text()) == variant:
+                print "selecting keyboard item"
+                selection.setSelected(True)
+                self.userinterface.keyboardvariantview.scrollToItem(selection)
+                break
+            counter += 1
+
+    def get_keyboard_variant(self):
+        items = self.userinterface.keyboardvariantview.selectedItems()
+        if len(items) == 1:
+            return unicode(items[0].text())
+        else:
+            return None
 
     def watch_debconf_fd (self, from_debconf, process_input):
         print "watch_debconf_fd"
@@ -770,4 +855,3 @@ class Wizard:
         print "EXITED in quit_main_loop"
         #self.app.exit()
         self.mainLoopRunning = False
-
