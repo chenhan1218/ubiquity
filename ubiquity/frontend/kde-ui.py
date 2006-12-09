@@ -1569,6 +1569,7 @@ class Wizard:
                         self.new_size_scale.setMaxValue(100)
                         self.new_size_scale.setValue(
                             int((min_percent + 100) / 2))
+                    self.autopartition_extras[choice] = self.new_size_scale
                 elif choice != manual_choice:
                     disk_frame = QFrame(self.userinterface.autopartition_frame, "disk_frame")
                     indent_hbox.addWidget(disk_frame)
@@ -1598,12 +1599,14 @@ class Wizard:
                     self.autopartition_extra_buttongroup_texts[choice] = \
                         disk_buttongroup_texts
                     disk_frame.show()
-                self.autopartition_extras[choice] = indent_hbox
+                    self.autopartition_extras[choice] = disk_frame
 
-            self.on_autopartition_toggled(choice, button.isChecked())
-            self.app.connect(button, SIGNAL('toggled(bool)'),
-                             lambda enable:
-                                 self.on_autopartition_toggled(choice, enable))
+            # TODO cjwatson 2006-12-09: The lambda never seems to get
+            # called? Make sure not to disable things until this is fixed.
+            #self.on_autopartition_toggled(choice, button.isChecked())
+            #self.app.connect(button, SIGNAL('toggled(bool)'),
+            #                 lambda enable:
+            #                     self.on_autopartition_toggled(choice, enable))
 
             button.show()
         if firstbutton is not None:
