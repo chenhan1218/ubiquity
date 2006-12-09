@@ -22,7 +22,7 @@
    <item row="0" column="0" >
     <widget class="QStackedWidget" name="widgetStack" >
      <property name="currentIndex" >
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="stepWelcome" >
       <layout class="QGridLayout" >
@@ -581,22 +581,6 @@ Answering the questions should only take a few minutes.</string>
           <number>6</number>
          </property>
          <item>
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType" >
-            <enum>QSizePolicy::Fixed</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>20</width>
-             <height>31</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
           <widget class="QListWidget" name="keyboardlayoutview" />
          </item>
          <item>
@@ -617,22 +601,6 @@ Answering the questions should only take a few minutes.</string>
          </item>
          <item>
           <widget class="QListWidget" name="keyboardvariantview" />
-         </item>
-         <item>
-          <spacer>
-           <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType" >
-            <enum>QSizePolicy::Expanding</enum>
-           </property>
-           <property name="sizeHint" >
-            <size>
-             <width>159</width>
-             <height>31</height>
-            </size>
-           </property>
-          </spacer>
          </item>
         </layout>
        </item>
@@ -1636,6 +1604,22 @@ You must mount one partition on the root file system ("/"), and you must choose 
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>fullname</tabstop>
+  <tabstop>username</tabstop>
+  <tabstop>password</tabstop>
+  <tabstop>verified_password</tabstop>
+  <tabstop>hostname</tabstop>
+  <tabstop>keyboardlayoutview</tabstop>
+  <tabstop>language_treeview</tabstop>
+  <tabstop>keyboardvariantview</tabstop>
+  <tabstop>timezone_city_combo</tabstop>
+  <tabstop>timezone_time_adjust</tabstop>
+  <tabstop>back</tabstop>
+  <tabstop>next</tabstop>
+  <tabstop>cancel</tabstop>
+  <tabstop>entry1</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -678,7 +678,6 @@ class Wizard:
             #self.userinterface.language_treeview.insertItem( KListViewItem(self.userinterface.language_treeview, QString(unicode(choice))) )
 
     def set_language (self, language):
-        print "language: " + language
         counter = 0
         max = self.userinterface.language_treeview.count()
         while counter < max:
@@ -692,7 +691,6 @@ class Wizard:
                 #print value
                 print str(counter)
             if value == language:
-                print "setting item for value"
                 selection.setSelected(True)
                 #self.userinterface.language_treeview.setSelected(iterator.current(), True)
                 self.userinterface.language_treeview.scrollToItem(selection)
@@ -701,6 +699,7 @@ class Wizard:
             counter += 1
 
     def get_language (self):
+        print "get_language"
         items = self.userinterface.language_treeview.selectedItems()
         if len(items) == 1:
             value = unicode(items[0].text())
@@ -715,6 +714,7 @@ class Wizard:
         pass
 
     def get_timezone (self):
+        print "get_timezone"
         return "London"
         ##return self.tzmap.get_selected_tz_name()
 
@@ -735,7 +735,6 @@ class Wizard:
         max = self.userinterface.keyboardlayoutview.count()
         while counter < max:
             selection = self.userinterface.keyboardlayoutview.item(counter)
-            print "item: " + selection.text()
             if unicode(selection.text()) == layout:
                 print "selecting keyboard item"
                 selection.setSelected(True)
@@ -744,6 +743,7 @@ class Wizard:
             counter += 1
 
     def get_keyboard (self):
+        print "get_keyboard"
         items = self.userinterface.keyboardlayoutview.selectedItems()
         if len(items) == 1:
             return unicode(items[0].text())
@@ -770,11 +770,60 @@ class Wizard:
             counter += 1
 
     def get_keyboard_variant(self):
+        print "get_keyboard_variant"
         items = self.userinterface.keyboardvariantview.selectedItems()
         if len(items) == 1:
+            print "returning " + unicode(items[0].text())
             return unicode(items[0].text())
         else:
             return None
+
+    def info_loop(self, widget):
+        """check if all entries from Identification screen are filled."""
+
+        if (widget is not None and widget.objectName() == 'username' and
+            not self.hostname_edited):
+            if self.laptop:
+                hostname_suffix = '-laptop'
+            else:
+                hostname_suffix = '-desktop'
+            self.userinterface.hostname.blockSignals(True)
+            self.userinterface.hostname.setText(unicode(widget.text()) + hostname_suffix)
+            self.userinterface.hostname.blockSignals(False)
+
+        complete = True
+        for name in ('username', 'password', 'verified_password', 'hostname'):
+            if getattr(self.userinterface, name).text() == '':
+                complete = False
+        self.allow_go_forward(complete)
+
+    def set_fullname(self, value):
+        self.userinterface.fullname.setText(unicode(value, "UTF-8"))
+
+    def get_fullname(self):
+        return unicode(self.userinterface.fullname.text())
+
+    def set_username(self, value):
+        self.userinterface.username.setText(unicode(value, "UTF-8"))
+
+    def get_username(self):
+        return unicode(self.userinterface.username.text())
+
+    def get_password(self):
+        return unicode(self.userinterface.password.text())
+
+    def get_verified_password(self):
+        return unicode(self.userinterface.verified_password.text())
+
+    def username_error(self, msg):
+        self.userinterface.username_error_reason.setText(msg)
+        self.userinterface.username_error_image.show()
+        self.userinterface.username_error_reason.show()
+
+    def password_error(self, msg):
+        self.userinterface.password_error_reason.setText(msg)
+        self.userinterface.password_error_image.show()
+        self.userinterface.password_error_reason.show()
 
     def watch_debconf_fd (self, from_debconf, process_input):
         print "watch_debconf_fd"
@@ -796,9 +845,8 @@ class Wizard:
                                                  self.watch_debconf_fd_helper, process_input)
         """
 
-
     def watch_debconf_fd_helper_read (self, source):
-        #print "watch_debconf_fd_helper_read"
+        print "watch_debconf_fd_helper_read"
         self.debconf_fd_counter += 1
         debconf_condition = 0
         debconf_condition |= filteredcommand.DEBCONF_IO_IN
@@ -817,6 +865,9 @@ class Wizard:
         self.debconf_callbacks[source](source, debconf_condition)
 
     def debconffilter_done (self, dbfilter):
+        ##FIXME without this disconnect it would call another watch_debconf_fd_helper_read causing
+        ## a crash after the keyboard stage.  No idea why.
+        self.app.disconnect(self.socketNotifierRead, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_read)
         # TODO cjwatson 2006-02-10: handle dbfilter.status
         if dbfilter is None:
             name = 'None'
@@ -855,3 +906,30 @@ class Wizard:
         print "EXITED in quit_main_loop"
         #self.app.exit()
         self.mainLoopRunning = False
+
+    def on_cancel_clicked(self):
+        warning_dialog_label = get_string("warning_dialog_label", self.locale)
+        abortTitle = get_string("warning_dialog", self.locale)
+        continueButtonText = get_string("continue", self.locale)
+        response = QMessageBox.question(self.userinterface, abortTitle, warning_dialog_label, abortTitle, continueButtonText)
+        if response == 0:
+            if self.qtparted_subp is not None:
+                try:
+                    print >>self.qtparted_subp.stdin, "exit"
+                except IOError:
+                    pass
+            self.current_page = None
+            self.quit()
+            return True
+        else:
+            return False
+
+    def quit(self):
+        """quit installer cleanly."""
+
+        # exiting from application
+        self.current_page = None
+        if self.dbfilter is not None:
+            self.dbfilter.cancel_handler()
+        self.app.exit()
+
