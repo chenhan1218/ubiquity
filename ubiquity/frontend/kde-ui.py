@@ -1588,6 +1588,8 @@ class Wizard:
                             if extra_firstbutton is None:
                                 extra_firstbutton = extra_button
                             disk_vbox.addWidget(extra_button)
+                    if extra_firstbutton is not None:
+                        extra_firstbutton.setChecked(True)
                     self.autopartition_extra_buttongroup[choice] = \
                         disk_buttongroup
                     self.autopartition_extra_buttongroup_texts[choice] = \
