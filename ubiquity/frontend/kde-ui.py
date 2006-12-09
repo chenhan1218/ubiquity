@@ -1621,7 +1621,7 @@ class Wizard:
               choice in self.autopartition_extra_buttongroup):
             disk_id = self.autopartition_extra_buttongroup[choice].selectedId()
             disk_texts = self.autopartition_extra_buttongroup_texts[choice]
-            return choice, unicode(disk_texts[id])
+            return choice, unicode(disk_texts[disk_id])
         else:
             return choice, None
 
