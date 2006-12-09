@@ -14,6 +14,7 @@ ubiquity (1.3.3) UNRELEASED; urgency=low
     page.
   * KDE frontend: Fix various crashes in set_autopartition_choices due to
     botched use of Qt.
+  * KDE frontend: Fix backup from summary page.
 
   [ Jonathan Riddell ]
   * KDE frontend: Make QRadioButton less confused on the autopartitioning

@@ -1249,8 +1249,11 @@ class Wizard:
         elif step == "stepReady":
             self.userinterface.next.setText("Next >")
             self.set_current_page(self.previous_partitioning_page)
+            changed_page = True
+
         if not changed_page:
             self.set_current_page(self.get_current_page() - 1)
+
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
             # expect recursive main loops to be exited and
