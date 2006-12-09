@@ -294,7 +294,10 @@ class Wizard:
                 # that's probably unavoidable for now. (We only use this for
                 # gparted, which has its own UI loop.)
                 self.allow_change_step(True)
+            print "EXEC in run()"
+
             gtk.main()
+            print "EXEC in run() done"
 
             if self.installing:
                 self.progress_loop()
@@ -670,6 +673,7 @@ class Wizard:
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
         if gtk.main_level() > 0:
+            print "QUIT in quit()"
             gtk.main_quit()
 
 
@@ -786,6 +790,7 @@ class Wizard:
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
         elif gtk.main_level() > 0:
+            print "QUIT in on_next_clicked"
             gtk.main_quit()
 
     def on_keyboardlayoutview_row_activated(self, treeview, path, view_column):
@@ -1257,6 +1262,7 @@ class Wizard:
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
         elif gtk.main_level() > 0:
+            print "QUIT in on_back_clicked"
             gtk.main_quit()
 
 
@@ -1437,6 +1443,7 @@ class Wizard:
                 # and won't call run_main_loop() for itself.
                 self.allow_change_step(True)
             elif gtk.main_level() > 0:
+                print "QUIT in debconffilter_done"
                 gtk.main_quit()
 
 
@@ -1807,12 +1814,15 @@ class Wizard:
     # Run the UI's main loop until it returns control to us.
     def run_main_loop (self):
         self.allow_change_step(True)
+        print "EXEC in run_main_loop"
         gtk.main()
+        print "EXEC in run_main_loop done"
 
 
     # Return control to the next level up.
     def quit_main_loop (self):
         if gtk.main_level() > 0:
+            print "QUIT in quit_main_loop"
             gtk.main_quit()
 
 
