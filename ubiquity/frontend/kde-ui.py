@@ -911,7 +911,10 @@ class Wizard:
                 words = qtparted_reply[2:].strip().split()
                 if words[0].lower() == 'format' and len(words) >= 3:
                     self.qtparted_fstype[words[1]] = words[2]
-            qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+            qtparted_reply = self.qtparted_subp.stdout.readline()
+            if not qtparted_reply:
+                break
+            qtparted_reply = qtparted_reply.rstrip('\n')
         syslog.syslog('qtparted replied: %s' % qtparted_reply)
 
         if qtparted_reply.startswith('1 '):
