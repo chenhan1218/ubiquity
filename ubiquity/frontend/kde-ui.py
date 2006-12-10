@@ -264,6 +264,7 @@ class Wizard:
         self.app.connect(self.userinterface.keyboardlayoutview, SIGNAL("selectionChanged()"), self.on_keyboard_layout_selected)
         self.app.connect(self.userinterface.keyboardvariantview, SIGNAL("selectionChanged()"), self.on_keyboard_variant_selected)
 
+        """
         self.app.connect(self.userinterface.fullname, SIGNAL("textChanged(const QString &)"), self.on_fullname_changed)
         self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.on_username_changed)
         self.app.connect(self.userinterface.password, SIGNAL("textChanged(const QString &)"), self.on_password_changed)
@@ -276,6 +277,7 @@ class Wizard:
         self.app.connect(self.userinterface.password, SIGNAL("selectionChanged()"), self.on_password_changed)
         self.app.connect(self.userinterface.verified_password, SIGNAL("selectionChanged()"), self.on_verified_password_changed)
         self.app.connect(self.userinterface.hostname, SIGNAL("selectionChanged()"), self.on_hostname_changed)
+        """
 
         self.app.connect(self.userinterface.language_treeview, SIGNAL("selectionChanged()"), self.on_language_treeview_selection_changed)
 
@@ -563,20 +565,75 @@ class Wizard:
             progress_title = ""
         total_steps = progress_max - progress_min
         if self.progressDialogue is None:
-            self.progressDialogue = QProgressDialog('', "Cancel", total_steps, self.userinterface, "progressdialog", True)
+            #self.progressDialogue = QProgressDialog('', "Cancel", total_steps, self.userinterface, "progressdialog", True)
+            self.progressDialogue = QProgressDialog('', "Cancel", 0, total_steps, self.userinterface)
+            self.progressDialogue.setWindowModality(Qt.WindowModal);
             self.cancelButton = QPushButton("Cancel", self.progressDialogue)
             self.cancelButton.hide()
             self.progressDialogue.setCancelButton(self.cancelButton)
         elif self.progress_position.depth() == 0:
-            self.progressDialogue.setTotalSteps(total_steps)
+            #self.progressDialogue.setTotalSteps(total_steps)
+            self.progressDialogue.setMaximum(total_steps)
 
         self.progress_position.start(progress_min, progress_max,
                                      progress_title)
-        self.progressDialogue.setCaption(progress_title)
+        self.progressDialogue.setWindowTitle(progress_title)
         self.debconf_progress_set(0)
-        self.progressDialogue.setLabelText('')
+        #self.progressDialogue.setLabelText('')
+        self.progressDialogue.setLabel(QLabel(''))
         self.progressDialogue.show()
         return True
+
+    def debconf_progress_set (self, progress_val):
+        self.progress_cancelled = self.progressDialogue.wasCanceled()
+        if self.progress_cancelled:
+            return False
+        self.progress_position.set(progress_val)
+        fraction = self.progress_position.fraction()
+        #self.progressDialogue.setProgress(
+        self.progressDialogue.setValue(
+            int(fraction * self.progressDialogue.maximum()))
+        return True
+
+    def debconf_progress_step (self, progress_inc):
+        self.progress_cancelled = self.progressDialogue.wasCanceled()
+        if self.progress_cancelled:
+            return False
+        self.progress_position.step(progress_inc)
+        fraction = self.progress_position.fraction()
+        #self.progressDialogue.setProgress(
+        self.progressDialogue.setValue(
+            int(fraction * self.progressDialogue.maximum()))
+        return True
+
+    def debconf_progress_info (self, progress_info):
+        self.progress_cancelled = self.progressDialogue.wasCanceled()
+        if self.progress_cancelled:
+            return False
+        self.progressDialogue.setLabel(QLabel(progress_info))
+        return True
+
+    def debconf_progress_stop (self):
+        self.progress_cancelled = self.progressDialogue.wasCanceled()
+        if self.progress_cancelled:
+            self.progress_cancelled = False
+            return False
+        self.progress_position.stop()
+        if self.progress_position.depth() == 0:
+            self.progressDialogue.hide()
+        else:
+            self.progressDialogue.setWindowTitle(self.progress_position.title())
+        return True
+
+    def debconf_progress_region (self, region_start, region_end):
+        self.progress_position.set_region(region_start, region_end)
+
+    def debconf_progress_cancellable (self, cancellable):
+        if cancellable:
+            self.cancelButton.show()
+        else:
+            self.cancelButton.hide()
+            self.progress_cancelled = False
 
     def on_next_clicked(self):
         print "on_next_clicked"
@@ -778,6 +835,24 @@ class Wizard:
         else:
             return None
 
+    def on_hostname_insert_text(self):
+        self.hostname_edited = True
+
+    def on_fullname_changed(self):
+        self.info_loop(self.userinterface.fullname)
+
+    def on_username_changed(self):
+        self.info_loop(self.userinterface.username)
+
+    def on_password_changed(self):
+        self.info_loop(self.userinterface.password)
+
+    def on_verified_password_changed(self):
+        self.info_loop(self.userinterface.verified_password)
+
+    def on_hostname_changed(self):
+        self.info_loop(self.userinterface.hostname)
+
     def info_loop(self, widget):
         """check if all entries from Identification screen are filled."""
 
@@ -824,6 +899,134 @@ class Wizard:
         self.userinterface.password_error_reason.setText(msg)
         self.userinterface.password_error_image.show()
         self.userinterface.password_error_reason.show()
+
+    def set_auto_mountpoints(self, auto_mountpoints):
+        self.auto_mountpoints = auto_mountpoints
+
+
+    def set_autopartition_choices (self, choices, extra_options,
+                                   resize_choice, manual_choice):
+        children = self.userinterface.autopartition_frame.children()
+        for child in children:
+            if isinstance(child, QVBoxLayout) or isinstance(child, QButtonGroup):
+                pass
+            else:
+                print "child: " + str(child)
+                self.autopartition_vbox.removeWidget(child)
+                child.hide()
+
+        self.resize_choice = resize_choice
+        self.manual_choice = manual_choice
+        firstbutton = None
+        for choice in choices:
+            button = QRadioButton(choice, self.userinterface.autopartition_frame)
+            self.autopartition_buttongroup.insert(button)
+            id = self.autopartition_buttongroup.id(button)
+
+            #Qt changes the string by adding accelarators, 
+            #so keep pristine string here as is returned later to partman
+            self.autopartition_buttongroup_texts[id] = choice
+            if firstbutton is None:
+                firstbutton = button
+            self.autopartition_vbox.addWidget(button)
+
+            if choice in extra_options:
+                indent_hbox = QHBoxLayout(self.autopartition_vbox)
+                indent_hbox.addSpacing(10)
+                if choice == resize_choice:
+                    new_size_hbox = QHBoxLayout(indent_hbox)
+                    new_size_label = QLabel("New partition size:", new_size_hbox)
+                    self.translate_widget(new_size_label, self.locale)
+                    new_size_hbox.addWidget(new_size_label)
+                    new_size_label.show()
+                    new_size_scale_vbox = QVBoxLayout(new_size_hbox)
+                    self.new_size_value = QLabel(new_size_scale_vbox)
+                    new_size_scale_vbox.addWidget(self.new_size_value)
+                    self.new_size_value.show()
+                    self.new_size_scale = QSlider(Qt.Horizontal,
+                                                  new_size_scale_vbox)
+                    self.new_size_scale.setMaxValue(100)
+                    self.new_size_scale.setSizePolicy(QSizePolicy.Expanding,
+                                                      QSizePolicy.Minimum)
+                    self.app.connect(self.new_size_scale,
+                                     SIGNAL("valueChanged(int)"),
+                                     self.update_new_size_label)
+                    new_size_scale_vbox.addWidget(self.new_size_scale)
+                    self.new_size_scale.show()
+                    self.resize_min_size, self.resize_max_size = \
+                        extra_options[choice]
+                    if (self.resize_min_size is not None and
+                        self.resize_max_size is not None):
+                        min_percent = int(math.ceil(
+                            100 * self.resize_min_size / self.resize_max_size))
+                        self.new_size_scale.setMinValue(min_percent)
+                        self.new_size_scale.setMaxValue(100)
+                        self.new_size_scale.setValue(
+                            int((min_percent + 100) / 2))
+                elif choice != manual_choice:
+                    disk_frame = QFrame(self.userinterface.autopartition_frame, "disk_frame")
+                    indent_hbox.addWidget(disk_frame)
+                    disk_vbox = QVBoxLayout(disk_frame)
+                    disk_buttongroup = QButtonGroup(disk_frame)
+                    disk_buttongroup_texts = {}
+                    extra_firstbutton = None
+                    for extra in extra_options[choice]:
+                        if extra == '':
+                            disk_vbox.addSpacing(10)
+                        else:
+                            extra_button = QRadioButton(
+                                extra, disk_frame)
+                            disk_buttongroup.insert(extra_button)
+                            extra_id = disk_buttongroup.id(extra_button)
+                            # Qt changes the string by adding accelerators,
+                            # so keep the pristine string here to be
+                            # returned to partman later.
+                            disk_buttongroup_texts[extra_id] = extra
+                            if extra_firstbutton is None:
+                                extra_firstbutton = extra_button
+                            disk_vbox.addWidget(extra_button)
+                    self.autopartition_extra_buttongroup[choice] = \
+                        disk_buttongroup
+                    self.autopartition_extra_buttongroup_texts[choice] = \
+                        disk_buttongroup_texts
+                    disk_buttongroup.show()
+                self.autopartition_extras[choice] = indent_hbox
+            self.on_autopartition_toggled(choice, button.isChecked())
+            ##FIXMEself.app.connect(button, SIGNAL('toggled(bool)'),
+            ##                 lambda enable:
+            ##                     self.on_autopartition_toggled(choice, enable))
+
+            button.show()
+        if firstbutton is not None:
+            firstbutton.setChecked(True)
+
+        # make sure we're on the autopartitioning page
+        self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
+
+    def process_identification (self):
+        """Processing identification step tasks."""
+
+        error_msg = []
+        error = 0
+
+        # Validation stuff
+
+        # checking hostname entry
+        hostname = self.userinterface.hostname.text()
+        for result in validation.check_hostname(unicode(hostname)):
+            if result == validation.HOSTNAME_LENGTH:
+                error_msg.append("The hostname must be between 3 and 18 characters long.")
+            elif result == validation.HOSTNAME_WHITESPACE:
+                error_msg.append("The hostname may not contain spaces.")
+            elif result == validation.HOSTNAME_BADCHAR:
+                error_msg.append("The hostname may only contain letters, digits, and hyphens.")
+
+        # showing warning message is error is set
+        if len(error_msg) != 0:
+            self.userinterface.hostname_error_reason.setText("\n".join(error_msg))
+            self.userinterface.hostname_error_reason.show()
+        else:
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
 
     def watch_debconf_fd (self, from_debconf, process_input):
         print "watch_debconf_fd"
@@ -933,3 +1136,9 @@ class Wizard:
             self.dbfilter.cancel_handler()
         self.app.exit()
 
+    def refresh (self):
+        self.app.processEvents()
+        """
+        while gtk.events_pending():
+            gtk.main_iteration()
+        """
