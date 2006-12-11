@@ -680,6 +680,90 @@ class Wizard:
             print "EXITED in on_next_clicked"
             self.app.exit()
 
+    def on_back_clicked(self):
+        """Callback to set previous screen."""
+        pass
+    """FIXME
+
+        if not self.allowed_change_step:
+            return
+
+        self.allow_change_step(False)
+
+        self.backup = True
+
+        # Enabling next button
+        self.allow_go_forward(True)
+        # Setting actual step
+        step = self.step_name(self.get_current_page())
+        self.userinterface.setCursor(QCursor(Qt.WaitCursor))
+
+        changed_page = False
+
+        if step == "stepLocation":
+            self.userinterface.back.hide()
+        elif step == "stepPartAuto":
+            self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
+            changed_page = True
+        elif step == "stepPartAdvanced":
+            if self.qtparted_subp is not None:
+                try:
+                    print >>self.qtparted_subp.stdin, "undo"
+                    print >>self.qtparted_subp.stdin, "exit"
+                except IOError:
+                    pass
+                self.qtparted_subp.stdin.close()
+                self.qtparted_subp.wait()
+                self.qtparted_subp = None
+                if self.embed is not None:
+                    self.qtparted_vbox.remove(self.embed)
+                    del self.embed
+                    self.embed = None
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
+            changed_page = True
+        elif step == "stepPartMountpoints":
+            self.qtparted_loop()
+        elif step == "stepReady":
+            self.userinterface.next.setText("Next >")
+            self.set_current_page(self.previous_partitioning_page)
+        if not changed_page:
+            self.set_current_page(self.get_current_page() - 1)
+        if self.dbfilter is not None:
+            self.dbfilter.cancel_handler()
+            # expect recursive main loops to be exited and
+            # debconffilter_done() to be called when the filter exits
+        else:
+            self.app.exit()
+    """
+
+    def on_language_treeview_selection_changed (self):
+        pass
+    """FIXME
+        selection = self.userinterface.language_treeview.selectedItem()
+        if selection is not None:
+            value = unicode(selection.text(0))
+            lang = self.language_choice_map[value][1]
+            # strip encoding; we use UTF-8 internally no matter what
+            lang = lang.split('.')[0].lower()
+            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.next, self.userinterface.back, self.userinterface.cancel):
+                self.translate_widget(widget, lang)
+    """
+
+    def on_timezone_time_adjust_clicked (self):
+        pass
+    """FIXME
+        #invisible = gtk.Invisible()
+        #invisible.grab_add()
+        time_admin_env = dict(os.environ)
+        tz = self.tzmap.get_selected_tz_name()
+        if tz is not None:
+            time_admin_env['TZ'] = tz
+        time_admin_subp = subprocess.Popen(["log-output", "-t", "ubiquity",
+                                            "kcmshell", "clock"], env=time_admin_env)
+        #gobject.child_watch_add(time_admin_subp.pid, self.on_time_admin_exit,
+        #                        invisible)
+    """
+
     # returns the current wizard page
     def get_current_page(self):
       return self.userinterface.widgetStack.indexOf(self.userinterface.widgetStack.currentWidget())
@@ -777,8 +861,6 @@ class Wizard:
         items = self.userinterface.language_treeview.selectedItems()
         if len(items) == 1:
             value = unicode(items[0].text())
-            print "language: " + value
-            print "returning " + self.language_choice_map[value][0]
             return self.language_choice_map[value][0]
         else:
             return 'C'
@@ -850,6 +932,22 @@ class Wizard:
         else:
             return None
 
+    """FIXME
+    def on_keyboard_layout_selected(self):
+        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+            layout = self.get_keyboard()
+            if layout is not None:
+                self.current_layout = layout
+                self.dbfilter.change_layout(layout)
+
+    def on_keyboard_variant_selected(self):
+        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+            layout = self.get_keyboard()
+            variant = self.get_keyboard_variant()
+            if layout is not None and variant is not None:
+                self.dbfilter.apply_keyboard(layout, variant)
+    """
+
     def on_hostname_insert_text(self):
         self.hostname_edited = True
 
@@ -904,6 +1002,9 @@ class Wizard:
 
     def get_verified_password(self):
         return unicode(self.userinterface.verified_password.text())
+
+    def get_hostname (self):
+        return unicode(self.userinterface.hostname.text())
 
     def username_error(self, msg):
         self.userinterface.username_error_reason.setText(msg)
@@ -963,7 +1064,6 @@ class Wizard:
             button = QRadioButton(choice, self.userinterface.autopartition_frame)
             self.autopartition_buttongroup.addButton(button, idCounter)
             id = self.autopartition_buttongroup.id(button)
-            print "id: " + str(id) + " " + button.text()
 
             #Qt changes the string by adding accelarators, 
             #so keep pristine string here as is returned later to partman
@@ -1052,6 +1152,49 @@ class Wizard:
         # make sure we're on the autopartitioning page
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
 
+
+    def on_list_changed(self, textID):
+        """check if partition/mountpoint pair is filled and show the next pair
+        on mountpoint screen. Also size label associated with partition combobox
+        is changed dynamically to show the size partition."""
+        pass
+    """FIXME
+        index = 0
+        while index < len(self.partition_widgets):
+
+            #set size widget
+            partition_text = unicode(self.partition_widgets[index].currentText())
+            if partition_text == ' ':
+                self.size_widgets[index].setText('')
+            elif partition_text != None:
+                self.size_widgets[index].setText(self.set_size_msg(self.partition_widgets[index]))
+
+            # Does the Reformat checkbox make sense?
+            if (partition_text == ' ' or
+                partition_text not in self.part_devices):
+                self.format_widgets[index].setEnabled(False)
+                self.format_widgets[index].setChecked(False)
+            else:
+                partition = self.part_devices[partition_text]
+                if partition in self.qtparted_fstype:
+                    self.format_widgets[index].setEnabled(False)
+                    self.format_widgets[index].setChecked(True)
+                else:
+                    self.format_widgets[index].setEnabled(True)
+
+            #add new row if partitions list is long enough and last row validates
+            if len(get_partitions()) > len(self.partition_widgets):
+                for i in range(len(self.partition_widgets)):
+                    partition = self.partition_widgets[i].currentText()
+                    mountpoint = self.mountpoint_widgets[i].currentText()
+                    if partition is None or mountpoint == "":
+                        break
+                else:
+                    # All table rows have been filled; create a new one.
+                    self.add_mountpoint_table_row()
+            index += 1
+    """
+
     def update_new_size_label(self, value):
         if self.new_size_value is None:
             return
@@ -1134,6 +1277,29 @@ class Wizard:
         ##qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
         ##if qtparted_reply.startswith('STARTED'):
         ##   self.userinterface.qtparted_frame.resize(self.userinterface.qtparted_frame.width()-1,self.userinterface.qtparted_frame.height())
+
+
+    def qtparted_crashed(self):
+        pass
+        """qtparted crashed. Ask the user if they want to continue."""
+    """FIXME
+        # TODO cjwatson 2006-07-18: i18n
+        text = ('The advanced partitioner (qtparted) crashed. Further '
+                'information may be found in /var/log/syslog, or by '
+                'running qtparted directly. Do you want to try the '
+                'advanced partitioner again, return to automatic '
+                'partitioning, or quit this installer?')
+        answer = QMessageBox.warning(self.userinterface, 'QTParted crashed',
+                                     text, 'Try again',
+                                     'Automatic partitioning', 'Quit', 0, 0)
+        if answer == 1:
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
+        elif answer == 2:
+            self.current_page = None
+            self.quit()
+        else:
+            self.qtparted_loop()
+    """
 
     def qtparted_to_mountpoints(self):
         """Processing qtparted to mountpoints step tasks."""
@@ -1511,6 +1677,41 @@ class Wizard:
     def get_summary_device (self):
         return self.summary_device
 
+    def return_to_autopartitioning (self):
+        """If the install progress bar is up but still at the partitioning
+        stage, then errors can safely return us to autopartitioning.
+        """
+        pass
+    """FIXME
+
+        if self.installing and self.current_page is not None:
+            # Go back to the autopartitioner and try again.
+            #self.live_installer.show()
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
+            nextText = get_string("continue", self.locale) + " >"
+            self.userinterface.next.setText(nextText)
+            self.backup = True
+            self.installing = False
+    """
+    
+    def change_device(self):
+        """prompt user to set new Grub device"""
+        pass
+    """FIXME
+        answer = QInputDialog.getText("Device for boot loader installation:", "Device for boot loader installation:", QLineEdit.Normal, self.summary_device)
+        newdevice = unicode(answer[0])
+        if newdevice != "" and newdevice != None:
+
+            text = unicode(self.ready_text.text())
+            device_index = text.find(self.summary_device)
+            newstring = text[:device_index-17] + '<a href="device">' + newdevice + '</a>' + text[device_index+len(self.summary_device)+4:]
+            self.ready_text.setText(newstring)
+            self.summary_device = newdevice
+    """
+
+    def on_progress_cancel_button_clicked (self, button):
+        self.progress_cancelled = True
+
     def watch_debconf_fd (self, from_debconf, process_input):
         print "watch_debconf_fd"
         self.debconf_fd_counter = 0
@@ -1605,6 +1806,44 @@ class Wizard:
         else:
             return False
 
+    def error_dialog (self, title, msg, fatal=True):
+        pass
+    """FIXME
+        self.allow_change_step(True)
+        # TODO: cancel button as well if capb backup
+        QMessageBox.warning(self.userinterface, title, msg, QMessageBox.Ok)
+        if fatal:
+            self.return_to_autopartitioning()
+    """
+
+    def question_dialog (self, title, msg, option_templates):
+        pass
+    """FIXME
+        # I doubt we'll ever need more than three buttons.
+        assert len(option_templates) <= 3, option_templates
+
+        self.allow_change_step(True)
+        buttons = []
+        for option_template in option_templates:
+            text = get_string(option_template, self.locale)
+            if text is None:
+                text = option_template
+            buttons.append(text)
+        # Convention for option_templates is to have the affirmative action
+        # last; KDE convention is to have it first.
+        affirmative = buttons.pop()
+        buttons.insert(0, affirmative)
+
+        response = QMessageBox.question(self.userinterface, title, msg,
+                                        *buttons)
+
+        if response < 0:
+            return None
+        elif response == 0:
+            return option_templates[len(buttons) - 1]
+        else:
+            return option_templates[response - 1]
+    """
     def quit(self):
         """quit installer cleanly."""
 
@@ -1616,6 +1855,13 @@ class Wizard:
 
     def refresh (self):
         self.app.processEvents()
+
+    def do_reboot(self):
+        """Callback for main program to actually reboot the machine."""
+
+        ex('dcop', 'ksmserver', 'ksmserver', 'logout',
+           # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
+           '0', '1', '2')
 
 class TimezoneMap(object):
     def __init__(self, frontend):
