@@ -204,10 +204,11 @@ class Wizard:
         self.mountpoint_vbox.addStretch()
 
         summary_vbox = QVBoxLayout(self.userinterface.summary_frame)
-        ##FIXMEself.ready_text = UbiquityTextEdit(self, self.userinterface.summary_frame)
-        ##self.ready_text.setReadOnly(True)
+        self.ready_text = UbiquityTextEdit(self, self.userinterface.summary_frame)
+        self.ready_text.setReadOnly(True)
         ##self.ready_text.setTextFormat(Qt.RichText)
-        ##summary_vbox.addWidget(self.ready_text)
+        self.ready_text.setAcceptRichText(True)
+        summary_vbox.addWidget(self.ready_text)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -551,10 +552,26 @@ class Wizard:
         quitButtonText = get_string("quit_button", self.locale)
         titleText = get_string("finished_dialog", self.locale)
 
-        quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, rebootButtonText, quitButtonText)
+        #quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, rebootButtonText, quitButtonText)
+        quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText)
 
         if quitAnswer == 0:
             self.reboot()
+
+    def reboot(self, *args):
+        """reboot the system after installing process."""
+
+        self.returncode = 10
+        self.quit()
+
+    def quit(self):
+        """quit installer cleanly."""
+
+        # exiting from application
+        self.current_page = None
+        if self.dbfilter is not None:
+            self.dbfilter.cancel_handler()
+        self.app.exit()
 
     def debconf_progress_start (self, progress_min, progress_max, progress_title):
         if self.progress_cancelled:
@@ -963,18 +980,20 @@ class Wizard:
                 self.autopartition_vbox.addLayout(indent_hbox)
                 indent_hbox.addSpacing(10)
                 if choice == resize_choice:
-                    new_size_hbox = QHBoxLayout(indent_hbox)
-                    new_size_label = QLabel("New partition size:", new_size_hbox)
+                    new_size_hbox = QHBoxLayout()
+                    indent_hbox.addLayout(new_size_hbox)
+                    new_size_label = QLabel("New partition size:", self.userinterface.autopartition_frame)
+                    new_size_hbox.addWidget(new_size_label)
                     self.translate_widget(new_size_label, self.locale)
                     new_size_hbox.addWidget(new_size_label)
                     new_size_label.show()
-                    new_size_scale_vbox = QVBoxLayout(new_size_hbox)
-                    self.new_size_value = QLabel(new_size_scale_vbox)
+                    new_size_scale_vbox = QVBoxLayout()
+                    new_size_hbox.addLayout(new_size_scale_vbox)
+                    self.new_size_value = QLabel(self.userinterface.autopartition_frame)
                     new_size_scale_vbox.addWidget(self.new_size_value)
                     self.new_size_value.show()
-                    self.new_size_scale = QSlider(Qt.Horizontal,
-                                                  new_size_scale_vbox)
-                    self.new_size_scale.setMaxValue(100)
+                    self.new_size_scale = QSlider(Qt.Horizontal, self.userinterface.autopartition_frame)
+                    self.new_size_scale.setMaximum(100)
                     self.new_size_scale.setSizePolicy(QSizePolicy.Expanding,
                                                       QSizePolicy.Minimum)
                     self.app.connect(self.new_size_scale,
@@ -988,8 +1007,8 @@ class Wizard:
                         self.resize_max_size is not None):
                         min_percent = int(math.ceil(
                             100 * self.resize_min_size / self.resize_max_size))
-                        self.new_size_scale.setMinValue(min_percent)
-                        self.new_size_scale.setMaxValue(100)
+                        self.new_size_scale.setMinimum(min_percent)
+                        self.new_size_scale.setMaximum(100)
                         self.new_size_scale.setValue(
                             int((min_percent + 100) / 2))
                 elif choice != manual_choice:
@@ -1034,6 +1053,16 @@ class Wizard:
 
         # make sure we're on the autopartitioning page
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
+
+    def update_new_size_label(self, value):
+        if self.new_size_value is None:
+            return
+        if self.resize_max_size is not None:
+            size = value * self.resize_max_size / 100
+            text = '%d%% (%s)' % (value, format_size(size))
+        else:
+            text = '%d%%' % value
+        self.new_size_value.setText(text)
 
     def on_autopartition_toggled (self, choice, enable):
         """Update autopartitioning screen when the resize button is
@@ -1319,6 +1348,171 @@ class Wizard:
             msg = '%.0f Kb' % size
         return msg
 
+    def get_mountpoints (self):
+        return dict(self.mountpoints)
+
+    def mountpoints_to_summary(self):
+        """Processing mountpoints to summary step tasks."""
+
+        # Validating self.mountpoints
+        error_msg = []
+
+        mountpoints = {}
+        for i in range(len(self.mountpoint_widgets)):
+            mountpoint_value = unicode(self.mountpoint_widgets[i].currentText())
+            partition_value = unicode(self.partition_widgets[i].currentText())
+            if partition_value is not None:
+                if partition_value in self.part_devices:
+                    partition_id = self.part_devices[partition_value]
+                else:
+                    partition_id = partition_value
+            else:
+                partition_id = None
+            format_value = self.format_widgets[i].isChecked()
+            fstype = None
+            if partition_id in self.qtparted_fstype:
+                fstype = self.qtparted_fstype[partition_id]
+
+            if mountpoint_value == "":
+                if partition_value in (None, ' '):
+                    continue
+                else:
+                    error_msg.append(
+                        "No mount point selected for %s." % partition_value)
+                    break
+            else:
+                if partition_value in (None, ' '):
+                    error_msg.append(
+                        "No partition selected for %s." % mountpoint_value)
+                    break
+                else:
+                    # TODO cjwatson 2006-09-26: Replace None with flags once
+                    # qtparted can export the list of flags set on formatted
+                    # filesystems (or just ignore until
+                    # ubiquity-advanced-partitioner happens!).
+                    mountpoints[partition_id] = \
+                        (mountpoint_value, format_value, fstype, None)
+        else:
+            self.mountpoints = mountpoints
+        syslog.syslog('mountpoints: %s' % self.mountpoints)
+
+        # Checking duplicated devices
+        partitions = [w.currentText() for w in self.partition_widgets]
+
+        for check in partitions:
+            if check in (None, '', ' '):
+                continue
+            if partitions.count(check) > 1:
+                error_msg.append("A partition is assigned to more than one "
+                                 "mount point.")
+                break
+
+        # Processing more validation stuff
+        if len(self.mountpoints) > 0:
+            # Supplement filesystem types from qtparted FORMAT instructions
+            # with those detected from the disk.
+            validate_mountpoints = dict(self.mountpoints)
+            validate_filesystems = get_filesystems(self.qtparted_fstype)
+            for device, (path, format, fstype,
+                         flags) in validate_mountpoints.items():
+                if fstype is None and device in validate_filesystems:
+                    validate_mountpoints[device] = \
+                        (path, format, validate_filesystems[device], None)
+            # Check for some special-purpose partitions detected by partman.
+            if self.auto_mountpoints is not None:
+                for device, mountpoint in self.auto_mountpoints.iteritems():
+                    if device in validate_mountpoints:
+                        continue
+                    if not mountpoint.startswith('/'):
+                        validate_mountpoints[device] = \
+                            (mountpoint, False, None, None)
+
+            for check in validation.check_mountpoint(validate_mountpoints,
+                                                     self.size):
+                if check == validation.MOUNTPOINT_NOROOT:
+                    error_msg.append(get_string(
+                        'partman-target/no_root', self.locale))
+                elif check == validation.MOUNTPOINT_DUPPATH:
+                    error_msg.append("Two file systems are assigned the same "
+                                     "mount point.")
+                elif check == validation.MOUNTPOINT_BADSIZE:
+                    for mountpoint, format, fstype, flags in \
+                            self.mountpoints.itervalues():
+                        if mountpoint == 'swap':
+                            min_root = MINIMAL_PARTITION_SCHEME['root']
+                            break
+                    else:
+                        min_root = (MINIMAL_PARTITION_SCHEME['root'] +
+                                    MINIMAL_PARTITION_SCHEME['swap'])
+                    error_msg.append("The partition assigned to '/' is too "
+                                     "small (minimum size: %d Mb)." % min_root)
+                elif check == validation.MOUNTPOINT_BADCHAR:
+                    error_msg.append(get_string(
+                        'partman-basicfilesystems/bad_mountpoint',
+                        self.locale))
+                elif check == validation.MOUNTPOINT_XFSROOT:
+                    error_msg.append("XFS may not be used on the filesystem "
+                                     "containing /boot. Either use a "
+                                     "different filesystem for / or create a "
+                                     "non-XFS filesystem for /boot.")
+                elif check == validation.MOUNTPOINT_XFSBOOT:
+                    error_msg.append("XFS may not be used on the /boot "
+                                     "filesystem. Use a different filesystem "
+                                     "type for /boot.")
+                elif check == validation.MOUNTPOINT_UNFORMATTED:
+                    error_msg.append("Filesystems used by the system (/, "
+                                     "/boot, /usr, /var) must be reformatted "
+                                     "for use by this installer. Other "
+                                     "filesystems (/home, /media/*, "
+                                     "/usr/local, etc.) may be used without "
+                                     "reformatting.")
+                elif check == validation.MOUNTPOINT_NEEDPOSIX:
+                    error_msg.append("FAT and NTFS filesystems may not be "
+                                     "used on filesystems used by the system "
+                                     "(/, /boot, /home, /usr, /var, etc.). "
+                                     "It is usually best to mount them "
+                                     "somewhere under /media/.")
+                elif check == validation.MOUNTPOINT_NONEWWORLD:
+                    error_msg.append(get_string(
+                        'partman-newworld/no_newworld',
+                        'extended:%s' % self.locale))
+
+        # showing warning messages
+        self.userinterface.mountpoint_error_reason.setText("\n".join(error_msg))
+        if len(error_msg) != 0:
+            self.userinterface.mountpoint_error_reason.show()
+            self.userinterface.mountpoint_error_image.show()
+            return
+        else:
+            self.userinterface.mountpoint_error_reason.hide()
+            self.userinterface.mountpoint_error_image.hide()
+
+        self.manual_partitioning = True
+        self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
+
+    def set_summary_text (self, text):
+        i = text.find("\n")
+        while i != -1:
+            text = text[:i] + "<br>" + text[i+1:]
+            i = text.find("\n")
+        self.ready_text.setText(text)
+        self.summary_device = "DEVICE"
+
+    def set_summary_device (self, device):
+        if not device.startswith('(') and not device.startswith('/dev/'):
+            device = '/dev/%s' % device
+        #text = self.ready_text.text()
+        text = self.ready_text.toHtml()
+        #device_index = text.find(self.summary_device)
+        device_index = text.indexOf(self.summary_device)
+        if device_index != -1:
+            newstring = text[:device_index] + '<a href="device">' + device + '</a>' + text[device_index+6:]
+            self.ready_text.setText(newstring)
+        self.summary_device = device
+
+    def get_summary_device (self):
+        return self.summary_device
+
     def watch_debconf_fd (self, from_debconf, process_input):
         print "watch_debconf_fd"
         self.debconf_fd_counter = 0
@@ -1429,7 +1623,16 @@ class Wizard:
 
     def refresh (self):
         self.app.processEvents()
-        """
-        while gtk.events_pending():
-            gtk.main_iteration()
-        """
+
+class UbiquityTextEdit(QTextEdit):
+    """A text edit widget that listens for clicks on the link"""
+    def __init__ (self, mainwin, parent):
+        QTextEdit.__init__(self, parent)
+        self.setMouseTracking(True)
+        self.mainwin = mainwin
+
+    ##FIXME doesn't seem to work
+    def contentsMouseReleaseEvent(self, event):
+        if len(self.anchorAt(event.pos())) > 0:
+            self.mainwin.change_device()
+        QTextEdit.contentsMouseReleaseEvent(self, event)
