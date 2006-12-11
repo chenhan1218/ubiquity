@@ -1387,7 +1387,7 @@ Answering the questions should only take a few minutes.</string>
                     </widget>
                     <widget class="QLabel" row="0" column="1">
                         <property name="name">
-                            <cstring>logo_image_8</cstring>
+                            <cstring>logo_image_7</cstring>
                         </property>
                         <property name="scaledContents">
                             <bool>true</bool>
@@ -1465,7 +1465,7 @@ Answering the questions should only take a few minutes.</string>
                     </widget>
                     <widget class="QLabel" row="0" column="1">
                         <property name="name">
-                            <cstring>logo_image_9</cstring>
+                            <cstring>logo_image_8</cstring>
                         </property>
                         <property name="scaledContents">
                             <bool>true</bool>
@@ -1535,7 +1535,7 @@ Answering the questions should only take a few minutes.</string>
                     </widget>
                     <widget class="QLabel" row="0" column="1">
                         <property name="name">
-                            <cstring>logo_image_10</cstring>
+                            <cstring>logo_image_9</cstring>
                         </property>
                         <property name="scaledContents">
                             <bool>true</bool>
@@ -1686,7 +1686,7 @@ You must mount one partition on the root file system ("/"), and you must choose 
                     </widget>
                     <widget class="QLabel" row="0" column="2">
                         <property name="name">
-                            <cstring>logo_image_11</cstring>
+                            <cstring>logo_image_10</cstring>
                         </property>
                         <property name="sizePolicy">
                             <sizepolicy>
@@ -1816,7 +1816,6 @@ You must mount one partition on the root file system ("/"), and you must choose 
     <tabstop>back</tabstop>
     <tabstop>next</tabstop>
     <tabstop>cancel</tabstop>
-    <tabstop>new_size_scale</tabstop>
     <tabstop>language_treeview</tabstop>
     <tabstop>timezone_city_combo</tabstop>
     <tabstop>timezone_time_adjust</tabstop>

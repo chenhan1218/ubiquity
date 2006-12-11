@@ -206,7 +206,6 @@ class Wizard:
         self.userinterface.logo_image_8.setPixmap(logo)
         self.userinterface.logo_image_9.setPixmap(logo)
         self.userinterface.logo_image_10.setPixmap(logo)
-        self.userinterface.logo_image_11.setPixmap(logo)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -1250,8 +1249,11 @@ class Wizard:
         elif step == "stepReady":
             self.userinterface.next.setText("Next >")
             self.set_current_page(self.previous_partitioning_page)
+            changed_page = True
+
         if not changed_page:
             self.set_current_page(self.get_current_page() - 1)
+
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
             # expect recursive main loops to be exited and
@@ -1542,9 +1544,11 @@ class Wizard:
                                             new_size_hbox, 'new_size_label')
                     self.translate_widget(new_size_label, self.locale)
                     new_size_hbox.addWidget(new_size_label)
+                    new_size_label.show()
                     new_size_scale_vbox = QVBoxLayout(new_size_hbox)
                     self.new_size_value = QLabel(new_size_scale_vbox)
                     new_size_scale_vbox.addWidget(self.new_size_value)
+                    self.new_size_value.show()
                     self.new_size_scale = QSlider(Qt.Horizontal,
                                                   new_size_scale_vbox)
                     self.new_size_scale.setMaxValue(100)
@@ -1554,6 +1558,7 @@ class Wizard:
                                      SIGNAL("valueChanged(int)"),
                                      self.update_new_size_label)
                     new_size_scale_vbox.addWidget(self.new_size_scale)
+                    self.new_size_scale.show()
                     self.resize_min_size, self.resize_max_size = \
                         extra_options[choice]
                     if (self.resize_min_size is not None and
@@ -1564,16 +1569,20 @@ class Wizard:
                         self.new_size_scale.setMaxValue(100)
                         self.new_size_scale.setValue(
                             int((min_percent + 100) / 2))
+                    self.autopartition_extras[choice] = self.new_size_scale
                 elif choice != manual_choice:
-                    disk_vbox = QVBoxLayout(indent_hbox)
-                    disk_buttongroup = QButtonGroup(indent_hbox)
+                    disk_frame = QFrame(self.userinterface.autopartition_frame, "disk_frame")
+                    indent_hbox.addWidget(disk_frame)
+                    disk_vbox = QVBoxLayout(disk_frame)
+                    disk_buttongroup = QButtonGroup(disk_frame)
                     disk_buttongroup_texts = {}
                     extra_firstbutton = None
                     for extra in extra_options[choice]:
                         if extra == '':
                             disk_vbox.addSpacing(10)
                         else:
-                            extra_button = QRadioButton(extra, disk_vbox)
+                            extra_button = QRadioButton(
+                                extra, disk_frame)
                             disk_buttongroup.insert(extra_button)
                             extra_id = disk_buttongroup.id(extra_button)
                             # Qt changes the string by adding accelerators,
@@ -1583,17 +1592,21 @@ class Wizard:
                             if extra_firstbutton is None:
                                 extra_firstbutton = extra_button
                             disk_vbox.addWidget(extra_button)
+                    if extra_firstbutton is not None:
+                        extra_firstbutton.setChecked(True)
                     self.autopartition_extra_buttongroup[choice] = \
                         disk_buttongroup
                     self.autopartition_extra_buttongroup_texts[choice] = \
                         disk_buttongroup_texts
-                indent_hbox.show()
-                self.autopartition_extras[choice] = indent_hbox
+                    disk_frame.show()
+                    self.autopartition_extras[choice] = disk_frame
 
-            self.on_autopartition_toggled(choice, button.isChecked())
-            self.app.connect(button, SIGNAL('toggled(bool)'),
-                             lambda enable:
-                                 self.on_autopartition_toggled(choice, enable))
+            # TODO cjwatson 2006-12-09: The lambda never seems to get
+            # called? Make sure not to disable things until this is fixed.
+            #self.on_autopartition_toggled(choice, button.isChecked())
+            #self.app.connect(button, SIGNAL('toggled(bool)'),
+            #                 lambda enable:
+            #                     self.on_autopartition_toggled(choice, enable))
 
             button.show()
         if firstbutton is not None:
@@ -1614,7 +1627,7 @@ class Wizard:
               choice in self.autopartition_extra_buttongroup):
             disk_id = self.autopartition_extra_buttongroup[choice].selectedId()
             disk_texts = self.autopartition_extra_buttongroup_texts[choice]
-            return choice, unicode(disk_texts[id])
+            return choice, unicode(disk_texts[disk_id])
         else:
             return choice, None
 

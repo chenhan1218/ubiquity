@@ -213,7 +213,6 @@ binary-indep: install
 	dh_compress
 	dh_fixperms
 	DH_OPTIONS= dh_pycentral -pubiquity-frontend-kde
-	dh_python /usr/lib/ubiquity
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
@@ -247,7 +246,6 @@ binary-arch: install
 	dh_compress
 	dh_fixperms
 	dh_pycentral
-	dh_python /usr/lib/ubiquity
 	dh_installdeb
 	dh_shlibdeps
 ifdef bootloader-depends
