@@ -900,9 +900,34 @@ class Wizard:
         self.userinterface.password_error_image.show()
         self.userinterface.password_error_reason.show()
 
+
+    def process_identification (self):
+        """Processing identification step tasks."""
+
+        error_msg = []
+        error = 0
+
+        # Validation stuff
+
+        # checking hostname entry
+        hostname = self.userinterface.hostname.text()
+        for result in validation.check_hostname(unicode(hostname)):
+            if result == validation.HOSTNAME_LENGTH:
+                error_msg.append("The hostname must be between 3 and 18 characters long.")
+            elif result == validation.HOSTNAME_WHITESPACE:
+                error_msg.append("The hostname may not contain spaces.")
+            elif result == validation.HOSTNAME_BADCHAR:
+                error_msg.append("The hostname may only contain letters, digits, and hyphens.")
+
+        # showing warning message is error is set
+        if len(error_msg) != 0:
+            self.userinterface.hostname_error_reason.setText("\n".join(error_msg))
+            self.userinterface.hostname_error_reason.show()
+        else:
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
+
     def set_auto_mountpoints(self, auto_mountpoints):
         self.auto_mountpoints = auto_mountpoints
-
 
     def set_autopartition_choices (self, choices, extra_options,
                                    resize_choice, manual_choice):
@@ -918,10 +943,12 @@ class Wizard:
         self.resize_choice = resize_choice
         self.manual_choice = manual_choice
         firstbutton = None
+        idCounter = 0
         for choice in choices:
             button = QRadioButton(choice, self.userinterface.autopartition_frame)
-            self.autopartition_buttongroup.insert(button)
+            self.autopartition_buttongroup.addButton(button, idCounter)
             id = self.autopartition_buttongroup.id(button)
+            print "id: " + str(id) + " " + button.text()
 
             #Qt changes the string by adding accelarators, 
             #so keep pristine string here as is returned later to partman
@@ -931,7 +958,9 @@ class Wizard:
             self.autopartition_vbox.addWidget(button)
 
             if choice in extra_options:
-                indent_hbox = QHBoxLayout(self.autopartition_vbox)
+                #indent_hbox = QHBoxLayout(self.autopartition_vbox)
+                indent_hbox = QHBoxLayout()
+                self.autopartition_vbox.addLayout(indent_hbox)
                 indent_hbox.addSpacing(10)
                 if choice == resize_choice:
                     new_size_hbox = QHBoxLayout(indent_hbox)
@@ -964,19 +993,20 @@ class Wizard:
                         self.new_size_scale.setValue(
                             int((min_percent + 100) / 2))
                 elif choice != manual_choice:
-                    disk_frame = QFrame(self.userinterface.autopartition_frame, "disk_frame")
+                    disk_frame = QFrame(self.userinterface.autopartition_frame)
                     indent_hbox.addWidget(disk_frame)
                     disk_vbox = QVBoxLayout(disk_frame)
                     disk_buttongroup = QButtonGroup(disk_frame)
                     disk_buttongroup_texts = {}
                     extra_firstbutton = None
+                    extraIdCounter = 0
                     for extra in extra_options[choice]:
                         if extra == '':
                             disk_vbox.addSpacing(10)
                         else:
                             extra_button = QRadioButton(
                                 extra, disk_frame)
-                            disk_buttongroup.insert(extra_button)
+                            disk_buttongroup.addButton(extra_button, extraIdCounter)
                             extra_id = disk_buttongroup.id(extra_button)
                             # Qt changes the string by adding accelerators,
                             # so keep the pristine string here to be
@@ -989,44 +1019,65 @@ class Wizard:
                         disk_buttongroup
                     self.autopartition_extra_buttongroup_texts[choice] = \
                         disk_buttongroup_texts
-                    disk_buttongroup.show()
+                    disk_frame.show()
+                    extraIdCounter += 1
                 self.autopartition_extras[choice] = indent_hbox
             self.on_autopartition_toggled(choice, button.isChecked())
-            ##FIXMEself.app.connect(button, SIGNAL('toggled(bool)'),
-            ##                 lambda enable:
-            ##                     self.on_autopartition_toggled(choice, enable))
+            self.app.connect(button, SIGNAL('toggled(bool)'),
+                             lambda enable:
+                                 self.on_autopartition_toggled(choice, enable))
 
             button.show()
+            idCounter += 1
         if firstbutton is not None:
             firstbutton.setChecked(True)
 
         # make sure we're on the autopartitioning page
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
 
-    def process_identification (self):
-        """Processing identification step tasks."""
+    def on_autopartition_toggled (self, choice, enable):
+        """Update autopartitioning screen when the resize button is
+        selected."""
 
-        error_msg = []
-        error = 0
+        if choice in self.autopartition_extras:
+            self.autopartition_extras[choice].setEnabled(enable)
 
-        # Validation stuff
+    def get_autopartition_choice (self):
+        #id = self.autopartition_buttongroup.selectedId()
+        id = self.autopartition_buttongroup.checkedId()
+        print "autopartition_buttongroup_texts: " + str(self.autopartition_buttongroup_texts)
+        print "id: " + str(id)
+        choice = unicode(self.autopartition_buttongroup_texts[id])
+        print "get_autopartition_choice choice: " + choice
 
-        # checking hostname entry
-        hostname = self.userinterface.hostname.text()
-        for result in validation.check_hostname(unicode(hostname)):
-            if result == validation.HOSTNAME_LENGTH:
-                error_msg.append("The hostname must be between 3 and 18 characters long.")
-            elif result == validation.HOSTNAME_WHITESPACE:
-                error_msg.append("The hostname may not contain spaces.")
-            elif result == validation.HOSTNAME_BADCHAR:
-                error_msg.append("The hostname may only contain letters, digits, and hyphens.")
-
-        # showing warning message is error is set
-        if len(error_msg) != 0:
-            self.userinterface.hostname_error_reason.setText("\n".join(error_msg))
-            self.userinterface.hostname_error_reason.show()
+        if choice == self.resize_choice:
+            # resize choice should have been hidden otherwise
+            assert self.new_size_scale is not None
+            return choice, self.new_size_scale.value()
+        elif (choice != self.manual_choice and
+              choice in self.autopartition_extra_buttongroup):
+            disk_id = self.autopartition_extra_buttongroup[choice].checkedId()
+            disk_texts = self.autopartition_extra_buttongroup_texts[choice]
+            return choice, unicode(disk_texts[id])
         else:
-            self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
+            return choice, None
+
+    def process_autopartitioning(self):
+        """Processing automatic partitioning step tasks."""
+
+        ##FIXME, why is this here? jr
+        self.app.processEvents()
+
+        # For safety, if we somehow ended up improperly initialised
+        # then go to manual partitioning.
+        choice = self.get_autopartition_choice()[0]
+        if self.manual_choice is None or choice == self.manual_choice:
+            self.qtparted_loop()
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
+        else:
+            # TODO cjwatson 2006-01-10: extract mountpoints from partman
+            self.manual_partitioning = False
+            self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
 
     def watch_debconf_fd (self, from_debconf, process_input):
         print "watch_debconf_fd"
@@ -1049,7 +1100,7 @@ class Wizard:
         """
 
     def watch_debconf_fd_helper_read (self, source):
-        print "watch_debconf_fd_helper_read"
+        #print "watch_debconf_fd_helper_read"
         self.debconf_fd_counter += 1
         debconf_condition = 0
         debconf_condition |= filteredcommand.DEBCONF_IO_IN
