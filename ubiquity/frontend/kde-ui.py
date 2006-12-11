@@ -938,7 +938,10 @@ class Wizard:
                 words = qtparted_reply[2:].strip().split()
                 if words[0].lower() == 'format' and len(words) >= 3:
                     self.qtparted_fstype[words[1]] = words[2]
-            qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+            qtparted_reply = self.qtparted_subp.stdout.readline()
+            if not qtparted_reply:
+                break
+            qtparted_reply = qtparted_reply.rstrip('\n')
         syslog.syslog('qtparted replied: %s' % qtparted_reply)
 
         if qtparted_reply.startswith('1 '):
@@ -1247,8 +1250,11 @@ class Wizard:
         elif step == "stepReady":
             self.userinterface.next.setText("Next >")
             self.set_current_page(self.previous_partitioning_page)
+            changed_page = True
+
         if not changed_page:
             self.set_current_page(self.get_current_page() - 1)
+
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
             # expect recursive main loops to be exited and
@@ -1579,6 +1585,7 @@ class Wizard:
                         self.new_size_scale.setMaximum(100)
                         self.new_size_scale.setValue(
                             int((min_percent + 100) / 2))
+                    self.autopartition_extras[choice] = self.new_size_scale
                 elif choice != manual_choice:
                     disk_frame = QFrame(self.userinterface.autopartition_frame)
                     indent_hbox.addWidget(disk_frame)
@@ -1602,17 +1609,22 @@ class Wizard:
                             if extra_firstbutton is None:
                                 extra_firstbutton = extra_button
                             disk_vbox.addWidget(extra_button)
+                    if extra_firstbutton is not None:
+                        extra_firstbutton.setChecked(True)
                     self.autopartition_extra_buttongroup[choice] = \
                         disk_buttongroup
                     self.autopartition_extra_buttongroup_texts[choice] = \
                         disk_buttongroup_texts
                     disk_frame.show()
                     extraIdCounter += 1
-                self.autopartition_extras[choice] = indent_hbox
-            self.on_autopartition_toggled(choice, button.isChecked())
-            self.app.connect(button, SIGNAL('toggled(bool)'),
-                             lambda enable:
-                                 self.on_autopartition_toggled(choice, enable))
+                    self.autopartition_extras[choice] = disk_frame
+
+            # TODO cjwatson 2006-12-09: The lambda never seems to get
+            # called? Make sure not to disable things until this is fixed.
+            #self.on_autopartition_toggled(choice, button.isChecked())
+            #self.app.connect(button, SIGNAL('toggled(bool)'),
+            #                 lambda enable:
+            #                     self.on_autopartition_toggled(choice, enable))
 
             button.show()
             idCounter += 1
@@ -1638,7 +1650,7 @@ class Wizard:
               choice in self.autopartition_extra_buttongroup):
             disk_id = self.autopartition_extra_buttongroup[choice].checkedId()
             disk_texts = self.autopartition_extra_buttongroup_texts[choice]
-            return choice, unicode(disk_texts[id])
+            return choice, unicode(disk_texts[disk_id])
         else:
             return choice, None
 

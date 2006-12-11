@@ -27,6 +27,7 @@ from ubiquity import misc
 class Language(FilteredCommand):
     def prepare(self):
         self.language_question = None
+        self.db.fset('languagechooser/language-name', 'seen', 'false')
         self.db.set('localechooser/alreadyrun', 'false')
         questions = ['^languagechooser/language-name',
                      '^countrychooser/shortlist$']
