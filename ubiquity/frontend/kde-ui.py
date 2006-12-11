@@ -189,7 +189,7 @@ class Wizard:
         #self.mountpoint_scrollview = QScrollView(self.userinterface.mountpoint_frame_parent)
         self.mountpoint_scrollview = QScrollArea(self.userinterface.mountpoint_frame_parent)
         self.mount_vbox.addWidget(self.mountpoint_scrollview)
-        ##FIXMEself.mountpoint_scrollview.setResizePolicy(QScrollView.AutoOneFit)
+        self.mountpoint_scrollview.setWidgetResizable(True)
         self.userinterface.mountpoint_frame = QFrame(self.mountpoint_scrollview)
         self.userinterface.mountpoint_frame.setFrameShape(QFrame.NoFrame)
         self.userinterface.mountpoint_frame.setFrameShadow(QFrame.Plain)
@@ -197,10 +197,9 @@ class Wizard:
         self.mountpoint_scrollview.setFrameShadow(QFrame.Plain)
         #self.mountpoint_scrollview.addChild(self.userinterface.mountpoint_frame)
         self.mountpoint_scrollview.setWidget(self.userinterface.mountpoint_frame)
+        self.userinterface.mountpoint_frame.resize(100, 100)
         self.mountpoint_vbox = QVBoxLayout(self.userinterface.mountpoint_frame)
-        ##FIXME, this causes QLayout: Attempting to add QLayout "" to QFrame "", which already has a layout
-        #self.mountpoint_table = QGridLayout(self.mountpoint_vbox, 2, 4, 6)
-        self.mountpoint_table = QGridLayout(self.userinterface.mountpoint_frame)
+        self.mountpoint_table = QGridLayout()
         self.mountpoint_vbox.addLayout(self.mountpoint_table)
         self.mountpoint_vbox.addStretch()
 
@@ -710,6 +709,7 @@ class Wizard:
             self.qtparted_to_mountpoints()
         # Mountpoints
         elif step == str("stepPartMountpoints"):
+            print "in step == str(stepPartMountpoints)"
             self.mountpoints_to_summary()
         # Ready to install
         elif step == str("stepReady"):
@@ -1078,6 +1078,246 @@ class Wizard:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.manual_partitioning = False
             self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
+
+    def qtparted_loop(self):
+        """call qtparted and embed it into the interface."""
+
+        syslog.syslog('qtparted_loop()')
+
+        disable_swap()
+
+        if self.embed is not None:
+            self.qtparted_vbox.removeWidget(self.embed)
+            del self.embed
+        #self.embed = QXEmbed(self.userinterface.qtparted_frame, "embed")
+        #self.embed.setProtocol(QXEmbed.XPLAIN)
+        self.embed = QX11EmbedContainer(self.userinterface.qtparted_frame)
+
+        self.qtparted_subp = subprocess.Popen(
+            ['log-output', '-t', 'ubiquity', '--pass-stdout',
+             '/usr/sbin/qtparted', '--installer'],
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+        qtparted_winid = self.qtparted_subp.stdout.readline().rstrip('\n')
+        print "embedding " + qtparted_winid
+        self.qtparted_vbox.addWidget(self.embed)
+        ##FIXME causes segfault, not sure why
+        ##self.embed.embedClient( int(qtparted_winid) )
+        #nasty cludge, we need qtparted to output a line when it's done settings up its window so we can resize then
+        #uncomment when new version of qt is in the archive
+        ##qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+        ##if qtparted_reply.startswith('STARTED'):
+        ##   self.userinterface.qtparted_frame.resize(self.userinterface.qtparted_frame.width()-1,self.userinterface.qtparted_frame.height())
+
+    def qtparted_to_mountpoints(self):
+        """Processing qtparted to mountpoints step tasks."""
+
+        self.qtparted_fstype = {}
+
+        if self.qtparted_subp is None:
+            self.qtparted_crashed()
+            return
+
+        try:
+            print >>self.qtparted_subp.stdin, "apply"
+        except IOError:
+            # Shut down qtparted
+            self.qtparted_subp.stdin.close()
+            self.qtparted_subp.wait()
+            self.qtparted_subp = None
+            self.qtparted_crashed()
+            return
+
+        # read qtparted output of format "- FORMAT /dev/hda2 linux-swap"
+        qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+        while not qtparted_reply.startswith('0 ') and not qtparted_reply.startswith('1 '):
+            syslog.syslog('qtparted replied: %s' % qtparted_reply)
+            if qtparted_reply.startswith('- '):
+                words = qtparted_reply[2:].strip().split()
+                if words[0].lower() == 'format' and len(words) >= 3:
+                    self.qtparted_fstype[words[1]] = words[2]
+            qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
+        syslog.syslog('qtparted replied: %s' % qtparted_reply)
+
+        if qtparted_reply.startswith('1 '):
+            # Cancel
+            return
+
+        # Shut down qtparted
+        self.qtparted_subp.stdin.close()
+        self.qtparted_subp.wait()
+        self.qtparted_subp = None
+        if self.embed is not None:
+            self.qtparted_vbox.removeWidget(self.embed)
+            del self.embed
+            self.embed = None
+
+        if not qtparted_reply.startswith('0 '):
+            # something other than OK or Cancel
+            return
+
+        children = self.userinterface.mountpoint_frame.children()
+        for child in children:
+            ##FIXME not qlabel
+            if isinstance(child, QGridLayout) or isinstance(child, QVBoxLayout)  or isinstance(child, QLabel):
+                pass
+            else:
+                self.mountpoint_table.removeWidget(child)
+                del child
+
+        mountText = "<b>" + get_string("mountpoint_label", self.locale) + "</b>"
+        sizeText = "<b>" + get_string("size_label", self.locale) + "</b>"
+        partitionText = "<b>" + get_string("device_label", self.locale) + "</b>"
+        reformatText = "<b>" + get_string("format_label", self.locale) + "</b>"
+
+        mountLabel = QLabel(mountText, self.userinterface.mountpoint_frame)
+        sizeLabel = QLabel(sizeText, self.userinterface.mountpoint_frame)
+        partitionLabel = QLabel(partitionText, self.userinterface.mountpoint_frame)
+        reformatLabel = QLabel(reformatText, self.userinterface.mountpoint_frame)
+        self.mountpoint_table.addWidget(mountLabel, 0, 0)
+        self.mountpoint_table.addWidget(sizeLabel, 0, 1)
+        self.mountpoint_table.addWidget(partitionLabel, 0, 2)
+        self.mountpoint_table.addWidget(reformatLabel, 0, 3)
+
+        # Set up list of partition names for use in the mountpoints table.
+        self.partition_choices = []
+        # The first element is empty to allow deselecting a partition.
+        self.partition_choices.append(' ')
+        for partition in get_partitions():
+            partition = '/dev/' + partition
+            label = part_label(partition)
+            self.part_labels[partition] = label
+            self.part_devices[label] = partition
+            self.partition_choices.append(partition)
+
+        # Reinitialise the mountpoints table.
+        self.mountpoint_widgets = []
+        self.size_widgets = []
+        self.partition_widgets = []
+        self.format_widgets = []
+
+        self.add_mountpoint_table_row()
+
+        # Try to get some default mountpoint selections.
+        self.size = get_sizes()
+        selection = get_default_partition_selection(
+            self.size, self.qtparted_fstype, self.auto_mountpoints)
+
+        # Setting a default partition preselection
+        if len(selection.items()) == 0:
+            self.allow_go_forward(False)
+        else:
+            # Setting default preselection values into ComboBox widgets and
+            # setting size values. In addition, the next row is shown if
+            # they're validated.
+            for mountpoint, partition in selection.items():
+                if partition.split('/')[2] not in self.size:
+                    syslog.syslog(syslog.LOG_WARNING,
+                                  "No size available for partition %s; "
+                                  "skipping" % partition)
+                    continue
+                if partition not in self.partition_choices:
+                    # TODO cjwatson 2006-05-27: I don't know why this might
+                    # happen, but it does
+                    # (https://launchpad.net/bugs/46910). Figure out why. In
+                    # the meantime, ignoring this partition is better than
+                    # crashing.
+                    syslog.syslog(syslog.LOG_WARNING,
+                                  "Partition %s not in /proc/partitions?" %
+                                  partition)
+                    continue
+                if mountpoint in self.mountpoint_choices:
+                    ##FIXMEself.mountpoint_widgets[-1].setCurrentItem(self.mountpoint_choices.index(mountpoint))
+                    pass
+                else:
+                    ##FIXMEself.mountpoint_widgets[-1].setCurrentText(mountpoint)
+                    pass
+                self.size_widgets[-1].setText(self.set_size_msg(partition))
+                ##FIXMEself.partition_widgets[-1].setCurrentItem(self.partition_choices.index(partition))
+                if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
+                    partition in self.qtparted_fstype):
+                    self.format_widgets[-1].setChecked(True)
+                else:
+                    self.format_widgets[-1].setChecked(False)
+                if partition not in self.qtparted_fstype:
+                    self.format_widgets[-1].setEnabled(True)
+                if len(get_partitions()) > len(self.partition_widgets):
+                    self.add_mountpoint_table_row()
+                else:
+                    break
+
+        # We defer connecting up signals until now to avoid the changed
+        # signal firing while we're busy populating the table.
+        """  Not needed for KDE
+        for mountpoint in self.mountpoint_widgets:
+            self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
+        for partition in self.partition_widgets:
+            self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
+        """
+
+        self.userinterface.mountpoint_error_reason.hide()
+        self.userinterface.mountpoint_error_image.hide()
+
+        self.set_current_page(WIDGET_STACK_STEPS["stepPartMountpoints"])
+
+    def add_mountpoint_table_row(self):
+        """Add a new empty row to the mountpoints table."""
+        print "add_mountpoint_table_row"
+        mountpoint = QComboBox(self.userinterface.mountpoint_frame)
+        mountpoint.setEditable(True)
+        for mp in self.mountpoint_choices:
+            mountpoint.insertItem(999, mp)
+        size = QLabel(self.userinterface.mountpoint_frame)
+        partition = QComboBox(self.userinterface.mountpoint_frame)
+        for part in self.partition_choices:
+            if part in self.part_labels:
+                partition.insertItem(999, self.part_labels[part])
+            else:
+                partition.insertItem(999, part)
+        format = QCheckBox(self.userinterface.mountpoint_frame)
+        format.setEnabled(False)
+
+        row = len(self.mountpoint_widgets) + 1
+        self.mountpoint_widgets.append(mountpoint)
+        self.size_widgets.append(size)
+        self.partition_widgets.append(partition)
+        self.format_widgets.append(format)
+
+        #self.mountpoint_table.resize(row + 1, 4)
+        self.mountpoint_table.addWidget(mountpoint, row, 0)
+        self.mountpoint_table.addWidget(size, row, 1)
+        self.mountpoint_table.addWidget(partition, row, 2)
+        self.mountpoint_table.addWidget(format, row, 3)
+        mountpoint.show()
+        size.show()
+        partition.show()
+        format.show()
+
+        ##FIXME
+        ##self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
+        ##self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
+
+    def set_size_msg(self, widget):
+        """return a string message with size value about
+        the partition target by widget argument."""
+
+        # widget is studied in a different manner depending on object type
+        if widget.__class__ == str:
+            size = float(self.size[widget.split('/')[2]])
+        elif unicode(widget.currentText()) in self.part_devices:
+            size = float(self.size[self.part_devices[unicode(widget.currentText())].split('/')[2]])
+        else:
+            # TODO cjwatson 2006-07-31: Why isn't it in part_devices? This
+            # indicates a deeper problem somewhere, but for now we'll just
+            # try our best to ignore it.
+            return ''
+
+        if size > 1024*1024:
+            msg = '%.0f Gb' % (size/1024/1024)
+        elif size > 1024:
+            msg = '%.0f Mb' % (size/1024)
+        else:
+            msg = '%.0f Kb' % size
+        return msg
 
     def watch_debconf_fd (self, from_debconf, process_input):
         print "watch_debconf_fd"

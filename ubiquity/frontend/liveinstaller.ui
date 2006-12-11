@@ -22,7 +22,7 @@
    <item row="0" column="0" >
     <widget class="QStackedWidget" name="widgetStack" >
      <property name="currentIndex" >
-      <number>0</number>
+      <number>7</number>
      </property>
      <widget class="QWidget" name="stepWelcome" >
       <layout class="QGridLayout" >
@@ -1234,7 +1234,7 @@ Answering the questions should only take a few minutes.</string>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="stepPartMountPoints" >
+     <widget class="QWidget" name="stepPartMountpoints" >
       <layout class="QGridLayout" >
        <property name="margin" >
         <number>9</number>
