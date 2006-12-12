@@ -383,9 +383,7 @@ class Wizard:
         self.translate_widget_children(parentWidget)
 
     def translate_widget_children(self, parentWidget=None):
-        print "translate_widget_children"
         if parentWidget == None:
-            print "parentWidget is none"
             parentWidget = self.userinterface
 
         self.translate_widget(parentWidget, self.locale)
@@ -954,8 +952,7 @@ class Wizard:
 
         children = self.userinterface.mountpoint_frame.children()
         for child in children:
-            ##FIXME not qlabel
-            if isinstance(child, QGridLayout) or isinstance(child, QVBoxLayout)  or isinstance(child, QLabel):
+            if isinstance(child, QGridLayout) or isinstance(child, QVBoxLayout):
                 pass
             else:
                 self.mountpoint_table.removeWidget(child)
@@ -1023,13 +1020,12 @@ class Wizard:
                                   partition)
                     continue
                 if mountpoint in self.mountpoint_choices:
-                    ##FIXMEself.mountpoint_widgets[-1].setCurrentItem(self.mountpoint_choices.index(mountpoint))
-                    pass
+                    self.mountpoint_widgets[-1].setCurrentIndex(self.mountpoint_choices.index(mountpoint))
                 else:
-                    ##FIXMEself.mountpoint_widgets[-1].setCurrentText(mountpoint)
-                    pass
+                    self.mountpoint_widgets[-1].addItem(mountpoint)
+                    self.mountpoint_widgets[-1].setCurrentIndex(self.mountpoint_widgets[-1].count() - 1)
                 self.size_widgets[-1].setText(self.set_size_msg(partition))
-                ##FIXMEself.partition_widgets[-1].setCurrentItem(self.partition_choices.index(partition))
+                self.partition_widgets[-1].setCurrentIndex(self.partition_choices.index(partition))
                 if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
                     partition in self.qtparted_fstype):
                     self.format_widgets[-1].setChecked(True)
@@ -1197,8 +1193,6 @@ class Wizard:
 
     def on_back_clicked(self):
         """Callback to set previous screen."""
-        pass
-    """FIXME
 
         if not self.allowed_change_step:
             return
@@ -1215,12 +1209,12 @@ class Wizard:
 
         changed_page = False
 
-        if step == "stepLocation":
+        if str(step) == str("stepLocation"):
             self.userinterface.back.hide()
-        elif step == "stepPartAuto":
+        elif str(step) == str("stepPartAuto"):
             self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
             changed_page = True
-        elif step == "stepPartAdvanced":
+        elif str(step) == str("stepPartAdvanced"):
             if self.qtparted_subp is not None:
                 try:
                     print >>self.qtparted_subp.stdin, "undo"
@@ -1236,9 +1230,9 @@ class Wizard:
                     self.embed = None
             self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
             changed_page = True
-        elif step == "stepPartMountpoints":
+        elif str(step) == str("stepPartMountpoints"):
             self.qtparted_loop()
-        elif step == "stepReady":
+        elif str(step) == str("stepReady"):
             self.userinterface.next.setText("Next >")
             self.set_current_page(self.previous_partitioning_page)
             changed_page = True
@@ -1252,7 +1246,6 @@ class Wizard:
             # debconffilter_done() to be called when the filter exits
         else:
             self.app.exit()
-    """
 
     def on_language_treeview_selection_changed (self):
         selection = self.userinterface.language_treeview.selectedItems()
@@ -1475,7 +1468,7 @@ class Wizard:
         self.tzmap.set_tz_from_name(timezone)
 
     def get_timezone (self):
-        print "get_timezone"
+        print "get_timezone: " + str(self.tzmap.get_selected_tz_name())
         return self.tzmap.get_selected_tz_name()
 
     def set_fullname(self, value):
