@@ -10,7 +10,7 @@
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>Installer</string>
+   <string>Install</string>
   </property>
   <layout class="QGridLayout" >
    <property name="margin" >

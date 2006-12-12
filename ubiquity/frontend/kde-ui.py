@@ -31,8 +31,6 @@ from PyQt4 import uic
 #from kdecore import *
 #from kio import KRun
 #import kdedesigner
-##from ubiquity.frontend.liveinstaller import Ui_UbiquityUIBase
-#FIXMEfrom ubiquity.frontend.crashdialog import CrashDialog
 
 import os
 import datetime
@@ -91,7 +89,6 @@ class UbiquityUI(QWidget):
     def __init__(self):
         QWidget.__init__(self)
         uic.loadUi("ubiquity/frontend/liveinstaller.ui", self)
-#        Ui_UbiquityUIBase.__init__(self)
 
     def setWizard(self, wizardRef):
         self.wizard = wizardRef
@@ -226,10 +223,9 @@ class Wizard:
                              " (invoking crash handler):")
         print >>sys.stderr, tbtext
 
-        #dialog = CrashDialog(self.userinterface)
         dialog = QDialog(self.userinterface)
         uic.loadUi("ubiquity/frontend/crashdialog.ui", dialog)
-        ##FIXMEdialog.connect(dialog.beastie_url, SIGNAL("leftClickedURL(const QString&)"), self.openURL)
+        dialog.beastie_url.setOpenExternalLinks(True)
         dialog.crash_detail.setText(tbtext)
         dialog.exec_()
         sys.exit(1)
@@ -386,9 +382,12 @@ class Wizard:
         self.translate_widget_children(parentWidget)
 
     def translate_widget_children(self, parentWidget=None):
+        print "translate_widget_children"
         if parentWidget == None:
+            print "parentWidget is none"
             parentWidget = self.userinterface
 
+        self.translate_widget(parentWidget, self.locale)
         if parentWidget.children() != None:
             for widget in parentWidget.children():
                 self.translate_widget(widget, self.locale)
@@ -396,21 +395,24 @@ class Wizard:
 
     def translate_widget(self, widget, lang):
         #print "translate_widget" + widget.objectName()
-        #FIXME how to do in KDE?  use kstdactions?
-        #if isinstance(widget, gtk.Button) and widget.get_use_stock():
-        #    widget.set_label(widget.get_label())
+        #FIXME needs translations for Next, Back and Cancel
 
+        print "translate_widget " + widget.objectName()
         text = get_string(widget.objectName(), lang)
 
         if widget.objectName() == "next":
             ##FIXMEtext = get_string("continue", lang) + " >"
             text = "Next >"
         elif widget.objectName() == "back":
-            ##FIXEtext = "< " + get_string("go_back", lang)
+            ##FIXMEtext = "< " + get_string("go_back", lang)
             text = "< Back"
+        elif str(widget.objectName()) == str("UbiquityUIBase"):
+            text = get_string("live_installer", lang)
+
         if text is None:
             return
 
+        print "translating"
         if isinstance(widget, QLabel):
             name = widget.objectName()
 
@@ -438,9 +440,10 @@ class Wizard:
         elif isinstance(widget, QPushButton):
             widget.setText(text)
 
-        ##FIXME
-        elif isinstance(widget, QWidget) and widget.objectName() == UbiquityUIBase:
-            widget.setCaption(text)
+        elif isinstance(widget, QWidget) and str(widget.objectName()) == str("UbiquityUIBase"):
+            widget.setWindowTitle(text)
+        else:
+            print "WARNING: unknown widget: " + widget.objectName()
 
     def allow_change_step(self, allowed):
         if allowed:

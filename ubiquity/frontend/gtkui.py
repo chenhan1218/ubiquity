@@ -397,6 +397,7 @@ class Wizard:
         text = get_string(widget.get_name(), lang)
         if text is None:
             return
+        print "text: " + str(text) + " name " + str(widget.get_name())
 
         if isinstance(widget, gtk.Label):
             name = widget.get_name()
