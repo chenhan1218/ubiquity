@@ -60,10 +60,8 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
-ifndef UBIQUITY_NO_GTK
 	PYTHON=$(PYTHON) ./configure --prefix=/usr
 	$(MAKE)
-endif
 	$(MAKE) -C d-i build
 
 	mkdir -p $(BUILDDIR)/ubuntu
