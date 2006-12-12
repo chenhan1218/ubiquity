@@ -255,8 +255,8 @@ class Wizard:
         self.app.connect(self.userinterface.next, SIGNAL("clicked()"), self.on_next_clicked)
         self.app.connect(self.userinterface.back, SIGNAL("clicked()"), self.on_back_clicked)
         self.app.connect(self.userinterface.cancel, SIGNAL("clicked()"), self.on_cancel_clicked)
-        self.app.connect(self.userinterface.keyboardlayoutview, SIGNAL("selectionChanged()"), self.on_keyboard_layout_selected)
-        self.app.connect(self.userinterface.keyboardvariantview, SIGNAL("selectionChanged()"), self.on_keyboard_variant_selected)
+        self.app.connect(self.userinterface.keyboardlayoutview, SIGNAL("itemSelectionChanged()"), self.on_keyboard_layout_selected)
+        self.app.connect(self.userinterface.keyboardvariantview, SIGNAL("itemSelectionChanged()"), self.on_keyboard_variant_selected)
 
         self.app.connect(self.userinterface.fullname, SIGNAL("textChanged(const QString &)"), self.on_fullname_changed)
         self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.on_username_changed)
@@ -271,7 +271,7 @@ class Wizard:
         self.app.connect(self.userinterface.verified_password, SIGNAL("selectionChanged()"), self.on_verified_password_changed)
         self.app.connect(self.userinterface.hostname, SIGNAL("selectionChanged()"), self.on_hostname_changed)
 
-        self.app.connect(self.userinterface.language_treeview, SIGNAL("selectionChanged()"), self.on_language_treeview_selection_changed)
+        self.app.connect(self.userinterface.language_treeview, SIGNAL("itemSelectionChanged()"), self.on_language_treeview_selection_changed)
 
         self.app.connect(self.userinterface.timezone_time_adjust, SIGNAL("clicked()"), self.on_timezone_time_adjust_clicked)
 
@@ -397,22 +397,18 @@ class Wizard:
         #print "translate_widget" + widget.objectName()
         #FIXME needs translations for Next, Back and Cancel
 
-        print "translate_widget " + widget.objectName()
         text = get_string(widget.objectName(), lang)
 
         if widget.objectName() == "next":
-            ##FIXMEtext = get_string("continue", lang) + " >"
-            text = "Next >"
+            text = get_string("continue", lang) + " >"
         elif widget.objectName() == "back":
-            ##FIXMEtext = "< " + get_string("go_back", lang)
-            text = "< Back"
+            text = "< " + get_string("go_back", lang)
         elif str(widget.objectName()) == str("UbiquityUIBase"):
             text = get_string("live_installer", lang)
 
         if text is None:
             return
 
-        print "translating"
         if isinstance(widget, QLabel):
             name = widget.objectName()
 
@@ -578,9 +574,8 @@ class Wizard:
         partition.show()
         format.show()
 
-        ##FIXME
-        ##self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
-        ##self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
+        self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
+        self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
 
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
@@ -679,11 +674,10 @@ class Wizard:
             return False
 
     def on_list_changed(self, textID):
+        print "on_list_changed"
         """check if partition/mountpoint pair is filled and show the next pair
         on mountpoint screen. Also size label associated with partition combobox
         is changed dynamically to show the size partition."""
-        pass
-    """FIXME
         index = 0
         while index < len(self.partition_widgets):
 
@@ -718,7 +712,6 @@ class Wizard:
                     # All table rows have been filled; create a new one.
                     self.add_mountpoint_table_row()
             index += 1
-    """
 
     def info_loop(self, widget):
         """check if all entries from Identification screen are filled."""
@@ -772,24 +765,20 @@ class Wizard:
             self.app.exit()
 
     def on_keyboard_layout_selected(self):
-        pass
-    """FIXME
+        print "on_keyboard_layout_selected"
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):
             layout = self.get_keyboard()
             if layout is not None:
                 self.current_layout = layout
                 self.dbfilter.change_layout(layout)
-    """
 
     def on_keyboard_variant_selected(self):
-        pass
-    """FIXME
+        print "on_keyboard_variant_selected"
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):
             layout = self.get_keyboard()
             variant = self.get_keyboard_variant()
             if layout is not None and variant is not None:
                 self.dbfilter.apply_keyboard(layout, variant)
-    """
 
     def process_step(self):
         """Process and validate the results of this step."""
@@ -1267,17 +1256,14 @@ class Wizard:
     """
 
     def on_language_treeview_selection_changed (self):
-        pass
-    """FIXME
-        selection = self.userinterface.language_treeview.selectedItem()
-        if selection is not None:
-            value = unicode(selection.text(0))
+        selection = self.userinterface.language_treeview.selectedItems()
+        if len(selection) == 1:
+            value = unicode(selection[0].text())
             lang = self.language_choice_map[value][1]
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
             for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.next, self.userinterface.back, self.userinterface.cancel):
                 self.translate_widget(widget, lang)
-    """
 
     def on_timezone_time_adjust_clicked (self):
         pass
