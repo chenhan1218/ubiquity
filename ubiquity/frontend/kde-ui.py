@@ -280,7 +280,6 @@ class Wizard:
 
         # Start the interface
         if got_intro:
-            print "got intro"
             global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
             for step in BREADCRUMB_STEPS:
                 BREADCRUMB_STEPS[step] += 1
@@ -288,7 +287,6 @@ class Wizard:
             BREADCRUMB_MAX_STEP += 1
             first_step = "stepWelcome"
         else:
-            print "not got_intro"
             first_step = "stepLanguage"
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
 
@@ -300,10 +298,8 @@ class Wizard:
 
             self.backup = False
             current_name = self.step_name(self.current_page)
-            print "name: " + current_name + " page: " + str(self.current_page)
             old_dbfilter = self.dbfilter
             if current_name == "stepLanguage":
-                print "setting dbfilter to stepLanguage"
                 self.dbfilter = language.Language(self)
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
@@ -316,21 +312,15 @@ class Wizard:
             elif current_name == "stepReady":
                 self.dbfilter = summary.Summary(self, self.manual_partitioning)
             else:
-                print "no dbfilter"
                 self.dbfilter = None
 
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.allow_change_step(False)
-                print "starting dbfilter"
                 self.dbfilter.start(auto_process=True)
             else:
                 self.allow_change_step(not self.installing)
 
-            print "EXEC in run()"
-            #self.mainLoopRunning = True
             self.app.exec_()
-            #self.mainLoopRunning = False
-            print "EXEC in run() done"
 
             if self.installing:
                 self.progress_loop()
@@ -343,14 +333,10 @@ class Wizard:
     def customize_installer(self):
         """Initial UI setup."""
 
-        #iconLoader = KIconLoader()
-        #icon = iconLoader.loadIcon("system", KIcon.Small)
-        #self.userinterface.logo_image.setPixmap(icon)
         self.userinterface.setWindowIcon(QIcon("/usr/share/icons/crystalsvg/64x64/apps/ubiquity.png"))
         self.userinterface.back.hide()
 
         """
-
         PIXMAPSDIR = os.path.join(PATH, 'pixmaps', self.distro)
 
         # set pixmaps
@@ -394,7 +380,6 @@ class Wizard:
                 self.translate_widget_children(widget)
 
     def translate_widget(self, widget, lang):
-        #print "translate_widget" + widget.objectName()
         #FIXME needs translations for Next, Back and Cancel
 
         text = get_string(widget.objectName(), lang)
@@ -474,18 +459,15 @@ class Wizard:
     def step_name(self, step_index):
         if step_index < 0:
             step_index = 0
-        #return WIDGET_STACK_STEPS[step_index]
         return str(self.userinterface.widgetStack.widget(step_index).objectName())
 
     def set_current_page(self, current):
-        print "set_current_page to " + str(current)
         widget = self.userinterface.widgetStack.widget(current)
         if self.userinterface.widgetStack.currentWidget() == widget:
             # self.userinterface.widgetStack.raiseWidget() will do nothing.
             # Update state ourselves.
             self.on_steps_switch_page(current)
         else:
-            #self.userinterface.widgetStack.raiseWidget(widget)
             self.userinterface.widgetStack.setCurrentWidget(widget)
             self.on_steps_switch_page(current)
 
@@ -499,8 +481,6 @@ class Wizard:
         if self.embed is not None:
             self.qtparted_vbox.removeWidget(self.embed)
             del self.embed
-        #self.embed = QXEmbed(self.userinterface.qtparted_frame, "embed")
-        #self.embed.setProtocol(QXEmbed.XPLAIN)
         self.embed = QX11EmbedContainer(self.userinterface.qtparted_frame)
 
         self.qtparted_subp = subprocess.Popen(
@@ -508,7 +488,6 @@ class Wizard:
              '/usr/sbin/qtparted', '--installer'],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
         qtparted_winid = self.qtparted_subp.stdout.readline().rstrip('\n')
-        print "embedding " + qtparted_winid
         self.qtparted_vbox.addWidget(self.embed)
         ##FIXME causes segfault, not sure why
         ##self.embed.embedClient( int(qtparted_winid) )
@@ -543,7 +522,6 @@ class Wizard:
 
     def add_mountpoint_table_row(self):
         """Add a new empty row to the mountpoints table."""
-        print "add_mountpoint_table_row"
         mountpoint = QComboBox(self.userinterface.mountpoint_frame)
         mountpoint.setEditable(True)
         for mp in self.mountpoint_choices:
@@ -564,7 +542,6 @@ class Wizard:
         self.partition_widgets.append(partition)
         self.format_widgets.append(format)
 
-        #self.mountpoint_table.resize(row + 1, 4)
         self.mountpoint_table.addWidget(mountpoint, row, 0)
         self.mountpoint_table.addWidget(size, row, 1)
         self.mountpoint_table.addWidget(partition, row, 2)
@@ -628,6 +605,7 @@ class Wizard:
         quitButtonText = get_string("quit_button", self.locale)
         titleText = get_string("finished_dialog", self.locale)
 
+        ##FIXME use non-stock messagebox to customise button text
         #quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, rebootButtonText, quitButtonText)
         quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText)
 
@@ -674,7 +652,6 @@ class Wizard:
             return False
 
     def on_list_changed(self, textID):
-        print "on_list_changed"
         """check if partition/mountpoint pair is filled and show the next pair
         on mountpoint screen. Also size label associated with partition combobox
         is changed dynamically to show the size partition."""
@@ -736,7 +713,6 @@ class Wizard:
         self.hostname_edited = True
 
     def on_next_clicked(self):
-        print "on_next_clicked"
         """Callback to control the installation process between steps."""
 
         if not self.allowed_change_step or not self.allowed_go_forward:
@@ -756,16 +732,13 @@ class Wizard:
             self.userinterface.hostname_error_reason.hide()
 
         if self.dbfilter is not None:
-            print "dbfilter is not none"
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
         else:
-            print "EXITED in on_next_clicked"
             self.app.exit()
 
     def on_keyboard_layout_selected(self):
-        print "on_keyboard_layout_selected"
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):
             layout = self.get_keyboard()
             if layout is not None:
@@ -773,7 +746,6 @@ class Wizard:
                 self.dbfilter.change_layout(layout)
 
     def on_keyboard_variant_selected(self):
-        print "on_keyboard_variant_selected"
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):
             layout = self.get_keyboard()
             variant = self.get_keyboard_variant()
@@ -786,16 +758,13 @@ class Wizard:
         # setting actual step
         step_num = self.get_current_page()
         step = self.step_name(step_num)
-        print step
         syslog.syslog('Step_before = %s' % step)
 
         if step.startswith("stepPart"):
             self.previous_partitioning_page = step_num
 
-        print "process_step: " + step
         # Welcome
         if step == str("stepWelcome"):
-            print "setting page to stepLanguage"
             self.set_current_page(WIDGET_STACK_STEPS["stepLanguage"])
         # Language
         elif step == str("stepLanguage"):
@@ -822,7 +791,6 @@ class Wizard:
             self.qtparted_to_mountpoints()
         # Mountpoints
         elif step == str("stepPartMountpoints"):
-            print "in step == str(stepPartMountpoints)"
             self.mountpoints_to_summary()
         # Ready to install
         elif step == str("stepReady"):
@@ -1267,7 +1235,6 @@ class Wizard:
                                             "kcmshell", "clock"], env=time_admin_env)
 
     def on_steps_switch_page(self, newPageID):
-        print "on_steps_switch_page, setting to: " + str(newPageID)
         self.current_page = newPageID
         self.translate_widget(self.userinterface.step_label, self.locale)
         syslog.syslog('switched to page %s' % self.step_name(newPageID))
@@ -1280,7 +1247,6 @@ class Wizard:
             self.autopartition_extras[choice].setEnabled(enable)
 
     def watch_debconf_fd (self, from_debconf, process_input):
-        print "watch_debconf_fd"
         self.debconf_fd_counter = 0
         self.socketNotifierRead = QSocketNotifier(from_debconf, QSocketNotifier.Read, self.app)
         self.app.connect(self.socketNotifierRead, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_read)
@@ -1295,20 +1261,17 @@ class Wizard:
         self.current_debconf_fd = from_debconf
 
     def watch_debconf_fd_helper_read (self, source):
-        #print "watch_debconf_fd_helper_read"
         self.debconf_fd_counter += 1
         debconf_condition = 0
         debconf_condition |= filteredcommand.DEBCONF_IO_IN
         self.debconf_callbacks[source](source, debconf_condition)
 
     def watch_debconf_fd_helper_write(self, source):
-        print "watch_debconf_fd_helper_write"
         debconf_condition = 0
         debconf_condition |= filteredcommand.DEBCONF_IO_OUT
         self.debconf_callbacks[source](source, debconf_condition)
 
     def watch_debconf_fd_helper_exception(self, source):
-        print "watch_debconf_fd_helper_exception"
         debconf_condition = 0
         debconf_condition |= filteredcommand.DEBCONF_IO_ERR
         self.debconf_callbacks[source](source, debconf_condition)
@@ -1321,21 +1284,18 @@ class Wizard:
             progress_title = ""
         total_steps = progress_max - progress_min
         if self.progressDialogue is None:
-            #self.progressDialogue = QProgressDialog('', "Cancel", total_steps, self.userinterface, "progressdialog", True)
             self.progressDialogue = QProgressDialog('', "Cancel", 0, total_steps, self.userinterface)
             self.progressDialogue.setWindowModality(Qt.WindowModal);
             self.cancelButton = QPushButton("Cancel", self.progressDialogue)
             self.cancelButton.hide()
             self.progressDialogue.setCancelButton(self.cancelButton)
         elif self.progress_position.depth() == 0:
-            #self.progressDialogue.setTotalSteps(total_steps)
             self.progressDialogue.setMaximum(total_steps)
 
         self.progress_position.start(progress_min, progress_max,
                                      progress_title)
         self.progressDialogue.setWindowTitle(progress_title)
         self.debconf_progress_set(0)
-        #self.progressDialogue.setLabelText('')
         self.progressDialogue.setLabel(QLabel(''))
         self.progressDialogue.show()
         return True
@@ -1346,7 +1306,6 @@ class Wizard:
             return False
         self.progress_position.set(progress_val)
         fraction = self.progress_position.fraction()
-        #self.progressDialogue.setProgress(
         self.progressDialogue.setValue(
             int(fraction * self.progressDialogue.maximum()))
         return True
@@ -1357,7 +1316,6 @@ class Wizard:
             return False
         self.progress_position.step(progress_inc)
         fraction = self.progress_position.fraction()
-        #self.progressDialogue.setProgress(
         self.progressDialogue.setValue(
             int(fraction * self.progressDialogue.maximum()))
         return True
@@ -1417,16 +1375,13 @@ class Wizard:
                 # and won't call run_main_loop() for itself.
                 self.allow_change_step(True)
             else:
-                print "EXITED in debconffilter_done"
                 self.app.exit()
 
     def set_language_choices (self, choices, choice_map):
-        print "set_language_choices"
         self.language_choice_map = dict(choice_map)
         self.userinterface.language_treeview.clear()
         for choice in choices:
             QListWidgetItem(QString(unicode(choice)), self.userinterface.language_treeview)
-            #self.userinterface.language_treeview.insertItem( KListViewItem(self.userinterface.language_treeview, QString(unicode(choice))) )
 
     def set_language (self, language):
         counter = 0
@@ -1437,20 +1392,13 @@ class Wizard:
                 value = "C"
             else:
                 value = unicode(selection.text())
-                #value = selection.text()
-                #print unicode("value: ")
-                #print value
-                print str(counter)
             if value == language:
                 selection.setSelected(True)
-                #self.userinterface.language_treeview.setSelected(iterator.current(), True)
                 self.userinterface.language_treeview.scrollToItem(selection)
-                #self.userinterface.language_treeview.ensureItemVisible(iterator.current())
                 break
             counter += 1
 
     def get_language (self):
-        print "get_language"
         items = self.userinterface.language_treeview.selectedItems()
         if len(items) == 1:
             value = unicode(items[0].text())
@@ -1462,7 +1410,6 @@ class Wizard:
         self.tzmap.set_tz_from_name(timezone)
 
     def get_timezone (self):
-        print "get_timezone: " + str(self.tzmap.get_selected_tz_name())
         return self.tzmap.get_selected_tz_name()
 
     def set_fullname(self, value):
@@ -1503,7 +1450,6 @@ class Wizard:
             if isinstance(child, QVBoxLayout) or isinstance(child, QButtonGroup):
                 pass
             else:
-                print "child: " + str(child)
                 self.autopartition_vbox.removeWidget(child)
                 child.hide()
 
@@ -1524,7 +1470,6 @@ class Wizard:
             self.autopartition_vbox.addWidget(button)
 
             if choice in extra_options:
-                #indent_hbox = QHBoxLayout(self.autopartition_vbox)
                 indent_hbox = QHBoxLayout()
                 self.autopartition_vbox.addLayout(indent_hbox)
                 indent_hbox.addSpacing(10)
@@ -1610,12 +1555,8 @@ class Wizard:
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
 
     def get_autopartition_choice (self):
-        #id = self.autopartition_buttongroup.selectedId()
         id = self.autopartition_buttongroup.checkedId()
-        print "autopartition_buttongroup_texts: " + str(self.autopartition_buttongroup_texts)
-        print "id: " + str(id)
         choice = unicode(self.autopartition_buttongroup_texts[id])
-        print "get_autopartition_choice choice: " + choice
 
         if choice == self.resize_choice:
             # resize choice should have been hidden otherwise
@@ -1639,13 +1580,11 @@ class Wizard:
         self.userinterface.keyboardlayoutview.clear()
         for choice in sorted(choices):
             QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardlayoutview)
-            #self.userinterface.keyboardlayoutview.insertItem( KListViewItem(self.userinterface.keyboardlayoutview, choice) )
 
         if self.current_layout is not None:
             self.set_keyboard(self.current_layout)
 
     def set_keyboard (self, layout):
-        print "set_keyboard: " + layout
         self.current_layout = layout
 
         counter = 0
@@ -1653,14 +1592,12 @@ class Wizard:
         while counter < max:
             selection = self.userinterface.keyboardlayoutview.item(counter)
             if unicode(selection.text()) == layout:
-                print "selecting keyboard item"
                 selection.setSelected(True)
                 self.userinterface.keyboardlayoutview.scrollToItem(selection)
                 break
             counter += 1
 
     def get_keyboard (self):
-        print "get_keyboard"
         items = self.userinterface.keyboardlayoutview.selectedItems()
         if len(items) == 1:
             return unicode(items[0].text())
@@ -1671,26 +1608,21 @@ class Wizard:
         self.userinterface.keyboardvariantview.clear()
         for choice in sorted(choices):
             QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardvariantview)
-            #self.userinterface.keyboardvariantview.insertItem( KListViewItem(self.userinterface.keyboardvariantview, choice) )
 
     def set_keyboard_variant(self, variant):
         counter = 0
         max = self.userinterface.keyboardvariantview.count()
         while counter < max:
             selection = self.userinterface.keyboardvariantview.item(counter)
-            print "item: " + selection.text()
             if unicode(selection.text()) == variant:
-                print "selecting keyboard item"
                 selection.setSelected(True)
                 self.userinterface.keyboardvariantview.scrollToItem(selection)
                 break
             counter += 1
 
     def get_keyboard_variant(self):
-        print "get_keyboard_variant"
         items = self.userinterface.keyboardvariantview.selectedItems()
         if len(items) == 1:
-            print "returning " + unicode(items[0].text())
             return unicode(items[0].text())
         else:
             return None
@@ -1706,9 +1638,7 @@ class Wizard:
     def set_summary_device (self, device):
         if not device.startswith('(') and not device.startswith('/dev/'):
             device = '/dev/%s' % device
-        #text = self.ready_text.text()
         text = self.ready_text.toHtml()
-        #device_index = text.find(self.summary_device)
         device_index = text.indexOf(self.summary_device)
         if device_index != -1:
             newstring = text[:device_index] + '<a href="device">' + device + '</a>' + text[device_index+6:]
@@ -1781,17 +1711,13 @@ class Wizard:
     # Run the UI's main loop until it returns control to us.
     def run_main_loop (self):
         self.allow_change_step(True)
-        print "EXEC in run_main_loop"
         #self.app.exec_()   ##FIXME Qt 4 won't allow nested main loops, here it just returns directly
         self.mainLoopRunning = True
-        while self.mainLoopRunning:    # kludge, but works OK
-            #print "mainLoopRunning loop"
+        while self.mainLoopRunning:    # nasty, but works OK
             self.app.processEvents()
-        print "EXEC in run_main_loop done"
 
     # Return control to the next level up.
     def quit_main_loop (self):
-        print "EXITED in quit_main_loop"
         #self.app.exit()
         self.mainLoopRunning = False
 
@@ -1834,10 +1760,8 @@ class Wizard:
 
         if newdevice != "" and newdevice != None:
             text = unicode(self.ready_text.toHtml())
-            print text
             device_index = text.find(self.summary_device)
             newstring = text[:device_index-75] + '<a href="device">' + newdevice + '</a>' + text[device_index+len(self.summary_device)+11:]
-            print newstring
             self.ready_text.setText(newstring)
             self.summary_device = newdevice
 
@@ -1892,7 +1816,6 @@ class TimezoneMap(object):
 
     def set_city_text(self, name):
         """ Gets a long name, Europe/London """
-        print "set_city_text" + name
         timezone_city_combo = self.frontend.userinterface.timezone_city_combo
         count = timezone_city_combo.count()
         found = False
@@ -1977,7 +1900,6 @@ class TimezoneMap(object):
             self.update_timeout.start(100)
 
     def cityChanged(self):
-        print "cityChanged"
         self.frontend.userinterface.timezone_city_combo.setCurrentIndex(self.city_index.index(self.tzmap.city))
         self.city_combo_changed(self.frontend.userinterface.timezone_city_combo.currentIndex())
         self.frontend.allow_go_forward(True)
@@ -2025,12 +1947,10 @@ class MapWidget(QWidget):
         self.cityIndicator.hide()
 
     def paintEvent(self, paintEvent):
-        print "paintEvent"
         ##FIXME this is slow, need to buffer the output.
         painter = QPainter(self)
         for city in self.cities:
             self.drawCity(self.cities[city][0], self.cities[city][1], painter)
-        print "paintEvent done"
 
     def drawCity(self, lat, long, painter):
         point = self.getPosition(lat, long, self.width(), self.height())
@@ -2104,14 +2024,12 @@ class MapWidget(QWidget):
         self.emit(SIGNAL("cityChanged"), ())
 
     def resizeEvent(self, resizeEvent):
-        print "resizeEvent"
         image = QImage(self.imagePath);
         pixmapUnscaled = QPixmap(self.imagePath);
         pixmap = pixmapUnscaled.scaled( QSize(self.width(), self.height()), Qt.IgnoreAspectRatio, Qt.SmoothTransformation)
         palette = QPalette()
         palette.setBrush(self.backgroundRole(), QBrush(pixmap))
         self.setPalette(palette)
-        print "resizeEvent done"
 
 class UbiquityTextEdit(QTextEdit):
     """A text edit widget that listens for clicks on the link"""
@@ -2122,7 +2040,6 @@ class UbiquityTextEdit(QTextEdit):
         self.setTextInteractionFlags(Qt.TextBrowserInteraction)
 
     def mouseReleaseEvent(self, event):
-        print "mouseReleaseEvent"
         if len(self.anchorAt(event.pos())) > 0:
             self.mainwin.change_device()
         QTextEdit.mouseReleaseEvent(self, event)
