@@ -86,6 +86,8 @@ clean:
 
 	dh_clean debian/ubiquity.install ubiquity/keyboard_names.py
 
+	$(MAKE) -C d-i check
+
 ubiquity/keyboard_names.py: d-i/source/console-setup/Keyboard/KeyboardNames.pl
 	d-i/make-keyboard-names $< > $@
 
