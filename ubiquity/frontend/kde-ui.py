@@ -169,6 +169,7 @@ class Wizard:
         self.translate_widgets()
 
         self.map_vbox = QVBoxLayout(self.userinterface.map_frame)
+        self.map_vbox.setMargin(0)
 
         self.customize_installer()
 
@@ -802,7 +803,7 @@ class Wizard:
             self.translate_widgets()
             self.set_current_page(WIDGET_STACK_STEPS["stepLocation"])
             self.userinterface.back.show()
-            ##FIXMEself.allow_go_forward(self.get_timezone() is not None)
+            self.allow_go_forward(self.get_timezone() is not None)
         # Location
         elif step == str("stepLocation"):
             self.set_current_page(WIDGET_STACK_STEPS["stepKeyboardConf"])
@@ -867,7 +868,6 @@ class Wizard:
     def process_autopartitioning(self):
         """Processing automatic partitioning step tasks."""
 
-        ##FIXME, why is this here? jr
         self.app.processEvents()
 
         # For safety, if we somehow ended up improperly initialised
@@ -884,24 +884,23 @@ class Wizard:
     def qtparted_crashed(self):
         pass
         """qtparted crashed. Ask the user if they want to continue."""
-    """FIXME
         # TODO cjwatson 2006-07-18: i18n
         text = ('The advanced partitioner (qtparted) crashed. Further '
                 'information may be found in /var/log/syslog, or by '
                 'running qtparted directly. Do you want to try the '
                 'advanced partitioner again, return to automatic '
                 'partitioning, or quit this installer?')
+        #FIXME QMessageBox seems to have lost the ability to set custom labels
+        # so for now we have to get by with these not-entirely meaningful stock labels
         answer = QMessageBox.warning(self.userinterface, 'QTParted crashed',
-                                     text, 'Try again',
-                                     'Automatic partitioning', 'Quit', 0, 0)
-        if answer == 1:
+                                     text, QMessageBox.Retry, QMessageBox.Reset, QMessageBox.Close)
+        if answer == QMessageBox.Reset:
             self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
-        elif answer == 2:
+        elif answer == QMessageBox.Close:
             self.current_page = None
             self.quit()
         else:
             self.qtparted_loop()
-    """
 
     def qtparted_to_mountpoints(self):
         """Processing qtparted to mountpoints step tasks."""
