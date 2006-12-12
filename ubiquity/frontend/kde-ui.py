@@ -202,9 +202,9 @@ class Wizard:
         self.mountpoint_vbox.addStretch()
 
         summary_vbox = QVBoxLayout(self.userinterface.summary_frame)
+        summary_vbox.setMargin(0)
         self.ready_text = UbiquityTextEdit(self, self.userinterface.summary_frame)
         self.ready_text.setReadOnly(True)
-        ##self.ready_text.setTextFormat(Qt.RichText)
         self.ready_text.setAcceptRichText(True)
         summary_vbox.addWidget(self.ready_text)
 
@@ -346,6 +346,7 @@ class Wizard:
         #iconLoader = KIconLoader()
         #icon = iconLoader.loadIcon("system", KIcon.Small)
         #self.userinterface.logo_image.setPixmap(icon)
+        self.userinterface.setWindowIcon(QIcon("/usr/share/icons/crystalsvg/64x64/apps/ubiquity.png"))
         self.userinterface.back.hide()
 
         """
@@ -1254,28 +1255,21 @@ class Wizard:
             lang = self.language_choice_map[value][1]
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
-            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.next, self.userinterface.back, self.userinterface.cancel):
+            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.next, self.userinterface.back, self.userinterface.cancel, self.userinterface.step_label):
                 self.translate_widget(widget, lang)
 
     def on_timezone_time_adjust_clicked (self):
-        pass
-    """FIXME
-        #invisible = gtk.Invisible()
-        #invisible.grab_add()
         time_admin_env = dict(os.environ)
         tz = self.tzmap.get_selected_tz_name()
         if tz is not None:
             time_admin_env['TZ'] = tz
         time_admin_subp = subprocess.Popen(["log-output", "-t", "ubiquity",
                                             "kcmshell", "clock"], env=time_admin_env)
-        #gobject.child_watch_add(time_admin_subp.pid, self.on_time_admin_exit,
-        #                        invisible)
-    """
 
     def on_steps_switch_page(self, newPageID):
         print "on_steps_switch_page, setting to: " + str(newPageID)
         self.current_page = newPageID
-        ##FIXMEself.translate_widget(self.userinterface.step_label, self.locale)
+        self.translate_widget(self.userinterface.step_label, self.locale)
         syslog.syslog('switched to page %s' % self.step_name(newPageID))
 
     def on_autopartition_toggled (self, choice, enable):
@@ -1728,9 +1722,6 @@ class Wizard:
         """If the install progress bar is up but still at the partitioning
         stage, then errors can safely return us to autopartitioning.
         """
-        pass
-    """FIXME
-
         if self.installing and self.current_page is not None:
             # Go back to the autopartitioner and try again.
             #self.live_installer.show()
@@ -1739,21 +1730,15 @@ class Wizard:
             self.userinterface.next.setText(nextText)
             self.backup = True
             self.installing = False
-    """
 
     def error_dialog (self, title, msg, fatal=True):
-        pass
-    """FIXME
         self.allow_change_step(True)
         # TODO: cancel button as well if capb backup
         QMessageBox.warning(self.userinterface, title, msg, QMessageBox.Ok)
         if fatal:
             self.return_to_autopartitioning()
-    """
 
     def question_dialog (self, title, msg, option_templates):
-        pass
-    """FIXME
         # I doubt we'll ever need more than three buttons.
         assert len(option_templates) <= 3, option_templates
 
@@ -1769,16 +1754,26 @@ class Wizard:
         affirmative = buttons.pop()
         buttons.insert(0, affirmative)
 
-        response = QMessageBox.question(self.userinterface, title, msg,
-                                        *buttons)
+        #FIXME qt 4 seems to have lost the ability to set a custom message on the buttons for stock dialogues
+        #response = QMessageBox.question(self.userinterface, title, msg,
+        #                                *buttons)
+        response = QMessageBox.question(self.userinterface, title, msg, QMessageBox.Ok, QMessageBox.Cancel)
 
+        """
         if response < 0:
             return None
         elif response == 0:
             return option_templates[len(buttons) - 1]
         else:
             return option_templates[response - 1]
-    """
+        """
+        
+        if response < 0:
+            return None
+        elif response == QMessageBox.Ok:
+            return option_templates[len(buttons) - 1]
+        else:
+            return option_templates[response - 1]
 
     def refresh (self):
         self.app.processEvents()
@@ -1831,18 +1826,20 @@ class Wizard:
  
     def change_device(self):
         """prompt user to set new Grub device"""
-        pass
-    """FIXME
-        answer = QInputDialog.getText("Device for boot loader installation:", "Device for boot loader installation:", QLineEdit.Normal, self.summary_device)
-        newdevice = unicode(answer[0])
-        if newdevice != "" and newdevice != None:
 
-            text = unicode(self.ready_text.text())
+        #FIXME translate text = get_string("Device for boot loader installation:", self.locale)
+
+        answer = QInputDialog.getText(self.userinterface, "Device for boot loader installation:", "Device for boot loader installation:", QLineEdit.Normal, self.summary_device)
+        newdevice = unicode(answer[0])
+
+        if newdevice != "" and newdevice != None:
+            text = unicode(self.ready_text.toHtml())
+            print text
             device_index = text.find(self.summary_device)
-            newstring = text[:device_index-17] + '<a href="device">' + newdevice + '</a>' + text[device_index+len(self.summary_device)+4:]
+            newstring = text[:device_index-17] + '<a href="device">' + newdevice + '</a>' + text[device_index+len(self.summary_device)+11:]
+            print newstring
             self.ready_text.setText(newstring)
             self.summary_device = newdevice
-    """
 
     def quit(self):
         """quit installer cleanly."""
@@ -1879,15 +1876,12 @@ class TimezoneMap(object):
                 continue
             continent = zone_bits[0]
             if continent != prev_continent:
-                ##FIXMEtimezone_city_combo.insertItem('')
                 timezone_city_combo.addItem('')
                 self.city_index.append('')
-                ##FIXMEtimezone_city_combo.insertItem("--- %s ---" % continent)
                 timezone_city_combo.addItem("--- %s ---" % continent)
                 self.city_index.append("--- %s ---" % continent)
                 prev_continent = continent
             human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
-            ##FIXMEtimezone_city_combo.insertItem(human_zone)
             timezone_city_combo.addItem(human_zone)
             self.timezone_city_index[human_zone] = location.zone
             self.city_index.append(human_zone)
@@ -1990,16 +1984,12 @@ class TimezoneMap(object):
 
 class CityIndicator(QLabel):
     def __init__(self, parent, name="cityindicator"):
-        ##FIXMEQLabel.__init__(self, parent, name, Qt.WStyle_StaysOnTop | Qt.WStyle_Customize | Qt.WStyle_NoBorder | Qt.WStyle_Tool | Qt.WX11BypassWM)
         QLabel.__init__(self, parent)
         self.setMouseTracking(True)
         self.setMargin(1)
         self.setIndent(0)
         self.setAutoFillBackground(True)
-        ##FIXMEself.setAutoMask(False)
         self.setLineWidth(1)
-        ##FIXMEself.setAlignment(QLabel.AlignAuto | QLabel.AlignTop)
-        #self.setAutoResize(True)
         self.setFrameStyle(QFrame.Box | QFrame.Plain)
         self.setPalette(QToolTip.palette())
         self.setText("CityIndicator")
@@ -2016,15 +2006,11 @@ class MapWidget(QWidget):
     def __init__(self, parent, name="mapwidget"):
         QWidget.__init__(self, parent)
         self.setObjectName(name)
-        ##FIXMEself.setBackgroundMode(QWidget.NoBackground)
         self.setAutoFillBackground(True)
         self.imagePath = "/usr/share/ubiquity/pixmaps/world_map-960.png"
         image = QImage(self.imagePath);
-        ##FIXMEimage = image.smoothScale(self.width(), self.height())
         pixmapUnscaled = QPixmap(self.imagePath);
         pixmap = pixmapUnscaled.scaled( QSize(self.width(), self.height()) )
-        ##pixmap.convertFromImage(image)
-        ##self.setPaletteBackgroundPixmap(pixmap)
         palette = QPalette()
         palette.setBrush(self.backgroundRole(), QBrush(pixmap))
         self.setPalette(palette)
@@ -2101,7 +2087,6 @@ class MapWidget(QWidget):
         if city is None:
             return
         self.cityIndicator.setText(city)
-        #self.cityIndicator.move(self.getPosition(self.cities[city][0], self.cities[city][1], self.width(), self.height()))
         movePoint = self.getPosition(self.cities[city][0], self.cities[city][1], self.width(), self.height())
         self.cityIndicator.move(movePoint.x(), movePoint.y() - self.cityIndicator.height())
         self.cityIndicator.show()
@@ -2116,7 +2101,6 @@ class MapWidget(QWidget):
             self.city = "London"
         else:
             self.city = city
-        #self.emit(PYSIGNAL("cityChanged"), ())
         self.emit(SIGNAL("cityChanged"), ())
 
     def resizeEvent(self, resizeEvent):
@@ -2135,9 +2119,10 @@ class UbiquityTextEdit(QTextEdit):
         QTextEdit.__init__(self, parent)
         self.setMouseTracking(True)
         self.mainwin = mainwin
+        self.setTextInteractionFlags(Qt.TextBrowserInteraction)
 
-    ##FIXME doesn't seem to work
-    def contentsMouseReleaseEvent(self, event):
+    def mouseReleaseEvent(self, event):
+        print "mouseReleaseEvent"
         if len(self.anchorAt(event.pos())) > 0:
             self.mainwin.change_device()
-        QTextEdit.contentsMouseReleaseEvent(self, event)
+        QTextEdit.mouseReleaseEvent(self, event)
