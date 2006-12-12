@@ -1836,7 +1836,7 @@ class Wizard:
             text = unicode(self.ready_text.toHtml())
             print text
             device_index = text.find(self.summary_device)
-            newstring = text[:device_index-17] + '<a href="device">' + newdevice + '</a>' + text[device_index+len(self.summary_device)+11:]
+            newstring = text[:device_index-75] + '<a href="device">' + newdevice + '</a>' + text[device_index+len(self.summary_device)+11:]
             print newstring
             self.ready_text.setText(newstring)
             self.summary_device = newdevice
