@@ -60,6 +60,8 @@ PATH = '/usr/share/ubiquity'
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
+UIDIR = '/usr/lib/ubiquity/ubiquity/frontend'
+
 BREADCRUMB_STEPS = {
     "stepLanguage": 1,
     "stepLocation": 2,
@@ -88,7 +90,7 @@ class UbiquityUI(QWidget):
 
     def __init__(self):
         QWidget.__init__(self)
-        uic.loadUi("ubiquity/frontend/liveinstaller.ui", self)
+        uic.loadUi("%s/liveinstaller.ui" % UIDIR, self)
 
     def setWizard(self, wizardRef):
         self.wizard = wizardRef
@@ -225,7 +227,7 @@ class Wizard:
         print >>sys.stderr, tbtext
 
         dialog = QDialog(self.userinterface)
-        uic.loadUi("ubiquity/frontend/crashdialog.ui", dialog)
+        uic.loadUi("%s/crashdialog.ui" % UIDIR, dialog)
         dialog.beastie_url.setOpenExternalLinks(True)
         dialog.crash_detail.setText(tbtext)
         dialog.exec_()
