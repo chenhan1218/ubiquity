@@ -20,12 +20,11 @@ import errno
 import shutil
 import syslog
 import atexit
+import optparse
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
 from ubiquity import misc
-
-cdebconf = False
 
 VERSION = '@VERSION@'
 TARGET = '/target'
@@ -113,6 +112,26 @@ def acquire_lock():
     pidf.close()
 
 def main():
+    usage = '%prog [options] [frontend]'
+    parser = optparse.OptionParser(usage=usage, version=VERSION)
+    parser.add_option('-d', '--debug', dest='debug', action='store_true',
+                      default=('UBIQUITY_DEBUG' in os.environ),
+                      help='debug mode (warning: passwords will be logged!)')
+    parser.add_option('--cdebconf', dest='cdebconf',
+                      action='store_true', default=False,
+                      help='use cdebconf instead of debconf (experimental)')
+    (options, args) = parser.parse_args()
+
+    if options.debug:
+        os.environ['UBIQUITY_DEBUG'] = '1'
+
+    if options.cdebconf:
+        # Note that this needs to be set before DebconfCommunicate is
+        # imported by anything.
+        os.environ['DEBCONF_USE_CDEBCONF'] = '1'
+        prepend_path('/usr/lib/cdebconf')
+    prepend_path('/usr/lib/ubiquity/compat')
+
     acquire_lock()
 
     if not os.path.exists('/var/log/installer'):
@@ -123,13 +142,6 @@ def main():
     version_file = open('/var/log/installer/version', 'w')
     print >>version_file, 'ubiquity %s' % VERSION
     version_file.close()
-
-    if cdebconf:
-        # Note that this needs to be set before DebconfCommunicate is
-        # imported by anything.
-        os.environ['DEBCONF_USE_CDEBCONF'] = '1'
-        prepend_path('/usr/lib/cdebconf')
-    prepend_path('/usr/lib/ubiquity/compat')
 
     if 'UBIQUITY_DEBUG' in os.environ:
         if 'UBIQUITY_DEBUG_CORE' not in os.environ:
@@ -157,8 +169,8 @@ def main():
         os.unlink("/var/lib/ubiquity/remove-kernels")
     shutil.rmtree("/var/lib/partman", ignore_errors=True)
 
-    if len(sys.argv) == 2:
-        install(sys.argv[1])
+    if args:
+        install(args[0])
     else:
         install()
 
