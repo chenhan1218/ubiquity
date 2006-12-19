@@ -122,9 +122,10 @@ endif
 endif
 
 	# Bits of manual installation that can't be done by dh_install
-	sed 's/@VERSION@/$(VERSION)/g' installer \
-		> debian/ubiquity/usr/bin/ubiquity
-	chmod +x debian/ubiquity/usr/bin/ubiquity
+	install bin/ubiquity-wrapper debian/ubiquity/usr/bin/ubiquity
+	sed 's/@VERSION@/$(VERSION)/g' bin/ubiquity \
+		> debian/ubiquity/usr/lib/ubiquity/bin/ubiquity
+	chmod +x debian/ubiquity/usr/lib/ubiquity/bin/ubiquity
 	sed 's,/usr/lib/apt-setup,/usr/lib/ubiquity/apt-setup,g' \
 		d-i/source/apt-setup/apt-setup \
 		> debian/ubiquity/usr/lib/ubiquity/apt-setup/apt-setup
