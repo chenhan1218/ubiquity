@@ -52,8 +52,8 @@ except ImportError:
     from ubiquity.debconfcommunicator import DebconfCommunicator
 
 try:
-    import problem_report
-    import apport_utils
+    import apport
+    import apport.fileutils
 except ImportError:
     pass
 
@@ -189,12 +189,12 @@ class Wizard:
                              " (invoking crash handler):")
         print >>sys.stderr, tbtext
 
-        if 'problem_report' in sys.modules and 'apport_utils' in sys.modules:
+        if 'apport' in sys.modules:
             try:
-                pr = problem_report.ProblemReport()
-                apport_utils.report_add_package_info(pr, 'ubiquity-frontend-gtk')
-                apport_utils.report_add_os_info(pr)
-                apport_utils.report_add_proc_info(pr)
+                pr = apport.Report()
+                pr.add_package_info('ubiquity-frontend-gtk')
+                pr.add_os_info()
+                pr.add_proc_info()
                 pr['BugDisplayMode'] = 'file'
                 pr['ExecutablePath'] = '/usr/bin/ubiquity'
                 pr['PythonTraceback'] = tbtext
@@ -202,7 +202,7 @@ class Wizard:
                     pr['UbiquitySyslog'] = ('/var/log/syslog',)
                 if os.path.exists('/var/log/partman'):
                     pr['UbiquityPartman'] = ('/var/log/partman',)
-                reportfile = open(apport_utils.make_report_path(pr), 'w')
+                reportfile = open(apport.fileutils.make_report_path(pr), 'w')
                 pr.write(reportfile)
                 reportfile.close()
             except (KeyboardInterrupt, SystemExit):
