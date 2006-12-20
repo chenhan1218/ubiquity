@@ -54,6 +54,7 @@ class Partman(PartmanAuto):
         self.creating_partition = None
         self.editing_partition = None
         self.deleting_partition = None
+        self.finish_partitioning = False
 
         questions = list(prep[1])
         questions.extend(['^partman/free_space$',
@@ -375,10 +376,11 @@ class Partman(PartmanAuto):
             self.creating_partition = None
             self.editing_partition = None
             self.deleting_partition = None
+            self.finish_partitioning = False
 
             super(PartmanAuto, self).run(priority, question)
 
-            if self.done:
+            if self.finish_partitioning:
                 if self.succeeded:
                     self.preseed_script(question, menu_options, 'finish')
                 return self.succeeded
@@ -615,12 +617,16 @@ class Partman(PartmanAuto):
         return super(Partman, self).run(priority, question)
 
     def ok_handler(self):
-        super(Partman, self).ok_handler()
         if self.current_question.endswith('automatically_partition'):
+            super(Partman, self).ok_handler()
             if self.frontend.get_autopartition_choice()[0] == self.manual_desc:
                 # In the all-in-one Partman, we keep on going in this case.
                 self.succeeded = True
                 self.done = False
+        else:
+            self.succeeded = True
+            self.finish_partitioning = True
+            self.exit_ui_loops()
 
     # TODO cjwatson 2006-11-01: Do we still need this?
     def rebuild_cache(self):
