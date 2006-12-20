@@ -1789,6 +1789,7 @@ class Wizard:
                 model = self.partition_create_use_combo.get_model()
                 method = model.get_value(method_iter, 0)
 
+            self.allow_change_step(False)
             self.dbfilter.create_partition(
                 devpart, self.partition_create_size_entry.get_text(),
                 prilog, place, method)
@@ -1859,6 +1860,7 @@ class Wizard:
             if mountpoint == '':
                 mountpoint = None
 
+            self.allow_change_step(False)
             self.dbfilter.edit_partition(devpart, method, mountpoint)
 
     def on_partition_list_treeview_button_press_event (self, widget, event):
