@@ -27,4 +27,4 @@ class YabootInstaller(FilteredCommand):
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question),
                                    self.extended_description(question))
-        return super(YabootInstaller, self).error(priority, question)
+        return FilteredCommand.error(self, priority, question)

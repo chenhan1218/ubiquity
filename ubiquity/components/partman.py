@@ -39,7 +39,7 @@ class PartmanOptionError(LookupError):
 
 class Partman(PartmanAuto):
     def prepare(self):
-        prep = super(Partman, self).prepare()
+        prep = PartmanAuto.prepare(self)
 
         # We don't need this weirdness for the all-in-one Partman.
         self.stashed_auto_mountpoints = {}
@@ -385,7 +385,7 @@ class Partman(PartmanAuto):
             self.deleting_partition = None
             self.finish_partitioning = False
 
-            super(PartmanAuto, self).run(priority, question)
+            FilteredCommand.run(self, priority, question)
 
             if self.finish_partitioning or self.done:
                 if self.succeeded:
@@ -621,11 +621,11 @@ class Partman(PartmanAuto):
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
-        return super(Partman, self).run(priority, question)
+        return PartmanAuto.run(self, priority, question)
 
     def ok_handler(self):
         if self.current_question.endswith('automatically_partition'):
-            super(Partman, self).ok_handler()
+            PartmanAuto.ok_handler(self)
             if self.frontend.get_autopartition_choice()[0] == self.manual_desc:
                 # In the all-in-one Partman, we keep on going in this case.
                 self.succeeded = True

@@ -97,12 +97,12 @@ class Language(FilteredCommand):
                 self.db.set(question, self.db.get('debian-installer/country'))
             return True
 
-        return super(Language, self).run(priority, question)
+        return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
         if self.language_question is not None:
             self.preseed(self.language_question, self.frontend.get_language())
-        super(Language, self).ok_handler()
+        FilteredCommand.ok_handler(self)
 
     def cleanup(self):
         di_locale = self.db.get('debian-installer/locale')

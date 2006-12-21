@@ -22,11 +22,11 @@ from ubiquity.components.partman_commit import PartmanCommit
 
 class Summary(PartmanCommit):
     def __init__(self, frontend, manual_partitioning=False):
-        super(Summary, self).__init__(frontend, manual_partitioning, True)
+        PartmanCommit.__init__(self, frontend, manual_partitioning, True)
         self.using_grub = False
 
     def prepare(self):
-        prep = list(super(Summary, self).prepare())
+        prep = list(PartmanCommit.prepare(self))
         prep[0] = '/usr/share/ubiquity/summary'
         prep[1].append('^ubiquity/summary.*')
         return prep
@@ -53,4 +53,4 @@ class Summary(PartmanCommit):
             return True
 
         else:
-            return super(Summary, self).run(priority, question)
+            return PartmanCommit.run(self, priority, question)
