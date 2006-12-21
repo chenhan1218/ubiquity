@@ -1841,7 +1841,7 @@ class Wizard:
             iterator = list_store.get_iter_first()
             while iterator:
                 if list_store[iterator][0] == partition['mountpoint']:
-                    self.partition_edit_use_combo.set_active_iter(iterator)
+                    self.partition_edit_mount_combo.set_active_iter(iterator)
                     break
                 iterator = list_store.iter_next(iterator)
 
