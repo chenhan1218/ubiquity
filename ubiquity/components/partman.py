@@ -387,7 +387,7 @@ class Partman(PartmanAuto):
 
             super(PartmanAuto, self).run(priority, question)
 
-            if self.finish_partitioning:
+            if self.finish_partitioning or self.done:
                 if self.succeeded:
                     self.preseed_script(question, menu_options, 'finish')
                 return self.succeeded
