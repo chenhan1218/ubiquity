@@ -26,7 +26,7 @@ from ubiquity.parted_server import PartedServer
 
 class PartmanAuto(FilteredCommand):
     def __init__(self, frontend=None):
-        super(PartmanAuto, self).__init__(frontend)
+        FilteredCommand.__init__(self, frontend)
         self.resize_desc = ''
         self.manual_desc = ''
 
@@ -66,7 +66,7 @@ class PartmanAuto(FilteredCommand):
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question),
                                    self.extended_description(question))
-        return super(PartmanAuto, self).error(priority, question)
+        return FilteredCommand.error(self, priority, question)
 
     def parse_size(self, size_str):
         (num, unit) = size_str.split(' ', 1)
@@ -99,7 +99,7 @@ class PartmanAuto(FilteredCommand):
         if question == 'partman-partitioning/impossible_resize':
             # Back up silently.
             return False
-        return super(PartmanAuto, self).error(priority, question)
+        return FilteredCommand.error(self, priority, question)
 
     def run(self, priority, question):
         if self.stashed_auto_mountpoints is None:
@@ -236,7 +236,7 @@ class PartmanAuto(FilteredCommand):
                 self.preseed(question, 'false')
             return True
 
-        return super(PartmanAuto, self).run(priority, question)
+        return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
         (autopartition_choice, self.extra_choice) = \

@@ -47,7 +47,7 @@ class Timezone(FilteredCommand):
                 zone = 'America/New_York'
             self.frontend.set_timezone(zone)
 
-        return super(Timezone, self).run(priority, question)
+        return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
         zone = self.frontend.get_timezone()
@@ -59,7 +59,7 @@ class Timezone(FilteredCommand):
             if location.zone == zone:
                 self.preseed('debian-installer/country', location.country)
                 break
-        super(Timezone, self).ok_handler()
+        FilteredCommand.ok_handler(self)
 
     def cleanup(self):
         di_locale = self.db.get('debian-installer/locale')

@@ -1,3 +1,9 @@
+ubiquity (1.3.6) UNRELEASED; urgency=low
+
+  * Avoid use of super() in components, since it's far too confusing.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 21 Dec 2006 15:17:38 +0000
+
 ubiquity (1.3.5) feisty; urgency=low
 
   [ Colin Watson ]

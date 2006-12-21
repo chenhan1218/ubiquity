@@ -55,7 +55,7 @@ class UserSetup(FilteredCommand):
                      escape=True)
         self.preseed('passwd/user-uid', '')
 
-        super(UserSetup, self).ok_handler()
+        FilteredCommand.ok_handler(self)
 
     def error(self, priority, question):
         if question.startswith('passwd/username-'):
@@ -65,4 +65,4 @@ class UserSetup(FilteredCommand):
         else:
             self.frontend.error_dialog(self.description(question),
                                        self.extended_description(question))
-        return super(UserSetup, self).error(priority, question)
+        return FilteredCommand.error(self, priority, question)
