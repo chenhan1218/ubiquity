@@ -282,7 +282,12 @@ class Partman(PartmanAuto):
                                     'device': device
                                 }
 
+                    if self.update_partitions is None:
                         self.update_partitions = self.partition_cache.keys()
+                    else:
+                        self.update_partitions = [devpart
+                            for devpart in self.update_partitions
+                            if devpart in self.partition_cache]
 
                     # Update the display names of all disks and partitions.
                     for script, arg, option in matches:
