@@ -1834,7 +1834,8 @@ class Wizard:
             for mp, choice_c, choice in partition['mountpoint_choices']:
                 list_store.append([mp, choice])
         self.partition_edit_mount_combo.set_model(list_store)
-        self.partition_edit_mount_combo.set_text_column(0)
+        if self.partition_edit_mount_combo.get_text_column() == -1:
+            self.partition_edit_mount_combo.set_text_column(0)
         if 'mountpoint' in partition:
             self.partition_edit_mount_combo.child.set_text(
                 partition['mountpoint'])
