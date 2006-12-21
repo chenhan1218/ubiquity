@@ -182,6 +182,8 @@ class Partman(PartmanAuto):
                     self.update_partitions = []
                 if value not in self.update_partitions:
                     self.update_partitions.append(value)
+            self.debug('Partman: update_partitions = %s',
+                       self.update_partitions)
 
     def run(self, priority, question):
         self.current_question = question
