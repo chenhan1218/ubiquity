@@ -64,6 +64,9 @@ class PartmanAuto(FilteredCommand):
         return ('/bin/partman', questions, {'PARTMAN_NO_COMMIT': '1'})
 
     def error(self, priority, question):
+        if question == 'partman-partitioning/impossible_resize':
+            # Back up silently.
+            return False
         self.frontend.error_dialog(self.description(question),
                                    self.extended_description(question))
         return FilteredCommand.error(self, priority, question)
@@ -94,12 +97,6 @@ class PartmanAuto(FilteredCommand):
                 self.resize_min_size = self.parse_size(value)
             elif key == 'MAXSIZE':
                 self.resize_max_size = self.parse_size(value)
-
-    def error(self, priority, question):
-        if question == 'partman-partitioning/impossible_resize':
-            # Back up silently.
-            return False
-        return FilteredCommand.error(self, priority, question)
 
     def run(self, priority, question):
         if self.stashed_auto_mountpoints is None:
