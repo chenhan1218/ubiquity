@@ -1738,7 +1738,7 @@ class Wizard:
         if partition['parted']['type'] == 'pri/log':
             # Is there already an extended partition?
             model = self.partition_list_treeview.get_model()
-            for otherpart in [row[0][1] for row in model]:
+            for otherpart in [row[1] for row in model]:
                 if (otherpart['dev'] == partition['dev'] and
                     otherpart['parted']['type'] == 'logical'):
                     self.partition_create_type_logical.set_active(True)
