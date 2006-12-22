@@ -373,6 +373,11 @@ class Partman(PartmanAuto):
 
             if self.debug_enabled():
                 import pprint
+                self.debug('disk_cache:')
+                printer = pprint.PrettyPrinter()
+                for line in printer.pformat(self.disk_cache).split('\n'):
+                    self.debug('%s', line)
+                self.debug('disk_cache end')
                 self.debug('partition_cache:')
                 printer = pprint.PrettyPrinter()
                 for line in printer.pformat(self.partition_cache).split('\n'):
