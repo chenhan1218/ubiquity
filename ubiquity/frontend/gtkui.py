@@ -1812,10 +1812,14 @@ class Wizard:
                 model = self.partition_create_use_combo.get_model()
                 method = model.get_value(method_iter, 0)
 
+            mountpoint = self.partition_create_mount_combo.child.get_text()
+            if mountpoint == '':
+                mountpoint = None
+
             self.allow_change_step(False)
             self.dbfilter.create_partition(
                 devpart, self.partition_create_size_entry.get_text(),
-                prilog, place, method)
+                prilog, place, method, mountpoint)
 
     def partman_edit_dialog (self, devpart, partition):
         if not isinstance(self.dbfilter, partman.Partman):
