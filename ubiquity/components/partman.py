@@ -643,9 +643,19 @@ class Partman(PartmanAuto):
                             choices_c[i], choices[i]))
                 # Back up to the previous menu.
                 return False
-            else:
-                self.preseed(question, 'Enter manually')
+            elif self.creating_partition or self.editing_partition:
+                if self.creating_partition:
+                    mountpoint = self.creating_partition['mountpoint']
+                else:
+                    mountpoint = self.editing_partition['mountpoint']
+
+                if mountpoint == '' or mountpoint is None:
+                    self.preseed(question, 'Do not mount it')
+                else:
+                    self.preseed(question, 'Enter manually')
                 return True
+            else:
+                raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman-basicfilesystems/mountpoint_manual':
             if self.creating_partition or self.editing_partition:

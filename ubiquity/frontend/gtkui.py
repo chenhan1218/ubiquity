@@ -1813,8 +1813,6 @@ class Wizard:
                 method = model.get_value(method_iter, 0)
 
             mountpoint = self.partition_create_mount_combo.child.get_text()
-            if mountpoint == '':
-                mountpoint = None
 
             self.allow_change_step(False)
             self.dbfilter.create_partition(
@@ -1885,8 +1883,6 @@ class Wizard:
                 method = model.get_value(method_iter, 0)
 
             mountpoint = self.partition_edit_mount_combo.child.get_text()
-            if mountpoint == '':
-                mountpoint = None
 
             self.allow_change_step(False)
             self.dbfilter.edit_partition(devpart, method, mountpoint)
