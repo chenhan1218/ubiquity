@@ -186,6 +186,13 @@ class Partman(PartmanAuto):
             self.debug('Partman: update_partitions = %s',
                        self.update_partitions)
 
+    def error(self, priority, question):
+        if question == 'partman-partitioning/bad_new_partition_size':
+            if self.creating_partition:
+                # Break out of creating the partition.
+                self.creating_partition['bad_size'] = True
+        return PartmanAuto.error(self, priority, question)
+
     def run(self, priority, question):
         self.current_question = question
         options = self.snoop()
@@ -469,9 +476,9 @@ class Partman(PartmanAuto):
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman-partitioning/new_partition_size':
-            # TODO cjwatson 2006-08-03: handle error
-            # (partman-partitioning/bad_new_partition_size)
             if self.creating_partition:
+                if 'bad_size' in self.creating_partition:
+                    return False
                 self.preseed(question, self.creating_partition['size'])
                 return True
             else:
