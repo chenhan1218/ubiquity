@@ -1784,6 +1784,7 @@ class Wizard:
             self.partition_create_use_combo.set_active(0)
 
         # TODO cjwatson 2006-11-01: set up mount point combo
+        self.partition_create_mount_combo.child.set_text('')
 
         response = self.partition_create_dialog.run()
         self.partition_create_dialog.hide()
