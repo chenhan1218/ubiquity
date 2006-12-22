@@ -1706,6 +1706,14 @@ class Wizard:
         partition = model[iterator][1]
 
         partition_list_menu = gtk.Menu()
+        if 'id' not in partition:
+            # TODO cjwatson 2006-12-21: i18n;
+            # partman-partitioning/text/label text is quite long?
+            new_label_item = gtk.MenuItem('New partition table')
+            new_label_item.connect(
+                'activate', self.on_partition_list_menu_new_label_activate,
+                devpart, partition)
+            partition_list_menu.append(new_label_item)
         if 'can_new' in partition and partition['can_new']:
             # TODO cjwatson 2006-10-31: i18n
             new_item = gtk.MenuItem('New')
@@ -1903,14 +1911,29 @@ class Wizard:
             return
 
         if 'id' not in partition:
-            # TODO cjwatson 2006-12-22: Do something useful with the whole
-            # disk? Or is that too unsafe?
-            return
+            # Are there already partitions on this disk? If so, don't allow
+            # activating the row to offer to create a new partition table,
+            # to avoid mishaps.
+            for otherpart in [row[1] for row in model]:
+                if otherpart['dev'] == partition['dev'] and 'id' in otherpart:
+                    break
+            else:
+                if not isinstance(self.dbfilter, partman.Partman):
+                    return
+                self.allow_change_step(False)
+                self.dbfilter.create_label(devpart)
         elif partition['parted']['fs'] == 'free':
             if 'can_new' in partition and partition['can_new']:
                 self.partman_create_dialog(devpart, partition)
         else:
             self.partman_edit_dialog(devpart, partition)
+
+    def on_partition_list_menu_new_label_activate (self, menuitem,
+                                                   devpart, partition):
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        self.allow_change_step(False)
+        self.dbfilter.create_label(devpart)
 
     def on_partition_list_menu_new_activate (self, menuitem,
                                              devpart, partition):

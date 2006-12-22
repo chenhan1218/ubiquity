@@ -50,13 +50,15 @@ class Partman(PartmanAuto):
         self.disk_cache = {}
         self.partition_cache = {}
         self.cache_order = []
+        self.creating_label = None
         self.creating_partition = None
         self.editing_partition = None
         self.deleting_partition = None
         self.finish_partitioning = False
 
         questions = list(prep[1])
-        questions.extend(['^partman/free_space$',
+        questions.extend(['^partman/confirm_new_label$',
+                          '^partman/free_space$',
                           '^partman/active_partition$',
                           '^partman-partitioning/new_partition_(size|type|place)$',
                           '^partman-target/choose_method$',
@@ -386,6 +388,7 @@ class Partman(PartmanAuto):
                 self.debug('partition_cache end')
 
             self.__state = [['', None, None]]
+            self.creating_label = None
             self.creating_partition = None
             self.editing_partition = None
             self.deleting_partition = None
@@ -397,6 +400,14 @@ class Partman(PartmanAuto):
                 if self.succeeded:
                     self.preseed_script(question, menu_options, 'finish')
                 return self.succeeded
+
+            elif self.creating_label:
+                devpart = self.creating_label['devpart']
+                if devpart in self.disk_cache:
+                    disk = self.disk_cache[devpart]
+                    # No need to use self.__state to keep track of this.
+                    self.preseed(question, disk['display'], escape=True)
+                return True
 
             elif self.creating_partition:
                 devpart = self.creating_partition['devpart']
@@ -425,6 +436,20 @@ class Partman(PartmanAuto):
             else:
                 raise AssertionError, ("Returned to %s with nothing to do" %
                                        question)
+
+        elif question == 'partman/confirm_new_label':
+            if self.creating_label:
+                response = self.frontend.question_dialog(
+                    self.description(question),
+                    self.extended_description(question),
+                    ('ubiquity/text/go_back', 'ubiquity/text/continue'))
+                if response is None or response == 'ubiquity/text/continue':
+                    self.preseed(question, 'true')
+                else:
+                    self.preseed(question, 'false')
+                return True
+            else:
+                raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman/free_space':
             if self.building_cache:
@@ -645,6 +670,13 @@ class Partman(PartmanAuto):
     def rebuild_cache(self):
         assert self.current_question == 'partman/choose_partition'
         self.building_cache = True
+
+    def create_label(self, devpart):
+        assert self.current_question == 'partman/choose_partition'
+        self.creating_label = {
+            'devpart': devpart
+        }
+        self.exit_ui_loops()
 
     def create_partition(self, devpart, size, prilog, place,
                          method=None, mountpoint=None):
