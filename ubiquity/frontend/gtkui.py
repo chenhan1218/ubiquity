@@ -1633,7 +1633,10 @@ class Wizard:
 
     def partman_column_name (self, column, cell, model, iterator):
         partition = model[iterator][1]
-        if partition['parted']['fs'] == 'free':
+        if 'id' not in partition:
+            # whole disk
+            cell.set_property('text', partition['device'])
+        elif partition['parted']['fs'] == 'free':
             # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
             # feels a bit too SHOUTY for this interface.
             cell.set_property('text', 'free space')
@@ -1642,7 +1645,7 @@ class Wizard:
 
     def partman_column_type (self, column, cell, model, iterator):
         partition = model[iterator][1]
-        if 'method' not in partition:
+        if 'id' not in partition or 'method' not in partition:
             cell.set_property('text', '')
         elif ('filesystem' in partition and
               partition['method'] in ('format', 'keep')):
@@ -1652,17 +1655,23 @@ class Wizard:
 
     def partman_column_mountpoint (self, column, cell, model, iterator):
         partition = model[iterator][1]
-        if 'mountpoint' in partition:
+        if 'id' in partition and 'mountpoint' in partition:
             cell.set_property('text', partition['mountpoint'])
         else:
             cell.set_property('text', '')
 
     def partman_column_format (self, column, cell, model, iterator):
         partition = model[iterator][1]
-        if 'method' in partition:
+        if 'id' not in partition:
+            cell.set_property('visible', False)
+            cell.set_property('active', False)
+            cell.set_property('activatable', False)
+        elif 'method' in partition:
+            cell.set_property('visible', True)
             cell.set_property('active', partition['method'] == 'format')
             cell.set_property('activatable', 'can_activate_format' in partition)
         else:
+            cell.set_property('visible', True)
             cell.set_property('active', False)
             cell.set_property('activatable', False)
 
@@ -1674,14 +1683,17 @@ class Wizard:
         model = user_data
         devpart = model[path][0]
         partition = model[path][1]
-        if 'method' not in partition:
+        if 'id' not in partition or 'method' not in partition:
             return
         self.allow_change_step(False)
         self.dbfilter.edit_partition(devpart, format='dummy')
 
     def partman_column_size (self, column, cell, model, iterator):
         partition = model[iterator][1]
-        cell.set_property('text', partition['parted']['size'])
+        if 'id' not in partition:
+            cell.set_property('text', '')
+        else:
+            cell.set_property('text', partition['parted']['size'])
 
     def partman_popup (self, widget, event):
         if not self.allowed_change_step:
@@ -1701,7 +1713,7 @@ class Wizard:
                              self.on_partition_list_menu_new_activate,
                              devpart, partition)
             partition_list_menu.append(new_item)
-        if partition['parted']['fs'] != 'free':
+        if 'id' in partition and partition['parted']['fs'] != 'free':
             # TODO cjwatson 2006-10-31: i18n
             edit_item = gtk.MenuItem('Edit')
             edit_item.connect('activate',
@@ -1713,6 +1725,7 @@ class Wizard:
                                 self.on_partition_list_menu_delete_activate,
                                 devpart, partition)
             partition_list_menu.append(delete_item)
+        # TODO cjwatson 2006-12-22: options for whole disks
         if not partition_list_menu.get_children():
             return
         partition_list_menu.show_all()
@@ -1740,6 +1753,7 @@ class Wizard:
             model = self.partition_list_treeview.get_model()
             for otherpart in [row[1] for row in model]:
                 if (otherpart['dev'] == partition['dev'] and
+                    'id' in otherpart and
                     otherpart['parted']['type'] == 'logical'):
                     self.partition_create_type_logical.set_active(True)
                     break
@@ -1888,7 +1902,11 @@ class Wizard:
         except (IndexError, KeyError):
             return
 
-        if partition['parted']['fs'] == 'free':
+        if 'id' not in partition:
+            # TODO cjwatson 2006-12-22: Do something useful with the whole
+            # disk? Or is that too unsafe?
+            return
+        elif partition['parted']['fs'] == 'free':
             if 'can_new' in partition and partition['can_new']:
                 self.partman_create_dialog(devpart, partition)
         else:
@@ -1909,13 +1927,16 @@ class Wizard:
         self.allow_change_step(False)
         self.dbfilter.delete_partition(devpart)
 
-    def update_partman (self, partition_cache, partition_order):
+    def update_partman (self, disk_cache, partition_cache, cache_order):
         partition_tree_model = self.partition_list_treeview.get_model()
         if partition_tree_model is None:
             partition_tree_model = gtk.ListStore(gobject.TYPE_STRING,
                                                  gobject.TYPE_PYOBJECT)
-            for item in partition_order:
-                partition_tree_model.append([item, partition_cache[item]])
+            for item in cache_order:
+                if item in disk_cache:
+                    partition_tree_model.append([item, disk_cache[item]])
+                else:
+                    partition_tree_model.append([item, partition_cache[item]])
 
             # TODO cjwatson 2006-08-05: i18n
             cell_name = gtk.CellRendererText()
@@ -1956,8 +1977,11 @@ class Wizard:
         else:
             # TODO cjwatson 2006-08-31: inefficient, but will do for now
             partition_tree_model.clear()
-            for item in partition_order:
-                partition_tree_model.append([item, partition_cache[item]])
+            for item in cache_order:
+                if item in disk_cache:
+                    partition_tree_model.append([item, disk_cache[item]])
+                else:
+                    partition_tree_model.append([item, partition_cache[item]])
 
         # make sure we're on the advanced partitioning page
         self.set_current_page(self.steps.page_num(self.stepPartAdvanced))

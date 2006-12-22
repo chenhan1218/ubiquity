@@ -49,8 +49,7 @@ class Partman(PartmanAuto):
         self.__state = [['', None, None]]
         self.disk_cache = {}
         self.partition_cache = {}
-        self.disk_order = []
-        self.partition_order = []
+        self.cache_order = []
         self.creating_partition = None
         self.editing_partition = None
         self.deleting_partition = None
@@ -234,8 +233,9 @@ class Partman(PartmanAuto):
                         self.building_cache = False
                         self.frontend.debconf_progress_stop()
                         self.frontend.refresh()
-                        self.frontend.update_partman(self.partition_cache,
-                                                     self.partition_order)
+                        self.frontend.update_partman(
+                            self.disk_cache, self.partition_cache,
+                            self.cache_order)
                 else:
                     self.debug('Partman: Building cache')
                     parted = parted_server.PartedServer()
@@ -250,8 +250,7 @@ class Partman(PartmanAuto):
                     if rebuild_all:
                         self.disk_cache = {}
                         self.partition_cache = {}
-                    self.disk_order = []
-                    self.partition_order = []
+                    self.cache_order = []
 
                     # Clear out the partitions we're updating to make sure
                     # stale keys are removed.
@@ -266,15 +265,14 @@ class Partman(PartmanAuto):
                         if not dev:
                             continue
                         parted.select_disk(dev)
+                        self.cache_order.append(arg)
                         if part_id:
-                            self.partition_order.append(arg)
                             if rebuild_all or arg not in self.partition_cache:
                                 self.partition_cache[arg] = {
                                     'dev': dev,
                                     'id': part_id
                                 }
                         else:
-                            self.disk_order.append(arg)
                             if rebuild_all or arg not in self.disk_cache:
                                 device = parted.readline_device_entry('device')
                                 self.disk_cache[arg] = {
@@ -356,18 +354,21 @@ class Partman(PartmanAuto):
                         self.building_cache = False
                         self.frontend.debconf_progress_stop()
                         self.frontend.refresh()
-                        self.frontend.update_partman(self.partition_cache,
-                                                     self.partition_order)
+                        self.frontend.update_partman(
+                            self.disk_cache, self.partition_cache,
+                            self.cache_order)
             elif self.creating_partition:
                 devpart = self.creating_partition['devpart']
                 if devpart in self.partition_cache:
-                    self.frontend.update_partman(self.partition_cache,
-                                                 self.partition_order)
+                    self.frontend.update_partman(
+                        self.disk_cache, self.partition_cache,
+                        self.cache_order)
             elif self.editing_partition:
                 devpart = self.editing_partition['devpart']
                 if devpart in self.partition_cache:
-                    self.frontend.update_partman(self.partition_cache,
-                                                 self.partition_order)
+                    self.frontend.update_partman(
+                        self.disk_cache, self.partition_cache,
+                        self.cache_order)
             elif self.deleting_partition:
                 raise AssertionError, "Deleting partition didn't rebuild cache?"
 
