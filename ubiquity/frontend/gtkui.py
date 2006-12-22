@@ -1761,6 +1761,8 @@ class Wizard:
             transient = self.live_installer
         else:
             transient = self.debconf_progress_window
+        if not msg:
+            msg = title
         dialog = gtk.MessageDialog(transient, gtk.DIALOG_MODAL,
                                    gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
         dialog.set_title(title)
@@ -1775,6 +1777,8 @@ class Wizard:
             transient = self.live_installer
         else:
             transient = self.debconf_progress_window
+        if not msg:
+            msg = title
         buttons = []
         for option_template in option_templates:
             text = get_string(option_template, self.locale)

@@ -3,6 +3,8 @@ ubiquity (1.3.6) UNRELEASED; urgency=low
   * Avoid use of super() in components, since it's far too confusing.
   * I managed to create two different PartmanAuto.error() methods by
     mistake. Merge them.
+  * GTK frontend: If a question asked by a component doesn't have a message
+    for the dialog body, set it to the title as that's better than nothing.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 21 Dec 2006 15:17:38 +0000
 
