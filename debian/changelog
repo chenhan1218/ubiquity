@@ -1,4 +1,4 @@
-ubiquity (1.3.6) UNRELEASED; urgency=low
+ubiquity (1.3.6) feisty; urgency=low
 
   * Avoid use of super() in components, since it's far too confusing.
   * I managed to create two different PartmanAuto.error() methods by
@@ -15,7 +15,7 @@ ubiquity (1.3.6) UNRELEASED; urgency=low
     partman-basicfilesystems 50ubuntu1, partman-ext3 44, partman-jfs 19,
     partman-reiserfs 33, partman-xfs 31, user-setup 1.8ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 21 Dec 2006 15:17:38 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 24 Dec 2006 19:42:52 +0000
 
 ubiquity (1.3.5) feisty; urgency=low
 
