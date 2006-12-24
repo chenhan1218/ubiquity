@@ -1655,10 +1655,13 @@ class Wizard:
 
     def partman_column_mountpoint (self, column, cell, model, iterator):
         partition = model[iterator][1]
-        if 'id' in partition and 'mountpoint' in partition:
-            cell.set_property('text', partition['mountpoint'])
+        if isinstance(self.dbfilter, partman.Partman):
+            mountpoint = self.dbfilter.get_current_mountpoint(partition)
+            if mountpoint is None:
+                mountpoint = ''
         else:
-            cell.set_property('text', '')
+            mountpoint = ''
+        cell.set_property('text', mountpoint)
 
     def partman_column_format (self, column, cell, model, iterator):
         partition = model[iterator][1]
@@ -1861,12 +1864,12 @@ class Wizard:
         self.partition_edit_mount_combo.set_model(list_store)
         if self.partition_edit_mount_combo.get_text_column() == -1:
             self.partition_edit_mount_combo.set_text_column(0)
-        if 'mountpoint' in partition:
-            self.partition_edit_mount_combo.child.set_text(
-                partition['mountpoint'])
+        mountpoint = self.dbfilter.get_current_mountpoint()
+        if mountpoint is not None:
+            self.partition_edit_mount_combo.child.set_text(mountpoint)
             iterator = list_store.get_iter_first()
             while iterator:
-                if list_store[iterator][0] == partition['mountpoint']:
+                if list_store[iterator][0] == mountpoint:
                     self.partition_edit_mount_combo.set_active_iter(iterator)
                     break
                 iterator = list_store.iter_next(iterator)

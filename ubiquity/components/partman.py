@@ -175,6 +175,13 @@ class Partman(PartmanAuto):
         else:
             return 'dont_use'
 
+    def get_current_mountpoint(self, partition):
+        if ('method' in partition and 'acting_filesystem' in partition and
+            'mountpoint' in partition):
+            return partition['mountpoint']
+        else:
+            return None
+
     def set(self, question, value):
         if question == 'ubiquity/partman-rebuild-cache':
             if not self.building_cache:
