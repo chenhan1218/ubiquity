@@ -216,7 +216,7 @@ class PartedServer(object):
     def partition_info(self, partition):
         self.open_dialog('PARTITION_INFO', partition)
         (p_num, p_id, p_size, p_type, p_fs, p_path, p_name) = self.read_line(7)
+        self.close_dialog()
         if p_id == '':
             return ()
-        self.close_dialog()
         return (p_num, p_id, p_size, p_type, p_fs, p_path, p_name)
