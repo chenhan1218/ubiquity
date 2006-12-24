@@ -120,6 +120,10 @@ def main():
     parser.add_option('--cdebconf', dest='cdebconf',
                       action='store_true', default=False,
                       help='use cdebconf instead of debconf (experimental)')
+    parser.add_option('--new-partitioner', dest='new_partitioner',
+                      action='store_true',
+                      default=('UBIQUITY_NEW_PARTITIONER' in os.environ),
+                      help='use new advanced partitioner (experimental)')
     (options, args) = parser.parse_args()
 
     if options.debug:
@@ -131,6 +135,9 @@ def main():
         os.environ['DEBCONF_USE_CDEBCONF'] = '1'
         prepend_path('/usr/lib/cdebconf')
     prepend_path('/usr/lib/ubiquity/compat')
+
+    if options.new_partitioner:
+        os.environ['UBIQUITY_NEW_PARTITIONER'] = '1'
 
     acquire_lock()
 

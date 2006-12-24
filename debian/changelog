@@ -5,6 +5,10 @@ ubiquity (1.3.6) UNRELEASED; urgency=low
     mistake. Merge them.
   * GTK frontend: If a question asked by a component doesn't have a message
     for the dialog body, set it to the title as that's better than nothing.
+  * First cut at the new advanced partitioner. The graphical disk view isn't
+    implemented yet, many features are missing, validation probably doesn't
+    work properly, and it's very slow, but I hope all these issues can be
+    worked out in time. Use 'ubiquity --new-partitioner' to try it out.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 21 Dec 2006 15:17:38 +0000
 

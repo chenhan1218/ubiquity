@@ -61,7 +61,8 @@ class PartmanAuto(FilteredCommand):
                      'type:boolean',
                      'ERROR',
                      'PROGRESS']
-        return ('/bin/partman', questions, {'PARTMAN_NO_COMMIT': '1'})
+        return ('/bin/partman', questions,
+                {'PARTMAN_NO_COMMIT': '1', 'PARTMAN_SNOOP': '1'})
 
     def error(self, priority, question):
         if question == 'partman-partitioning/impossible_resize':

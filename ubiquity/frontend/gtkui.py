@@ -61,7 +61,8 @@ from ubiquity import filteredcommand, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
-                                partman_auto, partman_commit, summary, install
+                                partman, partman_auto, partman_commit, \
+                                summary, install
 import ubiquity.emap
 import ubiquity.tz
 import ubiquity.progressposition
@@ -278,7 +279,16 @@ class Wizard:
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name == "stepPartAuto":
-                self.dbfilter = partman_auto.PartmanAuto(self)
+                if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
+                    self.dbfilter = partman.Partman(self)
+                else:
+                    self.dbfilter = partman_auto.PartmanAuto(self)
+            elif (current_name == "stepPartAdvanced" and
+                  'UBIQUITY_NEW_PARTITIONER' in os.environ):
+                if isinstance(self.dbfilter, partman.Partman):
+                    pre_log('info', 'reusing running partman')
+                else:
+                    self.dbfilter = partman.Partman(self)
             elif current_name == "stepReady":
                 self.dbfilter = summary.Summary(self, self.manual_partitioning)
             else:
@@ -338,6 +348,10 @@ class Wizard:
 
         if not os.path.exists('/usr/bin/time-admin'):
             self.timezone_time_adjust.hide()
+
+        if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
+            self.embedded.hide()
+            self.part_advanced_vpaned.show()
 
         # set initial bottom bar status
         self.back.hide()
@@ -898,7 +912,8 @@ class Wizard:
         # then go to manual partitioning.
         choice = self.get_autopartition_choice()[0]
         if self.manual_choice is None or choice == self.manual_choice:
-            self.gparted_loop()
+            if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
+                self.gparted_loop()
             self.steps.next_page()
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
@@ -938,6 +953,10 @@ class Wizard:
 
     def gparted_to_mountpoints(self):
         """Processing gparted to mountpoints step tasks."""
+
+        if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
+            self.set_current_page(self.steps.page_num(self.stepReady))
+            return
 
         self.gparted_fstype = {}
         self.gparted_flags = {}
@@ -1610,6 +1629,389 @@ class Wizard:
                 return choice, None
         else:
             return choice, None
+
+
+    def partman_column_name (self, column, cell, model, iterator):
+        partition = model[iterator][1]
+        if 'id' not in partition:
+            # whole disk
+            cell.set_property('text', partition['device'])
+        elif partition['parted']['fs'] == 'free':
+            # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
+            # feels a bit too SHOUTY for this interface.
+            cell.set_property('text', 'free space')
+        else:
+            cell.set_property('text', partition['parted']['path'])
+
+    def partman_column_type (self, column, cell, model, iterator):
+        partition = model[iterator][1]
+        if 'id' not in partition or 'method' not in partition:
+            cell.set_property('text', '')
+        elif ('filesystem' in partition and
+              partition['method'] in ('format', 'keep')):
+            cell.set_property('text', partition['acting_filesystem'])
+        else:
+            cell.set_property('text', partition['method'])
+
+    def partman_column_mountpoint (self, column, cell, model, iterator):
+        partition = model[iterator][1]
+        if isinstance(self.dbfilter, partman.Partman):
+            mountpoint = self.dbfilter.get_current_mountpoint(partition)
+            if mountpoint is None:
+                mountpoint = ''
+        else:
+            mountpoint = ''
+        cell.set_property('text', mountpoint)
+
+    def partman_column_format (self, column, cell, model, iterator):
+        partition = model[iterator][1]
+        if 'id' not in partition:
+            cell.set_property('visible', False)
+            cell.set_property('active', False)
+            cell.set_property('activatable', False)
+        elif 'method' in partition:
+            cell.set_property('visible', True)
+            cell.set_property('active', partition['method'] == 'format')
+            cell.set_property('activatable', 'can_activate_format' in partition)
+        else:
+            cell.set_property('visible', True)
+            cell.set_property('active', False)
+            cell.set_property('activatable', False)
+
+    def partman_column_format_toggled (self, cell, path, user_data):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        model = user_data
+        devpart = model[path][0]
+        partition = model[path][1]
+        if 'id' not in partition or 'method' not in partition:
+            return
+        self.allow_change_step(False)
+        self.dbfilter.edit_partition(devpart, format='dummy')
+
+    def partman_column_size (self, column, cell, model, iterator):
+        partition = model[iterator][1]
+        if 'id' not in partition:
+            cell.set_property('text', '')
+        else:
+            cell.set_property('text', partition['parted']['size'])
+
+    def partman_popup (self, widget, event):
+        if not self.allowed_change_step:
+            return
+
+        model, iterator = widget.get_selection().get_selected()
+        if iterator is None:
+            return
+        devpart = model[iterator][0]
+        partition = model[iterator][1]
+
+        partition_list_menu = gtk.Menu()
+        if 'id' not in partition:
+            # TODO cjwatson 2006-12-21: i18n;
+            # partman-partitioning/text/label text is quite long?
+            new_label_item = gtk.MenuItem('New partition table')
+            new_label_item.connect(
+                'activate', self.on_partition_list_menu_new_label_activate,
+                devpart, partition)
+            partition_list_menu.append(new_label_item)
+        if 'can_new' in partition and partition['can_new']:
+            # TODO cjwatson 2006-10-31: i18n
+            new_item = gtk.MenuItem('New')
+            new_item.connect('activate',
+                             self.on_partition_list_menu_new_activate,
+                             devpart, partition)
+            partition_list_menu.append(new_item)
+        if 'id' in partition and partition['parted']['fs'] != 'free':
+            # TODO cjwatson 2006-10-31: i18n
+            edit_item = gtk.MenuItem('Edit')
+            edit_item.connect('activate',
+                              self.on_partition_list_menu_edit_activate,
+                              devpart, partition)
+            partition_list_menu.append(edit_item)
+            delete_item = gtk.MenuItem('Delete')
+            delete_item.connect('activate',
+                                self.on_partition_list_menu_delete_activate,
+                                devpart, partition)
+            partition_list_menu.append(delete_item)
+        # TODO cjwatson 2006-12-22: options for whole disks
+        if not partition_list_menu.get_children():
+            return
+        partition_list_menu.show_all()
+
+        if event:
+            button = event.button
+            time = event.get_time()
+        else:
+            button = 0
+            time = 0
+        partition_list_menu.popup(None, None, None, button, time)
+
+    def partman_create_dialog (self, devpart, partition):
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+
+        self.partition_create_dialog.show_all()
+
+        # TODO cjwatson 2006-11-01: Because partman doesn't use a question
+        # group for these, we have to figure out in advance whether each
+        # question is going to be asked.
+
+        if partition['parted']['type'] == 'pri/log':
+            # Is there already an extended partition?
+            model = self.partition_list_treeview.get_model()
+            for otherpart in [row[1] for row in model]:
+                if (otherpart['dev'] == partition['dev'] and
+                    'id' in otherpart and
+                    otherpart['parted']['type'] == 'logical'):
+                    self.partition_create_type_logical.set_active(True)
+                    break
+            else:
+                self.partition_create_type_primary.set_active(True)
+        else:
+            self.partition_create_type_label.hide()
+            self.partition_create_type_primary.hide()
+            self.partition_create_type_logical.hide()
+
+        self.partition_create_use_combo.clear()
+        renderer = gtk.CellRendererText()
+        self.partition_create_use_combo.pack_start(renderer)
+        self.partition_create_use_combo.add_attribute(renderer, 'text', 0)
+        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        for method in partman.Partman.create_use_as():
+            list_store.append([method])
+        self.partition_create_use_combo.set_model(list_store)
+        if list_store.get_iter_first():
+            self.partition_create_use_combo.set_active(0)
+
+        # TODO cjwatson 2006-11-01: set up mount point combo
+        self.partition_create_mount_combo.child.set_text('')
+
+        response = self.partition_create_dialog.run()
+        self.partition_create_dialog.hide()
+
+        if response == gtk.RESPONSE_OK:
+            if partition['parted']['type'] == 'primary':
+                prilog = partman.PARTITION_TYPE_PRIMARY
+            elif partition['parted']['type'] == 'logical':
+                prilog = partman.PARTITION_TYPE_LOGICAL
+            elif partition['parted']['type'] == 'pri/log':
+                if self.partition_create_type_primary.get_active():
+                    prilog = partman.PARTITION_TYPE_PRIMARY
+                else:
+                    prilog = partman.PARTITION_TYPE_LOGICAL
+
+            if self.partition_create_place_beginning.get_active():
+                place = partman.PARTITION_PLACE_BEGINNING
+            else:
+                place = partman.PARTITION_PLACE_END
+
+            method_iter = self.partition_create_use_combo.get_active_iter()
+            if method_iter is None:
+                method = None
+            else:
+                model = self.partition_create_use_combo.get_model()
+                method = model.get_value(method_iter, 0)
+
+            mountpoint = self.partition_create_mount_combo.child.get_text()
+
+            self.allow_change_step(False)
+            self.dbfilter.create_partition(
+                devpart, self.partition_create_size_entry.get_text(),
+                prilog, place, method, mountpoint)
+
+    def partman_edit_dialog (self, devpart, partition):
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+
+        self.partition_edit_dialog.show_all()
+
+        if 'can_resize' not in partition or not partition['can_resize']:
+            self.partition_edit_size_label.hide()
+            self.partition_edit_size_entry.hide()
+
+        self.partition_edit_use_combo.clear()
+        renderer = gtk.CellRendererText()
+        self.partition_edit_use_combo.pack_start(renderer)
+        self.partition_edit_use_combo.add_attribute(renderer, 'text', 0)
+        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        for script, arg, option in partition['method_choices']:
+            list_store.append([arg])
+        self.partition_edit_use_combo.set_model(list_store)
+        current_method = self.dbfilter.get_current_method(partition)
+        if current_method:
+            iterator = list_store.get_iter_first()
+            while iterator:
+                if list_store[iterator][0] == current_method:
+                    self.partition_edit_use_combo.set_active_iter(iterator)
+                    break
+                iterator = list_store.iter_next(iterator)
+
+        # TODO cjwatson 2006-11-02: mountpoint_choices won't be available
+        # unless the method is already one that can be mounted, so we may
+        # need to calculate this dynamically based on the method instead of
+        # relying on cached information from partman
+        self.partition_edit_mount_combo.clear()
+        renderer = gtk.CellRendererText()
+        self.partition_edit_mount_combo.pack_start(renderer)
+        self.partition_edit_mount_combo.add_attribute(renderer, 'text', 1)
+        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        if 'mountpoint_choices' in partition:
+            for mp, choice_c, choice in partition['mountpoint_choices']:
+                list_store.append([mp, choice])
+        self.partition_edit_mount_combo.set_model(list_store)
+        if self.partition_edit_mount_combo.get_text_column() == -1:
+            self.partition_edit_mount_combo.set_text_column(0)
+        mountpoint = self.dbfilter.get_current_mountpoint()
+        if mountpoint is not None:
+            self.partition_edit_mount_combo.child.set_text(mountpoint)
+            iterator = list_store.get_iter_first()
+            while iterator:
+                if list_store[iterator][0] == mountpoint:
+                    self.partition_edit_mount_combo.set_active_iter(iterator)
+                    break
+                iterator = list_store.iter_next(iterator)
+
+        response = self.partition_edit_dialog.run()
+        self.partition_edit_dialog.hide()
+
+        if response == gtk.RESPONSE_OK:
+            method_iter = self.partition_edit_use_combo.get_active_iter()
+            if method_iter is None:
+                method = None
+            else:
+                model = self.partition_edit_use_combo.get_model()
+                method = model.get_value(method_iter, 0)
+
+            mountpoint = self.partition_edit_mount_combo.child.get_text()
+
+            self.allow_change_step(False)
+            self.dbfilter.edit_partition(devpart, method, mountpoint)
+
+    def on_partition_list_treeview_button_press_event (self, widget, event):
+        if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
+            path_at_pos = widget.get_path_at_pos(int(event.x), int(event.y))
+            if path_at_pos is not None:
+                selection = widget.get_selection()
+                selection.unselect_all()
+                selection.select_path(path_at_pos[0])
+
+            self.partman_popup(widget, event)
+            return True
+
+    def on_partition_list_treeview_popup_menu (self, widget):
+        self.partman_popup(widget, None)
+        return True
+
+    def on_partition_list_treeview_row_activated (self, treeview,
+                                                  path, view_column):
+        model = treeview.get_model()
+        try:
+            devpart = model[path][0]
+            partition = model[path][1]
+        except (IndexError, KeyError):
+            return
+
+        if 'id' not in partition:
+            # Are there already partitions on this disk? If so, don't allow
+            # activating the row to offer to create a new partition table,
+            # to avoid mishaps.
+            for otherpart in [row[1] for row in model]:
+                if otherpart['dev'] == partition['dev'] and 'id' in otherpart:
+                    break
+            else:
+                if not isinstance(self.dbfilter, partman.Partman):
+                    return
+                self.allow_change_step(False)
+                self.dbfilter.create_label(devpart)
+        elif partition['parted']['fs'] == 'free':
+            if 'can_new' in partition and partition['can_new']:
+                self.partman_create_dialog(devpart, partition)
+        else:
+            self.partman_edit_dialog(devpart, partition)
+
+    def on_partition_list_menu_new_label_activate (self, menuitem,
+                                                   devpart, partition):
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        self.allow_change_step(False)
+        self.dbfilter.create_label(devpart)
+
+    def on_partition_list_menu_new_activate (self, menuitem,
+                                             devpart, partition):
+        self.partman_create_dialog(devpart, partition)
+
+    def on_partition_list_menu_edit_activate (self, menuitem,
+                                              devpart, partition):
+        self.partman_edit_dialog(devpart, partition)
+
+    def on_partition_list_menu_delete_activate (self, menuitem,
+                                                devpart, partition):
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        self.allow_change_step(False)
+        self.dbfilter.delete_partition(devpart)
+
+    def update_partman (self, disk_cache, partition_cache, cache_order):
+        partition_tree_model = self.partition_list_treeview.get_model()
+        if partition_tree_model is None:
+            partition_tree_model = gtk.ListStore(gobject.TYPE_STRING,
+                                                 gobject.TYPE_PYOBJECT)
+            for item in cache_order:
+                if item in disk_cache:
+                    partition_tree_model.append([item, disk_cache[item]])
+                else:
+                    partition_tree_model.append([item, partition_cache[item]])
+
+            # TODO cjwatson 2006-08-05: i18n
+            cell_name = gtk.CellRendererText()
+            column_name = gtk.TreeViewColumn("Device", cell_name)
+            column_name.set_cell_data_func(cell_name, self.partman_column_name)
+            column_name.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_name)
+
+            cell_type = gtk.CellRendererText()
+            column_type = gtk.TreeViewColumn("Type", cell_type)
+            column_type.set_cell_data_func(cell_type, self.partman_column_type)
+            column_type.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_type)
+
+            cell_mountpoint = gtk.CellRendererText()
+            column_mountpoint = gtk.TreeViewColumn("Mount point", cell_mountpoint)
+            column_mountpoint.set_cell_data_func(
+                cell_mountpoint, self.partman_column_mountpoint)
+            column_mountpoint.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_mountpoint)
+
+            cell_format = gtk.CellRendererToggle()
+            column_format = gtk.TreeViewColumn("Format?", cell_format)
+            column_format.set_cell_data_func(
+                cell_format, self.partman_column_format)
+            column_format.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            cell_format.connect("toggled", self.partman_column_format_toggled,
+                                partition_tree_model)
+            self.partition_list_treeview.append_column(column_format)
+
+            cell_size = gtk.CellRendererText()
+            column_size = gtk.TreeViewColumn("Size", cell_size)
+            column_size.set_cell_data_func(cell_size, self.partman_column_size)
+            column_size.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_size)
+
+            self.partition_list_treeview.set_model(partition_tree_model)
+        else:
+            # TODO cjwatson 2006-08-31: inefficient, but will do for now
+            partition_tree_model.clear()
+            for item in cache_order:
+                if item in disk_cache:
+                    partition_tree_model.append([item, disk_cache[item]])
+                else:
+                    partition_tree_model.append([item, partition_cache[item]])
+
+        # make sure we're on the advanced partitioning page
+        self.set_current_page(self.steps.page_num(self.stepPartAdvanced))
 
 
     def get_hostname (self):
