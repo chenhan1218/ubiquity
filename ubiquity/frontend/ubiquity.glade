@@ -3125,7 +3125,7 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 										    </packing>
 										</child>
 										<child>
-										    <widget class="GtkLabel" id="username_error_reason">
+										    <widget class="GtkLabel" id="ma_username_error_reason">
 											<property name="can_focus">True</property>
 											<property name="selectable">True</property>
 											<property name="visible">True</property>

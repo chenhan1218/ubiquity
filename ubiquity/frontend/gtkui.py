@@ -37,6 +37,7 @@ import sys
 import pygtk
 pygtk.require('2.0')
 
+import pdb
 import gobject
 import gtk.glade
 import os
@@ -276,8 +277,10 @@ class Wizard:
             elif current_name in ("stepMigrateOS", "stepMigrateUsers", "stepMigrateItems", "stepMigrateUser"):
                 if not isinstance(self.dbfilter, migrationassistant.MigrationAssistant):
 		    # FIXME: don't use commands.
+		    #import pdb; pdb.set_trace()
 		    import commands
 		    if commands.getoutput('/usr/bin/os-prober') == '':
+		        import pdb; pdb.set_trace()
 			self.dbfilter = None
 		        self.progress_loop()
 		    else:
@@ -297,6 +300,7 @@ class Wizard:
                 self.dbfilter = summary.Summary(self)
             else:
                 self.dbfilter = None
+		import pdb; pdb.set_trace()
 
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.allow_change_step(False)
@@ -600,6 +604,7 @@ class Wizard:
 
 	dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
 
+	#pdb.set_trace()
 	if dbfilter.run_command(auto_process=True) != 0:
 	    # TODO cjwatson 2006-09-03: return to partitioning?
 	    return
@@ -803,6 +808,10 @@ class Wizard:
             self.ma_username_error_box.hide()
             self.password_error_box.hide()
 
+	#if step == "stepReady":
+        #    import pdb; pdb.set_trace()
+	#    self.allow_change_step(False)
+
         if self.dbfilter is not None:
             self.allow_change_step(False)
             self.dbfilter.ok_handler()
@@ -874,6 +883,8 @@ class Wizard:
 	# FIXME: I don't this next one is ever hit.
         # Item selection
         elif step == "stepMigrateItems":
+            print "oh noes at stepMigrateItems end!"
+	    import pdb; pdb.set_trace()
 	    self.steps.next_page()
         # User details
         elif step == "stepMigrateUser" or step == "stepMigrateUsers":
@@ -882,6 +893,9 @@ class Wizard:
 	    return
         # Ready to install
         elif step == "stepReady":
+            #import pdb; pdb.set_trace()
+	    #self.allow_change_step(False)
+	    #self.allow_go_forward(False)
 	    self.commit_partition_changes()
 	    self.steps.next_page()
 
@@ -915,6 +929,19 @@ class Wizard:
             self.hostname_error_box.show()
         else:
             self.steps.next_page()
+    
+    def process_ma_identification (self):
+	"""Processing migration-assistant identification step tasks."""
+
+	error_msg = ""
+        username = self.ma_username.get_property('text')
+	for u in self.ma_user_combo.get_model()
+	    if username == u:
+		error_msg = "The user already exists.  Please press the back button and select it or type in a new username."
+	
+	if error_msg:
+	    self.ma_username_error_reason.set_text(error_msg)
+	    self.ma_username_error_box.show()
 
 
     def process_disk_selection (self):
@@ -1567,8 +1594,8 @@ class Wizard:
     def set_ma_item_users (self, users):
         list_store = self.ma_user_combo.get_model()
         self.ma_user_combo.set_active(0)
-        for u in users:
-            list_store.append([u])
+        #for u in users:
+        list_store.append([users])
     
     def get_ma_item_user (self):
         if self.ma_user_combo.get_active() == 0:

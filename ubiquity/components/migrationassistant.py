@@ -28,7 +28,8 @@ class MigrationAssistant(FilteredCommand):
         self.existing_users = []
         first_user = self.db.get('passwd/username')
         if first_user:
-            self.existing_users.append(first_user)
+            #self.existing_users.append(first_user)
+	    self.frontend.set_ma_item_users(first_user)
         
         questions = ['^migration-assistant/partitions',
                             '^migration-assistant/.*/users$',
@@ -40,12 +41,31 @@ class MigrationAssistant(FilteredCommand):
 		'/usr/lib/ubiquity/migration-assistant'], questions)
 
     def subst(self, question, key, value):
+    	print
+	print 'Question: %s' % question
+	print 'Key: %s' % key
+	print 'Value: %s' % value
+	print
 
 	if question == 'migration-assistant/partitions':
 		os_choices = value.split(',')
 		self.frontend.set_ma_os_choices(os_choices)
 
     def run(self, priority, question):
+        #if question.startswith('migration-assistant/partitions'):
+        #    self.current_question = question
+    
+        #    # parse os-prober logic
+        #    def reformat_output(x):
+        #        ret = x.split(':')
+        #        return (ret[1] + ' (' + ret[0] + ')')
+    
+        #    # FIME: replace this with pulling the already set question data using metaget.
+        #    os_choices = commands.getoutput('/usr/bin/os-prober').split('\n')
+        #    os_choices = map(reformat_output, os_choices)
+    
+        #    self.frontend.set_ma_os_choices(os_choices)
+
             
         if question.endswith('users'):
             self.current_question = question
@@ -63,7 +83,7 @@ class MigrationAssistant(FilteredCommand):
             # think of another way to grab this.
             user = self.current_question.split('/')[-2]
             
-            self.frontend.set_ma_item_users(self.existing_users)
+            #self.frontend.set_ma_item_users(self.existing_users)
             self.frontend.set_ma_item_choices(item_choices, user)
             
             # Apparently needed to stop the UI from skipping past the item selection and user setup pages for any users beyond the first one.
@@ -165,9 +185,11 @@ class MigrationAssistant(FilteredCommand):
             self.preseed(base + 'fullname', fullname)
             self.preseed(base + 'administrator', administrator)
             
-            self.existing_users.append(username)
+            #self.existing_users.append(username)
+	    self.frontend.set_ma_item_users(username)
     
 	super(MigrationAssistant, self).ok_handler()
+	import pdb; pdb.set_trace() #added for test
         
     def error(self, priority, question):
         if question.startswith('migration-assistant/password-'):
