@@ -33,9 +33,9 @@ import socket
 import fcntl
 import traceback
 import syslog
+import gzip
 import debconf
 import apt_pkg
-from apt.package import Package
 from apt.cache import Cache
 from apt.progress import FetchProgress, InstallProgress
 
@@ -303,7 +303,27 @@ class Install:
 
             self.db.progress('SET', 1)
             self.db.progress('REGION', 1, 75)
-            self.copy_all()
+            try:
+                self.copy_all()
+            except EnvironmentError, e:
+                if e.errno in (errno.ENOENT, errno.EIO, errno.EFAULT,
+                               errno.ENOTDIR, errno.EROFS):
+                    if e.filename is None:
+                        error_template = 'cd_hd_fault'
+                    elif e.filename.startswith('/target'):
+                        error_template = 'hd_fault'
+                    else:
+                        error_template = 'cd_fault'
+                    error_template = ('ubiquity/install/copying_error/%s' %
+                                      error_template)
+                    self.db.subst(error_template, 'ERROR', str(e))
+                    self.db.input('critical', error_template)
+                    self.db.go()
+                    # Exit code 3 signals to the frontend that we have
+                    # handled this error.
+                    sys.exit(3)
+                else:
+                    raise
 
             self.db.progress('SET', 75)
             self.db.progress('REGION', 75, 76)
@@ -357,13 +377,13 @@ class Install:
             self.configure_ma()
 
             self.db.progress('SET', 88)
-            self.db.progress('REGION', 88, 92)
+            self.db.progress('REGION', 88, 89)
+            self.remove_unusable_kernels()
+
+            self.db.progress('SET', 89)
+            self.db.progress('REGION', 89, 93)
             self.db.progress('INFO', 'ubiquity/install/hardware')
             self.configure_hardware()
-
-            self.db.progress('SET', 92)
-            self.db.progress('REGION', 92, 93)
-            self.remove_unusable_kernels()
 
             self.db.progress('SET', 93)
             self.db.progress('REGION', 93, 94)
@@ -496,16 +516,20 @@ class Install:
                     speed = ((times[-1][1] - times[0][1]) /
                              (times[-1][0] - times[0][0]))
                     time_remaining = int((total_size - copied_size) / speed)
-                    time_str = "%d:%02d" % divmod(time_remaining, 60)
-                    self.db.subst('ubiquity/install/copying_time',
-                                  'TIME', time_str)
-                    self.db.progress('INFO', 'ubiquity/install/copying_time')
+                    if time_remaining < 60:
+                        self.db.progress(
+                            'INFO', 'ubiquity/install/copying_minute')
 
         # Apply timestamps to all directories now that the items within them
         # have been copied.
         for dirtime in directory_times:
             (directory, atime, mtime) = dirtime
-            os.utime(directory, (atime, mtime))
+            try:
+                os.utime(directory, (atime, mtime))
+            except OSError:
+                # I have no idea why I've been getting lots of bug reports
+                # about this failing, but I really don't care. Ignore it.
+                pass
 
         os.umask(old_umask)
 
@@ -528,6 +552,19 @@ class Install:
                 syslog.syslog(syslog.LOG_ERR,
                               'Failed to copy installation log file')
             os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
+        try:
+            status = open(os.path.join(self.target, 'var/lib/dpkg/status'))
+            status_gz = gzip.open(os.path.join(target_dir,
+                                               'initial-status.gz'), 'w')
+            while True:
+                data = status.read(65536)
+                if not data:
+                    break
+                status_gz.write(data)
+            status_gz.close()
+            status.close()
+        except IOError:
+            pass
 
 
     def mount_one_image(self, fsfile, mountpoint=None):
@@ -556,7 +593,7 @@ class Install:
                         stdout=subprocess.PIPE, stderr=devnull)
                     devbase = udevinfo.communicate()[0]
                     devnull.close()
-                    if udevinfo.returncode == 0:
+                    if udevinfo.returncode != 0:
                         devbase = sysloop
                     dev = '/dev/%s' % devbase
                     break
@@ -566,7 +603,7 @@ class Install:
         if dev == '':
             raise InstallStepError("No loop device available for %s" % fsfile)
 
-        misc.ex('losetup', dev, file)
+        misc.ex('losetup', dev, fsfile)
         if mountpoint is None:
             mountpoint = '/var/lib/ubiquity/%s' % sysloop
         if not os.path.isdir(mountpoint):
@@ -604,7 +641,7 @@ class Install:
             for fsfile in fsfiles:
                 if fsfile != '' and os.path.isfile(fsfile):
                     dev, mountpoint = self.mount_one_image(fsfile, self.source)
-                    self.devs.insert(dev)
+                    self.devs.append(dev)
                     self.mountpoints.append(mountpoint)
 
         elif len(fs_preseed.split()) == 1:
@@ -614,7 +651,7 @@ class Install:
                     "Preseeded filesystem image %s not found" % fs_preseed)
 
                 dev, mountpoint = self.mount_one_image(fsfile, self.source)
-                self.devs.insert(dev)
+                self.devs.append(dev)
                 self.mountpoints.append(mountpoint)
         else:
             # OK, so we need to mount multiple images and unionfs them
@@ -685,6 +722,11 @@ class Install:
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("LanguageApply failed with code %d" % ret)
+
+        # fontconfig configuration needs to be adjusted based on the
+        # selected locale (from language-selector-common.postinst). Ignore
+        # errors.
+        self.chrex('fontconfig-voodoo', '--auto', '--quiet')
 
 
     def configure_apt(self):
@@ -940,6 +982,11 @@ class Install:
                 configfile.close()
 
         try:
+            os.unlink('/target/etc/usplash.conf')
+        except OSError:
+            pass
+
+        try:
             os.unlink('/target/etc/popularity-contest.conf')
         except OSError:
             pass
@@ -947,8 +994,16 @@ class Install:
         self.chrex('mount', '-t', 'proc', 'proc', '/proc')
         self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
 
+        self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
+                   '--quiet', '--add', '/usr/sbin/update-initramfs')
+        try:
+            os.symlink('/bin/true', '/target/usr/sbin/update-initramfs')
+        except OSError:
+            pass
+
         packages = ['linux-image-' + self.kernel_version,
                     'linux-restricted-modules-' + self.kernel_version,
+                    'usplash',
                     'popularity-contest']
 
         try:
@@ -957,6 +1012,57 @@ class Install:
         finally:
             self.chrex('umount', '/proc')
             self.chrex('umount', '/sys')
+            try:
+                os.unlink('/target/usr/sbin/update-initramfs')
+            except OSError:
+                pass
+            self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
+                       '--quiet', '--remove', '/usr/sbin/update-initramfs')
+            self.chrex('update-initramfs', '-c', '-k', os.uname()[2])
+
+        # Fix up kernel symlinks now that the initrd exists. Depending on
+        # the architecture, these may be in / or in /boot.
+        bootdir = os.path.join(self.target, 'boot')
+        if self.db.get('base-installer/kernel/linux/link_in_boot') == 'true':
+            linkdir = bootdir
+            linkprefix = ''
+        else:
+            linkdir = self.target
+            linkprefix = 'boot'
+
+        # Remove old symlinks. We'll set them up from scratch.
+        re_symlink = re.compile('vmlinu[xz]|initrd.img$')
+        for entry in os.listdir(linkdir):
+            if re_symlink.match(entry) is not None:
+                filename = os.path.join(linkdir, entry)
+                if os.path.islink(filename):
+                    os.unlink(filename)
+        if linkdir != self.target:
+            # Remove symlinks in /target too, which may have been created on
+            # the live filesystem. This isn't necessary, but it may help
+            # avoid confusion.
+            for entry in os.listdir(self.target):
+                if re_symlink.match(entry) is not None:
+                    filename = os.path.join(self.target, entry)
+                    if os.path.islink(filename):
+                        os.unlink(filename)
+
+        # Create symlinks. Prefer our current kernel version if possible,
+        # but if not (perhaps due to a customised live filesystem image),
+        # it's better to create some symlinks than none at all.
+        re_image = re.compile('(vmlinu[xz]|initrd.img)-')
+        for entry in os.listdir(bootdir):
+            match = re_image.match(entry)
+            if match is not None:
+                imagetype = match.group(1)
+                linksrc = os.path.join(linkprefix, entry)
+                linkdst = os.path.join(linkdir, imagetype)
+                if os.path.exists(linkdst):
+                    if entry.endswith('-' + self.kernel_version):
+                        os.unlink(linkdst)
+                    else:
+                        continue
+                os.symlink(linksrc, linkdst)
 
 
     def get_all_interfaces(self):
@@ -1099,6 +1205,17 @@ class Install:
         misc.ex('umount', '-f', self.target + '/dev')
 
 
+    def broken_packages(self, cache):
+        brokenpkgs = set()
+        for pkg in cache.keys():
+            try:
+                if cache._depcache.IsInstBroken(cache._cache[pkg]):
+                    brokenpkgs.add(pkg)
+            except KeyError:
+                # Apparently sometimes the cache goes a bit bonkers ...
+                continue
+        return brokenpkgs
+
     def do_remove(self, to_remove, recursive=False):
         self.db.progress('START', 0, 5, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/find_removables')
@@ -1126,27 +1243,30 @@ class Install:
                         # of the broken packages are in the set of packages
                         # to remove anyway, then go ahead and try to remove
                         # them too.
-                        brokenpkgs = set()
-                        for pkg in cache.keys():
-                            if cache._depcache.IsInstBroken(cache._cache[pkg]):
-                                brokenpkgs.add(pkg)
+                        brokenpkgs = self.broken_packages(cache)
                         broken_removed = set()
-                        if recursive or brokenpkgs <= to_remove:
-                            for pkg in brokenpkgs:
-                                cachedpkg2 = self.get_cache_pkg(cache, pkg)
+                        while brokenpkgs and (recursive or
+                                              brokenpkgs <= to_remove):
+                            broken_removed_inner = set()
+                            for pkg2 in brokenpkgs:
+                                cachedpkg2 = self.get_cache_pkg(cache, pkg2)
                                 if cachedpkg2 is not None:
-                                    broken_removed.add(pkg)
+                                    broken_removed_inner.add(pkg2)
                                     try:
                                         cachedpkg2.markDelete(autoFix=False,
                                                               purge=True)
                                     except SystemError:
                                         apt_error = True
                                         break
+                            broken_removed |= broken_removed_inner
+                            if apt_error or not broken_removed_inner:
+                                break
+                            brokenpkgs = self.broken_packages(cache)
                         if apt_error or cache._depcache.BrokenCount > 0:
                             # That didn't work. Revert all the removals we
                             # just tried.
-                            for pkg in broken_removed:
-                                self.get_cache_pkg(cache, pkg).markKeep()
+                            for pkg2 in broken_removed:
+                                self.get_cache_pkg(cache, pkg2).markKeep()
                             cachedpkg.markKeep()
                         else:
                             removed.add(pkg)
@@ -1154,7 +1274,7 @@ class Install:
                     else:
                         removed.add(pkg)
                     assert cache._depcache.BrokenCount == 0
-            if len(removed) == 0:
+            if not removed:
                 break
             to_remove -= removed
 
@@ -1186,7 +1306,7 @@ class Install:
         """Remove unusable kernels; keeping them may cause us to be unable
         to boot."""
 
-        self.db.progress('START', 0, 6, 'ubiquity/install/title')
+        self.db.progress('START', 0, 5, 'ubiquity/install/title')
 
         self.db.progress('INFO', 'ubiquity/install/find_removables')
 
@@ -1211,52 +1331,6 @@ class Install:
             self.db.progress('STOP')
             raise
         self.db.progress('SET', 5)
-
-        # Now we need to fix up kernel symlinks. Depending on the
-        # architecture, these may be in / or in /boot.
-        bootdir = os.path.join(self.target, 'boot')
-        if self.db.get('base-installer/kernel/linux/link_in_boot') == 'true':
-            linkdir = bootdir
-            linkprefix = ''
-        else:
-            linkdir = self.target
-            linkprefix = 'boot'
-
-        # Remove old symlinks. We'll set them up from scratch.
-        re_symlink = re.compile('vmlinu[xz]|initrd.img$')
-        for entry in os.listdir(linkdir):
-            if re_symlink.match(entry) is not None:
-                filename = os.path.join(linkdir, entry)
-                if os.path.islink(filename):
-                    os.unlink(filename)
-        if linkdir != self.target:
-            # Remove symlinks in /target too, which may have been created on
-            # the live filesystem. This isn't necessary, but it may help
-            # avoid confusion.
-            for entry in os.listdir(self.target):
-                if re_symlink.match(entry) is not None:
-                    filename = os.path.join(self.target, entry)
-                    if os.path.islink(filename):
-                        os.unlink(filename)
-
-        # Create symlinks. Prefer our current kernel version if possible,
-        # but if not (perhaps due to a customised live filesystem image),
-        # it's better to create some symlinks than none at all.
-        re_image = re.compile('(vmlinu[xz]|initrd.img)-')
-        for entry in os.listdir(bootdir):
-            match = re_image.match(entry)
-            if match is not None:
-                imagetype = match.group(1)
-                linksrc = os.path.join(linkprefix, entry)
-                linkdst = os.path.join(linkdir, imagetype)
-                if os.path.exists(linkdst):
-                    if entry.endswith('-' + self.kernel_version):
-                        os.unlink(linkdst)
-                    else:
-                        continue
-                os.symlink(linksrc, linkdst)
-
-        self.db.progress('SET', 6)
         self.db.progress('STOP')
 
 

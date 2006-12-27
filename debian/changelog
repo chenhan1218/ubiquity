@@ -1,10 +1,475 @@
-ubiquity (1.1.17) UNRELEASED; urgency=low
+ubiquity (1.3.6) feisty; urgency=low
 
-  * Merged with Ubiquity HEAD
-  * Automatic update of included source packages.
-  * Moved m-a to after stepReady.
+  * Avoid use of super() in components, since it's far too confusing.
+  * I managed to create two different PartmanAuto.error() methods by
+    mistake. Merge them.
+  * GTK frontend: If a question asked by a component doesn't have a message
+    for the dialog body, set it to the title as that's better than nothing.
+  * GTK frontend: First cut at the new advanced partitioner. The graphical
+    disk view isn't implemented yet, many features are missing, validation
+    probably doesn't work properly, and it's very slow, but I hope all these
+    issues can be worked out in time. Use 'ubiquity --new-partitioner' to
+    try it out.
+  * Automatic update of included source packages: debian-installer-utils
+    1.42ubuntu1, grub-installer 1.20ubuntu1, hw-detect 1.45ubuntu1,
+    partman-basicfilesystems 50ubuntu1, partman-ext3 44, partman-jfs 19,
+    partman-reiserfs 33, partman-xfs 31, user-setup 1.8ubuntu1.
 
- -- Evan Dandrea <evan@evalicious.com>  Sat, 16 Sep 2006 17:54:23 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 24 Dec 2006 19:42:52 +0000
+
+ubiquity (1.3.5) feisty; urgency=low
+
+  [ Colin Watson ]
+  * Move the ubiquity executable proper into /usr/lib/ubiquity/bin, and add
+    a /usr/bin/ubiquity wrapper that calls gksudo, kdesu, etc. as
+    appropriate. This makes argument handling more straightforward and
+    reduces the need for strange environment variables.
+  * Add command-line option handling: --debug is equivalent to the old
+    UBIQUITY_DEBUG environment variable, while --cdebconf is new (and
+    experimental). Combined with the above change, this means that the
+    clumsy and frontend-dependent 'gksudo env UBIQUITY_DEBUG=1 ubiquity' or
+    'kdesu --nonewdcop env UBIQUITY_DEBUG=1 ubiquity' invocations can be
+    replaced with just 'ubiquity --debug'.
+  * Automatic update of included source packages: choose-mirror 2.10ubuntu1.
+
+  [ Martin Pitt ]
+  * GTK frontend: Port the apport crash handler to new API of apport 0.33
+    (apport_utils/problem_report modules -> apport python package). Depend
+    on python-apport now instead of the old modules.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 19 Dec 2006 14:09:53 +0000
+
+ubiquity (1.3.4) feisty; urgency=low
+
+  * apt-install only attempts to install packages not already installed,
+    making it more robust when packages on the target filesystem are broken
+    (LP: #74241).
+  * KDE frontend: Don't infinite-loop on EOF from qtparted (LP: #67565).
+  * Make sure localechooser doesn't clobber the selected country if it
+    differs from the default (LP: #68026).
+  * Add a check-manifest tool to ensure that d-i/manifest is in sync with
+    d-i/source/ on upload.
+  * Upgrade to automake 1.10.
+  * Configure and build the desktop, pixmaps, and po subdirectories even if
+    UBIQUITY_NO_GTK is set.
+  * Automatic update of included source packages: apt-setup 1:0.16ubuntu2,
+    base-installer 1.70ubuntu1, localechooser 1.33ubuntu1, partman-auto
+    62ubuntu2, partman-base 100ubuntu1.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 15 Dec 2006 17:52:53 +0000
+
+ubiquity (1.3.3) feisty; urgency=low
+
+  [ Colin Watson ]
+  * GTK frontend: Move intro label widget from code to glade.
+  * GTK frontend: Work around disappearing input focus on intro page.
+  * GTK frontend: Activate Forward button when a row in the language or
+    keyboard treeviews is activated.
+  * Remove use of dh_python, since it's a no-op now. Bump debhelper
+    build-dependency to 5.0.37.3ubuntu2 (a.k.a. dh_python from 5.0.38) for
+    this.
+  * KDE frontend: Remove tabstop for new_size_scale from .ui file, since
+    that widget doesn't exist there any more.
+  * KDE frontend: Fix logo image widgets to take account of removed disk
+    page.
+  * KDE frontend: Fix various crashes in set_autopartition_choices due to
+    botched use of Qt.
+  * KDE frontend: Fix backup from summary page.
+
+  [ Jonathan Riddell ]
+  * KDE frontend: Make QRadioButton less confused on the autopartitioning
+    page, using an extra frame.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat,  9 Dec 2006 11:28:57 +0000
+
+ubiquity (1.3.2) feisty; urgency=low
+
+  * Update to new partman-auto, merging the "Select a disk" page into
+    "Prepare disk space".
+  * Automatic update of included source packages: debian-installer-utils
+    1.41ubuntu1, partman-auto 60ubuntu2, partman-base 97ubuntu2,
+    partman-basicfilesystems 49ubuntu1, partman-basicmethods 32, partman-efi
+    11, partman-ext3 43, partman-jfs 18, partman-newworld 15,
+    partman-partitioning 44ubuntu1, partman-reiserfs 32, partman-target
+    46ubuntu1, partman-xfs 30.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  7 Dec 2006 00:02:42 +0000
+
+ubiquity (1.3.1) feisty; urgency=low
+
+  * Strip out unnecessary parts from console-setup source (accidental due to
+    semi-manual update).
+  * Depend on a version of console-setup at least as new as the one in our
+    source tree.
+  * Work around a crash in broken_packages() due to inadequate python-apt
+    Python protocol support.
+  * Fix crash if auto_mountpoints somehow ends up still set to None while
+    validating partitions (LP: #71046).
+  * Fix infinite loop while creating initial-status log.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  1 Dec 2006 11:03:11 +0000
+
+ubiquity (1.3.0) feisty; urgency=low
+
+  * Defend a bit more against the apt cache going insane (closes: Malone
+    #67689).
+  * Handle EFAULT IOError exceptions while copying files (closes: Malone
+    #67598).
+  * KDE frontend: Treat more user-entered strings as Unicode rather than
+    ASCII (closes: Malone #64667, #66742).
+  * KDE frontend: Hide auto-resize frame rather than merely disabling it.
+  * KDE frontend: Use a single progress bar for all copy and configuration
+    steps.
+  * KDE frontend: Disable going back or forward once the install progress
+    bar is up. (Why is the main window still visible at this point, anyway?)
+  * Fix mount point validation to avoid accidentally skipping a number of
+    checks on pre-existing partitions, including the "is there a root file
+    system?" check (closes: Malone #67130).
+  * GTK frontend: Include zoom-in.png in ubiquity-frontend-gtk so that the
+    magnifying glass cursor is displayed on the timezone page (closes:
+    Malone #68238).
+  * Drop support for old ESPRESSO_DEBUG environment variable.
+  * Add an intro message noting that we're alpha again.
+  * Save /target/var/lib/dpkg/status to
+    /target/var/log/installer/initial-status.gz; suggested by Jason
+    Whitlark.
+  * Remove a bunch of unnecessary imports noticed by pyflakes, and add a
+    couple of missing ones.
+  * Account for a new file shipped by grub-installer.
+  * Account for tzsetup's finish-install script becoming a
+    post-base-installer script.
+  * Fix the way we switch pages to update state properly if "switching" to
+    the current page.
+  * Automatic update of included source packages: apt-setup 1:0.16ubuntu1,
+    base-installer 1.68ubuntu1, choose-mirror 2.08ubuntu1, clock-setup
+    0.12ubuntu1, console-setup 1.13ubuntu3, debian-installer-utils
+    1.38ubuntu1, grub-installer 1.19ubuntu1, hw-detect 1.43ubuntu1,
+    localechooser 1.30ubuntu1, partconf 1.19, silo-installer 1.07ubuntu1,
+    tzsetup 1:0.14, user-setup 1.7ubuntu1, yaboot-installer 1.1.8ubuntu1.
+    (partman-* will be updated next time round, when we're ready for it.)
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Nov 2006 20:33:42 +0000
+
+ubiquity (1.2.5) edgy; urgency=low
+
+  * Automatic update of included source packages: apt-setup 1:0.11ubuntu5,
+    console-setup 1.7ubuntu19, partman-base 90ubuntu9, yaboot-installer
+    1.1.7ubuntu2.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 20 Oct 2006 23:45:10 +0100
+
+ubiquity (1.2.4) edgy; urgency=low
+
+  * Use update-initramfs -c -k "$(uname -r)" rather than update-initramfs
+    -u, as the latter gets very confused if we need to remove kernels, as on
+    powerpc (really closes: Malone #66406).
+  * Automatic update of included source packages: localechooser 1.20ubuntu8.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Oct 2006 13:14:41 +0100
+
+ubiquity (1.2.3) edgy; urgency=low
+
+  [ Colin Watson ]
+  * Fix incorrect loop variable reuse in do_remove, and attempt multiple
+    broken package resolution passes while removing packages (closes: Malone
+    #66406).
+  * Detect existing HFS bootstrap partitions during automatic partitioning
+    and take account of them while validating mountpoints (closes: Malone
+    #66384).
+  * Fix crash on keyboard page if you select a layout with no variants.
+  * Remove kernels before running update-initramfs so that we update the
+    correct initramfs on powerpc. Make sure to fix up kernel/initrd symlinks
+    after running update-initramfs, so that we have something to which to
+    point the initrd symlink.
+
+  [ Michael Vogt ]
+  * Run fontconfig-voodoo to tweak fontconfig configuration for the selected
+    language (closes: Malone #49334).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 16 Oct 2006 23:49:28 +0100
+
+ubiquity (1.2.2) edgy; urgency=low
+
+  * Make sure supplied GRUB device names are either GRUB-style (e.g.
+    "(hd0)") or start with "/dev/" (closes: Malone #62479).
+  * Exclude Dzongkha and Khmer from the language list for now, as we don't
+    ship fonts for them and we don't have enough installer translations yet
+    to make it worth rushing those fonts in for Edgy.
+  * GTK frontend: Weaken assertion in set_summary_device and make this
+    generally more robust (closes: Malone #66100).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 15 Oct 2006 23:41:55 +0100
+
+ubiquity (1.2.1) edgy; urgency=low
+
+  * Back out orca change from 1.2.0: it doesn't work properly because the
+    orca process running as the calling user needs to be killed first. At
+    this stage, we feel that it's better to document the workaround than to
+    try to fix it.
+  * KDE frontend: Enable the forward button at the right times on the
+    timezone page (closes: Malone #66022).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 14 Oct 2006 00:07:48 +0100
+
+ubiquity (1.2.0) edgy; urgency=low
+
+  * If /proc/cmdline contains access=v3, run 'orca -n' and sleep for a bit
+    before starting the installer UI.
+
+  * Update .desktop file translations from Rosetta: Georgian.
+  * Update translations from Rosetta: Bengali, Czech, German, Greek,
+    Spanish, Finnish, French, Galician, Hindi, Croatian, Hungarian, Italian,
+    Georgian, Kazakh, Kurdish, Dutch, Polish, Portuguese, Portuguese
+    (Brazil), Russian, Slovak, Swedish, Turkish, Chinese (China).
+  * Automatic update of included source packages: base-installer
+    1.63ubuntu6, choose-mirror 2.04ubuntu2, console-setup 1.7ubuntu18,
+    partman-base 90ubuntu8.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Oct 2006 11:40:02 +0100
+
+ubiquity (1.1.30) edgy; urgency=low
+
+  * Add /usr/lib/ubiquity/console-setup/locale wrapper that overrides the
+    output of locale with the value of debian-installer/locale if set; this
+    encourages console-setup to select an appropriate keyboard layout
+    (closes: Malone #60067).
+  * Don't set PARTMAN_UPDATE_BEFORE_COMMIT for automatic partitioning.
+  * Run partman-commit while generating the installation summary to make
+    sure that we have a partitioning summary even for manual partitioning
+    (closes: Malone #61572). Take care to stop partman-commit proceeding
+    past the confirmation question.
+  * Don't reset the locale or run localechooser again if the country
+    selected on the timezone page isn't one for which we have a locale in
+    the current language (closes: Malone #61387).
+
+  * Add/update .desktop file translations from Rosetta: Arabic, Belarusian,
+    Czech, Kashubian, Spanish, Estonian, French, Frisian, Irish,
+    Luxembourgish, Lithuanian, Macedonian, Malay, Portuguese (Brazil),
+    Slovak, Swedish, Tajik, Ukrainian, Chinese (Taiwan).
+  * Add/update translations from Rosetta: Afrikaans, Amharic, Bulgarian,
+    Bengali, Breton, Catalan, Czech, Kashubian, Welsh, Danish, German,
+    Divehi, Dzongkha, Greek, Esperanto, Spanish, Basque, Persian, Finnish,
+    French, Irish, Galician, Hebrew, Hindi, Croatian, Hungarian, Indonesian,
+    Icelandic, Italian, Japanese, Georgian, Khmer, Kurdish, Kirghiz,
+    Lithuanian, Latvian, Malagasy, Macedonian, Malay, Norwegian Bokmål,
+    Dutch, Occitan, Polish, Portuguese, Portuguese (Brazil), Romanian,
+    Russian, Northern Sami, Slovak, Slovenian, Serbian, Swedish, Tamil,
+    Thai, Tagalog, Turkish, Chinese (China), Chinese (Hong Kong).
+  * Automatic update of included source packages: base-installer
+    1.63ubuntu5, localechooser 1.20ubuntu7, partman-base 90ubuntu6.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  9 Oct 2006 21:15:10 +0100
+
+ubiquity (1.1.29) edgy; urgency=low
+
+  * Move drop_privileges helper function into ubiquity.misc.
+  * KDE frontend: Use kdesu --nonewdcop to ensure that we can talk to the
+    user's DCOP server.
+  * KDE frontend: Reboot the machine properly using ksmserver (closes:
+    Malone #41784).
+  * KDE frontend: Unload the kded medianotifier while committing
+    partitioning changes (closes: Malone #48051).
+  * KDE frontend: Convert to allow_change_step/allow_go_forward system from
+    GTK frontend so that the back and next buttons are more consistently
+    enabled/disabled. Hide the back button on the first page.
+  * Forbid going back or forward when the UI is already processing a
+    previous back or forward action (closes: Malone #54163 and lots of
+    duplicates).
+  * GTK frontend: Disable back and forward buttons while gparted is starting
+    up. Requires gparted (>= 0.2.5-1.1ubuntu11).
+  * GTK frontend: Avoid calling gtk.main_quit if a main loop isn't running,
+    as further insurance against Malone #54163.
+  * Fix various bugs when mounting source filesystems natively rather than
+    relying on casper to have mounted them already (closes: Malone #64348).
+  * Automatic update of included source packages: debian-installer-utils
+    1.36ubuntu2.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  6 Oct 2006 21:32:43 +0100
+
+ubiquity (1.1.28) edgy; urgency=low
+
+  * KDE frontend: Ensure that the selected language is visible.
+  * KDE frontend: Add a keyboard variant selector.
+  * Incorporate user-setup reserved usernames fix (closes: Malone #47861).
+  * Catch ENOENT, EIO, ENOTDIR, and EROFS while copying files, try to figure
+    out what filename they relate to, and display a useful error message
+    explaining that this is probably a CD or hard disk fault (as
+    appropriate) and how to deal with this. Closes about a million bugs.
+  * Display extended descriptions as well in debconf error dialogs.
+  * Remove stub hppa support for now, since partman-palo is no longer in
+    main.
+  * Automatic update of included source packages: console-setup 1.7ubuntu16,
+    debian-installer-utils 1.36ubuntu1, user-setup 1.2ubuntu4.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  5 Oct 2006 09:32:18 +0100
+
+ubiquity (1.1.27) edgy; urgency=low
+
+  * Fix syntax error in /usr/bin/ubiquity. Whoops!
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue,  3 Oct 2006 23:50:05 +0100
+
+ubiquity (1.1.26) edgy; urgency=low
+
+  [ Colin Watson ]
+  * Build-depend on po-debconf (>= 1.0) for new translation-handling
+    features.
+  * Add a FAQ about backporting to doc/README.
+  * Document ubiquity/install/filesystem-images in doc/README.
+  * autogen.sh: Force use of automake-1.8 and aclocal-1.8.
+  * Move auxiliary autotools files to a build subdirectory.
+  * Add a check to debian/rules to remind me to bump the version number in
+    configure.ac.
+  * Read partition flags from gparted (>= 0.2.5-1.1ubuntu9). Display an
+    error on the mountpoints page if running on powerpc and there is no HFS
+    partition with the boot flag set. Treat HFS partitions with the boot
+    flag set as NewWorld bootstrap partitions (closes: Malone #43768).
+  * GTK frontend: Add a keyboard variant selector (closes: Malone #61729).
+    (The same needs to be done for the KDE frontend.)
+  * Remove old kbd-chooser component, which won't be usable any more.
+  * Send stderr to /var/log/installer/debug if UBIQUITY_DEBUG is set.
+  * Send DEBCONF_DEBUG=filter output to stderr, not syslog; it should be
+    interleaved with DEBCONF_DEBUG=developer output.
+  * GTK frontend: Throw away stderr from gnome-screensaver-command; it
+    outputs far too much rubbish and confuses users.
+  * KDE frontend: Fix reboot dialog button handling (closes: Malone #62765).
+  * Replace the rather jittery time-remaining message while copying files
+    with a message that appears when there's less than a minute remaining
+    (closes: Malone #61514).
+
+  [ Jonathan Riddell ]
+  * KDE Frontend:
+   - Add ensureItemVisible in set_keyboard (closes: Malone #61710).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue,  3 Oct 2006 17:04:38 +0100
+
+ubiquity (1.1.25) edgy; urgency=high
+
+  * Not knowing the filesystem type for a partition apparently doesn't
+    necessarily mean that it's unformatted, so don't format partitions
+    without a detected filesystem type (closes: Malone #61732).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 27 Sep 2006 16:51:57 +0100
+
+ubiquity (1.1.24) edgy; urgency=low
+
+  * Mark console-setup/layout and console-setup/variant as unseen before
+    starting console-setup, to avoid incorrect variant choices (although I
+    think there's also a console-setup bug here in that the variants are
+    being substituted in the wrong order).
+  * Depend on a version of console-setup without the misguided
+    /etc/X11/xorg.conf handling.
+  * Automatic update of included source packages: partman-target 45ubuntu3.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 26 Sep 2006 23:29:53 +0100
+
+ubiquity (1.1.23) edgy; urgency=low
+
+  * Move /etc/default/console-setup aside before running the keyboard
+    configuration page, to avoid console-setup thinking that it's already
+    configured and behaving differently.
+  * Automatic update of included source packages: console-setup 1.7ubuntu12,
+    partman-basicfilesystems 47ubuntu3, partman-target 45ubuntu2.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 25 Sep 2006 13:11:27 +0100
+
+ubiquity (1.1.22) edgy; urgency=low
+
+  [ Jonathan Riddell ]
+  * KDE Frontend:
+    - Make the mountpoints page use a scroll view
+
+  [ Colin Watson ]
+  * GTK frontend: Make the debconf progress title and info labels ellipsise
+    rather than stretching the window if they get too long (closes: Malone
+    #61516).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 22 Sep 2006 10:28:34 +0100
+
+ubiquity (1.1.21) edgy; urgency=low
+
+  * Handle partman-partitioning/impossible_resize errors while trying to set
+    up the auto-resize slider; we now back up and disable the auto-resize
+    option (closes: Malone #58500).
+  * Automatic update of included source packages: partman-auto 54ubuntu4.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 21 Sep 2006 11:37:02 +0100
+
+ubiquity (1.1.20) edgy; urgency=low
+
+  * Only return 30 in reply to a PROGRESS command if the progresscancel
+    capability is set (closes: Malone #48005).
+  * Don't crash if a progress bar is set up to have the same start and end
+    points (closes: Malone #56789).
+  * Fix timezone component to deal with frontend.get_timezone returning None
+    (closes: Malone #42865).
+  * Use more sensible default cities for languages with country shortlists
+    (i.e. the intended default rather than the first in alphabetical order
+    of country code), working around a missing feature in debconf.
+  * Pick a sensible default city for countries with multiple zones but no
+    explicit default city (closes: Malone #43914).
+  * Remove obsolete Recommends: gparted from ubiquity; ubiquity-frontend-gtk
+    already depends on it.
+  * Feed not-yet-formatted partition state back into gparted when starting
+    it up, so that newly-created partitions aren't listed as "unknown" when
+    you go back (requires gparted 0.2.5-1.1ubuntu8; closes: Malone #40404).
+  * Fix use of gobject.spawn_async in
+    gnome-screensaver-command/xscreensaver-command, broken in 1.1.19.
+  * Make sure that "Restart now" is the default option on the final dialog
+    (closes: Malone #61517).
+  * Log warnings in various cases when partitions are ignored on the
+    mountpoints page.
+  * GTK frontend: For some reason GtkTable doesn't seem to queue a resize
+    itself when you attach children to it, so the mountpoints table was
+    showing up blank the first time through. Worked around this.
+  * Add/update translations from Rosetta: Arabic, Belarusian, Bulgarian,
+    Breton, Danish, German, Greek, Spanish, Basque, Finnish, French, Hindi,
+    Hungarian, Icelandic, Italian, Georgian, Korean, Kurdish, Latvian,
+    Nepali, Norwegian Nynorsk, Occitan, Portuguese (Brazil), Russian,
+    Serbian, Tagalog.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 21 Sep 2006 02:44:03 +0100
+
+ubiquity (1.1.19) edgy; urgency=low
+
+  * Reconfigure usplash (closes: Malone #59320).
+  * Divert away update-initramfs while configuring hardware-specific
+    packages, and run it just once at the end.
+  * Display a warning if you try to mount a FAT or NTFS filesystem where
+    POSIX semantics are required (closes: Malone #48410).
+  * GTK frontend: Scroll the mount points table if required (closes: Malone
+    #51796).
+  * Ignore failures from os.utime on directories. I don't know why I get a
+    disproportionate number of reports of this failing, but to be honest I
+    don't care enough about directory timestamps to investigate.
+  * Add trivial pid file locking, allowing ubiquity to exit gracefully if
+    you try to run more than one instance of it at once; previously it blew
+    up much more spectacularly upon finding that the debconf database was
+    locked (closes: Malone #46569).
+  * Run gnome-screensaver-command/xscreensaver-command with LC_ALL=C to
+    reduce noise on stderr.
+  * Automatic update of included source packages: console-setup 1.7ubuntu9,
+    partman-auto 54ubuntu3, partman-basicfilesystems 47ubuntu2.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 16 Sep 2006 00:45:27 +0100
+
+ubiquity (1.1.18) edgy; urgency=low
+
+  [ Jonathan Riddell ]
+  * KDE frontend: Enable buttons on summary page when performing automatic
+    partitioning too.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 14 Sep 2006 13:09:33 +0100
+
+ubiquity (1.1.17) edgy; urgency=low
+
+  [ Jonathan Riddell ]
+  * KDE Frontend
+    - Enable buttons on summary page
+    - Don't accept a blank string for the grub device
+    - Use correct strings for grub dialogue box
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 13 Sep 2006 14:01:52 +0100
 
 ubiquity (1.1.16) edgy; urgency=low
 
@@ -102,14 +567,10 @@ ubiquity (1.1.12) edgy; urgency=low
 
 ubiquity (1.1.11) edgy; urgency=low
 
-  [ Colin Watson ]
   * Automatic update of included source packages: apt-setup
     1:0.11ubuntu4.
 
-  [ Evan Dandrea ]
-  * Added migration-assistant.
-
- -- Evan Dandrea <evan@evalicious.com>  Thu, 31 Aug 2006 16:25:18 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 30 Aug 2006 13:35:52 +0100
 
 ubiquity (1.1.10) edgy; urgency=low
 

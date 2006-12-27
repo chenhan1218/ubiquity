@@ -26,8 +26,9 @@ class GrubInstaller(FilteredCommand):
                 {'OVERRIDE_UNSUPPORTED_OS': '1'})
 
     def error(self, priority, question):
-        self.frontend.error_dialog(self.description(question))
-        return super(GrubInstaller, self).error(priority, question)
+        self.frontend.error_dialog(self.description(question),
+                                   self.extended_description(question))
+        return FilteredCommand.error(self, priority, question)
 
     def run(self, priority, question):
         if question == 'grub-installer/bootdev':
@@ -35,4 +36,4 @@ class GrubInstaller(FilteredCommand):
             if self.db.get(question) == '':
                 self.preseed(question, '(hd0)')
 
-        return super(GrubInstaller, self).run(priority, question)
+        return FilteredCommand.run(self, priority, question)

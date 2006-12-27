@@ -1,9 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import sys
 import os
-import stat
 import re
 import subprocess
 import syslog
@@ -89,8 +87,6 @@ def format_size(size):
 def get_partitions():
     """returns an array with fdisk output related to partition data."""
 
-    import re
-
     # parsing partitions from the procfs
     # attention with the output format. the partitions list is without '/dev/'
     partitions = open('/proc/partitions')
@@ -135,7 +131,7 @@ def get_filesystems(fstype={}):
     with data from local hard disks. Only swap and ext3 filesystems
     are available."""
 
-    import re, subprocess
+    import subprocess
     device_list = {}
 
     # building device_list dicts from "file -s" output from get_partitions
@@ -215,8 +211,12 @@ def get_default_partition_selection(size, fstype, auto_mountpoints):
             # Make sure the device isn't in fstype to ensure that the mount
             # will be read-only.
             if device not in fstype and device not in mounted:
-                selection[mountpoint] = device
-                mounted.add(device)
+                # "Mountpoints" not beginning with / are used for some
+                # special-purpose partitions about which the validation code
+                # needs to know. We ignore them here.
+                if mountpoint.startswith('/'):
+                    selection[mountpoint] = device
+                    mounted.add(device)
 
     return selection
 
@@ -266,7 +266,7 @@ def get_translations(languages=None, core_names=[]):
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
              '--config=InFd:none',
-             '--pattern=^(ubiquity|partman-basicfilesystems/bad_mountpoint|partman-partitioning|partman-target/no_root|grub-installer/bootdev)'],
+             '--pattern=^(ubiquity|partman-basicfilesystems/bad_mountpoint|partman-newworld/no_newworld|partman-partitioning|partman-target/no_root|grub-installer/bootdev)'],
             stdout=subprocess.PIPE, stderr=devnull)
         question = None
         descriptions = {}
@@ -312,7 +312,8 @@ def get_translations(languages=None, core_names=[]):
                         descriptions[lang] = value.replace('\\n', '\n')
                     # TODO cjwatson 2006-09-04: a bit of a hack to get the
                     # description and extended description separately ...
-                    if question == 'grub-installer/bootdev':
+                    if question in ('grub-installer/bootdev',
+                                    'partman-newworld/no_newworld'):
                         descriptions["extended:%s" % lang] = \
                             value.replace('\\n', '\n')
 
@@ -364,6 +365,15 @@ def get_string(name, lang):
             text = translations[question]['c']
 
     return unicode(text, 'utf-8', 'replace')
+
+
+def drop_privileges():
+    if 'SUDO_GID' in os.environ:
+        gid = int(os.environ['SUDO_GID'])
+        os.setregid(gid, gid)
+    if 'SUDO_UID' in os.environ:
+        uid = int(os.environ['SUDO_UID'])
+        os.setreuid(uid, uid)
 
 
 # vim:ai:et:sts=4:tw=80:sw=4:

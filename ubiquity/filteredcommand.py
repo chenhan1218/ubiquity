@@ -51,11 +51,18 @@ class FilteredCommand(object):
         self.succeeded = False
 
     @classmethod
+    def debug_enabled(self):
+        return ('UBIQUITY_DEBUG_CORE' in os.environ and
+                os.environ['UBIQUITY_DEBUG_CORE'] == '1')
+
+    @classmethod
     def debug(self, fmt, *args):
-        if ('UBIQUITY_DEBUG_CORE' in os.environ and
-            os.environ['UBIQUITY_DEBUG_CORE'] == '1'):
+        if self.debug_enabled():
+            import time
+            # bizarre time formatting code per syslogd
+            time_str = time.ctime()[4:19]
             message = fmt % args
-            syslog.syslog(syslog.LOG_DEBUG, '%s: %s' % (PACKAGE, message))
+            print >>sys.stderr, '%s %s: %s' % (time_str, PACKAGE, message)
 
     def start(self, auto_process=False):
         self.status = None
@@ -369,6 +376,5 @@ class FilteredCommand(object):
                                               progress_region_end)
 
 if __name__ == '__main__':
-    import sys
     fc = FilteredCommand()
     fc.run(sys.argv[1])

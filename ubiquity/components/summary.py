@@ -18,32 +18,39 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import textwrap
-from ubiquity.filteredcommand import FilteredCommand
+from ubiquity.components.partman_commit import PartmanCommit
 
-class Summary(FilteredCommand):
-    def __init__(self, frontend):
-        super(Summary, self).__init__(frontend)
+class Summary(PartmanCommit):
+    def __init__(self, frontend, manual_partitioning=False):
+        PartmanCommit.__init__(self, frontend, manual_partitioning, True)
         self.using_grub = False
 
     def prepare(self):
-        return (['/usr/share/ubiquity/summary'], ['^ubiquity/summary.*'])
+        prep = list(PartmanCommit.prepare(self))
+        prep[0] = '/usr/share/ubiquity/summary'
+        prep[1].append('^ubiquity/summary.*')
+        return prep
 
     def metaget(self, question, field):
         if question == 'ubiquity/summary/grub':
             self.using_grub = True
 
     def run(self, priority, question):
-        text = ''
-        wrapper = textwrap.TextWrapper(width=76)
-        for line in self.extended_description(question).split("\n"):
-            text += wrapper.fill(line) + "\n"
+        if question == 'ubiquity/summary':
+            text = ''
+            wrapper = textwrap.TextWrapper(width=76)
+            for line in self.extended_description(question).split("\n"):
+                text += wrapper.fill(line) + "\n"
 
-        self.frontend.set_summary_text(text)
-        if self.using_grub:
-            # TODO cjwatson 2006-09-04: a bit inelegant, and possibly
-            # Ubuntu-specific?
-            self.frontend.set_summary_device('(hd0)')
+            self.frontend.set_summary_text(text)
+            if self.using_grub:
+                # TODO cjwatson 2006-09-04: a bit inelegant, and possibly
+                # Ubuntu-specific?
+                self.frontend.set_summary_device('(hd0)')
 
-        # This component exists only to gather some information and then get
-        # out of the way.
-        return True
+            # This component exists only to gather some information and then
+            # get out of the way.
+            return True
+
+        else:
+            return PartmanCommit.run(self, priority, question)

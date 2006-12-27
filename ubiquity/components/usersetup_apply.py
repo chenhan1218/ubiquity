@@ -25,5 +25,6 @@ class UserSetupApply(FilteredCommand):
                 [])
 
     def error(self, priority, question):
-        self.frontend.error_dialog(self.description(question))
-        return super(UserSetupApply, self).error(priority, question)
+        self.frontend.error_dialog(self.description(question),
+                                   self.extended_description(question))
+        return FilteredCommand.error(self, priority, question)

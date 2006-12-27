@@ -28,12 +28,11 @@
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-""" U{pylint<http://logilab.org/projects/pylint>} mark: 6.67 """
-
 # Validation library.
 # Created by Antonio Olmo <aolmo#emergya._info> on 26 jul 2005.
 
-from string            import whitespace, uppercase
+from string import whitespace
+import glob
 from ubiquity.settings import *
 
 HOSTNAME_LENGTH = 1
@@ -70,6 +69,8 @@ MOUNTPOINT_BADCHAR = 4
 MOUNTPOINT_XFSROOT = 5
 MOUNTPOINT_XFSBOOT = 6
 MOUNTPOINT_UNFORMATTED = 7
+MOUNTPOINT_NEEDPOSIX = 8
+MOUNTPOINT_NONEWWORLD = 9
 
 def check_mountpoint(mountpoints, size):
 
@@ -82,7 +83,9 @@ def check_mountpoint(mountpoints, size):
             - C{MOUNTPOINT_BADCHAR} Contains invalid characters.
             - C{MOUNTPOINT_XFSROOT} XFS used on / (with no /boot).
             - C{MOUNTPOINT_XFSBOOT} XFS used on /boot.
-            - C{MOUNTPOINT_UNFORMATTED} System filesystem not reformatted."""
+            - C{MOUNTPOINT_UNFORMATTED} System filesystem not reformatted.
+            - C{MOUNTPOINT_NEEDPOSIX} Non-POSIX filesystem required here.
+            - C{MOUNTPOINT_NONEWWORLD} NewWorld boot partition missing."""
 
     import re
     result = set()
@@ -91,7 +94,7 @@ def check_mountpoint(mountpoints, size):
     xfs_root = False
     xfs_boot = False
 
-    for mountpoint, format, fstype in mountpoints.itervalues():
+    for mountpoint, format, fstype, flags in mountpoints.itervalues():
         if mountpoint == 'swap':
             root_minimum_KB = MINIMAL_PARTITION_SCHEME['root'] * 1024
             break
@@ -99,21 +102,31 @@ def check_mountpoint(mountpoints, size):
         root_minimum_KB = (MINIMAL_PARTITION_SCHEME['root'] +
                            MINIMAL_PARTITION_SCHEME['swap']) * 1024
 
+    if glob.glob('/lib/partman/finish.d/*newworld'):
+        result.add(MOUNTPOINT_NONEWWORLD)
+
     seen_mountpoints = set()
-    for device, (path, format, fstype) in mountpoints.items():
+    for device, (path, format, fstype, flags) in mountpoints.items():
+        # TODO cjwatson 2006-09-26: Duplication from
+        # partman-newworld/finish.d/newworld.
+        if path == 'newworld':
+            result.remove(MOUNTPOINT_NONEWWORLD)
+            continue
+
         if path == '/':
             root = True
             root_size += float(size[device.split('/')[2]])
         elif '/'.join(path.split('/')[:2]) in ('/boot', '/usr', '/var'):
             root_size += float(size[device.split('/')[2]])
 
-        if path != 'swap' and path in seen_mountpoints:
-            result.add(MOUNTPOINT_DUPPATH)
-        else:
-            seen_mountpoints.add(path)
-        regex = re.compile(r'^[a-zA-Z0-9/\-\_\+]+$')
-        if not regex.search(path):
-            result.add(MOUNTPOINT_BADCHAR)
+        if path.startswith('/'):
+            if path in seen_mountpoints:
+                result.add(MOUNTPOINT_DUPPATH)
+            else:
+                seen_mountpoints.add(path)
+            regex = re.compile(r'^[a-zA-Z0-9/\-\_\+]+$')
+            if not regex.search(path):
+                result.add(MOUNTPOINT_BADCHAR)
 
         if fstype == 'xfs':
             if path == '/':
@@ -121,11 +134,19 @@ def check_mountpoint(mountpoints, size):
             elif path == '/boot':
                 xfs_boot = True
 
-        if not format:
+        if path.startswith('/') and not format:
             pathtop = '/'.join(path.split('/')[:2])
             if (pathtop in ('/', '/boot', '/usr', '/var') and
                 path not in ('/usr/local', '/var/local')):
                 result.add(MOUNTPOINT_UNFORMATTED)
+
+        # TODO cjwatson 2006-09-13: Duplication from
+        # partman-basicfilesystems/finish.d/mountpoint_fat; as if the rest
+        # of all this doesn't duplicate partman too ...
+        if fstype in ('vfat', 'ntfs'):
+            if path in ('/', '/boot', '/home', '/opt', '/srv', '/tmp', '/usr',
+                        '/usr/local', '/var'):
+                result.add(MOUNTPOINT_NEEDPOSIX)
 
     if not root:
         result.add(MOUNTPOINT_NOROOT)

@@ -1,2 +1,2 @@
 #! /bin/sh -e
-autoreconf -I m4
+AUTOMAKE=automake-1.10 ACLOCAL=aclocal-1.10 autoreconf -I m4

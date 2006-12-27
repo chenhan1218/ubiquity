@@ -19,15 +19,16 @@ import os
 import errno
 import shutil
 import syslog
+import atexit
+import optparse
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
 from ubiquity import misc
 
-cdebconf = False
-
 VERSION = '@VERSION@'
 TARGET = '/target'
+PIDFILE = '/var/run/ubiquity.pid'
 
 def install(frontend=None):
     '''install(frontend=None) -> none
@@ -85,7 +86,61 @@ def prepend_path(directory):
     else:
         os.environ['PATH'] = directory
 
-if __name__ == '__main__':
+def release_lock():
+    try:
+        os.unlink(PIDFILE)
+    except OSError:
+        pass
+
+def acquire_lock():
+    if os.path.exists(PIDFILE):
+        pidf = open(PIDFILE)
+        pid = int(pidf.read().strip())
+        pidf.close()
+        exists = True
+        try:
+            os.kill(pid, 0)
+        except OSError, e:
+            if e.errno == errno.ESRCH:
+                exists = False
+        if exists:
+            print >>sys.stderr, "Ubiquity is already running (pid %d)!" % pid
+            sys.exit(1)
+    atexit.register(release_lock)
+    pidf = open(PIDFILE, 'w')
+    print >>pidf, os.getpid()
+    pidf.close()
+
+def main():
+    usage = '%prog [options] [frontend]'
+    parser = optparse.OptionParser(usage=usage, version=VERSION)
+    parser.add_option('-d', '--debug', dest='debug', action='store_true',
+                      default=('UBIQUITY_DEBUG' in os.environ),
+                      help='debug mode (warning: passwords will be logged!)')
+    parser.add_option('--cdebconf', dest='cdebconf',
+                      action='store_true', default=False,
+                      help='use cdebconf instead of debconf (experimental)')
+    parser.add_option('--new-partitioner', dest='new_partitioner',
+                      action='store_true',
+                      default=('UBIQUITY_NEW_PARTITIONER' in os.environ),
+                      help='use new advanced partitioner (experimental)')
+    (options, args) = parser.parse_args()
+
+    if options.debug:
+        os.environ['UBIQUITY_DEBUG'] = '1'
+
+    if options.cdebconf:
+        # Note that this needs to be set before DebconfCommunicate is
+        # imported by anything.
+        os.environ['DEBCONF_USE_CDEBCONF'] = '1'
+        prepend_path('/usr/lib/cdebconf')
+    prepend_path('/usr/lib/ubiquity/compat')
+
+    if options.new_partitioner:
+        os.environ['UBIQUITY_NEW_PARTITIONER'] = '1'
+
+    acquire_lock()
+
     if not os.path.exists('/var/log/installer'):
         os.makedirs('/var/log/installer')
     syslog.openlog('ubiquity', syslog.LOG_NOWAIT | syslog.LOG_PID)
@@ -95,18 +150,20 @@ if __name__ == '__main__':
     print >>version_file, 'ubiquity %s' % VERSION
     version_file.close()
 
-    if cdebconf:
-        # Note that this needs to be set before DebconfCommunicate is
-        # imported by anything.
-        os.environ['DEBCONF_USE_CDEBCONF'] = '1'
-        prepend_path('/usr/lib/cdebconf')
-    prepend_path('/usr/lib/ubiquity/compat')
-
-    if 'UBIQUITY_DEBUG' in os.environ or 'ESPRESSO_DEBUG' in os.environ:
+    if 'UBIQUITY_DEBUG' in os.environ:
         if 'UBIQUITY_DEBUG_CORE' not in os.environ:
             os.environ['UBIQUITY_DEBUG_CORE'] = '1'
         if 'DEBCONF_DEBUG' not in os.environ:
             os.environ['DEBCONF_DEBUG'] = 'developer|filter'
+        # The frontend should take care of displaying a helpful message if
+        # we are being run without root privileges.
+        try:
+            sys.stderr = open('/var/log/installer/debug', 'a', 1)
+            os.dup2(sys.stderr.fileno(), 2)
+            print >>sys.stderr, "Ubiquity %s" % VERSION
+        except IOError, err:
+            if err.errno != errno.EACCES:
+                raise
 
     # Default to enabling internal (non-debconf) debugging.
     if 'UBIQUITY_DEBUG_CORE' not in os.environ:
@@ -119,9 +176,12 @@ if __name__ == '__main__':
         os.unlink("/var/lib/ubiquity/remove-kernels")
     shutil.rmtree("/var/lib/partman", ignore_errors=True)
 
-    if len(sys.argv) == 2:
-        install(sys.argv[1])
+    if args:
+        install(args[0])
     else:
         install()
+
+if __name__ == '__main__':
+    main()
 
 # vim:ai:et:sts=4:tw=80:sw=4:

@@ -27,8 +27,10 @@ from ubiquity import misc
 class Language(FilteredCommand):
     def prepare(self):
         self.language_question = None
+        self.db.fset('languagechooser/language-name', 'seen', 'false')
         self.db.set('localechooser/alreadyrun', 'false')
-        questions = ['^languagechooser/language-name']
+        questions = ['^languagechooser/language-name',
+                     '^countrychooser/shortlist$']
         return (['/usr/lib/ubiquity/localechooser/localechooser'], questions,
                 {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH']})
 
@@ -36,6 +38,8 @@ class Language(FilteredCommand):
         if question.startswith('languagechooser/language-name'):
             self.language_question = question
 
+            # Get index of untranslated value; we'll map this to the
+            # translated value later.
             current_language_index = self.value_index(
                 'languagechooser/language-name')
             current_language = "English"
@@ -54,6 +58,11 @@ class Language(FilteredCommand):
                     continue
                 bits = line.split(';')
                 if len(bits) >= 3:
+                    if bits[2] in ('dz', 'km'):
+                        # Exclude these languages for now, as we don't ship
+                        # fonts for them and we don't have sufficient
+                        # translations anyway.
+                        continue
                     language_codes[bits[0]] = bits[2]
             languagelist.close()
 
@@ -80,12 +89,20 @@ class Language(FilteredCommand):
                                                language_display_map)
             self.frontend.set_language(current_language)
 
-        return super(Language, self).run(priority, question)
+        elif question == 'countrychooser/shortlist':
+            if 'DEBCONF_USE_CDEBCONF' not in os.environ:
+                # Normally this default is handled by Default-$LL, but since
+                # we can't change debconf's language on the fly (unlike
+                # cdebconf), we have to fake it.
+                self.db.set(question, self.db.get('debian-installer/country'))
+            return True
+
+        return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
         if self.language_question is not None:
             self.preseed(self.language_question, self.frontend.get_language())
-        super(Language, self).ok_handler()
+        FilteredCommand.ok_handler(self)
 
     def cleanup(self):
         di_locale = self.db.get('debian-installer/locale')

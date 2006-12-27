@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-09-07 18:36+0100\n"
-"PO-Revision-Date: 2006-05-29 07:39+0000\n"
-"Last-Translator: Hörður Már Gestsson <ubuntu@alvitra.is>\n"
+"POT-Creation-Date: 2006-12-05 12:46+0000\n"
+"PO-Revision-Date: 2006-09-07 20:43+0000\n"
+"Last-Translator: David Steinn Geirsson <davidgeirs@gmail.com>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,7 +100,7 @@ msgstr "Stilla Tíma..."
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Velja uppröðun lyklaborðs"
 
 #. Type: text
 #. Description
@@ -139,12 +139,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Ef fleiri en ein manneskja nota þessa tölvu, getur þú sett upp fleiri "
+"reikninga eftir uppsetningu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Veldu lykilorð til að halda reikningnum þínum öruggum."
 
 #. Type: text
 #. Description
@@ -152,12 +154,13 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Sláðu lykilorðið inn tvisvar, til að koma í veg fyrir innsláttarvillur."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Hvert er nafn þessarar tölvu?"
 
 #. Type: text
 #. Description
@@ -166,46 +169,29 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Þetta nafn verður notað til að gera þessa tölvu sýnilega öðrum á netkerfi."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-msgid "Select a disk"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:24001
-msgid ""
-"You can have the installer automatically create space in various ways on any "
-"one of the following hard disks. Alternatively, you can partition the disks "
-"manually."
-msgstr ""
-"Þú getur látið innsetningarforritið búa sjálfkrafa til pláss á mismunandi "
-"máta á einhvern eftirfarandi diska. Einnig geturðu skipt disknum \"handvirkt"
-"\"."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:25001
 msgid "Prepare disk space"
 msgstr "Undirbúa diskpláss"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:26001
+#: ../ubiquity.templates:24001
 msgid "How do you want to partition the disk?"
 msgstr "Hvernig viltu sneiða niður diskinn?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:27001
+#: ../ubiquity.templates:25001
 msgid "Prepare partitions"
 msgstr "Undirbúa sneiðar"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:28001
+#: ../ubiquity.templates:26001
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 2 GB, and a swap partition of at least 256 MB."
@@ -213,13 +199,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:29001
+#: ../ubiquity.templates:27001
 msgid "Prepare mount points"
 msgstr "Undirbúa tengipunkta"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:30001
+#: ../ubiquity.templates:28001
 msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
@@ -229,7 +215,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:30001
+#: ../ubiquity.templates:28001
 msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
@@ -239,125 +225,130 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:31001
+#: ../ubiquity.templates:29001
 msgid "Mount Point"
 msgstr "Tengipunktur"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:32001
+#: ../ubiquity.templates:30001
 msgid "Size"
 msgstr "Stærð"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:33001
+#: ../ubiquity.templates:31001
 msgid "Partition"
 msgstr "Útbúa disksneiðar"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:34001
+#: ../ubiquity.templates:32001
 msgid "Reformat?"
 msgstr "Endurforsníða"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:35001
+#: ../ubiquity.templates:33001
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "Þú þarft að úthluta tengipunkt fyrir rótina (\"/\")."
 
 #. Type: text
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:36001 ../ubiquity.templates:48001
+#: ../ubiquity.templates:34001 ../ubiquity.templates:46001
 msgid "Ready to install"
 msgstr "Reiðubúin til að setja upp"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:37001
+#: ../ubiquity.templates:35001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "Nýja stýrikerfið þitt verður sett upp með eftirfarandi stillingum:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:38001
+#: ../ubiquity.templates:36001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Þrep ${INDEX} af ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:37001
 msgid "Abort the installation?"
 msgstr "Hætta við uppsetninguna?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:38001
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "Ertu viss um að þú viljir hætta við uppsetninguna núna?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:39001
 msgid "Skip"
-msgstr ""
+msgstr "Sleppa"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:40001
 msgid "Installation complete"
 msgstr "Uppsetningu lokið"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:41001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Halda áfram að nota keyranlega geisladiskinn"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:42001
 msgid "Restart now"
-msgstr ""
+msgstr "Endurræsa núna"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:43001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Uppsetningu er lokið. Þú þarft að endurræsa tölvuna til að nota nýuppsetta "
+"kerfið. Þú getur haldið áfram að nota þennan geisladisk, en engar breytingar "
+"eða vistuð skjöl halda sér."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:43001
 msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Mundu að taka geisladiskinn úr þegar þú endurræsir tölvuna. Annars mun hún "
+"ræsa aftur með þessum disk í stað nýuppsetta kerfisins."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:44001
 msgid "Go Back"
 msgstr "Til baka"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:45001
 msgid "Continue"
 msgstr "Halda áfram"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:46001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -372,159 +363,217 @@ msgstr ""
 #. Translators, please leave "DEVICE" untranslated. It will be replaced by a
 #. button displaying the current boot device and allowing the user to select
 #. a different one.
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:47001
 msgid "GRUB will be installed to DEVICE"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:50001
-#, fuzzy
+#: ../ubiquity.templates:48001
 msgid "Installing system"
-msgstr "Uppsetningu lokið"
+msgstr "Set upp kerfi"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:49001
+msgid "Finding the distribution to copy..."
+msgstr "Leita að dreifingunni sem á að afrita..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
-msgid "Finding the distribution to copy..."
-msgstr ""
+msgid "Scanning files..."
+msgstr "Les skrár..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:52001
+msgid "Copying files..."
+msgstr "Afrita skrár..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-msgid "Scanning files..."
+msgid "Copying files (less than a minute remaining)..."
 msgstr ""
 
-#. Type: text
+#. Type: error
 #. Description
 #: ../ubiquity.templates:54001
-msgid "Copying files..."
+msgid "Failed to copy files; faulty CD/DVD?"
 msgstr ""
 
-#. Type: text
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:54001 ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
+msgid "The installer encountered an error copying files to the hard disk:"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:54001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive. It may "
+"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
+"the CD/DVD drive lens (cleaning kits are often available from electronics "
+"suppliers)."
+msgstr ""
+
+#. Type: error
 #. Description
 #: ../ubiquity.templates:55001
-msgid "Copying files (${TIME} remaining)..."
+msgid "Failed to copy files; faulty hard disk?"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:55001
+msgid ""
+"This particular error is often due to a faulty hard disk. It may help to "
+"check whether the hard disk is old and in need of replacement, or to move "
+"the system to a cooler environment."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001
+msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+msgstr ""
+
+#. Type: error
+#. Description
+#. This is used when we don't know whether the CD/DVD or the hard disk is at
+#. fault.
+#: ../ubiquity.templates:56001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive, or a "
+"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
+"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+"available from electronics suppliers), to check whether the hard disk is old "
+"and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:57001
 msgid "Copying installation logs..."
 msgstr "Afrita uppsetningarannála"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
 msgid "Running ${SCRIPT}..."
 msgstr "Keyri ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
-#, fuzzy
-msgid "Configuring system locales..."
-msgstr "Stilli net..."
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:59001
-msgid "Configuring apt..."
-msgstr ""
+msgid "Configuring system locales..."
+msgstr "Stilli staðbundnar stillingar..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
+msgid "Configuring apt..."
+msgstr "Stilli apt..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:61001
 msgid "Configuring time zone..."
 msgstr "Stilli tímabelti..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:62001
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Stilli lyklaborð..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:63001
 msgid "Creating user..."
 msgstr "Bý til notanda"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:64001
 msgid "Configuring hardware..."
 msgstr "Stilli vélbúnað..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:65001
 msgid "Configuring network..."
 msgstr "Stilli net..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
-msgid "Setting computer name..."
-msgstr ""
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-msgid "Configuring boot loader..."
-msgstr "Stilli net..."
+msgid "Setting computer name..."
+msgstr "Stili nafn tölvu..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
+msgid "Configuring boot loader..."
+msgstr "Stilli ræsistjóra..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:68001
 msgid "Removing extra packages..."
 msgstr "Fjarlægi auka pakka..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
-msgid "Checking for packages to remove..."
-msgstr ""
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:69001
-msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgid "Checking for packages to remove..."
+msgstr "Leita að pökkum sem á að fjarlægja..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
-msgid "Downloading package lists..."
-msgstr ""
+msgid "Downloading packages (${TIME} remaining)..."
+msgstr "Hala niður pökkum (${TIME} eftir)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
+msgid "Downloading package lists..."
+msgstr "Hala niður pakkalista..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:72001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Hala niður pakkalista (${TIME} eftir)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:74001
 msgid "Error installing ${PACKAGE}"
 msgstr "Villa í uppsetningu á ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:75001
 msgid "Error removing ${PACKAGE}"
 msgstr "Villa kom upp þegar ${PACKAGE} var fjarlægður"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:76001
 msgid "Installing language packs"
-msgstr ""
+msgstr "Set upp tungumálapakka"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:77001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Hala niður tungumálapökkum (${TIME} eftir)..."

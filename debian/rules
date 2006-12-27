@@ -8,6 +8,12 @@ export DH_OPTIONS
 BUILDDIR=$(CURDIR)/debian/build
 
 VERSION := $(shell dpkg-parsechangelog | awk '/^Version:/ { print $$2 }')
+AC_VERSION := $(shell grep -w '^AC_INIT' configure.ac | cut -d' ' -f2 | \
+			sed 's/[][,]//g')
+
+ifneq ($(VERSION),$(AC_VERSION))
+$(warning Version $(VERSION) in debian/changelog does not match $(AC_VERSION) in configure.ac!)
+endif
 
 DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_ARCH_CPU ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_CPU 2>/dev/null)
@@ -34,14 +40,16 @@ endif
 endif
 endif
 
+console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $$2}'))
+
 ifeq (,$(strip $(foreach dir,$(subst :, ,$(PATH)),$(wildcard $(dir)/pygtk-codegen-2.0))))
 $(warning pygtk-codegen-2.0 missing; disabling GTK frontend)
-UBIQUITY_NO_GTK := 1
+export UBIQUITY_NO_GTK := 1
 endif
 
 ifeq (,$(strip $(foreach dir,$(subst :, ,$(PATH)),$(wildcard $(dir)/kdepyuic))))
 $(warning kdepyuic missing; disabling KDE frontend)
-UBIQUITY_NO_KDE := 1
+export UBIQUITY_NO_KDE := 1
 endif
 
 update:
@@ -52,10 +60,8 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
-ifndef UBIQUITY_NO_GTK
 	PYTHON=$(PYTHON) ./configure --prefix=/usr
 	$(MAKE)
-endif
 	$(MAKE) -C d-i build
 
 	mkdir -p $(BUILDDIR)/ubuntu
@@ -77,6 +83,8 @@ clean:
 	-$(MAKE) distclean
 
 	dh_clean debian/ubiquity.install ubiquity/keyboard_names.py
+
+	$(MAKE) -C d-i check
 
 ubiquity/keyboard_names.py: d-i/source/console-setup/Keyboard/KeyboardNames.pl
 	d-i/make-keyboard-names $< > $@
@@ -114,9 +122,10 @@ endif
 endif
 
 	# Bits of manual installation that can't be done by dh_install
-	sed 's/@VERSION@/$(VERSION)/g' installer \
-		> debian/ubiquity/usr/bin/ubiquity
-	chmod +x debian/ubiquity/usr/bin/ubiquity
+	install bin/ubiquity-wrapper debian/ubiquity/usr/bin/ubiquity
+	sed 's/@VERSION@/$(VERSION)/g' bin/ubiquity \
+		> debian/ubiquity/usr/lib/ubiquity/bin/ubiquity
+	chmod +x debian/ubiquity/usr/lib/ubiquity/bin/ubiquity
 	sed 's,/usr/lib/apt-setup,/usr/lib/ubiquity/apt-setup,g' \
 		d-i/source/apt-setup/apt-setup \
 		> debian/ubiquity/usr/lib/ubiquity/apt-setup/apt-setup
@@ -160,8 +169,8 @@ endif
 	done
 	install d-i/source/localechooser/finish-install \
 		debian/ubiquity/usr/lib/ubiquity/localechooser/
-	install d-i/source/tzsetup/finish-install.d/*tzsetup \
-		debian/ubiquity/usr/lib/ubiquity/tzsetup/finish-install
+	install d-i/source/tzsetup/post-base-installer.d/*tzsetup \
+		debian/ubiquity/usr/lib/ubiquity/tzsetup/post-base-installer
 	set -e; for x in user-setup user-setup-ask user-setup-apply; do \
 		sed -e 's,/usr/lib/user-setup,/usr/lib/ubiquity/user-setup,g' \
 		    -e 's,/bin/sh,/bin/bash,g' \
@@ -179,6 +188,8 @@ ifeq ($(DEB_HOST_ARCH),sparc)
 	install d-i/source/silo-installer/debian/silo-installer.postinst \
 		debian/ubiquity/usr/lib/ubiquity/silo-installer/silo-installer
 endif
+	install -m644 debian/intro-alpha.txt \
+		debian/ubiquity/usr/share/ubiquity/intro.txt
 
 	set -e; for size in 16 22 32 48 64 128; do \
 		mkdir -p debian/ubiquity-frontend-kde/usr/share/icons/crystalsvg/$${size}x$${size}/apps; \
@@ -203,7 +214,6 @@ binary-indep: install
 	dh_compress
 	dh_fixperms
 	DH_OPTIONS= dh_pycentral -pubiquity-frontend-kde
-	dh_python /usr/lib/ubiquity
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
@@ -237,13 +247,12 @@ binary-arch: install
 	dh_compress
 	dh_fixperms
 	dh_pycentral
-	dh_python /usr/lib/ubiquity
 	dh_installdeb
 	dh_shlibdeps
 ifdef bootloader-depends
-	dh_gencontrol -- -V'bootloader-depends=$(bootloader-depends)'
+	dh_gencontrol -- -V'bootloader-depends=$(bootloader-depends)' -V'console-setup-depends=$(console-setup-depends)'
 else
-	dh_gencontrol
+	dh_gencontrol -- -V'console-setup-depends=$(console-setup-depends)'
 endif
 	dh_md5sums
 	dh_builddeb

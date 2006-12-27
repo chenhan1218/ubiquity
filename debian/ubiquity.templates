@@ -100,17 +100,6 @@ _Description:
  This name will be used if you make the computer visible to others on a
  network.
 
-Template: ubiquity/text/part_disk_heading_label
-Type: text
-_Description: Select a disk
-
-Template: ubiquity/text/part_disk_comment_label
-Type: text
-_Description:
- You can have the installer automatically create space in various ways on
- any one of the following hard disks. Alternatively, you can partition the
- disks manually.
-
 Template: ubiquity/text/part_auto_heading_label
 Type: text
 _Description: Prepare disk space
@@ -262,9 +251,52 @@ Template: ubiquity/install/copying
 Type: text
 _Description: Copying files...
 
-Template: ubiquity/install/copying_time
+Template: ubiquity/install/copying_minute
 Type: text
-_Description: Copying files (${TIME} remaining)...
+_Description: Copying files (less than a minute remaining)...
+
+Template: ubiquity/install/copying_error/cd_fault
+Type: error
+#flag:translate!:3
+_Description: Failed to copy files; faulty CD/DVD?
+ The installer encountered an error copying files to the hard disk:
+ .
+ ${ERROR}
+ .
+ This particular error is often due to a faulty CD/DVD disk or drive. It may
+ help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean
+ the CD/DVD drive lens (cleaning kits are often available from electronics
+ suppliers).
+
+Template: ubiquity/install/copying_error/hd_fault
+Type: error
+#flag:translate!:3
+_Description: Failed to copy files; faulty hard disk?
+ The installer encountered an error copying files to the hard disk:
+ .
+ ${ERROR}
+ .
+ This particular error is often due to a faulty hard disk. It may help to
+ check whether the hard disk is old and in need of replacement, or to move
+ the system to a cooler environment.
+
+Template: ubiquity/install/copying_error/cd_hd_fault
+Type: error
+#flag:translate!:3
+#flag:comment:4
+# This is used when we don't know whether the CD/DVD or the hard disk is at
+# fault.
+_Description: Failed to copy files; faulty CD/DVD or hard disk?
+ The installer encountered an error copying files to the hard disk:
+ .
+ ${ERROR}
+ .
+ This particular error is often due to a faulty CD/DVD disk or drive, or a
+ faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a
+ lower speed, to clean the CD/DVD drive lens (cleaning kits are often
+ available from electronics suppliers), to check whether the hard disk is
+ old and in need of replacement, or to move the system to a cooler
+ environment.
 
 Template: ubiquity/install/log_files
 Type: text
@@ -375,3 +407,8 @@ Template: ubiquity/partman-made-changes
 Type: boolean
 Default: true
 Description: for internal use; record whether partman asked for confirmation of changes
+
+Template: ubiquity/partman-rebuild-cache
+Type: boolean
+Default: true
+Description: for internal use; set when the partman cache needs to be rebuilt

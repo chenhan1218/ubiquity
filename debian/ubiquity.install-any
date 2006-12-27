@@ -4,7 +4,9 @@ ubiquity/components/summary.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/install.py usr/lib/ubiquity/ubiquity/components
 ubiquity/frontend/noui.py usr/lib/ubiquity/ubiquity/frontend
 ubiquity/frontend/__init__.py usr/lib/ubiquity/ubiquity/frontend
-compat/* usr/lib/ubiquity/compat
+compat/anna-install usr/lib/ubiquity/compat
+compat/apt-install usr/lib/ubiquity/compat
+compat/udpkg usr/lib/ubiquity/compat
 scripts/* usr/share/ubiquity
 desktop/ubiquity.png usr/share/pixmaps
 pixmaps/world_map-960.png usr/share/ubiquity/pixmaps
@@ -27,6 +29,7 @@ d-i/source/choose-mirror/choose-mirror usr/lib/ubiquity/choose-mirror
 ubiquity/components/clock_setup.py usr/lib/ubiquity/ubiquity/components
 
 # console-setup
+compat/locale usr/lib/ubiquity/console-setup
 ubiquity/components/console_setup.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/console_setup_apply.py usr/lib/ubiquity/ubiquity/components
 
@@ -59,6 +62,8 @@ d-i/source/partconf/debian/partconf-*/* .
 
 # partman
 d-i/source/partman-*/debian/partman-*/* .
+partman/update.d/* lib/partman/update.d
+ubiquity/components/partman.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/partman_auto.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/partman_commit.py usr/lib/ubiquity/ubiquity/components
 
@@ -69,6 +74,7 @@ ubiquity/components/timezone_apply.py usr/lib/ubiquity/ubiquity/components
 
 # user-setup
 d-i/source/user-setup/functions.sh usr/lib/ubiquity/user-setup
+d-i/source/user-setup/reserved-usernames usr/lib/ubiquity/user-setup
 ubiquity/components/usersetup.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/usersetup_apply.py usr/lib/ubiquity/ubiquity/components
 

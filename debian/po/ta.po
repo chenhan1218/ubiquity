@@ -1,0 +1,587 @@
+# translation of ta(debinst).po to tamil
+# Tamil messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+# drtvasudevan <agnihot3@gmail.com>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: ta(debinst)\n"
+"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
+"POT-Creation-Date: 2006-12-05 12:46+0000\n"
+"PO-Revision-Date: 2006-10-04 05:04+0000\n"
+"Last-Translator: drtvasudevan <agnihot3@gmail.com>\n"
+"Language-Team: tamil <Ubuntu-l10n-tam@lists.ubuntu.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.2\n"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:2001
+msgid "Install"
+msgstr "நிறுவுக"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:3001
+msgid "Welcome"
+msgstr "நல்வரவு"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:4001
+msgid ""
+"Ready to install? Once you answer a few questions, the contents of the live "
+"CD can be installed on this computer so you can run the system at full speed "
+"and without the CD."
+msgstr ""
+"நிறுவ தயார்தானே ? சில கேள்விகளுக்கு பதில் அளித்தால் இந்த உயிர் குறுந்தட்டின் உள்ளடக்கங்கள் "
+"கணினியில் நிறுவப் படும். நீங்கள் குறுந்தட்டு இல்லாமல் முழு வேகத்தில் கணினியை இயக்கலாம்."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:4001
+msgid "Answering the questions should only take a few minutes."
+msgstr "கேள்விகளுக்கு பதில் அளிப்பதற்கு சில நிமிடங்கள் போதும்."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:4001
+msgid ""
+"Please choose the language used for the installation process. This language "
+"will be the default language for the final system."
+msgstr ""
+"நிறுவலில் பயன் படுத்தப் போகும் மொழியை தேர்ந்தெடுக்கவும். இந்த மொழியே இறுதியில் கணினியின் "
+"முன்னிருப்பு மொழியாகும்."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:5001
+msgid "Where are you?"
+msgstr "நீங்கள் எந்த நாட்டில் உள்ளீர்கள்?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:6001
+msgid "Select a city in your country and time zone."
+msgstr "உங்கள் நாட்டுக்கான நகரத்தையும் நேர மண்டலத்தையும் தேர்ந்தெடுங்கள்."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:7001
+msgid "Selected city:"
+msgstr "தேர்ந்தெடுக்கப்பட்ட நகரம்:"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:8001
+msgid "Time zone:"
+msgstr "நேர மண்டலம்:"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:9001
+msgid "Selected region:"
+msgstr "தேர்ந்தெடுக்கப்பட்ட பிரதேசம்:"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:10001
+msgid "Current time:"
+msgstr "நடப்பு நேரம்:"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:11001
+msgid "Set Time..."
+msgstr "நேரத்தை அமை..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:12001
+msgid "Keyboard layout"
+msgstr "விசைப்பலகை அமைப்பு"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:13001
+msgid "Which layout is most similar to your keyboard?"
+msgstr "எந்த விசைப்பலகை அமைப்பு உங்களுடையது போல இருக்கிறது?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:14001
+msgid "You can type into this box to test your new keyboard layout."
+msgstr "நீங்கள் புதிய விசைப்பலகை அமைப்பை சோதிக்க இங்கு பெட்டியில் உள்ளீடு செய்து பார்க்கலரம்."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:15001
+msgid "Who are you?"
+msgstr "நீங்கள் யார்?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:16001
+msgid "What is your name?"
+msgstr "உங்கள் பெயர் என்ன?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:17001
+msgid "What name do you want to use to log in?"
+msgstr "கணினி உள்ளே நுழைய என்ன பெயர் அமைக்க?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:18001
+msgid ""
+"If more than one person will use this computer, you can set up multiple "
+"accounts after installation."
+msgstr ""
+"ஒரு நபருக்கு மேல் கணினியை பயன் படுத்த வேண்டுமானால் பின்னால் அதிக கணக்குகளை அமைத்துக் "
+"கொள்ளலாம்."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:19001
+msgid "Choose a password to keep your account safe."
+msgstr "உங்கள் கணக்கை பத்திரப் படுத்த ஒரு தடவு சொல் தேர்வு செய்க."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:20001
+msgid ""
+"Enter the same password twice, so that it can be checked for typing errors."
+msgstr "உள்ளீட்டுப் பிழைகளை தவிர்க்க அதே கடவுச் சொல்லை இரு முறை உள்ளிடவும்."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:21001
+msgid "What is the name of this computer?"
+msgstr "உங்கள் கணினிக்கு என்ன பெயர் வைக்கலாம்?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:22001
+msgid ""
+"This name will be used if you make the computer visible to others on a "
+"network."
+msgstr "வலைப் பின்னலில் உங்கள் கணினியை மற்றவருக்கு அடையாளம் காட்ட இந்த பெயர் பயனாகும்."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:23001
+msgid "Prepare disk space"
+msgstr "வன் தட்டில் இடம் தயாரி"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:24001
+msgid "How do you want to partition the disk?"
+msgstr "உங்களுக்கு வன் தட்டில் எப்படி இடம் பிரிக்க வேண்டும்?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:25001
+msgid "Prepare partitions"
+msgstr "பகிர்வுகளை தயாரி"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:26001
+msgid ""
+"Make sure to allocate space for a root partition (\"/\"), with a minimum "
+"size of 2 GB, and a swap partition of at least 256 MB."
+msgstr ""
+"குறைந்தது 2 GB அளவு உள்ள மூல (ரூட்) பகிர்வு \"/\"),  உருவாக்கவும்.இட மாற்றுக்கு "
+"(swap) குறைந்தது 256 MB. அளவு உடைய பகிர்வு உருவாக்கவும்."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:27001
+msgid "Prepare mount points"
+msgstr "ஏற்றுப்புள்ளிகள் தயாரித்தல்"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:28001
+msgid ""
+"Select which partitions you want to use for your new installation, and where "
+"you want to mount each of them."
+msgstr ""
+"உங்கள் புதிய நிறுவலுக்கு எந்த பகிர்வுகளை பயன்படுத்தப் போகிறீர்கள் அவற்றை எங்கு ஏற்றப் "
+"போகிறீர்கள் என தேர்ந்தெடுக்கவும்."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:28001
+msgid ""
+"You must mount one partition on the root file system (\"/\"), and you must "
+"choose at least one partition for use as swap space."
+msgstr ""
+"ஒரு பகிர்வை நீங்கள் (\"/\") மூல அடைவு அமைப்புக்கு ஏற்ற வேண்டும்.மேலும் குறைந்தது ஒரு "
+"பகிர்வை இட மாற்றுக்கு பயன் படுத்த தேர்ந்தெடுக்க வேண்டும்."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:29001
+msgid "Mount Point"
+msgstr "ஏற்றுப் புள்ளி"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:30001
+msgid "Size"
+msgstr "அளவு"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:31001
+msgid "Partition"
+msgstr "வட்டை பகிர்க"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:32001
+msgid "Reformat?"
+msgstr "மீண்டும் வட்டு வடிவமைப்பு செய்யவா?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:33001
+msgid "You must supply a root (\"/\") mount point."
+msgstr "நீங்கள் மூலத்திற்கு ஏற்றுப் புள்ளி தரவேண்டும்."
+
+#. Type: text
+#. Description
+#. Type: note
+#. Description
+#: ../ubiquity.templates:34001 ../ubiquity.templates:46001
+msgid "Ready to install"
+msgstr "நிறுவத் தயார்"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:35001
+msgid ""
+"Your new operating system will now be installed with the following settings:"
+msgstr "பின்வரும் அமைப்பில் உங்கள் இயங்கு தளம் அமைக்கப் படும்:"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:36001
+msgid "Step ${INDEX} of ${TOTAL}"
+msgstr "படி ${INDEX} வது ${TOTAL} மொத்தத்தில்."
+
+#. Type: title
+#. Description
+#: ../ubiquity.templates:37001
+msgid "Abort the installation?"
+msgstr "நிறுவலைக் கை விடவா?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:38001
+msgid "Do you really want to abort the installation now?"
+msgstr "நிச்சயமாக நிறுவலைக் கை விடவேண்டுமா?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:39001
+msgid "Skip"
+msgstr "தவிர்க"
+
+#. Type: title
+#. Description
+#: ../ubiquity.templates:40001
+msgid "Installation complete"
+msgstr "நிறுவல் முடிந்தது"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:41001
+msgid "Continue using the live CD"
+msgstr "நிறுவா உயிர் குறுந் தட்டை தொடர்ந்து பயன் படுத்து."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:42001
+msgid "Restart now"
+msgstr "இப்போது மீட்டமை"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:43001
+msgid ""
+"Installation is complete. You need to restart the computer in order to use "
+"the new installation. You can continue to use this live CD, although any "
+"changes you make or documents you save will not be preserved."
+msgstr ""
+"நிறுவல் முடிந்தது. நீங்கள் புதிய நிறுவலை பயன் படுத்த கணினியை மறு துவக்கம் செய்ய "
+"வேண்டும். நிறுவா குறுந் தட்டை தொடர்ந்து பயன் படுத்தலாம். ஆனால் நீங்கள் செய்யும் மாறுதல்களும் "
+"அல்லது சேமிக்கும் ஆவணங்களும் பாதுகாக்கப் பட மாட்டா."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:43001
+msgid ""
+"Make sure to remove the CD when restarting the computer, otherwise it will "
+"start back up using this live CD rather than the newly-installed system."
+msgstr ""
+"கணினியை மறு துவக்கம் செய்யும் போது நிறுவா குறுந் தட்டை எடுத்து விடவும். இல்லாவிடில் "
+"புதிய நிறுவலுக்கு பதில் இந்த நிறுவா குறுந் தட்டே மீண்டும் இயங்க ஆரம்பிக்கும்."
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:44001
+msgid "Go Back"
+msgstr "பின்செல்க"
+
+#. Type: text
+#. Description
+#. Translators, this text will appear on a button, so KEEP IT SHORT
+#: ../ubiquity.templates:45001
+msgid "Continue"
+msgstr "தொடர்க"
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:46001
+msgid ""
+" Language: ${LANGUAGE}\n"
+" Keyboard layout: ${KEYMAP}\n"
+" Name: ${FULLNAME}\n"
+" Login name: ${USERNAME}\n"
+" Location: ${LOCATION}\n"
+" ${EXTRAS}"
+msgstr ""
+" மொழி: ${LANGUAGE}\n"
+" விசைப்பலகை உருவரை: ${KEYMAP}\n"
+" பெயர்: ${FULLNAME}\n"
+" உள்நுழை பெயர்: ${USERNAME}\n"
+" இடம்: ${LOCATION}\n"
+" ${EXTRAS}"
+
+#. Type: text
+#. Description
+#. Translators, please leave "DEVICE" untranslated. It will be replaced by a
+#. button displaying the current boot device and allowing the user to select
+#. a different one.
+#: ../ubiquity.templates:47001
+msgid "GRUB will be installed to DEVICE"
+msgstr "DEVICE இல் க்ரப் (GRUB) நிறுவப் படும்."
+
+#. Type: title
+#. Description
+#: ../ubiquity.templates:48001
+msgid "Installing system"
+msgstr "இங்கு தளம் நிறுவப்படுகிறது"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:49001
+msgid "Finding the distribution to copy..."
+msgstr "நகலெடுக்க வினியோகத்தை தேடுகிறது.."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:51001
+msgid "Scanning files..."
+msgstr "கோப்புகளை வருடுகிறது."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:52001
+msgid "Copying files..."
+msgstr "கோப்புகள் நகலெடுக்கப்படுகின்றன."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:53001
+msgid "Copying files (less than a minute remaining)..."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:54001
+msgid "Failed to copy files; faulty CD/DVD?"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:54001 ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
+msgid "The installer encountered an error copying files to the hard disk:"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:54001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive. It may "
+"help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
+"the CD/DVD drive lens (cleaning kits are often available from electronics "
+"suppliers)."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:55001
+msgid "Failed to copy files; faulty hard disk?"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:55001
+msgid ""
+"This particular error is often due to a faulty hard disk. It may help to "
+"check whether the hard disk is old and in need of replacement, or to move "
+"the system to a cooler environment."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:56001
+msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+msgstr ""
+
+#. Type: error
+#. Description
+#. This is used when we don't know whether the CD/DVD or the hard disk is at
+#. fault.
+#: ../ubiquity.templates:56001
+msgid ""
+"This particular error is often due to a faulty CD/DVD disk or drive, or a "
+"faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
+"lower speed, to clean the CD/DVD drive lens (cleaning kits are often "
+"available from electronics suppliers), to check whether the hard disk is old "
+"and in need of replacement, or to move the system to a cooler environment."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:57001
+msgid "Copying installation logs..."
+msgstr "நிறுவல் பதிவேடு நகலெடுக்கப்படுகிறது."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:58001
+msgid "Running ${SCRIPT}..."
+msgstr "${SCRIPT} இயக்கப்படுகிறது..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:59001
+msgid "Configuring system locales..."
+msgstr "கணினி வட்டாரம் வடிவமைக்கப்படுகிறது ..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:60001
+msgid "Configuring apt..."
+msgstr "ஆப்ட் (apt) வடிவமைக்கப்படுகிறது."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:61001
+msgid "Configuring time zone..."
+msgstr "நேர மண்டலம் வடிவமைக்கப்படுகிறது..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:62001
+msgid "Configuring keyboard..."
+msgstr "விசைப்பலகை வடிவமைக்கப்படுகிறது..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:63001
+msgid "Creating user..."
+msgstr "பயனரை உருவாக்குகிறது..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:64001
+msgid "Configuring hardware..."
+msgstr "வன் பொருள் வடிவமைக்கப்படுகிறது..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:65001
+msgid "Configuring network..."
+msgstr "வலைப்பின்னல் வடிவமைக்கப்படுகிறது ..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:66001
+msgid "Setting computer name..."
+msgstr "கணினியின் பெயர் அமைத்தல்..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:67001
+msgid "Configuring boot loader..."
+msgstr "துவக்கி வடிவமைக்கப்படுகிறது ..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:68001
+msgid "Removing extra packages..."
+msgstr "கூடுதல் பொதிகள் நீக்கப் படுகின்றன..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:69001
+msgid "Checking for packages to remove..."
+msgstr "நீக்குவதற்கு பொதிகள் சோதிக்கப் படுகின்றன..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:70001
+msgid "Downloading packages (${TIME} remaining)..."
+msgstr "தொகுப்புகளை பதிவிறக்குகிறது மீதம் நேரம் (${TIME})..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:71001
+msgid "Downloading package lists..."
+msgstr "தொகுப்புகளை பதிவிறக்குகிறது..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:72001
+msgid "Downloading package lists (${TIME} remaining)..."
+msgstr "தொகுப்புகளின் பட்டியலை பதிவிறக்குகிறது. மீதம். நேரம் (${TIME})..."
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:74001
+msgid "Error installing ${PACKAGE}"
+msgstr "${PACKAGE} நிறுவலில் பிழை"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:75001
+msgid "Error removing ${PACKAGE}"
+msgstr "${PACKAGE} நீக்குவதில் பிழை"
+
+#. Type: title
+#. Description
+#: ../ubiquity.templates:76001
+msgid "Installing language packs"
+msgstr "மொழி தொகுப்புகள் நிறுவப் படுகின்றன."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:77001
+msgid "Downloading language packs (${TIME} remaining)..."
+msgstr "மொழி தொகுப்புகளை பதிவிறக்குகிறது மீதம் நேரம் (${TIME})..."

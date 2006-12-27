@@ -24,7 +24,6 @@ import signal
 import errno
 import subprocess
 import re
-import syslog
 import debconf
 
 # Each widget should have a run(self, priority, question) method; this
@@ -87,6 +86,7 @@ class DebconfFilter:
         else:
             self.debug_re = None
         self.escaping = False
+        self.progress_cancel = False
         self.progress_bars = []
         self.toread = ''
         self.toreadpos = 0
@@ -95,8 +95,11 @@ class DebconfFilter:
 
     def debug(self, key, *args):
         if self.debug_re is not None and self.debug_re.search(key):
-            syslog.syslog(syslog.LOG_DEBUG,
-                          "debconf (%s): %s" % (key, ' '.join(args)))
+            import time
+            # bizarre time formatting code per syslogd
+            time_str = time.ctime()[4:19]
+            print >>sys.stderr, "%s debconf (%s): %s" % (time_str, key,
+                                                         ' '.join(args))
 
     # Returns None if non-blocking and can't read a full line right now;
     # returns '' at end of file; otherwise as fileobj.readline().
@@ -214,6 +217,7 @@ class DebconfFilter:
 
         if command == 'CAPB':
             self.escaping = 'escape' in params
+            self.progress_cancel = 'progresscancel' in params
             for widget in self.find_widgets(['CAPB'], 'capb'):
                 self.debug('filter', 'capb widget found')
                 widget.capb(params)
@@ -336,7 +340,7 @@ class DebconfFilter:
                                                progress_region_end)
             # We handle all progress bars ourselves; don't pass them through
             # to the debconf frontend.
-            if cancelled:
+            if self.progress_cancel and cancelled:
                 self.reply(30, 'progress bar cancelled', log=True)
             else:
                 self.reply(0, 'OK', log=True)

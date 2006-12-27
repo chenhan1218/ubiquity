@@ -27,12 +27,19 @@ import ubiquity.tz
 class Timezone(FilteredCommand):
     def prepare(self):
         self.tzdb = ubiquity.tz.Database()
+        self.db.fset('time/zone', 'seen', 'false')
         questions = ['^time/zone$']
         return (['/usr/share/ubiquity/tzsetup'], questions)
 
     def run(self, priority, question):
         if question == 'time/zone':
             zone = self.db.get(question)
+            # Some countries don't have a default zone, so just pick the
+            # first choice in the list.
+            if not zone:
+                choices_c = self.choices_untranslated(question)
+                if choices_c:
+                    zone = choices_c[0]
             # special cases where default is not in zone.tab
             if zone == 'Canada/Eastern':
                 zone = 'America/Toronto'
@@ -40,16 +47,19 @@ class Timezone(FilteredCommand):
                 zone = 'America/New_York'
             self.frontend.set_timezone(zone)
 
-        return super(Timezone, self).run(priority, question)
+        return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
         zone = self.frontend.get_timezone()
-        self.preseed('time/zone', zone)
+        if zone is None:
+            zone = self.db.get('time/zone')
+        else:
+            self.preseed('time/zone', zone)
         for location in self.tzdb.locations:
             if location.zone == zone:
                 self.preseed('debian-installer/country', location.country)
                 break
-        super(Timezone, self).ok_handler()
+        FilteredCommand.ok_handler(self)
 
     def cleanup(self):
         di_locale = self.db.get('debian-installer/locale')
