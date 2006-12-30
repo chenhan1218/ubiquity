@@ -301,6 +301,150 @@ Please choose the language used for the installation process. This language will
 		      <property name="type">tab</property>
 		    </packing>
 		  </child>
+		  
+		  <child>
+		    <widget class="GtkVBox" id="stepMigrationAssistant">
+		      <property name="border_width">6</property>
+		      <property name="visible">True</property>
+		      <property name="homogeneous">False</property>
+		      <property name="spacing">0</property>
+
+		      <child>
+			<widget class="GtkLabel" id="ma_heading_label">
+			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
+			  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Migrate Documents and Settings&lt;/b&gt;&lt;/big&gt;</property>
+			  <property name="use_underline">False</property>
+			  <property name="use_markup">True</property>
+			  <property name="justify">GTK_JUSTIFY_LEFT</property>
+			  <property name="wrap">False</property>
+			  <property name="selectable">True</property>
+			  <property name="xalign">0</property>
+			  <property name="yalign">0.5</property>
+			  <property name="xpad">0</property>
+			  <property name="ypad">0</property>
+			  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+			  <property name="width_chars">-1</property>
+			  <property name="single_line_mode">True</property>
+			  <property name="angle">0</property>
+			</widget>
+			<packing>
+			  <property name="padding">0</property>
+			  <property name="expand">False</property>
+			  <property name="fill">False</property>
+			</packing>
+		      </child>
+
+		      <child>
+			<widget class="GtkHSeparator" id="hseparator14">
+			  <property name="visible">True</property>
+			</widget>
+			<packing>
+			  <property name="padding">6</property>
+			  <property name="expand">False</property>
+			  <property name="fill">False</property>
+			</packing>
+		      </child>
+
+		      <child>
+			<widget class="GtkLabel" id="ma_text_label">
+			  <property name="width_request">600</property>
+			  <property name="visible">True</property>
+			  <property name="can_focus">True</property>
+			  <property name="label" translatable="yes">Something about migration.</property>
+			  <property name="use_underline">False</property>
+			  <property name="use_markup">False</property>
+			  <property name="justify">GTK_JUSTIFY_LEFT</property>
+			  <property name="wrap">True</property>
+			  <property name="selectable">True</property>
+			  <property name="xalign">0</property>
+			  <property name="yalign">0.5</property>
+			  <property name="xpad">0</property>
+			  <property name="ypad">0</property>
+			  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+			  <property name="width_chars">-1</property>
+			  <property name="single_line_mode">False</property>
+			  <property name="angle">0</property>
+			</widget>
+			<packing>
+			  <property name="padding">6</property>
+			  <property name="expand">False</property>
+			  <property name="fill">False</property>
+			</packing>
+		      </child>
+
+		      <child>
+			<widget class="GtkAlignment" id="alignment144">
+			  <property name="visible">True</property>
+			  <property name="xalign">0.5</property>
+			  <property name="yalign">0.5</property>
+			  <property name="xscale">0.20000000298</property>
+			  <property name="yscale">0.699999988079</property>
+			  <property name="top_padding">0</property>
+			  <property name="bottom_padding">0</property>
+			  <property name="left_padding">0</property>
+			  <property name="right_padding">0</property>
+
+			  <child>
+			    <widget class="GtkScrolledWindow" id="scrolledwindow44">
+			      <property name="visible">True</property>
+			      <property name="can_focus">True</property>
+			      <property name="hscrollbar_policy">GTK_POLICY_NEVER</property>
+			      <property name="vscrollbar_policy">GTK_POLICY_ALWAYS</property>
+			      <property name="shadow_type">GTK_SHADOW_IN</property>
+			      <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
+
+			      <child>
+				<widget class="GtkTreeView" id="matreeview">
+				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
+				  <property name="headers_visible">False</property>
+				  <property name="rules_hint">False</property>
+				  <property name="reorderable">False</property>
+				  <property name="enable_search">True</property>
+				  <property name="fixed_height_mode">False</property>
+				  <property name="hover_selection">False</property>
+				  <property name="hover_expand">False</property>
+				</widget>
+			      </child>
+			    </widget>
+			  </child>
+			</widget>
+			<packing>
+			  <property name="padding">0</property>
+			  <property name="expand">True</property>
+			  <property name="fill">True</property>
+			</packing>
+		      </child>
+		    </widget>
+		    <packing>
+		      <property name="tab_expand">False</property>
+		      <property name="tab_fill">True</property>
+		    </packing>
+		  </child>
+
+		  <child>
+		    <widget class="GtkLabel" id="label-14">
+		      <property name="visible">True</property>
+		      <property name="label" translatable="yes">Language</property>
+		      <property name="use_underline">False</property>
+		      <property name="use_markup">False</property>
+		      <property name="justify">GTK_JUSTIFY_LEFT</property>
+		      <property name="wrap">False</property>
+		      <property name="selectable">False</property>
+		      <property name="xalign">0.5</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xpad">0</property>
+		      <property name="ypad">0</property>
+		      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		      <property name="width_chars">-1</property>
+		      <property name="single_line_mode">False</property>
+		      <property name="angle">0</property>
+		    </widget>
+		    <packing>
+		      <property name="type">tab</property>
+		    </packing>
+		  </child>
 
 		  <child>
 		    <widget class="GtkVBox" id="stepLocation">
@@ -2464,7 +2608,6 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 		    </packing>
 		  </child>
 
-
 		  <child>
 		    <widget class="GtkVBox" id="stepReady">
 		      <property name="border_width">6</property>
@@ -2622,727 +2765,6 @@ You must mount one partition on the root file system (&quot;/&quot;), and you mu
 		      <property name="type">tab</property>
 		    </packing>
 		  </child>
-		<child>
-		    <widget class="GtkVBox" id="stepMigrateOS">
-			<property name="border_width">6</property>
-			<property name="visible">True</property>
-			<child>
-			    <widget class="GtkLabel" id="migrate_os_heading_label">
-				<property name="can_focus">True</property>
-				<property name="label" context="yes" translatable="yes">&lt;big&gt;&lt;b&gt;Select operating systems&lt;/b&gt;&lt;/big&gt;</property>
-				<property name="selectable">True</property>
-				<property name="single_line_mode">True</property>
-				<property name="use_markup">True</property>
-				<property name="visible">True</property>
-				<property name="xalign">0.0</property>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="fill">False</property>
-			    </packing>
-			</child>
-			<child>
-			    <widget class="GtkHSeparator" id="hseparator9">
-				<property name="visible">True</property>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="fill">False</property>
-				<property name="padding">6</property>
-				<property name="position">1</property>
-			    </packing>
-			</child>
-			<child>
-			    <widget class="GtkLabel" id="migrate_os_comment_label">
-				<property name="can_focus">True</property>
-				<property name="label" context="yes" translatable="yes">Select the operating systems that you would like to import documents and settings from.  Alternatively, select nothing and hit next to skip this step.</property>
-				<property name="selectable">True</property>
-				<property name="visible">True</property>
-				<property name="width_request">600</property>
-				<property name="wrap">True</property>
-				<property name="xalign">0.0</property>
-				<property name="ypad">6</property>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="fill">False</property>
-				<property name="position">2</property>
-			    </packing>
-			</child>
-			<child>
-			    <widget class="GtkAlignment" id="alignment24">
-				<property name="left_padding">12</property>
-				<property name="top_padding">6</property>
-				<property name="visible">True</property>
-				<property name="xalign">0.0</property>
-				<child>
-				    <widget class="GtkVBox" id="migrate_os_vbox">
-					<property name="homogeneous">True</property>
-					<property name="visible">True</property>
-				    </widget>
-				</child>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="fill">False</property>
-				<property name="position">3</property>
-			    </packing>
-			</child>
-		    </widget>
-		    <packing>
-			<property name="position">2</property>
-			<property name="tab_label" context="yes" translatable="yes"></property>
-		    </packing>
-		</child>
-		<child>
-		    <widget class="GtkVBox" id="stepMigrateUsers">
-			<property name="border_width">6</property>
-			<property name="visible">True</property>
-			<child>
-			    <widget class="GtkLabel" id="migrate_users_heading_label">
-				<property name="can_focus">True</property>
-				<property name="label" context="yes" translatable="yes">&lt;big&gt;&lt;b&gt;Select users&lt;/b&gt;&lt;/big&gt;</property>
-				<property name="selectable">True</property>
-				<property name="single_line_mode">True</property>
-				<property name="use_markup">True</property>
-				<property name="visible">True</property>
-				<property name="xalign">0.0</property>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="fill">False</property>
-			    </packing>
-			</child>
-			<child>
-			    <widget class="GtkHSeparator" id="hseparator9">
-				<property name="visible">True</property>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="fill">False</property>
-				<property name="padding">6</property>
-				<property name="position">1</property>
-			    </packing>
-			</child>
-			<child>
-			    <widget class="GtkLabel" id="migrate_users_comment_label">
-				<property name="can_focus">True</property>
-				<property name="label" context="yes" translatable="yes">Select the users of OSTYPE that you would like to import documents and settings from.</property>
-				<property name="selectable">True</property>
-				<property name="visible">True</property>
-				<property name="width_request">600</property>
-				<property name="wrap">True</property>
-				<property name="xalign">0.0</property>
-				<property name="ypad">6</property>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="fill">False</property>
-				<property name="position">2</property>
-			    </packing>
-			</child>
-			<child>
-			    <widget class="GtkAlignment" id="alignment24">
-				<property name="left_padding">12</property>
-				<property name="top_padding">6</property>
-				<property name="visible">True</property>
-				<property name="xalign">0.0</property>
-				<child>
-				    <widget class="GtkVBox" id="migrate_users_vbox">
-					<property name="homogeneous">True</property>
-					<property name="visible">True</property>
-				    </widget>
-				</child>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="fill">False</property>
-				<property name="position">3</property>
-			    </packing>
-			</child>
-		    </widget>
-		    <packing>
-			<property name="position">3</property>
-			<property name="tab_label" context="yes" translatable="yes"></property>
-		    </packing>
-		</child>
-		<child>
-		    <widget class="GtkVBox" id="stepMigrateItems">
-			<property name="border_width">6</property>
-			<property name="visible">True</property>
-			<child>
-			    <widget class="GtkLabel" id="migrate_items_heading_label">
-				<property name="can_focus">True</property>
-				<property name="label" context="yes" translatable="yes">&lt;big&gt;&lt;b&gt;Select items&lt;/b&gt;&lt;/big&gt;</property>
-				<property name="selectable">True</property>
-				<property name="single_line_mode">True</property>
-				<property name="use_markup">True</property>
-				<property name="visible">True</property>
-				<property name="xalign">0.0</property>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="fill">False</property>
-			    </packing>
-			</child>
-			<child>
-			    <widget class="GtkHSeparator" id="hseparator9">
-				<property name="visible">True</property>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="fill">False</property>
-				<property name="padding">6</property>
-				<property name="position">1</property>
-			    </packing>
-			</child>
-			<child>
-			    <widget class="GtkVBox" id="vbox1">
-				<property name="spacing">6</property>
-				<property name="visible">True</property>
-				<child>
-				    <widget class="GtkHBox" id="hbox1">
-					<property name="spacing">6</property>
-					<property name="visible">True</property>
-					<child>
-					    <widget class="GtkImage" id="ma_userpicture">
-						<property name="stock">stock_person</property>
-						<property name="visible">True</property>
-						<property name="xalign">1.0</property>
-					    </widget>
-					</child>
-					<child>
-					    <widget class="GtkLabel" id="ma_username_heading">
-						<property name="use_markup">True</property>
-						<property name="visible">True</property>
-						<property name="xalign">0.0</property>
-					    </widget>
-					    <packing>
-						<property name="position">1</property>
-					    </packing>
-					</child>
-				    </widget>
-				</child>
-				<child>
-				    <widget class="GtkAlignment" id="alignment1">
-					<property name="visible">True</property>
-					<property name="xscale">0.20000000298</property>
-					<child>
-					    <widget class="GtkVBox" id="vbox2">
-						<property name="spacing">6</property>
-						<property name="visible">True</property>
-						<child>
-						    <widget class="GtkLabel" id="label1">
-							<property name="label" context="yes" translatable="yes">Select the items you would like to import for this user:</property>
-							<property name="visible">True</property>
-							<property name="xalign">0.0</property>
-						    </widget>
-						</child>
-						<child>
-						    <widget class="GtkScrolledWindow" id="scrolledwindow1">
-							<property name="hscrollbar_policy">automatic</property>
-							<property name="visible">True</property>
-							<child>
-							    <widget class="GtkTreeView" id="ma_items_treeview">
-								<property name="visible">True</property>
-							    </widget>
-							</child>
-						    </widget>
-						    <packing>
-							<property name="position">1</property>
-						    </packing>
-						</child>
-					    </widget>
-					</child>
-				    </widget>
-				    <packing>
-					<property name="position">1</property>
-				    </packing>
-				</child>
-				<child>
-				    <widget class="GtkVBox" id="vbox3">
-					<property name="spacing">6</property>
-					<property name="visible">True</property>
-					<child>
-					    <widget class="GtkLabel" id="label2">
-						<property name="label" context="yes" translatable="yes">Select the account to import into:</property>
-						<property name="visible">True</property>
-						<property name="xalign">0.0</property>
-					    </widget>
-					</child>
-					<child>
-					    <widget class="GtkAlignment" id="alignment2">
-						<property name="visible">True</property>
-						<property name="xscale">0.300000011921</property>
-						<child>
-						    <widget class="GtkComboBox" id="ma_user_combo">
-							<property name="items" context="yes" translatable="yes">Add a new user</property>
-							<property name="visible">True</property>
-						    </widget>
-						</child>
-					    </widget>
-					    <packing>
-						<property name="position">1</property>
-					    </packing>
-					</child>
-				    </widget>
-				    <packing>
-					<property name="position">2</property>
-				    </packing>
-				</child>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="fill">False</property>
-				<property name="position">2</property>
-			    </packing>
-			</child>
-		    </widget>
-		    <packing>
-			<property name="position">4</property>
-			<property name="tab_label" context="yes" translatable="yes"></property>
-		    </packing>
-		</child>
-		<child>
-		    <widget class="GtkVBox" id="stepMigrateUser">
-			<property name="border_width">6</property>
-			<property name="visible">True</property>
-			<child>
-			    <widget class="GtkLabel" id="userinfo_heading_label">
-				<property name="can_focus">True</property>
-				<property name="is_focus">True</property>
-				<property name="label" context="yes" translatable="yes">&lt;big&gt;&lt;b&gt;Who are you?&lt;/b&gt;&lt;/big&gt;</property>
-				<property name="selectable">True</property>
-				<property name="single_line_mode">True</property>
-				<property name="use_markup">True</property>
-				<property name="visible">True</property>
-				<property name="xalign">0.0</property>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="fill">False</property>
-			    </packing>
-			</child>
-			<child>
-			    <widget class="GtkHSeparator" id="hseparator5">
-				<property name="visible">True</property>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="fill">False</property>
-				<property name="padding">6</property>
-				<property name="position">1</property>
-			    </packing>
-			</child>
-			<child>
-			    <widget class="GtkVBox" id="vbox48">
-				<property name="spacing">24</property>
-				<property name="visible">True</property>
-				<child>
-				    <widget class="GtkVBox" id="vbox49">
-					<property name="spacing">12</property>
-					<property name="visible">True</property>
-					<child>
-					    <widget class="GtkVBox" id="vbox41">
-						<property name="spacing">6</property>
-						<property name="visible">True</property>
-						<child>
-						    <widget class="GtkLabel" id="fullname_label">
-							<property name="can_focus">True</property>
-							<property name="label" context="yes" translatable="yes">What is your name?</property>
-							<property name="selectable">True</property>
-							<property name="visible">True</property>
-							<property name="xalign">0.0</property>
-						    </widget>
-						    <packing>
-							<property name="expand">False</property>
-							<property name="fill">False</property>
-						    </packing>
-						</child>
-						<child>
-						    <widget class="GtkAlignment" id="alignment20">
-							<property name="left_padding">12</property>
-							<property name="visible">True</property>
-							<child>
-							    <widget class="GtkHBox" id="hbox42">
-								<property name="spacing">12</property>
-								<property name="visible">True</property>
-								<child>
-								    <widget class="GtkEntry" id="ma_fullname">
-									<property name="activates_default">True</property>
-									<property name="invisible_char">*</property>
-									<property name="visible">True</property>
-									<property name="width_chars">40</property>
-									<signal handler="ma_info_loop" name="changed"/>
-								    </widget>
-								    <packing>
-									<property name="expand">False</property>
-								    </packing>
-								</child>
-								<child>
-								    <widget class="GtkHBox" id="ma_fullname_error_box">
-									<property name="spacing">6</property>
-									<property name="visible">True</property>
-									<child>
-									    <widget class="GtkImage" id="fullname_error_image">
-										<property name="stock">gtk-dialog-error</property>
-										<property name="visible">True</property>
-									    </widget>
-									    <packing>
-										<property name="expand">False</property>
-									    </packing>
-									</child>
-									<child>
-									    <widget class="GtkLabel" id="fullname_error_reason">
-										<property name="can_focus">True</property>
-										<property name="selectable">True</property>
-										<property name="visible">True</property>
-										<property name="wrap">True</property>
-										<property name="xalign">0.0</property>
-									    </widget>
-									    <packing>
-										<property name="expand">False</property>
-										<property name="fill">False</property>
-										<property name="position">1</property>
-									    </packing>
-									</child>
-								    </widget>
-								    <packing>
-									<property name="position">1</property>
-								    </packing>
-								</child>
-							    </widget>
-							</child>
-						    </widget>
-						    <packing>
-							<property name="expand">False</property>
-							<property name="fill">False</property>
-							<property name="position">1</property>
-						    </packing>
-						</child>
-					    </widget>
-					    <packing>
-						<property name="expand">False</property>
-					    </packing>
-					</child>
-					<child>
-					    <widget class="GtkVBox" id="vbox42">
-						<property name="spacing">6</property>
-						<property name="visible">True</property>
-						<child>
-						    <widget class="GtkLabel" id="username_label">
-							<property name="can_focus">True</property>
-							<property name="label" context="yes" translatable="yes">What name do you want to use to log in?</property>
-							<property name="selectable">True</property>
-							<property name="visible">True</property>
-							<property name="xalign">0.0</property>
-						    </widget>
-						    <packing>
-							<property name="expand">False</property>
-							<property name="fill">False</property>
-						    </packing>
-						</child>
-						<child>
-						    <widget class="GtkAlignment" id="alignment21">
-							<property name="left_padding">12</property>
-							<property name="visible">True</property>
-							<property name="xalign">0.0</property>
-							<child>
-							    <widget class="GtkVBox" id="vbox43">
-								<property name="spacing">6</property>
-								<property name="visible">True</property>
-								<child>
-								    <widget class="GtkHBox" id="hbox45">
-									<property name="spacing">12</property>
-									<property name="visible">True</property>
-									<child>
-									    <widget class="GtkEntry" id="ma_username">
-										<property name="activates_default">True</property>
-										<property name="invisible_char">*</property>
-										<property name="visible">True</property>
-										<property name="width_chars">20</property>
-										<signal handler="ma_info_loop" name="changed"/>
-									    </widget>
-									    <packing>
-										<property name="expand">False</property>
-									    </packing>
-									</child>
-									<child>
-									    <widget class="GtkHBox" id="ma_username_error_box">
-										<property name="spacing">6</property>
-										<property name="visible">True</property>
-										<child>
-										    <widget class="GtkImage" id="username_error_image">
-											<property name="stock">gtk-dialog-error</property>
-											<property name="visible">True</property>
-										    </widget>
-										    <packing>
-											<property name="expand">False</property>
-										    </packing>
-										</child>
-										<child>
-										    <widget class="GtkLabel" id="ma_username_error_reason">
-											<property name="can_focus">True</property>
-											<property name="selectable">True</property>
-											<property name="visible">True</property>
-											<property name="wrap">True</property>
-											<property name="xalign">0.0</property>
-										    </widget>
-										    <packing>
-											<property name="expand">False</property>
-											<property name="fill">False</property>
-											<property name="position">1</property>
-										    </packing>
-										</child>
-									    </widget>
-									    <packing>
-										<property name="position">1</property>
-									    </packing>
-									</child>
-								    </widget>
-								    <packing>
-									<property name="expand">False</property>
-									<property name="fill">False</property>
-								    </packing>
-								</child>
-								<child>
-								    <widget class="GtkLabel" id="username_extra_label">
-									<property name="can_focus">True</property>
-									<property name="label" context="yes" translatable="yes">&lt;i&gt;If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/i&gt;</property>
-									<property name="selectable">True</property>
-									<property name="use_markup">True</property>
-									<property name="visible">True</property>
-									<property name="width_request">650</property>
-									<property name="wrap">True</property>
-									<property name="xalign">0.0</property>
-								    </widget>
-								    <packing>
-									<property name="expand">False</property>
-									<property name="fill">False</property>
-									<property name="position">1</property>
-								    </packing>
-								</child>
-							    </widget>
-							</child>
-						    </widget>
-						    <packing>
-							<property name="expand">False</property>
-							<property name="position">1</property>
-						    </packing>
-						</child>
-					    </widget>
-					    <packing>
-						<property name="expand">False</property>
-						<property name="position">1</property>
-					    </packing>
-					</child>
-					<child>
-					    <widget class="GtkVBox" id="vbox44">
-						<property name="spacing">6</property>
-						<property name="visible">True</property>
-						<child>
-						    <widget class="GtkLabel" id="password_label">
-							<property name="can_focus">True</property>
-							<property name="label" context="yes" translatable="yes">Choose a password to keep your account safe.</property>
-							<property name="selectable">True</property>
-							<property name="visible">True</property>
-							<property name="xalign">0.0</property>
-						    </widget>
-						    <packing>
-							<property name="expand">False</property>
-							<property name="fill">False</property>
-						    </packing>
-						</child>
-						<child>
-						    <widget class="GtkAlignment" id="alignment22">
-							<property name="left_padding">12</property>
-							<property name="visible">True</property>
-							<property name="xalign">0.0</property>
-							<child>
-							    <widget class="GtkVBox" id="vbox45">
-								<property name="spacing">6</property>
-								<property name="visible">True</property>
-								<child>
-								    <widget class="GtkHBox" id="hbox38">
-									<property name="spacing">12</property>
-									<property name="visible">True</property>
-									<child>
-									    <widget class="GtkHBox" id="hbox39">
-										<property name="homogeneous">True</property>
-										<property name="spacing">6</property>
-										<property name="visible">True</property>
-										<child>
-										    <widget class="GtkEntry" id="ma_password">
-											<property name="activates_default">True</property>
-											<property name="invisible_char">*</property>
-											<property name="visibility">False</property>
-											<property name="visible">True</property>
-											<property name="width_chars">12</property>
-											<signal handler="ma_info_loop" name="changed"/>
-										    </widget>
-										</child>
-										<child>
-										    <widget class="GtkEntry" id="ma_verified_password">
-											<property name="activates_default">True</property>
-											<property name="invisible_char">*</property>
-											<property name="visibility">False</property>
-											<property name="visible">True</property>
-											<property name="width_chars">12</property>
-											<signal handler="ma_info_loop" name="changed"/>
-										    </widget>
-										    <packing>
-											<property name="position">1</property>
-										    </packing>
-										</child>
-									    </widget>
-									    <packing>
-										<property name="expand">False</property>
-										<property name="fill">False</property>
-									    </packing>
-									</child>
-									<child>
-									    <widget class="GtkHBox" id="ma_password_error_box">
-										<property name="spacing">6</property>
-										<property name="visible">True</property>
-										<child>
-										    <widget class="GtkImage" id="password_error_image">
-											<property name="stock">gtk-dialog-error</property>
-											<property name="visible">True</property>
-										    </widget>
-										    <packing>
-											<property name="expand">False</property>
-										    </packing>
-										</child>
-										<child>
-										    <widget class="GtkLabel" id="ma_password_error_reason">
-											<property name="can_focus">True</property>
-											<property name="selectable">True</property>
-											<property name="visible">True</property>
-											<property name="wrap">True</property>
-											<property name="xalign">0.0</property>
-										    </widget>
-										    <packing>
-											<property name="expand">False</property>
-											<property name="fill">False</property>
-											<property name="position">1</property>
-										    </packing>
-										</child>
-									    </widget>
-									    <packing>
-										<property name="expand">False</property>
-										<property name="position">1</property>
-									    </packing>
-									</child>
-								    </widget>
-								    <packing>
-									<property name="expand">False</property>
-								    </packing>
-								</child>
-								<child>
-								    <widget class="GtkLabel" id="password_extra_label">
-									<property name="can_focus">True</property>
-									<property name="label" context="yes" translatable="yes">&lt;i&gt;Enter the same password twice, so that it can be checked for typing errors.&lt;/i&gt;</property>
-									<property name="selectable">True</property>
-									<property name="use_markup">True</property>
-									<property name="visible">True</property>
-									<property name="width_request">650</property>
-									<property name="wrap">True</property>
-									<property name="xalign">0.0</property>
-								    </widget>
-								    <packing>
-									<property name="expand">False</property>
-									<property name="fill">False</property>
-									<property name="position">1</property>
-								    </packing>
-								</child>
-							    </widget>
-							</child>
-						    </widget>
-						    <packing>
-							<property name="position">1</property>
-						    </packing>
-						</child>
-					    </widget>
-					    <packing>
-						<property name="expand">False</property>
-						<property name="position">2</property>
-					    </packing>
-					</child>
-					<child>
-					    <widget class="GtkVBox" id="vbox46">
-						<property name="spacing">6</property>
-						<property name="visible">True</property>
-						<child>
-						    <widget class="GtkLabel" id="administrator_heading_label">
-							<property name="label" context="yes" translatable="yes">Should this user be an administrator?</property>
-							<property name="visible">True</property>
-							<property name="xalign">0.0</property>
-						    </widget>
-						</child>
-						<child>
-						    <widget class="GtkAlignment" id="alignment22">
-							<property name="left_padding">12</property>
-							<property name="visible">True</property>
-							<property name="xalign">0.0</property>
-							<child>
-							    <widget class="GtkVBox" id="vbox45">
-								<property name="spacing">6</property>
-								<property name="visible">True</property>
-								<child>
-								    <widget class="GtkCheckButton" id="ma_administrator">
-									<property name="label" context="yes" translatable="yes">Administrator</property>
-									<property name="visible">True</property>
-									<property name="yalign">0.0</property>
-								    </widget>
-								    <packing>
-									<property name="position">1</property>
-								    </packing>
-								</child>
-								<child>
-								    <widget class="GtkLabel" id="password_extra_label">
-									<property name="can_focus">True</property>
-									<property name="label" context="yes" translatable="yes">&lt;i&gt;Make this user an administrator if they should have full control over the computer.&lt;/i&gt;</property>
-									<property name="selectable">True</property>
-									<property name="use_markup">True</property>
-									<property name="visible">True</property>
-									<property name="width_request">650</property>
-									<property name="wrap">True</property>
-									<property name="xalign">0.0</property>
-								    </widget>
-								    <packing>
-									<property name="expand">False</property>
-									<property name="fill">False</property>
-									<property name="position">2</property>
-								    </packing>
-								</child>
-							    </widget>
-							</child>
-						    </widget>
-						</child>
-					    </widget>
-					    <packing>
-						<property name="expand">False</property>
-						<property name="position">3</property>
-					    </packing>
-					</child>
-				    </widget>
-				    <packing>
-					<property name="expand">False</property>
-				    </packing>
-				</child>
-			    </widget>
-			    <packing>
-				<property name="expand">False</property>
-				<property name="padding">6</property>
-				<property name="position">2</property>
-			    </packing>
-			</child>
-		    </widget>
-		    <packing>
-			<property name="position">5</property>
-			<property name="tab_label" context="yes" translatable="yes"></property>
-		    </packing>
-		</child>
 		</widget>
 		<packing>
 		  <property name="padding">0</property>

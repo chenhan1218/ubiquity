@@ -78,19 +78,16 @@ LOCALEDIR = "/usr/share/locale"
 
 BREADCRUMB_STEPS = {
     "stepLanguage": 1,
+    "stepMigrationAssistant": 2,
     "stepLocation": 2,
     "stepKeyboardConf": 3,
     "stepUserInfo": 4,
     "stepPartAuto": 5,
     "stepPartAdvanced": 5,
     "stepPartMountpoints": 5,
-    "stepReady": 6,
-    "stepMigrateOS": 7,
-    "stepMigrateUsers": 7,
-    "stepMigrateItems": 7,
-    "stepMigrateUser": 7
+    "stepReady": 6
 }
-BREADCRUMB_MAX_STEP = 7
+BREADCRUMB_MAX_STEP = 6
 
 # For the font wibbling later
 import pango
@@ -276,18 +273,11 @@ class Wizard:
             old_dbfilter = self.dbfilter
             if current_name == "stepLanguage":
                 self.dbfilter = language.Language(self)
-            elif current_name in ("stepMigrateOS", "stepMigrateUsers", "stepMigrateItems", "stepMigrateUser"):
-                if not isinstance(self.dbfilter, migrationassistant.MigrationAssistant):
-		    # FIXME: don't use commands.
-		    #import pdb; pdb.set_trace()
-		    import commands
-		    if commands.getoutput('/usr/bin/os-prober') == '':
-		        import pdb; pdb.set_trace()
-			self.dbfilter = None
-		        self.progress_loop()
-		    else:
-                        self.dbfilter = migrationassistant.MigrationAssistant(self)
-            elif current_name == "stepLocation":
+            elif current_name == "stepMigrationAssistant":
+	    	print "SETTING MIGRATION ASSISTANT AS THE DB"
+		self.dbfilter = migrationassistant.MigrationAssistant(self)
+		print "MIGRATION ASSISTANT IS THE DB"
+	    elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
                 self.dbfilter = console_setup.ConsoleSetup(self)
@@ -309,7 +299,8 @@ class Wizard:
             else:
                 self.dbfilter = None
 
-            if self.dbfilter is not None and self.dbfilter != old_dbfilter:
+            print self.dbfilter
+	    if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.allow_change_step(False)
                 self.dbfilter.start(auto_process=True)
             else:
@@ -600,52 +591,13 @@ class Wizard:
                                      xoptions=0, yoptions=0)
         self.mountpoint_table.show_all()
 
-    def commit_partition_changes(self):
-	"""commit the changes to the partition table before we proceed."""
-	
-	syslog.syslog('commit_partition_changes()')
-
-        # I don't know what I'm doing wrong here, but I can only get the forward button to disable itself.
-	#self.back.set_sensitive(False)
-	self.allow_go_forward(False)
-	#self.allow_change_step(False)
-
-	gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
-	gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-	gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
-	gconf_previous = {}
-	for gconf_key in (gvm_automount_drives, gvm_automount_media):
-	    subp = subprocess.Popen(['gconftool-2', '--config-source',
-				     gconf_dir, '--get', gconf_key],
-				    stdout=subprocess.PIPE,
-				    stderr=subprocess.PIPE)
-	    gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
-	    if gconf_previous[gconf_key] != 'false':
-		subprocess.call(['gconftool-2', '--set', gconf_key,
-				 '--type', 'bool', 'false'])
-
-	dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
-
-	#pdb.set_trace()
-	if dbfilter.run_command(auto_process=True) != 0:
-	    # TODO cjwatson 2006-09-03: return to partitioning?
-	    return
-
-	for gconf_key in (gvm_automount_drives, gvm_automount_media):
-	    if gconf_previous[gconf_key] == '':
-		ex('gconftool-2', '--unset', gconf_key)
-	    elif gconf_previous[gconf_key] != 'false':
-		ex('gconftool-2', '--set', gconf_key,
-		   '--type', 'bool', gconf_previous[gconf_key])
 
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
 
         syslog.syslog('progress_loop()')
 
-	self.live_installer.hide()
-	self.current_page = None
-	self.installing = True
+        self.current_page = None
 
         self.debconf_progress_start(
             0, 100, get_string('ubiquity/install/title', self.locale))
@@ -665,7 +617,19 @@ class Wizard:
                 subprocess.call(['gconftool-2', '--set', gconf_key,
                                  '--type', 'bool', 'false'])
 
-        #self.debconf_progress_region(15, 100)
+        dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
+        if dbfilter.run_command(auto_process=True) != 0:
+            # TODO cjwatson 2006-09-03: return to partitioning?
+            return
+
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            if gconf_previous[gconf_key] == '':
+                ex('gconftool-2', '--unset', gconf_key)
+            elif gconf_previous[gconf_key] != 'false':
+                ex('gconftool-2', '--set', gconf_key,
+                   '--type', 'bool', gconf_previous[gconf_key])
+
+        self.debconf_progress_region(15, 100)
 
         dbfilter = install.Install(self)
         ret = dbfilter.run_command(auto_process=True)
@@ -814,16 +778,6 @@ class Wizard:
             if getattr(self, name).get_text() == '':
                 complete = False
         self.allow_go_forward(complete)
-        
-    def ma_info_loop(self, widget):
-        """check if all entries from Identification screen are filled. Callback
-        defined in glade file."""
-        
-        complete = True
-        for name in ('ma_username', 'ma_password', 'ma_verified_password'):
-            if getattr(self, name).get_text() == '':
-                complete = False
-        self.allow_go_forward(complete)
 
     def on_hostname_delete_text(self, widget, start, end):
         self.hostname_edited = True
@@ -846,11 +800,6 @@ class Wizard:
             self.username_error_box.hide()
             self.password_error_box.hide()
             self.hostname_error_box.hide()
-            
-        if step == "stepMigrateUser":
-            self.ma_username_error_box.hide()
-            self.password_error_box.hide()
-
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -900,6 +849,9 @@ class Wizard:
             self.steps.next_page()
             self.back.show()
             self.allow_go_forward(self.get_timezone() is not None)
+	elif step == "stepMigrationAssistant":
+		print 'ah-ha!'
+		self.steps.next_page()
         # Location
         elif step == "stepLocation":
             self.steps.next_page()
@@ -919,41 +871,19 @@ class Wizard:
         # Mountpoints
         elif step == "stepPartMountpoints":
             self.mountpoints_to_summary()
-        # Operating systems
-        elif step == "stepMigrateOS":
-	    # Quite the messy way of doing this, but I've been at this for about
-            # two hours and cannot think of anything else.
-            if self.get_ma_os_choices():
-                self.steps.next_page()
-            else:
-		#self.steps.set_current_page(self.steps.page_num(self.stepReady))
-		# TODO: make sure /mnt/tmp is not mounted at this point.
-		self.progress_loop()
-		return
-	# FIXME: I don't this next one is ever hit.
-        # Item selection
-        elif step == "stepMigrateItems":
-            print "oh noes at stepMigrateItems end!"
-	    import pdb; pdb.set_trace()
-	    self.steps.next_page()
-        # User details
-        elif step == "stepMigrateUser" or step == "stepMigrateUsers":
-	    # This gets called when we're done asking questions in m-a.
-	    self.progress_loop()
-	    return
         # Ready to install
         elif step == "stepReady":
-            #import pdb; pdb.set_trace()
-	    #self.allow_change_step(False)
-	    #self.allow_go_forward(False)
-	    self.commit_partition_changes()
-	    self.steps.next_page()
+            self.live_installer.hide()
+            self.current_page = None
+            self.installing = True
+            self.progress_loop()
+            return
 
         step = self.step_name(self.steps.get_current_page())
         syslog.syslog('Step_after = %s' % step)
 
-        #if step == "stepReady":
-            #self.next.set_label("Install")
+        if step == "stepReady":
+            self.next.set_label("Install")
 
     def process_identification (self):
         """Processing identification step tasks."""
@@ -979,20 +909,6 @@ class Wizard:
             self.hostname_error_box.show()
         else:
             self.steps.next_page()
-    
-    def process_ma_identification (self):
-	"""Processing migration-assistant identification step tasks."""
-
-	error_msg = ""
-        username = self.ma_username.get_property('text')
-	for u in self.ma_user_combo.get_model()
-	    if username == u:
-		error_msg = "The user already exists.  Please press the back button and select it or type in a new username."
-	
-	if error_msg:
-	    self.ma_username_error_reason.set_text(error_msg)
-	    self.ma_username_error_box.show()
-
 
 
     def process_autopartitioning(self):
@@ -1589,135 +1505,60 @@ class Wizard:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][0]
 
-    def set_ma_os_choices(self, os_choices):
-        for child in self.migrate_os_vbox.get_children():
-            self.migrate_os_vbox.remove(child)
+    def set_ma_choices(self, choices):
+    	# Rather than do an os_choices, user_choices, etc, we'll stuff everything
+	# in a tree represented as a list.
+	# [('Ubuntu /dev/hda1', ['Gaim']), ('Windows /dev/hda2', ['IE', 'Yahoo'])]
 
-        for choice in os_choices:
-            button = gtk.CheckButton(choice, False)
-            self.migrate_os_vbox.add(button)
 
-        self.migrate_os_vbox.show_all()
-        self.allow_go_forward(True)
+    	treestore = gtk.TreeStore(bool, str)
+	for parent in choices:
+		piter = treestore.append(None, [True, parent[0]])
+		for child in parent[1]:
+			treestore.append(piter, [True, child])
+	
+	self.matreeview.set_model(treestore)
 
-    def get_ma_os_choices (self):
-        ret = []
-        for widget in self.migrate_os_vbox.get_children():
-            if isinstance(widget, gtk.Button) and widget.get_active():
-                ret.append(widget.get_label())
-        return ret
-    
-    def set_ma_user_choices(self, user_choices):
-        for child in self.migrate_users_vbox.get_children():
-            self.migrate_users_vbox.remove(child)
+	def toggle(cell, path, model=None):
+		iter = model.get_iter(path)
+		model.set_value(iter, 0, not cell.get_active())
+		iter = model.iter_children(iter)
+		while(iter):
+			model.set_value(iter, 0, not cell.get_active())
+			iter = model.iter_next(iter)
+	
+	renderer = gtk.CellRendererToggle()
+	renderer.connect('toggled', toggle, treestore)
+	column = gtk.TreeViewColumn('boolean', renderer, active=0)
+	column.set_clickable(True)
+	column.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+	self.matreeview.append_column(column)
 
-        for choice in user_choices:
-            button = gtk.CheckButton(choice, False)
-            self.migrate_users_vbox.add(button)
+	column = gtk.TreeViewColumn('item')
+	self.matreeview.append_column(column)
+	renderer = gtk.CellRendererText()
+	column.pack_start(renderer,  True)
+	column.add_attribute(renderer, 'text', 1)
 
-        self.migrate_users_vbox.show_all()
-        self.steps.set_current_page(self.steps.page_num(self.stepMigrateUsers))
-        self.allow_go_forward(True)
-    
-    def set_ma_user_label(self, label):
-        self.migrate_users_comment_label.set_text(label)
+	self.matreeview.set_search_column(1)
+	self.matreeview.show_all()
 
-    def get_ma_user_choices (self):
-        ret = []
-        for widget in self.migrate_users_vbox.get_children():
-            if isinstance(widget, gtk.Button) and widget.get_active():
-                ret.append(widget.get_label())
-        return ret
-        
-    def set_ma_item_choices(self, item_choices, user):
-        model = self.ma_items_treeview.get_model()
-        if not model:
-            model = gtk.ListStore(gobject.TYPE_BOOLEAN, gobject.TYPE_STRING)
-            self.ma_items_treeview.set_model(model)
-            
-            renderer = gtk.CellRendererToggle()
-            col = gtk.TreeViewColumn(None, renderer, active=0) 
-            def toggled_cb(cell, path, model=None):
-                iter = model.get_iter(path)
-                model.set_value(iter, 0, not cell.get_active())
-                
-            renderer.connect('toggled', toggled_cb, model)
-            self.ma_items_treeview.append_column(col)
-            
-            col = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=1)
-            self.ma_items_treeview.append_column(col)
-            self.ma_items_treeview.set_headers_visible(False)
-            
-        else:
-            model.clear()
-        
-        for choice in item_choices:
-            model.append([True, choice])
-            
-        self.ma_username_heading.set_markup("<big><b>" + user + "</b></big>")
-        # TODO: Set user picture.
-        
-        self.steps.set_current_page(self.steps.page_num(self.stepMigrateItems))
-        self.allow_go_forward(True)
+	
+	#for os in os_choices:
+	#	self.treestore.append()
 
-    def get_ma_item_choices (self):
-        ret = []
-        def get_choices(model, path, iter):
-            if model.get_value(iter,0) == True:
-                ret.append(model.get_value(iter,1))
-        
-        model = self.ma_items_treeview.get_model()
-        model.foreach(get_choices)
-
-        return ret
-        
-    def set_ma_item_users (self, users):
-        list_store = self.ma_user_combo.get_model()
-        self.ma_user_combo.set_active(0)
-        #for u in users:
-        list_store.append([users])
-    
-    def get_ma_item_user (self):
-        if self.ma_user_combo.get_active() == 0:
-            return "add-user"
-        else:
-            return self.ma_user_combo.get_active_text()
-    
-    def get_ma_fullname(self):
-        return self.ma_fullname.get_text()
-    
-    def get_ma_username(self):
-        return self.ma_username.get_text()
-    
-    def get_ma_password(self):
-        return self.ma_password.get_text()
-    
-    def get_ma_verified_password(self):
-        return self.ma_verified_password.get_text()
-        
-    def get_ma_administrator(self):
-        if self.ma_administrator.get_active():
-            return "true"
-        else:
-            return "false"
-            
-    def set_ma_user (self):
-        self.ma_username_error_box.hide()
-        self.ma_password_error_box.hide()
-        self.ma_fullname_error_box.hide()
-        
-        self.ma_username.set_text('')
-        self.ma_password.set_text('')
-        self.ma_verified_password.set_text('')
-        self.ma_fullname.set_text('')
-        self.ma_administrator.set_active(False)
-        
-        self.steps.set_current_page(self.steps.page_num(self.stepMigrateUser))
-        self.allow_go_forward(True)
-        
-    def ma_password_error(self, msg):
-        self.ma_password_error_reason.set_text(msg)
-        self.ma_password_error_box.show()
+        #self.language_choice_map = dict(choice_map)
+        #if len(self.language_treeview.get_columns()) < 1:
+        #    column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
+        #    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+        #    self.language_treeview.append_column(column)
+        #    selection = self.language_treeview.get_selection()
+        #    selection.connect('changed',
+        #                      self.on_language_treeview_selection_changed)
+        #list_store = gtk.ListStore(gobject.TYPE_STRING)
+        #self.language_treeview.set_model(list_store)
+        #for choice in choices:
+        #    list_store.append([choice])
 
     def set_timezone (self, timezone):
         self.tzmap.set_tz_from_name(timezone)
