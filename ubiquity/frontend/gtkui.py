@@ -1505,60 +1505,84 @@ class Wizard:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][0]
 
+    def ma_toggle(self, cell, path, model=None):
+            iter = model.get_iter(path)
+            model.set_value(iter, 0, not cell.get_active())
+            
+            # We're on a user checkbox.
+            if(model.iter_children(iter)):
+                    (user, os) = model.get_value(iter, 1)
+                    part = os[os.rfind('/')+1:-1]
+                    question = 'migration-assistant/' + part + '/users'
+                    choices = self.dbfilter.db.get(question).split(', ')
+                    # Hrmm, we get ", Evan" if we start from scratch.
+                    if cell.get_active():
+                        choices.remove(user)
+                        self.dbfilter.db.set(question, ', '.join(choices))
+                    else:
+                        choices.append(user)
+                        self.dbfilter.db.set(question, ', '.join(choices))
+                    while(iter):
+                        model.set_value(iter, 0, not cell.get_active())
+                        iter = model.iter_next(iter)
+
+            # We're on an item checkbox.
+            else:
+                parent = model.iter_parent(iter)
+                (user, os) = model.get_value(parent, 1)
+                item = model.get_value(iter, 1)
+                part = os[os.rfind('/')+1:-1]
+
+                question = 'migration-assistant/%s/%s/items' % (part, user)
+                choices = self.dbfilter.db.get(question).split(', ')
+                if cell.get_active():
+                        choices.remove(item)
+                        self.dbfilter.db.set(question, ', '.join(choices))
+                else:
+                        choices.append(item)
+                        self.dbfilter.db.set(question, ', '.join(choices))
+
     def set_ma_choices(self, choices):
     	# Rather than do an os_choices, user_choices, etc, we'll stuff everything
 	# in a tree represented as a list.
 	# [('Ubuntu /dev/hda1', ['Gaim']), ('Windows /dev/hda2', ['IE', 'Yahoo'])]
 
+        def cell_data_func(column, cell, model, iter):
+            if(model.iter_children(iter)):
+                # Windows XP...
+                text = '%s  <small><i>%s</i></small>' % \
+                    model.get_value(iter, 1) # user, os
+            else:
+                # Gaim, Yahoo, etc
+                text = model.get_value(iter, 1)
 
-    	treestore = gtk.TreeStore(bool, str)
-	for parent in choices:
-		piter = treestore.append(None, [True, parent[0]])
-		for child in parent[1]:
-			treestore.append(piter, [True, child])
+            cell.set_property("markup", text)
+
+    	#treestore = gtk.TreeStore(bool, str)
+    	treestore = gtk.TreeStore(bool, object)
+	for choice in choices:
+		piter = treestore.append(None, [True, choice[0]])
+		for items in choice[1]:
+			treestore.append(piter, [True, items])
 	
 	self.matreeview.set_model(treestore)
 
-	def toggle(cell, path, model=None):
-		iter = model.get_iter(path)
-		model.set_value(iter, 0, not cell.get_active())
-		iter = model.iter_children(iter)
-		while(iter):
-			model.set_value(iter, 0, not cell.get_active())
-			iter = model.iter_next(iter)
 	
 	renderer = gtk.CellRendererToggle()
-	renderer.connect('toggled', toggle, treestore)
+	renderer.connect('toggled', self.ma_toggle, treestore)
 	column = gtk.TreeViewColumn('boolean', renderer, active=0)
 	column.set_clickable(True)
 	column.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
 	self.matreeview.append_column(column)
 
-	column = gtk.TreeViewColumn('item')
-	self.matreeview.append_column(column)
 	renderer = gtk.CellRendererText()
-	column.pack_start(renderer,  True)
-	column.add_attribute(renderer, 'text', 1)
+	column = gtk.TreeViewColumn('item', renderer)
+	column.set_cell_data_func(renderer, cell_data_func)
+        self.matreeview.append_column(column)
 
 	self.matreeview.set_search_column(1)
 	self.matreeview.show_all()
 
-	
-	#for os in os_choices:
-	#	self.treestore.append()
-
-        #self.language_choice_map = dict(choice_map)
-        #if len(self.language_treeview.get_columns()) < 1:
-        #    column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
-        #    column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-        #    self.language_treeview.append_column(column)
-        #    selection = self.language_treeview.get_selection()
-        #    selection.connect('changed',
-        #                      self.on_language_treeview_selection_changed)
-        #list_store = gtk.ListStore(gobject.TYPE_STRING)
-        #self.language_treeview.set_model(list_store)
-        #for choice in choices:
-        #    list_store.append([choice])
 
     def set_timezone (self, timezone):
         self.tzmap.set_tz_from_name(timezone)
@@ -2526,3 +2550,5 @@ class TimezoneMap(object):
             self.frontend.allow_go_forward(self.location_selected is not None)
 
         return True
+
+# vim:ai:et:sts=4:tw=80:sw=4:

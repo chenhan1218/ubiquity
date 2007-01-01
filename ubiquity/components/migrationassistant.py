@@ -51,7 +51,8 @@ class MigrationAssistant(FilteredCommand):
 		part = os[os.rfind('/')+1:-1] # hda1
 		for user in self.db.get('migration-assistant/' + part + '/users').split(', '):
 			items = self.db.get('migration-assistant/' + part + '/' + user + '/items').split(', ')
-			self.tree.append((user + ' on ' + os, items))
+			#self.tree.append((user + '  <small><i>' + os + '</i></small>', items))
+			self.tree.append(((user, os), items))
 	
 	print self.tree
 	self.frontend.set_ma_choices(self.tree)
