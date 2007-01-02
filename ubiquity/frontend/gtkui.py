@@ -1544,7 +1544,8 @@ class Wizard:
                     self.new_size_scale.set_draw_value(True)
                     self.new_size_scale.set_value_pos(gtk.POS_TOP)
                     self.new_size_scale.set_digits(0)
-                    self.new_size_scale.update_policy(gtk.UPDATE_CONTINUOUS)
+                    self.new_size_scale.set_update_policy(
+                        gtk.UPDATE_CONTINUOUS)
                     self.new_size_scale.connect(
                         'format_value', self.on_new_size_scale_format_value)
                     self.resize_min_size, self.resize_max_size = \
