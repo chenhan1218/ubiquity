@@ -337,31 +337,6 @@ Answering the questions should only take a few minutes.</string>
                                     <string>Selected Region:</string>
                                 </property>
                             </widget>
-                            <widget class="QPushButton" row="1" column="7">
-                                <property name="name">
-                                    <cstring>timezone_time_adjust</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Set Time...</string>
-                                </property>
-                            </widget>
-                            <spacer row="0" column="7">
-                                <property name="name">
-                                    <cstring>spacer37</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>111</width>
-                                        <height>21</height>
-                                    </size>
-                                </property>
-                            </spacer>
                             <widget class="QLabel" row="1" column="0">
                                 <property name="name">
                                     <cstring>timezone_zone_label</cstring>
@@ -1818,7 +1793,6 @@ You must mount one partition on the root file system ("/"), and you must choose 
     <tabstop>cancel</tabstop>
     <tabstop>language_treeview</tabstop>
     <tabstop>timezone_city_combo</tabstop>
-    <tabstop>timezone_time_adjust</tabstop>
     <tabstop>keyboardlayoutview</tabstop>
     <tabstop>keyboardvariantview</tabstop>
     <tabstop>entry1</tabstop>
