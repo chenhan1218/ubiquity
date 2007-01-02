@@ -198,7 +198,9 @@
                         <property name="text">
                             <string>Ready to install? Once you answer a few questions, the contents of the live CD can be installed on this computer so you can run the system at full speed and without the CD.
 
-Answering the questions should only take a few minutes.</string>
+Answering the questions should only take a few minutes.
+
+This language will be the default language for the final system.</string>
                         </property>
                         <property name="alignment">
                             <set>WordBreak|AlignVCenter</set>
