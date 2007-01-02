@@ -183,7 +183,7 @@
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="QLabel" row="2" column="0" rowspan="1" colspan="3">
+                    <widget class="QLabel" row="2" column="1" rowspan="1" colspan="2">
                         <property name="name">
                             <cstring>welcome_text_label</cstring>
                         </property>
@@ -204,7 +204,7 @@ Answering the questions should only take a few minutes.</string>
                             <set>WordBreak|AlignVCenter</set>
                         </property>
                     </widget>
-                    <widget class="Line" row="1" column="0" rowspan="1" colspan="3">
+                    <widget class="Line" row="1" column="1" rowspan="1" colspan="2">
                         <property name="name">
                             <cstring>line1_2</cstring>
                         </property>
@@ -218,24 +218,7 @@ Answering the questions should only take a few minutes.</string>
                             <enum>Horizontal</enum>
                         </property>
                     </widget>
-                    <spacer row="3" column="2">
-                        <property name="name">
-                            <cstring>spacer21</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Horizontal</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>175</width>
-                                <height>31</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <widget class="KListView" row="3" column="1">
+                    <widget class="KListView" row="0" column="0" rowspan="3" colspan="1">
                         <column>
                             <property name="text">
                                 <string>Language</string>
@@ -259,24 +242,7 @@ Answering the questions should only take a few minutes.</string>
                             </sizepolicy>
                         </property>
                     </widget>
-                    <spacer row="3" column="0">
-                        <property name="name">
-                            <cstring>spacer22</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Horizontal</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>175</width>
-                                <height>31</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <widget class="QLabel" row="0" column="0" rowspan="1" colspan="2">
+                    <widget class="QLabel" row="0" column="1">
                         <property name="name">
                             <cstring>welcome_heading_label</cstring>
                         </property>
