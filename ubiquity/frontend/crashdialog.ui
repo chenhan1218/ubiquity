@@ -99,7 +99,7 @@
      <item>
       <widget class="QLabel" name="beastie_url" >
        <property name="text" >
-        <string>&lt;a href="https://launchpad.net/distros/ubuntu/+source/ubiquity/+filebug">https://launchpad.net/distros/ubuntu/+source/ubiquity/+filebug&lt;/a></string>
+        <string>&lt;a href="https://launchpad.net/ubuntu/+source/ubiquity/+filebug">https://launchpad.net/ubuntu/+source/ubiquity/+filebug&lt;/a></string>
        </property>
       </widget>
      </item>

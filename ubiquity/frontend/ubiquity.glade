@@ -2006,7 +2006,7 @@ Make sure to remove the CD when restarting the computer, otherwise it will start
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">We're sorry; the installer crashed. Please file a new bug report at https://launchpad.net/distros/ubuntu/+source/ubiquity/+filebug (do not attach your details to any existing bug) and a developer will attend to the problem as soon as possible. To help the developers understand what went wrong, include the following detail in your bug report, and attach the files /var/log/syslog and /var/log/partman:</property>
+                    <property name="label" translatable="yes">We're sorry; the installer crashed. Please file a new bug report at https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details to any existing bug) and a developer will attend to the problem as soon as possible. To help the developers understand what went wrong, include the following detail in your bug report, and attach the files /var/log/syslog and /var/log/partman:</property>
                     <property name="wrap">True</property>
                     <property name="selectable">True</property>
                   </widget>
