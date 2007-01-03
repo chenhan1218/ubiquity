@@ -1,3 +1,9 @@
+ubiquity (1.3.8) UNRELEASED; urgency=low
+
+  * Depend on python-gtk2 (>= 2.10) for gtk.LinkButton.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed,  3 Jan 2007 16:16:49 +0000
+
 ubiquity (1.3.7) feisty; urgency=low
 
   [ Colin Watson ]
