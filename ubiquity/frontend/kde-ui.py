@@ -388,7 +388,7 @@ class Wizard:
             text = get_string("continue", lang) + " >"
         elif widget.objectName() == "back":
             text = "< " + get_string("go_back", lang)
-        elif str(widget.objectName()) == str("UbiquityUIBase"):
+        elif str(widget.objectName()) == "UbiquityUIBase":
             text = get_string("live_installer", lang)
 
         if text is None:
@@ -421,7 +421,7 @@ class Wizard:
         elif isinstance(widget, QPushButton):
             widget.setText(text)
 
-        elif isinstance(widget, QWidget) and str(widget.objectName()) == str("UbiquityUIBase"):
+        elif isinstance(widget, QWidget) and str(widget.objectName()) == "UbiquityUIBase":
             widget.setWindowTitle(text)
         else:
             print "WARNING: unknown widget: " + widget.objectName()
@@ -764,36 +764,36 @@ class Wizard:
             self.previous_partitioning_page = step_num
 
         # Welcome
-        if step == str("stepWelcome"):
+        if step == "stepWelcome":
             self.set_current_page(WIDGET_STACK_STEPS["stepLanguage"])
         # Language
-        elif step == str("stepLanguage"):
+        elif step == "stepLanguage":
             self.translate_widgets()
             self.set_current_page(WIDGET_STACK_STEPS["stepLocation"])
             self.userinterface.back.show()
             self.allow_go_forward(self.get_timezone() is not None)
         # Location
-        elif step == str("stepLocation"):
+        elif step == "stepLocation":
             self.set_current_page(WIDGET_STACK_STEPS["stepKeyboardConf"])
         # Keyboard
-        elif step == str("stepKeyboardConf"):
+        elif step == "stepKeyboardConf":
             self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
             #self.steps.next_page()
             self.info_loop(None)
         # Identification
-        elif step == str("stepUserInfo"):
+        elif step == "stepUserInfo":
             self.process_identification()
         # Automatic partitioning
-        elif step == str("stepPartAuto"):
+        elif step == "stepPartAuto":
             self.process_autopartitioning()
         # Advanced partitioning
-        elif step == str("stepPartAdvanced"):
+        elif step == "stepPartAdvanced":
             self.qtparted_to_mountpoints()
         # Mountpoints
-        elif step == str("stepPartMountpoints"):
+        elif step == "stepPartMountpoints":
             self.mountpoints_to_summary()
         # Ready to install
-        elif step == str("stepReady"):
+        elif step == "stepReady":
             # FIXME self.live_installer.hide()
             self.current_page = None
             self.installing = True
@@ -1178,12 +1178,12 @@ class Wizard:
 
         changed_page = False
 
-        if str(step) == str("stepLocation"):
+        if str(step) == "stepLocation":
             self.userinterface.back.hide()
-        elif str(step) == str("stepPartAuto"):
+        elif str(step) == "stepPartAuto":
             self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
             changed_page = True
-        elif str(step) == str("stepPartAdvanced"):
+        elif str(step) == "stepPartAdvanced":
             if self.qtparted_subp is not None:
                 try:
                     print >>self.qtparted_subp.stdin, "undo"
@@ -1199,9 +1199,9 @@ class Wizard:
                     self.embed = None
             self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
             changed_page = True
-        elif str(step) == str("stepPartMountpoints"):
+        elif str(step) == "stepPartMountpoints":
             self.qtparted_loop()
-        elif str(step) == str("stepReady"):
+        elif str(step) == "stepReady":
             self.userinterface.next.setText("Next >")
             self.set_current_page(self.previous_partitioning_page)
             changed_page = True
