@@ -47,11 +47,6 @@ $(warning pygtk-codegen-2.0 missing; disabling GTK frontend)
 export UBIQUITY_NO_GTK := 1
 endif
 
-ifeq (,$(strip $(foreach dir,$(subst :, ,$(PATH)),$(wildcard $(dir)/kdepyuic))))
-$(warning kdepyuic missing; disabling KDE frontend)
-export UBIQUITY_NO_KDE := 1
-endif
-
 update:
 	$(MAKE) -C d-i update
 
@@ -67,9 +62,6 @@ build-stamp:
 	mkdir -p $(BUILDDIR)/ubuntu
 	mkdir -p $(BUILDDIR)/guadalinex
 
-ifndef UBIQUITY_NO_KDE
-	cd ubiquity/frontend && kdepyuic liveinstaller.ui && kdepyuic crashdialog.ui
-endif
 	touch build-stamp
 
 clean:
