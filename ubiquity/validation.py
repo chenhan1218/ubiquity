@@ -31,13 +31,12 @@
 # Validation library.
 # Created by Antonio Olmo <aolmo#emergya._info> on 26 jul 2005.
 
-from string import whitespace
 import glob
 from ubiquity.settings import *
 
 HOSTNAME_LENGTH = 1
-HOSTNAME_WHITESPACE = 2
-HOSTNAME_BADCHAR = 3
+HOSTNAME_BADCHAR = 2
+HOSTNAME_BADHYPHEN = 3
 
 def check_hostname(name):
 
@@ -45,20 +44,20 @@ def check_hostname(name):
 
         @return empty list (valid) or list of:
             - C{HOSTNAME_LENGTH} wrong length.
-            - C{HOSTNAME_WHITESPACE} contains white spaces.
-            - C{HOSTNAME_BADCHAR} contains invalid characters."""
+            - C{HOSTNAME_BADCHAR} contains invalid characters.
+            - C{HOSTNAME_BADHYPHEN} starts or ends with a hyphen."""
 
     import re
     result = set()
 
-    if len (set(name).intersection(set(whitespace))) > 0:
-        result.add(HOSTNAME_WHITESPACE)
-    if len (name) < 3 or len (name) > 18:
+    if len (name) < 2 or len (name) > 63:
         result.add(HOSTNAME_LENGTH)
 
-    regex = re.compile(r'^[a-zA-Z0-9-]+$')
+    regex = re.compile(r'^[a-zA-Z0-9.-]+$')
     if not regex.search(name):
         result.add(HOSTNAME_BADCHAR)
+    if name.startswith('-') or name.endswith('-'):
+        result.add(HOSTNAME_BADHYPHEN)
 
     return sorted(result)
 

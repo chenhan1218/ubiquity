@@ -1091,15 +1091,24 @@ class Install:
             hostname = self.db.get('netcfg/get_hostname')
         except debconf.DebconfError:
             hostname = ''
+        try:
+            domain = self.db.get('netcfg/get_domain')
+        except debconf.DebconfError:
+            domain = ''
         if hostname == '':
             hostname = 'ubuntu'
+
         fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
         print >>fp, hostname
         fp.close()
 
         hosts = open(os.path.join(self.target, 'etc/hosts'), 'w')
         print >>hosts, "127.0.0.1\tlocalhost"
-        print >>hosts, "127.0.1.1\t%s" % hostname
+        if domain:
+            print >>hosts, "127.0.1.1\t%s.%s\t%s" % (hostname, domain,
+                                                     hostname)
+        else:
+            print >>hosts, "127.0.1.1\t%s" % hostname
         print >>hosts, textwrap.dedent("""\
 
             # The following lines are desirable for IPv6 capable hosts

@@ -17,6 +17,10 @@ ubiquity (1.3.7) UNRELEASED; urgency=low
     release notes on the language page. See doc/README for the format
     (https://blueprints.launchpad.net/ubuntu/+spec/ubiquity-release-notes).
   * Remove no-longer-canonical /distros from Launchpad URLs.
+  * Sync up hostname handling with netcfg; it now allows hostnames between 2
+    and 63 characters in length, forbids them starting or ending with a
+    hyphen, and interprets hostnames containing dots as hostname.domain and
+    adjusts /etc/hosts accordingly (LP: #52501, #72909).
 
   [ Jonathan Riddell ]
   * Port KDE frontend to Qt 4

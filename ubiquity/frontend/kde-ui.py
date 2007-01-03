@@ -835,11 +835,11 @@ class Wizard:
         hostname = self.userinterface.hostname.text()
         for result in validation.check_hostname(unicode(hostname)):
             if result == validation.HOSTNAME_LENGTH:
-                error_msg.append("The hostname must be between 3 and 18 characters long.")
-            elif result == validation.HOSTNAME_WHITESPACE:
-                error_msg.append("The hostname may not contain spaces.")
+                error_msg.append("The hostname must be between 2 and 63 characters long.")
             elif result == validation.HOSTNAME_BADCHAR:
-                error_msg.append("The hostname may only contain letters, digits, and hyphens.")
+                error_msg.append("The hostname may only contain letters, digits, hyphens, and dots.")
+            elif result == validation.HOSTNAME_BADHYPHEN:
+                error_msg.append("The hostname may not start or end with a hyphen.")
 
         # showing warning message is error is set
         if len(error_msg) != 0:

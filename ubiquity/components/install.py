@@ -24,7 +24,12 @@ class Install(FilteredCommand):
     def prepare(self):
         hostname = self.frontend.get_hostname()
         if hostname is not None and hostname != '':
-            self.preseed('netcfg/get_hostname', hostname)
+            hd = hostname.split('.', 1)
+            self.preseed('netcfg/get_hostname', hd[0])
+            if len(hd) > 1:
+                self.preseed('netcfg/get_domain', hd[1])
+            else:
+                self.preseed('netcfg/get_domain', '')
 
         if os.access('/usr/share/grub-installer/grub-installer', os.X_OK):
             bootdev = self.frontend.get_summary_device()
