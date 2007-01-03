@@ -34,6 +34,7 @@ import sys
 import pygtk
 pygtk.require('2.0')
 
+import pango
 import gobject
 import gtk.glade
 import os
@@ -87,9 +88,6 @@ BREADCRUMB_STEPS = {
     "stepReady": 6
 }
 BREADCRUMB_MAX_STEP = 6
-
-# For the font wibbling later
-import pango
 
 class Wizard:
 
