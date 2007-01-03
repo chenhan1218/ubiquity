@@ -119,6 +119,7 @@ class Wizard:
         # declare attributes
         self.distro = distro
         self.current_layout = None
+        self.release_notes_url_template = None
         self.password = ''
         self.hostname_edited = False
         self.auto_mountpoints = None
@@ -151,7 +152,8 @@ class Wizard:
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
-                                   'welcome_text_label', 'step_label',
+                                   'welcome_text_label', 'release_notes_label',
+                                   'release_notes_url', 'step_label',
                                    'cancel', 'back', 'next')
         self.allowed_change_step = True
         self.allowed_go_forward = True
@@ -355,6 +357,16 @@ class Wizard:
         self.photo.set_from_file(photo)
         """
 
+        try:
+            release_notes = open('/cdrom/.disk/release_notes_url')
+            self.release_notes_url_template = release_notes.read().rstrip('\n')
+            release_notes.close()
+        except (KeyboardInterrupt, SystemExit):
+            raise
+        except:
+            self.userinterface.release_notes_label.hide()
+            self.userinterface.release_notes_url.hide()
+
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
 
@@ -415,6 +427,10 @@ class Wizard:
                           'mountpoint_label', 'size_label', 'device_label',
                           'format_label'):
                 widget.setText("<strong>" + text + "</strong>")
+            elif name == 'release_notes_url':
+                url = self.release_notes_url_pattern.replace(
+                    '${LANG}', lang.split('.')[0])
+                widget.setText('<a href="%s">%s</a>' % (url, text))
             else:
                 widget.setText(text)
 
@@ -1216,14 +1232,20 @@ class Wizard:
         else:
             self.app.exit()
 
-    def on_language_treeview_selection_changed (self):
+    def selected_language (self):
         selection = self.userinterface.language_treeview.selectedItems()
         if len(selection) == 1:
             value = unicode(selection[0].text())
-            lang = self.language_choice_map[value][1]
+            return self.language_choice_map[value][1]
+        else:
+            return ''
+
+    def on_language_treeview_selection_changed (self):
+        lang = self.selected_language()
+        if lang:
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
-            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.next, self.userinterface.back, self.userinterface.cancel, self.userinterface.step_label):
+            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.release_notes_label, self.userinterface.release_notes_url, self.userinterface.next, self.userinterface.back, self.userinterface.cancel, self.userinterface.step_label):
                 self.translate_widget(widget, lang)
 
     def on_steps_switch_page(self, newPageID):

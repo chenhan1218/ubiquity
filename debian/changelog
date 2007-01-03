@@ -13,6 +13,9 @@ ubiquity (1.3.7) UNRELEASED; urgency=low
     note).
   * Add special cases to restore correct handling of Chinese and Portuguese
     language codes.
+  * If /cdrom/.disk/release_notes_url is present, display a link to the
+    release notes on the language page. See doc/README for the format
+    (https://blueprints.launchpad.net/ubuntu/+spec/ubiquity-release-notes).
 
   [ Jonathan Riddell ]
   * Port KDE frontend to Qt 4

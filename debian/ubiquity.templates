@@ -23,6 +23,16 @@ _Description:
  Please choose the language used for the installation process. This
  language will be the default language for the final system.
 
+Template: ubiquity/text/release_notes_label
+Type: text
+_Description:
+ If you have Internet access, read the release notes for information on
+ problems that may affect you.
+
+Template: ubiquity/text/release_notes_url
+Type: text
+_Description: Release Notes
+
 Template: ubiquity/text/timezone_heading_label
 Type: text
 _Description: Where are you?

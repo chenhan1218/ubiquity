@@ -132,7 +132,8 @@ class Wizard:
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
-                                   'welcome_text_label', 'step_label',
+                                   'welcome_text_label', 'release_notes_label',
+                                   'release_notes_url', 'step_label',
                                    'cancel', 'back', 'next')
         self.allowed_change_step = True
         self.allowed_go_forward = True
@@ -272,6 +273,7 @@ class Wizard:
             old_dbfilter = self.dbfilter
             if current_name == "stepLanguage":
                 self.dbfilter = language.Language(self)
+                gtk.link_button_set_uri_hook(self.link_button_browser)
             elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
@@ -342,6 +344,16 @@ class Wizard:
 
         self.live_installer.show()
         self.allow_change_step(False)
+
+        try:
+            release_notes = open('/cdrom/.disk/release_notes_url')
+            self.release_notes_url.set_uri(
+                release_notes.read().rstrip('\n'))
+            release_notes.close()
+        except (KeyboardInterrupt, SystemExit):
+            raise
+        except:
+            self.release_notes_hbox.hide()
 
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
@@ -1276,14 +1288,29 @@ class Wizard:
             gtk.main_quit()
 
 
+    def selected_language (self, selection):
+        (model, iterator) = selection.get_selected()
+        if iterator is not None:
+            value = unicode(model.get_value(iterator, 0))
+            return self.language_choice_map[value][1]
+        else:
+            return ''
+
+
+    def link_button_browser (self, button, uri):
+        selection = self.language_treeview.get_selection()
+        lang = self.selected_language(selection)
+        lang = lang.split('.')[0] # strip encoding
+        uri = uri.replace('${LANG}', lang)
+        subprocess.Popen(['sensible-browser', uri], close_fds=True)
+
+
     def on_language_treeview_row_activated (self, treeview, path, view_column):
         self.next.activate()
 
     def on_language_treeview_selection_changed (self, selection):
-        (model, iterator) = selection.get_selected()
-        if iterator is not None:
-            value = unicode(model.get_value(iterator, 0))
-            lang = self.language_choice_map[value][1]
+        lang = self.selected_language(selection)
+        if lang:
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
             for widget in self.language_questions:
