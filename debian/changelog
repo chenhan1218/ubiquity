@@ -1,17 +1,83 @@
-ubiquity (1.3.4) UNRELEASED; urgency=low
+ubiquity (1.3.7) UNRELEASED; urgency=low
 
   [ Colin Watson ]
+  * Remove "Set Time..." button, which is far more trouble than it's worth
+    (LP: #49412, #52716, #52717, #73907, #76564). You can adjust the time
+    after installation.
+  * Fix a silly typo while setting up the resize progress bar (LP: #77523).
+  * Don't say "beta version" in the alpha intro message.
+  * Move language list box to the left-hand side of its page rather than the
+    bottom, on the basis that you have to choose a language before you can
+    read the text.
+  * Switch to glade-3 (those with branches that modify ubiquity.glade, take
+    note).
+  * Add special cases to restore correct handling of Chinese and Portuguese
+    language codes.
+
+  [ Jonathan Riddell ]
+  * Port KDE frontend to Qt 4
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue,  2 Jan 2007 15:48:01 +0000
+
+ubiquity (1.3.6) feisty; urgency=low
+
+  * Avoid use of super() in components, since it's far too confusing.
+  * I managed to create two different PartmanAuto.error() methods by
+    mistake. Merge them.
+  * GTK frontend: If a question asked by a component doesn't have a message
+    for the dialog body, set it to the title as that's better than nothing.
+  * GTK frontend: First cut at the new advanced partitioner. The graphical
+    disk view isn't implemented yet, many features are missing, validation
+    probably doesn't work properly, and it's very slow, but I hope all these
+    issues can be worked out in time. Use 'ubiquity --new-partitioner' to
+    try it out.
+  * Automatic update of included source packages: debian-installer-utils
+    1.42ubuntu1, grub-installer 1.20ubuntu1, hw-detect 1.45ubuntu1,
+    partman-basicfilesystems 50ubuntu1, partman-ext3 44, partman-jfs 19,
+    partman-reiserfs 33, partman-xfs 31, user-setup 1.8ubuntu1.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 24 Dec 2006 19:42:52 +0000
+
+ubiquity (1.3.5) feisty; urgency=low
+
+  [ Colin Watson ]
+  * Move the ubiquity executable proper into /usr/lib/ubiquity/bin, and add
+    a /usr/bin/ubiquity wrapper that calls gksudo, kdesu, etc. as
+    appropriate. This makes argument handling more straightforward and
+    reduces the need for strange environment variables.
+  * Add command-line option handling: --debug is equivalent to the old
+    UBIQUITY_DEBUG environment variable, while --cdebconf is new (and
+    experimental). Combined with the above change, this means that the
+    clumsy and frontend-dependent 'gksudo env UBIQUITY_DEBUG=1 ubiquity' or
+    'kdesu --nonewdcop env UBIQUITY_DEBUG=1 ubiquity' invocations can be
+    replaced with just 'ubiquity --debug'.
+  * Automatic update of included source packages: choose-mirror 2.10ubuntu1.
+
+  [ Martin Pitt ]
+  * GTK frontend: Port the apport crash handler to new API of apport 0.33
+    (apport_utils/problem_report modules -> apport python package). Depend
+    on python-apport now instead of the old modules.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 19 Dec 2006 14:09:53 +0000
+
+ubiquity (1.3.4) feisty; urgency=low
+
   * apt-install only attempts to install packages not already installed,
     making it more robust when packages on the target filesystem are broken
     (LP: #74241).
   * KDE frontend: Don't infinite-loop on EOF from qtparted (LP: #67565).
   * Make sure localechooser doesn't clobber the selected country if it
     differs from the default (LP: #68026).
+  * Add a check-manifest tool to ensure that d-i/manifest is in sync with
+    d-i/source/ on upload.
+  * Upgrade to automake 1.10.
+  * Configure and build the desktop, pixmaps, and po subdirectories even if
+    UBIQUITY_NO_GTK is set.
+  * Automatic update of included source packages: apt-setup 1:0.16ubuntu2,
+    base-installer 1.70ubuntu1, localechooser 1.33ubuntu1, partman-auto
+    62ubuntu2, partman-base 100ubuntu1.
 
-  [ Jonathan Riddell ]
-  * Port KDE frontend to Qt 4
-
- -- Colin Watson <cjwatson@ubuntu.com>  Sat,  9 Dec 2006 11:54:41 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 15 Dec 2006 17:52:53 +0000
 
 ubiquity (1.3.3) feisty; urgency=low
 

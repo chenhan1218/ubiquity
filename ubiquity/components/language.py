@@ -63,7 +63,12 @@ class Language(FilteredCommand):
                         # fonts for them and we don't have sufficient
                         # translations anyway.
                         continue
-                    language_codes[bits[0]] = bits[2]
+                    elif bits[2] in ('pt', 'zh'):
+                        # Special handling for subdivided languages.
+                        code = '%s_%s' % (bits[2], bits[3])
+                    else:
+                        code = bits[2]
+                    language_codes[bits[0]] = code
             languagelist.close()
 
             language_display_map = {}
@@ -97,12 +102,12 @@ class Language(FilteredCommand):
                 self.db.set(question, self.db.get('debian-installer/country'))
             return True
 
-        return super(Language, self).run(priority, question)
+        return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
         if self.language_question is not None:
             self.preseed(self.language_question, self.frontend.get_language())
-        super(Language, self).ok_handler()
+        FilteredCommand.ok_handler(self)
 
     def cleanup(self):
         di_locale = self.db.get('debian-installer/locale')

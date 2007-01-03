@@ -44,7 +44,7 @@ console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup &
 
 ifeq (,$(strip $(foreach dir,$(subst :, ,$(PATH)),$(wildcard $(dir)/pygtk-codegen-2.0))))
 $(warning pygtk-codegen-2.0 missing; disabling GTK frontend)
-UBIQUITY_NO_GTK := 1
+export UBIQUITY_NO_GTK := 1
 endif
 
 update:
@@ -55,10 +55,8 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
-ifndef UBIQUITY_NO_GTK
 	PYTHON=$(PYTHON) ./configure --prefix=/usr
 	$(MAKE)
-endif
 	$(MAKE) -C d-i build
 
 	mkdir -p $(BUILDDIR)/ubuntu
@@ -77,6 +75,8 @@ clean:
 	-$(MAKE) distclean
 
 	dh_clean debian/ubiquity.install ubiquity/keyboard_names.py
+
+	$(MAKE) -C d-i check
 
 ubiquity/keyboard_names.py: d-i/source/console-setup/Keyboard/KeyboardNames.pl
 	d-i/make-keyboard-names $< > $@
@@ -114,9 +114,10 @@ endif
 endif
 
 	# Bits of manual installation that can't be done by dh_install
-	sed 's/@VERSION@/$(VERSION)/g' installer \
-		> debian/ubiquity/usr/bin/ubiquity
-	chmod +x debian/ubiquity/usr/bin/ubiquity
+	install bin/ubiquity-wrapper debian/ubiquity/usr/bin/ubiquity
+	sed 's/@VERSION@/$(VERSION)/g' bin/ubiquity \
+		> debian/ubiquity/usr/lib/ubiquity/bin/ubiquity
+	chmod +x debian/ubiquity/usr/lib/ubiquity/bin/ubiquity
 	sed 's,/usr/lib/apt-setup,/usr/lib/ubiquity/apt-setup,g' \
 		d-i/source/apt-setup/apt-setup \
 		> debian/ubiquity/usr/lib/ubiquity/apt-setup/apt-setup

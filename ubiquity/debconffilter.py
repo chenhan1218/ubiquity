@@ -95,7 +95,11 @@ class DebconfFilter:
 
     def debug(self, key, *args):
         if self.debug_re is not None and self.debug_re.search(key):
-            print >>sys.stderr, "debconf (%s): %s" % (key, ' '.join(args))
+            import time
+            # bizarre time formatting code per syslogd
+            time_str = time.ctime()[4:19]
+            print >>sys.stderr, "%s debconf (%s): %s" % (time_str, key,
+                                                         ' '.join(args))
 
     # Returns None if non-blocking and can't read a full line right now;
     # returns '' at end of file; otherwise as fileobj.readline().

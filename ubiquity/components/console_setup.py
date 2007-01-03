@@ -78,7 +78,7 @@ class ConsoleSetup(FilteredCommand):
             self.frontend.set_keyboard_variant_choices(
                 self.choices_untranslated(question))
             self.frontend.set_keyboard_variant(self.db.get(question))
-            return super(ConsoleSetup, self).run(priority, question)
+            return FilteredCommand.run(self, priority, question)
         else:
             return True
 
@@ -93,7 +93,7 @@ class ConsoleSetup(FilteredCommand):
         variant = self.frontend.get_keyboard_variant()
         if variant is not None:
             self.preseed('console-setup/variant', variant)
-        return super(ConsoleSetup, self).ok_handler()
+        return FilteredCommand.ok_handler(self)
 
     # TODO cjwatson 2006-09-07: This is duplication from console-setup, but
     # currently difficult to avoid; we need to apply the keymap immediately

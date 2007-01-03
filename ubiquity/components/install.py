@@ -56,7 +56,7 @@ class Install(FilteredCommand):
         self.frontend.error_dialog(self.description(question),
                                    self.extended_description(question), fatal)
         if fatal:
-            return super(Install, self).error(priority, question)
+            return FilteredCommand.error(self, priority, question)
         else:
             return True
 
@@ -75,4 +75,4 @@ class Install(FilteredCommand):
                 self.preseed(question, 'false')
             return True
 
-        return super(Install, self).run(priority, question)
+        return FilteredCommand.run(self, priority, question)

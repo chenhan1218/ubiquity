@@ -23,7 +23,7 @@ from ubiquity.parted_server import PartedServer
 
 class PartmanCommit(FilteredCommand):
     def __init__(self, frontend=None, manual_input=False, get_summary=False):
-        super(PartmanCommit, self).__init__(frontend)
+        FilteredCommand.__init__(self, frontend)
         self.manual_input = manual_input
         self.get_summary = get_summary
 
@@ -50,7 +50,7 @@ class PartmanCommit(FilteredCommand):
     # finished starting up parted_server so that we can feed information
     # into it.
     def progress_stop(self, progress_title):
-        ret = super(PartmanCommit, self).progress_stop(progress_title)
+        ret = FilteredCommand.progress_stop(self, progress_title)
 
         if (progress_title == 'partman/progress/init/title' and
             self.manual_input):
@@ -172,4 +172,4 @@ class PartmanCommit(FilteredCommand):
             return True
 
         else:
-            return super(PartmanCommit, self).run(priority, question)
+            return FilteredCommand.run(self, priority, question)

@@ -21,6 +21,9 @@ update:
 	./update-control
 	./update-changelog
 
+check:
+	./check-manifest
+
 maintainer-clean:
 	rm -rf $(SOURCEDIR)
 

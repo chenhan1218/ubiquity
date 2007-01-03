@@ -276,8 +276,6 @@ class Wizard:
 
         self.app.connect(self.userinterface.language_treeview, SIGNAL("itemSelectionChanged()"), self.on_language_treeview_selection_changed)
 
-        self.app.connect(self.userinterface.timezone_time_adjust, SIGNAL("clicked()"), self.on_timezone_time_adjust_clicked)
-
         self.app.connect(self.userinterface.timezone_city_combo, SIGNAL("activated(int)"), self.tzmap.city_combo_changed)
 
         # Start the interface
@@ -1227,14 +1225,6 @@ class Wizard:
             lang = lang.split('.')[0].lower()
             for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.next, self.userinterface.back, self.userinterface.cancel, self.userinterface.step_label):
                 self.translate_widget(widget, lang)
-
-    def on_timezone_time_adjust_clicked (self):
-        time_admin_env = dict(os.environ)
-        tz = self.tzmap.get_selected_tz_name()
-        if tz is not None:
-            time_admin_env['TZ'] = tz
-        time_admin_subp = subprocess.Popen(["log-output", "-t", "ubiquity",
-                                            "kcmshell", "clock"], env=time_admin_env)
 
     def on_steps_switch_page(self, newPageID):
         self.current_page = newPageID

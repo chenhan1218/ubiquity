@@ -1,0 +1,66 @@
+#! /usr/bin/python
+
+# Wrapper script to run Ubiquity as root using the appropriate privilege
+# escalation method for the frontend.
+
+import sys
+import os
+
+sys.path.insert(0, '/usr/lib/ubiquity')
+
+def main():
+    newargv = []
+    desktop = None
+    frontend = None
+    toexec = []
+
+    i = 1
+    while i < len(sys.argv):
+        if sys.argv[i] == '--desktop':
+            desktop = sys.argv[i + 1]
+            i += 2
+            # strip option and argument from newargv
+            continue
+        elif not sys.argv[i].startswith('-'):
+            frontend = sys.argv[i]
+        newargv.append(sys.argv[i])
+        i += 1
+
+    if os.getuid() == 0:
+        # no privilege escalation required
+        pass
+    else:
+        if frontend is None:
+            # Try to detect which frontend will be used by looking for a
+            # frontend module.
+            import imp
+            import ubiquity.frontend
+            frontend_names = ['gtkui', 'kde-ui']
+            for f in frontend_names:
+                try:
+                    imp.find_module(f, ubiquity.frontend.__path__)
+                    frontend = f
+                    break
+                except ImportError:
+                    pass
+
+        if frontend == 'gtkui':
+            toexec = ['gksudo']
+            if desktop:
+                toexec.extend(['--desktop', desktop])
+            toexec.append('--')
+        elif frontend == 'kde-ui':
+            toexec = ['kdesu', '--nonewdcop', '--']
+        else:
+            toexec = ['sudo']
+
+    toexec.append('/usr/lib/ubiquity/bin/ubiquity')
+    toexec.extend(newargv)
+
+    if 'UBIQUITY_WRAPPER_DEBUG' in os.environ:
+        print >>sys.stderr, toexec
+    os.execvp(toexec[0], toexec)
+    sys.exit(127)
+
+if __name__ == '__main__':
+    main()
