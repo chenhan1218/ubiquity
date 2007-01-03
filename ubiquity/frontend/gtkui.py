@@ -1506,25 +1506,47 @@ class Wizard:
             return self.language_choice_map[value][0]
 
     def ma_toggle(self, cell, path, model=None):
+            # TODO: Move this under the m-a function.
             iter = model.get_iter(path)
             model.set_value(iter, 0, not cell.get_active())
             
             # We're on a user checkbox.
             if(model.iter_children(iter)):
+                    if not cell.get_active():
+                        self.ma_fullname.set_sensitive(True)
+                        self.ma_loginname.set_sensitive(True)
+                        self.ma_password.set_sensitive(True)
+                        self.ma_confirm.set_sensitive(True)
+                    else:
+                        self.ma_fullname.set_sensitive(False)
+                        self.ma_loginname.set_sensitive(False)
+                        self.ma_password.set_sensitive(False)
+                        self.ma_confirm.set_sensitive(False)
+
                     (user, os) = model.get_value(iter, 1)
                     part = os[os.rfind('/')+1:-1]
                     question = 'migration-assistant/' + part + '/users'
-                    choices = self.dbfilter.db.get(question).split(', ')
-                    # Hrmm, we get ", Evan" if we start from scratch.
+                    choices = self.dbfilter.db.get(question)
+                    if choices:
+                        choices = choices.split(', ')
+                    else:
+                        choices = []
                     if cell.get_active():
                         choices.remove(user)
                         self.dbfilter.db.set(question, ', '.join(choices))
                     else:
                         choices.append(user)
                         self.dbfilter.db.set(question, ', '.join(choices))
+                    iter = model.iter_children(iter)
+                    items = []
                     while(iter):
+                        # TODO: cache cell.get_active()
                         model.set_value(iter, 0, not cell.get_active())
+                        if not cell.get_active():
+                            items.append(model.get_value(iter, 1))
                         iter = model.iter_next(iter)
+                    question = 'migration-assistant/%s/%s/items' % (part, user)
+                    self.dbfilter.db.set(question, ', '.join(items))
 
             # We're on an item checkbox.
             else:
@@ -1546,6 +1568,50 @@ class Wizard:
     	# Rather than do an os_choices, user_choices, etc, we'll stuff everything
 	# in a tree represented as a list.
 	# [('Ubuntu /dev/hda1', ['Gaim']), ('Windows /dev/hda2', ['IE', 'Yahoo'])]
+        def selection_changed(selection):
+            model, iter = selection.get_selected()
+            if iter:
+                if(model.iter_parent(iter)):
+                    iter = model.iter_parent(iter)
+                (user, os) = model.get_value(iter, 1)
+                part = os[os.rfind('/')+1:-1]
+
+                if model.get_value(iter, 0):
+                    self.ma_fullname.set_sensitive(True)
+                    self.ma_loginname.set_sensitive(True)
+                    self.ma_password.set_sensitive(True)
+                    self.ma_confirm.set_sensitive(True)
+                else:
+                    self.ma_fullname.set_sensitive(False)
+                    self.ma_loginname.set_sensitive(False)
+                    self.ma_password.set_sensitive(False)
+                    self.ma_confirm.set_sensitive(False)
+                
+                question = 'migration-assistant/%s/%s/' % (part, user)
+                
+                try:
+                    loginname = self.dbfilter.db.get(question + 'user')
+                except:
+                    loginname = ''
+                #self.ma_loginname.set_text(loginname)
+                
+                try:
+                    fullname = self.dbfilter.db.get(question + 'fullname')
+                except:
+                    fullname = ''
+                self.ma_fullname.set_text(fullname)
+                
+                try:
+                    password = self.dbfilter.db.get(question + 'password')
+                except:
+                    password = ''
+                self.ma_password.set_text(password)
+
+                try:
+                    confirm = self.dbfilter.db.get(question + 'password-again')
+                except:
+                    confirm = ''
+                self.ma_confirm.set_text(confirm)
 
         def cell_data_func(column, cell, model, iter):
             if(model.iter_children(iter)):
@@ -1558,12 +1624,43 @@ class Wizard:
 
             cell.set_property("markup", text)
 
-    	#treestore = gtk.TreeStore(bool, str)
+        def typing(sender):
+            # TODO: this should probably be ma_info_loop and should handle
+            # matching passwords, empty boxes, and whether or not we can
+            # continue to the next page.
+            if sender.get_text() != self.ma_confirm.get_text():
+                # TODO: i18n
+                self.ma_password_error_reason.set_text('Passwords must match.')
+                self.ma_password_error_box.show()
+            else:
+                self.ma_password_error_reason.set_text('')
+                self.ma_password_error_box.hide()
+
+    	def focus_out(sender, event, name):
+            model, iter = self.matreeview.get_selection().get_selected()
+            if iter:
+                if(model.iter_parent(iter)):
+                    iter = model.iter_parent(iter)
+                (user, os) = model.get_value(iter, 1)
+                part = os[os.rfind('/')+1:-1]
+                question = 'migration-assistant/%s/%s/' % (part, user)
+                try:
+                    self.dbfilter.db.set(question + name, sender.get_text())
+                except:
+                    self.dbfilter.db.register('migration-assistant/%s' % name, question + name)
+                    self.dbfilter.db.set(question + name, sender.get_text())
+            return False
+
+        self.ma_fullname.connect('focus-out-event', focus_out, 'fullname')
+        self.ma_password.connect('focus-out-event', focus_out, 'password')
+        self.ma_confirm.connect('focus-out-event', focus_out, 'password-again')
+        self.ma_password.connect('changed', typing)
+        self.ma_confirm.connect('changed', typing)
     	treestore = gtk.TreeStore(bool, object)
 	for choice in choices:
-		piter = treestore.append(None, [True, choice[0]])
+		piter = treestore.append(None, [False, choice[0]])
 		for items in choice[1]:
-			treestore.append(piter, [True, items])
+			treestore.append(piter, [False, items])
 	
 	self.matreeview.set_model(treestore)
 
@@ -1581,6 +1678,8 @@ class Wizard:
         self.matreeview.append_column(column)
 
 	self.matreeview.set_search_column(1)
+
+        self.matreeview.get_selection().connect('changed', selection_changed)
 	self.matreeview.show_all()
 
 

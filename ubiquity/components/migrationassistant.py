@@ -35,24 +35,25 @@ class MigrationAssistant(FilteredCommand):
         return (['/usr/lib/ubiquity/migration-assistant/ma-ask',
 		'/usr/lib/ubiquity/migration-assistant'], questions)
 
-    def subst(self, question, key, value):
-    	pass
-
     def run(self, priority, question):
-	# Do we need to worry about avoiding preseeding user details or do we
-	# avoid having to do that by seeding partitions on a next click?
+        # FIXME: This is not preseed friendly.  The nulling of questions below
+        # is also an issue.  Perhaps we should check to see if m-a/partitions is
+        # set and if so we'll skip this step and modify the step below.  Or
+        # should we not worry about partial preseeding and just skip this
+        # alltogether if we find any preseeding?
 	self.preseed(question, ", ".join(self.choices(question)))
-	#self.done = True
-	#self.succeeded = True
 	return True # False is backup
 
     def cleanup(self):
     	for os in self.db.get('migration-assistant/partitions').split(', '):
-		part = os[os.rfind('/')+1:-1] # hda1
-		for user in self.db.get('migration-assistant/' + part + '/users').split(', '):
-			items = self.db.get('migration-assistant/' + part + '/' + user + '/items').split(', ')
-			#self.tree.append((user + '  <small><i>' + os + '</i></small>', items))
-			self.tree.append(((user, os), items))
+            part = os[os.rfind('/')+1:-1] # hda1
+            for user in self.db.get('migration-assistant/' + part + '/users').split(', '):
+                items = self.db.get('migration-assistant/' + part + '/' + user + '/items').split(', ')
+                self.tree.append(((user, os), items))
+            # We now unset everything as the checkboxes will be unselected
+            # by default and debconf needs to match that.
+            self.db.set('migration-assistant/%s/users' % part, '')
+        self.db.set('migration-assistant/partitions', '')
 	
 	print self.tree
 	self.frontend.set_ma_choices(self.tree)
@@ -64,7 +65,8 @@ class MigrationAssistant(FilteredCommand):
     	self.enter_ui_loop()
 
     def ok_handler(self):
-	FilteredCommand.ok_handler(self)
+	# TODO
+        FilteredCommand.ok_handler(self)
         
     def error(self, priority, question):
     	pass
