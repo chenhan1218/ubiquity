@@ -207,7 +207,7 @@ This language will be the default language for the final system.</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="0" rowspan="3" >
+       <item rowspan="3" row="0" column="0" >
         <widget class="QListWidget" name="language_treeview" />
        </item>
       </layout>
