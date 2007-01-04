@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-01-03 12:43+0000\n"
+"POT-Creation-Date: 2007-01-04 13:56+0000\n"
 "PO-Revision-Date: 2006-04-20 06:30+0000\n"
 "Last-Translator: Mouhamadou Mamoune Mbacke <mouhamadoumamoune@gmail.com>\n"
 "Language-Team: Wolof <debian-boot@lists.debian.org>\n"
@@ -255,7 +255,7 @@ msgstr ""
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:35001 ../ubiquity.templates:47001
+#: ../ubiquity.templates:35001 ../ubiquity.templates:48001
 msgid "Ready to install"
 msgstr ""
 
@@ -269,48 +269,54 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
+msgid "Boot loader"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:38001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:38001
+#: ../ubiquity.templates:39001
 msgid "Abort the installation?"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:40001
 msgid "Do you really want to abort the installation now?"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:41001
 msgid "Skip"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:42001
 msgid "Installation complete"
 msgstr "Istalaasioŋ bi matna"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:43001
 msgid "Continue using the live CD"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:44001
 msgid "Restart now"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:45001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -319,7 +325,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:45001
 msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
@@ -328,36 +334,26 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:46001
 msgid "Go Back"
 msgstr "Delluwaat"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:47001
 msgid "Continue"
 msgstr "Kontine"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:48001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
 " Name: ${FULLNAME}\n"
 " Login name: ${USERNAME}\n"
-" Location: ${LOCATION}\n"
-" ${EXTRAS}"
-msgstr ""
-
-#. Type: text
-#. Description
-#. Translators, please leave "DEVICE" untranslated. It will be replaced by a
-#. button displaying the current boot device and allowing the user to select
-#. a different one.
-#: ../ubiquity.templates:48001
-msgid "GRUB will be installed to DEVICE"
+" Location: ${LOCATION}"
 msgstr ""
 
 #. Type: title

@@ -17,23 +17,19 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import os
 import textwrap
 from ubiquity.components.partman_commit import PartmanCommit
 
 class Summary(PartmanCommit):
     def __init__(self, frontend, manual_partitioning=False):
         PartmanCommit.__init__(self, frontend, manual_partitioning, True)
-        self.using_grub = False
 
     def prepare(self):
         prep = list(PartmanCommit.prepare(self))
         prep[0] = '/usr/share/ubiquity/summary'
         prep[1].append('^ubiquity/summary.*')
         return prep
-
-    def metaget(self, question, field):
-        if question == 'ubiquity/summary/grub':
-            self.using_grub = True
 
     def run(self, priority, question):
         if question == 'ubiquity/summary':
@@ -43,10 +39,12 @@ class Summary(PartmanCommit):
                 text += wrapper.fill(line) + "\n"
 
             self.frontend.set_summary_text(text)
-            if self.using_grub:
+            if os.access('/usr/share/grub-installer/grub-installer', os.X_OK):
                 # TODO cjwatson 2006-09-04: a bit inelegant, and possibly
                 # Ubuntu-specific?
                 self.frontend.set_summary_device('(hd0)')
+            else:
+                self.frontend.set_summary_device(None)
 
             # This component exists only to gather some information and then
             # get out of the way.

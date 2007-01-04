@@ -168,6 +168,10 @@ Template: ubiquity/text/ready_description_label
 Type: text
 _Description: Your new operating system will now be installed with the following settings:
 
+Template: ubiquity/text/bootloader_group_label
+Type: text
+_Description: Boot loader
+
 Template: ubiquity/text/step_label
 Type: text
 _Description: Step ${INDEX} of ${TOTAL}
@@ -225,16 +229,8 @@ _Description: Ready to install
   Name: ${FULLNAME}
   Login name: ${USERNAME}
   Location: ${LOCATION}
-  ${EXTRAS}
  .
  ${PARTMAN_CHANGES}
-
-Template: ubiquity/summary/grub
-Type: text
-# Translators, please leave "DEVICE" untranslated. It will be replaced by a
-# button displaying the current boot device and allowing the user to select
-# a different one.
-_Description: GRUB will be installed to DEVICE
 
 Template: ubiquity/install/title
 Type: title

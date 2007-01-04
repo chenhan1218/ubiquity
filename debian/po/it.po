@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-01-03 12:43+0000\n"
+"POT-Creation-Date: 2007-01-04 13:56+0000\n"
 "PO-Revision-Date: 2006-10-10 09:56+0000\n"
 "Last-Translator: Luca Ferretti <elle.uca@libero.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
@@ -275,7 +275,7 @@ msgstr "È necessario fornire il punto di mount per root (\"/\")."
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:35001 ../ubiquity.templates:47001
+#: ../ubiquity.templates:35001 ../ubiquity.templates:48001
 msgid "Ready to install"
 msgstr "Pronto per l'installazione"
 
@@ -290,48 +290,54 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
+msgid "Boot loader"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:38001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "Passo ${INDEX} di ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:38001
+#: ../ubiquity.templates:39001
 msgid "Abort the installation?"
 msgstr "Interrompere l'installazione?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:40001
 msgid "Do you really want to abort the installation now?"
 msgstr "Interrompere veramente il processo di installazione?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:41001
 msgid "Skip"
 msgstr "Salta"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:42001
 msgid "Installation complete"
 msgstr "Installazione completata"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:43001
 msgid "Continue using the live CD"
 msgstr "Continua a usare il CD live"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:44001
 msgid "Restart now"
 msgstr "Riavvia ora"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:45001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -344,7 +350,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:45001
 msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
@@ -355,43 +361,32 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:46001
 msgid "Go Back"
 msgstr "Indietro"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:47001
 msgid "Continue"
 msgstr "Continua"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:48001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
 " Name: ${FULLNAME}\n"
 " Login name: ${USERNAME}\n"
-" Location: ${LOCATION}\n"
-" ${EXTRAS}"
+" Location: ${LOCATION}"
 msgstr ""
 " Lingua: ${LANGUAGE}\n"
 " Disposizione tastiera: ${KEYMAP}\n"
 " Nome completo: ${FULLNAME}\n"
 " Nome per il login: ${USERNAME}\n"
-" Paese: ${LOCATION}\n"
-" ${EXTRAS}"
-
-#. Type: text
-#. Description
-#. Translators, please leave "DEVICE" untranslated. It will be replaced by a
-#. button displaying the current boot device and allowing the user to select
-#. a different one.
-#: ../ubiquity.templates:48001
-msgid "GRUB will be installed to DEVICE"
-msgstr "GRUB sarà installato in DEVICE"
+" Paese: ${LOCATION}"
 
 #. Type: title
 #. Description
@@ -616,6 +611,9 @@ msgstr "Installazione dei pacchetti per la lingua"
 #: ../ubiquity.templates:78001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Scaricamento dei pacchetti per la lingua (mancano ${TIME})..."
+
+#~ msgid "GRUB will be installed to DEVICE"
+#~ msgstr "GRUB sarà installato in DEVICE"
 
 #~ msgid "Select a city in your country and time zone."
 #~ msgstr "Selezionare una città nella propria nazione e fuso orario:"

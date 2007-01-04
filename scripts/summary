@@ -35,13 +35,6 @@ db_subst ubiquity/summary PARTMAN_CHANGES \
 	"$(printf %s "$RET" | debconf-escape -e)"
 db_capb
 
-if [ -x /usr/share/grub-installer/grub-installer ]; then
-	db_metaget ubiquity/summary/grub Description
-	db_subst ubiquity/summary EXTRAS "$RET"
-else
-	db_subst ubiquity/summary EXTRAS ''
-fi
-
 db_input high ubiquity/summary || true
 db_go
 
