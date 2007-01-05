@@ -1,4 +1,4 @@
-ubiquity (1.3.8) UNRELEASED; urgency=low
+ubiquity (1.3.8) feisty; urgency=low
 
   * Depend on python-gtk2 (>= 2.10) for gtk.LinkButton.
   * Move GRUB configuration to a new Advanced... dialog, getting rid of the
@@ -12,7 +12,7 @@ ubiquity (1.3.8) UNRELEASED; urgency=low
     MyKeyboardNames.pl based on xkb-data, which is more up to date than
     KeyboardNames.pl.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed,  3 Jan 2007 16:16:49 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  5 Jan 2007 17:55:56 +0000
 
 ubiquity (1.3.7) feisty; urgency=low
 
