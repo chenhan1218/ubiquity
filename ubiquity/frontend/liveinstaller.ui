@@ -1389,7 +1389,7 @@ You must mount one partition on the root file system ("/"), and you must choose 
          </property>
          <property name="sizeHint" >
           <size>
-           <width>431</width>
+           <width>50</width>
            <height>20</height>
           </size>
          </property>
