@@ -151,6 +151,7 @@ class Wizard:
         self.progress_cancelled = False
         self.previous_partitioning_page = None
         self.summary_device = None
+        self.popcon = None
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
@@ -1650,18 +1651,22 @@ class Wizard:
         if device is not None:
             if not device.startswith('(') and not device.startswith('/dev/'):
                 device = '/dev/%s' % device
-            self.userinterface.advanced_button.show()
-        else:
-            # until there are other things in the advanced dialog
-            self.userinterface.advanced_button.hide()
         self.summary_device = device
 
     def get_summary_device (self):
         return self.summary_device
 
+    def set_popcon (self, participate):
+        self.popcon = participate
+
+    def get_popcon (self):
+        return self.popcon
+
     def on_advanced_button_clicked (self):
+        display = False
         summary_device = self.get_summary_device()
         if summary_device is not None:
+            display = True
             self.advanceddialog.bootloader_group_label.show()
             self.advanceddialog.grub_device_label.show()
             self.advanceddialog.grub_device_entry.show()
@@ -1670,10 +1675,22 @@ class Wizard:
             self.advanceddialog.bootloader_group_label.hide()
             self.advanceddialog.grub_device_label.hide()
             self.advanceddialog.grub_device_entry.hide()
+        if self.popcon is not None:
+            display = True
+            self.advanceddialog.popcon_group_label.show()
+            self.advanceddialog.popcon_checkbutton.show()
+            self.advanceddialog.popcon_checkbutton.setChecked(self.popcon)
+        else:
+            self.advanceddialog.popcon_group_label.hide()
+            self.advanceddialog.popcon_checkbutton.hide()
+        if not display:
+            return
+
         response = self.advanceddialog.exec_()
         if response == Qt.Accepted:
             self.set_summary_device(
                 self.advanceddialog.grub_device_entry.text())
+            self.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
 
     def return_to_autopartitioning (self):
         """If the install progress bar is up but still at the partitioning

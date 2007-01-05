@@ -39,6 +39,13 @@ class Install(FilteredCommand):
             self.preseed('grub-installer/only_debian', 'false')
             self.preseed('grub-installer/bootdev', bootdev)
 
+        popcon = self.frontend.get_popcon()
+        if popcon is not None:
+            if popcon:
+                self.preseed('popularity-contest/participate', 'true')
+            else:
+                self.preseed('popularity-contest/participate', 'false')
+
         questions = ['^.*/apt-install-failed$',
                      'grub-installer/install_to_xfs',
                      'CAPB',

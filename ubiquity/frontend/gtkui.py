@@ -126,6 +126,7 @@ class Wizard:
         self.progress_cancelled = False
         self.previous_partitioning_page = None
         self.summary_device = None
+        self.popcon = None
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
@@ -2113,26 +2114,40 @@ class Wizard:
         if device is not None:
             if not device.startswith('(') and not device.startswith('/dev/'):
                 device = '/dev/%s' % device
-            self.advanced_button.show()
-        else:
-            # until there are other things in the advanced dialog
-            self.advanced_button.hide()
         self.summary_device = device
 
     def get_summary_device (self):
         return self.summary_device
 
+    def set_popcon (self, participate):
+        self.popcon = participate
+
+    def get_popcon (self):
+        return self.popcon
+
     def on_advanced_button_clicked (self, button):
+        display = False
         summary_device = self.get_summary_device()
         if summary_device is not None:
+            display = True
             self.bootloader_vbox.show()
             self.grub_device_entry.set_text(summary_device)
         else:
             self.bootloader_vbox.hide()
+        if self.popcon is not None:
+            display = True
+            self.popcon_vbox.show()
+            self.popcon_checkbutton.set_active(self.popcon)
+        else:
+            self.popcon_vbox.hide()
+        if not display:
+            return
+
         response = self.advanced_dialog.run()
         self.advanced_dialog.hide()
         if response == gtk.RESPONSE_OK:
             self.set_summary_device(self.grub_device_entry.get_text())
+            self.set_popcon(self.popcon_checkbutton.get_active())
         return True
 
 

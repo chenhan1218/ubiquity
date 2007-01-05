@@ -20,6 +20,7 @@
 import os
 import textwrap
 from ubiquity.components.partman_commit import PartmanCommit
+from ubiquity.misc import will_be_installed
 
 class Summary(PartmanCommit):
     def __init__(self, frontend, manual_partitioning=False):
@@ -39,12 +40,22 @@ class Summary(PartmanCommit):
                 text += wrapper.fill(line) + "\n"
 
             self.frontend.set_summary_text(text)
+
             if os.access('/usr/share/grub-installer/grub-installer', os.X_OK):
                 # TODO cjwatson 2006-09-04: a bit inelegant, and possibly
                 # Ubuntu-specific?
                 self.frontend.set_summary_device('(hd0)')
             else:
                 self.frontend.set_summary_device(None)
+
+            if will_be_installed('popularity-contest'):
+                try:
+                    participate = self.db.get('popularity-contest/participate')
+                    self.frontend.set_popcon(participate == 'true')
+                except DebconfError:
+                    self.frontend.set_popcon(None)
+            else:
+                self.frontend.set_popcon(None)
 
             # This component exists only to gather some information and then
             # get out of the way.
