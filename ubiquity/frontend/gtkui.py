@@ -238,10 +238,8 @@ class Wizard:
 
         # Some signals need to be connected by hand so that we have the
         # handler ids.
-        self.hostname_delete_text_id = self.hostname.connect(
-            'delete_text', self.on_hostname_delete_text)
-        self.hostname_insert_text_id = self.hostname.connect(
-            'insert_text', self.on_hostname_insert_text)
+        self.hostname_changed_id = self.hostname.connect(
+            'changed', self.on_hostname_changed)
 
         # Start the interface
         if got_intro:
@@ -769,11 +767,9 @@ class Wizard:
                 hostname_suffix = '-laptop'
             else:
                 hostname_suffix = '-desktop'
-            self.hostname.handler_block(self.hostname_delete_text_id)
-            self.hostname.handler_block(self.hostname_insert_text_id)
+            self.hostname.handler_block(self.hostname_changed_id)
             self.hostname.set_text(widget.get_text() + hostname_suffix)
-            self.hostname.handler_unblock(self.hostname_insert_text_id)
-            self.hostname.handler_unblock(self.hostname_delete_text_id)
+            self.hostname.handler_unblock(self.hostname_changed_id)
 
         complete = True
         for name in ('username', 'password', 'verified_password', 'hostname'):
@@ -781,12 +777,8 @@ class Wizard:
                 complete = False
         self.allow_go_forward(complete)
 
-    def on_hostname_delete_text(self, widget, start, end):
-        self.hostname_edited = True
-
-    def on_hostname_insert_text(self, widget,
-                                new_text, new_text_length, position):
-        self.hostname_edited = True
+    def on_hostname_changed(self, widget):
+        self.hostname_edited = (widget.get_text() != '')
 
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""

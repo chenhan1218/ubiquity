@@ -725,7 +725,7 @@ class Wizard:
         self.allow_go_forward(complete)
 
     def on_hostname_insert_text(self):
-        self.hostname_edited = True
+        self.hostname_edited = (self.userinterface.hostname.text() != '')
 
     def on_next_clicked(self):
         """Callback to control the installation process between steps."""
