@@ -349,9 +349,6 @@ class Wizard:
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
 
-        if not os.path.exists('/usr/bin/time-admin'):
-            self.timezone_time_adjust.hide()
-
         if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
             self.embedded.hide()
             self.part_advanced_vpaned.show()
@@ -1298,26 +1295,6 @@ class Wizard:
                 self.translate_widget(getattr(self, widget), lang)
 
 
-    def on_timezone_time_adjust_clicked (self, button):
-        invisible = gtk.Invisible()
-        invisible.grab_add()
-        time_admin_env = dict(os.environ)
-        tz = self.tzmap.get_selected_tz_name()
-        if tz is not None:
-            time_admin_env['TZ'] = tz
-        if 'DESKTOP_STARTUP_ID' in time_admin_env:
-            del time_admin_env['DESKTOP_STARTUP_ID']
-        time_admin_env['GST_NO_INSTALL_NTP'] = '1'
-        time_admin_subp = subprocess.Popen(["log-output", "-t", "ubiquity",
-                                            "time-admin"], env=time_admin_env)
-        gobject.child_watch_add(time_admin_subp.pid, self.on_time_admin_exit,
-                                invisible)
-
-
-    def on_time_admin_exit (self, pid, condition, invisible):
-        invisible.grab_remove()
-
-
     def on_new_size_scale_format_value (self, widget, value):
         # TODO cjwatson 2006-01-09: get minsize/maxsize through to here
         if self.resize_max_size is not None:
@@ -1737,7 +1714,8 @@ class Wizard:
                     self.new_size_scale.set_draw_value(True)
                     self.new_size_scale.set_value_pos(gtk.POS_TOP)
                     self.new_size_scale.set_digits(0)
-                    self.new_size_scale.update_policy(gtk.UPDATE_CONTINUOUS)
+                    self.new_size_scale.set_update_policy(
+                        gtk.UPDATE_CONTINUOUS)
                     self.new_size_scale.connect(
                         'format_value', self.on_new_size_scale_format_value)
                     self.resize_min_size, self.resize_max_size = \
