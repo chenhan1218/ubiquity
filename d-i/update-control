@@ -68,6 +68,7 @@ my @basebd = (
     'python-central (>= 0.5)',
     'python-all-dev (>= 2.3.5-11)',
     'python-gtk2-dev',
+    'xkb-data (>= 0.9)',
 );
 my $basebd = join ', ', @basebd;
 for my $bd (@{parsedep($basebd, 1, 1)}) {

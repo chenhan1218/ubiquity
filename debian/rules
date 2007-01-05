@@ -78,6 +78,10 @@ clean:
 
 	$(MAKE) -C d-i check
 
+d-i/source/console-setup/Keyboard/MyKeyboardNames.pl:
+	$(MAKE) -C d-i/source/console-setup/Keyboard MyKeyboardNames.pl \
+		xkbdir=/usr/share/X11/xkb
+
 ubiquity/keyboard_names.py: d-i/source/console-setup/Keyboard/KeyboardNames.pl
 	d-i/make-keyboard-names $< > $@
 
