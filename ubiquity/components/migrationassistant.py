@@ -43,12 +43,9 @@ class MigrationAssistant(FilteredCommand):
         # set and if so we'll skip this step and modify the step below.  Or
         # should we not worry about partial preseeding and just skip this
         # alltogether if we find any preseeding?
-	print 'in run'
         if self.firstrun:
             self.preseed(question, ", ".join(self.choices(question)))
         else:
-            print 'got a question in run, %s' % question
-            print 'val is: \'%s\'' % self.db.get(question)
             if self.err:
                 if question.endswith('password'):
                     # pass in the user as well and then in password_error find
@@ -64,13 +61,11 @@ class MigrationAssistant(FilteredCommand):
         if not self.firstrun:
             # There were no errors this time around, lets move to the next step.
             if not self.err:
-                print 'exiting m-a.'
                 self.succeeded = True
                 self.done = True
                 self.exit_ui_loops()
                 return
             # There were errors.
-            print 'in cleanup again'
             self.frontend.allow_go_forward(True)
             self.enter_ui_loop()
             return
@@ -91,7 +86,6 @@ class MigrationAssistant(FilteredCommand):
             self.db.set('migration-assistant/%s/users' % part, '')
         #self.db.set('migration-assistant/partitions', '')
 	
-	#print self.tree
 	self.frontend.set_ma_choices(self.tree)
 
 	# We need to jump in after m-a has exited and stop ubiquity from moving on to
@@ -117,7 +111,6 @@ class MigrationAssistant(FilteredCommand):
                 self.db.register('migration-assistant/user', question + 'user')
                 self.preseed(question + 'user', c['newuser'])
                 try:
-                    print 'choice newuser: %s' % c['newuser']
                     users[c['part']].append(c['user'])
                 except KeyError:
                     users[c['part']] = [c['user']]
@@ -125,7 +118,6 @@ class MigrationAssistant(FilteredCommand):
         for p in users.iterkeys():
             question = 'migration-assistant/%s/users' % p
             self.db.register('migration-assistant/users', question)
-            print 'm-a/%s/users: %s' % (p, users[p])
             self.preseed(question, ', '.join(users[p]))
 
         for u in new_users.iterkeys():
@@ -154,7 +146,6 @@ class MigrationAssistant(FilteredCommand):
         self.run_command()
         
     def error(self, priority, question):
-    	print 'error with %s' % question
         # Because we have already seeded the questions and thus will not see
         # them in run() we have to hold onto the error until the next question
         # which will tell us what question, and thus what partition and user

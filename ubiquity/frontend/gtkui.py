@@ -1502,6 +1502,8 @@ class Wizard:
             return self.language_choice_map[value][0]
 
     def ma_password_error(self, error, user):
+        iter = self.matreeview.get_model().get_iter(0)
+        self.matreeview.get_selection().select_iter(iter)
         self.ma_password_error_reason.set_text(error)
         self.ma_password_error_box.show()
 
@@ -1535,9 +1537,6 @@ class Wizard:
                         iter = model.iter_next(iter)
                     model.get_value(parent, 1)['items'] = items
 
-                    # test
-                    print model.get_value(parent,1)
-
             # We're on an item checkbox.
             else:
                 parent = model.iter_parent(iter)
@@ -1548,7 +1547,6 @@ class Wizard:
                         items.append(item)
                 else:
                         items.remove(item)
-                print model.get_value(parent, 1)
 
     def ma_apply(self):
         self.ma_fullname_error_box.hide()
@@ -1626,7 +1624,11 @@ class Wizard:
                 text = model.get_value(iter, 1)
 
             cell.set_property("markup", text)
-    	
+        
+        # The user probably hit the back button.
+        if self.matreeview.get_model():
+            return
+
         treestore = gtk.TreeStore(bool, object)
         self.ma_choices = choices
 	for choice in choices:
