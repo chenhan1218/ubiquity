@@ -1505,206 +1505,144 @@ class Wizard:
         self.ma_password_error_reason.set_text(error)
         self.ma_password_error_box.show()
 
-    def ma_toggle(self, cell, path, model=None):
+    def get_ma_choices(self):
+        return (self.ma_choices, self.ma_new_users)
+
+    def cb_toggle(self, cell, path, model=None):
             # TODO: Move this under the m-a function.
             iter = model.get_iter(path)
-            model.set_value(iter, 0, not cell.get_active())
+            checked = not cell.get_active()
+            model.set_value(iter, 0, checked)
             
             # We're on a user checkbox.
             if(model.iter_children(iter)):
-                    if not cell.get_active():
+                    if checked:
                         self.ma_userinfo.set_sensitive(True)
                     else:
                         self.ma_userinfo.set_sensitive(False)
 
-                    (user, os) = model.get_value(iter, 1)
-                    part = os[os.rfind('/')+1:-1]
-                    question = 'migration-assistant/' + part + '/users'
-                    choices = self.dbfilter.db.get(question)
-                    if choices:
-                        choices = choices.split(', ')
+                    if not cell.get_active():
+                        model.get_value(iter, 1)['selected'] = True
                     else:
-                        choices = []
-                    if cell.get_active():
-                        choices.remove(user)
-                        self.dbfilter.db.set(question, ', '.join(choices))
-                    else:
-                        choices.append(user)
-                        self.dbfilter.db.set(question, ', '.join(choices))
+                        model.get_value(iter, 1)['selected'] = False
+                    parent = iter
                     iter = model.iter_children(iter)
                     items = []
                     while(iter):
-                        # TODO: cache cell.get_active()
-                        model.set_value(iter, 0, not cell.get_active())
-                        if not cell.get_active():
+                        model.set_value(iter, 0, checked)
+                        if checked:
                             items.append(model.get_value(iter, 1))
                         iter = model.iter_next(iter)
-                    question = 'migration-assistant/%s/%s/items' % (part, user)
-                    self.dbfilter.db.set(question, ', '.join(items))
+                    model.get_value(parent, 1)['items'] = items
+
+                    # test
+                    print model.get_value(parent,1)
 
             # We're on an item checkbox.
             else:
                 parent = model.iter_parent(iter)
-                (user, os) = model.get_value(parent, 1)
                 item = model.get_value(iter, 1)
-                part = os[os.rfind('/')+1:-1]
+                items = model.get_value(parent, 1)['items']
 
-                question = 'migration-assistant/%s/%s/items' % (part, user)
-                choices = self.dbfilter.db.get(question).split(', ')
-                if cell.get_active():
-                        choices.remove(item)
-                        self.dbfilter.db.set(question, ', '.join(choices))
+                if checked:
+                        items.append(item)
                 else:
-                        choices.append(item)
-                        self.dbfilter.db.set(question, ', '.join(choices))
+                        items.remove(item)
+                print model.get_value(parent, 1)
 
+    def ma_apply(self):
+        self.ma_fullname_error_box.hide()
+        self.ma_loginname_error_box.hide()
+        self.ma_password_error_box.hide()
+
+        self.ma_seed_userinfo()
+
+    def ma_seed_userinfo(self):
+        # TODO: make this a function and call it here and in
+        # on_next_click
+        newuser = self.ma_loginname.child.get_text()
+        if newuser:
+            try:
+                val = self.ma_new_users[newuser]
+            except KeyError:
+                self.ma_new_users[newuser] = {}
+                val = self.ma_new_users[newuser]
+            self.ma_previous_selection['newuser'] = newuser
+            for u in self.ma_new_users.iterkeys():
+                if u:
+                    self.ma_loginname.append_text(u)
+            val['fullname'] = self.ma_fullname.get_text()
+            val['password'] = self.ma_password.get_text()
+            val['confirm'] = self.ma_confirm.get_text()
+            val['newuser'] = self.ma_loginname.child.get_text()
+
+
+    def cb_selection_changed(self, selection):
+        if self.ma_previous_selection:
+            self.ma_seed_userinfo()
+
+        model, iter = selection.get_selected()
+        if not iter: return
+        if(model.iter_parent(iter)):
+            iter = model.iter_parent(iter)
+        
+        if model.get_value(iter, 0):
+            self.ma_userinfo.set_sensitive(True)
+        else:
+            self.ma_userinfo.set_sensitive(False)
+        
+        self.ma_previous_selection = model.get_value(iter, 1)
+        newuser = model.get_value(iter, 1)['newuser']
+        try:
+            val = self.ma_new_users[newuser]
+            self.ma_loginname.child.set_text(newuser)
+            try:
+                self.ma_fullname.set_text(val['fullname'])
+            except KeyError:
+                self.ma_fullname.set_text('')
+            try:
+                self.ma_password.set_text(val['password'])
+            except KeyError:
+                self.ma_password.set_text('')
+            try:
+                self.ma_confirm.set_text(val['confirm'])
+            except KeyError:
+                self.ma_confirm.set_text('')
+        except KeyError:
+            self.ma_fullname.set_text('')
+            self.ma_loginname.child.set_text('')
+            self.ma_password.set_text('')
+            self.ma_confirm.set_text('')
     def set_ma_choices(self, choices):
-        # FIXME: This has no effect.
-        self.allow_go_forward(False)
-    	# Rather than do an os_choices, user_choices, etc, we'll stuff everything
-	# in a tree represented as a list.
-	# [('Ubuntu /dev/hda1', ['Gaim']), ('Windows /dev/hda2', ['IE', 'Yahoo'])]
-        def selection_changed(selection):
-            model, iter = selection.get_selected()
-            #if iter == self.ma_selection:
-            #    print 'iter == self.ma_selection'
-            #    return
-            if iter:
-                if(model.iter_parent(iter)):
-                    iter = model.iter_parent(iter)
-                #if model.get_value(iter, 0):
-                #    for name in ('username', 'password', 'verified_password', 'hostname'):
-                #        if getattr(self, name).get_text() == '':
-                #            # TODO: show error.
-                #            print 'forgot to fill in a box.'
-                #            selection.select_iter(iter)
-                #            self.ma_selection = iter
-                #            return
-                
-                (user, os) = model.get_value(iter, 1)
-                part = os[os.rfind('/')+1:-1]
-
-                if model.get_value(iter, 0):
-                    self.ma_userinfo.set_sensitive(True)
-                else:
-                    self.ma_userinfo.set_sensitive(False)
-                
-                question = 'migration-assistant/%s/%s/' % (part, user)
-                
-                # TODO: Can we get rid of this by changing the run around in
-                # migrationassistant.py or by modifying ma-ask?
-                try:
-                    loginname = self.dbfilter.db.get(question + 'user')
-                except:
-                    loginname = ''
-                self.ma_loginname.child.set_text(loginname)
-                
-                question = 'migration-assistant/new-user/%s/' % loginname
-                try:
-                    fullname = self.dbfilter.db.get(question + 'fullname')
-                except:
-                    fullname = ''
-                self.ma_fullname.set_text(fullname)
-                
-                try:
-                    password = self.dbfilter.db.get(question + 'password')
-                except:
-                    password = ''
-                self.ma_password.set_text(password)
-
-                try:
-                    confirm = self.dbfilter.db.get(question + 'password-again')
-                except:
-                    confirm = ''
-                self.ma_confirm.set_text(confirm)
 
         def cell_data_func(column, cell, model, iter):
+            val = model.get_value(iter, 1)
             if(model.iter_children(iter)):
                 # Windows XP...
-                text = '%s  <small><i>%s</i></small>' % \
-                    model.get_value(iter, 1) # user, os
+                text = '%s  <small><i>%s (%s)</i></small>' % \
+                    (val['user'], val['os'], val['part'])
             else:
                 # Gaim, Yahoo, etc
                 text = model.get_value(iter, 1)
 
             cell.set_property("markup", text)
-
-        #def typing(sender):
-        #    complete = True
-
-        #    if self.ma_password.get_text() != self.ma_confirm.get_text():
-        #        # TODO: i18n
-        #        self.ma_password_error_reason.set_text('Passwords must match.')
-        #        self.ma_password_error_box.show()
-        #        complete = False
-        #    else:
-        #        self.ma_password_error_reason.set_text('')
-        #        self.ma_password_error_box.hide()
-        #    # FIXME: Ugh, add loginname somehow.  Perhaps make
-        #    # self.ma_loginname_entry
-        #    # TODO: We need to set an error if they fail to fill in a box, but
-        #    # not here.
-        #    for name in ('ma_fullname', 'ma_password', 'ma_confirm'):
-        #        if getattr(self, name).get_text() == '':
-        #            complete = False
-        #    #self.allow_go_forward(complete)
-
-    	def focus_out(sender, event, name):
-            print 'focus_out called'
-            model, iter = self.matreeview.get_selection().get_selected()
-            if iter:
-                text = sender.get_text()
-                if name == 'user':
-                    exists = False
-                    for val in sender.parent.get_model():
-                        if val[0] == text:
-                            exists = True
-                    if not exists: sender.parent.append_text(text)
-
-                if(model.iter_parent(iter)):
-                    iter = model.iter_parent(iter)
-                (user, os) = model.get_value(iter, 1)
-                part = os[os.rfind('/')+1:-1]
-                question = 'migration-assistant/%s/%s/' % (part, user)
-                newuser = self.dbfilter.db.get(question + 'user')
-                if name != 'user':
-                    question = 'migration-assistant/new-user/%s/' % newuser
-                try:
-                    self.dbfilter.db.set(question + name, text)
-                except:
-                    self.dbfilter.db.register('migration-assistant/%s' % name, question + name)
-                    self.dbfilter.db.set(question + name, text)
-            return False
-        def activate(sender, name):
-            focus_out(sender, None, name)
-        # FIXME: Doesn't work when moving from an Entry to the TreeView.
-        # TODO: Simplify this.
-        # TODO: Need one for selection of an item in the combobox.
-        self.ma_fullname.connect('focus-out-event', focus_out, 'fullname')
-        self.ma_fullname.connect('activate', activate, 'fullname')
-        self.ma_password.connect('focus-out-event', focus_out, 'password')
-        self.ma_password.connect('activate', activate, 'password')
-        self.ma_confirm.connect('focus-out-event', focus_out, 'password-again')
-        self.ma_confirm.connect('activate', activate, 'password-again')
-        self.ma_loginname.child.connect('focus-out-event', focus_out, 'user')
-        self.ma_loginname.child.connect('activate', activate, 'user')
-        
-        # TODO: Put these in ubiquity.glade
-        #for name in ('ma_fullname', 'ma_password', 'ma_confirm'):
-        #    getattr(self, name).connect('changed', typing)
     	
         treestore = gtk.TreeStore(bool, object)
+        self.ma_choices = choices
 	for choice in choices:
-		piter = treestore.append(None, [False, choice[0]])
-		for items in choice[1]:
-			treestore.append(piter, [False, items])
+		piter = treestore.append(None, [False, choice])
+		for item in choice['items']:
+			treestore.append(piter, [False, item])
+                choice['items'] = []
 	
 	self.matreeview.set_model(treestore)
-        # For keeping track of the previous selection
-        #self.ma_selection = None
+        # For the new users.
+        self.ma_new_users = {}
+        # For the previous selected item.
+        self.ma_previous_selection = None
 	
 	renderer = gtk.CellRendererToggle()
-	renderer.connect('toggled', self.ma_toggle, treestore)
+	renderer.connect('toggled', self.cb_toggle, treestore)
 	column = gtk.TreeViewColumn('boolean', renderer, active=0)
 	column.set_clickable(True)
 	column.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
@@ -1717,7 +1655,7 @@ class Wizard:
 
 	self.matreeview.set_search_column(1)
 
-        self.matreeview.get_selection().connect('changed', selection_changed)
+        self.matreeview.get_selection().connect('changed', self.cb_selection_changed)
 	self.matreeview.show_all()
 
         combostore = gtk.ListStore(str)

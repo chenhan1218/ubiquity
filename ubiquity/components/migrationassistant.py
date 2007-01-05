@@ -48,7 +48,7 @@ class MigrationAssistant(FilteredCommand):
             self.preseed(question, ", ".join(self.choices(question)))
         else:
             print 'got a question in run, %s' % question
-            print 'val is, %s' % self.db.get(question)
+            print 'val is: \'%s\'' % self.db.get(question)
             if self.err:
                 if question.endswith('password'):
                     # pass in the user as well and then in password_error find
@@ -77,9 +77,15 @@ class MigrationAssistant(FilteredCommand):
 
     	for os in self.db.get('migration-assistant/partitions').split(', '):
             part = os[os.rfind('/')+1:-1] # hda1
+            os = os[:os.find('(')-1]
             for user in self.db.get('migration-assistant/' + part + '/users').split(', '):
                 items = self.db.get('migration-assistant/' + part + '/' + user + '/items').split(', ')
-                self.tree.append(((user, os), items))
+                self.tree.append({'user': user, \
+                                'part': part, \
+                                'os': os, \
+                                'newuser': '', \
+                                'items': items, \
+                                'selected': False})
             # We now unset everything as the checkboxes will be unselected
             # by default and debconf needs to match that.
             self.db.set('migration-assistant/%s/users' % part, '')
@@ -97,10 +103,51 @@ class MigrationAssistant(FilteredCommand):
     def ok_handler(self):
         # what about questions that haven't been registered because the user
         # didn't fill them in?  They're errors.  Might have to fix them here.
+        
+        self.frontend.ma_apply()
 
-        # TODO: replace with self.frontend.ma_hide_errors() or
-        # self.frontend.ma_ok_handler()
-        self.frontend.ma_password_error_box.hide()
+        choices, new_users = self.frontend.get_ma_choices()
+        users = {}
+
+        for c in choices:
+            if c['selected']:
+                question = 'migration-assistant/%s/%s/' % (c['part'],c['user'])
+                self.db.register('migration-assistant/items', question + 'items')
+                self.preseed(question + 'items', ', '.join(c['items']))
+                self.db.register('migration-assistant/user', question + 'user')
+                self.preseed(question + 'user', c['newuser'])
+                try:
+                    print 'choice newuser: %s' % c['newuser']
+                    users[c['part']].append(c['user'])
+                except KeyError:
+                    users[c['part']] = [c['user']]
+
+        for p in users.iterkeys():
+            question = 'migration-assistant/%s/users' % p
+            self.db.register('migration-assistant/users', question)
+            print 'm-a/%s/users: %s' % (p, users[p])
+            self.preseed(question, ', '.join(users[p]))
+
+        for u in new_users.iterkeys():
+            user = new_users[u]
+            question = 'migration-assistant/new-user/%s/' % u
+
+            try:
+                self.db.register('migration-assistant/fullname', question + 'fullname')
+                self.preseed(question + 'fullname', user['fullname'])
+            except KeyError:
+                self.preseed(question + 'fullname', '')
+            try:
+                self.db.register('migration-assistant/password', question + 'password')
+                self.preseed(question + 'password', user['password'])
+            except KeyError:
+                self.preseed(question + 'password', '')
+            try:
+                self.db.register('migration-assistant/password-again', question + 'password-again')
+                self.preseed(question + 'password-again', user['confirm'])
+            except KeyError:
+                self.preseed(question + 'password-again', '')
+        
         self.err = None
         FilteredCommand.ok_handler(self)
         self.db.shutdown()
