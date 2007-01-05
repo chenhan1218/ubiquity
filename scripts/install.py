@@ -620,12 +620,15 @@ class Install:
 
         if fs_preseed == '':
             # Simple autodetection on unionfs systems
-            for line in open('/proc/mounts'):
+            mounts = open('/proc/mounts')
+            for line in mounts:
                 (device, fstype) = line.split()[1:3]
                 if fstype == 'squashfs' and os.path.exists(device):
                     misc.ex('mount', '--bind', device, self.source)
                     self.mountpoints.append(self.source)
+                    mounts.close()
                     return
+            mounts.close()
 
             # Manual detection on non-unionfs systems
             fsfiles = ['/cdrom/casper/filesystem.cloop',
@@ -1310,8 +1313,10 @@ class Install:
 
         remove_kernels = set()
         if os.path.exists("/var/lib/ubiquity/remove-kernels"):
-            for line in open("/var/lib/ubiquity/remove-kernels"):
+            remove_kernels_file = open("/var/lib/ubiquity/remove-kernels")
+            for line in remove_kernels_file:
                 remove_kernels.add(line.strip())
+            remove_kernels_file.close()
 
         if len(remove_kernels) == 0:
             self.db.progress('STOP')
@@ -1339,13 +1344,17 @@ class Install:
         if (os.path.exists("/cdrom/casper/filesystem.manifest-desktop") and
             os.path.exists("/cdrom/casper/filesystem.manifest")):
             desktop_packages = set()
-            for line in open("/cdrom/casper/filesystem.manifest-desktop"):
+            manifest = open("/cdrom/casper/filesystem.manifest-desktop")
+            for line in manifest:
                 if line.strip() != '' and not line.startswith('#'):
                     desktop_packages.add(line.split()[0])
+            manifest.close()
             live_packages = set()
-            for line in open("/cdrom/casper/filesystem.manifest"):
+            manifest = open("/cdrom/casper/filesystem.manifest")
+            for line in manifest:
                 if line.strip() != '' and not line.startswith('#'):
                     live_packages.add(line.split()[0])
+            manifest.close()
             difference = live_packages - desktop_packages
         else:
             difference = set()
@@ -1353,8 +1362,10 @@ class Install:
         # Keep packages we explicitly installed.
         apt_installed = set()
         if os.path.exists("/var/lib/ubiquity/apt-installed"):
-            for line in open("/var/lib/ubiquity/apt-installed"):
+            apt_installed_file = open("/var/lib/ubiquity/apt-installed")
+            for line in apt_installed_file:
                 apt_installed.add(line.strip())
+            apt_installed_file.close()
         difference -= apt_installed
 
         if len(difference) == 0:
