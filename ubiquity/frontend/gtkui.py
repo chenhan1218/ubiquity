@@ -274,9 +274,7 @@ class Wizard:
             if current_name == "stepLanguage":
                 self.dbfilter = language.Language(self)
             elif current_name == "stepMigrationAssistant":
-	    	print "SETTING MIGRATION ASSISTANT AS THE DB"
 		self.dbfilter = migrationassistant.MigrationAssistant(self)
-		print "MIGRATION ASSISTANT IS THE DB"
 	    elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
@@ -299,7 +297,6 @@ class Wizard:
             else:
                 self.dbfilter = None
 
-            print self.dbfilter
 	    if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.allow_change_step(False)
                 self.dbfilter.start(auto_process=True)
@@ -850,7 +847,6 @@ class Wizard:
             self.back.show()
             self.allow_go_forward(self.get_timezone() is not None)
 	elif step == "stepMigrationAssistant":
-		print 'ah-ha!'
 		self.steps.next_page()
         # Location
         elif step == "stepLocation":
@@ -1505,6 +1501,10 @@ class Wizard:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][0]
 
+    def ma_password_error(self, error, user):
+        self.ma_password_error_reason.set_text(error)
+        self.ma_password_error_box.show()
+
     def ma_toggle(self, cell, path, model=None):
             # TODO: Move this under the m-a function.
             iter = model.get_iter(path)
@@ -1513,15 +1513,9 @@ class Wizard:
             # We're on a user checkbox.
             if(model.iter_children(iter)):
                     if not cell.get_active():
-                        self.ma_fullname.set_sensitive(True)
-                        self.ma_loginname.set_sensitive(True)
-                        self.ma_password.set_sensitive(True)
-                        self.ma_confirm.set_sensitive(True)
+                        self.ma_userinfo.set_sensitive(True)
                     else:
-                        self.ma_fullname.set_sensitive(False)
-                        self.ma_loginname.set_sensitive(False)
-                        self.ma_password.set_sensitive(False)
-                        self.ma_confirm.set_sensitive(False)
+                        self.ma_userinfo.set_sensitive(False)
 
                     (user, os) = model.get_value(iter, 1)
                     part = os[os.rfind('/')+1:-1]
@@ -1565,36 +1559,47 @@ class Wizard:
                         self.dbfilter.db.set(question, ', '.join(choices))
 
     def set_ma_choices(self, choices):
+        # FIXME: This has no effect.
+        self.allow_go_forward(False)
     	# Rather than do an os_choices, user_choices, etc, we'll stuff everything
 	# in a tree represented as a list.
 	# [('Ubuntu /dev/hda1', ['Gaim']), ('Windows /dev/hda2', ['IE', 'Yahoo'])]
         def selection_changed(selection):
             model, iter = selection.get_selected()
+            #if iter == self.ma_selection:
+            #    print 'iter == self.ma_selection'
+            #    return
             if iter:
                 if(model.iter_parent(iter)):
                     iter = model.iter_parent(iter)
+                #if model.get_value(iter, 0):
+                #    for name in ('username', 'password', 'verified_password', 'hostname'):
+                #        if getattr(self, name).get_text() == '':
+                #            # TODO: show error.
+                #            print 'forgot to fill in a box.'
+                #            selection.select_iter(iter)
+                #            self.ma_selection = iter
+                #            return
+                
                 (user, os) = model.get_value(iter, 1)
                 part = os[os.rfind('/')+1:-1]
 
                 if model.get_value(iter, 0):
-                    self.ma_fullname.set_sensitive(True)
-                    self.ma_loginname.set_sensitive(True)
-                    self.ma_password.set_sensitive(True)
-                    self.ma_confirm.set_sensitive(True)
+                    self.ma_userinfo.set_sensitive(True)
                 else:
-                    self.ma_fullname.set_sensitive(False)
-                    self.ma_loginname.set_sensitive(False)
-                    self.ma_password.set_sensitive(False)
-                    self.ma_confirm.set_sensitive(False)
+                    self.ma_userinfo.set_sensitive(False)
                 
                 question = 'migration-assistant/%s/%s/' % (part, user)
                 
+                # TODO: Can we get rid of this by changing the run around in
+                # migrationassistant.py or by modifying ma-ask?
                 try:
                     loginname = self.dbfilter.db.get(question + 'user')
                 except:
                     loginname = ''
-                #self.ma_loginname.set_text(loginname)
+                self.ma_loginname.child.set_text(loginname)
                 
+                question = 'migration-assistant/new-user/%s/' % loginname
                 try:
                     fullname = self.dbfilter.db.get(question + 'fullname')
                 except:
@@ -1624,46 +1629,79 @@ class Wizard:
 
             cell.set_property("markup", text)
 
-        def typing(sender):
-            # TODO: this should probably be ma_info_loop and should handle
-            # matching passwords, empty boxes, and whether or not we can
-            # continue to the next page.
-            if sender.get_text() != self.ma_confirm.get_text():
-                # TODO: i18n
-                self.ma_password_error_reason.set_text('Passwords must match.')
-                self.ma_password_error_box.show()
-            else:
-                self.ma_password_error_reason.set_text('')
-                self.ma_password_error_box.hide()
+        #def typing(sender):
+        #    complete = True
+
+        #    if self.ma_password.get_text() != self.ma_confirm.get_text():
+        #        # TODO: i18n
+        #        self.ma_password_error_reason.set_text('Passwords must match.')
+        #        self.ma_password_error_box.show()
+        #        complete = False
+        #    else:
+        #        self.ma_password_error_reason.set_text('')
+        #        self.ma_password_error_box.hide()
+        #    # FIXME: Ugh, add loginname somehow.  Perhaps make
+        #    # self.ma_loginname_entry
+        #    # TODO: We need to set an error if they fail to fill in a box, but
+        #    # not here.
+        #    for name in ('ma_fullname', 'ma_password', 'ma_confirm'):
+        #        if getattr(self, name).get_text() == '':
+        #            complete = False
+        #    #self.allow_go_forward(complete)
 
     	def focus_out(sender, event, name):
+            print 'focus_out called'
             model, iter = self.matreeview.get_selection().get_selected()
             if iter:
+                text = sender.get_text()
+                if name == 'user':
+                    exists = False
+                    for val in sender.parent.get_model():
+                        if val[0] == text:
+                            exists = True
+                    if not exists: sender.parent.append_text(text)
+
                 if(model.iter_parent(iter)):
                     iter = model.iter_parent(iter)
                 (user, os) = model.get_value(iter, 1)
                 part = os[os.rfind('/')+1:-1]
                 question = 'migration-assistant/%s/%s/' % (part, user)
+                newuser = self.dbfilter.db.get(question + 'user')
+                if name != 'user':
+                    question = 'migration-assistant/new-user/%s/' % newuser
                 try:
-                    self.dbfilter.db.set(question + name, sender.get_text())
+                    self.dbfilter.db.set(question + name, text)
                 except:
                     self.dbfilter.db.register('migration-assistant/%s' % name, question + name)
-                    self.dbfilter.db.set(question + name, sender.get_text())
+                    self.dbfilter.db.set(question + name, text)
             return False
-
+        def activate(sender, name):
+            focus_out(sender, None, name)
+        # FIXME: Doesn't work when moving from an Entry to the TreeView.
+        # TODO: Simplify this.
+        # TODO: Need one for selection of an item in the combobox.
         self.ma_fullname.connect('focus-out-event', focus_out, 'fullname')
+        self.ma_fullname.connect('activate', activate, 'fullname')
         self.ma_password.connect('focus-out-event', focus_out, 'password')
+        self.ma_password.connect('activate', activate, 'password')
         self.ma_confirm.connect('focus-out-event', focus_out, 'password-again')
-        self.ma_password.connect('changed', typing)
-        self.ma_confirm.connect('changed', typing)
-    	treestore = gtk.TreeStore(bool, object)
+        self.ma_confirm.connect('activate', activate, 'password-again')
+        self.ma_loginname.child.connect('focus-out-event', focus_out, 'user')
+        self.ma_loginname.child.connect('activate', activate, 'user')
+        
+        # TODO: Put these in ubiquity.glade
+        #for name in ('ma_fullname', 'ma_password', 'ma_confirm'):
+        #    getattr(self, name).connect('changed', typing)
+    	
+        treestore = gtk.TreeStore(bool, object)
 	for choice in choices:
 		piter = treestore.append(None, [False, choice[0]])
 		for items in choice[1]:
 			treestore.append(piter, [False, items])
 	
 	self.matreeview.set_model(treestore)
-
+        # For keeping track of the previous selection
+        #self.ma_selection = None
 	
 	renderer = gtk.CellRendererToggle()
 	renderer.connect('toggled', self.ma_toggle, treestore)
@@ -1682,6 +1720,12 @@ class Wizard:
         self.matreeview.get_selection().connect('changed', selection_changed)
 	self.matreeview.show_all()
 
+        combostore = gtk.ListStore(str)
+        self.ma_loginname.set_model(combostore)
+        self.ma_loginname.set_text_column(0)
+        # TODO: uncomment this when this page gets moved past UserSetup
+        #passwd = self.dbfilter.db.get('passwd/user')
+        #combostore.append(passwd)
 
     def set_timezone (self, timezone):
         self.tzmap.set_tz_from_name(timezone)
