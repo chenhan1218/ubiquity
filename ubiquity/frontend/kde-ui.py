@@ -173,12 +173,12 @@ class Wizard:
 
         self.debconf_callbacks = {}    # array to keep callback functions needed by debconf file descriptors
 
-        self.translate_widgets()
-
         self.map_vbox = QVBoxLayout(self.userinterface.map_frame)
         self.map_vbox.setMargin(0)
 
         self.customize_installer()
+
+        self.translate_widgets()
 
         self.autopartition_vbox = QVBoxLayout(self.userinterface.autopartition_frame)
         self.autopartition_buttongroup = QButtonGroup(self.userinterface.autopartition_frame)
@@ -427,7 +427,7 @@ class Wizard:
                            'format_label')):
                 widget.setText("<strong>" + text + "</strong>")
             elif name == 'release_notes_url':
-                url = self.release_notes_url_pattern.replace(
+                url = self.release_notes_url_template.replace(
                     '${LANG}', lang.split('.')[0])
                 widget.setText('<a href="%s">%s</a>' % (url, text))
             else:
@@ -1687,7 +1687,7 @@ class Wizard:
             return
 
         response = self.advanceddialog.exec_()
-        if response == Qt.Accepted:
+        if response == QDialog.Accepted:
             self.set_summary_device(
                 self.advanceddialog.grub_device_entry.text())
             self.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
