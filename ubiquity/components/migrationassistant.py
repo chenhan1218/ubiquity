@@ -72,6 +72,10 @@ class MigrationAssistant(FilteredCommand):
                     user = question[:question.rfind('/')]
                     user = user[user.rfind('/')+1:]
                     self.frontend.ma_user_error(self.err, user)
+                # TODO: seed 'fake' and move on, then seed the real value when
+                # we're done.  We just need some way to hold onto that value.
+                # Solution found, notes in Tomboy.
+
                 # We cannot continue with the rest of the questions, and thus
                 # must deal with each question one by one as we will be stuck in
                 # a loop as ma-ask asks the incorrectly answered question over
