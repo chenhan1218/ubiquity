@@ -1478,9 +1478,27 @@ class Wizard:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][0]
 
+    def ma_user_error(self, error, user):
+        model = self.matreeview.get_model()
+        iter = model.get_iter(0)
+        while(iter):
+            if user == model.get_value(iter, 1)['newuser']:
+                self.matreeview.get_selection().select_iter(iter)
+                break
+            iter = model.iter_next(iter)
+
+        self.ma_loginname_error_reason.set_text(error)
+        self.ma_loginname_error_box.show()
+
     def ma_password_error(self, error, user):
-        iter = self.matreeview.get_model().get_iter(0)
-        self.matreeview.get_selection().select_iter(iter)
+        model = self.matreeview.get_model()
+        iter = model.get_iter(0)
+        while(iter):
+            if user == model.get_value(iter, 1)['newuser']:
+                self.matreeview.get_selection().select_iter(iter)
+                break
+            iter = model.iter_next(iter)
+
         self.ma_password_error_reason.set_text(error)
         self.ma_password_error_box.show()
 

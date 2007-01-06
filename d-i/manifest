@@ -2,12 +2,12 @@ apt-setup 1:0.16ubuntu2
 base-installer 1.70ubuntu1
 choose-mirror 2.10ubuntu1
 clock-setup 0.12ubuntu1
-console-setup 1.13ubuntu3
+console-setup 1.13ubuntu4
 debian-installer-utils 1.42ubuntu1
 grub-installer 1.20ubuntu1
 hw-detect 1.45ubuntu1
 localechooser 1.33ubuntu1
-migration-assistant 0.2
+migration-assistant 0.3
 partconf 1.19
 partman-auto 62ubuntu2
 partman-base 100ubuntu1

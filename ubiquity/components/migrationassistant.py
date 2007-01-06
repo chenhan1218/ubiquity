@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-# Copyright (C) 2006 Evan Dandrea <evan@evalicious.com>.
+# Copyright (C) 2006 Evan Dandrea <evand@ubuntu.com>.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,9 +16,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import os
-#import commands
-
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import misc
 
@@ -28,6 +25,11 @@ class MigrationAssistant(FilteredCommand):
     def prepare(self):
 	self.current_question = None
 	self.tree = []
+        self.temp_questions = []
+        self.error_list = ['migration-assistant/password-mismatch', \
+                        'migration-assistant/password-empty', \
+                        'migration-assistant/username-bad', \
+                        'migration-assistant/username-reserved']
         questions = ['^migration-assistant/partitions',
                             '^migration-assistant/.*/users$',
                             '^migration-assistant/.*/items$',
@@ -38,23 +40,45 @@ class MigrationAssistant(FilteredCommand):
 		'/usr/lib/ubiquity/migration-assistant'], questions)
 
     def run(self, priority, question):
-        # FIXME: This is not preseed friendly.  The nulling of questions below
-        # is also an issue.  Perhaps we should check to see if m-a/partitions is
-        # set and if so we'll skip this step and modify the step below.  Or
-        # should we not worry about partial preseeding and just skip this
-        # alltogether if we find any preseeding?
+        # FIXME: This is not preseed friendly.
         if self.firstrun:
-            self.preseed(question, ", ".join(self.choices(question)))
+            # In order to find out what operating systems and users we're
+            # dealing with we need to seed all of the questions to step through
+            # ma-ask, but we cannot seed user and password with an empty string
+            # because that will cause errors so we just seed them with a bogus
+            # value and then seed them with the empty string after we've run
+            # through all of the questions.
+            if question.endswith('user'):
+                self.preseed(question, 'temp')
+                self.temp_questions.append(question)
+            elif question.endswith('password'):
+                self.preseed(question, 'temp')
+                self.temp_questions.append(question)
+                
+                question = question[:question.rfind('/')+1] + 'password-again'
+                self.preseed(question, 'temp')
+                self.temp_questions.append(question)
+            else:
+                self.preseed(question, ", ".join(self.choices(question)))
         else:
             if self.err:
+                # As mentioned in error() we are looking for the question
+                # after the error as it's what the error is associated with.
                 if question.endswith('password'):
-                    # pass in the user as well and then in password_error find
-                    # every instance and set the error.  We'll need a way to
-                    # keep track of errors between users if we do this.
                     user = question[:question.rfind('/')]
                     user = user[user.rfind('/')+1:]
                     self.frontend.ma_password_error(self.err, user)
-                    
+                elif question.endswith('user'):
+                    user = question[:question.rfind('/')]
+                    user = user[user.rfind('/')+1:]
+                    self.frontend.ma_user_error(self.err, user)
+                # We cannot continue with the rest of the questions, and thus
+                # must deal with each question one by one as we will be stuck in
+                # a loop as ma-ask asks the incorrectly answered question over
+                # and over again, so we tell debconf that we're done.
+                self.succeeded = True
+                self.done = True
+                return
 	return True # False is backup
 
     def cleanup(self):
@@ -69,6 +93,12 @@ class MigrationAssistant(FilteredCommand):
             self.frontend.allow_go_forward(True)
             self.enter_ui_loop()
             return
+        
+        # First run
+        # Fix the mess that we created by seeding temporary values into debconf
+        # in run().
+        for quest in self.temp_questions:
+            self.preseed(quest, '')
 
     	for os in self.db.get('migration-assistant/partitions').split(', '):
             part = os[os.rfind('/')+1:-1] # hda1
@@ -88,15 +118,13 @@ class MigrationAssistant(FilteredCommand):
 	
 	self.frontend.set_ma_choices(self.tree)
 
-	# We need to jump in after m-a has exited and stop ubiquity from moving on to
-	# the next page.  This does that.
+        # Here we jump in after m-a has exited and stop ubiquity from moving on
+        # to the next page.
 	self.frontend.allow_go_forward(True)
         self.firstrun = False
     	self.enter_ui_loop()
 
     def ok_handler(self):
-        # what about questions that haven't been registered because the user
-        # didn't fill them in?  They're errors.  Might have to fix them here.
         
         self.frontend.ma_apply()
 
@@ -154,8 +182,7 @@ class MigrationAssistant(FilteredCommand):
         # but that's a safe bet as I cannot think of a question we wouldn't want
         # to re-ask if an error occurred.
         self.err = self.extended_description(question)
-
-        if question != 'migration-assistant/password-mismatch':
+        if question not in self.error_list:
             self.frontend.error_dialog(self.description(question),
                 self.extended_description(question))
         return FilteredCommand.error(self, priority, question)
