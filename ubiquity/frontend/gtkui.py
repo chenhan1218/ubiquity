@@ -34,6 +34,7 @@ import sys
 import pygtk
 pygtk.require('2.0')
 
+import pango
 import gobject
 import gtk.glade
 import os
@@ -89,9 +90,6 @@ BREADCRUMB_STEPS = {
 }
 BREADCRUMB_MAX_STEP = 6
 
-# For the font wibbling later
-import pango
-
 class Wizard:
 
     def __init__(self, distro):
@@ -129,11 +127,12 @@ class Wizard:
         self.progress_cancelled = False
         self.previous_partitioning_page = None
         self.summary_device = None
-        self.summary_device_button = None
+        self.popcon = None
         self.installing = False
         self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
-                                   'welcome_text_label', 'step_label',
+                                   'welcome_text_label', 'release_notes_label',
+                                   'release_notes_url', 'step_label',
                                    'cancel', 'back', 'next')
         self.allowed_change_step = True
         self.allowed_go_forward = True
@@ -240,10 +239,8 @@ class Wizard:
 
         # Some signals need to be connected by hand so that we have the
         # handler ids.
-        self.hostname_delete_text_id = self.hostname.connect(
-            'delete_text', self.on_hostname_delete_text)
-        self.hostname_insert_text_id = self.hostname.connect(
-            'insert_text', self.on_hostname_insert_text)
+        self.hostname_changed_id = self.hostname.connect(
+            'changed', self.on_hostname_changed)
 
         # Start the interface
         if got_intro:
@@ -273,9 +270,10 @@ class Wizard:
             old_dbfilter = self.dbfilter
             if current_name == "stepLanguage":
                 self.dbfilter = language.Language(self)
+                gtk.link_button_set_uri_hook(self.link_button_browser)
             elif current_name == "stepMigrationAssistant":
-		self.dbfilter = migrationassistant.MigrationAssistant(self)
-	    elif current_name == "stepLocation":
+				self.dbfilter = migrationassistant.MigrationAssistant(self)
+			elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
                 self.dbfilter = console_setup.ConsoleSetup(self)
@@ -297,7 +295,7 @@ class Wizard:
             else:
                 self.dbfilter = None
 
-	    if self.dbfilter is not None and self.dbfilter != old_dbfilter:
+            if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.allow_change_step(False)
                 self.dbfilter.start(auto_process=True)
             else:
@@ -345,6 +343,16 @@ class Wizard:
 
         self.live_installer.show()
         self.allow_change_step(False)
+
+        try:
+            release_notes = open('/cdrom/.disk/release_notes_url')
+            self.release_notes_url.set_uri(
+                release_notes.read().rstrip('\n'))
+            release_notes.close()
+        except (KeyboardInterrupt, SystemExit):
+            raise
+        except:
+            self.release_notes_hbox.hide()
 
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
@@ -434,9 +442,10 @@ class Wizard:
                 attrs = pango.AttrList()
                 attrs.insert(pango.AttrStyle(pango.STYLE_ITALIC, 0, textlen))
                 widget.set_attributes(attrs)
-            elif name in ('drives_label', 'partition_method_label',
-                          'mountpoint_label', 'size_label', 'device_label',
-                          'format_label'):
+            elif ('group_label' in name or
+                  name in ('drives_label', 'partition_method_label',
+                           'mountpoint_label', 'size_label', 'device_label',
+                           'format_label')):
                 attrs = pango.AttrList()
                 attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, textlen))
                 widget.set_attributes(attrs)
@@ -761,11 +770,9 @@ class Wizard:
                 hostname_suffix = '-laptop'
             else:
                 hostname_suffix = '-desktop'
-            self.hostname.handler_block(self.hostname_delete_text_id)
-            self.hostname.handler_block(self.hostname_insert_text_id)
+            self.hostname.handler_block(self.hostname_changed_id)
             self.hostname.set_text(widget.get_text() + hostname_suffix)
-            self.hostname.handler_unblock(self.hostname_insert_text_id)
-            self.hostname.handler_unblock(self.hostname_delete_text_id)
+            self.hostname.handler_unblock(self.hostname_changed_id)
 
         complete = True
         for name in ('username', 'password', 'verified_password', 'hostname'):
@@ -773,12 +780,8 @@ class Wizard:
                 complete = False
         self.allow_go_forward(complete)
 
-    def on_hostname_delete_text(self, widget, start, end):
-        self.hostname_edited = True
-
-    def on_hostname_insert_text(self, widget,
-                                new_text, new_text_length, position):
-        self.hostname_edited = True
+    def on_hostname_changed(self, widget):
+        self.hostname_edited = (widget.get_text() != '')
 
     def on_next_clicked(self, widget):
         """Callback to control the installation process between steps."""
@@ -843,8 +846,9 @@ class Wizard:
             self.steps.next_page()
             self.back.show()
             self.allow_go_forward(self.get_timezone() is not None)
-	elif step == "stepMigrationAssistant":
-		self.steps.next_page()
+		# Migration Assistant		
+		elif step == "stepMigrationAssistant":
+			self.steps.next_page()
         # Location
         elif step == "stepLocation":
             self.steps.next_page()
@@ -890,11 +894,11 @@ class Wizard:
         hostname = self.hostname.get_property('text')
         for result in validation.check_hostname(hostname):
             if result == validation.HOSTNAME_LENGTH:
-                error_msg.append("The hostname must be between 3 and 18 characters long.")
-            elif result == validation.HOSTNAME_WHITESPACE:
-                error_msg.append("The hostname may not contain spaces.")
+                error_msg.append("The hostname must be between 2 and 63 characters long.")
             elif result == validation.HOSTNAME_BADCHAR:
-                error_msg.append("The hostname may only contain letters, digits, and hyphens.")
+                error_msg.append("The hostname may only contain letters, digits, hyphens, and dots.")
+            elif result == validation.HOSTNAME_BADHYPHEN:
+                error_msg.append("The hostname may not start or end with a hyphen.")
 
         # showing warning message is error is set
         if len(error_msg) != 0:
@@ -1281,14 +1285,29 @@ class Wizard:
             gtk.main_quit()
 
 
+    def selected_language (self, selection):
+        (model, iterator) = selection.get_selected()
+        if iterator is not None:
+            value = unicode(model.get_value(iterator, 0))
+            return self.language_choice_map[value][1]
+        else:
+            return ''
+
+
+    def link_button_browser (self, button, uri):
+        selection = self.language_treeview.get_selection()
+        lang = self.selected_language(selection)
+        lang = lang.split('.')[0] # strip encoding
+        uri = uri.replace('${LANG}', lang)
+        subprocess.Popen(['sensible-browser', uri], close_fds=True)
+
+
     def on_language_treeview_row_activated (self, treeview, path, view_column):
         self.next.activate()
 
     def on_language_treeview_selection_changed (self, selection):
-        (model, iterator) = selection.get_selected()
-        if iterator is not None:
-            value = unicode(model.get_value(iterator, 0))
-            lang = self.language_choice_map[value][1]
+        lang = self.selected_language(selection)
+        if lang:
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
             for widget in self.language_questions:
@@ -2271,41 +2290,45 @@ class Wizard:
         ready_buffer = gtk.TextBuffer()
         ready_buffer.set_text(text)
         self.ready_text.set_buffer(ready_buffer)
-        device_index = text.find("DEVICE")
-        if device_index != -1:
-            device_start_iter = ready_buffer.get_iter_at_offset(device_index)
-            device_end_iter = ready_buffer.get_iter_at_offset(device_index + 6)
-            ready_buffer.delete(device_start_iter, device_end_iter)
-            device_anchor = ready_buffer.create_child_anchor(device_start_iter)
-            self.summary_device_button = gtk.Button()
-            self.summary_device_button.connect(
-                'clicked', self.on_summary_device_button_clicked)
-            self.summary_device_button.show()
-            self.ready_text.add_child_at_anchor(self.summary_device_button,
-                                                device_anchor)
 
     def set_summary_device (self, device):
-        if not device.startswith('(') and not device.startswith('/dev/'):
-            device = '/dev/%s' % device
+        if device is not None:
+            if not device.startswith('(') and not device.startswith('/dev/'):
+                device = '/dev/%s' % device
         self.summary_device = device
-
-        # i.e. set_summary_text has been called
-        if self.summary_device_button is None:
-            syslog.syslog(syslog.LOG_ERR,
-                          "summary_device_button missing (broken "
-                          "ubiquity/summary/grub translation?)")
-            return
-        self.summary_device_button.set_label(device)
 
     def get_summary_device (self):
         return self.summary_device
 
-    def on_summary_device_button_clicked (self, button):
-        self.grub_device_entry.set_text(self.get_summary_device())
-        response = self.grub_device_dialog.run()
-        self.grub_device_dialog.hide()
+    def set_popcon (self, participate):
+        self.popcon = participate
+
+    def get_popcon (self):
+        return self.popcon
+
+    def on_advanced_button_clicked (self, button):
+        display = False
+        summary_device = self.get_summary_device()
+        if summary_device is not None:
+            display = True
+            self.bootloader_vbox.show()
+            self.grub_device_entry.set_text(summary_device)
+        else:
+            self.bootloader_vbox.hide()
+        if self.popcon is not None:
+            display = True
+            self.popcon_vbox.show()
+            self.popcon_checkbutton.set_active(self.popcon)
+        else:
+            self.popcon_vbox.hide()
+        if not display:
+            return
+
+        response = self.advanced_dialog.run()
+        self.advanced_dialog.hide()
         if response == gtk.RESPONSE_OK:
             self.set_summary_device(self.grub_device_entry.get_text())
+            self.set_popcon(self.popcon_checkbutton.get_active())
         return True
 
 

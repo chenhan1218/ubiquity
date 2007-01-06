@@ -266,7 +266,7 @@ def get_translations(languages=None, core_names=[]):
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
              '--config=InFd:none',
-             '--pattern=^(ubiquity|partman-basicfilesystems/bad_mountpoint|partman-newworld/no_newworld|partman-partitioning|partman-target/no_root|grub-installer/bootdev)'],
+             '--pattern=^(ubiquity|partman-basicfilesystems/bad_mountpoint|partman-newworld/no_newworld|partman-partitioning|partman-target/no_root|grub-installer/bootdev|popularity-contest/participate)'],
             stdout=subprocess.PIPE, stderr=devnull)
         question = None
         descriptions = {}
@@ -326,6 +326,7 @@ string_questions = {
     'new_size_label': 'partman-partitioning/new_size',
     'grub_device_dialog': 'grub-installer/bootdev',
     'grub_device_label': 'grub-installer/bootdev',
+    'popcon_checkbutton': 'popularity-contest/participate',
 }
 
 string_extended = set('grub_device_label')
@@ -374,6 +375,21 @@ def drop_privileges():
     if 'SUDO_UID' in os.environ:
         uid = int(os.environ['SUDO_UID'])
         os.setreuid(uid, uid)
+
+
+def will_be_installed(pkg):
+    try:
+        manifest = open('/cdrom/casper/filesystem.manifest-desktop')
+        try:
+            for line in manifest:
+                if line.strip() == '' or line.startswith('#'):
+                    continue
+                if line.split()[0] == pkg:
+                    return True
+        finally:
+            manifest.close()
+    except IOError:
+        return True
 
 
 # vim:ai:et:sts=4:tw=80:sw=4:

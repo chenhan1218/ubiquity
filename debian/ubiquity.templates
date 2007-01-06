@@ -23,6 +23,16 @@ _Description:
  Please choose the language used for the installation process. This
  language will be the default language for the final system.
 
+Template: ubiquity/text/release_notes_label
+Type: text
+_Description:
+ If you have Internet access, read the release notes for information on
+ problems that may affect you.
+
+Template: ubiquity/text/release_notes_url
+Type: text
+_Description: Release Notes
+
 Template: ubiquity/text/timezone_heading_label
 Type: text
 _Description: Where are you?
@@ -158,6 +168,10 @@ Template: ubiquity/text/ready_description_label
 Type: text
 _Description: Your new operating system will now be installed with the following settings:
 
+Template: ubiquity/text/bootloader_group_label
+Type: text
+_Description: Boot loader
+
 Template: ubiquity/text/step_label
 Type: text
 _Description: Step ${INDEX} of ${TOTAL}
@@ -215,16 +229,8 @@ _Description: Ready to install
   Name: ${FULLNAME}
   Login name: ${USERNAME}
   Location: ${LOCATION}
-  ${EXTRAS}
  .
  ${PARTMAN_CHANGES}
-
-Template: ubiquity/summary/grub
-Type: text
-# Translators, please leave "DEVICE" untranslated. It will be replaced by a
-# button displaying the current boot device and allowing the user to select
-# a different one.
-_Description: GRUB will be installed to DEVICE
 
 Template: ubiquity/install/title
 Type: title

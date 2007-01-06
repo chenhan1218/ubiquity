@@ -148,6 +148,48 @@ Please choose the language used for the installation process. This language will
                                 <property name="position">2</property>
                               </packing>
                             </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <widget class="GtkHBox" id="release_notes_hbox">
+                                <property name="visible">True</property>
+                                <property name="spacing">6</property>
+                                <child>
+                                  <widget class="GtkLabel" id="release_notes_label">
+                                    <property name="visible">True</property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">If you have Internet access, read the release notes for information on problems that may affect you.</property>
+                                    <property name="wrap">True</property>
+                                    <property name="selectable">True</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">False</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <widget class="GtkLinkButton" id="release_notes_url">
+                                    <property name="visible">True</property>
+                                    <property name="label" translatable="yes">Release Notes</property>
+                                    <property name="xalign">0</property>
+                                    <property name="uri"></property>
+                                  </widget>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">False</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="padding">6</property>
+                                <property name="pack_type">GTK_PACK_END</property>
+                                <property name="position">4</property>
+                              </packing>
+                            </child>
                           </widget>
                           <packing>
                             <property name="position">1</property>
@@ -1926,6 +1968,25 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             <property name="position">3</property>
                           </packing>
                         </child>
+                        <child>
+                          <widget class="GtkAlignment" id="alignment1">
+                            <property name="visible">True</property>
+                            <property name="xalign">1</property>
+                            <property name="xscale">0</property>
+                            <child>
+                              <widget class="GtkButton" id="advanced_button">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes">Advanced...</property>
+                                <signal name="clicked" handler="on_advanced_button_clicked"/>
+                              </widget>
+                            </child>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">4</property>
+                          </packing>
+                        </child>
                       </widget>
                       <packing>
                         <property name="position">9</property>
@@ -2329,7 +2390,7 @@ Make sure to remove the CD when restarting the computer, otherwise it will start
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">We're sorry; the installer crashed. Please file a new bug report at https://launchpad.net/distros/ubuntu/+source/ubiquity/+filebug (do not attach your details to any existing bug) and a developer will attend to the problem as soon as possible. To help the developers understand what went wrong, include the following detail in your bug report, and attach the files /var/log/syslog and /var/log/partman:</property>
+                    <property name="label" translatable="yes">We're sorry; the installer crashed. Please file a new bug report at https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details to any existing bug) and a developer will attend to the problem as soon as possible. To help the developers understand what went wrong, include the following detail in your bug report, and attach the files /var/log/syslog and /var/log/partman:</property>
                     <property name="wrap">True</property>
                     <property name="selectable">True</property>
                   </widget>
@@ -2864,48 +2925,118 @@ Make sure to remove the CD when restarting the computer, otherwise it will start
       </widget>
     </child>
   </widget>
-  <widget class="GtkDialog" id="grub_device_dialog">
+  <widget class="GtkDialog" id="advanced_dialog">
     <property name="can_focus">True</property>
-    <property name="border_width">6</property>
-    <property name="title" translatable="yes">Device for boot loader installation:</property>
-    <property name="resizable">False</property>
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">Advanced Options</property>
     <property name="modal">True</property>
     <property name="window_position">GTK_WIN_POS_CENTER</property>
     <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
     <property name="gravity">GDK_GRAVITY_CENTER</property>
     <child internal-child="vbox">
-      <widget class="GtkVBox" id="dialog-vbox5">
+      <widget class="GtkVBox" id="dialog-vbox8">
         <property name="visible">True</property>
+        <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_ENTER_NOTIFY_MASK</property>
+        <property name="spacing">2</property>
         <child>
-          <widget class="GtkVBox" id="vbox52">
+          <widget class="GtkVBox" id="vbox1">
             <property name="visible">True</property>
-            <property name="border_width">6</property>
-            <property name="spacing">6</property>
+            <property name="border_width">5</property>
+            <property name="spacing">18</property>
             <child>
-              <widget class="GtkLabel" id="grub_device_label">
+              <widget class="GtkVBox" id="bootloader_vbox">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">Help for GRUB device selection goes here.</property>
-                <property name="wrap">True</property>
-                <property name="selectable">True</property>
+                <property name="spacing">6</property>
+                <child>
+                  <widget class="GtkLabel" id="bootloader_group_label">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">&lt;b&gt;Boot loader&lt;/b&gt;</property>
+                    <property name="use_markup">True</property>
+                    <property name="selectable">True</property>
+                    <property name="single_line_mode">True</property>
+                  </widget>
+                </child>
+                <child>
+                  <widget class="GtkAlignment" id="alignment2">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="left_padding">12</property>
+                    <child>
+                      <widget class="GtkVBox" id="vbox2">
+                        <property name="visible">True</property>
+                        <property name="spacing">6</property>
+                        <child>
+                          <widget class="GtkLabel" id="grub_device_label">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">Help for GRUB device selection goes here.</property>
+                            <property name="wrap">True</property>
+                            <property name="selectable">True</property>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkEntry" id="grub_device_entry">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="invisible_char">*</property>
+                            <property name="activates_default">True</property>
+                            <property name="width_chars">20</property>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </widget>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
               </widget>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-              </packing>
             </child>
             <child>
-              <widget class="GtkEntry" id="grub_device_entry">
+              <widget class="GtkVBox" id="popcon_vbox">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">*</property>
-                <property name="activates_default">True</property>
-                <property name="width_chars">20</property>
+                <property name="spacing">6</property>
+                <child>
+                  <widget class="GtkLabel" id="popcon_group_label">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">&lt;b&gt;Popularity contest&lt;/b&gt;</property>
+                    <property name="use_markup">True</property>
+                    <property name="selectable">True</property>
+                    <property name="single_line_mode">True</property>
+                  </widget>
+                </child>
+                <child>
+                  <widget class="GtkAlignment" id="alignment3">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="left_padding">12</property>
+                    <child>
+                      <widget class="GtkCheckButton" id="popcon_checkbutton">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="label" translatable="yes">Participate in the package usage survey?</property>
+                        <property name="draw_indicator">True</property>
+                      </widget>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
               </widget>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
                 <property name="position">1</property>
               </packing>
             </child>
@@ -2917,25 +3048,27 @@ Make sure to remove the CD when restarting the computer, otherwise it will start
           </packing>
         </child>
         <child internal-child="action_area">
-          <widget class="GtkHButtonBox" id="dialog-action_area5">
+          <widget class="GtkHButtonBox" id="dialog-action_area8">
             <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_ENTER_NOTIFY_MASK</property>
             <property name="layout_style">GTK_BUTTONBOX_END</property>
             <child>
-              <widget class="GtkButton" id="cancelbutton1">
+              <widget class="GtkButton" id="advanced_cancelbutton">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
-                <property name="label">gtk-cancel</property>
+                <property name="label" translatable="yes">gtk-cancel</property>
                 <property name="use_stock">True</property>
                 <property name="response_id">-6</property>
               </widget>
             </child>
             <child>
-              <widget class="GtkButton" id="okbutton1">
+              <widget class="GtkButton" id="advanced_okbutton">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
-                <property name="label">gtk-ok</property>
+                <property name="has_default">True</property>
+                <property name="label" translatable="yes">gtk-ok</property>
                 <property name="use_stock">True</property>
                 <property name="response_id">-5</property>
               </widget>

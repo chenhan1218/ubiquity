@@ -128,6 +128,11 @@ ubiquity/install/filesystem-images with a space-separated list of image
 paths to override this; if you provide more than one image, then they will
 be overlaid using unionfs.
 
+If /cdrom/.disk/release_notes_url is present, a link to the release notes
+will be displayed on the language page. Instances of the string ${LANG} in
+that URL will be replaced with the locale, with any encoding removed (e.g.
+en, de, pt_BR, zh_CN).
+
 Frequently Asked Questions
 --------------------------
 
