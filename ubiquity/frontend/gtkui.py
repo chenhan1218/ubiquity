@@ -12,6 +12,7 @@
 # - Antonio Olmo Titos <aolmo#emergya._info>
 # - Gumer Coronel Pérez <gcoronel#emergya._info>
 # - Colin Watson <cjwatson@ubuntu.com>
+# - Evan Dandrea <evand@ubuntu.com>
 #
 # This file is part of Ubiquity.
 #
@@ -259,6 +260,9 @@ class Wizard:
             # Enter doesn't activate the default widget. Work around this.
             self.next.grab_focus()
 
+        if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+            self.steps.remove_page(BREADCRUMB_STEPS['stepMigrationAssistant']-1)
+
         while self.current_page is not None:
             if not self.installing:
                 # Make sure any started progress bars are stopped.
@@ -272,8 +276,8 @@ class Wizard:
                 self.dbfilter = language.Language(self)
                 gtk.link_button_set_uri_hook(self.link_button_browser)
             elif current_name == "stepMigrationAssistant":
-				self.dbfilter = migrationassistant.MigrationAssistant(self)
-			elif current_name == "stepLocation":
+                self.dbfilter = migrationassistant.MigrationAssistant(self)
+	    elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
                 self.dbfilter = console_setup.ConsoleSetup(self)
@@ -846,9 +850,9 @@ class Wizard:
             self.steps.next_page()
             self.back.show()
             self.allow_go_forward(self.get_timezone() is not None)
-		# Migration Assistant		
-		elif step == "stepMigrationAssistant":
-			self.steps.next_page()
+	# Migration Assistant		
+	elif step == "stepMigrationAssistant":
+	    self.steps.next_page()
         # Location
         elif step == "stepLocation":
             self.steps.next_page()

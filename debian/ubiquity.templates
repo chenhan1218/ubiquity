@@ -229,6 +229,8 @@ _Description: Ready to install
   Name: ${FULLNAME}
   Login name: ${USERNAME}
   Location: ${LOCATION}
+  Migration Assistant:
+  ${MIGRATE}
  .
  ${PARTMAN_CHANGES}
 

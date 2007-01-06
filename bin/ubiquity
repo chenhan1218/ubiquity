@@ -26,7 +26,7 @@ sys.path.insert(0, '/usr/lib/ubiquity')
 
 from ubiquity import misc
 
-VERSION = '@VERSION@'
+VERSION = '1.3.8'
 TARGET = '/target'
 PIDFILE = '/var/run/ubiquity.pid'
 
@@ -124,6 +124,10 @@ def main():
                       action='store_true',
                       default=('UBIQUITY_NEW_PARTITIONER' in os.environ),
                       help='use new advanced partitioner (experimental)')
+    parser.add_option('--migration-assistant', dest='migration_assistant',
+                      action='store_true',
+                      default=('UBIQUITY_MIGRATION_ASSISTANT' in os.environ),
+                      help='use Migration Assistant (experimental)')
     (options, args) = parser.parse_args()
 
     if options.debug:
@@ -138,6 +142,9 @@ def main():
 
     if options.new_partitioner:
         os.environ['UBIQUITY_NEW_PARTITIONER'] = '1'
+
+    if options.migration_assistant:
+        os.environ['UBIQUITY_MIGRATION_ASSISTANT'] = '1'
 
     acquire_lock()
 
