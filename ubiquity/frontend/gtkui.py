@@ -801,6 +801,12 @@ class Wizard:
             self.username_error_box.hide()
             self.password_error_box.hide()
             self.hostname_error_box.hide()
+        
+        if step == "stepMigrationAssistant":
+            self.ma_fullname_error_box.hide()
+            self.ma_loginname_error_box.hide()
+            self.ma_password_error_box.hide()
+            self.ma_seed_userinfo()
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -1566,16 +1572,7 @@ class Wizard:
                 else:
                         items.remove(item)
 
-    def ma_apply(self):
-        self.ma_fullname_error_box.hide()
-        self.ma_loginname_error_box.hide()
-        self.ma_password_error_box.hide()
-
-        self.ma_seed_userinfo()
-
     def ma_seed_userinfo(self):
-        # TODO: make this a function and call it here and in
-        # on_next_click
         newuser = self.ma_loginname.child.get_text()
         if newuser:
             try:
@@ -1642,7 +1639,6 @@ class Wizard:
                 text = model.get_value(iter, 1)
 
             cell.set_property("markup", text)
-        
         # The user probably hit the back button.
         if self.matreeview.get_model():
             return

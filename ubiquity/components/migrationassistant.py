@@ -130,8 +130,6 @@ class MigrationAssistant(FilteredCommand):
 
     def ok_handler(self):
         
-        self.frontend.ma_apply()
-
         choices, new_users = self.frontend.get_ma_choices()
         users = {}
 

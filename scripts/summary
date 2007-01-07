@@ -1,5 +1,5 @@
 #! /bin/sh
-set -e
+#set -e
 
 . /usr/share/debconf/confmodule
 
@@ -21,6 +21,7 @@ db_subst ubiquity/summary LOCATION "$RET"
 # Migration Assistant
 ret=""
 db_get migration-assistant/partitions
+OLD_IFS=$IFS
 IFS='
 '
 partitions=`echo "$RET" | sed -e 's/, /\n/g'`
@@ -30,12 +31,18 @@ do
 	part=$(expr match "$choice" '.*/\(.*\))$') # hda1
 	
 	db_get migration-assistant/$part/users
+	if [ -z "$RET" ]; then
+		ret=$ret"None\n"
+	fi
 	users=`echo "$RET" | sed -e 's/, /\n/g'`
 	for user in $users; do
-		ret=$ret$user"\n"
+		ret=$ret$user": "
+		db_get migration-assistant/$part/$user/items
+		ret=$ret$RET"\n"
 	done
 	ret=$ret"\n"
 done
+IFS=$OLD_IFS
 db_subst ubiquity/summary MIGRATE "$ret"
 
 # We need to run this to get hold of the partitioning summary. Our component
