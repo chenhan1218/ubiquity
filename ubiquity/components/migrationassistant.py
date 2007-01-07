@@ -99,6 +99,7 @@ class MigrationAssistant(FilteredCommand):
             return
         
         # First run
+
         # Fix the mess that we created by seeding temporary values into debconf
         # in run().
         for quest in self.temp_questions:
@@ -106,15 +107,21 @@ class MigrationAssistant(FilteredCommand):
 
     	for os in self.db.get('migration-assistant/partitions').split(', '):
             part = os[os.rfind('/')+1:-1] # hda1
-            os = os[:os.find('(')-1]
+            os = os[:os.rfind('(')-1]
             for user in self.db.get('migration-assistant/' + part + '/users').split(', '):
-                items = self.db.get('migration-assistant/' + part + '/' + user + '/items').split(', ')
-                self.tree.append({'user': user, \
-                                'part': part, \
-                                'os': os, \
-                                'newuser': '', \
-                                'items': items, \
-                                'selected': False})
+                items = self.db.get('migration-assistant/' + part + '/' + user + '/items')
+                # If there are no items to import for the user, there's no sense
+                # in showing it.  It might make more sense to move this check
+                # into ma-ask.
+                print 'os: %s' % os
+                if items:
+                    items = items.split(', ')
+                    self.tree.append({'user': user, \
+                                    'part': part, \
+                                    'os': os, \
+                                    'newuser': '', \
+                                    'items': items, \
+                                    'selected': False})
             # We now unset everything as the checkboxes will be unselected
             # by default and debconf needs to match that.
             self.db.set('migration-assistant/%s/users' % part, '')
