@@ -1538,7 +1538,6 @@ class Wizard:
         return (self.ma_choices, self.ma_new_users)
 
     def cb_toggle(self, cell, path, model=None):
-            # TODO: Move this under the m-a function.
             iter = model.get_iter(path)
             checked = not cell.get_active()
             model.set_value(iter, 0, checked)
