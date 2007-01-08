@@ -80,16 +80,16 @@ LOCALEDIR = "/usr/share/locale"
 
 BREADCRUMB_STEPS = {
     "stepLanguage": 1,
-    "stepMigrationAssistant": 2,
     "stepLocation": 2,
     "stepKeyboardConf": 3,
     "stepUserInfo": 4,
     "stepPartAuto": 5,
     "stepPartAdvanced": 5,
     "stepPartMountpoints": 5,
-    "stepReady": 6
+    "stepMigrationAssistant": 6,
+    "stepReady": 7
 }
-BREADCRUMB_MAX_STEP = 6
+BREADCRUMB_MAX_STEP = 7
 
 class Wizard:
 
@@ -261,7 +261,7 @@ class Wizard:
             self.next.grab_focus()
 
         if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-            self.steps.remove_page(BREADCRUMB_STEPS['stepMigrationAssistant']-1)
+            self.steps.remove_page(self.steps.page_num(self.stepMigrationAssistant))
 
         while self.current_page is not None:
             if not self.installing:
@@ -934,7 +934,10 @@ class Wizard:
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.manual_partitioning = False
-            self.set_current_page(self.steps.page_num(self.stepReady))
+            if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+                self.set_current_page(self.steps.page_num(self.stepReady))
+            else:
+                self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
 
 
     def gparted_crashed(self):
