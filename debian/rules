@@ -180,7 +180,6 @@ ifeq ($(DEB_HOST_ARCH),powerpc)
 		debian/ubiquity/usr/lib/ubiquity/yaboot-installer/yaboot-installer
 endif
 ifeq ($(DEB_HOST_ARCH),sparc)
-	dh_installdirs -pubiquity usr/lib/ubiquity/silo-installer
 	install d-i/source/silo-installer/debian/silo-installer.postinst \
 		debian/ubiquity/usr/lib/ubiquity/silo-installer/silo-installer
 endif
