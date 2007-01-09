@@ -1690,7 +1690,7 @@ class Wizard:
         response = self.advanceddialog.exec_()
         if response == QDialog.Accepted:
             self.set_summary_device(
-                self.advanceddialog.grub_device_entry.text())
+                unicode(self.advanceddialog.grub_device_entry.text()))
             self.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
 
     def return_to_autopartitioning (self):
