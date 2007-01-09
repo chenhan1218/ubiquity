@@ -205,8 +205,8 @@ A. Not without quite a bit of work. At present, Ubiquity is still a complex
        you need a more recent version of glade-3 than is available in Ubuntu
        6.10 to edit the user interface definition for the GTK frontend.
 
-     * Building Ubiquity from its bzr branch (as opposed to a full source
-       package) requires Automake 1.10, not available in Ubuntu 6.10.
+     * Regenerating Ubiquity's autotools files (configure et al) requires
+       Automake 1.10, not available in Ubuntu 6.10.
 
      * Ubiquity's apport crash handler now requires a new Python API
        introduced in apport 0.33.
