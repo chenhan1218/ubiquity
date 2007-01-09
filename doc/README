@@ -192,6 +192,25 @@ A. Not without quite a bit of work. At present, Ubiquity is still a complex
    backport selected fixes to that branch of Ubiquity rather than trying to
    backport the whole package.
 
+   Similarly, there are at least the following issues with backporting
+   Ubiquity from Ubuntu 7.04 to Ubuntu 6.10:
+
+     * Ubiquity depends on a version of console-setup at least as new as the
+       one in its own source tree, so the two packages would need to be
+       backported together. The new version of console-setup in turn relies
+       on a newer version of xkb-data (although probably not inextricably).
+
+     * Ubiquity's GTK frontend now uses gtk.LinkButton, which isn't
+       available in the versions of GTK+/PyGTK in Ubuntu 6.10. Similarly,
+       you need a more recent version of glade-3 than is available in Ubuntu
+       6.10 to edit the user interface definition for the GTK frontend.
+
+     * Building Ubiquity from its bzr branch (as opposed to a full source
+       package) requires Automake 1.10, not available in Ubuntu 6.10.
+
+     * Ubiquity's apport crash handler now requires a new Python API
+       introduced in apport 0.33.
+
 
 Feel free to ask me (Colin Watson <cjwatson@ubuntu.com>) if you have any
 questions regarding Ubiquity's workings.
