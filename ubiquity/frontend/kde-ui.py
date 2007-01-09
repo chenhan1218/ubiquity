@@ -427,9 +427,10 @@ class Wizard:
                            'format_label')):
                 widget.setText("<strong>" + text + "</strong>")
             elif name == 'release_notes_url':
-                url = self.release_notes_url_template.replace(
-                    '${LANG}', lang.split('.')[0])
-                widget.setText('<a href="%s">%s</a>' % (url, text))
+                if self.release_notes_url_template is not None:
+                    url = self.release_notes_url_template.replace(
+                        '${LANG}', lang.split('.')[0])
+                    widget.setText('<a href="%s">%s</a>' % (url, text))
             else:
                 widget.setText(text)
 
