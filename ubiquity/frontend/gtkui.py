@@ -803,9 +803,9 @@ class Wizard:
             self.hostname_error_box.hide()
         
         if step == "stepMigrationAssistant":
-            self.ma_fullname_error_box.hide()
-            self.ma_loginname_error_box.hide()
-            self.ma_password_error_box.hide()
+            for u in self.ma_new_users.iterkeys():
+                self.ma_new_users[u]['password-error'] = ''
+                self.ma_new_users[u]['loginname-error'] = ''
             self.ma_seed_userinfo()
 
         if self.dbfilter is not None:
@@ -1511,28 +1511,42 @@ class Wizard:
             return self.language_choice_map[value][0]
 
     def ma_user_error(self, error, user):
+        # Note that 'user' is the original user.
         model = self.matreeview.get_model()
         iter = model.get_iter(0)
         while(iter):
-            if user == model.get_value(iter, 1)['newuser']:
-                self.matreeview.get_selection().select_iter(iter)
+            val = model.get_value(iter, 1)
+            if user == val['user']:
+                newuser = val['newuser']
+                self.ma_new_users[newuser]['loginname-error'] = error
+                
+                # selection_changed only gets emitted if the selection actually
+                # changes.  So we only change the selection if we need to,
+                # otherwise we just call update_selection directly.
+                selection = self.matreeview.get_selection()
+                if(selection.iter_is_selected(iter)):
+                    self.ma_update_selection()
+                else:
+                    selection.select_iter(iter)
                 break
             iter = model.iter_next(iter)
-
-        self.ma_loginname_error_reason.set_text(error)
-        self.ma_loginname_error_box.show()
 
     def ma_password_error(self, error, user):
+        # Note that 'user' is the user we're importing to.
         model = self.matreeview.get_model()
         iter = model.get_iter(0)
         while(iter):
-            if user == model.get_value(iter, 1)['newuser']:
-                self.matreeview.get_selection().select_iter(iter)
+            val = model.get_value(iter, 1)
+            if user == val['newuser']:
+                self.ma_new_users[user]['password-error'] = error
+                
+                selection = self.matreeview.get_selection()
+                if(selection.iter_is_selected(iter)):
+                    self.ma_update_selection()
+                else:
+                    selection.select_iter(iter)
                 break
             iter = model.iter_next(iter)
-
-        self.ma_password_error_reason.set_text(error)
-        self.ma_password_error_box.show()
 
     def get_ma_choices(self):
         return (self.ma_choices, self.ma_new_users)
@@ -1582,6 +1596,8 @@ class Wizard:
             except KeyError:
                 self.ma_new_users[newuser] = {}
                 val = self.ma_new_users[newuser]
+                val['loginname-error'] = ''
+                val['password-error'] = ''
             self.ma_previous_selection['newuser'] = newuser
             for u in self.ma_new_users.iterkeys():
                 if u:
@@ -1590,7 +1606,41 @@ class Wizard:
             val['password'] = self.ma_password.get_text()
             val['confirm'] = self.ma_confirm.get_text()
             val['newuser'] = self.ma_loginname.child.get_text()
+            # We don't have to clear the username error because changing the
+            # username creates a new user.
+            if(val['password'] and (val['password'] == val['confirm'])):
+                val['password-error'] = ''
+            else:
+                val['password-error'] = self.ma_password_error_reason.get_text()
 
+    def ma_update_selection(self):
+        model, iter = self.matreeview.get_selection().get_selected()
+        self.ma_loginname_error_box.hide()
+        self.ma_password_error_box.hide()
+
+        newuser = model.get_value(iter, 1)['newuser']
+        try:
+            val = self.ma_new_users[newuser]
+            self.ma_loginname.child.set_text(newuser)
+            
+            self.ma_fullname.set_text(val['fullname'])
+            self.ma_password.set_text(val['password'])
+            self.ma_confirm.set_text(val['confirm'])
+
+            error = val['loginname-error']
+            if error:
+                self.ma_loginname_error_reason.set_text(error)
+                self.ma_loginname_error_box.show()
+            error = val['password-error']
+            if error:
+                self.ma_password_error_reason.set_text(error)
+                self.ma_password_error_box.show()
+
+        except KeyError:
+            self.ma_fullname.set_text('')
+            self.ma_loginname.child.set_text('')
+            self.ma_password.set_text('')
+            self.ma_confirm.set_text('')
 
     def cb_selection_changed(self, selection):
         if self.ma_previous_selection:
@@ -1607,27 +1657,8 @@ class Wizard:
             self.ma_userinfo.set_sensitive(False)
         
         self.ma_previous_selection = model.get_value(iter, 1)
-        newuser = model.get_value(iter, 1)['newuser']
-        try:
-            val = self.ma_new_users[newuser]
-            self.ma_loginname.child.set_text(newuser)
-            try:
-                self.ma_fullname.set_text(val['fullname'])
-            except KeyError:
-                self.ma_fullname.set_text('')
-            try:
-                self.ma_password.set_text(val['password'])
-            except KeyError:
-                self.ma_password.set_text('')
-            try:
-                self.ma_confirm.set_text(val['confirm'])
-            except KeyError:
-                self.ma_confirm.set_text('')
-        except KeyError:
-            self.ma_fullname.set_text('')
-            self.ma_loginname.child.set_text('')
-            self.ma_password.set_text('')
-            self.ma_confirm.set_text('')
+        self.ma_update_selection()
+
     def set_ma_choices(self, choices):
 
         def cell_data_func(column, cell, model, iter):
@@ -1636,6 +1667,13 @@ class Wizard:
                 # Windows XP...
                 text = '%s  <small><i>%s (%s)</i></small>' % \
                     (val['user'], val['os'], val['part'])
+                newuser = val['newuser']
+                if newuser:
+                    newuser = self.ma_new_users[newuser]
+                    if(newuser['password-error'] or newuser['loginname-error']):
+                        text = '<span foreground="red">%s  <small><i>%s' \
+                            ' (%s)</i></small></span>' % \
+                            (val['user'], val['os'], val['part'])
             else:
                 # Gaim, Yahoo, etc
                 text = model.get_value(iter, 1)
@@ -1766,7 +1804,7 @@ class Wizard:
                         self.new_size_scale.set_range(min_percent, 100)
                         self.new_size_scale.set_value(
                             int((min_percent + 100) / 2))
-                    hbox.pack_start(new_size_scale, expand=True, fill=True)
+                    hbox.pack_start(self.new_size_scale, expand=True, fill=True)
                 elif choice != manual_choice:
                     vbox = gtk.VBox(spacing=6)
                     alignment.add(vbox)

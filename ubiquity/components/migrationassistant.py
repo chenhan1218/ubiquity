@@ -21,11 +21,8 @@ from ubiquity import misc
 
 class MigrationAssistant(FilteredCommand):
     firstrun = True
-    err = None
     def prepare(self):
-	self.current_question = None
-	self.tree = []
-        self.temp_questions = []
+        self.err = None
         self.error_list = ['migration-assistant/password-mismatch', \
                         'migration-assistant/password-empty', \
                         'migration-assistant/username-bad', \
@@ -39,55 +36,47 @@ class MigrationAssistant(FilteredCommand):
         return (['/usr/lib/ubiquity/migration-assistant/ma-ask',
 		'/usr/lib/ubiquity/migration-assistant'], questions)
 
+
     def run(self, priority, question):
         # FIXME: This is not preseed friendly.
         if self.firstrun:
             # In order to find out what operating systems and users we're
             # dealing with we need to seed all of the questions to step through
             # ma-ask, but we cannot seed user and password with an empty string
-            # because that will cause errors so we just seed them with a bogus
-            # value and then seed them with the empty string after we've run
-            # through all of the questions.
+            # because that will cause errors so we cheat and tell m-a that we
+            # want to continue with the invalid data anyway.
             if question.endswith('user'):
-                self.preseed(question, 'temp')
-                self.temp_questions.append(question)
+                self.preseed(question, 'skip-question')
             elif question.endswith('password'):
-                self.preseed(question, 'temp')
-                self.temp_questions.append(question)
-                
-                question = question[:question.rfind('/')+1] + 'password-again'
-                self.preseed(question, 'temp')
-                self.temp_questions.append(question)
+                self.preseed(question, 'skip-question')
             else:
                 self.preseed(question, ", ".join(self.choices(question)))
-        else:
-            if self.err:
-                # As mentioned in error() we are looking for the question
-                # after the error as it's what the error is associated with.
-                if question.endswith('password'):
-                    user = question[:question.rfind('/')]
-                    user = user[user.rfind('/')+1:]
-                    self.frontend.ma_password_error(self.err, user)
-                elif question.endswith('user'):
-                    user = question[:question.rfind('/')]
-                    user = user[user.rfind('/')+1:]
-                    self.frontend.ma_user_error(self.err, user)
-                # We cannot continue with the rest of the questions, and thus
-                # must deal with each question one by one as we will be stuck in
-                # a loop as ma-ask asks the incorrectly answered question over
-                # and over again, so we tell debconf that we're done.
+        
 
-                # This will be changed in an upcoming version that will support
-                # dealing with all of the errors at once.
-                self.succeeded = True
-                self.done = True
-                return
+        elif self.err:
+            # As mentioned in error() we are looking for the question
+            # after the error as it's what the error is associated with.
+            if question.endswith('password'):
+                user = question[:question.rfind('/')]
+                user = user[user.rfind('/')+1:]
+                
+                self.frontend.ma_password_error(self.err, user)
+                self.preseed(question, 'skip-question')
+                self.err = ''
+
+            elif question.endswith('user'):
+                user = question[:question.rfind('/')]
+                user = user[user.rfind('/')+1:]
+                
+                self.frontend.ma_user_error(self.err, user)
+                self.preseed(question, 'skip-question')
+                self.err = ''
 	return True # False is backup
 
     def cleanup(self):
         if not self.firstrun:
             # There were no errors this time around, lets move to the next step.
-            if not self.err:
+            if not self.errors:
                 self.succeeded = True
                 self.done = True
                 self.exit_ui_loops()
@@ -98,12 +87,7 @@ class MigrationAssistant(FilteredCommand):
             return
         
         # First run
-
-        # Fix the mess that we created by seeding temporary values into debconf
-        # in run().
-        for quest in self.temp_questions:
-            self.preseed(quest, '')
-
+	self.tree = []
     	for os in self.db.get('migration-assistant/partitions').split(', '):
             part = os[os.rfind('/')+1:-1] # hda1
             os = os[:os.rfind('(')-1]
@@ -112,7 +96,6 @@ class MigrationAssistant(FilteredCommand):
                 # If there are no items to import for the user, there's no sense
                 # in showing it.  It might make more sense to move this check
                 # into ma-ask.
-                print 'os: %s' % os
                 if items:
                     items = items.split(', ')
                     self.tree.append({'user': user, \
@@ -176,7 +159,7 @@ class MigrationAssistant(FilteredCommand):
             except KeyError:
                 self.preseed(question + 'password-again', '')
         
-        self.err = None
+        self.errors = None
         FilteredCommand.ok_handler(self)
         self.db.shutdown()
         self.run_command()
@@ -189,8 +172,10 @@ class MigrationAssistant(FilteredCommand):
         # This of course assumes that the next question is related to the error,
         # but that's a safe bet as I cannot think of a question we wouldn't want
         # to re-ask if an error occurred.
-        self.err = self.extended_description(question)
-        if question not in self.error_list:
+        if question in self.error_list:
+            self.errors = True
+            self.err = self.extended_description(question)
+        else:
             self.frontend.error_dialog(self.description(question),
                 self.extended_description(question))
         return FilteredCommand.error(self, priority, question)
