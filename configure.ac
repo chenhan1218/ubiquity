@@ -24,7 +24,7 @@ AC_PROG_MAKE_SET
 GTK_REQUIRED=2.6.0
 
 AM_PATH_PYTHON([2.4])
-AM_CHECK_PYTHON_HEADERS(,[AC_MSG_ERROR([could not find Python headers])])
+UBIQUITY_CHECK_PYTHON_HEADERS(,[AC_MSG_ERROR([could not find Python headers])])
 
 if test "x$UBIQUITY_NO_GTK" = x; then
   PKG_CHECK_MODULES(PYGTK, [gtk+-2.0 >= $GTK_REQUIRED pygtk-2.0])

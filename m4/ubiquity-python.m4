@@ -1,7 +1,10 @@
-dnl a macro to check for ability to create python extensions
-dnl  AM_CHECK_PYTHON_HEADERS([ACTION-IF-POSSIBLE], [ACTION-IF-NOT-POSSIBLE])
-dnl function also defines PYTHON_INCLUDES
-AC_DEFUN([AM_CHECK_PYTHON_HEADERS],
+# A macro to check for the ability to create python extensions.
+
+# serial 1
+
+# UBIQUITY_CHECK_PYTHON_HEADERS([ACTION-IF-POSSIBLE], [ACTION-IF-NOT-POSSIBLE])
+# This macro also defines PYTHON_INCLUDES.
+AC_DEFUN([UBIQUITY_CHECK_PYTHON_HEADERS],
 [AC_REQUIRE([AM_PATH_PYTHON])
 AC_MSG_CHECKING(for headers required to compile python extensions)
 dnl deduce PYTHON_INCLUDES
