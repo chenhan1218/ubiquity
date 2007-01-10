@@ -109,7 +109,7 @@ class MigrationAssistant(FilteredCommand):
             self.db.set('migration-assistant/%s/users' % part, '')
         #self.db.set('migration-assistant/partitions', '')
 	
-	self.frontend.set_ma_choices(self.tree)
+	self.frontend.ma_set_choices(self.tree)
 
         # Here we jump in after m-a has exited and stop ubiquity from moving on
         # to the next page.
@@ -119,7 +119,7 @@ class MigrationAssistant(FilteredCommand):
 
     def ok_handler(self):
         
-        choices, new_users = self.frontend.get_ma_choices()
+        choices, new_users = self.frontend.ma_get_choices()
         users = {}
 
         for c in choices:

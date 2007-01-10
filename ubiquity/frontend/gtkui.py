@@ -974,7 +974,10 @@ class Wizard:
         """Processing gparted to mountpoints step tasks."""
 
         if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
-            self.set_current_page(self.steps.page_num(self.stepReady))
+            if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+                self.set_current_page(self.steps.page_num(self.stepReady))
+            else:
+                self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
             return
 
         self.gparted_fstype = {}
@@ -1548,10 +1551,10 @@ class Wizard:
                 break
             iter = model.iter_next(iter)
 
-    def get_ma_choices(self):
+    def ma_get_choices(self):
         return (self.ma_choices, self.ma_new_users)
 
-    def cb_toggle(self, cell, path, model=None):
+    def ma_cb_toggle(self, cell, path, model=None):
             iter = model.get_iter(path)
             checked = not cell.get_active()
             model.set_value(iter, 0, checked)
@@ -1642,7 +1645,7 @@ class Wizard:
             self.ma_password.set_text('')
             self.ma_confirm.set_text('')
 
-    def cb_selection_changed(self, selection):
+    def ma_selection_changed(self, selection):
         if self.ma_previous_selection:
             self.ma_seed_userinfo()
 
@@ -1659,7 +1662,7 @@ class Wizard:
         self.ma_previous_selection = model.get_value(iter, 1)
         self.ma_update_selection()
 
-    def set_ma_choices(self, choices):
+    def ma_set_choices(self, choices):
 
         def cell_data_func(column, cell, model, iter):
             val = model.get_value(iter, 1)
@@ -1698,7 +1701,7 @@ class Wizard:
         self.ma_previous_selection = None
 	
 	renderer = gtk.CellRendererToggle()
-	renderer.connect('toggled', self.cb_toggle, treestore)
+	renderer.connect('toggled', self.ma_cb_toggle, treestore)
 	column = gtk.TreeViewColumn('boolean', renderer, active=0)
 	column.set_clickable(True)
 	column.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
@@ -1711,7 +1714,7 @@ class Wizard:
 
 	self.matreeview.set_search_column(1)
 
-        self.matreeview.get_selection().connect('changed', self.cb_selection_changed)
+        self.matreeview.get_selection().connect('changed', self.ma_selection_changed)
 	self.matreeview.show_all()
 
         combostore = gtk.ListStore(str)
