@@ -1575,7 +1575,7 @@ class Wizard:
                         self.new_size_scale.set_range(min_percent, 100)
                         self.new_size_scale.set_value(
                             int((min_percent + 100) / 2))
-                    hbox.pack_start(new_size_scale, expand=True, fill=True)
+                    hbox.pack_start(self.new_size_scale, expand=True, fill=True)
                 elif choice != manual_choice:
                     vbox = gtk.VBox(spacing=6)
                     alignment.add(vbox)
