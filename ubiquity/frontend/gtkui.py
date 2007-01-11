@@ -1686,43 +1686,54 @@ class Wizard:
         if self.matreeview.get_model():
             return
 
-        treestore = gtk.TreeStore(bool, object)
         self.ma_choices = choices
-	for choice in choices:
-		piter = treestore.append(None, [False, choice])
-		for item in choice['items']:
-			treestore.append(piter, [False, item])
-                choice['items'] = []
-	
-	self.matreeview.set_model(treestore)
         # For the new users.
         self.ma_new_users = {}
         # For the previous selected item.
         self.ma_previous_selection = None
-	
-	renderer = gtk.CellRendererToggle()
-	renderer.connect('toggled', self.ma_cb_toggle, treestore)
-	column = gtk.TreeViewColumn('boolean', renderer, active=0)
-	column.set_clickable(True)
-	column.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
-	self.matreeview.append_column(column)
 
-	renderer = gtk.CellRendererText()
-	column = gtk.TreeViewColumn('item', renderer)
-	column.set_cell_data_func(renderer, cell_data_func)
-        self.matreeview.append_column(column)
+        # TODO evand 2007-01-11 I'm on the fence as to whether or not skipping
+        # the page would be better than showing the user this error.
+        if not choices:
+            msg = 'There were no users or operating systems suitable for ' \
+                'importing from.'
+            liststore = gtk.ListStore(str)
+            liststore.append([msg])
+            self.matreeview.set_model(liststore)
+            column = gtk.TreeViewColumn('item', gtk.CellRendererText(), text=0)
+            self.matreeview.append_column(column)
+            self.matreeview.show_all()
+        else:
+            treestore = gtk.TreeStore(bool, object)
+            for choice in choices:
+                    piter = treestore.append(None, [False, choice])
+                    for item in choice['items']:
+                            treestore.append(piter, [False, item])
+                    choice['items'] = []
+            
+            self.matreeview.set_model(treestore)
+            
+            renderer = gtk.CellRendererToggle()
+            renderer.connect('toggled', self.ma_cb_toggle, treestore)
+            column = gtk.TreeViewColumn('boolean', renderer, active=0)
+            column.set_clickable(True)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.matreeview.append_column(column)
 
-	self.matreeview.set_search_column(1)
+            renderer = gtk.CellRendererText()
+            column = gtk.TreeViewColumn('item', renderer)
+            column.set_cell_data_func(renderer, cell_data_func)
+            self.matreeview.append_column(column)
 
-        self.matreeview.get_selection().connect('changed', self.ma_selection_changed)
-	self.matreeview.show_all()
+            self.matreeview.set_search_column(1)
 
-        combostore = gtk.ListStore(str)
-        self.ma_loginname.set_model(combostore)
-        self.ma_loginname.set_text_column(0)
-        # TODO: uncomment this when this page gets moved past UserSetup
-        #passwd = self.dbfilter.db.get('passwd/user')
-        #combostore.append(passwd)
+            self.matreeview.get_selection().connect('changed', \
+                self.ma_selection_changed)
+            self.matreeview.show_all()
+
+            combostore = gtk.ListStore(str)
+            self.ma_loginname.set_model(combostore)
+            self.ma_loginname.set_text_column(0)
 
     def set_timezone (self, timezone):
         self.tzmap.set_tz_from_name(timezone)

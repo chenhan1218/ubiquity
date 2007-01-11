@@ -40,12 +40,31 @@ class MigrationAssistant(FilteredCommand):
     def run(self, priority, question):
         # FIXME: This is not preseed friendly.
         if self.firstrun:
+            # We cannot currently import from partitions that are scheduled for
+            # deletion, so we filter them out of the list.
+            if question == 'migration-assistant/partitions':
+                from ubiquity.parted_server import PartedServer
+                parted = PartedServer()
+                
+                parts = []
+                for disk in parted.disks():
+                    parted.select_disk(disk)
+                    for partition in parted.partitions():
+                        parts.append(partition[5])
+                
+                ret = []
+                for choice in self.choices(question):
+                    if choice[choice.rfind('(')+1:choice.rfind(')')] in parts:
+                        ret.append(choice)
+                
+                self.preseed(question, ", ".join(ret))
+            
             # In order to find out what operating systems and users we're
             # dealing with we need to seed all of the questions to step through
             # ma-ask, but we cannot seed user and password with an empty string
             # because that will cause errors so we cheat and tell m-a that we
             # want to continue with the invalid data anyway.
-            if question.endswith('user'):
+            elif question.endswith('user'):
                 self.preseed(question, 'skip-question')
             elif question.endswith('password'):
                 self.preseed(question, 'skip-question')
@@ -87,29 +106,36 @@ class MigrationAssistant(FilteredCommand):
             return
         
         # First run
-	self.tree = []
-    	for os in self.db.get('migration-assistant/partitions').split(', '):
-            part = os[os.rfind('/')+1:-1] # hda1
-            os = os[:os.rfind('(')-1]
-            for user in self.db.get('migration-assistant/' + part + '/users').split(', '):
-                items = self.db.get('migration-assistant/' + part + '/' + user + '/items')
-                # If there are no items to import for the user, there's no sense
-                # in showing it.  It might make more sense to move this check
-                # into ma-ask.
-                if items:
-                    items = items.split(', ')
-                    self.tree.append({'user': user, \
-                                    'part': part, \
-                                    'os': os, \
-                                    'newuser': '', \
-                                    'items': items, \
-                                    'selected': False})
-            # We now unset everything as the checkboxes will be unselected
-            # by default and debconf needs to match that.
-            self.db.set('migration-assistant/%s/users' % part, '')
-        #self.db.set('migration-assistant/partitions', '')
+	tree = []
+        systems = self.db.get('migration-assistant/partitions')
+    	if systems:
+            systems = systems.split(', ')
+            for os in systems:
+                part = os[os.rfind('/')+1:-1] # hda1
+                os = os[:os.rfind('(')-1]
+                
+                users = self.db.get('migration-assistant/' + part + '/users')
+                if not users:
+                    continue
+                users = users.split(', ')
+                for user in users:
+                    items = self.db.get('migration-assistant/' + part + '/' + user + '/items')
+                    # If there are no items to import for the user, there's no sense
+                    # in showing it.  It might make more sense to move this check
+                    # into ma-ask.
+                    if items:
+                        items = items.split(', ')
+                        tree.append({'user': user, \
+                                        'part': part, \
+                                        'os': os, \
+                                        'newuser': '', \
+                                        'items': items, \
+                                        'selected': False})
+                # We now unset everything as the checkboxes will be unselected
+                # by default and debconf needs to match that.
+                self.db.set('migration-assistant/%s/users' % part, '')
 	
-	self.frontend.ma_set_choices(self.tree)
+	self.frontend.ma_set_choices(tree)
 
         # Here we jump in after m-a has exited and stop ubiquity from moving on
         # to the next page.
