@@ -1335,7 +1335,7 @@ class Wizard:
     def on_autopartition_toggled (self, widget):
         """Update autopartitioning screen when a button is selected."""
 
-        choice = widget.get_label()
+        choice = unicode(widget.get_label(), 'utf-8', 'replace')
         if choice is not None and choice in self.autopartition_extras:
             element = self.autopartition_extras[choice]
             if widget.get_active():
@@ -1614,7 +1614,7 @@ class Wizard:
         for button in self.autopartition_vbox.get_children():
             if isinstance(button, gtk.Button):
                 if button.get_active():
-                    choice = button.get_label()
+                    choice = unicode(button.get_label(), 'utf-8', 'replace')
                     break
         else:
             raise AssertionError, "no active autopartitioning choice"
@@ -1629,7 +1629,8 @@ class Wizard:
             for button in vbox.get_children():
                 if isinstance(button, gtk.Button):
                     if button.get_active():
-                        return choice, button.get_label()
+                        return choice, unicode(button.get_label(),
+                                               'utf-8', 'replace')
             else:
                 return choice, None
         else:
