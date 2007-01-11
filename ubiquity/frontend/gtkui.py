@@ -1860,7 +1860,7 @@ class Wizard:
         self.partition_edit_mount_combo.set_model(list_store)
         if self.partition_edit_mount_combo.get_text_column() == -1:
             self.partition_edit_mount_combo.set_text_column(0)
-        mountpoint = self.dbfilter.get_current_mountpoint()
+        mountpoint = self.dbfilter.get_current_mountpoint(partition)
         if mountpoint is not None:
             self.partition_edit_mount_combo.child.set_text(mountpoint)
             iterator = list_store.get_iter_first()
