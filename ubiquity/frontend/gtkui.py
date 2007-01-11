@@ -1635,9 +1635,9 @@ class Wizard:
         elif partition['parted']['fs'] == 'free':
             # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
             # feels a bit too SHOUTY for this interface.
-            cell.set_property('text', 'free space')
+            cell.set_property('text', '  free space')
         else:
-            cell.set_property('text', partition['parted']['path'])
+            cell.set_property('text', '  %s' % partition['parted']['path'])
 
     def partman_column_type (self, column, cell, model, iterator):
         partition = model[iterator][1]
