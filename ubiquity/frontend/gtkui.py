@@ -1601,7 +1601,13 @@ class Wizard:
                 val = self.ma_new_users[newuser]
                 val['loginname-error'] = ''
                 val['password-error'] = ''
+                val['fullname'] = self.ma_fullname.get_text()
+                val['password'] = self.ma_password.get_text()
+                val['confirm'] = self.ma_confirm.get_text()
+                val['newuser'] = self.ma_loginname.child.get_text()
+            
             self.ma_previous_selection['newuser'] = newuser
+            self.ma_loginname.set_model(gtk.ListStore(str))
             for u in self.ma_new_users.iterkeys():
                 if u:
                     self.ma_loginname.append_text(u)
@@ -1662,6 +1668,16 @@ class Wizard:
         self.ma_previous_selection = model.get_value(iter, 1)
         self.ma_update_selection()
 
+    def ma_combo_changed(self, sender):
+        if sender.get_active() >= 0:
+            user = self.ma_loginname.child.get_text()
+            val = self.ma_new_users[user]
+            self.ma_fullname.set_text(val['fullname'])
+            self.ma_password.set_text(val['password'])
+            self.ma_confirm.set_text(val['confirm'])
+            self.ma_loginname.child.set_text(val['newuser'])
+
+        
     def ma_set_choices(self, choices):
 
         def cell_data_func(column, cell, model, iter):
@@ -1671,7 +1687,7 @@ class Wizard:
                 text = '%s  <small><i>%s (%s)</i></small>' % \
                     (val['user'], val['os'], val['part'])
                 newuser = val['newuser']
-                if newuser:
+                if newuser and model.get_value(iter, 0):
                     newuser = self.ma_new_users[newuser]
                     if(newuser['password-error'] or newuser['loginname-error']):
                         text = '<span foreground="red">%s  <small><i>%s' \
@@ -1731,9 +1747,9 @@ class Wizard:
                 self.ma_selection_changed)
             self.matreeview.show_all()
 
-            combostore = gtk.ListStore(str)
-            self.ma_loginname.set_model(combostore)
+            self.ma_loginname.set_model(gtk.ListStore(str))
             self.ma_loginname.set_text_column(0)
+            self.ma_loginname.connect('changed', self.ma_combo_changed)
 
     def set_timezone (self, timezone):
         self.tzmap.set_tz_from_name(timezone)
