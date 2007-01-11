@@ -775,7 +775,14 @@ class Install:
             except SystemError:
                 apt_error = True
             if cache._depcache.BrokenCount > 0 or apt_error:
-                cachedpkg.markKeep()
+                brokenpkgs = self.broken_packages(cache)
+                while brokenpkgs:
+                    for brokenpkg in brokenpkgs:
+                        self.get_cache_pkg(cache, brokenpkg).markKeep()
+                    new_brokenpkgs = self.broken_packages(cache)
+                    if brokenpkgs == new_brokenpkgs:
+                        break # we can do nothing more
+                    brokenpkgs = new_brokenpkgs
                 assert cache._depcache.BrokenCount == 0
 
 
