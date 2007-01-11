@@ -3,6 +3,9 @@ ubiquity (1.3.11) UNRELEASED; urgency=low
   * New partitioner: Fix crash while setting up partition edit dialog.
   * New partitioner: Indent partition names two spaces to the right of disk
     names.
+  * GTK frontend: Drop privileges while invoking gconftool-2, and point it
+    at the correct user's gconf directory; this fixes incorrect automounting
+    during partitioning.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 11 Jan 2007 10:24:48 +0000
 
