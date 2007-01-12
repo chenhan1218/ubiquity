@@ -50,8 +50,19 @@ class MigrationAssistant(FilteredCommand):
                 for disk in parted.disks():
                     parted.select_disk(disk)
                     for partition in parted.partitions():
-                        parts.append(partition[5])
-                
+                        # We check to see if the partition is scheduled to be
+                        # formatted and if not add it to the list of post-commit
+                        # available partitions.
+                        filename = '/var/lib/partman/devices/%s/%s/view' % \
+                            (disk, partition[1])
+                        fd = open(filename)
+                        pieces = fd.readline().rstrip('\n').split(None, 8)
+                        fd.close()
+                        line = [''] * 8
+                        line[0:len(pieces)] = pieces
+                        if line[5] not in ['F', 'f', 'swap']:
+                            parts.append(partition[5])
+
                 ret = []
                 for choice in self.choices(question):
                     if choice[choice.rfind('(')+1:choice.rfind(')')] in parts:
