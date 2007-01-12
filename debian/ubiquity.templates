@@ -109,6 +109,35 @@ _Description:
  This name will be used if you make the computer visible to others on a
  network.
 
+Template: ubiquity/text/ma_heading_label
+Type: text
+_Description: Migrate Documents and Settings
+
+Template: ubiquity/text/ma_text_label
+Type: text
+_Description:
+ Select any accounts you would like to import into Ubuntu and fill in the form
+ below for each one.  The documents and settings for these accounts will be
+ available after the install completes.
+ .
+ If you do not wish to import any accounts, select nothing and press next.
+
+Template: ubiquity/text/ma_fullname_label
+Type: text
+_Description: Full Name:
+
+Template: ubiquity/text/ma_loginname_label
+Type: text
+_Description: Login Name:
+
+Template: ubiquity/text/ma_password_label
+Type: text
+_Description: Password:
+
+Template: ubiquity/text/ma_confirm_label
+Type: text
+_Description: Confirm:
+
 Template: ubiquity/text/part_auto_heading_label
 Type: text
 _Description: Prepare disk space
