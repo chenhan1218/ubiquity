@@ -27,6 +27,7 @@ from ubiquity.parted_server import PartedServer
 class PartmanAuto(FilteredCommand):
     def __init__(self, frontend=None):
         FilteredCommand.__init__(self, frontend)
+        self.some_device_desc = ''
         self.resize_desc = ''
         self.manual_desc = ''
 
@@ -144,6 +145,8 @@ class PartmanAuto(FilteredCommand):
             choices = self.choices(question)
 
             if self.state is None:
+                self.some_device_desc = \
+                    self.description('partman-auto/text/use_device')
                 self.resize_desc = \
                     self.description('partman-auto/text/resize_use_free')
                 self.manual_desc = \
@@ -155,10 +158,11 @@ class PartmanAuto(FilteredCommand):
                 self.state[0] += 1
             while self.state[0] < len(choices):
                 self.state[1] = choices[self.state[0]]
-                if self.state[1] == self.manual_desc:
-                    self.state[0] += 1
-                else:
+                if (self.state[1] == self.some_device_desc or
+                    self.state[1] == self.resize_desc):
                     break
+                else:
+                    self.state[0] += 1
             if self.state[0] < len(choices):
                 # Don't preseed_as_c, because Perl debconf is buggy in that
                 # it doesn't expand variables in the result of METAGET
