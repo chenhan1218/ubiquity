@@ -427,9 +427,10 @@ class Wizard:
                            'format_label')):
                 widget.setText("<strong>" + text + "</strong>")
             elif name == 'release_notes_url':
-                url = self.release_notes_url_template.replace(
-                    '${LANG}', lang.split('.')[0])
-                widget.setText('<a href="%s">%s</a>' % (url, text))
+                if self.release_notes_url_template is not None:
+                    url = self.release_notes_url_template.replace(
+                        '${LANG}', lang.split('.')[0])
+                    widget.setText('<a href="%s">%s</a>' % (url, text))
             else:
                 widget.setText(text)
 
@@ -1689,7 +1690,7 @@ class Wizard:
         response = self.advanceddialog.exec_()
         if response == QDialog.Accepted:
             self.set_summary_device(
-                self.advanceddialog.grub_device_entry.text())
+                unicode(self.advanceddialog.grub_device_entry.text()))
             self.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
 
     def return_to_autopartitioning (self):

@@ -123,15 +123,32 @@ the future.
 The read-only live filesystem should generally be mounted on /rofs.
 Alternatively, an image may be present as /cdrom/casper/filesystem.cloop,
 /cdrom/casper/filesystem.squashfs, or (for Guadalinex/Metadistros)
-/cdrom/META/META.squashfs. You can preseed
+/cdrom/META/META.squashfs. Ubuntu currently uses
+/cdrom/casper/filesystem.squashfs. You can preseed
 ubiquity/install/filesystem-images with a space-separated list of image
 paths to override this; if you provide more than one image, then they will
 be overlaid using unionfs.
+
+/cdrom/casper/filesystem.manifest and
+/cdrom/casper/filesystem.manifest-desktop should be, respectively, a list of
+packages in the full live filesystem and a list of packages that should be
+installed in the target system; the format is that produced by running
+"dpkg-query -W --showformat='${Package} ${Version}\n'". Ubiquity will remove
+any packages present in filesystem.manifest but not present in
+filesystem.manifest-desktop after copying the live filesystem. This allows
+it to ensure that, for example, Ubiquity itself doesn't end up on the target
+system.
 
 If /cdrom/.disk/release_notes_url is present, a link to the release notes
 will be displayed on the language page. Instances of the string ${LANG} in
 that URL will be replaced with the locale, with any encoding removed (e.g.
 en, de, pt_BR, zh_CN).
+
+If you're installing from a medium other than a CD or DVD (e.g. over NFS),
+then the path of least resistance is to arrange that something that looks
+like a CD is available on /cdrom anyway. NFS-mounting an entire CD image is
+one approach that has worked with relatively little effort, but you could
+also set up the files listed above in some other way.
 
 Frequently Asked Questions
 --------------------------
@@ -174,6 +191,25 @@ A. Not without quite a bit of work. At present, Ubiquity is still a complex
    corrected in Ubuntu 6.06.1), I feel that the right answer to these is to
    backport selected fixes to that branch of Ubiquity rather than trying to
    backport the whole package.
+
+   Similarly, there are at least the following issues with backporting
+   Ubiquity from Ubuntu 7.04 to Ubuntu 6.10:
+
+     * Ubiquity depends on a version of console-setup at least as new as the
+       one in its own source tree, so the two packages would need to be
+       backported together. The new version of console-setup in turn relies
+       on a newer version of xkb-data (although probably not inextricably).
+
+     * Ubiquity's GTK frontend now uses gtk.LinkButton, which isn't
+       available in the versions of GTK+/PyGTK in Ubuntu 6.10. Similarly,
+       you need a more recent version of glade-3 than is available in Ubuntu
+       6.10 to edit the user interface definition for the GTK frontend.
+
+     * Regenerating Ubiquity's autotools files (configure et al) requires
+       Automake 1.10, not available in Ubuntu 6.10.
+
+     * Ubiquity's apport crash handler now requires a new Python API
+       introduced in apport 0.33.
 
 
 Feel free to ask me (Colin Watson <cjwatson@ubuntu.com>) if you have any

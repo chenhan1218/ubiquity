@@ -21,7 +21,8 @@ from ubiquity.filteredcommand import FilteredCommand
 
 class SiloInstaller(FilteredCommand):
     def prepare(self):
-        return (['/usr/lib/ubiquity/silo-installer/silo-installer'], ['ERROR'])
+        return (['/usr/lib/ubiquity/silo-installer/silo-installer'], ['ERROR'],
+                {'PATH': '/usr/lib/ubiquity/silo-installer:' + os.environ['PATH']})
 
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question),

@@ -612,17 +612,24 @@ class Wizard:
 
         gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
         gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-        gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
+        if 'SUDO_USER' in os.environ:
+            gconf_dir = ('xml:readwrite:%s' %
+                         os.path.expanduser('~%s/.gconf' %
+                                            os.environ['SUDO_USER']))
+        else:
+            gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
         gconf_previous = {}
         for gconf_key in (gvm_automount_drives, gvm_automount_media):
             subp = subprocess.Popen(['gconftool-2', '--config-source',
                                      gconf_dir, '--get', gconf_key],
                                     stdout=subprocess.PIPE,
-                                    stderr=subprocess.PIPE)
+                                    stderr=subprocess.PIPE,
+                                    preexec_fn=drop_privileges)
             gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
             if gconf_previous[gconf_key] != 'false':
                 subprocess.call(['gconftool-2', '--set', gconf_key,
-                                 '--type', 'bool', 'false'])
+                                 '--type', 'bool', 'false'],
+                                preexec_fn=drop_privileges)
 
         dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
         if dbfilter.run_command(auto_process=True) != 0:
@@ -631,10 +638,12 @@ class Wizard:
 
         for gconf_key in (gvm_automount_drives, gvm_automount_media):
             if gconf_previous[gconf_key] == '':
-                ex('gconftool-2', '--unset', gconf_key)
+                subprocess.call(['gconftool-2', '--unset', gconf_key],
+                                preexec_fn=drop_privileges)
             elif gconf_previous[gconf_key] != 'false':
-                ex('gconftool-2', '--set', gconf_key,
-                   '--type', 'bool', gconf_previous[gconf_key])
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                 '--type', 'bool', gconf_previous[gconf_key]],
+                                preexec_fn=drop_privileges)
 
         self.debconf_progress_region(15, 100)
 
@@ -1348,7 +1357,7 @@ class Wizard:
     def on_autopartition_toggled (self, widget):
         """Update autopartitioning screen when a button is selected."""
 
-        choice = widget.get_label()
+        choice = unicode(widget.get_label(), 'utf-8', 'replace')
         if choice is not None and choice in self.autopartition_extras:
             element = self.autopartition_extras[choice]
             if widget.get_active():
@@ -1864,7 +1873,7 @@ class Wizard:
         for button in self.autopartition_vbox.get_children():
             if isinstance(button, gtk.Button):
                 if button.get_active():
-                    choice = button.get_label()
+                    choice = unicode(button.get_label(), 'utf-8', 'replace')
                     break
         else:
             raise AssertionError, "no active autopartitioning choice"
@@ -1879,7 +1888,8 @@ class Wizard:
             for button in vbox.get_children():
                 if isinstance(button, gtk.Button):
                     if button.get_active():
-                        return choice, button.get_label()
+                        return choice, unicode(button.get_label(),
+                                               'utf-8', 'replace')
             else:
                 return choice, None
         else:
@@ -1894,9 +1904,9 @@ class Wizard:
         elif partition['parted']['fs'] == 'free':
             # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
             # feels a bit too SHOUTY for this interface.
-            cell.set_property('text', 'free space')
+            cell.set_property('text', '  free space')
         else:
-            cell.set_property('text', partition['parted']['path'])
+            cell.set_property('text', '  %s' % partition['parted']['path'])
 
     def partman_column_type (self, column, cell, model, iterator):
         partition = model[iterator][1]
@@ -2119,7 +2129,7 @@ class Wizard:
         self.partition_edit_mount_combo.set_model(list_store)
         if self.partition_edit_mount_combo.get_text_column() == -1:
             self.partition_edit_mount_combo.set_text_column(0)
-        mountpoint = self.dbfilter.get_current_mountpoint()
+        mountpoint = self.dbfilter.get_current_mountpoint(partition)
         if mountpoint is not None:
             self.partition_edit_mount_combo.child.set_text(mountpoint)
             iterator = list_store.get_iter_first()
