@@ -1284,7 +1284,7 @@ class Wizard:
         if step == "stepLocation":
             self.back.hide()
         elif step == "stepPartAuto":
-            self.set_current_page(self.steps.page_num(self.stepUserInfo))
+            self.set_current_page(self.steps.page_num(self.stepKeyboardConf))
             changed_page = True
         elif step == "stepPartAdvanced":
             if self.gparted_subp is not None:
@@ -1299,9 +1299,12 @@ class Wizard:
             changed_page = True
         elif step == "stepPartMountpoints":
             self.gparted_loop()
+        elif step == "stepMigrationAssistant":
+            self.set_current_page(self.previous_partitioning_page)
+            changed_page = True
         elif step == "stepReady":
             self.next.set_label("gtk-go-forward")
-            self.set_current_page(self.previous_partitioning_page)
+            self.steps.prev_page()
             changed_page = True
 
         if not changed_page:
