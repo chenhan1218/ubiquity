@@ -69,6 +69,7 @@ class MigrationAssistant(FilteredCommand):
                         ret.append(choice)
                 
                 self.preseed(question, ", ".join(ret))
+                
             
             # In order to find out what operating systems and users we're
             # dealing with we need to seed all of the questions to step through
@@ -187,12 +188,14 @@ class MigrationAssistant(FilteredCommand):
                 self.preseed(question + 'fullname', '')
             try:
                 self.db.register('migration-assistant/password', question + 'password')
-                self.preseed(question + 'password', user['password'])
+                self.preseed(question + 'password', user['password'],
+                    escape=True)
             except KeyError:
                 self.preseed(question + 'password', '')
             try:
                 self.db.register('migration-assistant/password-again', question + 'password-again')
-                self.preseed(question + 'password-again', user['confirm'])
+                self.preseed(question + 'password-again', user['confirm'],
+                    escape=True)
             except KeyError:
                 self.preseed(question + 'password-again', '')
         

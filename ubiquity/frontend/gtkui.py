@@ -82,11 +82,11 @@ BREADCRUMB_STEPS = {
     "stepLanguage": 1,
     "stepLocation": 2,
     "stepKeyboardConf": 3,
-    "stepUserInfo": 4,
-    "stepPartAuto": 5,
-    "stepPartAdvanced": 5,
-    "stepPartMountpoints": 5,
-    "stepMigrationAssistant": 6,
+    "stepPartAuto": 4,
+    "stepPartAdvanced": 4,
+    "stepPartMountpoints": 4,
+    "stepMigrationAssistant": 5,
+    "stepUserInfo": 6,
     "stepReady": 7
 }
 BREADCRUMB_MAX_STEP = 7
@@ -865,19 +865,12 @@ class Wizard:
             self.steps.next_page()
             self.back.show()
             self.allow_go_forward(self.get_timezone() is not None)
-	# Migration Assistant		
-	elif step == "stepMigrationAssistant":
-	    self.steps.next_page()
         # Location
         elif step == "stepLocation":
             self.steps.next_page()
         # Keyboard
         elif step == "stepKeyboardConf":
             self.steps.next_page()
-            self.info_loop(None)
-        # Identification
-        elif step == "stepUserInfo":
-            self.process_identification()
         # Automatic partitioning
         elif step == "stepPartAuto":
             self.process_autopartitioning()
@@ -887,6 +880,14 @@ class Wizard:
         # Mountpoints
         elif step == "stepPartMountpoints":
             self.mountpoints_to_summary()
+	# Migration Assistant		
+	elif step == "stepMigrationAssistant":
+	    self.steps.next_page()
+            self.ma_configure_usersetup()
+            self.info_loop(None)
+        # Identification
+        elif step == "stepUserInfo":
+            self.process_identification()
         # Ready to install
         elif step == "stepReady":
             self.live_installer.hide()
@@ -944,7 +945,8 @@ class Wizard:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.manual_partitioning = False
             if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-                self.set_current_page(self.steps.page_num(self.stepReady))
+                self.info_loop(None)
+                self.set_current_page(self.steps.page_num(self.stepUserInfo))
             else:
                 self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
 
@@ -984,7 +986,8 @@ class Wizard:
 
         if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
             if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-                self.set_current_page(self.steps.page_num(self.stepReady))
+                self.info_loop(None)
+                self.set_current_page(self.steps.page_num(self.stepUserInfo))
             else:
                 self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
             return
@@ -1256,6 +1259,8 @@ class Wizard:
             self.mountpoint_error_image.hide()
 
         self.manual_partitioning = True
+        if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+            self.info_loop(None)
         self.steps.next_page()
 
 
@@ -1521,7 +1526,41 @@ class Wizard:
         else:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][0]
+    
+    def ma_configure_usersetup(self):
 
+        def selection_changed(sender):
+            if sender.get_active() >= 0:
+                user = self.ma_new_users[sender.child.get_text()]
+                self.fullname.set_text(user['fullname'])
+                self.password.set_text(user['password'])
+                self.verified_password.set_text(user['confirm'])
+        
+        def focus_out(sender, event):
+            user = self.username.get_text()
+            if user in self.ma_new_users.keys():
+                u = self.ma_new_users[user]
+                self.fullname.set_text(u['fullname'])
+                self.password.set_text(u['password'])
+                self.verified_password.set_text(u['confirm'])
+
+        # Reconfigure username as a combobox without having to modify
+        # existing code.
+        self.username.destroy()
+        self.username_combo = gtk.combo_box_entry_new_text()
+        model = self.username_combo.get_model()
+        for k in self.ma_new_users.iterkeys():
+            model.append([k])
+        
+        self.username = self.username_combo.child
+        self.username.set_width_chars(20)
+        self.username.set_name('username')
+        self.username_combo.connect('changed', selection_changed)
+        self.username.connect('changed', self.info_loop)
+        self.username.connect('focus-out-event', focus_out)
+        self.hbox45.pack_start(self.username_combo, False, False, 0)
+        self.username_combo.show_all()
+        
     def ma_user_error(self, error, user):
         # Note that 'user' is the original user.
         model = self.matreeview.get_model()

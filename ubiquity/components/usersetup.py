@@ -42,7 +42,7 @@ class UserSetup(FilteredCommand):
                 self.frontend.set_username(value)
 
     def ok_handler(self):
-        fullname = self.frontend.get_fullname()
+	fullname = self.frontend.get_fullname()
         username = self.frontend.get_username()
         password = self.frontend.get_password()
         password_confirm = self.frontend.get_verified_password()
@@ -54,6 +54,17 @@ class UserSetup(FilteredCommand):
         self.preseed('passwd/user-password-again', password_confirm,
                      escape=True)
         self.preseed('passwd/user-uid', '')
+
+        # evand 2007-01-13: This is probably unnecessary as migration-assistant
+        # is run after user-setup in d-i, but it might be best to do this anyway
+        # to avoid potential future headaches.
+        import os
+        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+	    q = 'migration-assistant/new-user/%s/' % username
+	    self.preseed(q + 'fullname', fullname)
+	    self.preseed(q + 'password', password, escape=True)
+	    self.preseed(q + 'password-again', password_confirm,
+	                escape=True)
 
         FilteredCommand.ok_handler(self)
 
