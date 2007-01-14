@@ -1,4 +1,4 @@
-ubiquity (1.3.12) UNRELEASED; urgency=low
+ubiquity (1.3.12) feisty; urgency=low
 
   [ Colin Watson ]
   * KDE frontend: Fix crash going back from advanced partitioner (mentioned
@@ -9,7 +9,7 @@ ubiquity (1.3.12) UNRELEASED; urgency=low
   [ Brian Murray ]
   * Fix incorrect release date in intro message (LP: #78941).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Jan 2007 11:30:57 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 14 Jan 2007 02:08:57 +0000
 
 ubiquity (1.3.11) feisty; urgency=low
 
