@@ -137,6 +137,7 @@ class Wizard:
                                    'cancel', 'back', 'next')
         self.allowed_change_step = True
         self.allowed_go_forward = True
+        self.username_combo = None
 
         self.laptop = ex("laptop-detect")
 
@@ -1547,13 +1548,18 @@ class Wizard:
                 self.password.set_text(u['password'])
                 self.verified_password.set_text(u['confirm'])
 
+        # If the user pressed back.
+        if self.username_combo:
+            return
+
         # Reconfigure username as a combobox without having to modify
         # existing code.
         self.username.destroy()
         self.username_combo = gtk.combo_box_entry_new_text()
         model = self.username_combo.get_model()
         for k in self.ma_new_users.iterkeys():
-            model.append([k])
+            if k != '-':
+                model.append([k])
         
         self.username = self.username_combo.child
         self.username.set_width_chars(20)
@@ -1643,8 +1649,13 @@ class Wizard:
                         items.remove(item)
 
     def ma_seed_userinfo(self):
+        m = self.ma_previous_selection[0]
+        i = self.ma_previous_selection[1]
         newuser = self.ma_loginname.child.get_text()
-        if newuser:
+        if m.get_value(i, 0):
+            if not newuser:
+                # Use - as a key for a null username.
+                newuser = '-'
             try:
                 val = self.ma_new_users[newuser]
             except KeyError:
@@ -1652,20 +1663,15 @@ class Wizard:
                 val = self.ma_new_users[newuser]
                 val['loginname-error'] = ''
                 val['password-error'] = ''
-                val['fullname'] = self.ma_fullname.get_text()
-                val['password'] = self.ma_password.get_text()
-                val['confirm'] = self.ma_confirm.get_text()
-                val['newuser'] = self.ma_loginname.child.get_text()
             
-            self.ma_previous_selection['newuser'] = newuser
+            m.get_value(i, 1)['newuser'] = newuser
             self.ma_loginname.set_model(gtk.ListStore(str))
             for u in self.ma_new_users.iterkeys():
-                if u:
+                if u and u != '-':
                     self.ma_loginname.append_text(u)
             val['fullname'] = self.ma_fullname.get_text()
             val['password'] = self.ma_password.get_text()
             val['confirm'] = self.ma_confirm.get_text()
-            val['newuser'] = self.ma_loginname.child.get_text()
             # We don't have to clear the username error because changing the
             # username creates a new user.
             if(val['password'] and (val['password'] == val['confirm'])):
@@ -1681,7 +1687,10 @@ class Wizard:
         newuser = model.get_value(iter, 1)['newuser']
         try:
             val = self.ma_new_users[newuser]
-            self.ma_loginname.child.set_text(newuser)
+            if newuser == '-':
+                self.ma_loginname.child.set_text('')
+            else:
+                self.ma_loginname.child.set_text(newuser)
             
             self.ma_fullname.set_text(val['fullname'])
             self.ma_password.set_text(val['password'])
@@ -1716,7 +1725,7 @@ class Wizard:
         else:
             self.ma_userinfo.set_sensitive(False)
         
-        self.ma_previous_selection = model.get_value(iter, 1)
+        self.ma_previous_selection = selection.get_selected()
         self.ma_update_selection()
 
     def ma_combo_changed(self, sender):
@@ -1726,7 +1735,6 @@ class Wizard:
             self.ma_fullname.set_text(val['fullname'])
             self.ma_password.set_text(val['password'])
             self.ma_confirm.set_text(val['confirm'])
-            self.ma_loginname.child.set_text(val['newuser'])
 
         
     def ma_set_choices(self, choices):
