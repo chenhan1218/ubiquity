@@ -1210,7 +1210,7 @@ class Wizard:
                 self.qtparted_subp.wait()
                 self.qtparted_subp = None
                 if self.embed is not None:
-                    self.qtparted_vbox.remove(self.embed)
+                    self.qtparted_vbox.removeWidget(self.embed)
                     del self.embed
                     self.embed = None
             self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
