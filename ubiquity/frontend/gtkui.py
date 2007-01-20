@@ -817,6 +817,10 @@ class Wizard:
                 self.ma_new_users[u]['password-error'] = ''
                 self.ma_new_users[u]['loginname-error'] = ''
             self.ma_seed_userinfo()
+            # To get a watch cursor and non-sensitive next button before the
+            # next page.
+            while gtk.events_pending():
+                gtk.main_iteration(False)
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -1649,8 +1653,12 @@ class Wizard:
                         items.remove(item)
 
     def ma_seed_userinfo(self):
-        m = self.ma_previous_selection[0]
-        i = self.ma_previous_selection[1]
+        sel = self.ma_previous_selection
+        if not sel:
+            return
+
+        m = sel[0]
+        i = sel[1]
         newuser = self.ma_loginname.child.get_text()
         if m.get_value(i, 0):
             if not newuser:
