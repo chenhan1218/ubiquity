@@ -52,12 +52,6 @@ try:
 except ImportError:
     from ubiquity.debconfcommunicator import DebconfCommunicator
 
-try:
-    import apport
-    import apport.fileutils
-except ImportError:
-    pass
-
 from ubiquity import filteredcommand, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
@@ -188,33 +182,14 @@ class Wizard:
                              " (invoking crash handler):")
         print >>sys.stderr, tbtext
 
-        if 'apport' in sys.modules:
-            try:
-                pr = apport.Report()
-                pr.add_package_info('ubiquity-frontend-gtk')
-                pr.add_os_info()
-                pr.add_proc_info()
-                pr['BugDisplayMode'] = 'file'
-                pr['ExecutablePath'] = '/usr/bin/ubiquity'
-                pr['PythonTraceback'] = tbtext
-                if os.path.exists('/var/log/syslog'):
-                    pr['UbiquitySyslog'] = ('/var/log/syslog',)
-                if os.path.exists('/var/log/partman'):
-                    pr['UbiquityPartman'] = ('/var/log/partman',)
-                reportfile = open(apport.fileutils.make_report_path(pr), 'w')
-                pr.write(reportfile)
-                reportfile.close()
-            except (KeyboardInterrupt, SystemExit):
-                raise
-            except:
-                # Out of disk space? Fall back to our own crash handler.
-                pass
+        if os.path.exists('/usr/share/apport/apport-gtk'):
+            raise
+        else:
+            self.crash_detail_label.set_text(tbtext)
+            self.crash_dialog.run()
+            self.crash_dialog.hide()
 
-        self.crash_detail_label.set_text(tbtext)
-        self.crash_dialog.run()
-        self.crash_dialog.hide()
-
-        sys.exit(1)
+            sys.exit(1)
 
 
     def run(self):

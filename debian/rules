@@ -205,6 +205,7 @@ binary-indep: install
 #	dh_installexamples
 	dh_installdebconf
 #	dh_installman
+	dh_link
 	dh_strip
 	dh_compress
 	dh_fixperms
@@ -238,6 +239,7 @@ binary-arch: install
 	grep-dctrl -v -FTemplate base-installer/ d-i/templates \
 		>> debian/ubiquity/DEBIAN/templates
 #	dh_installman
+	dh_link
 	dh_strip
 	dh_compress
 	dh_fixperms
