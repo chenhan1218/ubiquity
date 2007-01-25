@@ -1845,12 +1845,12 @@ class Wizard:
         self.partition_edit_mount_combo.set_model(list_store)
         if self.partition_edit_mount_combo.get_text_column() == -1:
             self.partition_edit_mount_combo.set_text_column(0)
-        mountpoint = self.dbfilter.get_current_mountpoint(partition)
-        if mountpoint is not None:
-            self.partition_edit_mount_combo.child.set_text(mountpoint)
+        current_mountpoint = self.dbfilter.get_current_mountpoint(partition)
+        if current_mountpoint is not None:
+            self.partition_edit_mount_combo.child.set_text(current_mountpoint)
             iterator = list_store.get_iter_first()
             while iterator:
-                if list_store[iterator][0] == mountpoint:
+                if list_store[iterator][0] == current_mountpoint:
                     self.partition_edit_mount_combo.set_active_iter(iterator)
                     break
                 iterator = list_store.iter_next(iterator)
@@ -1868,8 +1868,14 @@ class Wizard:
 
             mountpoint = self.partition_edit_mount_combo.child.get_text()
 
-            self.allow_change_step(False)
-            self.dbfilter.edit_partition(devpart, method, mountpoint)
+            if method == current_method:
+                method = None
+            if mountpoint == current_mountpoint:
+                mountpoint = None
+
+            if method is not None or mountpoint is not None:
+                self.allow_change_step(False)
+                self.dbfilter.edit_partition(devpart, method, mountpoint)
 
     def on_partition_list_treeview_button_press_event (self, widget, event):
         if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
