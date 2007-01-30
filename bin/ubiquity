@@ -114,15 +114,19 @@ def acquire_lock():
 def main():
     usage = '%prog [options] [frontend]'
     parser = optparse.OptionParser(usage=usage, version=VERSION)
+    parser.set_defaults(
+        debug=('UBIQUITY_DEBUG' in os.environ),
+        cdebconf=False,
+        new_partitioner=('UBIQUITY_NEW_PARTITIONER' in os.environ))
     parser.add_option('-d', '--debug', dest='debug', action='store_true',
-                      default=('UBIQUITY_DEBUG' in os.environ),
                       help='debug mode (warning: passwords will be logged!)')
-    parser.add_option('--cdebconf', dest='cdebconf',
-                      action='store_true', default=False,
+    parser.add_option('--cdebconf', dest='cdebconf', action='store_true',
                       help='use cdebconf instead of debconf (experimental)')
+    parser.add_option('--old-partitioner', dest='new_partitioner',
+                      action='store_false',
+                      help='force use of old advanced partitioner')
     parser.add_option('--new-partitioner', dest='new_partitioner',
                       action='store_true',
-                      default=('UBIQUITY_NEW_PARTITIONER' in os.environ),
                       help='use new advanced partitioner (experimental)')
     (options, args) = parser.parse_args()
 
@@ -138,6 +142,11 @@ def main():
 
     if options.new_partitioner:
         os.environ['UBIQUITY_NEW_PARTITIONER'] = '1'
+    else:
+        try:
+            del os.environ['UBIQUITY_NEW_PARTITIONER']
+        except KeyError:
+            pass
 
     acquire_lock()
 

@@ -43,6 +43,7 @@ import subprocess
 import math
 import traceback
 import syslog
+import atexit
 import xml.sax.saxutils
 
 import gettext
@@ -90,6 +91,7 @@ class Wizard:
 
         # declare attributes
         self.distro = distro
+        self.gconf_previous = {}
         self.current_layout = None
         self.password = ''
         self.hostname_edited = False
@@ -192,6 +194,46 @@ class Wizard:
             sys.exit(1)
 
 
+    # Disable gnome-volume-manager automounting to avoid problems during
+    # partitioning.
+    def disable_gvm(self):
+        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
+        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
+        if 'SUDO_USER' in os.environ:
+            gconf_dir = ('xml:readwrite:%s' %
+                         os.path.expanduser('~%s/.gconf' %
+                                            os.environ['SUDO_USER']))
+        else:
+            gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
+        self.gconf_previous = {}
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            subp = subprocess.Popen(['gconftool-2', '--config-source',
+                                     gconf_dir, '--get', gconf_key],
+                                    stdout=subprocess.PIPE,
+                                    stderr=subprocess.PIPE,
+                                    preexec_fn=drop_privileges)
+            self.gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
+            if self.gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                 '--type', 'bool', 'false'],
+                                preexec_fn=drop_privileges)
+
+        atexit.register(self.enable_gvm)
+
+    def enable_gvm(self):
+        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
+        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
+        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+            if self.gconf_previous[gconf_key] == '':
+                subprocess.call(['gconftool-2', '--unset', gconf_key],
+                                preexec_fn=drop_privileges)
+            elif self.gconf_previous[gconf_key] != 'false':
+                subprocess.call(['gconftool-2', '--set', gconf_key,
+                                 '--type', 'bool',
+                                 self.gconf_previous[gconf_key]],
+                                preexec_fn=drop_privileges)
+
+
     def run(self):
         """run the interface."""
 
@@ -203,6 +245,8 @@ class Wizard:
                                        title)
             dialog.run()
             sys.exit(1)
+
+        self.disable_gvm()
 
         # show interface
         got_intro = self.show_intro()
@@ -578,40 +622,10 @@ class Wizard:
             0, 100, get_string('ubiquity/install/title', self.locale))
         self.debconf_progress_region(0, 15)
 
-        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
-        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-        if 'SUDO_USER' in os.environ:
-            gconf_dir = ('xml:readwrite:%s' %
-                         os.path.expanduser('~%s/.gconf' %
-                                            os.environ['SUDO_USER']))
-        else:
-            gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
-        gconf_previous = {}
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            subp = subprocess.Popen(['gconftool-2', '--config-source',
-                                     gconf_dir, '--get', gconf_key],
-                                    stdout=subprocess.PIPE,
-                                    stderr=subprocess.PIPE,
-                                    preexec_fn=drop_privileges)
-            gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
-            if gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                 '--type', 'bool', 'false'],
-                                preexec_fn=drop_privileges)
-
         dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
         if dbfilter.run_command(auto_process=True) != 0:
             # TODO cjwatson 2006-09-03: return to partitioning?
             return
-
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
-            if gconf_previous[gconf_key] == '':
-                subprocess.call(['gconftool-2', '--unset', gconf_key],
-                                preexec_fn=drop_privileges)
-            elif gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                 '--type', 'bool', gconf_previous[gconf_key]],
-                                preexec_fn=drop_privileges)
 
         self.debconf_progress_region(15, 100)
 
