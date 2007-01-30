@@ -117,7 +117,7 @@ def main():
     parser.set_defaults(
         debug=('UBIQUITY_DEBUG' in os.environ),
         cdebconf=False,
-        new_partitioner=('UBIQUITY_NEW_PARTITIONER' in os.environ))
+        new_partitioner=True)
     parser.add_option('-d', '--debug', dest='debug', action='store_true',
                       help='debug mode (warning: passwords will be logged!)')
     parser.add_option('--cdebconf', dest='cdebconf', action='store_true',
