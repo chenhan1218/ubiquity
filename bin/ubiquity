@@ -122,6 +122,9 @@ def main():
                       help='debug mode (warning: passwords will be logged!)')
     parser.add_option('--cdebconf', dest='cdebconf', action='store_true',
                       help='use cdebconf instead of debconf (experimental)')
+    parser.add_option('--old-partitioner', dest='new_partitioner',
+                      action='store_false',
+                      help='force use of old advanced partitioner')
     parser.add_option('--new-partitioner', dest='new_partitioner',
                       action='store_true',
                       help='use new advanced partitioner (experimental)')
@@ -139,6 +142,11 @@ def main():
 
     if options.new_partitioner:
         os.environ['UBIQUITY_NEW_PARTITIONER'] = '1'
+    else:
+        try:
+            del os.environ['UBIQUITY_NEW_PARTITIONER']
+        except KeyError:
+            pass
 
     acquire_lock()
 
