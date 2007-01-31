@@ -4,6 +4,7 @@ Priority: extra
 Maintainer: Colin Watson <cjwatson@ubuntu.com>
 Build-Depends: apt, dash, debhelper (>= 5.0.37.2), dpkg-dev (>= 1.9), grep-dctrl, intltool-debian (>= 0.30+20040212), iso-codes (>= 0.21-1), libart-2.0-dev, libglib2.0-dev, libgtk2.0-dev, locales, po-debconf (>= 0.5.0), python, python-support (>= 0.3), python-xml
 Standards-Version: 3.6.2
+XS-Python-Version: current, >= 2.4
 
 Package: oem-config
 Architecture: any
@@ -20,8 +21,8 @@ Description: Perform end-user configuration after initial installation
  up their own username and password, language, timezone, and so on.
 
 Package: oem-config-gtk
-Architecture: all
-Depends: ${python:Depends}, oem-config, python-gtk2, python-glade2, metacity
+Architecture: any
+Depends: ${shlibs:Depends}, ${python:Depends}, oem-config, python-gtk2, python-glade2, metacity
 Replaces: oem-config (<< 1.0)
 Provides: oem-config-frontend-${source:Version}
 XB-Python-Version: ${python:Versions}
