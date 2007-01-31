@@ -26,6 +26,8 @@ import gtk.glade
 from debconf import DebconfCommunicator
 from oem_config import filteredcommand
 from oem_config.components import console_setup, language, timezone, user
+import oem_config.emap
+import oem_config.tz
 
 GLADEDIR = '/usr/lib/oem-config/oem_config/frontend'
 
@@ -345,3 +347,244 @@ class Frontend:
 
     def get_verified_password(self):
         return self.user_password_confirm_entry.get_text()
+
+
+# Much of this timezone map widget is a rough translation of
+# gnome-system-tools/src/time/tz-map.c. Thanks to Hans Petter Jansson
+# <hpj@ximian.com> for that.
+
+NORMAL_RGBA = 0xc070a0ffL
+HOVER_RGBA = 0xffff60ffL
+SELECTED_1_RGBA = 0xff60e0ffL
+SELECTED_2_RGBA = 0x000000ffL
+
+class TimezoneMap(object):
+    def __init__(self, frontend):
+        self.frontend = frontend
+        self.tzdb = oem_config.tz.Database()
+        self.tzmap = oem_config.emap.EMap()
+        self.update_timeout = None
+        self.point_selected = None
+        self.point_hover = None
+        self.location_selected = None
+
+        zoom_in_file = os.path.join(PATH, 'pixmaps', 'zoom-in.png')
+        if os.path.exists(zoom_in_file):
+            display = self.frontend.oem_config.get_display()
+            pixbuf = gtk.gdk.pixbuf_new_from_file(zoom_in_file)
+            self.cursor_zoom_in = gtk.gdk.Cursor(display, pixbuf, 10, 10)
+        else:
+            self.cursor_zoom_in = None
+
+        self.tzmap.add_events(gtk.gdk.LEAVE_NOTIFY_MASK |
+                              gtk.gdk.VISIBILITY_NOTIFY_MASK)
+
+        self.frontend.timezone_map_window.add(self.tzmap)
+
+        timezone_city_combo = self.frontend.timezone_city_combo
+
+        renderer = gtk.CellRendererText()
+        timezone_city_combo.pack_start(renderer, True)
+        timezone_city_combo.add_attribute(renderer, 'text', 0)
+        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        timezone_city_combo.set_model(list_store)
+
+        prev_continent = ''
+        for location in self.tzdb.locations:
+            self.tzmap.add_point("", location.longitude, location.latitude,
+                                 NORMAL_RGBA)
+            zone_bits = location.zone.split('/')
+            if len(zone_bits) == 1:
+                continue
+            continent = zone_bits[0]
+            if continent != prev_continent:
+                list_store.append(['', None])
+                list_store.append(["--- %s ---" % continent, None])
+                prev_continent = continent
+            human_zone = '/'.join(zone_bits[1:]).replace('_', ' ')
+            list_store.append([human_zone, location.zone])
+
+        self.tzmap.connect("map-event", self.mapped)
+        self.tzmap.connect("unmap-event", self.unmapped)
+        self.tzmap.connect("motion-notify-event", self.motion)
+        self.tzmap.connect("button-press-event", self.button_pressed)
+        self.tzmap.connect("leave-notify-event", self.out_map)
+
+        timezone_city_combo.connect("changed", self.city_changed)
+
+    def set_city_text(self, name):
+        model = self.frontend.timezone_city_combo.get_model()
+        iterator = model.get_iter_first()
+        while iterator is not None:
+            location = model.get_value(iterator, 1)
+            if location == name:
+                self.frontend.timezone_city_combo.set_active_iter(iterator)
+                break
+            iterator = model.iter_next(iterator)
+
+    def set_zone_text(self, location):
+        offset = location.utc_offset
+        if offset >= datetime.timedelta(0):
+            minuteoffset = int(offset.seconds / 60)
+        else:
+            minuteoffset = int(offset.seconds / 60 - 1440)
+        if location.zone_letters == 'GMT':
+            text = location.zone_letters
+        else:
+            text = "%s (GMT%+d:%02d)" % (location.zone_letters,
+                                         minuteoffset / 60, minuteoffset % 60)
+        self.frontend.timezone_zone_text.set_text(text)
+        translations = gettext.translation('iso_3166',
+                                           languages=[self.frontend.locale],
+                                           fallback=True)
+        self.frontend.timezone_country_text.set_text(
+            translations.ugettext(location.human_country))
+        self.update_current_time()
+
+    def update_current_time(self):
+        if self.location_selected is not None:
+            now = datetime.datetime.now(self.location_selected.info)
+            self.frontend.timezone_time_text.set_text(now.strftime('%X'))
+
+    def set_tz_from_name(self, name):
+        (longitude, latitude) = (0.0, 0.0)
+
+        for location in self.tzdb.locations:
+            if location.zone == name:
+                (longitude, latitude) = (location.longitude, location.latitude)
+                break
+        else:
+            return
+
+        if self.point_selected is not None:
+            self.tzmap.point_set_color_rgba(self.point_selected, NORMAL_RGBA)
+
+        self.point_selected = self.tzmap.get_closest_point(longitude, latitude,
+                                                           False)
+
+        self.location_selected = location
+        self.set_city_text(self.location_selected.zone)
+        self.set_zone_text(self.location_selected)
+        self.frontend.allow_go_forward(True)
+
+    def city_changed(self, widget):
+        iterator = widget.get_active_iter()
+        if iterator is not None:
+            model = widget.get_model()
+            location = model.get_value(iterator, 1)
+            if location is not None:
+                self.set_tz_from_name(location)
+
+    def get_selected_tz_name(self):
+        if self.location_selected is not None:
+            return self.location_selected.zone
+        else:
+            return None
+
+    def location_from_point(self, point):
+        if point is None:
+            return None
+
+        (longitude, latitude) = point.get_location()
+
+        best_location = None
+        best_distance = None
+        for location in self.tzdb.locations:
+            if (abs(location.longitude - longitude) <= 1.0 and
+                abs(location.latitude - latitude) <= 1.0):
+                distance = ((location.longitude - longitude) ** 2 +
+                            (location.latitude - latitude) ** 2) ** 0.5
+                if best_distance is None or distance < best_distance:
+                    best_location = location
+                    best_distance = distance
+
+        return best_location
+
+    def timeout(self):
+        self.update_current_time()
+
+        if self.point_selected is None:
+            return True
+
+        if self.point_selected.get_color_rgba() == SELECTED_1_RGBA:
+            self.tzmap.point_set_color_rgba(self.point_selected,
+                                            SELECTED_2_RGBA)
+        else:
+            self.tzmap.point_set_color_rgba(self.point_selected,
+                                            SELECTED_1_RGBA)
+
+        return True
+
+    def mapped(self, widget, event):
+        if self.update_timeout is None:
+            self.update_timeout = gobject.timeout_add(100, self.timeout)
+
+    def unmapped(self, widget, event):
+        if self.update_timeout is not None:
+            gobject.source_remove(self.update_timeout)
+            self.update_timeout = None
+
+    def motion(self, widget, event):
+        if self.tzmap.get_magnification() <= 1.0:
+            if self.cursor_zoom_in is not None:
+                self.frontend.oem_config.window.set_cursor(self.cursor_zoom_in)
+        else:
+            self.frontend.oem_config.window.set_cursor(None)
+
+            (longitude, latitude) = self.tzmap.window_to_world(event.x,
+                                                               event.y)
+
+            if (self.point_hover is not None and
+                self.point_hover != self.point_selected):
+                self.tzmap.point_set_color_rgba(self.point_hover, NORMAL_RGBA)
+
+            self.point_hover = self.tzmap.get_closest_point(longitude,
+                                                            latitude, True)
+
+            if self.point_hover != self.point_selected:
+                self.tzmap.point_set_color_rgba(self.point_hover, HOVER_RGBA)
+
+        return True
+
+    def out_map(self, widget, event):
+        if event.mode != gtk.gdk.CROSSING_NORMAL:
+            return False
+
+        if (self.point_hover is not None and
+            self.point_hover != self.point_selected):
+            self.tzmap.point_set_color_rgba(self.point_hover, NORMAL_RGBA)
+
+        self.point_hover = None
+
+        self.frontend.oem_config.window.set_cursor(None)
+
+        return True
+
+    def button_pressed(self, widget, event):
+        (longitude, latitude) = self.tzmap.window_to_world(event.x, event.y)
+
+        if event.button != 1:
+            self.tzmap.zoom_out()
+            if self.cursor_zoom_in is not None:
+                self.frontend.oem_config.window.set_cursor(self.cursor_zoom_in)
+        elif self.tzmap.get_magnification() <= 1.0:
+            self.tzmap.zoom_to_location(longitude, latitude)
+            if self.cursor_zoom_in is not None:
+                self.frontend.oem_config.window.set_cursor(None)
+        else:
+            if self.point_selected is not None:
+                self.tzmap.point_set_color_rgba(self.point_selected,
+                                                NORMAL_RGBA)
+            self.point_selected = self.point_hover
+
+            new_location_selected = \
+                self.location_from_point(self.point_selected)
+            if new_location_selected is not None:
+                old_city = self.get_selected_tz_name()
+                if old_city is None or old_city != new_location_selected.zone:
+                    self.set_city_text(new_location_selected.zone)
+                    self.set_zone_text(new_location_selected)
+            self.location_selected = new_location_selected
+            self.frontend.allow_go_forward(self.location_selected is not None)
+
+        return True
