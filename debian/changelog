@@ -1,3 +1,10 @@
+ubiquity (1.3.16) UNRELEASED; urgency=low
+
+  * New partitioner: Fix a crash if the edit dialog is OKed with neither
+    method nor mountpoint changed.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Jan 2007 23:25:34 +0000
+
 ubiquity (1.3.15) feisty; urgency=low
 
   * Add --old-partitioner command-line option to force the use of the old

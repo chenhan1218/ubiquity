@@ -527,7 +527,10 @@ class Partman(PartmanAuto):
                     else:
                         # Finished building the cache for this submenu; go
                         # back to the previous one.
-                        del partition['active_partition_visit']
+                        try:
+                            del partition['active_partition_visit']
+                        except KeyError:
+                            pass
                         self.__state.pop()
                         return False
 
@@ -579,7 +582,10 @@ class Partman(PartmanAuto):
                         return True
                     else:
                         # Finish editing this partition.
-                        del partition['active_partition_visit']
+                        try:
+                            del partition['active_partition_visit']
+                        except KeyError:
+                            pass
                         self.__state.pop()
                         self.preseed_script(question, menu_options, 'finish')
                         return True
@@ -598,7 +604,10 @@ class Partman(PartmanAuto):
                     return True
                 else:
                     # Finish editing this partition.
-                    del partition['active_partition_visit']
+                    try:
+                        del partition['active_partition_visit']
+                    except KeyError:
+                        pass
                     self.__state.pop()
                     self.preseed_script(question, menu_options, 'finish')
                     return True
