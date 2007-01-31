@@ -1,3 +1,6 @@
+./Makefile
+./autom4te.cache
+./libtool
 debian/files
 debian/oem-config
 debian/oem-config-gtk
@@ -10,3 +13,11 @@ d-i/source
 d-i/templates
 d-i/udeb-control
 lib/keyboard_names.py
+pixmaps/Makefile
+src/.deps
+src/.libs
+src/Makefile
+src/cut-and-paste/Makefile
+src/cut-and-paste/e-map/.deps
+src/cut-and-paste/e-map/Makefile
+src/e-map.c
