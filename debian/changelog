@@ -1,3 +1,9 @@
+oem-config (1.9) UNRELEASED; urgency=low
+
+  * Install copyright and changelog files in Architecture: all packages too.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Jan 2007 17:20:31 +0000
+
 oem-config (1.8) edgy; urgency=low
 
   [ Colin Watson ]
