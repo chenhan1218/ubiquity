@@ -1773,10 +1773,10 @@ class Wizard:
         self.partition_create_use_combo.clear()
         renderer = gtk.CellRendererText()
         self.partition_create_use_combo.pack_start(renderer)
-        self.partition_create_use_combo.add_attribute(renderer, 'text', 0)
-        list_store = gtk.ListStore(gobject.TYPE_STRING)
-        for method in partman.Partman.create_use_as():
-            list_store.append([method])
+        self.partition_create_use_combo.add_attribute(renderer, 'text', 1)
+        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        for method, name in partman.Partman.create_use_as():
+            list_store.append([method, name])
         self.partition_create_use_combo.set_model(list_store)
         if list_store.get_iter_first():
             self.partition_create_use_combo.set_active(0)
@@ -1808,7 +1808,7 @@ class Wizard:
                 method = None
             else:
                 model = self.partition_create_use_combo.get_model()
-                method = model.get_value(method_iter, 0)
+                method = model.get_value(method_iter, 1)
 
             mountpoint = self.partition_create_mount_combo.child.get_text()
 
@@ -1816,6 +1816,17 @@ class Wizard:
             self.dbfilter.create_partition(
                 devpart, self.partition_create_size_entry.get_text(),
                 prilog, place, method, mountpoint)
+
+    def on_partition_create_use_combo_changed (self, combobox):
+        model = combobox.get_model()
+        iterator = combobox.get_active_iter()
+        # If the selected method isn't a filesystem, then selecting a mount
+        # point makes no sense.
+        if iterator is None or model[iterator][0] != 'filesystem':
+            self.partition_create_mount_combo.child.set_text('')
+            self.partition_create_mount_combo.set_sensitive(False)
+        else:
+            self.partition_create_mount_combo.set_sensitive(True)
 
     def partman_edit_dialog (self, devpart, partition):
         if not isinstance(self.dbfilter, partman.Partman):
@@ -1890,6 +1901,20 @@ class Wizard:
             if method is not None or mountpoint is not None:
                 self.allow_change_step(False)
                 self.dbfilter.edit_partition(devpart, method, mountpoint)
+
+    def on_partition_edit_use_combo_changed (self, combobox):
+        model = combobox.get_model()
+        iterator = combobox.get_active_iter()
+        # If the selected method isn't a filesystem, then selecting a mount
+        # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
+        # have to hardcode the list of known filesystems here.
+        known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
+                             'fat16', 'fat32')
+        if iterator is None or model[iterator][0] not in known_filesystems:
+            self.partition_edit_mount_combo.child.set_text('')
+            self.partition_edit_mount_combo.set_sensitive(False)
+        else:
+            self.partition_edit_mount_combo.set_sensitive(True)
 
     def on_partition_list_treeview_button_press_event (self, widget, event):
         if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:

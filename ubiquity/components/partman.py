@@ -159,9 +159,9 @@ class Partman(PartmanAuto):
                 for fs in self.scripts('/lib/partman/valid_filesystems'):
                     if fs == 'ntfs':
                         continue
-                    yield fs
+                    yield (method, fs)
             else:
-                yield method
+                yield (method, method)
 
     def get_current_method(self, partition):
         if 'method' in partition:

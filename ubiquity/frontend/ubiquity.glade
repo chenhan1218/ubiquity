@@ -2209,6 +2209,7 @@ Make sure to remove the CD when restarting the computer, otherwise it will start
                         <child>
                           <widget class="GtkComboBox" id="partition_create_use_combo">
                             <property name="visible">True</property>
+                            <signal name="changed" handler="on_partition_create_use_combo_changed"/>
                           </widget>
                           <packing>
                             <property name="left_attach">1</property>
@@ -2467,6 +2468,7 @@ Make sure to remove the CD when restarting the computer, otherwise it will start
                         <child>
                           <widget class="GtkComboBox" id="partition_edit_use_combo">
                             <property name="visible">True</property>
+                            <signal name="changed" handler="on_partition_edit_use_combo_changed"/>
                           </widget>
                           <packing>
                             <property name="left_attach">1</property>
