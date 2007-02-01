@@ -2,6 +2,8 @@ ubiquity (1.3.16) UNRELEASED; urgency=low
 
   * New partitioner: Fix a crash if the edit dialog is OKed with neither
     method nor mountpoint changed.
+  * GTK frontend: Fix re-raising of exceptions to (a) work and (b) interact
+    properly with apport's Python hook.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Jan 2007 23:25:34 +0000
 
