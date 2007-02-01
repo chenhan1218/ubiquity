@@ -87,6 +87,7 @@ BREADCRUMB_MAX_STEP = 6
 class Wizard:
 
     def __init__(self, distro):
+        self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
         # declare attributes
@@ -185,7 +186,7 @@ class Wizard:
         print >>sys.stderr, tbtext
 
         if os.path.exists('/usr/share/apport/apport-gtk'):
-            raise
+            self.previous_excepthook(exctype, excvalue, exctb)
         else:
             self.crash_detail_label.set_text(tbtext)
             self.crash_dialog.run()
