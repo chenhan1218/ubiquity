@@ -1,3 +1,9 @@
+ubiquity (1.3.17) UNRELEASED; urgency=low
+
+  * Fix build failure due to console-setup fix.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  1 Feb 2007 08:26:20 +0000
+
 ubiquity (1.3.16) feisty; urgency=low
 
   * New partitioner: Fix a crash if the edit dialog is OKed with neither
