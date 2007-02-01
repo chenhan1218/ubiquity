@@ -1,8 +1,8 @@
-ubiquity (1.3.17) UNRELEASED; urgency=low
+ubiquity (1.3.17) feisty; urgency=low
 
   * Fix build failure due to console-setup fix.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu,  1 Feb 2007 08:26:20 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  1 Feb 2007 08:29:23 +0000
 
 ubiquity (1.3.16) feisty; urgency=low
 
