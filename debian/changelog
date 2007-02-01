@@ -1,9 +1,15 @@
-ubiquity (1.3.17) UNRELEASED; urgency=low
+ubiquity (1.3.18) UNRELEASED; urgency=low
 
   * Disable the mountpoint combo box when creating or editing a partition if
     the method is changed to something other than a filesystem.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Jan 2007 19:48:26 +0000
+
+ubiquity (1.3.17) feisty; urgency=low
+
+  * Fix build failure due to console-setup fix.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  1 Feb 2007 08:29:23 +0000
 
 ubiquity (1.3.16) feisty; urgency=low
 
