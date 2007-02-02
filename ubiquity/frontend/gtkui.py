@@ -1771,6 +1771,14 @@ class Wizard:
             self.partition_create_type_primary.hide()
             self.partition_create_type_logical.hide()
 
+        # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
+        # partman expects.
+        max_size_mb = int(partition['parted']['size']) / 1000000
+        self.partition_create_size_spinbutton.set_adjustment(
+            gtk.Adjustment(value=max_size_mb, upper=max_size_mb,
+                           step_incr=1, page_incr=100, page_size=100))
+        self.partition_create_size_spinbutton.set_value(max_size_mb)
+
         self.partition_create_use_combo.clear()
         renderer = gtk.CellRendererText()
         self.partition_create_use_combo.pack_start(renderer)
@@ -1815,7 +1823,8 @@ class Wizard:
 
             self.allow_change_step(False)
             self.dbfilter.create_partition(
-                devpart, self.partition_create_size_entry.get_text(),
+                devpart,
+                str(self.partition_create_size_spinbutton.get_value()),
                 prilog, place, method, mountpoint)
 
     def on_partition_create_use_combo_changed (self, combobox):
@@ -1835,9 +1844,24 @@ class Wizard:
 
         self.partition_edit_dialog.show_all()
 
-        if 'can_resize' not in partition or not partition['can_resize']:
+        current_size = None
+        if ('can_resize' not in partition or not partition['can_resize'] or
+            'resize_min_size' not in partition or
+            'resize_max_size' not in partition):
             self.partition_edit_size_label.hide()
-            self.partition_edit_size_entry.hide()
+            self.partition_edit_size_spinbutton.hide()
+        else:
+            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
+            # partman expects.
+            min_size_mb = int(partition['resize_min_size']) / 1000000
+            cur_size_mb = int(partition['parted']['size']) / 1000000
+            max_size_mb = int(partition['resize_max_size']) / 1000000
+            self.partition_edit_size_spinbutton.set_adjustment(
+                gtk.Adjustment(value=cur_size_mb, lower=min_size_mb,
+                               upper=max_size_mb,
+                               step_incr=1, page_incr=100, page_size=100))
+            self.partition_edit_size_spinbutton.set_value(cur_size_mb)
+            current_size = self.partition_edit_size_spinbutton.get_value()
 
         self.partition_edit_use_combo.clear()
         renderer = gtk.CellRendererText()
@@ -1885,6 +1909,10 @@ class Wizard:
         self.partition_edit_dialog.hide()
 
         if response == gtk.RESPONSE_OK:
+            size = None
+            if current_size is not None:
+                size = self.partition_edit_size_spinbutton.get_value()
+
             method_iter = self.partition_edit_use_combo.get_active_iter()
             if method_iter is None:
                 method = None
@@ -1894,14 +1922,19 @@ class Wizard:
 
             mountpoint = self.partition_edit_mount_combo.child.get_text()
 
+            if (current_size is not None and size is not None and
+                current_size == size):
+                size = None
             if method == current_method:
                 method = None
             if mountpoint == current_mountpoint:
                 mountpoint = None
 
-            if method is not None or mountpoint is not None:
+            if (size is not None or method is not None or
+                mountpoint is not None):
                 self.allow_change_step(False)
-                self.dbfilter.edit_partition(devpart, method, mountpoint)
+                self.dbfilter.edit_partition(devpart, str(size),
+                                             method, mountpoint)
 
     def on_partition_edit_use_combo_changed (self, combobox):
         model = combobox.get_model()

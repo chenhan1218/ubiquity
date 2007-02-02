@@ -18,6 +18,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import os
+import re
 
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import parted_server
@@ -61,6 +62,8 @@ class Partman(PartmanAuto):
                           '^partman/free_space$',
                           '^partman/active_partition$',
                           '^partman-partitioning/new_partition_(size|type|place)$',
+                          '^partman-partitioning/confirm_resize$',
+                          '^partman-partitioning/new_size$',
                           '^partman-target/choose_method$',
                           '^partman-basicfilesystems/(fat_mountpoint|mountpoint|mountpoint_manual)$',
                           '^partman/exception_handler$',
@@ -195,11 +198,30 @@ class Partman(PartmanAuto):
             self.debug('Partman: update_partitions = %s',
                        self.update_partitions)
 
+    def subst(self, question, key, value):
+        if question == 'partman-partitioning/new_size':
+            if self.building_cache:
+                state = self.__state[-1]
+                assert state[0] == 'partman/active_partition'
+                partition = self.partition_cache[state[1]]
+                if key == 'MINSIZE':
+                    partition['resize_min_size'] = self.parse_size(value)
+                elif key == 'MAXSIZE':
+                    partition['resize_max_size'] = self.parse_size(value)
+        PartmanAuto.subst(self, question, key, value)
+
     def error(self, priority, question):
         if question == 'partman-partitioning/bad_new_partition_size':
             if self.creating_partition:
                 # Break out of creating the partition.
                 self.creating_partition['bad_size'] = True
+        elif question in ('partman-partitioning/bad_new_size',
+                          'partman-partitioning/big_new_size',
+                          'partman-partitioning/small_new_size',
+                          'partman-partitioning/new_size_commit_failed'):
+            if self.editing_partition:
+                # Break out of resizing the partition.
+                self.editing_partition['bad_size'] = True
         return PartmanAuto.error(self, priority, question)
 
     def run(self, priority, question):
@@ -488,7 +510,11 @@ class Partman(PartmanAuto):
             if self.creating_partition:
                 if 'bad_size' in self.creating_partition:
                     return False
-                self.preseed(question, self.creating_partition['size'])
+                size = self.creating_partition['size']
+                if re.search(r'^[0-9.]+$', size):
+                    # ensure megabytes just in case partman's semantics change
+                    size += 'M'
+                self.preseed(question, size)
                 return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
@@ -556,6 +582,7 @@ class Partman(PartmanAuto):
                     elif arg == 'format':
                         partition['can_activate_format'] = True
                     elif arg == 'resize':
+                        visit.append((script, arg, option))
                         partition['can_resize'] = True
                 if visit:
                     partition['active_partition_visit'] = visit
@@ -593,6 +620,11 @@ class Partman(PartmanAuto):
                         return True
 
                 visit = []
+                if (self.editing_partition and
+                    'size' in request and request['size'] is not None):
+                    scripts = self.find_script(menu_options, None, 'resize')
+                    if scripts:
+                        visit.append(scripts[0])
                 for item in ('method', 'mountpoint', 'format'):
                     if item not in request or request[item] is None:
                         continue
@@ -619,6 +651,47 @@ class Partman(PartmanAuto):
                 self.deleting_partition = None
                 return True
 
+            else:
+                raise AssertionError, "Arrived at %s unexpectedly" % question
+
+        elif question == 'partman-partitioning/confirm_resize':
+            if self.building_cache:
+                state = self.__state[-1]
+                assert state[0] == 'partman/active_partition'
+                # Proceed through to asking for the size; don't worry, we'll
+                # back up from there.
+                self.preseed(question, 'true')
+                return True
+            elif self.editing_partition:
+                response = self.frontend.question_dialog(
+                    self.description(question),
+                    self.extended_description(question),
+                    ('ubiquity/text/go_back', 'ubiquity/text/continue'))
+                if response is None or response == 'ubiquity/text/continue':
+                    self.preseed(question, 'true')
+                else:
+                    self.preseed(question, 'false')
+                return True
+            else:
+                raise AssertionError, "Arrived at %s unexpectedly" % question
+
+        elif question == 'partman-partitioning/new_size':
+            if not self.__state:
+                # PartmanAuto will handle this.
+                pass
+            elif self.building_cache:
+                # subst() should have gathered the necessary information.
+                # Back up.
+                return False
+            elif self.editing_partition:
+                if 'bad_size' in self.editing_partition:
+                    return False
+                size = self.editing_partition['size']
+                if re.search(r'^[0-9.]+$', size):
+                    # ensure megabytes just in case partman's semantics change
+                    size += 'M'
+                self.preseed(question, size)
+                return True
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
@@ -739,11 +812,12 @@ class Partman(PartmanAuto):
         }
         self.exit_ui_loops()
 
-    def edit_partition(self, devpart,
+    def edit_partition(self, devpart, size=None,
                        method=None, mountpoint=None, format=None):
         assert self.current_question == 'partman/choose_partition'
         self.editing_partition = {
             'devpart': devpart,
+            'size': size,
             'method': method,
             'mountpoint': mountpoint,
             'format': format
