@@ -62,7 +62,9 @@ class Partman(PartmanAuto):
                           '^partman/active_partition$',
                           '^partman-partitioning/new_partition_(size|type|place)$',
                           '^partman-target/choose_method$',
-                          '^partman-basicfilesystems/(fat_mountpoint|mountpoint|mountpoint_manual)$'])
+                          '^partman-basicfilesystems/(fat_mountpoint|mountpoint|mountpoint_manual)$',
+                          '^partman/exception_handler$',
+                          '^partman/exception_handler_note$'])
         prep = list(prep)
         prep[1] = questions
         return prep
