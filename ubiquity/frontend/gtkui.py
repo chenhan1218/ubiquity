@@ -2204,7 +2204,7 @@ class Wizard:
         if fatal:
             self.return_to_autopartitioning()
 
-    def question_dialog (self, title, msg, option_templates):
+    def question_dialog (self, title, msg, options, use_templates=True):
         self.allow_change_step(True)
         if self.current_page is not None:
             transient = self.live_installer
@@ -2213,10 +2213,13 @@ class Wizard:
         if not msg:
             msg = title
         buttons = []
-        for option_template in option_templates:
-            text = get_string(option_template, self.locale)
+        for option in options:
+            if use_templates:
+                text = get_string(option, self.locale)
+            else:
+                text = option
             if text is None:
-                text = option_template
+                text = option
             # Work around PyGTK bug; each button text must actually be a
             # subtype of str, which unicode isn't.
             text = str(text)
@@ -2233,7 +2236,7 @@ class Wizard:
             # something other than a button press, probably destroyed
             return None
         else:
-            return option_templates[response - 1]
+            return options[response - 1]
 
 
     def refresh (self):
