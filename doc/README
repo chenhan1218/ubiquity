@@ -139,6 +139,12 @@ filesystem.manifest-desktop after copying the live filesystem. This allows
 it to ensure that, for example, Ubiquity itself doesn't end up on the target
 system.
 
+Language packs for the selected language are installed by default, using the
+Ubuntu naming scheme of language-pack-$LL and language-support-$LL. If you
+want to get rid of these (for example because their dependencies are
+inconvenient), then you can preseed pkgsel/language-packs to the empty
+string.
+
 If /cdrom/.disk/release_notes_url is present, a link to the release notes
 will be displayed on the language page. Instances of the string ${LANG} in
 that URL will be replaced with the locale, with any encoding removed (e.g.

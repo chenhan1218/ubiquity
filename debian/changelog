@@ -8,6 +8,8 @@ ubiquity (1.3.18) UNRELEASED; urgency=low
     megabytes (LP: #82848).
   * New partitioner: Implement resizing. Ask for the size using a spinbutton
     (in megabytes) rather than a text entry field.
+  * doc/README: Add comment about language pack installation following a
+    query from Telmo Baía.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Jan 2007 19:48:26 +0000
 
