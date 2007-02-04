@@ -10,6 +10,7 @@ ubiquity (1.3.18) UNRELEASED; urgency=low
       rather than a text entry field.
     - Offer 'fat16' and 'fat32' filesystem types for new partitions rather
       than the non-existent 'fat' (LP: #83211).
+    - Fix crash when backing up to automatic partitioning page (LP: #83230).
   * doc/README: Add comment about language pack installation following a
     query from Telmo Baía.
 
