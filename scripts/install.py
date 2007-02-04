@@ -988,7 +988,7 @@ class Install:
         try:
             participate = self.db.get('popularity-contest/participate')
             self.set_debconf('popularity-contest/participate', participate)
-        except DebconfError:
+        except debconf.DebconfError:
             pass
 
         self.chrex('mount', '-t', 'proc', 'proc', '/proc')
