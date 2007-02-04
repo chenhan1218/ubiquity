@@ -6,6 +6,7 @@ ubiquity (1.3.18) UNRELEASED; urgency=low
     - Handle partman/exception_handler and partman/exception_handler_note
       (LP: #82848).
     - Note that unadorned sizes are assumed to be in megabytes (LP: #82848).
+    - Display current partition sizes in megabytes (part of LP: #83166).
     - Implement resizing. Ask for the size using a spinbutton (in megabytes)
       rather than a text entry field.
     - Offer 'fat16' and 'fat32' filesystem types for new partitions rather

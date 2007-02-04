@@ -1694,7 +1694,10 @@ class Wizard:
         if 'id' not in partition:
             cell.set_property('text', '')
         else:
-            cell.set_property('text', partition['parted']['size'])
+            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
+            # partman expects.
+            size_mb = int(partition['parted']['size']) / 1000000
+            cell.set_property('text', '%d MB' % size_mb)
 
     def partman_popup (self, widget, event):
         if not self.allowed_change_step:
