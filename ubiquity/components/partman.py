@@ -163,8 +163,12 @@ class Partman(PartmanAuto):
             if method == 'filesystem':
                 for fs in self.scripts('/lib/partman/valid_filesystems'):
                     if fs == 'ntfs':
-                        continue
-                    yield (method, fs)
+                        pass
+                    elif fs == 'fat':
+                        yield (method, 'fat16')
+                        yield (method, 'fat32')
+                    else:
+                        yield (method, fs)
             else:
                 yield (method, method)
 

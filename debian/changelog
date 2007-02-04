@@ -8,6 +8,8 @@ ubiquity (1.3.18) UNRELEASED; urgency=low
     - Note that unadorned sizes are assumed to be in megabytes (LP: #82848).
     - Implement resizing. Ask for the size using a spinbutton (in megabytes)
       rather than a text entry field.
+    - Offer 'fat16' and 'fat32' filesystem types for new partitions rather
+      than the non-existent 'fat' (LP: #83211).
   * doc/README: Add comment about language pack installation following a
     query from Telmo Baía.
 
