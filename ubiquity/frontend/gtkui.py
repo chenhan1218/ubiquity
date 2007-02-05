@@ -1250,7 +1250,7 @@ class Wizard:
             self.set_current_page(self.steps.page_num(self.stepUserInfo))
             changed_page = True
         elif step == "stepPartAdvanced":
-            if 'UBIQUITY_NEW_PARTITIONER' not in self.environ:
+            if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
                 if self.gparted_subp is not None:
                     try:
                         print >>self.gparted_subp.stdin, "undo"
@@ -1262,7 +1262,7 @@ class Wizard:
             self.set_current_page(self.steps.page_num(self.stepPartAuto))
             changed_page = True
         elif step == "stepPartMountpoints":
-            if 'UBIQUITY_NEW_PARTITIONER' not in self.environ:
+            if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
                 self.gparted_loop()
         elif step == "stepReady":
             self.next.set_label("gtk-go-forward")
