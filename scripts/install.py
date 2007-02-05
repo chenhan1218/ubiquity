@@ -1000,6 +1000,11 @@ class Install:
             os.unlink('/target/etc/popularity-contest.conf')
         except OSError:
             pass
+        try:
+            participate = self.db.get('popularity-contest/participate')
+            self.set_debconf('popularity-contest/participate', participate)
+        except debconf.DebconfError:
+            pass
 
         self.chrex('mount', '-t', 'proc', 'proc', '/proc')
         self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')

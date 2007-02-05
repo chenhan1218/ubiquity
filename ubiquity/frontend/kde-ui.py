@@ -1713,19 +1713,22 @@ class Wizard:
         if fatal:
             self.return_to_autopartitioning()
 
-    def question_dialog (self, title, msg, option_templates):
+    def question_dialog (self, title, msg, options, use_templates=True):
         # I doubt we'll ever need more than three buttons.
-        assert len(option_templates) <= 3, option_templates
+        assert len(options) <= 3, options
 
         self.allow_change_step(True)
         buttons = []
-        for option_template in option_templates:
-            text = get_string(option_template, self.locale)
+        for option in options:
+            if use_templates:
+                text = get_string(option, self.locale)
+            else:
+                text = option
             if text is None:
-                text = option_template
+                text = option
             buttons.append(text)
-        # Convention for option_templates is to have the affirmative action
-        # last; KDE convention is to have it first.
+        # Convention for options is to have the affirmative action last; KDE
+        # convention is to have it first.
         affirmative = buttons.pop()
         buttons.insert(0, affirmative)
 
@@ -1738,17 +1741,17 @@ class Wizard:
         if response < 0:
             return None
         elif response == 0:
-            return option_templates[len(buttons) - 1]
+            return options[len(buttons) - 1]
         else:
-            return option_templates[response - 1]
+            return options[response - 1]
         """
         
         if response < 0:
             return None
         elif response == QMessageBox.Ok:
-            return option_templates[len(buttons) - 1]
+            return options[len(buttons) - 1]
         else:
-            return option_templates[response - 1]
+            return options[response - 1]
 
     def refresh (self):
         self.app.processEvents()

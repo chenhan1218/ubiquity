@@ -136,7 +136,8 @@ endif
 	install d-i/source/clock-setup/finish-install.d/10clock-setup \
 		debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
 	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
-	sed 's,/usr/share/console-setup-mini/console-setup.config,/var/lib/dpkg/info/console-setup.config,g' \
+	sed -e 's,/usr/share/console-setup-mini/console-setup.config,/var/lib/dpkg/info/console-setup.config,g' \
+	    -e 's,^\([[:space:]]*\)update-initramfs,\1: update-initramfs,' \
 		d-i/source/console-setup/debian/console-setup.postinst \
 		> debian/ubiquity/usr/lib/ubiquity/console-setup/console-setup.postinst
 	chmod +x debian/ubiquity/usr/lib/ubiquity/console-setup/console-setup.postinst
@@ -205,6 +206,7 @@ binary-indep: install
 #	dh_installexamples
 	dh_installdebconf
 #	dh_installman
+	dh_link
 	dh_strip
 	dh_compress
 	dh_fixperms
@@ -238,6 +240,7 @@ binary-arch: install
 	grep-dctrl -v -FTemplate base-installer/ d-i/templates \
 		>> debian/ubiquity/DEBIAN/templates
 #	dh_installman
+	dh_link
 	dh_strip
 	dh_compress
 	dh_fixperms
