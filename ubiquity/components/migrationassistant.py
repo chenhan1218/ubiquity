@@ -60,8 +60,10 @@ class MigrationAssistant(FilteredCommand):
                         fd.close()
                         line = [''] * 8
                         line[0:len(pieces)] = pieces
-                        if line[5] not in ['F', 'f', 'swap']:
-                            parts.append(partition[5])
+                        formatted = ['F', 'f', 'swap']
+                        if line[5] not in formatted:
+                            if line[4] not in formatted:
+                                parts.append(partition[5])
 
                 ret = []
                 for choice in self.choices(question):

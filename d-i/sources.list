@@ -1,2 +1,1 @@
 deb-src http://archive.ubuntu.com/ubuntu feisty main
-deb-src file:///home/evan/torvalds/archive ./
