@@ -1751,6 +1751,8 @@ class Wizard:
         partition_list_menu.popup(None, None, None, button, time)
 
     def partman_create_dialog (self, devpart, partition):
+        if not self.allowed_change_step:
+            return
         if not isinstance(self.dbfilter, partman.Partman):
             return
 
@@ -1844,6 +1846,8 @@ class Wizard:
             self.partition_create_mount_combo.set_sensitive(True)
 
     def partman_edit_dialog (self, devpart, partition):
+        if not self.allowed_change_step:
+            return
         if not isinstance(self.dbfilter, partman.Partman):
             return
 
@@ -1972,6 +1976,8 @@ class Wizard:
 
     def on_partition_list_treeview_row_activated (self, treeview,
                                                   path, view_column):
+        if not self.allowed_change_step:
+            return
         model = treeview.get_model()
         try:
             devpart = model[path][0]
@@ -1999,6 +2005,8 @@ class Wizard:
 
     def on_partition_list_menu_new_label_activate (self, menuitem,
                                                    devpart, partition):
+        if not self.allowed_change_step:
+            return
         if not isinstance(self.dbfilter, partman.Partman):
             return
         self.allow_change_step(False)
@@ -2014,6 +2022,8 @@ class Wizard:
 
     def on_partition_list_menu_delete_activate (self, menuitem,
                                                 devpart, partition):
+        if not self.allowed_change_step:
+            return
         if not isinstance(self.dbfilter, partman.Partman):
             return
         self.allow_change_step(False)
