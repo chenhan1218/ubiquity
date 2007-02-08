@@ -374,6 +374,9 @@ class Wizard:
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
 
+        if 'UBIQUITY_DEBUG' in os.environ:
+            self.password_debug_warning_label.show()
+
         if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
             self.embedded.hide()
             self.part_advanced_vpaned.show()
@@ -459,7 +462,7 @@ class Wizard:
                 attrs = pango.AttrList()
                 attrs.insert(pango.AttrStyle(pango.STYLE_ITALIC, 0, textlen))
                 widget.set_attributes(attrs)
-            elif ('group_label' in name or
+            elif ('group_label' in name or 'warning_label' in name or
                   name in ('drives_label', 'partition_method_label',
                            'mountpoint_label', 'size_label', 'device_label',
                            'format_label')):

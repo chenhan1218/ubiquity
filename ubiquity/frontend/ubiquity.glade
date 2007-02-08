@@ -870,6 +870,17 @@ Please choose the language used for the installation process. This language will
                                       </packing>
                                     </child>
                                     <child>
+                                      <widget class="GtkLabel" id="password_debug_warning_label">
+                                        <property name="xalign">0</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;You are running in debugging mode. Do not use a valuable password!&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                        <property name="selectable">True</property>
+                                      </widget>
+                                      <packing>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
+                                    <child>
                                       <widget class="GtkAlignment" id="alignment22">
                                         <property name="visible">True</property>
                                         <property name="xalign">0</property>
@@ -974,7 +985,7 @@ Please choose the language used for the installation process. This language will
                                         </child>
                                       </widget>
                                       <packing>
-                                        <property name="position">1</property>
+                                        <property name="position">2</property>
                                       </packing>
                                     </child>
                                   </widget>

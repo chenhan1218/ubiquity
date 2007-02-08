@@ -368,6 +368,9 @@ class Wizard:
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
 
+        self.userinterface.password_debug_warning_label.setVisible(
+            'UBIQUITY_DEBUG' in os.environ)
+
     def translate_widgets(self, parentWidget=None):
         if self.locale is None:
             languages = []
@@ -421,7 +424,7 @@ class Wizard:
                 widget.setText("<h2>" + text + "</h2>")
             elif 'extra_label' in name:
                 widget.setText("<em>" + text + "</em>")
-            elif ('group_label' in name or
+            elif ('group_label' in name or 'warning_label' in name or
                   name in ('drives_label', 'partition_method_label',
                            'mountpoint_label', 'size_label', 'device_label',
                            'format_label')):
