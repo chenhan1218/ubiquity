@@ -1587,9 +1587,9 @@ class Wizard:
     def ma_user_error(self, error, user):
         # Note that 'user' is the original user.
         model = self.matreeview.get_model()
-        iter = model.get_iter(0)
-        while iter:
-            val = model.get_value(iter, 1)
+        iterator = model.get_iter(0)
+        while iterator:
+            val = model.get_value(iterator, 1)
             if user == val['user']:
                 newuser = val['newuser']
                 self.ma_new_users[newuser]['loginname-error'] = error
@@ -1598,63 +1598,63 @@ class Wizard:
                 # changes.  So we only change the selection if we need to,
                 # otherwise we just call update_selection directly.
                 selection = self.matreeview.get_selection()
-                if selection.iter_is_selected(iter):
+                if selection.iter_is_selected(iterator):
                     self.ma_update_selection()
                 else:
-                    selection.select_iter(iter)
+                    selection.select_iter(iterator)
                 break
-            iter = model.iter_next(iter)
+            iterator = model.iter_next(iterator)
 
     def ma_password_error(self, error, user):
         # Note that 'user' is the user we're importing to.
         model = self.matreeview.get_model()
-        iter = model.get_iter(0)
-        while iter:
-            val = model.get_value(iter, 1)
+        iterator = model.get_iter(0)
+        while iterator:
+            val = model.get_value(iterator, 1)
             if user == val['newuser']:
                 self.ma_new_users[user]['password-error'] = error
                 
                 selection = self.matreeview.get_selection()
-                if selection.iter_is_selected(iter):
+                if selection.iter_is_selected(iterator):
                     self.ma_update_selection()
                 else:
-                    selection.select_iter(iter)
+                    selection.select_iter(iterator)
                 break
-            iter = model.iter_next(iter)
+            iterator = model.iter_next(iterator)
 
     def ma_get_choices(self):
         return (self.ma_choices, self.ma_new_users)
 
     def ma_cb_toggle(self, cell, path, model=None):
-        iter = model.get_iter(path)
+        iterator = model.get_iter(path)
         checked = not cell.get_active()
-        model.set_value(iter, 0, checked)
+        model.set_value(iterator, 0, checked)
 
         # We're on a user checkbox.
-        if model.iter_children(iter):
+        if model.iter_children(iterator):
             if checked:
                 self.ma_userinfo.set_sensitive(True)
             else:
                 self.ma_userinfo.set_sensitive(False)
 
             if not cell.get_active():
-                model.get_value(iter, 1)['selected'] = True
+                model.get_value(iterator, 1)['selected'] = True
             else:
-                model.get_value(iter, 1)['selected'] = False
-            parent = iter
-            iter = model.iter_children(iter)
+                model.get_value(iterator, 1)['selected'] = False
+            parent = iterator
+            iterator = model.iter_children(iterator)
             items = []
-            while iter:
-                model.set_value(iter, 0, checked)
+            while iterator:
+                model.set_value(iterator, 0, checked)
                 if checked:
-                    items.append(model.get_value(iter, 1))
-                iter = model.iter_next(iter)
+                    items.append(model.get_value(iterator, 1))
+                iterator = model.iter_next(iterator)
             model.get_value(parent, 1)['items'] = items
 
         # We're on an item checkbox.
         else:
-            parent = model.iter_parent(iter)
-            item = model.get_value(iter, 1)
+            parent = model.iter_parent(iterator)
+            item = model.get_value(iterator, 1)
             items = model.get_value(parent, 1)['items']
 
             if checked:
@@ -1698,11 +1698,11 @@ class Wizard:
                 val['password-error'] = self.ma_password_error_reason.get_text()
 
     def ma_update_selection(self):
-        model, iter = self.matreeview.get_selection().get_selected()
+        model, iterator = self.matreeview.get_selection().get_selected()
         self.ma_loginname_error_box.hide()
         self.ma_password_error_box.hide()
 
-        newuser = model.get_value(iter, 1)['newuser']
+        newuser = model.get_value(iterator, 1)['newuser']
         try:
             val = self.ma_new_users[newuser]
             if newuser == '-':
@@ -1733,12 +1733,13 @@ class Wizard:
         if self.ma_previous_selection:
             self.ma_seed_userinfo()
 
-        model, iter = selection.get_selected()
-        if not iter: return
-        if model.iter_parent(iter):
-            iter = model.iter_parent(iter)
+        model, iterator = selection.get_selected()
+        if not iterator:
+            return
+        if model.iter_parent(iterator):
+            iterator = model.iter_parent(iterator)
         
-        if model.get_value(iter, 0):
+        if model.get_value(iterator, 0):
             self.ma_userinfo.set_sensitive(True)
         else:
             self.ma_userinfo.set_sensitive(False)
@@ -1757,14 +1758,14 @@ class Wizard:
         
     def ma_set_choices(self, choices):
 
-        def cell_data_func(column, cell, model, iter):
-            val = model.get_value(iter, 1)
-            if model.iter_children(iter):
+        def cell_data_func(column, cell, model, iterator):
+            val = model.get_value(iterator, 1)
+            if model.iter_children(iterator):
                 # Windows XP...
                 text = '%s  <small><i>%s (%s)</i></small>' % \
                        (val['user'], val['os'], val['part'])
                 newuser = val['newuser']
-                if newuser and model.get_value(iter, 0):
+                if newuser and model.get_value(iterator, 0):
                     newuser = self.ma_new_users[newuser]
                     if newuser['password-error'] or newuser['loginname-error']:
                         text = '<span foreground="red">%s  <small><i>%s' \
@@ -1772,7 +1773,7 @@ class Wizard:
                                (val['user'], val['os'], val['part'])
             else:
                 # Gaim, Yahoo, etc
-                text = model.get_value(iter, 1)
+                text = model.get_value(iterator, 1)
 
             cell.set_property("markup", text)
         # The user probably hit the back button.
