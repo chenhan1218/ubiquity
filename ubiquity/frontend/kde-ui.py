@@ -368,14 +368,19 @@ class Wizard:
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
 
+        self.userinterface.password_debug_warning_label.setVisible(
+            'UBIQUITY_DEBUG' in os.environ)
+
     def translate_widgets(self, parentWidget=None):
         if self.locale is None:
             languages = []
         else:
             languages = [self.locale]
-        get_translations(languages=languages,
-                         core_names=['ubiquity/text/%s' % q
-                                     for q in self.language_questions])
+        core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
+        for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
+                           'ok', 'quit'):
+            core_names.append('ubiquity/imported/%s' % stock_item)
+        get_translations(languages=languages, core_names=core_names)
 
         self.translate_widget_children(parentWidget)
 
@@ -394,19 +399,14 @@ class Wizard:
 
         text = get_string(widget.objectName(), lang)
 
-        if widget.objectName() == "next":
-            text = get_string("continue", lang) + " >"
-        elif widget.objectName() == "back":
-            text = "< " + get_string("go_back", lang)
-        elif str(widget.objectName()) == "UbiquityUIBase":
+        if str(widget.objectName()) == "UbiquityUIBase":
             text = get_string("live_installer", lang)
 
         if text is None:
             return
+        name = widget.objectName()
 
         if isinstance(widget, QLabel):
-            name = widget.objectName()
-
             if name == 'step_label':
                 global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
                 curstep = '?'
@@ -421,7 +421,7 @@ class Wizard:
                 widget.setText("<h2>" + text + "</h2>")
             elif 'extra_label' in name:
                 widget.setText("<em>" + text + "</em>")
-            elif ('group_label' in name or
+            elif ('group_label' in name or 'warning_label' in name or
                   name in ('drives_label', 'partition_method_label',
                            'mountpoint_label', 'size_label', 'device_label',
                            'format_label')):
@@ -435,7 +435,11 @@ class Wizard:
                 widget.setText(text)
 
         elif isinstance(widget, QPushButton):
-            widget.setText(text)
+            if name == 'next':
+                text = text + " >"
+            elif name == 'back':
+                text = "< " + text
+            widget.setText(text.replace('_', '&', 1))
 
         elif isinstance(widget, QWidget) and str(widget.objectName()) == "UbiquityUIBase":
             widget.setWindowTitle(text)

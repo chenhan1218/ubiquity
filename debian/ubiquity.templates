@@ -94,6 +94,10 @@ Template: ubiquity/text/password_label
 Type: text
 _Description: Choose a password to keep your account safe.
 
+Template: ubiquity/text/password_debug_warning_label
+Type: text
+_Description: You are running in debugging mode. Do not use a valuable password!
+
 Template: ubiquity/text/password_extra_label
 Type: text
 _Description:

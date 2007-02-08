@@ -327,19 +327,34 @@ string_questions = {
     'grub_device_dialog': 'grub-installer/bootdev',
     'grub_device_label': 'grub-installer/bootdev',
     'popcon_checkbutton': 'popularity-contest/participate',
+    # TODO: it would be nice to have a neater way to handle stock buttons
+    'cancel': 'ubiquity/imported/cancel',
+    'back': 'ubiquity/imported/go-back',
+    'next': 'ubiquity/imported/go-forward',
+    'cancelbutton': 'ubiquity/imported/cancel',
+    'exitbutton': 'ubiquity/imported/quit',
+    'closebutton1': 'ubiquity/imported/close',
+    'cancelbutton1': 'ubiquity/imported/cancel',
+    'okbutton1': 'ubiquity/imported/ok',
+    'advanced_cancelbutton': 'ubiquity/imported/cancel',
+    'advanced_okbutton': 'ubiquity/imported/ok',
 }
 
 string_extended = set('grub_device_label')
 
-def get_string(name, lang):
-    """Get the translation of a single string."""
+def map_widget_name(name):
+    """Map a widget name to its translatable template."""
     if '/' in name:
         question = name
     elif name in string_questions:
         question = string_questions[name]
     else:
         question = 'ubiquity/text/%s' % name
+    return question
 
+def get_string(name, lang):
+    """Get the translation of a single string."""
+    question = map_widget_name(name)
     translations = get_translations()
     if question not in translations:
         return None

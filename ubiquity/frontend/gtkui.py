@@ -131,7 +131,9 @@ class Wizard:
         self.language_questions = ('live_installer', 'welcome_heading_label',
                                    'welcome_text_label', 'release_notes_label',
                                    'release_notes_url', 'step_label',
-                                   'cancel', 'back', 'next')
+                                   'cancel', 'back', 'next',
+                                   'warning_dialog', 'warning_dialog_label',
+                                   'cancelbutton', 'exitbutton')
         self.allowed_change_step = True
         self.allowed_go_forward = True
         self.username_combo = None
@@ -382,6 +384,9 @@ class Wizard:
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
 
+        if 'UBIQUITY_DEBUG' in os.environ:
+            self.password_debug_warning_label.show()
+
         if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
             self.embedded.hide()
             self.part_advanced_vpaned.show()
@@ -427,9 +432,11 @@ class Wizard:
             languages = []
         else:
             languages = [self.locale]
-        get_translations(languages=languages,
-                         core_names=['ubiquity/text/%s' % q
-                                     for q in self.language_questions])
+        core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
+        for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
+                           'ok', 'quit'):
+            core_names.append('ubiquity/imported/%s' % stock_item)
+        get_translations(languages=languages, core_names=core_names)
 
         for widget in self.glade.get_widget_prefix(""):
             self.translate_widget(widget, self.locale)
@@ -441,10 +448,9 @@ class Wizard:
         text = get_string(widget.get_name(), lang)
         if text is None:
             return
+        name = widget.get_name()
 
         if isinstance(widget, gtk.Label):
-            name = widget.get_name()
-
             if name == 'step_label':
                 global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
                 curstep = '?'
@@ -467,7 +473,7 @@ class Wizard:
                 attrs = pango.AttrList()
                 attrs.insert(pango.AttrStyle(pango.STYLE_ITALIC, 0, textlen))
                 widget.set_attributes(attrs)
-            elif ('group_label' in name or
+            elif ('group_label' in name or 'warning_label' in name or
                   name in ('drives_label', 'partition_method_label',
                            'mountpoint_label', 'size_label', 'device_label',
                            'format_label')):
@@ -476,7 +482,18 @@ class Wizard:
                 widget.set_attributes(attrs)
 
         elif isinstance(widget, gtk.Button):
-            widget.set_label(text)
+            question = map_widget_name(widget.get_name())
+            if question.startswith('ubiquity/imported/'):
+                if '|' in text:
+                    widget.set_label(text.split('|', 1)[1])
+                else:
+                    widget.set_label(text)
+                stock_id = question[18:]
+                widget.set_use_stock(False)
+                widget.set_image(gtk.image_new_from_stock(
+                    'gtk-%s' % stock_id, gtk.ICON_SIZE_BUTTON))
+            else:
+                widget.set_label(text)
 
         elif isinstance(widget, gtk.Window):
             widget.set_title(text)
@@ -2068,6 +2085,8 @@ class Wizard:
         partition_list_menu.popup(None, None, None, button, time)
 
     def partman_create_dialog (self, devpart, partition):
+        if not self.allowed_change_step:
+            return
         if not isinstance(self.dbfilter, partman.Partman):
             return
 
@@ -2161,6 +2180,8 @@ class Wizard:
             self.partition_create_mount_combo.set_sensitive(True)
 
     def partman_edit_dialog (self, devpart, partition):
+        if not self.allowed_change_step:
+            return
         if not isinstance(self.dbfilter, partman.Partman):
             return
 
@@ -2289,6 +2310,8 @@ class Wizard:
 
     def on_partition_list_treeview_row_activated (self, treeview,
                                                   path, view_column):
+        if not self.allowed_change_step:
+            return
         model = treeview.get_model()
         try:
             devpart = model[path][0]
@@ -2316,6 +2339,8 @@ class Wizard:
 
     def on_partition_list_menu_new_label_activate (self, menuitem,
                                                    devpart, partition):
+        if not self.allowed_change_step:
+            return
         if not isinstance(self.dbfilter, partman.Partman):
             return
         self.allow_change_step(False)
@@ -2331,6 +2356,8 @@ class Wizard:
 
     def on_partition_list_menu_delete_activate (self, menuitem,
                                                 devpart, partition):
+        if not self.allowed_change_step:
+            return
         if not isinstance(self.dbfilter, partman.Partman):
             return
         self.allow_change_step(False)
