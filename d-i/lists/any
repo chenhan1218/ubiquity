@@ -6,6 +6,7 @@ console-setup
 debian-installer-utils
 hw-detect
 localechooser
+migration-assistant
 partconf
 partman-auto
 partman-base

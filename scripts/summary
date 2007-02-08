@@ -1,5 +1,5 @@
 #! /bin/sh
-set -e
+#set -e
 
 . /usr/share/debconf/confmodule
 
@@ -17,6 +17,33 @@ db_get passwd/username
 db_subst ubiquity/summary USERNAME "$RET"
 db_get time/zone # actually continent/city (usually)
 db_subst ubiquity/summary LOCATION "$RET"
+
+# Migration Assistant
+ret=""
+db_get migration-assistant/partitions
+OLD_IFS=$IFS
+IFS='
+'
+partitions=`echo "$RET" | sed -e 's/, /\n/g'`
+for choice in $partitions; # Microsoft Windows XP Professional (/dev/hda1)
+do
+	ret=$ret$choice":\n"
+	part=$(expr match "$choice" '.*/\(.*\))$') # hda1
+	
+	db_get migration-assistant/$part/users
+	if [ -z "$RET" ]; then
+		ret=$ret"None\n"
+	fi
+	users=`echo "$RET" | sed -e 's/, /\n/g'`
+	for user in $users; do
+		ret=$ret$user": "
+		db_get migration-assistant/$part/$user/items
+		ret=$ret$RET"\n"
+	done
+	ret=$ret"\n"
+done
+IFS=$OLD_IFS
+db_subst ubiquity/summary MIGRATE "$ret"
 
 # We need to run this to get hold of the partitioning summary. Our component
 # takes care of ensuring that changes are not actually committed.

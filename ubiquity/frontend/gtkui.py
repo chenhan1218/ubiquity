@@ -12,6 +12,7 @@
 # - Antonio Olmo Titos <aolmo#emergya._info>
 # - Gumer Coronel Pérez <gcoronel#emergya._info>
 # - Colin Watson <cjwatson@ubuntu.com>
+# - Evan Dandrea <evand@ubuntu.com>
 #
 # This file is part of Ubiquity.
 #
@@ -58,7 +59,7 @@ from ubiquity.misc import *
 from ubiquity.settings import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_auto, partman_commit, \
-                                summary, install
+                                summary, install, migrationassistant
 import ubiquity.emap
 import ubiquity.tz
 import ubiquity.progressposition
@@ -76,13 +77,14 @@ BREADCRUMB_STEPS = {
     "stepLanguage": 1,
     "stepLocation": 2,
     "stepKeyboardConf": 3,
-    "stepUserInfo": 4,
-    "stepPartAuto": 5,
-    "stepPartAdvanced": 5,
-    "stepPartMountpoints": 5,
-    "stepReady": 6
+    "stepPartAuto": 4,
+    "stepPartAdvanced": 4,
+    "stepPartMountpoints": 4,
+    "stepMigrationAssistant": 5,
+    "stepUserInfo": 6,
+    "stepReady": 7
 }
-BREADCRUMB_MAX_STEP = 6
+BREADCRUMB_MAX_STEP = 7
 
 class Wizard:
 
@@ -134,6 +136,7 @@ class Wizard:
                                    'cancelbutton', 'exitbutton')
         self.allowed_change_step = True
         self.allowed_go_forward = True
+        self.username_combo = None
 
         self.laptop = ex("laptop-detect")
 
@@ -280,6 +283,9 @@ class Wizard:
             # Enter doesn't activate the default widget. Work around this.
             self.next.grab_focus()
 
+        if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+            self.steps.remove_page(self.steps.page_num(self.stepMigrationAssistant))
+
         while self.current_page is not None:
             if not self.installing:
                 # Make sure any started progress bars are stopped.
@@ -292,7 +298,9 @@ class Wizard:
             if current_name == "stepLanguage":
                 self.dbfilter = language.Language(self)
                 gtk.link_button_set_uri_hook(self.link_button_browser)
-            elif current_name == "stepLocation":
+            elif current_name == "stepMigrationAssistant":
+                self.dbfilter = migrationassistant.MigrationAssistant(self)
+	    elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
                 self.dbfilter = console_setup.ConsoleSetup(self)
@@ -810,6 +818,16 @@ class Wizard:
             self.username_error_box.hide()
             self.password_error_box.hide()
             self.hostname_error_box.hide()
+        
+        if step == "stepMigrationAssistant":
+            for u in self.ma_new_users.iterkeys():
+                self.ma_new_users[u]['password-error'] = ''
+                self.ma_new_users[u]['loginname-error'] = ''
+            self.ma_seed_userinfo()
+            # To get a watch cursor and non-sensitive next button before the
+            # next page.
+            while gtk.events_pending():
+                gtk.main_iteration(False)
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -865,10 +883,6 @@ class Wizard:
         # Keyboard
         elif step == "stepKeyboardConf":
             self.steps.next_page()
-            self.info_loop(None)
-        # Identification
-        elif step == "stepUserInfo":
-            self.process_identification()
         # Automatic partitioning
         elif step == "stepPartAuto":
             self.process_autopartitioning()
@@ -878,6 +892,14 @@ class Wizard:
         # Mountpoints
         elif step == "stepPartMountpoints":
             self.mountpoints_to_summary()
+	# Migration Assistant		
+	elif step == "stepMigrationAssistant":
+	    self.steps.next_page()
+            self.ma_configure_usersetup()
+            self.info_loop(None)
+        # Identification
+        elif step == "stepUserInfo":
+            self.process_identification()
         # Ready to install
         elif step == "stepReady":
             self.live_installer.hide()
@@ -934,7 +956,11 @@ class Wizard:
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.manual_partitioning = False
-            self.set_current_page(self.steps.page_num(self.stepReady))
+            if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+                self.info_loop(None)
+                self.set_current_page(self.steps.page_num(self.stepUserInfo))
+            else:
+                self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
 
 
     def gparted_crashed(self):
@@ -971,7 +997,11 @@ class Wizard:
         """Processing gparted to mountpoints step tasks."""
 
         if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
-            self.set_current_page(self.steps.page_num(self.stepReady))
+            if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+                self.info_loop(None)
+                self.set_current_page(self.steps.page_num(self.stepUserInfo))
+            else:
+                self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
             return
 
         self.gparted_fstype = {}
@@ -1241,6 +1271,8 @@ class Wizard:
             self.mountpoint_error_image.hide()
 
         self.manual_partitioning = True
+        if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+            self.info_loop(None)
         self.steps.next_page()
 
 
@@ -1264,7 +1296,7 @@ class Wizard:
         if step == "stepLocation":
             self.back.hide()
         elif step == "stepPartAuto":
-            self.set_current_page(self.steps.page_num(self.stepUserInfo))
+            self.set_current_page(self.steps.page_num(self.stepKeyboardConf))
             changed_page = True
         elif step == "stepPartAdvanced":
             if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
@@ -1281,9 +1313,12 @@ class Wizard:
         elif step == "stepPartMountpoints":
             if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
                 self.gparted_loop()
+        elif step == "stepMigrationAssistant":
+            self.set_current_page(self.previous_partitioning_page)
+            changed_page = True
         elif step == "stepReady":
             self.next.set_label("gtk-go-forward")
-            self.set_current_page(self.previous_partitioning_page)
+            self.steps.prev_page()
             changed_page = True
 
         if not changed_page:
@@ -1509,6 +1544,289 @@ class Wizard:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][0]
 
+    
+    def ma_configure_usersetup(self):
+
+        def selection_changed(sender):
+            if sender.get_active() >= 0:
+                user = self.ma_new_users[sender.child.get_text()]
+                self.fullname.set_text(user['fullname'])
+                self.password.set_text(user['password'])
+                self.verified_password.set_text(user['confirm'])
+        
+        def focus_out(sender, event):
+            user = self.username.get_text()
+            if user in self.ma_new_users.keys():
+                u = self.ma_new_users[user]
+                self.fullname.set_text(u['fullname'])
+                self.password.set_text(u['password'])
+                self.verified_password.set_text(u['confirm'])
+
+        # If the user pressed back.
+        if self.username_combo:
+            return
+
+        # Reconfigure username as a combobox without having to modify
+        # existing code.
+        self.username.destroy()
+        self.username_combo = gtk.combo_box_entry_new_text()
+        model = self.username_combo.get_model()
+        for k in self.ma_new_users.iterkeys():
+            if k != '-':
+                model.append([k])
+        
+        self.username = self.username_combo.child
+        self.username.set_width_chars(20)
+        self.username.set_name('username')
+        self.username_combo.connect('changed', selection_changed)
+        self.username.connect('changed', self.info_loop)
+        self.username.connect('focus-out-event', focus_out)
+        self.hbox45.pack_start(self.username_combo, False, False, 0)
+        self.username_combo.show_all()
+        
+    def ma_user_error(self, error, user):
+        # Note that 'user' is the original user.
+        model = self.matreeview.get_model()
+        iter = model.get_iter(0)
+        while(iter):
+            val = model.get_value(iter, 1)
+            if user == val['user']:
+                newuser = val['newuser']
+                self.ma_new_users[newuser]['loginname-error'] = error
+                
+                # selection_changed only gets emitted if the selection actually
+                # changes.  So we only change the selection if we need to,
+                # otherwise we just call update_selection directly.
+                selection = self.matreeview.get_selection()
+                if(selection.iter_is_selected(iter)):
+                    self.ma_update_selection()
+                else:
+                    selection.select_iter(iter)
+                break
+            iter = model.iter_next(iter)
+
+    def ma_password_error(self, error, user):
+        # Note that 'user' is the user we're importing to.
+        model = self.matreeview.get_model()
+        iter = model.get_iter(0)
+        while(iter):
+            val = model.get_value(iter, 1)
+            if user == val['newuser']:
+                self.ma_new_users[user]['password-error'] = error
+                
+                selection = self.matreeview.get_selection()
+                if(selection.iter_is_selected(iter)):
+                    self.ma_update_selection()
+                else:
+                    selection.select_iter(iter)
+                break
+            iter = model.iter_next(iter)
+
+    def ma_get_choices(self):
+        return (self.ma_choices, self.ma_new_users)
+
+    def ma_cb_toggle(self, cell, path, model=None):
+            iter = model.get_iter(path)
+            checked = not cell.get_active()
+            model.set_value(iter, 0, checked)
+            
+            # We're on a user checkbox.
+            if(model.iter_children(iter)):
+                    if checked:
+                        self.ma_userinfo.set_sensitive(True)
+                    else:
+                        self.ma_userinfo.set_sensitive(False)
+
+                    if not cell.get_active():
+                        model.get_value(iter, 1)['selected'] = True
+                    else:
+                        model.get_value(iter, 1)['selected'] = False
+                    parent = iter
+                    iter = model.iter_children(iter)
+                    items = []
+                    while(iter):
+                        model.set_value(iter, 0, checked)
+                        if checked:
+                            items.append(model.get_value(iter, 1))
+                        iter = model.iter_next(iter)
+                    model.get_value(parent, 1)['items'] = items
+
+            # We're on an item checkbox.
+            else:
+                parent = model.iter_parent(iter)
+                item = model.get_value(iter, 1)
+                items = model.get_value(parent, 1)['items']
+
+                if checked:
+                        items.append(item)
+                else:
+                        items.remove(item)
+
+    def ma_seed_userinfo(self):
+        sel = self.ma_previous_selection
+        if not sel:
+            return
+
+        m = sel[0]
+        i = sel[1]
+        newuser = self.ma_loginname.child.get_text()
+        if m.get_value(i, 0):
+            if not newuser:
+                # Use - as a key for a null username.
+                newuser = '-'
+            try:
+                val = self.ma_new_users[newuser]
+            except KeyError:
+                self.ma_new_users[newuser] = {}
+                val = self.ma_new_users[newuser]
+                val['loginname-error'] = ''
+                val['password-error'] = ''
+            
+            m.get_value(i, 1)['newuser'] = newuser
+            self.ma_loginname.set_model(gtk.ListStore(str))
+            for u in self.ma_new_users.iterkeys():
+                if u and u != '-':
+                    self.ma_loginname.append_text(u)
+            val['fullname'] = self.ma_fullname.get_text()
+            val['password'] = self.ma_password.get_text()
+            val['confirm'] = self.ma_confirm.get_text()
+            # We don't have to clear the username error because changing the
+            # username creates a new user.
+            if(val['password'] and (val['password'] == val['confirm'])):
+                val['password-error'] = ''
+            else:
+                val['password-error'] = self.ma_password_error_reason.get_text()
+
+    def ma_update_selection(self):
+        model, iter = self.matreeview.get_selection().get_selected()
+        self.ma_loginname_error_box.hide()
+        self.ma_password_error_box.hide()
+
+        newuser = model.get_value(iter, 1)['newuser']
+        try:
+            val = self.ma_new_users[newuser]
+            if newuser == '-':
+                self.ma_loginname.child.set_text('')
+            else:
+                self.ma_loginname.child.set_text(newuser)
+            
+            self.ma_fullname.set_text(val['fullname'])
+            self.ma_password.set_text(val['password'])
+            self.ma_confirm.set_text(val['confirm'])
+
+            error = val['loginname-error']
+            if error:
+                self.ma_loginname_error_reason.set_text(error)
+                self.ma_loginname_error_box.show()
+            error = val['password-error']
+            if error:
+                self.ma_password_error_reason.set_text(error)
+                self.ma_password_error_box.show()
+
+        except KeyError:
+            self.ma_fullname.set_text('')
+            self.ma_loginname.child.set_text('')
+            self.ma_password.set_text('')
+            self.ma_confirm.set_text('')
+
+    def ma_selection_changed(self, selection):
+        if self.ma_previous_selection:
+            self.ma_seed_userinfo()
+
+        model, iter = selection.get_selected()
+        if not iter: return
+        if(model.iter_parent(iter)):
+            iter = model.iter_parent(iter)
+        
+        if model.get_value(iter, 0):
+            self.ma_userinfo.set_sensitive(True)
+        else:
+            self.ma_userinfo.set_sensitive(False)
+        
+        self.ma_previous_selection = selection.get_selected()
+        self.ma_update_selection()
+
+    def ma_combo_changed(self, sender):
+        if sender.get_active() >= 0:
+            user = self.ma_loginname.child.get_text()
+            val = self.ma_new_users[user]
+            self.ma_fullname.set_text(val['fullname'])
+            self.ma_password.set_text(val['password'])
+            self.ma_confirm.set_text(val['confirm'])
+
+        
+    def ma_set_choices(self, choices):
+
+        def cell_data_func(column, cell, model, iter):
+            val = model.get_value(iter, 1)
+            if(model.iter_children(iter)):
+                # Windows XP...
+                text = '%s  <small><i>%s (%s)</i></small>' % \
+                    (val['user'], val['os'], val['part'])
+                newuser = val['newuser']
+                if newuser and model.get_value(iter, 0):
+                    newuser = self.ma_new_users[newuser]
+                    if(newuser['password-error'] or newuser['loginname-error']):
+                        text = '<span foreground="red">%s  <small><i>%s' \
+                            ' (%s)</i></small></span>' % \
+                            (val['user'], val['os'], val['part'])
+            else:
+                # Gaim, Yahoo, etc
+                text = model.get_value(iter, 1)
+
+            cell.set_property("markup", text)
+        # The user probably hit the back button.
+        if self.matreeview.get_model():
+            return
+
+        self.ma_choices = choices
+        # For the new users.
+        self.ma_new_users = {}
+        # For the previous selected item.
+        self.ma_previous_selection = None
+
+        # TODO evand 2007-01-11 I'm on the fence as to whether or not skipping
+        # the page would be better than showing the user this error.
+        if not choices:
+            msg = 'There were no users or operating systems suitable for ' \
+                'importing from.'
+            liststore = gtk.ListStore(str)
+            liststore.append([msg])
+            self.matreeview.set_model(liststore)
+            column = gtk.TreeViewColumn('item', gtk.CellRendererText(), text=0)
+            self.matreeview.append_column(column)
+            self.matreeview.show_all()
+        else:
+            treestore = gtk.TreeStore(bool, object)
+            for choice in choices:
+                    piter = treestore.append(None, [False, choice])
+                    for item in choice['items']:
+                            treestore.append(piter, [False, item])
+                    choice['items'] = []
+            
+            self.matreeview.set_model(treestore)
+            
+            renderer = gtk.CellRendererToggle()
+            renderer.connect('toggled', self.ma_cb_toggle, treestore)
+            column = gtk.TreeViewColumn('boolean', renderer, active=0)
+            column.set_clickable(True)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.matreeview.append_column(column)
+
+            renderer = gtk.CellRendererText()
+            column = gtk.TreeViewColumn('item', renderer)
+            column.set_cell_data_func(renderer, cell_data_func)
+            self.matreeview.append_column(column)
+
+            self.matreeview.set_search_column(1)
+
+            self.matreeview.get_selection().connect('changed', \
+                self.ma_selection_changed)
+            self.matreeview.show_all()
+
+            self.ma_loginname.set_model(gtk.ListStore(str))
+            self.ma_loginname.set_text_column(0)
+            self.ma_loginname.connect('changed', self.ma_combo_changed)
 
     def set_timezone (self, timezone):
         self.tzmap.set_tz_from_name(timezone)
@@ -2562,3 +2880,4 @@ class TimezoneMap(object):
             self.frontend.allow_go_forward(self.location_selected is not None)
 
         return True
+# vim:ai:et:sts=4:tw=80:sw=4:

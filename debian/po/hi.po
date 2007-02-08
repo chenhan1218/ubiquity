@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-02-08 10:17+0000\n"
+"POT-Creation-Date: 2007-02-08 18:22+0000\n"
 "PO-Revision-Date: 2006-10-12 08:20+0000\n"
 "Last-Translator: Aniruddha Shankar <karim@sarai.net>\n"
 "Language-Team: <en@li.org>\n"
@@ -185,24 +185,70 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Prepare disk space"
-msgstr "डिस्क में जगह तैयार करें।"
+msgid "Migrate Documents and Settings"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
-msgid "How do you want to partition the disk?"
+msgid ""
+"Select any accounts you would like to import into Ubuntu and fill in the "
+"form below for each one.  The documents and settings for these accounts will "
+"be available after the install completes."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:26001
+msgid ""
+"If you do not wish to import any accounts, select nothing and press next."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-msgid "Prepare partitions"
+msgid "Full Name:"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
+msgid "Login Name:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:29001
+msgid "Password:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:30001
+msgid "Confirm:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:31001
+msgid "Prepare disk space"
+msgstr "डिस्क में जगह तैयार करें।"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:32001
+msgid "How do you want to partition the disk?"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:33001
+msgid "Prepare partitions"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:34001
 msgid ""
 "Make sure to allocate space for a root partition (\"/\"), with a minimum "
 "size of 2 GB, and a swap partition of at least 256 MB."
@@ -212,13 +258,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:29001
+#: ../ubiquity.templates:35001
 msgid "Prepare mount points"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:30001
+#: ../ubiquity.templates:36001
 msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
@@ -228,7 +274,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:30001
+#: ../ubiquity.templates:36001
 msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
@@ -238,31 +284,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:31001
+#: ../ubiquity.templates:37001
 msgid "Mount Point"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:32001
+#: ../ubiquity.templates:38001
 msgid "Size"
 msgstr "आकार"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:33001
+#: ../ubiquity.templates:39001
 msgid "Partition"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:34001
+#: ../ubiquity.templates:40001
 msgid "Reformat?"
 msgstr "रीफॉर्मेट"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:35001
+#: ../ubiquity.templates:41001
 msgid "You must supply a root (\"/\") mount point."
 msgstr "आपको एक रुट (\"/\") माउंट प्वाइंट देना आवश्यक है।"
 
@@ -270,68 +316,68 @@ msgstr "आपको एक रुट (\"/\") माउंट प्वाइं
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:36001 ../ubiquity.templates:49001
+#: ../ubiquity.templates:42001 ../ubiquity.templates:55001
 msgid "Ready to install"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:37001
+#: ../ubiquity.templates:43001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr "आपका नया प्रचालन तंत्र निम्न सेटिंग के साथ संस्थापित हैं।ं"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:38001
+#: ../ubiquity.templates:44001
 msgid "Boot loader"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:45001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:46001
 msgid "Abort the installation?"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:47001
 msgid "Do you really want to abort the installation now?"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:48001
 msgid "Skip"
 msgstr "छोड़े"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:49001
 msgid "Installation complete"
 msgstr "संस्थापना सम्पन्न।"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:50001
 msgid "Continue using the live CD"
 msgstr "लाइव सीडी के साथ जारी रखें"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:51001
 msgid "Restart now"
 msgstr "पुनः चालू करें।"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:52001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -343,7 +389,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:52001
 msgid ""
 "Make sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
@@ -354,26 +400,29 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:53001
 msgid "Go Back"
 msgstr "पीछे जाएँ"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:54001
 msgid "Continue"
 msgstr "जारी रखें"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:55001
+#, fuzzy
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
 " Name: ${FULLNAME}\n"
 " Login name: ${USERNAME}\n"
-" Location: ${LOCATION}"
+" Location: ${LOCATION}\n"
+" Migration Assistant:\n"
+" ${MIGRATE}"
 msgstr ""
 " भाषा: ${LANGUAGE}\n"
 " कीबोर्ड विन्यास: ${KEYMAP}\n"
@@ -383,38 +432,38 @@ msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:56001
 #, fuzzy
 msgid "Installing system"
 msgstr "संस्थापना सम्पन्न"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:57001
 msgid "Finding the distribution to copy..."
 msgstr "नकल किये जाने वाले वितरण को ढूंढा जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:59001
 msgid "Scanning files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:60001
 msgid "Copying files..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:61001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "फाईल नकल किये जा रहे हैं (एक मिनट से कम समय बाकी)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:62001
 msgid "Failed to copy files; faulty CD/DVD?"
 msgstr "फाईल नकल नहीं हो पाये; क्या सी-डी/डी-वी-डी खराब है?"
 
@@ -424,14 +473,14 @@ msgstr "फाईल नकल नहीं हो पाये; क्या �
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:56001 ../ubiquity.templates:57001
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:62001 ../ubiquity.templates:63001
+#: ../ubiquity.templates:64001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "हार्ड डिस्क पर फाईल का नकल त्रुटि के कारण से नहीं हो पाया:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:62001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive. It may "
 "help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
@@ -441,13 +490,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:63001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr "फाईल का नकल नहीं हो पाया; क्या हार्ड डिस्क खराब है?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:63001
 msgid ""
 "This particular error is often due to a faulty hard disk. It may help to "
 "check whether the hard disk is old and in need of replacement, or to move "
@@ -460,7 +509,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:64001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr ""
 "फाईल का नकल नहीं हो पाया; क्या हार्ड डिस्क या सीडी/डीवीडी डिस्क या ड्राईव खराब है?"
@@ -469,7 +518,7 @@ msgstr ""
 #. Description
 #. This is used when we don't know whether the CD/DVD or the hard disk is at
 #. fault.
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:64001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -487,125 +536,131 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:65001
 msgid "Copying installation logs..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:66001
 msgid "Running ${SCRIPT}..."
 msgstr "चलाया जा रहा है ${SCRIPT}..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:67001
 #, fuzzy
 msgid "Configuring system locales..."
 msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:68001
 msgid "Configuring apt..."
 msgstr "एप्ट कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:69001
 #, fuzzy
 msgid "Configuring time zone..."
 msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:70001
 msgid "Configuring keyboard..."
 msgstr "की-बोर्ड कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:71001
 msgid "Creating user..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:72001
+msgid "Importing documents and settings..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:73001
 #, fuzzy
 msgid "Configuring hardware..."
 msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:74001
 msgid "Configuring network..."
 msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:75001
 msgid "Setting computer name..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:76001
 #, fuzzy
 msgid "Configuring boot loader..."
 msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:77001
 msgid "Removing extra packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:78001
 msgid "Checking for packages to remove..."
 msgstr "पैकेज जिनको मिटाने हैं ढूँढे जा रहे हैं..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:79001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "पैकेज डाउनलोड हो रहे हैं (${TIME} बाकी)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:80001
 msgid "Downloading package lists..."
 msgstr "पैकेज सूची डाउनलोड हो रहे हैं..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:81001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "पैकेज सूची डाउनलोड हो रहे हैं (${TIME} बाकी)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:83001
 msgid "Error installing ${PACKAGE}"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:84001
 msgid "Error removing ${PACKAGE}"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:85001
 msgid "Installing language packs"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:86001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "भाषा पेटी डाउनलोड हो रहे हैं (${TIME} बाकी)..."
 

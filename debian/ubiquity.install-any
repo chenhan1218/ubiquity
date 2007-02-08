@@ -78,3 +78,13 @@ d-i/source/user-setup/functions.sh usr/lib/ubiquity/user-setup
 d-i/source/user-setup/reserved-usernames usr/lib/ubiquity/user-setup
 ubiquity/components/usersetup.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/usersetup_apply.py usr/lib/ubiquity/ubiquity/components
+
+# migration-assistant
+d-i/source/migration-assistant/ma-script-utils usr/share/migration-assistant
+d-i/source/migration-assistant/ma-ask usr/lib/ubiquity/migration-assistant
+d-i/source/migration-assistant/ma-apply usr/lib/ubiquity/migration-assistant
+d-i/source/migration-assistant/ma-search-users usr/lib/ubiquity/migration-assistant
+d-i/source/migration-assistant/ma-search-items usr/lib/ubiquity/migration-assistant
+d-i/source/migration-assistant/ma-import usr/lib/ubiquity/migration-assistant
+ubiquity/components/migrationassistant.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/migrationassistant_apply.py usr/lib/ubiquity/ubiquity/components

@@ -128,6 +128,10 @@ def main():
     parser.add_option('--new-partitioner', dest='new_partitioner',
                       action='store_true',
                       help='use new advanced partitioner (experimental)')
+    parser.add_option('--migration-assistant', dest='migration_assistant',
+                      action='store_true',
+                      default=('UBIQUITY_MIGRATION_ASSISTANT' in os.environ),
+                      help='use Migration Assistant (experimental)')
     (options, args) = parser.parse_args()
 
     if options.debug:
@@ -147,6 +151,9 @@ def main():
             del os.environ['UBIQUITY_NEW_PARTITIONER']
         except KeyError:
             pass
+
+    if options.migration_assistant:
+        os.environ['UBIQUITY_MIGRATION_ASSISTANT'] = '1'
 
     acquire_lock()
 
