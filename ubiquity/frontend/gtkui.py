@@ -300,7 +300,7 @@ class Wizard:
                 gtk.link_button_set_uri_hook(self.link_button_browser)
             elif current_name == "stepMigrationAssistant":
                 self.dbfilter = migrationassistant.MigrationAssistant(self)
-	    elif current_name == "stepLocation":
+            elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
                 self.dbfilter = console_setup.ConsoleSetup(self)
@@ -892,9 +892,9 @@ class Wizard:
         # Mountpoints
         elif step == "stepPartMountpoints":
             self.mountpoints_to_summary()
-	# Migration Assistant		
-	elif step == "stepMigrationAssistant":
-	    self.steps.next_page()
+        # Migration Assistant           
+        elif step == "stepMigrationAssistant":
+            self.steps.next_page()
             self.ma_configure_usersetup()
             self.info_loop(None)
         # Identification
@@ -1588,7 +1588,7 @@ class Wizard:
         # Note that 'user' is the original user.
         model = self.matreeview.get_model()
         iter = model.get_iter(0)
-        while(iter):
+        while iter:
             val = model.get_value(iter, 1)
             if user == val['user']:
                 newuser = val['newuser']
@@ -1598,7 +1598,7 @@ class Wizard:
                 # changes.  So we only change the selection if we need to,
                 # otherwise we just call update_selection directly.
                 selection = self.matreeview.get_selection()
-                if(selection.iter_is_selected(iter)):
+                if selection.iter_is_selected(iter):
                     self.ma_update_selection()
                 else:
                     selection.select_iter(iter)
@@ -1609,13 +1609,13 @@ class Wizard:
         # Note that 'user' is the user we're importing to.
         model = self.matreeview.get_model()
         iter = model.get_iter(0)
-        while(iter):
+        while iter:
             val = model.get_value(iter, 1)
             if user == val['newuser']:
                 self.ma_new_users[user]['password-error'] = error
                 
                 selection = self.matreeview.get_selection()
-                if(selection.iter_is_selected(iter)):
+                if selection.iter_is_selected(iter):
                     self.ma_update_selection()
                 else:
                     selection.select_iter(iter)
@@ -1626,41 +1626,41 @@ class Wizard:
         return (self.ma_choices, self.ma_new_users)
 
     def ma_cb_toggle(self, cell, path, model=None):
-            iter = model.get_iter(path)
-            checked = not cell.get_active()
-            model.set_value(iter, 0, checked)
-            
-            # We're on a user checkbox.
-            if(model.iter_children(iter)):
-                    if checked:
-                        self.ma_userinfo.set_sensitive(True)
-                    else:
-                        self.ma_userinfo.set_sensitive(False)
+        iter = model.get_iter(path)
+        checked = not cell.get_active()
+        model.set_value(iter, 0, checked)
 
-                    if not cell.get_active():
-                        model.get_value(iter, 1)['selected'] = True
-                    else:
-                        model.get_value(iter, 1)['selected'] = False
-                    parent = iter
-                    iter = model.iter_children(iter)
-                    items = []
-                    while(iter):
-                        model.set_value(iter, 0, checked)
-                        if checked:
-                            items.append(model.get_value(iter, 1))
-                        iter = model.iter_next(iter)
-                    model.get_value(parent, 1)['items'] = items
-
-            # We're on an item checkbox.
+        # We're on a user checkbox.
+        if model.iter_children(iter):
+            if checked:
+                self.ma_userinfo.set_sensitive(True)
             else:
-                parent = model.iter_parent(iter)
-                item = model.get_value(iter, 1)
-                items = model.get_value(parent, 1)['items']
+                self.ma_userinfo.set_sensitive(False)
 
+            if not cell.get_active():
+                model.get_value(iter, 1)['selected'] = True
+            else:
+                model.get_value(iter, 1)['selected'] = False
+            parent = iter
+            iter = model.iter_children(iter)
+            items = []
+            while iter:
+                model.set_value(iter, 0, checked)
                 if checked:
-                        items.append(item)
-                else:
-                        items.remove(item)
+                    items.append(model.get_value(iter, 1))
+                iter = model.iter_next(iter)
+            model.get_value(parent, 1)['items'] = items
+
+        # We're on an item checkbox.
+        else:
+            parent = model.iter_parent(iter)
+            item = model.get_value(iter, 1)
+            items = model.get_value(parent, 1)['items']
+
+            if checked:
+                items.append(item)
+            else:
+                items.remove(item)
 
     def ma_seed_userinfo(self):
         sel = self.ma_previous_selection
@@ -1692,7 +1692,7 @@ class Wizard:
             val['confirm'] = self.ma_confirm.get_text()
             # We don't have to clear the username error because changing the
             # username creates a new user.
-            if(val['password'] and (val['password'] == val['confirm'])):
+            if val['password'] and (val['password'] == val['confirm']):
                 val['password-error'] = ''
             else:
                 val['password-error'] = self.ma_password_error_reason.get_text()
@@ -1735,7 +1735,7 @@ class Wizard:
 
         model, iter = selection.get_selected()
         if not iter: return
-        if(model.iter_parent(iter)):
+        if model.iter_parent(iter):
             iter = model.iter_parent(iter)
         
         if model.get_value(iter, 0):
@@ -1759,17 +1759,17 @@ class Wizard:
 
         def cell_data_func(column, cell, model, iter):
             val = model.get_value(iter, 1)
-            if(model.iter_children(iter)):
+            if model.iter_children(iter):
                 # Windows XP...
                 text = '%s  <small><i>%s (%s)</i></small>' % \
-                    (val['user'], val['os'], val['part'])
+                       (val['user'], val['os'], val['part'])
                 newuser = val['newuser']
                 if newuser and model.get_value(iter, 0):
                     newuser = self.ma_new_users[newuser]
-                    if(newuser['password-error'] or newuser['loginname-error']):
+                    if newuser['password-error'] or newuser['loginname-error']:
                         text = '<span foreground="red">%s  <small><i>%s' \
-                            ' (%s)</i></small></span>' % \
-                            (val['user'], val['os'], val['part'])
+                               ' (%s)</i></small></span>' % \
+                               (val['user'], val['os'], val['part'])
             else:
                 # Gaim, Yahoo, etc
                 text = model.get_value(iter, 1)
@@ -1789,7 +1789,7 @@ class Wizard:
         # the page would be better than showing the user this error.
         if not choices:
             msg = 'There were no users or operating systems suitable for ' \
-                'importing from.'
+                  'importing from.'
             liststore = gtk.ListStore(str)
             liststore.append([msg])
             self.matreeview.set_model(liststore)
@@ -1799,10 +1799,10 @@ class Wizard:
         else:
             treestore = gtk.TreeStore(bool, object)
             for choice in choices:
-                    piter = treestore.append(None, [False, choice])
-                    for item in choice['items']:
-                            treestore.append(piter, [False, item])
-                    choice['items'] = []
+                piter = treestore.append(None, [False, choice])
+                for item in choice['items']:
+                    treestore.append(piter, [False, item])
+                choice['items'] = []
             
             self.matreeview.set_model(treestore)
             
@@ -1820,8 +1820,8 @@ class Wizard:
 
             self.matreeview.set_search_column(1)
 
-            self.matreeview.get_selection().connect('changed', \
-                self.ma_selection_changed)
+            self.matreeview.get_selection().connect('changed',
+                                                    self.ma_selection_changed)
             self.matreeview.show_all()
 
             self.ma_loginname.set_model(gtk.ListStore(str))
