@@ -129,7 +129,9 @@ class Wizard:
         self.language_questions = ('live_installer', 'welcome_heading_label',
                                    'welcome_text_label', 'release_notes_label',
                                    'release_notes_url', 'step_label',
-                                   'cancel', 'back', 'next')
+                                   'cancel', 'back', 'next',
+                                   'warning_dialog', 'warning_dialog_label',
+                                   'cancelbutton', 'exitbutton')
         self.allowed_change_step = True
         self.allowed_go_forward = True
 
@@ -422,9 +424,11 @@ class Wizard:
             languages = []
         else:
             languages = [self.locale]
-        get_translations(languages=languages,
-                         core_names=['ubiquity/text/%s' % q
-                                     for q in self.language_questions])
+        core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
+        for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
+                           'ok', 'quit'):
+            core_names.append('ubiquity/imported/%s' % stock_item)
+        get_translations(languages=languages, core_names=core_names)
 
         for widget in self.glade.get_widget_prefix(""):
             self.translate_widget(widget, self.locale)
@@ -436,10 +440,9 @@ class Wizard:
         text = get_string(widget.get_name(), lang)
         if text is None:
             return
+        name = widget.get_name()
 
         if isinstance(widget, gtk.Label):
-            name = widget.get_name()
-
             if name == 'step_label':
                 global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
                 curstep = '?'
@@ -471,7 +474,18 @@ class Wizard:
                 widget.set_attributes(attrs)
 
         elif isinstance(widget, gtk.Button):
-            widget.set_label(text)
+            question = map_widget_name(widget.get_name())
+            if question.startswith('ubiquity/imported/'):
+                if '|' in text:
+                    widget.set_label(text.split('|', 1)[1])
+                else:
+                    widget.set_label(text)
+                stock_id = question[18:]
+                widget.set_use_stock(False)
+                widget.set_image(gtk.image_new_from_stock(
+                    'gtk-%s' % stock_id, gtk.ICON_SIZE_BUTTON))
+            else:
+                widget.set_label(text)
 
         elif isinstance(widget, gtk.Window):
             widget.set_title(text)
