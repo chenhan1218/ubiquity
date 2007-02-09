@@ -1,4 +1,4 @@
-ubiquity (1.3.19ubuntu1) UNRELEASED; urgency=low
+ubiquity (1.3.20) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * KDE frontend: Remove now-unused kde-distro-logo.png.
