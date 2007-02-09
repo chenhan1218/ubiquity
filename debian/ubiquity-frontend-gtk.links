@@ -1,1 +1,1 @@
-usr/share/apport/ubiquity.py usr/share/apport/ubiquity-frontend-gtk.py
+usr/share/apport/package-hooks/ubiquity.py usr/share/apport/package-hooks/ubiquity-frontend-gtk.py
