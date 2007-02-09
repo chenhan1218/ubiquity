@@ -101,6 +101,7 @@ class UbiquityUI(QWidget):
 class Wizard:
 
     def __init__(self, distro):
+        self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
         #about=KAboutData("kubuntu-ubiquity","Installer","0.1","Live CD Installer for Kubuntu",KAboutData.License_GPL,"(c) 2006 Canonical Ltd", "http://wiki.kubuntu.org/KubuntuUbiquity", "jriddell@ubuntu.com")
@@ -224,12 +225,15 @@ class Wizard:
                              " (invoking crash handler):")
         print >>sys.stderr, tbtext
 
-        dialog = QDialog(self.userinterface)
-        uic.loadUi("%s/crashdialog.ui" % UIDIR, dialog)
-        dialog.beastie_url.setOpenExternalLinks(True)
-        dialog.crash_detail.setText(tbtext)
-        dialog.exec_()
-        sys.exit(1)
+        if os.path.exists('/usr/share/apport/apport-qt'):
+            self.previous_excepthook(exctype, excvalue, exctb)
+        else:
+            dialog = QDialog(self.userinterface)
+            uic.loadUi("%s/crashdialog.ui" % UIDIR, dialog)
+            dialog.beastie_url.setOpenExternalLinks(True)
+            dialog.crash_detail.setText(tbtext)
+            dialog.exec_()
+            sys.exit(1)
 
     def openURL(self, url):
         #need to run this else kdesu can't run Konqueror
