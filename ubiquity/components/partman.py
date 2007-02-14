@@ -767,17 +767,23 @@ class Partman(PartmanAuto):
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman/exception_handler':
-            response = self.frontend.question_dialog(
-                self.description(question),
-                self.extended_description(question),
-                self.choices(question), use_templates=False)
-            self.preseed(question, response)
+            if priority == 'critical' or priority == 'high':
+                response = self.frontend.question_dialog(
+                    self.description(question),
+                    self.extended_description(question),
+                    self.choices(question), use_templates=False)
+                self.preseed(question, response)
+            else:
+                self.preseed(question, 'unhandled')
             return True
 
         elif question == 'partman/exception_handler_note':
-            self.frontend.error_dialog(self.description(question),
-                                       self.extended_description(question))
-            return FilteredCommand.error(self, priority, question)
+            if priority == 'critical' or priority == 'high':
+                self.frontend.error_dialog(self.description(question),
+                                           self.extended_description(question))
+                return FilteredCommand.error(self, priority, question)
+            else:
+                return True
 
         return PartmanAuto.run(self, priority, question)
 
