@@ -66,10 +66,10 @@ BREADCRUMB_STEPS = {
     "stepLanguage": 1,
     "stepLocation": 2,
     "stepKeyboardConf": 3,
-    "stepUserInfo": 4,
-    "stepPartAuto": 5,
-    "stepPartAdvanced": 5,
-    "stepPartMountpoints": 5,
+    "stepPartAuto": 4,
+    "stepPartAdvanced": 4,
+    "stepPartMountpoints": 4,
+    "stepUserInfo": 5,
     "stepReady": 6
 }
 BREADCRUMB_MAX_STEP = 6
@@ -79,10 +79,10 @@ WIDGET_STACK_STEPS = {
     "stepLanguage": 1,
     "stepLocation": 2,
     "stepKeyboardConf": 3,
-    "stepUserInfo": 4,
-    "stepPartAuto": 5,
-    "stepPartAdvanced": 6,
-    "stepPartMountpoints": 7,
+    "stepPartAuto": 4,
+    "stepPartAdvanced": 5,
+    "stepPartMountpoints": 6,
+    "stepUserInfo": 7,
     "stepReady": 8
 }
 
@@ -305,10 +305,10 @@ class Wizard:
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
                 self.dbfilter = console_setup.ConsoleSetup(self)
-            elif current_name == "stepUserInfo":
-                self.dbfilter = usersetup.UserSetup(self)
             elif current_name == "stepPartAuto":
                 self.dbfilter = partman_auto.PartmanAuto(self)
+            elif current_name == "stepUserInfo":
+                self.dbfilter = usersetup.UserSetup(self)
             elif current_name == "stepReady":
                 self.dbfilter = summary.Summary(self, self.manual_partitioning)
             else:
@@ -741,7 +741,7 @@ class Wizard:
         self.allow_change_step(False)
 
         step = self.step_name(self.get_current_page())
-        if step == "stepKeyboardConf":
+        if step == "stepPartMountpoints" or step == "stepPartAdvanced":
             self.userinterface.fullname_error_image.hide()
             self.userinterface.fullname_error_reason.hide()
             self.userinterface.username_error_image.hide()
@@ -797,12 +797,7 @@ class Wizard:
             self.set_current_page(WIDGET_STACK_STEPS["stepKeyboardConf"])
         # Keyboard
         elif step == "stepKeyboardConf":
-            self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
-            #self.steps.next_page()
-            self.info_loop(None)
-        # Identification
-        elif step == "stepUserInfo":
-            self.process_identification()
+            self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
         # Automatic partitioning
         elif step == "stepPartAuto":
             self.process_autopartitioning()
@@ -812,6 +807,10 @@ class Wizard:
         # Mountpoints
         elif step == "stepPartMountpoints":
             self.mountpoints_to_summary()
+            self.info_loop(None) ##FIXME also run any other time about to go to stepUserInfo
+        # Identification
+        elif step == "stepUserInfo":
+            self.process_identification()
         # Ready to install
         elif step == "stepReady":
             # FIXME self.live_installer.hide()
@@ -850,7 +849,7 @@ class Wizard:
             self.userinterface.hostname_error_reason.setText("\n".join(error_msg))
             self.userinterface.hostname_error_reason.show()
         else:
-            self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
 
     def process_autopartitioning(self):
         """Processing automatic partitioning step tasks."""
@@ -866,7 +865,7 @@ class Wizard:
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
             self.manual_partitioning = False
-            self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
 
     def qtparted_crashed(self):
         pass
@@ -1178,7 +1177,7 @@ class Wizard:
             self.userinterface.mountpoint_error_image.hide()
 
         self.manual_partitioning = True
-        self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
+        self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
 
     def on_back_clicked(self):
         """Callback to set previous screen."""
@@ -1201,7 +1200,7 @@ class Wizard:
         if str(step) == "stepLocation":
             self.userinterface.back.hide()
         elif str(step) == "stepPartAuto":
-            self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepKeyboard"])
             changed_page = True
         elif str(step) == "stepPartAdvanced":
             if self.qtparted_subp is not None:
