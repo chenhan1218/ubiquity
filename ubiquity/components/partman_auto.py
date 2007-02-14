@@ -49,7 +49,7 @@ class PartmanAuto(FilteredCommand):
         shutil.rmtree('/var/lib/partman', ignore_errors=True)
 
         self.autopartition_question = None
-        self.state = None
+        self.auto_state = None
         self.extra_options = {}
         self.extra_choice = None
         self.stashed_auto_mountpoints = None
@@ -144,7 +144,7 @@ class PartmanAuto(FilteredCommand):
             self.autopartition_question = question
             choices = self.choices(question)
 
-            if self.state is None:
+            if self.auto_state is None:
                 self.some_device_desc = \
                     self.description('partman-auto/text/use_device')
                 self.resize_desc = \
@@ -153,26 +153,26 @@ class PartmanAuto(FilteredCommand):
                     self.description('partman-auto/text/custom_partitioning')
                 self.extra_options = {}
                 if choices:
-                    self.state = [0, None]
+                    self.auto_state = [0, None]
             else:
-                self.state[0] += 1
-            while self.state[0] < len(choices):
-                self.state[1] = choices[self.state[0]]
-                if (self.state[1] == self.some_device_desc or
-                    self.state[1] == self.resize_desc):
+                self.auto_state[0] += 1
+            while self.auto_state[0] < len(choices):
+                self.auto_state[1] = choices[self.auto_state[0]]
+                if (self.auto_state[1] == self.some_device_desc or
+                    self.auto_state[1] == self.resize_desc):
                     break
                 else:
-                    self.state[0] += 1
-            if self.state[0] < len(choices):
+                    self.auto_state[0] += 1
+            if self.auto_state[0] < len(choices):
                 # Don't preseed_as_c, because Perl debconf is buggy in that
                 # it doesn't expand variables in the result of METAGET
                 # choices-c. All locales have the same variables anyway so
                 # it doesn't matter.
-                self.preseed(question, self.state[1])
+                self.preseed(question, self.auto_state[1])
                 self.succeeded = True
                 return True
             else:
-                self.state = None
+                self.auto_state = None
 
             if self.resize_desc not in self.extra_options:
                 try:
@@ -184,8 +184,8 @@ class PartmanAuto(FilteredCommand):
                 self.resize_desc, self.manual_desc)
 
         elif question == 'partman-auto/select_disk':
-            if self.state is not None:
-                self.extra_options[self.state[1]] = self.choices(question)
+            if self.auto_state is not None:
+                self.extra_options[self.auto_state[1]] = self.choices(question)
                 # Back up to autopartitioning question.
                 self.succeeded = False
                 return False
@@ -196,9 +196,9 @@ class PartmanAuto(FilteredCommand):
                 return True
 
         elif question == 'partman-partitioning/new_size':
-            if self.state is not None:
-                self.extra_options[self.state[1]] = (self.resize_min_size,
-                                                     self.resize_max_size)
+            if self.auto_state is not None:
+                self.extra_options[self.auto_state[1]] = (self.resize_min_size,
+                                                          self.resize_max_size)
                 # Back up to autopartitioning question.
                 self.succeeded = False
                 return False

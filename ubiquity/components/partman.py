@@ -204,7 +204,7 @@ class Partman(PartmanAuto):
 
     def subst(self, question, key, value):
         if question == 'partman-partitioning/new_size':
-            if self.building_cache:
+            if self.building_cache and not self.auto_state:
                 state = self.__state[-1]
                 assert state[0] == 'partman/active_partition'
                 partition = self.partition_cache[state[1]]
@@ -680,7 +680,7 @@ class Partman(PartmanAuto):
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman-partitioning/new_size':
-            if not self.__state:
+            if self.auto_state:
                 # PartmanAuto will handle this.
                 pass
             elif self.building_cache:
