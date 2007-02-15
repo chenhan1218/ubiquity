@@ -1316,6 +1316,10 @@ class Wizard:
         elif step == "stepMigrationAssistant":
             self.set_current_page(self.previous_partitioning_page)
             changed_page = True
+        elif step == "stepUserInfo":
+            if 'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
+                self.set_current_page(self.previous_partitioning_page)
+                changed_page = True
         elif step == "stepReady":
             self.next.set_label("gtk-go-forward")
             self.steps.prev_page()
