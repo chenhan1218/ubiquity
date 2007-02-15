@@ -2206,7 +2206,7 @@ class Wizard:
                                upper=max_size_mb,
                                step_incr=1, page_incr=100, page_size=100))
             self.partition_edit_size_spinbutton.set_value(cur_size_mb)
-            current_size = self.partition_edit_size_spinbutton.get_value()
+            current_size = str(self.partition_edit_size_spinbutton.get_value())
 
         self.partition_edit_use_combo.clear()
         renderer = gtk.CellRendererText()
@@ -2256,7 +2256,7 @@ class Wizard:
         if response == gtk.RESPONSE_OK:
             size = None
             if current_size is not None:
-                size = self.partition_edit_size_spinbutton.get_value()
+                size = str(self.partition_edit_size_spinbutton.get_value())
 
             method_iter = self.partition_edit_use_combo.get_active_iter()
             if method_iter is None:
@@ -2278,8 +2278,7 @@ class Wizard:
             if (size is not None or method is not None or
                 mountpoint is not None):
                 self.allow_change_step(False)
-                self.dbfilter.edit_partition(devpart, str(size),
-                                             method, mountpoint)
+                self.dbfilter.edit_partition(devpart, size, method, mountpoint)
 
     def on_partition_edit_use_combo_changed (self, combobox):
         model = combobox.get_model()
