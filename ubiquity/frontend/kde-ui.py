@@ -124,6 +124,7 @@ class Wizard:
         self.current_layout = None
         self.release_notes_url_template = None
         self.password = ''
+        self.username_edited = False
         self.hostname_edited = False
         self.auto_mountpoints = None
         self.resize_min_size = None
@@ -261,6 +262,7 @@ class Wizard:
 
         self.app.connect(self.userinterface.fullname, SIGNAL("textChanged(const QString &)"), self.on_fullname_changed)
         self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.on_username_changed)
+        self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.on_username_insert_text)
         self.app.connect(self.userinterface.password, SIGNAL("textChanged(const QString &)"), self.on_password_changed)
         self.app.connect(self.userinterface.verified_password, SIGNAL("textChanged(const QString &)"), self.on_verified_password_changed)
         self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.on_hostname_changed)
@@ -713,8 +715,16 @@ class Wizard:
     def info_loop(self, widget):
         """check if all entries from Identification screen are filled."""
 
-        if (widget is not None and widget.objectName() == 'username' and
-            not self.hostname_edited):
+        if (widget is not None and widget.objectName() == 'fullname' and
+            not self.username_edited):
+            self.userinterface.username.blockSignals(True)
+            new_username = unicode(widget.text()).split(' ')[0]
+            new_username = new_username.encode('ascii', 'ascii_transliterate')
+            new_username = new_username.lower()
+            self.userinterface.username.setText(new_username)
+            self.userinterface.username.blockSignals(False)
+        elif (widget is not None and widget.objectName() == 'username' and
+              not self.hostname_edited):
             if self.laptop:
                 hostname_suffix = '-laptop'
             else:
@@ -728,6 +738,9 @@ class Wizard:
             if getattr(self.userinterface, name).text() == '':
                 complete = False
         self.allow_go_forward(complete)
+
+    def on_username_insert_text(self):
+        self.username_edited = (self.userinterface.username.text() != '')
 
     def on_hostname_insert_text(self):
         self.hostname_edited = (self.userinterface.hostname.text() != '')

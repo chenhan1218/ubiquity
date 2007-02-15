@@ -97,6 +97,7 @@ class Wizard:
         self.gconf_previous = {}
         self.current_layout = None
         self.password = ''
+        self.username_edited = False
         self.hostname_edited = False
         self.autopartition_extras = {}
         self.auto_mountpoints = None
@@ -263,6 +264,8 @@ class Wizard:
 
         # Some signals need to be connected by hand so that we have the
         # handler ids.
+        self.username_changed_id = self.username.connect(
+            'changed', self.on_username_changed)
         self.hostname_changed_id = self.hostname.connect(
             'changed', self.on_hostname_changed)
 
@@ -785,8 +788,16 @@ class Wizard:
         """check if all entries from Identification screen are filled. Callback
         defined in glade file."""
 
-        if (widget is not None and widget.get_name() == 'username' and
-            not self.hostname_edited):
+        if (widget is not None and widget.get_name() == 'fullname' and
+            not self.username_edited):
+            self.username.handler_block(self.username_changed_id)
+            new_username = widget.get_text().split(' ')[0]
+            new_username = new_username.encode('ascii', 'ascii_transliterate')
+            new_username = new_username.lower()
+            self.username.set_text(new_username)
+            self.username.handler_unblock(self.username_changed_id)
+        elif (widget is not None and widget.get_name() == 'username' and
+              not self.hostname_edited):
             if self.laptop:
                 hostname_suffix = '-laptop'
             else:
@@ -800,6 +811,9 @@ class Wizard:
             if getattr(self, name).get_text() == '':
                 complete = False
         self.allow_go_forward(complete)
+
+    def on_username_changed(self, widget):
+        self.username_edited = (widget.get_text() != '')
 
     def on_hostname_changed(self, widget):
         self.hostname_edited = (widget.get_text() != '')
