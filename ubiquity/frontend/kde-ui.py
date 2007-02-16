@@ -165,7 +165,7 @@ class Wizard:
         self.laptop = ex("laptop-detect")
         self.qtparted_subp = None
         self.partition_tree_model = None
-        self.userinterface.partition_list_treeview2.setRootIsDecorated(False)
+        self.app.connect(self.userinterface.partition_list_treeview2, SIGNAL("customContextMenuRequested(const QPoint&)"), self.partman_popup)
 
         # set default language
         dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
@@ -1616,81 +1616,77 @@ class Wizard:
             return choice, None
 
     def update_partman (self, disk_cache, partition_cache, cache_order):
-        if self.partition_tree_model is None:
-            self.partition_tree_model = PartitionModel(self.userinterface.partition_list_treeview2)
-            self.userinterface.partition_list_treeview2.setModel(self.partition_tree_model)
-
-            """
-        partition_tree_model = self.partition_list_treeview.get_model()
-        if partition_tree_model is None:
-        if self.userinterface.partition_list_treeview.topLevelItemCount() == 0 is None:
-            #partition_tree_model = gtk.ListStore(gobject.TYPE_STRING,
-            #                                     gobject.TYPE_PYOBJECT)
-            """
-            for item in cache_order:
-                if item in disk_cache:
-                    self.partition_tree_model.append([item, disk_cache[item]], self)
-                else:
-                    self.partition_tree_model.append([item, partition_cache[item]], self)
-            """
-            # TODO cjwatson 2006-08-05: i18n
-            cell_name = gtk.CellRendererText()
-            column_name = gtk.TreeViewColumn("Device", cell_name)
-            column_name.set_cell_data_func(cell_name, self.partman_column_name)
-            column_name.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
-            self.partition_list_treeview.append_column(column_name)
-
-            cell_type = gtk.CellRendererText()
-            column_type = gtk.TreeViewColumn("Type", cell_type)
-            column_type.set_cell_data_func(cell_type, self.partman_column_type)
-            column_type.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
-            self.partition_list_treeview.append_column(column_type)
-
-            cell_mountpoint = gtk.CellRendererText()
-            column_mountpoint = gtk.TreeViewColumn("Mount point", cell_mountpoint)
-            column_mountpoint.set_cell_data_func(
-                cell_mountpoint, self.partman_column_mountpoint)
-            column_mountpoint.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
-            self.partition_list_treeview.append_column(column_mountpoint)
-
-            cell_format = gtk.CellRendererToggle()
-            column_format = gtk.TreeViewColumn("Format?", cell_format)
-            column_format.set_cell_data_func(
-                cell_format, self.partman_column_format)
-            column_format.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
-            cell_format.connect("toggled", self.partman_column_format_toggled,
-                                partition_tree_model)
-            self.partition_list_treeview.append_column(column_format)
-
-            cell_size = gtk.CellRendererText()
-            column_size = gtk.TreeViewColumn("Size", cell_size)
-            column_size.set_cell_data_func(cell_size, self.partman_column_size)
-            column_size.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
-            self.partition_list_treeview.append_column(column_size)
-
-            self.partition_list_treeview.set_model(partition_tree_model)
-            """
-        else:
-            # TODO cjwatson 2006-08-31: inefficient, but will do for now
-            self.partition_tree_model = PartitionModel(self.userinterface.partition_list_treeview2)
-            self.userinterface.partition_list_treeview2.setModel(self.partition_tree_model)
-            
-            for item in cache_order:
-                if item in disk_cache:
-                    self.partition_tree_model.append([item, disk_cache[item]], self)
-                else:
-                    self.partition_tree_model.append([item, partition_cache[item]], self)
-            """
-            partition_tree_model.clear()
-            for item in cache_order:
-                if item in disk_cache:
-                    partition_tree_model.append([item, disk_cache[item]])
-                else:
-                    partition_tree_model.append([item, partition_cache[item]])
-            """
+        #throwing away the old model if there is one
+        self.partition_tree_model = PartitionModel(self.userinterface.partition_list_treeview2)
+        self.userinterface.partition_list_treeview2.setModel(self.partition_tree_model)
+        for item in cache_order:
+            if item in disk_cache:
+                self.partition_tree_model.append([item, disk_cache[item]], self)
+            else:
+                self.partition_tree_model.append([item, partition_cache[item]], self)
 
         # make sure we're on the advanced partitioning page
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
+
+
+    def on_partition_list_menu_new_label_activate(self, toggled):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        self.allow_change_step(False)
+        self.dbfilter.create_label(devpart)
+
+    def on_partition_list_menu_new_activate(self, toggled):
+        self.partman_create_dialog(devpart, partition)
+
+    def on_partition_list_menu_edit_activate (self, toggled):
+        self.partman_edit_dialog(devpart, partition)
+
+    def on_partition_list_menu_delete_activate (self, toggled):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        self.allow_change_step(False)
+        self.dbfilter.delete_partition(devpart)
+
+    def partman_popup (self, position):
+        print "def partman_popup (self, position):"
+        if not self.allowed_change_step:
+            return
+
+        selected = self.userinterface.partition_list_treeview2.selectedIndexes()
+        print "selected: " + str(selected)
+        index = selected[0]
+        item = index.internalPointer()
+        devpart = item.itemData[0]
+        partition = item.itemData[1]
+        print "devpart: " + devpart
+
+        #partition_list_menu = gtk.Menu()
+        partition_list_menu = QMenu(self.userinterface)
+        if 'id' not in partition:
+            # TODO cjwatson 2006-12-21: i18n;
+            # partman-partitioning/text/label text is quite long?
+            new_label_item = partition_list_menu.addAction('New partition table')
+            self.app.connect(new_label_item, SIGNAL("triggered(bool)"), self.on_partition_list_menu_new_label_activate)
+        if 'can_new' in partition and partition['can_new']:
+            # TODO cjwatson 2006-10-31: i18n
+            new_item = partition_list_menu.addAction('New')
+            self.app.connect(new_item, SIGNAL("triggered(bool)"), self.on_partition_list_menu_new_activate)
+        if 'id' in partition and partition['parted']['fs'] != 'free':
+            # TODO cjwatson 2006-10-31: i18n
+            edit_item = partition_list_menu.addAction('Edit')
+            self.app.connect(edit_item, SIGNAL("triggered(bool)"), self.on_partition_list_menu_edit_activate)
+            
+            delete_item = partition_list_menu.addAction('Delete')
+            self.app.connect(delete_item, SIGNAL("triggered(bool)"), self.on_partition_list_menu_delete_activate)
+
+        partition_list_menu.exec_(QCursor.pos())
+
+    def new_label(self, bool):
+        print "new label!"
 
     def get_hostname (self):
         return unicode(self.userinterface.hostname.text())

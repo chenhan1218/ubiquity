@@ -769,7 +769,17 @@ This language will be the default language for the final system.</string>
            <widget class="QTreeWidget" name="partition_list_treeview" />
           </item>
           <item row="2" column="0" >
-           <widget class="QTreeView" name="partition_list_treeview2" />
+           <widget class="QTreeView" name="partition_list_treeview2" >
+            <property name="contextMenuPolicy" >
+             <enum>Qt::CustomContextMenu</enum>
+            </property>
+            <property name="alternatingRowColors" >
+             <bool>true</bool>
+            </property>
+            <property name="rootIsDecorated" >
+             <bool>false</bool>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
