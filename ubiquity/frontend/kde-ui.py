@@ -1616,10 +1616,6 @@ class Wizard:
             return choice, None
 
     def update_partman (self, disk_cache, partition_cache, cache_order):
-        print "disk_cache: " +str(disk_cache)
-        print "partition_cache: " +str(partition_cache)
-        print "cache_order: " +str(cache_order)
-       
         if self.partition_tree_model is None:
             self.partition_tree_model = PartitionModel(self.userinterface.partition_list_treeview2)
             self.userinterface.partition_list_treeview2.setModel(self.partition_tree_model)
@@ -1636,7 +1632,7 @@ class Wizard:
                     self.partition_tree_model.append([item, disk_cache[item]], self)
                 else:
                     self.partition_tree_model.append([item, partition_cache[item]], self)
-        """
+            """
             # TODO cjwatson 2006-08-05: i18n
             cell_name = gtk.CellRendererText()
             column_name = gtk.TreeViewColumn("Device", cell_name)
@@ -1673,17 +1669,27 @@ class Wizard:
             self.partition_list_treeview.append_column(column_size)
 
             self.partition_list_treeview.set_model(partition_tree_model)
+            """
         else:
             # TODO cjwatson 2006-08-31: inefficient, but will do for now
+            self.partition_tree_model = PartitionModel(self.userinterface.partition_list_treeview2)
+            self.userinterface.partition_list_treeview2.setModel(self.partition_tree_model)
+            
+            for item in cache_order:
+                if item in disk_cache:
+                    self.partition_tree_model.append([item, disk_cache[item]], self)
+                else:
+                    self.partition_tree_model.append([item, partition_cache[item]], self)
+            """
             partition_tree_model.clear()
             for item in cache_order:
                 if item in disk_cache:
                     partition_tree_model.append([item, disk_cache[item]])
                 else:
                     partition_tree_model.append([item, partition_cache[item]])
+            """
 
         # make sure we're on the advanced partitioning page
-        """
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
 
     def get_hostname (self):
@@ -2179,7 +2185,6 @@ class PartitionModel(QAbstractItemModel):
         self.rootItem = TreeItem(rootData)
 
     def append(self, data, ubiquity):
-        print "append()"
         self.rootItem.appendChild(TreeItem(data, ubiquity, self.rootItem))
 
     def columnCount(self, parent):
@@ -2201,17 +2206,28 @@ class PartitionModel(QAbstractItemModel):
         else:
             return QVariant()
 
+    def setData(self, index, value, role):
+        print "setData: " + str(value.toBool())
+        item = index.internalPointer()
+        if role == Qt.CheckStateRole and index.column() == 3:
+            item.partman_column_format_toggled(value.toBool())
+        self.emit(SIGNAL("dataChanged(const QModelIndex&, const QModelIndex&)"), index, index)
+        return True
+
     def flags(self, index):
         if not index.isValid():
             return Qt.ItemIsEnabled
 
-        print "flags"
         #self.setData(index, QVariant(Qt.Checked), Qt.CheckStateRole)
         #return Qt.ItemIsEnabled | Qt.ItemIsSelectable
         if index.column() == 3:
-            return Qt.ItemIsEnabled | Qt.ItemIsSelectable | Qt.ItemIsUserCheckable
+            item = index.internalPointer()
+            if item.formatEnabled():
+                return Qt.ItemIsEnabled | Qt.ItemIsSelectable | Qt.ItemIsUserCheckable
+            else:
+                return Qt.ItemIsSelectable | Qt.ItemIsUserCheckable
         else:
-            return Qt.ItemIsEnabled | Qt.ItemIsSelectable | Qt.ItemIsUserCheckable
+            return Qt.ItemIsEnabled | Qt.ItemIsSelectable
 
     def headerData(self, section, orientation, role):
         if orientation == Qt.Horizontal and role == Qt.DisplayRole:
@@ -2333,36 +2349,44 @@ class TreeItem:
     def partman_column_format(self):
         partition = self.itemData[1]
         if 'id' not in partition:
-            print "partman_column_format nothing"
             return ''
             #cell.set_property('visible', False)
             #cell.set_property('active', False)
             #cell.set_property('activatable', False)
         elif 'method' in partition:
-            print "partman_column_format ticked"
-            return Qt.Checked
+            if partition['method'] == 'format':
+                return Qt.Checked
+            else:
+                return Qt.Unchecked
             #cell.set_property('visible', True)
             #cell.set_property('active', partition['method'] == 'format')
             #cell.set_property('activatable', 'can_activate_format' in partition)
         else:
-            print "partman_column_format not ticked"
-            return Qt.Unchecked
+            return Qt.Unchecked  ##FIXME should be enabled(False)
             #cell.set_property('visible', True)
             #cell.set_property('active', False)
             #cell.set_property('activatable', False)
 
-    def partman_column_format_toggled(self, cell, path, user_data):
-        if not self.allowed_change_step:
+    def formatEnabled(self):
+        """is the format tickbox enabled"""
+        partition = self.itemData[1]
+        return 'method' in partition and 'can_activate_format' in partition
+
+    def partman_column_format_toggled(self, value):
+        print "partman_column_format_toggled"
+        if not self.ubiquity.allowed_change_step:
             return
-        if not isinstance(self.dbfilter, partman.Partman):
+        if not isinstance(self.ubiquity.dbfilter, partman.Partman):
             return
-        model = user_data
-        devpart = model[path][0]
-        partition = model[path][1]
+        #model = user_data
+        #devpart = model[path][0]
+        #partition = model[path][1]
+        devpart = self.itemData[0]
+        partition = self.itemData[1]
         if 'id' not in partition or 'method' not in partition:
             return
-        self.allow_change_step(False)
-        self.dbfilter.edit_partition(devpart, format='dummy')
+        self.ubiquity.allow_change_step(False)
+        self.ubiquity.dbfilter.edit_partition(devpart, format='dummy')
 
     def partman_column_size(self):
         partition = self.itemData[1]
