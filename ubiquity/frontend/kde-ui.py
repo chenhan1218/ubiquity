@@ -50,7 +50,7 @@ from ubiquity import filteredcommand, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
-                                partman_auto, partman_commit, summary, install
+                                partman, partman_auto, partman_commit, summary, install
 import ubiquity.tz
 import ubiquity.progressposition
 
@@ -306,7 +306,18 @@ class Wizard:
             elif current_name == "stepKeyboardConf":
                 self.dbfilter = console_setup.ConsoleSetup(self)
             elif current_name == "stepPartAuto":
-                self.dbfilter = partman_auto.PartmanAuto(self)
+                print "run stepPartAuto"
+                if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
+                    self.dbfilter = partman.Partman(self)
+                else:
+                    self.dbfilter = partman_auto.PartmanAuto(self)
+            elif (current_name == "stepPartAdvanced" and
+                  'UBIQUITY_NEW_PARTITIONER' in os.environ):
+                print "run stepPartAdvanced"
+                if isinstance(self.dbfilter, partman.Partman):
+                    pre_log('info', 'reusing running partman')
+                else:
+                    self.dbfilter = partman.Partman(self)
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name == "stepReady":
@@ -370,6 +381,14 @@ class Wizard:
 
         self.userinterface.password_debug_warning_label.setVisible(
             'UBIQUITY_DEBUG' in os.environ)
+
+        if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
+            print "UBIQUITY_NEW_PARTITIONER"
+            self.userinterface.qtparted_frame.hide()
+            model = PartitionModel(self.userinterface.partition_list_treeview2)
+            self.userinterface.partition_list_treeview2.setModel(model)
+        else:
+            self.part_advanced_vpaned.hide()
 
     def translate_widgets(self, parentWidget=None):
         if self.locale is None:
@@ -797,6 +816,7 @@ class Wizard:
             self.set_current_page(WIDGET_STACK_STEPS["stepKeyboardConf"])
         # Keyboard
         elif step == "stepKeyboardConf":
+            print "process_step set_current_page(WIDGET_STACK_STEPS[stepPartAuto])"
             self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
         # Automatic partitioning
         elif step == "stepPartAuto":
@@ -860,7 +880,8 @@ class Wizard:
         # then go to manual partitioning.
         choice = self.get_autopartition_choice()[0]
         if self.manual_choice is None or choice == self.manual_choice:
-            self.qtparted_loop()
+            if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
+                self.qtparted_loop()
             self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
         else:
             # TODO cjwatson 2006-01-10: extract mountpoints from partman
@@ -868,7 +889,6 @@ class Wizard:
             self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
 
     def qtparted_crashed(self):
-        pass
         """qtparted crashed. Ask the user if they want to continue."""
         # TODO cjwatson 2006-07-18: i18n
         text = ('The advanced partitioner (qtparted) crashed. Further '
@@ -890,6 +910,14 @@ class Wizard:
 
     def qtparted_to_mountpoints(self):
         """Processing qtparted to mountpoints step tasks."""
+
+        if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
+            ##if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:  #FIXME for migration-as
+            self.info_loop(None)
+            self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
+            #else:
+            #    self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
+            return
 
         self.qtparted_fstype = {}
 
@@ -1587,6 +1615,72 @@ class Wizard:
         else:
             return choice, None
 
+    def update_partman (self, disk_cache, partition_cache, cache_order):
+        print "disk_cache: " +str(disk_cache)
+        print "partition_cache: " +str(partition_cache)
+        print "cache_order: " +str(cache_order)
+        """
+        partition_tree_model = self.partition_list_treeview.get_model()
+        if partition_tree_model is None:
+        if self.userinterface.partition_list_treeview.topLevelItemCount() == 0 is None:
+            #partition_tree_model = gtk.ListStore(gobject.TYPE_STRING,
+            #                                     gobject.TYPE_PYOBJECT)
+            for item in cache_order:
+                if item in disk_cache:
+                    partition_tree_model.append([item, disk_cache[item]])
+                else:
+                    partition_tree_model.append([item, partition_cache[item]])
+        """
+        """
+            # TODO cjwatson 2006-08-05: i18n
+            cell_name = gtk.CellRendererText()
+            column_name = gtk.TreeViewColumn("Device", cell_name)
+            column_name.set_cell_data_func(cell_name, self.partman_column_name)
+            column_name.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_name)
+
+            cell_type = gtk.CellRendererText()
+            column_type = gtk.TreeViewColumn("Type", cell_type)
+            column_type.set_cell_data_func(cell_type, self.partman_column_type)
+            column_type.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_type)
+
+            cell_mountpoint = gtk.CellRendererText()
+            column_mountpoint = gtk.TreeViewColumn("Mount point", cell_mountpoint)
+            column_mountpoint.set_cell_data_func(
+                cell_mountpoint, self.partman_column_mountpoint)
+            column_mountpoint.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_mountpoint)
+
+            cell_format = gtk.CellRendererToggle()
+            column_format = gtk.TreeViewColumn("Format?", cell_format)
+            column_format.set_cell_data_func(
+                cell_format, self.partman_column_format)
+            column_format.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            cell_format.connect("toggled", self.partman_column_format_toggled,
+                                partition_tree_model)
+            self.partition_list_treeview.append_column(column_format)
+
+            cell_size = gtk.CellRendererText()
+            column_size = gtk.TreeViewColumn("Size", cell_size)
+            column_size.set_cell_data_func(cell_size, self.partman_column_size)
+            column_size.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_size)
+
+            self.partition_list_treeview.set_model(partition_tree_model)
+        else:
+            # TODO cjwatson 2006-08-31: inefficient, but will do for now
+            partition_tree_model.clear()
+            for item in cache_order:
+                if item in disk_cache:
+                    partition_tree_model.append([item, disk_cache[item]])
+                else:
+                    partition_tree_model.append([item, partition_cache[item]])
+
+        # make sure we're on the advanced partitioning page
+        """
+        self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
+
     def get_hostname (self):
         return unicode(self.userinterface.hostname.text())
 
@@ -2066,3 +2160,25 @@ class MapWidget(QWidget):
         palette = QPalette()
         palette.setBrush(self.backgroundRole(), QBrush(pixmap))
         self.setPalette(palette)
+
+class PartitionModel(QAbstractItemModel):
+    def index(self, row, column, parent):
+        print "index"
+        return QModelIndex()
+    
+    def parent(self, index):
+        print "parent"
+        return QModelIndex()
+    
+    def rowCount(self, parent):
+        print "rowCount"
+        return 1
+    
+    def columnCount(self, parent):
+        print "columnCount"
+        return 1
+    
+    def data(self, index, role):
+        print "data"
+        return QVariant("hello")
+    
