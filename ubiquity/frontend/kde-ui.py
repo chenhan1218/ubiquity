@@ -1629,7 +1629,7 @@ class Wizard:
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
 
 
-    def on_partition_list_menu_new_label_activate(self, toggled):
+    def on_partition_list_menu_new_label_activate(self, ticked):
         if not self.allowed_change_step:
             return
         if not isinstance(self.dbfilter, partman.Partman):
@@ -1637,13 +1637,18 @@ class Wizard:
         self.allow_change_step(False)
         self.dbfilter.create_label(devpart)
 
-    def on_partition_list_menu_new_activate(self, toggled):
+    def on_partition_list_menu_new_activate(self, ticked):
         self.partman_create_dialog(devpart, partition)
 
-    def on_partition_list_menu_edit_activate (self, toggled):
+    def on_partition_list_menu_edit_activate(self, ticked):
         self.partman_edit_dialog(devpart, partition)
 
-    def on_partition_list_menu_delete_activate (self, toggled):
+    def on_partition_list_menu_delete_activate(self, ticked):
+        selected = self.userinterface.partition_list_treeview2.selectedIndexes()
+        index = selected[0]
+        item = index.internalPointer()
+        devpart = item.itemData[0]
+
         if not self.allowed_change_step:
             return
         if not isinstance(self.dbfilter, partman.Partman):
