@@ -165,6 +165,7 @@ class Wizard:
         self.laptop = ex("laptop-detect")
         self.qtparted_subp = None
         self.partition_tree_model = None
+        self.userinterface.partition_list_treeview2.setRootIsDecorated(False)
 
         # set default language
         dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
@@ -2191,18 +2192,26 @@ class PartitionModel(QAbstractItemModel):
         if not index.isValid():
             return QVariant()
 
-        if role != Qt.DisplayRole:
-            return QVariant()
-
         item = index.internalPointer()
 
-        return QVariant(item.data(index.column()))
+        if role == Qt.CheckStateRole and index.column() == 3:
+            return QVariant(item.data(index.column()))
+        elif role == Qt.DisplayRole and index.column() != 3:
+            return QVariant(item.data(index.column()))
+        else:
+            return QVariant()
 
     def flags(self, index):
         if not index.isValid():
             return Qt.ItemIsEnabled
 
-        return Qt.ItemIsEnabled | Qt.ItemIsSelectable
+        print "flags"
+        #self.setData(index, QVariant(Qt.Checked), Qt.CheckStateRole)
+        #return Qt.ItemIsEnabled | Qt.ItemIsSelectable
+        if index.column() == 3:
+            return Qt.ItemIsEnabled | Qt.ItemIsSelectable | Qt.ItemIsUserCheckable
+        else:
+            return Qt.ItemIsEnabled | Qt.ItemIsSelectable | Qt.ItemIsUserCheckable
 
     def headerData(self, section, orientation, role):
         if orientation == Qt.Horizontal and role == Qt.DisplayRole:
@@ -2324,17 +2333,20 @@ class TreeItem:
     def partman_column_format(self):
         partition = self.itemData[1]
         if 'id' not in partition:
+            print "partman_column_format nothing"
             return ''
             #cell.set_property('visible', False)
             #cell.set_property('active', False)
             #cell.set_property('activatable', False)
         elif 'method' in partition:
-            return "Yes"
+            print "partman_column_format ticked"
+            return Qt.Checked
             #cell.set_property('visible', True)
             #cell.set_property('active', partition['method'] == 'format')
             #cell.set_property('activatable', 'can_activate_format' in partition)
         else:
-            return "No"
+            print "partman_column_format not ticked"
+            return Qt.Unchecked
             #cell.set_property('visible', True)
             #cell.set_property('active', False)
             #cell.set_property('activatable', False)
