@@ -164,6 +164,7 @@ class Wizard:
 
         self.laptop = ex("laptop-detect")
         self.qtparted_subp = None
+        self.partition_tree_model = None
 
         # set default language
         dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
@@ -385,8 +386,6 @@ class Wizard:
         if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
             print "UBIQUITY_NEW_PARTITIONER"
             self.userinterface.qtparted_frame.hide()
-            model = PartitionModel(self.userinterface.partition_list_treeview2)
-            self.userinterface.partition_list_treeview2.setModel(model)
         else:
             self.part_advanced_vpaned.hide()
 
@@ -1619,18 +1618,23 @@ class Wizard:
         print "disk_cache: " +str(disk_cache)
         print "partition_cache: " +str(partition_cache)
         print "cache_order: " +str(cache_order)
-        """
+       
+        if self.partition_tree_model is None:
+            self.partition_tree_model = PartitionModel(self.userinterface.partition_list_treeview2)
+            self.userinterface.partition_list_treeview2.setModel(self.partition_tree_model)
+
+            """
         partition_tree_model = self.partition_list_treeview.get_model()
         if partition_tree_model is None:
         if self.userinterface.partition_list_treeview.topLevelItemCount() == 0 is None:
             #partition_tree_model = gtk.ListStore(gobject.TYPE_STRING,
             #                                     gobject.TYPE_PYOBJECT)
+            """
             for item in cache_order:
                 if item in disk_cache:
-                    partition_tree_model.append([item, disk_cache[item]])
+                    self.partition_tree_model.append([item, disk_cache[item]], self)
                 else:
-                    partition_tree_model.append([item, partition_cache[item]])
-        """
+                    self.partition_tree_model.append([item, partition_cache[item]], self)
         """
             # TODO cjwatson 2006-08-05: i18n
             cell_name = gtk.CellRendererText()
@@ -2162,23 +2166,198 @@ class MapWidget(QWidget):
         self.setPalette(palette)
 
 class PartitionModel(QAbstractItemModel):
-    def index(self, row, column, parent):
-        print "index"
-        return QModelIndex()
-    
-    def parent(self, index):
-        print "parent"
-        return QModelIndex()
-    
-    def rowCount(self, parent):
-        print "rowCount"
-        return 1
-    
+    def __init__(self, parent=None):
+        QAbstractItemModel.__init__(self, parent)
+
+        rootData = []
+        rootData.append(QVariant("Device")) ##FIXME i18n
+        rootData.append(QVariant("Type"))
+        rootData.append(QVariant("Mount point"))
+        rootData.append(QVariant("Format?"))
+        rootData.append(QVariant("Size"))
+        self.rootItem = TreeItem(rootData)
+
+    def append(self, data, ubiquity):
+        print "append()"
+        self.rootItem.appendChild(TreeItem(data, ubiquity, self.rootItem))
+
     def columnCount(self, parent):
-        print "columnCount"
-        return 1
-    
+        if parent.isValid():
+            return parent.internalPointer().columnCount()
+        else:
+            return self.rootItem.columnCount()
+
     def data(self, index, role):
-        print "data"
-        return QVariant("hello")
-    
+        if not index.isValid():
+            return QVariant()
+
+        if role != Qt.DisplayRole:
+            return QVariant()
+
+        item = index.internalPointer()
+
+        return QVariant(item.data(index.column()))
+
+    def flags(self, index):
+        if not index.isValid():
+            return Qt.ItemIsEnabled
+
+        return Qt.ItemIsEnabled | Qt.ItemIsSelectable
+
+    def headerData(self, section, orientation, role):
+        if orientation == Qt.Horizontal and role == Qt.DisplayRole:
+            return self.rootItem.data(section)
+
+        return QVariant()
+
+    def index(self, row, column, parent):
+        if not parent.isValid():
+            parentItem = self.rootItem
+        else:
+            parentItem = parent.internalPointer()
+
+        childItem = parentItem.child(row)
+        if childItem:
+            return self.createIndex(row, column, childItem)
+        else:
+            return QModelIndex()
+
+    def parent(self, index):
+        if not index.isValid():
+            return QModelIndex()
+
+        childItem = index.internalPointer()
+        parentItem = childItem.parent()
+
+        if parentItem == self.rootItem:
+            return QModelIndex()
+
+        return self.createIndex(parentItem.row(), 0, parentItem)
+
+    def rowCount(self, parent):
+        if not parent.isValid():
+            parentItem = self.rootItem
+        else:
+            parentItem = parent.internalPointer()
+
+        return parentItem.childCount()
+
+class TreeItem:
+    def __init__(self, data, ubiquity=None, parent=None):
+        self.parentItem = parent
+        self.itemData = data
+        self.childItems = []
+        self.ubiquity = ubiquity
+
+    def appendChild(self, item):
+        self.childItems.append(item)
+
+    def child(self, row):
+        return self.childItems[row]
+
+    def childCount(self):
+        return len(self.childItems)
+
+    def columnCount(self):
+        if self.parentItem is None:
+            return len(self.itemData)
+        else:
+            return 4
+
+    def data(self, column):
+        if self.parentItem is None:
+            return QVariant(self.itemData[column])
+        elif column == 0:
+            return QVariant(self.partman_column_name())
+        elif column == 1:
+            return QVariant(self.partman_column_type())
+        elif column == 2:
+            return QVariant(self.partman_column_mountpoint())
+        elif column == 3:
+            return QVariant(self.partman_column_format())
+        elif column == 4:
+            return QVariant(self.partman_column_size())
+        else:
+            return QVariant("other")
+
+    def parent(self):
+        return self.parentItem
+
+    def row(self):
+        if self.parentItem:
+            return self.parentItem.childItems.index(self)
+
+        return 0
+
+    def partman_column_name(self):
+        partition = self.itemData[1]
+        if 'id' not in partition:
+            # whole disk
+            return partition['device']
+        elif partition['parted']['fs'] == 'free':
+            # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
+            # feels a bit too SHOUTY for this interface.
+            return '  free space'
+        else:
+            return '  %s' % partition['parted']['path']
+
+    def partman_column_type(self):
+        partition = self.itemData[1]
+        if 'id' not in partition or 'method' not in partition:
+            return ''
+        elif ('filesystem' in partition and
+              partition['method'] in ('format', 'keep')):
+            return partition['acting_filesystem']
+        else:
+            return partition['method']
+
+    def partman_column_mountpoint(self):
+        partition = self.itemData[1]
+        if isinstance(self.ubiquity.dbfilter, partman.Partman):
+            mountpoint = self.ubiquity.dbfilter.get_current_mountpoint(partition)
+            if mountpoint is None:
+                mountpoint = ''
+        else:
+            mountpoint = ''
+        return mountpoint
+
+    def partman_column_format(self):
+        partition = self.itemData[1]
+        if 'id' not in partition:
+            return ''
+            #cell.set_property('visible', False)
+            #cell.set_property('active', False)
+            #cell.set_property('activatable', False)
+        elif 'method' in partition:
+            return "Yes"
+            #cell.set_property('visible', True)
+            #cell.set_property('active', partition['method'] == 'format')
+            #cell.set_property('activatable', 'can_activate_format' in partition)
+        else:
+            return "No"
+            #cell.set_property('visible', True)
+            #cell.set_property('active', False)
+            #cell.set_property('activatable', False)
+
+    def partman_column_format_toggled(self, cell, path, user_data):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        model = user_data
+        devpart = model[path][0]
+        partition = model[path][1]
+        if 'id' not in partition or 'method' not in partition:
+            return
+        self.allow_change_step(False)
+        self.dbfilter.edit_partition(devpart, format='dummy')
+
+    def partman_column_size(self):
+        partition = self.itemData[1]
+        if 'id' not in partition:
+            return ''
+        else:
+            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
+            # partman expects.
+            size_mb = int(partition['parted']['size']) / 1000000
+            return '%d MB' % size_mb
