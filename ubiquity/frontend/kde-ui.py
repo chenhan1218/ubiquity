@@ -1628,8 +1628,12 @@ class Wizard:
         # make sure we're on the advanced partitioning page
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
 
-
     def on_partition_list_menu_new_label_activate(self, ticked):
+        selected = self.userinterface.partition_list_treeview2.selectedIndexes()
+        index = selected[0]
+        item = index.internalPointer()
+        devpart = item.itemData[0]
+
         if not self.allowed_change_step:
             return
         if not isinstance(self.dbfilter, partman.Partman):
