@@ -1628,7 +1628,111 @@ class Wizard:
         # make sure we're on the advanced partitioning page
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
 
-    def partman_edit_dialog (self, devpart, partition):
+
+    def partman_create_dialog(self, devpart, partition):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+
+        self.create_dialogue = QDialog(self.userinterface)
+        uic.loadUi("%s/partition_create_dialog.ui" % UIDIR, self.create_dialogue)
+        self.app.connect(self.create_dialogue.partition_create_use_combo, SIGNAL("currentIndexChanged(int)"), self.on_partition_create_use_combo_changed)
+
+        # TODO cjwatson 2006-11-01: Because partman doesn't use a question
+        # group for these, we have to figure out in advance whether each
+        # question is going to be asked.
+
+        """
+        if partition['parted']['type'] == 'pri/log':
+            # Is there already an extended partition?
+            model = self.partition_list_treeview.get_model()
+            for otherpart in [row[1] for row in model]:
+                if (otherpart['dev'] == partition['dev'] and
+                    'id' in otherpart and
+                    otherpart['parted']['type'] == 'logical'):
+                    self.partition_create_type_logical.set_active(True)
+                    break
+            else:
+                self.partition_create_type_primary.set_active(True)
+        else:
+            self.partition_create_type_label.hide()
+            self.partition_create_type_primary.hide()
+            self.partition_create_type_logical.hide()
+
+        # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
+        # partman expects.
+        max_size_mb = int(partition['parted']['size']) / 1000000
+        self.partition_create_size_spinbutton.set_adjustment(
+            gtk.Adjustment(value=max_size_mb, upper=max_size_mb,
+                           step_incr=1, page_incr=100, page_size=100))
+        self.partition_create_size_spinbutton.set_value(max_size_mb)
+
+        self.partition_create_use_combo.clear()
+        renderer = gtk.CellRendererText()
+        self.partition_create_use_combo.pack_start(renderer)
+        self.partition_create_use_combo.add_attribute(renderer, 'text', 1)
+        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        for method, name in partman.Partman.create_use_as():
+            list_store.append([method, name])
+        self.partition_create_use_combo.set_model(list_store)
+        if list_store.get_iter_first():
+            self.partition_create_use_combo.set_active(0)
+
+        # TODO cjwatson 2006-11-01: set up mount point combo
+        self.partition_create_mount_combo.child.set_text('')
+        """
+
+        response = self.create_dialogue.exec_()
+
+        """
+        if response == gtk.RESPONSE_OK:
+            if partition['parted']['type'] == 'primary':
+                prilog = partman.PARTITION_TYPE_PRIMARY
+            elif partition['parted']['type'] == 'logical':
+                prilog = partman.PARTITION_TYPE_LOGICAL
+            elif partition['parted']['type'] == 'pri/log':
+                if self.partition_create_type_primary.get_active():
+                    prilog = partman.PARTITION_TYPE_PRIMARY
+                else:
+                    prilog = partman.PARTITION_TYPE_LOGICAL
+
+            if self.partition_create_place_beginning.get_active():
+                place = partman.PARTITION_PLACE_BEGINNING
+            else:
+                place = partman.PARTITION_PLACE_END
+
+            method_iter = self.partition_create_use_combo.get_active_iter()
+            if method_iter is None:
+                method = None
+            else:
+                model = self.partition_create_use_combo.get_model()
+                method = model.get_value(method_iter, 1)
+
+            mountpoint = self.partition_create_mount_combo.child.get_text()
+
+            self.allow_change_step(False)
+            self.dbfilter.create_partition(
+                devpart,
+                str(self.partition_create_size_spinbutton.get_value()),
+                prilog, place, method, mountpoint)
+        """
+
+    def on_partition_create_use_combo_changed (self, combobox):
+        print "on_partition_create_use_combo_changed"
+        """
+        model = combobox.get_model()
+        iterator = combobox.get_active_iter()
+        # If the selected method isn't a filesystem, then selecting a mount
+        # point makes no sense.
+        if iterator is None or model[iterator][0] != 'filesystem':
+            self.partition_create_mount_combo.child.set_text('')
+            self.partition_create_mount_combo.set_sensitive(False)
+        else:
+            self.partition_create_mount_combo.set_sensitive(True)
+        """
+
+    def partman_edit_dialog(self, devpart, partition):
         if not self.allowed_change_step:
             return
         if not isinstance(self.dbfilter, partman.Partman):
@@ -1757,6 +1861,11 @@ class Wizard:
         self.dbfilter.create_label(devpart)
 
     def on_partition_list_menu_new_activate(self, ticked):
+        selected = self.userinterface.partition_list_treeview2.selectedIndexes()
+        index = selected[0]
+        item = index.internalPointer()
+        devpart = item.itemData[0]
+        partition = item.itemData[1]
         self.partman_create_dialog(devpart, partition)
 
     def on_partition_list_menu_edit_activate(self, ticked):
