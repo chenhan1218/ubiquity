@@ -1641,7 +1641,6 @@ class Wizard:
 
         if partition['parted']['type'] == 'pri/log':
             # Is there already an extended partition?
-            #model = self.partition_list_treeview.get_model()
             for child in self.partition_tree_model.children():
                 data = child.itemData
                 otherpart = data[1]
@@ -1739,14 +1738,8 @@ class Wizard:
             current_size = self.edit_dialogue.partition_edit_size_spinbutton.value()
 
         self.edit_dialogue.partition_edit_use_combo.clear()
-        #renderer = gtk.CellRendererText()
-        #self.partition_edit_use_combo.pack_start(renderer)
-        #self.partition_edit_use_combo.add_attribute(renderer, 'text', 0)
-        #list_store = gtk.ListStore(gobject.TYPE_STRING)
         for script, arg, option in partition['method_choices']:
-            #list_store.append([arg])
             self.edit_dialogue.partition_edit_use_combo.addItem(arg)
-        #self.partition_edit_use_combo.set_model(list_store)
         current_method = self.dbfilter.get_current_method(partition)
         if current_method:
             index = self.edit_dialogue.partition_edit_use_combo.findText(current_method)
@@ -1757,18 +1750,11 @@ class Wizard:
         # need to calculate this dynamically based on the method instead of
         # relying on cached information from partman
         self.edit_dialogue.partition_edit_mount_combo.clear()
-        #renderer = gtk.CellRendererText()
-        #self.partition_edit_mount_combo.pack_start(renderer)
-        #self.partition_edit_mount_combo.add_attribute(renderer, 'text', 1)
-        #list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         if 'mountpoint_choices' in partition:
             for mp, choice_c, choice in partition['mountpoint_choices']:
                 ##FIXME gtk frontend has a nifty way of showing the user readable
                 ##'choice' text in the drop down, but only selecting the 'mp' text
                 self.edit_dialogue.partition_edit_mount_combo.addItem(mp)
-        #self.partition_edit_mount_combo.set_model(list_store)
-        #if self.partition_edit_mount_combo.get_text_column() == -1:
-        #    self.partition_edit_mount_combo.set_text_column(0)
         current_mountpoint = self.dbfilter.get_current_mountpoint(partition)
         if current_mountpoint is not None:
             index = self.edit_dialogue.partition_edit_mount_combo.findText(current_method)
@@ -1777,13 +1763,6 @@ class Wizard:
             else:
                 self.edit_dialogue.partition_edit_mount_combo.addItem(current_mountpoint)
                 self.edit_dialogue.partition_edit_mount_combo.setCurrentIndex(self.edit_dialogue.partition_edit_mount_combo.count() - 1)
-            #self.partition_edit_mount_combo.child.set_text(current_mountpoint)
-            #iterator = list_store.get_iter_first()
-            #while iterator:
-            #    if list_store[iterator][0] == current_mountpoint:
-            #        self.partition_edit_mount_combo.set_active_iter(iterator)
-            #        break
-            #    iterator = list_store.iter_next(iterator)
 
         response = self.edit_dialogue.exec_()
 
