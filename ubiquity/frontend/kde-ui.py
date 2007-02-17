@@ -165,7 +165,7 @@ class Wizard:
         self.laptop = ex("laptop-detect")
         self.qtparted_subp = None
         self.partition_tree_model = None
-        self.app.connect(self.userinterface.partition_list_treeview2, SIGNAL("customContextMenuRequested(const QPoint&)"), self.partman_popup)
+        self.app.connect(self.userinterface.partition_list_treeview, SIGNAL("customContextMenuRequested(const QPoint&)"), self.partman_popup)
 
         # set default language
         dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
@@ -308,14 +308,12 @@ class Wizard:
             elif current_name == "stepKeyboardConf":
                 self.dbfilter = console_setup.ConsoleSetup(self)
             elif current_name == "stepPartAuto":
-                print "run stepPartAuto"
                 if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
                     self.dbfilter = partman.Partman(self)
                 else:
                     self.dbfilter = partman_auto.PartmanAuto(self)
             elif (current_name == "stepPartAdvanced" and
                   'UBIQUITY_NEW_PARTITIONER' in os.environ):
-                print "run stepPartAdvanced"
                 if isinstance(self.dbfilter, partman.Partman):
                     pre_log('info', 'reusing running partman')
                 else:
@@ -385,7 +383,6 @@ class Wizard:
             'UBIQUITY_DEBUG' in os.environ)
 
         if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
-            print "UBIQUITY_NEW_PARTITIONER"
             self.userinterface.qtparted_frame.hide()
         else:
             self.part_advanced_vpaned.hide()
@@ -816,7 +813,6 @@ class Wizard:
             self.set_current_page(WIDGET_STACK_STEPS["stepKeyboardConf"])
         # Keyboard
         elif step == "stepKeyboardConf":
-            print "process_step set_current_page(WIDGET_STACK_STEPS[stepPartAuto])"
             self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
         # Automatic partitioning
         elif step == "stepPartAuto":
@@ -1617,8 +1613,8 @@ class Wizard:
 
     def update_partman (self, disk_cache, partition_cache, cache_order):
         #throwing away the old model if there is one
-        self.partition_tree_model = PartitionModel(self.userinterface.partition_list_treeview2)
-        self.userinterface.partition_list_treeview2.setModel(self.partition_tree_model)
+        self.partition_tree_model = PartitionModel(self.userinterface.partition_list_treeview)
+        self.userinterface.partition_list_treeview.setModel(self.partition_tree_model)
         for item in cache_order:
             if item in disk_cache:
                 self.partition_tree_model.append([item, disk_cache[item]], self)
@@ -1704,18 +1700,14 @@ class Wizard:
                 prilog, place, method, mountpoint)
 
     def on_partition_create_use_combo_changed (self, combobox):
-        print "on_partition_create_use_combo_changed"
-        """
-        model = combobox.get_model()
-        iterator = combobox.get_active_iter()
-        # If the selected method isn't a filesystem, then selecting a mount
-        # point makes no sense.
-        if iterator is None or model[iterator][0] != 'filesystem':
-            self.partition_create_mount_combo.child.set_text('')
-            self.partition_create_mount_combo.set_sensitive(False)
+        known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
+                             'fat16', 'fat32')
+        text = str(self.create_dialogue.partition_create_use_combo.currentText())
+        if text not in known_filesystems:
+            #self.create_dialogue.partition_create_mount_combo.child.setText('')
+            self.create_dialogue.partition_create_mount_combo.setEnabled(False)
         else:
-            self.partition_create_mount_combo.set_sensitive(True)
-        """
+            self.create_dialogue.partition_create_mount_combo.setEnabled(True)
 
     def partman_edit_dialog(self, devpart, partition):
         if not self.allowed_change_step:
@@ -1806,7 +1798,6 @@ class Wizard:
 
             if (current_size is not None and size is not None and
                 current_size == size):
-                print "setting size to None"
                 size = None
             if method == current_method:
                 method = None
@@ -1833,7 +1824,7 @@ class Wizard:
             self.edit_dialogue.partition_edit_mount_combo.setEnabled(True)
 
     def on_partition_list_menu_new_label_activate(self, ticked):
-        selected = self.userinterface.partition_list_treeview2.selectedIndexes()
+        selected = self.userinterface.partition_list_treeview.selectedIndexes()
         index = selected[0]
         item = index.internalPointer()
         devpart = item.itemData[0]
@@ -1846,7 +1837,7 @@ class Wizard:
         self.dbfilter.create_label(devpart)
 
     def on_partition_list_menu_new_activate(self, ticked):
-        selected = self.userinterface.partition_list_treeview2.selectedIndexes()
+        selected = self.userinterface.partition_list_treeview.selectedIndexes()
         index = selected[0]
         item = index.internalPointer()
         devpart = item.itemData[0]
@@ -1854,7 +1845,7 @@ class Wizard:
         self.partman_create_dialog(devpart, partition)
 
     def on_partition_list_menu_edit_activate(self, ticked):
-        selected = self.userinterface.partition_list_treeview2.selectedIndexes()
+        selected = self.userinterface.partition_list_treeview.selectedIndexes()
         index = selected[0]
         item = index.internalPointer()
         devpart = item.itemData[0]
@@ -1862,7 +1853,7 @@ class Wizard:
         self.partman_edit_dialog(devpart, partition)
 
     def on_partition_list_menu_delete_activate(self, ticked):
-        selected = self.userinterface.partition_list_treeview2.selectedIndexes()
+        selected = self.userinterface.partition_list_treeview.selectedIndexes()
         index = selected[0]
         item = index.internalPointer()
         devpart = item.itemData[0]
@@ -1875,17 +1866,14 @@ class Wizard:
         self.dbfilter.delete_partition(devpart)
 
     def partman_popup (self, position):
-        print "def partman_popup (self, position):"
         if not self.allowed_change_step:
             return
 
-        selected = self.userinterface.partition_list_treeview2.selectedIndexes()
-        print "selected: " + str(selected)
+        selected = self.userinterface.partition_list_treeview.selectedIndexes()
         index = selected[0]
         item = index.internalPointer()
         devpart = item.itemData[0]
         partition = item.itemData[1]
-        print "devpart: " + devpart
 
         #partition_list_menu = gtk.Menu()
         partition_list_menu = QMenu(self.userinterface)
@@ -1907,9 +1895,6 @@ class Wizard:
             self.app.connect(delete_item, SIGNAL("triggered(bool)"), self.on_partition_list_menu_delete_activate)
 
         partition_list_menu.exec_(QCursor.pos())
-
-    def new_label(self, bool):
-        print "new label!"
 
     def get_hostname (self):
         return unicode(self.userinterface.hostname.text())
@@ -2072,8 +2057,6 @@ class Wizard:
         else:
             return options[response - 1]
         """
-        print "options: " + str(options)
-        print "response: " + str(response)
         if response < 0:
             return None
         elif response == QMessageBox.Ok:
@@ -2427,7 +2410,6 @@ class PartitionModel(QAbstractItemModel):
             return QVariant()
 
     def setData(self, index, value, role):
-        print "setData: " + str(value.toBool())
         item = index.internalPointer()
         if role == Qt.CheckStateRole and index.column() == 3:
             item.partman_column_format_toggled(value.toBool())
@@ -2599,7 +2581,6 @@ class TreeItem:
         return 'method' in partition and 'can_activate_format' in partition
 
     def partman_column_format_toggled(self, value):
-        print "partman_column_format_toggled"
         if not self.ubiquity.allowed_change_step:
             return
         if not isinstance(self.ubiquity.dbfilter, partman.Partman):

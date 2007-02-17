@@ -765,11 +765,8 @@ This language will be the default language for the final system.</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="0" >
-           <widget class="QTreeWidget" name="partition_list_treeview" />
-          </item>
           <item row="2" column="0" >
-           <widget class="QTreeView" name="partition_list_treeview2" >
+           <widget class="QTreeView" name="partition_list_treeview" >
             <property name="contextMenuPolicy" >
              <enum>Qt::CustomContextMenu</enum>
             </property>
