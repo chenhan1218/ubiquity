@@ -50,6 +50,9 @@
      <property name="text" >
       <string>New partition size in megabytes (1000000 bytes):</string>
      </property>
+     <property name="wordWrap" >
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
    <item row="2" column="1" >

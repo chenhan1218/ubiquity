@@ -1629,98 +1629,94 @@ class Wizard:
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
 
     def partman_edit_dialog (self, devpart, partition):
-        dialogue = QDialog(self.userinterface)
-        uic.loadUi("%s/partition_edit_dialog.ui" % UIDIR, dialogue)
-        dialogue.exec_()
-        """
-
         if not self.allowed_change_step:
             return
         if not isinstance(self.dbfilter, partman.Partman):
             return
 
-        self.partition_edit_dialog.show_all()
+        dialogue = QDialog(self.userinterface)
+        uic.loadUi("%s/partition_edit_dialog.ui" % UIDIR, dialogue)
 
         current_size = None
         if ('can_resize' not in partition or not partition['can_resize'] or
             'resize_min_size' not in partition or
             'resize_max_size' not in partition):
-            self.partition_edit_size_label.hide()
-            self.partition_edit_size_spinbutton.hide()
+            dialogue.partition_edit_size_label.hide()
+            dialogue.partition_edit_size_spinbutton.hide()
         else:
             # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
             # partman expects.
             min_size_mb = int(partition['resize_min_size']) / 1000000
             cur_size_mb = int(partition['parted']['size']) / 1000000
             max_size_mb = int(partition['resize_max_size']) / 1000000
-            self.partition_edit_size_spinbutton.set_adjustment(
-                gtk.Adjustment(value=cur_size_mb, lower=min_size_mb,
-                               upper=max_size_mb,
-                               step_incr=1, page_incr=100, page_size=100))
-            self.partition_edit_size_spinbutton.set_value(cur_size_mb)
-            current_size = self.partition_edit_size_spinbutton.get_value()
+            dialogue.partition_edit_size_spinbutton.setMinimum(min_size_mb)
+            dialogue.partition_edit_size_spinbutton.setMaximum(max_size_mb)
+            dialogue.partition_edit_size_spinbutton.setSingleStep(1)
+            dialogue.partition_edit_size_spinbutton.setValue(cur_size_mb)
 
-        self.partition_edit_use_combo.clear()
-        renderer = gtk.CellRendererText()
-        self.partition_edit_use_combo.pack_start(renderer)
-        self.partition_edit_use_combo.add_attribute(renderer, 'text', 0)
-        list_store = gtk.ListStore(gobject.TYPE_STRING)
+            current_size = dialogue.partition_edit_size_spinbutton.value()
+
+        dialogue.partition_edit_use_combo.clear()
+        #renderer = gtk.CellRendererText()
+        #self.partition_edit_use_combo.pack_start(renderer)
+        #self.partition_edit_use_combo.add_attribute(renderer, 'text', 0)
+        #list_store = gtk.ListStore(gobject.TYPE_STRING)
         for script, arg, option in partition['method_choices']:
-            list_store.append([arg])
-        self.partition_edit_use_combo.set_model(list_store)
+            #list_store.append([arg])
+            dialogue.partition_edit_use_combo.addItem(arg)
+        #self.partition_edit_use_combo.set_model(list_store)
         current_method = self.dbfilter.get_current_method(partition)
         if current_method:
-            iterator = list_store.get_iter_first()
-            while iterator:
-                if list_store[iterator][0] == current_method:
-                    self.partition_edit_use_combo.set_active_iter(iterator)
-                    break
-                iterator = list_store.iter_next(iterator)
+            index = dialogue.partition_edit_use_combo.findText(current_method)
+            dialogue.partition_edit_use_combo.setCurrentIndex(index)
 
         # TODO cjwatson 2006-11-02: mountpoint_choices won't be available
         # unless the method is already one that can be mounted, so we may
         # need to calculate this dynamically based on the method instead of
         # relying on cached information from partman
-        self.partition_edit_mount_combo.clear()
-        renderer = gtk.CellRendererText()
-        self.partition_edit_mount_combo.pack_start(renderer)
-        self.partition_edit_mount_combo.add_attribute(renderer, 'text', 1)
-        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        dialogue.partition_edit_mount_combo.clear()
+        #renderer = gtk.CellRendererText()
+        #self.partition_edit_mount_combo.pack_start(renderer)
+        #self.partition_edit_mount_combo.add_attribute(renderer, 'text', 1)
+        #list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         if 'mountpoint_choices' in partition:
             for mp, choice_c, choice in partition['mountpoint_choices']:
-                list_store.append([mp, choice])
-        self.partition_edit_mount_combo.set_model(list_store)
-        if self.partition_edit_mount_combo.get_text_column() == -1:
-            self.partition_edit_mount_combo.set_text_column(0)
+                ##FIXME gtk frontend has a nifty way of showing the user readable
+                ##'choice' text in the drop down, but only selecting the 'mp' text
+                dialogue.partition_edit_mount_combo.addItem(mp)
+        #self.partition_edit_mount_combo.set_model(list_store)
+        #if self.partition_edit_mount_combo.get_text_column() == -1:
+        #    self.partition_edit_mount_combo.set_text_column(0)
         current_mountpoint = self.dbfilter.get_current_mountpoint(partition)
         if current_mountpoint is not None:
-            self.partition_edit_mount_combo.child.set_text(current_mountpoint)
-            iterator = list_store.get_iter_first()
-            while iterator:
-                if list_store[iterator][0] == current_mountpoint:
-                    self.partition_edit_mount_combo.set_active_iter(iterator)
-                    break
-                iterator = list_store.iter_next(iterator)
+            index = dialogue.partition_edit_mount_combo.findText(current_method)
+            if index != -1:
+                dialogue.partition_edit_mount_combo.setCurrentIndex(index)
+            else:
+                dialogue.partition_edit_mount_combo.addItem(current_mountpoint)
+                dialogue.partition_edit_mount_combo.setCurrentIndex(dialogue.partition_edit_mount_combo.count() - 1)
+            #self.partition_edit_mount_combo.child.set_text(current_mountpoint)
+            #iterator = list_store.get_iter_first()
+            #while iterator:
+            #    if list_store[iterator][0] == current_mountpoint:
+            #        self.partition_edit_mount_combo.set_active_iter(iterator)
+            #        break
+            #    iterator = list_store.iter_next(iterator)
 
-        response = self.partition_edit_dialog.run()
-        self.partition_edit_dialog.hide()
+        response = dialogue.exec_()
 
-        if response == gtk.RESPONSE_OK:
+        if response == QDialog.Accepted:
             size = None
             if current_size is not None:
-                size = self.partition_edit_size_spinbutton.get_value()
+                size = dialogue.partition_edit_size_spinbutton.value()
 
-            method_iter = self.partition_edit_use_combo.get_active_iter()
-            if method_iter is None:
-                method = None
-            else:
-                model = self.partition_edit_use_combo.get_model()
-                method = model.get_value(method_iter, 0)
+            method = dialogue.partition_edit_use_combo.currentText()
 
-            mountpoint = self.partition_edit_mount_combo.child.get_text()
+            mountpoint = dialogue.partition_edit_mount_combo.currentText()
 
             if (current_size is not None and size is not None and
                 current_size == size):
+                print "setting size to None"
                 size = None
             if method == current_method:
                 method = None
@@ -1732,7 +1728,6 @@ class Wizard:
                 self.allow_change_step(False)
                 self.dbfilter.edit_partition(devpart, str(size),
                                              method, mountpoint)
-        """
 
     def on_partition_list_menu_new_label_activate(self, ticked):
         selected = self.userinterface.partition_list_treeview2.selectedIndexes()
@@ -1969,13 +1964,14 @@ class Wizard:
         else:
             return options[response - 1]
         """
-        
+        print "options: " + str(options)
+        print "response: " + str(response)
         if response < 0:
             return None
         elif response == QMessageBox.Ok:
-            return options[len(buttons) - 1]
-        else:
-            return options[response - 1]
+            return options[1]
+        elif response == QMessageBox.Cancel:
+            return options[0]
 
     def refresh (self):
         self.app.processEvents()
