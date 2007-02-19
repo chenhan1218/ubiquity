@@ -1887,16 +1887,17 @@ class Wizard:
                                  self.on_partition_list_menu_new_label_activate)
             elif action == 'new':
                 # TODO cjwatson 2006-10-31: i18n
-                new_item = partition_list_menu.addAction('New')
+                new_item = partition_list_menu.addAction('New partition')
                 self.app.connect(new_item, SIGNAL("triggered(bool)"),
                                  self.on_partition_list_menu_new_activate)
             elif action == 'edit':
                 # TODO cjwatson 2006-10-31: i18n
-                edit_item = partition_list_menu.addAction('Edit')
+                edit_item = partition_list_menu.addAction('Edit partition')
                 self.app.connect(edit_item, SIGNAL("triggered(bool)"),
                                  self.on_partition_list_menu_edit_activate)
             elif action == 'delete':
-                delete_item = partition_list_menu.addAction('Delete')
+                # TODO cjwatson 2006-10-31: i18n
+                delete_item = partition_list_menu.addAction('Delete partition')
                 self.app.connect(delete_item, SIGNAL("triggered(bool)"),
                                  self.on_partition_list_menu_delete_activate)
 
