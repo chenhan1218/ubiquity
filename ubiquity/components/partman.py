@@ -191,6 +191,16 @@ class Partman(PartmanAuto):
         else:
             return None
 
+    def get_actions(self, devpart, partition):
+        if 'id' not in partition:
+            yield 'new_label'
+        if 'can_new' in partition and partition['can_new']:
+            yield 'new'
+        if 'id' in partition and partition['parted']['fs'] != 'free':
+            yield 'edit'
+            yield 'delete'
+        # TODO cjwatson 2006-12-22: options for whole disks
+
     def set(self, question, value):
         if question == 'ubiquity/partman-rebuild-cache':
             if not self.building_cache:

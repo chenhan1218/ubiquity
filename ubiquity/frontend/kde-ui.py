@@ -1867,6 +1867,8 @@ class Wizard:
     def partman_popup (self, position):
         if not self.allowed_change_step:
             return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
 
         selected = self.userinterface.partition_list_treeview.selectedIndexes()
         index = selected[0]
@@ -1876,22 +1878,27 @@ class Wizard:
 
         #partition_list_menu = gtk.Menu()
         partition_list_menu = QMenu(self.userinterface)
-        if 'id' not in partition:
-            # TODO cjwatson 2006-12-21: i18n;
-            # partman-partitioning/text/label text is quite long?
-            new_label_item = partition_list_menu.addAction('New partition table')
-            self.app.connect(new_label_item, SIGNAL("triggered(bool)"), self.on_partition_list_menu_new_label_activate)
-        if 'can_new' in partition and partition['can_new']:
-            # TODO cjwatson 2006-10-31: i18n
-            new_item = partition_list_menu.addAction('New')
-            self.app.connect(new_item, SIGNAL("triggered(bool)"), self.on_partition_list_menu_new_activate)
-        if 'id' in partition and partition['parted']['fs'] != 'free':
-            # TODO cjwatson 2006-10-31: i18n
-            edit_item = partition_list_menu.addAction('Edit')
-            self.app.connect(edit_item, SIGNAL("triggered(bool)"), self.on_partition_list_menu_edit_activate)
-            
-            delete_item = partition_list_menu.addAction('Delete')
-            self.app.connect(delete_item, SIGNAL("triggered(bool)"), self.on_partition_list_menu_delete_activate)
+        for action in self.dbfilter.get_actions():
+            if action == 'new_label':
+                # TODO cjwatson 2006-12-21: i18n;
+                # partman-partitioning/text/label text is quite long?
+                new_label_item = partition_list_menu.addAction('New partition table')
+                self.app.connect(new_label_item, SIGNAL("triggered(bool)"),
+                                 self.on_partition_list_menu_new_label_activate)
+            elif action == 'new':
+                # TODO cjwatson 2006-10-31: i18n
+                new_item = partition_list_menu.addAction('New')
+                self.app.connect(new_item, SIGNAL("triggered(bool)"),
+                                 self.on_partition_list_menu_new_activate)
+            elif action == 'edit':
+                # TODO cjwatson 2006-10-31: i18n
+                edit_item = partition_list_menu.addAction('Edit')
+                self.app.connect(edit_item, SIGNAL("triggered(bool)"),
+                                 self.on_partition_list_menu_edit_activate)
+            elif action == 'delete':
+                delete_item = partition_list_menu.addAction('Delete')
+                self.app.connect(delete_item, SIGNAL("triggered(bool)"),
+                                 self.on_partition_list_menu_delete_activate)
 
         partition_list_menu.exec_(QCursor.pos())
 

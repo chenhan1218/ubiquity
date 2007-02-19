@@ -2056,6 +2056,8 @@ class Wizard:
     def partman_popup (self, widget, event):
         if not self.allowed_change_step:
             return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
 
         model, iterator = widget.get_selection().get_selected()
         if iterator is None:
@@ -2064,34 +2066,35 @@ class Wizard:
         partition = model[iterator][1]
 
         partition_list_menu = gtk.Menu()
-        if 'id' not in partition:
-            # TODO cjwatson 2006-12-21: i18n;
-            # partman-partitioning/text/label text is quite long?
-            new_label_item = gtk.MenuItem('New partition table')
-            new_label_item.connect(
-                'activate', self.on_partition_list_menu_new_label_activate,
-                devpart, partition)
-            partition_list_menu.append(new_label_item)
-        if 'can_new' in partition and partition['can_new']:
-            # TODO cjwatson 2006-10-31: i18n
-            new_item = gtk.MenuItem('New')
-            new_item.connect('activate',
-                             self.on_partition_list_menu_new_activate,
-                             devpart, partition)
-            partition_list_menu.append(new_item)
-        if 'id' in partition and partition['parted']['fs'] != 'free':
-            # TODO cjwatson 2006-10-31: i18n
-            edit_item = gtk.MenuItem('Edit')
-            edit_item.connect('activate',
-                              self.on_partition_list_menu_edit_activate,
-                              devpart, partition)
-            partition_list_menu.append(edit_item)
-            delete_item = gtk.MenuItem('Delete')
-            delete_item.connect('activate',
-                                self.on_partition_list_menu_delete_activate,
-                                devpart, partition)
-            partition_list_menu.append(delete_item)
-        # TODO cjwatson 2006-12-22: options for whole disks
+        for action in self.dbfilter.get_actions():
+            if action == 'new_label':
+                # TODO cjwatson 2006-12-21: i18n;
+                # partman-partitioning/text/label text is quite long?
+                new_label_item = gtk.MenuItem('New partition table')
+                new_label_item.connect(
+                    'activate', self.on_partition_list_menu_new_label_activate,
+                    devpart, partition)
+                partition_list_menu.append(new_label_item)
+            elif action == 'new':
+                # TODO cjwatson 2006-10-31: i18n
+                new_item = gtk.MenuItem('New')
+                new_item.connect('activate',
+                                 self.on_partition_list_menu_new_activate,
+                                 devpart, partition)
+                partition_list_menu.append(new_item)
+            elif action == 'edit':
+                # TODO cjwatson 2006-10-31: i18n
+                edit_item = gtk.MenuItem('Edit')
+                edit_item.connect('activate',
+                                  self.on_partition_list_menu_edit_activate,
+                                  devpart, partition)
+                partition_list_menu.append(edit_item)
+            elif action == 'delete':
+                delete_item = gtk.MenuItem('Delete')
+                delete_item.connect(
+                    'activate', self.on_partition_list_menu_delete_activate,
+                    devpart, partition)
+                partition_list_menu.append(delete_item)
         if not partition_list_menu.get_children():
             return
         partition_list_menu.show_all()
