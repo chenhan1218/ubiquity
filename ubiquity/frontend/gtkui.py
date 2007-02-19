@@ -2120,7 +2120,6 @@ class Wizard:
             # Is there already an extended partition?
             model = self.partition_list_treeview.get_model()
             for otherpart in [row[1] for row in model]:
-                print "otherpart: " + str(otherpart)
                 if (otherpart['dev'] == partition['dev'] and
                     'id' in otherpart and
                     otherpart['parted']['type'] == 'logical'):
