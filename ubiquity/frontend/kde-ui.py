@@ -1651,9 +1651,9 @@ class Wizard:
         if not isinstance(self.dbfilter, partman.Partman):
             return
 
-        self.create_dialogue = QDialog(self.userinterface)
-        uic.loadUi("%s/partition_create_dialog.ui" % UIDIR, self.create_dialogue)
-        self.app.connect(self.create_dialogue.partition_create_use_combo, SIGNAL("currentIndexChanged(int)"), self.on_partition_create_use_combo_changed)
+        self.create_dialog = QDialog(self.userinterface)
+        uic.loadUi("%s/partition_create_dialog.ui" % UIDIR, self.create_dialog)
+        self.app.connect(self.create_dialog.partition_create_use_combo, SIGNAL("currentIndexChanged(int)"), self.on_partition_create_use_combo_changed)
 
         # TODO cjwatson 2006-11-01: Because partman doesn't use a question
         # group for these, we have to figure out in advance whether each
@@ -1667,30 +1667,30 @@ class Wizard:
                 if (otherpart['dev'] == partition['dev'] and
                     'id' in otherpart and
                     otherpart['parted']['type'] == 'logical'):
-                    self.create_dialogue.partition_create_type_logical.setChecked(True)
+                    self.create_dialog.partition_create_type_logical.setChecked(True)
                     break
             else:
-                self.create_dialogue.partition_create_type_primary.setChecked(True)
+                self.create_dialog.partition_create_type_primary.setChecked(True)
         else:
-            self.create_dialogue.partition_create_type_label.hide()
-            self.create_dialogue.partition_create_type_widget.hide()
+            self.create_dialog.partition_create_type_label.hide()
+            self.create_dialog.partition_create_type_widget.hide()
         # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
         # partman expects.
         max_size_mb = int(partition['parted']['size']) / 1000000
-        self.create_dialogue.partition_create_size_spinbutton.setValue(max_size_mb)
-        self.create_dialogue.partition_create_size_spinbutton.setMaximum(max_size_mb)
+        self.create_dialog.partition_create_size_spinbutton.setValue(max_size_mb)
+        self.create_dialog.partition_create_size_spinbutton.setMaximum(max_size_mb)
 
         partition_uses = {}
         for method, name in partman.Partman.create_use_as():
             partition_uses[name] = method
-            self.create_dialogue.partition_create_use_combo.addItem(name)
-        if self.create_dialogue.partition_create_use_combo.count() == 0:
-            self.create_dialogue.partition_create_use_combo.setEnabled(False)
+            self.create_dialog.partition_create_use_combo.addItem(name)
+        if self.create_dialog.partition_create_use_combo.count() == 0:
+            self.create_dialog.partition_create_use_combo.setEnabled(False)
 
         # TODO cjwatson 2006-11-01: set up mount point combo
-        #self.create_dialogue.partition_create_mount_combo.setText('')
+        #self.create_dialog.partition_create_mount_combo.setText('')
 
-        response = self.create_dialogue.exec_()
+        response = self.create_dialog.exec_()
 
         if response == QDialog.Accepted:
             if partition['parted']['type'] == 'primary':
@@ -1698,35 +1698,35 @@ class Wizard:
             elif partition['parted']['type'] == 'logical':
                 prilog = partman.PARTITION_TYPE_LOGICAL
             elif partition['parted']['type'] == 'pri/log':
-                if self.create_dialogue.partition_create_type_primary.isChecked():
+                if self.create_dialog.partition_create_type_primary.isChecked():
                     prilog = partman.PARTITION_TYPE_PRIMARY
                 else:
                     prilog = partman.PARTITION_TYPE_LOGICAL
 
-            if self.create_dialogue.partition_create_place_beginning.isChecked():
+            if self.create_dialog.partition_create_place_beginning.isChecked():
                 place = partman.PARTITION_PLACE_BEGINNING
             else:
                 place = partman.PARTITION_PLACE_END
 
-            method = self.create_dialogue.partition_create_use_combo.currentText()
+            method = self.create_dialog.partition_create_use_combo.currentText()
 
-            mountpoint = self.create_dialogue.partition_create_mount_combo.currentText()
+            mountpoint = self.create_dialog.partition_create_mount_combo.currentText()
 
             self.allow_change_step(False)
             self.dbfilter.create_partition(
                 devpart,
-                str(self.create_dialogue.partition_create_size_spinbutton.value()),
+                str(self.create_dialog.partition_create_size_spinbutton.value()),
                 prilog, place, method, mountpoint)
 
     def on_partition_create_use_combo_changed (self, combobox):
         known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
                              'fat16', 'fat32')
-        text = str(self.create_dialogue.partition_create_use_combo.currentText())
+        text = str(self.create_dialog.partition_create_use_combo.currentText())
         if text not in known_filesystems:
-            #self.create_dialogue.partition_create_mount_combo.child.setText('')
-            self.create_dialogue.partition_create_mount_combo.setEnabled(False)
+            #self.create_dialog.partition_create_mount_combo.child.setText('')
+            self.create_dialog.partition_create_mount_combo.setEnabled(False)
         else:
-            self.create_dialogue.partition_create_mount_combo.setEnabled(True)
+            self.create_dialog.partition_create_mount_combo.setEnabled(True)
 
     def partman_edit_dialog(self, devpart, partition):
         if not self.allowed_change_step:
@@ -1734,66 +1734,66 @@ class Wizard:
         if not isinstance(self.dbfilter, partman.Partman):
             return
 
-        self.edit_dialogue = QDialog(self.userinterface)
-        uic.loadUi("%s/partition_edit_dialog.ui" % UIDIR, self.edit_dialogue)
-        self.app.connect(self.edit_dialogue.partition_edit_use_combo, SIGNAL("currentIndexChanged(int)"), self.on_partition_edit_use_combo_changed)
+        self.edit_dialog = QDialog(self.userinterface)
+        uic.loadUi("%s/partition_edit_dialog.ui" % UIDIR, self.edit_dialog)
+        self.app.connect(self.edit_dialog.partition_edit_use_combo, SIGNAL("currentIndexChanged(int)"), self.on_partition_edit_use_combo_changed)
 
         current_size = None
         if ('can_resize' not in partition or not partition['can_resize'] or
             'resize_min_size' not in partition or
             'resize_max_size' not in partition):
-            self.edit_dialogue.partition_edit_size_label.hide()
-            self.edit_dialogue.partition_edit_size_spinbutton.hide()
+            self.edit_dialog.partition_edit_size_label.hide()
+            self.edit_dialog.partition_edit_size_spinbutton.hide()
         else:
             # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
             # partman expects.
             min_size_mb = int(partition['resize_min_size']) / 1000000
             cur_size_mb = int(partition['parted']['size']) / 1000000
             max_size_mb = int(partition['resize_max_size']) / 1000000
-            self.edit_dialogue.partition_edit_size_spinbutton.setMinimum(min_size_mb)
-            self.edit_dialogue.partition_edit_size_spinbutton.setMaximum(max_size_mb)
-            self.edit_dialogue.partition_edit_size_spinbutton.setSingleStep(1)
-            self.edit_dialogue.partition_edit_size_spinbutton.setValue(cur_size_mb)
+            self.edit_dialog.partition_edit_size_spinbutton.setMinimum(min_size_mb)
+            self.edit_dialog.partition_edit_size_spinbutton.setMaximum(max_size_mb)
+            self.edit_dialog.partition_edit_size_spinbutton.setSingleStep(1)
+            self.edit_dialog.partition_edit_size_spinbutton.setValue(cur_size_mb)
 
-            current_size = str(self.edit_dialogue.partition_edit_size_spinbutton.value())
+            current_size = str(self.edit_dialog.partition_edit_size_spinbutton.value())
 
-        self.edit_dialogue.partition_edit_use_combo.clear()
+        self.edit_dialog.partition_edit_use_combo.clear()
         for script, arg, option in partition['method_choices']:
-            self.edit_dialogue.partition_edit_use_combo.addItem(arg)
+            self.edit_dialog.partition_edit_use_combo.addItem(arg)
         current_method = self.dbfilter.get_current_method(partition)
         if current_method:
-            index = self.edit_dialogue.partition_edit_use_combo.findText(current_method)
-            self.edit_dialogue.partition_edit_use_combo.setCurrentIndex(index)
+            index = self.edit_dialog.partition_edit_use_combo.findText(current_method)
+            self.edit_dialog.partition_edit_use_combo.setCurrentIndex(index)
 
         # TODO cjwatson 2006-11-02: mountpoint_choices won't be available
         # unless the method is already one that can be mounted, so we may
         # need to calculate this dynamically based on the method instead of
         # relying on cached information from partman
-        self.edit_dialogue.partition_edit_mount_combo.clear()
+        self.edit_dialog.partition_edit_mount_combo.clear()
         if 'mountpoint_choices' in partition:
             for mp, choice_c, choice in partition['mountpoint_choices']:
                 ##FIXME gtk frontend has a nifty way of showing the user readable
                 ##'choice' text in the drop down, but only selecting the 'mp' text
-                self.edit_dialogue.partition_edit_mount_combo.addItem(mp)
+                self.edit_dialog.partition_edit_mount_combo.addItem(mp)
         current_mountpoint = self.dbfilter.get_current_mountpoint(partition)
         if current_mountpoint is not None:
-            index = self.edit_dialogue.partition_edit_mount_combo.findText(current_method)
+            index = self.edit_dialog.partition_edit_mount_combo.findText(current_method)
             if index != -1:
-                self.edit_dialogue.partition_edit_mount_combo.setCurrentIndex(index)
+                self.edit_dialog.partition_edit_mount_combo.setCurrentIndex(index)
             else:
-                self.edit_dialogue.partition_edit_mount_combo.addItem(current_mountpoint)
-                self.edit_dialogue.partition_edit_mount_combo.setCurrentIndex(self.edit_dialogue.partition_edit_mount_combo.count() - 1)
+                self.edit_dialog.partition_edit_mount_combo.addItem(current_mountpoint)
+                self.edit_dialog.partition_edit_mount_combo.setCurrentIndex(self.edit_dialog.partition_edit_mount_combo.count() - 1)
 
-        response = self.edit_dialogue.exec_()
+        response = self.edit_dialog.exec_()
 
         if response == QDialog.Accepted:
             size = None
             if current_size is not None:
-                size = str(self.edit_dialogue.partition_edit_size_spinbutton.value())
+                size = str(self.edit_dialog.partition_edit_size_spinbutton.value())
 
-            method = self.edit_dialogue.partition_edit_use_combo.currentText()
+            method = self.edit_dialog.partition_edit_use_combo.currentText()
 
-            mountpoint = self.edit_dialogue.partition_edit_mount_combo.currentText()
+            mountpoint = self.edit_dialog.partition_edit_mount_combo.currentText()
 
             if (current_size is not None and size is not None and
                 current_size == size):
@@ -1815,12 +1815,12 @@ class Wizard:
         # have to hardcode the list of known filesystems here.
         known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
                              'fat16', 'fat32')
-        text = str(self.edit_dialogue.partition_edit_use_combo.currentText())
+        text = str(self.edit_dialog.partition_edit_use_combo.currentText())
         if text not in known_filesystems:
-            #self.edit_dialogue.partition_edit_mount_combo.child.setText('')
-            self.edit_dialogue.partition_edit_mount_combo.setEnabled(False)
+            #self.edit_dialog.partition_edit_mount_combo.child.setText('')
+            self.edit_dialog.partition_edit_mount_combo.setEnabled(False)
         else:
-            self.edit_dialogue.partition_edit_mount_combo.setEnabled(True)
+            self.edit_dialog.partition_edit_mount_combo.setEnabled(True)
 
     def on_partition_list_menu_new_label_activate(self, ticked):
         selected = self.userinterface.partition_list_treeview.selectedIndexes()
@@ -2043,7 +2043,7 @@ class Wizard:
         affirmative = buttons.pop()
         buttons.insert(0, affirmative)
 
-        #FIXME qt 4 seems to have lost the ability to set a custom message on the buttons for stock dialogues
+        #FIXME qt 4 seems to have lost the ability to set a custom message on the buttons for stock dialogs
         #response = QMessageBox.question(self.userinterface, title, msg,
         #                                *buttons)
         response = QMessageBox.question(self.userinterface, title, msg, QMessageBox.Ok, QMessageBox.Cancel)

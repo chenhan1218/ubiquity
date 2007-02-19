@@ -1,6 +1,6 @@
 <ui version="4.0" >
- <class>partition_create_dialogue</class>
- <widget class="QDialog" name="partition_create_dialogue" >
+ <class>partition_create_dialog</class>
+ <widget class="QDialog" name="partition_create_dialog" >
   <property name="geometry" >
    <rect>
     <x>0</x>
@@ -159,7 +159,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>partition_create_dialogue</receiver>
+   <receiver>partition_create_dialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel" >
@@ -175,7 +175,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>partition_create_dialogue</receiver>
+   <receiver>partition_create_dialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel" >
