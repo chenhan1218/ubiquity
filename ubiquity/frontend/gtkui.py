@@ -2066,7 +2066,7 @@ class Wizard:
         partition = model[iterator][1]
 
         partition_list_menu = gtk.Menu()
-        for action in self.dbfilter.get_actions():
+        for action in self.dbfilter.get_actions(devpart, partition):
             if action == 'new_label':
                 # TODO cjwatson 2006-12-21: i18n;
                 # partman-partitioning/text/label text is quite long?
