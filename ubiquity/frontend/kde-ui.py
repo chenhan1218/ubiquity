@@ -1266,6 +1266,7 @@ class Wizard:
                 changed_page = True
         elif str(step) == "stepReady":
             self.userinterface.next.setText("Next >")
+            self.translate_widget(self.userinterface.next, self.locale)
             self.set_current_page(self.previous_partitioning_page)
             changed_page = True
 
@@ -2020,8 +2021,8 @@ class Wizard:
             # Go back to the autopartitioner and try again.
             #self.live_installer.show()
             self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
-            nextText = get_string("continue", self.locale) + " >"
-            self.userinterface.next.setText(nextText)
+            self.userinterface.next.setText("Next >")
+            self.translate_widget(self.userinterface.next, self.locale)
             self.backup = True
             self.installing = False
 

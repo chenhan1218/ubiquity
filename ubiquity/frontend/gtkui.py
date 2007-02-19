@@ -1336,6 +1336,7 @@ class Wizard:
                 changed_page = True
         elif step == "stepReady":
             self.next.set_label("gtk-go-forward")
+            self.translate_widget(self.next, self.locale)
             self.steps.prev_page()
             changed_page = True
 
@@ -2635,6 +2636,7 @@ class Wizard:
             self.live_installer.show()
             self.set_current_page(self.steps.page_num(self.stepPartAuto))
             self.next.set_label("gtk-go-forward")
+            self.translate_widget(self.next, self.locale)
             self.backup = True
             self.installing = False
 
