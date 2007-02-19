@@ -288,6 +288,11 @@ class Wizard:
 
         if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
             self.steps.remove_page(self.steps.page_num(self.stepMigrationAssistant))
+            for step in BREADCRUMB_STEPS:
+                if (BREADCRUMB_STEPS[step] >
+                    BREADCRUMB_STEPS["stepMigrationAssistant"]):
+                    BREADCRUMB_STEPS[step] -= 1
+            BREADCRUMB_MAX_STEP -= 1
 
         while self.current_page is not None:
             if not self.installing:
