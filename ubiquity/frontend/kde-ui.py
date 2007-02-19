@@ -124,6 +124,7 @@ class Wizard:
         self.current_layout = None
         self.release_notes_url_template = None
         self.password = ''
+        self.username_edited = False
         self.hostname_edited = False
         self.auto_mountpoints = None
         self.resize_min_size = None
@@ -263,6 +264,7 @@ class Wizard:
 
         self.app.connect(self.userinterface.fullname, SIGNAL("textChanged(const QString &)"), self.on_fullname_changed)
         self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.on_username_changed)
+        self.app.connect(self.userinterface.username, SIGNAL("textChanged(const QString &)"), self.on_username_insert_text)
         self.app.connect(self.userinterface.password, SIGNAL("textChanged(const QString &)"), self.on_password_changed)
         self.app.connect(self.userinterface.verified_password, SIGNAL("textChanged(const QString &)"), self.on_verified_password_changed)
         self.app.connect(self.userinterface.hostname, SIGNAL("textChanged(const QString &)"), self.on_hostname_changed)
@@ -729,8 +731,16 @@ class Wizard:
     def info_loop(self, widget):
         """check if all entries from Identification screen are filled."""
 
-        if (widget is not None and widget.objectName() == 'username' and
-            not self.hostname_edited):
+        if (widget is not None and widget.objectName() == 'fullname' and
+            not self.username_edited):
+            self.userinterface.username.blockSignals(True)
+            new_username = unicode(widget.text()).split(' ')[0]
+            new_username = new_username.encode('ascii', 'ascii_transliterate')
+            new_username = new_username.lower()
+            self.userinterface.username.setText(new_username)
+            self.userinterface.username.blockSignals(False)
+        elif (widget is not None and widget.objectName() == 'username' and
+              not self.hostname_edited):
             if self.laptop:
                 hostname_suffix = '-laptop'
             else:
@@ -744,6 +754,9 @@ class Wizard:
             if getattr(self.userinterface, name).text() == '':
                 complete = False
         self.allow_go_forward(complete)
+
+    def on_username_insert_text(self):
+        self.username_edited = (self.userinterface.username.text() != '')
 
     def on_hostname_insert_text(self):
         self.hostname_edited = (self.userinterface.hostname.text() != '')
@@ -1244,6 +1257,13 @@ class Wizard:
             changed_page = True
         elif str(step) == "stepPartMountpoints":
             self.qtparted_loop()
+        elif step == "stepMigrationAssistant":
+            self.set_current_page(self.previous_partitioning_page)
+            changed_page = True
+        elif step == "stepUserInfo":
+            if 'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
+                self.set_current_page(self.previous_partitioning_page)
+                changed_page = True
         elif str(step) == "stepReady":
             self.userinterface.next.setText("Next >")
             self.set_current_page(self.previous_partitioning_page)
@@ -1735,7 +1755,7 @@ class Wizard:
             self.edit_dialogue.partition_edit_size_spinbutton.setSingleStep(1)
             self.edit_dialogue.partition_edit_size_spinbutton.setValue(cur_size_mb)
 
-            current_size = self.edit_dialogue.partition_edit_size_spinbutton.value()
+            current_size = str(self.edit_dialogue.partition_edit_size_spinbutton.value())
 
         self.edit_dialogue.partition_edit_use_combo.clear()
         for script, arg, option in partition['method_choices']:
@@ -1769,7 +1789,7 @@ class Wizard:
         if response == QDialog.Accepted:
             size = None
             if current_size is not None:
-                size = self.edit_dialogue.partition_edit_size_spinbutton.value()
+                size = str(self.edit_dialogue.partition_edit_size_spinbutton.value())
 
             method = self.edit_dialogue.partition_edit_use_combo.currentText()
 

@@ -204,7 +204,7 @@ class Partman(PartmanAuto):
 
     def subst(self, question, key, value):
         if question == 'partman-partitioning/new_size':
-            if self.building_cache and not self.auto_state:
+            if self.building_cache and self.autopartition_question is None:
                 state = self.__state[-1]
                 assert state[0] == 'partman/active_partition'
                 partition = self.partition_cache[state[1]]
@@ -235,6 +235,8 @@ class Partman(PartmanAuto):
         self.debug('Partman: state = %s', self.__state)
 
         if question == 'partman/choose_partition':
+            self.autopartition_question = None # not autopartitioning any more
+
             if not self.building_cache and self.update_partitions:
                 # Rebuild our cache of just these partitions.
                 self.__state = [['', None, None]]
@@ -680,7 +682,7 @@ class Partman(PartmanAuto):
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman-partitioning/new_size':
-            if self.auto_state:
+            if self.autopartition_question is not None:
                 # PartmanAuto will handle this.
                 pass
             elif self.building_cache:
@@ -765,17 +767,23 @@ class Partman(PartmanAuto):
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman/exception_handler':
-            response = self.frontend.question_dialog(
-                self.description(question),
-                self.extended_description(question),
-                self.choices(question), use_templates=False)
-            self.preseed(question, response)
+            if priority == 'critical' or priority == 'high':
+                response = self.frontend.question_dialog(
+                    self.description(question),
+                    self.extended_description(question),
+                    self.choices(question), use_templates=False)
+                self.preseed(question, response)
+            else:
+                self.preseed(question, 'unhandled')
             return True
 
         elif question == 'partman/exception_handler_note':
-            self.frontend.error_dialog(self.description(question),
-                                       self.extended_description(question))
-            return FilteredCommand.error(self, priority, question)
+            if priority == 'critical' or priority == 'high':
+                self.frontend.error_dialog(self.description(question),
+                                           self.extended_description(question))
+                return FilteredCommand.error(self, priority, question)
+            else:
+                return True
 
         return PartmanAuto.run(self, priority, question)
 

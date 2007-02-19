@@ -109,7 +109,10 @@ def check_mountpoint(mountpoints, size):
         # TODO cjwatson 2006-09-26: Duplication from
         # partman-newworld/finish.d/newworld.
         if path == 'newworld':
-            result.remove(MOUNTPOINT_NONEWWORLD)
+            try:
+                result.remove(MOUNTPOINT_NONEWWORLD)
+            except KeyError:
+                pass
             continue
 
         if path == '/':

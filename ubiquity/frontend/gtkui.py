@@ -97,6 +97,7 @@ class Wizard:
         self.gconf_previous = {}
         self.current_layout = None
         self.password = ''
+        self.username_edited = False
         self.hostname_edited = False
         self.autopartition_extras = {}
         self.auto_mountpoints = None
@@ -263,6 +264,8 @@ class Wizard:
 
         # Some signals need to be connected by hand so that we have the
         # handler ids.
+        self.username_changed_id = self.username.connect(
+            'changed', self.on_username_changed)
         self.hostname_changed_id = self.hostname.connect(
             'changed', self.on_hostname_changed)
 
@@ -785,8 +788,16 @@ class Wizard:
         """check if all entries from Identification screen are filled. Callback
         defined in glade file."""
 
-        if (widget is not None and widget.get_name() == 'username' and
-            not self.hostname_edited):
+        if (widget is not None and widget.get_name() == 'fullname' and
+            not self.username_edited):
+            self.username.handler_block(self.username_changed_id)
+            new_username = widget.get_text().split(' ')[0]
+            new_username = new_username.encode('ascii', 'ascii_transliterate')
+            new_username = new_username.lower()
+            self.username.set_text(new_username)
+            self.username.handler_unblock(self.username_changed_id)
+        elif (widget is not None and widget.get_name() == 'username' and
+              not self.hostname_edited):
             if self.laptop:
                 hostname_suffix = '-laptop'
             else:
@@ -800,6 +811,9 @@ class Wizard:
             if getattr(self, name).get_text() == '':
                 complete = False
         self.allow_go_forward(complete)
+
+    def on_username_changed(self, widget):
+        self.username_edited = (widget.get_text() != '')
 
     def on_hostname_changed(self, widget):
         self.hostname_edited = (widget.get_text() != '')
@@ -1316,6 +1330,10 @@ class Wizard:
         elif step == "stepMigrationAssistant":
             self.set_current_page(self.previous_partitioning_page)
             changed_page = True
+        elif step == "stepUserInfo":
+            if 'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
+                self.set_current_page(self.previous_partitioning_page)
+                changed_page = True
         elif step == "stepReady":
             self.next.set_label("gtk-go-forward")
             self.steps.prev_page()
@@ -2207,7 +2225,7 @@ class Wizard:
                                upper=max_size_mb,
                                step_incr=1, page_incr=100, page_size=100))
             self.partition_edit_size_spinbutton.set_value(cur_size_mb)
-            current_size = self.partition_edit_size_spinbutton.get_value()
+            current_size = str(self.partition_edit_size_spinbutton.get_value())
 
         self.partition_edit_use_combo.clear()
         renderer = gtk.CellRendererText()
@@ -2257,7 +2275,7 @@ class Wizard:
         if response == gtk.RESPONSE_OK:
             size = None
             if current_size is not None:
-                size = self.partition_edit_size_spinbutton.get_value()
+                size = str(self.partition_edit_size_spinbutton.get_value())
 
             method_iter = self.partition_edit_use_combo.get_active_iter()
             if method_iter is None:
@@ -2279,8 +2297,7 @@ class Wizard:
             if (size is not None or method is not None or
                 mountpoint is not None):
                 self.allow_change_step(False)
-                self.dbfilter.edit_partition(devpart, str(size),
-                                             method, mountpoint)
+                self.dbfilter.edit_partition(devpart, size, method, mountpoint)
 
     def on_partition_edit_use_combo_changed (self, combobox):
         model = combobox.get_model()
