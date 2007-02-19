@@ -2072,28 +2072,28 @@ class Wizard:
                 # partman-partitioning/text/label text is quite long?
                 new_label_item = gtk.MenuItem('New partition table')
                 new_label_item.connect(
-                    'activate', self.on_partition_list_menu_new_label_activate,
+                    'activate', self.on_partition_list_new_label_activate,
                     devpart, partition)
                 partition_list_menu.append(new_label_item)
             elif action == 'new':
                 # TODO cjwatson 2006-10-31: i18n
                 new_item = gtk.MenuItem('New partition')
-                new_item.connect('activate',
-                                 self.on_partition_list_menu_new_activate,
-                                 devpart, partition)
+                new_item.connect(
+                    'activate', self.on_partition_list_new_activate,
+                    devpart, partition)
                 partition_list_menu.append(new_item)
             elif action == 'edit':
                 # TODO cjwatson 2006-10-31: i18n
                 edit_item = gtk.MenuItem('Edit partition')
-                edit_item.connect('activate',
-                                  self.on_partition_list_menu_edit_activate,
-                                  devpart, partition)
+                edit_item.connect(
+                    'activate', self.on_partition_list_edit_activate,
+                    devpart, partition)
                 partition_list_menu.append(edit_item)
             elif action == 'delete':
                 # TODO cjwatson 2006-10-31: i18n
                 delete_item = gtk.MenuItem('Delete partition')
                 delete_item.connect(
-                    'activate', self.on_partition_list_menu_delete_activate,
+                    'activate', self.on_partition_list_delete_activate,
                     devpart, partition)
                 partition_list_menu.append(delete_item)
         if not partition_list_menu.get_children():
@@ -2331,6 +2331,51 @@ class Wizard:
         self.partman_popup(widget, None)
         return True
 
+    def on_partition_list_treeview_selection_changed (self, selection):
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+
+        model, iterator = selection.get_selected()
+        if iterator is None:
+            return
+        devpart = model[iterator][0]
+        partition = model[iterator][1]
+
+        for child in self.partition_list_buttonbox.get_children():
+            self.partition_list_buttonbox.remove(child)
+        for action in self.dbfilter.get_actions(devpart, partition):
+            if action == 'new_label':
+                # TODO cjwatson 2007-02-19: i18n;
+                # partman-partitioning/text/label is too long unless we can
+                # figure out how to make the row of buttons auto-wrap
+                new_label_button = gtk.Button('New partition table')
+                new_label_button.connect(
+                    'clicked', self.on_partition_list_new_label_activate,
+                    devpart, partition)
+                self.partition_list_buttonbox.pack_start(new_label_button)
+            elif action == 'new':
+                # TODO cjwatson 2007-02-19: i18n
+                new_button = gtk.Button('New partition')
+                new_button.connect(
+                    'clicked', self.on_partition_list_new_activate,
+                    devpart, partition)
+                self.partition_list_buttonbox.pack_start(new_button)
+            elif action == 'edit':
+                # TODO cjwatson 2007-02-19: i18n
+                edit_button = gtk.Button('Edit partition')
+                edit_button.connect(
+                    'clicked', self.on_partition_list_edit_activate,
+                    devpart, partition)
+                self.partition_list_buttonbox.pack_start(edit_button)
+            elif action == 'delete':
+                # TODO cjwatson 2007-02-19: i18n
+                delete_button = gtk.Button('Delete partition')
+                delete_button.connect(
+                    'clicked', self.on_partition_list_delete_activate,
+                    devpart, partition)
+                self.partition_list_buttonbox.pack_start(delete_button)
+        self.partition_list_buttonbox.show_all()
+
     def on_partition_list_treeview_row_activated (self, treeview,
                                                   path, view_column):
         if not self.allowed_change_step:
@@ -2360,8 +2405,8 @@ class Wizard:
         else:
             self.partman_edit_dialog(devpart, partition)
 
-    def on_partition_list_menu_new_label_activate (self, menuitem,
-                                                   devpart, partition):
+    def on_partition_list_new_label_activate (self, widget,
+                                              devpart, partition):
         if not self.allowed_change_step:
             return
         if not isinstance(self.dbfilter, partman.Partman):
@@ -2369,16 +2414,13 @@ class Wizard:
         self.allow_change_step(False)
         self.dbfilter.create_label(devpart)
 
-    def on_partition_list_menu_new_activate (self, menuitem,
-                                             devpart, partition):
+    def on_partition_list_new_activate (self, widget, devpart, partition):
         self.partman_create_dialog(devpart, partition)
 
-    def on_partition_list_menu_edit_activate (self, menuitem,
-                                              devpart, partition):
+    def on_partition_list_edit_activate (self, widget, devpart, partition):
         self.partman_edit_dialog(devpart, partition)
 
-    def on_partition_list_menu_delete_activate (self, menuitem,
-                                                devpart, partition):
+    def on_partition_list_delete_activate (self, widget, devpart, partition):
         if not self.allowed_change_step:
             return
         if not isinstance(self.dbfilter, partman.Partman):
@@ -2433,6 +2475,10 @@ class Wizard:
             self.partition_list_treeview.append_column(column_size)
 
             self.partition_list_treeview.set_model(partition_tree_model)
+
+            selection = self.partition_list_treeview.get_selection()
+            selection.connect(
+                'changed', self.on_partition_list_treeview_selection_changed)
         else:
             # TODO cjwatson 2006-08-31: inefficient, but will do for now
             partition_tree_model.clear()
