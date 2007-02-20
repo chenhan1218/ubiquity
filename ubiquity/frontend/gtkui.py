@@ -2367,32 +2367,36 @@ class Wizard:
                 new_label_button.connect(
                     'clicked', self.on_partition_list_new_label_activate,
                     devpart, partition)
-                self.partition_list_buttonbox.pack_start(new_label_button)
+                self.partition_list_buttonbox.pack_start(new_label_button,
+                                                         False, False)
             elif action == 'new':
                 # TODO cjwatson 2007-02-19: i18n
                 new_button = gtk.Button('New partition')
                 new_button.connect(
                     'clicked', self.on_partition_list_new_activate,
                     devpart, partition)
-                self.partition_list_buttonbox.pack_start(new_button)
+                self.partition_list_buttonbox.pack_start(new_button,
+                                                         False, False)
             elif action == 'edit':
                 # TODO cjwatson 2007-02-19: i18n
                 edit_button = gtk.Button('Edit partition')
                 edit_button.connect(
                     'clicked', self.on_partition_list_edit_activate,
                     devpart, partition)
-                self.partition_list_buttonbox.pack_start(edit_button)
+                self.partition_list_buttonbox.pack_start(edit_button,
+                                                         False, False)
             elif action == 'delete':
                 # TODO cjwatson 2007-02-19: i18n
                 delete_button = gtk.Button('Delete partition')
                 delete_button.connect(
                     'clicked', self.on_partition_list_delete_activate,
                     devpart, partition)
-                self.partition_list_buttonbox.pack_start(delete_button)
+                self.partition_list_buttonbox.pack_start(delete_button,
+                                                         False, False)
         undo_button = gtk.Button(get_string('partman/text/undo_everything',
                                  self.locale))
         undo_button.connect('clicked', self.on_partition_list_undo_activate)
-        self.partition_list_buttonbox.pack_start(undo_button)
+        self.partition_list_buttonbox.pack_start(undo_button, False, False)
         self.partition_list_buttonbox.show_all()
 
     def on_partition_list_treeview_row_activated (self, treeview,

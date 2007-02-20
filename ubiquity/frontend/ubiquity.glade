@@ -786,9 +786,12 @@ Please choose the language used for the installation process. This language will
                                   </widget>
                                 </child>
                                 <child>
-                                  <widget class="GtkHButtonBox" id="partition_list_buttonbox">
+                                  <widget class="GtkHBox" id="partition_list_buttonbox">
                                     <property name="visible">True</property>
-                                    <property name="layout_style">GTK_BUTTONBOX_START</property>
+                                    <property name="spacing">6</property>
+                                    <child>
+                                      <placeholder/>
+                                    </child>
                                   </widget>
                                   <packing>
                                     <property name="expand">False</property>
