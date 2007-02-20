@@ -267,7 +267,7 @@ def get_translations(languages=None, core_names=[]):
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
              '--config=InFd:none',
-             '--pattern=^(ubiquity|partman-basicfilesystems/bad_mountpoint|partman-newworld/no_newworld|partman-partitioning|partman-target/no_root|grub-installer/bootdev|popularity-contest/participate)'],
+             '--pattern=^(ubiquity|partman/text/undo_everything|partman-basicfilesystems/bad_mountpoint|partman-newworld/no_newworld|partman-partitioning|partman-target/no_root|grub-installer/bootdev|popularity-contest/participate)'],
             stdout=subprocess.PIPE, stderr=devnull)
         question = None
         descriptions = {}

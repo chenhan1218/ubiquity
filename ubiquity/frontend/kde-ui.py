@@ -1865,6 +1865,14 @@ class Wizard:
         self.allow_change_step(False)
         self.dbfilter.delete_partition(devpart)
 
+    def on_partition_list_menu_undo_activate(self, ticked):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        self.allow_change_step(False)
+        self.dbfilter.undo()
+
     def partman_popup (self, position):
         if not self.allowed_change_step:
             return
@@ -1872,10 +1880,14 @@ class Wizard:
             return
 
         selected = self.userinterface.partition_list_treeview.selectedIndexes()
-        index = selected[0]
-        item = index.internalPointer()
-        devpart = item.itemData[0]
-        partition = item.itemData[1]
+        if selected:
+            index = selected[0]
+            item = index.internalPointer()
+            devpart = item.itemData[0]
+            partition = item.itemData[1]
+        else:
+            devpart = None
+            partition = None
 
         #partition_list_menu = gtk.Menu()
         partition_list_menu = QMenu(self.userinterface)
@@ -1901,6 +1913,12 @@ class Wizard:
                 delete_item = partition_list_menu.addAction('Delete partition')
                 self.app.connect(delete_item, SIGNAL("triggered(bool)"),
                                  self.on_partition_list_menu_delete_activate)
+        if partition_list_menu.children():
+            partition_list_menu.addSeparator()
+        undo_item = partition_list_menu.addAction(
+            get_string('partman/text/undo_everything', self.locale))
+        self.app.connect(undo_item, SIGNAL("triggered(bool)"),
+                         self.on_partition_list_menu_undo_activate)
 
         partition_list_menu.exec_(QCursor.pos())
 

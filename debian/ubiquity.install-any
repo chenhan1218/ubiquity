@@ -63,6 +63,7 @@ d-i/source/partconf/debian/partconf-*/* .
 
 # partman
 d-i/source/partman-*/debian/partman-*/* .
+partman/undo.d/* lib/partman/undo.d
 partman/update.d/* lib/partman/update.d
 ubiquity/components/partman.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/partman_auto.py usr/lib/ubiquity/ubiquity/components

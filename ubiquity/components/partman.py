@@ -55,6 +55,7 @@ class Partman(PartmanAuto):
         self.creating_partition = None
         self.editing_partition = None
         self.deleting_partition = None
+        self.undoing = False
         self.finish_partitioning = False
 
         questions = list(prep[1])
@@ -192,6 +193,8 @@ class Partman(PartmanAuto):
             return None
 
     def get_actions(self, devpart, partition):
+        if devpart is None and partition is None:
+            return
         if 'id' not in partition:
             yield 'new_label'
         if 'can_new' in partition and partition['can_new']:
@@ -251,6 +254,8 @@ class Partman(PartmanAuto):
                 # Rebuild our cache of just these partitions.
                 self.__state = [['', None, None]]
                 self.building_cache = True
+                if 'ALL' in self.update_partitions:
+                    self.update_partitions = None
 
             if self.building_cache:
                 state = self.__state[-1]
@@ -446,6 +451,7 @@ class Partman(PartmanAuto):
             self.creating_partition = None
             self.editing_partition = None
             self.deleting_partition = None
+            self.undoing = False
             self.finish_partitioning = False
 
             FilteredCommand.run(self, priority, question)
@@ -485,6 +491,10 @@ class Partman(PartmanAuto):
                     partition = self.partition_cache[devpart]
                     # No need to use self.__state to keep track of this.
                     self.preseed(question, partition['display'], escape=True)
+                return True
+
+            elif self.undoing:
+                self.preseed_script(question, menu_options, 'undo')
                 return True
 
             else:
@@ -851,4 +861,9 @@ class Partman(PartmanAuto):
         self.deleting_partition = {
             'devpart': devpart
         }
+        self.exit_ui_loops()
+
+    def undo(self):
+        assert self.current_question == 'partman/choose_partition'
+        self.undoing = True
         self.exit_ui_loops()

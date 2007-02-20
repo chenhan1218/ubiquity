@@ -2067,9 +2067,11 @@ class Wizard:
 
         model, iterator = widget.get_selection().get_selected()
         if iterator is None:
-            return
-        devpart = model[iterator][0]
-        partition = model[iterator][1]
+            devpart = None
+            partition = None
+        else:
+            devpart = model[iterator][0]
+            partition = model[iterator][1]
 
         partition_list_menu = gtk.Menu()
         for action in self.dbfilter.get_actions(devpart, partition):
@@ -2102,8 +2104,12 @@ class Wizard:
                     'activate', self.on_partition_list_delete_activate,
                     devpart, partition)
                 partition_list_menu.append(delete_item)
-        if not partition_list_menu.get_children():
-            return
+        if partition_list_menu.get_children():
+            partition_list_menu.append(gtk.SeparatorMenuItem())
+        undo_item = gtk.MenuItem(get_string('partman/text/undo_everything',
+                                 self.locale))
+        undo_item.connect('activate', self.on_partition_list_undo_activate)
+        partition_list_menu.append(undo_item)
         partition_list_menu.show_all()
 
         if event:
@@ -2346,9 +2352,11 @@ class Wizard:
 
         model, iterator = selection.get_selected()
         if iterator is None:
-            return
-        devpart = model[iterator][0]
-        partition = model[iterator][1]
+            devpart = None
+            partition = None
+        else:
+            devpart = model[iterator][0]
+            partition = model[iterator][1]
 
         for action in self.dbfilter.get_actions(devpart, partition):
             if action == 'new_label':
@@ -2381,6 +2389,10 @@ class Wizard:
                     'clicked', self.on_partition_list_delete_activate,
                     devpart, partition)
                 self.partition_list_buttonbox.pack_start(delete_button)
+        undo_button = gtk.Button(get_string('partman/text/undo_everything',
+                                 self.locale))
+        undo_button.connect('clicked', self.on_partition_list_undo_activate)
+        self.partition_list_buttonbox.pack_start(undo_button)
         self.partition_list_buttonbox.show_all()
 
     def on_partition_list_treeview_row_activated (self, treeview,
@@ -2434,6 +2446,14 @@ class Wizard:
             return
         self.allow_change_step(False)
         self.dbfilter.delete_partition(devpart)
+
+    def on_partition_list_undo_activate (self, widget):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        self.allow_change_step(False)
+        self.dbfilter.undo()
 
     def update_partman (self, disk_cache, partition_cache, cache_order):
         partition_tree_model = self.partition_list_treeview.get_model()
