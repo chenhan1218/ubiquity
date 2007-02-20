@@ -2341,14 +2341,15 @@ class Wizard:
         if not isinstance(self.dbfilter, partman.Partman):
             return
 
+        for child in self.partition_list_buttonbox.get_children():
+            self.partition_list_buttonbox.remove(child)
+
         model, iterator = selection.get_selected()
         if iterator is None:
             return
         devpart = model[iterator][0]
         partition = model[iterator][1]
 
-        for child in self.partition_list_buttonbox.get_children():
-            self.partition_list_buttonbox.remove(child)
         for action in self.dbfilter.get_actions(devpart, partition):
             if action == 'new_label':
                 # TODO cjwatson 2007-02-19: i18n;
