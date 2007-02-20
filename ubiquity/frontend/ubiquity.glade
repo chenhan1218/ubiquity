@@ -792,6 +792,7 @@ Please choose the language used for the installation process. This language will
                                   </widget>
                                   <packing>
                                     <property name="expand">False</property>
+                                    <property name="fill">False</property>
                                     <property name="padding">6</property>
                                     <property name="position">1</property>
                                   </packing>
