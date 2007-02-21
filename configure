@@ -22676,7 +22676,7 @@ echo "${ECHO_T}no" >&6; }
 fi
 
 
-GTK_REQUIRED=2.6.0
+GTK_REQUIRED=2.10.0
 
 
 

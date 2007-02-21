@@ -19,6 +19,7 @@ ubiquity (1.3.22) UNRELEASED; urgency=low
   * Fill in a default username based on the user's full name (LP: #84550).
   * Retranslate Forward button when going back from summary page
     (LP: #86047).
+  * configure.ac: Bump required GTK version to 2.10.0.
 
   [ Jonathan Riddell ]
   * Add new partitioner for KDE frontend
