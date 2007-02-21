@@ -6,6 +6,8 @@ ubiquity (1.3.22) UNRELEASED; urgency=low
       spinbutton was left untouched (LP: #85227).
     - Add contextual buttons to GTK frontend (part of LP: #83166).
     - Add an undo facility.
+    - partman-* updates add validation support (LP: #82768); also add
+      XFS-on-/boot validation.
   * Fix crash if multiple newworld boot partitions are present (LP: #84429).
   * GTK frontend:
     - Fix backup from user information page if migration-assistant is not
