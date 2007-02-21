@@ -239,6 +239,12 @@ class Partman(PartmanAuto):
             if self.editing_partition:
                 # Break out of resizing the partition.
                 self.editing_partition['bad_size'] = True
+        elif question == 'partman-basicfilesystems/bad_mountpoint':
+            # Break out of creating or editing the partition.
+            if self.creating_partition:
+                self.creating_partition['bad_mountpoint'] = True
+            elif self.editing_partition:
+                self.editing_partition['bad_mountpoint'] = True
         return PartmanAuto.error(self, priority, question)
 
     def run(self, priority, question):
@@ -762,9 +768,12 @@ class Partman(PartmanAuto):
                 return False
             elif self.creating_partition or self.editing_partition:
                 if self.creating_partition:
-                    mountpoint = self.creating_partition['mountpoint']
+                    request = self.creating_partition
                 else:
-                    mountpoint = self.editing_partition['mountpoint']
+                    request = self.editing_partition
+                if 'bad_mountpoint' in request:
+                    return False
+                mountpoint = request['mountpoint']
 
                 if mountpoint == '' or mountpoint is None:
                     self.preseed(question, 'Do not mount it')
@@ -780,6 +789,8 @@ class Partman(PartmanAuto):
                     request = self.creating_partition
                 else:
                     request = self.editing_partition
+                if 'bad_mountpoint' in request:
+                    return False
 
                 self.preseed(question, request['mountpoint'])
                 return True
