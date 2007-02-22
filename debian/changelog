@@ -20,6 +20,14 @@ ubiquity (1.3.22) UNRELEASED; urgency=low
   * Retranslate Forward button when going back from summary page
     (LP: #86047).
   * configure.ac: Bump required GTK version to 2.10.0 (for GtkLinkButton).
+  * Automatic update of included source packages: apt-setup 1:0.16ubuntu4,
+    base-installer 1.70ubuntu4, choose-mirror 2.10ubuntu2, clock-setup
+    0.12ubuntu2, debian-installer-utils 1.42ubuntu2, migration-assistant
+    0.4, partman-auto 62ubuntu5, partman-base 100ubuntu4,
+    partman-basicfilesystems 51ubuntu2, partman-basicmethods 33ubuntu2,
+    partman-efi 11ubuntu2, partman-ext3 45ubuntu2, partman-jfs 20ubuntu2,
+    partman-newworld 16ubuntu1, partman-reiserfs 34ubuntu1, partman-target
+    46ubuntu2, partman-xfs 32ubuntu1.
 
   [ Jonathan Riddell ]
   * Add new partitioner for KDE frontend
