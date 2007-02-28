@@ -117,7 +117,8 @@ def main():
     parser.set_defaults(
         debug=('UBIQUITY_DEBUG' in os.environ),
         cdebconf=False,
-        new_partitioner=True)
+        new_partitioner=True,
+        migration_assistant=True)
     parser.add_option('-d', '--debug', dest='debug', action='store_true',
                       help='debug mode (warning: passwords will be logged!)')
     parser.add_option('--cdebconf', dest='cdebconf', action='store_true',
@@ -128,10 +129,9 @@ def main():
     parser.add_option('--new-partitioner', dest='new_partitioner',
                       action='store_true',
                       help='use new advanced partitioner (experimental)')
-    parser.add_option('--migration-assistant', dest='migration_assistant',
-                      action='store_true',
-                      default=('UBIQUITY_MIGRATION_ASSISTANT' in os.environ),
-                      help='use Migration Assistant (experimental)')
+    parser.add_option('--no-migration-assistant', dest='migration_assistant',
+                      action='store_false',
+                      help='disable Migration Assistant')
     (options, args) = parser.parse_args()
 
     if options.debug:
