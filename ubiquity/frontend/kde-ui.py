@@ -1709,9 +1709,9 @@ class Wizard:
             else:
                 place = partman.PARTITION_PLACE_END
 
-            method = self.create_dialog.partition_create_use_combo.currentText()
+            method = str(self.create_dialog.partition_create_use_combo.currentText())
 
-            mountpoint = self.create_dialog.partition_create_mount_combo.currentText()
+            mountpoint = str(self.create_dialog.partition_create_mount_combo.currentText())
 
             self.allow_change_step(False)
             self.dbfilter.create_partition(
@@ -1792,9 +1792,9 @@ class Wizard:
             if current_size is not None:
                 size = str(self.edit_dialog.partition_edit_size_spinbutton.value())
 
-            method = self.edit_dialog.partition_edit_use_combo.currentText()
+            method = str(self.edit_dialog.partition_edit_use_combo.currentText())
 
-            mountpoint = self.edit_dialog.partition_edit_mount_combo.currentText()
+            mountpoint = str(self.edit_dialog.partition_edit_mount_combo.currentText())
 
             if (current_size is not None and size is not None and
                 current_size == size):
@@ -1807,7 +1807,7 @@ class Wizard:
             if (size is not None or method is not None or
                 mountpoint is not None):
                 self.allow_change_step(False)
-                self.dbfilter.edit_partition(devpart, str(size),
+                self.dbfilter.edit_partition(devpart, size,
                                              method, mountpoint)
 
     def on_partition_edit_use_combo_changed(self, combobox):

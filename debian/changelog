@@ -1,3 +1,10 @@
+ubiquity (1.3.24) feisty; urgency=low
+
+  * KDE Frontend:
+    - Fix type problems in partition edit dialogue
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu,  1 Mar 2007 17:41:47 +0000
+
 ubiquity (1.3.23) feisty; urgency=low
 
   * Enable migration-assistant by default. Replace --migration-assistant
