@@ -7,9 +7,11 @@ ubiquity (1.3.24) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Automatic update of included source packages: migration-assistant
     0.4.1, partman-auto 62ubuntu6, partman-base 100ubuntu6.
-  * Handle spaces in usernames in migration-assistant (LP: #89009).
+  * Handle spaces in usernames in migration-assistant. (LP: #89009)
+  * Fixed list movement bugs on the Migration page.  Also, selecting an
+    item now selects the user as well.  (LP: #89414)
 
- -- Evan Dandrea <evand@ubuntu.com>  Sat,  3 Mar 2007 22:48:49 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Sun,  4 Mar 2007 12:16:46 -0500
 
 ubiquity (1.3.23) feisty; urgency=low
 

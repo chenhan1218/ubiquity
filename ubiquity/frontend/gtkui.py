@@ -1678,9 +1678,12 @@ class Wizard:
         # We're on an item checkbox.
         else:
             parent = model.iter_parent(iterator)
+            if not model.get_value(parent, 0):
+                model.set_value(parent, 0, True)
+                model.get_value(parent, 1)['selected'] = True
+
             item = model.get_value(iterator, 1)
             items = model.get_value(parent, 1)['items']
-
             if checked:
                 items.append(item)
             else:
@@ -1693,6 +1696,8 @@ class Wizard:
 
         m = sel[0]
         i = sel[1]
+        if not m.iter_children(i):
+            i = m.iter_parent(i)
         newuser = self.ma_loginname.child.get_text()
         if m.get_value(i, 0):
             if not newuser:
@@ -1723,6 +1728,9 @@ class Wizard:
 
     def ma_update_selection(self):
         model, iterator = self.matreeview.get_selection().get_selected()
+        if not model.iter_children(iterator):
+            iterator = model.iter_parent(iterator)
+
         self.ma_loginname_error_box.hide()
         self.ma_password_error_box.hide()
 
