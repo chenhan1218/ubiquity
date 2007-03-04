@@ -1,9 +1,15 @@
-ubiquity (1.3.24) feisty; urgency=low
+ubiquity (1.3.24) UNRELEASED; urgency=low
 
+  [ Jonathan Riddell ]
   * KDE Frontend:
     - Fix type problems in partition edit dialogue
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Thu,  1 Mar 2007 17:41:47 +0000
+  [ Evan Dandrea ]
+  * Automatic update of included source packages: migration-assistant
+    0.4.1, partman-auto 62ubuntu6, partman-base 100ubuntu6.
+  * Handle spaces in usernames in migration-assistant (LP: #89009).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Sat,  3 Mar 2007 22:48:49 -0500
 
 ubiquity (1.3.23) feisty; urgency=low
 

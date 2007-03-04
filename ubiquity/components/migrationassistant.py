@@ -133,7 +133,8 @@ class MigrationAssistant(FilteredCommand):
                     continue
                 users = users.split(', ')
                 for user in users:
-                    items = self.db.get('migration-assistant/' + part + '/' + user + '/items')
+                    items = self.db.get('migration-assistant/' + part + '/' + \
+                        user.replace(' ', ':') + '/items')
                     # If there are no items to import for the user, there's no sense
                     # in showing it.  It might make more sense to move this check
                     # into ma-ask.
@@ -164,7 +165,8 @@ class MigrationAssistant(FilteredCommand):
 
         for c in choices:
             if c['selected']:
-                question = 'migration-assistant/%s/%s/' % (c['part'],c['user'])
+                question = 'migration-assistant/%s/%s/' % \
+                    (c['part'],c['user'].replace(' ',':'))
                 self.db.register('migration-assistant/items', question + 'items')
                 self.preseed(question + 'items', ', '.join(c['items']))
                 self.db.register('migration-assistant/user', question + 'user')

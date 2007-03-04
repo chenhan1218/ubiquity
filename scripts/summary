@@ -37,7 +37,8 @@ do
 	users=`echo "$RET" | sed -e 's/, /\n/g'`
 	for user in $users; do
 		ret=$ret$user": "
-		db_get migration-assistant/$part/$user/items
+        formatted_user=`echo "$user" | sed -e 's/ /:/g'`
+		db_get migration-assistant/$part/$formatted_user/items
 		ret=$ret$RET"\n"
 	done
 	ret=$ret"\n"
