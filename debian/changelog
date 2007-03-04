@@ -1,8 +1,109 @@
-ubiquity (1.3.18) UNRELEASED; urgency=low
+ubiquity (1.3.24) feisty; urgency=low
 
-  * Disable the mountpoint combo box when creating or editing a partition if
-    the method is changed to something other than a filesystem.
+  * KDE Frontend:
+    - Fix type problems in partition edit dialogue
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu,  1 Mar 2007 17:41:47 +0000
+
+ubiquity (1.3.23) feisty; urgency=low
+
+  * Enable migration-assistant by default. Replace --migration-assistant
+    option with --no-migration-assistant.
+  * Add a console-setup-apply script rather than hacking console-setup's
+    post-base-installer script (which is being renamed and changed in ways
+    that aren't appropriate for ubiquity).
+  * Make sure we never try to remove the kernel package corresponding to the
+    running kernel (LP: #86427).
+  * Automatic update of included source packages: base-installer
+    1.70ubuntu5, hw-detect 1.45ubuntu2, partman-base 100ubuntu5.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 28 Feb 2007 14:16:58 +0000
+
+ubiquity (1.3.22) feisty; urgency=low
+
+  [ Colin Watson ]
   * New partitioner:
+    - Fix edit dialog not to try to resize partitions even if the resize
+      spinbutton was left untouched (LP: #85227).
+    - Add contextual buttons to GTK frontend (part of LP: #83166).
+    - Add an undo facility.
+    - partman-* updates add validation support (LP: #82768); also add
+      XFS-on-/boot validation.
+    - Break out of setting the mountpoint if it's invalid (LP: #84543).
+  * Fix crash if multiple newworld boot partitions are present (LP: #84429).
+  * GTK frontend:
+    - Fix backup from user information page if migration-assistant is not
+      active (LP: #85642).
+    - Fix up step numbers if migration-assistant is disabled (LP: #85711).
+    - Disable smooth zooming, as some video drivers are very slow at drawing
+      this and it's hard to handle this dynamically (LP: #67572).
+  * Fill in a default username based on the user's full name (LP: #84550).
+  * Retranslate Forward button when going back from summary page
+    (LP: #86047).
+  * configure.ac: Bump required GTK version to 2.10.0 (for GtkLinkButton).
+  * Automatic update of included source packages: apt-setup 1:0.16ubuntu4,
+    base-installer 1.70ubuntu4, choose-mirror 2.10ubuntu2, clock-setup
+    0.12ubuntu2, debian-installer-utils 1.42ubuntu2, migration-assistant
+    0.4, partman-auto 62ubuntu5, partman-base 100ubuntu4,
+    partman-basicfilesystems 51ubuntu2, partman-basicmethods 33ubuntu2,
+    partman-efi 11ubuntu2, partman-ext3 45ubuntu2, partman-jfs 20ubuntu2,
+    partman-newworld 16ubuntu1, partman-reiserfs 34ubuntu1, partman-target
+    46ubuntu2, partman-xfs 32ubuntu1.
+
+  [ Jonathan Riddell ]
+  * Add new partitioner for KDE frontend
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 22 Feb 2007 09:59:44 +0000
+
+ubiquity (1.3.21) feisty; urgency=low
+
+  * New partitioner:
+    - Try harder not to interfere with autopartitioning (LP: #84597).
+    - Ignore parted exceptions presented with priority medium or below.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 14 Feb 2007 13:08:09 +0000
+
+ubiquity (1.3.20) feisty; urgency=low
+
+  [ Colin Watson ]
+  * KDE frontend: Remove now-unused kde-distro-logo.png.
+
+  [ Martin Pitt ]
+  * debian/ubiquity.install-any: Move apport package hook to
+    /usr/share/apport/package-hooks/; this is where apport looks for them
+    from 0.52 onwards.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  9 Feb 2007 18:44:53 +0000
+
+ubiquity (1.3.19) feisty; urgency=low
+
+  [ Colin Watson ]
+  * New partitioner: Don't allow creating a disk label or creating, editing,
+    or deleting a partition while other similar operations are in progress.
+  * Display a warning message next to the password entry box if running in
+    debug mode, since the password will then end up in the log file via
+    debconf debugging.
+  * Don't crash if /etc/X11/xorg.conf is unaccountably missing (LP: #83927).
+  * Import translations for Cancel, Back, Forward etc. buttons from gtk+2.0
+    2.10.9-0ubuntu1 (LP: #43915).
+  * Automatic update of included source packages: apt-setup 1:0.16ubuntu3,
+    migration-assistant 0.3.1, partman-auto 62ubuntu4,
+    partman-basicfilesystems 51ubuntu1.
+
+  [ Evan Dandrea ]
+  * Merged in migration-assistant work. Moved the user-setup page to after
+    migration-assistant (and thus also after the partitioner, since
+    migration-assistant needs to know which partitions are to be left
+    intact). Made user-setup able to make use of users from
+    migration-assistant.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  8 Feb 2007 19:55:37 +0000
+
+ubiquity (1.3.18) feisty; urgency=low
+
+  * New partitioner:
+    - Disable the mountpoint combo box when creating or editing a partition
+      if the method is changed to something other than a filesystem.
     - Handle partman/exception_handler and partman/exception_handler_note
       (LP: #82848).
     - Note that unadorned sizes are assumed to be in megabytes (LP: #82848).
@@ -19,7 +120,7 @@ ubiquity (1.3.18) UNRELEASED; urgency=low
   * Automatic update of included source packages: partman-partitioning
     45ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Jan 2007 19:48:26 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  5 Feb 2007 13:17:27 +0000
 
 ubiquity (1.3.17) feisty; urgency=low
 

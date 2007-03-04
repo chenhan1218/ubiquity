@@ -23,18 +23,18 @@ class MigrationAssistant(FilteredCommand):
     firstrun = True
     def prepare(self):
         self.err = None
-        self.error_list = ['migration-assistant/password-mismatch', \
-                        'migration-assistant/password-empty', \
-                        'migration-assistant/username-bad', \
-                        'migration-assistant/username-reserved']
+        self.error_list = ['migration-assistant/password-mismatch',
+                           'migration-assistant/password-empty',
+                           'migration-assistant/username-bad',
+                           'migration-assistant/username-reserved']
         questions = ['^migration-assistant/partitions',
-                            '^migration-assistant/.*/users$',
-                            '^migration-assistant/.*/items$',
-                            '^migration-assistant/.*/user$',
-                            '^migration-assistant/.*/password$',
-                            'ERROR']
+                     '^migration-assistant/.*/users$',
+                     '^migration-assistant/.*/items$',
+                     '^migration-assistant/.*/user$',
+                     '^migration-assistant/.*/password$',
+                     'ERROR']
         return (['/usr/lib/ubiquity/migration-assistant/ma-ask',
-		'/usr/lib/ubiquity/migration-assistant'], questions)
+                 '/usr/lib/ubiquity/migration-assistant'], questions)
 
 
     def run(self, priority, question):
@@ -104,7 +104,7 @@ class MigrationAssistant(FilteredCommand):
                 self.frontend.ma_user_error(self.err, user)
                 self.preseed(question, 'skip-question')
                 self.err = ''
-	return True # False is backup
+        return True # False is backup
 
     def cleanup(self):
         if not self.firstrun:
@@ -120,9 +120,9 @@ class MigrationAssistant(FilteredCommand):
             return
         
         # First run
-	tree = []
+        tree = []
         systems = self.db.get('migration-assistant/partitions')
-    	if systems:
+        if systems:
             systems = systems.split(', ')
             for os in systems:
                 part = os[os.rfind('/')+1:-1] # hda1
@@ -139,23 +139,23 @@ class MigrationAssistant(FilteredCommand):
                     # into ma-ask.
                     if items:
                         items = items.split(', ')
-                        tree.append({'user': user, \
-                                        'part': part, \
-                                        'os': os, \
-                                        'newuser': '', \
-                                        'items': items, \
-                                        'selected': False})
+                        tree.append({'user': user,
+                                     'part': part,
+                                     'os': os,
+                                     'newuser': '',
+                                     'items': items,
+                                     'selected': False})
                 # We now unset everything as the checkboxes will be unselected
                 # by default and debconf needs to match that.
                 self.db.set('migration-assistant/%s/users' % part, '')
-	
-	self.frontend.ma_set_choices(tree)
+
+        self.frontend.ma_set_choices(tree)
 
         # Here we jump in after m-a has exited and stop ubiquity from moving on
         # to the next page.
-	self.frontend.allow_go_forward(True)
+        self.frontend.allow_go_forward(True)
         self.firstrun = False
-    	self.enter_ui_loop()
+        self.enter_ui_loop()
 
     def ok_handler(self):
         
@@ -191,13 +191,13 @@ class MigrationAssistant(FilteredCommand):
             try:
                 self.db.register('migration-assistant/password', question + 'password')
                 self.preseed(question + 'password', user['password'],
-                    escape=True)
+                             escape=True)
             except KeyError:
                 self.preseed(question + 'password', '')
             try:
                 self.db.register('migration-assistant/password-again', question + 'password-again')
                 self.preseed(question + 'password-again', user['confirm'],
-                    escape=True)
+                             escape=True)
             except KeyError:
                 self.preseed(question + 'password-again', '')
         
@@ -219,7 +219,7 @@ class MigrationAssistant(FilteredCommand):
             self.err = self.extended_description(question)
         else:
             self.frontend.error_dialog(self.description(question),
-                self.extended_description(question))
+                                       self.extended_description(question))
         return FilteredCommand.error(self, priority, question)
 
 # vim:ai:et:sts=4:tw=80:sw=4:

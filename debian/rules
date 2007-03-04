@@ -141,13 +141,6 @@ endif
 		d-i/source/console-setup/debian/console-setup.postinst \
 		> debian/ubiquity/usr/lib/ubiquity/console-setup/console-setup.postinst
 	chmod +x debian/ubiquity/usr/lib/ubiquity/console-setup/console-setup.postinst
-	# TODO cjwatson 2006-09-07: Nasty hack around the Perl
-	# debconf-copydb not working from inside a confmodule; this is
-	# handled in installer:copy_debconf() instead.
-	sed '/^debconf-copydb/d' \
-		d-i/source/console-setup/debian/console-setup-udeb.post-base-installer \
-		> debian/ubiquity/usr/lib/ubiquity/console-setup/post-base-installer
-	chmod +x debian/ubiquity/usr/lib/ubiquity/console-setup/post-base-installer
 	sed 's,\(finish-install=\).*,\1/dev/null,' \
 		d-i/source/hw-detect/debian/hw-detect/bin/hw-detect \
 		> debian/ubiquity/bin/hw-detect
@@ -230,6 +223,10 @@ binary-arch: install
 	dh_installdocs
 #	dh_installexamples
 	dh_installdebconf
+	echo >> debian/ubiquity/DEBIAN/templates
+	po2debconf --podir=debian/imported-po \
+		debian/ubiquity.templates-imported \
+		>> debian/ubiquity/DEBIAN/templates
 	echo >> debian/ubiquity/DEBIAN/templates
 	grep-dctrl -XFTemplate base-installer/kernel/linux/link_in_boot \
 		d-i/templates \

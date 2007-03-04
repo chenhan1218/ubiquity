@@ -97,6 +97,7 @@ class Wizard:
         self.gconf_previous = {}
         self.current_layout = None
         self.password = ''
+        self.username_edited = False
         self.hostname_edited = False
         self.autopartition_extras = {}
         self.auto_mountpoints = None
@@ -131,7 +132,9 @@ class Wizard:
         self.language_questions = ('live_installer', 'welcome_heading_label',
                                    'welcome_text_label', 'release_notes_label',
                                    'release_notes_url', 'step_label',
-                                   'cancel', 'back', 'next')
+                                   'cancel', 'back', 'next',
+                                   'warning_dialog', 'warning_dialog_label',
+                                   'cancelbutton', 'exitbutton')
         self.allowed_change_step = True
         self.allowed_go_forward = True
         self.username_combo = None
@@ -261,6 +264,8 @@ class Wizard:
 
         # Some signals need to be connected by hand so that we have the
         # handler ids.
+        self.username_changed_id = self.username.connect(
+            'changed', self.on_username_changed)
         self.hostname_changed_id = self.hostname.connect(
             'changed', self.on_hostname_changed)
 
@@ -283,6 +288,11 @@ class Wizard:
 
         if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
             self.steps.remove_page(self.steps.page_num(self.stepMigrationAssistant))
+            for step in BREADCRUMB_STEPS:
+                if (BREADCRUMB_STEPS[step] >
+                    BREADCRUMB_STEPS["stepMigrationAssistant"]):
+                    BREADCRUMB_STEPS[step] -= 1
+            BREADCRUMB_MAX_STEP -= 1
 
         while self.current_page is not None:
             if not self.installing:
@@ -298,7 +308,7 @@ class Wizard:
                 gtk.link_button_set_uri_hook(self.link_button_browser)
             elif current_name == "stepMigrationAssistant":
                 self.dbfilter = migrationassistant.MigrationAssistant(self)
-	    elif current_name == "stepLocation":
+            elif current_name == "stepLocation":
                 self.dbfilter = timezone.Timezone(self)
             elif current_name == "stepKeyboardConf":
                 self.dbfilter = console_setup.ConsoleSetup(self)
@@ -382,6 +392,9 @@ class Wizard:
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
 
+        if 'UBIQUITY_DEBUG' in os.environ:
+            self.password_debug_warning_label.show()
+
         if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
             self.embedded.hide()
             self.part_advanced_vpaned.show()
@@ -427,9 +440,11 @@ class Wizard:
             languages = []
         else:
             languages = [self.locale]
-        get_translations(languages=languages,
-                         core_names=['ubiquity/text/%s' % q
-                                     for q in self.language_questions])
+        core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
+        for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
+                           'ok', 'quit'):
+            core_names.append('ubiquity/imported/%s' % stock_item)
+        get_translations(languages=languages, core_names=core_names)
 
         for widget in self.glade.get_widget_prefix(""):
             self.translate_widget(widget, self.locale)
@@ -441,10 +456,9 @@ class Wizard:
         text = get_string(widget.get_name(), lang)
         if text is None:
             return
+        name = widget.get_name()
 
         if isinstance(widget, gtk.Label):
-            name = widget.get_name()
-
             if name == 'step_label':
                 global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
                 curstep = '?'
@@ -467,7 +481,7 @@ class Wizard:
                 attrs = pango.AttrList()
                 attrs.insert(pango.AttrStyle(pango.STYLE_ITALIC, 0, textlen))
                 widget.set_attributes(attrs)
-            elif ('group_label' in name or
+            elif ('group_label' in name or 'warning_label' in name or
                   name in ('drives_label', 'partition_method_label',
                            'mountpoint_label', 'size_label', 'device_label',
                            'format_label')):
@@ -476,7 +490,18 @@ class Wizard:
                 widget.set_attributes(attrs)
 
         elif isinstance(widget, gtk.Button):
-            widget.set_label(text)
+            question = map_widget_name(widget.get_name())
+            if question.startswith('ubiquity/imported/'):
+                if '|' in text:
+                    widget.set_label(text.split('|', 1)[1])
+                else:
+                    widget.set_label(text)
+                stock_id = question[18:]
+                widget.set_use_stock(False)
+                widget.set_image(gtk.image_new_from_stock(
+                    'gtk-%s' % stock_id, gtk.ICON_SIZE_BUTTON))
+            else:
+                widget.set_label(text)
 
         elif isinstance(widget, gtk.Window):
             widget.set_title(text)
@@ -768,8 +793,16 @@ class Wizard:
         """check if all entries from Identification screen are filled. Callback
         defined in glade file."""
 
-        if (widget is not None and widget.get_name() == 'username' and
-            not self.hostname_edited):
+        if (widget is not None and widget.get_name() == 'fullname' and
+            not self.username_edited):
+            self.username.handler_block(self.username_changed_id)
+            new_username = widget.get_text().split(' ')[0]
+            new_username = new_username.encode('ascii', 'ascii_transliterate')
+            new_username = new_username.lower()
+            self.username.set_text(new_username)
+            self.username.handler_unblock(self.username_changed_id)
+        elif (widget is not None and widget.get_name() == 'username' and
+              not self.hostname_edited):
             if self.laptop:
                 hostname_suffix = '-laptop'
             else:
@@ -783,6 +816,9 @@ class Wizard:
             if getattr(self, name).get_text() == '':
                 complete = False
         self.allow_go_forward(complete)
+
+    def on_username_changed(self, widget):
+        self.username_edited = (widget.get_text() != '')
 
     def on_hostname_changed(self, widget):
         self.hostname_edited = (widget.get_text() != '')
@@ -875,9 +911,9 @@ class Wizard:
         # Mountpoints
         elif step == "stepPartMountpoints":
             self.mountpoints_to_summary()
-	# Migration Assistant		
-	elif step == "stepMigrationAssistant":
-	    self.steps.next_page()
+        # Migration Assistant           
+        elif step == "stepMigrationAssistant":
+            self.steps.next_page()
             self.ma_configure_usersetup()
             self.info_loop(None)
         # Identification
@@ -1294,12 +1330,18 @@ class Wizard:
             self.set_current_page(self.steps.page_num(self.stepPartAuto))
             changed_page = True
         elif step == "stepPartMountpoints":
-            self.gparted_loop()
+            if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
+                self.gparted_loop()
         elif step == "stepMigrationAssistant":
             self.set_current_page(self.previous_partitioning_page)
             changed_page = True
+        elif step == "stepUserInfo":
+            if 'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
+                self.set_current_page(self.previous_partitioning_page)
+                changed_page = True
         elif step == "stepReady":
             self.next.set_label("gtk-go-forward")
+            self.translate_widget(self.next, self.locale)
             self.steps.prev_page()
             changed_page = True
 
@@ -1569,9 +1611,9 @@ class Wizard:
     def ma_user_error(self, error, user):
         # Note that 'user' is the original user.
         model = self.matreeview.get_model()
-        iter = model.get_iter(0)
-        while(iter):
-            val = model.get_value(iter, 1)
+        iterator = model.get_iter(0)
+        while iterator:
+            val = model.get_value(iterator, 1)
             if user == val['user']:
                 newuser = val['newuser']
                 self.ma_new_users[newuser]['loginname-error'] = error
@@ -1580,69 +1622,69 @@ class Wizard:
                 # changes.  So we only change the selection if we need to,
                 # otherwise we just call update_selection directly.
                 selection = self.matreeview.get_selection()
-                if(selection.iter_is_selected(iter)):
+                if selection.iter_is_selected(iterator):
                     self.ma_update_selection()
                 else:
-                    selection.select_iter(iter)
+                    selection.select_iter(iterator)
                 break
-            iter = model.iter_next(iter)
+            iterator = model.iter_next(iterator)
 
     def ma_password_error(self, error, user):
         # Note that 'user' is the user we're importing to.
         model = self.matreeview.get_model()
-        iter = model.get_iter(0)
-        while(iter):
-            val = model.get_value(iter, 1)
+        iterator = model.get_iter(0)
+        while iterator:
+            val = model.get_value(iterator, 1)
             if user == val['newuser']:
                 self.ma_new_users[user]['password-error'] = error
                 
                 selection = self.matreeview.get_selection()
-                if(selection.iter_is_selected(iter)):
+                if selection.iter_is_selected(iterator):
                     self.ma_update_selection()
                 else:
-                    selection.select_iter(iter)
+                    selection.select_iter(iterator)
                 break
-            iter = model.iter_next(iter)
+            iterator = model.iter_next(iterator)
 
     def ma_get_choices(self):
         return (self.ma_choices, self.ma_new_users)
 
     def ma_cb_toggle(self, cell, path, model=None):
-            iter = model.get_iter(path)
-            checked = not cell.get_active()
-            model.set_value(iter, 0, checked)
-            
-            # We're on a user checkbox.
-            if(model.iter_children(iter)):
-                    if checked:
-                        self.ma_userinfo.set_sensitive(True)
-                    else:
-                        self.ma_userinfo.set_sensitive(False)
+        iterator = model.get_iter(path)
+        checked = not cell.get_active()
+        model.set_value(iterator, 0, checked)
 
-                    if not cell.get_active():
-                        model.get_value(iter, 1)['selected'] = True
-                    else:
-                        model.get_value(iter, 1)['selected'] = False
-                    parent = iter
-                    iter = model.iter_children(iter)
-                    items = []
-                    while(iter):
-                        model.set_value(iter, 0, checked)
-                        if checked:
-                            items.append(model.get_value(iter, 1))
-                        iter = model.iter_next(iter)
-                    model.get_value(parent, 1)['items'] = items
-
-            # We're on an item checkbox.
+        # We're on a user checkbox.
+        if model.iter_children(iterator):
+            if checked:
+                self.ma_userinfo.set_sensitive(True)
             else:
-                parent = model.iter_parent(iter)
-                item = model.get_value(iter, 1)
-                items = model.get_value(parent, 1)['items']
+                self.ma_userinfo.set_sensitive(False)
 
+            if not cell.get_active():
+                model.get_value(iterator, 1)['selected'] = True
+            else:
+                model.get_value(iterator, 1)['selected'] = False
+            parent = iterator
+            iterator = model.iter_children(iterator)
+            items = []
+            while iterator:
+                model.set_value(iterator, 0, checked)
                 if checked:
-                        items.append(item)
-                else:
-                        items.remove(item)
+                    items.append(model.get_value(iterator, 1))
+                iterator = model.iter_next(iterator)
+            model.get_value(parent, 1)['items'] = items
+
+        # We're on an item checkbox.
+        else:
+            parent = model.iter_parent(iterator)
+            item = model.get_value(iterator, 1)
+            items = model.get_value(parent, 1)['items']
+
+            if checked:
+                items.append(item)
+            else:
+                items.remove(item)
 
     def ma_seed_userinfo(self):
         sel = self.ma_previous_selection
@@ -1674,17 +1716,17 @@ class Wizard:
             val['confirm'] = self.ma_confirm.get_text()
             # We don't have to clear the username error because changing the
             # username creates a new user.
-            if(val['password'] and (val['password'] == val['confirm'])):
+            if val['password'] and (val['password'] == val['confirm']):
                 val['password-error'] = ''
             else:
                 val['password-error'] = self.ma_password_error_reason.get_text()
 
     def ma_update_selection(self):
-        model, iter = self.matreeview.get_selection().get_selected()
+        model, iterator = self.matreeview.get_selection().get_selected()
         self.ma_loginname_error_box.hide()
         self.ma_password_error_box.hide()
 
-        newuser = model.get_value(iter, 1)['newuser']
+        newuser = model.get_value(iterator, 1)['newuser']
         try:
             val = self.ma_new_users[newuser]
             if newuser == '-':
@@ -1715,12 +1757,13 @@ class Wizard:
         if self.ma_previous_selection:
             self.ma_seed_userinfo()
 
-        model, iter = selection.get_selected()
-        if not iter: return
-        if(model.iter_parent(iter)):
-            iter = model.iter_parent(iter)
+        model, iterator = selection.get_selected()
+        if not iterator:
+            return
+        if model.iter_parent(iterator):
+            iterator = model.iter_parent(iterator)
         
-        if model.get_value(iter, 0):
+        if model.get_value(iterator, 0):
             self.ma_userinfo.set_sensitive(True)
         else:
             self.ma_userinfo.set_sensitive(False)
@@ -1739,22 +1782,22 @@ class Wizard:
         
     def ma_set_choices(self, choices):
 
-        def cell_data_func(column, cell, model, iter):
-            val = model.get_value(iter, 1)
-            if(model.iter_children(iter)):
+        def cell_data_func(column, cell, model, iterator):
+            val = model.get_value(iterator, 1)
+            if model.iter_children(iterator):
                 # Windows XP...
                 text = '%s  <small><i>%s (%s)</i></small>' % \
-                    (val['user'], val['os'], val['part'])
+                       (val['user'], val['os'], val['part'])
                 newuser = val['newuser']
-                if newuser and model.get_value(iter, 0):
+                if newuser and model.get_value(iterator, 0):
                     newuser = self.ma_new_users[newuser]
-                    if(newuser['password-error'] or newuser['loginname-error']):
+                    if newuser['password-error'] or newuser['loginname-error']:
                         text = '<span foreground="red">%s  <small><i>%s' \
-                            ' (%s)</i></small></span>' % \
-                            (val['user'], val['os'], val['part'])
+                               ' (%s)</i></small></span>' % \
+                               (val['user'], val['os'], val['part'])
             else:
                 # Gaim, Yahoo, etc
-                text = model.get_value(iter, 1)
+                text = model.get_value(iterator, 1)
 
             cell.set_property("markup", text)
         # The user probably hit the back button.
@@ -1771,7 +1814,7 @@ class Wizard:
         # the page would be better than showing the user this error.
         if not choices:
             msg = 'There were no users or operating systems suitable for ' \
-                'importing from.'
+                  'importing from.'
             liststore = gtk.ListStore(str)
             liststore.append([msg])
             self.matreeview.set_model(liststore)
@@ -1781,10 +1824,10 @@ class Wizard:
         else:
             treestore = gtk.TreeStore(bool, object)
             for choice in choices:
-                    piter = treestore.append(None, [False, choice])
-                    for item in choice['items']:
-                            treestore.append(piter, [False, item])
-                    choice['items'] = []
+                piter = treestore.append(None, [False, choice])
+                for item in choice['items']:
+                    treestore.append(piter, [False, item])
+                choice['items'] = []
             
             self.matreeview.set_model(treestore)
             
@@ -1802,8 +1845,8 @@ class Wizard:
 
             self.matreeview.set_search_column(1)
 
-            self.matreeview.get_selection().connect('changed', \
-                self.ma_selection_changed)
+            self.matreeview.get_selection().connect('changed',
+                                                    self.ma_selection_changed)
             self.matreeview.show_all()
 
             self.ma_loginname.set_model(gtk.ListStore(str))
@@ -2019,44 +2062,54 @@ class Wizard:
     def partman_popup (self, widget, event):
         if not self.allowed_change_step:
             return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
 
         model, iterator = widget.get_selection().get_selected()
         if iterator is None:
-            return
-        devpart = model[iterator][0]
-        partition = model[iterator][1]
+            devpart = None
+            partition = None
+        else:
+            devpart = model[iterator][0]
+            partition = model[iterator][1]
 
         partition_list_menu = gtk.Menu()
-        if 'id' not in partition:
-            # TODO cjwatson 2006-12-21: i18n;
-            # partman-partitioning/text/label text is quite long?
-            new_label_item = gtk.MenuItem('New partition table')
-            new_label_item.connect(
-                'activate', self.on_partition_list_menu_new_label_activate,
-                devpart, partition)
-            partition_list_menu.append(new_label_item)
-        if 'can_new' in partition and partition['can_new']:
-            # TODO cjwatson 2006-10-31: i18n
-            new_item = gtk.MenuItem('New')
-            new_item.connect('activate',
-                             self.on_partition_list_menu_new_activate,
-                             devpart, partition)
-            partition_list_menu.append(new_item)
-        if 'id' in partition and partition['parted']['fs'] != 'free':
-            # TODO cjwatson 2006-10-31: i18n
-            edit_item = gtk.MenuItem('Edit')
-            edit_item.connect('activate',
-                              self.on_partition_list_menu_edit_activate,
-                              devpart, partition)
-            partition_list_menu.append(edit_item)
-            delete_item = gtk.MenuItem('Delete')
-            delete_item.connect('activate',
-                                self.on_partition_list_menu_delete_activate,
-                                devpart, partition)
-            partition_list_menu.append(delete_item)
-        # TODO cjwatson 2006-12-22: options for whole disks
-        if not partition_list_menu.get_children():
-            return
+        for action in self.dbfilter.get_actions(devpart, partition):
+            if action == 'new_label':
+                # TODO cjwatson 2006-12-21: i18n;
+                # partman-partitioning/text/label text is quite long?
+                new_label_item = gtk.MenuItem('New partition table')
+                new_label_item.connect(
+                    'activate', self.on_partition_list_new_label_activate,
+                    devpart, partition)
+                partition_list_menu.append(new_label_item)
+            elif action == 'new':
+                # TODO cjwatson 2006-10-31: i18n
+                new_item = gtk.MenuItem('New partition')
+                new_item.connect(
+                    'activate', self.on_partition_list_new_activate,
+                    devpart, partition)
+                partition_list_menu.append(new_item)
+            elif action == 'edit':
+                # TODO cjwatson 2006-10-31: i18n
+                edit_item = gtk.MenuItem('Edit partition')
+                edit_item.connect(
+                    'activate', self.on_partition_list_edit_activate,
+                    devpart, partition)
+                partition_list_menu.append(edit_item)
+            elif action == 'delete':
+                # TODO cjwatson 2006-10-31: i18n
+                delete_item = gtk.MenuItem('Delete partition')
+                delete_item.connect(
+                    'activate', self.on_partition_list_delete_activate,
+                    devpart, partition)
+                partition_list_menu.append(delete_item)
+        if partition_list_menu.get_children():
+            partition_list_menu.append(gtk.SeparatorMenuItem())
+        undo_item = gtk.MenuItem(get_string('partman/text/undo_everything',
+                                 self.locale))
+        undo_item.connect('activate', self.on_partition_list_undo_activate)
+        partition_list_menu.append(undo_item)
         partition_list_menu.show_all()
 
         if event:
@@ -2068,6 +2121,8 @@ class Wizard:
         partition_list_menu.popup(None, None, None, button, time)
 
     def partman_create_dialog (self, devpart, partition):
+        if not self.allowed_change_step:
+            return
         if not isinstance(self.dbfilter, partman.Partman):
             return
 
@@ -2161,6 +2216,8 @@ class Wizard:
             self.partition_create_mount_combo.set_sensitive(True)
 
     def partman_edit_dialog (self, devpart, partition):
+        if not self.allowed_change_step:
+            return
         if not isinstance(self.dbfilter, partman.Partman):
             return
 
@@ -2183,7 +2240,7 @@ class Wizard:
                                upper=max_size_mb,
                                step_incr=1, page_incr=100, page_size=100))
             self.partition_edit_size_spinbutton.set_value(cur_size_mb)
-            current_size = self.partition_edit_size_spinbutton.get_value()
+            current_size = str(self.partition_edit_size_spinbutton.get_value())
 
         self.partition_edit_use_combo.clear()
         renderer = gtk.CellRendererText()
@@ -2233,7 +2290,7 @@ class Wizard:
         if response == gtk.RESPONSE_OK:
             size = None
             if current_size is not None:
-                size = self.partition_edit_size_spinbutton.get_value()
+                size = str(self.partition_edit_size_spinbutton.get_value())
 
             method_iter = self.partition_edit_use_combo.get_active_iter()
             if method_iter is None:
@@ -2255,8 +2312,7 @@ class Wizard:
             if (size is not None or method is not None or
                 mountpoint is not None):
                 self.allow_change_step(False)
-                self.dbfilter.edit_partition(devpart, str(size),
-                                             method, mountpoint)
+                self.dbfilter.edit_partition(devpart, size, method, mountpoint)
 
     def on_partition_edit_use_combo_changed (self, combobox):
         model = combobox.get_model()
@@ -2287,8 +2343,66 @@ class Wizard:
         self.partman_popup(widget, None)
         return True
 
+    def on_partition_list_treeview_selection_changed (self, selection):
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+
+        for child in self.partition_list_buttonbox.get_children():
+            self.partition_list_buttonbox.remove(child)
+
+        model, iterator = selection.get_selected()
+        if iterator is None:
+            devpart = None
+            partition = None
+        else:
+            devpart = model[iterator][0]
+            partition = model[iterator][1]
+
+        for action in self.dbfilter.get_actions(devpart, partition):
+            if action == 'new_label':
+                # TODO cjwatson 2007-02-19: i18n;
+                # partman-partitioning/text/label is too long unless we can
+                # figure out how to make the row of buttons auto-wrap
+                new_label_button = gtk.Button('New partition table')
+                new_label_button.connect(
+                    'clicked', self.on_partition_list_new_label_activate,
+                    devpart, partition)
+                self.partition_list_buttonbox.pack_start(new_label_button,
+                                                         False, False)
+            elif action == 'new':
+                # TODO cjwatson 2007-02-19: i18n
+                new_button = gtk.Button('New partition')
+                new_button.connect(
+                    'clicked', self.on_partition_list_new_activate,
+                    devpart, partition)
+                self.partition_list_buttonbox.pack_start(new_button,
+                                                         False, False)
+            elif action == 'edit':
+                # TODO cjwatson 2007-02-19: i18n
+                edit_button = gtk.Button('Edit partition')
+                edit_button.connect(
+                    'clicked', self.on_partition_list_edit_activate,
+                    devpart, partition)
+                self.partition_list_buttonbox.pack_start(edit_button,
+                                                         False, False)
+            elif action == 'delete':
+                # TODO cjwatson 2007-02-19: i18n
+                delete_button = gtk.Button('Delete partition')
+                delete_button.connect(
+                    'clicked', self.on_partition_list_delete_activate,
+                    devpart, partition)
+                self.partition_list_buttonbox.pack_start(delete_button,
+                                                         False, False)
+        undo_button = gtk.Button(get_string('partman/text/undo_everything',
+                                 self.locale))
+        undo_button.connect('clicked', self.on_partition_list_undo_activate)
+        self.partition_list_buttonbox.pack_start(undo_button, False, False)
+        self.partition_list_buttonbox.show_all()
+
     def on_partition_list_treeview_row_activated (self, treeview,
                                                   path, view_column):
+        if not self.allowed_change_step:
+            return
         model = treeview.get_model()
         try:
             devpart = model[path][0]
@@ -2314,27 +2428,36 @@ class Wizard:
         else:
             self.partman_edit_dialog(devpart, partition)
 
-    def on_partition_list_menu_new_label_activate (self, menuitem,
-                                                   devpart, partition):
+    def on_partition_list_new_label_activate (self, widget,
+                                              devpart, partition):
+        if not self.allowed_change_step:
+            return
         if not isinstance(self.dbfilter, partman.Partman):
             return
         self.allow_change_step(False)
         self.dbfilter.create_label(devpart)
 
-    def on_partition_list_menu_new_activate (self, menuitem,
-                                             devpart, partition):
+    def on_partition_list_new_activate (self, widget, devpart, partition):
         self.partman_create_dialog(devpart, partition)
 
-    def on_partition_list_menu_edit_activate (self, menuitem,
-                                              devpart, partition):
+    def on_partition_list_edit_activate (self, widget, devpart, partition):
         self.partman_edit_dialog(devpart, partition)
 
-    def on_partition_list_menu_delete_activate (self, menuitem,
-                                                devpart, partition):
+    def on_partition_list_delete_activate (self, widget, devpart, partition):
+        if not self.allowed_change_step:
+            return
         if not isinstance(self.dbfilter, partman.Partman):
             return
         self.allow_change_step(False)
         self.dbfilter.delete_partition(devpart)
+
+    def on_partition_list_undo_activate (self, widget):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        self.allow_change_step(False)
+        self.dbfilter.undo()
 
     def update_partman (self, disk_cache, partition_cache, cache_order):
         partition_tree_model = self.partition_list_treeview.get_model()
@@ -2383,6 +2506,10 @@ class Wizard:
             self.partition_list_treeview.append_column(column_size)
 
             self.partition_list_treeview.set_model(partition_tree_model)
+
+            selection = self.partition_list_treeview.get_selection()
+            selection.connect(
+                'changed', self.on_partition_list_treeview_selection_changed)
         else:
             # TODO cjwatson 2006-08-31: inefficient, but will do for now
             partition_tree_model.clear()
@@ -2539,6 +2666,7 @@ class Wizard:
             self.live_installer.show()
             self.set_current_page(self.steps.page_num(self.stepPartAuto))
             self.next.set_label("gtk-go-forward")
+            self.translate_widget(self.next, self.locale)
             self.backup = True
             self.installing = False
 
@@ -2630,6 +2758,7 @@ class TimezoneMap(object):
         self.point_hover = None
         self.location_selected = None
 
+        self.tzmap.set_smooth_zoom(False)
         zoom_in_file = os.path.join(PATH, 'pixmaps', 'zoom-in.png')
         if os.path.exists(zoom_in_file):
             display = self.frontend.live_installer.get_display()

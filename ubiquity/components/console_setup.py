@@ -198,7 +198,12 @@ class ConsoleSetup(FilteredCommand):
 
         oldconfigfile = '/etc/X11/xorg.conf'
         newconfigfile = '/etc/X11/xorg.conf.new'
-        oldconfig = open(oldconfigfile)
+        try:
+            oldconfig = open(oldconfigfile)
+        except IOError:
+            # Did they remove /etc/X11/xorg.conf or something? Oh well,
+            # better to carry on than to crash.
+            return
         newconfig = open(newconfigfile, 'w')
 
         re_section_inputdevice = re.compile(r'\s*Section\s+"InputDevice"\s*$')

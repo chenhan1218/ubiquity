@@ -55,6 +55,7 @@ class Partman(PartmanAuto):
         self.creating_partition = None
         self.editing_partition = None
         self.deleting_partition = None
+        self.undoing = False
         self.finish_partitioning = False
 
         questions = list(prep[1])
@@ -191,6 +192,18 @@ class Partman(PartmanAuto):
         else:
             return None
 
+    def get_actions(self, devpart, partition):
+        if devpart is None and partition is None:
+            return
+        if 'id' not in partition:
+            yield 'new_label'
+        if 'can_new' in partition and partition['can_new']:
+            yield 'new'
+        if 'id' in partition and partition['parted']['fs'] != 'free':
+            yield 'edit'
+            yield 'delete'
+        # TODO cjwatson 2006-12-22: options for whole disks
+
     def set(self, question, value):
         if question == 'ubiquity/partman-rebuild-cache':
             if not self.building_cache:
@@ -204,7 +217,7 @@ class Partman(PartmanAuto):
 
     def subst(self, question, key, value):
         if question == 'partman-partitioning/new_size':
-            if self.building_cache:
+            if self.building_cache and self.autopartition_question is None:
                 state = self.__state[-1]
                 assert state[0] == 'partman/active_partition'
                 partition = self.partition_cache[state[1]]
@@ -226,6 +239,12 @@ class Partman(PartmanAuto):
             if self.editing_partition:
                 # Break out of resizing the partition.
                 self.editing_partition['bad_size'] = True
+        elif question == 'partman-basicfilesystems/bad_mountpoint':
+            # Break out of creating or editing the partition.
+            if self.creating_partition:
+                self.creating_partition['bad_mountpoint'] = True
+            elif self.editing_partition:
+                self.editing_partition['bad_mountpoint'] = True
         return PartmanAuto.error(self, priority, question)
 
     def run(self, priority, question):
@@ -235,10 +254,14 @@ class Partman(PartmanAuto):
         self.debug('Partman: state = %s', self.__state)
 
         if question == 'partman/choose_partition':
+            self.autopartition_question = None # not autopartitioning any more
+
             if not self.building_cache and self.update_partitions:
                 # Rebuild our cache of just these partitions.
                 self.__state = [['', None, None]]
                 self.building_cache = True
+                if 'ALL' in self.update_partitions:
+                    self.update_partitions = None
 
             if self.building_cache:
                 state = self.__state[-1]
@@ -434,6 +457,7 @@ class Partman(PartmanAuto):
             self.creating_partition = None
             self.editing_partition = None
             self.deleting_partition = None
+            self.undoing = False
             self.finish_partitioning = False
 
             FilteredCommand.run(self, priority, question)
@@ -473,6 +497,10 @@ class Partman(PartmanAuto):
                     partition = self.partition_cache[devpart]
                     # No need to use self.__state to keep track of this.
                     self.preseed(question, partition['display'], escape=True)
+                return True
+
+            elif self.undoing:
+                self.preseed_script(question, menu_options, 'undo')
                 return True
 
             else:
@@ -680,7 +708,7 @@ class Partman(PartmanAuto):
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman-partitioning/new_size':
-            if not self.__state:
+            if self.autopartition_question is not None:
                 # PartmanAuto will handle this.
                 pass
             elif self.building_cache:
@@ -740,9 +768,12 @@ class Partman(PartmanAuto):
                 return False
             elif self.creating_partition or self.editing_partition:
                 if self.creating_partition:
-                    mountpoint = self.creating_partition['mountpoint']
+                    request = self.creating_partition
                 else:
-                    mountpoint = self.editing_partition['mountpoint']
+                    request = self.editing_partition
+                if 'bad_mountpoint' in request:
+                    return False
+                mountpoint = request['mountpoint']
 
                 if mountpoint == '' or mountpoint is None:
                     self.preseed(question, 'Do not mount it')
@@ -758,6 +789,8 @@ class Partman(PartmanAuto):
                     request = self.creating_partition
                 else:
                     request = self.editing_partition
+                if 'bad_mountpoint' in request:
+                    return False
 
                 self.preseed(question, request['mountpoint'])
                 return True
@@ -765,17 +798,23 @@ class Partman(PartmanAuto):
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman/exception_handler':
-            response = self.frontend.question_dialog(
-                self.description(question),
-                self.extended_description(question),
-                self.choices(question), use_templates=False)
-            self.preseed(question, response)
+            if priority == 'critical' or priority == 'high':
+                response = self.frontend.question_dialog(
+                    self.description(question),
+                    self.extended_description(question),
+                    self.choices(question), use_templates=False)
+                self.preseed(question, response)
+            else:
+                self.preseed(question, 'unhandled')
             return True
 
         elif question == 'partman/exception_handler_note':
-            self.frontend.error_dialog(self.description(question),
-                                       self.extended_description(question))
-            return FilteredCommand.error(self, priority, question)
+            if priority == 'critical' or priority == 'high':
+                self.frontend.error_dialog(self.description(question),
+                                           self.extended_description(question))
+                return FilteredCommand.error(self, priority, question)
+            else:
+                return True
 
         return PartmanAuto.run(self, priority, question)
 
@@ -833,4 +872,9 @@ class Partman(PartmanAuto):
         self.deleting_partition = {
             'devpart': devpart
         }
+        self.exit_ui_loops()
+
+    def undo(self):
+        assert self.current_question == 'partman/choose_partition'
+        self.undoing = True
         self.exit_ui_loops()

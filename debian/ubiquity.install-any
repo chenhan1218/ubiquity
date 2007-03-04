@@ -10,7 +10,7 @@ compat/udpkg usr/lib/ubiquity/compat
 scripts/* usr/share/ubiquity
 desktop/ubiquity.png usr/share/pixmaps
 pixmaps/world_map-960.png usr/share/ubiquity/pixmaps
-apport/ubiquity.py usr/share/apport
+apport/ubiquity.py usr/share/apport/package-hooks
 
 # apt-setup
 d-i/source/apt-setup/apt-setup-verify usr/lib/ubiquity/apt-setup
@@ -63,7 +63,9 @@ d-i/source/partconf/debian/partconf-*/* .
 
 # partman
 d-i/source/partman-*/debian/partman-*/* .
+partman/undo.d/* lib/partman/undo.d
 partman/update.d/* lib/partman/update.d
+partman/check.d/* lib/partman/check.d
 ubiquity/components/partman.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/partman_auto.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/partman_commit.py usr/lib/ubiquity/ubiquity/components
