@@ -1568,6 +1568,24 @@ class Wizard:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][0]
 
+    def ma_info_loop(self, widget):
+        """migration-assistant version of info_loop. For now it just autofills
+        the username.  Callback defined in glade file."""
+        edited = False
+        m, i = self.matreeview.get_selection().get_selected()
+        if not m.iter_children(i):
+            i = m.iter_parent(i)
+        for k in m.get_value(i, 1).iterkeys():
+            val = m.get_value(i, 1)[k]
+            if k == 'newuser' and val != '' and self.ma_loginname.child.get_text() != '':
+                edited = True
+
+        if (widget is not None and widget.get_name() == 'ma_fullname' and
+            not edited):
+            new_username = widget.get_text().split(' ')[0]
+            new_username = new_username.encode('ascii', 'ascii_transliterate')
+            new_username = new_username.lower()
+            self.ma_loginname.child.set_text(new_username)
     
     def ma_configure_usersetup(self):
 
