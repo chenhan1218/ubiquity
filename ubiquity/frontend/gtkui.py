@@ -1603,6 +1603,9 @@ class Wizard:
                 self.fullname.set_text(u['fullname'])
                 self.password.set_text(u['password'])
                 self.verified_password.set_text(u['confirm'])
+                # This prevents auto filling based on the full name from
+                # clobbering m-a usernames.
+                self.username_edited = True
 
         # If the user pressed back.
         if self.username_combo:
@@ -1730,6 +1733,21 @@ class Wizard:
                 val['password-error'] = ''
             
             m.get_value(i, 1)['newuser'] = newuser
+
+            # Clear out any unused new users.
+            keys = self.ma_new_users.keys()
+            for k in keys:
+                it = m.get_iter(0)
+                found = False
+                while it:
+                    u = m.get_value(it, 1)['newuser']
+                    if k == u:
+                        found = True
+                        break
+                    it = m.iter_next(it)
+                if not found:
+                    self.ma_new_users.pop(k)
+
             self.ma_loginname.set_model(gtk.ListStore(str))
             for u in self.ma_new_users.iterkeys():
                 if u and u != '-':

@@ -12,8 +12,10 @@ ubiquity (1.3.24) UNRELEASED; urgency=low
     item now selects the user as well.  (LP: #89414)
   * The Migration page now auto-fills the username box, matching the
     behavior on the User Setup page. (LP: #89522)
+  * Stopped the username auto fill on User Setup from clobbering the m-a
+    username.
 
- -- Evan Dandrea <evand@ubuntu.com>  Sun,  4 Mar 2007 14:12:28 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Mon,  5 Mar 2007 00:09:49 -0500
 
 ubiquity (1.3.23) feisty; urgency=low
 
