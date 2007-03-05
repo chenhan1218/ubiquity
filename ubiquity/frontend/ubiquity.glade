@@ -1164,6 +1164,7 @@ If you do not wish to import any accounts, select nothing and press next.</prope
                                   <widget class="GtkEntry" id="ma_fullname">
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+				    <signal name="changed" handler="ma_info_loop"/>
                                   </widget>
                                   <packing>
                                     <property name="left_attach">1</property>

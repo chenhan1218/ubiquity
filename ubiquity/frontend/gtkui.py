@@ -1568,6 +1568,24 @@ class Wizard:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][0]
 
+    def ma_info_loop(self, widget):
+        """migration-assistant version of info_loop. For now it just autofills
+        the username.  Callback defined in glade file."""
+        edited = False
+        m, i = self.matreeview.get_selection().get_selected()
+        if not m.iter_children(i):
+            i = m.iter_parent(i)
+        for k in m.get_value(i, 1).iterkeys():
+            val = m.get_value(i, 1)[k]
+            if k == 'newuser' and val != '' and self.ma_loginname.child.get_text() != '':
+                edited = True
+
+        if (widget is not None and widget.get_name() == 'ma_fullname' and
+            not edited):
+            new_username = widget.get_text().split(' ')[0]
+            new_username = new_username.encode('ascii', 'ascii_transliterate')
+            new_username = new_username.lower()
+            self.ma_loginname.child.set_text(new_username)
     
     def ma_configure_usersetup(self):
 
@@ -1585,6 +1603,9 @@ class Wizard:
                 self.fullname.set_text(u['fullname'])
                 self.password.set_text(u['password'])
                 self.verified_password.set_text(u['confirm'])
+                # This prevents auto filling based on the full name from
+                # clobbering m-a usernames.
+                self.username_edited = True
 
         # If the user pressed back.
         if self.username_combo:
@@ -1678,9 +1699,12 @@ class Wizard:
         # We're on an item checkbox.
         else:
             parent = model.iter_parent(iterator)
+            if not model.get_value(parent, 0):
+                model.set_value(parent, 0, True)
+                model.get_value(parent, 1)['selected'] = True
+
             item = model.get_value(iterator, 1)
             items = model.get_value(parent, 1)['items']
-
             if checked:
                 items.append(item)
             else:
@@ -1693,6 +1717,8 @@ class Wizard:
 
         m = sel[0]
         i = sel[1]
+        if not m.iter_children(i):
+            i = m.iter_parent(i)
         newuser = self.ma_loginname.child.get_text()
         if m.get_value(i, 0):
             if not newuser:
@@ -1707,6 +1733,21 @@ class Wizard:
                 val['password-error'] = ''
             
             m.get_value(i, 1)['newuser'] = newuser
+
+            # Clear out any unused new users.
+            keys = self.ma_new_users.keys()
+            for k in keys:
+                it = m.get_iter(0)
+                found = False
+                while it:
+                    u = m.get_value(it, 1)['newuser']
+                    if k == u:
+                        found = True
+                        break
+                    it = m.iter_next(it)
+                if not found:
+                    self.ma_new_users.pop(k)
+
             self.ma_loginname.set_model(gtk.ListStore(str))
             for u in self.ma_new_users.iterkeys():
                 if u and u != '-':
@@ -1723,6 +1764,9 @@ class Wizard:
 
     def ma_update_selection(self):
         model, iterator = self.matreeview.get_selection().get_selected()
+        if not model.iter_children(iterator):
+            iterator = model.iter_parent(iterator)
+
         self.ma_loginname_error_box.hide()
         self.ma_password_error_box.hide()
 
