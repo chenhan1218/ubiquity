@@ -2361,7 +2361,7 @@ class Wizard:
         # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
         # have to hardcode the list of known filesystems here.
         known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
-                             'fat16', 'fat32')
+                             'fat16', 'fat32', 'ntfs')
         if iterator is None or model[iterator][0] not in known_filesystems:
             self.partition_edit_mount_combo.child.set_text('')
             self.partition_edit_mount_combo.set_sensitive(False)

@@ -12,6 +12,7 @@ ubiquity (1.3.25) UNRELEASED; urgency=low
   [ Colin Watson ]
   * GTK frontend: Don't reset partition_edit_mount_combo's cell renderer;
     doing so causes GTK warnings.
+  * New partitioner: Allow changing the mount point for NTFS.
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon,  5 Mar 2007 00:09:49 -0500
 

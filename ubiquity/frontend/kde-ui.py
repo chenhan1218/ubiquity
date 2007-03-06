@@ -1721,7 +1721,7 @@ class Wizard:
 
     def on_partition_create_use_combo_changed (self, combobox):
         known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
-                             'fat16', 'fat32')
+                             'fat16', 'fat32', 'ntfs')
         text = str(self.create_dialog.partition_create_use_combo.currentText())
         if text not in known_filesystems:
             #self.create_dialog.partition_create_mount_combo.child.setText('')
@@ -1815,7 +1815,7 @@ class Wizard:
         # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
         # have to hardcode the list of known filesystems here.
         known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
-                             'fat16', 'fat32')
+                             'fat16', 'fat32', 'ntfs')
         text = str(self.edit_dialog.partition_edit_use_combo.currentText())
         if text not in known_filesystems:
             #self.edit_dialog.partition_edit_mount_combo.child.setText('')
