@@ -2307,10 +2307,6 @@ class Wizard:
         # unless the method is already one that can be mounted, so we may
         # need to calculate this dynamically based on the method instead of
         # relying on cached information from partman
-        self.partition_edit_mount_combo.clear()
-        renderer = gtk.CellRendererText()
-        self.partition_edit_mount_combo.pack_start(renderer)
-        self.partition_edit_mount_combo.add_attribute(renderer, 'text', 1)
         list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         if 'mountpoint_choices' in partition:
             for mp, choice_c, choice in partition['mountpoint_choices']:
