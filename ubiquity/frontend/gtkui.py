@@ -2877,8 +2877,13 @@ class TimezoneMap(object):
 
     def update_current_time(self):
         if self.location_selected is not None:
-            now = datetime.datetime.now(self.location_selected.info)
-            self.frontend.timezone_time_text.set_text(now.strftime('%X'))
+            try:
+                now = datetime.datetime.now(self.location_selected.info)
+                self.frontend.timezone_time_text.set_text(now.strftime('%X'))
+            except ValueError:
+                # Some versions of Python have problems with clocks set
+                # before the epoch (http://python.org/sf/1646728).
+                self.frontend.timezone_time_text.set_text('<clock error>')
 
     def set_tz_from_name(self, name):
         (longitude, latitude) = (0.0, 0.0)

@@ -2218,8 +2218,13 @@ class TimezoneMap(object):
 
     def update_current_time(self):
         if self.location_selected is not None:
-            now = datetime.datetime.now(self.location_selected.info)
-            self.frontend.userinterface.timezone_time_text.setText(unicode(now.strftime('%X'), "utf-8"))
+            try:
+                now = datetime.datetime.now(self.location_selected.info)
+                self.frontend.userinterface.timezone_time_text.setText(unicode(now.strftime('%X'), "utf-8"))
+            except ValueError:
+                # Some versions of Python have problems with clocks set
+                # before the epoch (http://python.org/sf/1646728).
+                self.frontend.userinterface.timezone_time_text.setText('<clock error>')
 
     def set_tz_from_name(self, name):
         """ Gets a long name, Europe/London """
