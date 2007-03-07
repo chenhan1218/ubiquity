@@ -397,7 +397,7 @@ class Wizard:
 
         if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
             self.embedded.hide()
-            self.part_advanced_vpaned.show()
+            self.part_advanced_vbox.show()
 
         # set initial bottom bar status
         self.back.hide()

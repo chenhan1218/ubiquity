@@ -1,6 +1,8 @@
 ubiquity (1.3.26) UNRELEASED; urgency=low
 
   * Make acquire_lock properly atomic (LP: #90391).
+  * GTK frontend: Remove the disk bar placeholder for the new partitioner;
+    we'll probably have to do without the disk bar for Feisty at this point.
 
  -- Colin Watson <cjwatson@debian.org>  Wed,  7 Mar 2007 15:57:17 +0000
 
