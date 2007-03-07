@@ -24,7 +24,7 @@ ubiquity (1.3.25) UNRELEASED; urgency=low
   * Add XS-Vcs-Bzr field to debian/control.
   * Automatic update of included source packages: console-setup 1.13ubuntu7,
     localechooser 1.37ubuntu1, migration-assistant 0.4.1, partman-auto
-    62ubuntu6, partman-base 100ubuntu6, partman-efi 11ubuntu3.
+    62ubuntu6, partman-base 100ubuntu7, partman-efi 11ubuntu3.
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon,  5 Mar 2007 00:09:49 -0500
 
