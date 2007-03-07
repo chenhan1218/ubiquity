@@ -10,8 +10,9 @@ ubiquity (1.3.25) UNRELEASED; urgency=low
     username.
 
   [ Colin Watson ]
-  * GTK frontend: Don't reset partition_edit_mount_combo's cell renderer;
-    doing so causes GTK warnings.
+  * GTK frontend:
+    - Don't reset partition_edit_mount_combo's cell renderer; doing so
+      causes GTK warnings.
   * New partitioner: Allow changing the mount point for NTFS.
   * Add XS-Vcs-Bzr field to debian/control.
 
