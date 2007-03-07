@@ -452,3 +452,17 @@ Template: ubiquity/partman-rebuild-cache
 Type: boolean
 Default: true
 Description: for internal use; set when the partman cache needs to be rebuilt
+
+Template: ubiquity/partman-failed-unmount
+Type: boolean
+Default: true
+#flag:translate!:3
+_Description: Failed to unmount partitions
+ The installer needs to commit changes to partition tables, but cannot do so
+ because partitions on the following mount points could not be unmounted:
+ .
+ ${MOUNTED}
+ .
+ Please close any applications using these mount points.
+ .
+ Would you like the installer to try to unmount these partitions again?

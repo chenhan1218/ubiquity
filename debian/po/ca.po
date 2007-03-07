@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-02-08 18:22+0000\n"
+"POT-Creation-Date: 2007-03-06 16:21+0000\n"
 "PO-Revision-Date: 2006-09-07 20:24+0000\n"
 "Last-Translator: Jordi Mallach <jordi@canonical.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -653,6 +653,32 @@ msgstr "S'estan instal·lant els paquets de llengua"
 #: ../ubiquity.templates:86001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "S'estan baixant els paquets de llengua (${TIME} per a acabar)..."
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid "Failed to unmount partitions"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid ""
+"The installer needs to commit changes to partition tables, but cannot do so "
+"because partitions on the following mount points could not be unmounted:"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid "Please close any applications using these mount points."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid "Would you like the installer to try to unmount these partitions again?"
+msgstr ""
 
 #~ msgid "Select a city in your country and time zone."
 #~ msgstr "Seleccioneu una ciutat en el vostre país i fus horari."

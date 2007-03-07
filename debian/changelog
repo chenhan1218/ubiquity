@@ -15,6 +15,10 @@ ubiquity (1.3.25) UNRELEASED; urgency=low
       causes GTK warnings.
     - Add more space around text in question dialogs.
   * New partitioner: Allow changing the mount point for NTFS.
+  * Automatically unmount mounted partitions if they are on a changed
+    partition table or they are to be mounted somewhere other than /media/*.
+    Display an error and allow the user to try to unmount them manually if
+    automatic unmounting fails (LP: #89605).
   * Add XS-Vcs-Bzr field to debian/control.
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon,  5 Mar 2007 00:09:49 -0500

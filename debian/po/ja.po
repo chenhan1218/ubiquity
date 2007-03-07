@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-02-08 18:22+0000\n"
+"POT-Creation-Date: 2007-03-06 16:21+0000\n"
 "PO-Revision-Date: 2006-09-07 20:45+0000\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
@@ -650,6 +650,32 @@ msgstr "言語パッケージをインストールしています"
 #: ../ubiquity.templates:86001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "言語パッケージをダウンロードしています (残り ${TIME})..."
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid "Failed to unmount partitions"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid ""
+"The installer needs to commit changes to partition tables, but cannot do so "
+"because partitions on the following mount points could not be unmounted:"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid "Please close any applications using these mount points."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid "Would you like the installer to try to unmount these partitions again?"
+msgstr ""
 
 #~ msgid "Select a city in your country and time zone."
 #~ msgstr "タイムゾーンを設定するために都市を選択してください。"

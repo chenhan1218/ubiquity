@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-02-08 18:22+0000\n"
+"POT-Creation-Date: 2007-03-06 16:21+0000\n"
 "PO-Revision-Date: 2006-05-29 18:00+0000\n"
 "Last-Translator: Robert Schumann <robert@cantab.net>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
@@ -646,6 +646,32 @@ msgstr "Installeer taalpakette"
 #: ../ubiquity.templates:86001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Laai taalpaketlyste af (${TIME} bly nog oor)..."
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid "Failed to unmount partitions"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid ""
+"The installer needs to commit changes to partition tables, but cannot do so "
+"because partitions on the following mount points could not be unmounted:"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid "Please close any applications using these mount points."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid "Would you like the installer to try to unmount these partitions again?"
+msgstr ""
 
 #~ msgid "Set Time..."
 #~ msgstr "Stel Tyd..."
