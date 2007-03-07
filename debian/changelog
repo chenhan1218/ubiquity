@@ -13,6 +13,7 @@ ubiquity (1.3.25) UNRELEASED; urgency=low
   * GTK frontend:
     - Don't reset partition_edit_mount_combo's cell renderer; doing so
       causes GTK warnings.
+    - Add more space around text in question dialogs.
   * New partitioner: Allow changing the mount point for NTFS.
   * Add XS-Vcs-Bzr field to debian/control.
 
