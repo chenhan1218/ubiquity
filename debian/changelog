@@ -7,6 +7,9 @@ ubiquity (1.3.26) UNRELEASED; urgency=low
     that we stop always selecting the last disk no matter what (LP: #83010).
   * Reluctantly print error messages from main program to stdout rather than
     stderr, as gksudo swallows them otherwise.
+  * Drop dependencies on gparted and qtparted. Instead, print a helpful
+    error message if --old-partitioner is used but these programs are not
+    installed.
 
  -- Colin Watson <cjwatson@debian.org>  Wed,  7 Mar 2007 15:57:17 +0000
 

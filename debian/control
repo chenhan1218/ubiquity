@@ -40,7 +40,7 @@ Description: Ubuntu artwork for Ubiquity live installer
 
 Package: ubiquity-frontend-gtk
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity, python-glade2, gparted (>= 0.2.5-1.1ubuntu11), python-gtk2 (>= 2.10), iso-codes
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity, python-glade2, python-gtk2 (>= 2.10), iso-codes
 Recommends: gnome-system-tools
 Conflicts: ubuntu-express-frontend-gtk, espresso-frontend-gtk
 Replaces: ubuntu-express-frontend-gtk, espresso-frontend-gtk
@@ -52,7 +52,7 @@ Description: GTK+ frontend for Ubiquity live installer
 
 Package: ubiquity-frontend-kde
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, ubiquity, python-qt4, qtparted
+Depends: ${misc:Depends}, ${python:Depends}, ubiquity, python-qt4
 Provides: ubiquity-frontend-${source:Version}
 XB-Python-Version: ${python:Versions}
 Description: KDE frontend for Ubiquity live installer

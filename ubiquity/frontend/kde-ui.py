@@ -103,6 +103,12 @@ class Wizard:
     def __init__(self, distro):
         sys.excepthook = self.excepthook
 
+        if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
+            if find_on_path('qtparted') is None:
+                print "QTParted is required to use the --old-partitioner option."
+                print "Run 'sudo apt-get install qtparted' before trying this again."
+                sys.exit(1)
+
         #about=KAboutData("kubuntu-ubiquity","Installer","0.1","Live CD Installer for Kubuntu",KAboutData.License_GPL,"(c) 2006 Canonical Ltd", "http://wiki.kubuntu.org/KubuntuUbiquity", "jriddell@ubuntu.com")
         #about.addAuthor("Jonathan Riddell", None,"jriddell@ubuntu.com")
         #KCmdLineArgs.init(["./installer"],about)
