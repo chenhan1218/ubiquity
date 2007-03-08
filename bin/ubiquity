@@ -105,7 +105,7 @@ def acquire_lock():
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except IOError, e:
         if e.errno in (errno.EACCES, errno.EAGAIN, errno.EWOULDBLOCK):
-            print >>sys.stderr, "Ubiquity is already running!"
+            print "Ubiquity is already running!"
             sys.exit(1)
         raise
     atexit.register(release_lock)
