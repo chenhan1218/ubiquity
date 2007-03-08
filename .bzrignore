@@ -1,6 +1,10 @@
 ./Makefile
 ./autom4te.cache
+./config.h
+./config.log
+./config.status
 ./libtool
+./stamp-h1
 debian/files
 debian/oem-config
 debian/oem-config-gtk
@@ -21,3 +25,5 @@ src/cut-and-paste/Makefile
 src/cut-and-paste/e-map/.deps
 src/cut-and-paste/e-map/Makefile
 src/e-map.c
+src/emap.la
+src/emap_la-*
