@@ -1591,6 +1591,7 @@ class Wizard:
                             if extra_firstbutton is None:
                                 extra_firstbutton = extra_button
                             disk_vbox.addWidget(extra_button)
+                            extraIdCounter += 1
                     if extra_firstbutton is not None:
                         extra_firstbutton.setChecked(True)
                     self.autopartition_extra_buttongroup[choice] = \
@@ -1598,7 +1599,6 @@ class Wizard:
                     self.autopartition_extra_buttongroup_texts[choice] = \
                         disk_buttongroup_texts
                     disk_frame.show()
-                    extraIdCounter += 1
                     self.autopartition_extras[choice] = disk_frame
 
             # TODO cjwatson 2006-12-09: The lambda never seems to get
