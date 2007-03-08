@@ -387,7 +387,7 @@ class Wizard:
         if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
             self.userinterface.qtparted_frame.hide()
         else:
-            self.part_advanced_vpaned.hide()
+            self.partition_list_treeview.hide()
 
     def translate_widgets(self, parentWidget=None):
         if self.locale is None:

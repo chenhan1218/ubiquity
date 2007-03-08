@@ -1,8 +1,8 @@
 ubiquity (1.3.26) UNRELEASED; urgency=low
 
   * Make acquire_lock properly atomic (LP: #90391).
-  * GTK frontend: Remove the disk bar placeholder for the new partitioner;
-    we'll probably have to do without the disk bar for Feisty at this point.
+  * New partitioner: Remove the disk bar placeholder in UIs; we'll probably
+    have to do without the disk bar for Feisty at this point.
   * KDE frontend: Fix disk selection handling in automatic partitioner so
     that we stop always selecting the last disk no matter what (LP: #83010).
 
