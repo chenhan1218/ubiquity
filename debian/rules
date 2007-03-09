@@ -67,8 +67,10 @@ endif
 		d-i/source/console-setup/debian/console-setup.postinst \
 		> debian/oem-config/usr/lib/oem-config/console/console-setup.postinst
 	chmod +x debian/oem-config/usr/lib/oem-config/console/console-setup.postinst
-	install d-i/source/tzsetup/post-base-installer.d/*tzsetup \
-		debian/oem-config/usr/lib/oem-config/timezone/post-base-installer
+	sed -e 's,/target,,g' \
+		d-i/source/tzsetup/post-base-installer.d/*tzsetup \
+		> debian/oem-config/usr/lib/oem-config/timezone/post-base-installer
+	chmod +x debian/oem-config/usr/lib/oem-config/timezone/post-base-installer
 	for x in user-setup user-setup-ask user-setup-apply; do \
 		sed -e 's,/usr/lib/user-setup,/usr/lib/oem-config/user,g' \
 		    -e 's,/bin/sh,/bin/bash,g' \
