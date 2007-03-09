@@ -124,13 +124,13 @@ class Frontend:
 
         # TODO: handle errors
         if apply_changes:
-            dbfilter = language_apply.LanguageApply(None)
+            dbfilter = language_apply.LanguageApply(self)
             dbfilter.run_command(auto_process=True)
 
-            dbfilter = timezone_apply.TimezoneApply(None)
+            dbfilter = timezone_apply.TimezoneApply(self)
             dbfilter.run_command(auto_process=True)
 
-            dbfilter = console_setup_apply.ConsoleSetupApply(None)
+            dbfilter = console_setup_apply.ConsoleSetupApply(self)
             dbfilter.run_command(auto_process=True)
 
     # I/O helpers.
