@@ -6,6 +6,8 @@ oem-config (1.9) UNRELEASED; urgency=low
   * Move the timezone step before the keyboard step.
   * Apply language and timezone changes at the end of oem-config rather than
     on the fly.
+  * Depend on a version of console-setup at least as new as the one in our
+    source tree.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Jan 2007 17:20:31 +0000
 

@@ -12,6 +12,8 @@ tmp = $(CURDIR)/debian/oem-config
 
 PYTHON := $(shell pyversions -r)
 
+console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $$2}'))
+
 update:
 	$(MAKE) -C d-i update
 
