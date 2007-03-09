@@ -14,6 +14,9 @@ oem-config (1.9) UNRELEASED; urgency=low
   * Track console-setup 1.13ubuntu4 changes by generating and using
     MyKeyboardNames.pl based on xkb-data, which is more up to date than
     KeyboardNames.pl.
+  * Stop the user page spreading out in an ugly manner now that the pages
+    are bigger. This does result in an unpleasant amount of empty space; the
+    page needs a redesign to cope with this.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Jan 2007 17:20:31 +0000
 
