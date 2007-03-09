@@ -5,6 +5,9 @@ tmp = $(CURDIR)/debian/oem-config
 update:
 	$(MAKE) -C d-i update
 
+update-local:
+	$(MAKE) -C d-i update UPDATE_LOCAL=1
+
 lib/keyboard_names.py: d-i/source/console-setup/Keyboard/KeyboardNames.pl
 	d-i/make-keyboard-names $< > $@
 
