@@ -20,7 +20,11 @@ update:
 update-local:
 	$(MAKE) -C d-i update UPDATE_LOCAL=1
 
-lib/keyboard_names.py: d-i/source/console-setup/Keyboard/KeyboardNames.pl
+d-i/source/console-setup/Keyboard/MyKeyboardNames.pl:
+	$(MAKE) -C d-i/source/console-setup/Keyboard MyKeyboardNames.pl \
+		xkbdir=/usr/share/X11/xkb
+
+lib/keyboard_names.py: d-i/source/console-setup/Keyboard/MyKeyboardNames.pl
 	d-i/make-keyboard-names $< > $@
 
 Makefile:
@@ -58,10 +62,11 @@ endif
 	dh_install -a
 
 	# Bits of manual installation that can't be done by dh_install
-	sed 's,/usr/share/console-setup-mini,/usr/lib/oem-config/console-setup,g' \
+	sed -e 's,/usr/share/console-setup-mini/console-setup.config,/var/lib/dpkg/info/console-setup.config,g' \
+	    -e 's,^\([[:space:]]*\)update-initramfs,\1: update-initramfs,' \
 		d-i/source/console-setup/debian/console-setup.postinst \
-		> debian/oem-config/usr/lib/oem-config/console-setup/console-setup.postinst
-	chmod +x debian/oem-config/usr/lib/oem-config/console-setup/console-setup.postinst
+		> debian/oem-config/usr/lib/oem-config/console/console-setup.postinst
+	chmod +x debian/oem-config/usr/lib/oem-config/console/console-setup.postinst
 	install d-i/source/tzsetup/post-base-installer.d/*tzsetup \
 		debian/oem-config/usr/lib/oem-config/timezone/post-base-installer
 	for x in user-setup user-setup-ask user-setup-apply; do \
@@ -79,7 +84,6 @@ endif
 	dh_installdocs -a
 	dh_installchangelogs -a
 	dh_installinit -a -n
-	dh_link -a
 	dh_compress -a
 	dh_fixperms -a
 	dh_pysupport -a /usr/lib/oem-config

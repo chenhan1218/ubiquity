@@ -66,7 +66,8 @@ my @basebd = (
     'po-debconf',
     'python-all-dev (>= 2.3.5-11)',
     'python-gtk2-dev',
-    'python-support (>= 0.3)'
+    'python-support (>= 0.3)',
+    'xkb-data (>= 0.9)',
 );
 my $basebd = join ', ', @basebd;
 for my $bd (@{parsedep($basebd, 1, 1)}) {

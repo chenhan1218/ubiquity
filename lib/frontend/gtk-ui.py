@@ -28,7 +28,8 @@ import gtk.glade
 from debconf import DebconfCommunicator
 from oem_config import filteredcommand
 from oem_config.components import console_setup, language, timezone, user, \
-                                  language_apply, timezone_apply
+                                  language_apply, timezone_apply, \
+                                  console_setup_apply
 import oem_config.emap
 import oem_config.tz
 
@@ -47,6 +48,7 @@ class Frontend:
     def __init__(self):
         self.current_page = None
         self.locale = None
+        self.current_layout = None
         self.allowed_change_step = True
         self.allowed_go_forward = True
         self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
@@ -126,6 +128,9 @@ class Frontend:
             dbfilter.run_command(auto_process=True)
 
             dbfilter = timezone_apply.TimezoneApply(None)
+            dbfilter.run_command(auto_process=True)
+
+            dbfilter = console_setup_apply.ConsoleSetupApply(None)
             dbfilter.run_command(auto_process=True)
 
     # I/O helpers.
@@ -283,32 +288,101 @@ class Frontend:
         return self.tzmap.get_selected_tz_name()
 
     def set_keyboard_choices(self, choices):
-        self.select_keyboard_combo.clear()
-        cell = gtk.CellRendererText()
-        self.select_keyboard_combo.pack_start(cell, True)
-        self.select_keyboard_combo.add_attribute(cell, 'text', 0)
-        list_store = gtk.ListStore(gobject.TYPE_STRING)
-        self.select_keyboard_combo.set_model(list_store)
-        for choice in choices:
-            list_store.append([choice])
+        layouts = gtk.ListStore(gobject.TYPE_STRING)
+        self.keyboardlayoutview.set_model(layouts)
+        for v in sorted(choices):
+            layouts.append([v])
 
-    def set_keyboard(self, keyboard):
-        model = self.select_keyboard_combo.get_model()
+        if len(self.keyboardlayoutview.get_columns()) < 1:
+            column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            self.keyboardlayoutview.append_column(column)
+            selection = self.keyboardlayoutview.get_selection()
+            selection.connect('changed',
+                              self.on_keyboard_layout_selected)
+
+        if self.current_layout is not None:
+            self.set_keyboard(self.current_layout)
+
+    def set_keyboard (self, layout):
+        self.current_layout = layout
+        model = self.keyboardlayoutview.get_model()
+        if model is None:
+            return
         iterator = model.iter_children(None)
         while iterator is not None:
-            if unicode(model.get_value(iterator, 0)) == keyboard:
-                self.select_keyboard_combo.set_active_iter(iterator)
+            if unicode(model.get_value(iterator, 0)) == layout:
+                path = model.get_path(iterator)
+                self.keyboardlayoutview.get_selection().select_path(path)
+                self.keyboardlayoutview.scroll_to_cell(
+                    path, use_align=True, row_align=0.5)
                 break
             iterator = model.iter_next(iterator)
 
-    # Give this the untranslated keyboard name.
-    def get_keyboard(self):
-        iterator = self.select_keyboard_combo.get_active_iter()
+    def get_keyboard (self):
+        selection = self.keyboardlayoutview.get_selection()
+        (model, iterator) = selection.get_selected()
         if iterator is None:
-            return 'C'
+            return None
         else:
-            model = self.select_keyboard_combo.get_model()
             return unicode(model.get_value(iterator, 0))
+
+    def set_keyboard_variant_choices(self, choices):
+        variants = gtk.ListStore(gobject.TYPE_STRING)
+        self.keyboardvariantview.set_model(variants)
+        for v in sorted(choices):
+            variants.append([v])
+
+        if len(self.keyboardvariantview.get_columns()) < 1:
+            column = gtk.TreeViewColumn("Variant", gtk.CellRendererText(), text=0)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            self.keyboardvariantview.append_column(column)
+            selection = self.keyboardvariantview.get_selection()
+            selection.connect('changed',
+                              self.on_keyboard_variant_selected)
+
+    def set_keyboard_variant (self, variant):
+        model = self.keyboardvariantview.get_model()
+        if model is None:
+            return
+        iterator = model.iter_children(None)
+        while iterator is not None:
+            if unicode(model.get_value(iterator, 0)) == variant:
+                path = model.get_path(iterator)
+                self.keyboardvariantview.get_selection().select_path(path)
+                self.keyboardvariantview.scroll_to_cell(
+                    path, use_align=True, row_align=0.5)
+                break
+            iterator = model.iter_next(iterator)
+
+    def get_keyboard_variant (self):
+        selection = self.keyboardvariantview.get_selection()
+        (model, iterator) = selection.get_selected()
+        if iterator is None:
+            return None
+        else:
+            return unicode(model.get_value(iterator, 0))
+
+    def on_keyboardlayoutview_row_activated(self, treeview, path, view_column):
+        self.next.activate()
+
+    def on_keyboard_layout_selected(self, start_editing, *args):
+        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+            layout = self.get_keyboard()
+            if layout is not None:
+                self.current_layout = layout
+                self.dbfilter.change_layout(layout)
+
+    def on_keyboardvariantview_row_activated(self, treeview, path,
+                                             view_column):
+        self.next.activate()
+
+    def on_keyboard_variant_selected(self, start_editing, *args):
+        if isinstance(self.dbfilter, console_setup.ConsoleSetup):
+            layout = self.get_keyboard()
+            variant = self.get_keyboard_variant()
+            if layout is not None and variant is not None:
+                self.dbfilter.apply_keyboard(layout, variant)
 
     def set_fullname(self, value):
         self.user_fullname_entry.set_text(value)

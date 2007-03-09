@@ -5,6 +5,9 @@ lib/frontend/__init__.py usr/lib/oem-config/oem_config/frontend
 compat/* usr/lib/oem-config/compat
 pixmaps/world_map-960.png usr/share/oem-config/pixmaps
 
+# console-setup
+scripts/console-setup-apply usr/lib/oem-config/console
+
 # localechooser
 d-i/source/localechooser/localechooser usr/lib/oem-config/language
 d-i/source/localechooser/languagemap usr/lib/oem-config/language
