@@ -18,6 +18,8 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import os
+import datetime
+import gettext
 import pygtk
 pygtk.require('2.0')
 import gobject
@@ -25,10 +27,12 @@ import gtk
 import gtk.glade
 from debconf import DebconfCommunicator
 from oem_config import filteredcommand
-from oem_config.components import console_setup, language, timezone, user
+from oem_config.components import console_setup, language, timezone, user, \
+                                  language_apply, timezone_apply
 import oem_config.emap
 import oem_config.tz
 
+PATH = '/usr/share/oem-config'
 GLADEDIR = '/usr/lib/oem-config/oem_config/frontend'
 
 BREADCRUMB_STEPS = {
@@ -71,6 +75,9 @@ class Frontend:
             if isinstance(widget, gtk.Label):
                 widget.set_property('can-focus', False)
 
+        self.tzmap = TimezoneMap(self)
+        self.tzmap.tzmap.show()
+
     def run(self):
         self.oem_config.show()
 
@@ -80,6 +87,8 @@ class Frontend:
         # TODO cjwatson 2006-07-07: why isn't on_steps_switch_page getting
         # invoked?
         self.set_current_page(self.steps.page_num(self.step_language))
+
+        apply_changes = False
 
         while self.current_page is not None:
             self.backup = False
@@ -104,11 +113,20 @@ class Frontend:
             elif current_name == 'step_user':
                 self.oem_config.hide()
                 self.current_page = None
+                apply_changes = True
             else:
                 self.steps.next_page()
 
             while gtk.events_pending():
                 gtk.main_iteration()
+
+        # TODO: handle errors
+        if apply_changes:
+            dbfilter = language_apply.LanguageApply(None)
+            dbfilter.run_command(auto_process=True)
+
+            dbfilter = timezone_apply.TimezoneApply(None)
+            dbfilter.run_command(auto_process=True)
 
     # I/O helpers.
 
@@ -206,69 +224,59 @@ class Frontend:
         itself when the language changes."""
         self.backup = True
 
+    def selected_language(self, selection):
+        (model, iterator) = selection.get_selected()
+        if iterator is not None:
+            value = unicode(model.get_value(iterator, 0))
+            return self.language_choice_map[value][1]
+        else:
+            return ''
+
     def set_language_choices(self, choices, choice_map):
         self.language_choice_map = dict(choice_map)
-        self.language_combo.clear()
-        cell = gtk.CellRendererText()
-        self.language_combo.pack_start(cell, True)
-        self.language_combo.add_attribute(cell, 'text', 0)
+        if len(self.language_treeview.get_columns()) < 1:
+            column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            self.language_treeview.append_column(column)
+            selection = self.language_treeview.get_selection()
+            selection.connect('changed',
+                              self.on_language_treeview_selection_changed)
         list_store = gtk.ListStore(gobject.TYPE_STRING)
-        self.language_combo.set_model(list_store)
+        self.language_treeview.set_model(list_store)
         for choice in choices:
             list_store.append([choice])
 
     def set_language(self, language):
-        model = self.language_combo.get_model()
+        model = self.language_treeview.get_model()
         iterator = model.iter_children(None)
         while iterator is not None:
             if unicode(model.get_value(iterator, 0)) == language:
-                self.language_combo.set_active_iter(iterator)
+                path = model.get_path(iterator)
+                self.language_treeview.get_selection().select_path(path)
+                self.language_treeview.scroll_to_cell(
+                    path, use_align=True, row_align=0.5)
                 break
             iterator = model.iter_next(iterator)
 
     def get_language(self):
-        iterator = self.language_combo.get_active_iter()
+        selection = self.language_treeview.get_selection()
+        (model, iterator) = selection.get_selected()
         if iterator is None:
             return 'C'
         else:
-            model = self.language_combo.get_model()
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][0]
 
-    def on_language_combo_changed(self, widget):
-        if isinstance(self.dbfilter, language.Language):
-            self.dbfilter.language_changed()
+    def on_language_treeview_row_activated(self, treeview, path, view_column):
+        self.next.activate()
 
-    def set_country_choices(self, choice_map):
-        self.country_choice_map = dict(choice_map)
-        choices = choice_map.keys()
-        choices.sort()
-        self.country_combo.clear()
-        cell = gtk.CellRendererText()
-        self.country_combo.pack_start(cell, True)
-        self.country_combo.add_attribute(cell, 'text', 0)
-        list_store = gtk.ListStore(gobject.TYPE_STRING)
-        self.country_combo.set_model(list_store)
-        for choice in choices:
-            list_store.append([choice])
-
-    def set_country(self, country):
-        model = self.country_combo.get_model()
-        iterator = model.iter_children(None)
-        while iterator is not None:
-            value = unicode(model.get_value(iterator, 0))
-            if self.country_choice_map[value] == country:
-                self.country_combo.set_active_iter(iterator)
-                break
-            iterator = model.iter_next(iterator)
-
-    def get_country(self):
-        iterator = self.country_combo.get_active_iter()
-        if iterator is None:
-            return 'C'
-        else:
-            model = self.country_combo.get_model()
-            return unicode(model.get_value(iterator, 0))
+    def on_language_treeview_selection_changed(self, selection):
+        lang = self.selected_language(selection)
+        if lang:
+            # strip encoding; we use UTF-8 internally no matter what
+            lang = lang.split('.')[0].lower()
+            for widget in self.language_questions:
+                self.translate_widget(getattr(self, widget), lang)
 
     def set_keyboard_choices(self, choices):
         self.select_keyboard_combo.clear()
@@ -298,37 +306,11 @@ class Frontend:
             model = self.select_keyboard_combo.get_model()
             return unicode(model.get_value(iterator, 0))
 
-    def set_timezone_choices(self, choice_map):
-        self.timezone_choice_map = dict(choice_map)
-        choices = choice_map.keys()
-        choices.sort()
-        cell = gtk.CellRendererText()
-        self.select_zone_combo.pack_start(cell, True)
-        self.select_zone_combo.add_attribute(cell, 'text', 0)
-        list_store = gtk.ListStore(gobject.TYPE_STRING)
-        self.select_zone_combo.set_model(list_store)
-        for choice in choices:
-            list_store.append([choice])
+    def set_timezone (self, timezone):
+        self.tzmap.set_tz_from_name(timezone)
 
-    # Give this the untranslated timezone name.
-    def set_timezone(self, timezone):
-        model = self.select_zone_combo.get_model()
-        iterator = model.iter_children(None)
-        while iterator is not None:
-            value = unicode(model.get_value(iterator, 0))
-            if self.timezone_choice_map[value] == timezone:
-                self.select_zone_combo.set_active_iter(iterator)
-                break
-            iterator = model.iter_next(iterator)
-
-    def get_timezone(self):
-        iterator = self.select_zone_combo.get_active_iter()
-        if iterator is None:
-            return None
-        else:
-            model = self.select_zone_combo.get_model()
-            value = unicode(model.get_value(iterator, 0))
-            return self.timezone_choice_map[value]
+    def get_timezone (self):
+        return self.tzmap.get_selected_tz_name()
 
     def set_fullname(self, value):
         self.user_fullname_entry.set_text(value)

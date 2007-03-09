@@ -56,7 +56,19 @@ unless (-e $control) {
 my %builddeps;
 
 # Always include base oem-config build dependencies.
-my $basebd = 'apt, debhelper (>= 5.0.37.2), grep-dctrl, libart-2.0-dev, libglib2.0-dev, libgtk2.0-dev, po-debconf, python, python-support (>= 0.3)';
+my @basebd = (
+    'apt',
+    'debhelper (>= 5.0.37.2)',
+    'grep-dctrl',
+    'libart-2.0-dev',
+    'libglib2.0-dev',
+    'libgtk2.0-dev',
+    'po-debconf',
+    'python-all-dev (>= 2.3.5-11)',
+    'python-gtk2-dev',
+    'python-support (>= 0.3)'
+);
+my $basebd = join ', ', @basebd;
 for my $bd (@{parsedep($basebd, 1, 1)}) {
 	$builddeps{$bd->[0][0]} = $bd->[0];
 }

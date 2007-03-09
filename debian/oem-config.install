@@ -9,10 +9,11 @@ pixmaps/world_map-960.png usr/share/oem-config/pixmaps
 d-i/source/localechooser/localechooser usr/lib/oem-config/language
 d-i/source/localechooser/languagemap usr/lib/oem-config/language
 scripts/localechooser-wrapper usr/lib/oem-config/language
+scripts/localechooser-apply usr/lib/oem-config/language
 
 # tzsetup
 d-i/source/tzsetup/tzmap usr/lib/oem-config/timezone
-scripts/tzsetup-wrapper usr/lib/oem-config/timezone
+scripts/tzsetup usr/lib/oem-config/timezone
 
 # user-setup
 d-i/source/user-setup/functions.sh usr/lib/oem-config/user

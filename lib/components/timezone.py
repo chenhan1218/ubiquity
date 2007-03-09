@@ -19,43 +19,67 @@
 
 import os
 from oem_config.filteredcommand import FilteredCommand
+from oem_config import i18n
+import oem_config.tz
 
 class Timezone(FilteredCommand):
     def prepare(self):
-        questions = ['^tzsetup/', '^time/zone$']
-        return (['/usr/lib/oem-config/timezone/tzsetup-wrapper'], questions)
-
-    def ok_handler(self):
-        zone = self.frontend.get_timezone()
-        if zone is not None:
-            self.preseed('time/zone', zone)
-
-        super(Timezone, self).ok_handler()
+        self.tzdb = oem_config.tz.Database()
+        self.db.fset('time/zone', 'seen', 'false')
+        questions = ['^time/zone$']
+        return (['/usr/lib/oem-config/timezone/tzsetup'], questions)
 
     def run(self, priority, question):
         if question == 'time/zone':
-            self.frontend.set_timezone_choices(
-                self.choices_display_map(question))
-
-            timezone = self.db.get(question)
-            if timezone == '':
+            zone = self.db.get(question)
+            if not zone:
                 if os.path.isfile('/etc/timezone'):
-                    timezone = open('/etc/timezone').readline().strip()
+                    zone = open('/etc/timezone').readline().strip()
                 elif os.path.islink('/etc/localtime'):
-                    timezone = os.readlink('/etc/localtime')
-                    if timezone.startswith('/usr/share/zoneinfo/'):
-                        timezone = timezone[len('/usr/share/zoneinfo/'):]
+                    zone = os.readlink('/etc/localtime')
+                    if zone.startswith('/usr/share/zoneinfo/'):
+                        zone = zone[len('/usr/share/zoneinfo/'):]
                     else:
-                        timezone = None
+                        zone = None
                 else:
-                    timezone = None
-            if timezone is None:
-                timezone = self.choices_untranslated(question)[0]
+                    zone = None
+            # Some countries don't have a default zone, so just pick the
+            # first choice in the list.
+            if not zone:
+                choices_c = self.choices_untranslated(question)
+                if choices_c:
+                    zone = choices_c[0]
+            # special cases where default is not in zone.tab
+            if zone == 'Canada/Eastern':
+                zone = 'America/Toronto'
+            elif zone == 'US/Eastern':
+                zone = 'America/New_York'
+            self.frontend.set_timezone(zone)
 
-            self.frontend.set_timezone(timezone)
+        return FilteredCommand.run(self, priority, question)
 
-        elif question == 'tzsetup/selected':
-            # ignored for now
-            return True
+    def ok_handler(self):
+        zone = self.frontend.get_timezone()
+        if zone is None:
+            zone = self.db.get('time/zone')
+        else:
+            self.preseed('time/zone', zone)
+        for location in self.tzdb.locations:
+            if location.zone == zone:
+                self.preseed('debian-installer/country', location.country)
+                break
+        FilteredCommand.ok_handler(self)
 
-        return super(Timezone, self).run(priority, question)
+    def cleanup(self):
+        di_locale = self.db.get('debian-installer/locale')
+        if di_locale not in i18n.get_supported_locales():
+            di_locale = self.db.get('debian-installer/fallbacklocale')
+        if di_locale != self.frontend.locale:
+            self.frontend.locale = di_locale
+            os.environ['LANG'] = di_locale
+            os.environ['LANGUAGE'] = di_locale
+            try:
+                locale.setlocale(locale.LC_ALL, '')
+            except locale.Error, e:
+                self.debug('locale.setlocale failed: %s (LANG=%s)',
+                           e, di_locale)

@@ -44,7 +44,9 @@ binary-arch: build
 ifndef OEM_CONFIG_NO_GTK
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/oem-config-gtk \
 		pythondir=\$${prefix}/lib/oem-config \
-		pyexecdir=\$${prefix}/lib/oem-config
+		pyexecdir=\$${prefix}/lib/oem-config \
+		pkgpythondir=\$${prefix}/lib/oem-config/oem_config \
+		pkgpyexecdir=\$${prefix}/lib/oem-config/oem_config
 	rm -rf debian/oem-config-gtk/usr/share/oem-config/pixmaps
 endif
 	$(MAKE) -C d-i install
@@ -55,10 +57,8 @@ endif
 		d-i/source/console-setup/debian/console-setup.postinst \
 		> debian/oem-config/usr/lib/oem-config/console-setup/console-setup.postinst
 	chmod +x debian/oem-config/usr/lib/oem-config/console-setup/console-setup.postinst
-	sed 's,/usr/share/tzsetup,/usr/lib/oem-config/timezone,g' \
-		d-i/source/tzsetup/tzsetup \
-		> debian/oem-config/usr/lib/oem-config/timezone/tzsetup
-	chmod +x debian/oem-config/usr/lib/oem-config/timezone/tzsetup
+	install d-i/source/tzsetup/post-base-installer.d/*tzsetup \
+		debian/oem-config/usr/lib/oem-config/timezone/post-base-installer
 	for x in user-setup user-setup-ask user-setup-apply; do \
 		sed -e 's,/usr/lib/user-setup,/usr/lib/oem-config/user,g' \
 		    -e 's,/bin/sh,/bin/bash,g' \
