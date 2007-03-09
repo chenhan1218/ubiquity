@@ -17,6 +17,7 @@ d-i/manifest.old
 d-i/source
 d-i/templates
 d-i/udeb-control
+lib/frontend/*.bak
 lib/keyboard_names.py
 pixmaps/Makefile
 src/.deps

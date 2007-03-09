@@ -19,7 +19,11 @@ update:
 	./get-sources update
 	./get-sources $(shell sort -u $(LISTDIR)/*)
 	./update-control
+ifdef UPDATE_LOCAL
+	mv manifest.old manifest
+else
 	./update-changelog
+endif
 
 maintainer-clean:
 	rm -rf $(SOURCEDIR)

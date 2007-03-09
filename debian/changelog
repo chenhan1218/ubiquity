@@ -1,6 +1,9 @@
 oem-config (1.9) UNRELEASED; urgency=low
 
   * Install copyright and changelog files in Architecture: all packages too.
+  * Add a 'debian/rules update-local' target to allow updating d-i/source/
+    without updating debian/changelog, which is sometimes convenient for
+    local hacking.
   * Add timezone widget from ubiquity.
   * Update language and timezone handling code from ubiquity.
   * Move the timezone step before the keyboard step.
