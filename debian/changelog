@@ -19,6 +19,9 @@ oem-config (1.9) UNRELEASED; urgency=low
     page needs a redesign to cope with this.
   * Activate the Forward button when Enter is pressed in any entry field on
     the user page.
+  * Leave the UI up until we've finished applying changes; we now have to
+    regenerate the initramfs (due to console-setup changes) and it takes a
+    while.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Jan 2007 17:20:31 +0000
 

@@ -52,6 +52,7 @@ class Frontend:
         self.allowed_change_step = True
         self.allowed_go_forward = True
         self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
+        self.apply_changes = False
 
         # Set default language.
         dbfilter = language.Language(self, DebconfCommunicator('oem-config',
@@ -90,8 +91,6 @@ class Frontend:
         # invoked?
         self.set_current_page(self.steps.page_num(self.step_language))
 
-        apply_changes = False
-
         while self.current_page is not None:
             self.backup = False
             current_name = self.step_name(self.current_page)
@@ -113,9 +112,9 @@ class Frontend:
             if self.backup:
                 pass
             elif current_name == 'step_user':
-                self.oem_config.hide()
+                self.allow_change_step(False)
                 self.current_page = None
-                apply_changes = True
+                self.apply_changes = True
             else:
                 self.steps.next_page()
 
@@ -123,7 +122,7 @@ class Frontend:
                 gtk.main_iteration()
 
         # TODO: handle errors
-        if apply_changes:
+        if self.apply_changes:
             dbfilter = language_apply.LanguageApply(self)
             dbfilter.run_command(auto_process=True)
 
@@ -132,6 +131,8 @@ class Frontend:
 
             dbfilter = console_setup_apply.ConsoleSetupApply(self)
             dbfilter.run_command(auto_process=True)
+
+        self.oem_config.hide()
 
     # I/O helpers.
 
@@ -154,7 +155,8 @@ class Frontend:
 
     # Run the UI's main loop until it returns control to us.
     def run_main_loop(self):
-        self.allow_change_step(True)
+        if not self.apply_changes:
+            self.allow_change_step(True)
         gtk.main()
 
     # Return control to the next level up.
