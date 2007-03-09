@@ -8,6 +8,7 @@
 debian/files
 debian/oem-config
 debian/oem-config-gtk
+debian/oem-config-kde
 debian/oem-config-udeb
 debian/*.debhelper
 debian/*.substvars

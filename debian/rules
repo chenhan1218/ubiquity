@@ -92,6 +92,8 @@ binary-indep:
 	dh_installdirs -i
 	dh_install -i
 	dh_installdebconf -i
+	dh_installdocs -i
+	dh_installchangelogs -i
 	dh_compress -i
 	dh_fixperms -i
 	dh_pysupport -i /usr/lib/oem-config
