@@ -1,3 +1,11 @@
+ubiquity (1.3.27) UNRELEASED; urgency=low
+
+  * Add a 'debian/rules update-local' target to allow updating d-i/source/
+    without updating debian/changelog, which is sometimes convenient for
+    local hacking.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri,  9 Mar 2007 11:08:54 +0000
+
 ubiquity (1.3.26) feisty; urgency=low
 
   * Make acquire_lock properly atomic (LP: #90391).

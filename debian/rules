@@ -50,6 +50,9 @@ endif
 update:
 	$(MAKE) -C d-i update
 
+update-local:
+	$(MAKE) -C d-i update UPDATE_LOCAL=1
+
 build: build-stamp
 
 build-stamp:
