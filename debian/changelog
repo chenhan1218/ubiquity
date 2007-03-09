@@ -17,6 +17,8 @@ oem-config (1.9) UNRELEASED; urgency=low
   * Stop the user page spreading out in an ugly manner now that the pages
     are bigger. This does result in an unpleasant amount of empty space; the
     page needs a redesign to cope with this.
+  * Activate the Forward button when Enter is pressed in any entry field on
+    the user page.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Jan 2007 17:20:31 +0000
 
