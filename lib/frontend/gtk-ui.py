@@ -37,8 +37,8 @@ GLADEDIR = '/usr/lib/oem-config/oem_config/frontend'
 
 BREADCRUMB_STEPS = {
     "step_language": 1,
-    "step_keyboard": 2,
-    "step_timezone": 3,
+    "step_timezone": 2,
+    "step_keyboard": 3,
     "step_user": 4,
 }
 BREADCRUMB_MAX_STEP = 4
@@ -95,10 +95,10 @@ class Frontend:
             current_name = self.step_name(self.current_page)
             if current_name == 'step_language':
                 self.dbfilter = language.Language(self)
-            elif current_name == 'step_keyboard':
-                self.dbfilter = console_setup.ConsoleSetup(self)
             elif current_name == 'step_timezone':
                 self.dbfilter = timezone.Timezone(self)
+            elif current_name == 'step_keyboard':
+                self.dbfilter = console_setup.ConsoleSetup(self)
             elif current_name == 'step_user':
                 self.dbfilter = user.User(self)
             else:
@@ -278,6 +278,12 @@ class Frontend:
             for widget in self.language_questions:
                 self.translate_widget(getattr(self, widget), lang)
 
+    def set_timezone (self, timezone):
+        self.tzmap.set_tz_from_name(timezone)
+
+    def get_timezone (self):
+        return self.tzmap.get_selected_tz_name()
+
     def set_keyboard_choices(self, choices):
         self.select_keyboard_combo.clear()
         cell = gtk.CellRendererText()
@@ -305,12 +311,6 @@ class Frontend:
         else:
             model = self.select_keyboard_combo.get_model()
             return unicode(model.get_value(iterator, 0))
-
-    def set_timezone (self, timezone):
-        self.tzmap.set_tz_from_name(timezone)
-
-    def get_timezone (self):
-        return self.tzmap.get_selected_tz_name()
 
     def set_fullname(self, value):
         self.user_fullname_entry.set_text(value)
