@@ -275,8 +275,6 @@ class Frontend:
         if lang:
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
-            for widget in self.language_questions:
-                self.translate_widget(getattr(self, widget), lang)
 
     def set_timezone (self, timezone):
         self.tzmap.set_tz_from_name(timezone)
