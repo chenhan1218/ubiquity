@@ -51,8 +51,13 @@ if __name__ == '__main__':
     parser = optparse.OptionParser()
     parser.add_option('-f', '--frontend', metavar='FRONTEND',
                       help="Use the given frontend (gtk-ui).")
+    parser.add_option('-d', '--debug', dest='debug', action='store_true',
+                      help='debug mode (warning: passwords will be logged!)')
     parser.set_defaults(frontend=None)
     (options, args) = parser.parse_args()
+
+    if options.debug:
+        os.environ['OEM_CONFIG_DEBUG'] = '1'
 
     if 'OEM_CONFIG_DEBUG' in os.environ:
         if 'DEBCONF_DEBUG' not in os.environ:
