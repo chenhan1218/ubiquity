@@ -165,7 +165,14 @@ class Location(object):
         self.latitude = _parse_position(latitude, 2)
         self.longitude = _parse_position(longitude, 3)
 
-        today = datetime.datetime.today()
+        try:
+            today = datetime.datetime.today()
+        except ValueError:
+            # Some versions of Python have problems with clocks set before
+            # the epoch (http://python.org/sf/1646728). Assuming that the
+            # time is set to the epoch will at least let us avoid crashing,
+            # although the UTC offset and zone letters may be wrong.
+            today = datetime.datetime.fromtimestamp(0)
         self.info = SystemTzInfo(self.zone)
         self.utc_offset = self.info.utcoffset(today)
         self.zone_letters = self.info.tzname_letters(today)

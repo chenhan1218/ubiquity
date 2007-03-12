@@ -750,57 +750,40 @@ Please choose the language used for the installation process. This language will
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkVPaned" id="part_advanced_vpaned">
-                            <property name="can_focus">True</property>
+                          <widget class="GtkVBox" id="part_advanced_vbox">
                             <child>
-                              <widget class="GtkLabel" id="disk_bar_placeholder_label">
+                              <widget class="GtkScrolledWindow" id="scrolledwindow7">
                                 <property name="visible">True</property>
-                                <property name="xpad">6</property>
-                                <property name="ypad">6</property>
-                                <property name="label" translatable="yes">Bars representing each disk will go here.</property>
-                              </widget>
-                              <packing>
-                                <property name="resize">False</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="GtkVBox" id="vbox54">
-                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+                                <property name="shadow_type">GTK_SHADOW_IN</property>
                                 <child>
-                                  <widget class="GtkScrolledWindow" id="scrolledwindow7">
+                                  <widget class="GtkTreeView" id="partition_list_treeview">
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
-                                    <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-                                    <property name="shadow_type">GTK_SHADOW_IN</property>
-                                    <child>
-                                      <widget class="GtkTreeView" id="partition_list_treeview">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="rules_hint">True</property>
-                                        <property name="enable_search">False</property>
-                                        <signal name="popup_menu" handler="on_partition_list_treeview_popup_menu"/>
-                                        <signal name="button_press_event" handler="on_partition_list_treeview_button_press_event"/>
-                                        <signal name="row_activated" handler="on_partition_list_treeview_row_activated"/>
-                                      </widget>
-                                    </child>
+                                    <property name="rules_hint">True</property>
+                                    <property name="enable_search">False</property>
+                                    <signal name="popup_menu" handler="on_partition_list_treeview_popup_menu"/>
+                                    <signal name="button_press_event" handler="on_partition_list_treeview_button_press_event"/>
+                                    <signal name="row_activated" handler="on_partition_list_treeview_row_activated"/>
                                   </widget>
-                                </child>
-                                <child>
-                                  <widget class="GtkHBox" id="partition_list_buttonbox">
-                                    <property name="visible">True</property>
-                                    <property name="spacing">6</property>
-                                    <child>
-                                      <placeholder/>
-                                    </child>
-                                  </widget>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">False</property>
-                                    <property name="padding">6</property>
-                                    <property name="position">1</property>
-                                  </packing>
                                 </child>
                               </widget>
+                            </child>
+                            <child>
+                              <widget class="GtkHBox" id="partition_list_buttonbox">
+                                <property name="visible">True</property>
+                                <property name="spacing">6</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="padding">6</property>
+                                <property name="position">1</property>
+                              </packing>
                             </child>
                           </widget>
                           <packing>
@@ -1164,7 +1147,7 @@ If you do not wish to import any accounts, select nothing and press next.</prope
                                   <widget class="GtkEntry" id="ma_fullname">
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
-				    <signal name="changed" handler="ma_info_loop"/>
+                                    <signal name="changed" handler="ma_info_loop"/>
                                   </widget>
                                   <packing>
                                     <property name="left_attach">1</property>

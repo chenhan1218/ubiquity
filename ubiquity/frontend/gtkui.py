@@ -92,6 +92,12 @@ class Wizard:
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
+        if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
+            if find_on_path('gparted') is None:
+                print "GParted is required to use the --old-partitioner option."
+                print "Run 'sudo apt-get install gparted' before trying this again."
+                sys.exit(1)
+
         # declare attributes
         self.distro = distro
         self.gconf_previous = {}
@@ -397,7 +403,7 @@ class Wizard:
 
         if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
             self.embedded.hide()
-            self.part_advanced_vpaned.show()
+            self.part_advanced_vbox.show()
 
         # set initial bottom bar status
         self.back.hide()
@@ -2307,10 +2313,6 @@ class Wizard:
         # unless the method is already one that can be mounted, so we may
         # need to calculate this dynamically based on the method instead of
         # relying on cached information from partman
-        self.partition_edit_mount_combo.clear()
-        renderer = gtk.CellRendererText()
-        self.partition_edit_mount_combo.pack_start(renderer)
-        self.partition_edit_mount_combo.add_attribute(renderer, 'text', 1)
         list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         if 'mountpoint_choices' in partition:
             for mp, choice_c, choice in partition['mountpoint_choices']:
@@ -2365,7 +2367,7 @@ class Wizard:
         # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
         # have to hardcode the list of known filesystems here.
         known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
-                             'fat16', 'fat32')
+                             'fat16', 'fat32', 'ntfs')
         if iterator is None or model[iterator][0] not in known_filesystems:
             self.partition_edit_mount_combo.child.set_text('')
             self.partition_edit_mount_combo.set_sensitive(False)
@@ -2752,11 +2754,14 @@ class Wizard:
             text = str(text)
             buttons.extend((text, len(buttons) / 2 + 1))
         dialog = gtk.Dialog(title, transient, gtk.DIALOG_MODAL, tuple(buttons))
+        vbox = gtk.VBox()
+        vbox.set_border_width(5)
         label = gtk.Label(msg)
         label.set_line_wrap(True)
         label.set_selectable(True)
-        label.show()
-        dialog.vbox.pack_start(label)
+        vbox.pack_start(label)
+        vbox.show_all()
+        dialog.vbox.pack_start(vbox)
         response = dialog.run()
         dialog.hide()
         if response < 0:
@@ -2878,8 +2883,13 @@ class TimezoneMap(object):
 
     def update_current_time(self):
         if self.location_selected is not None:
-            now = datetime.datetime.now(self.location_selected.info)
-            self.frontend.timezone_time_text.set_text(now.strftime('%X'))
+            try:
+                now = datetime.datetime.now(self.location_selected.info)
+                self.frontend.timezone_time_text.set_text(now.strftime('%X'))
+            except ValueError:
+                # Some versions of Python have problems with clocks set
+                # before the epoch (http://python.org/sf/1646728).
+                self.frontend.timezone_time_text.set_text('<clock error>')
 
     def set_tz_from_name(self, name):
         (longitude, latitude) = (0.0, 0.0)

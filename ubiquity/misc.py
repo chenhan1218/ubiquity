@@ -423,4 +423,21 @@ def will_be_installed(pkg):
         return True
 
 
+def find_on_path(command):
+    if 'PATH' in os.environ:
+        path = os.environ['PATH']
+    else:
+        path = ''
+    pathdirs = path.split(':')
+    for pathdir in pathdirs:
+        if pathdir == '':
+            realpathdir = '.'
+        else:
+            realpathdir = pathdir
+        trypath = os.path.join(realpathdir, command)
+        if os.access(trypath, os.X_OK):
+            return trypath
+    return None
+
+
 # vim:ai:et:sts=4:tw=80:sw=4:

@@ -103,6 +103,12 @@ class Wizard:
     def __init__(self, distro):
         sys.excepthook = self.excepthook
 
+        if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
+            if find_on_path('qtparted') is None:
+                print "QTParted is required to use the --old-partitioner option."
+                print "Run 'sudo apt-get install qtparted' before trying this again."
+                sys.exit(1)
+
         #about=KAboutData("kubuntu-ubiquity","Installer","0.1","Live CD Installer for Kubuntu",KAboutData.License_GPL,"(c) 2006 Canonical Ltd", "http://wiki.kubuntu.org/KubuntuUbiquity", "jriddell@ubuntu.com")
         #about.addAuthor("Jonathan Riddell", None,"jriddell@ubuntu.com")
         #KCmdLineArgs.init(["./installer"],about)
@@ -387,7 +393,7 @@ class Wizard:
         if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
             self.userinterface.qtparted_frame.hide()
         else:
-            self.part_advanced_vpaned.hide()
+            self.partition_list_treeview.hide()
 
     def translate_widgets(self, parentWidget=None):
         if self.locale is None:
@@ -1591,6 +1597,7 @@ class Wizard:
                             if extra_firstbutton is None:
                                 extra_firstbutton = extra_button
                             disk_vbox.addWidget(extra_button)
+                            extraIdCounter += 1
                     if extra_firstbutton is not None:
                         extra_firstbutton.setChecked(True)
                     self.autopartition_extra_buttongroup[choice] = \
@@ -1598,7 +1605,6 @@ class Wizard:
                     self.autopartition_extra_buttongroup_texts[choice] = \
                         disk_buttongroup_texts
                     disk_frame.show()
-                    extraIdCounter += 1
                     self.autopartition_extras[choice] = disk_frame
 
             # TODO cjwatson 2006-12-09: The lambda never seems to get
@@ -1721,7 +1727,7 @@ class Wizard:
 
     def on_partition_create_use_combo_changed (self, combobox):
         known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
-                             'fat16', 'fat32')
+                             'fat16', 'fat32', 'ntfs')
         text = str(self.create_dialog.partition_create_use_combo.currentText())
         if text not in known_filesystems:
             #self.create_dialog.partition_create_mount_combo.child.setText('')
@@ -1815,7 +1821,7 @@ class Wizard:
         # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
         # have to hardcode the list of known filesystems here.
         known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
-                             'fat16', 'fat32')
+                             'fat16', 'fat32', 'ntfs')
         text = str(self.edit_dialog.partition_edit_use_combo.currentText())
         if text not in known_filesystems:
             #self.edit_dialog.partition_edit_mount_combo.child.setText('')
@@ -2218,8 +2224,13 @@ class TimezoneMap(object):
 
     def update_current_time(self):
         if self.location_selected is not None:
-            now = datetime.datetime.now(self.location_selected.info)
-            self.frontend.userinterface.timezone_time_text.setText(unicode(now.strftime('%X'), "utf-8"))
+            try:
+                now = datetime.datetime.now(self.location_selected.info)
+                self.frontend.userinterface.timezone_time_text.setText(unicode(now.strftime('%X'), "utf-8"))
+            except ValueError:
+                # Some versions of Python have problems with clocks set
+                # before the epoch (http://python.org/sf/1646728).
+                self.frontend.userinterface.timezone_time_text.setText('<clock error>')
 
     def set_tz_from_name(self, name):
         """ Gets a long name, Europe/London """

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-02-08 18:22+0000\n"
+"POT-Creation-Date: 2007-03-09 19:20+0000\n"
 "PO-Revision-Date: 2006-10-09 09:31+0000\n"
 "Last-Translator: gumara <gumara@msn.com>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
@@ -644,6 +644,48 @@ msgstr "กำลังติดตั้งชุดภาษา"
 #: ../ubiquity.templates:86001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "กำลังดาวน์โหลดชุดภาษา (ต้องใช้เวลาอีก ${TIME})..."
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid "Failed to unmount partitions"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid ""
+"The installer needs to commit changes to partition tables, but cannot do so "
+"because partitions on the following mount points could not be unmounted:"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid "Please close any applications using these mount points."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:90001
+msgid "Would you like the installer to try to unmount these partitions again?"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:91001
+msgid "System partition not formatted"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:91001
+msgid ""
+"The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+"marked for formatting. File systems used by the system (/, /boot, /usr, /"
+"var) must be reformatted for use by this installer. Other file systems (/"
+"home, /media/*, /usr/local, etc.) may be used without reformatting."
+msgstr ""
 
 #~ msgid "GRUB will be installed to DEVICE"
 #~ msgstr "GRUB จะถูกติดตั้งที่ DEVICE"
