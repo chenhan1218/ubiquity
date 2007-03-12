@@ -1,5 +1,6 @@
 ubiquity (1.3.27) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Add a 'debian/rules update-local' target to allow updating d-i/source/
     without updating debian/changelog, which is sometimes convenient for
     local hacking.
@@ -8,7 +9,10 @@ ubiquity (1.3.27) UNRELEASED; urgency=low
   * Really use MyKeyboardNames.pl (based on xkb-data) rather than
     KeyboardNames.pl.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri,  9 Mar 2007 11:08:54 +0000
+  [ Evan Dandrea ]
+  * When m-a is disabled, don't try to run its apply script.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Sun, 11 Mar 2007 20:20:15 -0400
 
 ubiquity (1.3.26) feisty; urgency=low
 
