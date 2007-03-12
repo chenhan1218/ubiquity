@@ -704,14 +704,12 @@ class Install:
             # Exclude hooks containing '.', so that *.dpkg-* et al are avoided.
             hooks = filter(lambda entry: '.' not in entry, os.listdir(hookdir))
             self.db.progress('START', 0, len(hooks), 'ubiquity/install/title')
+            self.db.progress('INFO', 'ubiquity/install/target_hooks')
             for hookentry in hooks:
                 hook = os.path.join(hookdir, hookentry)
                 if not os.access(hook, os.X_OK):
                     self.db.progress('STEP', 1)
                     continue
-                self.db.subst('ubiquity/install/target_hook',
-                              'SCRIPT', hookentry)
-                self.db.progress('INFO', 'ubiquity/install/target_hook')
                 # Errors are ignored at present, although this may change.
                 subprocess.call(['log-output', '-t', 'ubiquity',
                                  '--pass-stdout', hook])

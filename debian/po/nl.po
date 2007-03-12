@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-09 19:20+0000\n"
+"POT-Creation-Date: 2007-03-12 18:24+0000\n"
 "PO-Revision-Date: 2006-10-11 20:15+0000\n"
 "Last-Translator: Jan Claeys <ubuntu@janc.be>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
@@ -558,8 +558,8 @@ msgstr "De installatielogs worden gekopieerd..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-msgid "Running ${SCRIPT}..."
-msgstr "${SCRIPT} wordt uitgevoerd..."
+msgid "Configuring target system..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -716,6 +716,9 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+
+#~ msgid "Running ${SCRIPT}..."
+#~ msgstr "${SCRIPT} wordt uitgevoerd..."
 
 #~ msgid "GRUB will be installed to DEVICE"
 #~ msgstr "GRUB zal naar DEVICE geïnstalleerd worden"
