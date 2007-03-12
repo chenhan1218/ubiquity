@@ -4,6 +4,8 @@ oem-config (1.9) UNRELEASED; urgency=low
   * Add a 'debian/rules update-local' target to allow updating d-i/source/
     without updating debian/changelog, which is sometimes convenient for
     local hacking.
+  * Make OEM_CONFIG_DEBUG=1 imply DEBCONF_DEBUG='developer|filter' for ease
+    of debugging.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Jan 2007 17:20:31 +0000
 

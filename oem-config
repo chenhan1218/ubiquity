@@ -54,5 +54,9 @@ if __name__ == '__main__':
     parser.set_defaults(frontend=None)
     (options, args) = parser.parse_args()
 
+    if 'OEM_CONFIG_DEBUG' in os.environ:
+        if 'DEBCONF_DEBUG' not in os.environ:
+            os.environ['DEBCONF_DEBUG'] = 'developer|filter'
+
     wizard = Wizard(frontend_name=options.frontend)
     sys.exit(wizard.run())
