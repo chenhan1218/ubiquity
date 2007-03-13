@@ -2,4 +2,4 @@
 set -e
 
 setupcon --save-only
-update-initramfs -u
+update-initramfs -u >&2
