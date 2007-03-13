@@ -293,9 +293,6 @@ class Frontend:
     def quit_main_loop (self):
         self.app.exit()
 
-    def redo_step(self):
-        self.backup = True
-
     def set_current_page(self):
         global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         #self.current_page = current
