@@ -311,11 +311,6 @@ class Frontend:
             self.allow_change_step(False)
             self.dbfilter.ok_handler()
 
-    def redo_step(self):
-        """Redo the current step. Used by the language component to rerun
-        itself when the language changes."""
-        self.backup = True
-
     def set_current_page(self):
         global WIDGET_STACK_STEPS, WIDGET_STACK_MAX_STEP
         current_name = self.get_current_step()
