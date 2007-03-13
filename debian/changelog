@@ -5,6 +5,9 @@ oem-config (1.9) UNRELEASED; urgency=low
   * Add a 'debian/rules update-local' target to allow updating d-i/source/
     without updating debian/changelog, which is sometimes convenient for
     local hacking.
+  * Make OEM_CONFIG_DEBUG=1 imply DEBCONF_DEBUG='developer|filter' for ease
+    of debugging.
+  * Add a --debug option, equivalent to setting OEM_CONFIG_DEBUG=1.
   * Add timezone widget from ubiquity.
   * Update language, timezone, and keyboard handling code from ubiquity.
   * Move the timezone step before the keyboard step.
