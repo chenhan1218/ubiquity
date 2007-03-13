@@ -25,7 +25,7 @@ class OEMConfUI(QWidget):
 
     def __init__(self):
         QWidget.__init__(self)
-        uic.loadUi("%s/SysConf.ui" % UIDIR, self)
+        uic.loadUi("%s/sysconf.ui" % UIDIR, self)
         self.setWindowState(Qt.WindowFullScreen)
 
     def setFrontend(self, fe):
