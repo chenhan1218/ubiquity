@@ -1,5 +1,6 @@
 oem-config (1.9) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Install copyright and changelog files in Architecture: all packages too.
   * Add a 'debian/rules update-local' target to allow updating d-i/source/
     without updating debian/changelog, which is sometimes convenient for
@@ -7,6 +8,29 @@ oem-config (1.9) UNRELEASED; urgency=low
   * Make OEM_CONFIG_DEBUG=1 imply DEBCONF_DEBUG='developer|filter' for ease
     of debugging.
   * Add a --debug option, equivalent to setting OEM_CONFIG_DEBUG=1.
+  * Add timezone widget from ubiquity.
+  * Update language, timezone, and keyboard handling code from ubiquity.
+  * Move the timezone step before the keyboard step.
+  * Apply language, timezone, and keyboard changes at the end of oem-config
+    rather than on the fly.
+  * Depend on a version of console-setup at least as new as the one in our
+    source tree.
+  * Track console-setup 1.13ubuntu4 changes by generating and using
+    MyKeyboardNames.pl based on xkb-data, which is more up to date than
+    KeyboardNames.pl.
+  * Stop the user page spreading out in an ugly manner now that the pages
+    are bigger. This does result in an unpleasant amount of empty space; the
+    page needs a redesign to cope with this.
+  * Activate the Forward button when Enter is pressed in any entry field on
+    the user page.
+  * Leave the UI up until we've finished applying changes; we now have to
+    regenerate the initramfs (due to console-setup changes) and it takes a
+    while.
+  * Send SIGKILL to the window manager if it fails to exit within a second
+    of receiving SIGTERM.
+
+  [ Anirudh Ramesh ]
+  * Port KDE frontend to Qt 4.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Jan 2007 17:20:31 +0000
 

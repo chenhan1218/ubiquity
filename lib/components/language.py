@@ -21,136 +21,96 @@ import os
 import re
 import locale
 from oem_config.filteredcommand import FilteredCommand
-
-_supported_locales = None
-
-def _get_supported_locales():
-    """Returns a list of all locales supported by the installation system."""
-    global _supported_locales
-    if _supported_locales is None:
-        _supported_locales = {}
-        supported = open('/usr/share/i18n/SUPPORTED')
-        for line in supported:
-            (locale, charset) = line.split(None, 1)
-            _supported_locales[locale] = charset
-        supported.close()
-    return _supported_locales
+from oem_config import i18n
 
 class Language(FilteredCommand):
     def prepare(self):
-        self.language_question = 'languagechooser/language-name'
-        self.country_question = 'countrychooser/country-name'
-        self.restart = False
-        self.preparing = True
-
-        # Get index of untranslated value; we'll map this to the
-        # translated value later.
-        current_language_index = self.value_index(
-            'languagechooser/language-name')
-        current_language = 'English'
-
-        language_choices = self.split_choices(
-            unicode(self.db.metaget('languagechooser/language-name',
-                                    'choices-en.utf-8'), 'utf-8'))
-        language_choices_c = self.choices_untranslated(
-            'languagechooser/language-name')
-
-        language_codes = {}
-        languagelist = open('/usr/share/localechooser/languagelist')
-        for line in languagelist:
-            if line.startswith('#'):
-                continue
-            bits = line.split(';')
-            if len(bits) >= 3:
-                language_codes[bits[0]] = bits[2]
-        languagelist.close()
-
-        language_display_map = {}
-        for i in range(len(language_choices)):
-            choice = re.sub(r'.*? *- (.*)', r'\1', language_choices[i])
-            choice_c = language_choices_c[i]
-            if choice_c not in language_codes:
-                continue
-            language_display_map[choice] = (choice_c, language_codes[choice_c])
-            if i == current_language_index:
-                current_language = choice
-
-        def compare_choice(x, y):
-            result = cmp(language_display_map[x][1],
-                         language_display_map[y][1])
-            if result != 0:
-                return result
-            return cmp(x, y)
-
-        sorted_choices = sorted(language_display_map, compare_choice)
-        self.frontend.set_language_choices(sorted_choices,
-                                           language_display_map)
-        self.frontend.set_language(current_language)
-
-        self.update_country_list('countrychooser/country-name')
-
-        self.preparing = False
+        self.language_question = None
+        self.db.fset('languagechooser/language-name', 'seen', 'false')
+        self.db.set('localechooser/alreadyrun', 'false')
         questions = ['^languagechooser/language-name',
-                     '^countrychooser/country-name$',
-                     '^countrychooser/shortlist$',
-                     '^localechooser/supported-locales$']
+                     '^countrychooser/shortlist$']
         return (['/usr/lib/oem-config/language/localechooser-wrapper'],
                 questions)
 
-    def update_country_list(self, question):
-        self.frontend.set_country_choices(self.choices_display_map(question))
-        try:
-            self.frontend.set_country(self.db.get(question))
-        except ValueError:
-            pass
-
-    def preseed_language(self):
-        self.preseed(self.language_question, self.frontend.get_language())
-        if self.language_question != 'languagechooser/language-name':
-            self.preseed('languagechooser/language-name',
-                         self.frontend.get_language())
-
-    def preseed_country(self):
-        self.preseed_as_c(self.country_question, self.frontend.get_country())
-
-    def language_changed(self):
-        if not self.preparing:
-            self.preseed_language()
-            # We now need to run through most of localechooser, but stop
-            # just before the end. This can be done by backing up from
-            # localechooser/supported-locales, so leave a note for ourselves
-            # to do so.
-            self.restart = True
-            self.succeeded = True
-            self.exit_ui_loops()
-
-    def ok_handler(self):
-        self.preseed_language()
-        self.preseed_country()
-        super(Language, self).ok_handler()
-
     def run(self, priority, question):
-        if question == 'localechooser/supported-locales':
-            if self.restart:
-                self.frontend.redo_step()
-                self.succeeded = False
-                self.done = True
-                return False
-            else:
-                return True
-
         if question.startswith('languagechooser/language-name'):
             self.language_question = question
-            return True
-        elif question.startswith('countrychooser/'):
-            self.country_question = question
-        self.update_country_list(question)
 
-        return super(Language, self).run(priority, question)
+            # Get index of untranslated value; we'll map this to the
+            # translated value later.
+            current_language_index = self.value_index(
+                'languagechooser/language-name')
+            current_language = "English"
+
+            language_choices = self.split_choices(
+                unicode(self.db.metaget('languagechooser/language-name',
+                                        'choices-en.utf-8'),
+                        'utf-8', 'replace'))
+            language_choices_c = self.choices_untranslated(
+                'languagechooser/language-name')
+
+            language_codes = {}
+            languagelist = open('/usr/share/localechooser/languagelist')
+            for line in languagelist:
+                if line.startswith('#'):
+                    continue
+                bits = line.split(';')
+                if len(bits) >= 3:
+                    if bits[2] in ('dz', 'km'):
+                        # Exclude these languages for now, as we don't ship
+                        # fonts for them and we don't have sufficient
+                        # translations anyway.
+                        continue
+                    elif bits[2] in ('pt', 'zh'):
+                        # Special handling for subdivided languages.
+                        code = '%s_%s' % (bits[2], bits[3])
+                    else:
+                        code = bits[2]
+                    language_codes[bits[0]] = code
+            languagelist.close()
+
+            language_display_map = {}
+            for i in range(len(language_choices)):
+                choice = re.sub(r'.*? *- (.*)', r'\1', language_choices[i])
+                choice_c = language_choices_c[i]
+                if choice_c not in language_codes:
+                    continue
+                language_display_map[choice] = (choice_c,
+                                                language_codes[choice_c])
+                if i == current_language_index:
+                    current_language = choice
+
+            def compare_choice(x, y):
+                result = cmp(language_display_map[x][1],
+                             language_display_map[y][1])
+                if result != 0:
+                    return result
+                return cmp(x, y)
+
+            sorted_choices = sorted(language_display_map, compare_choice)
+            self.frontend.set_language_choices(sorted_choices,
+                                               language_display_map)
+            self.frontend.set_language(current_language)
+
+        elif question == 'countrychooser/shortlist':
+            if 'DEBCONF_USE_CDEBCONF' not in os.environ:
+                # Normally this default is handled by Default-$LL, but since
+                # we can't change debconf's language on the fly (unlike
+                # cdebconf), we have to fake it.
+                self.db.set(question, self.db.get('debian-installer/country'))
+            return True
+
+        return FilteredCommand.run(self, priority, question)
+
+    def ok_handler(self):
+        if self.language_question is not None:
+            self.preseed(self.language_question, self.frontend.get_language())
+        FilteredCommand.ok_handler(self)
 
     def cleanup(self):
         di_locale = self.db.get('debian-installer/locale')
-        if di_locale not in _get_supported_locales():
+        if di_locale not in i18n.get_supported_locales():
             di_locale = self.db.get('debian-installer/fallbacklocale')
         if di_locale == '':
             # TODO cjwatson 2006-07-17: maybe fetch

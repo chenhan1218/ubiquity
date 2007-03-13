@@ -27,32 +27,73 @@ from oem_config import keyboard_names
 class ConsoleSetup(FilteredCommand):
     def prepare(self):
         self.preseed('console-setup/ask_detect', 'false')
+
+        # We need to get rid of /etc/default/console-setup, or console-setup
+        # will think it's already configured and behave differently. Try to
+        # save the old file for interest's sake, but it's not a big deal if
+        # we can't.
+        try:
+            os.unlink('/etc/default/console-setup.pre-oem-config')
+        except OSError:
+            pass
+        try:
+            os.rename('/etc/default/console-setup',
+                      '/etc/default/console-setup.pre-oem-config')
+        except OSError:
+            try:
+                os.unlink('/etc/default/console-setup')
+            except OSError:
+                pass
+        # Make sure debconf doesn't do anything with crazy "preseeded"
+        # answers to these questions. If you want to preseed these, use the
+        # *code variants.
+        self.db.fset('console-setup/layout', 'seen', 'false')
+        self.db.fset('console-setup/variant', 'seen', 'false')
+
         # Technically we should provide a version as the second argument,
         # but that isn't currently needed and it would require querying
         # apt/dpkg for the current version, which would be slow, so we don't
         # bother for now.
-        return (['/usr/lib/oem-config/console-setup/console-setup.postinst',
+        return (['/usr/lib/oem-config/console/console-setup.postinst',
                  'configure'],
-                ['^console-setup/layout'])
+                ['^console-setup/layout', '^console-setup/variant'])
 
     def run(self, priority, question):
-        # TODO cjwatson 2006-09-07: we're going to need a separate UI
-        # element for variant
+        if self.done:
+            return self.succeeded
+
         if question == 'console-setup/layout':
+            # Reset this in case we just backed up from the variant
+            # question.
+            self.succeeded = True
             # TODO cjwatson 2006-09-07: no console-setup support for layout
             # choice translation yet
             self.frontend.set_keyboard_choices(
                 self.choices_untranslated(question))
             self.frontend.set_keyboard(self.db.get(question))
-            return super(ConsoleSetup, self).run(priority, question)
+            return True
+        elif question == 'console-setup/variant':
+            # TODO cjwatson 2006-10-02: no console-setup support for variant
+            # choice translation yet
+            self.frontend.set_keyboard_variant_choices(
+                self.choices_untranslated(question))
+            self.frontend.set_keyboard_variant(self.db.get(question))
+            return FilteredCommand.run(self, priority, question)
         else:
             return True
 
+    def change_layout(self, layout):
+        self.preseed('console-setup/layout', layout)
+        # Back up in order to get console-setup to recalculate the list of
+        # possible variants.
+        self.succeeded = False
+        self.exit_ui_loops()
+
     def ok_handler(self):
-        keyboard = self.frontend.get_keyboard()
-        if keyboard is not None:
-            self.preseed('console-setup/layout', keyboard)
-        return super(ConsoleSetup, self).ok_handler()
+        variant = self.frontend.get_keyboard_variant()
+        if variant is not None:
+            self.preseed('console-setup/variant', variant)
+        return FilteredCommand.ok_handler(self)
 
     # TODO cjwatson 2006-09-07: This is duplication from console-setup, but
     # currently difficult to avoid; we need to apply the keymap immediately
@@ -104,17 +145,29 @@ class ConsoleSetup(FilteredCommand):
 
         return (model, real_layout, real_variant, real_options)
 
-    def apply_keyboard(self, layout):
+    def apply_keyboard(self, layout, variant):
         model = self.db.get('console-setup/modelcode')
-        if layout in keyboard_names.layouts:
-            layout = keyboard_names.layouts[layout]
-            (model, layout, variant, options) = \
-                self.adjust_keyboard(model, layout, '', [])
-            self.debug("Setting keyboard layout: %s %s %s %s" %
-                       (model, layout, variant, options))
-            self.apply_real_keyboard(model, layout, variant, options)
-        else:
+
+        if layout not in keyboard_names.layouts:
             self.debug("Unknown keyboard layout '%s'" % layout)
+            return
+        layout = keyboard_names.layouts[layout]
+
+        if layout not in keyboard_names.variants:
+            self.debug("No known variants for layout '%s'" % layout)
+            variant = ''
+        elif variant in keyboard_names.variants[layout]:
+            variant = keyboard_names.variants[layout][variant]
+        else:
+            self.debug("Unknown keyboard variant '%s' for layout '%s'" %
+                       (variant, layout))
+            return
+
+        (model, layout, variant, options) = \
+            self.adjust_keyboard(model, layout, variant, [])
+        self.debug("Setting keyboard layout: %s %s %s %s" %
+                   (model, layout, variant, options))
+        self.apply_real_keyboard(model, layout, variant, options)
 
     def apply_real_keyboard(self, model, layout, variant, options):
         args = ['setxkbmap']
@@ -145,7 +198,12 @@ class ConsoleSetup(FilteredCommand):
 
         oldconfigfile = '/etc/X11/xorg.conf'
         newconfigfile = '/etc/X11/xorg.conf.new'
-        oldconfig = open(oldconfigfile)
+        try:
+            oldconfig = open(oldconfigfile)
+        except IOError:
+            # Did they remove /etc/X11/xorg.conf or something? Oh well,
+            # better to carry on than to crash.
+            return
         newconfig = open(newconfigfile, 'w')
 
         re_section_inputdevice = re.compile(r'\s*Section\s+"InputDevice"\s*$')

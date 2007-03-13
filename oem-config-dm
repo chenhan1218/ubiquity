@@ -5,6 +5,7 @@ import sys
 import subprocess
 import time
 import signal
+import errno
 import imp
 
 sys.path.insert(0, '/usr/lib/oem-config')
@@ -87,8 +88,21 @@ class DM:
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()
 
+        def sigalrm_handler(signum, frame):
+            os.kill(wm.pid, signal.SIGKILL)
+
         os.kill(wm.pid, signal.SIGTERM)
-        wm.wait()
+        signal.signal(signal.SIGALRM, sigalrm_handler)
+        signal.alarm(1) # low patience with WMs failing to exit on demand
+        while True:
+            try:
+                wm.wait()
+            except OSError, e:
+                if e.errno == errno.EINTR:
+                    continue
+                raise
+            break
+        signal.alarm(0)
         os.kill(server.pid, signal.SIGTERM)
         server.wait()
 
