@@ -1,14 +1,16 @@
 import sys, os, datetime, gettext, syslog
-from sysconf import Ui_Form
+from sysconf import Ui_SysConf
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-#sys.path.insert(0,"/usr/lib/ubiquity")
+from PyQt4 import uic
 from debconf import DebconfCommunicator
 from oem_config import filteredcommand
 from oem_config.components import console_setup, language, timezone, user, \
                                   language_apply, timezone_apply, \
                                   console_setup_apply
 import oem_config.tz
+
+UIDIR = '/usr/lib/oem-config/oem_config/frontend'
 
 WIDGET_STACK_STEPS = {
     "step_language": 0,
@@ -19,11 +21,23 @@ WIDGET_STACK_STEPS = {
 
 WIDGET_STACK_MAX_STEPS = 3
 
-class OEMConfUI(Ui_Form):
+class OEMConfUI(QWidget):
+
+    def __init__(self):
+        QWidget.__init__(self)
+        uic.loadUi("%s/SysConf.ui" % UIDIR, self)
+        self.setWindowState(Qt.WindowFullScreen)
 
     def setFrontend(self, fe):
         self.frontend = fe
 
+    def resizeEvent(self, event):
+        pixmapUnscaled = QPixmap()
+        loaded = pixmapUnscaled.load("/usr/share/wallpapers/kubuntu-wallpaper.png")
+        pixmap = pixmapUnscaled.scaled(QSize(self.width(), self.height()), Qt.IgnoreAspectRatio, Qt.SmoothTransformation)
+        palette = self.palette()
+        palette.setBrush(self.backgroundRole(),QBrush(pixmap))
+        self.setPalette(palette)
 
 class Frontend:
     def __init__(self):
@@ -41,12 +55,9 @@ class Frontend:
         self.mainLoopRunning = False
         self.apply_changes = False
         self.app = QApplication([])
-        self.Form = QWidget()
-        self.userinterface = Ui_Form()
-        #self.userinterface.setFrontend(self)
-        #self.userinterface.show()
-        self.userinterface.setupUi(self.Form)
-        self.Form.show()
+        self.userinterface = OEMConfUI()
+        self.userinterface.setFrontend(self)
+        self.userinterface.show()
         self.customize_installer()
         self.current_layout = None
         self.map_vbox = QVBoxLayout(self.userinterface.map_frame)
@@ -57,7 +68,7 @@ class Frontend:
     def run(self):
         global WIDGET_STACK_STEPS, WIDGET_STACK_MAX_STEPS
 
-        self.Form.setCursor(QCursor(Qt.ArrowCursor))
+        self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
 
         #Signals and Slots
         self.app.connect(self.userinterface.button_next,SIGNAL("clicked()"),self.on_next_clicked)
@@ -66,23 +77,6 @@ class Frontend:
         self.app.connect(self.userinterface.keyboard_list_2, SIGNAL("itemSelectionChanged()"), self.on_keyboard_variant_selected)
         self.app.connect(self.userinterface.city_combo, SIGNAL("activated(int)"), self.tzmap.city_combo_changed)
 
-        #Password fields w/ bullets. REMOVE FOR FEISTY
-        #pass_char = None
-        #fm = self.userinterface.pass_ledit_1.fontMetrics()
-        #if fm.inFont(QChar(0x25CF)):
-            #print QChar(0x25CF)
-            #pass_char = 0x25CF
-        #elif fm.inFont(QChar(0x2022)):
-            #print "Asterisk"
-            #pass_char = 0x2022
-        #print pass_char
-        #style = self.app.style()
-        #style.SH_LineEdit_PasswordCharacter = pass_char
-        #self.userinterface.pass_ledit_1.setStyle(style)
-        #self.userinterface.pass_ledit_2.setStyle(style)
-        #print self.userinterface.pass_ledit_1.style().styleHint(QStyle.SH_LineEdit_PasswordCharacter)
-
-
         first_step = "step_language"
         self.userinterface.stackedWidget.setCurrentWidget(self.userinterface.step_language)
         self.current_step = self.get_current_step()
@@ -90,7 +84,6 @@ class Frontend:
         while self.current_step is not None:
             self.backup = False
             self.current_step = self.get_current_step()
-            print self.current_step
             if self.current_step == 'step_language':
                 self.dbfilter = language.Language(self)
             elif self.current_step == 'step_keyboard':
@@ -101,7 +94,6 @@ class Frontend:
                 self.dbfilter = user.User(self)
             else:
                 raise ValueError, "step %s not recognised" % current_name
-            #self.userinterface.button_back.hide()
             self.allow_change_step(False)
             self.dbfilter.start(auto_process=True)
             self.app.exec_()
@@ -112,12 +104,12 @@ class Frontend:
                 pass
             elif self.current_step == 'step_user':
                 self.allow_change_step(False)
-                self.current_page = None
+                self.current_step = None
                 self.apply_changes = True
             else:
                 self.userinterface.stackedWidget.setCurrentIndex(WIDGET_STACK_STEPS[curr]+1)
                 self.set_current_page()
-            #self.app.exec_()
+            self.app.processEvents()
         if self.apply_changes:
             dbfilter = language_apply.LanguageApply(self)
             dbfilter.run_command(auto_process=True)
@@ -130,6 +122,7 @@ class Frontend:
 
 
     def customize_installer(self):
+        global WIDGET_STACK_MAX_STEPS
         self.step_icon_size = QSize(32,32)
         self.step_icons = [self.userinterface.step_icon_lang, self.userinterface.step_icon_loc, \
                            self.userinterface.step_icon_key, self.userinterface.step_icon_user]
@@ -137,8 +130,10 @@ class Frontend:
                             self.userinterface.step_name_key, self.userinterface.step_name_user]
         self.step_icons_path_prefix = "../../../usr/share/icons/default.kde/32x32/apps/"
         self.step_icons_path = ["locale.png","clock.png","keyboard_layout.png","userconfig.png"]
-        self.step_labels_text = [QString(self.userinterface.step_name_lang.text()),QString(self.userinterface.step_name_loc.text()), \
-                                QString(self.userinterface.step_name_key.text()), QString(self.userinterface.step_name_user.text())]
+        self.step_labels_text = [self.userinterface.step_name_lang.text(),self.userinterface.step_name_loc.text(), \
+                                self.userinterface.step_name_key.text(), self.userinterface.step_name_user.text()]
+        for icon in range(WIDGET_STACK_MAX_STEPS+1):
+            self.step_icons[icon].setPixmap(QPixmap(str(self.step_icons_path_prefix+self.step_icons_path[icon])))
 
     def on_keyboard_layout_selected(self):
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):
@@ -151,7 +146,6 @@ class Frontend:
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):
             layout = self.get_keyboard()
             variant = self.get_keyboard_variant()
-            print variant
             if layout is not None and variant is not None:
                 self.dbfilter.apply_keyboard(layout, variant)
 
@@ -192,7 +186,6 @@ class Frontend:
             self.userinterface.keyboard_list_1.setCurrentRow(index)
 
     def get_keyboard(self):
-        print unicode(self.userinterface.keyboard_list_1.currentItem().text())
         return unicode(self.userinterface.keyboard_list_1.currentItem().text())
 
     def set_keyboard_variant_choices(self, choices):
@@ -286,21 +279,18 @@ class Frontend:
         if dbfilter == self.dbfilter:
             self.dbfilter = None
             #if isinstance(dbfilter, summary.Summary):
-                # The Summary component is just there to gather information,
+                ## The Summary component is just there to gather information,
                 # and won't call run_main_loop() for itself.
                 #self.allow_change_step(True)
             self.app.exit()
 
     def run_main_loop (self):
-        self.allow_change_step(True)
-        self.Form.setCursor(QCursor(Qt.ArrowCursor))
+        if not self.apply_changes:
+            self.allow_change_step(True)
         #self.app.exec_()   ##FIXME Qt 4 won't allow nested main loops, here it just returns directly
         self.mainLoopRunning = True
         while self.mainLoopRunning:    # nasty, but works OK
             self.app.processEvents()
-        #if not self.apply_changes:
-            #self.allow_change_step(True)
-        #self.app.exec_()
 
     def quit_main_loop (self):
         self.mainLoopRunning = False
@@ -321,14 +311,11 @@ class Frontend:
             self.allow_change_step(False)
             self.dbfilter.ok_handler()
 
-<<<<<<< TREE
     def redo_step(self):
         """Redo the current step. Used by the language component to rerun
         itself when the language changes."""
         self.backup = True
 
-=======
->>>>>>> MERGE-SOURCE
     def set_current_page(self):
         global WIDGET_STACK_STEPS, WIDGET_STACK_MAX_STEP
         current_name = self.get_current_step()
@@ -337,14 +324,14 @@ class Frontend:
         else:
             self.userinterface.button_back.show()
         if current_name == 'step_user':
-            self.userinterface.button_next.setText(QApplication.translate("Form", "&Finish!", None, QApplication.UnicodeUTF8))
+            self.userinterface.button_next.setText(QApplication.translate("SysConf", "&Finish!", None, QApplication.UnicodeUTF8))
         else:
-            self.userinterface.button_next.setText(QApplication.translate("Form", "&Continue >", None, QApplication.UnicodeUTF8))
+            self.userinterface.button_next.setText(QApplication.translate("SysConf", "&Continue >", None, QApplication.UnicodeUTF8))
         for icon in self.step_icons:
             pixmap = QIcon(icon.pixmap()).pixmap(self.step_icon_size, QIcon.Disabled)
             icon.setPixmap(pixmap)
         for step in range(WIDGET_STACK_MAX_STEPS+1):
-            print self.step_labels_text[step]
+            self.step_labels_text[step].replace("p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">  <span style=\" font-size:13pt; font-weight:800; font-style:italic;\">","<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">  <span style=\" font-size:13pt; color:gray;\">")
             self.step_labels[step].setText(self.step_labels_text[step])
         current_icon = self.step_icons[WIDGET_STACK_STEPS[str(current_name)]]
         current_pixmap = QPixmap(str(self.step_icons_path_prefix+self.step_icons_path[WIDGET_STACK_STEPS[str(current_name)]]))
@@ -357,7 +344,7 @@ class Frontend:
             cursor = QCursor(Qt.ArrowCursor)
         else:
             cursor = QCursor(Qt.WaitCursor)
-        self.Form.setCursor(cursor)
+        self.userinterface.setCursor(cursor)
 
     def allow_go_forward(self, allowed):
         self.userinterface.button_next.setEnabled(allowed and self.allowed_change_step)
