@@ -28,6 +28,8 @@ oem-config (1.9) UNRELEASED; urgency=low
     while.
   * Send SIGKILL to the window manager if it fails to exit within a second
     of receiving SIGTERM.
+  * Automatic update of included source packages: console-setup 1.13ubuntu8,
+    localechooser 1.37ubuntu1, tzsetup 1:0.14, user-setup 1.8ubuntu1.
 
   [ Anirudh Ramesh ]
   * Port KDE frontend to Qt 4.
