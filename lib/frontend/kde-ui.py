@@ -333,6 +333,7 @@ class Frontend:
         current_label_text = self.step_labels_text[WIDGET_STACK_STEPS[str(current_name)]]
         current_label_text.replace("<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">  <span style=\" font-size:13pt; color:gray;\">","<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">  <span style=\" font-size:13pt; font-weight:800; font-style:italic;\">")
         self.step_labels[WIDGET_STACK_STEPS[str(current_name)]].setText(current_label_text)
+
     def allow_change_step(self, allowed):
         if allowed:
             cursor = QCursor(Qt.ArrowCursor)
