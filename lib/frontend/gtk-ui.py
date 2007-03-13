@@ -226,11 +226,6 @@ class Frontend:
 
     # Callbacks provided to components.
 
-    def redo_step(self):
-        """Redo the current step. Used by the language component to rerun
-        itself when the language changes."""
-        self.backup = True
-
     def selected_language(self, selection):
         (model, iterator) = selection.get_selected()
         if iterator is not None:

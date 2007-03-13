@@ -63,6 +63,7 @@ my @basebd = (
     'libart-2.0-dev',
     'libglib2.0-dev',
     'libgtk2.0-dev',
+    'libxml-parser-perl',
     'po-debconf',
     'python-all-dev (>= 2.3.5-11)',
     'python-gtk2-dev',

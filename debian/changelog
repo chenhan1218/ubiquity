@@ -22,6 +22,8 @@ oem-config (1.9) UNRELEASED; urgency=low
   * Leave the UI up until we've finished applying changes; we now have to
     regenerate the initramfs (due to console-setup changes) and it takes a
     while.
+  * Send SIGKILL to the window manager if it fails to exit within a second
+    of receiving SIGTERM.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Jan 2007 17:20:31 +0000
 
