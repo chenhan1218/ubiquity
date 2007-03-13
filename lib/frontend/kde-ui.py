@@ -93,7 +93,7 @@ class Frontend:
             elif self.current_step == 'step_user':
                 self.dbfilter = user.User(self)
             else:
-                raise ValueError, "step %s not recognised" % current_name
+                raise ValueError, "step %s not recognised" % self.current_step
             self.allow_change_step(False)
             self.dbfilter.start(auto_process=True)
             self.app.exec_()
