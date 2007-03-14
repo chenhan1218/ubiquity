@@ -342,9 +342,9 @@ Template: ubiquity/install/log_files
 Type: text
 _Description: Copying installation logs...
 
-Template: ubiquity/install/target_hook
+Template: ubiquity/install/target_hooks
 Type: text
-_Description: Running ${SCRIPT}...
+_Description: Configuring target system...
 
 Template: ubiquity/install/locales
 Type: text

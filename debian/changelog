@@ -1,4 +1,21 @@
-ubiquity (1.3.27) UNRELEASED; urgency=low
+ubiquity (1.3.28) UNRELEASED; urgency=low
+
+  [ Colin Watson ]
+  * Use just one progress message for all target-config hooks, to avoid
+    uglinesses like "Running 32gnome_power_manager".
+  * KDE frontend: In the partition create dialog, set the maximum partition
+    size before setting the value to avoid the value being incorrectly
+    clipped.
+  * Disable the intro message for beta.
+
+  [ Evan Dandrea ]
+  * When m-a is disabled, don't try to run its apply script. (LP: 89821)
+  * If migration-assistant cannot unmount a partition, prompt the user
+    to do it manually. (LP: 89605)
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 14 Mar 2007 01:58:21 -0400
+
+ubiquity (1.3.27) feisty; urgency=low
 
   [ Colin Watson ]
   * Add a 'debian/rules update-local' target to allow updating d-i/source/
@@ -8,13 +25,9 @@ ubiquity (1.3.27) UNRELEASED; urgency=low
     (LP: #89461).
   * Really use MyKeyboardNames.pl (based on xkb-data) rather than
     KeyboardNames.pl.
+  * Automatic update of included source packages: console-setup 1.13ubuntu8.
 
-  [ Evan Dandrea ]
-  * When m-a is disabled, don't try to run its apply script. (LP: 89821)
-  * If migration-assistant cannot unmount a partition, prompt the user
-    to do it manually. (LP: 89605)
-
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 14 Mar 2007 01:58:21 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 12 Mar 2007 12:15:39 +0000
 
 ubiquity (1.3.26) feisty; urgency=low
 

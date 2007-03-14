@@ -1684,8 +1684,8 @@ class Wizard:
         # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
         # partman expects.
         max_size_mb = int(partition['parted']['size']) / 1000000
-        self.create_dialog.partition_create_size_spinbutton.setValue(max_size_mb)
         self.create_dialog.partition_create_size_spinbutton.setMaximum(max_size_mb)
+        self.create_dialog.partition_create_size_spinbutton.setValue(max_size_mb)
 
         partition_uses = {}
         for method, name in partman.Partman.create_use_as():

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-09 19:20+0000\n"
+"POT-Creation-Date: 2007-03-12 18:24+0000\n"
 "PO-Revision-Date: 2006-09-07 20:34+0000\n"
 "Last-Translator: Carlos Perelló Marín <carlos.perello@canonical.com>\n"
 "Language-Team: <fa@li.org>\n"
@@ -513,8 +513,8 @@ msgstr "در حال کپی‌کردن ثبتهای نصب..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-msgid "Running ${SCRIPT}..."
-msgstr "در حال اجرای ${SCRIPT}..."
+msgid "Configuring target system..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -674,6 +674,9 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+
+#~ msgid "Running ${SCRIPT}..."
+#~ msgstr "در حال اجرای ${SCRIPT}..."
 
 #~ msgid "Set Time..."
 #~ msgstr "تعیین کردن زمان..."

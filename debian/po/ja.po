@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-09 19:20+0000\n"
+"POT-Creation-Date: 2007-03-12 18:24+0000\n"
 "PO-Revision-Date: 2006-09-07 20:45+0000\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
@@ -534,8 +534,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-msgid "Running ${SCRIPT}..."
-msgstr "${SCRIPT} を実行しています..."
+msgid "Configuring target system..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -692,6 +692,9 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+
+#~ msgid "Running ${SCRIPT}..."
+#~ msgstr "${SCRIPT} を実行しています..."
 
 #~ msgid "Select a city in your country and time zone."
 #~ msgstr "タイムゾーンを設定するために都市を選択してください。"
