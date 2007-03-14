@@ -7,6 +7,8 @@ ubiquity (1.3.28) UNRELEASED; urgency=low
     size before setting the value to avoid the value being incorrectly
     clipped.
   * Disable the intro message for beta.
+  * Add kboot-installer integration for powerpc/ps3. Explicitly detect the
+    subarchitecture and select which boot loader to install based on it.
 
   [ Evan Dandrea ]
   * When m-a is disabled, don't try to run its apply script. (LP: 89821)
