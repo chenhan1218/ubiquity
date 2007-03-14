@@ -927,10 +927,11 @@ class Install:
         """import documents, settings, and users from previous operating
         systems."""
 
-        dbfilter = migrationassistant_apply.MigrationAssistantApply(None)
-        ret = dbfilter.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError("MigrationAssistantApply failed with code %d" % ret)
+        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+            dbfilter = migrationassistant_apply.MigrationAssistantApply(None)
+            ret = dbfilter.run_command(auto_process=True)
+            if ret != 0:
+                raise InstallStepError("MigrationAssistantApply failed with code %d" % ret)
 
 
     def get_resume_partition(self):
