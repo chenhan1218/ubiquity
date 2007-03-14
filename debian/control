@@ -37,7 +37,7 @@ Description: GTK+ frontend for end-user post-install configuration
 
 Package: oem-config-kde
 Architecture: all
-Depends: ${python:Depends}, oem-config, python-kde3, xsetroot, kwin
+Depends: ${python:Depends}, oem-config, python-qt4, xsetroot, kwin
 Replaces: oem-config (<< 1.0)
 Provides: oem-config-frontend-${source:Version}
 XB-Python-Version: ${python:Versions}
