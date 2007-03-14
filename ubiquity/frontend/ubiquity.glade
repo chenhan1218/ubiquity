@@ -1053,9 +1053,9 @@ You must mount one partition on the root file system ("/"), and you must choose 
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="xalign">0</property>
-                            <property name="label" translatable="yes">Select any accounts you would like to import into Ubuntu and fill in the form below for each one.  The documents and settings for these accounts will be available after the install completes.
+                            <property name="label" translatable="yes">Select any accounts you would like to import and fill in the form below for each one.  The documents and settings for these accounts will be available after the install completes.
 
-If you do not wish to import any accounts, select nothing and press next.</property>
+If you do not wish to import any accounts, select nothing and go to the next page.</property>
                             <property name="wrap">True</property>
                             <property name="selectable">True</property>
                           </widget>
@@ -1092,13 +1092,30 @@ If you do not wish to import any accounts, select nothing and press next.</prope
                           </packing>
                         </child>
                         <child>
+                          <widget class="GtkLabel" id="ma_userinfo_label">
+                            <property name="width_request">600</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">Create a user to import the selected account into:</property>
+                            <property name="wrap">True</property>
+                            <property name="selectable">True</property>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="padding">6</property>
+                            <property name="position">4</property>
+                          </packing>
+                        </child>
+                        <child>
                           <widget class="GtkHSeparator" id="hseparator15">
                             <property name="visible">True</property>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
                             <property name="padding">6</property>
-                            <property name="position">4</property>
+                            <property name="position">5</property>
                           </packing>
                         </child>
                         <child>
@@ -1362,7 +1379,7 @@ If you do not wish to import any accounts, select nothing and press next.</prope
                           </widget>
                           <packing>
                             <property name="expand">False</property>
-                            <property name="position">5</property>
+                            <property name="position">6</property>
                           </packing>
                         </child>
                       </widget>
