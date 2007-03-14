@@ -32,12 +32,24 @@ class MigrationAssistant(FilteredCommand):
                      '^migration-assistant/.*/items$',
                      '^migration-assistant/.*/user$',
                      '^migration-assistant/.*/password$',
+                     '^migration-assistant/failed-unmount',
                      'ERROR']
         return (['/usr/lib/ubiquity/migration-assistant/ma-ask',
                  '/usr/lib/ubiquity/migration-assistant'], questions)
 
 
     def run(self, priority, question):
+        if question == 'migration-assistant/failed-unmount':
+            response = self.frontend.question_dialog(
+                self.description(question),
+                self.extended_description(question),
+                ('ubiquity/text/go_back', 'ubiquity/text/continue'))
+            if response is None or response == 'ubiquity/text/continue':
+                self.preseed(question, 'true')
+            else:
+                self.preseed(question, 'false')
+            return True
+
         # FIXME: This is not preseed friendly.
         if self.firstrun:
             # We cannot currently import from partitions that are scheduled for
