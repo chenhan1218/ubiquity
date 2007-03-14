@@ -4,10 +4,9 @@ SUBDIRS = cut-and-paste
 
 INCLUDES = $(PYTHON_INCLUDES) $(PYGTK_CFLAGS)
 
-defsdir = $(datadir)/pygtk/2.0/defs
-defs_DATA = e-map.defs
+noinst_DATA = e-map.defs
 
-EXTRA_DIST = $(defs_DATA)
+EXTRA_DIST = $(noinst_DATA)
 
 pkgpyexec_LTLIBRARIES = emap.la
 emap_la_CFLAGS = -fPIC $(PYTHON_INCLUDES) $(PYGTK_CFLAGS) \

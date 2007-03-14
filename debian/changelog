@@ -3,6 +3,10 @@ oem-config (1.10) UNRELEASED; urgency=low
   [ Anirudh Ramesh ]
   * Make oem-config-kde depend on python-qt4, not python-kde3.
 
+  [ Colin Watson ]
+  * Don't install e-map.defs; it's not all that important and it causes a
+    conflict with ubiquity-frontend-gtk.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 14 Mar 2007 10:29:08 +0000
 
 oem-config (1.9) feisty; urgency=low

@@ -49,7 +49,7 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(pkgpyexecdir)" "$(DESTDIR)$(defsdir)"
+am__installdirs = "$(DESTDIR)$(pkgpyexecdir)"
 pkgpyexecLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(pkgpyexec_LTLIBRARIES)
 emap_la_DEPENDENCIES =
@@ -80,8 +80,7 @@ RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	install-pdf-recursive install-ps-recursive install-recursive \
 	installcheck-recursive installdirs-recursive pdf-recursive \
 	ps-recursive uninstall-recursive
-defsDATA_INSTALL = $(INSTALL_DATA)
-DATA = $(defs_DATA)
+DATA = $(noinst_DATA)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
   distclean-recursive maintainer-clean-recursive
 ETAGS = etags
@@ -217,9 +216,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = cut-and-paste
 INCLUDES = $(PYTHON_INCLUDES) $(PYGTK_CFLAGS)
-defsdir = $(datadir)/pygtk/2.0/defs
-defs_DATA = e-map.defs
-EXTRA_DIST = $(defs_DATA) e-map.override
+noinst_DATA = e-map.defs
+EXTRA_DIST = $(noinst_DATA) e-map.override
 pkgpyexec_LTLIBRARIES = emap.la
 emap_la_CFLAGS = -fPIC $(PYTHON_INCLUDES) $(PYGTK_CFLAGS) \
 		 -I$(srcdir)/cut-and-paste/e-map
@@ -343,23 +341,6 @@ mostlyclean-libtool:
 
 clean-libtool:
 	-rm -rf .libs _libs
-install-defsDATA: $(defs_DATA)
-	@$(NORMAL_INSTALL)
-	test -z "$(defsdir)" || $(MKDIR_P) "$(DESTDIR)$(defsdir)"
-	@list='$(defs_DATA)'; for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  f=$(am__strip_dir) \
-	  echo " $(defsDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(defsdir)/$$f'"; \
-	  $(defsDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(defsdir)/$$f"; \
-	done
-
-uninstall-defsDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(defs_DATA)'; for p in $$list; do \
-	  f=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(defsdir)/$$f'"; \
-	  rm -f "$(DESTDIR)$(defsdir)/$$f"; \
-	done
 
 # This directory's subdirectories are mostly independent; you can cd
 # into them and run `make' without going through this Makefile.
@@ -540,7 +521,7 @@ check: check-recursive
 all-am: Makefile $(LTLIBRARIES) $(DATA)
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(pkgpyexecdir)" "$(DESTDIR)$(defsdir)"; do \
+	for dir in "$(DESTDIR)$(pkgpyexecdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-recursive
@@ -589,7 +570,7 @@ info: info-recursive
 
 info-am:
 
-install-data-am: install-defsDATA
+install-data-am:
 
 install-dvi: install-dvi-recursive
 
@@ -625,7 +606,7 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-defsDATA uninstall-pkgpyexecLTLIBRARIES
+uninstall-am: uninstall-pkgpyexecLTLIBRARIES
 
 .MAKE: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) install-am \
 	install-strip
@@ -635,16 +616,15 @@ uninstall-am: uninstall-defsDATA uninstall-pkgpyexecLTLIBRARIES
 	clean-pkgpyexecLTLIBRARIES ctags ctags-recursive distclean \
 	distclean-compile distclean-generic distclean-libtool \
 	distclean-tags distdir dvi dvi-am html html-am info info-am \
-	install install-am install-data install-data-am \
-	install-defsDATA install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-man install-pdf install-pdf-am \
-	install-pkgpyexecLTLIBRARIES install-ps install-ps-am \
-	install-strip installcheck installcheck-am installdirs \
-	installdirs-am maintainer-clean maintainer-clean-generic \
-	mostlyclean mostlyclean-compile mostlyclean-generic \
-	mostlyclean-libtool pdf pdf-am ps ps-am tags tags-recursive \
-	uninstall uninstall-am uninstall-defsDATA \
+	install install-am install-data install-data-am install-dvi \
+	install-dvi-am install-exec install-exec-am install-html \
+	install-html-am install-info install-info-am install-man \
+	install-pdf install-pdf-am install-pkgpyexecLTLIBRARIES \
+	install-ps install-ps-am install-strip installcheck \
+	installcheck-am installdirs installdirs-am maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-compile \
+	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
+	tags tags-recursive uninstall uninstall-am \
 	uninstall-pkgpyexecLTLIBRARIES
 
 
