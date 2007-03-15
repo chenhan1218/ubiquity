@@ -50,7 +50,6 @@ class SystemTzInfo(datetime.tzinfo):
                 del os.environ['TZ']
         else:
             os.environ['TZ'] = tzbackup
-            tzbackup = None
         time.tzset()
 
     def utcoffset(self, dt):
@@ -195,7 +194,6 @@ _database = None
 
 def Database():
     global _database
-    if _database:
-        return _database
-    _database = _Database()
+    if not _database:
+        _database = _Database()
     return _database
