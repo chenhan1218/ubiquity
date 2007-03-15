@@ -36,24 +36,25 @@ class SystemTzInfo(datetime.tzinfo):
         self.tz = tz
 
     def _select_tz(self):
-        self.tzbackup = None
+        tzbackup = None
         if 'TZ' in os.environ:
-            self.tzbackup = os.environ['TZ']
+            tzbackup = os.environ['TZ']
         if self.tz is not None:
             os.environ['TZ'] = self.tz
         time.tzset()
+        return tzbackup
 
-    def _restore_tz(self):
-        if self.tzbackup is None:
+    def _restore_tz(self, tzbackup):
+        if tzbackup is None:
             if 'TZ' in os.environ:
                 del os.environ['TZ']
         else:
-            os.environ['TZ'] = self.tzbackup
-            self.tzbackup = None
+            os.environ['TZ'] = tzbackup
+            tzbackup = None
         time.tzset()
 
     def utcoffset(self, dt):
-        self._select_tz()
+        tzbackup = self._select_tz()
         try:
             if time.daylight == 0:
                 # no DST information
@@ -68,10 +69,10 @@ class SystemTzInfo(datetime.tzinfo):
                     dstminutes = -time.altzone / 60
             return datetime.timedelta(minutes=int(dstminutes))
         finally:
-            self._restore_tz()
+            self._restore_tz(tzbackup)
 
     def dst(self, dt):
-        self._select_tz()
+        tzbackup = self._select_tz()
         try:
             if time.daylight == 0:
                 # no DST information, so assume no DST; None would be more
@@ -86,18 +87,18 @@ class SystemTzInfo(datetime.tzinfo):
                     dstminutes = (time.timezone - time.altzone) / 60
                     return datetime.timedelta(minutes=int(dstminutes))
         finally:
-            self._restore_tz()
+            self._restore_tz(tzbackup)
 
     def tzname(self, dt):
         return self.tz
 
     def tzname_letters(self, dt):
-        self._select_tz()
+        tzbackup = self._select_tz()
         try:
             localtime = time.localtime(_seconds_since_epoch(dt))
             return time.strftime('%Z', localtime)
         finally:
-            self._restore_tz()
+            self._restore_tz(tzbackup)
 
 
 class Iso3166(object):

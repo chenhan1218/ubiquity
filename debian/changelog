@@ -1,6 +1,8 @@
 ubiquity (1.4.1) UNRELEASED; urgency=low
 
   * Make the timezone database a singleton, saving about 2MB of memory.
+  * Avoid storing temporary variables as members of the (long-lived)
+    SystemTzInfo class.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 15 Mar 2007 05:51:45 +0000
 
