@@ -9,6 +9,10 @@ ubiquity (1.3.28) UNRELEASED; urgency=low
   * Disable the intro message for beta.
   * Add kboot-installer integration for powerpc/ps3. Explicitly detect the
     subarchitecture and select which boot loader to install based on it.
+  * Automatic update of included source packages: grub-installer
+    1.20ubuntu3, migration-assistant 0.4.2, partman-base 105ubuntu1,
+    partman-partitioning 47ubuntu1, user-setup 1.8ubuntu2, yaboot-installer
+    1.1.8ubuntu2.
 
   [ Evan Dandrea ]
   * When m-a is disabled, don't try to run its apply script. (LP: 89821)
