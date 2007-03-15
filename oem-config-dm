@@ -77,8 +77,6 @@ class DM:
                 root.set_back_pixmap(pixmap, False)
                 root.clear()
                 gtk.gdk.flush()
-        elif self.frontend == 'kde-ui':
-            bg = subprocess.Popen(['/usr/bin/xsetroot', '-display', ':0', '-solid', 'lightblue'])
 
         if self.frontend == 'gtk-ui':
             wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)

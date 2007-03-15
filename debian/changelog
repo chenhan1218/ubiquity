@@ -2,6 +2,8 @@ oem-config (1.11) UNRELEASED; urgency=low
 
   [ Anirudh Ramesh ]
   * Add missing 'import os' to oem-config.
+  * Stop using xsetroot in oem-config-dm for KDE, as the KDE frontend now
+    sets its own wallpaper.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 15 Mar 2007 11:25:48 +0000
 
