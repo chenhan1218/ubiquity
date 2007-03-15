@@ -1,3 +1,10 @@
+oem-config (1.11) UNRELEASED; urgency=low
+
+  [ Anirudh Ramesh ]
+  * Add missing 'import os' to oem-config.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 15 Mar 2007 11:25:48 +0000
+
 oem-config (1.10) feisty; urgency=low
 
   [ Anirudh Ramesh ]

@@ -23,6 +23,7 @@
 # end user.
 
 import sys
+import os
 import optparse
 
 sys.path.insert(0, '/usr/lib/oem-config')
