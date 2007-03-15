@@ -1,11 +1,11 @@
-ubiquity (1.4.1) UNRELEASED; urgency=low
+ubiquity (1.4.1) feisty; urgency=low
 
   * Make the timezone database a singleton, saving about 2MB of memory.
   * Avoid storing temporary variables as members of the (long-lived)
     SystemTzInfo class.
   * Fix broken call to kboot-installer.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 15 Mar 2007 05:51:45 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 15 Mar 2007 16:58:29 +0000
 
 ubiquity (1.4.0) feisty; urgency=low
 
