@@ -5,6 +5,9 @@ oem-config (1.11) UNRELEASED; urgency=low
   * Stop using xsetroot in oem-config-dm for KDE, as the KDE frontend now
     sets its own wallpaper.
 
+  [ Colin Watson ]
+  * Automatic update of included source packages: user-setup 1.8ubuntu2.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 15 Mar 2007 11:25:48 +0000
 
 oem-config (1.10) feisty; urgency=low
