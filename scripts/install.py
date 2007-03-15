@@ -1219,7 +1219,7 @@ class Install:
                         "GrubInstaller failed with code %d" % ret)
             elif subarch == 'powerpc/ps3':
                 from ubiquity.components import kbootinstaller
-                dbfilter = kbootinstaller.KbootInstaller(True)
+                dbfilter = kbootinstaller.KbootInstaller(None)
                 ret = dbfilter.run_command(auto_process=True)
                 if ret != 0:
                     raise InstallStepError(
