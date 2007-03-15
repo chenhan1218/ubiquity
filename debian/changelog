@@ -1,3 +1,9 @@
+ubiquity (1.4.1) UNRELEASED; urgency=low
+
+  * Make the timezone database a singleton, saving about 2MB of memory.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 15 Mar 2007 05:51:45 +0000
+
 ubiquity (1.4.0) feisty; urgency=low
 
   [ Colin Watson ]

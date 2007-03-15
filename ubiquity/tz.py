@@ -178,7 +178,7 @@ class Location(object):
         self.zone_letters = self.info.tzname_letters(today)
 
 
-class Database(object):
+class _Database(object):
     def __init__(self):
         self.locations = []
         iso3166 = Iso3166()
@@ -189,3 +189,12 @@ class Database(object):
             self.locations.append(Location(line, iso3166))
         tzdata.close()
         self.locations.sort(cmp, lambda location: location.zone)
+
+_database = None
+
+def Database():
+    global _database
+    if _database:
+        return _database
+    _database = _Database()
+    return _database
