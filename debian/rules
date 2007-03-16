@@ -172,6 +172,9 @@ endif
 		chmod +x debian/ubiquity/usr/lib/ubiquity/user-setup/$$x; \
 	done
 ifeq ($(DEB_HOST_ARCH),powerpc)
+	dh_installdirs -pubiquity usr/lib/ubiquity/kboot-installer
+	install d-i/source/kboot-installer/debian/postinst \
+		debian/ubiquity/usr/lib/ubiquity/kboot-installer/kboot-installer
 	dh_installdirs -pubiquity usr/lib/ubiquity/yaboot-installer
 	install d-i/source/yaboot-installer/debian/postinst \
 		debian/ubiquity/usr/lib/ubiquity/yaboot-installer/yaboot-installer

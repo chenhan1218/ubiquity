@@ -1206,23 +1206,35 @@ class Install:
         misc.ex('mount', '--bind', '/proc', self.target + '/proc')
         misc.ex('mount', '--bind', '/dev', self.target + '/dev')
 
+        archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
+        subarch = archdetect.communicate()[0].strip()
+
         try:
-            from ubiquity.components import grubinstaller
-            dbfilter = grubinstaller.GrubInstaller(None)
-            ret = dbfilter.run_command(auto_process=True)
-            if ret != 0:
-                raise InstallStepError(
-                    "GrubInstaller failed with code %d" % ret)
-        except ImportError:
-            try:
+            if subarch.startswith('amd64/') or subarch.startswith('i386/'):
+                from ubiquity.components import grubinstaller
+                dbfilter = grubinstaller.GrubInstaller(None)
+                ret = dbfilter.run_command(auto_process=True)
+                if ret != 0:
+                    raise InstallStepError(
+                        "GrubInstaller failed with code %d" % ret)
+            elif subarch == 'powerpc/ps3':
+                from ubiquity.components import kbootinstaller
+                dbfilter = kbootinstaller.KbootInstaller(None)
+                ret = dbfilter.run_command(auto_process=True)
+                if ret != 0:
+                    raise InstallStepError(
+                        "KbootInstaller failed with code %d" % ret)
+            elif subarch.startswith('powerpc/'):
                 from ubiquity.components import yabootinstaller
                 dbfilter = yabootinstaller.YabootInstaller(None)
                 ret = dbfilter.run_command(auto_process=True)
                 if ret != 0:
                     raise InstallStepError(
                         "YabootInstaller failed with code %d" % ret)
-            except ImportError:
+            else:
                 raise InstallStepError("No bootloader installer found")
+        except ImportError:
+            raise InstallStepError("No bootloader installer found")
 
         misc.ex('umount', '-f', self.target + '/proc')
         misc.ex('umount', '-f', self.target + '/dev')
