@@ -59,8 +59,9 @@ class UserSetup(FilteredCommand):
         # is run after user-setup in d-i, but it might be best to do this anyway
         # to avoid potential future headaches.
         import os
-        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-	    q = 'migration-assistant/new-user/%s/' % username
+        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ and \
+            self.db.get('migration-assistant/partitions'):
+            q = 'migration-assistant/new-user/%s/' % username
 	    self.preseed(q + 'fullname', fullname)
 	    self.preseed(q + 'password', password, escape=True)
 	    self.preseed(q + 'password-again', password_confirm,

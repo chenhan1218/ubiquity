@@ -1632,7 +1632,10 @@ class Wizard:
         self.username_combo.connect('changed', selection_changed)
         self.username.connect('changed', self.info_loop)
         self.username.connect('focus-out-event', focus_out)
-        self.hbox45.pack_start(self.username_combo, False, False, 0)
+        self.username_changed_id = self.username.connect(
+            'changed', self.on_username_changed)
+        self.username_hbox.pack_start(self.username_combo, False, False, 0)
+        self.username_hbox.reorder_child(self.username_combo, 0)
         self.username_combo.show_all()
         
     def ma_user_error(self, error, user):

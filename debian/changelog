@@ -2,6 +2,8 @@ ubiquity (1.4.2) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Update templates for migration-assistant.
+  * Only seed migration-assistant in usersetup.py if there are partitions
+    selected to import from. (LP: #93270)
 
   [ Colin Watson ]
   * KDE frontend: Fix backup from autopartitioning step (LP: #92533).
