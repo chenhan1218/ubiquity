@@ -1243,7 +1243,7 @@ class Wizard:
         if str(step) == "stepLocation":
             self.userinterface.back.hide()
         elif str(step) == "stepPartAuto":
-            self.set_current_page(WIDGET_STACK_STEPS["stepKeyboard"])
+            self.set_current_page(WIDGET_STACK_STEPS["stepKeyboardConf"])
             changed_page = True
         elif str(step) == "stepPartAdvanced":
             if self.qtparted_subp is not None:
