@@ -1547,7 +1547,7 @@ If you do not wish to import any accounts, select nothing and go to the next pag
                                             <property name="visible">True</property>
                                             <property name="spacing">6</property>
                                             <child>
-                                              <widget class="GtkHBox" id="hbox45">
+                                              <widget class="GtkHBox" id="username_hbox">
                                                 <property name="visible">True</property>
                                                 <property name="spacing">12</property>
                                                 <child>

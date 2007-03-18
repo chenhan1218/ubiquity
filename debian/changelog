@@ -2,8 +2,10 @@ ubiquity (1.4.2) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Update templates for migration-assistant.
+  * Only seed migration-assistant in usersetup.py if there are
+    partitions selected to import from. (LP: #93270)
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 16 Mar 2007 08:32:05 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Sun, 18 Mar 2007 00:47:03 -0400
 
 ubiquity (1.4.1) feisty; urgency=low
 
