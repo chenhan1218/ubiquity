@@ -8,6 +8,8 @@ ubiquity (1.4.2) UNRELEASED; urgency=low
   [ Colin Watson ]
   * KDE frontend:
     - Fix backup from autopartitioning step (LP: #92533).
+    - Activate create/edit partition dialog when double-clicking a row in
+      the partition list.
   * Automatic update of included source packages: console-setup 1.13ubuntu9,
     partman-auto 62ubuntu7, partman-partitioning 47ubuntu2.
 

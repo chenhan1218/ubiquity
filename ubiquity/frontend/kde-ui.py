@@ -173,6 +173,7 @@ class Wizard:
         self.qtparted_subp = None
         self.partition_tree_model = None
         self.app.connect(self.userinterface.partition_list_treeview, SIGNAL("customContextMenuRequested(const QPoint&)"), self.partman_popup)
+        self.app.connect(self.userinterface.partition_list_treeview, SIGNAL("activated(const QModelIndex&)"), self.on_partition_list_treeview_activated)
 
         # set default language
         dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
@@ -1828,6 +1829,33 @@ class Wizard:
             self.edit_dialog.partition_edit_mount_combo.setEnabled(False)
         else:
             self.edit_dialog.partition_edit_mount_combo.setEnabled(True)
+
+    def on_partition_list_treeview_activated(self, index):
+        if not self.allowed_change_step:
+            return
+        item = index.internalPointer()
+        devpart = item.itemData[0]
+        partition = item.itemData[1]
+
+        if 'id' not in partition:
+            # Are there already partitions on this disk? If so, don't allow
+            # activating the row to offer to create a new partition table,
+            # to avoid mishaps.
+            for child in self.partition_tree_model.children():
+                data = child.itemData
+                otherpart = data[1]
+                if otherpart['dev'] == partition['dev'] and 'id' in otherpart:
+                    break
+            else:
+                if not isinstance(self.dbfilter, partman.Partman):
+                    return
+                self.allow_change_step(False)
+                self.dbfilter.create_label(devpart)
+        elif partition['parted']['fs'] == 'free':
+            if 'can_new' in partition and partition['can_new']:
+                self.partman_create_dialog(devpart, partition)
+        else:
+            self.partman_edit_dialog(devpart, partition)
 
     def on_partition_list_menu_new_label_activate(self, ticked):
         selected = self.userinterface.partition_list_treeview.selectedIndexes()
