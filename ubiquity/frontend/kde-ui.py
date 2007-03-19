@@ -1264,13 +1264,14 @@ class Wizard:
             changed_page = True
         elif str(step) == "stepPartMountpoints":
             self.qtparted_loop()
-        elif step == "stepMigrationAssistant":
+#        elif step == "stepMigrationAssistant":
+#            self.set_current_page(self.previous_partitioning_page)
+#            changed_page = True
+        elif step == "stepUserInfo":
+            # TODO cjwatson 2007-03-19: check 'UBIQUITY_MIGRATION_ASSISTANT'
+            # not in os.environ when m-a is implemented here
             self.set_current_page(self.previous_partitioning_page)
             changed_page = True
-        elif step == "stepUserInfo":
-            if 'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
-                self.set_current_page(self.previous_partitioning_page)
-                changed_page = True
         elif str(step) == "stepReady":
             self.userinterface.next.setText("Next >")
             self.translate_widget(self.userinterface.next, self.locale)
