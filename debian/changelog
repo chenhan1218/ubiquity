@@ -6,7 +6,8 @@ ubiquity (1.4.2) UNRELEASED; urgency=low
     selected to import from. (LP: #93270)
 
   [ Colin Watson ]
-  * KDE frontend: Fix backup from autopartitioning step (LP: #92533).
+  * KDE frontend:
+    - Fix backup from autopartitioning step (LP: #92533).
   * Automatic update of included source packages: console-setup 1.13ubuntu9,
     partman-auto 62ubuntu7, partman-partitioning 47ubuntu2.
 
