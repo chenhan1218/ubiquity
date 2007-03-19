@@ -1,4 +1,4 @@
-ubiquity (1.4.2) UNRELEASED; urgency=low
+ubiquity (1.4.2) feisty; urgency=low
 
   [ Evan Dandrea ]
   * Update templates for migration-assistant.
@@ -15,7 +15,7 @@ ubiquity (1.4.2) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup 1.13ubuntu9,
     partman-auto 62ubuntu7, partman-partitioning 47ubuntu2.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 16 Mar 2007 08:32:05 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 19 Mar 2007 20:39:46 +0000
 
 ubiquity (1.4.1) feisty; urgency=low
 
