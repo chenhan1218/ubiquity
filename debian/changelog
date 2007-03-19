@@ -11,6 +11,7 @@ ubiquity (1.4.2) UNRELEASED; urgency=low
     - Activate create/edit partition dialog when double-clicking a row in
       the partition list.
     - Fix backup from user/password page.
+    - Add buttons to the partition list to make it more obvious what to do.
   * Automatic update of included source packages: console-setup 1.13ubuntu9,
     partman-auto 62ubuntu7, partman-partitioning 47ubuntu2.
 

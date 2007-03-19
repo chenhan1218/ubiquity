@@ -197,6 +197,8 @@ class Wizard:
         self.autopartition_extra_buttongroup = {}
         self.autopartition_extra_buttongroup_texts = {}
 
+        self.partition_list_buttonbox = QHBoxLayout(self.userinterface.partition_list_buttons)
+
         self.qtparted_vbox = QVBoxLayout(self.userinterface.qtparted_frame)
         self.embed = None
 
@@ -1644,6 +1646,8 @@ class Wizard:
         #throwing away the old model if there is one
         self.partition_tree_model = PartitionModel(self.userinterface.partition_list_treeview)
         self.userinterface.partition_list_treeview.setModel(self.partition_tree_model)
+        self.app.disconnect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
+        self.app.connect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
         for item in cache_order:
             if item in disk_cache:
                 self.partition_tree_model.append([item, disk_cache[item]], self)
@@ -1831,6 +1835,60 @@ class Wizard:
         else:
             self.edit_dialog.partition_edit_mount_combo.setEnabled(True)
 
+    def on_partition_list_treeview_selection_changed(self, selected, deselected):
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+
+        for child in self.userinterface.partition_list_buttons.children():
+            if isinstance(child, QHBoxLayout):
+                pass
+            else:
+                self.partition_list_buttonbox.removeWidget(child)
+                child.hide()
+
+        indexes = self.userinterface.partition_list_treeview.selectedIndexes()
+        if indexes:
+            index = indexes[0]
+            item = index.internalPointer()
+            devpart = item.itemData[0]
+            partition = item.itemData[1]
+        else:
+            devpart = None
+            partition = None
+
+        for action in self.dbfilter.get_actions(devpart, partition):
+            if action == 'new_label':
+                # TODO cjwatson 2007-02-19: i18n;
+                # partman-partitioning/text/label is too long unless we can
+                # figure out how to make the row of buttons auto-wrap
+                new_label_button = QPushButton('New partition table', self.userinterface.partition_list_buttons)
+                self.app.connect(new_label_button, SIGNAL("clicked(bool)"),
+                                 self.on_partition_list_new_label_activate)
+                self.partition_list_buttonbox.addWidget(new_label_button)
+            elif action == 'new':
+                # TODO cjwatson 2007-02-19: i18n
+                new_button = QPushButton('New partition', self.userinterface.partition_list_buttons)
+                self.app.connect(new_button, SIGNAL("clicked(bool)"),
+                                 self.on_partition_list_new_activate)
+                self.partition_list_buttonbox.addWidget(new_button)
+            elif action == 'edit':
+                # TODO cjwatson 2007-02-19: i18n
+                edit_button = QPushButton('Edit partition', self.userinterface.partition_list_buttons)
+                self.app.connect(edit_button, SIGNAL("clicked(bool)"),
+                                 self.on_partition_list_edit_activate)
+                self.partition_list_buttonbox.addWidget(edit_button)
+            elif action == 'delete':
+                # TODO cjwatson 2007-02-19: i18n
+                delete_button = QPushButton('Delete partition', self.userinterface.partition_list_buttons)
+                self.app.connect(delete_button, SIGNAL("clicked(bool)"),
+                                 self.on_partition_list_delete_activate)
+                self.partition_list_buttonbox.addWidget(delete_button)
+        undo_button = QPushButton(get_string('partman/text/undo_everything',
+                                             self.locale))
+        self.app.connect(undo_button, SIGNAL("clicked(bool)"),
+                         self.on_partition_list_undo_activate)
+        self.partition_list_buttonbox.addWidget(undo_button)
+
     def on_partition_list_treeview_activated(self, index):
         if not self.allowed_change_step:
             return
@@ -1858,7 +1916,7 @@ class Wizard:
         else:
             self.partman_edit_dialog(devpart, partition)
 
-    def on_partition_list_menu_new_label_activate(self, ticked):
+    def on_partition_list_new_label_activate(self, ticked):
         selected = self.userinterface.partition_list_treeview.selectedIndexes()
         index = selected[0]
         item = index.internalPointer()
@@ -1871,7 +1929,7 @@ class Wizard:
         self.allow_change_step(False)
         self.dbfilter.create_label(devpart)
 
-    def on_partition_list_menu_new_activate(self, ticked):
+    def on_partition_list_new_activate(self, ticked):
         selected = self.userinterface.partition_list_treeview.selectedIndexes()
         index = selected[0]
         item = index.internalPointer()
@@ -1879,7 +1937,7 @@ class Wizard:
         partition = item.itemData[1]
         self.partman_create_dialog(devpart, partition)
 
-    def on_partition_list_menu_edit_activate(self, ticked):
+    def on_partition_list_edit_activate(self, ticked):
         selected = self.userinterface.partition_list_treeview.selectedIndexes()
         index = selected[0]
         item = index.internalPointer()
@@ -1887,7 +1945,7 @@ class Wizard:
         partition = item.itemData[1]
         self.partman_edit_dialog(devpart, partition)
 
-    def on_partition_list_menu_delete_activate(self, ticked):
+    def on_partition_list_delete_activate(self, ticked):
         selected = self.userinterface.partition_list_treeview.selectedIndexes()
         index = selected[0]
         item = index.internalPointer()
@@ -1900,7 +1958,7 @@ class Wizard:
         self.allow_change_step(False)
         self.dbfilter.delete_partition(devpart)
 
-    def on_partition_list_menu_undo_activate(self, ticked):
+    def on_partition_list_undo_activate(self, ticked):
         if not self.allowed_change_step:
             return
         if not isinstance(self.dbfilter, partman.Partman):
@@ -1932,28 +1990,28 @@ class Wizard:
                 # partman-partitioning/text/label text is quite long?
                 new_label_item = partition_list_menu.addAction('New partition table')
                 self.app.connect(new_label_item, SIGNAL("triggered(bool)"),
-                                 self.on_partition_list_menu_new_label_activate)
+                                 self.on_partition_list_new_label_activate)
             elif action == 'new':
                 # TODO cjwatson 2006-10-31: i18n
                 new_item = partition_list_menu.addAction('New partition')
                 self.app.connect(new_item, SIGNAL("triggered(bool)"),
-                                 self.on_partition_list_menu_new_activate)
+                                 self.on_partition_list_new_activate)
             elif action == 'edit':
                 # TODO cjwatson 2006-10-31: i18n
                 edit_item = partition_list_menu.addAction('Edit partition')
                 self.app.connect(edit_item, SIGNAL("triggered(bool)"),
-                                 self.on_partition_list_menu_edit_activate)
+                                 self.on_partition_list_edit_activate)
             elif action == 'delete':
                 # TODO cjwatson 2006-10-31: i18n
                 delete_item = partition_list_menu.addAction('Delete partition')
                 self.app.connect(delete_item, SIGNAL("triggered(bool)"),
-                                 self.on_partition_list_menu_delete_activate)
+                                 self.on_partition_list_delete_activate)
         if partition_list_menu.children():
             partition_list_menu.addSeparator()
         undo_item = partition_list_menu.addAction(
             get_string('partman/text/undo_everything', self.locale))
         self.app.connect(undo_item, SIGNAL("triggered(bool)"),
-                         self.on_partition_list_menu_undo_activate)
+                         self.on_partition_list_undo_activate)
 
         partition_list_menu.exec_(QCursor.pos())
 
