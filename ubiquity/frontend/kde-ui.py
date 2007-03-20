@@ -551,7 +551,8 @@ class Wizard:
         # widget is studied in a different manner depending on object type
         if widget.__class__ == str:
             size = float(self.size[widget.split('/')[2]])
-        elif unicode(widget.currentText()) in self.part_devices:
+        elif (unicode(widget.currentText()) in self.part_devices and
+              self.part_devices[unicode(widget.currentText())] in self.size):
             size = float(self.size[self.part_devices[unicode(widget.currentText())].split('/')[2]])
         else:
             # TODO cjwatson 2006-07-31: Why isn't it in part_devices? This

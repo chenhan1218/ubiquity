@@ -1,6 +1,8 @@
 ubiquity (1.4.3) UNRELEASED; urgency=low
 
   * New partitioner: Mark unusable free space as such (part of LP: #86202).
+  * Old partitioner: Work around yet another hard-to-explain crash due to a
+    partition being missing from /proc/partitions (LP: #73058).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 20 Mar 2007 12:31:50 +0000
 
