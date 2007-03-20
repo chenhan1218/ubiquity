@@ -1,3 +1,9 @@
+ubiquity (1.4.3) UNRELEASED; urgency=low
+
+  * New partitioner: Mark unusable free space as such (part of LP: #86202).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 20 Mar 2007 12:31:50 +0000
+
 ubiquity (1.4.2) feisty; urgency=low
 
   [ Evan Dandrea ]

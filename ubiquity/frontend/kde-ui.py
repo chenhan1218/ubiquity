@@ -2651,12 +2651,14 @@ class TreeItem:
         if 'id' not in partition:
             # whole disk
             return partition['device']
-        elif partition['parted']['fs'] == 'free':
+        elif partition['parted']['fs'] != 'free':
+            return '  %s' % partition['parted']['path']
+        elif partition['parted']['type'] == 'unusable':
+            return '  %s' % get_string('partman/text/unusable', self.locale)
+        else:
             # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
             # feels a bit too SHOUTY for this interface.
             return '  free space'
-        else:
-            return '  %s' % partition['parted']['path']
 
     def partman_column_type(self):
         partition = self.itemData[1]
