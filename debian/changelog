@@ -4,6 +4,9 @@ oem-config (1.12) UNRELEASED; urgency=low
   * Force Qt4 frontend to use Plastique instead of the default Motif style.
   * Add copyright, license and bug contact information.
 
+  [ Colin Watson ]
+  * Update other copyright notices.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 20 Mar 2007 16:27:53 +0000
 
 oem-config (1.11) feisty; urgency=low

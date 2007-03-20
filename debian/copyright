@@ -1,5 +1,7 @@
 oem-config was written by Colin Watson <cjwatson@ubuntu.com>.
-It is Copyright (C) 2005 Canonical Ltd.
+It is:
+  Copyright (C) 2005, 2006, 2007 Canonical Ltd.
+  Copyright (C) 2006, 2007 Anirudh Ramesh
 
 Some code in oem-config is borrowed from base-config, whose copyright
 declaration is as follows:
