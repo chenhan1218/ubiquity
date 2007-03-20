@@ -54,6 +54,7 @@ class Frontend:
         self.mainLoopRunning = False
         self.apply_changes = False
         self.app = QApplication([])
+        self.app.setStyle(QStyleFactory.create("Plastique"))
         self.userinterface = OEMConfUI()
         self.userinterface.setFrontend(self)
         self.userinterface.show()
