@@ -1,3 +1,11 @@
+ubiquity (1.4.3) UNRELEASED; urgency=low
+
+  * Install dummy policy-rc.d and start-stop-daemon while doing anything
+    that might install or remove packages in the target system, so that we
+    don't try to run init scripts (LP: #89463).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 20 Mar 2007 12:31:50 +0000
+
 ubiquity (1.4.2) feisty; urgency=low
 
   [ Evan Dandrea ]

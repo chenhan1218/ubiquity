@@ -693,6 +693,45 @@ class Install:
                     "Failed to detach loopback device %s" % dev)
 
 
+    def chroot_setup(self):
+        """Set up /target for safe package management operations."""
+        policy_rc_d = os.path.join(self.target, 'usr/sbin/policy-rc.d')
+        f = open(policy_rc_d, 'w')
+        print >>f, """\
+#!/bin/sh
+exit 101"""
+        f.close()
+        os.chmod(policy_rc_d, 0755)
+
+        start_stop_daemon = os.path.join(self.target, 'sbin/start-stop-daemon')
+        if os.path.exists(start_stop_daemon):
+            os.rename(start_stop_daemon, '%s.REAL' % start_stop_daemon)
+        f = open(start_stop_daemon, 'w')
+        print >>f, """\
+#!/bin/sh
+echo 1>&2
+echo 'Warning: Fake start-stop-daemon called, doing nothing.' 1>&2
+exit 0"""
+        f.close()
+        os.chmod(start_stop_daemon, 0755)
+
+        if not os.path.exists(os.path.join(self.target, 'proc/cmdline')):
+            self.chrex('mount', '-t', 'proc', 'proc', '/proc')
+        if not os.path.exists(os.path.join(self.target, 'sys/devices')):
+            self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
+
+    def chroot_cleanup(self):
+        """Undo the work done by chroot_setup."""
+        self.chrex('umount', '/sys')
+        self.chrex('umount', '/proc')
+
+        start_stop_daemon = os.path.join(self.target, 'sbin/start-stop-daemon')
+        os.rename('%s.REAL' % start_stop_daemon, start_stop_daemon)
+
+        policy_rc_d = os.path.join(self.target, 'usr/sbin/policy-rc.d')
+        os.unlink(policy_rc_d)
+
+
     def run_target_config_hooks(self):
         """Run hook scripts from /usr/lib/ubiquity/target-config. This allows
         casper to hook into us and repeat bits of its configuration in the
@@ -954,10 +993,14 @@ class Install:
         hardware system in which has been installed on and need some
         automatic configurations to get work."""
 
-        dbfilter = hw_detect.HwDetect(None, self.db)
-        ret = dbfilter.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError("HwDetect failed with code %d" % ret)
+        self.chroot_setup()
+        try:
+            dbfilter = hw_detect.HwDetect(None, self.db)
+            ret = dbfilter.run_command(auto_process=True)
+            if ret != 0:
+                raise InstallStepError("HwDetect failed with code %d" % ret)
+        finally:
+            self.chroot_cleanup()
 
         self.db.progress('INFO', 'ubiquity/install/hardware')
 
@@ -1005,9 +1048,7 @@ class Install:
         except debconf.DebconfError:
             pass
 
-        self.chrex('mount', '-t', 'proc', 'proc', '/proc')
-        self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
-
+        self.chroot_setup()
         self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
                    '--quiet', '--add', '/usr/sbin/update-initramfs')
         try:
@@ -1024,8 +1065,6 @@ class Install:
             for package in packages:
                 self.reconfigure(package)
         finally:
-            self.chrex('umount', '/proc')
-            self.chrex('umount', '/sys')
             try:
                 os.unlink('/target/usr/sbin/update-initramfs')
             except OSError:
@@ -1033,6 +1072,7 @@ class Install:
             self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
                        '--quiet', '--remove', '/usr/sbin/update-initramfs')
             self.chrex('update-initramfs', '-c', '-k', os.uname()[2])
+            self.chroot_cleanup()
 
         # Fix up kernel symlinks now that the initrd exists. Depending on
         # the architecture, these may be in / or in /boot.
@@ -1321,17 +1361,21 @@ class Install:
         installprogress = DebconfInstallProgress(
             self.db, 'ubiquity/install/title', 'ubiquity/install/apt_info',
             'ubiquity/install/apt_error_remove')
+        self.chroot_setup()
         try:
-            if not cache.commit(fetchprogress, installprogress):
-                fetchprogress.stop()
-                installprogress.finishUpdate()
+            try:
+                if not cache.commit(fetchprogress, installprogress):
+                    fetchprogress.stop()
+                    installprogress.finishUpdate()
+                    self.db.progress('STOP')
+                    return
+            except SystemError, e:
+                for line in str(e).split('\n'):
+                    syslog.syslog(syslog.LOG_ERR, line)
                 self.db.progress('STOP')
-                return
-        except SystemError, e:
-            for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_ERR, line)
-            self.db.progress('STOP')
-            raise
+                raise
+        finally:
+            self.chroot_cleanup()
         self.db.progress('SET', 5)
 
         self.db.progress('STOP')
