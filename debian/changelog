@@ -6,6 +6,7 @@ oem-config (1.12) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Update other copyright notices.
+  * Automatic update of included source packages: console-setup 1.13ubuntu9.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 20 Mar 2007 16:27:53 +0000
 
