@@ -1,4 +1,4 @@
-ubiquity (1.4.3) UNRELEASED; urgency=low
+ubiquity (1.4.3) feisty; urgency=low
 
   * Install dummy policy-rc.d and start-stop-daemon while doing anything
     that might install or remove packages in the target system, so that we
@@ -6,7 +6,7 @@ ubiquity (1.4.3) UNRELEASED; urgency=low
   * Automatic update of included source packages: partman-partitioning
     47ubuntu3.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 20 Mar 2007 12:31:50 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 21 Mar 2007 13:55:56 +0000
 
 ubiquity (1.4.2) feisty; urgency=low
 
