@@ -193,6 +193,7 @@ class Wizard:
         self.autopartition_vbox = QVBoxLayout(self.userinterface.autopartition_frame)
         self.autopartition_buttongroup = QButtonGroup(self.userinterface.autopartition_frame)
         self.autopartition_buttongroup_texts = {}
+        self.autopartition_handlers = {}
         self.autopartition_extras = {}
         self.autopartition_extra_buttongroup = {}
         self.autopartition_extra_buttongroup_texts = {}
@@ -1612,12 +1613,16 @@ class Wizard:
                     disk_frame.show()
                     self.autopartition_extras[choice] = disk_frame
 
-            # TODO cjwatson 2006-12-09: The lambda never seems to get
-            # called? Make sure not to disable things until this is fixed.
-            #self.on_autopartition_toggled(choice, button.isChecked())
-            #self.app.connect(button, SIGNAL('toggled(bool)'),
-            #                 lambda enable:
-            #                     self.on_autopartition_toggled(choice, enable))
+            def make_on_autopartition_toggled_slot(choice):
+                def slot(enable):
+                    return self.on_autopartition_toggled(choice, enable)
+                return slot
+
+            self.on_autopartition_toggled(choice, button.isChecked())
+            self.autopartition_handlers[choice] = \
+                make_on_autopartition_toggled_slot(choice)
+            self.app.connect(button, SIGNAL('toggled(bool)'),
+                             self.autopartition_handlers[choice])
 
             button.show()
             idCounter += 1
