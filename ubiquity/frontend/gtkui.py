@@ -598,7 +598,8 @@ class Wizard:
         # widget is studied in a different manner depending on object type
         if widget.__class__ == str:
             size = float(self.size[widget.split('/')[2]])
-        elif widget.get_active_text() in self.part_devices:
+        elif (widget.get_active_text() in self.part_devices and
+              self.part_devices[widget.get_active_text()] in self.size):
             size = float(self.size[self.part_devices[widget.get_active_text()].split('/')[2]])
         else:
             # TODO cjwatson 2006-07-31: Why isn't it in part_devices? This
@@ -2047,12 +2048,15 @@ class Wizard:
         if 'id' not in partition:
             # whole disk
             cell.set_property('text', partition['device'])
-        elif partition['parted']['fs'] == 'free':
+        elif partition['parted']['fs'] != 'free':
+            cell.set_property('text', '  %s' % partition['parted']['path'])
+        elif partition['parted']['type'] == 'unusable':
+            unusable = get_string('partman/text/unusable', self.locale)
+            cell.set_property('text', '  %s' % unusable)
+        else:
             # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
             # feels a bit too SHOUTY for this interface.
             cell.set_property('text', '  free space')
-        else:
-            cell.set_property('text', '  %s' % partition['parted']['path'])
 
     def partman_column_type (self, column, cell, model, iterator):
         partition = model[iterator][1]
