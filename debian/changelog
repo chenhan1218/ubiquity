@@ -7,6 +7,8 @@ ubiquity (1.4.4) UNRELEASED; urgency=low
     - Disable subsidiary autopartitioning options according to the primary
       selection (thanks to Thorbjørn Tux for prompting me with suggestions;
       LP: #85980).
+    - Guard against on_partition_list_*_activate being called with no
+      partition selected (LP: #95429).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 21 Mar 2007 15:34:17 +0000
 

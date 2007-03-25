@@ -1924,6 +1924,8 @@ class Wizard:
 
     def on_partition_list_new_label_activate(self, ticked):
         selected = self.userinterface.partition_list_treeview.selectedIndexes()
+        if not selected:
+            return
         index = selected[0]
         item = index.internalPointer()
         devpart = item.itemData[0]
@@ -1937,6 +1939,8 @@ class Wizard:
 
     def on_partition_list_new_activate(self, ticked):
         selected = self.userinterface.partition_list_treeview.selectedIndexes()
+        if not selected:
+            return
         index = selected[0]
         item = index.internalPointer()
         devpart = item.itemData[0]
@@ -1945,6 +1949,8 @@ class Wizard:
 
     def on_partition_list_edit_activate(self, ticked):
         selected = self.userinterface.partition_list_treeview.selectedIndexes()
+        if not selected:
+            return
         index = selected[0]
         item = index.internalPointer()
         devpart = item.itemData[0]
@@ -1953,6 +1959,8 @@ class Wizard:
 
     def on_partition_list_delete_activate(self, ticked):
         selected = self.userinterface.partition_list_treeview.selectedIndexes()
+        if not selected:
+            return
         index = selected[0]
         item = index.internalPointer()
         devpart = item.itemData[0]
