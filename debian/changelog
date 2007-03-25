@@ -3,9 +3,10 @@ ubiquity (1.4.4) UNRELEASED; urgency=low
   * New partitioner: Mark unusable free space as such (part of LP: #86202).
   * Old partitioner: Work around yet another hard-to-explain crash due to a
     partition being missing from /proc/partitions (LP: #73058).
-  * KDE frontend: Disable subsidiary autopartitioning options according to
-    the primary selection (thanks to Thorbjørn Tux for prompting me with
-    suggestions; LP: #85980).
+  * KDE frontend:
+    - Disable subsidiary autopartitioning options according to the primary
+      selection (thanks to Thorbjørn Tux for prompting me with suggestions;
+      LP: #85980).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 21 Mar 2007 15:34:17 +0000
 
