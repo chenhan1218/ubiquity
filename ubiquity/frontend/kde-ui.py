@@ -2530,6 +2530,7 @@ class PartitionModel(QAbstractItemModel):
         rootData.append(QVariant("Mount point"))
         rootData.append(QVariant("Format?"))
         rootData.append(QVariant("Size"))
+        rootData.append(QVariant("Used"))
         self.rootItem = TreeItem(rootData)
 
     def append(self, data, ubiquity):
@@ -2640,7 +2641,7 @@ class TreeItem:
         if self.parentItem is None:
             return len(self.itemData)
         else:
-            return 4
+            return 5
 
     def data(self, column):
         if self.parentItem is None:
@@ -2655,6 +2656,8 @@ class TreeItem:
             return QVariant(self.partman_column_format())
         elif column == 4:
             return QVariant(self.partman_column_size())
+        elif column == 5:
+            return QVariant(self.partman_column_used())
         else:
             return QVariant("other")
 
@@ -2750,4 +2753,17 @@ class TreeItem:
             # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
             # partman expects.
             size_mb = int(partition['parted']['size']) / 1000000
+            return '%d MB' % size_mb
+
+    def partman_column_used(self):
+        partition = self.itemData[1]
+        if 'id' not in partition or partition['parted']['fs'] == 'free':
+            return ''
+        elif 'resize_min_size' not in partition:
+            # TODO cjwatson 2007-03-26: i18n
+            return 'unknown'
+        else:
+            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
+            # partman expects.
+            size_mb = int(partition['resize_min_size']) / 1000000
             return '%d MB' % size_mb

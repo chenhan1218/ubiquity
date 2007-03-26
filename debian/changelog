@@ -2,6 +2,7 @@ ubiquity (1.4.4) UNRELEASED; urgency=low
 
   * New partitioner:
     - Mark unusable free space as such (part of LP: #86202).
+    - Add "Used" column (LP: #96126).
   * Old partitioner: Work around yet another hard-to-explain crash due to a
     partition being missing from /proc/partitions (LP: #73058).
   * KDE frontend:

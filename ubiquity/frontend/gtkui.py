@@ -2123,6 +2123,19 @@ class Wizard:
             size_mb = int(partition['parted']['size']) / 1000000
             cell.set_property('text', '%d MB' % size_mb)
 
+    def partman_column_used (self, column, cell, model, iterator):
+        partition = model[iterator][1]
+        if 'id' not in partition or partition['parted']['fs'] == 'free':
+            cell.set_property('text', '')
+        elif 'resize_min_size' not in partition:
+            # TODO cjwatson 2007-03-26: i18n
+            cell.set_property('text', 'unknown')
+        else:
+            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
+            # partman expects.
+            size_mb = int(partition['resize_min_size']) / 1000000
+            cell.set_property('text', '%d MB' % size_mb)
+
     def partman_popup (self, widget, event):
         if not self.allowed_change_step:
             return
@@ -2564,6 +2577,12 @@ class Wizard:
             column_size.set_cell_data_func(cell_size, self.partman_column_size)
             column_size.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
             self.partition_list_treeview.append_column(column_size)
+
+            cell_used = gtk.CellRendererText()
+            column_used = gtk.TreeViewColumn("Used", cell_used)
+            column_used.set_cell_data_func(cell_used, self.partman_column_used)
+            column_used.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_used)
 
             self.partition_list_treeview.set_model(partition_tree_model)
 
