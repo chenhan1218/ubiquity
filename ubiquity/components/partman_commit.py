@@ -164,7 +164,7 @@ class PartmanCommit(FilteredCommand):
                 answer = not answer_reversed
                 self.succeeded = False
                 self.done = True
-                self.frontend.return_to_autopartitioning()
+                self.frontend.return_to_partitioning()
             if answer:
                 self.preseed(question, 'true')
             else:
