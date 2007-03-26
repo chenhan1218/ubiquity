@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-16 08:34+0000\n"
+"POT-Creation-Date: 2007-03-26 13:28+0100\n"
 "PO-Revision-Date: 2006-10-05 05:49+0000\n"
 "Last-Translator: Xu Zehua <hhhpppsss1@hotmail.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -255,9 +255,11 @@ msgstr "准备分区"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
+#, fuzzy
 msgid ""
-"Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 2 GB, and a swap partition of at least 256 MB."
+"You need to specify a partition for the root file system (mount point \"/\") "
+"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
+"may also set up other partitions if you wish."
 msgstr "请确认根目录\"/\"至少有2GB的空间,同时交换分区有至少256MB的空间"
 
 #. Type: text
@@ -391,8 +393,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
+#, fuzzy
 msgid ""
-"Make sure to remove the CD when restarting the computer, otherwise it will "
+"Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
 "当你重新启动的时候请确认CD已经拿, 否则将会再次启动LIVE CD 而不是新安装的系统"

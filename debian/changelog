@@ -16,6 +16,9 @@ ubiquity (1.4.4) UNRELEASED; urgency=low
   * Avoid crashing in certain progressposition methods if no progress bar is
     running (LP: #51077).
   * Return to partitioning if you back up from partman-commit (LP: #78930).
+  * Adjust ubiquity/text/partition_help, ubiquity/text/finished_label,
+    debian/intro-alpha.txt, and debian/intro-beta.txt to avoid the
+    grammatical error "make sure to" (LP: #86284).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 21 Mar 2007 15:34:17 +0000
 

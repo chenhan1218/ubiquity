@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-16 08:34+0000\n"
+"POT-Creation-Date: 2007-03-26 13:28+0100\n"
 "PO-Revision-Date: 2006-09-18 17:07+0000\n"
 "Last-Translator: Aldous D. Peñaranda <adpenaranda@gmail.com>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
@@ -266,9 +266,11 @@ msgstr "Ihanda ang mga partition"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
+#, fuzzy
 msgid ""
-"Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 2 GB, and a swap partition of at least 256 MB."
+"You need to specify a partition for the root file system (mount point \"/\") "
+"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
+"may also set up other partitions if you wish."
 msgstr ""
 "Siguruhing makapagtabi ng lugar para sa root partition (\"/\"), na may "
 "pinakamaliit na laking 2 GB at isang swap partition na higit sa 256 MB."
@@ -409,8 +411,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
+#, fuzzy
 msgid ""
-"Make sure to remove the CD when restarting the computer, otherwise it will "
+"Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
 "Siguraduhing alisin ang CD kapag i-restart ang kompyuter dahil ang kompyuter "

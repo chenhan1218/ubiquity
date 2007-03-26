@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ta(debinst)\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-16 08:34+0000\n"
+"POT-Creation-Date: 2007-03-26 13:28+0100\n"
 "PO-Revision-Date: 2006-10-04 05:04+0000\n"
 "Last-Translator: drtvasudevan <agnihot3@gmail.com>\n"
 "Language-Team: tamil <Ubuntu-l10n-tam@lists.ubuntu.com>\n"
@@ -262,9 +262,11 @@ msgstr "பகிர்வுகளை தயாரி"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
+#, fuzzy
 msgid ""
-"Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 2 GB, and a swap partition of at least 256 MB."
+"You need to specify a partition for the root file system (mount point \"/\") "
+"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
+"may also set up other partitions if you wish."
 msgstr ""
 "குறைந்தது 2 GB அளவு உள்ள மூல (ரூட்) பகிர்வு \"/\"),  உருவாக்கவும்.இட மாற்றுக்கு "
 "(swap) குறைந்தது 256 MB. அளவு உடைய பகிர்வு உருவாக்கவும்."
@@ -403,8 +405,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
+#, fuzzy
 msgid ""
-"Make sure to remove the CD when restarting the computer, otherwise it will "
+"Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
 "கணினியை மறு துவக்கம் செய்யும் போது நிறுவா குறுந் தட்டை எடுத்து விடவும். இல்லாவிடில் "

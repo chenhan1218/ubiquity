@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-16 08:34+0000\n"
+"POT-Creation-Date: 2007-03-26 13:28+0100\n"
 "PO-Revision-Date: 2006-10-12 06:21+0000\n"
 "Last-Translator: ElîxanLoran <elixanloran@hotmail.com>\n"
 "Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
@@ -264,9 +264,11 @@ msgstr "Partisyonan amade bike"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
+#, fuzzy
 msgid ""
-"Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 2 GB, and a swap partition of at least 256 MB."
+"You need to specify a partition for the root file system (mount point \"/\") "
+"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
+"may also set up other partitions if you wish."
 msgstr ""
 "Bi xwe bawer bî ku te ji bo beşa kok (\"/\") herî kêm 2 GB û ji bo beşa "
 "pevguhartinê jî herî kêm 256 MB cih veqetandibe."
@@ -405,8 +407,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
+#, fuzzy
 msgid ""
-"Make sure to remove the CD when restarting the computer, otherwise it will "
+"Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
 "CD'ê ji komputerê derxe, heke dernexî dê komputer bi CD'a zindî bê "
