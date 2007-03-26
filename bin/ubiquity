@@ -158,6 +158,12 @@ def main():
     if options.migration_assistant:
         os.environ['UBIQUITY_MIGRATION_ASSISTANT'] = '1'
 
+    if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
+        try:
+            del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
+        except KeyError:
+            pass
+
     acquire_lock()
 
     if not os.path.exists('/var/log/installer'):
