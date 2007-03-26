@@ -23,6 +23,9 @@ ubiquity (1.4.4) UNRELEASED; urgency=low
   * Adjust ubiquity/text/partition_help, ubiquity/text/finished_label,
     debian/intro-alpha.txt, and debian/intro-beta.txt to avoid the
     grammatical error "make sure to" (LP: #86284).
+  * Automatic update of included source packages: base-installer
+    1.70ubuntu6, partman-auto 62ubuntu8, partman-partitioning 47ubuntu5,
+    silo-installer 1.07ubuntu4.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 21 Mar 2007 15:34:17 +0000
 
