@@ -9,6 +9,8 @@ ubiquity (1.4.4) UNRELEASED; urgency=low
       LP: #85980).
     - Guard against on_partition_list_*_activate being called with no
       partition selected (LP: #95429).
+  * Issue a debugging message any time a process exits, not just when it
+    exits non-zero.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 21 Mar 2007 15:34:17 +0000
 
