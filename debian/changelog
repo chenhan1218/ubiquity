@@ -1,4 +1,4 @@
-ubiquity (1.4.4) UNRELEASED; urgency=low
+ubiquity (1.4.4) feisty; urgency=low
 
   * New partitioner:
     - Mark unusable free space as such (part of LP: #86202).
@@ -27,7 +27,7 @@ ubiquity (1.4.4) UNRELEASED; urgency=low
     1.70ubuntu6, partman-auto 62ubuntu8, partman-partitioning 47ubuntu5,
     silo-installer 1.07ubuntu4.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 21 Mar 2007 15:34:17 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 26 Mar 2007 18:39:53 +0100
 
 ubiquity (1.4.3) feisty; urgency=low
 
