@@ -13,6 +13,8 @@ ubiquity (1.4.4) UNRELEASED; urgency=low
     exits non-zero.
   * Disable migration-assistant if using the old partitioner: it crashes and
     is probably too much trouble to fix.
+  * Avoid crashing in certain progressposition methods if no progress bar is
+    running (LP: #51077).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 21 Mar 2007 15:34:17 +0000
 

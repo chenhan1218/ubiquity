@@ -63,6 +63,9 @@ class ProgressPosition(object):
         return len(self.positions)
 
     def fraction(self):
+        if not self.positions:
+            # progress bar not started
+            return 0.0
         if self.positions[0][0] == self.positions[0][1]:
             # Somebody screwed up when creating this bar. Deal.
             return 0.0
@@ -77,4 +80,7 @@ class ProgressPosition(object):
         return fraction
 
     def title(self):
+        if not self.positions:
+            # progress bar not started
+            return ''
         return self.positions[0][4]
