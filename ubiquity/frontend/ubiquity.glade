@@ -2592,6 +2592,7 @@ Be sure to remove the CD when restarting the computer, otherwise it will start b
                             <child internal-child="entry">
                               <widget class="GtkEntry" id="comboboxentry-entry1">
                                 <property name="visible">True</property>
+                                <property name="activates_default">True</property>
                               </widget>
                             </child>
                           </widget>
@@ -2872,6 +2873,7 @@ Be sure to remove the CD when restarting the computer, otherwise it will start b
                             <child internal-child="entry">
                               <widget class="GtkEntry" id="comboboxentry-entry2">
                                 <property name="visible">True</property>
+                                <property name="activates_default">True</property>
                               </widget>
                             </child>
                           </widget>
