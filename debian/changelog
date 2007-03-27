@@ -1,3 +1,9 @@
+ubiquity (1.4.5) UNRELEASED; urgency=low
+
+  * Handle migration-assistant/failed-unmount being asked from ma-apply.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 27 Mar 2007 18:22:15 +0100
+
 ubiquity (1.4.4) feisty; urgency=low
 
   * New partitioner:
