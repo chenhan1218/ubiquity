@@ -429,6 +429,46 @@ Type: error
 _Description: Error removing ${PACKAGE}
  ${MESSAGE}
 
+Template: ubiquity/install/broken_install
+Type: error
+#flag:translate!:3,5
+_Description: Error while installing packages
+ An error occurred while installing packages:
+ .
+ ${ERROR}
+ .
+ The following packages are in a broken state:
+ .
+ ${PACKAGES}
+ .
+ This may be due to using an old installer image, or it may be due to a bug
+ in some of the packages listed above. More details may be found in
+ /var/log/syslog. The installer will try to continue anyway, but may fail at
+ a later point, and will not be able to install or remove other packages
+ (possibly including itself) from the installed system. You should first
+ look for newer versions of your installer image, or failing that report the
+ problem to your distributor.
+
+Template: ubiquity/install/broken_remove
+Type: error
+#flag:translate!:3,5
+_Description: Error while removing packages
+ An error occurred while removing packages:
+ .
+ ${ERROR}
+ .
+ The following packages are in a broken state:
+ .
+ ${PACKAGES}
+ .
+ This may be due to using an old installer image, or it may be due to a bug
+ in some of the packages listed above. More details may be found in
+ /var/log/syslog. The installer will try to continue anyway, but may fail at
+ a later point, and will not be able to install or remove other packages
+ (possibly including itself) from the installed system. You should first
+ look for newer versions of your installer image, or failing that report the
+ problem to your distributor.
+
 Template: ubiquity/langpacks/title
 Type: title
 _Description: Installing language packs

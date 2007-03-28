@@ -1,6 +1,10 @@
 ubiquity (1.4.5) UNRELEASED; urgency=low
 
   * Handle migration-assistant/failed-unmount being asked from ma-apply.
+  * If installing or removing packages fails, then display a helpful error
+    message and try to continue rather than crashing; furthermore, avoid
+    installing language packs or removing packages when there are broken
+    packages on the target system (LP: #54282, #69470, #80938).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 27 Mar 2007 18:22:15 +0100
 
