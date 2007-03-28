@@ -42,7 +42,7 @@ class UserSetup(FilteredCommand):
                 self.frontend.set_username(value)
 
     def ok_handler(self):
-	fullname = self.frontend.get_fullname()
+        fullname = self.frontend.get_fullname()
         username = self.frontend.get_username()
         password = self.frontend.get_password()
         password_confirm = self.frontend.get_verified_password()
