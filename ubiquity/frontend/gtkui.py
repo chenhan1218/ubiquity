@@ -45,6 +45,7 @@ import math
 import traceback
 import syslog
 import atexit
+import signal
 import xml.sax.saxutils
 
 import gettext
@@ -683,6 +684,10 @@ class Wizard:
             self.installing = False
             if ret == 3:
                 # error already handled by Install
+                sys.exit(ret)
+            elif (os.WIFSIGNALED(ret) and
+                  os.WTERMSIG(ret) in (signal.SIGINT, signal.SIGKILL,
+                                       signal.SIGTERM)):
                 sys.exit(ret)
             elif os.path.exists('/var/lib/ubiquity/install.trace'):
                 tbfile = open('/var/lib/ubiquity/install.trace')
