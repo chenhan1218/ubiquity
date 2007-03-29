@@ -687,7 +687,10 @@ class Partman(PartmanAuto):
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
         elif question == 'partman-partitioning/confirm_resize':
-            if self.building_cache:
+            if self.autopartition_question is not None:
+                # PartmanAuto will handle this.
+                pass
+            elif self.building_cache:
                 state = self.__state[-1]
                 assert state[0] == 'partman/active_partition'
                 # Proceed through to asking for the size; don't worry, we'll

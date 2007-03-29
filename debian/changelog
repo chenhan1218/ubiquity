@@ -7,6 +7,8 @@ ubiquity (1.4.5) UNRELEASED; urgency=low
     packages on the target system (LP: #54282, #69470, #80938).
   * Don't crash if Install exits due to SIGINT, SIGTERM, or SIGKILL, since
     these are probably user-generated.
+  * Prepare for partman-partitioning/confirm_resize being asked during
+    autopartitioning (partman-auto 62ubuntu9).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 27 Mar 2007 18:22:15 +0100
 
