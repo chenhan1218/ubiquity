@@ -15,6 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:20+0000\n"
 
 #. Type: text
 #. Description
@@ -396,13 +397,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Bezit sur eo bet kaset ar CD er-maez a-raok adloc'hañ an urzhiataer, pe ec'h "
-"adloc'ho  war ar CD live e-lec'h implij ar sistem nevez-staliet."
 
 #. Type: text
 #. Description
@@ -736,9 +734,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "O seveniñ ${SCRIPT}..."
-
-#~ msgid "Set Time..."
-#~ msgstr "Lakaat an Eur..."

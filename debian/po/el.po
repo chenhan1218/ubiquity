@@ -1,21 +1,19 @@
-# translation of del.po to Greek
 # Greek messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
-# Kostas Papadimas <pkst@gnome.org>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: del\n"
+"Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-10-12 08:16+0000\n"
-"Last-Translator: Kostas Papadimas <pkst@gmx.net>\n"
-"Language-Team: Greek <team@gnome.gr>\n"
+"PO-Revision-Date: 2007-03-22 19:20+0000\n"
+"Last-Translator: yODesY <yodesy@quad-nrg.net>\n"
+"Language-Team: el <debian-l10n-greek@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:19+0000\n"
 
 #. Type: text
 #. Description
@@ -270,14 +268,11 @@ msgstr "Προετοιμασία τμημάτων"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
-"Βεβαιωθείτε ότι έχετε διαθέσει αρκετό χώρο στο τμήμα root  (\"/\"), με "
-"ελάχιστο μέγεθος του 2 GB, και ενός τμήματος swap τουλάχιστον 256 MB."
 
 #. Type: text
 #. Description
@@ -417,13 +412,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Βεβαιωθείτε ότι αφαιρέσατε το CD όταν επανεκκινήσετε τον υπολογιστή, αλλιώς "
-"θα χρησιμοποιείτε πάλι το live CD και όχι το νέο σας σύστημα."
 
 #. Type: text
 #. Description
@@ -742,7 +734,7 @@ msgstr "Λήψη πακέτων γλωσσικής υποστήριξης (${TIM
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Σφάλμα κατά την αποπροσάρτηση των τμημάτων"
 
 #. Type: boolean
 #. Description
@@ -779,15 +771,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Εκτελείται το ${SCRIPT}..."
-
-#~ msgid "GRUB will be installed to DEVICE"
-#~ msgstr "Ο GRUB θα εγκατασταθεί στο DEVICE"
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Επιλέξτε μια πόλη στην χρονική σας ζώνη:"
-
-#~ msgid "Set Time..."
-#~ msgstr "Ορισμός ώρας..."

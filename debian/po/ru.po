@@ -7,12 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-10-11 09:47+0000\n"
+"PO-Revision-Date: 2007-03-27 03:19+0000\n"
 "Last-Translator: Igor Zubarev <igor4u@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:19+0000\n"
 
 #. Type: text
 #. Description
@@ -61,12 +62,14 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"Если у вас есть доступ в сеть интернет, прочтите информацию о проблемах, с "
+"которыми вы можете столкнуться, в сведениях о релизе."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Release Notes"
-msgstr ""
+msgstr "Сведения о релизе"
 
 #. Type: text
 #. Description
@@ -82,6 +85,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Выберите город в вашей стране и часовой пояс. Если текущее время "
+"показывается некорректно даже после выбора правильного часового пояса, вы "
+"сможете его настроить после загрузки в установленную систему."
 
 #. Type: text
 #. Description
@@ -163,7 +169,7 @@ msgstr "Придумайте пароль чтобы держать вашу з�
 #. Description
 #: ../ubiquity.templates:21001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "Система запущена в отладочном режиме. Не используйте важных паролей!"
 
 #. Type: text
 #. Description
@@ -190,7 +196,7 @@ msgstr "Это имя будет использовано, если вы сде�
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "Миграция документов и настроек"
 
 #. Type: text
 #. Description
@@ -200,6 +206,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"Выберите учетные записи, которые вы хотите импортировать и заполните форму "
+"для каждой. Документы и установки для этих учетных записей будут доступны "
+"после завершения установки."
 
 #. Type: text
 #. Description
@@ -208,36 +217,38 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Если вы не желаете импортировать учетные записи, не выбирайте ничего и "
+"переходите на следующую страницу."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "Создать пользователя для импортирования выделенной учетной записи:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Full Name:"
-msgstr ""
+msgstr "Полное имя:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Login Name:"
-msgstr ""
+msgstr "Имя пользователя:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Password:"
-msgstr ""
+msgstr "Пароль:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Confirm:"
-msgstr ""
+msgstr "Подтвердите:"
 
 #. Type: text
 #. Description
@@ -260,14 +271,11 @@ msgstr "Подготовка разделов диска"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
-"Убедитесь что корневой раздел (\"/\") размером минимум 2 GB, а раздел под "
-"своп хотя бы 256 MB."
 
 #. Type: text
 #. Description
@@ -344,7 +352,7 @@ msgstr "Ваша новая операционная система устано
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Boot loader"
-msgstr ""
+msgstr "Загрузчик"
 
 #. Type: text
 #. Description
@@ -404,13 +412,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Убедитесь, что вы извлекли CD до перезагрузки. Иначе компьютер снова "
-"загрузится, используя этот LiveCD, а не вновь установленную системы."
 
 #. Type: text
 #. Description
@@ -429,7 +434,6 @@ msgstr "Продолжить"
 #. Type: note
 #. Description
 #: ../ubiquity.templates:56001
-#, fuzzy
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -443,7 +447,9 @@ msgstr ""
 " Раскладка клавиатуры: ${KEYMAP}\n"
 " Имя: ${FULLNAME}\n"
 " Логин: ${USERNAME}\n"
-" Расположение: ${LOCATION}"
+" Расположение: ${LOCATION}\n"
+" Помощь в миграции:\n"
+" ${MIGRATE}"
 
 #. Type: title
 #. Description
@@ -558,7 +564,7 @@ msgstr "Копирование лога установки..."
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Настройка целевой системы..."
 
 #. Type: text
 #. Description
@@ -594,7 +600,7 @@ msgstr "Создание пользователя..."
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Импорт документов и настроек..."
 
 #. Type: text
 #. Description
@@ -725,7 +731,7 @@ msgstr "Загрузка языковых пакетов (осталось ${TIM
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Не удалось размонтировать разделы"
 
 #. Type: boolean
 #. Description
@@ -734,24 +740,29 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Установщик должен применить изменения к разделам, но не может этого сделать "
+"из-за невозможности отмонтирования разделов на следующих точках монтирования:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
 msgstr ""
+"Пожалуйста, закройте все приложения, использующие следующие точки "
+"монтирования:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
+"Вы хотите, чтобы установщик еще раз попытался отмонтировать эти разделы?"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:94001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Системный раздел не отформатирован"
 
 #. Type: error
 #. Description
@@ -762,15 +773,8 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Запуск ${SCRIPT}..."
-
-#~ msgid "GRUB will be installed to DEVICE"
-#~ msgstr "GRUB будет установлен на DEVICE"
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Выберите ваш город и часовой пояс."
-
-#~ msgid "Set Time..."
-#~ msgstr "Установить время..."
+"Файловая система на ${PARTITION}, подключаемая на ${MOUNTPOINT}, не была "
+"отмечена для форматирования. Для работы данной программы установки файловые "
+"системы, использующиеся системой (/, /boot, /usr, /var), должны быть "
+"переформатированы. Другие файловые системы (/home, /media/*, /usr/local, "
+"etc.) могут быть использованы без переформатирования."

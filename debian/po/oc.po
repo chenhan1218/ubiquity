@@ -10,13 +10,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-10-08 17:56+0000\n"
+"PO-Revision-Date: 2007-03-22 20:16+0000\n"
 "Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannick.marchegay@lokanova."
 "com>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:18+0000\n"
 
 #. Type: text
 #. Description
@@ -65,12 +66,14 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"Se avètz un accès a internet, legissètz las nòtas de version per obténer "
+"d'informacions suls problemas que vos pòdon tocar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Release Notes"
-msgstr ""
+msgstr "Nòtas de version"
 
 #. Type: text
 #. Description
@@ -86,6 +89,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Causissètz vòstre país e lo fus orari. Se l'ora visualizada es pas corrècta "
+"(e mai aprèp la causida del fus orari), la poiretz cambiar quand tornaretz "
+"aviar dins lo sistèma installat."
 
 #. Type: text
 #. Description
@@ -115,7 +121,7 @@ msgstr "Ora actuala :"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Keyboard layout"
-msgstr "Disposicion del clavièr"
+msgstr "Dispausicion del clavièr"
 
 #. Type: text
 #. Description
@@ -128,7 +134,8 @@ msgstr "Que disposicion sembla mai al vòstre clavièr ?"
 #: ../ubiquity.templates:15001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
-"Podètz picar dins la zòna de tèxt per testar la nòva disposicion del clavièr."
+"Podètz picar dins la zòna de tèxt per testar la nòva dispausicion del "
+"clavièr."
 
 #. Type: text
 #. Description
@@ -198,7 +205,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "Migracion dels documents e dels paramètres"
 
 #. Type: text
 #. Description
@@ -227,25 +234,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Full Name:"
-msgstr ""
+msgstr "No complet :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Login Name:"
-msgstr ""
+msgstr "Nom de connexion :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Password:"
-msgstr ""
+msgstr "Mot de pas :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Confirm:"
-msgstr ""
+msgstr "Confirmar :"
 
 #. Type: text
 #. Description
@@ -350,7 +357,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Boot loader"
-msgstr ""
+msgstr "Gestionari d'aviada"
 
 #. Type: text
 #. Description
@@ -409,14 +416,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Asseguratz-vos de levar lo CD abans de tornar aviar l'ordenador ; si que non "
-"lo live CD s'executarà e poirètz pas utilisar lo sistèma que venètz "
-"d'installar."
 
 #. Type: text
 #. Description
@@ -435,7 +438,6 @@ msgstr "Contunhar"
 #. Type: note
 #. Description
 #: ../ubiquity.templates:56001
-#, fuzzy
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -446,10 +448,12 @@ msgid ""
 " ${MIGRATE}"
 msgstr ""
 " Lenga : ${LANGUAGE}\n"
-" Clavièr: ${KEYMAP}\n"
+" Disposicion de clavièr : ${KEYMAP}\n"
 " Nom : ${FULLNAME}\n"
-" Nom d'usancièr : ${USERNAME}\n"
-" Emplaçament : ${LOCATION}"
+" Nom de connexion : ${USERNAME}\n"
+" Emplaçament : ${LOCATION}\n"
+" Assistant de migracion :\n"
+" ${MIGRATE}"
 
 #. Type: title
 #. Description
@@ -479,13 +483,13 @@ msgstr "Còpia dels fichièrs..."
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Còpia de fichièrs (mens d'una minuta restanta)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Impossible de copiar los fichièrs ; CD/DVD defectuós ?"
 
 #. Type: error
 #. Description
@@ -497,6 +501,8 @@ msgstr ""
 #: ../ubiquity.templates:65001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
+"Lo programa d'installacion a encontrat una error al moment de copiar de "
+"fichièrs sul disc dur :"
 
 #. Type: error
 #. Description
@@ -507,12 +513,16 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Aquesta error es sovent deguda a un CD/DVD o un disc defectuós. Pòt ajudar "
+"d'engravar lo CD/DVD a una pichòta velocitat  o de netejar la lent del "
+"legidor de CD/DVD (de lòts de netejatge son sovent disponibles en çò de "
+"vendedors d'electronic)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Impossible de copiar los fichièrs ; disc dur defectuós ?"
 
 #. Type: error
 #. Description
@@ -522,12 +532,15 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Aquesta error es sovent deguda a un disc dur defectuós. Pòt ajudar de "
+"verificar si lo disc dur es vielh e que lo debètz remplaçar o s'es necessari "
+"de desplaçar lo sistèma dins un environament melhor."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Impossible de copiar los fichièrs ; CD/DVD o disc dur defectuós ?"
 
 #. Type: error
 #. Description
@@ -541,6 +554,11 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Aquesta error es sovent deguda a un CD/DVD o un disc defectuós. Pòt ajudar "
+"d'engravar lo CD/DVD a una pichòta velocitat  o de netejar la lent del "
+"legidor de CD/DVD (de lòts de netejatge son sovent disponibles en çò de "
+"vendedors d'electronic), de verificar se lo disc dur es vielh e deu èsser "
+"remplaçat o de desplaçar lo sistèma dins un environament melhor"
 
 #. Type: text
 #. Description
@@ -582,13 +600,13 @@ msgstr "Configuracion del clavièr..."
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Creating user..."
-msgstr "Creacion d'un usancièr..."
+msgstr "Creacion d'un utilizaire..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Importacion de documents e de paramètres..."
 
 #. Type: text
 #. Description
@@ -713,13 +731,13 @@ msgstr "Installacion dels paquetatges de lenga"
 #. Description
 #: ../ubiquity.templates:89001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Telecarga dels paquetatges de lenga (resta ${TIME})..."
+msgstr "Telecarga dels paquetatges de lenga (demòran ${TIME})..."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Impossible de desmontar particions"
 
 #. Type: boolean
 #. Description
@@ -756,15 +774,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Execucion de ${SCRIPT}..."
-
-#~ msgid "GRUB will be installed to DEVICE"
-#~ msgstr "GRUB serà installat sus DEVICE"
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Seleccionatz una ciutat dins su païs e son fus orari."
-
-#~ msgid "Set Time..."
-#~ msgstr "Reglar l'ora..."

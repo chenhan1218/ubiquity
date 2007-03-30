@@ -8,11 +8,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
 "PO-Revision-Date: 2006-09-07 20:26+0000\n"
-"Last-Translator: Dafydd Harries <daf@canonical.com>\n"
+"Last-Translator: Dafydd Harries <daf@rhydd.org>\n"
 "Language-Team: Welsh <daf@muse.19inch.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:19+0000\n"
 
 #. Type: text
 #. Description
@@ -693,7 +694,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Methwyd datglymu rhaniadau"
 
 #. Type: boolean
 #. Description
@@ -730,6 +731,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Yn rhedeg ${SCRIPT}..."

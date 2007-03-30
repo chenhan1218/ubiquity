@@ -7,12 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-09-07 20:55+0000\n"
-"Last-Translator: Bjørn Steensrud <bjornst@powertech.no>\n"
+"PO-Revision-Date: 2007-03-27 17:58+0000\n"
+"Last-Translator: Tommy Mikkelsen <tamikkelsen@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:19+0000\n"
 
 #. Type: text
 #. Description
@@ -61,12 +62,14 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"Hvis du har tilgang til Internet bør du lese informasjonen om problemer som "
+"kan oppstå."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Release Notes"
-msgstr ""
+msgstr "Utgivelsesinformasjon"
 
 #. Type: text
 #. Description
@@ -82,6 +85,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Velg en by i ditt land og tidssone. Hvis den viste tiden er feil, selv etter "
+"å ha valgt den riktige tidssonen så kan du justere den etter en omstart i "
+"det installerte systemet."
 
 #. Type: text
 #. Description
@@ -201,6 +207,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"Velg en konto du vil importere fra, og fyll inn skjemaet under for hver "
+"enkelt. Dokumenter og instillinger fra disse kontoene vil bli tilgjengelig "
+"etter at installasjonen er over."
 
 #. Type: text
 #. Description
@@ -209,18 +218,20 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Dersom du velger å ikke importere fra noen kontoer, velg ingenting og gå "
+"videre til neste side"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "Velg en bruker du skal importere valgt konto til:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Full Name:"
-msgstr ""
+msgstr "Fullt navn:"
 
 #. Type: text
 #. Description
@@ -232,13 +243,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Password:"
-msgstr ""
+msgstr "Passord:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Confirm:"
-msgstr ""
+msgstr "Bekreft:"
 
 #. Type: text
 #. Description
@@ -261,14 +272,11 @@ msgstr "Klargjør partisjon"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
-"Sørg for minimum 2 GB plass til rotpartisjonen («/»), og en bufferpartisjon "
-"på minst 256 MB."
 
 #. Type: text
 #. Description
@@ -346,7 +354,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Boot loader"
-msgstr ""
+msgstr "Oppstartslaster"
 
 #. Type: text
 #. Description
@@ -405,14 +413,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Pass på at du fjerner CD'en når du starter systemet på nytt, ellers vil "
-"systemet starte opp  fra denne live-cd'en isteden for det nyinstallerte "
-"systemet."
 
 #. Type: text
 #. Description
@@ -469,13 +473,13 @@ msgstr "Kopierer filer..."
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Kopierer filer (mindre enn ett minutt igjen)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Kunne ikke kopiere filer; defekt CD/DVD?"
 
 #. Type: error
 #. Description
@@ -487,6 +491,7 @@ msgstr ""
 #: ../ubiquity.templates:65001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
+"Installasjonen støtte på en feil ved kopiering av filer til harddisken:"
 
 #. Type: error
 #. Description
@@ -497,12 +502,15 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Denne feilen oppstår ofte på grunn av en defekt CD/DVD-plate eller -drev. "
+"Det kan hjelpe å rense CD/DVDen, å brenne CD/DVD ved lavere fart, eller å "
+"rense CD/DVD-drevets linse (rensesett er tilgjengelig på elektromarkeder)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Kunne ikke kopiere filer; defekt harddisk?"
 
 #. Type: error
 #. Description
@@ -512,12 +520,15 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Denne feilen skyldes ofte at harddisken inneholder feil. Sjekk om harddisken "
+"er gammel og må erstattes eller prøv å flytte systemet til kjøligere "
+"omgivelser."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Kunne ikke kopiere filer; defekt CD/DVD eller harddisk?"
 
 #. Type: error
 #. Description
@@ -531,6 +542,11 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Denne feilen skyldes ofte at CD/DVD-spilleren eller harddisken inneholder "
+"feil. Prøv å rengjøre CD/DVD-en, brenn CD/DVD-en på en lavere hastighet, "
+"rengjør linsen i CD/DVD-spilleren (rengjøringsutstyr er ofte tilgjengelig "
+"hos elektronikkforhandlere) eller sjekk om harddisken er gammel og må "
+"erstattes eller prøv å flytte systemet til kjøligere omgivelser"
 
 #. Type: text
 #. Description
@@ -542,7 +558,7 @@ msgstr "Kopierer installasjons logger..."
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Konfigurerer målsystemet..."
 
 #. Type: text
 #. Description
@@ -709,7 +725,7 @@ msgstr "Laster ned språkpakker (${TIME} gjenstår)..."
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Klarte ikke å avmontere partisjonene"
 
 #. Type: boolean
 #. Description
@@ -718,24 +734,29 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Installasjonsprogrammet må lagre de nødvendige endringene på "
+"partisjonstabellene, men klarer ikke å gjøre dette fordi følgende "
+"monteringspunkt ikke kunne avmonteres:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "Vennligst lukk alle applikasjoner som bruker disse monteringspunktene."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
+"Vil du at installasjonsprogrammet skal prøve å avmontere disse partisjonene "
+"igjen?"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:94001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Systempartisjonen ble ikke formatert"
 
 #. Type: error
 #. Description
@@ -746,12 +767,8 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Kjører ${SCRIPT} ..."
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Velg en by i ditt land, og din tidssone:"
-
-#~ msgid "Set Time..."
-#~ msgstr "Still klokken..."
+"Filsystemet på ${PARTITION} som er satt til ${MOUNTPOINT} er ikke markert "
+"for formatering. Filsystem brukt av systemet (/, /boot, /usr, /var) må "
+"formateres på nytt for å brukes av dette installasjonsprogrammet. Andre "
+"filsystem (/home, /media/*, /usr/local, osv.) trenger ikke formateres på "
+"nytt."

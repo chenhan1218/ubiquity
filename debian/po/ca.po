@@ -1,18 +1,21 @@
 # Catalan messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
+# Copyright 2002, 2003, 2004, 2005, 2006, 2007 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
+# Jordi Mallach <jordi@debian.org>, 2002, 2003, 2004, 2006, 2007.
+# Guillem Jover <guillem@debian.org>, 2005, 2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: debian-installer etch\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-09-07 20:24+0000\n"
-"Last-Translator: Jordi Mallach <jordi@canonical.com>\n"
+"PO-Revision-Date: 2007-03-27 12:06+0000\n"
+"Last-Translator: Sílvia Miranda <silviamira@gmail.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:18+0000\n"
 
 #. Type: text
 #. Description
@@ -62,12 +65,14 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"Si teniu accés a Internet, llegiu les notes de la versió per obtenir "
+"informació sobre problemes que us poden afectar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Release Notes"
-msgstr ""
+msgstr "Notes de la versió"
 
 #. Type: text
 #. Description
@@ -83,6 +88,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Trieu una població del vostre país i una zona horària. Si l'hora segueix "
+"sent incorrecta fins i tot després de triar la vostra zona horària, podreu "
+"ajustar-la un cop es reiniciï el sistema."
 
 #. Type: text
 #. Description
@@ -166,7 +174,7 @@ msgstr "Seleccioneu una contrasenya per a mantenir el vostre compte segur."
 #. Description
 #: ../ubiquity.templates:21001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "Esteu en mode de depuració. No utilitzeu una contrasenya important!"
 
 #. Type: text
 #. Description
@@ -215,36 +223,38 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Si no voleu importar cap compte, no seleccioneu res i aneu a la pàgina "
+"següent."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "Creeu un usuari per importar-hi el compte seleccionat:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Full Name:"
-msgstr ""
+msgstr "Nom complet:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Login Name:"
-msgstr ""
+msgstr "Nom d'entrada:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Password:"
-msgstr ""
+msgstr "Contrasenya:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Confirm:"
-msgstr ""
+msgstr "Confirmació:"
 
 #. Type: text
 #. Description
@@ -267,14 +277,11 @@ msgstr "Prepareu les particions"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
-"Assegureu-vos que assigneu espai per a una partició arrel («/»), amb una "
-"mida mínima de 2 GB, i una partició d'intercanvi d'almenys 256 MB."
 
 #. Type: text
 #. Description
@@ -351,7 +358,7 @@ msgstr "El nou sistema operatiu s'instal·larà ara amb els següents paràmetre
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Boot loader"
-msgstr ""
+msgstr "Carregador"
 
 #. Type: text
 #. Description
@@ -411,14 +418,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Assegureu-vos que treieu el CD quan torneu a iniciar l'ordinador, o tornarà "
-"a iniciar-se utilitzant aquest CD autònom, en comptes del sistema que "
-"s'acaba d'instal·lar."
 
 #. Type: text
 #. Description
@@ -446,6 +449,13 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" Llengua:${LANGUAGE}\n"
+" Disposició del teclat: ${KEYMAP}\n"
+" Nom: ${FULLNAME}\n"
+" Nom d'entrada: ${USERNAME}\n"
+" Ubicació: ${LOCATION}\n"
+" Assistent de migració:\n"
+" ${MIGRATE}"
 
 #. Type: title
 #. Description
@@ -475,13 +485,13 @@ msgstr "S'estan copiant els fitxers..."
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "S'estan copiant els fitxers (queda menys d'un minut)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "No s'han pogut copiar els fitxers; el CD/DVD és defectuós?"
 
 #. Type: error
 #. Description
@@ -493,6 +503,7 @@ msgstr ""
 #: ../ubiquity.templates:65001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
+"L'instal·lador ha trobat un error mentre copiava els arxius al disc dur:"
 
 #. Type: error
 #. Description
@@ -715,7 +726,7 @@ msgstr "S'estan baixant els paquets de llengua (${TIME} per a acabar)..."
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "No s'han pogut desmuntar les particions"
 
 #. Type: boolean
 #. Description
@@ -741,7 +752,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:94001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "La partició del sistema no està formatada"
 
 #. Type: error
 #. Description
@@ -752,12 +763,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "S'està executant ${SCRIPT}..."
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Seleccioneu una ciutat en el vostre país i fus horari."
-
-#~ msgid "Set Time..."
-#~ msgstr "Establiu l'hora..."

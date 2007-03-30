@@ -7,24 +7,25 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-04-20 06:26+0000\n"
-"Last-Translator: Elian Myftiu <elian@alblinux.net>\n"
+"PO-Revision-Date: 2007-03-23 18:27+0000\n"
+"Last-Translator: Elian Myftiu <elian.myftiu@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:20+0000\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr ""
+msgstr "_Instalo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Welcome"
-msgstr ""
+msgstr "Mirësevini"
 
 #. Type: text
 #. Description
@@ -34,12 +35,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Gati për instalim? Pasi t'u kesh përgjigjur disa pyetjeve, përmbajtja e live "
+"CD do mund të instalohet në këtë kompjuter në mënyrë që të mund ta "
+"shfrytëzosh sistemin në maksimumin e shpejtesisë dhe pa këtë CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Përgjigja e pyetjeve do të duhej të zgjasë vetëm disa minuta"
 
 #. Type: text
 #. Description
@@ -48,6 +52,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Të lutem, zgjedh gjuhën që do të përdoret gjatë instalimit. Kjo gjuhë do të "
+"jetë gjuha që do të përdoret për sistemin përfundimtar."
 
 #. Type: text
 #. Description
@@ -56,18 +62,20 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"Nëse ke qasje në internet, lexo informatat lidhur me versionin aktual dhe "
+"problemet që do të mund të atakonin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Release Notes"
-msgstr ""
+msgstr "Informata lidhur me versionin aktual"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Where are you?"
-msgstr ""
+msgstr "Ku ndodheni?"
 
 #. Type: text
 #. Description
@@ -77,6 +85,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Zgjedh qytetin në vendin tënd dhe brezin kohor. Nëse koha aktuale edhe "
+"përkundër zgjedhjes korrekte të brezit kohor nuk është korrekte, ti do mund "
+"ta rregullosh atë pas ristartimit në sistemin e instaluar."
 
 #. Type: text
 #. Description
@@ -88,19 +99,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:10001
 msgid "Time zone:"
-msgstr ""
+msgstr "Brezi kohor:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Selected region:"
-msgstr ""
+msgstr "Regjioni i zgjedhur:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Current time:"
-msgstr ""
+msgstr "Koha aktuale:"
 
 #. Type: text
 #. Description
@@ -112,31 +123,32 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Cila tastierë i përngjanë më së shumti tastierës suaj?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
+"Mund të shkruani në këtë kuti teksti për të provuar hartën e re të tastierës."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Who are you?"
-msgstr ""
+msgstr "Cili jeni ju?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "What is your name?"
-msgstr ""
+msgstr "Si e keni emrin?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Çfarë emri dëshironi të përdorni për login?"
 
 #. Type: text
 #. Description
@@ -145,18 +157,22 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Nëse kompjuteri do të përdoret nga më tepër se një person, ju mund të "
+"krijoni llogari të shumëfishta pas installimit."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Zgjedhni një fjalëkalim për të mbrojtur llogarinë tuaj."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
+"Ju ndodheni në debug - modus. Mos përdorni ndonjë fjalëkalim, që është i "
+"rëndësishëm për ju."
 
 #. Type: text
 #. Description
@@ -164,12 +180,14 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Jepeni të njëjtin fjalëkalim dy herë, që të mund të kontrollohet për gabime "
+"tipografike."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Si e ka emrin ky kompjuter?"
 
 #. Type: text
 #. Description
@@ -178,12 +196,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Ky emër do të përdoret nqs ua vini në dispozicion kompjuterin të tjerëve në "
+"rrjet."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "Prano dokumentet dhe rregullimet."
 
 #. Type: text
 #. Description
@@ -366,13 +386,13 @@ msgstr "Instalimi përfundoi"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Vazhdo me përdorimin e Live CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Restart now"
-msgstr ""
+msgstr "Ristarto tani"
 
 #. Type: text
 #. Description
@@ -691,7 +711,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Çmontimi i ndarjes dështoi"
 
 #. Type: boolean
 #. Description
@@ -728,6 +748,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Duke ekzekutuar ${SCRIPT}..."

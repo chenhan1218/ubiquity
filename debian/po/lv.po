@@ -7,12 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-10-03 10:14+0000\n"
-"Last-Translator: mixat <miks.latvis@gmail.com>\n"
-"Language-Team: locale@laka.lv <locale@laka.lv>\n"
+"PO-Revision-Date: 2007-03-22 19:52+0000\n"
+"Last-Translator: Aigars Mahinovs <aigarius@debian.org>\n"
+"Language-Team: Latvian <locale@laka.lv>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:18+0000\n"
 
 #. Type: text
 #. Description
@@ -400,13 +401,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Pārstartējot sistēmu, izņemiet CD, citādi dators startēs nevis jauno "
-"sistēmu, bet vēlreiz ielādēsies no šī CD."
 
 #. Type: text
 #. Description
@@ -469,13 +467,13 @@ msgstr "Kopēju failus..."
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Kopēju failus (mazāk nekā minūte atlikusi)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Failu kopēšana neizdevās; bojāts CD/DVD?"
 
 #. Type: error
 #. Description
@@ -502,7 +500,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Failu kopēšana neizdevās; bojāts cietais disks?"
 
 #. Type: error
 #. Description
@@ -517,7 +515,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Failu kopēšana neizdevās; bojāts CD/DVD vai cietais disks?"
 
 #. Type: error
 #. Description
@@ -709,7 +707,7 @@ msgstr "Lejupielādēju valodu pakotnes (${TIME} atlicis)..."
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Kļūda demontējot partīcijas"
 
 #. Type: boolean
 #. Description
@@ -746,12 +744,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Palaižu ${SCRIPT}..."
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Izvēlieties kādu pilsētu savā laika joslā:"
-
-#~ msgid "Set Time..."
-#~ msgstr "Uzstādīt laiku..."

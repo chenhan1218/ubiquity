@@ -1,21 +1,19 @@
-# translation of ta(debinst).po to tamil
 # Tamil messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
-# drtvasudevan <agnihot3@gmail.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: ta(debinst)\n"
+"Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-10-04 05:04+0000\n"
-"Last-Translator: drtvasudevan <agnihot3@gmail.com>\n"
-"Language-Team: tamil <Ubuntu-l10n-tam@lists.ubuntu.com>\n"
+"PO-Revision-Date: 2007-03-22 20:19+0000\n"
+"Last-Translator: Damodharan Rajalingam <rdamodharan@gmail.com>\n"
+"Language-Team: Tamil <tamil-DI@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:20+0000\n"
 
 #. Type: text
 #. Description
@@ -262,14 +260,11 @@ msgstr "பகிர்வுகளை தயாரி"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
-"குறைந்தது 2 GB அளவு உள்ள மூல (ரூட்) பகிர்வு \"/\"),  உருவாக்கவும்.இட மாற்றுக்கு "
-"(swap) குறைந்தது 256 MB. அளவு உடைய பகிர்வு உருவாக்கவும்."
 
 #. Type: text
 #. Description
@@ -405,13 +400,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"கணினியை மறு துவக்கம் செய்யும் போது நிறுவா குறுந் தட்டை எடுத்து விடவும். இல்லாவிடில் "
-"புதிய நிறுவலுக்கு பதில் இந்த நிறுவா குறுந் தட்டே மீண்டும் இயங்க ஆரம்பிக்கும்."
 
 #. Type: text
 #. Description
@@ -714,7 +706,7 @@ msgstr "மொழி தொகுப்புகளை பதிவிறக்�
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "பகிர்வுகளை இறக்குவது தோல்வியுற்றது"
 
 #. Type: boolean
 #. Description
@@ -751,15 +743,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "${SCRIPT} இயக்கப்படுகிறது..."
-
-#~ msgid "GRUB will be installed to DEVICE"
-#~ msgstr "DEVICE இல் க்ரப் (GRUB) நிறுவப் படும்."
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "உங்கள் நாட்டுக்கான நகரத்தையும் நேர மண்டலத்தையும் தேர்ந்தெடுங்கள்."
-
-#~ msgid "Set Time..."
-#~ msgstr "நேரத்தை அமை..."

@@ -7,12 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-10-10 03:30+0000\n"
-"Last-Translator: Dominik Zablotny <doza@sztorm.net>\n"
+"PO-Revision-Date: 2007-03-23 20:48+0000\n"
+"Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:19+0000\n"
 
 #. Type: text
 #. Description
@@ -61,12 +62,14 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"Jeśli masz dostęp do Internetu, przeczytaj informacje o wydaniu, aby "
+"pozyskać informacje na temat problemów, które mogą wpłynąć na twój system."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Release Notes"
-msgstr ""
+msgstr "Informacje o wydaniu"
 
 #. Type: text
 #. Description
@@ -82,6 +85,10 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Wybierz miasto w swoim państwie i strefę czasową. Jeśli wskazywany czas "
+"bieżący jest niepoprawny nawet po wybraniu prawidłowej strefy czasowej, to "
+"można go zmienić po ponownym uruchomieniu komputera w zainstalowanym "
+"systemie."
 
 #. Type: text
 #. Description
@@ -163,7 +170,7 @@ msgstr "Ustaw hasło, aby twoje konto było bezpieczne."
 #. Description
 #: ../ubiquity.templates:21001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "Uruchomiono w trybie debugowania. Nie korzystaj z wartościowego hasła!"
 
 #. Type: text
 #. Description
@@ -190,7 +197,7 @@ msgstr "Nazwa zostanie użyta, jeśli uczynisz ten komputer widocznym w sieci."
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "Migracja dokumentów i ustawień"
 
 #. Type: text
 #. Description
@@ -200,6 +207,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"Wybierz konta, które chcesz importować i wypełnij poniższy formularz dla "
+"każdego z nich. Dokumenty i ustawienia tych kont zostaną udostępnione po "
+"zakończeniu instalacji."
 
 #. Type: text
 #. Description
@@ -208,36 +218,38 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Przejdź do następnego etapu instalacji, jeśli nie chcesz importować żadnych "
+"kont."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "Utwórz użytkownika, do którego ma zostać zaimportowane wybrane konto:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Full Name:"
-msgstr ""
+msgstr "Imię i nazwisko:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Login Name:"
-msgstr ""
+msgstr "Nazwa użytkownika:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Password:"
-msgstr ""
+msgstr "Hasło:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Confirm:"
-msgstr ""
+msgstr "Potwierdź:"
 
 #. Type: text
 #. Description
@@ -260,14 +272,11 @@ msgstr "Przygotuj partycje"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
-"Należy przygotować miejsce na partycję główną (\"/\") o minimalnym rozmiarze "
-"2 GB oraz na partycję wymiany - przynajmniej 256 MB."
 
 #. Type: text
 #. Description
@@ -346,7 +355,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Boot loader"
-msgstr ""
+msgstr "Program rozruchowy"
 
 #. Type: text
 #. Description
@@ -405,13 +414,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Pamiętaj o wyjęciu płyty CD podczas ponownego ucruchamiania komputera, w "
-"przeciwnym uruchomisz Live CD zamiast systemu zainstalowanego na komputerze."
 
 #. Type: text
 #. Description
@@ -430,7 +436,6 @@ msgstr "Dalej"
 #. Type: note
 #. Description
 #: ../ubiquity.templates:56001
-#, fuzzy
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -444,7 +449,9 @@ msgstr ""
 " Układ klawiatury: ${KEYMAP}\n"
 " Nazwa: ${FULLNAME}\n"
 " Nazwa logowania: ${USERNAME}\n"
-" Położenie: ${LOCATION}"
+" Położenie: ${LOCATION}\n"
+" Asystent migracji:\n"
+" ${MIGRATE}"
 
 #. Type: title
 #. Description
@@ -462,7 +469,7 @@ msgstr "Wyszukiwanie dystrybucji do kopiowania..."
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Scanning files..."
-msgstr "Przzeglądanie plików..."
+msgstr "Przeglądanie plików..."
 
 #. Type: text
 #. Description
@@ -559,13 +566,13 @@ msgstr "Kopiowanie logów z instalacji..."
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Konfigurowanie systemu docelowego..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Configuring system locales..."
-msgstr "Konfigurowanie locale (lokalizacji)..."
+msgstr "Konfigurowanie lokalizacji..."
 
 #. Type: text
 #. Description
@@ -595,7 +602,7 @@ msgstr "Dodawanie użytkownika..."
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Importowanie dokumentów i ustawień..."
 
 #. Type: text
 #. Description
@@ -714,7 +721,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Installing language packs"
-msgstr "Instalowanie pakietów rdzennych"
+msgstr "Instalowanie pakietów językowych"
 
 #. Type: text
 #. Description
@@ -726,7 +733,7 @@ msgstr "Pobieranie pakietów z tłumaczeniami (pozostało ${TIME})..."
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Odmontowanie partycji nie powiodło się"
 
 #. Type: boolean
 #. Description
@@ -735,24 +742,27 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Instalator musi wykonać zmiany w tablicach partycji, ale nie może, ponieważ "
+"partycje na następujących punktach montowania nie mogły zostać odmontowane:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
 msgstr ""
+"Proszę zamknąć wszystkie aplikacje korzystające z tych punktów montowania."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "Czy chcesz, aby instalator ponownie spróbował odmontować te partycje?"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:94001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Partycja systemowa nie została sformatowana"
 
 #. Type: error
 #. Description
@@ -763,15 +773,8 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Uruchamianie ${SCRIPT}..."
-
-#~ msgid "GRUB will be installed to DEVICE"
-#~ msgstr "GRUB zostanie zainstalowany na DEVICE"
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Wybierz miasto w swoim kraju i strefie czasowej."
-
-#~ msgid "Set Time..."
-#~ msgstr "Ustaw czas..."
+"System plików na ${PARTITION} przydzielony na ${MOUNTPOINT} nie może zostać "
+"zaznaczony do sformatowania. Systemy plików używane przez system (/, /boot, /"
+"usr, /var) muszą zostać sreformatowane do użycia przez instalatora. Inne "
+"systemy plików (/home, /media/*, /usr/local, itp.) mogą zostać użyte bez "
+"reformatowania."

@@ -7,18 +7,19 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-09-07 20:51+0000\n"
-"Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
+"PO-Revision-Date: 2007-03-27 07:01+0000\n"
+"Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:20+0000\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr "Įdiegti"
+msgstr "Įdiegti į kompiuterį"
 
 #. Type: text
 #. Description
@@ -150,12 +151,14 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Jeigu šiuo kompiuteriu naudosis keli žmonės, galėsite sukurti galimybę "
+"prisijungti keliems naudotojams po to, kai įdiegsite sistemą."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Jūsų prisijungimo saugumui pasirinkite slaptažodį."
 
 #. Type: text
 #. Description
@@ -169,6 +172,8 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Įrašykite tą patį slaptažodį du kartus, taip jis bus patikrintas nuo rašymo "
+"klaidų."
 
 #. Type: text
 #. Description
@@ -260,14 +265,11 @@ msgstr "Paruošti skirsnius"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
-"Įsitikinkite, jog root skirsniui (\"/\") skyrėte ne mažiau kaip 2GB, o "
-"laikinos mainų vietos (swap) skirsniui ne mažiau kaip 256MB disko vietos."
 
 #. Type: text
 #. Description
@@ -292,6 +294,9 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"Jūs turite prijungti vieną skirsnį prie pagrindinės (root) failų sistemos "
+"(žymima simboliu „/“) ir turite pasirinkti bent vieną skirsnį, kurį "
+"naudosite kaip laikiną atmintį („swap“)."
 
 #. Type: text
 #. Description
@@ -315,7 +320,7 @@ msgstr "Skirsnis"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Reformat?"
-msgstr ""
+msgstr "Sužymėti iš naujo?"
 
 #. Type: text
 #. Description
@@ -329,7 +334,7 @@ msgstr "Turite pateikti root (\"/\") prijungimo vietą."
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:56001
 msgid "Ready to install"
-msgstr ""
+msgstr "Pasiruošta įdiegti"
 
 #. Type: text
 #. Description
@@ -401,13 +406,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Įsitikinkite, jog iš naujo paleisdami kompiuterį išėmėte CD. Kitu atveju bus "
-"įkeltas live CD, o ne naujai įdiegta sistema."
 
 #. Type: text
 #. Description
@@ -596,21 +598,20 @@ msgstr "Nustatomas kompiuterio vardas..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Konfigūruojamas tinklas..."
+msgstr "Konfigūruojama sistemos įkėlimo programa..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Pašalinami papildomi (nereikalingi) paketai..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Ieškoma ištrintinų (nereikalingų) paketų..."
 
 #. Type: text
 #. Description
@@ -705,7 +706,7 @@ msgstr "Atsiunčiami kalbos paketai (${TIME} liko)..."
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Nepavyko atjungti skirsnių"
 
 #. Type: boolean
 #. Description
@@ -742,12 +743,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Vykdomas ${SCRIPT}..."
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Pasirinkite miestą Jūsų šalyje ir laiko zoną."
-
-#~ msgid "Set Time..."
-#~ msgstr "Nustatyti laiką..."

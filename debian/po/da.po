@@ -7,12 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-09-07 20:26+0000\n"
+"PO-Revision-Date: 2007-03-22 19:16+0000\n"
 "Last-Translator: Claus Hindsgaul <claus.hindsgaul@gmail.com>\n"
 "Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:18+0000\n"
 
 #. Type: text
 #. Description
@@ -406,13 +407,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Sørg for at fjerne cd'en når du genstarter computeren, ellers vil den starte "
-"op via live-cd'en i stedet for det nyligt installerede system."
 
 #. Type: text
 #. Description
@@ -712,7 +710,7 @@ msgstr "Downloader sprogpakker (${TIME} remaining)..."
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Kunne ikke afmontere partitionerne"
 
 #. Type: boolean
 #. Description
@@ -749,12 +747,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Udfører ${SCRIPT}..."
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Vælg en by i dit land og din tidszone."
-
-#~ msgid "Set Time..."
-#~ msgstr "Indstil tiden..."

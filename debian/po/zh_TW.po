@@ -7,13 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-05-14 08:10+0000\n"
-"Last-Translator: Woodman Tuen <wmtuen@gmail.com>\n"
+"PO-Revision-Date: 2007-03-28 10:35+0000\n"
+"Last-Translator: Medical-Wei <medicalwei@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:18+0000\n"
 
 #. Type: text
 #. Description
@@ -35,12 +36,14 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"準備好安裝了嗎？在您回答幾個問題後，這片 Live CD 的內容就可以安裝到電腦中，您"
+"就可以全速執行本系統，而不再需要這片光碟。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "回答以下問題只需要幾分鐘。"
 
 #. Type: text
 #. Description
@@ -49,6 +52,7 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"請選擇安裝時所使用的語言。被選擇的語言將會是本系統安裝完成時的預設語言。"
 
 #. Type: text
 #. Description
@@ -56,19 +60,19 @@ msgstr ""
 msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
-msgstr ""
+msgstr "如果您有網路連線，請閱讀發行紀錄，它可能記載會影響到您電腦的問題。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Release Notes"
-msgstr ""
+msgstr "發行紀錄"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Where are you?"
-msgstr ""
+msgstr "您在哪裡?"
 
 #. Type: text
 #. Description
@@ -78,6 +82,8 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"請選擇您所在的城市以及時區。如果時區設定正常但時間不對，您仍可以在安裝完成、"
+"重開機以後設定。"
 
 #. Type: text
 #. Description
@@ -95,7 +101,7 @@ msgstr "時區："
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Selected region:"
-msgstr ""
+msgstr "選擇的區域"
 
 #. Type: text
 #. Description
@@ -113,13 +119,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "哪一種鍵盤排列方式最接近您使用的鍵盤"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "您可以在此處測試您新選擇的鍵盤排列方式"
 
 #. Type: text
 #. Description
@@ -691,7 +697,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "無法卸載磁碟分割區"
 
 #. Type: boolean
 #. Description
@@ -728,9 +734,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "正在執行 ${SCRIPT}..."
-
-#~ msgid "Set Time..."
-#~ msgstr "設定時間..."

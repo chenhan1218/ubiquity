@@ -7,12 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-09-07 20:43+0000\n"
-"Last-Translator: David Steinn Geirsson <davidgeirs@gmail.com>\n"
+"PO-Revision-Date: 2007-03-14 16:53+0000\n"
+"Last-Translator: Olafur Arason <olafra@gmail.com>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:18+0000\n"
 
 #. Type: text
 #. Description
@@ -402,13 +403,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Mundu að taka geisladiskinn úr þegar þú endurræsir tölvuna. Annars mun hún "
-"ræsa aftur með þessum disk í stað nýuppsetta kerfisins."
 
 #. Type: text
 #. Description
@@ -465,13 +463,13 @@ msgstr "Afrita skrár..."
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Afrita skrár (minna en mínúta eftir)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Gat ekki afritað skrár; hugsanlega gallaður CD/DVD?"
 
 #. Type: error
 #. Description
@@ -483,6 +481,7 @@ msgstr ""
 #: ../ubiquity.templates:65001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
+"Villa kom upp í uppsetningu þegar skrár voru afritaðar á harða diskinn:"
 
 #. Type: error
 #. Description
@@ -493,12 +492,16 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Þessi tiltekna villa kemur oft upp vegna galla í CD/DVD diskum eða drifum. "
+"Það gæti hjálpað að hreinsa diskinn eða brenna hann á lægri hraða, einnig er "
+"ráð að hreinsa linsuna í CD/DVD drifinu (búnaður til þess er fáanlegur í "
+"sumum tölvu- og raftækjaverslunum)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Gat ekki afritað skrár; galli í harða diskinum?"
 
 #. Type: error
 #. Description
@@ -508,12 +511,15 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Þessi tiltekna villa kemur oft upp vegna galla á hörðum diski. Hugsanlega er "
+"diskurinn gamall og kominn tími á endurnýjun, einnig gæti hjálpað að færa "
+"tölvuna á svalari stað."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Gat ekki afritað skrár; gallaður CD/DVD eða harður diskur?"
 
 #. Type: error
 #. Description
@@ -527,6 +533,10 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Þessi villa er oft vegna bilaðs geisladisks eða drifs eða bilaðs harðs disk. "
+"Það má reyna að hreinsa geisladiskinn, brenna hann á lægri hraða, hreinsa "
+"diskdrifið (hreinsitól eru oft fáanleg í raftækjaverslunum), athuga hvort "
+"harði diskurinn er gamall og bilaður, eða að færa tölvuna í kaldara umhverfi."
 
 #. Type: text
 #. Description
@@ -742,12 +752,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Keyri ${SCRIPT}..."
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Veltu borg í landi og tímabelti þínu."
-
-#~ msgid "Set Time..."
-#~ msgstr "Stilla Tíma..."

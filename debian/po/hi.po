@@ -7,18 +7,19 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-10-12 08:20+0000\n"
-"Last-Translator: Aniruddha Shankar <karim@sarai.net>\n"
-"Language-Team: <en@li.org>\n"
+"PO-Revision-Date: 2007-03-22 19:36+0000\n"
+"Last-Translator: Carlos Perelló Marín <carlos.perello@canonical.com>\n"
+"Language-Team: Hindi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:21+0000\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr ""
+msgstr "संस्थापित करें"
 
 #. Type: text
 #. Description
@@ -34,12 +35,14 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"संस्थापना के लिए तैयार? कुछ प्रश्नों के उत्तर देने पर, लाइव सीडी में जमा सॉफ़्टवैर इस कंप्यूटर "
+"पर संस्थापित किए जा सकते हैं ताकि आप इस सिस्टम को पूरी तेज़ी से और बिना सीडी के चला सकें।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "सवालों के जवाब देने में सिर्फ कुछ ही मिनट लगेंगे।"
 
 #. Type: text
 #. Description
@@ -47,7 +50,7 @@ msgstr ""
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
-msgstr ""
+msgstr "संस्थापन प्रक्रिया के लिए भाषा चुनें। यही भाषा आपके सिस्टम की तयशुदा भाषा रहेगी।"
 
 #. Type: text
 #. Description
@@ -106,7 +109,7 @@ msgstr "अभी का समय"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Keyboard layout"
-msgstr ""
+msgstr "कुंजीपट नक्षा"
 
 #. Type: text
 #. Description
@@ -245,31 +248,28 @@ msgstr "डिस्क में जगह तैयार करें।"
 #. Description
 #: ../ubiquity.templates:33001
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "चुने गये डिस्क को कैसे विभाजन करना चाहते हैं?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Prepare partitions"
-msgstr ""
+msgstr "नये विभाजन बनाएँ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
-"रूट पार्टिशन (\"/\") कम-से-कम २ जी-बी बडा होना चाहिये, और स्वैप पार्टिशन कम-से-कम "
-"२५६ एम-बी।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Prepare mount points"
-msgstr ""
+msgstr "माउन्ट जगह तैय्यार करें"
 
 #. Type: text
 #. Description
@@ -295,7 +295,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Mount Point"
-msgstr ""
+msgstr "माउन्ट जगह"
 
 #. Type: text
 #. Description
@@ -307,7 +307,7 @@ msgstr "आकार"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Partition"
-msgstr ""
+msgstr "विभाजन"
 
 #. Type: text
 #. Description
@@ -327,7 +327,7 @@ msgstr "आपको एक रुट (\"/\") माउंट प्वाइं
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:56001
 msgid "Ready to install"
-msgstr ""
+msgstr "संस्थापना के लिये तैयार।"
 
 #. Type: text
 #. Description
@@ -346,19 +346,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "कुल ${TOTAL} में का ${INDEX} कदम"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Abort the installation?"
-msgstr ""
+msgstr "संस्थापना छोड़ दें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "क्या आप वास्तव में संस्थापना छोड़ना चाहेंगे?"
 
 #. Type: text
 #. Description
@@ -399,13 +399,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"जब आप कम्प्यूटर को फिर से चालू करते हैं, तो सीडी निकालना न भूलिये, नहीं तो कम्प्यूटर अभी "
-"संस्थापित ओपरेटिंग सिस्टम से नहीं, जीवंत सीडी से शुरु होगी।"
 
 #. Type: text
 #. Description
@@ -419,7 +416,7 @@ msgstr "पीछे जाएँ"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:55001
 msgid "Continue"
-msgstr "जारी रखें"
+msgstr "आगे बढ़ें"
 
 #. Type: note
 #. Description
@@ -457,13 +454,13 @@ msgstr "नकल किये जाने वाले वितरण को 
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Scanning files..."
-msgstr ""
+msgstr "फ़ाइलों की स्कैनिंग की जा रही है..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Copying files..."
-msgstr ""
+msgstr "फ़ाइलों नक़ल की जा रही है..."
 
 #. Type: text
 #. Description
@@ -497,6 +494,10 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"इस त्रुटि का कारण अक्सर खराब सीडी/डीवीडी डिस्क या ड्राईव है। त्रुटि को सुलझाने के लिये "
+"आप डिस्क को साफ कर के दोबारा कोशिश कीजिये, सीडी को कम तेज़ रफतार में काट के दोबारा "
+"कोशिश कीजिये या सीडी ड्राईव के लेन्स को ही साफ करने की कोशिश कीजिये (लेन्स साफ करने के "
+"लिये उपकरण इलेक्ट्रॉनिक्स के दुकान में मिलते हैं)।"
 
 #. Type: error
 #. Description
@@ -548,7 +549,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "संस्थापना के लॉग का नकल कीया जा रही है..."
 
 #. Type: text
 #. Description
@@ -559,9 +560,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
+msgstr "संस्थापना के लोकैल को कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
@@ -572,9 +572,8 @@ msgstr "एप्ट कॉन्फ़िगर किया जा रहा �
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
+msgstr "समय क्षेत्र को कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
@@ -586,7 +585,7 @@ msgstr "की-बोर्ड कॉन्फ़िगर किया जा �
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Creating user..."
-msgstr ""
+msgstr "ुउपयोक्ता बन रहा हैं..."
 
 #. Type: text
 #. Description
@@ -597,9 +596,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
+msgstr "हार्डवेयर कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
@@ -611,20 +609,19 @@ msgstr "नेटवर्क कॉन्फ़िगर किया जा �
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Setting computer name..."
-msgstr ""
+msgstr "कम्प्यूटर का नाम रखा जा रहा है..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "नेटवर्क कॉन्फ़िगर किया जा रहा है..."
+msgstr "बूट लोडर कॉन्फ़िगर किया जा रहा है..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "ज़रूरत सें ज़्यादा मौजूद पैकेजों को मिटाया जा रहा है..."
 
 #. Type: text
 #. Description
@@ -654,13 +651,13 @@ msgstr "पैकेज सूची डाउनलोड हो रहे ह�
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "{PACKAGE} स्थापना में समस्या"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:85001
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "${PACKAGE} मिटाने में समस्या"
 
 #. Type: error
 #. Description
@@ -713,7 +710,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Installing language packs"
-msgstr ""
+msgstr "भाषा पेटी संस्थापित किया जा रह है..."
 
 #. Type: text
 #. Description
@@ -725,7 +722,7 @@ msgstr "भाषा पेटी डाउनलोड हो रहे है�
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "विभाजनों को अनमाउंट करने में असफल"
 
 #. Type: boolean
 #. Description
@@ -762,15 +759,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "चलाया जा रहा है ${SCRIPT}..."
-
-#~ msgid "GRUB will be installed to DEVICE"
-#~ msgstr "ग्रब DEVICE में संस्थापित होगा"
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "अपने देश में कोई शहर और समय क्षेत्र चुनें।"
-
-#~ msgid "Set Time..."
-#~ msgstr "समय नियत करें..."

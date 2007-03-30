@@ -7,12 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2006-09-07 21:08+0000\n"
-"Last-Translator: Jure Cuhalev <gandalf@owca.info>\n"
+"PO-Revision-Date: 2007-03-22 20:14+0000\n"
+"Last-Translator: Matej Kovačič <matej.kovacic@owca.info>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:19+0000\n"
 
 #. Type: text
 #. Description
@@ -51,7 +52,7 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Prosim, izberite jezik za namestitev. Ta jezik bo na kocu tudi privzeti "
+"Prosim, izberite jezik za namestitev. Ta jezik bo na koncu tudi privzeti "
 "sistemski jezik."
 
 #. Type: text
@@ -260,14 +261,11 @@ msgstr "Pripravite razdelke"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
-"Prepričajte se, da namenite vsaj 2 GB prostora za korenski razdelek (»/«) in "
-"vsaj 256 MB prostora za izmenjevalni (swap) razdelek."
 
 #. Type: text
 #. Description
@@ -403,14 +401,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
-#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Prepričajte se, da pred ponovnim zagonom odstranite zgoščenko. V nasprotnem "
-"primeru se bo računalnik spet zagnal s te žive zgoščenke, namesto da bi "
-"uporabil novo nameščeni sistem."
 
 #. Type: text
 #. Description
@@ -467,13 +461,13 @@ msgstr "Kopiranje datotek ..."
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Kopiranje datotek (manj kot minuto do konca)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Kopiranje datotek ni uspelo; pokvarjen CD/DVD?"
 
 #. Type: error
 #. Description
@@ -485,6 +479,7 @@ msgstr ""
 #: ../ubiquity.templates:65001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
+"Namestitveni program je naletel na napako pri kopiranju datotek na trdi disk"
 
 #. Type: error
 #. Description
@@ -495,12 +490,15 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Ta napaka je pogosta pri poškodovanih CD/DVDjih ali diskih. Lahko pomaga "
+"čiščenje CD/DVDja, peka CD/DVDja pri nižji hitrosti, ali čiščenje leče na CD/"
+"DVD pogonu (čistilna orodja so pogosto na voljo pri dobaviteljih elektronike)"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Napaka pri kopiranju datotek; morda je poškodovan trdi disk?"
 
 #. Type: error
 #. Description
@@ -510,12 +508,15 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Ta napaka je pogosta, če je poškodovan trdi disk. Lahko pomaga, če preverite "
+"trdi disk. Morda je star in potrebuje zamenjavo, ali premaknite sistem v "
+"hladnejše okolje."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Kopiranje datotek ni uspelo; poškodovan CD/DVD ali trdi disk?"
 
 #. Type: error
 #. Description
@@ -707,7 +708,7 @@ msgstr "Prenašanje jezikovnih paketov (preostaja ${TIME}) ..."
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Nisem mogel odklopiti razdelkov"
 
 #. Type: boolean
 #. Description
@@ -744,12 +745,3 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Poganjam ${SCRIPT}..."
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Izberite mesto v svoji državi in časovni pas."
-
-#~ msgid "Set Time..."
-#~ msgstr "Nastavi čas ..."
