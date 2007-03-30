@@ -24,7 +24,7 @@ db_get migration-assistant/partitions
 OLD_IFS="$IFS"
 IFS='
 '
-partitions=`echo "$RET" | sed -e 's/, /\n/g'`
+partitions="$(echo "$RET" | sed -e 's/, /\n/g')"
 for choice in $partitions; # Microsoft Windows XP Professional (/dev/hda1)
 do
 	ret="$ret$choice:\n"
