@@ -159,6 +159,8 @@ class FilteredCommand(object):
         self.start(auto_process=auto_process)
         if auto_process:
             self.enter_ui_loop()
+            if self.status is None:
+                self.status = self.wait()
         else:
             while self.process_line():
                 pass
