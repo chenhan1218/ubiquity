@@ -11,6 +11,9 @@ ubiquity (1.4.5) UNRELEASED; urgency=low
     autopartitioning (partman-auto 62ubuntu9).
   * Do a better job of trying to get the exit code of subsidiary processes.
   * Update translations from Rosetta.
+  * Automatic update of included source packages: hw-detect 1.45ubuntu3,
+    migration-assistant 0.4.3, partman-auto 62ubuntu9, partman-base
+    105ubuntu2, user-setup 1.8ubuntu3.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 27 Mar 2007 18:22:15 +0100
 

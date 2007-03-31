@@ -5,13 +5,13 @@ clock-setup 0.12ubuntu2
 console-setup 1.13ubuntu9
 debian-installer-utils 1.42ubuntu2
 grub-installer 1.20ubuntu3
-hw-detect 1.45ubuntu2
+hw-detect 1.45ubuntu3
 kboot-installer 0.0.1ubuntu2
 localechooser 1.37ubuntu1
-migration-assistant 0.4.2
+migration-assistant 0.4.3
 partconf 1.19build1
-partman-auto 62ubuntu8
-partman-base 105ubuntu1
+partman-auto 62ubuntu9
+partman-base 105ubuntu2
 partman-basicfilesystems 51ubuntu2
 partman-basicmethods 33ubuntu2
 partman-efi 11ubuntu3
@@ -24,5 +24,5 @@ partman-target 46ubuntu2
 partman-xfs 32ubuntu1
 silo-installer 1.07ubuntu4
 tzsetup 1:0.14
-user-setup 1.8ubuntu2
+user-setup 1.8ubuntu3
 yaboot-installer 1.1.8ubuntu2
