@@ -1,3 +1,10 @@
+ubiquity (1.4.6) UNRELEASED; urgency=low
+
+  * KDE frontend: Fetch locale from frontend object rather than partition
+    tree item, fixing a crash rendering unusable partitions (LP: #99660).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun,  1 Apr 2007 08:57:30 +0100
+
 ubiquity (1.4.5) feisty; urgency=low
 
   * Handle migration-assistant/failed-unmount being asked from ma-apply.

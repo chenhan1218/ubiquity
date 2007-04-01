@@ -2683,7 +2683,8 @@ class TreeItem:
         elif partition['parted']['fs'] != 'free':
             return '  %s' % partition['parted']['path']
         elif partition['parted']['type'] == 'unusable':
-            return '  %s' % get_string('partman/text/unusable', self.locale)
+            return '  %s' % get_string('partman/text/unusable',
+                                       self.ubiquity.locale)
         else:
             # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
             # feels a bit too SHOUTY for this interface.
