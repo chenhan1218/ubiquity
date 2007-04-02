@@ -2,6 +2,8 @@ ubiquity (1.4.6) UNRELEASED; urgency=low
 
   * KDE frontend: Fetch locale from frontend object rather than partition
     tree item, fixing a crash rendering unusable partitions (LP: #99660).
+  * Automatic update of included source packages: console-setup
+    1.13ubuntu10.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun,  1 Apr 2007 08:57:30 +0100
 
