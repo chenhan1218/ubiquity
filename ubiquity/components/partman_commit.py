@@ -35,7 +35,7 @@ class PartmanCommit(FilteredCommand):
         if self.manual_input:
             env = {'PARTMAN_UPDATE_BEFORE_COMMIT': '1'}
         else:
-            env = {}
+            env = {'PARTMAN_ALREADY_CHECKED': '1'}
         return ('/bin/partman-commit', questions, env)
 
     def error(self, priority, question):
