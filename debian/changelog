@@ -1,7 +1,9 @@
 ubiquity (1.4.7) UNRELEASED; urgency=low
 
-  * KDE frontend: disable all widgets in autopartition subchoices
-    when selecting another parent choice
+  * KDE frontend
+    - Disable all widgets in autopartition subchoices
+      when selecting another parent choice
+    - Fix misplaced widgets on user details page, closes https://launchpad.net/bugs/86175
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Tue,  3 Apr 2007 14:53:33 +0100
 
