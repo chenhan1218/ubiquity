@@ -4,6 +4,7 @@ ubiquity (1.4.7) UNRELEASED; urgency=low
     - Disable all widgets in autopartition subchoices
       when selecting another parent choice
     - Fix misplaced widgets on user details page, closes https://launchpad.net/bugs/86175
+    - Hide error messages from user info at start of each evaluation
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Tue,  3 Apr 2007 14:53:33 +0100
 

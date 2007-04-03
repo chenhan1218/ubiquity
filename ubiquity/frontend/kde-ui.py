@@ -793,7 +793,7 @@ class Wizard:
         self.allow_change_step(False)
 
         step = self.step_name(self.get_current_page())
-        if step == "stepPartMountpoints" or step == "stepPartAdvanced":
+        if step == "stepPartMountpoints" or step == "stepPartAdvanced" or step == "stepUserInfo":
             self.userinterface.fullname_error_image.hide()
             self.userinterface.fullname_error_reason.hide()
             self.userinterface.username_error_image.hide()
