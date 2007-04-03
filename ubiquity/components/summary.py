@@ -36,11 +36,7 @@ class Summary(PartmanCommit):
         if question == 'ubiquity/summary':
             text = ''
             wrapper = textwrap.TextWrapper(width=76)
-            # TODO evand 2007-01-07 Something is escaping the newlines generated
-            # by m-a in /usr/share/ubiquity/summary.  When run directly however,
-            # they display fine.
-            temp = self.extended_description(question).replace('\\n', '\n')
-            for line in temp.split("\n"):
+            for line in self.extended_description(question).split("\n"):
                 text += wrapper.fill(line) + "\n"
 
             self.frontend.set_summary_text(text)
