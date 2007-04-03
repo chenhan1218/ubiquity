@@ -6,20 +6,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-16 08:34+0000\n"
-"PO-Revision-Date: 2006-09-07 20:42+0000\n"
-"Last-Translator: Parlin Imanuel Toh <pt@samip-online.com>\n"
+"POT-Creation-Date: 2007-03-28 12:24+0100\n"
+"PO-Revision-Date: 2007-03-22 19:40+0000\n"
+"Last-Translator: Arief S Fitrianto <arief@gurame.fisika.ui.ac.id>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
 "id>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:18+0000\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr "Install"
+msgstr "Instal"
 
 #. Type: text
 #. Description
@@ -83,6 +84,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Pilihlah sebuah kota dalam negara dan daerah waktu anda. Jika waktu saat ini "
+"yang tertera tidak tepat bahkan setelah memilih daerah waktu yang tepat, "
+"anda dapat mencocokkannya setelah reboot ke dalam sistem yang ter-install."
 
 #. Type: text
 #. Description
@@ -167,6 +171,8 @@ msgstr "Pilih sebuah password untuk menjaga agar account anda aman."
 #: ../ubiquity.templates:21001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
+"Anda sedang berjalan dalam mode debugging. Jangan menggunakan password yang "
+"berharga!"
 
 #. Type: text
 #. Description
@@ -197,7 +203,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "Migrasi Dokumen dan Setting"
 
 #. Type: text
 #. Description
@@ -226,25 +232,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Full Name:"
-msgstr ""
+msgstr "Nama Lengkap:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Login Name:"
-msgstr ""
+msgstr "Nama Login:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Password:"
-msgstr ""
+msgstr "Password:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Confirm:"
-msgstr ""
+msgstr "Konfirmasi:"
 
 #. Type: text
 #. Description
@@ -268,11 +274,10 @@ msgstr "Mempersiapkan partisi"
 #. Description
 #: ../ubiquity.templates:35001
 msgid ""
-"Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 2 GB, and a swap partition of at least 256 MB."
+"You need to specify a partition for the root file system (mount point \"/\") "
+"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
+"may also set up other partitions if you wish."
 msgstr ""
-"Pastikan untuk menyediakan ruang untuk sebuah partisi root (\"/\"), dengan "
-"ukuran minimal 2 GB, dan sebuah partisi swap paling tidak 256 MB."
 
 #. Type: text
 #. Description
@@ -352,7 +357,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Boot loader"
-msgstr ""
+msgstr "Boot loader"
 
 #. Type: text
 #. Description
@@ -413,12 +418,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:53001
 msgid ""
-"Make sure to remove the CD when restarting the computer, otherwise it will "
+"Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Pastikan untuk memindahkan CD ini ketika melakukan restart komputer ini, "
-"kalau tidak, komputer ini akan menggunakan live CD ini kembali bukannya "
-"sistem yang baru ter-install."
 
 #. Type: text
 #. Description
@@ -475,13 +477,13 @@ msgstr "Sedang menyalin berkas..."
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Menyalin berkas (kurang dari satu menit lagi)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Gagal menyalin berkas; CD/DVD cacat?"
 
 #. Type: error
 #. Description
@@ -492,7 +494,7 @@ msgstr ""
 #: ../ubiquity.templates:63001 ../ubiquity.templates:64001
 #: ../ubiquity.templates:65001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "Penginstal menemukan error saat menyalin berkas ke hard disk:"
 
 #. Type: error
 #. Description
@@ -503,12 +505,16 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Error seperti ini sering terjadi karena cakram atau drive CD/DVD cacat. "
+"Untuk mendapatkan CD/DVD yang baik, silakan bakar CD/DVD dengan kecepatan "
+"rendah, atau membersihkan lensa drive CD/DVD (alat pembersihnya dapat "
+"diperoleh di toko elektronik)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Gagal menyalin berkas; hard disk cacat?"
 
 #. Type: error
 #. Description
@@ -518,12 +524,15 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Error seperti ini sering terjadi karena hard disk cacat. Silakan periksa "
+"apakah hard disk sudah usang dan butuh penggantian, atau pindahkan sistem ke "
+"tempat yang lebih dingin."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Gagal menyalin berkas; hard disk cacat atau CD/DVD cacat?"
 
 #. Type: error
 #. Description
@@ -537,6 +546,11 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Error seperti ini sering terjadi karena cakram atau drive CD/DVD cacat, atau "
+"hardisk yang cacat. Silakan membersihkan CD/DVD, mem-burn CD/DVD dengan "
+"kecepatan rendah, membersihkan lensa drive CD/DVD (alat pembersih tersedia "
+"di toko elektronik), periksa apakah hard disk sudah usang dan butuh "
+"penggantian, atau pindahkan sistem ke lingkungan yang lebih dingin."
 
 #. Type: text
 #. Description
@@ -584,7 +598,7 @@ msgstr "Sedang mendaftarkan pengguna..."
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Sedang melakukan import dokumen dan setting..."
 
 #. Type: text
 #. Description
@@ -652,27 +666,74 @@ msgstr "Kesalahan saat menginstal ${PACKAGE}"
 msgid "Error removing ${PACKAGE}"
 msgstr "Kesalahan saat menghapus ${PACKAGE}"
 
-#. Type: title
+#. Type: error
 #. Description
 #: ../ubiquity.templates:86001
+msgid "Error while installing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001
+msgid "An error occurred while installing packages:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid "The following packages are in a broken state:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid ""
+"This may be due to using an old installer image, or it may be due to a bug "
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "Error while removing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "An error occurred while removing packages:"
+msgstr ""
+
+#. Type: title
+#. Description
+#: ../ubiquity.templates:88001
 msgid "Installing language packs"
 msgstr "Sedang meng-install paket bahasa"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:89001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Sedang mengunduh paket bahasa (${TIME} lagi)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Gagal melepas partisi"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -680,37 +741,28 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid "System partition not formatted"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Sedang menjalankan ${SCRIPT}..."
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Pilih kota di negara anda dan zona waktu anda:"
-
-#~ msgid "Set Time..."
-#~ msgstr "Atur Waktu..."

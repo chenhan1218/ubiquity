@@ -6,15 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-16 08:34+0000\n"
-"PO-Revision-Date: 2006-10-09 09:31+0000\n"
-"Last-Translator: gumara <gumara@msn.com>\n"
+"POT-Creation-Date: 2007-03-28 12:24+0100\n"
+"PO-Revision-Date: 2007-03-22 20:22+0000\n"
+"Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Thai\n"
-"X-Poedit-Country: THAILAND\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:20+0000\n"
 
 #. Type: text
 #. Description
@@ -44,7 +43,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Answering the questions should only take a few minutes."
-msgstr "ใช้เวลาไม่กี่นาทีในการตอบคำถาม."
+msgstr "การตอบคำถามใช้เวลาไม่นาน เพียงไม่กี่นาทีเท่านั้น"
 
 #. Type: text
 #. Description
@@ -111,7 +110,7 @@ msgstr "เวลาปัจจุบัน:"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Keyboard layout"
-msgstr "แบบแป้นพิมพ์"
+msgstr "ผังแป้นพิมพ์"
 
 #. Type: text
 #. Description
@@ -149,7 +148,7 @@ msgstr "ชื่อที่คุณต้องการใช้ในกา
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
-msgstr "ถ้าคอมพิวเตอร์เครื่องนี้ไม่ได้มีผู้ใช้เพียงแค่คุณคนเดียว คุณสามารถเพิ่มผู้ใช้อื่นๆได้หลังการติดตั้ง"
+msgstr "ถ้ามีผู้ใช้คอมพิวเตอร์เครื่องนี้มากกว่าหนึ่งคน คุณสามารถเพิ่มผู้ใช้อื่นๆ ได้หลังการติดตั้ง"
 
 #. Type: text
 #. Description
@@ -174,7 +173,7 @@ msgstr "พิมพ์รหัสผ่านอีกครั้ง"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "What is the name of this computer?"
-msgstr "ชื่อของเครื่องคอมพิวเตอร์"
+msgstr "ชื่อของเครื่องคอมพิวเตอร์นี้"
 
 #. Type: text
 #. Description
@@ -259,11 +258,10 @@ msgstr "จัดเตรียมพาร์ทิชัน"
 #. Description
 #: ../ubiquity.templates:35001
 msgid ""
-"Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 2 GB, and a swap partition of at least 256 MB."
+"You need to specify a partition for the root file system (mount point \"/\") "
+"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
+"may also set up other partitions if you wish."
 msgstr ""
-"คุณควรจัดสรรพื้นที่สำหรับพาร์ทิชัน root (\"/\")ไม่ต่ำกว่า 2 GB และพาร์ทิชัน swap ไม่ต่ำกว่า 256 "
-"MB"
 
 #. Type: text
 #. Description
@@ -317,7 +315,7 @@ msgstr "ฟอร์แมตใหม่?"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "You must supply a root (\"/\") mount point."
-msgstr "คุณควรมีตำแหน่งเมาน์ที่เป็น root (\"/\")"
+msgstr "คุณต้องมีตำแหน่งเมาน์ที่เป็น root (\"/\")"
 
 #. Type: text
 #. Description
@@ -350,7 +348,7 @@ msgstr "ขั้นที่ ${INDEX} จาก ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Abort the installation?"
-msgstr "การติดตั้งล้มเหลว"
+msgstr "ยกเลิกการติดตั้ง?"
 
 #. Type: text
 #. Description
@@ -398,9 +396,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:53001
 msgid ""
-"Make sure to remove the CD when restarting the computer, otherwise it will "
+"Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
-msgstr "โปรดตรวจสอบว่าคุณได้นำแผ่นซีดีออกแล้วเมื่อรีสตาร์ทคอมพิวเตอร์"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -414,7 +412,7 @@ msgstr "ย้อนกลับ"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:55001
 msgid "Continue"
-msgstr "ต่อไป"
+msgstr "ดำเนินการต่อ"
 
 #. Type: note
 #. Description
@@ -463,13 +461,13 @@ msgstr "กำลังคัดลอกไฟล์..."
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "กำลังคัดลอกไฟล์(เหลืออีกไม่ถึงนาที)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "ไม่สามารถคัดลอกไฟล์ได้ แผ่นซีดี/ดีวีดีเสียหรือเปล่า?"
 
 #. Type: error
 #. Description
@@ -480,7 +478,7 @@ msgstr ""
 #: ../ubiquity.templates:63001 ../ubiquity.templates:64001
 #: ../ubiquity.templates:65001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "โปรแกรมติดตั้งไม่สามารถคัดลอกไฟล์ลงฮาร์ดดิสก์ได้์:"
 
 #. Type: error
 #. Description
@@ -491,12 +489,15 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"ปัญหานี้ส่วนใหญ่เกิดจากแผ่นหรือเครื่องเล่นซีดี/ดีวีดีเสีย กรุณาทดลองทำความสะอาดแผ่นซีดี/ดีวีดี "
+"เขียนแผ่นโดยใช้ความเร็วต่ำลง หรือทำความสะอาดเลนส์ของเครื่องเล่น "
+"(ชุดทำความสะอาดสามารถหาซื้อได้จากร้านขายอุปกรณ์ไฟฟ้าทั่วไป)"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "ไม่สามารถคัดลอกไฟล์ ฮาร์ดดิสก์มีปัญหาหรือเปล่า?"
 
 #. Type: error
 #. Description
@@ -506,12 +507,14 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"ปัญหานี้ส่วนใหญ่จะเกิดจากฮาร์ดดิสก์เสียกรุณาตรวจสอบดูว่าฮาร์ดดิสก์เก่า และต้องเปลี่ยนใหม่หรือไม่ "
+"หรือย้ายระบบไปอยู่ในสภาพแวดล้อมที่มีอุณหภูมิต่ำกว่านี้"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "ไม่สามารถคัดลอกไฟล์ แผ่นซีดี/ดีวีดีหรือฮาร์ดดิสก์เสียหรือเปล่า?"
 
 #. Type: error
 #. Description
@@ -525,6 +528,9 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"ปัณหานี้ส่วนใหญ่เกิดจากแผ่นหรือเครื่องเล่นซีดี/ดีวีดีเสียหรือฮาร์ดดิสก์เสีย กรุณาตรวจสอบดูว่าแผ่นซีดี/"
+"ดีวีดีสะอาดหรือเปล่า เขียนแผ่นด้วยความเร็วช้าลง ทำความสะอาดเลนส์ของเครื่องเล่น "
+"หรือฮาร์ดดิสก์เก่าและต้องเปลี่ยนใหม่หรือไม่ หรือไม่ก็ย้ายระบบไปอยู่ในสภาพแวดล้อมที่มีอุณหภูมิที่ต่ำกว่านี้"
 
 #. Type: text
 #. Description
@@ -602,7 +608,7 @@ msgstr "กำลังตั้งค่าตัวบูตระบบ..."
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Removing extra packages..."
-msgstr "กำลังลบชุดเสริมต่างๆ(extra packages)ออก..."
+msgstr "กำลังลบแพกเกจเสริมต่างๆ ออก..."
 
 #. Type: text
 #. Description
@@ -640,27 +646,74 @@ msgstr "เกิดการผิดพลาดขณะทำการติ
 msgid "Error removing ${PACKAGE}"
 msgstr "เกิดการผิดพลาดขณะกำลังถอน ${PACKAGE}"
 
-#. Type: title
+#. Type: error
 #. Description
 #: ../ubiquity.templates:86001
+msgid "Error while installing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001
+msgid "An error occurred while installing packages:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid "The following packages are in a broken state:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid ""
+"This may be due to using an old installer image, or it may be due to a bug "
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "Error while removing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "An error occurred while removing packages:"
+msgstr ""
+
+#. Type: title
+#. Description
+#: ../ubiquity.templates:88001
 msgid "Installing language packs"
 msgstr "กำลังติดตั้งชุดภาษา"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:89001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "กำลังดาวน์โหลดชุดภาษา (ต้องใช้เวลาอีก ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "เลิกเมานท์พาร์ทิชันไม่สำเร็จ"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -668,40 +721,28 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid "System partition not formatted"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "กำลังดำเนินการ ${SCRIPT}..."
-
-#~ msgid "GRUB will be installed to DEVICE"
-#~ msgstr "GRUB จะถูกติดตั้งที่ DEVICE"
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "เลือกจังหวัด ประเทศ และช่วงเวลา"
-
-#~ msgid "Set Time..."
-#~ msgstr "ตั้งเวลา..."

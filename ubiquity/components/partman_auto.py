@@ -56,6 +56,7 @@ class PartmanAuto(FilteredCommand):
 
         questions = ['^partman-auto/.*automatically_partition$',
                      '^partman-auto/select_disk$',
+                     '^partman-partitioning/confirm_resize$',
                      '^partman-partitioning/new_size$',
                      '^partman/choose_partition$',
                      '^partman/confirm.*',
@@ -193,6 +194,22 @@ class PartmanAuto(FilteredCommand):
                 assert self.extra_choice is not None
                 self.preseed(question, self.extra_choice)
                 self.succeeded = True
+                return True
+
+        elif question == 'partman-partitioning/confirm_resize':
+            if self.auto_state is not None:
+                # Proceed through confirmation question; we'll back up later.
+                self.preseed(question, 'true')
+                return True
+            else:
+                response = self.frontend.question_dialog(
+                    self.description(question),
+                    self.extended_description(question),
+                    ('ubiquity/text/go_back', 'ubiquity/text/continue'))
+                if response is None or response == 'ubiquity/text/continue':
+                    self.preseed(question, 'true')
+                else:
+                    self.preseed(question, 'false')
                 return True
 
         elif question == 'partman-partitioning/new_size':

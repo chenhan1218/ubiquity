@@ -112,9 +112,8 @@ class FilteredCommand(object):
     def wait(self):
         ret = self.dbfilter.wait()
 
-        if ret != 0:
-            # TODO: error message if ret != 10
-            self.debug("%s exited with code %d", self.command, ret)
+        # TODO: error message if ret != 0 and ret != 10
+        self.debug("%s exited with code %d", self.command, ret)
 
         self.cleanup()
 
@@ -160,6 +159,8 @@ class FilteredCommand(object):
         self.start(auto_process=auto_process)
         if auto_process:
             self.enter_ui_loop()
+            if self.status is None:
+                self.status = self.wait()
         else:
             while self.process_line():
                 pass
@@ -242,10 +243,13 @@ class FilteredCommand(object):
                        'utf-8', 'replace')
 
     def extended_description(self, question):
-        self.db.capb('escape')
+        old_capb = self.db.capb()
+        capb_list = old_capb.split()
+        capb_list.append('escape')
+        self.db.capb(' '.join(capb_list))
         data = unicode(self.db.metaget(question, 'extended_description'),
                        'utf-8', 'replace')
-        self.db.capb('')
+        self.db.capb(old_capb)
         return data
 
     def translate_to_c(self, question, value):
@@ -273,7 +277,10 @@ class FilteredCommand(object):
             value = self.escape(value)
         value = value.encode("UTF-8", "ignore")
         if escape:
-            self.db.capb('escape')
+            old_capb = self.db.capb()
+            capb_list = old_capb.split()
+            capb_list.append('escape')
+            self.db.capb(' '.join(capb_list))
         try:
             self.db.set(name, value)
         except debconf.DebconfError:
@@ -281,7 +288,7 @@ class FilteredCommand(object):
             self.db.set(name, value)
             self.db.subst(name, 'ID', name)
         if escape:
-            self.db.capb('')
+            self.db.capb(old_capb)
 
         if seen:
             self.db.fset(name, 'seen', 'true')

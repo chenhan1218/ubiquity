@@ -877,6 +877,14 @@ exit 0"""
             'ubiquity/install/apt_indices_starting',
             'ubiquity/install/apt_indices')
         cache = Cache()
+
+        if cache._depcache.BrokenCount > 0:
+            syslog.syslog(
+                'not installing language packs, since there are broken '
+                'packages: %s' % ', '.join(self.broken_packages(cache)))
+            self.db.progress('STOP')
+            return
+
         try:
             # update() returns False on failure and 0 on success. Madness!
             if cache.update(fetchprogress) not in (0, True):
@@ -907,6 +915,7 @@ exit 0"""
                 installed_pkgs.append(pkg)
         self.record_installed(installed_pkgs)
 
+        commit_error = None
         try:
             if not cache.commit(fetchprogress, installprogress):
                 fetchprogress.stop()
@@ -916,14 +925,26 @@ exit 0"""
         except IOError, e:
             for line in str(e).split('\n'):
                 syslog.syslog(syslog.LOG_WARNING, line)
-            self.db.progress('STOP')
-            raise
+            commit_error = str(e)
         except SystemError, e:
             for line in str(e).split('\n'):
                 syslog.syslog(syslog.LOG_WARNING, line)
-            self.db.progress('STOP')
-            raise
+            commit_error = str(e)
         self.db.progress('SET', 100)
+
+        cache.open(None)
+        if commit_error or cache._depcache.BrokenCount > 0:
+            if commit_error is None:
+                commit_error = ''
+            brokenpkgs = self.broken_packages(cache)
+            syslog.syslog('broken packages after language pack installation: '
+                          '%s' % ', '.join(brokenpkgs))
+            self.db.subst('ubiquity/install/broken_install', 'ERROR',
+                          commit_error)
+            self.db.subst('ubiquity/install/broken_install', 'PACKAGES',
+                          ', '.join(brokenpkgs))
+            self.db.input('critical', 'ubiquity/install/broken_install')
+            self.db.go()
 
         self.db.progress('STOP')
 
@@ -1301,6 +1322,13 @@ exit 0"""
             'ubiquity/install/apt_indices')
         cache = Cache()
 
+        if cache._depcache.BrokenCount > 0:
+            syslog.syslog(
+                'not processing removals, since there are broken packages: '
+                '%s' % ', '.join(self.broken_packages(cache)))
+            self.db.progress('STOP')
+            return
+
         while True:
             removed = set()
             for pkg in to_remove:
@@ -1362,6 +1390,7 @@ exit 0"""
             self.db, 'ubiquity/install/title', 'ubiquity/install/apt_info',
             'ubiquity/install/apt_error_remove')
         self.chroot_setup()
+        commit_error = None
         try:
             try:
                 if not cache.commit(fetchprogress, installprogress):
@@ -1372,11 +1401,24 @@ exit 0"""
             except SystemError, e:
                 for line in str(e).split('\n'):
                     syslog.syslog(syslog.LOG_ERR, line)
-                self.db.progress('STOP')
-                raise
+                commit_error = str(e)
         finally:
             self.chroot_cleanup()
         self.db.progress('SET', 5)
+
+        cache.open(None)
+        if commit_error or cache._depcache.BrokenCount > 0:
+            if commit_error is None:
+                commit_error = ''
+            brokenpkgs = self.broken_packages(cache)
+            syslog.syslog('broken packages after removal: '
+                          '%s' % ', '.join(brokenpkgs))
+            self.db.subst('ubiquity/install/broken_remove', 'ERROR',
+                          commit_error)
+            self.db.subst('ubiquity/install/broken_remove', 'PACKAGES',
+                          ', '.join(brokenpkgs))
+            self.db.input('critical', 'ubiquity/install/broken_remove')
+            self.db.go()
 
         self.db.progress('STOP')
 

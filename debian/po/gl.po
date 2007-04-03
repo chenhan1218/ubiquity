@@ -6,13 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-16 08:34+0000\n"
-"PO-Revision-Date: 2006-10-10 22:15+0000\n"
-"Last-Translator: Felipe Gil Castiñeira <xil@det.uvigo.es>\n"
+"POT-Creation-Date: 2007-03-28 12:24+0100\n"
+"PO-Revision-Date: 2007-03-29 22:45+0000\n"
+"Last-Translator: Felipe Gil Castiñeira <felipexil@gmail.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:19+0000\n"
 
 #. Type: text
 #. Description
@@ -34,15 +35,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Esta listo para instalar? Unha vez que conteste a unhas preguntas, os "
-"contidos do CD podrán ser instalados na computadora para que asi poida "
-"arrancar o sistema á maxima velocidade sen o CD."
+"¿Está listo para instalar? Unha vez que conteste a unhas preguntas, os "
+"contidos do \"live CD\" poderán ser instalados nesta computadora de xeito "
+"que poida executar o sistema á máxima velocidade e sen o CD."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Answering the questions should only take a few minutes."
-msgstr "Responder ás preguntas só lle levara uns minutos."
+msgstr "Responder ás preguntas só lle debería levar uns poucos minutos."
 
 #. Type: text
 #. Description
@@ -51,8 +52,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Por favor escolla a linguaxe a usar no proceso de instalacion. Esta linguaxe "
-"será a predeterminada para o sistema final."
+"Por favor, escolla o idioma para o proceso de instalación. Este idioma será "
+"o predeterminado para o sistema final."
 
 #. Type: text
 #. Description
@@ -61,18 +62,20 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"Se ten acceso a internet, lea as notas da revisión para informarse sobre os "
+"problemas que lle poidan afectar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Release Notes"
-msgstr ""
+msgstr "Notas da revisión"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Where are you?"
-msgstr "Onde estas?"
+msgstr "¿Onde está?"
 
 #. Type: text
 #. Description
@@ -82,6 +85,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Seleccione unha cidade no seu país e na súa zona horaria. Se a hora actual "
+"indicada é errónea incluso despois de seleccionar a zona horaria correcta, "
+"pódea axustar logo de reiniciar no sistema instalado."
 
 #. Type: text
 #. Description
@@ -111,38 +117,37 @@ msgstr "Hora actual:"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Keyboard layout"
-msgstr "Disposición das teclas"
+msgstr "Distribución do teclado"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "Que disposicion é a máis parecida á do seu teclado?"
+msgstr "¿Que distribución é a máis parecida á do seu teclado?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
-"Pode escribir neste cadro para probar a súa nova disposición das teclas."
+msgstr "Pode escribir neste cadro para probar a nova distribución das teclas."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Who are you?"
-msgstr "Quen é vostede?"
+msgstr "¿Quen é vostede?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "What is your name?"
-msgstr "Como se chama?"
+msgstr "¿Como se chama?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "What name do you want to use to log in?"
-msgstr "Que nome quere usar para iniciar sesión?"
+msgstr "¿Que nome quere usar para iniciar a sesión?"
 
 #. Type: text
 #. Description
@@ -151,8 +156,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Se máis dunha persoa vai usar esta computadora, pode configurar varias "
-"contas desois da instalación."
+"Se esta computadora vai ser usada por máis dunha persoa, pode configurar "
+"varias contas despois da instalación."
 
 #. Type: text
 #. Description
@@ -165,6 +170,8 @@ msgstr "Elixa un contrasinal para asegurar a súa conta."
 #: ../ubiquity.templates:21001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
+"Vostede está executando o sistema en modo de depuración. ¡Non use un "
+"contrasinal valioso!"
 
 #. Type: text
 #. Description
@@ -172,14 +179,14 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
-"Introduza o mesmo contrasinal dúas veces, asi poderán ser comprobados os "
-"posibles erros na escrita."
+"Introduza o mesmo contrasinal dúas veces, así poderán ser comprobados os "
+"erros ao escribir."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "What is the name of this computer?"
-msgstr "Cal é o nome de esta computadora?"
+msgstr "¿Cal é o nome desta computadora?"
 
 #. Type: text
 #. Description
@@ -188,13 +195,13 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Este nome será usado por se queres facer visible a tua computadora nuha rede."
+"Este nome será usado por se quere facer visible a súa computadora nuha rede."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "Migrar documentos e configuracións"
 
 #. Type: text
 #. Description
@@ -204,6 +211,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"Seleccione as contas que desexe importar e encha o formulario de máis abaixo "
+"para cada unha delas. Os documentos e configuracións destas contas están "
+"dispoñibles así que finalice a instalación."
 
 #. Type: text
 #. Description
@@ -212,70 +222,71 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Se non desexa importar ningunha conta, non seleccione nada e vaia á páxina "
+"seguinte."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "Crear un usuario para o que se importará a conta seleccionada:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Full Name:"
-msgstr ""
+msgstr "Nome completo:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Login Name:"
-msgstr ""
+msgstr "Nome de usuario:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Password:"
-msgstr ""
+msgstr "Contrasinal:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Confirm:"
-msgstr ""
+msgstr "Confirmar:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Prepare disk space"
-msgstr "Preparar espacio en disco"
+msgstr "Preparar o espazo no disco"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "How do you want to partition the disk?"
-msgstr "Como quere particionar o disco?"
+msgstr "¿Como quere particionar o disco?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Prepare partitions"
-msgstr "Preparar particións"
+msgstr "Preparar as particións"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid ""
-"Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 2 GB, and a swap partition of at least 256 MB."
+"You need to specify a partition for the root file system (mount point \"/\") "
+"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
+"may also set up other partitions if you wish."
 msgstr ""
-"Asegurese de asignar suficiente espacio para unha partición raíz (\"/\"), "
-"cun tamaño mínimo de 2 GB, e unha particion de intercambio de ó menos 256 MB"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Prepare mount points"
-msgstr "Preparar puntos de montaxe"
+msgstr "Preparar os puntos de montaxe"
 
 #. Type: text
 #. Description
@@ -346,7 +357,7 @@ msgstr "O seu novo sistema operativo instalarase coas seguintes opcións:"
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Boot loader"
-msgstr ""
+msgstr "Cargador de inicio"
 
 #. Type: text
 #. Description
@@ -358,19 +369,19 @@ msgstr "Paso ${INDEX} de ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Abort the installation?"
-msgstr "Abortar a instalación?"
+msgstr "¿Abortar a instalación?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Do you really want to abort the installation now?"
-msgstr "De verdade quere abortar a instalacion agora?"
+msgstr "¿De verdade quere abortar a instalación agora?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Skip"
-msgstr "Omitir"
+msgstr "Saltar"
 
 #. Type: title
 #. Description
@@ -382,7 +393,7 @@ msgstr "Instalación completa"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Continue using the live CD"
-msgstr "Continuar usando o CD"
+msgstr "Continuar usando o \"live CD\""
 
 #. Type: text
 #. Description
@@ -398,19 +409,17 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Completouse a instalación. É preciso reiniciar a computadora correctamente "
-"para poder usar a nova instalación. Podes continuar usando este CD, sen "
-"embargo os cambios que fagas ou os documnetos que gardes perderanse."
+"Completouse a instalación. É preciso reiniciar a computadora para poder usar "
+"a nova instalación. Pode continuar usando este \"live CD\", pero perderanse "
+"os cambios que faga ou os documentos que garde."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid ""
-"Make sure to remove the CD when restarting the computer, otherwise it will "
+"Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Asegurese de sacar o CD cando reinicie a computadora, da otra maneira "
-"iniciarase a copia desde o CD en vez de o sitema recien instalado."
 
 #. Type: text
 #. Description
@@ -429,7 +438,6 @@ msgstr "Continuar"
 #. Type: note
 #. Description
 #: ../ubiquity.templates:56001
-#, fuzzy
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -443,31 +451,33 @@ msgstr ""
 " Mapa de teclado: ${KEYMAP}\n"
 " Nome completo: ${FULLNAME}\n"
 " Nome de usuario: ${USERNAME}\n"
-" Localización: ${LOCATION}"
+" Localización: ${LOCATION}\n"
+" Asistente de migración:\n"
+" ${MIGRATE}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Installing system"
-msgstr "Instalando sistema"
+msgstr "Instalando o sistema"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Finding the distribution to copy..."
-msgstr "Buscando distribución para copiar..."
+msgstr "Buscando a distribución para copiar..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Scanning files..."
-msgstr "Analizando arquivos..."
+msgstr "Analizando ficheiros..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Copying files..."
-msgstr "Copiando arquivos..."
+msgstr "Copiando ficheiros..."
 
 #. Type: text
 #. Description
@@ -554,49 +564,49 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Copying installation logs..."
-msgstr "Copiando rexistros de instalación..."
+msgstr "Copiando os rexistros da instalación..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Configurando o sistema destino..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Configuring system locales..."
-msgstr "Configurando redes do sistema..."
+msgstr "A configurar as 'localizacións' do sistema..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Configuring apt..."
-msgstr "Configurando apt..."
+msgstr "A configurar apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
 msgid "Configuring time zone..."
-msgstr "Configurando fuso horario..."
+msgstr "A configurar o fuso horario..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Configuring keyboard..."
-msgstr "Configurando teclado..."
+msgstr "A configurar o teclado..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Creating user..."
-msgstr "Creando usuario..."
+msgstr "A crear o usuario..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Importando documentos e configuracións..."
 
 #. Type: text
 #. Description
@@ -614,25 +624,25 @@ msgstr "A configurar a rede..."
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Setting computer name..."
-msgstr "Establecendo o nome do ordenador..."
+msgstr "A establecer o nome da computadora..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Configuring boot loader..."
-msgstr "Configurando o xestor de inicio..."
+msgstr "A configurar o xestor de inicio..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Removing extra packages..."
-msgstr "Desinstalando os paquetes extra..."
+msgstr "A desinstalar os paquetes extra..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Checking for packages to remove..."
-msgstr "Comprobando os paquetes a desinstalar..."
+msgstr "A comprobar os paquetes a desinstalar..."
 
 #. Type: text
 #. Description
@@ -664,68 +674,112 @@ msgstr "Erro instalando ${PACKAGE}"
 msgid "Error removing ${PACKAGE}"
 msgstr "Erro desinstalando ${PACKAGE}"
 
-#. Type: title
+#. Type: error
 #. Description
 #: ../ubiquity.templates:86001
+msgid "Error while installing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001
+msgid "An error occurred while installing packages:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid "The following packages are in a broken state:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid ""
+"This may be due to using an old installer image, or it may be due to a bug "
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "Error while removing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "An error occurred while removing packages:"
+msgstr ""
+
+#. Type: title
+#. Description
+#: ../ubiquity.templates:88001
 msgid "Installing language packs"
 msgstr "Instalando os paquetes de idioma..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:89001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Descargando paquetes de idioma (quedan ${TIME})"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Non se puido desmontar as particións"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"O instalador precisa facer cambios na táboa de particións, pero isto non é "
+"posible porque as particións nos seguintes puntos de montaxe non se puideron "
+"desmontar:"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
 msgstr ""
+"Por favor, peche as aplicación que estean usando estes puntos de montaxe."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "¿Desexa que o instalador tente desmontar outra vez estas particións?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "A partición do sistema non está formatada"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "A executar ${SCRIPT}..."
-
-#~ msgid "GRUB will be installed to DEVICE"
-#~ msgstr "GRUB vaise instalar en DEVICE"
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Escolla a cidade do teu pais e o fuso horario"
-
-#~ msgid "Set Time..."
-#~ msgstr "Establecer hora..."
+"O sistema de ficheiros na ${PARTITION} asignado a ${MOUNTPOINT}  non se "
+"marcou para formatar. Os sistemas de ficheiros usados polo sistema (/, /"
+"boot, /usr, /var)  deben ser reformatados para poder ser usados por este "
+"instalador. Outros sistemas de ficheiros (/home, /media/*, /usr/local, etc.) "
+"pódense usar sen reformatar."

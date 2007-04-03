@@ -6,13 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-16 08:34+0000\n"
-"PO-Revision-Date: 2006-10-10 04:31+0000\n"
-"Last-Translator: Khandakar Mujahidul Islam <suzan@bengalinux.org>\n"
+"POT-Creation-Date: 2007-03-28 12:24+0100\n"
+"PO-Revision-Date: 2007-03-22 19:10+0000\n"
+"Last-Translator: Jamil Ahmed <itsjamil@gmail.com>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:20+0000\n"
 
 #. Type: text
 #. Description
@@ -263,11 +264,10 @@ msgstr "পার্টিশন প্রস্ততি"
 #. Description
 #: ../ubiquity.templates:35001
 msgid ""
-"Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 2 GB, and a swap partition of at least 256 MB."
+"You need to specify a partition for the root file system (mount point \"/\") "
+"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
+"may also set up other partitions if you wish."
 msgstr ""
-"নিশ্চিত করুন যে রুট পার্টিশনের (\"/\") জন্য নির্ধারিত জায়গা কমপক্ষে ২ গিগাবাইট, এবং "
-"সোয়াপ পার্টিশনের জন্য কমপক্ষে ২৫৬ মেগাবাইট।"
 
 #. Type: text
 #. Description
@@ -401,11 +401,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:53001
 msgid ""
-"Make sure to remove the CD when restarting the computer, otherwise it will "
+"Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"কম্পিউটারটি রিস্টার্ট করবার সময় সিডিটি বের হয়েছে কি-না তা নিশ্চত করুন, নয়তবা এটি "
-"নতুন ইনস্টলকৃত সিস্টেমের পরিবর্তে এই লাইভ সিডি ব্যবহার করেই ব্যাকআপ করা শুরূ করবে।"
 
 #. Type: text
 #. Description
@@ -647,27 +645,74 @@ msgstr ""
 msgid "Error removing ${PACKAGE}"
 msgstr ""
 
-#. Type: title
+#. Type: error
 #. Description
 #: ../ubiquity.templates:86001
+msgid "Error while installing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001
+msgid "An error occurred while installing packages:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid "The following packages are in a broken state:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid ""
+"This may be due to using an old installer image, or it may be due to a bug "
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "Error while removing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "An error occurred while removing packages:"
+msgstr ""
+
+#. Type: title
+#. Description
+#: ../ubiquity.templates:88001
 msgid "Installing language packs"
 msgstr "ভাষার প্যাকেজ ইনস্টল করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:89001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "ভাষা ভিত্তিক প্যাকেজগুলো ডাউনলোড করা হছে{${TIME}অবশিষ্ট আছে } ..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "পার্টিশন আনমাউন্ট করতে ব্যর্থ"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -675,40 +720,28 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid "System partition not formatted"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "${SCRIPT} চলছে..."
-
-#~ msgid "GRUB will be installed to DEVICE"
-#~ msgstr "DEVICE এ GRUB ইনস্টল করা হবে"
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "আপনার সময় অঞ্চলে অবস্থিত একটি শহর নির্বাচন করুন"
-
-#~ msgid "Set Time..."
-#~ msgstr "আপনার সময় নির্বাচন করুন"

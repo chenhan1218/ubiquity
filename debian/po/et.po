@@ -6,25 +6,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-16 08:34+0000\n"
-"PO-Revision-Date: 2006-04-20 06:04+0000\n"
-"Last-Translator: Siim Põder <windo@windowlicker.dyn.ee>\n"
+"POT-Creation-Date: 2007-03-28 12:24+0100\n"
+"PO-Revision-Date: 2007-03-22 19:24+0000\n"
+"Last-Translator: Siim Põder <windo@p6drad-teel.net>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:20+0000\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr ""
+msgstr "Paigalda"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Welcome"
-msgstr ""
+msgstr "Tere tulemast"
 
 #. Type: text
 #. Description
@@ -39,7 +40,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "Küsimustele vastamiseks peaks kuluma ainult mõned minutid."
 
 #. Type: text
 #. Description
@@ -67,7 +68,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Where are you?"
-msgstr ""
+msgstr "Kus sa oled?"
 
 #. Type: text
 #. Description
@@ -88,19 +89,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:10001
 msgid "Time zone:"
-msgstr ""
+msgstr "Ajavöönd:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Selected region:"
-msgstr ""
+msgstr "Valitud regioon:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Current time:"
-msgstr ""
+msgstr "Kohalik aeg:"
 
 #. Type: text
 #. Description
@@ -112,31 +113,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Milline klahvide asetus on sinu klaviatuurile kõige sarnasem?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "Siia kasti saad trükkida, et proovida oma uut klaviatuuriasetust."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Who are you?"
-msgstr ""
+msgstr "Kes sa oled?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "What is your name?"
-msgstr ""
+msgstr "Mis su nimi on?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "Mis nime tahad sa kasutada sisselogimiseks?"
 
 #. Type: text
 #. Description
@@ -145,6 +146,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Kui arvutit hakkab kasutama rohkem kui üks inimene, saad sa peale paigaldust "
+"üles seada mitu kasutajakontot."
 
 #. Type: text
 #. Description
@@ -169,7 +172,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:23001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "Mis on selle arvuti nimi?"
 
 #. Type: text
 #. Description
@@ -254,8 +257,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:35001
 msgid ""
-"Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 2 GB, and a swap partition of at least 256 MB."
+"You need to specify a partition for the root file system (mount point \"/\") "
+"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
+"may also set up other partitions if you wish."
 msgstr ""
 
 #. Type: text
@@ -290,7 +294,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:39001
 msgid "Size"
-msgstr ""
+msgstr "Suurus"
 
 #. Type: text
 #. Description
@@ -302,7 +306,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Reformat?"
-msgstr ""
+msgstr "Vorminda uuesti?"
 
 #. Type: text
 #. Description
@@ -335,7 +339,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Samm ${INDEX} / ${TOTAL} 'st"
 
 #. Type: title
 #. Description
@@ -353,7 +357,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Skip"
-msgstr ""
+msgstr "Jäta vahele"
 
 #. Type: title
 #. Description
@@ -365,13 +369,13 @@ msgstr "Paigaldamine on lõppenud"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Jätka live CD kasutamist"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Restart now"
-msgstr ""
+msgstr "Taaskäivita nüüd"
 
 #. Type: text
 #. Description
@@ -386,7 +390,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:53001
 msgid ""
-"Make sure to remove the CD when restarting the computer, otherwise it will "
+"Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
 
@@ -452,7 +456,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Failide kopeerimine ebaõnnestus; vigane CD/DVD?"
 
 #. Type: error
 #. Description
@@ -479,7 +483,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Failide kopeerimine ebaõnnestus; vigane kõvaketas?"
 
 #. Type: error
 #. Description
@@ -494,7 +498,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Failide kopeerimine ebaõnnestus; vigane CD/DVD või kõvaketas?"
 
 #. Type: error
 #. Description
@@ -532,7 +536,7 @@ msgstr "Võrgu seadistamine..."
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Seadistan apt'i..."
 
 #. Type: text
 #. Description
@@ -627,27 +631,74 @@ msgstr ""
 msgid "Error removing ${PACKAGE}"
 msgstr ""
 
-#. Type: title
+#. Type: error
 #. Description
 #: ../ubiquity.templates:86001
+msgid "Error while installing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001
+msgid "An error occurred while installing packages:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid "The following packages are in a broken state:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid ""
+"This may be due to using an old installer image, or it may be due to a bug "
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "Error while removing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "An error occurred while removing packages:"
+msgstr ""
+
+#. Type: title
+#. Description
+#: ../ubiquity.templates:88001
 msgid "Installing language packs"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:89001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Partitsioonide lahtihaakimine nurjus"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -655,31 +706,28 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid "System partition not formatted"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Jookseb ${SCRIPT}..."

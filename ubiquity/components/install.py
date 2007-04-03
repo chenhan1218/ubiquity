@@ -47,6 +47,7 @@ class Install(FilteredCommand):
                 self.preseed('popularity-contest/participate', 'false')
 
         questions = ['^.*/apt-install-failed$',
+                     'migration-assistant/failed-unmount',
                      'grub-installer/install_to_xfs',
                      'CAPB',
                      'ERROR',
@@ -76,7 +77,8 @@ class Install(FilteredCommand):
         if question.endswith('/apt-install-failed'):
             return self.error(priority, question)
 
-        elif question == 'grub-installer/install_to_xfs':
+        elif question in ('migration-assistant/failed-unmount',
+                          'grub-installer/install_to_xfs'):
             response = self.frontend.question_dialog(
                 self.description(question),
                 self.extended_description(question),

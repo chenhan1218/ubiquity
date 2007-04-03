@@ -6,13 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-16 08:34+0000\n"
-"PO-Revision-Date: 2006-09-25 12:20+0000\n"
-"Last-Translator: Marian Marencik <ubuntu@marianm.net>\n"
+"POT-Creation-Date: 2007-03-28 12:24+0100\n"
+"PO-Revision-Date: 2007-03-29 16:18+0000\n"
+"Last-Translator: Ján Dráb <cortex.sk@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:20+0000\n"
 
 #. Type: text
 #. Description
@@ -66,7 +67,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Release Notes"
-msgstr ""
+msgstr "Poznámky k vydaniu"
 
 #. Type: text
 #. Description
@@ -210,7 +211,7 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr ""
+msgstr "Ak si neželáte importovať žiadne účty, vyberte"
 
 #. Type: text
 #. Description
@@ -222,25 +223,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Full Name:"
-msgstr ""
+msgstr "Celé meno:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Login Name:"
-msgstr ""
+msgstr "Prihlasovacie meno:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Password:"
-msgstr ""
+msgstr "Heslo :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Confirm:"
-msgstr ""
+msgstr "Potvrdiť:"
 
 #. Type: text
 #. Description
@@ -264,11 +265,10 @@ msgstr "Pripravujú sa oblasti"
 #. Description
 #: ../ubiquity.templates:35001
 msgid ""
-"Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 2 GB, and a swap partition of at least 256 MB."
+"You need to specify a partition for the root file system (mount point \"/\") "
+"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
+"may also set up other partitions if you wish."
 msgstr ""
-"Uistite sa, že koreňová oblasť (\"/\") bude mať najmenej 2 GB a odkladací "
-"(swap) priestor bude aspoň 256 MB."
 
 #. Type: text
 #. Description
@@ -406,11 +406,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:53001
 msgid ""
-"Make sure to remove the CD when restarting the computer, otherwise it will "
+"Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Pred reštartom počítača vyberte CD z mechaniky, aby ste namiesto opätovného "
-"spustenia Live CD mohli spustiť váš nový nainštalovaný systém."
 
 #. Type: text
 #. Description
@@ -473,13 +471,13 @@ msgstr "Kopírujú sa súbory..."
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Prebieha kopírovanie (zostáva menej ako minúta)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Nepodarilo sa skopírovať súbory; vadné CD/DVD?"
 
 #. Type: error
 #. Description
@@ -490,7 +488,7 @@ msgstr ""
 #: ../ubiquity.templates:63001 ../ubiquity.templates:64001
 #: ../ubiquity.templates:65001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "Inštalátor narazil na chybu pri kopírovaní súborov na pevný disk:"
 
 #. Type: error
 #. Description
@@ -501,12 +499,16 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Príčinou tejto chyby býva často vadný CD/DVD disk alebo mechanika. Očistením "
+"CD/DVD disku, vypálením obsahu CD-DVD na nižšej rýchlosti, prípadne "
+"vyčistením optiky CD/DVD mechaniky sa môžete takejto chybe s veľkou "
+"pravdepodobnosťou vyvarovať."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Nepodarilo sa skopírovať súbory; vadný pevný disk?"
 
 #. Type: error
 #. Description
@@ -516,12 +518,15 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Príčinou tejto chyby býva často vadný pevný disk. Zvážením výmeny starého "
+"pevného disku za nový, prípadne presunom do chladnejšieho prostredia sa "
+"môžete takejto chybe s veľkou pravdepodobnosťou vyvarovať."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Nepodarilo sa skopírovať súbory; vadné CD/DVD alebo pevný disk?"
 
 #. Type: error
 #. Description
@@ -535,6 +540,12 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Príčinou tejto chyby býva často vadný CD/DVD disk alebo mechanika, "
+"eventuálne pevný disk. Očistením CD/DVD disku, vypálením obsahu CD-DVD na "
+"nižšej rýchlosti, prípadne vyčistením optiky CD/DVD mechaniky, eventuálne "
+"zvážením výmeny starého pevného disku za nový, prípadne presunom do "
+"chladnejšieho prostredia sa môžete takejto chybe s veľkou pravdepodobnosťou "
+"vyvarovať."
 
 #. Type: text
 #. Description
@@ -546,7 +557,7 @@ msgstr "Kopírujú sa záznamy o inštalácii..."
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Konfigurujem cieľový systém..."
 
 #. Type: text
 #. Description
@@ -582,7 +593,7 @@ msgstr "Vytvára sa používateľ..."
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Importujem dokumenty a nastavenia..."
 
 #. Type: text
 #. Description
@@ -650,27 +661,74 @@ msgstr "${PACKAGE} sa nedá nainštalovať"
 msgid "Error removing ${PACKAGE}"
 msgstr "${PACKAGE} sa nedá odstrániť"
 
-#. Type: title
+#. Type: error
 #. Description
 #: ../ubiquity.templates:86001
+msgid "Error while installing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001
+msgid "An error occurred while installing packages:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid "The following packages are in a broken state:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid ""
+"This may be due to using an old installer image, or it may be due to a bug "
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "Error while removing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "An error occurred while removing packages:"
+msgstr ""
+
+#. Type: title
+#. Description
+#: ../ubiquity.templates:88001
 msgid "Installing language packs"
 msgstr "Inštalujú sa jazykové balíky"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:89001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Sťahujú sa jazykové balíky (ostáva ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Chyba pri odpájaní oblastí"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -678,40 +736,28 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "Prosím ukončite každú aplikáciu používajúcu tieto body pripojenia."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "Chcete aby sa inštalátor pokúsil opäť odpojiť tieto oddiely?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Systémový oddiel nie je naformátovaný"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Spúšťa sa ${SCRIPT}..."
-
-#~ msgid "GRUB will be installed to DEVICE"
-#~ msgstr "GRUB bude nainštalovaný na DEVICE"
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Zvoľte mesto vo vašej krajine a vašom časovom pásme:"
-
-#~ msgid "Set Time..."
-#~ msgstr "Nastavuje sa čas..."

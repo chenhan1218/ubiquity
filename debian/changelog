@@ -1,13 +1,61 @@
-ubiquity (1.4.4) UNRELEASED; urgency=low
+ubiquity (1.4.6) feisty; urgency=low
 
-  * New partitioner: Mark unusable free space as such (part of LP: #86202).
+  * KDE frontend: Fetch locale from frontend object rather than partition
+    tree item, fixing a crash rendering unusable partitions (LP: #99660).
+  * Automatic update of included source packages: console-setup
+    1.13ubuntu10.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon,  2 Apr 2007 02:05:20 +0100
+
+ubiquity (1.4.5) feisty; urgency=low
+
+  * Handle migration-assistant/failed-unmount being asked from ma-apply.
+  * If installing or removing packages fails, then display a helpful error
+    message and try to continue rather than crashing; furthermore, avoid
+    installing language packs or removing packages when there are broken
+    packages on the target system (LP: #54282, #69470, #80938).
+  * Don't crash if Install exits due to SIGINT, SIGTERM, or SIGKILL, since
+    these are probably user-generated.
+  * Prepare for partman-partitioning/confirm_resize being asked during
+    autopartitioning (partman-auto 62ubuntu9).
+  * Do a better job of trying to get the exit code of subsidiary processes.
+  * Update translations from Rosetta.
+  * Automatic update of included source packages: hw-detect 1.45ubuntu3,
+    migration-assistant 0.4.3, partman-auto 62ubuntu9, partman-base
+    105ubuntu2, user-setup 1.8ubuntu3.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 31 Mar 2007 01:26:33 +0100
+
+ubiquity (1.4.4) feisty; urgency=low
+
+  * New partitioner:
+    - Mark unusable free space as such (part of LP: #86202).
+    - Add "Used" column (LP: #96126).
+    - Pressing Enter in the create/edit dialog mount point entry box
+      activates the OK button.
   * Old partitioner: Work around yet another hard-to-explain crash due to a
     partition being missing from /proc/partitions (LP: #73058).
-  * KDE frontend: Disable subsidiary autopartitioning options according to
-    the primary selection (thanks to Thorbjørn Tux for prompting me with
-    suggestions; LP: #85980).
+  * KDE frontend:
+    - Disable subsidiary autopartitioning options according to the primary
+      selection (thanks to Thorbjørn Tux for prompting me with suggestions;
+      LP: #85980).
+    - Guard against on_partition_list_*_activate being called with no
+      partition selected (LP: #95429).
+  * Issue a debugging message any time a process exits, not just when it
+    exits non-zero.
+  * Disable migration-assistant if using the old partitioner: it crashes and
+    is probably too much trouble to fix.
+  * Avoid crashing in certain progressposition methods if no progress bar is
+    running (LP: #51077).
+  * Return to partitioning if you back up from partman-commit (LP: #78930).
+  * Adjust ubiquity/text/partition_help, ubiquity/text/finished_label,
+    debian/intro-alpha.txt, and debian/intro-beta.txt to avoid the
+    grammatical error "make sure to" (LP: #86284).
+  * Automatic update of included source packages: base-installer
+    1.70ubuntu6, partman-auto 62ubuntu8, partman-partitioning 47ubuntu5,
+    silo-installer 1.07ubuntu4.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 21 Mar 2007 15:34:17 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 26 Mar 2007 18:39:53 +0100
 
 ubiquity (1.4.3) feisty; urgency=low
 

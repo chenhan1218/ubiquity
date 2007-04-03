@@ -6,13 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-16 08:34+0000\n"
-"PO-Revision-Date: 2006-09-07 20:20+0000\n"
-"Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
+"POT-Creation-Date: 2007-03-28 12:24+0100\n"
+"PO-Revision-Date: 2007-03-24 19:16+0000\n"
+"Last-Translator: Ahmed Fouad <aelhofy@gmail.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:18+0000\n"
 
 #. Type: text
 #. Description
@@ -34,6 +35,8 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"مستعد للتنصيب؟ بمجرد أن تجيب على بضعة أسئلة، سيتم نسخ محتويات القرص الليزري "
+"(CD) و ستستطيع تشغيل النظام بالسرعة الكاملة و بدون القرص الليزري (CD)."
 
 #. Type: text
 #. Description
@@ -48,6 +51,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"الرجاء إختيار اللغة التي ستستخدم خلال عملية التنصيب. هذه اللغة ستصبح اللغة "
+"الإفتراضية للنظام النهائي."
 
 #. Type: text
 #. Description
@@ -56,12 +61,13 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"ااذا توفر لديك اتصال بالانترنت,اقرأ تعليمات الاصدار عن المشاكل التي قد تضرك."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Release Notes"
-msgstr ""
+msgstr "ملاحظات الإصدار"
 
 #. Type: text
 #. Description
@@ -77,6 +83,8 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"اختر مدينه في بلدك والنطاق الزمني.اذا كان الزمن خاطئ حتى بعد اختيار النطاق "
+"الزمني,فتستطع تعديله بعد اعادة تشغيل النظام المثبت."
 
 #. Type: text
 #. Description
@@ -94,7 +102,7 @@ msgstr "المنطقة الزمنيّة:"
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Selected region:"
-msgstr ""
+msgstr "المنطقة المحددة:"
 
 #. Type: text
 #. Description
@@ -112,31 +120,31 @@ msgstr "نموذج لوحة المفاتيح"
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "ما هي اللوحة الأكثر شبهاً بلوحة مفاتيحك؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "يمكنك الطباعة في صندوق النص لفحص تخطيط لوحة المفاتيح الجديد"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Who are you?"
-msgstr ""
+msgstr "من أنت؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "What is your name?"
-msgstr ""
+msgstr "ما اسمك؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "ما الاسم الذي تريد استخدامه حين تسجيل الدخول؟"
 
 #. Type: text
 #. Description
@@ -145,6 +153,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"إن كان هناك أكثر من شخص سيقوم باستخدام هذا الحاسب فيمكنك إضافة حسابات متعددة "
+"بعد الانتهاء من عملية التثبيت"
 
 #. Type: text
 #. Description
@@ -212,7 +222,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Full Name:"
-msgstr ""
+msgstr "الاسم الكامل:"
 
 #. Type: text
 #. Description
@@ -254,8 +264,9 @@ msgstr "حضر التجزئة"
 #. Description
 #: ../ubiquity.templates:35001
 msgid ""
-"Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 2 GB, and a swap partition of at least 256 MB."
+"You need to specify a partition for the root file system (mount point \"/\") "
+"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
+"may also set up other partitions if you wish."
 msgstr ""
 
 #. Type: text
@@ -271,6 +282,8 @@ msgid ""
 "Select which partitions you want to use for your new installation, and where "
 "you want to mount each of them."
 msgstr ""
+"اختر أي من الأقسام تريد أن تستخدم في عملية التثبيت، و أختر أين تريد أن تصعد "
+"كلا من هذه الأقسام"
 
 #. Type: text
 #. Description
@@ -279,6 +292,8 @@ msgid ""
 "You must mount one partition on the root file system (\"/\"), and you must "
 "choose at least one partition for use as swap space."
 msgstr ""
+"يجب عليك أن تصعد أحدا من الأقسام ليكون نظام الملفات الجذري (\"/\")، كما أنه "
+"يجب عليك أن تختار قسما واحدا على الأقل ليكون قسم تبادل"
 
 #. Type: text
 #. Description
@@ -290,25 +305,25 @@ msgstr "نقطة الاسناد"
 #. Description
 #: ../ubiquity.templates:39001
 msgid "Size"
-msgstr ""
+msgstr "السعة"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Partition"
-msgstr ""
+msgstr "جزء"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Reformat?"
-msgstr ""
+msgstr "إعادة تنشئة"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "You must supply a root (\"/\") mount point."
-msgstr ""
+msgstr "يجب عليك أن تحدد نقطة تصعيد الجذر (\"/\")"
 
 #. Type: text
 #. Description
@@ -323,7 +338,7 @@ msgstr "مستعد للتثبيت"
 #: ../ubiquity.templates:44001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "نظام تشغيلك الجديد سوف يثبت الآن وفقا للإعدادات التالية:"
 
 #. Type: text
 #. Description
@@ -335,7 +350,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "الخطوة ${INDEX} من ${TOTAL}"
 
 #. Type: title
 #. Description
@@ -365,13 +380,13 @@ msgstr "اكتمل التثبيت"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "تابع استخدام القرص المباشر"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Restart now"
-msgstr ""
+msgstr "إعادة التشغيل الآن"
 
 #. Type: text
 #. Description
@@ -381,12 +396,15 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"عملية التثبيت تمت. عليك إعادة تشغيل النظام لكي تتمكن من استخدام النظام "
+"الجديد. بامكانك متابعة استخدام القرص المباشر، علما أنه لن يتم حفظ أي تعديلات "
+"تجريها أو أي مستندات تنشئها."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid ""
-"Make sure to remove the CD when restarting the computer, otherwise it will "
+"Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
 
@@ -427,31 +445,31 @@ msgstr "تثبيت النظام"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "جاري البحث عن التوزيع (distribution) للنسخ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Scanning files..."
-msgstr ""
+msgstr "عملية مسح الأقراص..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Copying files..."
-msgstr ""
+msgstr "عملية نسخ الملفات..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "جاري نسخ الملفات (المتبقي أقل من دقيقة)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "عملية نسخ الملفات فشلت، القرص CD/DVD معتل؟"
 
 #. Type: error
 #. Description
@@ -462,7 +480,7 @@ msgstr ""
 #: ../ubiquity.templates:63001 ../ubiquity.templates:64001
 #: ../ubiquity.templates:65001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "المثبت واجه خطأ أثناء نسخ الملفات للقرص الصلب"
 
 #. Type: error
 #. Description
@@ -473,12 +491,15 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"هذا الخطأ سببه غالبا قرص CD/DVD معتل. يمكنك مسح القرص، أو إعادة نسخ القرص "
+"باستخدام سرعات تسجيل أبطأ أو تنظيف العدسة الليزية للقارءة. (أدوات تنظيف "
+"العدسات الليزرية تتواجد عند موزعي الأجهزة الالكترونية)"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "نسخ الملفات فشل، قرص صلب معتل؟"
 
 #. Type: error
 #. Description
@@ -488,12 +509,14 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"هذا الخطأ سببه غالبا قرص صلب معتل. تفحص إذا كان القرص الصلب قديما و بحاجة "
+"إلى تغيير أو قم بنقل نظامك إلى بيئة أكثر برودة"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "نسخ الملفات فشل، قرص صلب أو قارءة CD/DVD معتلة؟"
 
 #. Type: error
 #. Description
@@ -507,12 +530,17 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"هذا الخطأ سببه غالبا قرص CD/DVD أو قرص صلب معتل. يمكنك مسح القرص الليزري، أو "
+"إعادة نسخ القرص باستخدام سرعات تسجيل أبطأ أو تنظيف العدسة الليزية للقارءة. "
+"(أدوات تنظيف العدسات الليزرية تتواجد عند موزعي الأجهزة الالكتروني).كذلك تفحص "
+"إذا كان القرص الصلب قديما و بحاجة إلى تغيير أو قم بنقل نظامك إلى بيئة أكثر "
+"برودة."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "عملية نسخ سجلات التثبيت..."
 
 #. Type: text
 #. Description
@@ -523,9 +551,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "تهيئة الشبكة..."
+msgstr "إعداد مقرات النظام ..."
 
 #. Type: text
 #. Description
@@ -536,15 +563,14 @@ msgstr "تهيئة apt..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "تهيئة الشبكة..."
+msgstr "إعداد النطاق الزمني"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "إعداد لوحة المفاتيح..."
 
 #. Type: text
 #. Description
@@ -561,9 +587,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "تهيئة الشبكة..."
+msgstr "إعداد الأجهزة..."
 
 #. Type: text
 #. Description
@@ -580,39 +605,38 @@ msgstr "تهيئة اسم الحاسوب..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "تهيئة الشبكة..."
+msgstr "إعداد محمل الاقلاع اﻷول..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "إزالة الحزم الإضافيّة..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "التحقق من وجود حزمات للإزالة..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "تحميل حزمات (${TIME} متبقي)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "تحميل قائمة الحزمات..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "جاري تحميل قائمة الحزمات (متبقي ${TIME})..."
 
 #. Type: error
 #. Description
@@ -626,27 +650,74 @@ msgstr "خطأ تثبيت ${PACKAGE}"
 msgid "Error removing ${PACKAGE}"
 msgstr "خطأ إزالة ${PACKAGE}"
 
-#. Type: title
+#. Type: error
 #. Description
 #: ../ubiquity.templates:86001
+msgid "Error while installing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001
+msgid "An error occurred while installing packages:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid "The following packages are in a broken state:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid ""
+"This may be due to using an old installer image, or it may be due to a bug "
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "Error while removing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "An error occurred while removing packages:"
+msgstr ""
+
+#. Type: title
+#. Description
+#: ../ubiquity.templates:88001
 msgid "Installing language packs"
 msgstr "تثبيت حزم اللغات"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:89001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "جاري تحميل حزم دعم اللغات (متبقي ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "فشل فك الأجزاء"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -654,37 +725,28 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid "System partition not formatted"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "تشغيل ${SCRIPT}..."
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "اختار مدينة ضمن دولتك و منطقتك الزمنية."
-
-#~ msgid "Set Time..."
-#~ msgstr "حدد الوقت..."

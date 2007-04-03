@@ -6,13 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-16 08:34+0000\n"
-"PO-Revision-Date: 2006-10-09 22:06+0000\n"
-"Last-Translator: Ricardo Pérez López <ricardo@iesdonana.org>\n"
+"POT-Creation-Date: 2007-03-28 12:24+0100\n"
+"PO-Revision-Date: 2007-03-23 19:34+0000\n"
+"Last-Translator: Julián Alarcón <alarconj@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Rosetta-Export-Date: 2007-03-30 14:19+0000\n"
 
 #. Type: text
 #. Description
@@ -61,12 +62,14 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"Si tiene acceso a Internet, lea las notas de publicación para informarse "
+"acerca de los problemas que le pueden afectar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Release Notes"
-msgstr ""
+msgstr "Notas de publicación"
 
 #. Type: text
 #. Description
@@ -82,6 +85,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Seleccione una ciudad en su país y la zona horaria. Si la hora actual "
+"indicada es incorrecta incluso después de seleccionar la zona horaria "
+"correcta, puede ajustarla después de reiniciar el sistema instalado."
 
 #. Type: text
 #. Description
@@ -165,6 +171,8 @@ msgstr "Escoja una contraseña para mantener su cuenta segura."
 #: ../ubiquity.templates:21001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
+"Usted está ejecutando el sistema en modo de depuración. No use una "
+"contraseña valiosa."
 
 #. Type: text
 #. Description
@@ -195,7 +203,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "Migrar Documentos y Configuraciones"
 
 #. Type: text
 #. Description
@@ -205,6 +213,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"Seleccione cualesquiera cuentas que desee importar y llene el formulario de "
+"abajo para cada una. Los documentos y configuraciones para éstas cuentas "
+"estarán disponibles después de que se complete la instalación."
 
 #. Type: text
 #. Description
@@ -213,36 +224,38 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Si no desea importar ninguna cuenta, no seleccione nada y vaya a la "
+"siguiente página."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "Cree un usuario para importar dentro la cuenta seleccionada:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Full Name:"
-msgstr ""
+msgstr "Nombre completo:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Login Name:"
-msgstr ""
+msgstr "Nombre de Usuario:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Password:"
-msgstr ""
+msgstr "Contraseña:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Confirm:"
-msgstr ""
+msgstr "Confirmar:"
 
 #. Type: text
 #. Description
@@ -266,11 +279,10 @@ msgstr "Preparar particiones"
 #. Description
 #: ../ubiquity.templates:35001
 msgid ""
-"Make sure to allocate space for a root partition (\"/\"), with a minimum "
-"size of 2 GB, and a swap partition of at least 256 MB."
+"You need to specify a partition for the root file system (mount point \"/\") "
+"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
+"may also set up other partitions if you wish."
 msgstr ""
-"Asegúrese de reservar espacio para la partición raíz («/»), con un tamaño "
-"mínimo de 2 GB, y una partición de intercambio de, al menos, 256 MB."
 
 #. Type: text
 #. Description
@@ -348,7 +360,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Boot loader"
-msgstr ""
+msgstr "Cargador de arranque"
 
 #. Type: text
 #. Description
@@ -408,12 +420,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:53001
 msgid ""
-"Make sure to remove the CD when restarting the computer, otherwise it will "
+"Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"Asegúrese de extraer el CD de la unidad cuando reinicie el ordenador; de "
-"otro modo, volverá a arrancar este Live CD en lugar del sistema recién "
-"instalado."
 
 #. Type: text
 #. Description
@@ -432,7 +441,6 @@ msgstr "Continuar"
 #. Type: note
 #. Description
 #: ../ubiquity.templates:56001
-#, fuzzy
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -446,7 +454,9 @@ msgstr ""
 " Distribución del teclado: ${KEYMAP}\n"
 " Nombre completo: ${FULLNAME}\n"
 " Nombre de usuario: ${USERNAME}\n"
-" Localización: ${LOCATION}"
+" Localización: ${LOCATION}\n"
+" Asistente de migración:\n"
+" ${MIGRATE}"
 
 #. Type: title
 #. Description
@@ -562,7 +572,7 @@ msgstr "Copiando registros de la instalación..."
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Configurando el sistema de destino..."
 
 #. Type: text
 #. Description
@@ -598,7 +608,7 @@ msgstr "Creando usuario..."
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Importar documentos y configuraciones..."
 
 #. Type: text
 #. Description
@@ -666,68 +676,113 @@ msgstr "Error instalando ${PACKAGE}"
 msgid "Error removing ${PACKAGE}"
 msgstr "Error desinstalando ${PACKAGE}"
 
-#. Type: title
+#. Type: error
 #. Description
 #: ../ubiquity.templates:86001
+msgid "Error while installing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001
+msgid "An error occurred while installing packages:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid "The following packages are in a broken state:"
+msgstr ""
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+msgid ""
+"This may be due to using an old installer image, or it may be due to a bug "
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "Error while removing packages"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:87001
+msgid "An error occurred while removing packages:"
+msgstr ""
+
+#. Type: title
+#. Description
+#: ../ubiquity.templates:88001
 msgid "Installing language packs"
 msgstr "Instalando los paquetes de idiomas"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:89001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Descargando paquetes de idiomas (faltan ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Error al desmontar particiones"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"El instalador necesita guardar los cambios en la tabla de particiones, pero "
+"no puede hacerlo debido a que las particiones en los siguientes puntos de "
+"montaje no pueden ser desmontadas:"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
 msgstr ""
+"Por favor cierre cualquier aplicación que este usando estos puntos de "
+"montaje."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "¿Desea que el instalador intente desmontar estas particiones de nuevo?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Partición del sistema no formateada"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-
-#~ msgid "Running ${SCRIPT}..."
-#~ msgstr "Ejecutando ${SCRIPT}..."
-
-#~ msgid "GRUB will be installed to DEVICE"
-#~ msgstr "GRUB se instalará en DEVICE"
-
-#~ msgid "Select a city in your country and time zone."
-#~ msgstr "Seleccione una ciudad de su país y su zona horaria:"
-
-#~ msgid "Set Time..."
-#~ msgstr "Establecer fecha..."
+"El sistema de archivos en ${PARTITION} asignado a ${MOUNTPOINT} no puede ser "
+"marcado para formatear. Los sistemas de archivos usados por el sistema (/, /"
+"boot, /usr, /var) deben ser reformateados para usar éste instalador. Otros "
+"sistemas de archivos (/home, /media/*, /usr/local, etc.) pueden ser usados "
+"sin reformatear."

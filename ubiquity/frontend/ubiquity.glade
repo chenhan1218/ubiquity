@@ -798,7 +798,7 @@ Please choose the language used for the installation process. This language will
                             <property name="xalign">0</property>
                             <property name="xpad">6</property>
                             <property name="ypad">6</property>
-                            <property name="label" translatable="yes">Make sure to allocate space for a root partition ("/"), with a minimum size of 2 GB, and a swap partition of at least 256 MB.</property>
+                            <property name="label" translatable="yes">You need to specify a partition for the root file system (mount point "/") with a minimum size of 2 GB, and a swap partition of at least 256 MB. You may also set up other partitions if you wish.</property>
                             <property name="wrap">True</property>
                             <property name="selectable">True</property>
                           </widget>
@@ -2315,7 +2315,7 @@ If you do not wish to import any accounts, select nothing and go to the next pag
             <property name="ypad">6</property>
             <property name="label" translatable="yes">Installation is complete. You need to restart the computer in order to use the new installation. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.
 
-Make sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system.</property>
+Be sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system.</property>
             <property name="wrap">True</property>
             <property name="selectable">True</property>
           </widget>
@@ -2592,6 +2592,7 @@ Make sure to remove the CD when restarting the computer, otherwise it will start
                             <child internal-child="entry">
                               <widget class="GtkEntry" id="comboboxentry-entry1">
                                 <property name="visible">True</property>
+                                <property name="activates_default">True</property>
                               </widget>
                             </child>
                           </widget>
@@ -2872,6 +2873,7 @@ Make sure to remove the CD when restarting the computer, otherwise it will start
                             <child internal-child="entry">
                               <widget class="GtkEntry" id="comboboxentry-entry2">
                                 <property name="visible">True</property>
+                                <property name="activates_default">True</property>
                               </widget>
                             </child>
                           </widget>

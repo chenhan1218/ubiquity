@@ -162,8 +162,9 @@ _Description: Prepare partitions
 Template: ubiquity/text/partition_help
 Type: text
 _Description:
- Make sure to allocate space for a root partition ("/"), with a minimum size
- of 2 GB, and a swap partition of at least 256 MB.
+ You need to specify a partition for the root file system (mount point "/")
+ with a minimum size of 2 GB, and a swap partition of at least 256 MB. You
+ may also set up other partitions if you wish.
 
 Template: ubiquity/text/part_mountpoints_heading_label
 Type: text
@@ -245,7 +246,7 @@ _Description:
  the new installation. You can continue to use this live CD, although any
  changes you make or documents you save will not be preserved.
  .
- Make sure to remove the CD when restarting the computer, otherwise it will
+ Be sure to remove the CD when restarting the computer, otherwise it will
  start back up using this live CD rather than the newly-installed system.
 
 Template: ubiquity/text/go_back
@@ -427,6 +428,46 @@ Type: error
 #flag:translate!:2
 _Description: Error removing ${PACKAGE}
  ${MESSAGE}
+
+Template: ubiquity/install/broken_install
+Type: error
+#flag:translate!:3,5
+_Description: Error while installing packages
+ An error occurred while installing packages:
+ .
+ ${ERROR}
+ .
+ The following packages are in a broken state:
+ .
+ ${PACKAGES}
+ .
+ This may be due to using an old installer image, or it may be due to a bug
+ in some of the packages listed above. More details may be found in
+ /var/log/syslog. The installer will try to continue anyway, but may fail at
+ a later point, and will not be able to install or remove other packages
+ (possibly including itself) from the installed system. You should first
+ look for newer versions of your installer image, or failing that report the
+ problem to your distributor.
+
+Template: ubiquity/install/broken_remove
+Type: error
+#flag:translate!:3,5
+_Description: Error while removing packages
+ An error occurred while removing packages:
+ .
+ ${ERROR}
+ .
+ The following packages are in a broken state:
+ .
+ ${PACKAGES}
+ .
+ This may be due to using an old installer image, or it may be due to a bug
+ in some of the packages listed above. More details may be found in
+ /var/log/syslog. The installer will try to continue anyway, but may fail at
+ a later point, and will not be able to install or remove other packages
+ (possibly including itself) from the installed system. You should first
+ look for newer versions of your installer image, or failing that report the
+ problem to your distributor.
 
 Template: ubiquity/langpacks/title
 Type: title
