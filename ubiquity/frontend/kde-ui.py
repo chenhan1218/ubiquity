@@ -223,6 +223,11 @@ class Wizard:
         self.mountpoint_vbox.addLayout(self.mountpoint_table)
         self.mountpoint_vbox.addStretch()
 
+        self.userinterface.fullname_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
+        self.userinterface.username_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
+        self.userinterface.password_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
+        self.userinterface.hostname_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
+
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
 
@@ -793,15 +798,15 @@ class Wizard:
         self.allow_change_step(False)
 
         step = self.step_name(self.get_current_page())
-        if step == "stepPartMountpoints" or step == "stepPartAdvanced" or step == "stepUserInfo":
-            self.userinterface.fullname_error_image.hide()
-            self.userinterface.fullname_error_reason.hide()
-            self.userinterface.username_error_image.hide()
-            self.userinterface.username_error_reason.hide()
-            self.userinterface.password_error_image.hide()
-            self.userinterface.password_error_reason.hide()
-            self.userinterface.hostname_error_image.hide()
-            self.userinterface.hostname_error_reason.hide()
+
+        self.userinterface.fullname_error_image.hide()
+        self.userinterface.fullname_error_reason.hide()
+        self.userinterface.username_error_image.hide()
+        self.userinterface.username_error_reason.hide()
+        self.userinterface.password_error_image.hide()
+        self.userinterface.password_error_reason.hide()
+        self.userinterface.hostname_error_image.hide()
+        self.userinterface.hostname_error_reason.hide()
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -900,6 +905,7 @@ class Wizard:
         if len(error_msg) != 0:
             self.userinterface.hostname_error_reason.setText("\n".join(error_msg))
             self.userinterface.hostname_error_reason.show()
+            self.userinterface.hostname_error_image.show()
         else:
             self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
 
