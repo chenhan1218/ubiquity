@@ -2,6 +2,8 @@ ubiquity (1.4.7) UNRELEASED; urgency=low
 
   * Set PARTMAN_ALREADY_CHECKED when committing changes from the new
     advanced partitioner, to avoid duplicate warnings (LP: #100009).
+  * Use debconf escape capability to simplify migration-assistant summary
+    handling.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue,  3 Apr 2007 13:48:00 +0100
 

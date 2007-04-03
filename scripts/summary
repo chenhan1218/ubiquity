@@ -19,7 +19,10 @@ db_get time/zone # actually continent/city (usually)
 db_subst ubiquity/summary LOCATION "$RET"
 
 # Migration Assistant
+db_capb escape
 ret=""
+newline='
+'
 db_get migration-assistant/partitions
 OLD_IFS="$IFS"
 IFS='
@@ -27,24 +30,25 @@ IFS='
 partitions="$(echo "$RET" | sed -e 's/, /\n/g')"
 for choice in $partitions; # Microsoft Windows XP Professional (/dev/hda1)
 do
-	ret="$ret$choice:\n"
+	ret="$ret$choice:$newline"
 	part="$(expr match "$choice" '.*/\(.*\))$')" # hda1
 	
 	db_get "migration-assistant/$part/users"
 	if [ -z "$RET" ]; then
-		ret="${ret}None\n"
+		ret="${ret}None$newline"
 	fi
 	users="$(echo "$RET" | sed -e 's/, /\n/g')"
 	for user in $users; do
 		ret="$ret$user: "
 		formatted_user="$(echo "$user" | sed -e 's/ /:/g')"
 		db_get "migration-assistant/$part/$formatted_user/items"
-		ret="$ret$RET\n"
+		ret="$ret$RET$newline"
 	done
-	ret="$ret\n"
+	ret="$ret$newline"
 done
 IFS="$OLD_IFS"
-db_subst ubiquity/summary MIGRATE "$ret"
+db_subst ubiquity/summary MIGRATE "${ret%$newline}"
+db_capb
 
 # We need to run this to get hold of the partitioning summary. Our component
 # takes care of ensuring that changes are not actually committed.
