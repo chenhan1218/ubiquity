@@ -1,3 +1,10 @@
+ubiquity (1.4.7) UNRELEASED; urgency=low
+
+  * KDE frontend: disable all widgets in autopartition subchoices
+    when selecting another parent choice
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue,  3 Apr 2007 14:53:33 +0100
+
 ubiquity (1.4.6) feisty; urgency=low
 
   * KDE frontend: Fetch locale from frontend object rather than partition

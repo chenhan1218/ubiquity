@@ -1560,8 +1560,10 @@ class Wizard:
                 self.autopartition_vbox.addLayout(indent_hbox)
                 indent_hbox.addSpacing(10)
                 if choice == resize_choice:
+                    containerWidget = QWidget(self.userinterface.autopartition_frame)
+                    indent_hbox.addWidget(containerWidget)
                     new_size_hbox = QHBoxLayout()
-                    indent_hbox.addLayout(new_size_hbox)
+                    containerWidget.setLayout(new_size_hbox)
                     new_size_label = QLabel("New partition size:", self.userinterface.autopartition_frame)
                     new_size_hbox.addWidget(new_size_label)
                     self.translate_widget(new_size_label, self.locale)
@@ -1591,7 +1593,7 @@ class Wizard:
                         self.new_size_scale.setMaximum(100)
                         self.new_size_scale.setValue(
                             int((min_percent + 100) / 2))
-                    self.autopartition_extras[choice] = self.new_size_scale
+                    self.autopartition_extras[choice] = containerWidget
                 elif choice != manual_choice:
                     disk_frame = QFrame(self.userinterface.autopartition_frame)
                     indent_hbox.addWidget(disk_frame)
