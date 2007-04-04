@@ -14,7 +14,11 @@ ubiquity (1.4.7) UNRELEASED; urgency=low
     - Hide error messages from user info at start of each evaluation
     - Use Apport as crash handler when available
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue,  3 Apr 2007 13:48:00 +0100
+  [ Evan Dandrea ]
+  * Catch exceptions in migration-assistant to avoid bringing down the
+    entire installer.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue,  3 Apr 2007 09:59:55 -0400
 
 ubiquity (1.4.6) feisty; urgency=low
 

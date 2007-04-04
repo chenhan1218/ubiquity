@@ -18,6 +18,8 @@
 
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import misc
+import debconf
+import syslog
 
 class MigrationAssistant(FilteredCommand):
     firstrun = True
@@ -136,31 +138,37 @@ class MigrationAssistant(FilteredCommand):
         systems = self.db.get('migration-assistant/partitions')
         if systems:
             systems = systems.split(', ')
-            for os in systems:
-                part = os[os.rfind('/')+1:-1] # hda1
-                os = os[:os.rfind('(')-1]
-                
-                users = self.db.get('migration-assistant/' + part + '/users')
-                if not users:
-                    continue
-                users = users.split(', ')
-                for user in users:
-                    items = self.db.get('migration-assistant/' + part + '/' + \
-                        user.replace(' ', ':') + '/items')
-                    # If there are no items to import for the user, there's no sense
-                    # in showing it.  It might make more sense to move this check
-                    # into ma-ask.
-                    if items:
-                        items = items.split(', ')
-                        tree.append({'user': user,
-                                     'part': part,
-                                     'os': os,
-                                     'newuser': '',
-                                     'items': items,
-                                     'selected': False})
-                # We now unset everything as the checkboxes will be unselected
-                # by default and debconf needs to match that.
-                self.db.set('migration-assistant/%s/users' % part, '')
+            try:
+                for os in systems:
+                    part = os[os.rfind('/')+1:-1] # hda1
+                    os = os[:os.rfind('(')-1]
+                    
+                    users = self.db.get('migration-assistant/' + part + '/users')
+                    if not users:
+                        continue
+                    users = users.split(', ')
+                    for user in users:
+                        items = self.db.get('migration-assistant/' + part + '/' + \
+                            user.replace(' ', ':') + '/items')
+                        # If there are no items to import for the user, there's no sense
+                        # in showing it.  It might make more sense to move this check
+                        # into ma-ask.
+                        if items:
+                            items = items.split(', ')
+                            tree.append({'user': user,
+                                         'part': part,
+                                         'os': os,
+                                         'newuser': '',
+                                         'items': items,
+                                         'selected': False})
+                    # We now unset everything as the checkboxes will be unselected
+                    # by default and debconf needs to match that.
+                    self.db.set('migration-assistant/%s/users' % part, '')
+            except debconf.DebconfError, e:
+                for line in str(e).split('\n'):
+                    syslog.syslog(syslog.LOG_ERR, line)
+                self.db.set('migration-assistant/partitions', '')
+                tree = []
 
         self.frontend.ma_set_choices(tree)
 
