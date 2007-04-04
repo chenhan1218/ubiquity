@@ -1,3 +1,27 @@
+# -*- coding: UTF-8 -*-
+#
+# Copyright (C) 2006 Canonical Ltd.
+#
+# Author:
+#   Jonathan Riddell <jriddell@ubuntu.com>
+#
+# This file is part of Ubiquity.
+#
+# Ubiquity is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free
+# Software Foundation; either version 2 of the License, or at your option)
+# any later version.
+#
+# Ubiquity is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+# more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
+# Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+##################################################################################
+
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4 import uic
@@ -8,7 +32,6 @@ class PartitionFrame(QFrame):
     def mouseReleaseEvent(self, event):
         self.emit(SIGNAL("clicked()"))
         self.setFrameShadow(QFrame.Sunken)
-        print "mouse release event"
 
 class Partition:
 
@@ -28,7 +51,6 @@ class Partition:
         sizePolicy = self.frame.sizePolicy()
         sizePolicy.setHorizontalStretch(size)
         self.frame.setSizePolicy(sizePolicy)
-        #QApplication.instance().connect(self.frame, SIGNAL("clicked()"), parent.clicked)
         QApplication.instance().connect(self.frame, SIGNAL("clicked()"), self.clicked)
         self.fs = fs
         self.path = path
@@ -61,12 +83,12 @@ class Partition:
 
     def clicked(self):
         self.parent.clicked(self.index)
-        #self.emit(SIGNAL("clicked()"))
 
     def raiseFrames(self):
         self.frame.setFrameShadow(QFrame.Raised)
 
 class PartitionsBar(QWidget):
+    """ a widget to graphically show disk partitions.  Made of a row of QFrames. """
     def __init__(self, diskSize, parent = None):
         QWidget.__init__(self, parent)
         self.layout = QHBoxLayout()
@@ -75,7 +97,6 @@ class PartitionsBar(QWidget):
         self.setLayout(self.layout)
         self.partitions = []
         self.diskSize = diskSize
-        #self.resize(200, 100)
         self.setMinimumHeight(30)
         sizePolicy = self.sizePolicy()
         sizePolicy.setVerticalStretch(10)
@@ -88,10 +109,8 @@ class PartitionsBar(QWidget):
 
     def clicked(self, index):
         self.emit(SIGNAL("clicked(int)"), index)
-        #self.emit(SIGNAL("clicked()"))
 
     def raiseFrames(self):
-        print "PartitionsBar clicked"
         for partition in self.partitions:
             partition.frame.setFrameShadow(QFrame.Raised)
 
@@ -99,18 +118,3 @@ class PartitionsBar(QWidget):
         for partition in partitions:
             if partition.index == index:
                 partition.clicked()
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    frame = QFrame()
-    layout = QVBoxLayout(frame)
-    frame.setLayout(layout)
-    partitionBar = PartitionsBar(1000, frame)
-    partitionBar.addPartition(2146/1000)
-    partitionBar.addPartition(10733/1000)
-    partitionBar.addPartition(69462/1000)
-    layout.addWidget(partitionBar)
-    layout.addStretch()
-    partitionBar.show()
-    frame.show()
-    sys.exit(app.exec_())

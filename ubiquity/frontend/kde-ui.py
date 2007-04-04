@@ -1692,16 +1692,10 @@ class Wizard:
                 child.hide()
                 del child
 
-        #partition_bar = PartitionsBar(1000, self.userinterface.partition_bar_frame)
-        #partition_bar.addPartition(50)
-        #partition_bar.addPartition(500)
-        #self.partition_bar_vbox.addWidget(partition_bar)
-        print "updating_partman!!!!!!!!"
         self.partition_bars = []
         indexCount = -1
         for item in cache_order:
             if item in disk_cache:
-                print "adding partition"
                 self.partition_tree_model.append([item, disk_cache[item]], self)
                 indexCount += 1
                 self.partition_bar = PartitionsBar(1000, self.userinterface.partition_bar_frame)
@@ -1710,19 +1704,12 @@ class Wizard:
             else:
                 self.partition_tree_model.append([item, partition_cache[item]], self)
                 indexCount += 1
-                #index = self.partition_tree_model.index(2,indexCount-1)
-                #index = self.partition_tree_model.index(2,0)
                 size = int(partition_cache[item]['parted']['size']) / 1000000000 #GB, MB are too big
                 fs = partition_cache[item]['parted']['fs']
                 path = partition_cache[item]['parted']['path'].replace("/dev/","")
                 if fs == "free":
                     path = fs
-                print "adding partition"
-                print "type: " + str(type(size))
                 self.partition_bar.addPartition(size, indexCount, fs, path)
-                print "item: " + str(item)
-                print "partition_cache[item]: " + str(partition_cache[item])
-                print "size: " + str(size)
         for barSignal in self.partition_bars:
             self.app.connect(barSignal, SIGNAL("clicked(int)"), self.partitionClicked)
             for barSlot in self.partition_bars:
@@ -1732,12 +1719,8 @@ class Wizard:
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
 
     def partitionClicked(self, indexCounter):
-        print "partitionClicked: " + str(indexCounter)
+        """ a partition in a partition bar has been clicked, select correct entry in list view """
         index = self.partition_tree_model.index(indexCounter,2)
-        #selection = QItemSelection(index, index)
-        #selectionModel = QItemSelectionModel(self.partition_tree_model)
-        #selectionModel.select(index, QItemSelectionModel.Select)
-        #self.userinterface.partition_list_treeview.setSelectionModel(selectionModel)
         flags = self.userinterface.partition_list_treeview.selectionCommand(index)
         rect = self.userinterface.partition_list_treeview.visualRect(index)
         self.userinterface.partition_list_treeview.setSelection(rect, flags)
