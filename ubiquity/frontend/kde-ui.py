@@ -55,6 +55,8 @@ from ubiquity.components import console_setup, language, timezone, usersetup, \
 import ubiquity.tz
 import ubiquity.progressposition
 
+from PartitionsBar import *
+
 # Define global path
 PATH = '/usr/share/ubiquity'
 
@@ -200,6 +202,10 @@ class Wizard:
         self.autopartition_extras = {}
         self.autopartition_extra_buttongroup = {}
         self.autopartition_extra_buttongroup_texts = {}
+        
+        self.partition_bar_vbox = QVBoxLayout(self.userinterface.partition_bar_frame)
+        self.partition_bar_vbox.setSpacing(0)
+        self.partition_bar_vbox.setMargin(0)
 
         self.partition_list_buttonbox = QHBoxLayout(self.userinterface.partition_list_buttons)
 
@@ -1678,15 +1684,63 @@ class Wizard:
         self.userinterface.partition_list_treeview.setModel(self.partition_tree_model)
         self.app.disconnect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
         self.app.connect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
+
+        children = self.userinterface.partition_bar_frame.children()
+        for child in children:
+            if isinstance(child, PartitionsBar):
+                self.partition_bar_vbox.removeWidget(child)
+                child.hide()
+                del child
+
+        #partition_bar = PartitionsBar(1000, self.userinterface.partition_bar_frame)
+        #partition_bar.addPartition(50)
+        #partition_bar.addPartition(500)
+        #self.partition_bar_vbox.addWidget(partition_bar)
+        print "updating_partman!!!!!!!!"
+        self.partition_bars = []
+        indexCount = -1
         for item in cache_order:
             if item in disk_cache:
+                print "adding partition"
                 self.partition_tree_model.append([item, disk_cache[item]], self)
+                indexCount += 1
+                self.partition_bar = PartitionsBar(1000, self.userinterface.partition_bar_frame)
+                self.partition_bars.append(self.partition_bar)
+                self.partition_bar_vbox.addWidget(self.partition_bar)
             else:
                 self.partition_tree_model.append([item, partition_cache[item]], self)
+                indexCount += 1
+                #index = self.partition_tree_model.index(2,indexCount-1)
+                #index = self.partition_tree_model.index(2,0)
+                size = int(partition_cache[item]['parted']['size']) / 1000000000 #GB, MB are too big
+                fs = partition_cache[item]['parted']['fs']
+                path = partition_cache[item]['parted']['path'].replace("/dev/","")
+                if fs == "free":
+                    path = fs
+                print "adding partition"
+                print "type: " + str(type(size))
+                self.partition_bar.addPartition(size, indexCount, fs, path)
+                print "item: " + str(item)
+                print "partition_cache[item]: " + str(partition_cache[item])
+                print "size: " + str(size)
+        for barSignal in self.partition_bars:
+            self.app.connect(barSignal, SIGNAL("clicked(int)"), self.partitionClicked)
+            for barSlot in self.partition_bars:
+                self.app.connect(barSignal, SIGNAL("clicked(int)"), barSlot.raiseFrames)
 
         # make sure we're on the advanced partitioning page
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
 
+    def partitionClicked(self, indexCounter):
+        print "partitionClicked: " + str(indexCounter)
+        index = self.partition_tree_model.index(indexCounter,2)
+        #selection = QItemSelection(index, index)
+        #selectionModel = QItemSelectionModel(self.partition_tree_model)
+        #selectionModel.select(index, QItemSelectionModel.Select)
+        #self.userinterface.partition_list_treeview.setSelectionModel(selectionModel)
+        flags = self.userinterface.partition_list_treeview.selectionCommand(index)
+        rect = self.userinterface.partition_list_treeview.visualRect(index)
+        self.userinterface.partition_list_treeview.setSelection(rect, flags)
 
     def partman_create_dialog(self, devpart, partition):
         if not self.allowed_change_step:
@@ -1879,6 +1933,9 @@ class Wizard:
         indexes = self.userinterface.partition_list_treeview.selectedIndexes()
         if indexes:
             index = indexes[0]
+            for bar in self.partition_bars:
+                ##bar.selected(index)  ##FIXME find out row from index and call bar.selected on it
+                bar.raiseFrames()
             item = index.internalPointer()
             devpart = item.itemData[0]
             partition = item.itemData[1]
@@ -2600,7 +2657,7 @@ class PartitionModel(QAbstractItemModel):
 
         return QVariant()
 
-    def index(self, row, column, parent):
+    def index(self, row, column, parent = QModelIndex()):
         if not parent.isValid():
             parentItem = self.rootItem
         else:
