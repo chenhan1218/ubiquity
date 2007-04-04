@@ -55,7 +55,7 @@ from ubiquity.components import console_setup, language, timezone, usersetup, \
 import ubiquity.tz
 import ubiquity.progressposition
 
-from PartitionsBar import *
+from PartitionsBarKde import *
 
 # Define global path
 PATH = '/usr/share/ubiquity'
