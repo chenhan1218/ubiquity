@@ -5,6 +5,8 @@ ubiquity (1.4.7) UNRELEASED; urgency=low
     advanced partitioner, to avoid duplicate warnings (LP: #100009).
   * Use debconf escape capability to simplify migration-assistant summary
     handling.
+  * Update Japanese keyboard layout handling to match console-setup
+    1.7ubuntu18, which uses jp(latin),jp by default (LP: #63915).
 
   [ Jonathan Riddell ]
   * KDE frontend
