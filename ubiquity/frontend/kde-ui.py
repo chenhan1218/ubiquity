@@ -102,6 +102,7 @@ class UbiquityUI(QWidget):
 class Wizard:
 
     def __init__(self, distro):
+        self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
         if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
@@ -223,6 +224,11 @@ class Wizard:
         self.mountpoint_vbox.addLayout(self.mountpoint_table)
         self.mountpoint_vbox.addStretch()
 
+        self.userinterface.fullname_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
+        self.userinterface.username_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
+        self.userinterface.password_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
+        self.userinterface.hostname_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
+
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
 
@@ -239,12 +245,15 @@ class Wizard:
                              " (invoking crash handler):")
         print >>sys.stderr, tbtext
 
-        dialog = QDialog(self.userinterface)
-        uic.loadUi("%s/crashdialog.ui" % UIDIR, dialog)
-        dialog.beastie_url.setOpenExternalLinks(True)
-        dialog.crash_detail.setText(tbtext)
-        dialog.exec_()
-        sys.exit(1)
+        if os.path.exists('/usr/share/apport/apport-qt'):
+            self.previous_excepthook(exctype, excvalue, exctb)
+        else:
+            dialog = QDialog(self.userinterface)
+            uic.loadUi("%s/crashdialog.ui" % UIDIR, dialog)
+            dialog.beastie_url.setOpenExternalLinks(True)
+            dialog.crash_detail.setText(tbtext)
+            dialog.exec_()
+            sys.exit(1)
 
     def openURL(self, url):
         #need to run this else kdesu can't run Konqueror
@@ -793,15 +802,15 @@ class Wizard:
         self.allow_change_step(False)
 
         step = self.step_name(self.get_current_page())
-        if step == "stepPartMountpoints" or step == "stepPartAdvanced":
-            self.userinterface.fullname_error_image.hide()
-            self.userinterface.fullname_error_reason.hide()
-            self.userinterface.username_error_image.hide()
-            self.userinterface.username_error_reason.hide()
-            self.userinterface.password_error_image.hide()
-            self.userinterface.password_error_reason.hide()
-            self.userinterface.hostname_error_image.hide()
-            self.userinterface.hostname_error_reason.hide()
+
+        self.userinterface.fullname_error_image.hide()
+        self.userinterface.fullname_error_reason.hide()
+        self.userinterface.username_error_image.hide()
+        self.userinterface.username_error_reason.hide()
+        self.userinterface.password_error_image.hide()
+        self.userinterface.password_error_reason.hide()
+        self.userinterface.hostname_error_image.hide()
+        self.userinterface.hostname_error_reason.hide()
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -900,6 +909,7 @@ class Wizard:
         if len(error_msg) != 0:
             self.userinterface.hostname_error_reason.setText("\n".join(error_msg))
             self.userinterface.hostname_error_reason.show()
+            self.userinterface.hostname_error_image.show()
         else:
             self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
 
@@ -1560,8 +1570,10 @@ class Wizard:
                 self.autopartition_vbox.addLayout(indent_hbox)
                 indent_hbox.addSpacing(10)
                 if choice == resize_choice:
+                    containerWidget = QWidget(self.userinterface.autopartition_frame)
+                    indent_hbox.addWidget(containerWidget)
                     new_size_hbox = QHBoxLayout()
-                    indent_hbox.addLayout(new_size_hbox)
+                    containerWidget.setLayout(new_size_hbox)
                     new_size_label = QLabel("New partition size:", self.userinterface.autopartition_frame)
                     new_size_hbox.addWidget(new_size_label)
                     self.translate_widget(new_size_label, self.locale)
@@ -1591,7 +1603,7 @@ class Wizard:
                         self.new_size_scale.setMaximum(100)
                         self.new_size_scale.setValue(
                             int((min_percent + 100) / 2))
-                    self.autopartition_extras[choice] = self.new_size_scale
+                    self.autopartition_extras[choice] = containerWidget
                 elif choice != manual_choice:
                     disk_frame = QFrame(self.userinterface.autopartition_frame)
                     indent_hbox.addWidget(disk_frame)
