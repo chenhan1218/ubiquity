@@ -1,3 +1,9 @@
+oem-config (1.14) UNRELEASED; urgency=low
+
+  * Add an apport hook to attach /var/log/oem-config.log.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu,  5 Apr 2007 11:50:43 +0100
+
 oem-config (1.13) feisty; urgency=low
 
   * Display error dialogs on user-setup errors (LP: #94913).
