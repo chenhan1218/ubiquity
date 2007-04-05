@@ -8,6 +8,8 @@ ubiquity (1.4.7) UNRELEASED; urgency=low
   * Update Japanese keyboard layout handling to match console-setup
     1.7ubuntu18, which uses jp(latin),jp by default (LP: #63915).
   * Display an error dialog if a subsidiary process fails (LP: #92442).
+  * Automatic update of included source packages: console-setup
+    1.13ubuntu12, migration-assistant 0.4.5, partman-base 105ubuntu3.
 
   [ Jonathan Riddell ]
   * KDE frontend
