@@ -153,6 +153,17 @@ class Frontend:
 
         return callback(source, debconf_condition)
 
+    def error_dialog (self, title, msg):
+        # TODO: cancel button as well if capb backup
+        self.allow_change_step(True)
+        if not msg:
+            msg = title
+        dialog = gtk.MessageDialog(self.oem_config, gtk.DIALOG_MODAL,
+                                   gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
+        dialog.set_title(title)
+        dialog.run()
+        dialog.hide()
+
     # Run the UI's main loop until it returns control to us.
     def run_main_loop(self):
         if not self.apply_changes:

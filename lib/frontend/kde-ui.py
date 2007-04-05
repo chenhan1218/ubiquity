@@ -306,6 +306,11 @@ class Frontend:
                 #self.allow_change_step(True)
             self.app.exit()
 
+    def error_dialog (self, title, msg):
+        self.allow_change_step(True)
+        # TODO: cancel button as well if capb backup
+        QMessageBox.warning(self.userinterface, title, msg, QMessageBox.Ok)
+
     def run_main_loop (self):
         if not self.apply_changes:
             self.allow_change_step(True)

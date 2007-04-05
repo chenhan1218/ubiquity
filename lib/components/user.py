@@ -39,8 +39,6 @@ class User(FilteredCommand):
         password = self.frontend.get_password()
         password_confirm = self.frontend.get_verified_password()
 
-        # TODO: validation!
-
         self.preseed('passwd/user-fullname', fullname)
         self.preseed('passwd/username', username)
         # TODO: maybe encrypt these first
@@ -50,3 +48,8 @@ class User(FilteredCommand):
         self.preseed('passwd/user-uid', '')
 
         super(User, self).ok_handler()
+
+    def error(self, priority, question):
+        self.frontend.error_dialog(self.description(question),
+                                   self.extended_description(question))
+        return super(User, self).error(self, priority, question)
