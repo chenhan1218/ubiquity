@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2007-03-23 22:38+0000\n"
-"Last-Translator: gEEk <jimcheng@gmail.com>\n"
+"PO-Revision-Date: 2007-03-31 15:28+0000\n"
+"Last-Translator: rainofchaos <rainofchaos@gmail.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-03-30 14:18+0000\n"
+"X-Rosetta-Export-Date: 2007-04-05 11:08:37+0000\n"
 
 #. Type: text
 #. Description
@@ -161,7 +161,7 @@ msgstr "选择一个密码来确保您的帐号安全。"
 #. Description
 #: ../ubiquity.templates:21001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "你正在调试模式中运行。不要使用有意义的密码！"
+msgstr "你正在调试模式中运行。不要使用重要的密码！"
 
 #. Type: text
 #. Description
@@ -198,6 +198,8 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"选择任意您希望导入的帐户，并填写下面表格。这些帐户的文档和设置将在安装完成后"
+"就可以直接使用了。"
 
 #. Type: text
 #. Description
@@ -205,7 +207,7 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr "如果您不打算导入任何帐号信息，请不要选择任一选项以进入下一页"
+msgstr "如果您不打算导入任何帐号信息，不要选择任一选项，请直接进入下一页"
 
 #. Type: text
 #. Description
@@ -304,7 +306,7 @@ msgstr "大小"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Partition"
-msgstr "磁盘分区"
+msgstr "分区"
 
 #. Type: text
 #. Description
@@ -373,7 +375,7 @@ msgstr "安装完成"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Continue using the live CD"
-msgstr "继续使用此 live CD"
+msgstr "继续使用 live CD"
 
 #. Type: text
 #. Description

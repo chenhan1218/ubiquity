@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2007-03-23 23:28+0000\n"
+"PO-Revision-Date: 2007-04-02 07:29+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-03-30 14:20+0000\n"
+"X-Rosetta-Export-Date: 2007-04-04 11:48:23+0000\n"
 
 #. Type: text
 #. Description
@@ -278,6 +278,8 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Juuriosio (\"/\") sekä sivutusosio täytyy määritellä. Varaa juuriosiolle "
+"tilaa vähintään 2GB, ja sivutusosiolle vähintään 256MB."
 
 #. Type: text
 #. Description
@@ -417,6 +419,9 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Poista CD-levy asemasta kun käynnistät tietokoneen uudelleen, muuten "
+"tietokone käynnistyy uudelleen tältä Ubuntu-CD:ltä eikä juuri asennettuun "
+"järjestelmään."
 
 #. Type: text
 #. Description

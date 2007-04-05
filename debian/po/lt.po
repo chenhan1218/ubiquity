@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2007-03-27 07:01+0000\n"
+"PO-Revision-Date: 2007-04-02 21:16+0000\n"
 "Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-03-30 14:20+0000\n"
+"X-Rosetta-Export-Date: 2007-04-05 11:10:46+0000\n"
 
 #. Type: text
 #. Description
@@ -83,6 +83,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Pasirinkite miestą, esantį Jūsų valstybės tinkamoje laiko juostoje. Jei "
+"rodomas esamas laikas yra neteisingas net pasirinkus teisingą laiko juostą, "
+"Jūs galėsite jį patikslinti kai paleisite įdiegtą sistemą."
 
 #. Type: text
 #. Description
@@ -165,6 +168,8 @@ msgstr "Jūsų prisijungimo saugumui pasirinkite slaptažodį."
 #: ../ubiquity.templates:21001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
+"Jūs naudojate klaidų paieškos ir taisymo režimą. Nenaudokite vertingo "
+"slaptažodžio!"
 
 #. Type: text
 #. Description
@@ -195,7 +200,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "Perkelkite dokumentus bei nustatymus"
 
 #. Type: text
 #. Description
@@ -205,6 +210,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"Pasirinkite naudotojus, kurių duomenis ir nustatymus norite importuoti, ir "
+"kiekvienam iš jų užpildykite formą apačioje. Šių naudotojų duomenys ir "
+"nustatymai bus Linux sistemoje po diegimo."
 
 #. Type: text
 #. Description
@@ -213,24 +221,27 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Jei nenorite importuoti jokių naudotojų duomenų ar nustatymų, nieko "
+"nepasirinkite ir eikite pirmyn."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Create a user to import the selected account into:"
 msgstr ""
+"Sukurkite naudotoją, į kurio aplanką bus importuoti duomenys bei nustatymai:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Full Name:"
-msgstr ""
+msgstr "Vardas ir pavardė:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Login Name:"
-msgstr ""
+msgstr "Prisijungimo vardas:"
 
 #. Type: text
 #. Description
@@ -270,6 +281,9 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Įsitikinkite, jog pagrindiniam „root“ skirsniui (\"/\") skyrėte bent jau "
+"2,5GB, o laikinos diskinės atminties („swap“) skirsniui - bent jau 256MB "
+"disko vietos."
 
 #. Type: text
 #. Description
@@ -326,7 +340,7 @@ msgstr "Sužymėti iš naujo?"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "You must supply a root (\"/\") mount point."
-msgstr "Turite pateikti root (\"/\") prijungimo vietą."
+msgstr "Turite nurodyti pagrindinio skirsnio (\"/\") prijungimo vietą."
 
 #. Type: text
 #. Description
@@ -334,20 +348,21 @@ msgstr "Turite pateikti root (\"/\") prijungimo vietą."
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:56001
 msgid "Ready to install"
-msgstr "Pasiruošta įdiegti"
+msgstr "Paruošta įdiegti"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "Jūsų naujoji operacinė sistema bus idegta su tokiais nustatymais:"
+msgstr ""
+"Jūsų naujoji operacinė sistema bus įdiegta naudojant tokius nustatymus:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Boot loader"
-msgstr ""
+msgstr "Sistemų įkėliklis"
 
 #. Type: text
 #. Description
@@ -410,6 +425,8 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Įsitikinkite, jog iš naujo paleisdami kompiuterį išėmėte CD diską. Kitu "
+"atveju vėl bus paleista šiame CD esanti, o ne naujai įdiegta sistema."
 
 #. Type: text
 #. Description

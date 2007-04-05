@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2007-03-23 19:34+0000\n"
+"PO-Revision-Date: 2007-04-04 04:49+0000\n"
 "Last-Translator: Julián Alarcón <alarconj@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-03-30 14:19+0000\n"
+"X-Rosetta-Export-Date: 2007-04-05 11:09:11+0000\n"
 
 #. Type: text
 #. Description
@@ -283,6 +283,10 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Necesita especificar una partición para el sistema de archivos raíz (punto "
+"de montaje \"/\") con un tamaño mínimo de 2 GB, y una partición de "
+"intercambio de, al menos, 256 MB. También puede configurar otras particiones "
+"si lo desea."
 
 #. Type: text
 #. Description
@@ -423,6 +427,9 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Asegúrese de extraer el CD de la unidad cuando reinicie el computador, de "
+"otro modo volverá a arrancar usando este Live CD en lugar del sistema recién "
+"instalado."
 
 #. Type: text
 #. Description

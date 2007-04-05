@@ -1,19 +1,22 @@
+# translation of debian-installer.po to Deutsch
 # German messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
+# Jannick Kuhr <jannick.kuhr@kdemail.net>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2007-03-29 13:51+0000\n"
+"PO-Revision-Date: 2007-04-02 22:14+0000\n"
 "Last-Translator: Jannick Kuhr <jakuhr-linux@gmx.de>\n"
-"Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
+"Language-Team: Deutsch <kde-i18n-de@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-03-30 14:19+0000\n"
+"X-Rosetta-Export-Date: 2007-04-05 11:09:42+0000\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #. Type: text
 #. Description
@@ -166,7 +169,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Choose a password to keep your account safe."
-msgstr "Wählen Sie ein Passwort, um Ihren Zugang abzusichern."
+msgstr "Wählen Sie ein Passwort, um Ihr Benutzerkonto abzusichern."
 
 #. Type: text
 #. Description
@@ -288,6 +291,9 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Bitte stellen Sie sicher, dass Sie Platz für eine root Partition (\"/\") mit "
+"einer minimalen Größe von 2 GB und für eine Swap Partition mit einer "
+"minimalen Größe von 256 MB zuteilen."
 
 #. Type: text
 #. Description
@@ -320,7 +326,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Mount Point"
-msgstr "Einhängepunkt (Mount-Point):"
+msgstr "Einhängepunkt (Mount-Point)"
 
 #. Type: text
 #. Description
@@ -431,6 +437,9 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Stellen Sie sicher, dass Sie die CD entfernen, wenn Sie den Computer neu "
+"starten. Ansonsten wird dieser von der Live-CD statt von Ihrem neu "
+"installierten System starten."
 
 #. Type: text
 #. Description
@@ -476,25 +485,25 @@ msgstr "Installation des Grundsystems"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Finding the distribution to copy..."
-msgstr "Suche die zu kopierende Distribution..."
+msgstr "Zu kopierende Distribution wird gesucht ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Scanning files..."
-msgstr "Untersuche Dateien..."
+msgstr "Dateien werden untersucht ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Copying files..."
-msgstr "Kopiere Dateien..."
+msgstr "Dateien werden kopiert ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Kopiere Dateien (weniger als eine Minute verbleibend) ..."
+msgstr "Dateien werden kopiert (weniger als eine Minute verbleibend) ..."
 
 #. Type: error
 #. Description
@@ -574,7 +583,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Copying installation logs..."
-msgstr "Kopiere Installationsprotokolle ..."
+msgstr "Installationsprotokolle werden kopiert ..."
 
 #. Type: text
 #. Description
@@ -586,31 +595,31 @@ msgstr "Das Zielsystem wird eingerichtet ..."
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Configuring system locales..."
-msgstr "Konfiguriere das System-Gebietsschema..."
+msgstr "Das System-Gebietsschema wird eingerichtet ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Configuring apt..."
-msgstr "Konfiguriere Apt..."
+msgstr "Apt wird eingerichtet ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
 msgid "Configuring time zone..."
-msgstr "Konfiguriere Zeitzone..."
+msgstr "Zeitzone wird eingerichtet ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Configuring keyboard..."
-msgstr "Richte die Tastatur ein..."
+msgstr "Tastatur wird eingerichtet ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Creating user..."
-msgstr "Erzeuge Benutzer..."
+msgstr "Benutzer wird erstellt ..."
 
 #. Type: text
 #. Description
@@ -622,55 +631,55 @@ msgstr "Dokumente und Einstellungen werden importiert ..."
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Configuring hardware..."
-msgstr "Konfiguriere Hardware..."
+msgstr "Hardware wird eingerichtet ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Configuring network..."
-msgstr "Konfiguriere das Netzwerk ..."
+msgstr "Das Netzwerk wird eingerichtet ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Setting computer name..."
-msgstr "Setze den Computernamen..."
+msgstr "Computername wird gesetzt ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Configuring boot loader..."
-msgstr "Konfiguriere den Boot-Loader..."
+msgstr "Boot-Loader wird eingerichtet ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Removing extra packages..."
-msgstr "Lösche Zusatz-Pakete..."
+msgstr "Zusatzpakete werden entfernt ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Checking for packages to remove..."
-msgstr "Prüfe nach zu löschenden Paketen..."
+msgstr "Nach zu entfernenden Paketen wird geprüft ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Lade Pakete herunter (${TIME} verbleibend)..."
+msgstr "Pakete werden heruntergeladen (${TIME} verbleibend) ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Downloading package lists..."
-msgstr "Lade die Paketliste herunter..."
+msgstr "Paketliste wird heruntergeladen ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Lade Paketliste herunter (${TIME} verbleibend)..."
+msgstr "Paketliste wird heruntergeladen (${TIME} verbleibend) ..."
 
 #. Type: error
 #. Description
@@ -735,13 +744,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Installing language packs"
-msgstr "Installiere Sprachpakete"
+msgstr "Sprachpakete werden installiert"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Lade Sprachpakete herunter (${TIME} verbleibend)..."
+msgstr "Sprachpakete werden heruntergeladen (${TIME} verbleibend) ..."
 
 #. Type: boolean
 #. Description
@@ -792,8 +801,6 @@ msgid ""
 msgstr ""
 "Das Dateisystem auf ${PARTITION} zugewiesen auf ${MOUNTPOINT} wurde nicht "
 "zur Formatierung markiert. Dateisysteme, die durch das System (/, /boot, /"
-"usr, \r\n"
-"/var) verwendet werden, müssen für die Verwendung durch diesen Installer "
-"reformatiert werden. Andere Dateisysteme \r\n"
-"(/home, /media/*, /usr/local, usw.) können ohne Reformatierung verwendet "
-"werden."
+"usr, /var) verwendet werden, müssen für die Verwendung durch diesen "
+"Installer reformatiert werden. Andere Dateisysteme (/home, /media/*, /usr/"
+"local, usw.) können ohne Reformatierung verwendet werden."

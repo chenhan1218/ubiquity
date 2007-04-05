@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2007-03-29 16:18+0000\n"
-"Last-Translator: Ján Dráb <cortex.sk@gmail.com>\n"
+"PO-Revision-Date: 2007-04-02 03:49+0000\n"
+"Last-Translator: Peter Mann <peter.mann@tuke.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-03-30 14:20+0000\n"
+"X-Rosetta-Export-Date: 2007-04-05 11:10:19+0000\n"
 
 #. Type: text
 #. Description
