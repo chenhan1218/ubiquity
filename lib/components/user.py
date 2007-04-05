@@ -52,4 +52,4 @@ class User(FilteredCommand):
     def error(self, priority, question):
         self.frontend.error_dialog(self.description(question),
                                    self.extended_description(question))
-        return super(User, self).error(self, priority, question)
+        return super(User, self).error(priority, question)
