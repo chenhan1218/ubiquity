@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2007-03-24 09:25+0000\n"
+"PO-Revision-Date: 2007-04-02 09:34+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <debian-boot@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-03-30 14:20+0000\n"
+"X-Rosetta-Export-Date: 2007-04-05 11:10:06+0000\n"
 
 #. Type: text
 #. Description
@@ -280,6 +280,9 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Du behöver ange en partition för rotfilsystemet (monteringspunkten \"/\") "
+"med en minimal storlek på 2 GB, och en växlingspartition på minst 256 MB. Du "
+"kan även ställa in andra partitioner om du önskar."
 
 #. Type: text
 #. Description
@@ -420,6 +423,8 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Se till att mata ut cd-skivan vid omstart av datorn, annars kommer den att "
+"starta upp med denna live-cd istället för det nyligen installerade systemet."
 
 #. Type: text
 #. Description

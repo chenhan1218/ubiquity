@@ -55,6 +55,8 @@ from ubiquity.components import console_setup, language, timezone, usersetup, \
 import ubiquity.tz
 import ubiquity.progressposition
 
+from PartitionsBarKde import *
+
 # Define global path
 PATH = '/usr/share/ubiquity'
 
@@ -154,6 +156,7 @@ class Wizard:
         self.part_devices = {' ' : ' '}
         self.current_page = None
         self.dbfilter = None
+        self.dbfilter_status = None
         self.locale = None
         self.progressDialogue = None
         self.progress_position = ubiquity.progressposition.ProgressPosition()
@@ -200,6 +203,10 @@ class Wizard:
         self.autopartition_extras = {}
         self.autopartition_extra_buttongroup = {}
         self.autopartition_extra_buttongroup_texts = {}
+        
+        self.partition_bar_vbox = QVBoxLayout(self.userinterface.partition_bar_frame)
+        self.partition_bar_vbox.setSpacing(0)
+        self.partition_bar_vbox.setMargin(0)
 
         self.partition_list_buttonbox = QHBoxLayout(self.userinterface.partition_list_buttons)
 
@@ -356,10 +363,12 @@ class Wizard:
 
             self.app.exec_()
 
-            if self.installing:
-                self.progress_loop()
-            elif self.current_page is not None and not self.backup:
-                self.process_step()
+            if self.backup or self.dbfilter_handle_status():
+                if self.installing:
+                    self.progress_loop()
+                elif self.current_page is not None and not self.backup:
+                    self.process_step()
+
             self.app.processEvents()
 
         return self.returncode
@@ -435,6 +444,10 @@ class Wizard:
 
     def translate_widget(self, widget, lang):
         #FIXME needs translations for Next, Back and Cancel
+        if not isinstance(widget, QWidget):
+            return
+
+        name = widget.objectName()
 
         text = get_string(widget.objectName(), lang)
 
@@ -498,6 +511,40 @@ class Wizard:
     def allow_go_forward(self, allowed):
         self.userinterface.next.setEnabled(allowed and self.allowed_change_step)
         self.allowed_go_forward = allowed
+
+    def dbfilter_handle_status(self):
+        """If a dbfilter crashed, ask the user if they want to continue anyway.
+
+        Returns True to continue, or False to try again."""
+
+        if not self.dbfilter_status:
+            return True
+
+        syslog.syslog('dbfilter_handle_status: %s' % str(self.dbfilter_status))
+
+        # TODO cjwatson 2007-04-04: i18n
+        text = ('%s failed with exit code %s. Further information may be '
+                'found in /var/log/syslog. Do you want to try running this '
+                'step again before continuing? If you do not, your '
+                'installation may fail entirely or may be broken.' %
+                (self.dbfilter_status[0], self.dbfilter_status[1]))
+        #FIXME QMessageBox seems to have lost the ability to set custom labels
+        # so for now we have to get by with these not-entirely meaningful stock labels
+        answer = QMessageBox.warning(self.userinterface,
+                                     '%s crashed' % self.dbfilter_status[0],
+                                     text, QMessageBox.Retry,
+                                     QMessageBox.Ignore, QMessageBox.Close)
+        self.dbfilter_status = None
+        syslog.syslog('dbfilter_handle_status: answer %d' % answer)
+        if answer == QMessageBox.Ignore:
+            return True
+        elif answer == QMessageBox.Close:
+            self.quit()
+        else:
+            step = self.step_name(self.get_current_page())
+            if str(step).startswith("stepPart"):
+                self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
+            return False
 
     def show_intro(self):
         """Show some introductory text, if available."""
@@ -1452,11 +1499,15 @@ class Wizard:
         ##FIXME in Qt 4 without this disconnect it calls watch_debconf_fd_helper_read once more causing
         ## a crash after the keyboard stage.  No idea why.
         self.app.disconnect(self.socketNotifierRead, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_read)
-        # TODO cjwatson 2006-02-10: handle dbfilter.status
         if dbfilter is None:
             name = 'None'
+            self.dbfilter_status = None
         else:
             name = dbfilter.__class__.__name__
+            if dbfilter.status:
+                self.dbfilter_status = (name, dbfilter.status)
+            else:
+                self.dbfilter_status = None
         if self.dbfilter is None:
             currentname = 'None'
         else:
@@ -1678,15 +1729,46 @@ class Wizard:
         self.userinterface.partition_list_treeview.setModel(self.partition_tree_model)
         self.app.disconnect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
         self.app.connect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
+
+        children = self.userinterface.partition_bar_frame.children()
+        for child in children:
+            if isinstance(child, PartitionsBar):
+                self.partition_bar_vbox.removeWidget(child)
+                child.hide()
+                del child
+
+        self.partition_bars = []
+        indexCount = -1
         for item in cache_order:
             if item in disk_cache:
                 self.partition_tree_model.append([item, disk_cache[item]], self)
+                indexCount += 1
+                self.partition_bar = PartitionsBar(1000, self.userinterface.partition_bar_frame)
+                self.partition_bars.append(self.partition_bar)
+                self.partition_bar_vbox.addWidget(self.partition_bar)
             else:
                 self.partition_tree_model.append([item, partition_cache[item]], self)
+                indexCount += 1
+                size = int(partition_cache[item]['parted']['size']) / 1000000000 #GB, MB are too big
+                fs = partition_cache[item]['parted']['fs']
+                path = partition_cache[item]['parted']['path'].replace("/dev/","")
+                if fs == "free":
+                    path = fs
+                self.partition_bar.addPartition(size, indexCount, fs, path)
+        for barSignal in self.partition_bars:
+            self.app.connect(barSignal, SIGNAL("clicked(int)"), self.partitionClicked)
+            for barSlot in self.partition_bars:
+                self.app.connect(barSignal, SIGNAL("clicked(int)"), barSlot.raiseFrames)
 
         # make sure we're on the advanced partitioning page
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
 
+    def partitionClicked(self, indexCounter):
+        """ a partition in a partition bar has been clicked, select correct entry in list view """
+        index = self.partition_tree_model.index(indexCounter,2)
+        flags = self.userinterface.partition_list_treeview.selectionCommand(index)
+        rect = self.userinterface.partition_list_treeview.visualRect(index)
+        self.userinterface.partition_list_treeview.setSelection(rect, flags)
 
     def partman_create_dialog(self, devpart, partition):
         if not self.allowed_change_step:
@@ -1879,6 +1961,9 @@ class Wizard:
         indexes = self.userinterface.partition_list_treeview.selectedIndexes()
         if indexes:
             index = indexes[0]
+            for bar in self.partition_bars:
+                ##bar.selected(index)  ##FIXME find out row from index and call bar.selected on it
+                bar.raiseFrames()
             item = index.internalPointer()
             devpart = item.itemData[0]
             partition = item.itemData[1]
@@ -2600,7 +2685,7 @@ class PartitionModel(QAbstractItemModel):
 
         return QVariant()
 
-    def index(self, row, column, parent):
+    def index(self, row, column, parent = QModelIndex()):
         if not parent.isValid():
             parentItem = self.rootItem
         else:

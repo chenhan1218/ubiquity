@@ -128,6 +128,7 @@ class Wizard:
         self.part_devices = {' ' : ' '}
         self.current_page = None
         self.dbfilter = None
+        self.dbfilter_status = None
         self.locale = None
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
@@ -350,10 +351,11 @@ class Wizard:
                 self.allow_change_step(True)
             gtk.main()
 
-            if self.installing:
-                self.progress_loop()
-            elif self.current_page is not None and not self.backup:
-                self.process_step()
+            if self.backup or self.dbfilter_handle_status():
+                if self.installing:
+                    self.progress_loop()
+                elif self.current_page is not None and not self.backup:
+                    self.process_step()
 
             while gtk.events_pending():
                 gtk.main_iteration()
@@ -528,6 +530,47 @@ class Wizard:
     def allow_go_forward(self, allowed):
         self.next.set_sensitive(allowed and self.allowed_change_step)
         self.allowed_go_forward = allowed
+
+
+    def dbfilter_handle_status(self):
+        """If a dbfilter crashed, ask the user if they want to continue anyway.
+
+        Returns True to continue, or False to try again."""
+
+        if not self.dbfilter_status:
+            return True
+
+        syslog.syslog('dbfilter_handle_status: %s' % str(self.dbfilter_status))
+
+        # TODO cjwatson 2007-04-04: i18n
+        text = ('%s failed with exit code %s. Further information may be '
+                'found in /var/log/syslog. Do you want to try running this '
+                'step again before continuing? If you do not, your '
+                'installation may fail entirely or may be broken.' %
+                (self.dbfilter_status[0], self.dbfilter_status[1]))
+        dialog = gtk.Dialog('%s crashed' % self.dbfilter_status[0],
+                            self.live_installer, gtk.DIALOG_MODAL,
+                            (gtk.STOCK_QUIT, gtk.RESPONSE_CLOSE,
+                             'Continue anyway', 1,
+                             'Try again', 2))
+        self.dbfilter_status = None
+        label = gtk.Label(text)
+        label.set_line_wrap(True)
+        label.set_selectable(True)
+        dialog.vbox.add(label)
+        dialog.show_all()
+        response = dialog.run()
+        dialog.hide()
+        syslog.syslog('dbfilter_handle_status: response %d' % response)
+        if response == 1:
+            return True
+        elif response == gtk.RESPONSE_CLOSE:
+            self.quit()
+        else:
+            step = self.step_name(self.steps.get_current_page())
+            if step.startswith("stepPart"):
+                self.set_current_page(self.steps.page_num(self.stepPartAuto))
+            return False
 
 
     def show_intro(self):
@@ -1528,11 +1571,15 @@ class Wizard:
 
 
     def debconffilter_done (self, dbfilter):
-        # TODO cjwatson 2006-02-10: handle dbfilter.status
         if dbfilter is None:
             name = 'None'
+            self.dbfilter_status = None
         else:
             name = dbfilter.__class__.__name__
+            if dbfilter.status:
+                self.dbfilter_status = (name, dbfilter.status)
+            else:
+                self.dbfilter_status = None
         if self.dbfilter is None:
             currentname = 'None'
         else:
