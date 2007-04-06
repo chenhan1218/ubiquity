@@ -156,6 +156,7 @@ class Wizard:
         self.part_devices = {' ' : ' '}
         self.current_page = None
         self.dbfilter = None
+        self.dbfilter_status = None
         self.locale = None
         self.progressDialogue = None
         self.progress_position = ubiquity.progressposition.ProgressPosition()
@@ -362,10 +363,12 @@ class Wizard:
 
             self.app.exec_()
 
-            if self.installing:
-                self.progress_loop()
-            elif self.current_page is not None and not self.backup:
-                self.process_step()
+            if self.backup or self.dbfilter_handle_status():
+                if self.installing:
+                    self.progress_loop()
+                elif self.current_page is not None and not self.backup:
+                    self.process_step()
+
             self.app.processEvents()
 
         return self.returncode
@@ -504,6 +507,40 @@ class Wizard:
     def allow_go_forward(self, allowed):
         self.userinterface.next.setEnabled(allowed and self.allowed_change_step)
         self.allowed_go_forward = allowed
+
+    def dbfilter_handle_status(self):
+        """If a dbfilter crashed, ask the user if they want to continue anyway.
+
+        Returns True to continue, or False to try again."""
+
+        if not self.dbfilter_status:
+            return True
+
+        syslog.syslog('dbfilter_handle_status: %s' % str(self.dbfilter_status))
+
+        # TODO cjwatson 2007-04-04: i18n
+        text = ('%s failed with exit code %s. Further information may be '
+                'found in /var/log/syslog. Do you want to try running this '
+                'step again before continuing? If you do not, your '
+                'installation may fail entirely or may be broken.' %
+                (self.dbfilter_status[0], self.dbfilter_status[1]))
+        #FIXME QMessageBox seems to have lost the ability to set custom labels
+        # so for now we have to get by with these not-entirely meaningful stock labels
+        answer = QMessageBox.warning(self.userinterface,
+                                     '%s crashed' % self.dbfilter_status[0],
+                                     text, QMessageBox.Retry,
+                                     QMessageBox.Ignore, QMessageBox.Close)
+        self.dbfilter_status = None
+        syslog.syslog('dbfilter_handle_status: answer %d' % answer)
+        if answer == QMessageBox.Ignore:
+            return True
+        elif answer == QMessageBox.Close:
+            self.quit()
+        else:
+            step = self.step_name(self.get_current_page())
+            if str(step).startswith("stepPart"):
+                self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
+            return False
 
     def show_intro(self):
         """Show some introductory text, if available."""
@@ -1458,11 +1495,15 @@ class Wizard:
         ##FIXME in Qt 4 without this disconnect it calls watch_debconf_fd_helper_read once more causing
         ## a crash after the keyboard stage.  No idea why.
         self.app.disconnect(self.socketNotifierRead, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_read)
-        # TODO cjwatson 2006-02-10: handle dbfilter.status
         if dbfilter is None:
             name = 'None'
+            self.dbfilter_status = None
         else:
             name = dbfilter.__class__.__name__
+            if dbfilter.status:
+                self.dbfilter_status = (name, dbfilter.status)
+            else:
+                self.dbfilter_status = None
         if self.dbfilter is None:
             currentname = 'None'
         else:

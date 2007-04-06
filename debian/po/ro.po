@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2007-03-22 20:09+0000\n"
-"Last-Translator: Eddy Petrisor <eddy.petrisor@gmail.com>\n"
+"PO-Revision-Date: 2007-04-02 06:57+0000\n"
+"Last-Translator: Adi Roiban <adi@roiban.ro>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-03-30 14:18+0000\n"
+"X-Rosetta-Export-Date: 2007-04-05 11:08:58+0000\n"
 
 #. Type: text
 #. Description
@@ -211,6 +211,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"Selectaţi conturile pe care doriţi să le importaţi şi completaţi formularul "
+"de mai jos pentru fiecare în parte. Documentele şi configurările pentru "
+"aceste conturi vor fi accesibile după ce instalarea se încheie."
 
 #. Type: text
 #. Description
@@ -219,12 +222,14 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Dacă nu doriţi sa importaţi nici un cont, nu selectaţi nimic şi mergeţi la "
+"pagina următoare."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "Creaţi un utilizator pentru care să importaţi contul selectat:"
 
 #. Type: text
 #. Description
@@ -567,7 +572,7 @@ msgstr "Copiere jurnal de instalare..."
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Se configurează sistemul ales..."
 
 #. Type: text
 #. Description
@@ -743,24 +748,30 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Programul de instalare trebuie să aplice modificările tabelelor de partiţii, "
+"dar nu poate face asta deoarece partiţiile cu următoarele locuri de montare "
+"nu pot fi demontate:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
 msgstr ""
+"Vă rugăm închideţi orice aplicaţie care foloseşte aceste locuri de montare."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
+"Doriţi ca programul de instalare să încerce demontarea acestor partiţii din "
+"nou?"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:94001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Partiţia sistemului nu a fost formatată"
 
 #. Type: error
 #. Description
@@ -771,3 +782,8 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+"Sistemul de fişiere din ${PARTITION} cu locul de montare ${MOUNTPOINT} nu a "
+"fost marcat pentru formatare. Sistemele de fişiere folosite de sistem (/, /"
+"boot, /usr, /var) trebuie reformatate pentru a fi folosite de acest program "
+"de instalare. Alte sisteme de fişiere (/home, /media/*, /usr/local, etc.) "
+"pot fi folosite fără a fi reformatate."

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2007-03-22 19:14+0000\n"
-"Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
+"PO-Revision-Date: 2007-04-05 09:31+0000\n"
+"Last-Translator: Vojtěch Smejkal <goldfreedom@centrum.cz>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-03-30 14:20+0000\n"
+"X-Rosetta-Export-Date: 2007-04-05 11:10:32+0000\n"
 
 #. Type: text
 #. Description
@@ -208,6 +208,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"Vyberte účty, které chcete importovat, a pro každý z nich vyplňte formulář "
+"níže. Dokumenty a nastavení pro tyto účty budou dostupné po skončení "
+"instalace."
 
 #. Type: text
 #. Description
@@ -216,12 +219,14 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Pokud si nepřejete importovat žádné účty, nic nevybírejte a přejděte na "
+"další stránku."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "Vytvořte uživatele, pro kterého importovat vybraný účet:"
 
 #. Type: text
 #. Description
@@ -273,6 +278,9 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Je nutné vybrat oddíl pro kořenový souborový systém (přípojné místo \"/\") o "
+"velikosti nejméně 2 GB a pro odkládací oblast o velikosti nejméně 256 MB. "
+"Také můžete nastavit další oddíly."
 
 #. Type: text
 #. Description
@@ -413,6 +421,8 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Ujistěte se, že vyjmete CD při restartu počítače, jinak opět nastartuje toto "
+"spustitelné CD místo nově nainstalovaného systému."
 
 #. Type: text
 #. Description
@@ -562,7 +572,7 @@ msgstr "Kopírují se instalační záznamy..."
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Nastavuji cílový systém..."
 
 #. Type: text
 #. Description
@@ -738,24 +748,26 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Instalátor potřebuje provést změny do tabulky oddílů, ale nemůže, protože "
+"oddíly připojené k následujícím přípojným místům nemohly být odpojeny:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "Prosím uzavřete všechny aplikace používající tyto přípojná místa."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "Chcete, aby instalátor zkusil znovu odpojit tyto oddíly?"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:94001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Systémový oddíl není zformátovaný"
 
 #. Type: error
 #. Description
@@ -766,3 +778,8 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+"Souborový systém na ${PARTITION} přiřazený k ${MOUNTPOINT} nebyl označen pro "
+"formátování. Souborový systém použitý systémem (/, /boot, /usr, /var) musí "
+"být přeformátován, aby mohl být použit tímto instalátorem. Ostatní souborové "
+"systémy (/home, /media/*, /usr/local, atd.) mohou být použity bez "
+"přeformátování."
