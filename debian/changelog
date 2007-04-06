@@ -1,4 +1,4 @@
-ubiquity (1.4.7ubuntu1) feisty; urgency=low
+ubiquity (1.4.8) feisty; urgency=low
 
   * Install PartitionsBarKde.py in ubiquity-frontend-kde.install
   * Only translate QWidgets (LP: #103575)
