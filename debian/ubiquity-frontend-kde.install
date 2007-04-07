@@ -1,5 +1,6 @@
 desktop/ubiquity-kdeui.desktop usr/share/applications/kde
 ubiquity/frontend/kde-ui.py usr/lib/ubiquity/ubiquity/frontend
+ubiquity/frontend/PartitionsBarKde.py usr/lib/ubiquity/ubiquity/frontend
 ubiquity/frontend/liveinstaller.ui usr/lib/ubiquity/ubiquity/frontend
 ubiquity/frontend/advanceddialog.ui usr/lib/ubiquity/ubiquity/frontend
 ubiquity/frontend/crashdialog.ui usr/lib/ubiquity/ubiquity/frontend

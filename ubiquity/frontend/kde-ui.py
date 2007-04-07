@@ -444,6 +444,10 @@ class Wizard:
 
     def translate_widget(self, widget, lang):
         #FIXME needs translations for Next, Back and Cancel
+        if not isinstance(widget, QWidget):
+            return
+
+        name = widget.objectName()
 
         text = get_string(widget.objectName(), lang)
 
