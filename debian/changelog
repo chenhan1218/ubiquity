@@ -2,6 +2,11 @@ ubiquity (1.4.9) UNRELEASED; urgency=low
 
   * Suppress error dialog if the user quits while a debconffiltered process
     is running.
+  * New partitioner: If the user tries to change multiple attributes of a
+    partition at once, look each item up in the partman menu in sequence
+    rather than looking them all up at the start. This makes it possible
+    e.g. to change the method from one that doesn't support a mountpoint to
+    one that does and set a mountpoint at the same time.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 10 Apr 2007 13:57:01 +0100
 
