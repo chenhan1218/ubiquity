@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2007-04-02 21:16+0000\n"
+"PO-Revision-Date: 2007-04-07 19:07+0000\n"
 "Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:10:46+0000\n"
+"X-Rosetta-Export-Date: 2007-04-10 15:09:00+0000\n"
 
 #. Type: text
 #. Description
@@ -247,13 +247,13 @@ msgstr "Prisijungimo vardas:"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Password:"
-msgstr ""
+msgstr "Slaptažodis:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Confirm:"
-msgstr ""
+msgstr "Patvirtinkite:"
 
 #. Type: text
 #. Description
@@ -454,6 +454,13 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" Kalba: ${LANGUAGE}\n"
+" Klaviatūros išdėstymas: ${KEYMAP}\n"
+" Vardas, pavardė: ${FULLNAME}\n"
+" Prisijungimo vardas: ${USERNAME}\n"
+" Vieta: ${LOCATION}\n"
+" Duomenų bei nustatymų importavimas:\n"
+" ${MIGRATE}"
 
 #. Type: title
 #. Description
@@ -483,13 +490,13 @@ msgstr "Kopijuojamos bylos..."
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Kopijuojami failai (liko mažiau nei viena minutė)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "Nepavyko nukopijuoti failų; blogas CD ar DVD?"
 
 #. Type: error
 #. Description
@@ -500,7 +507,7 @@ msgstr ""
 #: ../ubiquity.templates:63001 ../ubiquity.templates:64001
 #: ../ubiquity.templates:65001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "Įvyko klaida kopijuojant failus į kietąjį diską:"
 
 #. Type: error
 #. Description
@@ -511,12 +518,16 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Ši klaida dažnai įvyksta dėl blogo CD/DVD disko ar įrenginio. Pabandykite "
+"nuvalyti CD/DVD diską, įrašyti lėtesniu greičiu arba nuvalyti CD/DVD "
+"įrenginio lęšį (specialią valymo priemonę galite nusipirkti daugumoje "
+"elektronikos parduotuvių)."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "Nepavyko nukopijuoti; sugedęs kietasis diskas?"
 
 #. Type: error
 #. Description
@@ -526,12 +537,15 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Ši klaida dažnai įvyksta dėl blogo ar sugedusio kietojo disko. Gal Jūsų "
+"kietasis diskas yra labai senas ir jį jau reikėtų pakeisti? Taip pat galite "
+"pabandykite perkelti kietąjį diską ten, kur jis kaistų mažiau."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Nepavyko nukopijuoti failų; blogas CD/DVD arba kietasis diskas?"
 
 #. Type: error
 #. Description
@@ -545,6 +559,12 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Ši klaida dažnai įvyksta dėl blogo CD/DVD disko ar įrenginio, sugedusio "
+"kietojo disko. Pabandykite nuvalyti CD/DVD, įrašyti CD/DVD lėtesniu greičiu "
+"arba nuvalyti CD/DVD įrenginio lęšį (specialią valymo priemonę galite "
+"nusipirkti bet kurioje elektronikos parduotuvėje). Taip pat patikrinkite, ar "
+"Jūsų kietasis diskas nėra senas ir ar jo nereikia pakeisti.  Arba "
+"pabandykite perkelti kompiuterį į vėsesnę vietą, kad mažiau kaistų."
 
 #. Type: text
 #. Description
@@ -592,7 +612,7 @@ msgstr "Kuriamas vartotojas..."
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Perkeliami dokumentai ir nustatymai..."
 
 #. Type: text
 #. Description
@@ -732,24 +752,31 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Įdiegimo programa turi padaryti pakeitimus kompiuterio disko skirsnių "
+"lentelėje, tačiau dabar to padaryti neina, nes neina atjungti skirsnių, "
+"prijungtų prie žemiau nurodytų aplankų:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Please close any applications using these mount points."
 msgstr ""
+"Uždarykite visas programas, kurios naudoja failus ar poaplankius, esančius "
+"šiuose aplankuose."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
+"Ar jūs norite,  kad įdiegimo programa vėl pabandytų atjungti šiuos "
+"skirsnius ?"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:94001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Failų sistema sistemos skirsnyje iš naujo neperkuriama."
 
 #. Type: error
 #. Description
@@ -760,3 +787,8 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+"${PARTITION} skirsnio, jungiamo prie ${MOUNTPOINT} aplanko, failų sistema "
+"nėra pažymėta formatavimui. Skirsniai, skirti Linux sistemos naudojamiems "
+"aplankams („/“, „/boot“, „/usr“, „/var“) turi būti suformatuojami iš naujo. "
+"Skirsniai, prijungiami prie kitų aplankų („/home“, „/media“, „/usr/local“, "
+"ir pan.) gali būti naudojami nesunaikinant juose esamos informacijos."

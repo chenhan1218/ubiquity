@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-03-28 12:24+0100\n"
-"PO-Revision-Date: 2007-04-02 03:09+0000\n"
-"Last-Translator: Siim Põder <windo@p6drad-teel.net>\n"
+"PO-Revision-Date: 2007-04-06 09:46+0000\n"
+"Last-Translator: Laur Mõtus <vprints@gmail.com>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:10:16+0000\n"
+"X-Rosetta-Export-Date: 2007-04-10 15:08:49+0000\n"
 
 #. Type: text
 #. Description
@@ -35,6 +35,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Oled valmis paigaldama? Niipea, kui sa vastad mõnele küsimusele, on sul "
+"võimalik paigaldada live CD sisu oma arvutisse, et sa saaksid oma arvutit "
+"kasutada täie kiirusega ja ilma CD-d kasutamata."
 
 #. Type: text
 #. Description
@@ -49,6 +52,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Palun vali paigaldamise käigus kasutatav keel. See keel on ka vaikimisi "
+"kasutatav keel edaspidi."
 
 #. Type: text
 #. Description
@@ -57,12 +62,14 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"Juhul, kui sul on internetiühendus, loe versiooni väljalaske teateid, "
+"saamaks infot probleemide kohta, mis võivad sind tabada."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Release Notes"
-msgstr ""
+msgstr "Väljalaske teated"
 
 #. Type: text
 #. Description
@@ -78,6 +85,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Vali linn oma riigis ning ajavöönd. Juhul, kui näidatav hetke aeg on vale "
+"isegi peale korrektse ajavööndi valimist, saada sa seda seadistada peale "
+"süsteemi taaskäivitust."
 
 #. Type: text
 #. Description
@@ -153,13 +163,14 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "Vali parool kasutamaks oma arvutit turvaliselt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
+"Sa töötad vigade kõrvaldamise režiimis. Ära kasuta väärtuslikku parooli!"
 
 #. Type: text
 #. Description
@@ -167,6 +178,8 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
+"Sisesta parooli kaks korda, seda selleks, et parooli oleks võimalik "
+"kontrollida tippimise vigade vastu."
 
 #. Type: text
 #. Description
@@ -181,6 +194,7 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Seda nime kasutatakse, kui sa muudad oma arvuti võrgus teistele nähtavaks."
 
 #. Type: text
 #. Description
@@ -215,31 +229,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Full Name:"
-msgstr ""
+msgstr "Täisnimi:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Login Name:"
-msgstr ""
+msgstr "Sisselogimisnimi:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Password:"
-msgstr ""
+msgstr "Parool:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Confirm:"
-msgstr ""
+msgstr "Kinnita:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Valmista ette kettaruum"
 
 #. Type: text
 #. Description
@@ -327,13 +341,13 @@ msgstr ""
 #: ../ubiquity.templates:44001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "Sinu uus operatsioonisüsteem paigaldatakse nüüd järgmiste seadetega:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Boot loader"
-msgstr ""
+msgstr "Alglaadimine"
 
 #. Type: text
 #. Description
@@ -385,6 +399,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Paigaldamine on lõppenud. Paigaldatud süsteemi kasutamiseks tuleb sul nüüd "
+"arvuti taaskäivitada. Sa võid jätkata selle live CD kasutamist, kuigi ühtegi "
+"tehtud muudatust või salvestatud dokumenti ei säilitata."
 
 #. Type: text
 #. Description
@@ -420,6 +437,13 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" Keel: ${LANGUAGE}\n"
+" Klaviatuuri paigutus: ${KEYMAP}\n"
+" Nimi: ${FULLNAME}\n"
+" Kasutajanimi: ${USERNAME}\n"
+" Asukoht: ${LOCATION}\n"
+" Migreerimise abiline:\n"
+" ${MIGRATE}"
 
 #. Type: title
 #. Description
@@ -432,7 +456,7 @@ msgstr "Paigaldamine on lõppenud"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Otsin kopeerimiseks ditributsiooni..."
 
 #. Type: text
 #. Description
@@ -450,7 +474,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "Failide kopeerimine (vähem kui minut on jäänud)..."
 
 #. Type: error
 #. Description
@@ -467,7 +491,7 @@ msgstr "Failide kopeerimine ebaõnnestus; vigane CD/DVD?"
 #: ../ubiquity.templates:63001 ../ubiquity.templates:64001
 #: ../ubiquity.templates:65001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "Paigaldaja on kohanud viga failide kopeerimisel kõvakettale:"
 
 #. Type: error
 #. Description
@@ -605,19 +629,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Laadin pakette (${TIME} järelejäänud)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Laadin pakettide nimekirja..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "Laadin pakettide nimekirja (${TIME} järelejäänud)..."
 
 #. Type: error
 #. Description
@@ -688,7 +712,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:89001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "Laadin keelpakke (${TIME} järelejäänud)..."
 
 #. Type: boolean
 #. Description
@@ -720,7 +744,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:94001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Süsteemi partitsiooni ei vormindatud"
 
 #. Type: error
 #. Description

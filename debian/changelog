@@ -7,6 +7,7 @@ ubiquity (1.4.9) UNRELEASED; urgency=low
     rather than looking them all up at the start. This makes it possible
     e.g. to change the method from one that doesn't support a mountpoint to
     one that does and set a mountpoint at the same time.
+  * Update translations from Rosetta.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 10 Apr 2007 13:57:01 +0100
 
