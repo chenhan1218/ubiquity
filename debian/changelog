@@ -8,6 +8,8 @@ ubiquity (1.4.9) UNRELEASED; urgency=low
     e.g. to change the method from one that doesn't support a mountpoint to
     one that does and set a mountpoint at the same time.
   * Update translations from Rosetta.
+  * Automatic update of included source packages: console-setup
+    1.13ubuntu13, partman-auto 62ubuntu10.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 10 Apr 2007 13:57:01 +0100
 
