@@ -1,4 +1,4 @@
-ubiquity (1.4.9) UNRELEASED; urgency=low
+ubiquity (1.4.9) feisty; urgency=low
 
   * Suppress error dialog if the user quits while a debconffiltered process
     is running.
@@ -11,7 +11,7 @@ ubiquity (1.4.9) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup
     1.13ubuntu13, partman-auto 62ubuntu10.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 10 Apr 2007 13:57:01 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 10 Apr 2007 22:52:56 +0100
 
 ubiquity (1.4.8) feisty; urgency=low
 
