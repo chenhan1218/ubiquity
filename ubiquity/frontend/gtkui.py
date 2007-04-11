@@ -397,7 +397,7 @@ class Wizard:
         except (KeyboardInterrupt, SystemExit):
             raise
         except:
-            self.release_notes_hbox.hide()
+            self.release_notes_vbox.hide()
 
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
@@ -537,7 +537,7 @@ class Wizard:
 
         Returns True to continue, or False to try again."""
 
-        if not self.dbfilter_status:
+        if not self.dbfilter_status or self.current_page is None:
             return True
 
         syslog.syslog('dbfilter_handle_status: %s' % str(self.dbfilter_status))

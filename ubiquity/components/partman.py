@@ -579,16 +579,16 @@ class Partman(PartmanAuto):
 
                 if state[0] == question:
                     state[2] += 1
-                    if state[2] < len(partition['active_partition_visit']):
+                    if state[2] < len(partition['active_partition_build']):
                         # Move on to the next item.
-                        visit = partition['active_partition_visit']
+                        visit = partition['active_partition_build']
                         self.preseed(question, visit[state[2]][2], escape=True)
                         return True
                     else:
                         # Finished building the cache for this submenu; go
                         # back to the previous one.
                         try:
-                            del partition['active_partition_visit']
+                            del partition['active_partition_build']
                         except KeyError:
                             pass
                         self.__state.pop()
@@ -617,7 +617,7 @@ class Partman(PartmanAuto):
                         visit.append((script, arg, option))
                         partition['can_resize'] = True
                 if visit:
-                    partition['active_partition_visit'] = visit
+                    partition['active_partition_build'] = visit
                     self.__state.append([question, state[1], 0])
                     self.preseed(question, visit[0][2], escape=True)
                     return True
@@ -634,49 +634,39 @@ class Partman(PartmanAuto):
                 state = self.__state[-1]
                 partition = self.partition_cache[state[1]]
 
-                if state[0] == question:
-                    state[2] += 1
-                    if state[2] < len(partition['active_partition_visit']):
-                        # Move on to the next item.
-                        visit = partition['active_partition_visit']
-                        self.preseed(question, visit[state[2]][2], escape=True)
-                        return True
-                    else:
-                        # Finish editing this partition.
-                        try:
-                            del partition['active_partition_visit']
-                        except KeyError:
-                            pass
-                        self.__state.pop()
-                        self.preseed_script(question, menu_options, 'finish')
-                        return True
+                if state[0] != question:
+                    # Set up our intentions for this menu.
+                    visit = []
+                    for item in ('method', 'mountpoint', 'format'):
+                        if item in request and request[item] is not None:
+                            visit.append(item)
+                    if (self.editing_partition and
+                        'size' in request and request['size'] is not None):
+                        visit.append('resize')
+                    partition['active_partition_edit'] = visit
+                    self.__state.append([question, state[1], -1])
+                    state = self.__state[-1]
 
-                visit = []
-                if (self.editing_partition and
-                    'size' in request and request['size'] is not None):
-                    scripts = self.find_script(menu_options, None, 'resize')
-                    if scripts:
-                        visit.append(scripts[0])
-                for item in ('method', 'mountpoint', 'format'):
-                    if item not in request or request[item] is None:
-                        continue
+                state[2] += 1
+                while state[2] < len(partition['active_partition_edit']):
+                    # Move on to the next item.
+                    visit = partition['active_partition_edit']
+                    item = visit[state[2]]
                     scripts = self.find_script(menu_options, None, item)
                     if scripts:
-                        visit.append(scripts[0])
-                if visit:
-                    partition['active_partition_visit'] = visit
-                    self.__state.append([question, state[1], 0])
-                    self.preseed(question, visit[0][2], escape=True)
-                    return True
-                else:
-                    # Finish editing this partition.
-                    try:
-                        del partition['active_partition_visit']
-                    except KeyError:
-                        pass
-                    self.__state.pop()
-                    self.preseed_script(question, menu_options, 'finish')
-                    return True
+                        self.preseed(question, scripts[0][2], escape=True)
+                        return True
+                    state[2] += 1
+
+                # If we didn't find anything to do, finish editing this
+                # partition.
+                try:
+                    del partition['active_partition_edit']
+                except KeyError:
+                    pass
+                self.__state.pop()
+                self.preseed_script(question, menu_options, 'finish')
+                return True
 
             elif self.deleting_partition:
                 self.preseed_script(question, menu_options, 'delete')
