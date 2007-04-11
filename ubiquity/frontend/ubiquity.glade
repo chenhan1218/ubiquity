@@ -152,7 +152,7 @@ Please choose the language used for the installation process. This language will
                               <placeholder/>
                             </child>
                             <child>
-                              <widget class="GtkHBox" id="release_notes_hbox">
+                              <widget class="GtkVBox" id="release_notes_vbox">
                                 <property name="visible">True</property>
                                 <property name="spacing">6</property>
                                 <child>
@@ -169,11 +169,20 @@ Please choose the language used for the installation process. This language will
                                   </packing>
                                 </child>
                                 <child>
-                                  <widget class="GtkLinkButton" id="release_notes_url">
+                                  <widget class="GtkAlignment" id="alignment4">
                                     <property name="visible">True</property>
-                                    <property name="label" translatable="yes">Release Notes</property>
+                                    <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                                     <property name="xalign">0</property>
-                                    <property name="uri"></property>
+                                    <property name="xscale">0</property>
+                                    <property name="left_padding">12</property>
+                                    <child>
+                                      <widget class="GtkLinkButton" id="release_notes_url">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">Release Notes</property>
+                                        <property name="xalign">0</property>
+                                        <property name="uri"></property>
+                                      </widget>
+                                    </child>
                                   </widget>
                                   <packing>
                                     <property name="expand">False</property>

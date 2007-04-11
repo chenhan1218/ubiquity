@@ -397,7 +397,7 @@ class Wizard:
         except (KeyboardInterrupt, SystemExit):
             raise
         except:
-            self.release_notes_hbox.hide()
+            self.release_notes_vbox.hide()
 
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()

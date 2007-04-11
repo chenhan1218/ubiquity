@@ -215,7 +215,7 @@ This language will be the default language for the final system.</string>
          </property>
         </widget>
        </item>
-       <item rowspan="5" row="0" column="0" >
+       <item rowspan="6" row="0" column="0" >
         <widget class="QListWidget" name="language_treeview" />
        </item>
        <item row="3" column="1" colspan="2" >
@@ -234,7 +234,7 @@ This language will be the default language for the final system.</string>
          </property>
         </spacer>
        </item>
-       <item row="4" column="1" >
+       <item row="4" column="1" colspan="2" >
         <widget class="QLabel" name="release_notes_label" >
          <property name="text" >
           <string>If you have Internet access, read the release notes for information on problems that may affect you.</string>
@@ -244,7 +244,7 @@ This language will be the default language for the final system.</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="2" >
+       <item row="5" column="1" >
         <widget class="QLabel" name="release_notes_url" >
          <property name="text" >
           <string>Release Notes</string>
