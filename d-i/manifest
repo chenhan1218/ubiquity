@@ -5,7 +5,7 @@ clock-setup 0.12ubuntu2
 console-setup 1.13ubuntu13
 debian-installer-utils 1.42ubuntu2
 grub-installer 1.20ubuntu3
-hw-detect 1.45ubuntu3
+hw-detect 1.45ubuntu4
 kboot-installer 0.0.1ubuntu2
 localechooser 1.37ubuntu1
 migration-assistant 0.4.5

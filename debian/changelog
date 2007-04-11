@@ -2,6 +2,7 @@ ubiquity (1.4.10) UNRELEASED; urgency=low
 
   * Improve the layout of the language page resulting from the release-notes
     link (LP: #105470).
+  * Automatic update of included source packages: hw-detect 1.45ubuntu4.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 11 Apr 2007 13:03:03 +0100
 
