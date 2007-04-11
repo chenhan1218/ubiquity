@@ -1,3 +1,10 @@
+ubiquity (1.4.11) UNRELEASED; urgency=low
+
+  * Prevent mounted volumes icons from appearing on the desktop. (LP:
+    #105531)
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 11 Apr 2007 12:04:05 -0400
+
 ubiquity (1.4.10) feisty; urgency=low
 
   * Improve the layout of the language page resulting from the release-notes
