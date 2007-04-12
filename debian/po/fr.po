@@ -431,22 +431,14 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:54001
 msgid "Go Back"
-msgstr ""
-"Retour\r\n"
-"Revenir en arrière\r\n"
-"#-#-#-#-#  fr.po (debian-installer)  #-#-#-#-#\r\n"
-"Retour"
+msgstr "Retour"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:55001
 msgid "Continue"
-msgstr ""
-"Suivant\r\n"
-"Continuer\r\n"
-"#-#-#-#-#  fr.po (debian-installer)  #-#-#-#-#\r\n"
-"Suivant"
+msgstr "Suivant"
 
 #. Type: note
 #. Description

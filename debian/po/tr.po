@@ -422,11 +422,7 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:54001
 msgid "Go Back"
-msgstr ""
-"Geri\r\n"
-"Geri dön\r\n"
-"#-#-#-#-#  tr.po (debian-installer)  #-#-#-#-#\r\n"
-"Geri"
+msgstr "Geri"
 
 #. Type: text
 #. Description
