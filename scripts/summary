@@ -42,7 +42,6 @@ do
 		db_get "migration-assistant/$part/$formatted_user/items"
 		ret="$ret$RET$newline"
 	done
-	ret="$ret$newline"
 done
 IFS="$OLD_IFS"
 db_subst ubiquity/summary MIGRATE \
