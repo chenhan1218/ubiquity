@@ -1,6 +1,8 @@
 ubiquity (1.4.11) UNRELEASED; urgency=low
 
   * Fix escaping of migration-assistant summary.
+  * Only display partitions with scheduled migrations in the summary, and
+    improve the formatting slightly.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Apr 2007 15:21:08 +0100
 

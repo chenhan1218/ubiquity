@@ -30,16 +30,14 @@ IFS='
 partitions="$(echo "$RET" | sed -e 's/, /\n/g')"
 for choice in $partitions; # Microsoft Windows XP Professional (/dev/hda1)
 do
-	ret="$ret$choice:$newline"
 	part="$(expr match "$choice" '.*/\(.*\))$')" # hda1
-	
 	db_get "migration-assistant/$part/users"
-	if [ -z "$RET" ]; then
-		ret="${ret}None$newline"
-	fi
+	[ "$RET" ] || continue
+
+	ret="$ret$choice:$newline"
 	users="$(echo "$RET" | sed -e 's/, /\n/g')"
 	for user in $users; do
-		ret="$ret$user: "
+		ret="$ret $user: "
 		formatted_user="$(echo "$user" | sed -e 's/ /:/g')"
 		db_get "migration-assistant/$part/$formatted_user/items"
 		ret="$ret$RET$newline"
