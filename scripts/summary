@@ -47,7 +47,8 @@ do
 	ret="$ret$newline"
 done
 IFS="$OLD_IFS"
-db_subst ubiquity/summary MIGRATE "${ret%$newline}"
+db_subst ubiquity/summary MIGRATE \
+	"$(printf %s "${ret%$newline}" | debconf-escape -e)"
 db_capb
 
 # We need to run this to get hold of the partitioning summary. Our component
