@@ -4,6 +4,8 @@ ubiquity (1.5.0) UNRELEASED; urgency=low
   * Only display partitions with scheduled migrations in the summary, and
     improve the formatting slightly.
   * Remove another stray newline from the migration-assistant summary.
+  * GTK frontend: Pressing Enter in the migration-assistant user/password
+    entry boxes activates the Forward button.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Apr 2007 15:21:08 +0100
 

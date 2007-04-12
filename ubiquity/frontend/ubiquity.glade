@@ -1144,6 +1144,7 @@ If you do not wish to import any accounts, select nothing and go to the next pag
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="visibility">False</property>
+                                    <property name="activates_default">True</property>
                                   </widget>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1159,6 +1160,7 @@ If you do not wish to import any accounts, select nothing and go to the next pag
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="visibility">False</property>
+                                    <property name="activates_default">True</property>
                                   </widget>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1173,6 +1175,7 @@ If you do not wish to import any accounts, select nothing and go to the next pag
                                   <widget class="GtkEntry" id="ma_fullname">
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="activates_default">True</property>
                                     <signal name="changed" handler="ma_info_loop"/>
                                   </widget>
                                   <packing>
@@ -1321,6 +1324,7 @@ If you do not wish to import any accounts, select nothing and go to the next pag
                                     <child internal-child="entry">
                                       <widget class="GtkEntry" id="comboboxentry-entry1">
                                         <property name="visible">True</property>
+                                        <property name="activates_default">True</property>
                                       </widget>
                                     </child>
                                   </widget>
