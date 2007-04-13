@@ -49,13 +49,19 @@ class Wizard:
         return self.frontend.run()
 
 if __name__ == '__main__':
-    parser = optparse.OptionParser()
+    usage = ("usage: %prog [options]\n\n"
+             "Use oem-config-prepare to prepare the system for an end user.")
+    parser = optparse.OptionParser(usage=usage)
     parser.add_option('-f', '--frontend', metavar='FRONTEND',
                       help="Use the given frontend (gtk-ui).")
     parser.add_option('-d', '--debug', dest='debug', action='store_true',
                       help='debug mode (warning: passwords will be logged!)')
     parser.set_defaults(frontend=None)
     (options, args) = parser.parse_args()
+
+    if args:
+        parser.print_help(sys.stderr)
+        sys.exit(2)
 
     if options.debug:
         os.environ['OEM_CONFIG_DEBUG'] = '1'
