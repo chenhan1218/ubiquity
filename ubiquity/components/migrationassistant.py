@@ -122,7 +122,8 @@ class MigrationAssistant(FilteredCommand):
 
     def cleanup(self):
         if not self.firstrun:
-            # There were no errors this time around, lets move to the next step.
+            # There were no errors this time around; let's move to the next
+            # step.
             if not self.errors:
                 self.succeeded = True
                 self.done = True
