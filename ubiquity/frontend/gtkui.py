@@ -59,7 +59,7 @@ from ubiquity import filteredcommand, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
-                                partman, partman_auto, partman_commit, \
+                                partman, partman_commit, \
                                 summary, install, migrationassistant
 import ubiquity.emap
 import ubiquity.tz
@@ -80,7 +80,6 @@ BREADCRUMB_STEPS = {
     "stepKeyboardConf": 3,
     "stepPartAuto": 4,
     "stepPartAdvanced": 4,
-    "stepPartMountpoints": 4,
     "stepMigrationAssistant": 5,
     "stepUserInfo": 6,
     "stepReady": 7
@@ -93,12 +92,6 @@ class Wizard:
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
-        if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
-            if find_on_path('gparted') is None:
-                print "GParted is required to use the --old-partitioner option."
-                print "Run 'sudo apt-get install gparted' before trying this again."
-                sys.exit(1)
-
         # declare attributes
         self.distro = distro
         self.gconf_previous = {}
@@ -107,25 +100,11 @@ class Wizard:
         self.username_edited = False
         self.hostname_edited = False
         self.autopartition_extras = {}
-        self.auto_mountpoints = None
         self.resize_min_size = None
         self.resize_max_size = None
         self.resize_choice = None
         self.manual_choice = None
-        self.manual_partitioning = False
         self.new_size_scale = None
-        self.gparted_fstype = {}
-        self.gparted_flags = {}
-        self.mountpoint_widgets = []
-        self.size_widgets = []
-        self.partition_widgets = []
-        self.format_widgets = []
-        self.mountpoint_choices = ['', 'swap', '/', '/home',
-                                   '/boot', '/usr', '/var']
-        self.partition_choices = []
-        self.mountpoints = {}
-        self.part_labels = {' ' : ' '}
-        self.part_devices = {' ' : ' '}
         self.current_page = None
         self.dbfilter = None
         self.dbfilter_status = None
@@ -324,18 +303,14 @@ class Wizard:
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name == "stepPartAuto":
-                if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
-                    self.dbfilter = partman.Partman(self)
-                else:
-                    self.dbfilter = partman_auto.PartmanAuto(self)
-            elif (current_name == "stepPartAdvanced" and
-                  'UBIQUITY_NEW_PARTITIONER' in os.environ):
+                self.dbfilter = partman.Partman(self)
+            elif current_name == "stepPartAdvanced":
                 if isinstance(self.dbfilter, partman.Partman):
                     pre_log('info', 'reusing running partman')
                 else:
                     self.dbfilter = partman.Partman(self)
             elif current_name == "stepReady":
-                self.dbfilter = summary.Summary(self, self.manual_partitioning)
+                self.dbfilter = summary.Summary(self)
             else:
                 self.dbfilter = None
 
@@ -346,8 +321,9 @@ class Wizard:
                 # Non-debconf steps don't have a mechanism for turning this
                 # back on, so we do it here. process_step should block until
                 # the next step has started up; this will block the UI, but
-                # that's probably unavoidable for now. (We only use this for
-                # gparted, which has its own UI loop.)
+                # that's probably unavoidable for now. (This is currently
+                # believed to be unused; we only used this for gparted,
+                # which had its own UI loop.)
                 self.allow_change_step(True)
             gtk.main()
 
@@ -404,10 +380,6 @@ class Wizard:
 
         if 'UBIQUITY_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
-
-        if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
-            self.embedded.hide()
-            self.part_advanced_vbox.show()
 
         # set initial bottom bar status
         self.back.hide()
@@ -492,9 +464,7 @@ class Wizard:
                 attrs.insert(pango.AttrStyle(pango.STYLE_ITALIC, 0, textlen))
                 widget.set_attributes(attrs)
             elif ('group_label' in name or 'warning_label' in name or
-                  name in ('drives_label', 'partition_method_label',
-                           'mountpoint_label', 'size_label', 'device_label',
-                           'format_label')):
+                  name in ('drives_label', 'partition_method_label')):
                 attrs = pango.AttrList()
                 attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, textlen))
                 widget.set_attributes(attrs)
@@ -602,101 +572,6 @@ class Wizard:
 
     # Methods
 
-    def gparted_loop(self):
-        """call gparted and embed it into glade interface."""
-
-        syslog.syslog('gparted_loop()')
-
-        disable_swap()
-
-        child = self.embedded.get_child()
-        if child is not None:
-            self.embedded.remove(child)
-
-        socket = gtk.Socket()
-        socket.show()
-        self.embedded.add(socket)
-        window_id = str(socket.get_id())
-
-        args = ['log-output', '-t', 'ubiquity', '--pass-stdout',
-                'gparted', '--installer', window_id]
-        for part in self.gparted_fstype:
-            args.extend(['--filesystem',
-                         '%s:%s' % (part, self.gparted_fstype[part])])
-        syslog.syslog(syslog.LOG_DEBUG, 'Running gparted: %s' % ' '.join(args))
-
-        # Save pid to kill gparted when install process starts
-        self.gparted_subp = subprocess.Popen(
-            args,
-            stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
-
-        # Wait for gparted to start up before enabling back/forward buttons
-        gparted_reply = ''
-        while gparted_reply != '- READY':
-            gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
-
-
-    def set_size_msg(self, widget):
-        """return a string message with size value about
-        the partition target by widget argument."""
-
-        # widget is studied in a different manner depending on object type
-        if widget.__class__ == str:
-            size = float(self.size[widget.split('/')[2]])
-        elif (widget.get_active_text() in self.part_devices and
-              self.part_devices[widget.get_active_text()] in self.size):
-            size = float(self.size[self.part_devices[widget.get_active_text()].split('/')[2]])
-        else:
-            # TODO cjwatson 2006-07-31: Why isn't it in part_devices? This
-            # indicates a deeper problem somewhere, but for now we'll just
-            # try our best to ignore it.
-            return ''
-
-        if size > 1024*1024:
-            msg = '%.0f Gb' % (size/1024/1024)
-        elif size > 1024:
-            msg = '%.0f Mb' % (size/1024)
-        else:
-            msg = '%.0f Kb' % size
-        return msg
-
-
-    def add_mountpoint_table_row(self):
-        """Add a new empty row to the mountpoints table."""
-        mountpoint = gtk.combo_box_entry_new_text()
-        for mp in self.mountpoint_choices:
-            mountpoint.append_text(mp)
-        size = gtk.Label()
-        size.set_single_line_mode(True)
-        partition = gtk.combo_box_new_text()
-        for part in self.partition_choices:
-            if part in self.part_labels:
-                partition.append_text(self.part_labels[part])
-            else:
-                partition.append_text(part)
-        format = gtk.CheckButton()
-        format.set_mode(draw_indicator=True)
-        format.set_active(False)
-        format.set_sensitive(False)
-
-        row = len(self.mountpoint_widgets) + 1
-        self.mountpoint_widgets.append(mountpoint)
-        self.size_widgets.append(size)
-        self.partition_widgets.append(partition)
-        self.format_widgets.append(format)
-
-        self.mountpoint_table.resize(row + 1, 4)
-        self.mountpoint_table.attach(mountpoint, 0, 1, row, row + 1,
-                                     yoptions=0)
-        self.mountpoint_table.attach(size, 1, 2, row, row + 1,
-                                     xoptions=0, yoptions=0)
-        self.mountpoint_table.attach(partition, 2, 3, row, row + 1,
-                                     yoptions=0)
-        self.mountpoint_table.attach(format, 3, 4, row, row + 1,
-                                     xoptions=0, yoptions=0)
-        self.mountpoint_table.show_all()
-
-
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
 
@@ -708,7 +583,7 @@ class Wizard:
             0, 100, get_string('ubiquity/install/title', self.locale))
         self.debconf_progress_region(0, 15)
 
-        dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
+        dbfilter = partman_commit.PartmanCommit(self)
         if dbfilter.run_command(auto_process=True) != 0:
             while self.progress_position.depth() != 0:
                 self.debconf_progress_stop()
@@ -802,53 +677,6 @@ class Wizard:
 
     def on_live_installer_delete_event(self, widget, event):
         return self.on_cancel_clicked(widget)
-
-
-    def on_list_changed(self, widget):
-        """check if partition/mountpoint pair is filled and show the next pair
-        on mountpoint screen. Also size label associated with partition combobox
-        is changed dynamically to show the size partition."""
-
-        if widget.get_active_text() not in ['', None]:
-            if widget in self.partition_widgets:
-                index = self.partition_widgets.index(widget)
-            elif widget in self.mountpoint_widgets:
-                index = self.mountpoint_widgets.index(widget)
-            else:
-                return
-
-            partition_text = self.partition_widgets[index].get_active_text()
-            if partition_text == ' ':
-                self.size_widgets[index].set_text('')
-            elif partition_text != None:
-                self.size_widgets[index].set_text(self.set_size_msg(self.partition_widgets[index]))
-
-            # Does the Reformat checkbox make sense?
-            if (partition_text == ' ' or
-                partition_text not in self.part_devices):
-                self.format_widgets[index].set_sensitive(False)
-                self.format_widgets[index].set_active(False)
-            else:
-                partition = self.part_devices[partition_text]
-                if partition in self.gparted_fstype:
-                    self.format_widgets[index].set_sensitive(False)
-                    self.format_widgets[index].set_active(True)
-                else:
-                    self.format_widgets[index].set_sensitive(True)
-
-            if len(get_partitions()) > len(self.partition_widgets):
-                for i in range(len(self.partition_widgets)):
-                    partition = self.partition_widgets[i].get_active_text()
-                    mountpoint = self.mountpoint_widgets[i].get_active_text()
-                    if partition is None or mountpoint == "":
-                        break
-                else:
-                    # All table rows have been filled; create a new one.
-                    self.add_mountpoint_table_row()
-                    self.mountpoint_widgets[-1].connect("changed",
-                                                        self.on_list_changed)
-                    self.partition_widgets[-1].connect("changed",
-                                                       self.on_list_changed)
 
 
     def info_loop(self, widget):
@@ -969,10 +797,11 @@ class Wizard:
             self.process_autopartitioning()
         # Advanced partitioning
         elif step == "stepPartAdvanced":
-            self.gparted_to_mountpoints()
-        # Mountpoints
-        elif step == "stepPartMountpoints":
-            self.mountpoints_to_summary()
+            if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+                self.info_loop(None)
+                self.set_current_page(self.steps.page_num(self.stepUserInfo))
+            else:
+                self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
         # Migration Assistant           
         elif step == "stepMigrationAssistant":
             self.steps.next_page()
@@ -1031,330 +860,13 @@ class Wizard:
         # then go to manual partitioning.
         choice = self.get_autopartition_choice()[0]
         if self.manual_choice is None or choice == self.manual_choice:
-            if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
-                self.gparted_loop()
             self.steps.next_page()
         else:
-            # TODO cjwatson 2006-01-10: extract mountpoints from partman
-            self.manual_partitioning = False
             if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
                 self.info_loop(None)
                 self.set_current_page(self.steps.page_num(self.stepUserInfo))
             else:
                 self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
-
-
-    def gparted_crashed(self):
-        """gparted crashed. Ask the user if they want to continue."""
-
-        # TODO cjwatson 2006-07-18: i18n
-        text = ('The advanced partitioner (gparted) crashed. Further '
-                'information may be found in /var/log/syslog, or by '
-                'running gparted directly. Do you want to try the '
-                'advanced partitioner again, return to automatic '
-                'partitioning, or quit this installer?')
-        dialog = gtk.Dialog('GParted crashed', self.live_installer,
-                            gtk.DIALOG_MODAL,
-                            (gtk.STOCK_QUIT, gtk.RESPONSE_CLOSE,
-                             'Automatic partitioning', 1,
-                             'Try again', 2))
-        label = gtk.Label(text)
-        label.set_line_wrap(True)
-        label.set_selectable(True)
-        dialog.vbox.add(label)
-        dialog.show_all()
-        response = dialog.run()
-        dialog.hide()
-        if response == 1:
-            self.set_current_page(self.steps.page_num(self.stepPartAuto))
-        elif response == gtk.RESPONSE_CLOSE:
-            self.current_page = None
-            self.quit()
-        else:
-            self.gparted_loop()
-
-
-    def gparted_to_mountpoints(self):
-        """Processing gparted to mountpoints step tasks."""
-
-        if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
-            if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-                self.info_loop(None)
-                self.set_current_page(self.steps.page_num(self.stepUserInfo))
-            else:
-                self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
-            return
-
-        self.gparted_fstype = {}
-        self.gparted_flags = {}
-
-        if self.gparted_subp is None:
-            self.gparted_crashed()
-            return
-
-        try:
-            print >>self.gparted_subp.stdin, "apply"
-        except IOError:
-            # Shut down gparted
-            self.gparted_subp.stdin.close()
-            self.gparted_subp.wait()
-            self.gparted_subp = None
-            self.gparted_crashed()
-            return
-
-        # read gparted output of format "- FORMAT /dev/hda2 linux-swap"
-        gparted_reply = self.gparted_subp.stdout.readline().rstrip('\n')
-        while gparted_reply.startswith('- '):
-            syslog.syslog('gparted replied: %s' % gparted_reply)
-            words = gparted_reply[2:].strip().split()
-            if words[0].lower() == 'format' and len(words) >= 3:
-                self.gparted_fstype[words[1]] = words[2]
-                self.gparted_flags[words[1]] = words[3:]
-            gparted_reply = \
-                self.gparted_subp.stdout.readline().rstrip('\n')
-        syslog.syslog('gparted replied: %s' % gparted_reply)
-
-        if gparted_reply.startswith('1 '):
-            # Cancel
-            return
-
-        # Shut down gparted
-        self.gparted_subp.stdin.close()
-        self.gparted_subp.wait()
-        self.gparted_subp = None
-
-        if not gparted_reply.startswith('0 '):
-            # something other than OK or Cancel
-            return
-
-        # Set up list of partition names for use in the mountpoints table.
-        self.partition_choices = []
-        # The first element is empty to allow deselecting a partition.
-        self.partition_choices.append(' ')
-        for partition in get_partitions():
-            partition = '/dev/' + partition
-            label = part_label(partition)
-            self.part_labels[partition] = label
-            self.part_devices[label] = partition
-            self.partition_choices.append(partition)
-
-        # Reinitialise the mountpoints table.
-        for child in self.mountpoint_table.get_children():
-            if child.get_name() not in ('mountpoint_label', 'size_label',
-                                        'device_label', 'format_label'):
-                self.mountpoint_table.remove(child)
-        self.mountpoint_widgets = []
-        self.size_widgets = []
-        self.partition_widgets = []
-        self.format_widgets = []
-
-        self.add_mountpoint_table_row()
-
-        # Try to get some default mountpoint selections.
-        self.size = get_sizes()
-        selection = get_default_partition_selection(
-            self.size, self.gparted_fstype, self.auto_mountpoints)
-
-        # Setting a default partition preselection
-        if len(selection.items()) == 0:
-            self.allow_go_forward(False)
-        else:
-            # Setting default preselection values into ComboBox widgets and
-            # setting size values. In addition, the next row is shown if
-            # they're validated.
-            for mountpoint, partition in selection.items():
-                if partition.split('/')[2] not in self.size:
-                    syslog.syslog(syslog.LOG_WARNING,
-                                  "No size available for partition %s; "
-                                  "skipping" % partition)
-                    continue
-                if partition not in self.partition_choices:
-                    # TODO cjwatson 2006-05-27: I don't know why this might
-                    # happen, but it does
-                    # (https://launchpad.net/bugs/46910). Figure out why. In
-                    # the meantime, ignoring this partition is better than
-                    # crashing.
-                    syslog.syslog(syslog.LOG_WARNING,
-                                  "Partition %s not in /proc/partitions?" %
-                                  partition)
-                    continue
-                if mountpoint in self.mountpoint_choices:
-                    self.mountpoint_widgets[-1].set_active(
-                        self.mountpoint_choices.index(mountpoint))
-                else:
-                    self.mountpoint_widgets[-1].child.set_text(mountpoint)
-                self.size_widgets[-1].set_text(
-                    self.set_size_msg(partition))
-                self.partition_widgets[-1].set_active(
-                    self.partition_choices.index(partition))
-                if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
-                    partition in self.gparted_fstype):
-                    self.format_widgets[-1].set_active(True)
-                else:
-                    self.format_widgets[-1].set_active(False)
-                if partition not in self.gparted_fstype:
-                    self.format_widgets[-1].set_sensitive(True)
-                if len(get_partitions()) > len(self.partition_widgets):
-                    self.add_mountpoint_table_row()
-                else:
-                    break
-
-        # For some reason, GtkTable doesn't seem to queue a resize itself
-        # when you attach children to it.
-        self.mountpoint_table.queue_resize()
-
-        # We defer connecting up signals until now to avoid the changed
-        # signal firing while we're busy populating the table.
-        for mountpoint in self.mountpoint_widgets:
-            mountpoint.connect("changed", self.on_list_changed)
-        for partition in self.partition_widgets:
-            partition.connect("changed", self.on_list_changed)
-
-        self.mountpoint_error_reason.hide()
-        self.mountpoint_error_image.hide()
-
-        self.steps.next_page()
-
-
-    def mountpoints_to_summary(self):
-        """Processing mountpoints to summary step tasks."""
-
-        # Validating self.mountpoints
-        error_msg = []
-
-        mountpoints = {}
-        for i in range(len(self.mountpoint_widgets)):
-            mountpoint_value = self.mountpoint_widgets[i].get_active_text()
-            partition_value = self.partition_widgets[i].get_active_text()
-            if partition_value is not None:
-                if partition_value in self.part_devices:
-                    partition_id = self.part_devices[partition_value]
-                else:
-                    partition_id = partition_value
-            else:
-                partition_id = None
-            format_value = self.format_widgets[i].get_active()
-            fstype = None
-            if partition_id in self.gparted_fstype:
-                fstype = self.gparted_fstype[partition_id]
-
-            if mountpoint_value == "":
-                if partition_value in (None, ' '):
-                    continue
-                else:
-                    error_msg.append(
-                        "No mount point selected for %s." % partition_value)
-                    break
-            else:
-                if partition_value in (None, ' '):
-                    error_msg.append(
-                        "No partition selected for %s." % mountpoint_value)
-                    break
-                else:
-                    flags = None
-                    if partition_id in self.gparted_flags:
-                        flags = self.gparted_flags[partition_id]
-                    mountpoints[partition_id] = \
-                        (mountpoint_value, format_value, fstype, flags)
-        else:
-            self.mountpoints = mountpoints
-        syslog.syslog('mountpoints: %s' % self.mountpoints)
-
-        # Checking duplicated devices
-        partitions = [w.get_active_text() for w in self.partition_widgets]
-
-        for check in partitions:
-            if check in (None, '', ' '):
-                continue
-            if partitions.count(check) > 1:
-                error_msg.append("A partition is assigned to more than one "
-                                 "mount point.")
-                break
-
-        # Processing more validation stuff
-        if len(self.mountpoints) > 0:
-            # Supplement filesystem types from gparted FORMAT instructions
-            # with those detected from the disk.
-            validate_mountpoints = dict(self.mountpoints)
-            validate_filesystems = get_filesystems(self.gparted_fstype)
-            for device, (path, format, fstype,
-                         flags) in validate_mountpoints.items():
-                if fstype is None and device in validate_filesystems:
-                    validate_mountpoints[device] = \
-                        (path, format, validate_filesystems[device], None)
-            # Check for some special-purpose partitions detected by partman.
-            if self.auto_mountpoints is not None:
-                for device, mountpoint in self.auto_mountpoints.iteritems():
-                    if device in validate_mountpoints:
-                        continue
-                    if not mountpoint.startswith('/'):
-                        validate_mountpoints[device] = \
-                            (mountpoint, False, None, None)
-
-            for check in validation.check_mountpoint(validate_mountpoints,
-                                                     self.size):
-                if check == validation.MOUNTPOINT_NOROOT:
-                    error_msg.append(get_string(
-                        'partman-target/no_root', self.locale))
-                elif check == validation.MOUNTPOINT_DUPPATH:
-                    error_msg.append("Two file systems are assigned the same "
-                                     "mount point.")
-                elif check == validation.MOUNTPOINT_BADSIZE:
-                    for mountpoint, format, fstype, flags in \
-                            self.mountpoints.itervalues():
-                        if mountpoint == 'swap':
-                            min_root = MINIMAL_PARTITION_SCHEME['root']
-                            break
-                    else:
-                        min_root = (MINIMAL_PARTITION_SCHEME['root'] +
-                                    MINIMAL_PARTITION_SCHEME['swap'])
-                    error_msg.append("The partition assigned to '/' is too "
-                                     "small (minimum size: %d Mb)." % min_root)
-                elif check == validation.MOUNTPOINT_BADCHAR:
-                    error_msg.append(get_string(
-                        'partman-basicfilesystems/bad_mountpoint',
-                        self.locale))
-                elif check == validation.MOUNTPOINT_XFSROOT:
-                    error_msg.append("XFS may not be used on the filesystem "
-                                     "containing /boot. Either use a "
-                                     "different filesystem for / or create a "
-                                     "non-XFS filesystem for /boot.")
-                elif check == validation.MOUNTPOINT_XFSBOOT:
-                    error_msg.append("XFS may not be used on the /boot "
-                                     "filesystem. Use a different filesystem "
-                                     "type for /boot.")
-                elif check == validation.MOUNTPOINT_UNFORMATTED:
-                    error_msg.append("Filesystems used by the system (/, "
-                                     "/boot, /usr, /var) must be reformatted "
-                                     "for use by this installer. Other "
-                                     "filesystems (/home, /media/*, "
-                                     "/usr/local, etc.) may be used without "
-                                     "reformatting.")
-                elif check == validation.MOUNTPOINT_NEEDPOSIX:
-                    error_msg.append("FAT and NTFS filesystems may not be "
-                                     "used on filesystems used by the system "
-                                     "(/, /boot, /home, /usr, /var, etc.). "
-                                     "It is usually best to mount them "
-                                     "somewhere under /media/.")
-                elif check == validation.MOUNTPOINT_NONEWWORLD:
-                    error_msg.append(get_string(
-                        'partman-newworld/no_newworld',
-                        'extended:%s' % self.locale))
-
-        # showing warning messages
-        self.mountpoint_error_reason.set_text("\n".join(error_msg))
-        if len(error_msg) != 0:
-            self.mountpoint_error_reason.show()
-            self.mountpoint_error_image.show()
-            return
-        else:
-            self.mountpoint_error_reason.hide()
-            self.mountpoint_error_image.hide()
-
-        self.manual_partitioning = True
-        if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-            self.info_loop(None)
-        self.steps.next_page()
 
 
     def on_back_clicked(self, widget):
@@ -1380,20 +892,8 @@ class Wizard:
             self.set_current_page(self.steps.page_num(self.stepKeyboardConf))
             changed_page = True
         elif step == "stepPartAdvanced":
-            if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
-                if self.gparted_subp is not None:
-                    try:
-                        print >>self.gparted_subp.stdin, "undo"
-                    except IOError:
-                        pass
-                    self.gparted_subp.stdin.close()
-                    self.gparted_subp.wait()
-                    self.gparted_subp = None
             self.set_current_page(self.steps.page_num(self.stepPartAuto))
             changed_page = True
-        elif step == "stepPartMountpoints":
-            if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
-                self.gparted_loop()
         elif step == "stepMigrationAssistant":
             self.set_current_page(self.previous_partitioning_page)
             changed_page = True
@@ -1999,10 +1499,6 @@ class Wizard:
     def password_error(self, msg):
         self.password_error_reason.set_text(msg)
         self.password_error_box.show()
-
-
-    def set_auto_mountpoints(self, auto_mountpoints):
-        self.auto_mountpoints = auto_mountpoints
 
 
     def set_autopartition_choices (self, choices, extra_options,
@@ -2656,10 +2152,6 @@ class Wizard:
 
     def get_hostname (self):
         return self.hostname.get_text()
-
-
-    def get_mountpoints (self):
-        return dict(self.mountpoints)
 
 
     def set_keyboard_choices(self, choices):

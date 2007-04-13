@@ -19,15 +19,11 @@
 
 import os
 import re
+import shutil
+import signal
 
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import parted_server
-from ubiquity.components.partman_auto import PartmanAuto
-
-# For now, we inherit from PartmanAuto to avoid code duplication. Once all
-# frontends are converted to the all-in-one Partman, or once the complexity
-# involved in this inheritance gets too great, the necessary parts of
-# PartmanAuto should be moved here.
 
 PARTITION_TYPE_PRIMARY = 0
 PARTITION_TYPE_LOGICAL = 1
@@ -38,12 +34,34 @@ PARTITION_PLACE_END = 1
 class PartmanOptionError(LookupError):
     pass
 
-class Partman(PartmanAuto):
-    def prepare(self):
-        prep = PartmanAuto.prepare(self)
+class Partman(FilteredCommand):
+    def __init__(self, frontend=None):
+        FilteredCommand.__init__(self, frontend)
+        self.some_device_desc = ''
+        self.resize_desc = ''
+        self.manual_desc = ''
 
-        # We don't need this weirdness for the all-in-one Partman.
-        self.stashed_auto_mountpoints = {}
+    def prepare(self):
+        # If an old parted_server is still running, clean it up.
+        if os.path.exists('/var/run/parted_server.pid'):
+            try:
+                pidline = open('/var/run/parted_server.pid').readline().strip()
+                pid = int(pidline)
+                os.kill(pid, signal.SIGTERM)
+            except Exception:
+                pass
+            try:
+                os.unlink('/var/run/parted_server.pid')
+            except OSError:
+                pass
+
+        # Force autopartitioning to be re-run.
+        shutil.rmtree('/var/lib/partman', ignore_errors=True)
+
+        self.autopartition_question = None
+        self.auto_state = None
+        self.extra_options = {}
+        self.extra_choice = None
 
         self.update_partitions = None
         self.building_cache = True
@@ -58,20 +76,24 @@ class Partman(PartmanAuto):
         self.undoing = False
         self.finish_partitioning = False
 
-        questions = list(prep[1])
-        questions.extend(['^partman/confirm_new_label$',
-                          '^partman/free_space$',
-                          '^partman/active_partition$',
-                          '^partman-partitioning/new_partition_(size|type|place)$',
-                          '^partman-partitioning/confirm_resize$',
-                          '^partman-partitioning/new_size$',
-                          '^partman-target/choose_method$',
-                          '^partman-basicfilesystems/(fat_mountpoint|mountpoint|mountpoint_manual)$',
-                          '^partman/exception_handler$',
-                          '^partman/exception_handler_note$'])
-        prep = list(prep)
-        prep[1] = questions
-        return prep
+        questions = ['^partman-auto/.*automatically_partition$',
+                     '^partman-auto/select_disk$',
+                     '^partman-partitioning/confirm_resize$',
+                     '^partman-partitioning/new_size$',
+                     '^partman/choose_partition$',
+                     '^partman/confirm.*',
+                     '^partman/free_space$',
+                     '^partman/active_partition$',
+                     '^partman-partitioning/new_partition_(size|type|place)$',
+                     '^partman-target/choose_method$',
+                     '^partman-basicfilesystems/(fat_mountpoint|mountpoint|mountpoint_manual)$',
+                     '^partman/exception_handler$',
+                     '^partman/exception_handler_note$',
+                     'type:boolean',
+                     'ERROR',
+                     'PROGRESS']
+        return ('/bin/partman', questions,
+                {'PARTMAN_NO_COMMIT': '1', 'PARTMAN_SNOOP': '1'})
 
     def snoop(self):
         """Read the partman snoop file hack, returning a list of tuples
@@ -215,6 +237,26 @@ class Partman(PartmanAuto):
             self.debug('Partman: update_partitions = %s',
                        self.update_partitions)
 
+    def parse_size(self, size_str):
+        (num, unit) = size_str.split(' ', 1)
+        if ',' in num:
+            (size_int, size_frac) = num.split(',', 1)
+        else:
+            (size_int, size_frac) = num.split('.', 1)
+        size = float(str("%s.%s" % (size_int, size_frac)))
+        # partman measures sizes in decimal units
+        if unit == 'B':
+            pass
+        elif unit == 'kB':
+            size *= 1000
+        elif unit == 'MB':
+            size *= 1000000
+        elif unit == 'GB':
+            size *= 1000000000
+        elif unit == 'TB':
+            size *= 1000000000000
+        return size
+
     def subst(self, question, key, value):
         if question == 'partman-partitioning/new_size':
             if self.building_cache and self.autopartition_question is None:
@@ -225,10 +267,16 @@ class Partman(PartmanAuto):
                     partition['resize_min_size'] = self.parse_size(value)
                 elif key == 'MAXSIZE':
                     partition['resize_max_size'] = self.parse_size(value)
-        PartmanAuto.subst(self, question, key, value)
+            if key == 'MINSIZE':
+                self.resize_min_size = self.parse_size(value)
+            elif key == 'MAXSIZE':
+                self.resize_max_size = self.parse_size(value)
 
     def error(self, priority, question):
-        if question == 'partman-partitioning/bad_new_partition_size':
+        if question == 'partman-partitioning/impossible_resize':
+            # Back up silently.
+            return False
+        elif question == 'partman-partitioning/bad_new_partition_size':
             if self.creating_partition:
                 # Break out of creating the partition.
                 self.creating_partition['bad_size'] = True
@@ -245,15 +293,76 @@ class Partman(PartmanAuto):
                 self.creating_partition['bad_mountpoint'] = True
             elif self.editing_partition:
                 self.editing_partition['bad_mountpoint'] = True
-        return PartmanAuto.error(self, priority, question)
+        self.frontend.error_dialog(self.description(question),
+                                   self.extended_description(question))
+        return FilteredCommand.error(self, priority, question)
 
     def run(self, priority, question):
+        if self.done:
+            # user answered confirmation question or backed up
+            return self.succeeded
+
         self.current_question = question
         options = self.snoop()
         menu_options = self.snoop_menu(options)
         self.debug('Partman: state = %s', self.__state)
 
-        if question == 'partman/choose_partition':
+        if question.endswith('automatically_partition'):
+            self.autopartition_question = question
+            choices = self.choices(question)
+
+            if self.auto_state is None:
+                self.some_device_desc = \
+                    self.description('partman-auto/text/use_device')
+                self.resize_desc = \
+                    self.description('partman-auto/text/resize_use_free')
+                self.manual_desc = \
+                    self.description('partman-auto/text/custom_partitioning')
+                self.extra_options = {}
+                if choices:
+                    self.auto_state = [0, None]
+            else:
+                self.auto_state[0] += 1
+            while self.auto_state[0] < len(choices):
+                self.auto_state[1] = choices[self.auto_state[0]]
+                if (self.auto_state[1] == self.some_device_desc or
+                    self.auto_state[1] == self.resize_desc):
+                    break
+                else:
+                    self.auto_state[0] += 1
+            if self.auto_state[0] < len(choices):
+                # Don't preseed_as_c, because Perl debconf is buggy in that
+                # it doesn't expand variables in the result of METAGET
+                # choices-c. All locales have the same variables anyway so
+                # it doesn't matter.
+                self.preseed(question, self.auto_state[1])
+                self.succeeded = True
+                return True
+            else:
+                self.auto_state = None
+
+            if self.resize_desc not in self.extra_options:
+                try:
+                    del choices[choices.index(self.resize_desc)]
+                except ValueError:
+                    pass
+            self.frontend.set_autopartition_choices(
+                choices, self.extra_options,
+                self.resize_desc, self.manual_desc)
+
+        elif question == 'partman-auto/select_disk':
+            if self.auto_state is not None:
+                self.extra_options[self.auto_state[1]] = self.choices(question)
+                # Back up to autopartitioning question.
+                self.succeeded = False
+                return False
+            else:
+                assert self.extra_choice is not None
+                self.preseed(question, self.extra_choice)
+                self.succeeded = True
+                return True
+
+        elif question == 'partman/choose_partition':
             self.autopartition_question = None # not autopartitioning any more
 
             if not self.building_cache and self.update_partitions:
@@ -678,8 +787,22 @@ class Partman(PartmanAuto):
 
         elif question == 'partman-partitioning/confirm_resize':
             if self.autopartition_question is not None:
-                # PartmanAuto will handle this.
-                pass
+                if self.auto_state is not None:
+                    # Proceed through confirmation question; we'll back up
+                    # later.
+                    self.preseed(question, 'true')
+                    return True
+                else:
+                    response = self.frontend.question_dialog(
+                        self.description(question),
+                        self.extended_description(question),
+                        ('ubiquity/text/go_back', 'ubiquity/text/continue'))
+                    if (response is None or
+                        response == 'ubiquity/text/continue'):
+                        self.preseed(question, 'true')
+                    else:
+                        self.preseed(question, 'false')
+                    return True
             elif self.building_cache:
                 state = self.__state[-1]
                 assert state[0] == 'partman/active_partition'
@@ -702,8 +825,17 @@ class Partman(PartmanAuto):
 
         elif question == 'partman-partitioning/new_size':
             if self.autopartition_question is not None:
-                # PartmanAuto will handle this.
-                pass
+                if self.auto_state is not None:
+                    self.extra_options[self.auto_state[1]] = \
+                        (self.resize_min_size, self.resize_max_size)
+                    # Back up to autopartitioning question.
+                    self.succeeded = False
+                    return False
+                else:
+                    assert self.extra_choice is not None
+                    self.preseed(question, '%d%%' % self.extra_choice)
+                    self.succeeded = True
+                    return True
             elif self.building_cache:
                 # subst() should have gathered the necessary information.
                 # Back up.
@@ -790,6 +922,16 @@ class Partman(PartmanAuto):
             else:
                 raise AssertionError, "Arrived at %s unexpectedly" % question
 
+        elif question.startswith('partman/confirm'):
+            if question == 'partman/confirm':
+                self.db.set('ubiquity/partman-made-changes', 'true')
+            else:
+                self.db.set('ubiquity/partman-made-changes', 'false')
+            self.preseed(question, 'true')
+            self.succeeded = True
+            self.done = True
+            return True
+
         elif question == 'partman/exception_handler':
             if priority == 'critical' or priority == 'high':
                 response = self.frontend.question_dialog(
@@ -809,19 +951,47 @@ class Partman(PartmanAuto):
             else:
                 return True
 
-        return PartmanAuto.run(self, priority, question)
+        elif self.question_type(question) == 'boolean':
+            response = self.frontend.question_dialog(
+                self.description(question),
+                self.extended_description(question),
+                ('ubiquity/text/go_back', 'ubiquity/text/continue'))
+
+            answer_reversed = False
+            if (question == 'partman-jfs/jfs_boot' or
+                question == 'partman-jfs/jfs_root'):
+                answer_reversed = True
+            if response is None or response == 'ubiquity/text/continue':
+                answer = answer_reversed
+            else:
+                answer = not answer_reversed
+            if answer:
+                self.preseed(question, 'true')
+            else:
+                self.preseed(question, 'false')
+            return True
+
+        return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
         if self.current_question.endswith('automatically_partition'):
-            PartmanAuto.ok_handler(self)
-            if self.frontend.get_autopartition_choice()[0] == self.manual_desc:
-                # In the all-in-one Partman, we keep on going in this case.
-                self.succeeded = True
-                self.done = False
+            (autopartition_choice, self.extra_choice) = \
+                self.frontend.get_autopartition_choice()
+            # Don't preseed_as_c, because Perl debconf is buggy in that it
+            # doesn't expand variables in the result of METAGET choices-c. All
+            # locales have the same variables anyway so it doesn't matter.
+            if self.autopartition_question is not None:
+                self.preseed(self.autopartition_question, autopartition_choice)
+            else:
+                self.preseed('partman-auto/init_automatically_partition',
+                             autopartition_choice)
+                self.preseed('partman-auto/automatically_partition',
+                             autopartition_choice)
+            # Don't exit partman yet.
         else:
-            self.succeeded = True
             self.finish_partitioning = True
-            self.exit_ui_loops()
+        self.succeeded = True
+        self.exit_ui_loops()
 
     # TODO cjwatson 2006-11-01: Do we still need this?
     def rebuild_cache(self):
@@ -871,3 +1041,26 @@ class Partman(PartmanAuto):
         assert self.current_question == 'partman/choose_partition'
         self.undoing = True
         self.exit_ui_loops()
+
+# Notes:
+#
+#   partman-auto/init_automatically_partition
+#     Resize <partition> and use freed space
+#     Erase entire disk: <disk> - <description>
+#     Manually edit partition table
+#
+#   may show multiple disks, in which case massage into disk chooser (later)
+#
+#   if the resize option shows up, then run os-prober and display at the
+#   top?
+#
+#   resize follow-up question:
+#       partman-partitioning/new_size
+#   progress bar:
+#       partman-partitioning/progress_resizing
+#
+#   manual editing:
+#       partman/choose_partition
+#
+#   final confirmation:
+#       partman/confirm*

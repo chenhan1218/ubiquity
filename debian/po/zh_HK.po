@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-28 12:24+0100\n"
+"POT-Creation-Date: 2007-04-12 17:05+0100\n"
 "PO-Revision-Date: 2007-04-05 08:20+0000\n"
 "Last-Translator: cynthia <cc@kinki-kids.com>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
@@ -264,122 +264,70 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
-msgid "Prepare mount points"
-msgstr "準備好掛載點"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:37001
-msgid ""
-"Select which partitions you want to use for your new installation, and where "
-"you want to mount each of them."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:37001
-msgid ""
-"You must mount one partition on the root file system (\"/\"), and you must "
-"choose at least one partition for use as swap space."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:38001
-msgid "Mount Point"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:39001
-msgid "Size"
-msgstr "大小"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:40001
-msgid "Partition"
-msgstr "分割區"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:41001
-msgid "Reformat?"
-msgstr "從新格式化？"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:42001
-msgid "You must supply a root (\"/\") mount point."
-msgstr ""
-
-#. Type: text
-#. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:43001 ../ubiquity.templates:56001
+#: ../ubiquity.templates:36001 ../ubiquity.templates:49001
 msgid "Ready to install"
 msgstr "準備好安裝"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:37001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:38001
 msgid "Boot loader"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:39001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "步驟 ${TOTAL} 之 ${INDEX}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:40001
 msgid "Abort the installation?"
 msgstr "中止安裝？"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:41001
 msgid "Do you really want to abort the installation now?"
 msgstr "您現在要中止安裝？"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:42001
 msgid "Skip"
 msgstr "略過"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:43001
 msgid "Installation complete"
 msgstr "安裝完成"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:44001
 msgid "Continue using the live CD"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:45001
 msgid "Restart now"
 msgstr "現在重新啟動"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:46001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -388,7 +336,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:46001
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
@@ -397,20 +345,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:47001
 msgid "Go Back"
 msgstr "返回"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:48001
 msgid "Continue"
 msgstr "繼續"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:49001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -430,37 +378,37 @@ msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:50001
 msgid "Installing system"
 msgstr "正在安裝系統"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:51001
 msgid "Finding the distribution to copy..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:53001
 msgid "Scanning files..."
 msgstr "正在掃瞄檔案..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:54001
 msgid "Copying files..."
 msgstr "正在複製檔案..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:55001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "正在複製檔案 (還剩下不到一分鐘的時間) ..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:56001
 msgid "Failed to copy files; faulty CD/DVD?"
 msgstr ""
 
@@ -470,14 +418,14 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:63001 ../ubiquity.templates:64001
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:56001 ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "安裝程式在複製檔案到硬碟是發生一個錯誤:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:56001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive. It may "
 "help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
@@ -487,13 +435,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:57001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr "複製檔案失敗; 硬碟損壞了?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:57001
 msgid ""
 "This particular error is often due to a faulty hard disk. It may help to "
 "check whether the hard disk is old and in need of replacement, or to move "
@@ -502,7 +450,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:58001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr "複製檔案失敗; CD/DVD或硬碟損壞了?"
 
@@ -510,7 +458,7 @@ msgstr "複製檔案失敗; CD/DVD或硬碟損壞了?"
 #. Description
 #. This is used when we don't know whether the CD/DVD or the hard disk is at
 #. fault.
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:58001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -521,43 +469,43 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:59001
 msgid "Copying installation logs..."
 msgstr "正在複製安裝日誌..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:60001
 msgid "Configuring target system..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:61001
 msgid "Configuring system locales..."
 msgstr "正在設定系統語系..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:62001
 msgid "Configuring apt..."
 msgstr "設定 apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:63001
 msgid "Configuring time zone..."
 msgstr "正在設定時區..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:64001
 msgid "Configuring keyboard..."
 msgstr "正在設定鍵盤..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:65001
 msgid "Creating user..."
 msgstr ""
 "正在設定使用者...\r\n"
@@ -565,85 +513,85 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:66001
 msgid "Importing documents and settings..."
 msgstr "正在匯入文件和設定..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:67001
 msgid "Configuring hardware..."
 msgstr "正在設定硬體..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:68001
 msgid "Configuring network..."
 msgstr "正在設定網絡..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:69001
 msgid "Setting computer name..."
 msgstr "正在設定主機名稱..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:70001
 msgid "Configuring boot loader..."
 msgstr "正在設定開機程式..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:71001
 msgid "Removing extra packages..."
 msgstr "正在移除額外的套件..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:72001
 msgid "Checking for packages to remove..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:73001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "正在下載套件 (還剩 ${TIME} )..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:74001
 msgid "Downloading package lists..."
 msgstr "正在下載套件清單..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:75001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "正在下載套件清單 (還剩 ${TIME} )..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:77001
 msgid "Error installing ${PACKAGE}"
 msgstr "安裝 ${PACKAGE} 時發生錯誤"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:78001
 msgid "Error removing ${PACKAGE}"
 msgstr "正在移除 ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:79001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:79001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -651,7 +599,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+#: ../ubiquity.templates:79001 ../ubiquity.templates:80001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -659,7 +607,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+#: ../ubiquity.templates:79001 ../ubiquity.templates:80001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -672,37 +620,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:80001
 msgid "Error while removing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:80001
 msgid "An error occurred while removing packages:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:81001
 msgid "Installing language packs"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:82001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "正在下載語言封包 (剩餘 ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:86001
 msgid "Failed to unmount partitions"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:86001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -710,25 +658,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:86001
 msgid "Please close any applications using these mount points."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:86001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:87001
 msgid "System partition not formatted"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:87001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"

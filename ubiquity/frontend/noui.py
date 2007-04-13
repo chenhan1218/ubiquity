@@ -86,15 +86,6 @@ class Wizard:
     def get_hostname(self):
         return self.get_info()[0]
 
-    def get_mountpoints(self):
-        # TODO cjwatson 2006-03-08: partman now expects
-        # {mountpoint -> (partition, format?, fstype)}; this frontend should
-        # be fixed to work with that internally (see gtkui).
-        dummy_mountpoints = {}
-        for mountpoint, partition in self.mountpoints.iteritems():
-            dummy_mountpoints[mountpoint] = (partition, True, None)
-        return dummy_mountpoints
-
 if __name__ == '__main__':
     w = Wizard()
     hostname, fullname, name, password = w.get_info()

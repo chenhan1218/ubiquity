@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-03-28 12:24+0100\n"
+"POT-Creation-Date: 2007-04-12 17:05+0100\n"
 "PO-Revision-Date: 2007-04-02 03:17+0000\n"
 "Last-Translator: Lior Kaplan <kaplan@debian.org>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
@@ -266,128 +266,70 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
-msgid "Prepare mount points"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:37001
-msgid ""
-"Select which partitions you want to use for your new installation, and where "
-"you want to mount each of them."
-msgstr ""
-"בחר את המחיצות בהן אתה רוצה להשתמש בהתקנה החדשה, והיכן אתה רוצה לעגן כל אחת "
-"מהן."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:37001
-msgid ""
-"You must mount one partition on the root file system (\"/\"), and you must "
-"choose at least one partition for use as swap space."
-msgstr ""
-"אתה חייב לעגן מחיצה אחת כמערכת קבצים - root (\"/\"), ואתה חייב לבחור לפחות "
-"מחיצה אחת שתשמש כשטח swap."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:38001
-#, fuzzy
-msgid "Mount Point"
-msgstr "נקודת עגינה:"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:39001
-msgid "Size"
-msgstr "גודל"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:40001
-#, fuzzy
-msgid "Partition"
-msgstr "חלוקה למחיצות"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:41001
-msgid "Reformat?"
-msgstr "לפרמט מחדש?"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:42001
-msgid "You must supply a root (\"/\") mount point."
-msgstr "חובה לקבוע נקודת עגינה ל root (\"/\")"
-
-#. Type: text
-#. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:43001 ../ubiquity.templates:56001
+#: ../ubiquity.templates:36001 ../ubiquity.templates:49001
 msgid "Ready to install"
 msgstr "מוכן להתקנה"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:37001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr "מערכת ההפעלה החדשה שלך תותקן כעת עם ההגדרות הבאות:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:38001
 msgid "Boot loader"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:39001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "צעד ${INDEX} מתוך ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:40001
 msgid "Abort the installation?"
 msgstr "לבטל את ההתקנה?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:41001
 msgid "Do you really want to abort the installation now?"
 msgstr "האם ברצונכם לבטל את תהליך ההתקנה עכשיו?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:42001
 msgid "Skip"
 msgstr "דלג"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:43001
 msgid "Installation complete"
 msgstr "ההתקנה הסתיימה"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:44001
 msgid "Continue using the live CD"
 msgstr "המשך להשתמש ב Live CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:45001
 msgid "Restart now"
 msgstr "בצע אתחול של המחשב"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:46001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -399,7 +341,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:46001
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
@@ -408,20 +350,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:47001
 msgid "Go Back"
 msgstr "חזרה אחורה"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:48001
 msgid "Continue"
 msgstr "המשך"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:49001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -434,40 +376,40 @@ msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:50001
 #, fuzzy
 msgid "Installing system"
 msgstr "מתקין את מערכת הבסיס"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:51001
 msgid "Finding the distribution to copy..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:53001
 #, fuzzy
 msgid "Scanning files..."
 msgstr "סורק כוננים..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:54001
 #, fuzzy
 msgid "Copying files..."
 msgstr "מעתיק מחיצה..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:55001
 msgid "Copying files (less than a minute remaining)..."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:56001
 msgid "Failed to copy files; faulty CD/DVD?"
 msgstr ""
 
@@ -477,14 +419,14 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:63001 ../ubiquity.templates:64001
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:56001 ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:56001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive. It may "
 "help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
@@ -494,13 +436,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:57001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:57001
 msgid ""
 "This particular error is often due to a faulty hard disk. It may help to "
 "check whether the hard disk is old and in need of replacement, or to move "
@@ -509,7 +451,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:58001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr ""
 
@@ -517,7 +459,7 @@ msgstr ""
 #. Description
 #. This is used when we don't know whether the CD/DVD or the hard disk is at
 #. fault.
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:58001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -528,127 +470,127 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:59001
 msgid "Copying installation logs..."
 msgstr "מעתיק רישומי התקנה..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:60001
 msgid "Configuring target system..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:61001
 msgid "Configuring system locales..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:62001
 msgid "Configuring apt..."
 msgstr "מגדיר את apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:63001
 msgid "Configuring time zone..."
 msgstr "מגדיר איזור זמן..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:64001
 msgid "Configuring keyboard..."
 msgstr "מגדיר את המקלדת..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:65001
 msgid "Creating user..."
 msgstr "יוצר משתמש..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:66001
 msgid "Importing documents and settings..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:67001
 msgid "Configuring hardware..."
 msgstr "מגדיר את החומרה..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:68001
 msgid "Configuring network..."
 msgstr "מגדיר רשת..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:69001
 msgid "Setting computer name..."
 msgstr "מגדיר את שם המחשב..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:70001
 msgid "Configuring boot loader..."
 msgstr "מגדיר את מנהל ההפעלה..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:71001
 msgid "Removing extra packages..."
 msgstr "מסיר חבילות מיותרות..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:72001
 msgid "Checking for packages to remove..."
 msgstr "מחפש חבילות להסרה..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:73001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "מוריד חבילות (${TIME} נותרו)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:74001
 msgid "Downloading package lists..."
 msgstr "מוריד רשימת חבילות..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:75001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "מוריד רשימת חבילות (${TIME} נותרו)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:77001
 msgid "Error installing ${PACKAGE}"
 msgstr "שגיאה בהתקנת ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:78001
 msgid "Error removing ${PACKAGE}"
 msgstr "שגיאה בהסרת ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:79001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:79001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -656,7 +598,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+#: ../ubiquity.templates:79001 ../ubiquity.templates:80001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -664,7 +606,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:86001 ../ubiquity.templates:87001
+#: ../ubiquity.templates:79001 ../ubiquity.templates:80001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -677,37 +619,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:80001
 msgid "Error while removing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:80001
 msgid "An error occurred while removing packages:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:81001
 msgid "Installing language packs"
 msgstr "מתקין את חבילות השפה"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:82001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "מוריד חבילת שפה (${TIME} נותר)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:86001
 msgid "Failed to unmount partitions"
 msgstr "כישלון בביטול עגינת המחיצות."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:86001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -715,25 +657,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:86001
 msgid "Please close any applications using these mount points."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:86001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:87001
 msgid "System partition not formatted"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:87001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"

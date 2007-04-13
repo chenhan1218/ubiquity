@@ -68,7 +68,6 @@ partman/update.d/* lib/partman/update.d
 partman/check.d/* lib/partman/check.d
 partman/commit.d/* lib/partman/commit.d
 ubiquity/components/partman.py usr/lib/ubiquity/ubiquity/components
-ubiquity/components/partman_auto.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/partman_commit.py usr/lib/ubiquity/ubiquity/components
 
 # tzsetup

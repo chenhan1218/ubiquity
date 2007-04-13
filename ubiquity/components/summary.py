@@ -23,8 +23,8 @@ from ubiquity.components.partman_commit import PartmanCommit
 from ubiquity.misc import will_be_installed
 
 class Summary(PartmanCommit):
-    def __init__(self, frontend, manual_partitioning=False):
-        PartmanCommit.__init__(self, frontend, manual_partitioning, True)
+    def __init__(self, frontend):
+        PartmanCommit.__init__(self, frontend, True)
 
     def prepare(self):
         prep = list(PartmanCommit.prepare(self))

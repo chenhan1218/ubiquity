@@ -120,18 +120,11 @@ def main():
     parser.set_defaults(
         debug=('UBIQUITY_DEBUG' in os.environ),
         cdebconf=False,
-        new_partitioner=True,
         migration_assistant=True)
     parser.add_option('-d', '--debug', dest='debug', action='store_true',
                       help='debug mode (warning: passwords will be logged!)')
     parser.add_option('--cdebconf', dest='cdebconf', action='store_true',
                       help='use cdebconf instead of debconf (experimental)')
-    parser.add_option('--old-partitioner', dest='new_partitioner',
-                      action='store_false',
-                      help='force use of old advanced partitioner')
-    parser.add_option('--new-partitioner', dest='new_partitioner',
-                      action='store_true',
-                      help='use new advanced partitioner (experimental)')
     parser.add_option('--no-migration-assistant', dest='migration_assistant',
                       action='store_false',
                       help='disable Migration Assistant')
@@ -147,22 +140,8 @@ def main():
         prepend_path('/usr/lib/cdebconf')
     prepend_path('/usr/lib/ubiquity/compat')
 
-    if options.new_partitioner:
-        os.environ['UBIQUITY_NEW_PARTITIONER'] = '1'
-    else:
-        try:
-            del os.environ['UBIQUITY_NEW_PARTITIONER']
-        except KeyError:
-            pass
-
     if options.migration_assistant:
         os.environ['UBIQUITY_MIGRATION_ASSISTANT'] = '1'
-
-    if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
-        try:
-            del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
-        except KeyError:
-            pass
 
     acquire_lock()
 
