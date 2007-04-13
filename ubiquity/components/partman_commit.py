@@ -46,11 +46,6 @@ class PartmanCommit(FilteredCommand):
         if self.done:
             return self.succeeded
 
-        try:
-            qtype = self.db.metaget(question, 'Type')
-        except debconf.DebconfError:
-            qtype = ''
-
         if question.startswith('partman/confirm'):
             if question == 'partman/confirm':
                 self.db.set('ubiquity/partman-made-changes', 'true')
@@ -66,7 +61,7 @@ class PartmanCommit(FilteredCommand):
                 self.preseed(question, 'true')
             return True
 
-        elif qtype == 'boolean':
+        elif question_type(question) == 'boolean':
             response = self.frontend.question_dialog(
                 self.description(question),
                 self.extended_description(question),
