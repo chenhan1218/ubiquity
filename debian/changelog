@@ -7,6 +7,9 @@ ubiquity (1.5.0) UNRELEASED; urgency=low
   * GTK frontend:
     - Pressing Enter in the migration-assistant user/password entry boxes
       activates the Forward button.
+    - Drop X-Ubuntu-Gettext-Domain=ubiquity in the .desktop file for now, to
+      work around a bug somewhere that causes the translations in the
+      .desktop file to be ignored in that case.
   * Remove the old advanced partitioner.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Apr 2007 15:21:08 +0100
