@@ -105,7 +105,7 @@ class ConsoleSetup(FilteredCommand):
         and options."""
 
         if layout in ('am', 'ara', 'ben', 'bd', 'bg', 'bt', 'by', 'deva', 'ge',
-                      'gh', 'gr', 'guj', 'guru', 'il', 'in', 'ir', 'iku', 'jp',
+                      'gh', 'gr', 'guj', 'guru', 'il', 'in', 'ir', 'iku',
                       'kan', 'kh', 'la', 'lao', 'lk', 'mk', 'mm', 'mn', 'mv',
                       'mal', 'ori', 'pk', 'ru', 'scc', 'sy', 'syr', 'tel',
                       'th', 'tj', 'tam', 'ua', 'uz'):
@@ -118,6 +118,13 @@ class ConsoleSetup(FilteredCommand):
             else:
                 latin = False
                 real_layout = 'cs,cs'
+        elif layout == 'jp':
+            if variant == 'latin':
+                latin = True
+                real_layout = layout
+            else:
+                latin = False
+                real_layout = 'jp,jp'
         else:
             latin = True
             real_layout = layout
@@ -131,6 +138,8 @@ class ConsoleSetup(FilteredCommand):
                 real_variant = 'latinalternatequotes,%s' % variant
             else:
                 real_variant = 'latin,%s' % variant
+        elif real_layout == 'jp,jp':
+            real_variant = 'latin,%s' % variant
         else:
             real_variant = ',%s' % variant
 

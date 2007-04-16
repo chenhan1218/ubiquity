@@ -4,6 +4,8 @@ oem-config (1.14) UNRELEASED; urgency=low
   * Strip binaries.
   * Print usage message and exit if any non-option arguments are supplied to
     oem-config; suggest oem-config-prepare (LP: #105940).
+  * Update Japanese keyboard layout handling to match console-setup
+    1.7ubuntu18, which uses jp(latin),jp by default (LP: #63915).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  5 Apr 2007 11:50:43 +0100
 
