@@ -96,7 +96,6 @@ class Wizard(BaseFrontend):
 
         # declare attributes
         self.gconf_previous = {}
-        self.password = ''
         self.username_edited = False
         self.hostname_edited = False
         self.autopartition_extras = {}

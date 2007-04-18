@@ -125,7 +125,6 @@ class Wizard(BaseFrontend):
 
         # declare attributes
         self.release_notes_url_template = None
-        self.password = ''
         self.username_edited = False
         self.hostname_edited = False
         self.resize_min_size = None
