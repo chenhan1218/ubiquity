@@ -129,12 +129,9 @@ class Wizard(BaseFrontend):
         self.hostname_edited = False
         self.resize_min_size = None
         self.resize_max_size = None
-        self.resize_choice = None
-        self.manual_choice = None
         self.new_size_value = None
         self.new_size_scale = None
         self.current_page = None
-        self.locale = None
         self.progressDialogue = None
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
