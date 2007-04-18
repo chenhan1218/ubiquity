@@ -58,14 +58,3 @@ XB-Python-Version: ${python:Versions}
 Description: KDE frontend for Ubiquity live installer
  This package provides a KDE-based user interface frontend for the Ubiquity
  live CD installer.
-
-#Package: ubiquity-frontend-cloner
-#Architecture: all
-#Depends: ${misc:Depends}, ${python:Depends}, ubiquity
-#Conflicts: ubuntu-express-frontend-cloner, espresso-frontend-cloner
-#Replaces: ubuntu-express-frontend-cloner, espresso-frontend-cloner
-#Provides: ubiquity-frontend-${source:Version}
-#XB-Python-Version: ${python:Versions}
-#Description: Network Cloner frontend for Ubiquity live installer
-# This package provides a non-interactive frontend for the Ubiquity live CD
-# installer which will install the system from a server.
