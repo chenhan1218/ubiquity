@@ -36,11 +36,11 @@ def install(frontend=None):
     '''install(frontend=None) -> none
     
     Get the type of frontend to use and load the module for that.
-    If frontend is None, defaults to the first of gtkui and kde-ui that
+    If frontend is None, defaults to the first of gtk-ui and kde-ui that
     exists.
     '''
     if frontend is None:
-        frontends = ['gtkui', 'kde-ui']
+        frontends = ['gtk-ui', 'kde-ui']
     else:
         frontends = [frontend]
     mod = __import__('ubiquity.frontend', globals(), locals(), frontends)

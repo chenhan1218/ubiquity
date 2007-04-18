@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-__all__ = ['gtkui', 'kde-ui']
+__all__ = ['gtk-ui', 'kde-ui']

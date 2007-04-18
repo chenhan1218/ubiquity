@@ -35,7 +35,7 @@ def main():
             # frontend module.
             import imp
             import ubiquity.frontend
-            frontend_names = ['gtkui', 'kde-ui']
+            frontend_names = ['gtk-ui', 'kde-ui']
             for f in frontend_names:
                 try:
                     imp.find_module(f, ubiquity.frontend.__path__)
@@ -44,7 +44,7 @@ def main():
                 except ImportError:
                     pass
 
-        if frontend == 'gtkui':
+        if frontend == 'gtk-ui':
             toexec = ['gksudo']
             if desktop:
                 toexec.extend(['--desktop', desktop])

@@ -16,6 +16,8 @@ ubiquity (1.5.0) UNRELEASED; urgency=low
   * Remove noui and text frontends, which are too out-of-date at the moment
     even to be worth using as examples. A reimplementation would need to
     start from scratch anyway.
+  * Rename gtkui frontend to gtk-ui to match kde-ui (which had to be named
+    that way due to a clash with python-kde3).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Apr 2007 15:21:08 +0100
 
