@@ -55,7 +55,7 @@ try:
 except ImportError:
     from ubiquity.debconfcommunicator import DebconfCommunicator
 
-from ubiquity import filteredcommand, validation
+from ubiquity import filteredcommand, i18n, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
@@ -426,7 +426,7 @@ class Wizard:
         for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                            'ok', 'quit'):
             core_names.append('ubiquity/imported/%s' % stock_item)
-        get_translations(languages=languages, core_names=core_names)
+        i18n.get_translations(languages=languages, core_names=core_names)
 
         for widget in self.glade.get_widget_prefix(""):
             self.translate_widget(widget, self.locale)
@@ -435,7 +435,7 @@ class Wizard:
         if isinstance(widget, gtk.Button) and widget.get_use_stock():
             widget.set_label(widget.get_label())
 
-        text = get_string(widget.get_name(), lang)
+        text = i18n.get_string(widget.get_name(), lang)
         if text is None:
             return
         name = widget.get_name()
@@ -470,7 +470,7 @@ class Wizard:
                 widget.set_attributes(attrs)
 
         elif isinstance(widget, gtk.Button):
-            question = map_widget_name(widget.get_name())
+            question = i18n.map_widget_name(widget.get_name())
             if question.startswith('ubiquity/imported/'):
                 if '|' in text:
                     widget.set_label(text.split('|', 1)[1])
@@ -580,7 +580,7 @@ class Wizard:
         self.current_page = None
 
         self.debconf_progress_start(
-            0, 100, get_string('ubiquity/install/title', self.locale))
+            0, 100, i18n.get_string('ubiquity/install/title', self.locale))
         self.debconf_progress_region(0, 15)
 
         dbfilter = partman_commit.PartmanCommit(self)
@@ -1606,7 +1606,7 @@ class Wizard:
         elif partition['parted']['fs'] != 'free':
             cell.set_property('text', '  %s' % partition['parted']['path'])
         elif partition['parted']['type'] == 'unusable':
-            unusable = get_string('partman/text/unusable', self.locale)
+            unusable = i18n.get_string('partman/text/unusable', self.locale)
             cell.set_property('text', '  %s' % unusable)
         else:
             # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
@@ -1731,7 +1731,7 @@ class Wizard:
                 partition_list_menu.append(delete_item)
         if partition_list_menu.get_children():
             partition_list_menu.append(gtk.SeparatorMenuItem())
-        undo_item = gtk.MenuItem(get_string('partman/text/undo_everything',
+        undo_item = gtk.MenuItem(i18n.get_string('partman/text/undo_everything',
                                  self.locale))
         undo_item.connect('activate', self.on_partition_list_undo_activate)
         partition_list_menu.append(undo_item)
@@ -2014,7 +2014,7 @@ class Wizard:
                     devpart, partition)
                 self.partition_list_buttonbox.pack_start(delete_button,
                                                          False, False)
-        undo_button = gtk.Button(get_string('partman/text/undo_everything',
+        undo_button = gtk.Button(i18n.get_string('partman/text/undo_everything',
                                  self.locale))
         undo_button.connect('clicked', self.on_partition_list_undo_activate)
         self.partition_list_buttonbox.pack_start(undo_button, False, False)
@@ -2321,7 +2321,7 @@ class Wizard:
         buttons = []
         for option in options:
             if use_templates:
-                text = get_string(option, self.locale)
+                text = i18n.get_string(option, self.locale)
             else:
                 text = option
             if text is None:

@@ -47,7 +47,7 @@ try:
 except ImportError:
     from ubiquity.debconfcommunicator import DebconfCommunicator
 
-from ubiquity import filteredcommand, validation
+from ubiquity import filteredcommand, i18n, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
@@ -377,7 +377,7 @@ class Wizard:
         for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                            'ok', 'quit'):
             core_names.append('ubiquity/imported/%s' % stock_item)
-        get_translations(languages=languages, core_names=core_names)
+        i18n.get_translations(languages=languages, core_names=core_names)
 
         self.translate_widget_children(parentWidget)
 
@@ -398,10 +398,10 @@ class Wizard:
 
         name = widget.objectName()
 
-        text = get_string(widget.objectName(), lang)
+        text = i18n.get_string(widget.objectName(), lang)
 
         if str(widget.objectName()) == "UbiquityUIBase":
-            text = get_string("live_installer", lang)
+            text = i18n.get_string("live_installer", lang)
 
         if text is None:
             return
@@ -532,7 +532,7 @@ class Wizard:
         self.current_page = None
 
         self.debconf_progress_start(
-            0, 100, get_string('ubiquity/install/title', self.locale))
+            0, 100, i18n.get_string('ubiquity/install/title', self.locale))
         self.debconf_progress_region(0, 15)
 
         ex('dcop', 'kded', 'kded', 'unloadModule', 'medianotifier')
@@ -580,10 +580,11 @@ class Wizard:
         self.progressDialogue.hide()
 
         self.installing = False
-        quitText = "<qt>" + get_string("finished_label", self.locale) + "</qt>"
-        rebootButtonText = get_string("reboot_button", self.locale)
-        quitButtonText = get_string("quit_button", self.locale)
-        titleText = get_string("finished_dialog", self.locale)
+        quitText = ('<qt>%s</qt>' %
+                    i18n.get_string("finished_label", self.locale))
+        rebootButtonText = i18n.get_string("reboot_button", self.locale)
+        quitButtonText = i18n.get_string("quit_button", self.locale)
+        titleText = i18n.get_string("finished_dialog", self.locale)
 
         ##FIXME use non-stock messagebox to customise button text
         #quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, rebootButtonText, quitButtonText)
@@ -615,9 +616,10 @@ class Wizard:
         self.app.exit()
 
     def on_cancel_clicked(self):
-        warning_dialog_label = get_string("warning_dialog_label", self.locale)
-        abortTitle = get_string("warning_dialog", self.locale)
-        continueButtonText = get_string("continue", self.locale)
+        warning_dialog_label = i18n.get_string("warning_dialog_label",
+                                               self.locale)
+        abortTitle = i18n.get_string("warning_dialog", self.locale)
+        continueButtonText = i18n.get_string("continue", self.locale)
         response = QMessageBox.question(self.userinterface, abortTitle, warning_dialog_label, abortTitle, continueButtonText)
         if response == 0:
             self.current_page = None
@@ -750,7 +752,7 @@ class Wizard:
         syslog.syslog('Step_after = %s' % step)
 
         if step == "stepReady":
-            installText = get_string("live_installer", self.locale)
+            installText = i18n.get_string("live_installer", self.locale)
             self.userinterface.next.setText(installText)
 
     def process_identification (self):
@@ -1476,8 +1478,8 @@ class Wizard:
                 self.app.connect(delete_button, SIGNAL("clicked(bool)"),
                                  self.on_partition_list_delete_activate)
                 self.partition_list_buttonbox.addWidget(delete_button)
-        undo_button = QPushButton(get_string('partman/text/undo_everything',
-                                             self.locale))
+        undo_button = QPushButton(
+            i18n.get_string('partman/text/undo_everything', self.locale))
         self.app.connect(undo_button, SIGNAL("clicked(bool)"),
                          self.on_partition_list_undo_activate)
         self.partition_list_buttonbox.addWidget(undo_button)
@@ -1610,7 +1612,7 @@ class Wizard:
         if partition_list_menu.children():
             partition_list_menu.addSeparator()
         undo_item = partition_list_menu.addAction(
-            get_string('partman/text/undo_everything', self.locale))
+            i18n.get_string('partman/text/undo_everything', self.locale))
         self.app.connect(undo_item, SIGNAL("triggered(bool)"),
                          self.on_partition_list_undo_activate)
 
@@ -1750,7 +1752,7 @@ class Wizard:
         buttons = []
         for option in options:
             if use_templates:
-                text = get_string(option, self.locale)
+                text = i18n.get_string(option, self.locale)
             else:
                 text = option
             if text is None:
@@ -2255,8 +2257,8 @@ class TreeItem:
         elif partition['parted']['fs'] != 'free':
             return '  %s' % partition['parted']['path']
         elif partition['parted']['type'] == 'unusable':
-            return '  %s' % get_string('partman/text/unusable',
-                                       self.ubiquity.locale)
+            return '  %s' % i18n.get_string('partman/text/unusable',
+                                            self.ubiquity.locale)
         else:
             # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
             # feels a bit too SHOUTY for this interface.

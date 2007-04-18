@@ -19,6 +19,8 @@ ubiquity (1.5.0) UNRELEASED; urgency=low
   * Rename gtkui frontend to gtk-ui to match kde-ui (which had to be named
     that way due to a clash with python-kde3).
   * Update some copyright dates.
+  * Split out internationalisation code from ubiquity.misc into
+    ubiquity.i18n.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Apr 2007 15:21:08 +0100
 

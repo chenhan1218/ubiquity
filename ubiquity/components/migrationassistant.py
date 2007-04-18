@@ -17,7 +17,6 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 from ubiquity.filteredcommand import FilteredCommand
-from ubiquity import misc
 import debconf
 import syslog
 
