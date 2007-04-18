@@ -487,7 +487,17 @@ class Install:
                 os.mknod(targetpath, stat.S_IFSOCK | mode)
             elif stat.S_ISREG(st.st_mode):
                 if not os.path.exists(targetpath):
-                    shutil.copyfile(sourcepath, targetpath)
+                    sourcefh = None
+                    targetfh = None
+                    try:
+                        sourcefh = open(sourcepath, 'rb')
+                        targetfh = open(targetpath, 'wb')
+                        shutil.copyfileobj(sourcefh, targetfh)
+                    finally:
+                        if targetfh:
+                            targetfh.close()
+                        if sourcefh:
+                            sourcefh.close()
 
             copied_size += st.st_size
             os.lchown(targetpath, st.st_uid, st.st_gid)
