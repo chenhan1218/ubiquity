@@ -2,10 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import os
-import re
 import subprocess
 import syslog
-import codecs
 
 
 def ex(*args):
