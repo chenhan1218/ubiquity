@@ -20,7 +20,6 @@
 # You should have received a copy of the GNU General Public License along
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-##################################################################################
 
 import sys
 #from qt import *
@@ -54,6 +53,7 @@ from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, summary, install
 import ubiquity.tz
 import ubiquity.progressposition
+from ubiquity.frontend.base import BaseFrontend
 
 from PartitionsBarKde import *
 
@@ -99,9 +99,11 @@ class UbiquityUI(QWidget):
     def closeEvent(self, event):
         self.wizard.on_cancel_clicked()
 
-class Wizard:
+class Wizard(BaseFrontend):
 
     def __init__(self, distro):
+        BaseFrontend.__init__(self, distro)
+
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
@@ -122,8 +124,6 @@ class Wizard:
         uic.loadUi("%s/advanceddialog.ui" % UIDIR, self.advanceddialog)
 
         # declare attributes
-        self.distro = distro
-        self.current_layout = None
         self.release_notes_url_template = None
         self.password = ''
         self.username_edited = False
@@ -135,15 +135,11 @@ class Wizard:
         self.new_size_value = None
         self.new_size_scale = None
         self.current_page = None
-        self.dbfilter = None
-        self.dbfilter_status = None
         self.locale = None
         self.progressDialogue = None
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
         self.previous_partitioning_page = None
-        self.summary_device = None
-        self.popcon = None
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
@@ -398,10 +394,10 @@ class Wizard:
 
         name = widget.objectName()
 
-        text = i18n.get_string(widget.objectName(), lang)
+        text = self.get_string(widget.objectName(), lang)
 
         if str(widget.objectName()) == "UbiquityUIBase":
-            text = i18n.get_string("live_installer", lang)
+            text = self.get_string("live_installer", lang)
 
         if text is None:
             return
@@ -532,7 +528,7 @@ class Wizard:
         self.current_page = None
 
         self.debconf_progress_start(
-            0, 100, i18n.get_string('ubiquity/install/title', self.locale))
+            0, 100, self.get_string('ubiquity/install/title'))
         self.debconf_progress_region(0, 15)
 
         ex('dcop', 'kded', 'kded', 'unloadModule', 'medianotifier')
@@ -580,11 +576,10 @@ class Wizard:
         self.progressDialogue.hide()
 
         self.installing = False
-        quitText = ('<qt>%s</qt>' %
-                    i18n.get_string("finished_label", self.locale))
-        rebootButtonText = i18n.get_string("reboot_button", self.locale)
-        quitButtonText = i18n.get_string("quit_button", self.locale)
-        titleText = i18n.get_string("finished_dialog", self.locale)
+        quitText = '<qt>%s</qt>' % self.get_string("finished_label")
+        rebootButtonText = self.get_string("reboot_button")
+        quitButtonText = self.get_string("quit_button")
+        titleText = self.get_string("finished_dialog")
 
         ##FIXME use non-stock messagebox to customise button text
         #quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, rebootButtonText, quitButtonText)
@@ -616,10 +611,9 @@ class Wizard:
         self.app.exit()
 
     def on_cancel_clicked(self):
-        warning_dialog_label = i18n.get_string("warning_dialog_label",
-                                               self.locale)
-        abortTitle = i18n.get_string("warning_dialog", self.locale)
-        continueButtonText = i18n.get_string("continue", self.locale)
+        warning_dialog_label = self.get_string("warning_dialog_label")
+        abortTitle = self.get_string("warning_dialog")
+        continueButtonText = self.get_string("continue")
         response = QMessageBox.question(self.userinterface, abortTitle, warning_dialog_label, abortTitle, continueButtonText)
         if response == 0:
             self.current_page = None
@@ -752,7 +746,7 @@ class Wizard:
         syslog.syslog('Step_after = %s' % step)
 
         if step == "stepReady":
-            installText = i18n.get_string("live_installer", self.locale)
+            installText = self.get_string("live_installer")
             self.userinterface.next.setText(installText)
 
     def process_identification (self):
@@ -982,33 +976,19 @@ class Wizard:
         ##FIXME in Qt 4 without this disconnect it calls watch_debconf_fd_helper_read once more causing
         ## a crash after the keyboard stage.  No idea why.
         self.app.disconnect(self.socketNotifierRead, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_read)
-        if dbfilter is None:
-            name = 'None'
-            self.dbfilter_status = None
-        else:
-            name = dbfilter.__class__.__name__
-            if dbfilter.status:
-                self.dbfilter_status = (name, dbfilter.status)
-            else:
-                self.dbfilter_status = None
-        if self.dbfilter is None:
-            currentname = 'None'
-        else:
-            currentname = self.dbfilter.__class__.__name__
-        syslog.syslog(syslog.LOG_DEBUG,
-                      "debconffilter_done: %s (current: %s)" %
-                      (name, currentname))
-        if dbfilter == self.dbfilter:
-            self.dbfilter = None
+        if BaseFrontend.debconffilter_done(self, dbfilter):
             if isinstance(dbfilter, summary.Summary):
                 # The Summary component is just there to gather information,
                 # and won't call run_main_loop() for itself.
                 self.allow_change_step(True)
             else:
                 self.app.exit()
+            return True
+        else:
+            return False
 
     def set_language_choices (self, choices, choice_map):
-        self.language_choice_map = dict(choice_map)
+        BaseFrontend.set_language_choices(self, choices, choice_map)
         self.userinterface.language_treeview.clear()
         for choice in choices:
             QListWidgetItem(QString(unicode(choice)), self.userinterface.language_treeview)
@@ -1042,36 +1022,61 @@ class Wizard:
     def get_timezone (self):
         return self.tzmap.get_selected_tz_name()
 
-    def set_fullname(self, value):
-        self.userinterface.fullname.setText(unicode(value, "UTF-8"))
+    def set_keyboard_choices(self, choices):
+        self.userinterface.keyboardlayoutview.clear()
+        for choice in sorted(choices):
+            QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardlayoutview)
 
-    def get_fullname(self):
-        return unicode(self.userinterface.fullname.text())
+        if self.current_layout is not None:
+            self.set_keyboard(self.current_layout)
 
-    def set_username(self, value):
-        self.userinterface.username.setText(unicode(value, "UTF-8"))
+    def set_keyboard (self, layout):
+        BaseFrontend.set_keyboard(self, layout)
+        counter = 0
+        max = self.userinterface.keyboardlayoutview.count()
+        while counter < max:
+            selection = self.userinterface.keyboardlayoutview.item(counter)
+            if unicode(selection.text()) == layout:
+                selection.setSelected(True)
+                self.userinterface.keyboardlayoutview.scrollToItem(selection)
+                break
+            counter += 1
 
-    def get_username(self):
-        return unicode(self.userinterface.username.text())
+    def get_keyboard (self):
+        items = self.userinterface.keyboardlayoutview.selectedItems()
+        if len(items) == 1:
+            return unicode(items[0].text())
+        else:
+            return None
 
-    def get_password(self):
-        return unicode(self.userinterface.password.text())
+    def set_keyboard_variant_choices(self, choices):
+        self.userinterface.keyboardvariantview.clear()
+        for choice in sorted(choices):
+            QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardvariantview)
 
-    def get_verified_password(self):
-        return unicode(self.userinterface.verified_password.text())
+    def set_keyboard_variant(self, variant):
+        counter = 0
+        max = self.userinterface.keyboardvariantview.count()
+        while counter < max:
+            selection = self.userinterface.keyboardvariantview.item(counter)
+            if unicode(selection.text()) == variant:
+                selection.setSelected(True)
+                self.userinterface.keyboardvariantview.scrollToItem(selection)
+                break
+            counter += 1
 
-    def username_error(self, msg):
-        self.userinterface.username_error_reason.setText(msg)
-        self.userinterface.username_error_image.show()
-        self.userinterface.username_error_reason.show()
-
-    def password_error(self, msg):
-        self.userinterface.password_error_reason.setText(msg)
-        self.userinterface.password_error_image.show()
-        self.userinterface.password_error_reason.show()
+    def get_keyboard_variant(self):
+        items = self.userinterface.keyboardvariantview.selectedItems()
+        if len(items) == 1:
+            return unicode(items[0].text())
+        else:
+            return None
 
     def set_autopartition_choices (self, choices, extra_options,
                                    resize_choice, manual_choice):
+        BaseFrontend.set_autopartition_choices(self, choices, extra_options,
+                                               resize_choice, manual_choice)
+
         children = self.userinterface.autopartition_frame.children()
         for child in children:
             if isinstance(child, QVBoxLayout) or isinstance(child, QButtonGroup):
@@ -1080,8 +1085,6 @@ class Wizard:
                 self.autopartition_vbox.removeWidget(child)
                 child.hide()
 
-        self.resize_choice = resize_choice
-        self.manual_choice = manual_choice
         firstbutton = None
         idCounter = 0
         for choice in choices:
@@ -1479,7 +1482,7 @@ class Wizard:
                                  self.on_partition_list_delete_activate)
                 self.partition_list_buttonbox.addWidget(delete_button)
         undo_button = QPushButton(
-            i18n.get_string('partman/text/undo_everything', self.locale))
+            self.get_string('partman/text/undo_everything'))
         self.app.connect(undo_button, SIGNAL("clicked(bool)"),
                          self.on_partition_list_undo_activate)
         self.partition_list_buttonbox.addWidget(undo_button)
@@ -1612,65 +1615,42 @@ class Wizard:
         if partition_list_menu.children():
             partition_list_menu.addSeparator()
         undo_item = partition_list_menu.addAction(
-            i18n.get_string('partman/text/undo_everything', self.locale))
+            self.get_string('partman/text/undo_everything'))
         self.app.connect(undo_item, SIGNAL("triggered(bool)"),
                          self.on_partition_list_undo_activate)
 
         partition_list_menu.exec_(QCursor.pos())
 
+    def set_fullname(self, value):
+        self.userinterface.fullname.setText(unicode(value, "UTF-8"))
+
+    def get_fullname(self):
+        return unicode(self.userinterface.fullname.text())
+
+    def set_username(self, value):
+        self.userinterface.username.setText(unicode(value, "UTF-8"))
+
+    def get_username(self):
+        return unicode(self.userinterface.username.text())
+
+    def get_password(self):
+        return unicode(self.userinterface.password.text())
+
+    def get_verified_password(self):
+        return unicode(self.userinterface.verified_password.text())
+
+    def username_error(self, msg):
+        self.userinterface.username_error_reason.setText(msg)
+        self.userinterface.username_error_image.show()
+        self.userinterface.username_error_reason.show()
+
+    def password_error(self, msg):
+        self.userinterface.password_error_reason.setText(msg)
+        self.userinterface.password_error_image.show()
+        self.userinterface.password_error_reason.show()
+
     def get_hostname (self):
         return unicode(self.userinterface.hostname.text())
-
-    def set_keyboard_choices(self, choices):
-        self.userinterface.keyboardlayoutview.clear()
-        for choice in sorted(choices):
-            QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardlayoutview)
-
-        if self.current_layout is not None:
-            self.set_keyboard(self.current_layout)
-
-    def set_keyboard (self, layout):
-        self.current_layout = layout
-
-        counter = 0
-        max = self.userinterface.keyboardlayoutview.count()
-        while counter < max:
-            selection = self.userinterface.keyboardlayoutview.item(counter)
-            if unicode(selection.text()) == layout:
-                selection.setSelected(True)
-                self.userinterface.keyboardlayoutview.scrollToItem(selection)
-                break
-            counter += 1
-
-    def get_keyboard (self):
-        items = self.userinterface.keyboardlayoutview.selectedItems()
-        if len(items) == 1:
-            return unicode(items[0].text())
-        else:
-            return None
-
-    def set_keyboard_variant_choices(self, choices):
-        self.userinterface.keyboardvariantview.clear()
-        for choice in sorted(choices):
-            QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardvariantview)
-
-    def set_keyboard_variant(self, variant):
-        counter = 0
-        max = self.userinterface.keyboardvariantview.count()
-        while counter < max:
-            selection = self.userinterface.keyboardvariantview.item(counter)
-            if unicode(selection.text()) == variant:
-                selection.setSelected(True)
-                self.userinterface.keyboardvariantview.scrollToItem(selection)
-                break
-            counter += 1
-
-    def get_keyboard_variant(self):
-        items = self.userinterface.keyboardvariantview.selectedItems()
-        if len(items) == 1:
-            return unicode(items[0].text())
-        else:
-            return None
 
     def set_summary_text (self, text):
         i = text.find("\n")
@@ -1678,21 +1658,6 @@ class Wizard:
             text = text[:i] + "<br>" + text[i+1:]
             i = text.find("\n")
         self.userinterface.ready_text.setText(text)
-
-    def set_summary_device (self, device):
-        if device is not None:
-            if not device.startswith('(') and not device.startswith('/dev/'):
-                device = '/dev/%s' % device
-        self.summary_device = device
-
-    def get_summary_device (self):
-        return self.summary_device
-
-    def set_popcon (self, participate):
-        self.popcon = participate
-
-    def get_popcon (self):
-        return self.popcon
 
     def on_advanced_button_clicked (self):
         display = False
@@ -1752,7 +1717,7 @@ class Wizard:
         buttons = []
         for option in options:
             if use_templates:
-                text = i18n.get_string(option, self.locale)
+                text = self.get_string(option)
             else:
                 text = option
             if text is None:
@@ -2257,8 +2222,7 @@ class TreeItem:
         elif partition['parted']['fs'] != 'free':
             return '  %s' % partition['parted']['path']
         elif partition['parted']['type'] == 'unusable':
-            return '  %s' % i18n.get_string('partman/text/unusable',
-                                            self.ubiquity.locale)
+            return '  %s' % self.ubiquity.get_string('partman/text/unusable')
         else:
             # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
             # feels a bit too SHOUTY for this interface.

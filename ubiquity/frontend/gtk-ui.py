@@ -29,7 +29,6 @@
 # You should have received a copy of the GNU General Public License along
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-##################################################################################
 
 import sys
 import pygtk
@@ -64,6 +63,7 @@ from ubiquity.components import console_setup, language, timezone, usersetup, \
 import ubiquity.emap
 import ubiquity.tz
 import ubiquity.progressposition
+from ubiquity.frontend.base import BaseFrontend
 
 # Define global path
 PATH = '/usr/share/ubiquity'
@@ -86,34 +86,27 @@ BREADCRUMB_STEPS = {
 }
 BREADCRUMB_MAX_STEP = 7
 
-class Wizard:
+class Wizard(BaseFrontend):
 
     def __init__(self, distro):
+        BaseFrontend.__init__(self, distro)
+
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
         # declare attributes
-        self.distro = distro
         self.gconf_previous = {}
-        self.current_layout = None
         self.password = ''
         self.username_edited = False
         self.hostname_edited = False
         self.autopartition_extras = {}
         self.resize_min_size = None
         self.resize_max_size = None
-        self.resize_choice = None
-        self.manual_choice = None
         self.new_size_scale = None
         self.current_page = None
-        self.dbfilter = None
-        self.dbfilter_status = None
-        self.locale = None
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
         self.previous_partitioning_page = None
-        self.summary_device = None
-        self.popcon = None
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
@@ -435,7 +428,7 @@ class Wizard:
         if isinstance(widget, gtk.Button) and widget.get_use_stock():
             widget.set_label(widget.get_label())
 
-        text = i18n.get_string(widget.get_name(), lang)
+        text = self.get_string(widget.get_name(), lang)
         if text is None:
             return
         name = widget.get_name()
@@ -580,7 +573,7 @@ class Wizard:
         self.current_page = None
 
         self.debconf_progress_start(
-            0, 100, i18n.get_string('ubiquity/install/title', self.locale))
+            0, 100, self.get_string('ubiquity/install/title'))
         self.debconf_progress_region(0, 15)
 
         dbfilter = partman_commit.PartmanCommit(self)
@@ -1071,34 +1064,20 @@ class Wizard:
 
 
     def debconffilter_done (self, dbfilter):
-        if dbfilter is None:
-            name = 'None'
-            self.dbfilter_status = None
-        else:
-            name = dbfilter.__class__.__name__
-            if dbfilter.status:
-                self.dbfilter_status = (name, dbfilter.status)
-            else:
-                self.dbfilter_status = None
-        if self.dbfilter is None:
-            currentname = 'None'
-        else:
-            currentname = self.dbfilter.__class__.__name__
-        syslog.syslog(syslog.LOG_DEBUG,
-                      "debconffilter_done: %s (current: %s)" %
-                      (name, currentname))
-        if dbfilter == self.dbfilter:
-            self.dbfilter = None
+        if BaseFrontend.debconffilter_done(self, dbfilter):
             if isinstance(dbfilter, summary.Summary):
                 # The Summary component is just there to gather information,
                 # and won't call run_main_loop() for itself.
                 self.allow_change_step(True)
             elif gtk.main_level() > 0:
                 gtk.main_quit()
+            return True
+        else:
+            return False
 
 
     def set_language_choices (self, choices, choice_map):
-        self.language_choice_map = dict(choice_map)
+        BaseFrontend.set_language_choices(self, choices, choice_map)
         if len(self.language_treeview.get_columns()) < 1:
             column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
             column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
@@ -1133,6 +1112,742 @@ class Wizard:
         else:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][0]
+
+
+    def set_timezone (self, timezone):
+        self.tzmap.set_tz_from_name(timezone)
+
+
+    def get_timezone (self):
+        return self.tzmap.get_selected_tz_name()
+
+
+    def set_keyboard_choices(self, choices):
+        layouts = gtk.ListStore(gobject.TYPE_STRING)
+        self.keyboardlayoutview.set_model(layouts)
+        for v in sorted(choices):
+            layouts.append([v])
+
+        if len(self.keyboardlayoutview.get_columns()) < 1:
+            column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            self.keyboardlayoutview.append_column(column)
+            selection = self.keyboardlayoutview.get_selection()
+            selection.connect('changed',
+                              self.on_keyboard_layout_selected)
+
+        if self.current_layout is not None:
+            self.set_keyboard(self.current_layout)
+
+    def set_keyboard (self, layout):
+        BaseFrontend.set_keyboard(self, layout)
+        model = self.keyboardlayoutview.get_model()
+        if model is None:
+            return
+        iterator = model.iter_children(None)
+        while iterator is not None:
+            if unicode(model.get_value(iterator, 0)) == layout:
+                path = model.get_path(iterator)
+                self.keyboardlayoutview.get_selection().select_path(path)
+                self.keyboardlayoutview.scroll_to_cell(
+                    path, use_align=True, row_align=0.5)
+                break
+            iterator = model.iter_next(iterator)
+
+    def get_keyboard (self):
+        selection = self.keyboardlayoutview.get_selection()
+        (model, iterator) = selection.get_selected()
+        if iterator is None:
+            return None
+        else:
+            return unicode(model.get_value(iterator, 0))
+
+    def set_keyboard_variant_choices(self, choices):
+        variants = gtk.ListStore(gobject.TYPE_STRING)
+        self.keyboardvariantview.set_model(variants)
+        for v in sorted(choices):
+            variants.append([v])
+
+        if len(self.keyboardvariantview.get_columns()) < 1:
+            column = gtk.TreeViewColumn("Variant", gtk.CellRendererText(), text=0)
+            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            self.keyboardvariantview.append_column(column)
+            selection = self.keyboardvariantview.get_selection()
+            selection.connect('changed',
+                              self.on_keyboard_variant_selected)
+
+    def set_keyboard_variant (self, variant):
+        model = self.keyboardvariantview.get_model()
+        if model is None:
+            return
+        iterator = model.iter_children(None)
+        while iterator is not None:
+            if unicode(model.get_value(iterator, 0)) == variant:
+                path = model.get_path(iterator)
+                self.keyboardvariantview.get_selection().select_path(path)
+                self.keyboardvariantview.scroll_to_cell(
+                    path, use_align=True, row_align=0.5)
+                break
+            iterator = model.iter_next(iterator)
+
+    def get_keyboard_variant (self):
+        selection = self.keyboardvariantview.get_selection()
+        (model, iterator) = selection.get_selected()
+        if iterator is None:
+            return None
+        else:
+            return unicode(model.get_value(iterator, 0))
+
+
+    def set_autopartition_choices (self, choices, extra_options,
+                                   resize_choice, manual_choice):
+        BaseFrontend.set_autopartition_choices(self, choices, extra_options,
+                                               resize_choice, manual_choice)
+
+        for child in self.autopartition_vbox.get_children():
+            self.autopartition_vbox.remove(child)
+
+        firstbutton = None
+        for choice in choices:
+            button = gtk.RadioButton(firstbutton, choice, False)
+            if firstbutton is None:
+                firstbutton = button
+            self.autopartition_vbox.add(button)
+
+            if choice in extra_options:
+                alignment = gtk.Alignment(xscale=1, yscale=1)
+                alignment.set_padding(0, 0, 12, 0)
+                if choice == resize_choice:
+                    hbox = gtk.HBox(spacing=6)
+                    alignment.add(hbox)
+                    new_size_label = gtk.Label("New partition size:")
+                    new_size_label.set_name('new_size_label')
+                    self.translate_widget(new_size_label, self.locale)
+                    new_size_label.set_selectable(True)
+                    new_size_label.set_property('can-focus', False)
+                    hbox.pack_start(new_size_label, expand=False, fill=False)
+                    self.new_size_scale = gtk.HScale(
+                        gtk.Adjustment(0, 0, 100, 1, 10, 0))
+                    self.new_size_scale.set_draw_value(True)
+                    self.new_size_scale.set_value_pos(gtk.POS_TOP)
+                    self.new_size_scale.set_digits(0)
+                    self.new_size_scale.set_update_policy(
+                        gtk.UPDATE_CONTINUOUS)
+                    self.new_size_scale.connect(
+                        'format_value', self.on_new_size_scale_format_value)
+                    self.resize_min_size, self.resize_max_size = \
+                        extra_options[choice]
+                    if (self.resize_min_size is not None and
+                        self.resize_max_size is not None):
+                        min_percent = int(math.ceil(
+                            100 * self.resize_min_size / self.resize_max_size))
+                        self.new_size_scale.set_range(min_percent, 100)
+                        self.new_size_scale.set_value(
+                            int((min_percent + 100) / 2))
+                    hbox.pack_start(self.new_size_scale, expand=True, fill=True)
+                elif choice != manual_choice:
+                    vbox = gtk.VBox(spacing=6)
+                    alignment.add(vbox)
+                    extra_firstbutton = None
+                    for extra in extra_options[choice]:
+                        extra_button = gtk.RadioButton(
+                            extra_firstbutton, extra, False)
+                        if extra_firstbutton is None:
+                            extra_firstbutton = extra_button
+                        vbox.add(extra_button)
+                self.autopartition_vbox.pack_start(alignment,
+                                                   expand=False, fill=False)
+                self.autopartition_extras[choice] = alignment
+
+                self.on_autopartition_toggled(button)
+                button.connect('toggled', self.on_autopartition_toggled)
+        if firstbutton is not None:
+            firstbutton.set_active(True)
+
+        self.autopartition_vbox.show_all()
+
+        # make sure we're on the autopartitioning page
+        self.set_current_page(self.steps.page_num(self.stepPartAuto))
+
+
+    def get_autopartition_choice (self):
+        for button in self.autopartition_vbox.get_children():
+            if isinstance(button, gtk.Button):
+                if button.get_active():
+                    choice = unicode(button.get_label(), 'utf-8', 'replace')
+                    break
+        else:
+            raise AssertionError, "no active autopartitioning choice"
+
+        if choice == self.resize_choice:
+            # resize_choice should have been hidden otherwise
+            assert self.new_size_scale is not None
+            return choice, self.new_size_scale.get_value()
+        elif (choice != self.manual_choice and
+              choice in self.autopartition_extras):
+            vbox = self.autopartition_extras[choice].child
+            for button in vbox.get_children():
+                if isinstance(button, gtk.Button):
+                    if button.get_active():
+                        return choice, unicode(button.get_label(),
+                                               'utf-8', 'replace')
+            else:
+                return choice, None
+        else:
+            return choice, None
+
+
+    def partman_column_name (self, column, cell, model, iterator):
+        partition = model[iterator][1]
+        if 'id' not in partition:
+            # whole disk
+            cell.set_property('text', partition['device'])
+        elif partition['parted']['fs'] != 'free':
+            cell.set_property('text', '  %s' % partition['parted']['path'])
+        elif partition['parted']['type'] == 'unusable':
+            unusable = self.get_string('partman/text/unusable')
+            cell.set_property('text', '  %s' % unusable)
+        else:
+            # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
+            # feels a bit too SHOUTY for this interface.
+            cell.set_property('text', '  free space')
+
+    def partman_column_type (self, column, cell, model, iterator):
+        partition = model[iterator][1]
+        if 'id' not in partition or 'method' not in partition:
+            cell.set_property('text', '')
+        elif ('filesystem' in partition and
+              partition['method'] in ('format', 'keep')):
+            cell.set_property('text', partition['acting_filesystem'])
+        else:
+            cell.set_property('text', partition['method'])
+
+    def partman_column_mountpoint (self, column, cell, model, iterator):
+        partition = model[iterator][1]
+        if isinstance(self.dbfilter, partman.Partman):
+            mountpoint = self.dbfilter.get_current_mountpoint(partition)
+            if mountpoint is None:
+                mountpoint = ''
+        else:
+            mountpoint = ''
+        cell.set_property('text', mountpoint)
+
+    def partman_column_format (self, column, cell, model, iterator):
+        partition = model[iterator][1]
+        if 'id' not in partition:
+            cell.set_property('visible', False)
+            cell.set_property('active', False)
+            cell.set_property('activatable', False)
+        elif 'method' in partition:
+            cell.set_property('visible', True)
+            cell.set_property('active', partition['method'] == 'format')
+            cell.set_property('activatable', 'can_activate_format' in partition)
+        else:
+            cell.set_property('visible', True)
+            cell.set_property('active', False)
+            cell.set_property('activatable', False)
+
+    def partman_column_format_toggled (self, cell, path, user_data):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        model = user_data
+        devpart = model[path][0]
+        partition = model[path][1]
+        if 'id' not in partition or 'method' not in partition:
+            return
+        self.allow_change_step(False)
+        self.dbfilter.edit_partition(devpart, format='dummy')
+
+    def partman_column_size (self, column, cell, model, iterator):
+        partition = model[iterator][1]
+        if 'id' not in partition:
+            cell.set_property('text', '')
+        else:
+            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
+            # partman expects.
+            size_mb = int(partition['parted']['size']) / 1000000
+            cell.set_property('text', '%d MB' % size_mb)
+
+    def partman_column_used (self, column, cell, model, iterator):
+        partition = model[iterator][1]
+        if 'id' not in partition or partition['parted']['fs'] == 'free':
+            cell.set_property('text', '')
+        elif 'resize_min_size' not in partition:
+            # TODO cjwatson 2007-03-26: i18n
+            cell.set_property('text', 'unknown')
+        else:
+            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
+            # partman expects.
+            size_mb = int(partition['resize_min_size']) / 1000000
+            cell.set_property('text', '%d MB' % size_mb)
+
+    def partman_popup (self, widget, event):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+
+        model, iterator = widget.get_selection().get_selected()
+        if iterator is None:
+            devpart = None
+            partition = None
+        else:
+            devpart = model[iterator][0]
+            partition = model[iterator][1]
+
+        partition_list_menu = gtk.Menu()
+        for action in self.dbfilter.get_actions(devpart, partition):
+            if action == 'new_label':
+                # TODO cjwatson 2006-12-21: i18n;
+                # partman-partitioning/text/label text is quite long?
+                new_label_item = gtk.MenuItem('New partition table')
+                new_label_item.connect(
+                    'activate', self.on_partition_list_new_label_activate,
+                    devpart, partition)
+                partition_list_menu.append(new_label_item)
+            elif action == 'new':
+                # TODO cjwatson 2006-10-31: i18n
+                new_item = gtk.MenuItem('New partition')
+                new_item.connect(
+                    'activate', self.on_partition_list_new_activate,
+                    devpart, partition)
+                partition_list_menu.append(new_item)
+            elif action == 'edit':
+                # TODO cjwatson 2006-10-31: i18n
+                edit_item = gtk.MenuItem('Edit partition')
+                edit_item.connect(
+                    'activate', self.on_partition_list_edit_activate,
+                    devpart, partition)
+                partition_list_menu.append(edit_item)
+            elif action == 'delete':
+                # TODO cjwatson 2006-10-31: i18n
+                delete_item = gtk.MenuItem('Delete partition')
+                delete_item.connect(
+                    'activate', self.on_partition_list_delete_activate,
+                    devpart, partition)
+                partition_list_menu.append(delete_item)
+        if partition_list_menu.get_children():
+            partition_list_menu.append(gtk.SeparatorMenuItem())
+        undo_item = gtk.MenuItem(
+            self.get_string('partman/text/undo_everything'))
+        undo_item.connect('activate', self.on_partition_list_undo_activate)
+        partition_list_menu.append(undo_item)
+        partition_list_menu.show_all()
+
+        if event:
+            button = event.button
+            time = event.get_time()
+        else:
+            button = 0
+            time = 0
+        partition_list_menu.popup(None, None, None, button, time)
+
+    def partman_create_dialog (self, devpart, partition):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+
+        self.partition_create_dialog.show_all()
+
+        # TODO cjwatson 2006-11-01: Because partman doesn't use a question
+        # group for these, we have to figure out in advance whether each
+        # question is going to be asked.
+
+        if partition['parted']['type'] == 'pri/log':
+            # Is there already an extended partition?
+            model = self.partition_list_treeview.get_model()
+            for otherpart in [row[1] for row in model]:
+                if (otherpart['dev'] == partition['dev'] and
+                    'id' in otherpart and
+                    otherpart['parted']['type'] == 'logical'):
+                    self.partition_create_type_logical.set_active(True)
+                    break
+            else:
+                self.partition_create_type_primary.set_active(True)
+        else:
+            self.partition_create_type_label.hide()
+            self.partition_create_type_primary.hide()
+            self.partition_create_type_logical.hide()
+
+        # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
+        # partman expects.
+        max_size_mb = int(partition['parted']['size']) / 1000000
+        self.partition_create_size_spinbutton.set_adjustment(
+            gtk.Adjustment(value=max_size_mb, upper=max_size_mb,
+                           step_incr=1, page_incr=100, page_size=100))
+        self.partition_create_size_spinbutton.set_value(max_size_mb)
+
+        self.partition_create_use_combo.clear()
+        renderer = gtk.CellRendererText()
+        self.partition_create_use_combo.pack_start(renderer)
+        self.partition_create_use_combo.add_attribute(renderer, 'text', 1)
+        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        for method, name in partman.Partman.create_use_as():
+            list_store.append([method, name])
+        self.partition_create_use_combo.set_model(list_store)
+        if list_store.get_iter_first():
+            self.partition_create_use_combo.set_active(0)
+
+        # TODO cjwatson 2006-11-01: set up mount point combo
+        self.partition_create_mount_combo.child.set_text('')
+
+        response = self.partition_create_dialog.run()
+        self.partition_create_dialog.hide()
+
+        if response == gtk.RESPONSE_OK:
+            if partition['parted']['type'] == 'primary':
+                prilog = partman.PARTITION_TYPE_PRIMARY
+            elif partition['parted']['type'] == 'logical':
+                prilog = partman.PARTITION_TYPE_LOGICAL
+            elif partition['parted']['type'] == 'pri/log':
+                if self.partition_create_type_primary.get_active():
+                    prilog = partman.PARTITION_TYPE_PRIMARY
+                else:
+                    prilog = partman.PARTITION_TYPE_LOGICAL
+
+            if self.partition_create_place_beginning.get_active():
+                place = partman.PARTITION_PLACE_BEGINNING
+            else:
+                place = partman.PARTITION_PLACE_END
+
+            method_iter = self.partition_create_use_combo.get_active_iter()
+            if method_iter is None:
+                method = None
+            else:
+                model = self.partition_create_use_combo.get_model()
+                method = model.get_value(method_iter, 1)
+
+            mountpoint = self.partition_create_mount_combo.child.get_text()
+
+            self.allow_change_step(False)
+            self.dbfilter.create_partition(
+                devpart,
+                str(self.partition_create_size_spinbutton.get_value()),
+                prilog, place, method, mountpoint)
+
+    def on_partition_create_use_combo_changed (self, combobox):
+        model = combobox.get_model()
+        iterator = combobox.get_active_iter()
+        # If the selected method isn't a filesystem, then selecting a mount
+        # point makes no sense.
+        if iterator is None or model[iterator][0] != 'filesystem':
+            self.partition_create_mount_combo.child.set_text('')
+            self.partition_create_mount_combo.set_sensitive(False)
+        else:
+            self.partition_create_mount_combo.set_sensitive(True)
+
+    def partman_edit_dialog (self, devpart, partition):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+
+        self.partition_edit_dialog.show_all()
+
+        current_size = None
+        if ('can_resize' not in partition or not partition['can_resize'] or
+            'resize_min_size' not in partition or
+            'resize_max_size' not in partition):
+            self.partition_edit_size_label.hide()
+            self.partition_edit_size_spinbutton.hide()
+        else:
+            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
+            # partman expects.
+            min_size_mb = int(partition['resize_min_size']) / 1000000
+            cur_size_mb = int(partition['parted']['size']) / 1000000
+            max_size_mb = int(partition['resize_max_size']) / 1000000
+            self.partition_edit_size_spinbutton.set_adjustment(
+                gtk.Adjustment(value=cur_size_mb, lower=min_size_mb,
+                               upper=max_size_mb,
+                               step_incr=1, page_incr=100, page_size=100))
+            self.partition_edit_size_spinbutton.set_value(cur_size_mb)
+            current_size = str(self.partition_edit_size_spinbutton.get_value())
+
+        self.partition_edit_use_combo.clear()
+        renderer = gtk.CellRendererText()
+        self.partition_edit_use_combo.pack_start(renderer)
+        self.partition_edit_use_combo.add_attribute(renderer, 'text', 0)
+        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        for script, arg, option in partition['method_choices']:
+            list_store.append([arg])
+        self.partition_edit_use_combo.set_model(list_store)
+        current_method = self.dbfilter.get_current_method(partition)
+        if current_method:
+            iterator = list_store.get_iter_first()
+            while iterator:
+                if list_store[iterator][0] == current_method:
+                    self.partition_edit_use_combo.set_active_iter(iterator)
+                    break
+                iterator = list_store.iter_next(iterator)
+
+        # TODO cjwatson 2006-11-02: mountpoint_choices won't be available
+        # unless the method is already one that can be mounted, so we may
+        # need to calculate this dynamically based on the method instead of
+        # relying on cached information from partman
+        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        if 'mountpoint_choices' in partition:
+            for mp, choice_c, choice in partition['mountpoint_choices']:
+                list_store.append([mp, choice])
+        self.partition_edit_mount_combo.set_model(list_store)
+        if self.partition_edit_mount_combo.get_text_column() == -1:
+            self.partition_edit_mount_combo.set_text_column(0)
+        current_mountpoint = self.dbfilter.get_current_mountpoint(partition)
+        if current_mountpoint is not None:
+            self.partition_edit_mount_combo.child.set_text(current_mountpoint)
+            iterator = list_store.get_iter_first()
+            while iterator:
+                if list_store[iterator][0] == current_mountpoint:
+                    self.partition_edit_mount_combo.set_active_iter(iterator)
+                    break
+                iterator = list_store.iter_next(iterator)
+
+        response = self.partition_edit_dialog.run()
+        self.partition_edit_dialog.hide()
+
+        if response == gtk.RESPONSE_OK:
+            size = None
+            if current_size is not None:
+                size = str(self.partition_edit_size_spinbutton.get_value())
+
+            method_iter = self.partition_edit_use_combo.get_active_iter()
+            if method_iter is None:
+                method = None
+            else:
+                model = self.partition_edit_use_combo.get_model()
+                method = model.get_value(method_iter, 0)
+
+            mountpoint = self.partition_edit_mount_combo.child.get_text()
+
+            if (current_size is not None and size is not None and
+                current_size == size):
+                size = None
+            if method == current_method:
+                method = None
+            if mountpoint == current_mountpoint:
+                mountpoint = None
+
+            if (size is not None or method is not None or
+                mountpoint is not None):
+                self.allow_change_step(False)
+                self.dbfilter.edit_partition(devpart, size, method, mountpoint)
+
+    def on_partition_edit_use_combo_changed (self, combobox):
+        model = combobox.get_model()
+        iterator = combobox.get_active_iter()
+        # If the selected method isn't a filesystem, then selecting a mount
+        # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
+        # have to hardcode the list of known filesystems here.
+        known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
+                             'fat16', 'fat32', 'ntfs')
+        if iterator is None or model[iterator][0] not in known_filesystems:
+            self.partition_edit_mount_combo.child.set_text('')
+            self.partition_edit_mount_combo.set_sensitive(False)
+        else:
+            self.partition_edit_mount_combo.set_sensitive(True)
+
+    def on_partition_list_treeview_button_press_event (self, widget, event):
+        if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
+            path_at_pos = widget.get_path_at_pos(int(event.x), int(event.y))
+            if path_at_pos is not None:
+                selection = widget.get_selection()
+                selection.unselect_all()
+                selection.select_path(path_at_pos[0])
+
+            self.partman_popup(widget, event)
+            return True
+
+    def on_partition_list_treeview_popup_menu (self, widget):
+        self.partman_popup(widget, None)
+        return True
+
+    def on_partition_list_treeview_selection_changed (self, selection):
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+
+        for child in self.partition_list_buttonbox.get_children():
+            self.partition_list_buttonbox.remove(child)
+
+        model, iterator = selection.get_selected()
+        if iterator is None:
+            devpart = None
+            partition = None
+        else:
+            devpart = model[iterator][0]
+            partition = model[iterator][1]
+
+        for action in self.dbfilter.get_actions(devpart, partition):
+            if action == 'new_label':
+                # TODO cjwatson 2007-02-19: i18n;
+                # partman-partitioning/text/label is too long unless we can
+                # figure out how to make the row of buttons auto-wrap
+                new_label_button = gtk.Button('New partition table')
+                new_label_button.connect(
+                    'clicked', self.on_partition_list_new_label_activate,
+                    devpart, partition)
+                self.partition_list_buttonbox.pack_start(new_label_button,
+                                                         False, False)
+            elif action == 'new':
+                # TODO cjwatson 2007-02-19: i18n
+                new_button = gtk.Button('New partition')
+                new_button.connect(
+                    'clicked', self.on_partition_list_new_activate,
+                    devpart, partition)
+                self.partition_list_buttonbox.pack_start(new_button,
+                                                         False, False)
+            elif action == 'edit':
+                # TODO cjwatson 2007-02-19: i18n
+                edit_button = gtk.Button('Edit partition')
+                edit_button.connect(
+                    'clicked', self.on_partition_list_edit_activate,
+                    devpart, partition)
+                self.partition_list_buttonbox.pack_start(edit_button,
+                                                         False, False)
+            elif action == 'delete':
+                # TODO cjwatson 2007-02-19: i18n
+                delete_button = gtk.Button('Delete partition')
+                delete_button.connect(
+                    'clicked', self.on_partition_list_delete_activate,
+                    devpart, partition)
+                self.partition_list_buttonbox.pack_start(delete_button,
+                                                         False, False)
+        undo_button = gtk.Button(
+            self.get_string('partman/text/undo_everything'))
+        undo_button.connect('clicked', self.on_partition_list_undo_activate)
+        self.partition_list_buttonbox.pack_start(undo_button, False, False)
+        self.partition_list_buttonbox.show_all()
+
+    def on_partition_list_treeview_row_activated (self, treeview,
+                                                  path, view_column):
+        if not self.allowed_change_step:
+            return
+        model = treeview.get_model()
+        try:
+            devpart = model[path][0]
+            partition = model[path][1]
+        except (IndexError, KeyError):
+            return
+
+        if 'id' not in partition:
+            # Are there already partitions on this disk? If so, don't allow
+            # activating the row to offer to create a new partition table,
+            # to avoid mishaps.
+            for otherpart in [row[1] for row in model]:
+                if otherpart['dev'] == partition['dev'] and 'id' in otherpart:
+                    break
+            else:
+                if not isinstance(self.dbfilter, partman.Partman):
+                    return
+                self.allow_change_step(False)
+                self.dbfilter.create_label(devpart)
+        elif partition['parted']['fs'] == 'free':
+            if 'can_new' in partition and partition['can_new']:
+                self.partman_create_dialog(devpart, partition)
+        else:
+            self.partman_edit_dialog(devpart, partition)
+
+    def on_partition_list_new_label_activate (self, widget,
+                                              devpart, partition):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        self.allow_change_step(False)
+        self.dbfilter.create_label(devpart)
+
+    def on_partition_list_new_activate (self, widget, devpart, partition):
+        self.partman_create_dialog(devpart, partition)
+
+    def on_partition_list_edit_activate (self, widget, devpart, partition):
+        self.partman_edit_dialog(devpart, partition)
+
+    def on_partition_list_delete_activate (self, widget, devpart, partition):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        self.allow_change_step(False)
+        self.dbfilter.delete_partition(devpart)
+
+    def on_partition_list_undo_activate (self, widget):
+        if not self.allowed_change_step:
+            return
+        if not isinstance(self.dbfilter, partman.Partman):
+            return
+        self.allow_change_step(False)
+        self.dbfilter.undo()
+
+    def update_partman (self, disk_cache, partition_cache, cache_order):
+        partition_tree_model = self.partition_list_treeview.get_model()
+        if partition_tree_model is None:
+            partition_tree_model = gtk.ListStore(gobject.TYPE_STRING,
+                                                 gobject.TYPE_PYOBJECT)
+            for item in cache_order:
+                if item in disk_cache:
+                    partition_tree_model.append([item, disk_cache[item]])
+                else:
+                    partition_tree_model.append([item, partition_cache[item]])
+
+            # TODO cjwatson 2006-08-05: i18n
+            cell_name = gtk.CellRendererText()
+            column_name = gtk.TreeViewColumn("Device", cell_name)
+            column_name.set_cell_data_func(cell_name, self.partman_column_name)
+            column_name.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_name)
+
+            cell_type = gtk.CellRendererText()
+            column_type = gtk.TreeViewColumn("Type", cell_type)
+            column_type.set_cell_data_func(cell_type, self.partman_column_type)
+            column_type.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_type)
+
+            cell_mountpoint = gtk.CellRendererText()
+            column_mountpoint = gtk.TreeViewColumn("Mount point", cell_mountpoint)
+            column_mountpoint.set_cell_data_func(
+                cell_mountpoint, self.partman_column_mountpoint)
+            column_mountpoint.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_mountpoint)
+
+            cell_format = gtk.CellRendererToggle()
+            column_format = gtk.TreeViewColumn("Format?", cell_format)
+            column_format.set_cell_data_func(
+                cell_format, self.partman_column_format)
+            column_format.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            cell_format.connect("toggled", self.partman_column_format_toggled,
+                                partition_tree_model)
+            self.partition_list_treeview.append_column(column_format)
+
+            cell_size = gtk.CellRendererText()
+            column_size = gtk.TreeViewColumn("Size", cell_size)
+            column_size.set_cell_data_func(cell_size, self.partman_column_size)
+            column_size.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_size)
+
+            cell_used = gtk.CellRendererText()
+            column_used = gtk.TreeViewColumn("Used", cell_used)
+            column_used.set_cell_data_func(cell_used, self.partman_column_used)
+            column_used.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
+            self.partition_list_treeview.append_column(column_used)
+
+            self.partition_list_treeview.set_model(partition_tree_model)
+
+            selection = self.partition_list_treeview.get_selection()
+            selection.connect(
+                'changed', self.on_partition_list_treeview_selection_changed)
+        else:
+            # TODO cjwatson 2006-08-31: inefficient, but will do for now
+            partition_tree_model.clear()
+            for item in cache_order:
+                if item in disk_cache:
+                    partition_tree_model.append([item, disk_cache[item]])
+                else:
+                    partition_tree_model.append([item, partition_cache[item]])
+
+        # make sure we're on the advanced partitioning page
+        self.set_current_page(self.steps.page_num(self.stepPartAdvanced))
+
 
     def ma_info_loop(self, widget):
         """migration-assistant version of info_loop. For now it just autofills
@@ -1466,13 +2181,6 @@ class Wizard:
             self.ma_loginname.set_text_column(0)
             self.ma_loginname.connect('changed', self.ma_combo_changed)
 
-    def set_timezone (self, timezone):
-        self.tzmap.set_tz_from_name(timezone)
-
-
-    def get_timezone (self):
-        return self.tzmap.get_selected_tz_name()
-
 
     def set_fullname(self, value):
         self.fullname.set_text(value)
@@ -1500,735 +2208,9 @@ class Wizard:
         self.password_error_reason.set_text(msg)
         self.password_error_box.show()
 
-
-    def set_autopartition_choices (self, choices, extra_options,
-                                   resize_choice, manual_choice):
-        for child in self.autopartition_vbox.get_children():
-            self.autopartition_vbox.remove(child)
-
-        self.resize_choice = resize_choice
-        self.manual_choice = manual_choice
-        firstbutton = None
-        for choice in choices:
-            button = gtk.RadioButton(firstbutton, choice, False)
-            if firstbutton is None:
-                firstbutton = button
-            self.autopartition_vbox.add(button)
-
-            if choice in extra_options:
-                alignment = gtk.Alignment(xscale=1, yscale=1)
-                alignment.set_padding(0, 0, 12, 0)
-                if choice == resize_choice:
-                    hbox = gtk.HBox(spacing=6)
-                    alignment.add(hbox)
-                    new_size_label = gtk.Label("New partition size:")
-                    new_size_label.set_name('new_size_label')
-                    self.translate_widget(new_size_label, self.locale)
-                    new_size_label.set_selectable(True)
-                    new_size_label.set_property('can-focus', False)
-                    hbox.pack_start(new_size_label, expand=False, fill=False)
-                    self.new_size_scale = gtk.HScale(
-                        gtk.Adjustment(0, 0, 100, 1, 10, 0))
-                    self.new_size_scale.set_draw_value(True)
-                    self.new_size_scale.set_value_pos(gtk.POS_TOP)
-                    self.new_size_scale.set_digits(0)
-                    self.new_size_scale.set_update_policy(
-                        gtk.UPDATE_CONTINUOUS)
-                    self.new_size_scale.connect(
-                        'format_value', self.on_new_size_scale_format_value)
-                    self.resize_min_size, self.resize_max_size = \
-                        extra_options[choice]
-                    if (self.resize_min_size is not None and
-                        self.resize_max_size is not None):
-                        min_percent = int(math.ceil(
-                            100 * self.resize_min_size / self.resize_max_size))
-                        self.new_size_scale.set_range(min_percent, 100)
-                        self.new_size_scale.set_value(
-                            int((min_percent + 100) / 2))
-                    hbox.pack_start(self.new_size_scale, expand=True, fill=True)
-                elif choice != manual_choice:
-                    vbox = gtk.VBox(spacing=6)
-                    alignment.add(vbox)
-                    extra_firstbutton = None
-                    for extra in extra_options[choice]:
-                        extra_button = gtk.RadioButton(
-                            extra_firstbutton, extra, False)
-                        if extra_firstbutton is None:
-                            extra_firstbutton = extra_button
-                        vbox.add(extra_button)
-                self.autopartition_vbox.pack_start(alignment,
-                                                   expand=False, fill=False)
-                self.autopartition_extras[choice] = alignment
-
-                self.on_autopartition_toggled(button)
-                button.connect('toggled', self.on_autopartition_toggled)
-        if firstbutton is not None:
-            firstbutton.set_active(True)
-
-        self.autopartition_vbox.show_all()
-
-        # make sure we're on the autopartitioning page
-        self.set_current_page(self.steps.page_num(self.stepPartAuto))
-
-
-    def get_autopartition_choice (self):
-        for button in self.autopartition_vbox.get_children():
-            if isinstance(button, gtk.Button):
-                if button.get_active():
-                    choice = unicode(button.get_label(), 'utf-8', 'replace')
-                    break
-        else:
-            raise AssertionError, "no active autopartitioning choice"
-
-        if choice == self.resize_choice:
-            # resize_choice should have been hidden otherwise
-            assert self.new_size_scale is not None
-            return choice, self.new_size_scale.get_value()
-        elif (choice != self.manual_choice and
-              choice in self.autopartition_extras):
-            vbox = self.autopartition_extras[choice].child
-            for button in vbox.get_children():
-                if isinstance(button, gtk.Button):
-                    if button.get_active():
-                        return choice, unicode(button.get_label(),
-                                               'utf-8', 'replace')
-            else:
-                return choice, None
-        else:
-            return choice, None
-
-
-    def partman_column_name (self, column, cell, model, iterator):
-        partition = model[iterator][1]
-        if 'id' not in partition:
-            # whole disk
-            cell.set_property('text', partition['device'])
-        elif partition['parted']['fs'] != 'free':
-            cell.set_property('text', '  %s' % partition['parted']['path'])
-        elif partition['parted']['type'] == 'unusable':
-            unusable = i18n.get_string('partman/text/unusable', self.locale)
-            cell.set_property('text', '  %s' % unusable)
-        else:
-            # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
-            # feels a bit too SHOUTY for this interface.
-            cell.set_property('text', '  free space')
-
-    def partman_column_type (self, column, cell, model, iterator):
-        partition = model[iterator][1]
-        if 'id' not in partition or 'method' not in partition:
-            cell.set_property('text', '')
-        elif ('filesystem' in partition and
-              partition['method'] in ('format', 'keep')):
-            cell.set_property('text', partition['acting_filesystem'])
-        else:
-            cell.set_property('text', partition['method'])
-
-    def partman_column_mountpoint (self, column, cell, model, iterator):
-        partition = model[iterator][1]
-        if isinstance(self.dbfilter, partman.Partman):
-            mountpoint = self.dbfilter.get_current_mountpoint(partition)
-            if mountpoint is None:
-                mountpoint = ''
-        else:
-            mountpoint = ''
-        cell.set_property('text', mountpoint)
-
-    def partman_column_format (self, column, cell, model, iterator):
-        partition = model[iterator][1]
-        if 'id' not in partition:
-            cell.set_property('visible', False)
-            cell.set_property('active', False)
-            cell.set_property('activatable', False)
-        elif 'method' in partition:
-            cell.set_property('visible', True)
-            cell.set_property('active', partition['method'] == 'format')
-            cell.set_property('activatable', 'can_activate_format' in partition)
-        else:
-            cell.set_property('visible', True)
-            cell.set_property('active', False)
-            cell.set_property('activatable', False)
-
-    def partman_column_format_toggled (self, cell, path, user_data):
-        if not self.allowed_change_step:
-            return
-        if not isinstance(self.dbfilter, partman.Partman):
-            return
-        model = user_data
-        devpart = model[path][0]
-        partition = model[path][1]
-        if 'id' not in partition or 'method' not in partition:
-            return
-        self.allow_change_step(False)
-        self.dbfilter.edit_partition(devpart, format='dummy')
-
-    def partman_column_size (self, column, cell, model, iterator):
-        partition = model[iterator][1]
-        if 'id' not in partition:
-            cell.set_property('text', '')
-        else:
-            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
-            # partman expects.
-            size_mb = int(partition['parted']['size']) / 1000000
-            cell.set_property('text', '%d MB' % size_mb)
-
-    def partman_column_used (self, column, cell, model, iterator):
-        partition = model[iterator][1]
-        if 'id' not in partition or partition['parted']['fs'] == 'free':
-            cell.set_property('text', '')
-        elif 'resize_min_size' not in partition:
-            # TODO cjwatson 2007-03-26: i18n
-            cell.set_property('text', 'unknown')
-        else:
-            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
-            # partman expects.
-            size_mb = int(partition['resize_min_size']) / 1000000
-            cell.set_property('text', '%d MB' % size_mb)
-
-    def partman_popup (self, widget, event):
-        if not self.allowed_change_step:
-            return
-        if not isinstance(self.dbfilter, partman.Partman):
-            return
-
-        model, iterator = widget.get_selection().get_selected()
-        if iterator is None:
-            devpart = None
-            partition = None
-        else:
-            devpart = model[iterator][0]
-            partition = model[iterator][1]
-
-        partition_list_menu = gtk.Menu()
-        for action in self.dbfilter.get_actions(devpart, partition):
-            if action == 'new_label':
-                # TODO cjwatson 2006-12-21: i18n;
-                # partman-partitioning/text/label text is quite long?
-                new_label_item = gtk.MenuItem('New partition table')
-                new_label_item.connect(
-                    'activate', self.on_partition_list_new_label_activate,
-                    devpart, partition)
-                partition_list_menu.append(new_label_item)
-            elif action == 'new':
-                # TODO cjwatson 2006-10-31: i18n
-                new_item = gtk.MenuItem('New partition')
-                new_item.connect(
-                    'activate', self.on_partition_list_new_activate,
-                    devpart, partition)
-                partition_list_menu.append(new_item)
-            elif action == 'edit':
-                # TODO cjwatson 2006-10-31: i18n
-                edit_item = gtk.MenuItem('Edit partition')
-                edit_item.connect(
-                    'activate', self.on_partition_list_edit_activate,
-                    devpart, partition)
-                partition_list_menu.append(edit_item)
-            elif action == 'delete':
-                # TODO cjwatson 2006-10-31: i18n
-                delete_item = gtk.MenuItem('Delete partition')
-                delete_item.connect(
-                    'activate', self.on_partition_list_delete_activate,
-                    devpart, partition)
-                partition_list_menu.append(delete_item)
-        if partition_list_menu.get_children():
-            partition_list_menu.append(gtk.SeparatorMenuItem())
-        undo_item = gtk.MenuItem(i18n.get_string('partman/text/undo_everything',
-                                 self.locale))
-        undo_item.connect('activate', self.on_partition_list_undo_activate)
-        partition_list_menu.append(undo_item)
-        partition_list_menu.show_all()
-
-        if event:
-            button = event.button
-            time = event.get_time()
-        else:
-            button = 0
-            time = 0
-        partition_list_menu.popup(None, None, None, button, time)
-
-    def partman_create_dialog (self, devpart, partition):
-        if not self.allowed_change_step:
-            return
-        if not isinstance(self.dbfilter, partman.Partman):
-            return
-
-        self.partition_create_dialog.show_all()
-
-        # TODO cjwatson 2006-11-01: Because partman doesn't use a question
-        # group for these, we have to figure out in advance whether each
-        # question is going to be asked.
-
-        if partition['parted']['type'] == 'pri/log':
-            # Is there already an extended partition?
-            model = self.partition_list_treeview.get_model()
-            for otherpart in [row[1] for row in model]:
-                if (otherpart['dev'] == partition['dev'] and
-                    'id' in otherpart and
-                    otherpart['parted']['type'] == 'logical'):
-                    self.partition_create_type_logical.set_active(True)
-                    break
-            else:
-                self.partition_create_type_primary.set_active(True)
-        else:
-            self.partition_create_type_label.hide()
-            self.partition_create_type_primary.hide()
-            self.partition_create_type_logical.hide()
-
-        # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
-        # partman expects.
-        max_size_mb = int(partition['parted']['size']) / 1000000
-        self.partition_create_size_spinbutton.set_adjustment(
-            gtk.Adjustment(value=max_size_mb, upper=max_size_mb,
-                           step_incr=1, page_incr=100, page_size=100))
-        self.partition_create_size_spinbutton.set_value(max_size_mb)
-
-        self.partition_create_use_combo.clear()
-        renderer = gtk.CellRendererText()
-        self.partition_create_use_combo.pack_start(renderer)
-        self.partition_create_use_combo.add_attribute(renderer, 'text', 1)
-        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
-        for method, name in partman.Partman.create_use_as():
-            list_store.append([method, name])
-        self.partition_create_use_combo.set_model(list_store)
-        if list_store.get_iter_first():
-            self.partition_create_use_combo.set_active(0)
-
-        # TODO cjwatson 2006-11-01: set up mount point combo
-        self.partition_create_mount_combo.child.set_text('')
-
-        response = self.partition_create_dialog.run()
-        self.partition_create_dialog.hide()
-
-        if response == gtk.RESPONSE_OK:
-            if partition['parted']['type'] == 'primary':
-                prilog = partman.PARTITION_TYPE_PRIMARY
-            elif partition['parted']['type'] == 'logical':
-                prilog = partman.PARTITION_TYPE_LOGICAL
-            elif partition['parted']['type'] == 'pri/log':
-                if self.partition_create_type_primary.get_active():
-                    prilog = partman.PARTITION_TYPE_PRIMARY
-                else:
-                    prilog = partman.PARTITION_TYPE_LOGICAL
-
-            if self.partition_create_place_beginning.get_active():
-                place = partman.PARTITION_PLACE_BEGINNING
-            else:
-                place = partman.PARTITION_PLACE_END
-
-            method_iter = self.partition_create_use_combo.get_active_iter()
-            if method_iter is None:
-                method = None
-            else:
-                model = self.partition_create_use_combo.get_model()
-                method = model.get_value(method_iter, 1)
-
-            mountpoint = self.partition_create_mount_combo.child.get_text()
-
-            self.allow_change_step(False)
-            self.dbfilter.create_partition(
-                devpart,
-                str(self.partition_create_size_spinbutton.get_value()),
-                prilog, place, method, mountpoint)
-
-    def on_partition_create_use_combo_changed (self, combobox):
-        model = combobox.get_model()
-        iterator = combobox.get_active_iter()
-        # If the selected method isn't a filesystem, then selecting a mount
-        # point makes no sense.
-        if iterator is None or model[iterator][0] != 'filesystem':
-            self.partition_create_mount_combo.child.set_text('')
-            self.partition_create_mount_combo.set_sensitive(False)
-        else:
-            self.partition_create_mount_combo.set_sensitive(True)
-
-    def partman_edit_dialog (self, devpart, partition):
-        if not self.allowed_change_step:
-            return
-        if not isinstance(self.dbfilter, partman.Partman):
-            return
-
-        self.partition_edit_dialog.show_all()
-
-        current_size = None
-        if ('can_resize' not in partition or not partition['can_resize'] or
-            'resize_min_size' not in partition or
-            'resize_max_size' not in partition):
-            self.partition_edit_size_label.hide()
-            self.partition_edit_size_spinbutton.hide()
-        else:
-            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
-            # partman expects.
-            min_size_mb = int(partition['resize_min_size']) / 1000000
-            cur_size_mb = int(partition['parted']['size']) / 1000000
-            max_size_mb = int(partition['resize_max_size']) / 1000000
-            self.partition_edit_size_spinbutton.set_adjustment(
-                gtk.Adjustment(value=cur_size_mb, lower=min_size_mb,
-                               upper=max_size_mb,
-                               step_incr=1, page_incr=100, page_size=100))
-            self.partition_edit_size_spinbutton.set_value(cur_size_mb)
-            current_size = str(self.partition_edit_size_spinbutton.get_value())
-
-        self.partition_edit_use_combo.clear()
-        renderer = gtk.CellRendererText()
-        self.partition_edit_use_combo.pack_start(renderer)
-        self.partition_edit_use_combo.add_attribute(renderer, 'text', 0)
-        list_store = gtk.ListStore(gobject.TYPE_STRING)
-        for script, arg, option in partition['method_choices']:
-            list_store.append([arg])
-        self.partition_edit_use_combo.set_model(list_store)
-        current_method = self.dbfilter.get_current_method(partition)
-        if current_method:
-            iterator = list_store.get_iter_first()
-            while iterator:
-                if list_store[iterator][0] == current_method:
-                    self.partition_edit_use_combo.set_active_iter(iterator)
-                    break
-                iterator = list_store.iter_next(iterator)
-
-        # TODO cjwatson 2006-11-02: mountpoint_choices won't be available
-        # unless the method is already one that can be mounted, so we may
-        # need to calculate this dynamically based on the method instead of
-        # relying on cached information from partman
-        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
-        if 'mountpoint_choices' in partition:
-            for mp, choice_c, choice in partition['mountpoint_choices']:
-                list_store.append([mp, choice])
-        self.partition_edit_mount_combo.set_model(list_store)
-        if self.partition_edit_mount_combo.get_text_column() == -1:
-            self.partition_edit_mount_combo.set_text_column(0)
-        current_mountpoint = self.dbfilter.get_current_mountpoint(partition)
-        if current_mountpoint is not None:
-            self.partition_edit_mount_combo.child.set_text(current_mountpoint)
-            iterator = list_store.get_iter_first()
-            while iterator:
-                if list_store[iterator][0] == current_mountpoint:
-                    self.partition_edit_mount_combo.set_active_iter(iterator)
-                    break
-                iterator = list_store.iter_next(iterator)
-
-        response = self.partition_edit_dialog.run()
-        self.partition_edit_dialog.hide()
-
-        if response == gtk.RESPONSE_OK:
-            size = None
-            if current_size is not None:
-                size = str(self.partition_edit_size_spinbutton.get_value())
-
-            method_iter = self.partition_edit_use_combo.get_active_iter()
-            if method_iter is None:
-                method = None
-            else:
-                model = self.partition_edit_use_combo.get_model()
-                method = model.get_value(method_iter, 0)
-
-            mountpoint = self.partition_edit_mount_combo.child.get_text()
-
-            if (current_size is not None and size is not None and
-                current_size == size):
-                size = None
-            if method == current_method:
-                method = None
-            if mountpoint == current_mountpoint:
-                mountpoint = None
-
-            if (size is not None or method is not None or
-                mountpoint is not None):
-                self.allow_change_step(False)
-                self.dbfilter.edit_partition(devpart, size, method, mountpoint)
-
-    def on_partition_edit_use_combo_changed (self, combobox):
-        model = combobox.get_model()
-        iterator = combobox.get_active_iter()
-        # If the selected method isn't a filesystem, then selecting a mount
-        # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
-        # have to hardcode the list of known filesystems here.
-        known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
-                             'fat16', 'fat32', 'ntfs')
-        if iterator is None or model[iterator][0] not in known_filesystems:
-            self.partition_edit_mount_combo.child.set_text('')
-            self.partition_edit_mount_combo.set_sensitive(False)
-        else:
-            self.partition_edit_mount_combo.set_sensitive(True)
-
-    def on_partition_list_treeview_button_press_event (self, widget, event):
-        if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
-            path_at_pos = widget.get_path_at_pos(int(event.x), int(event.y))
-            if path_at_pos is not None:
-                selection = widget.get_selection()
-                selection.unselect_all()
-                selection.select_path(path_at_pos[0])
-
-            self.partman_popup(widget, event)
-            return True
-
-    def on_partition_list_treeview_popup_menu (self, widget):
-        self.partman_popup(widget, None)
-        return True
-
-    def on_partition_list_treeview_selection_changed (self, selection):
-        if not isinstance(self.dbfilter, partman.Partman):
-            return
-
-        for child in self.partition_list_buttonbox.get_children():
-            self.partition_list_buttonbox.remove(child)
-
-        model, iterator = selection.get_selected()
-        if iterator is None:
-            devpart = None
-            partition = None
-        else:
-            devpart = model[iterator][0]
-            partition = model[iterator][1]
-
-        for action in self.dbfilter.get_actions(devpart, partition):
-            if action == 'new_label':
-                # TODO cjwatson 2007-02-19: i18n;
-                # partman-partitioning/text/label is too long unless we can
-                # figure out how to make the row of buttons auto-wrap
-                new_label_button = gtk.Button('New partition table')
-                new_label_button.connect(
-                    'clicked', self.on_partition_list_new_label_activate,
-                    devpart, partition)
-                self.partition_list_buttonbox.pack_start(new_label_button,
-                                                         False, False)
-            elif action == 'new':
-                # TODO cjwatson 2007-02-19: i18n
-                new_button = gtk.Button('New partition')
-                new_button.connect(
-                    'clicked', self.on_partition_list_new_activate,
-                    devpart, partition)
-                self.partition_list_buttonbox.pack_start(new_button,
-                                                         False, False)
-            elif action == 'edit':
-                # TODO cjwatson 2007-02-19: i18n
-                edit_button = gtk.Button('Edit partition')
-                edit_button.connect(
-                    'clicked', self.on_partition_list_edit_activate,
-                    devpart, partition)
-                self.partition_list_buttonbox.pack_start(edit_button,
-                                                         False, False)
-            elif action == 'delete':
-                # TODO cjwatson 2007-02-19: i18n
-                delete_button = gtk.Button('Delete partition')
-                delete_button.connect(
-                    'clicked', self.on_partition_list_delete_activate,
-                    devpart, partition)
-                self.partition_list_buttonbox.pack_start(delete_button,
-                                                         False, False)
-        undo_button = gtk.Button(i18n.get_string('partman/text/undo_everything',
-                                 self.locale))
-        undo_button.connect('clicked', self.on_partition_list_undo_activate)
-        self.partition_list_buttonbox.pack_start(undo_button, False, False)
-        self.partition_list_buttonbox.show_all()
-
-    def on_partition_list_treeview_row_activated (self, treeview,
-                                                  path, view_column):
-        if not self.allowed_change_step:
-            return
-        model = treeview.get_model()
-        try:
-            devpart = model[path][0]
-            partition = model[path][1]
-        except (IndexError, KeyError):
-            return
-
-        if 'id' not in partition:
-            # Are there already partitions on this disk? If so, don't allow
-            # activating the row to offer to create a new partition table,
-            # to avoid mishaps.
-            for otherpart in [row[1] for row in model]:
-                if otherpart['dev'] == partition['dev'] and 'id' in otherpart:
-                    break
-            else:
-                if not isinstance(self.dbfilter, partman.Partman):
-                    return
-                self.allow_change_step(False)
-                self.dbfilter.create_label(devpart)
-        elif partition['parted']['fs'] == 'free':
-            if 'can_new' in partition and partition['can_new']:
-                self.partman_create_dialog(devpart, partition)
-        else:
-            self.partman_edit_dialog(devpart, partition)
-
-    def on_partition_list_new_label_activate (self, widget,
-                                              devpart, partition):
-        if not self.allowed_change_step:
-            return
-        if not isinstance(self.dbfilter, partman.Partman):
-            return
-        self.allow_change_step(False)
-        self.dbfilter.create_label(devpart)
-
-    def on_partition_list_new_activate (self, widget, devpart, partition):
-        self.partman_create_dialog(devpart, partition)
-
-    def on_partition_list_edit_activate (self, widget, devpart, partition):
-        self.partman_edit_dialog(devpart, partition)
-
-    def on_partition_list_delete_activate (self, widget, devpart, partition):
-        if not self.allowed_change_step:
-            return
-        if not isinstance(self.dbfilter, partman.Partman):
-            return
-        self.allow_change_step(False)
-        self.dbfilter.delete_partition(devpart)
-
-    def on_partition_list_undo_activate (self, widget):
-        if not self.allowed_change_step:
-            return
-        if not isinstance(self.dbfilter, partman.Partman):
-            return
-        self.allow_change_step(False)
-        self.dbfilter.undo()
-
-    def update_partman (self, disk_cache, partition_cache, cache_order):
-        partition_tree_model = self.partition_list_treeview.get_model()
-        if partition_tree_model is None:
-            partition_tree_model = gtk.ListStore(gobject.TYPE_STRING,
-                                                 gobject.TYPE_PYOBJECT)
-            for item in cache_order:
-                if item in disk_cache:
-                    partition_tree_model.append([item, disk_cache[item]])
-                else:
-                    partition_tree_model.append([item, partition_cache[item]])
-
-            # TODO cjwatson 2006-08-05: i18n
-            cell_name = gtk.CellRendererText()
-            column_name = gtk.TreeViewColumn("Device", cell_name)
-            column_name.set_cell_data_func(cell_name, self.partman_column_name)
-            column_name.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
-            self.partition_list_treeview.append_column(column_name)
-
-            cell_type = gtk.CellRendererText()
-            column_type = gtk.TreeViewColumn("Type", cell_type)
-            column_type.set_cell_data_func(cell_type, self.partman_column_type)
-            column_type.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
-            self.partition_list_treeview.append_column(column_type)
-
-            cell_mountpoint = gtk.CellRendererText()
-            column_mountpoint = gtk.TreeViewColumn("Mount point", cell_mountpoint)
-            column_mountpoint.set_cell_data_func(
-                cell_mountpoint, self.partman_column_mountpoint)
-            column_mountpoint.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
-            self.partition_list_treeview.append_column(column_mountpoint)
-
-            cell_format = gtk.CellRendererToggle()
-            column_format = gtk.TreeViewColumn("Format?", cell_format)
-            column_format.set_cell_data_func(
-                cell_format, self.partman_column_format)
-            column_format.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
-            cell_format.connect("toggled", self.partman_column_format_toggled,
-                                partition_tree_model)
-            self.partition_list_treeview.append_column(column_format)
-
-            cell_size = gtk.CellRendererText()
-            column_size = gtk.TreeViewColumn("Size", cell_size)
-            column_size.set_cell_data_func(cell_size, self.partman_column_size)
-            column_size.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
-            self.partition_list_treeview.append_column(column_size)
-
-            cell_used = gtk.CellRendererText()
-            column_used = gtk.TreeViewColumn("Used", cell_used)
-            column_used.set_cell_data_func(cell_used, self.partman_column_used)
-            column_used.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
-            self.partition_list_treeview.append_column(column_used)
-
-            self.partition_list_treeview.set_model(partition_tree_model)
-
-            selection = self.partition_list_treeview.get_selection()
-            selection.connect(
-                'changed', self.on_partition_list_treeview_selection_changed)
-        else:
-            # TODO cjwatson 2006-08-31: inefficient, but will do for now
-            partition_tree_model.clear()
-            for item in cache_order:
-                if item in disk_cache:
-                    partition_tree_model.append([item, disk_cache[item]])
-                else:
-                    partition_tree_model.append([item, partition_cache[item]])
-
-        # make sure we're on the advanced partitioning page
-        self.set_current_page(self.steps.page_num(self.stepPartAdvanced))
-
-
     def get_hostname (self):
         return self.hostname.get_text()
 
-
-    def set_keyboard_choices(self, choices):
-        layouts = gtk.ListStore(gobject.TYPE_STRING)
-        self.keyboardlayoutview.set_model(layouts)
-        for v in sorted(choices):
-            layouts.append([v])
-
-        if len(self.keyboardlayoutview.get_columns()) < 1:
-            column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
-            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-            self.keyboardlayoutview.append_column(column)
-            selection = self.keyboardlayoutview.get_selection()
-            selection.connect('changed',
-                              self.on_keyboard_layout_selected)
-
-        if self.current_layout is not None:
-            self.set_keyboard(self.current_layout)
-
-    def set_keyboard (self, layout):
-        self.current_layout = layout
-        model = self.keyboardlayoutview.get_model()
-        if model is None:
-            return
-        iterator = model.iter_children(None)
-        while iterator is not None:
-            if unicode(model.get_value(iterator, 0)) == layout:
-                path = model.get_path(iterator)
-                self.keyboardlayoutview.get_selection().select_path(path)
-                self.keyboardlayoutview.scroll_to_cell(
-                    path, use_align=True, row_align=0.5)
-                break
-            iterator = model.iter_next(iterator)
-
-    def get_keyboard (self):
-        selection = self.keyboardlayoutview.get_selection()
-        (model, iterator) = selection.get_selected()
-        if iterator is None:
-            return None
-        else:
-            return unicode(model.get_value(iterator, 0))
-
-    def set_keyboard_variant_choices(self, choices):
-        variants = gtk.ListStore(gobject.TYPE_STRING)
-        self.keyboardvariantview.set_model(variants)
-        for v in sorted(choices):
-            variants.append([v])
-
-        if len(self.keyboardvariantview.get_columns()) < 1:
-            column = gtk.TreeViewColumn("Variant", gtk.CellRendererText(), text=0)
-            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-            self.keyboardvariantview.append_column(column)
-            selection = self.keyboardvariantview.get_selection()
-            selection.connect('changed',
-                              self.on_keyboard_variant_selected)
-
-    def set_keyboard_variant (self, variant):
-        model = self.keyboardvariantview.get_model()
-        if model is None:
-            return
-        iterator = model.iter_children(None)
-        while iterator is not None:
-            if unicode(model.get_value(iterator, 0)) == variant:
-                path = model.get_path(iterator)
-                self.keyboardvariantview.get_selection().select_path(path)
-                self.keyboardvariantview.scroll_to_cell(
-                    path, use_align=True, row_align=0.5)
-                break
-            iterator = model.iter_next(iterator)
-
-    def get_keyboard_variant (self):
-        selection = self.keyboardvariantview.get_selection()
-        (model, iterator) = selection.get_selected()
-        if iterator is None:
-            return None
-        else:
-            return unicode(model.get_value(iterator, 0))
 
     def set_summary_text (self, text):
         for child in self.ready_text.get_children():
@@ -2237,21 +2219,6 @@ class Wizard:
         ready_buffer = gtk.TextBuffer()
         ready_buffer.set_text(text)
         self.ready_text.set_buffer(ready_buffer)
-
-    def set_summary_device (self, device):
-        if device is not None:
-            if not device.startswith('(') and not device.startswith('/dev/'):
-                device = '/dev/%s' % device
-        self.summary_device = device
-
-    def get_summary_device (self):
-        return self.summary_device
-
-    def set_popcon (self, participate):
-        self.popcon = participate
-
-    def get_popcon (self):
-        return self.popcon
 
     def on_advanced_button_clicked (self, button):
         display = False
@@ -2321,7 +2288,7 @@ class Wizard:
         buttons = []
         for option in options:
             if use_templates:
-                text = i18n.get_string(option, self.locale)
+                text = self.get_string(option)
             else:
                 text = option
             if text is None:
@@ -2612,4 +2579,5 @@ class TimezoneMap(object):
             self.frontend.allow_go_forward(self.location_selected is not None)
 
         return True
+
 # vim:ai:et:sts=4:tw=80:sw=4:

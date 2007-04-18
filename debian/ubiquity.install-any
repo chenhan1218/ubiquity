@@ -3,6 +3,7 @@ ubiquity/components/__init__.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/summary.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/install.py usr/lib/ubiquity/ubiquity/components
 ubiquity/frontend/__init__.py usr/lib/ubiquity/ubiquity/frontend
+ubiquity/frontend/base.py usr/lib/ubiquity/ubiquity/frontend
 compat/anna-install usr/lib/ubiquity/compat
 compat/apt-install usr/lib/ubiquity/compat
 compat/udpkg usr/lib/ubiquity/compat

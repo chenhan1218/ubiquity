@@ -22,6 +22,9 @@ ubiquity (1.5.0) UNRELEASED; urgency=low
   * Split out internationalisation code from ubiquity.misc into
     ubiquity.i18n.
   * Remove some dead code from ubiquity.misc.
+  * Create a BaseFrontend class and move various things to it; it now counts
+    as a relatively clear specification of what a frontend has to implement.
+  * Reorder some frontend methods to follow the ordering of the UI.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Apr 2007 15:21:08 +0100
 
