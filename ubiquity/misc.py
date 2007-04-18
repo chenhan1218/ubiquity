@@ -8,13 +8,6 @@ import syslog
 import codecs
 
 
-def distribution():
-    """Returns the name of the running distribution."""
-
-    proc = subprocess.Popen(['lsb_release', '-is'], stdout=subprocess.PIPE)
-    return proc.communicate()[0].strip()
-
-
 def ex(*args):
     """runs args* in shell mode. Output status is taken."""
 
@@ -34,14 +27,6 @@ def ex(*args):
             return False
         syslog.syslog(' '.join(log_args))
         return True
-
-
-def get_progress(str):
-    """gets progress percentage of installing process from progress bar message."""
-
-    num = int(str.split()[:1][0])
-    text = ' '.join(str.split()[1:])
-    return num, text
 
 
 def format_size(size):
@@ -86,23 +71,6 @@ def will_be_installed(pkg):
             manifest.close()
     except IOError:
         return True
-
-
-def find_on_path(command):
-    if 'PATH' in os.environ:
-        path = os.environ['PATH']
-    else:
-        path = ''
-    pathdirs = path.split(':')
-    for pathdir in pathdirs:
-        if pathdir == '':
-            realpathdir = '.'
-        else:
-            realpathdir = pathdir
-        trypath = os.path.join(realpathdir, command)
-        if os.access(trypath, os.X_OK):
-            return trypath
-    return None
 
 
 # vim:ai:et:sts=4:tw=80:sw=4:
