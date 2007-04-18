@@ -125,27 +125,27 @@ class Wizard(BaseFrontend):
 
         # declare attributes
         self.release_notes_url_template = None
-        self.username_edited = False
-        self.hostname_edited = False
-        self.resize_min_size = None
-        self.resize_max_size = None
-        self.new_size_value = None
-        self.new_size_scale = None
-        self.current_page = None
-        self.progressDialogue = None
-        self.progress_position = ubiquity.progressposition.ProgressPosition()
-        self.progress_cancelled = False
-        self.previous_partitioning_page = None
-        self.installing = False
-        self.installing_no_return = False
-        self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
                                    'welcome_text_label', 'release_notes_label',
                                    'release_notes_url', 'step_label',
                                    'cancel', 'back', 'next')
+        self.current_page = None
         self.allowed_change_step = True
         self.allowed_go_forward = True
         self.mainLoopRunning = False
+        self.progressDialogue = None
+        self.progress_position = ubiquity.progressposition.ProgressPosition()
+        self.progress_cancelled = False
+        self.resize_min_size = None
+        self.resize_max_size = None
+        self.new_size_value = None
+        self.new_size_scale = None
+        self.username_edited = False
+        self.hostname_edited = False
+        self.previous_partitioning_page = None
+        self.installing = False
+        self.installing_no_return = False
+        self.returncode = 0
 
         self.laptop = ex("laptop-detect")
         self.partition_tree_model = None

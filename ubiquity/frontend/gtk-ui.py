@@ -96,28 +96,28 @@ class Wizard(BaseFrontend):
 
         # declare attributes
         self.gconf_previous = {}
-        self.username_edited = False
-        self.hostname_edited = False
-        self.autopartition_extras = {}
-        self.resize_min_size = None
-        self.resize_max_size = None
-        self.new_size_scale = None
-        self.current_page = None
-        self.progress_position = ubiquity.progressposition.ProgressPosition()
-        self.progress_cancelled = False
-        self.previous_partitioning_page = None
-        self.installing = False
-        self.installing_no_return = False
-        self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
                                    'welcome_text_label', 'release_notes_label',
                                    'release_notes_url', 'step_label',
                                    'cancel', 'back', 'next',
                                    'warning_dialog', 'warning_dialog_label',
                                    'cancelbutton', 'exitbutton')
+        self.current_page = None
         self.allowed_change_step = True
         self.allowed_go_forward = True
+        self.progress_position = ubiquity.progressposition.ProgressPosition()
+        self.progress_cancelled = False
+        self.autopartition_extras = {}
+        self.resize_min_size = None
+        self.resize_max_size = None
+        self.new_size_scale = None
         self.username_combo = None
+        self.username_edited = False
+        self.hostname_edited = False
+        self.previous_partitioning_page = None
+        self.installing = False
+        self.installing_no_return = False
+        self.returncode = 0
 
         self.laptop = ex("laptop-detect")
 
