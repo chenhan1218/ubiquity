@@ -1560,11 +1560,13 @@ exit 0"""
                                    '-fnoninteractive', 'ubiquity'],
                                   stdin=subprocess.PIPE,
                                   stdout=subprocess.PIPE, close_fds=True)
-        dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)
-        dc.set(question, value)
-        dc.fset(question, 'seen', 'true')
-        dccomm.stdin.close()
-        dccomm.wait()
+        try:
+            dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)
+            dc.set(question, value)
+            dc.fset(question, 'seen', 'true')
+        finally:
+            dccomm.stdin.close()
+            dccomm.wait()
 
 
     def reconfigure(self, package):
