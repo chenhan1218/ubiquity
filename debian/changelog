@@ -10,6 +10,7 @@ ubiquity (1.5.0) UNRELEASED; urgency=low
     - Drop X-Ubuntu-Gettext-Domain=ubiquity in the .desktop file for now, to
       work around a bug somewhere that causes the translations in the
       .desktop file to be ignored in that case.
+    - Disable thunar automounting during installation (LP: #107259).
   * Remove the old advanced partitioner.
   * Use code based on shutil.copyfileobj rather than shutil.copyfile to copy
     files, avoiding a couple of unnecessary stats due to os.path.samefile.

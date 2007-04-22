@@ -96,6 +96,7 @@ class Wizard(BaseFrontend):
 
         # declare attributes
         self.gconf_previous = {}
+        self.thunar_previous = {}
         self.language_questions = ('live_installer', 'welcome_heading_label',
                                    'welcome_text_label', 'release_notes_label',
                                    'release_notes_url', 'step_label',
@@ -181,9 +182,41 @@ class Wizard(BaseFrontend):
             sys.exit(1)
 
 
+    def thunar_set_volmanrc (self, fields):
+        previous = {}
+        if 'SUDO_USER' in os.environ:
+            thunar_dir = os.path.expanduser('~%s/.config/Thunar' %
+                                            os.environ['SUDO_USER'])
+        else:
+            thunar_dir = os.path.expanduser('~/.config/Thunar')
+        if os.path.isdir(thunar_dir):
+            import ConfigParser
+            thunar_volmanrc = '%s/volmanrc' % thunar_dir
+            parser = ConfigParser.RawConfigParser()
+            parser.optionxform = str # case-sensitive
+            parser.read(thunar_volmanrc)
+            if not parser.has_section('Configuration'):
+                parser.add_section('Configuration')
+            for key, value in fields.iteritems():
+                if parser.has_option('Configuration', key):
+                    previous[key] = parser.get('Configuration', key)
+                else:
+                    previous[key] = 'TRUE'
+                parser.set('Configuration', key, value)
+            try:
+                thunar_volmanrc_new = open('%s.new' % thunar_volmanrc, 'w')
+                parser.write(thunar_volmanrc_new)
+                thunar_volmanrc_new.close()
+                os.rename('%s.new' % thunar_volmanrc, thunar_volmanrc)
+            except (KeyboardInterrupt, SystemExit):
+                raise
+            except:
+                pass
+        return previous
+
     # Disable gnome-volume-manager automounting to avoid problems during
     # partitioning.
-    def disable_gvm(self):
+    def disable_volume_manager(self):
         gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
         gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
         if 'SUDO_USER' in os.environ:
@@ -205,9 +238,12 @@ class Wizard(BaseFrontend):
                                  '--type', 'bool', 'false'],
                                 preexec_fn=drop_privileges)
 
-        atexit.register(self.enable_gvm)
+        self.thunar_previous = self.thunar_set_volmanrc(
+            {'AutomountDrives': 'FALSE', 'AutomountMedia': 'FALSE'})
 
-    def enable_gvm(self):
+        atexit.register(self.enable_volume_manager)
+
+    def enable_volume_manager(self):
         gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
         gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
         for gconf_key in (gvm_automount_drives, gvm_automount_media):
@@ -219,6 +255,9 @@ class Wizard(BaseFrontend):
                                  '--type', 'bool',
                                  self.gconf_previous[gconf_key]],
                                 preexec_fn=drop_privileges)
+
+        if self.thunar_previous:
+            self.thunar_set_volmanrc(self.thunar_previous)
 
 
     def run(self):
@@ -233,7 +272,7 @@ class Wizard(BaseFrontend):
             dialog.run()
             sys.exit(1)
 
-        self.disable_gvm()
+        self.disable_volume_manager()
 
         # show interface
         got_intro = self.show_intro()
