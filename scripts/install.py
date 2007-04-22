@@ -1079,6 +1079,15 @@ exit 0"""
         except debconf.DebconfError:
             pass
 
+        try:
+            os.unlink('/target/etc/papersize')
+        except OSError:
+            pass
+        try:
+            self.set_debconf('libpaper/defaultpaper', '')
+        except debconf.DebconfError:
+            pass
+
         self.chroot_setup()
         self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
                    '--quiet', '--add', '/usr/sbin/update-initramfs')
@@ -1090,7 +1099,8 @@ exit 0"""
         packages = ['linux-image-' + self.kernel_version,
                     'linux-restricted-modules-' + self.kernel_version,
                     'usplash',
-                    'popularity-contest']
+                    'popularity-contest',
+                    'libpaper1']
 
         try:
             for package in packages:
