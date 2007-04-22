@@ -1296,7 +1296,8 @@ class Wizard(BaseFrontend):
 
         response = self.create_dialog.exec_()
 
-        if response == QDialog.Accepted:
+        if (response == QDialog.Accepted and
+            isinstance(self.dbfilter, partman.Partman)):
             if partition['parted']['type'] == 'primary':
                 prilog = partman.PARTITION_TYPE_PRIMARY
             elif partition['parted']['type'] == 'logical':
@@ -1390,7 +1391,8 @@ class Wizard(BaseFrontend):
 
         response = self.edit_dialog.exec_()
 
-        if response == QDialog.Accepted:
+        if (response == QDialog.Accepted and
+            isinstance(self.dbfilter, partman.Partman)):
             size = None
             if current_size is not None:
                 size = str(self.edit_dialog.partition_edit_size_spinbutton.value())

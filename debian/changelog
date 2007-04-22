@@ -26,6 +26,8 @@ ubiquity (1.5.0) UNRELEASED; urgency=low
   * Create a BaseFrontend class and move various things to it; it now counts
     as a relatively clear specification of what a frontend has to implement.
   * Reorder some frontend methods to follow the ordering of the UI.
+  * Fix crash if partman exits while the create or edit dialog is being
+    displayed (LP: #108204).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Apr 2007 15:21:08 +0100
 

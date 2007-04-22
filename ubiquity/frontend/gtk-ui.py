@@ -1535,7 +1535,8 @@ class Wizard(BaseFrontend):
         response = self.partition_create_dialog.run()
         self.partition_create_dialog.hide()
 
-        if response == gtk.RESPONSE_OK:
+        if (response == gtk.RESPONSE_OK and
+            isinstance(self.dbfilter, partman.Partman)):
             if partition['parted']['type'] == 'primary':
                 prilog = partman.PARTITION_TYPE_PRIMARY
             elif partition['parted']['type'] == 'logical':
@@ -1645,7 +1646,8 @@ class Wizard(BaseFrontend):
         response = self.partition_edit_dialog.run()
         self.partition_edit_dialog.hide()
 
-        if response == gtk.RESPONSE_OK:
+        if (response == gtk.RESPONSE_OK and
+            isinstance(self.dbfilter, partman.Partman)):
             size = None
             if current_size is not None:
                 size = str(self.partition_edit_size_spinbutton.get_value())
