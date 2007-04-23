@@ -32,6 +32,7 @@ ubiquity (1.5.0) UNRELEASED; urgency=low
   * When changing values of debconf questions in /target, make sure to shut
     down debconf-communicate even if the Python debconf confmodule raises an
     exception.
+  * Add an intro message noting that we're alpha again.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Apr 2007 15:21:08 +0100
 
