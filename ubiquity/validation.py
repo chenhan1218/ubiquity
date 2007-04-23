@@ -31,9 +31,6 @@
 # Validation library.
 # Created by Antonio Olmo <aolmo#emergya._info> on 26 jul 2005.
 
-import glob
-from ubiquity.settings import *
-
 HOSTNAME_LENGTH = 1
 HOSTNAME_BADCHAR = 2
 HOSTNAME_BADHYPHEN = 3
