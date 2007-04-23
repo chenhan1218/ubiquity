@@ -6,7 +6,7 @@ import subprocess
 import syslog
 
 
-def ex(*args):
+def execute(*args):
     """runs args* in shell mode. Output status is taken."""
 
     log_args = ['log-output', '-t', 'ubiquity']

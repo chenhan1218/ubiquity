@@ -33,6 +33,7 @@ ubiquity (1.5.0) UNRELEASED; urgency=low
     down debconf-communicate even if the Python debconf confmodule raises an
     exception.
   * Add an intro message noting that we're alpha again.
+  * Rename ubiquity.misc.ex to ubiquity.misc.execute.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Apr 2007 15:21:08 +0100
 

@@ -147,7 +147,7 @@ class Wizard(BaseFrontend):
         self.installing_no_return = False
         self.returncode = 0
 
-        self.laptop = ex("laptop-detect")
+        self.laptop = execute("laptop-detect")
         self.partition_tree_model = None
         self.app.connect(self.userinterface.partition_list_treeview, SIGNAL("customContextMenuRequested(const QPoint&)"), self.partman_popup)
         self.app.connect(self.userinterface.partition_list_treeview, SIGNAL("activated(const QModelIndex&)"), self.on_partition_list_treeview_activated)
@@ -214,7 +214,7 @@ class Wizard(BaseFrontend):
 
     def openURL(self, url):
         #need to run this else kdesu can't run Konqueror
-        ex('su', 'ubuntu', 'xhost', '+localhost')
+        execute('su', 'ubuntu', 'xhost', '+localhost')
         KRun.runURL(KURL(url), "text/html")
 
     def run(self):
@@ -527,7 +527,7 @@ class Wizard(BaseFrontend):
             0, 100, self.get_string('ubiquity/install/title'))
         self.debconf_progress_region(0, 15)
 
-        ex('dcop', 'kded', 'kded', 'unloadModule', 'medianotifier')
+        execute('dcop', 'kded', 'kded', 'unloadModule', 'medianotifier')
 
         dbfilter = partman_commit.PartmanCommit(self)
         if dbfilter.run_command(auto_process=True) != 0:
@@ -537,7 +537,7 @@ class Wizard(BaseFrontend):
             self.return_to_partitioning()
             return
 
-        ex('dcop', 'kded', 'kded', 'loadModule', 'medianotifier')
+        execute('dcop', 'kded', 'kded', 'loadModule', 'medianotifier')
 
         # No return to partitioning from now on
         self.installing_no_return = True
@@ -593,9 +593,9 @@ class Wizard(BaseFrontend):
     def do_reboot(self):
         """Callback for main program to actually reboot the machine."""
 
-        ex('dcop', 'ksmserver', 'ksmserver', 'logout',
-           # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
-           '0', '1', '2')
+        execute('dcop', 'ksmserver', 'ksmserver', 'logout',
+                # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
+                '0', '1', '2')
 
     def quit(self):
         """quit installer cleanly."""

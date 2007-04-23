@@ -120,7 +120,7 @@ class Wizard(BaseFrontend):
         self.installing_no_return = False
         self.returncode = 0
 
-        self.laptop = ex("laptop-detect")
+        self.laptop = execute("laptop-detect")
 
         # set default language
         dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
@@ -671,15 +671,15 @@ class Wizard(BaseFrontend):
 
         if (os.path.exists("/usr/bin/gdm-signal") and
             os.path.exists("/usr/bin/gnome-session-save")):
-            ex("gdm-signal", "--reboot")
+            execute("gdm-signal", "--reboot")
             if 'SUDO_UID' in os.environ:
                 user = '#%d' % int(os.environ['SUDO_UID'])
             else:
                 user = 'ubuntu'
-            ex("sudo", "-u", user, "-H",
-               "gnome-session-save", "--kill", "--silent")
+            execute("sudo", "-u", user, "-H",
+                    "gnome-session-save", "--kill", "--silent")
         else:
-            ex("reboot")
+            execute("reboot")
 
 
     def quit(self):

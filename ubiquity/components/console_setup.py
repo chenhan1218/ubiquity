@@ -187,7 +187,7 @@ class ConsoleSetup(FilteredCommand):
             args.extend(("-variant", variant))
         for option in options:
             args.extend(("-option", option))
-        misc.ex("setxkbmap", *args)
+        misc.execute("setxkbmap", *args)
 
     def cleanup(self):
         # TODO cjwatson 2006-09-07: I'd use dexconf, but it seems reasonable
