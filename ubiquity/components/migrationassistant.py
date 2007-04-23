@@ -58,7 +58,7 @@ class MigrationAssistant(FilteredCommand):
             if question == 'migration-assistant/partitions':
                 from ubiquity.parted_server import PartedServer
                 parted = PartedServer()
-                
+
                 parts = []
                 for disk in parted.disks():
                     parted.select_disk(disk)
@@ -82,10 +82,10 @@ class MigrationAssistant(FilteredCommand):
                 for choice in self.choices(question):
                     if choice[choice.rfind('(')+1:choice.rfind(')')] in parts:
                         ret.append(choice)
-                
+
                 self.preseed(question, ", ".join(ret))
-                
-            
+
+
             # In order to find out what operating systems and users we're
             # dealing with we need to seed all of the questions to step through
             # ma-ask, but we cannot seed user and password with an empty string
@@ -97,7 +97,7 @@ class MigrationAssistant(FilteredCommand):
                 self.preseed(question, 'skip-question')
             else:
                 self.preseed(question, ", ".join(self.choices(question)))
-        
+
 
         elif self.err:
             # As mentioned in error() we are looking for the question
@@ -105,7 +105,7 @@ class MigrationAssistant(FilteredCommand):
             if question.endswith('password'):
                 user = question[:question.rfind('/')]
                 user = user[user.rfind('/')+1:]
-                
+
                 self.frontend.ma_password_error(self.err, user)
                 self.preseed(question, 'skip-question')
                 self.err = ''
@@ -113,7 +113,7 @@ class MigrationAssistant(FilteredCommand):
             elif question.endswith('user'):
                 user = question[:question.rfind('/')]
                 user = user[user.rfind('/')+1:]
-                
+
                 self.frontend.ma_user_error(self.err, user)
                 self.preseed(question, 'skip-question')
                 self.err = ''
@@ -132,7 +132,7 @@ class MigrationAssistant(FilteredCommand):
             self.frontend.allow_go_forward(True)
             self.enter_ui_loop()
             return
-        
+
         # First run
         tree = []
         systems = self.db.get('migration-assistant/partitions')
@@ -142,7 +142,7 @@ class MigrationAssistant(FilteredCommand):
                 for os in systems:
                     part = os[os.rfind('/')+1:-1] # hda1
                     os = os[:os.rfind('(')-1]
-                    
+
                     users = self.db.get('migration-assistant/' + part + '/users')
                     if not users:
                         continue
@@ -179,7 +179,6 @@ class MigrationAssistant(FilteredCommand):
         self.enter_ui_loop()
 
     def ok_handler(self):
-        
         choices, new_users = self.frontend.ma_get_choices()
         users = {}
 
@@ -222,12 +221,12 @@ class MigrationAssistant(FilteredCommand):
                              escape=True)
             except KeyError:
                 self.preseed(question + 'password-again', '')
-        
+
         self.errors = None
         FilteredCommand.ok_handler(self)
         self.db.shutdown()
         self.run_command()
-        
+
     def error(self, priority, question):
         # Because we have already seeded the questions and thus will not see
         # them in run() we have to hold onto the error until the next question

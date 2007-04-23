@@ -174,7 +174,7 @@ class Wizard(BaseFrontend):
         self.autopartition_extras = {}
         self.autopartition_extra_buttongroup = {}
         self.autopartition_extra_buttongroup_texts = {}
-        
+
         self.partition_bar_vbox = QVBoxLayout(self.userinterface.partition_bar_frame)
         self.partition_bar_vbox.setSpacing(0)
         self.partition_bar_vbox.setMargin(0)
@@ -1088,7 +1088,7 @@ class Wizard(BaseFrontend):
             self.autopartition_buttongroup.addButton(button, idCounter)
             id = self.autopartition_buttongroup.id(button)
 
-            #Qt changes the string by adding accelarators, 
+            #Qt changes the string by adding accelarators,
             #so keep pristine string here as is returned later to partman
             self.autopartition_buttongroup_texts[id] = choice
             if firstbutton is None:
@@ -1790,7 +1790,7 @@ class Wizard(BaseFrontend):
         else:
             text = '%d%%' % value
         self.new_size_value.setText(text)
- 
+
     def quit(self):
         """quit installer cleanly."""
 

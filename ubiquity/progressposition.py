@@ -48,7 +48,7 @@ class ProgressPosition(object):
 
     def get_region(self):
         """Returns the current region in the innermost progress bar.
-        
+
         This method returns the current region as a (start, end) tuple.
         """
         return (self.positions[0][2], self.positions[0][3])

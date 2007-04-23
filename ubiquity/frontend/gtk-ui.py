@@ -758,7 +758,7 @@ class Wizard(BaseFrontend):
             self.username_error_box.hide()
             self.password_error_box.hide()
             self.hostname_error_box.hide()
-        
+
         if step == "stepMigrationAssistant":
             for u in self.ma_new_users.iterkeys():
                 self.ma_new_users[u]['password-error'] = ''
@@ -833,7 +833,7 @@ class Wizard(BaseFrontend):
                 self.set_current_page(self.steps.page_num(self.stepUserInfo))
             else:
                 self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
-        # Migration Assistant           
+        # Migration Assistant
         elif step == "stepMigrationAssistant":
             self.steps.next_page()
             self.ma_configure_usersetup()
@@ -1907,7 +1907,7 @@ class Wizard(BaseFrontend):
             new_username = new_username.encode('ascii', 'ascii_transliterate')
             new_username = new_username.lower()
             self.ma_loginname.child.set_text(new_username)
-    
+
     def ma_configure_usersetup(self):
 
         def selection_changed(sender):
@@ -1916,7 +1916,7 @@ class Wizard(BaseFrontend):
                 self.fullname.set_text(user['fullname'])
                 self.password.set_text(user['password'])
                 self.verified_password.set_text(user['confirm'])
-        
+
         def focus_out(sender, event):
             user = self.username.get_text()
             if user in self.ma_new_users.keys():
@@ -1940,7 +1940,7 @@ class Wizard(BaseFrontend):
         for k in self.ma_new_users.iterkeys():
             if k != '-':
                 model.append([k])
-        
+
         self.username = self.username_combo.child
         self.username.set_width_chars(20)
         self.username.set_name('username')
@@ -1952,7 +1952,7 @@ class Wizard(BaseFrontend):
         self.username_hbox.pack_start(self.username_combo, False, False, 0)
         self.username_hbox.reorder_child(self.username_combo, 0)
         self.username_combo.show_all()
-        
+
     def ma_user_error(self, error, user):
         # Note that 'user' is the original user.
         model = self.matreeview.get_model()
@@ -1962,7 +1962,7 @@ class Wizard(BaseFrontend):
             if user == val['user']:
                 newuser = val['newuser']
                 self.ma_new_users[newuser]['loginname-error'] = error
-                
+
                 # selection_changed only gets emitted if the selection actually
                 # changes.  So we only change the selection if we need to,
                 # otherwise we just call update_selection directly.
@@ -1982,7 +1982,7 @@ class Wizard(BaseFrontend):
             val = model.get_value(iterator, 1)
             if user == val['newuser']:
                 self.ma_new_users[user]['password-error'] = error
-                
+
                 selection = self.matreeview.get_selection()
                 if selection.iter_is_selected(iterator):
                     self.ma_update_selection()
@@ -2055,7 +2055,7 @@ class Wizard(BaseFrontend):
                 val = self.ma_new_users[newuser]
                 val['loginname-error'] = ''
                 val['password-error'] = ''
-            
+
             m.get_value(i, 1)['newuser'] = newuser
 
             # Clear out any unused new users.
@@ -2101,7 +2101,7 @@ class Wizard(BaseFrontend):
                 self.ma_loginname.child.set_text('')
             else:
                 self.ma_loginname.child.set_text(newuser)
-            
+
             self.ma_fullname.set_text(val['fullname'])
             self.ma_password.set_text(val['password'])
             self.ma_confirm.set_text(val['confirm'])
@@ -2130,12 +2130,12 @@ class Wizard(BaseFrontend):
             return
         if model.iter_parent(iterator):
             iterator = model.iter_parent(iterator)
-        
+
         if model.get_value(iterator, 0):
             self.ma_userinfo.set_sensitive(True)
         else:
             self.ma_userinfo.set_sensitive(False)
-        
+
         self.ma_previous_selection = selection.get_selected()
         self.ma_update_selection()
 
@@ -2147,7 +2147,7 @@ class Wizard(BaseFrontend):
             self.ma_password.set_text(val['password'])
             self.ma_confirm.set_text(val['confirm'])
 
-        
+
     def ma_set_choices(self, choices):
 
         def cell_data_func(column, cell, model, iterator):
@@ -2196,9 +2196,9 @@ class Wizard(BaseFrontend):
                 for item in choice['items']:
                     treestore.append(piter, [False, item])
                 choice['items'] = []
-            
+
             self.matreeview.set_model(treestore)
-            
+
             renderer = gtk.CellRendererToggle()
             renderer.connect('toggled', self.ma_cb_toggle, treestore)
             column = gtk.TreeViewColumn('boolean', renderer, active=0)

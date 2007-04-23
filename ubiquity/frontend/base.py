@@ -25,7 +25,7 @@ from ubiquity import i18n
 
 class BaseFrontend:
     """Abstract ubiquity frontend.
-    
+
     This class consists partly of facilities shared among frontends, and
     partly of documentation of what methods a frontend must implement. A
     frontend must implement all methods whose bodies are declared using
@@ -74,7 +74,7 @@ class BaseFrontend:
 
     def debconffilter_done(self, dbfilter):
         """Called when an asynchronous debconffiltered command exits.
-        
+
         Returns True if the exiting command is self.dbfilter; frontend
         implementations may wish to do something special (such as exiting
         their main loop) in this case."""
