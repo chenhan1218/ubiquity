@@ -56,19 +56,4 @@ def drop_privileges():
         os.setreuid(uid, uid)
 
 
-def will_be_installed(pkg):
-    try:
-        manifest = open('/cdrom/casper/filesystem.manifest-desktop')
-        try:
-            for line in manifest:
-                if line.strip() == '' or line.startswith('#'):
-                    continue
-                if line.split()[0] == pkg:
-                    return True
-        finally:
-            manifest.close()
-    except IOError:
-        return True
-
-
 # vim:ai:et:sts=4:tw=80:sw=4:

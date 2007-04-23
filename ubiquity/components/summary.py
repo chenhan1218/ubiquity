@@ -20,7 +20,20 @@
 import os
 import textwrap
 from ubiquity.components.partman_commit import PartmanCommit
-from ubiquity.misc import will_be_installed
+
+def will_be_installed(pkg):
+    try:
+        manifest = open('/cdrom/casper/filesystem.manifest-desktop')
+        try:
+            for line in manifest:
+                if line.strip() == '' or line.startswith('#'):
+                    continue
+                if line.split()[0] == pkg:
+                    return True
+        finally:
+            manifest.close()
+    except IOError:
+        return True
 
 class Summary(PartmanCommit):
     def __init__(self, frontend):
