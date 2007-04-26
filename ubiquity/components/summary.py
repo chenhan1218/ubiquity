@@ -19,7 +19,7 @@
 
 import os
 import textwrap
-from ubiquity.components.partman_commit import PartmanCommit
+from ubiquity.filteredcommand import FilteredCommand
 
 def will_be_installed(pkg):
     try:
@@ -35,15 +35,12 @@ def will_be_installed(pkg):
     except IOError:
         return True
 
-class Summary(PartmanCommit):
+class Summary(FilteredCommand):
     def __init__(self, frontend):
-        PartmanCommit.__init__(self, frontend, True)
+        FilteredCommand.__init__(self, frontend)
 
     def prepare(self):
-        prep = list(PartmanCommit.prepare(self))
-        prep[0] = '/usr/share/ubiquity/summary'
-        prep[1].append('^ubiquity/summary.*')
-        return prep
+        return ('/usr/share/ubiquity/summary', '^ubiquity/summary.*')
 
     def run(self, priority, question):
         if question == 'ubiquity/summary':
@@ -73,6 +70,3 @@ class Summary(PartmanCommit):
             # This component exists only to gather some information and then
             # get out of the way.
             return True
-
-        else:
-            return PartmanCommit.run(self, priority, question)

@@ -22,9 +22,8 @@ from ubiquity.filteredcommand import FilteredCommand
 from ubiquity.parted_server import PartedServer
 
 class PartmanCommit(FilteredCommand):
-    def __init__(self, frontend=None, get_summary=False):
+    def __init__(self, frontend=None):
         FilteredCommand.__init__(self, frontend)
-        self.get_summary = get_summary
 
     def prepare(self):
         questions = ['^partman/confirm.*',
@@ -51,14 +50,7 @@ class PartmanCommit(FilteredCommand):
                 self.db.set('ubiquity/partman-made-changes', 'true')
             else:
                 self.db.set('ubiquity/partman-made-changes', 'false')
-            # If we're being run to get the partitioning summary, then stop
-            # here.
-            if self.get_summary:
-                self.preseed(question, 'false')
-                self.succeeded = False
-                self.done = True
-            else:
-                self.preseed(question, 'true')
+            self.preseed(question, 'true')
             return True
 
         elif question_type(question) == 'boolean':
