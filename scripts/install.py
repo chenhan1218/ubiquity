@@ -558,7 +558,7 @@ class Install:
                          '/var/log/installer/version'):
             target_log_file = os.path.join(target_dir,
                                            os.path.basename(log_file))
-            if not misc.ex('cp', '-a', log_file, target_log_file):
+            if not misc.execute('cp', '-a', log_file, target_log_file):
                 syslog.syslog(syslog.LOG_ERR,
                               'Failed to copy installation log file')
             os.chmod(target_log_file, stat.S_IRUSR | stat.S_IWUSR)
@@ -613,12 +613,12 @@ class Install:
         if dev == '':
             raise InstallStepError("No loop device available for %s" % fsfile)
 
-        misc.ex('losetup', dev, fsfile)
+        misc.execute('losetup', dev, fsfile)
         if mountpoint is None:
             mountpoint = '/var/lib/ubiquity/%s' % sysloop
         if not os.path.isdir(mountpoint):
             os.mkdir(mountpoint)
-        misc.ex('mount', dev, mountpoint)
+        misc.execute('mount', dev, mountpoint)
 
         return (dev, mountpoint)
 
@@ -640,7 +640,7 @@ class Install:
             for line in mounts:
                 (device, fstype) = line.split()[1:3]
                 if fstype == 'squashfs' and os.path.exists(device):
-                    misc.ex('mount', '--bind', device, self.source)
+                    misc.execute('mount', '--bind', device, self.source)
                     self.mountpoints.append(self.source)
                     mounts.close()
                     return
@@ -681,9 +681,9 @@ class Install:
             assert self.devs
             assert self.mountpoints
 
-            misc.ex('mount', '-t', 'unionfs', '-o',
-                    'dirs=' + map(lambda x: '%s=ro' % x, self.mountpoints),
-                    'unionfs', self.source)
+            misc.execute('mount', '-t', 'unionfs', '-o',
+                         'dirs=' + map(lambda x: '%s=ro' % x, self.mountpoints),
+                         'unionfs', self.source)
             self.mountpoints.append(self.source)
 
     def umount_source(self):
@@ -695,10 +695,10 @@ class Install:
         mountpoints.reverse()
 
         for mountpoint in mountpoints:
-            if not misc.ex('umount', mountpoint):
+            if not misc.execute('umount', mountpoint):
                 raise InstallStepError("Failed to unmount %s" % mountpoint)
         for dev in devs:
-            if dev != '' and not misc.ex('losetup', '-d', dev):
+            if dev != '' and not misc.execute('losetup', '-d', dev):
                 raise InstallStepError(
                     "Failed to detach loopback device %s" % dev)
 
@@ -1035,8 +1035,8 @@ exit 0"""
 
         self.db.progress('INFO', 'ubiquity/install/hardware')
 
-        misc.ex('/usr/lib/ubiquity/debian-installer-utils'
-                '/register-module.post-base-installer')
+        misc.execute('/usr/lib/ubiquity/debian-installer-utils'
+                     '/register-module.post-base-installer')
 
         resume = self.get_resume_partition()
         if resume is not None:
@@ -1284,8 +1284,8 @@ exit 0"""
         """configuring and installing boot loader into installed
         hardware system."""
 
-        misc.ex('mount', '--bind', '/proc', self.target + '/proc')
-        misc.ex('mount', '--bind', '/dev', self.target + '/dev')
+        misc.execute('mount', '--bind', '/proc', self.target + '/proc')
+        misc.execute('mount', '--bind', '/dev', self.target + '/dev')
 
         archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
         subarch = archdetect.communicate()[0].strip()
@@ -1317,8 +1317,8 @@ exit 0"""
         except ImportError:
             raise InstallStepError("No bootloader installer found")
 
-        misc.ex('umount', '-f', self.target + '/proc')
-        misc.ex('umount', '-f', self.target + '/dev')
+        misc.execute('umount', '-f', self.target + '/proc')
+        misc.execute('umount', '-f', self.target + '/dev')
 
 
     def broken_packages(self, cache):
@@ -1535,7 +1535,7 @@ exit 0"""
 
     def chrex(self, *args):
         """executes commands on chroot system (provided by *args)."""
-        return misc.ex('chroot', self.target, *args)
+        return misc.execute('chroot', self.target, *args)
 
 
     def copy_debconf(self, package):
@@ -1547,9 +1547,9 @@ exit 0"""
         # preseeding in general, though.
         targetdb = os.path.join(self.target, 'var/cache/debconf/config.dat')
 
-        misc.ex('debconf-copydb', 'configdb', 'targetdb', '-p',
-                '^%s/' % package, '--config=Name:targetdb',
-                '--config=Driver:File','--config=Filename:' + targetdb)
+        misc.execute('debconf-copydb', 'configdb', 'targetdb', '-p',
+                     '^%s/' % package, '--config=Name:targetdb',
+                     '--config=Driver:File','--config=Filename:' + targetdb)
 
 
     def set_debconf(self, question, value):
