@@ -17,6 +17,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import sys
 import os
 import datetime
 import gettext
@@ -83,6 +84,15 @@ class Frontend:
 
     def run(self):
         self.oem_config.show()
+
+        if os.getuid() != 0:
+            title = ('This program must be run with administrative '
+                     'privileges, and cannot continue without them.')
+            dialog = gtk.MessageDialog(self.oem_config, gtk.DIALOG_MODAL,
+                                       gtk.MESSAGE_ERROR, gtk.BUTTONS_CLOSE,
+                                       title)
+            dialog.run()
+            sys.exit(1)
 
         self.glade.signal_autoconnect(self)
 

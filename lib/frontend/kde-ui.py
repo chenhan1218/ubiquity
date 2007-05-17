@@ -90,6 +90,13 @@ class Frontend:
     def run(self):
         global WIDGET_STACK_STEPS, WIDGET_STACK_MAX_STEPS
 
+        if os.getuid() != 0:
+            title = ('This installer must be run with administrative '
+                     'privileges, and cannot continue without them.')
+            result = QMessageBox.critical(self.userinterface, "Must be root",
+                                          title)
+            sys.exit(1)
+
         self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
 
         #Signals and Slots
