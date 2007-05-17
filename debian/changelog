@@ -1,4 +1,4 @@
-oem-config (1.14) UNRELEASED; urgency=low
+oem-config (1.14) gutsy; urgency=low
 
   * Add an apport hook to attach /var/log/oem-config.log.
   * Strip binaries.
@@ -15,7 +15,7 @@ oem-config (1.14) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup 1.15ubuntu1,
     localechooser 1.38ubuntu1, tzsetup 1:0.17, user-setup 1.14ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu,  5 Apr 2007 11:50:43 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 17 May 2007 11:43:03 +0100
 
 oem-config (1.13) feisty; urgency=low
 
