@@ -221,10 +221,11 @@ class Wizard(BaseFrontend):
         """run the interface."""
 
         if os.getuid() != 0:
-                title = ('This installer must be run with administrative privileges, and cannot continue without them.')
-                result = QMessageBox.critical(self.userinterface, "Must be root", title)
-
-                sys.exit(1)
+            title = ('This installer must be run with administrative '
+                     'privileges, and cannot continue without them.')
+            result = QMessageBox.critical(self.userinterface, "Must be root",
+                                          title)
+            sys.exit(1)
 
         # show interface
         # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
