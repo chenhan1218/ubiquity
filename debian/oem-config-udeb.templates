@@ -15,8 +15,8 @@ _Description: Ready for end-user configuration
  administrative privileges using 'sudo'. You will then be able to make any
  additional modifications you require to the system.
  .
- Once the system is configured to your satisfaction, run 'sudo
- oem-config-prepare'. This will cause the system to delete the temporary
+ Once the system is configured to your satisfaction, run
+ 'oem-config-prepare'. This will cause the system to delete the temporary
  'oem' user and ask the end user various configuration questions the next
  time it boots.
 

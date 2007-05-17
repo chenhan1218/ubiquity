@@ -1,6 +1,32 @@
 #! /bin/sh
 set -e
 
+if [ "$(id -u)" = 0 ]; then
+	# no privilege escalation required
+	:
+else
+	# Try to detect which frontend will be used by looking for a
+	# frontend module.
+	frontend=
+	for f in gtk-ui kde-ui; do
+		if [ -f "/usr/lib/oem-config/oem_config/frontend/$f.py" ]; then
+			frontend="$f"
+			break
+		fi
+	done
+	case $frontend in
+		gtk-ui)
+			exec gksudo --desktop /usr/share/applications/oem-config-prepare.desktop -- "$0" "$@"
+			;;
+		kde-ui)
+			exec kdesu --nonewdcop -- "$0" "$@"
+			;;
+		*)
+			exec sudo "$0" "$@"
+			;;
+	esac
+fi
+
 update-rc.d oem-config start 12 2 3 4 5 .
 
 echo "oem-config will run the next time the system boots."

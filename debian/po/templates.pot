@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2006-07-07 14:52+0100\n"
+"POT-Creation-Date: 2007-05-17 10:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,26 +18,26 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../oem-config-udeb.templates:3
+#: ../oem-config-udeb.templates:1001
 msgid "Prepare for end-user configuration"
 msgstr ""
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
-#: ../oem-config-udeb.templates:8
+#: ../oem-config-udeb.templates:2001
 msgid "Preparing for end-user configuration..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../oem-config-udeb.templates:12
+#: ../oem-config-udeb.templates:3001
 msgid "Ready for end-user configuration"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../oem-config-udeb.templates:12
+#: ../oem-config-udeb.templates:3001
 msgid ""
 "When you boot into the new system, you will be able to log in as the 'oem' "
 "user with the password you selected earlier; this user also has "
@@ -47,9 +47,9 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../oem-config-udeb.templates:12
+#: ../oem-config-udeb.templates:3001
 msgid ""
-"Once the system is configured to your satisfaction, run 'sudo oem-config-"
+"Once the system is configured to your satisfaction, run 'oem-config-"
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""

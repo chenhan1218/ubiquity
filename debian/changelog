@@ -6,6 +6,9 @@ oem-config (1.14) UNRELEASED; urgency=low
     oem-config; suggest oem-config-prepare (LP: #105940).
   * Update Japanese keyboard layout handling to match console-setup
     1.7ubuntu18, which uses jp(latin),jp by default (LP: #63915).
+  * Teach oem-config-prepare to escalate privileges itself using gksudo,
+    kdesu, etc. as appropriate, rather than requiring it to be invoked using
+    sudo.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  5 Apr 2007 11:50:43 +0100
 
