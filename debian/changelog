@@ -9,6 +9,8 @@ oem-config (1.14) UNRELEASED; urgency=low
   * Teach oem-config-prepare to escalate privileges itself using gksudo,
     kdesu, etc. as appropriate, rather than requiring it to be invoked using
     sudo.
+  * Add a desktop icon to the oem user's desktop to run oem-config-prepare
+    (LP: #41698).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  5 Apr 2007 11:50:43 +0100
 
