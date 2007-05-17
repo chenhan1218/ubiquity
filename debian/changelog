@@ -12,6 +12,8 @@ oem-config (1.14) UNRELEASED; urgency=low
   * Add a desktop icon to the oem user's desktop to run oem-config-prepare
     (LP: #41698).
   * Display an error dialog and exit if running as non-root (LP: #99211).
+  * Automatic update of included source packages: console-setup 1.15ubuntu1,
+    localechooser 1.38ubuntu1, tzsetup 1:0.17, user-setup 1.14ubuntu1.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu,  5 Apr 2007 11:50:43 +0100
 
