@@ -3,6 +3,7 @@ oem-config (1.15) UNRELEASED; urgency=low
   * Add an oem-config-check udeb to set an "OEM mode (for manufacturers
     only)" info message. OEM mode should now be enabled using
     oem-config/enable=true.
+  * Multiply menu-item-numbers by 100.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 18 May 2007 17:10:57 +0100
 

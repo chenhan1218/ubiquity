@@ -63,5 +63,5 @@ XC-Package-Type: udeb
 Section: debian-installer
 Architecture: all
 Depends: oem-config-check, cdebconf-udeb
-XB-Installer-Menu-Item: 28
+XB-Installer-Menu-Item: 2800
 Description: Prepare for end-user configuration after initial installation
