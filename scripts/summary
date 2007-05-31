@@ -30,31 +30,23 @@ IFS='
 partitions="$(echo "$RET" | sed -e 's/, /\n/g')"
 for choice in $partitions; # Microsoft Windows XP Professional (/dev/hda1)
 do
-	ret="$ret$choice:$newline"
 	part="$(expr match "$choice" '.*/\(.*\))$')" # hda1
-	
 	db_get "migration-assistant/$part/users"
-	if [ -z "$RET" ]; then
-		ret="${ret}None$newline"
-	fi
+	[ "$RET" ] || continue
+
+	ret="$ret$choice:$newline"
 	users="$(echo "$RET" | sed -e 's/, /\n/g')"
 	for user in $users; do
-		ret="$ret$user: "
+		ret="$ret $user: "
 		formatted_user="$(echo "$user" | sed -e 's/ /:/g')"
 		db_get "migration-assistant/$part/$formatted_user/items"
 		ret="$ret$RET$newline"
 	done
-	ret="$ret$newline"
 done
 IFS="$OLD_IFS"
-db_subst ubiquity/summary MIGRATE "${ret%$newline}"
+db_subst ubiquity/summary MIGRATE \
+	"$(printf %s "${ret%$newline}" | debconf-escape -e)"
 db_capb
-
-# We need to run this to get hold of the partitioning summary. Our component
-# takes care of ensuring that changes are not actually committed.
-if [ "$PARTMAN_UPDATE_BEFORE_COMMIT" ]; then
-	partman-commit || true
-fi
 
 db_capb escape
 db_get ubiquity/partman-made-changes

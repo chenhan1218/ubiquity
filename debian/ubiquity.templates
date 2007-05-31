@@ -166,39 +166,6 @@ _Description:
  with a minimum size of 2 GB, and a swap partition of at least 256 MB. You
  may also set up other partitions if you wish.
 
-Template: ubiquity/text/part_mountpoints_heading_label
-Type: text
-_Description: Prepare mount points
-
-Template: ubiquity/text/mount_help
-Type: text
-_Description:
- Select which partitions you want to use for your new installation, and
- where you want to mount each of them.
- .
- You must mount one partition on the root file system ("/"), and you must
- choose at least one partition for use as swap space.
-
-Template: ubiquity/text/mountpoint_label
-Type: text
-_Description: Mount Point
-
-Template: ubiquity/text/size_label
-Type: text
-_Description: Size
-
-Template: ubiquity/text/device_label
-Type: text
-_Description: Partition
-
-Template: ubiquity/text/format_label
-Type: text
-_Description: Reformat?
-
-Template: ubiquity/text/mountpoint_error_reason
-Type: text
-_Description: You must supply a root ("/") mount point.
-
 Template: ubiquity/text/ready_heading_label
 Type: text
 _Description: Ready to install

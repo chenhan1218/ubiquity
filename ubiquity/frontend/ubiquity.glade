@@ -747,19 +747,8 @@ Please choose the language used for the installation process. This language will
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkAlignment" id="embedded">
-                            <property name="visible">True</property>
-                            <child>
-                              <placeholder/>
-                            </child>
-                          </widget>
-                          <packing>
-                            <property name="padding">6</property>
-                            <property name="position">2</property>
-                          </packing>
-                        </child>
-                        <child>
                           <widget class="GtkVBox" id="part_advanced_vbox">
+                            <property name="visible">True</property>
                             <child>
                               <widget class="GtkScrolledWindow" id="scrolledwindow7">
                                 <property name="visible">True</property>
@@ -797,7 +786,7 @@ Please choose the language used for the installation process. This language will
                           </widget>
                           <packing>
                             <property name="padding">6</property>
-                            <property name="position">3</property>
+                            <property name="position">2</property>
                           </packing>
                         </child>
                         <child>
@@ -814,7 +803,7 @@ Please choose the language used for the installation process. This language will
                           <packing>
                             <property name="expand">False</property>
                             <property name="padding">6</property>
-                            <property name="position">4</property>
+                            <property name="position">3</property>
                           </packing>
                         </child>
                       </widget>
@@ -831,197 +820,6 @@ Please choose the language used for the installation process. This language will
                       <packing>
                         <property name="type">tab</property>
                         <property name="position">6</property>
-                        <property name="tab_expand">False</property>
-                        <property name="tab_fill">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="GtkVBox" id="stepPartMountpoints">
-                        <property name="visible">True</property>
-                        <property name="border_width">6</property>
-                        <child>
-                          <widget class="GtkLabel" id="part_mountpoints_heading_label">
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="xalign">0</property>
-                            <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Prepare mount points&lt;/b&gt;&lt;/big&gt;</property>
-                            <property name="use_markup">True</property>
-                            <property name="selectable">True</property>
-                          </widget>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="GtkHSeparator" id="hseparator8">
-                            <property name="visible">True</property>
-                          </widget>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="padding">6</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="GtkLabel" id="mount_help">
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="xalign">0</property>
-                            <property name="ypad">6</property>
-                            <property name="label" translatable="yes">Select which partitions you want to use for your new installation, and where you want to mount each of them.
-
-You must mount one partition on the root file system ("/"), and you must choose at least one partition for use as swap space.</property>
-                            <property name="wrap">True</property>
-                            <property name="selectable">True</property>
-                          </widget>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="padding">6</property>
-                            <property name="position">2</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="GtkAlignment" id="alignment16">
-                            <property name="visible">True</property>
-                            <property name="xalign">0</property>
-                            <property name="top_padding">6</property>
-                            <property name="left_padding">6</property>
-                            <child>
-                              <widget class="GtkScrolledWindow" id="scrolledwindow7">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="hscrollbar_policy">GTK_POLICY_NEVER</property>
-                                <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-                                <child>
-                                  <widget class="GtkViewport" id="viewport2">
-                                    <property name="visible">True</property>
-                                    <property name="shadow_type">GTK_SHADOW_NONE</property>
-                                    <child>
-                                      <widget class="GtkTable" id="mountpoint_table">
-                                        <property name="visible">True</property>
-                                        <property name="n_rows">1</property>
-                                        <property name="n_columns">4</property>
-                                        <property name="column_spacing">6</property>
-                                        <property name="row_spacing">6</property>
-                                        <child>
-                                          <widget class="GtkLabel" id="mountpoint_label">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="label" translatable="yes">&lt;b&gt;Mount Point&lt;/b&gt;</property>
-                                            <property name="use_markup">True</property>
-                                            <property name="selectable">True</property>
-                                            <property name="single_line_mode">True</property>
-                                          </widget>
-                                          <packing>
-                                            <property name="y_options"></property>
-                                          </packing>
-                                        </child>
-                                        <child>
-                                          <widget class="GtkLabel" id="size_label">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="label" translatable="yes">&lt;b&gt;Size&lt;/b&gt;</property>
-                                            <property name="use_markup">True</property>
-                                            <property name="selectable">True</property>
-                                            <property name="single_line_mode">True</property>
-                                          </widget>
-                                          <packing>
-                                            <property name="left_attach">1</property>
-                                            <property name="right_attach">2</property>
-                                            <property name="y_options"></property>
-                                          </packing>
-                                        </child>
-                                        <child>
-                                          <widget class="GtkLabel" id="device_label">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="label" translatable="yes">&lt;b&gt;Partition&lt;/b&gt;</property>
-                                            <property name="use_markup">True</property>
-                                            <property name="selectable">True</property>
-                                            <property name="single_line_mode">True</property>
-                                          </widget>
-                                          <packing>
-                                            <property name="left_attach">2</property>
-                                            <property name="right_attach">3</property>
-                                            <property name="y_options"></property>
-                                          </packing>
-                                        </child>
-                                        <child>
-                                          <widget class="GtkLabel" id="format_label">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="label" translatable="yes">&lt;b&gt;Reformat?&lt;/b&gt;</property>
-                                            <property name="use_markup">True</property>
-                                            <property name="selectable">True</property>
-                                            <property name="single_line_mode">True</property>
-                                          </widget>
-                                          <packing>
-                                            <property name="left_attach">3</property>
-                                            <property name="right_attach">4</property>
-                                            <property name="y_options"></property>
-                                          </packing>
-                                        </child>
-                                      </widget>
-                                    </child>
-                                  </widget>
-                                </child>
-                              </widget>
-                            </child>
-                          </widget>
-                          <packing>
-                            <property name="position">3</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="GtkHBox" id="hbox26">
-                            <property name="visible">True</property>
-                            <child>
-                              <widget class="GtkImage" id="mountpoint_error_image">
-                                <property name="xpad">10</property>
-                                <property name="icon_size">6</property>
-                                <property name="icon_name">gtk-dialog-warning</property>
-                              </widget>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">False</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="GtkLabel" id="mountpoint_error_reason">
-                                <property name="can_focus">True</property>
-                                <property name="label" translatable="yes">You must supply a root ("/") mount point.</property>
-                                <property name="use_markup">True</property>
-                                <property name="wrap">True</property>
-                                <property name="selectable">True</property>
-                              </widget>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">False</property>
-                                <property name="position">1</property>
-                              </packing>
-                            </child>
-                          </widget>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="position">4</property>
-                          </packing>
-                        </child>
-                      </widget>
-                      <packing>
-                        <property name="position">7</property>
-                        <property name="tab_expand">False</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="GtkLabel" id="label-5-3">
-                        <property name="visible">True</property>
-                        <property name="label" translatable="yes">5-3</property>
-                      </widget>
-                      <packing>
-                        <property name="type">tab</property>
-                        <property name="position">7</property>
                         <property name="tab_expand">False</property>
                         <property name="tab_fill">False</property>
                       </packing>
@@ -1144,6 +942,7 @@ If you do not wish to import any accounts, select nothing and go to the next pag
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="visibility">False</property>
+                                    <property name="activates_default">True</property>
                                   </widget>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1159,6 +958,7 @@ If you do not wish to import any accounts, select nothing and go to the next pag
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="visibility">False</property>
+                                    <property name="activates_default">True</property>
                                   </widget>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1173,6 +973,7 @@ If you do not wish to import any accounts, select nothing and go to the next pag
                                   <widget class="GtkEntry" id="ma_fullname">
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="activates_default">True</property>
                                     <signal name="changed" handler="ma_info_loop"/>
                                   </widget>
                                   <packing>
@@ -1321,6 +1122,7 @@ If you do not wish to import any accounts, select nothing and go to the next pag
                                     <child internal-child="entry">
                                       <widget class="GtkEntry" id="comboboxentry-entry1">
                                         <property name="visible">True</property>
+                                        <property name="activates_default">True</property>
                                       </widget>
                                     </child>
                                   </widget>

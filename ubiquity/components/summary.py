@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-# Copyright (C) 2006 Canonical Ltd.
+# Copyright (C) 2006, 2007 Canonical Ltd.
 # Written by Colin Watson <cjwatson@ubuntu.com>.
 #
 # This program is free software; you can redistribute it and/or modify
@@ -19,18 +19,28 @@
 
 import os
 import textwrap
-from ubiquity.components.partman_commit import PartmanCommit
-from ubiquity.misc import will_be_installed
+from ubiquity.filteredcommand import FilteredCommand
 
-class Summary(PartmanCommit):
-    def __init__(self, frontend, manual_partitioning=False):
-        PartmanCommit.__init__(self, frontend, manual_partitioning, True)
+def will_be_installed(pkg):
+    try:
+        manifest = open('/cdrom/casper/filesystem.manifest-desktop')
+        try:
+            for line in manifest:
+                if line.strip() == '' or line.startswith('#'):
+                    continue
+                if line.split()[0] == pkg:
+                    return True
+        finally:
+            manifest.close()
+    except IOError:
+        return True
+
+class Summary(FilteredCommand):
+    def __init__(self, frontend):
+        FilteredCommand.__init__(self, frontend)
 
     def prepare(self):
-        prep = list(PartmanCommit.prepare(self))
-        prep[0] = '/usr/share/ubiquity/summary'
-        prep[1].append('^ubiquity/summary.*')
-        return prep
+        return ('/usr/share/ubiquity/summary', '^ubiquity/summary.*')
 
     def run(self, priority, question):
         if question == 'ubiquity/summary':
@@ -60,6 +70,3 @@ class Summary(PartmanCommit):
             # This component exists only to gather some information and then
             # get out of the way.
             return True
-
-        else:
-            return PartmanCommit.run(self, priority, question)

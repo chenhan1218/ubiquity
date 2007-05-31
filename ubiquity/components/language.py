@@ -22,7 +22,7 @@ import re
 import locale
 
 from ubiquity.filteredcommand import FilteredCommand
-from ubiquity import misc
+from ubiquity import i18n
 
 class Language(FilteredCommand):
     def prepare(self):
@@ -111,7 +111,7 @@ class Language(FilteredCommand):
 
     def cleanup(self):
         di_locale = self.db.get('debian-installer/locale')
-        if di_locale not in misc.get_supported_locales():
+        if di_locale not in i18n.get_supported_locales():
             di_locale = self.db.get('debian-installer/fallbacklocale')
         if di_locale != self.frontend.locale:
             self.frontend.locale = di_locale

@@ -1,3 +1,3 @@
 #!/usr/bin/python
 
-__all__ = ['misc', 'validation', 'settings', 'tz']
+__all__ = ['i18n', 'misc', 'validation', 'tz']

@@ -1,9 +1,59 @@
-ubiquity (1.4.11) UNRELEASED; urgency=low
+ubiquity (1.5.0) gutsy; urgency=low
 
-  * Prevent mounted volumes icons from appearing on the desktop. (LP:
-    #105531)
+  * Fix escaping of migration-assistant summary.
+  * Only display partitions with scheduled migrations in the summary, and
+    improve the formatting slightly.
+  * Remove another stray newline from the migration-assistant summary.
+  * GTK frontend:
+    - Pressing Enter in the migration-assistant user/password entry boxes
+      activates the Forward button.
+    - Drop X-Ubuntu-Gettext-Domain=ubiquity in the .desktop file for now, to
+      work around a bug somewhere that causes the translations in the
+      .desktop file to be ignored in that case.
+    - Disable thunar automounting during installation (LP: #107259).
+  * Remove the old advanced partitioner.
+  * Use code based on shutil.copyfileobj rather than shutil.copyfile to copy
+    files, avoiding a couple of unnecessary stats due to os.path.samefile.
+  * Remove netcloner, noui, and text frontends, which are too out-of-date at
+    the moment even to be worth using as examples. A reimplementation would
+    need to start from scratch anyway.
+  * Rename gtkui frontend to gtk-ui to match kde-ui (which had to be named
+    that way due to a clash with python-kde3).
+  * Update some copyright dates.
+  * Split out internationalisation code from ubiquity.misc into
+    ubiquity.i18n.
+  * Remove some dead code from ubiquity.misc.
+  * Create a BaseFrontend class and move various things to it; it now counts
+    as a relatively clear specification of what a frontend has to implement.
+  * Reorder some frontend methods to follow the ordering of the UI.
+  * Fix crash if partman exits while the create or edit dialog is being
+    displayed (LP: #108204).
+  * Reconfigure /etc/papersize on installation (LP: #104160).
+  * When changing values of debconf questions in /target, make sure to shut
+    down debconf-communicate even if the Python debconf confmodule raises an
+    exception.
+  * Add an intro message noting that we're alpha again.
+  * Rename ubiquity.misc.ex to ubiquity.misc.execute.
+  * Automatic update of included source packages: apt-setup 1:0.21ubuntu1,
+    base-installer 1.79ubuntu1, choose-mirror 2.15ubuntu1, clock-setup
+    0.16ubuntu1, console-setup 1.15ubuntu1, debian-installer-utils
+    1.48ubuntu1, grub-installer 1.24ubuntu1, hw-detect 1.52ubuntu2,
+    localechooser 1.38ubuntu1, partconf 1.23, partman-auto 69ubuntu1,
+    partman-base 107ubuntu1, partman-basicfilesystems 54ubuntu1,
+    partman-basicmethods 35, partman-efi 13ubuntu1, partman-ext3 47,
+    partman-jfs 22, partman-newworld 18, partman-partitioning 49ubuntu1,
+    partman-reiserfs 36, partman-target 50ubuntu1, partman-xfs 34,
+    silo-installer 1.10ubuntu1, tzsetup 1:0.17, user-setup 1.14ubuntu1,
+    yaboot-installer 1.1.11ubuntu1.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 11 Apr 2007 12:04:05 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 23 May 2007 15:24:35 +0100
+
+ubiquity (1.4.11) feisty; urgency=low
+
+  * Fix broken French and Turkish translations of "Go Back" and "Continue"
+    (LP: #105903).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Apr 2007 18:46:59 +0100
 
 ubiquity (1.4.10) feisty; urgency=low
 

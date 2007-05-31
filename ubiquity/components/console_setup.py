@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-# Copyright (C) 2005, 2006 Canonical Ltd.
+# Copyright (C) 2005, 2006, 2007 Canonical Ltd.
 # Written by Tollef Fog Heen <tfheen@ubuntu.com> and
 # Colin Watson <cjwatson@ubuntu.com>
 #
@@ -187,7 +187,7 @@ class ConsoleSetup(FilteredCommand):
             args.extend(("-variant", variant))
         for option in options:
             args.extend(("-option", option))
-        misc.ex("setxkbmap", *args)
+        misc.execute("setxkbmap", *args)
 
     def cleanup(self):
         # TODO cjwatson 2006-09-07: I'd use dexconf, but it seems reasonable

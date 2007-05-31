@@ -2,8 +2,8 @@ ubiquity/*.py usr/lib/ubiquity/ubiquity
 ubiquity/components/__init__.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/summary.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/install.py usr/lib/ubiquity/ubiquity/components
-ubiquity/frontend/noui.py usr/lib/ubiquity/ubiquity/frontend
 ubiquity/frontend/__init__.py usr/lib/ubiquity/ubiquity/frontend
+ubiquity/frontend/base.py usr/lib/ubiquity/ubiquity/frontend
 compat/anna-install usr/lib/ubiquity/compat
 compat/apt-install usr/lib/ubiquity/compat
 compat/udpkg usr/lib/ubiquity/compat
@@ -68,7 +68,6 @@ partman/update.d/* lib/partman/update.d
 partman/check.d/* lib/partman/check.d
 partman/commit.d/* lib/partman/commit.d
 ubiquity/components/partman.py usr/lib/ubiquity/ubiquity/components
-ubiquity/components/partman_auto.py usr/lib/ubiquity/ubiquity/components
 ubiquity/components/partman_commit.py usr/lib/ubiquity/ubiquity/components
 
 # tzsetup

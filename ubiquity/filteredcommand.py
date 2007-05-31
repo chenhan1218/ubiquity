@@ -189,6 +189,12 @@ class FilteredCommand(object):
 
         return call_again
 
+    def question_type(self, question):
+        try:
+            return self.db.metaget(question, 'Type')
+        except debconf.DebconfError:
+            return ''
+
     # Split a string on commas, stripping surrounding whitespace, and
     # honouring backslash-quoting.
     def split_choices(self, text):

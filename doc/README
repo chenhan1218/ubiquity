@@ -80,11 +80,13 @@ responsible for maintaining its own state machine if necessary.
 Partitioning
 ------------
 
-At present, automatic partitioning is handled by d-i code (partman), while
-advanced partitioning is handled by embedding gparted or qtparted in
-Ubiquity's interface. This has a number of problems, and we plan to replace
-this scheme by using partman throughout together with a custom-written
-partitioning frontend.
+All partitioning is handled by d-i code (partman), with a presentation layer
+on top. The presentation layer navigates partman's menus under the hood to
+perform advanced partitioning. See
+http://wiki.ubuntu.com/Ubiquity/AdvancedPartitionerRewrite for details.
+
+A graphical disk view has yet to be written for the GTK frontend's advanced
+partitioner.
 
 Installation
 ------------

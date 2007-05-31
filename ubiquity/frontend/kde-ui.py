@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 #
-# Copyright (C) 2006 Canonical Ltd.
+# Copyright (C) 2006, 2007 Canonical Ltd.
 #
 # Author:
 #   Jonathan Riddell <jriddell@ubuntu.com>
@@ -20,7 +20,6 @@
 # You should have received a copy of the GNU General Public License along
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-##################################################################################
 
 import sys
 #from qt import *
@@ -47,13 +46,14 @@ try:
 except ImportError:
     from ubiquity.debconfcommunicator import DebconfCommunicator
 
-from ubiquity import filteredcommand, validation
+from ubiquity import filteredcommand, i18n, validation
 from ubiquity.misc import *
 from ubiquity.settings import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
-                                partman, partman_auto, partman_commit, summary, install
+                                partman, partman_commit, summary, install
 import ubiquity.tz
 import ubiquity.progressposition
+from ubiquity.frontend.base import BaseFrontend
 
 from PartitionsBarKde import *
 
@@ -71,7 +71,6 @@ BREADCRUMB_STEPS = {
     "stepKeyboardConf": 3,
     "stepPartAuto": 4,
     "stepPartAdvanced": 4,
-    "stepPartMountpoints": 4,
     "stepUserInfo": 5,
     "stepReady": 6
 }
@@ -84,9 +83,8 @@ WIDGET_STACK_STEPS = {
     "stepKeyboardConf": 3,
     "stepPartAuto": 4,
     "stepPartAdvanced": 5,
-    "stepPartMountpoints": 6,
-    "stepUserInfo": 7,
-    "stepReady": 8
+    "stepUserInfo": 6,
+    "stepReady": 7
 }
 
 class UbiquityUI(QWidget):
@@ -101,17 +99,13 @@ class UbiquityUI(QWidget):
     def closeEvent(self, event):
         self.wizard.on_cancel_clicked()
 
-class Wizard:
+class Wizard(BaseFrontend):
 
     def __init__(self, distro):
+        BaseFrontend.__init__(self, distro)
+
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
-
-        if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
-            if find_on_path('qtparted') is None:
-                print "QTParted is required to use the --old-partitioner option."
-                print "Run 'sudo apt-get install qtparted' before trying this again."
-                sys.exit(1)
 
         #about=KAboutData("kubuntu-ubiquity","Installer","0.1","Live CD Installer for Kubuntu",KAboutData.License_GPL,"(c) 2006 Canonical Ltd", "http://wiki.kubuntu.org/KubuntuUbiquity", "jriddell@ubuntu.com")
         #about.addAuthor("Jonathan Riddell", None,"jriddell@ubuntu.com")
@@ -130,53 +124,30 @@ class Wizard:
         uic.loadUi("%s/advanceddialog.ui" % UIDIR, self.advanceddialog)
 
         # declare attributes
-        self.distro = distro
-        self.current_layout = None
         self.release_notes_url_template = None
-        self.password = ''
-        self.username_edited = False
-        self.hostname_edited = False
-        self.auto_mountpoints = None
-        self.resize_min_size = None
-        self.resize_max_size = None
-        self.resize_choice = None
-        self.manual_choice = None
-        self.manual_partitioning = False
-        self.new_size_value = None
-        self.new_size_scale = None
-        self.mountpoint_widgets = []
-        self.size_widgets = []
-        self.partition_widgets = []
-        self.format_widgets = []
-        self.mountpoint_choices = ['', 'swap', '/', '/home',
-                                   '/boot', '/usr', '/var']
-        self.partition_choices = []
-        self.mountpoints = {}
-        self.part_labels = {' ' : ' '}
-        self.part_devices = {' ' : ' '}
-        self.current_page = None
-        self.dbfilter = None
-        self.dbfilter_status = None
-        self.locale = None
-        self.progressDialogue = None
-        self.progress_position = ubiquity.progressposition.ProgressPosition()
-        self.progress_cancelled = False
-        self.previous_partitioning_page = None
-        self.summary_device = None
-        self.popcon = None
-        self.installing = False
-        self.installing_no_return = False
-        self.returncode = 0
         self.language_questions = ('live_installer', 'welcome_heading_label',
                                    'welcome_text_label', 'release_notes_label',
                                    'release_notes_url', 'step_label',
                                    'cancel', 'back', 'next')
+        self.current_page = None
         self.allowed_change_step = True
         self.allowed_go_forward = True
         self.mainLoopRunning = False
+        self.progressDialogue = None
+        self.progress_position = ubiquity.progressposition.ProgressPosition()
+        self.progress_cancelled = False
+        self.resize_min_size = None
+        self.resize_max_size = None
+        self.new_size_value = None
+        self.new_size_scale = None
+        self.username_edited = False
+        self.hostname_edited = False
+        self.previous_partitioning_page = None
+        self.installing = False
+        self.installing_no_return = False
+        self.returncode = 0
 
-        self.laptop = ex("laptop-detect")
-        self.qtparted_subp = None
+        self.laptop = execute("laptop-detect")
         self.partition_tree_model = None
         self.app.connect(self.userinterface.partition_list_treeview, SIGNAL("customContextMenuRequested(const QPoint&)"), self.partman_popup)
         self.app.connect(self.userinterface.partition_list_treeview, SIGNAL("activated(const QModelIndex&)"), self.on_partition_list_treeview_activated)
@@ -203,33 +174,12 @@ class Wizard:
         self.autopartition_extras = {}
         self.autopartition_extra_buttongroup = {}
         self.autopartition_extra_buttongroup_texts = {}
-        
+
         self.partition_bar_vbox = QVBoxLayout(self.userinterface.partition_bar_frame)
         self.partition_bar_vbox.setSpacing(0)
         self.partition_bar_vbox.setMargin(0)
 
         self.partition_list_buttonbox = QHBoxLayout(self.userinterface.partition_list_buttons)
-
-        self.qtparted_vbox = QVBoxLayout(self.userinterface.qtparted_frame)
-        self.embed = None
-
-        self.mount_vbox = QVBoxLayout(self.userinterface.mountpoint_frame_parent)
-        #self.mountpoint_scrollview = QScrollView(self.userinterface.mountpoint_frame_parent)
-        self.mountpoint_scrollview = QScrollArea(self.userinterface.mountpoint_frame_parent)
-        self.mount_vbox.addWidget(self.mountpoint_scrollview)
-        self.mountpoint_scrollview.setWidgetResizable(True)
-        self.userinterface.mountpoint_frame = QFrame(self.mountpoint_scrollview)
-        self.userinterface.mountpoint_frame.setFrameShape(QFrame.NoFrame)
-        self.userinterface.mountpoint_frame.setFrameShadow(QFrame.Plain)
-        self.mountpoint_scrollview.setFrameShape(QFrame.NoFrame)
-        self.mountpoint_scrollview.setFrameShadow(QFrame.Plain)
-        #self.mountpoint_scrollview.addChild(self.userinterface.mountpoint_frame)
-        self.mountpoint_scrollview.setWidget(self.userinterface.mountpoint_frame)
-        self.userinterface.mountpoint_frame.resize(100, 100)
-        self.mountpoint_vbox = QVBoxLayout(self.userinterface.mountpoint_frame)
-        self.mountpoint_table = QGridLayout()
-        self.mountpoint_vbox.addLayout(self.mountpoint_table)
-        self.mountpoint_vbox.addStretch()
 
         self.userinterface.fullname_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
         self.userinterface.username_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
@@ -264,17 +214,18 @@ class Wizard:
 
     def openURL(self, url):
         #need to run this else kdesu can't run Konqueror
-        ex('su', 'ubuntu', 'xhost', '+localhost')
+        execute('su', 'ubuntu', 'xhost', '+localhost')
         KRun.runURL(KURL(url), "text/html")
 
     def run(self):
         """run the interface."""
 
         if os.getuid() != 0:
-                title = ('This installer must be run with administrative privileges, and cannot continue without them.')
-                result = QMessageBox.critical(self.userinterface, "Must be root", title)
-
-                sys.exit(1)
+            title = ('This installer must be run with administrative '
+                     'privileges, and cannot continue without them.')
+            result = QMessageBox.critical(self.userinterface, "Must be root",
+                                          title)
+            sys.exit(1)
 
         # show interface
         # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
@@ -338,12 +289,8 @@ class Wizard:
             elif current_name == "stepKeyboardConf":
                 self.dbfilter = console_setup.ConsoleSetup(self)
             elif current_name == "stepPartAuto":
-                if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
-                    self.dbfilter = partman.Partman(self)
-                else:
-                    self.dbfilter = partman_auto.PartmanAuto(self)
-            elif (current_name == "stepPartAdvanced" and
-                  'UBIQUITY_NEW_PARTITIONER' in os.environ):
+                self.dbfilter = partman.Partman(self)
+            elif current_name == "stepPartAdvanced":
                 if isinstance(self.dbfilter, partman.Partman):
                     pre_log('info', 'reusing running partman')
                 else:
@@ -351,7 +298,7 @@ class Wizard:
             elif current_name == "stepUserInfo":
                 self.dbfilter = usersetup.UserSetup(self)
             elif current_name == "stepReady":
-                self.dbfilter = summary.Summary(self, self.manual_partitioning)
+                self.dbfilter = summary.Summary(self)
             else:
                 self.dbfilter = None
 
@@ -414,11 +361,6 @@ class Wizard:
         self.userinterface.password_debug_warning_label.setVisible(
             'UBIQUITY_DEBUG' in os.environ)
 
-        if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
-            self.userinterface.qtparted_frame.hide()
-        else:
-            self.partition_list_treeview.hide()
-
     def translate_widgets(self, parentWidget=None):
         if self.locale is None:
             languages = []
@@ -428,7 +370,7 @@ class Wizard:
         for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                            'ok', 'quit'):
             core_names.append('ubiquity/imported/%s' % stock_item)
-        get_translations(languages=languages, core_names=core_names)
+        i18n.get_translations(languages=languages, core_names=core_names)
 
         self.translate_widget_children(parentWidget)
 
@@ -449,10 +391,10 @@ class Wizard:
 
         name = widget.objectName()
 
-        text = get_string(widget.objectName(), lang)
+        text = self.get_string(widget.objectName(), lang)
 
         if str(widget.objectName()) == "UbiquityUIBase":
-            text = get_string("live_installer", lang)
+            text = self.get_string("live_installer", lang)
 
         if text is None:
             return
@@ -474,9 +416,7 @@ class Wizard:
             elif 'extra_label' in name:
                 widget.setText("<em>" + text + "</em>")
             elif ('group_label' in name or 'warning_label' in name or
-                  name in ('drives_label', 'partition_method_label',
-                           'mountpoint_label', 'size_label', 'device_label',
-                           'format_label')):
+                  name in ('drives_label', 'partition_method_label')):
                 widget.setText("<strong>" + text + "</strong>")
             elif name == 'release_notes_url':
                 if self.release_notes_url_template is not None:
@@ -577,90 +517,6 @@ class Wizard:
             self.userinterface.widgetStack.setCurrentWidget(widget)
             self.on_steps_switch_page(current)
 
-    def qtparted_loop(self):
-        """call qtparted and embed it into the interface."""
-
-        syslog.syslog('qtparted_loop()')
-
-        disable_swap()
-
-        if self.embed is not None:
-            self.qtparted_vbox.removeWidget(self.embed)
-            del self.embed
-        self.embed = QX11EmbedContainer(self.userinterface.qtparted_frame)
-
-        self.qtparted_subp = subprocess.Popen(
-            ['log-output', '-t', 'ubiquity', '--pass-stdout',
-             '/usr/sbin/qtparted', '--installer'],
-            stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
-        qtparted_winid = self.qtparted_subp.stdout.readline().rstrip('\n')
-        self.qtparted_vbox.addWidget(self.embed)
-        ##FIXME causes segfault, not sure why
-        ##self.embed.embedClient( int(qtparted_winid) )
-        #nasty cludge, we need qtparted to output a line when it's done settings up its window so we can resize then
-        #uncomment when new version of qt is in the archive
-        ##qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
-        ##if qtparted_reply.startswith('STARTED'):
-        ##   self.userinterface.qtparted_frame.resize(self.userinterface.qtparted_frame.width()-1,self.userinterface.qtparted_frame.height())
-
-    def set_size_msg(self, widget):
-        """return a string message with size value about
-        the partition target by widget argument."""
-
-        # widget is studied in a different manner depending on object type
-        if widget.__class__ == str:
-            size = float(self.size[widget.split('/')[2]])
-        elif (unicode(widget.currentText()) in self.part_devices and
-              self.part_devices[unicode(widget.currentText())] in self.size):
-            size = float(self.size[self.part_devices[unicode(widget.currentText())].split('/')[2]])
-        else:
-            # TODO cjwatson 2006-07-31: Why isn't it in part_devices? This
-            # indicates a deeper problem somewhere, but for now we'll just
-            # try our best to ignore it.
-            return ''
-
-        if size > 1024*1024:
-            msg = '%.0f Gb' % (size/1024/1024)
-        elif size > 1024:
-            msg = '%.0f Mb' % (size/1024)
-        else:
-            msg = '%.0f Kb' % size
-        return msg
-
-    def add_mountpoint_table_row(self):
-        """Add a new empty row to the mountpoints table."""
-        mountpoint = QComboBox(self.userinterface.mountpoint_frame)
-        mountpoint.setEditable(True)
-        for mp in self.mountpoint_choices:
-            mountpoint.insertItem(999, mp)
-        size = QLabel(self.userinterface.mountpoint_frame)
-        partition = QComboBox(self.userinterface.mountpoint_frame)
-        for part in self.partition_choices:
-            if part in self.part_labels:
-                partition.insertItem(999, self.part_labels[part])
-            else:
-                partition.insertItem(999, part)
-        format = QCheckBox(self.userinterface.mountpoint_frame)
-        format.setEnabled(False)
-
-        row = len(self.mountpoint_widgets) + 1
-        self.mountpoint_widgets.append(mountpoint)
-        self.size_widgets.append(size)
-        self.partition_widgets.append(partition)
-        self.format_widgets.append(format)
-
-        self.mountpoint_table.addWidget(mountpoint, row, 0)
-        self.mountpoint_table.addWidget(size, row, 1)
-        self.mountpoint_table.addWidget(partition, row, 2)
-        self.mountpoint_table.addWidget(format, row, 3)
-        mountpoint.show()
-        size.show()
-        partition.show()
-        format.show()
-
-        self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
-        self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
-
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
 
@@ -669,12 +525,12 @@ class Wizard:
         self.current_page = None
 
         self.debconf_progress_start(
-            0, 100, get_string('ubiquity/install/title', self.locale))
+            0, 100, self.get_string('ubiquity/install/title'))
         self.debconf_progress_region(0, 15)
 
-        ex('dcop', 'kded', 'kded', 'unloadModule', 'medianotifier')
+        execute('dcop', 'kded', 'kded', 'unloadModule', 'medianotifier')
 
-        dbfilter = partman_commit.PartmanCommit(self, self.manual_partitioning)
+        dbfilter = partman_commit.PartmanCommit(self)
         if dbfilter.run_command(auto_process=True) != 0:
             while self.progress_position.depth() != 0:
                 self.debconf_progress_stop()
@@ -682,7 +538,7 @@ class Wizard:
             self.return_to_partitioning()
             return
 
-        ex('dcop', 'kded', 'kded', 'loadModule', 'medianotifier')
+        execute('dcop', 'kded', 'kded', 'loadModule', 'medianotifier')
 
         # No return to partitioning from now on
         self.installing_no_return = True
@@ -717,10 +573,10 @@ class Wizard:
         self.progressDialogue.hide()
 
         self.installing = False
-        quitText = "<qt>" + get_string("finished_label", self.locale) + "</qt>"
-        rebootButtonText = get_string("reboot_button", self.locale)
-        quitButtonText = get_string("quit_button", self.locale)
-        titleText = get_string("finished_dialog", self.locale)
+        quitText = '<qt>%s</qt>' % self.get_string("finished_label")
+        rebootButtonText = self.get_string("reboot_button")
+        quitButtonText = self.get_string("quit_button")
+        titleText = self.get_string("finished_dialog")
 
         ##FIXME use non-stock messagebox to customise button text
         #quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, rebootButtonText, quitButtonText)
@@ -738,9 +594,9 @@ class Wizard:
     def do_reboot(self):
         """Callback for main program to actually reboot the machine."""
 
-        ex('dcop', 'ksmserver', 'ksmserver', 'logout',
-           # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
-           '0', '1', '2')
+        execute('dcop', 'ksmserver', 'ksmserver', 'logout',
+                # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
+                '0', '1', '2')
 
     def quit(self):
         """quit installer cleanly."""
@@ -752,60 +608,16 @@ class Wizard:
         self.app.exit()
 
     def on_cancel_clicked(self):
-        warning_dialog_label = get_string("warning_dialog_label", self.locale)
-        abortTitle = get_string("warning_dialog", self.locale)
-        continueButtonText = get_string("continue", self.locale)
+        warning_dialog_label = self.get_string("warning_dialog_label")
+        abortTitle = self.get_string("warning_dialog")
+        continueButtonText = self.get_string("continue")
         response = QMessageBox.question(self.userinterface, abortTitle, warning_dialog_label, abortTitle, continueButtonText)
         if response == 0:
-            if self.qtparted_subp is not None:
-                try:
-                    print >>self.qtparted_subp.stdin, "exit"
-                except IOError:
-                    pass
             self.current_page = None
             self.quit()
             return True
         else:
             return False
-
-    def on_list_changed(self, textID):
-        """check if partition/mountpoint pair is filled and show the next pair
-        on mountpoint screen. Also size label associated with partition combobox
-        is changed dynamically to show the size partition."""
-        index = 0
-        while index < len(self.partition_widgets):
-
-            #set size widget
-            partition_text = unicode(self.partition_widgets[index].currentText())
-            if partition_text == ' ':
-                self.size_widgets[index].setText('')
-            elif partition_text != None:
-                self.size_widgets[index].setText(self.set_size_msg(self.partition_widgets[index]))
-
-            # Does the Reformat checkbox make sense?
-            if (partition_text == ' ' or
-                partition_text not in self.part_devices):
-                self.format_widgets[index].setEnabled(False)
-                self.format_widgets[index].setChecked(False)
-            else:
-                partition = self.part_devices[partition_text]
-                if partition in self.qtparted_fstype:
-                    self.format_widgets[index].setEnabled(False)
-                    self.format_widgets[index].setChecked(True)
-                else:
-                    self.format_widgets[index].setEnabled(True)
-
-            #add new row if partitions list is long enough and last row validates
-            if len(get_partitions()) > len(self.partition_widgets):
-                for i in range(len(self.partition_widgets)):
-                    partition = self.partition_widgets[i].currentText()
-                    mountpoint = self.mountpoint_widgets[i].currentText()
-                    if partition is None or mountpoint == "":
-                        break
-                else:
-                    # All table rows have been filled; create a new one.
-                    self.add_mountpoint_table_row()
-            index += 1
 
     def info_loop(self, widget):
         """check if all entries from Identification screen are filled."""
@@ -911,11 +723,11 @@ class Wizard:
             self.process_autopartitioning()
         # Advanced partitioning
         elif step == "stepPartAdvanced":
-            self.qtparted_to_mountpoints()
-        # Mountpoints
-        elif step == "stepPartMountpoints":
-            self.mountpoints_to_summary()
-            self.info_loop(None) ##FIXME also run any other time about to go to stepUserInfo
+            ##if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:  #FIXME for migration-assistant
+            self.info_loop(None)
+            self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
+            #else:
+            #    self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
@@ -931,7 +743,7 @@ class Wizard:
         syslog.syslog('Step_after = %s' % step)
 
         if step == "stepReady":
-            installText = get_string("live_installer", self.locale)
+            installText = self.get_string("live_installer")
             self.userinterface.next.setText(installText)
 
     def process_identification (self):
@@ -969,332 +781,9 @@ class Wizard:
         # then go to manual partitioning.
         choice = self.get_autopartition_choice()[0]
         if self.manual_choice is None or choice == self.manual_choice:
-            if 'UBIQUITY_NEW_PARTITIONER' not in os.environ:
-                self.qtparted_loop()
             self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
         else:
-            # TODO cjwatson 2006-01-10: extract mountpoints from partman
-            self.manual_partitioning = False
             self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
-
-    def qtparted_crashed(self):
-        """qtparted crashed. Ask the user if they want to continue."""
-        # TODO cjwatson 2006-07-18: i18n
-        text = ('The advanced partitioner (qtparted) crashed. Further '
-                'information may be found in /var/log/syslog, or by '
-                'running qtparted directly. Do you want to try the '
-                'advanced partitioner again, return to automatic '
-                'partitioning, or quit this installer?')
-        #FIXME QMessageBox seems to have lost the ability to set custom labels
-        # so for now we have to get by with these not-entirely meaningful stock labels
-        answer = QMessageBox.warning(self.userinterface, 'QTParted crashed',
-                                     text, QMessageBox.Retry, QMessageBox.Reset, QMessageBox.Close)
-        if answer == QMessageBox.Reset:
-            self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
-        elif answer == QMessageBox.Close:
-            self.current_page = None
-            self.quit()
-        else:
-            self.qtparted_loop()
-
-    def qtparted_to_mountpoints(self):
-        """Processing qtparted to mountpoints step tasks."""
-
-        if 'UBIQUITY_NEW_PARTITIONER' in os.environ:
-            ##if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:  #FIXME for migration-as
-            self.info_loop(None)
-            self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
-            #else:
-            #    self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
-            return
-
-        self.qtparted_fstype = {}
-
-        if self.qtparted_subp is None:
-            self.qtparted_crashed()
-            return
-
-        try:
-            print >>self.qtparted_subp.stdin, "apply"
-        except IOError:
-            # Shut down qtparted
-            self.qtparted_subp.stdin.close()
-            self.qtparted_subp.wait()
-            self.qtparted_subp = None
-            self.qtparted_crashed()
-            return
-
-        # read qtparted output of format "- FORMAT /dev/hda2 linux-swap"
-        qtparted_reply = self.qtparted_subp.stdout.readline().rstrip('\n')
-        while not qtparted_reply.startswith('0 ') and not qtparted_reply.startswith('1 '):
-            syslog.syslog('qtparted replied: %s' % qtparted_reply)
-            if qtparted_reply.startswith('- '):
-                words = qtparted_reply[2:].strip().split()
-                if words[0].lower() == 'format' and len(words) >= 3:
-                    self.qtparted_fstype[words[1]] = words[2]
-            qtparted_reply = self.qtparted_subp.stdout.readline()
-            if not qtparted_reply:
-                break
-            qtparted_reply = qtparted_reply.rstrip('\n')
-        syslog.syslog('qtparted replied: %s' % qtparted_reply)
-
-        if qtparted_reply.startswith('1 '):
-            # Cancel
-            return
-
-        # Shut down qtparted
-        self.qtparted_subp.stdin.close()
-        self.qtparted_subp.wait()
-        self.qtparted_subp = None
-        if self.embed is not None:
-            self.qtparted_vbox.removeWidget(self.embed)
-            del self.embed
-            self.embed = None
-
-        if not qtparted_reply.startswith('0 '):
-            # something other than OK or Cancel
-            return
-
-        children = self.userinterface.mountpoint_frame.children()
-        for child in children:
-            if isinstance(child, QGridLayout) or isinstance(child, QVBoxLayout):
-                pass
-            else:
-                self.mountpoint_table.removeWidget(child)
-                del child
-
-        mountText = "<b>" + get_string("mountpoint_label", self.locale) + "</b>"
-        sizeText = "<b>" + get_string("size_label", self.locale) + "</b>"
-        partitionText = "<b>" + get_string("device_label", self.locale) + "</b>"
-        reformatText = "<b>" + get_string("format_label", self.locale) + "</b>"
-
-        mountLabel = QLabel(mountText, self.userinterface.mountpoint_frame)
-        sizeLabel = QLabel(sizeText, self.userinterface.mountpoint_frame)
-        partitionLabel = QLabel(partitionText, self.userinterface.mountpoint_frame)
-        reformatLabel = QLabel(reformatText, self.userinterface.mountpoint_frame)
-        self.mountpoint_table.addWidget(mountLabel, 0, 0)
-        self.mountpoint_table.addWidget(sizeLabel, 0, 1)
-        self.mountpoint_table.addWidget(partitionLabel, 0, 2)
-        self.mountpoint_table.addWidget(reformatLabel, 0, 3)
-
-        # Set up list of partition names for use in the mountpoints table.
-        self.partition_choices = []
-        # The first element is empty to allow deselecting a partition.
-        self.partition_choices.append(' ')
-        for partition in get_partitions():
-            partition = '/dev/' + partition
-            label = part_label(partition)
-            self.part_labels[partition] = label
-            self.part_devices[label] = partition
-            self.partition_choices.append(partition)
-
-        # Reinitialise the mountpoints table.
-        self.mountpoint_widgets = []
-        self.size_widgets = []
-        self.partition_widgets = []
-        self.format_widgets = []
-
-        self.add_mountpoint_table_row()
-
-        # Try to get some default mountpoint selections.
-        self.size = get_sizes()
-        selection = get_default_partition_selection(
-            self.size, self.qtparted_fstype, self.auto_mountpoints)
-
-        # Setting a default partition preselection
-        if len(selection.items()) == 0:
-            self.allow_go_forward(False)
-        else:
-            # Setting default preselection values into ComboBox widgets and
-            # setting size values. In addition, the next row is shown if
-            # they're validated.
-            for mountpoint, partition in selection.items():
-                if partition.split('/')[2] not in self.size:
-                    syslog.syslog(syslog.LOG_WARNING,
-                                  "No size available for partition %s; "
-                                  "skipping" % partition)
-                    continue
-                if partition not in self.partition_choices:
-                    # TODO cjwatson 2006-05-27: I don't know why this might
-                    # happen, but it does
-                    # (https://launchpad.net/bugs/46910). Figure out why. In
-                    # the meantime, ignoring this partition is better than
-                    # crashing.
-                    syslog.syslog(syslog.LOG_WARNING,
-                                  "Partition %s not in /proc/partitions?" %
-                                  partition)
-                    continue
-                if mountpoint in self.mountpoint_choices:
-                    self.mountpoint_widgets[-1].setCurrentIndex(self.mountpoint_choices.index(mountpoint))
-                else:
-                    self.mountpoint_widgets[-1].addItem(mountpoint)
-                    self.mountpoint_widgets[-1].setCurrentIndex(self.mountpoint_widgets[-1].count() - 1)
-                self.size_widgets[-1].setText(self.set_size_msg(partition))
-                self.partition_widgets[-1].setCurrentIndex(self.partition_choices.index(partition))
-                if (mountpoint in ('swap', '/', '/usr', '/var', '/boot') or
-                    partition in self.qtparted_fstype):
-                    self.format_widgets[-1].setChecked(True)
-                else:
-                    self.format_widgets[-1].setChecked(False)
-                if partition not in self.qtparted_fstype:
-                    self.format_widgets[-1].setEnabled(True)
-                if len(get_partitions()) > len(self.partition_widgets):
-                    self.add_mountpoint_table_row()
-                else:
-                    break
-
-        # We defer connecting up signals until now to avoid the changed
-        # signal firing while we're busy populating the table.
-        """  Not needed for KDE
-        for mountpoint in self.mountpoint_widgets:
-            self.app.connect(mountpoint, SIGNAL("activated(int)"), self.on_list_changed)
-        for partition in self.partition_widgets:
-            self.app.connect(partition, SIGNAL("activated(int)"), self.on_list_changed)
-        """
-
-        self.userinterface.mountpoint_error_reason.hide()
-        self.userinterface.mountpoint_error_image.hide()
-
-        self.set_current_page(WIDGET_STACK_STEPS["stepPartMountpoints"])
-
-    def mountpoints_to_summary(self):
-        """Processing mountpoints to summary step tasks."""
-
-        # Validating self.mountpoints
-        error_msg = []
-
-        mountpoints = {}
-        for i in range(len(self.mountpoint_widgets)):
-            mountpoint_value = unicode(self.mountpoint_widgets[i].currentText())
-            partition_value = unicode(self.partition_widgets[i].currentText())
-            if partition_value is not None:
-                if partition_value in self.part_devices:
-                    partition_id = self.part_devices[partition_value]
-                else:
-                    partition_id = partition_value
-            else:
-                partition_id = None
-            format_value = self.format_widgets[i].isChecked()
-            fstype = None
-            if partition_id in self.qtparted_fstype:
-                fstype = self.qtparted_fstype[partition_id]
-
-            if mountpoint_value == "":
-                if partition_value in (None, ' '):
-                    continue
-                else:
-                    error_msg.append(
-                        "No mount point selected for %s." % partition_value)
-                    break
-            else:
-                if partition_value in (None, ' '):
-                    error_msg.append(
-                        "No partition selected for %s." % mountpoint_value)
-                    break
-                else:
-                    # TODO cjwatson 2006-09-26: Replace None with flags once
-                    # qtparted can export the list of flags set on formatted
-                    # filesystems (or just ignore until
-                    # ubiquity-advanced-partitioner happens!).
-                    mountpoints[partition_id] = \
-                        (mountpoint_value, format_value, fstype, None)
-        else:
-            self.mountpoints = mountpoints
-        syslog.syslog('mountpoints: %s' % self.mountpoints)
-
-        # Checking duplicated devices
-        partitions = [w.currentText() for w in self.partition_widgets]
-
-        for check in partitions:
-            if check in (None, '', ' '):
-                continue
-            if partitions.count(check) > 1:
-                error_msg.append("A partition is assigned to more than one "
-                                 "mount point.")
-                break
-
-        # Processing more validation stuff
-        if len(self.mountpoints) > 0:
-            # Supplement filesystem types from qtparted FORMAT instructions
-            # with those detected from the disk.
-            validate_mountpoints = dict(self.mountpoints)
-            validate_filesystems = get_filesystems(self.qtparted_fstype)
-            for device, (path, format, fstype,
-                         flags) in validate_mountpoints.items():
-                if fstype is None and device in validate_filesystems:
-                    validate_mountpoints[device] = \
-                        (path, format, validate_filesystems[device], None)
-            # Check for some special-purpose partitions detected by partman.
-            if self.auto_mountpoints is not None:
-                for device, mountpoint in self.auto_mountpoints.iteritems():
-                    if device in validate_mountpoints:
-                        continue
-                    if not mountpoint.startswith('/'):
-                        validate_mountpoints[device] = \
-                            (mountpoint, False, None, None)
-
-            for check in validation.check_mountpoint(validate_mountpoints,
-                                                     self.size):
-                if check == validation.MOUNTPOINT_NOROOT:
-                    error_msg.append(get_string(
-                        'partman-target/no_root', self.locale))
-                elif check == validation.MOUNTPOINT_DUPPATH:
-                    error_msg.append("Two file systems are assigned the same "
-                                     "mount point.")
-                elif check == validation.MOUNTPOINT_BADSIZE:
-                    for mountpoint, format, fstype, flags in \
-                            self.mountpoints.itervalues():
-                        if mountpoint == 'swap':
-                            min_root = MINIMAL_PARTITION_SCHEME['root']
-                            break
-                    else:
-                        min_root = (MINIMAL_PARTITION_SCHEME['root'] +
-                                    MINIMAL_PARTITION_SCHEME['swap'])
-                    error_msg.append("The partition assigned to '/' is too "
-                                     "small (minimum size: %d Mb)." % min_root)
-                elif check == validation.MOUNTPOINT_BADCHAR:
-                    error_msg.append(get_string(
-                        'partman-basicfilesystems/bad_mountpoint',
-                        self.locale))
-                elif check == validation.MOUNTPOINT_XFSROOT:
-                    error_msg.append("XFS may not be used on the filesystem "
-                                     "containing /boot. Either use a "
-                                     "different filesystem for / or create a "
-                                     "non-XFS filesystem for /boot.")
-                elif check == validation.MOUNTPOINT_XFSBOOT:
-                    error_msg.append("XFS may not be used on the /boot "
-                                     "filesystem. Use a different filesystem "
-                                     "type for /boot.")
-                elif check == validation.MOUNTPOINT_UNFORMATTED:
-                    error_msg.append("Filesystems used by the system (/, "
-                                     "/boot, /usr, /var) must be reformatted "
-                                     "for use by this installer. Other "
-                                     "filesystems (/home, /media/*, "
-                                     "/usr/local, etc.) may be used without "
-                                     "reformatting.")
-                elif check == validation.MOUNTPOINT_NEEDPOSIX:
-                    error_msg.append("FAT and NTFS filesystems may not be "
-                                     "used on filesystems used by the system "
-                                     "(/, /boot, /home, /usr, /var, etc.). "
-                                     "It is usually best to mount them "
-                                     "somewhere under /media/.")
-                elif check == validation.MOUNTPOINT_NONEWWORLD:
-                    error_msg.append(get_string(
-                        'partman-newworld/no_newworld',
-                        'extended:%s' % self.locale))
-
-        # showing warning messages
-        self.userinterface.mountpoint_error_reason.setText("\n".join(error_msg))
-        if len(error_msg) != 0:
-            self.userinterface.mountpoint_error_reason.show()
-            self.userinterface.mountpoint_error_image.show()
-            return
-        else:
-            self.userinterface.mountpoint_error_reason.hide()
-            self.userinterface.mountpoint_error_image.hide()
-
-        self.manual_partitioning = True
-        self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
 
     def on_back_clicked(self):
         """Callback to set previous screen."""
@@ -1320,23 +809,8 @@ class Wizard:
             self.set_current_page(WIDGET_STACK_STEPS["stepKeyboardConf"])
             changed_page = True
         elif str(step) == "stepPartAdvanced":
-            if self.qtparted_subp is not None:
-                try:
-                    print >>self.qtparted_subp.stdin, "undo"
-                    print >>self.qtparted_subp.stdin, "exit"
-                except IOError:
-                    pass
-                self.qtparted_subp.stdin.close()
-                self.qtparted_subp.wait()
-                self.qtparted_subp = None
-                if self.embed is not None:
-                    self.qtparted_vbox.removeWidget(self.embed)
-                    del self.embed
-                    self.embed = None
             self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
             changed_page = True
-        elif str(step) == "stepPartMountpoints":
-            self.qtparted_loop()
 #        elif step == "stepMigrationAssistant":
 #            self.set_current_page(self.previous_partitioning_page)
 #            changed_page = True
@@ -1499,33 +973,19 @@ class Wizard:
         ##FIXME in Qt 4 without this disconnect it calls watch_debconf_fd_helper_read once more causing
         ## a crash after the keyboard stage.  No idea why.
         self.app.disconnect(self.socketNotifierRead, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_read)
-        if dbfilter is None:
-            name = 'None'
-            self.dbfilter_status = None
-        else:
-            name = dbfilter.__class__.__name__
-            if dbfilter.status:
-                self.dbfilter_status = (name, dbfilter.status)
-            else:
-                self.dbfilter_status = None
-        if self.dbfilter is None:
-            currentname = 'None'
-        else:
-            currentname = self.dbfilter.__class__.__name__
-        syslog.syslog(syslog.LOG_DEBUG,
-                      "debconffilter_done: %s (current: %s)" %
-                      (name, currentname))
-        if dbfilter == self.dbfilter:
-            self.dbfilter = None
+        if BaseFrontend.debconffilter_done(self, dbfilter):
             if isinstance(dbfilter, summary.Summary):
                 # The Summary component is just there to gather information,
                 # and won't call run_main_loop() for itself.
                 self.allow_change_step(True)
             else:
                 self.app.exit()
+            return True
+        else:
+            return False
 
     def set_language_choices (self, choices, choice_map):
-        self.language_choice_map = dict(choice_map)
+        BaseFrontend.set_language_choices(self, choices, choice_map)
         self.userinterface.language_treeview.clear()
         for choice in choices:
             QListWidgetItem(QString(unicode(choice)), self.userinterface.language_treeview)
@@ -1559,39 +1019,61 @@ class Wizard:
     def get_timezone (self):
         return self.tzmap.get_selected_tz_name()
 
-    def set_fullname(self, value):
-        self.userinterface.fullname.setText(unicode(value, "UTF-8"))
+    def set_keyboard_choices(self, choices):
+        self.userinterface.keyboardlayoutview.clear()
+        for choice in sorted(choices):
+            QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardlayoutview)
 
-    def get_fullname(self):
-        return unicode(self.userinterface.fullname.text())
+        if self.current_layout is not None:
+            self.set_keyboard(self.current_layout)
 
-    def set_username(self, value):
-        self.userinterface.username.setText(unicode(value, "UTF-8"))
+    def set_keyboard (self, layout):
+        BaseFrontend.set_keyboard(self, layout)
+        counter = 0
+        max = self.userinterface.keyboardlayoutview.count()
+        while counter < max:
+            selection = self.userinterface.keyboardlayoutview.item(counter)
+            if unicode(selection.text()) == layout:
+                selection.setSelected(True)
+                self.userinterface.keyboardlayoutview.scrollToItem(selection)
+                break
+            counter += 1
 
-    def get_username(self):
-        return unicode(self.userinterface.username.text())
+    def get_keyboard (self):
+        items = self.userinterface.keyboardlayoutview.selectedItems()
+        if len(items) == 1:
+            return unicode(items[0].text())
+        else:
+            return None
 
-    def get_password(self):
-        return unicode(self.userinterface.password.text())
+    def set_keyboard_variant_choices(self, choices):
+        self.userinterface.keyboardvariantview.clear()
+        for choice in sorted(choices):
+            QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardvariantview)
 
-    def get_verified_password(self):
-        return unicode(self.userinterface.verified_password.text())
+    def set_keyboard_variant(self, variant):
+        counter = 0
+        max = self.userinterface.keyboardvariantview.count()
+        while counter < max:
+            selection = self.userinterface.keyboardvariantview.item(counter)
+            if unicode(selection.text()) == variant:
+                selection.setSelected(True)
+                self.userinterface.keyboardvariantview.scrollToItem(selection)
+                break
+            counter += 1
 
-    def username_error(self, msg):
-        self.userinterface.username_error_reason.setText(msg)
-        self.userinterface.username_error_image.show()
-        self.userinterface.username_error_reason.show()
-
-    def password_error(self, msg):
-        self.userinterface.password_error_reason.setText(msg)
-        self.userinterface.password_error_image.show()
-        self.userinterface.password_error_reason.show()
-
-    def set_auto_mountpoints(self, auto_mountpoints):
-        self.auto_mountpoints = auto_mountpoints
+    def get_keyboard_variant(self):
+        items = self.userinterface.keyboardvariantview.selectedItems()
+        if len(items) == 1:
+            return unicode(items[0].text())
+        else:
+            return None
 
     def set_autopartition_choices (self, choices, extra_options,
                                    resize_choice, manual_choice):
+        BaseFrontend.set_autopartition_choices(self, choices, extra_options,
+                                               resize_choice, manual_choice)
+
         children = self.userinterface.autopartition_frame.children()
         for child in children:
             if isinstance(child, QVBoxLayout) or isinstance(child, QButtonGroup):
@@ -1600,8 +1082,6 @@ class Wizard:
                 self.autopartition_vbox.removeWidget(child)
                 child.hide()
 
-        self.resize_choice = resize_choice
-        self.manual_choice = manual_choice
         firstbutton = None
         idCounter = 0
         for choice in choices:
@@ -1609,7 +1089,7 @@ class Wizard:
             self.autopartition_buttongroup.addButton(button, idCounter)
             id = self.autopartition_buttongroup.id(button)
 
-            #Qt changes the string by adding accelarators, 
+            #Qt changes the string by adding accelarators,
             #so keep pristine string here as is returned later to partman
             self.autopartition_buttongroup_texts[id] = choice
             if firstbutton is None:
@@ -1817,7 +1297,8 @@ class Wizard:
 
         response = self.create_dialog.exec_()
 
-        if response == QDialog.Accepted:
+        if (response == QDialog.Accepted and
+            isinstance(self.dbfilter, partman.Partman)):
             if partition['parted']['type'] == 'primary':
                 prilog = partman.PARTITION_TYPE_PRIMARY
             elif partition['parted']['type'] == 'logical':
@@ -1911,7 +1392,8 @@ class Wizard:
 
         response = self.edit_dialog.exec_()
 
-        if response == QDialog.Accepted:
+        if (response == QDialog.Accepted and
+            isinstance(self.dbfilter, partman.Partman)):
             size = None
             if current_size is not None:
                 size = str(self.edit_dialog.partition_edit_size_spinbutton.value())
@@ -1998,8 +1480,8 @@ class Wizard:
                 self.app.connect(delete_button, SIGNAL("clicked(bool)"),
                                  self.on_partition_list_delete_activate)
                 self.partition_list_buttonbox.addWidget(delete_button)
-        undo_button = QPushButton(get_string('partman/text/undo_everything',
-                                             self.locale))
+        undo_button = QPushButton(
+            self.get_string('partman/text/undo_everything'))
         self.app.connect(undo_button, SIGNAL("clicked(bool)"),
                          self.on_partition_list_undo_activate)
         self.partition_list_buttonbox.addWidget(undo_button)
@@ -2132,68 +1614,42 @@ class Wizard:
         if partition_list_menu.children():
             partition_list_menu.addSeparator()
         undo_item = partition_list_menu.addAction(
-            get_string('partman/text/undo_everything', self.locale))
+            self.get_string('partman/text/undo_everything'))
         self.app.connect(undo_item, SIGNAL("triggered(bool)"),
                          self.on_partition_list_undo_activate)
 
         partition_list_menu.exec_(QCursor.pos())
 
+    def set_fullname(self, value):
+        self.userinterface.fullname.setText(unicode(value, "UTF-8"))
+
+    def get_fullname(self):
+        return unicode(self.userinterface.fullname.text())
+
+    def set_username(self, value):
+        self.userinterface.username.setText(unicode(value, "UTF-8"))
+
+    def get_username(self):
+        return unicode(self.userinterface.username.text())
+
+    def get_password(self):
+        return unicode(self.userinterface.password.text())
+
+    def get_verified_password(self):
+        return unicode(self.userinterface.verified_password.text())
+
+    def username_error(self, msg):
+        self.userinterface.username_error_reason.setText(msg)
+        self.userinterface.username_error_image.show()
+        self.userinterface.username_error_reason.show()
+
+    def password_error(self, msg):
+        self.userinterface.password_error_reason.setText(msg)
+        self.userinterface.password_error_image.show()
+        self.userinterface.password_error_reason.show()
+
     def get_hostname (self):
         return unicode(self.userinterface.hostname.text())
-
-    def get_mountpoints (self):
-        return dict(self.mountpoints)
-
-    def set_keyboard_choices(self, choices):
-        self.userinterface.keyboardlayoutview.clear()
-        for choice in sorted(choices):
-            QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardlayoutview)
-
-        if self.current_layout is not None:
-            self.set_keyboard(self.current_layout)
-
-    def set_keyboard (self, layout):
-        self.current_layout = layout
-
-        counter = 0
-        max = self.userinterface.keyboardlayoutview.count()
-        while counter < max:
-            selection = self.userinterface.keyboardlayoutview.item(counter)
-            if unicode(selection.text()) == layout:
-                selection.setSelected(True)
-                self.userinterface.keyboardlayoutview.scrollToItem(selection)
-                break
-            counter += 1
-
-    def get_keyboard (self):
-        items = self.userinterface.keyboardlayoutview.selectedItems()
-        if len(items) == 1:
-            return unicode(items[0].text())
-        else:
-            return None
-
-    def set_keyboard_variant_choices(self, choices):
-        self.userinterface.keyboardvariantview.clear()
-        for choice in sorted(choices):
-            QListWidgetItem(QString(unicode(choice)), self.userinterface.keyboardvariantview)
-
-    def set_keyboard_variant(self, variant):
-        counter = 0
-        max = self.userinterface.keyboardvariantview.count()
-        while counter < max:
-            selection = self.userinterface.keyboardvariantview.item(counter)
-            if unicode(selection.text()) == variant:
-                selection.setSelected(True)
-                self.userinterface.keyboardvariantview.scrollToItem(selection)
-                break
-            counter += 1
-
-    def get_keyboard_variant(self):
-        items = self.userinterface.keyboardvariantview.selectedItems()
-        if len(items) == 1:
-            return unicode(items[0].text())
-        else:
-            return None
 
     def set_summary_text (self, text):
         i = text.find("\n")
@@ -2201,21 +1657,6 @@ class Wizard:
             text = text[:i] + "<br>" + text[i+1:]
             i = text.find("\n")
         self.userinterface.ready_text.setText(text)
-
-    def set_summary_device (self, device):
-        if device is not None:
-            if not device.startswith('(') and not device.startswith('/dev/'):
-                device = '/dev/%s' % device
-        self.summary_device = device
-
-    def get_summary_device (self):
-        return self.summary_device
-
-    def set_popcon (self, participate):
-        self.popcon = participate
-
-    def get_popcon (self):
-        return self.popcon
 
     def on_advanced_button_clicked (self):
         display = False
@@ -2275,7 +1716,7 @@ class Wizard:
         buttons = []
         for option in options:
             if use_templates:
-                text = get_string(option, self.locale)
+                text = self.get_string(option)
             else:
                 text = option
             if text is None:
@@ -2350,7 +1791,7 @@ class Wizard:
         else:
             text = '%d%%' % value
         self.new_size_value.setText(text)
- 
+
     def quit(self):
         """quit installer cleanly."""
 
@@ -2780,8 +2221,7 @@ class TreeItem:
         elif partition['parted']['fs'] != 'free':
             return '  %s' % partition['parted']['path']
         elif partition['parted']['type'] == 'unusable':
-            return '  %s' % get_string('partman/text/unusable',
-                                       self.ubiquity.locale)
+            return '  %s' % self.ubiquity.get_string('partman/text/unusable')
         else:
             # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
             # feels a bit too SHOUTY for this interface.
