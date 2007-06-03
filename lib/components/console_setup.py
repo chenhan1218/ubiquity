@@ -125,6 +125,9 @@ class ConsoleSetup(FilteredCommand):
             else:
                 latin = False
                 real_layout = 'jp,jp'
+        elif layout == 'lt':
+            latin = False
+            real_layout = 'lt,lt'
         else:
             latin = True
             real_layout = layout
@@ -140,6 +143,11 @@ class ConsoleSetup(FilteredCommand):
                 real_variant = 'latin,%s' % variant
         elif real_layout == 'jp,jp':
             real_variant = 'latin,%s' % variant
+        elif real_layout == 'lt,lt':
+            if variant == 'us':
+                real_variant = 'us,'
+            else:
+                real_variant = '%s,us' % variant
         else:
             real_variant = ',%s' % variant
 
