@@ -1,8 +1,9 @@
 ubiquity (1.5.1) UNRELEASED; urgency=low
 
   * Make sure the summary question regex gets split properly.
+  * Fix typo in base frontend get_summary_device stub.
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 04 Jun 2007 12:50:37 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 04 Jun 2007 12:59:04 -0400
 
 ubiquity (1.5.0) gutsy; urgency=low
 

@@ -291,7 +291,7 @@ class BaseFrontend:
         self.summary_device = device
 
     # called from ubiquity.components.install
-    def get_summary_device(self, device):
+    def get_summary_device(self):
         """Get the selected GRUB device."""
         return self.summary_device
 
