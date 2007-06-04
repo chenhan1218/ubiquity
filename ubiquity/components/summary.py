@@ -40,7 +40,7 @@ class Summary(FilteredCommand):
         FilteredCommand.__init__(self, frontend)
 
     def prepare(self):
-        return ('/usr/share/ubiquity/summary', '^ubiquity/summary.*')
+        return ('/usr/share/ubiquity/summary', ['^ubiquity/summary.*'])
 
     def run(self, priority, question):
         if question == 'ubiquity/summary':

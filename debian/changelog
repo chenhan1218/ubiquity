@@ -1,3 +1,9 @@
+ubiquity (1.5.1) UNRELEASED; urgency=low
+
+  * Make sure the summary question regex gets split properly.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 04 Jun 2007 12:50:37 -0400
+
 ubiquity (1.5.0) gutsy; urgency=low
 
   * Fix escaping of migration-assistant summary.
