@@ -1,4 +1,4 @@
-ubiquity (1.5.1) UNRELEASED; urgency=low
+ubiquity (1.5.1) gutsy; urgency=low
 
   * Install doc/README in the ubiquity binary package.
   * Update console-setup component for Lithuanian changes in console-setup
@@ -11,7 +11,7 @@ ubiquity (1.5.1) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup 1.16ubuntu2,
     partman-partitioning 50ubuntu1, silo-installer 1.10ubuntu2.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 01 Jun 2007 15:37:02 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 04 Jun 2007 16:32:50 +0100
 
 ubiquity (1.5.0) gutsy; urgency=low
 
