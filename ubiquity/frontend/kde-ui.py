@@ -48,7 +48,6 @@ except ImportError:
 
 from ubiquity import filteredcommand, i18n, validation
 from ubiquity.misc import *
-from ubiquity.settings import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, summary, install
 import ubiquity.tz

@@ -3,6 +3,7 @@ ubiquity (1.5.1) UNRELEASED; urgency=low
   * Install doc/README in the ubiquity binary package.
   * Update console-setup component for Lithuanian changes in console-setup
     1.16ubuntu1.
+  * Remove stray references to ubiquity.settings.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 01 Jun 2007 15:37:02 +0100
 
