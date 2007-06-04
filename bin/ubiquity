@@ -22,6 +22,7 @@ import shutil
 import syslog
 import atexit
 import optparse
+import subprocess
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -31,6 +32,12 @@ VERSION = '@VERSION@'
 TARGET = '/target'
 LOCKFILE = '/var/lock/ubiquity'
 lock = None
+
+def distribution():
+    """Returns the name of the running distribution."""
+
+    proc = subprocess.Popen(['lsb_release', '-is'], stdout=subprocess.PIPE)
+    return proc.communicate()[0].strip()
 
 def install(frontend=None):
     '''install(frontend=None) -> none
@@ -53,7 +60,7 @@ def install(frontend=None):
                                ', '.join(frontends))
 
     unmount_target()
-    distro = misc.distribution().lower()
+    distro = distribution().lower()
     wizard = ui.Wizard(distro)
     ret = wizard.run()
     copy_debconf()
@@ -65,9 +72,9 @@ def copy_debconf():
     """Copy a few important questions into the installed system."""
     targetdb = '/target/var/cache/debconf/config.dat'
     for q in ('^console-setup/',):
-        misc.ex('debconf-copydb', 'configdb', 'targetdb', '-p', q,
-                '--config=Name:targetdb', '--config=Driver:File',
-                '--config=Filename:%s' % targetdb)
+        misc.execute('debconf-copydb', 'configdb', 'targetdb', '-p', q,
+                     '--config=Name:targetdb', '--config=Driver:File',
+                     '--config=Filename:%s' % targetdb)
 
 def unmount_target():
     paths = []
@@ -80,7 +87,7 @@ def unmount_target():
     paths.sort()
     paths.reverse()
     for path in paths:
-        misc.ex('umount', path)
+        misc.execute('umount', path)
 
 def prepend_path(directory):
     if 'PATH' in os.environ and os.environ['PATH'] != '':
