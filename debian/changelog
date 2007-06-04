@@ -4,6 +4,8 @@ ubiquity (1.5.1) UNRELEASED; urgency=low
   * Update console-setup component for Lithuanian changes in console-setup
     1.16ubuntu1.
   * Remove stray references to ubiquity.settings.
+  * Restore distribution() function used by bin/ubiquity, previously in
+    ubiquity.misc.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 01 Jun 2007 15:37:02 +0100
 

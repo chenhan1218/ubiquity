@@ -22,6 +22,7 @@ import shutil
 import syslog
 import atexit
 import optparse
+import subprocess
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -31,6 +32,12 @@ VERSION = '@VERSION@'
 TARGET = '/target'
 LOCKFILE = '/var/lock/ubiquity'
 lock = None
+
+def distribution():
+    """Returns the name of the running distribution."""
+
+    proc = subprocess.Popen(['lsb_release', '-is'], stdout=subprocess.PIPE)
+    return proc.communicate()[0].strip()
 
 def install(frontend=None):
     '''install(frontend=None) -> none
@@ -53,7 +60,7 @@ def install(frontend=None):
                                ', '.join(frontends))
 
     unmount_target()
-    distro = misc.distribution().lower()
+    distro = distribution().lower()
     wizard = ui.Wizard(distro)
     ret = wizard.run()
     copy_debconf()
