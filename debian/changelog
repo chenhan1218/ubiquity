@@ -6,6 +6,8 @@ ubiquity (1.5.1) UNRELEASED; urgency=low
   * Remove stray references to ubiquity.settings.
   * Restore distribution() function used by bin/ubiquity, previously in
     ubiquity.misc.
+  * Clean up some breakage from ubiquity.misc.ex -> ubiquity.misc.execute
+    renaming.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 01 Jun 2007 15:37:02 +0100
 

@@ -72,9 +72,9 @@ def copy_debconf():
     """Copy a few important questions into the installed system."""
     targetdb = '/target/var/cache/debconf/config.dat'
     for q in ('^console-setup/',):
-        misc.ex('debconf-copydb', 'configdb', 'targetdb', '-p', q,
-                '--config=Name:targetdb', '--config=Driver:File',
-                '--config=Filename:%s' % targetdb)
+        misc.execute('debconf-copydb', 'configdb', 'targetdb', '-p', q,
+                     '--config=Name:targetdb', '--config=Driver:File',
+                     '--config=Filename:%s' % targetdb)
 
 def unmount_target():
     paths = []
@@ -87,7 +87,7 @@ def unmount_target():
     paths.sort()
     paths.reverse()
     for path in paths:
-        misc.ex('umount', path)
+        misc.execute('umount', path)
 
 def prepend_path(directory):
     if 'PATH' in os.environ and os.environ['PATH'] != '':
