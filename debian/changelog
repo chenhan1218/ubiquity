@@ -1,3 +1,12 @@
+ubiquity (1.5.2) UNRELEASED; urgency=low
+
+  * Prevent mounted volumes icons from appearing on the desktop.
+    (LP: #105531)
+  * Make sure the summary question regex gets split properly.
+  * Fix typo in base frontend get_summary_device stub.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 04 Jun 2007 12:59:04 -0400
+
 ubiquity (1.5.1) gutsy; urgency=low
 
   * Install doc/README in the ubiquity binary package.

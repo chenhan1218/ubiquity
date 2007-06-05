@@ -218,6 +218,7 @@ class Wizard(BaseFrontend):
     def disable_volume_manager(self):
         gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
         gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
+        volumes_visible = '/apps/nautilus/desktop/volumes_visible'
         if 'SUDO_USER' in os.environ:
             gconf_dir = ('xml:readwrite:%s' %
                          os.path.expanduser('~%s/.gconf' %
@@ -225,7 +226,8 @@ class Wizard(BaseFrontend):
         else:
             gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
         self.gconf_previous = {}
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+        for gconf_key in (gvm_automount_drives, gvm_automount_media,
+            volumes_visible):
             subp = subprocess.Popen(['gconftool-2', '--config-source',
                                      gconf_dir, '--get', gconf_key],
                                     stdout=subprocess.PIPE,
@@ -245,7 +247,9 @@ class Wizard(BaseFrontend):
     def enable_volume_manager(self):
         gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
         gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-        for gconf_key in (gvm_automount_drives, gvm_automount_media):
+        volumes_visible = '/apps/nautilus/desktop/volumes_visible'
+        for gconf_key in (gvm_automount_drives, gvm_automount_media,
+            volumes_visible):
             if self.gconf_previous[gconf_key] == '':
                 subprocess.call(['gconftool-2', '--unset', gconf_key],
                                 preexec_fn=drop_privileges)
