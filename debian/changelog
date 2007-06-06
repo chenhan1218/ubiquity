@@ -1,4 +1,4 @@
-ubiquity (1.5.2) UNRELEASED; urgency=low
+ubiquity (1.5.2) gutsy; urgency=low
 
   [ Evan Dandrea ]
   * Prevent mounted volumes icons from appearing on the desktop.
@@ -9,7 +9,7 @@ ubiquity (1.5.2) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Automatic update of included source packages: console-setup 1.16ubuntu3.
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 04 Jun 2007 12:59:04 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 05 Jun 2007 09:03:20 +0100
 
 ubiquity (1.5.1) gutsy; urgency=low
 
