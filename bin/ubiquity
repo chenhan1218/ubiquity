@@ -193,6 +193,37 @@ def main():
         os.unlink("/var/lib/ubiquity/remove-kernels")
     shutil.rmtree("/var/lib/partman", ignore_errors=True)
 
+    # Workaround for hang on relatively low-memory PS3 systems (#108723).
+    # Apparently killing a few processes up-front helps.
+    try:
+        lowmem = False
+        archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
+        arch = archdetect.communicate()[0].strip()
+        if arch == 'powerpc/ps3':
+            meminfo = open('/proc/meminfo')
+            try:
+                for line in meminfo:
+                    if line.startswith('MemTotal:'):
+                        mem = int(line.split()[1])
+                        if mem <= 262144:
+                            lowmem = True
+                            break
+            finally:
+                meminfo.close()
+        if lowmem:
+            syslog.syslog("Low memory: killing processes to work around hang")
+            for session_process in ('evolution-alarm-notify',
+                                    'gnome-cups-icon',
+                                    'restricted-manager',
+                                    'update-notifier'):
+                subprocess.call(['gnome-session-remove',
+                                 session_process])
+            subprocess.call(['/etc/init.d/cupsys', 'stop'])
+    except (KeyboardInterrupt, SystemExit):
+        raise
+    except:
+        pass
+
     if args:
         install(args[0])
     else:
