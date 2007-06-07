@@ -84,8 +84,10 @@ def main():
                                      session_process])
             if os.getuid() == 0:
                 subprocess.call(['/etc/init.d/cupsys', 'stop'])
+                subprocess.call(['/etc/init.d/hplip', 'stop'])
             else:
                 subprocess.call(['sudo', '/etc/init.d/cupsys', 'stop'])
+                subprocess.call(['sudo', '/etc/init.d/hplip', 'stop'])
     except (KeyboardInterrupt, SystemExit):
         raise
     except:
