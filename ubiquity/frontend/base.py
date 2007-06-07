@@ -19,6 +19,8 @@
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import sys
+import os
 import syslog
 
 from ubiquity import i18n
@@ -112,6 +114,27 @@ class BaseFrontend:
     def quit_main_loop(self):
         """Return control blocked in run_main_loop."""
         pass
+
+    def post_mortem(self, exctype, excvalue, exctb):
+        """Drop into the debugger if possible."""
+
+        # Did the user request this?
+        if 'UBIQUITY_DEBUG_PDB' not in os.environ:
+            return
+        # We must not be in interactive mode; if we are, there's no point.
+        if hasattr(sys, 'ps1'):
+            return
+        # stdin and stdout must point to a terminal. (stderr is redirected
+        # in debug mode!)
+        if not sys.stdin.isatty() or not sys.stdout.isatty():
+            return
+        # SyntaxErrors can't meaningfully be debugged.
+        if issubclass(exctype, SyntaxError):
+            return
+
+        import pdb
+        pdb.post_mortem(exctb)
+        sys.exit(1)
 
     # Progress bar handling.
 

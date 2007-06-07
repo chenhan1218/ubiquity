@@ -126,10 +126,13 @@ def main():
     parser = optparse.OptionParser(usage=usage, version=VERSION)
     parser.set_defaults(
         debug=('UBIQUITY_DEBUG' in os.environ),
+        debug_pdb=False,
         cdebconf=False,
         migration_assistant=True)
     parser.add_option('-d', '--debug', dest='debug', action='store_true',
                       help='debug mode (warning: passwords will be logged!)')
+    parser.add_option('--pdb', dest='debug_pdb', action='store_true',
+                      help='drop into Python debugger on a crash')
     parser.add_option('--cdebconf', dest='cdebconf', action='store_true',
                       help='use cdebconf instead of debconf (experimental)')
     parser.add_option('--no-migration-assistant', dest='migration_assistant',
@@ -139,6 +142,9 @@ def main():
 
     if options.debug:
         os.environ['UBIQUITY_DEBUG'] = '1'
+
+    if options.debug_pdb:
+        os.environ['UBIQUITY_DEBUG_PDB'] = '1'
 
     if options.cdebconf:
         # Note that this needs to be set before DebconfCommunicate is
