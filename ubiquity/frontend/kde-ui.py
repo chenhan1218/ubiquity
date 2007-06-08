@@ -201,6 +201,8 @@ class Wizard(BaseFrontend):
                              " (invoking crash handler):")
         print >>sys.stderr, tbtext
 
+        self.post_mortem(exctype, excvalue, exctb)
+
         if os.path.exists('/usr/share/apport/apport-qt'):
             self.previous_excepthook(exctype, excvalue, exctb)
         else:

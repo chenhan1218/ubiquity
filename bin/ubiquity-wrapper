@@ -5,6 +5,8 @@
 
 import sys
 import os
+import syslog
+import subprocess
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -53,6 +55,43 @@ def main():
             toexec = ['kdesu', '--nonewdcop', '--']
         else:
             toexec = ['sudo']
+
+    # Workaround for hang on relatively low-memory PS3 systems (#106683).
+    # Apparently killing a few processes up-front helps.
+    try:
+        lowmem = False
+        archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
+        arch = archdetect.communicate()[0].strip()
+        if arch == 'powerpc/ps3':
+            meminfo = open('/proc/meminfo')
+            try:
+                for line in meminfo:
+                    if line.startswith('MemTotal:'):
+                        mem = int(line.split()[1])
+                        if mem <= 262144:
+                            lowmem = True
+                            break
+            finally:
+                meminfo.close()
+        if lowmem:
+            syslog.syslog("Low memory: killing processes to work around hang")
+            if frontend == 'gtk-ui':
+                for session_process in ('evolution-alarm-notify',
+                                        'gnome-cups-icon',
+                                        'restricted-manager',
+                                        'update-notifier'):
+                    subprocess.call(['gnome-session-remove',
+                                     session_process])
+            if os.getuid() == 0:
+                subprocess.call(['/etc/init.d/cupsys', 'stop'])
+                subprocess.call(['/etc/init.d/hplip', 'stop'])
+            else:
+                subprocess.call(['sudo', '/etc/init.d/cupsys', 'stop'])
+                subprocess.call(['sudo', '/etc/init.d/hplip', 'stop'])
+    except (KeyboardInterrupt, SystemExit):
+        raise
+    except:
+        pass
 
     toexec.append('/usr/lib/ubiquity/bin/ubiquity')
     toexec.extend(newargv)
