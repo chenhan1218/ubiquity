@@ -1,11 +1,16 @@
 ubiquity (1.5.3) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Drop into pdb.post_mortem on non-SyntaxError exceptions if the --pdb
     option is given and ubiquity is running from a terminal.
   * Work around hang on PS3 by stopping various non-essential processes
     first (LP: #106683).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 07 Jun 2007 09:31:53 +0100
+  [ Evan Dandrea ]
+  * Set the partition model after populating it in the KDE UI 
+    (LP: #118967).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 08 Jun 2007 10:35:08 -0400
 
 ubiquity (1.5.2) gutsy; urgency=low
 

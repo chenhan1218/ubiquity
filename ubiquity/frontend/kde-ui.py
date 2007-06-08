@@ -1207,9 +1207,6 @@ class Wizard(BaseFrontend):
     def update_partman (self, disk_cache, partition_cache, cache_order):
         #throwing away the old model if there is one
         self.partition_tree_model = PartitionModel(self.userinterface.partition_list_treeview)
-        self.userinterface.partition_list_treeview.setModel(self.partition_tree_model)
-        self.app.disconnect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
-        self.app.connect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
 
         children = self.userinterface.partition_bar_frame.children()
         for child in children:
@@ -1241,6 +1238,10 @@ class Wizard(BaseFrontend):
             for barSlot in self.partition_bars:
                 self.app.connect(barSignal, SIGNAL("clicked(int)"), barSlot.raiseFrames)
 
+        self.userinterface.partition_list_treeview.setModel(self.partition_tree_model)
+        self.app.disconnect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
+        self.app.connect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
+        
         # make sure we're on the advanced partitioning page
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
 
