@@ -7,10 +7,13 @@ ubiquity (1.5.3) UNRELEASED; urgency=low
     first (LP: #106683).
 
   [ Evan Dandrea ]
-  * Set the partition model after populating it in the KDE UI 
+  * Set the partition model after populating it in the KDE UI
     (LP: #118967).
+  * Automatic update of included source packages: console-setup
+    1.16ubuntu4, kboot-installer 0.0.1ubuntu3, partman-newworld
+    18ubuntu1.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 08 Jun 2007 10:35:08 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 11 Jun 2007 10:57:07 -0400
 
 ubiquity (1.5.2) gutsy; urgency=low
 
