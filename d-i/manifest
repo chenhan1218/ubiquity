@@ -2,11 +2,11 @@ apt-setup 1:0.21ubuntu1
 base-installer 1.79ubuntu1
 choose-mirror 2.15ubuntu1
 clock-setup 0.16ubuntu1
-console-setup 1.16ubuntu3
+console-setup 1.16ubuntu4
 debian-installer-utils 1.48ubuntu1
 grub-installer 1.24ubuntu1
 hw-detect 1.52ubuntu2
-kboot-installer 0.0.1ubuntu2
+kboot-installer 0.0.1ubuntu3
 localechooser 1.38ubuntu1
 migration-assistant 0.4.5
 partconf 1.23
@@ -17,7 +17,7 @@ partman-basicmethods 35
 partman-efi 13ubuntu1
 partman-ext3 47
 partman-jfs 22
-partman-newworld 18
+partman-newworld 18ubuntu1
 partman-partitioning 50ubuntu1
 partman-reiserfs 36
 partman-target 50ubuntu1
