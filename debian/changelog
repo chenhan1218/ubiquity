@@ -1,4 +1,4 @@
-ubiquity (1.5.3) UNRELEASED; urgency=low
+ubiquity (1.5.3) gutsy; urgency=low
 
   [ Colin Watson ]
   * Drop into pdb.post_mortem on non-SyntaxError exceptions if the --pdb
@@ -13,7 +13,7 @@ ubiquity (1.5.3) UNRELEASED; urgency=low
     1.16ubuntu4, kboot-installer 0.0.1ubuntu3, partman-newworld
     18ubuntu1.
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 11 Jun 2007 10:57:07 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 11 Jun 2007 11:01:50 -0400
 
 ubiquity (1.5.2) gutsy; urgency=low
 
