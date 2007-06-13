@@ -1,3 +1,12 @@
+ubiquity (1.5.4) UNRELEASED; urgency=low
+
+  * Make sure that the bounds of the spin button in the partition edit
+    dialog always include the current size of the partition, even if for
+    some reason it is outside the minimum/maximum resize ranges reported by
+    partman (part of #95619).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 13 Jun 2007 14:32:44 +0100
+
 ubiquity (1.5.3) gutsy; urgency=low
 
   [ Colin Watson ]
