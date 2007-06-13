@@ -224,9 +224,15 @@ class DebconfFilter:
 
         if command == 'INPUT' and len(params) == 2:
             (priority, question) = params
+            print 'QUESTION: %s' % question
             input_widgets = self.find_widgets([question])
 
             if len(input_widgets) > 0:
+                print '%s seen: %s' % (question, self.db.fget(question, 'seen'))
+                if 'UBIQUITY_AUTOMATIC' in os.environ:
+                    if self.db.fget(question, 'seen') == 'true':
+                        self.reply(30, 'question skipped', log=True)
+                        return True
                 self.debug('filter', 'widget found for', question)
                 if not input_widgets[0].run(priority, question):
                     self.debug('filter', 'widget requested backup')

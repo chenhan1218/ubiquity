@@ -1,12 +1,19 @@
 ubiquity (1.5.4) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Make sure that the bounds of the spin button in the partition edit
     dialog always include the current size of the partition, even if for
     some reason it is outside the minimum/maximum resize ranges reported by
     partman, which can happen due to rounding errors in ubiquity/partman
     communication (part of #95619).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 13 Jun 2007 14:32:44 +0100
+  [ Evan Dandrea ]
+  * Initial commit of ubiquity-automation work:
+    - Added a new frontend, noninteractive.
+    - debconffilter now respects the "seen" flag when running in automatic
+      mode.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 13 Jun 2007 16:04:59 -0400
 
 ubiquity (1.5.3) gutsy; urgency=low
 
