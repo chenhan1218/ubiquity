@@ -13,6 +13,7 @@
 # - Gumer Coronel Pérez <gcoronel#emergya._info>
 # - Colin Watson <cjwatson@ubuntu.com>
 # - Evan Dandrea <evand@ubuntu.com>
+# - Mario Limonciello <superm1@ubuntu.com>
 #
 # This file is part of Ubiquity.
 #
@@ -85,9 +86,46 @@ BREADCRUMB_STEPS = {
 }
 BREADCRUMB_MAX_STEP = 7
 
+# Define what pages of the UI we want to load.  Note that most of these pages
+# are required for the install to complete successfully.
+SUBPAGES = [
+    "stepWelcome",
+    "stepLanguage",
+    "stepLocation",
+    "stepKeyboardConf",
+    "stepPartAuto",
+    "stepPartAdvanced",
+    "stepMigrationAssistant",
+    "stepUserInfo",
+    "stepReady"
+]
+
 class Wizard(BaseFrontend):
 
     def __init__(self, distro):
+        def add_subpage(self, steps, name):
+            """Inserts a subpage into the notebook.  This assumes the file
+            shares the same base name as the page you are looking for."""
+            gladefile = GLADEDIR + '/' + name + '.glade'
+            gladexml = gtk.glade.XML(gladefile, name)
+            widget = gladexml.get_widget(name)
+            steps.append_page(widget)
+            add_widgets(self,gladexml)
+            gladexml.signal_autoconnect(self)
+
+        def add_widgets(self, glade):
+            """Makes all widgets callable by the toplevel."""
+            for widget in glade.get_widget_prefix(""):
+                setattr(self, widget.get_name(), widget)
+                # We generally want labels to be selectable so that people can
+                # easily report problems in them
+                # (https://launchpad.net/bugs/41618), but GTK+ likes to put
+                # selectable labels in the focus chain, and I can't seem to turn
+                # this off in glade and have it stick. Accordingly, make sure
+                # labels are unfocusable here.
+                if isinstance(widget, gtk.Label):
+                        widget.set_property('can-focus', False)
+
         BaseFrontend.__init__(self, distro)
 
         self.previous_excepthook = sys.excepthook
@@ -135,20 +173,13 @@ class Wizard(BaseFrontend):
         # set custom language
         self.set_locales()
 
-        # load the interface
+        # load the main interface
         self.glade = gtk.glade.XML('%s/ubiquity.glade' % GLADEDIR)
+        add_widgets(self,self.glade)
 
-        # get widgets
-        for widget in self.glade.get_widget_prefix(""):
-            setattr(self, widget.get_name(), widget)
-            # We generally want labels to be selectable so that people can
-            # easily report problems in them
-            # (https://launchpad.net/bugs/41618), but GTK+ likes to put
-            # selectable labels in the focus chain, and I can't seem to turn
-            # this off in glade and have it stick. Accordingly, make sure
-            # labels are unfocusable here.
-            if isinstance(widget, gtk.Label):
-                widget.set_property('can-focus', False)
+        steps = self.glade.get_widget("steps") 
+        for page in SUBPAGES:
+            add_subpage(self,steps,page)
 
         self.translate_widgets()
 
