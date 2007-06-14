@@ -1603,6 +1603,9 @@ class Wizard(BaseFrontend):
             min_size_mb = int(partition['resize_min_size']) / 1000000
             cur_size_mb = int(partition['parted']['size']) / 1000000
             max_size_mb = int(partition['resize_max_size']) / 1000000
+            # Bad things happen if the current size is out of bounds.
+            min_size_mb = min(min_size_mb, cur_size_mb)
+            max_size_mb = max(cur_size_mb, max_size_mb)
             self.partition_edit_size_spinbutton.set_adjustment(
                 gtk.Adjustment(value=cur_size_mb, lower=min_size_mb,
                                upper=max_size_mb,

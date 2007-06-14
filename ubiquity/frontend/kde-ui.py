@@ -1358,6 +1358,9 @@ class Wizard(BaseFrontend):
             min_size_mb = int(partition['resize_min_size']) / 1000000
             cur_size_mb = int(partition['parted']['size']) / 1000000
             max_size_mb = int(partition['resize_max_size']) / 1000000
+            # Bad things happen if the current size is out of bounds.
+            min_size_mb = min(min_size_mb, cur_size_mb)
+            max_size_mb = max(cur_size_mb, max_size_mb)
             self.edit_dialog.partition_edit_size_spinbutton.setMinimum(min_size_mb)
             self.edit_dialog.partition_edit_size_spinbutton.setMaximum(max_size_mb)
             self.edit_dialog.partition_edit_size_spinbutton.setSingleStep(1)
