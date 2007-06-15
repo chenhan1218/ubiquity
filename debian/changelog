@@ -10,6 +10,8 @@ ubiquity (1.5.4) UNRELEASED; urgency=low
   * KDE frontend:
     - Say "Skip" (or translation thereof) rather than "Cancel" in progress
       dialog (LP: #116631).
+    - Fix crash if one of the placeholder continent entries is selected as
+      the timezone (LP: #112813).
 
   [ Mario Limonciello ]
   * Break up the glade file into multiple pieces to make updates

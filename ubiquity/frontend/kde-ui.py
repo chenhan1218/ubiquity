@@ -1910,7 +1910,7 @@ class TimezoneMap(object):
             return
 
     def get_tz_from_name(self, name):
-        if len(name) != 0:
+        if len(name) != 0 and name in self.timezone_city_index:
             return self.timezone_city_index[name]
         else:
             return None
