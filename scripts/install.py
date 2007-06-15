@@ -555,7 +555,7 @@ class Install:
             os.makedirs(target_dir)
 
         for log_file in ('/var/log/syslog', '/var/log/partman',
-                         '/var/log/installer/version'):
+                         '/var/log/installer/version', '/var/log/casper.log'):
             target_log_file = os.path.join(target_dir,
                                            os.path.basename(log_file))
             if not misc.execute('cp', '-a', log_file, target_log_file):
