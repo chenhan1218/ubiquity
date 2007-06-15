@@ -110,7 +110,7 @@ class Wizard(BaseFrontend):
             gladexml = gtk.glade.XML(gladefile, name)
             widget = gladexml.get_widget(name)
             steps.append_page(widget)
-            add_widgets(self,gladexml)
+            add_widgets(self, gladexml)
             gladexml.signal_autoconnect(self)
 
         def add_widgets(self, glade):
@@ -124,7 +124,7 @@ class Wizard(BaseFrontend):
                 # this off in glade and have it stick. Accordingly, make sure
                 # labels are unfocusable here.
                 if isinstance(widget, gtk.Label):
-                        widget.set_property('can-focus', False)
+                    widget.set_property('can-focus', False)
 
         BaseFrontend.__init__(self, distro)
 
@@ -177,9 +177,9 @@ class Wizard(BaseFrontend):
         self.glade = gtk.glade.XML('%s/ubiquity.glade' % GLADEDIR)
         add_widgets(self,self.glade)
 
-        steps = self.glade.get_widget("steps") 
+        steps = self.glade.get_widget("steps")
         for page in SUBPAGES:
-            add_subpage(self,steps,page)
+            add_subpage(self, steps, page)
 
         self.translate_widgets()
 
