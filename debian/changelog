@@ -7,6 +7,9 @@ ubiquity (1.5.4) UNRELEASED; urgency=low
     partman, which can happen due to rounding errors in ubiquity/partman
     communication (part of #95619).
   * Save /var/log/casper.log to installed system (LP: #119993).
+  * KDE frontend:
+    - Say "Skip" (or translation thereof) rather than "Cancel" in progress
+      dialog (LP: #116631).
 
   [ Mario Limonciello ]
   * Break up the glade file into multiple pieces to make updates

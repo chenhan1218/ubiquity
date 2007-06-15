@@ -902,9 +902,10 @@ class Wizard(BaseFrontend):
             progress_title = ""
         total_steps = progress_max - progress_min
         if self.progressDialogue is None:
-            self.progressDialogue = QProgressDialog('', "Cancel", 0, total_steps, self.userinterface)
+            skipText = self.get_string("progress_cancel_button")
+            self.progressDialogue = QProgressDialog('', skipText, 0, total_steps, self.userinterface)
             self.progressDialogue.setWindowModality(Qt.WindowModal);
-            self.cancelButton = QPushButton("Cancel", self.progressDialogue)
+            self.cancelButton = QPushButton(skipText, self.progressDialogue)
             self.cancelButton.hide()
             self.progressDialogue.setCancelButton(self.cancelButton)
         elif self.progress_position.depth() == 0:
