@@ -12,6 +12,9 @@ ubiquity (1.5.4) UNRELEASED; urgency=low
   * Break up the glade file into multiple pieces to make updates
     to single pages a lot easier.
 
+  [ Nathan Collins ]
+  * Fix typo in unionfs dirs= option generation (LP: #118742).
+
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 14 Jun 2007 13:27:26 -0400
 
 ubiquity (1.5.3) gutsy; urgency=low

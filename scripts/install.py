@@ -682,7 +682,8 @@ class Install:
             assert self.mountpoints
 
             misc.execute('mount', '-t', 'unionfs', '-o',
-                         'dirs=' + map(lambda x: '%s=ro' % x, self.mountpoints),
+                         'dirs=' + ':'.join(map(lambda x: '%s=ro' % x,
+                                                self.mountpoints)),
                          'unionfs', self.source)
             self.mountpoints.append(self.source)
 
