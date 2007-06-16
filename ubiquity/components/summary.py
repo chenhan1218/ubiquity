@@ -19,6 +19,7 @@
 
 import os
 import textwrap
+
 from ubiquity.filteredcommand import FilteredCommand
 
 def will_be_installed(pkg):

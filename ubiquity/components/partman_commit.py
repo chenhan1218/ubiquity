@@ -18,6 +18,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import debconf
+
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity.parted_server import PartedServer
 

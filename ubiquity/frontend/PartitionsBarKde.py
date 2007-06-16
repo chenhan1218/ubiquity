@@ -22,11 +22,11 @@
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ##################################################################################
 
+import sys
+
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4 import uic
-
-import sys
 
 class PartitionFrame(QFrame):
     def mouseReleaseEvent(self, event):

@@ -25,11 +25,13 @@ import signal
 import subprocess
 import re
 import syslog
+
 import debconf
 try:
     from debconf import DebconfCommunicator
 except ImportError:
     from ubiquity.debconfcommunicator import DebconfCommunicator
+
 from ubiquity.debconffilter import DebconfFilter
 
 # We identify as this to debconf.

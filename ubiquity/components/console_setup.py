@@ -20,6 +20,7 @@
 
 import re
 import os
+
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import keyboard_names
 from ubiquity import misc

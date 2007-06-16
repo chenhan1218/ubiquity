@@ -16,9 +16,11 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from ubiquity.filteredcommand import FilteredCommand
-import debconf
 import syslog
+
+import debconf
+
+from ubiquity.filteredcommand import FilteredCommand
 
 class MigrationAssistant(FilteredCommand):
     firstrun = True

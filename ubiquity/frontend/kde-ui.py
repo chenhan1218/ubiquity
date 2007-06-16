@@ -22,6 +22,15 @@
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import sys
+import os
+import datetime
+import subprocess
+import math
+import traceback
+import syslog
+import signal
+import gettext
+
 #from qt import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -30,16 +39,6 @@ from PyQt4 import uic
 #from kdecore import *
 #from kio import KRun
 #import kdedesigner
-
-import os
-import datetime
-import subprocess
-import math
-import traceback
-import syslog
-import signal
-
-import gettext
 
 try:
     from debconf import DebconfCommunicator

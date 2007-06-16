@@ -24,6 +24,7 @@ import signal
 import errno
 import subprocess
 import re
+
 import debconf
 
 # Each widget should have a run(self, priority, question) method; this

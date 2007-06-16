@@ -12,6 +12,7 @@ ubiquity (1.5.4) UNRELEASED; urgency=low
       dialog (LP: #116631).
     - Fix crash if one of the placeholder continent entries is selected as
       the timezone (LP: #112813).
+  * From the department of pickiness: PEP-8 import ordering.
 
   [ Mario Limonciello ]
   * Break up the glade file into multiple pieces to make updates

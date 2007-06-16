@@ -32,12 +32,6 @@
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import sys
-import pygtk
-pygtk.require('2.0')
-
-import pango
-import gobject
-import gtk.glade
 import os
 import datetime
 import subprocess
@@ -47,8 +41,13 @@ import syslog
 import atexit
 import signal
 import xml.sax.saxutils
-
 import gettext
+
+import pygtk
+pygtk.require('2.0')
+import pango
+import gobject
+import gtk.glade
 
 try:
     from debconf import DebconfCommunicator
