@@ -13,6 +13,10 @@ ubiquity (1.5.4) UNRELEASED; urgency=low
     - Fix crash if one of the placeholder continent entries is selected as
       the timezone (LP: #112813).
   * From the department of pickiness: PEP-8 import ordering.
+  * Move .glade and .ui files to a new top-level gui directory in the source
+    package. Install .ui files in /usr/share/ubiquity/qt rather than in
+    /usr/lib/ubiquity/ubiquity/frontend now that they are loaded on the fly
+    rather than being compiled into .py files statically.
 
   [ Mario Limonciello ]
   * Break up the glade file into multiple pieces to make updates

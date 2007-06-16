@@ -61,7 +61,7 @@ PATH = '/usr/share/ubiquity'
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
-UIDIR = '/usr/lib/ubiquity/ubiquity/frontend'
+UIDIR = os.path.join(PATH, 'qt')
 
 BREADCRUMB_STEPS = {
     "stepLanguage": 1,
