@@ -17,6 +17,8 @@ ubiquity (1.5.4) UNRELEASED; urgency=low
     package. Install .ui files in /usr/share/ubiquity/qt rather than in
     /usr/lib/ubiquity/ubiquity/frontend now that they are loaded on the fly
     rather than being compiled into .py files statically.
+  * If /etc/udev/rules.d/70-persistent-net.rules exists, copy it rather than
+    generating /etc/iftab.
 
   [ Mario Limonciello ]
   * Break up the glade file into multiple pieces to make updates

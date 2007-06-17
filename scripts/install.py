@@ -1231,54 +1231,60 @@ exit 0"""
             ff02::3 ip6-allhosts""")
         hosts.close()
 
-        # TODO cjwatson 2006-03-30: from <bits/ioctls.h>; ugh, but no
-        # binding available
-        SIOCGIFHWADDR = 0x8927
-        # <net/if_arp.h>
-        ARPHRD_ETHER = 1
+        persistent_net = '/etc/udev/rules.d/70-persistent-net.rules'
+        if os.path.exists(persistent_net):
+            shutil.copy2(persistent_net,
+                         os.path.join(self.target, persistent_net[1:]))
+        else:
+            # TODO cjwatson 2006-03-30: from <bits/ioctls.h>; ugh, but no
+            # binding available
+            SIOCGIFHWADDR = 0x8927
+            # <net/if_arp.h>
+            ARPHRD_ETHER = 1
 
-        if_names = {}
-        sock = socket.socket(socket.SOCK_DGRAM)
-        interfaces = self.get_all_interfaces()
-        for i in range(len(interfaces)):
-            if_names[interfaces[i]] = struct.unpack('H6s',
-                fcntl.ioctl(sock.fileno(), SIOCGIFHWADDR,
-                            struct.pack('256s', interfaces[i]))[16:24])
-        sock.close()
+            if_names = {}
+            sock = socket.socket(socket.SOCK_DGRAM)
+            interfaces = self.get_all_interfaces()
+            for i in range(len(interfaces)):
+                if_names[interfaces[i]] = struct.unpack('H6s',
+                    fcntl.ioctl(sock.fileno(), SIOCGIFHWADDR,
+                                struct.pack('256s', interfaces[i]))[16:24])
+            sock.close()
 
-        iftab = open(os.path.join(self.target, 'etc/iftab'), 'w')
+            iftab = open(os.path.join(self.target, 'etc/iftab'), 'w')
 
-        print >>iftab, textwrap.dedent("""\
-            # This file assigns persistent names to network interfaces.
-            # See iftab(5) for syntax.
-            """)
+            print >>iftab, textwrap.dedent("""\
+                # This file assigns persistent names to network interfaces.
+                # See iftab(5) for syntax.
+                """)
 
-        for i in range(len(interfaces)):
-            dup = False
-            with_arp = False
+            for i in range(len(interfaces)):
+                dup = False
+                with_arp = False
 
-            if_name = if_names[interfaces[i]]
-            if if_name is None or if_name[0] != ARPHRD_ETHER:
-                continue
-
-            for j in range(len(interfaces)):
-                if i == j or if_names[interfaces[j]] is None:
+                if_name = if_names[interfaces[i]]
+                if if_name is None or if_name[0] != ARPHRD_ETHER:
                     continue
-                if if_name[1] != if_names[interfaces[j]][1]:
+
+                for j in range(len(interfaces)):
+                    if i == j or if_names[interfaces[j]] is None:
+                        continue
+                    if if_name[1] != if_names[interfaces[j]][1]:
+                        continue
+
+                    if if_names[interfaces[j]][0] == ARPHRD_ETHER:
+                        dup = True
+
+                if dup:
                     continue
 
-                if if_names[interfaces[j]][0] == ARPHRD_ETHER:
-                    dup = True
+                line = (interfaces[i] + " mac " +
+                        ':'.join(['%02x' % ord(if_name[1][c])
+                                  for c in range(6)]))
+                line += " arp %d" % if_name[0]
+                print >>iftab, line
 
-            if dup:
-                continue
-
-            line = (interfaces[i] + " mac " +
-                    ':'.join(['%02x' % ord(if_name[1][c]) for c in range(6)]))
-            line += " arp %d" % if_name[0]
-            print >>iftab, line
-
-        iftab.close()
+            iftab.close()
 
 
     def configure_bootloader(self):
