@@ -139,7 +139,7 @@ def main():
     parser.add_option('--no-migration-assistant', dest='migration_assistant',
                       action='store_false',
                       help='disable Migration Assistant')
-    parser.add_option('--automatic', dest='automatic', action='store_false',
+    parser.add_option('--automatic', dest='automatic', action='store_true',
                       help='do not ignore the "seen" flag (useful for ' \
                       'unattended installations).')
     (options, args) = parser.parse_args()
