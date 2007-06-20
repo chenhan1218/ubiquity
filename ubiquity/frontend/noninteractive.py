@@ -37,7 +37,10 @@ import gtk
 
 import getpass
 import os
+import sys
+
 from ubiquity import filteredcommand, i18n
+from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, \
                                 summary, install, migrationassistant
@@ -101,6 +104,9 @@ class Wizard(BaseFrontend):
                 tbfile.close()
                 raise RuntimeError, ("Install failed with exit code %s\n%s" %
                                      (ret, realtb))
+        else:
+            raw_input('Installation complete.  Press any key to reboot...')
+            execute("reboot")
 
     def watch_debconf_fd(self, from_debconf, process_input):
         """Event loop interface to debconffilter.
@@ -118,7 +124,6 @@ class Wizard(BaseFrontend):
 
 
     def watch_debconf_fd_helper (self, source, cb_condition, callback):
-        import sys
         debconf_condition = 0
         if (cb_condition & gobject.IO_IN) != 0:
             debconf_condition |= filteredcommand.DEBCONF_IO_IN
@@ -162,11 +167,12 @@ class Wizard(BaseFrontend):
     def debconf_progress_start(self, progress_min, progress_max,
                                progress_title):
         """Start a progress bar. May be nested."""
-        print '*** debconf_progress_start'
+        pass
 
     def debconf_progress_set(self, progress_val):
         """Set the current progress bar's position to progress_val."""
-        print '%s percent complete.' % progress_val
+        sys.stdout.write('\r%d percent complete.' % progress_val)
+        sys.stdout.flush()
 
     def debconf_progress_step(self, progress_inc):
         """Increment the current progress bar's position by progress_inc."""
@@ -178,15 +184,15 @@ class Wizard(BaseFrontend):
 
     def debconf_progress_stop(self):
         """Stop the current progress bar."""
-        print '*** debconf_progress_stop'
+        pass
 
     def debconf_progress_region(self, region_start, region_end):
         """Confine nested progress bars to a region of the current bar."""
-        print '*** debconf_progress_region'
+        pass
 
     def debconf_progress_cancellable(self, cancellable):
         """Control whether the current progress bar may be cancelled."""
-        print '*** debconf_progress_cancellable: %s' % cancellable
+        pass
 
     # Interfaces with various components. If a given component is not used
     # then its abstract methods may safely be left unimplemented.
@@ -298,19 +304,14 @@ class Wizard(BaseFrontend):
 
     def set_username(self, value):
         """Set the user's Unix user name."""
-        print 'Setting username to: %s' % value
         self.username = value
 
     def get_username(self):
         """Get the user's Unix user name."""
-        print 'db username: %s' % self.dbfilter.db.get('passwd/username')
         return self.username
 
     def get_password(self):
         """Get the user's password."""
-        print 'db password: %s' % self.dbfilter.db.get('passwd/user-password')
-        if not self.password:
-            self.password = getpass.getpass('Password: ')
         return self.password
 
     def get_verified_password(self):
