@@ -78,7 +78,6 @@ class Wizard(BaseFrontend):
             gtk.main()
 
         self.progress_loop()
-        print 'outside of main loop'
 
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
@@ -201,24 +200,21 @@ class Wizard(BaseFrontend):
 
     def set_language_choices(self, choices, choice_map):
         """Called with language choices and a map to localised names."""
-        print '*** set_language_choices'
+        # FIXME needed?
         self.language_choice_map = dict(choice_map)
 
     def set_language(self, language):
         """Set the current selected language."""
-        print '*** set_language called with: %s' % language
         self.language = language
 
     def get_language(self):
         """Get the current selected language."""
-        print '*** get_language'
         return self.language
 
     # ubiquity.components.timezone
 
     def set_timezone(self, timezone):
         """Set the current selected timezone."""
-        print '*** set_timezone called with: %s' % timezone
         self.timezone = timezone
 
     def get_timezone(self):
@@ -304,6 +300,7 @@ class Wizard(BaseFrontend):
 
     def set_username(self, value):
         """Set the user's Unix user name."""
+        print 'Setting username to: %s' % value
         self.username = value
 
     def get_username(self):
@@ -316,8 +313,6 @@ class Wizard(BaseFrontend):
 
     def get_verified_password(self):
         """Get the user's password confirmation."""
-        if not self.verifiedpassword:
-            self.verifiedpassword = getpass.getpass('Password again: ')
         return self.verifiedpassword
 
     def username_error(self, msg):
