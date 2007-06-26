@@ -29,8 +29,10 @@ ubiquity (1.5.4) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Work around 122141 by keeping a reference to the button image.
+  * Automatic update of included source packages: silo-installer
+    1.10ubuntu3.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 26 Jun 2007 10:13:18 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 26 Jun 2007 10:24:57 -0400
 
 ubiquity (1.5.3) gutsy; urgency=low
 
