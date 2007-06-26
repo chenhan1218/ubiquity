@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# 2007# -*- coding: utf-8 -*-
 #
 # «gtk-ui» - GTK user interface
 #
@@ -536,6 +536,10 @@ class Wizard(BaseFrontend):
                 widget.set_attributes(attrs)
 
         elif isinstance(widget, gtk.Button):
+            # TODO evand 2007-06-26: LP #122141 causes a crash unless we keep a
+            # reference to the button image.
+            tempref = widget.get_image()
+
             question = i18n.map_widget_name(widget.get_name())
             if question.startswith('ubiquity/imported/'):
                 if '|' in text:

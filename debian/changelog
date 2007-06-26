@@ -27,7 +27,10 @@ ubiquity (1.5.4) UNRELEASED; urgency=low
   [ Nathan Collins ]
   * Fix typo in unionfs dirs= option generation (LP: #118742).
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 14 Jun 2007 13:27:26 -0400
+  [ Evan Dandrea ]
+  * Work around 122141 by keeping a reference to the button image.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 26 Jun 2007 10:13:18 -0400
 
 ubiquity (1.5.3) gutsy; urgency=low
 
