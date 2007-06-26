@@ -1,4 +1,4 @@
-ubiquity (1.5.4) UNRELEASED; urgency=low
+ubiquity (1.5.4) gutsy; urgency=low
 
   [ Colin Watson ]
   * Make sure that the bounds of the spin button in the partition edit
@@ -32,7 +32,7 @@ ubiquity (1.5.4) UNRELEASED; urgency=low
   * Automatic update of included source packages: silo-installer
     1.10ubuntu3.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 26 Jun 2007 10:24:57 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 26 Jun 2007 10:26:53 -0400
 
 ubiquity (1.5.3) gutsy; urgency=low
 
