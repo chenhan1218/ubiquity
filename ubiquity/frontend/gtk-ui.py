@@ -1,4 +1,4 @@
-# 2007# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 #
 # «gtk-ui» - GTK user interface
 #
