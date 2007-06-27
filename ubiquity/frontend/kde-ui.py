@@ -28,6 +28,7 @@ import subprocess
 import math
 import traceback
 import syslog
+import atexit
 import signal
 import gettext
 
@@ -212,6 +213,14 @@ class Wizard(BaseFrontend):
             dialog.exec_()
             sys.exit(1)
 
+    # Disable the KDE media notifier to avoid problems during partitioning.
+    def disable_volume_manager(self):
+        execute('dcop', 'kded', 'kded', 'unloadModule', 'medianotifier')
+        atexit.register(self.enable_volume_manager)
+
+    def enable_volume_manager(self):
+        execute('dcop', 'kded', 'kded', 'loadModule', 'medianotifier')
+
     def openURL(self, url):
         #need to run this else kdesu can't run Konqueror
         execute('su', 'ubuntu', 'xhost', '+localhost')
@@ -226,6 +235,8 @@ class Wizard(BaseFrontend):
             result = QMessageBox.critical(self.userinterface, "Must be root",
                                           title)
             sys.exit(1)
+
+        self.disable_volume_manager()
 
         # show interface
         # TODO cjwatson 2005-12-20: Disabled for now because this segfaults in
@@ -528,8 +539,6 @@ class Wizard(BaseFrontend):
             0, 100, self.get_string('ubiquity/install/title'))
         self.debconf_progress_region(0, 15)
 
-        execute('dcop', 'kded', 'kded', 'unloadModule', 'medianotifier')
-
         dbfilter = partman_commit.PartmanCommit(self)
         if dbfilter.run_command(auto_process=True) != 0:
             while self.progress_position.depth() != 0:
@@ -537,8 +546,6 @@ class Wizard(BaseFrontend):
             self.progressDialogue.hide()
             self.return_to_partitioning()
             return
-
-        execute('dcop', 'kded', 'kded', 'loadModule', 'medianotifier')
 
         # No return to partitioning from now on
         self.installing_no_return = True
