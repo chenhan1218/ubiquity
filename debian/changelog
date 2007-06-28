@@ -1,9 +1,16 @@
 ubiquity (1.5.5) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * KDE frontend: Disable the KDE media notifier for the entire duration of
     installation (LP: #122500).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 27 Jun 2007 09:16:27 +0100
+  [ Evan Dandrea ]
+  * Initial commit of ubiquity-automation work:
+    - Added a new frontend, noninteractive.
+    - debconffilter now respects the "seen" flag when running in automatic
+      mode.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 28 Jun 2007 02:31:35 -0400
 
 ubiquity (1.5.4) gutsy; urgency=low
 

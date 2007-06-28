@@ -128,6 +128,7 @@ def main():
         debug=('UBIQUITY_DEBUG' in os.environ),
         debug_pdb=False,
         cdebconf=False,
+        automatic=False,
         migration_assistant=True)
     parser.add_option('-d', '--debug', dest='debug', action='store_true',
                       help='debug mode (warning: passwords will be logged!)')
@@ -138,6 +139,9 @@ def main():
     parser.add_option('--no-migration-assistant', dest='migration_assistant',
                       action='store_false',
                       help='disable Migration Assistant')
+    parser.add_option('--automatic', dest='automatic', action='store_true',
+                      help='do not ignore the "seen" flag (useful for ' \
+                      'unattended installations).')
     (options, args) = parser.parse_args()
 
     if options.debug:
@@ -152,6 +156,9 @@ def main():
         os.environ['DEBCONF_USE_CDEBCONF'] = '1'
         prepend_path('/usr/lib/cdebconf')
     prepend_path('/usr/lib/ubiquity/compat')
+
+    if options.automatic:
+        os.environ['UBIQUITY_AUTOMATIC'] = '1'
 
     if options.migration_assistant:
         os.environ['UBIQUITY_MIGRATION_ASSISTANT'] = '1'
