@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# «gtk-ui» - GTK user interface
+# «gtk_ui» - GTK user interface
 #
 # Copyright (C) 2005 Junta de Andalucía
 # Copyright (C) 2005, 2006, 2007 Canonical Ltd.

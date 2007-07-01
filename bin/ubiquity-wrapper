@@ -37,7 +37,7 @@ def main():
             # frontend module.
             import imp
             import ubiquity.frontend
-            frontend_names = ['gtk-ui', 'kde-ui']
+            frontend_names = ['gtk_ui', 'kde_ui']
             for f in frontend_names:
                 try:
                     imp.find_module(f, ubiquity.frontend.__path__)
@@ -46,12 +46,12 @@ def main():
                 except ImportError:
                     pass
 
-        if frontend == 'gtk-ui':
+        if frontend == 'gtk_ui':
             toexec = ['gksudo']
             if desktop:
                 toexec.extend(['--desktop', desktop])
             toexec.append('--')
-        elif frontend == 'kde-ui':
+        elif frontend == 'kde_ui':
             toexec = ['kdesu', '--nonewdcop', '--']
         else:
             toexec = ['sudo']
@@ -75,7 +75,7 @@ def main():
                 meminfo.close()
         if lowmem:
             syslog.syslog("Low memory: killing processes to work around hang")
-            if frontend == 'gtk-ui':
+            if frontend == 'gtk_ui':
                 for session_process in ('evolution-alarm-notify',
                                         'gnome-cups-icon',
                                         'restricted-manager',
