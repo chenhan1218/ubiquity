@@ -60,8 +60,8 @@ from ubiquity.components import console_setup, language, timezone, usersetup, \
 import ubiquity.frontend.gtk_ui
 import ubiquity.components.mythbuntu_install
 import ubiquity.components.mythbuntu_summary
-ubiquity.frontend.gtkui.install = ubiquity.components.mythbuntu_install
-ubiquity.frontend.gtkui.summary = ubiquity.components.mythbuntu_summary
+ubiquity.frontend.gtk_ui.install = ubiquity.components.mythbuntu_install
+ubiquity.frontend.gtk_ui.summary = ubiquity.components.mythbuntu_summary
 
 
 BREADCRUMB_STEPS = {
@@ -104,16 +104,16 @@ SUBPAGES = [
     "mythbuntu_stepBackendSetup"
 ]
 
-ubiquity.frontend.gtkui.BREADCRUMB_STEPS = BREADCRUMB_STEPS;
-ubiquity.frontend.gtkui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP;
-ubiquity.frontend.gtkui.SUBPAGES = SUBPAGES;
+ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS;
+ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP;
+ubiquity.frontend.gtk_ui.SUBPAGES = SUBPAGES;
 
-class Wizard(ubiquity.frontend.gtkui.Wizard):
+class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
 #Overriden Methods    
     def __init__(self, distro):
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT'];
-        ubiquity.frontend.gtkui.Wizard.__init__(self,distro)
+        ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
         
     def run(self):
         """run the interface."""
@@ -150,8 +150,8 @@ class Wizard(ubiquity.frontend.gtkui.Wizard):
                 BREADCRUMB_STEPS[step] += 1
             BREADCRUMB_STEPS["stepWelcome"] = 1
             BREADCRUMB_MAX_STEP += 1
-            ubiquity.frontend.gtkui.BREADCRUMB_STEPS = BREADCRUMB_STEPS;
-            ubiquity.frontend.gtkui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP;
+            ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS;
+            ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP;
             first_step = self.stepWelcome
         else:
             first_step = self.stepLanguage
