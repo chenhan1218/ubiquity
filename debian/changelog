@@ -2,6 +2,7 @@ oem-config (1.16) UNRELEASED; urgency=low
 
   * Update console-setup component for Lithuanian changes in console-setup
     1.16ubuntu1.
+  * Fix desktop file installation.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun, 03 Jun 2007 15:15:31 +0100
 

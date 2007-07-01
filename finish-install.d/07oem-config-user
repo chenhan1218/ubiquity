@@ -5,7 +5,7 @@ if [ -d /target/home/oem ]; then
 	for file in \
 	    /usr/share/applications/oem-config-prepare-gtk.desktop \
 	    /usr/share/applications/kde/oem-config-prepare-kde.desktop; do
-		if [ -f "$file" ]; then
+		if [ -f "/target$file" ]; then
 			chroot /root install -D -o oem -g oem \
 				"$file" "/home/oem/Desktop/$(basename "$file")"
 			break
