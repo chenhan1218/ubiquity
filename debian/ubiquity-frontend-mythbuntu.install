@@ -1,0 +1,26 @@
+#d-i pieces
+d-i/source/mythbuntu/mythbuntu-ask usr/lib/ubiquity/mythbuntu
+d-i/source/mythbuntu/mythbuntu-apply usr/lib/ubiquity/mythbuntu
+d-i/source/mythbuntu/mythbuntu-drivers usr/lib/ubiquity/mythbuntu
+d-i/source/mythbuntu/mythbuntu-services usr/lib/ubiquity/mythbuntu
+d-i/source/mythbuntu/mythbuntu-setup usr/lib/ubiquity/mythbuntu
+
+#individual python components
+ubiquity/components/mythbuntu.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/mythbuntu_apply.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/mythbuntu_drivers.py usr/lib/ubiquity/ubiquity/components
+ubiquity/components/mythbuntu_services.py usr/lib/ubiquity/ubiquity/components
+
+#GTK/glade
+ubiquity/frontend/mythbuntu_ui.py usr/lib/ubiquity/ubiquity/frontend
+gui/glade/mythbuntu*.glade usr/share/ubiquity/glade
+
+#Summary Generation Page
+ubiquity/components/mythbuntu_summary.py usr/lib/ubiquity/ubiquity/components
+scripts/mythbuntu_summary usr/share/ubiquity
+
+#GTK->Final installer glue
+ubiquity/components/mythbuntu_install.py usr/lib/ubiquity/ubiquity/components
+
+#Final Installer piece
+scripts/mythbuntu_install.py usr/share/ubiquity

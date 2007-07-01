@@ -58,3 +58,12 @@ XB-Python-Version: ${python:Versions}
 Description: KDE frontend for Ubiquity live installer
  This package provides a KDE-based user interface frontend for the Ubiquity
  live CD installer.
+
+Package: ubiquity-frontend-mythbuntu
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity, ubiquity-frontend-gtk, restricted-manager, mythtv-common, python-mysqldb, expect, guidance-backends, vnc4-common
+XB-Python-Version: ${python:Versions}
+Description: Mythbuntu frontend for the Ubiquity live installer
+ This package provides a GTK+-based user interface frontend for the use
+ when performing a Mythbuntu installation.  The interface is derived
+ from the GTK frontend already available.
