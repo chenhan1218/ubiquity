@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.3.1 on Mon Jul  2 13:55:12 2007 by cjwatson@cairhien-->
+<!--Generated with glade3 3.3.1 on Mon Jul  2 14:04:58 2007 by cjwatson@cairhien-->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -16,6 +16,7 @@
             <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Choose time zone&lt;/b&gt;&lt;/big&gt;</property>
             <property name="use_markup">True</property>
             <property name="selectable">True</property>
+            <property name="single_line_mode">True</property>
           </widget>
           <packing>
             <property name="expand">False</property>
@@ -130,8 +131,11 @@
                     <child>
                       <widget class="GtkLabel" id="timezone_time_label">
                         <property name="visible">True</property>
-                        <property name="xalign">0</property>
+                        <property name="xalign">1</property>
+                        <property name="xpad">6</property>
+                        <property name="ypad">6</property>
                         <property name="label" translatable="yes">Current time:</property>
+                        <property name="single_line_mode">True</property>
                       </widget>
                       <packing>
                         <property name="left_attach">2</property>

@@ -11,6 +11,7 @@ oem-config (1.17) UNRELEASED; urgency=low
     option is given and oem-config is running from a terminal.
   * Fix title of language page: "Choose language and location" no longer
     makes sense now that the location is computed from the timezone.
+  * Minor UI tweaks to sync up with ubiquity.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 02 Jul 2007 12:45:26 +0100
 
