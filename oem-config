@@ -31,7 +31,7 @@ sys.path.insert(0, '/usr/lib/oem-config')
 class Wizard:
     def __init__(self, frontend_name=None):
         if frontend_name is None:
-            frontend_names = ['gtk-ui', 'kde-ui']
+            frontend_names = ['gtk_ui', 'kde_ui']
         else:
             frontend_names = [frontend_name]
         mod = __import__('oem_config.frontend', globals(), locals(),
@@ -53,7 +53,7 @@ if __name__ == '__main__':
              "Use oem-config-prepare to prepare the system for an end user.")
     parser = optparse.OptionParser(usage=usage)
     parser.add_option('-f', '--frontend', metavar='FRONTEND',
-                      help="Use the given frontend (gtk-ui).")
+                      help="Use the given frontend (gtk_ui).")
     parser.add_option('-d', '--debug', dest='debug', action='store_true',
                       help='debug mode (warning: passwords will be logged!)')
     parser.set_defaults(frontend=None)

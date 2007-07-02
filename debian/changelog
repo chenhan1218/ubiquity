@@ -3,6 +3,8 @@ oem-config (1.17) UNRELEASED; urgency=low
   * Move .glade and .ui files to a new top-level gui directory in the source
     package, and install them under /usr/share/oem-config/glade and
     /usr/share/oem-config/qt respectively.
+  * Rename gtk-ui to gtk_ui and kde-ui to kde_ui, to make it easier to
+    subclass them.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 02 Jul 2007 12:45:26 +0100
 

@@ -1,4 +1,4 @@
 desktop/oem-config-prepare-gtk.desktop usr/share/applications
-lib/frontend/gtk-ui.py usr/lib/oem-config/oem_config/frontend
+lib/frontend/gtk_ui.py usr/lib/oem-config/oem_config/frontend
 gui/glade/oem-config.glade* usr/share/oem-config/glade
 pixmaps/zoom-in.png usr/share/oem-config/pixmaps

@@ -27,7 +27,7 @@ class DM:
         # this lets us find out which window manager etc. to launch. Be
         # careful that importing this here will cause the underlying library
         # to try to talk to the X server, which won't go well.
-        frontend_names = ['gtk-ui', 'kde-ui']
+        frontend_names = ['gtk_ui', 'kde_ui']
         self.frontend = None
         for f in frontend_names:
             try:
@@ -66,7 +66,7 @@ class DM:
             time.sleep(1)
             timeout -= 1
 
-        if self.frontend == 'gtk-ui':
+        if self.frontend == 'gtk_ui':
             if os.access(background, os.R_OK):
                 import gtk
                 pixbuf = gtk.gdk.pixbuf_new_from_file(background)
@@ -78,9 +78,9 @@ class DM:
                 root.clear()
                 gtk.gdk.flush()
 
-        if self.frontend == 'gtk-ui':
+        if self.frontend == 'gtk_ui':
             wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
-        elif self.frontend == 'kde-ui':
+        elif self.frontend == 'kde_ui':
             wm = subprocess.Popen('/usr/bin/kwin', stdin=null, stdout=logfile, stderr=logfile)
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
