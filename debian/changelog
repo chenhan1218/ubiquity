@@ -12,6 +12,8 @@ oem-config (1.17) UNRELEASED; urgency=low
   * Fix title of language page: "Choose language and location" no longer
     makes sense now that the location is computed from the timezone.
   * Minor UI tweaks to sync up with ubiquity.
+  * Add a warning in d-i/source/README about modifying files in this
+    directory.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 02 Jul 2007 12:45:26 +0100
 
