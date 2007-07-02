@@ -41,22 +41,16 @@
 
 import os
 import subprocess
-import gtk.glade
-import MySQLdb
 import syslog
 import signal
-try:
-    from debconf import DebconfCommunicator
-except ImportError:
-    from ubiquity.debconfcommunicator import DebconfCommunicator
+
+import gtk.glade
+import MySQLdb
 
 from ubiquity.misc import *
-
-from ubiquity import misc
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, \
                                 mythbuntu, mythbuntu_install, mythbuntu_summary
-
 import ubiquity.frontend.gtk_ui
 import ubiquity.components.mythbuntu_install
 import ubiquity.components.mythbuntu_summary
