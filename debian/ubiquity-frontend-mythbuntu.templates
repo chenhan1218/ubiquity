@@ -63,7 +63,8 @@ _Description: Standard Installation
 
 Template: ubiquity/text/standard_label
 Type: text
-_Description: A standard installation will install and configure every option with minimal user interaction. 
+_Description:
+ A standard installation will install and configure every option with minimal user interaction. 
  This will install a backend, frontend, all plugins, and all themes.
 
 Template: ubiquity/text/custominstall
@@ -72,7 +73,8 @@ _Description: Advanced Installation
 
 Template: ubiquity/text/custom_label
 Type: text
-_Description: An advanced installation can be used to customize what is needed for this Mythbuntu install.
+_Description:
+ An advanced installation can be used to customize what is needed for this Mythbuntu install.
  NOTE: An advanced install is necessary to add a Mythbuntu 
  machine to an existing MythTV based network.
 
@@ -94,7 +96,8 @@ _Description: Primary Backend w/ Frontend
 
 Template: ubiquity/text/master_be_fe_label
 Type: text
-_Description: A Backend/frontend combo machine is the most common setup for people wanting 
+_Description:
+ A Backend/frontend combo machine is the most common setup for people wanting 
  MythTV for HTPC applications. This type of installation is intended for use as a 
  component in your home theatre.
 
@@ -104,7 +107,8 @@ _Description: Secondary Backend w/ Frontend
 
 Template: ubiquity/text/slave_be_fe_label
 Type: text
-_Description: This will set up a system similar to a Primary Backend w/ Frontend, however will be 
+_Description:
+ This will set up a system similar to a Primary Backend w/ Frontend, however will be 
  configured to connect to an existing backend on the network.
 
 Template: ubiquity/text/master_be
@@ -113,7 +117,8 @@ _Description: Primary Backend
 
 Template: ubiquity/text/master_be_label
 Type: text
-_Description: A backend only machine is typically designed to function like an appliance; requiring
+_Description:
+ A backend only machine is typically designed to function like an appliance; requiring
  very little maintenance.  This is intended to be installed as the first backend on a network.
 
 Template: ubiquity/text/slave_be
@@ -122,7 +127,8 @@ _Description: Secondary Backend
 
 Template: ubiquity/text/slave_be_label
 Type: text
-_Description: This will set up a system similar to a Primary Backend, however it will be configured to
+_Description:
+ This will set up a system similar to a Primary Backend, however it will be configured to
  connect to an existing backend on the network.
 
 Template: ubiquity/text/fe
@@ -131,7 +137,8 @@ _Description: Frontend
 
 Template: ubiquity/text/fe_label
 Type: text
-_Description: A frontend only machine's main function is to receive media content from the backend
+_Description:
+ A frontend only machine's main function is to receive media content from the backend
  and distribute it.  This configuration requires an existing backend on the network.
 
 Template: ubiquity/text/febe_heading_label
@@ -156,7 +163,8 @@ _Description: mythweb
 
 Template: ubiquity/text/mythweb_label
 Type: text
-_Description: MythWeb provides a web interface which can be used to view listings, 
+_Description:
+ MythWeb provides a web interface which can be used to view listings, 
  schedule recordings, delete recordings, and search for programs.
 
 Template: ubiquity/text/mytharchive
@@ -217,7 +225,8 @@ _Description: An integrated web browser plugin for your MythTV system.
 
 Template: ubiquity/text/mythcontrols_label
 Type: text
-_Description: External controls for MythTV. This will allow you to modify button mappings and
+_Description:
+ External controls for MythTV. This will allow you to modify button mappings and
  key bindings.
 
 Template: ubiquity/text/mythdvd_label
@@ -242,7 +251,8 @@ _Description: Provides a digital audio jukebox integrated with MythTV.
 
 Template: ubiquity/text/mythnews_label
 Type: text
-_Description: An RSS feed news reader plugin for MythTV that keeps you up-to-date on your
+_Description:
+ An RSS feed news reader plugin for MythTV that keeps you up-to-date on your
  favorite news topics.
 
 Template: ubiquity/text/mythphone_label
@@ -251,7 +261,8 @@ _Description: A phone and videophone capability on MythTV using the standard SIP
 
 Template: ubiquity/text/mythvideo_label
 Type: text
-_Description: Allows you to browse and play video streams, using an external player, from within
+_Description:
+ Allows you to browse and play video streams, using an external player, from within
  the MythTV interface.
 
 Template: ubiquity/text/mythweather_label
@@ -264,7 +275,8 @@ _Description: Choose Extra Themes
 
 Template: ubiquity/text/theme_description
 Type: text
-_Description: Themes can greatly improve the aesthic appeal of a MythTV
+_Description:
+ Themes can greatly improve the aesthic appeal of a MythTV
  setup, and display it to match your tastes much better.
 
 Template: ubiquity/text/officialthemes
@@ -281,7 +293,8 @@ _Description: This themes package includes all themes distributed by the MythTV 
 
 Template: ubiquity/text/communitythemes_label
 Type: text
-_Description: This themes package is a collection of community themes generated 
+_Description:
+ This themes package is a collection of community themes generated 
  by other MythTV users.
 
 Template: ubiquity/text/driver_heading_label
@@ -290,7 +303,8 @@ _Description: Additional Drivers/Firmware
 
 Template: ubiquity/text/driver_description
 Type: text
-_Description: Proprietary video drivers aren't necessary for MythTV usage unless you need TV out on your 
+_Description:
+ Proprietary video drivers aren't necessary for MythTV usage unless you need TV out on your 
  machine.  They can, however, provide enhanced performance for high definition content and 
  enable OpenGL effects in MythTV.
 
@@ -308,7 +322,8 @@ _Description: If enabling TV Out, you will also need to choose a TV Standard:
 
 Template: ubiquity/text/tvwarning
 Type: text
-_Description: Warning: Do not set the TV standard to something higher than what your TV supports.
+_Description:
+ Warning: Do not set the TV standard to something higher than what your TV supports.
  PERMANENT damage may occur.
 
 Template: ubiquity/text/masterinfo_heading_label
@@ -341,7 +356,8 @@ _Description: Configure Guide Data / Backend
 
 Template: ubiquity/text/setup_description
 Type: text
-_Description: The final steps of the installation require setting up your guide
+_Description:
+ The final steps of the installation require setting up your guide
  data and configuring the backend for the first time.
 
 Template: ubiquity/text/zap2itlink
@@ -350,7 +366,8 @@ _Description: Click to open the TMS Zap2It website
 
 Template: ubiquity/text/zap2it_description
 Type: text
-_Description: Users in the US will need to setup an account with Tribune Media Services (TMS).  
+_Description:
+ Users in the US will need to setup an account with Tribune Media Services (TMS).  
  TMS provides guide data at no charge, only requiring users to fill out a survey once 
  every 3 months. When setting up an account, the MythTV project code is:
  ZIYN-DQZO-SBUT
@@ -361,7 +378,8 @@ _Description: myth_button
 
 Template: ubiquity/text/myth_button_description
 Type: text
-_Description: After setting up your guide data source, you will need to launch MythTV-Setup to
+_Description:
+ After setting up your guide data source, you will need to launch MythTV-Setup to
  run the backend configuration for the first time.  You will need to configure the first 
  four sections, being sure to provide your guide data during the third.
 
