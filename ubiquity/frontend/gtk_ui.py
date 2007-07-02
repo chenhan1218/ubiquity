@@ -169,7 +169,7 @@ class Wizard(BaseFrontend):
 
         # load the main interface
         self.glade = gtk.glade.XML('%s/ubiquity.glade' % GLADEDIR)
-        add_widgets(self,self.glade)
+        add_widgets(self, self.glade)
 
         steps = self.glade.get_widget("steps")
         for page in SUBPAGES:
