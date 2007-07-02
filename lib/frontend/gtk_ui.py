@@ -81,6 +81,9 @@ class Frontend:
                 if isinstance(widget, gtk.Label):
                     widget.set_property('can-focus', False)
 
+        self.previous_excepthook = sys.excepthook
+        sys.excepthook = self.excepthook
+
         self.current_page = None
         self.locale = None
         self.current_layout = None
@@ -108,6 +111,38 @@ class Frontend:
 
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
+
+    def post_mortem(self, exctype, excvalue, exctb):
+        """Drop into the debugger if possible."""
+
+        # Did the user request this?
+        if 'OEM_CONFIG_DEBUG_PDB' not in os.environ:
+            return
+        # We must not be in interactive mode; if we are, there's no point.
+        if hasattr(sys, 'ps1'):
+            return
+        # stdin and stdout must point to a terminal. (stderr is redirected
+        # in debug mode!)
+        if not sys.stdin.isatty() or not sys.stdout.isatty():
+            return
+        # SyntaxErrors can't meaningfully be debugged.
+        if issubclass(exctype, SyntaxError):
+            return
+
+        import pdb
+        pdb.post_mortem(exctb)
+        sys.exit(1)
+
+    def excepthook(self, exctype, excvalue, exctb):
+        """Crash handler."""
+
+        if (issubclass(exctype, KeyboardInterrupt) or
+            issubclass(exctype, SystemExit)):
+            return
+
+        self.post_mortem(exctype, excvalue, exctb)
+
+        self.previous_excepthook(exctype, excvalue, exctb)
 
     def run(self):
         self.oem_config.show()
