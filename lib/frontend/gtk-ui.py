@@ -35,7 +35,7 @@ import oem_config.emap
 import oem_config.tz
 
 PATH = '/usr/share/oem-config'
-GLADEDIR = '/usr/lib/oem-config/oem_config/frontend'
+GLADEDIR = '/usr/share/oem-config/glade'
 
 BREADCRUMB_STEPS = {
     "step_language": 1,

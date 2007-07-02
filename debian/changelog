@@ -1,3 +1,11 @@
+oem-config (1.17) UNRELEASED; urgency=low
+
+  * Move .glade and .ui files to a new top-level gui directory in the source
+    package, and install them under /usr/share/oem-config/glade and
+    /usr/share/oem-config/qt respectively.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 02 Jul 2007 12:45:26 +0100
+
 oem-config (1.16) gutsy; urgency=low
 
   * Update console-setup component for Lithuanian changes in console-setup

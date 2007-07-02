@@ -31,7 +31,7 @@ from oem_config.components import console_setup, language, timezone, user, \
                                   console_setup_apply
 import oem_config.tz
 
-UIDIR = '/usr/lib/oem-config/oem_config/frontend'
+UIDIR = '/usr/share/oem-config/qt'
 
 WIDGET_STACK_STEPS = {
     "step_language": 0,
