@@ -44,7 +44,7 @@ class Summary(FilteredCommand):
         return ('/usr/share/ubiquity/summary', ['^ubiquity/summary.*'])
 
     def run(self, priority, question):
-        if question == 'ubiquity/summary':
+        if question.endswith('/summary'):
             text = ''
             wrapper = textwrap.TextWrapper(width=76)
             for line in self.extended_description(question).split("\n"):
