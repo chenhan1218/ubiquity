@@ -457,7 +457,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
     
     def do_mythtv_setup(self,widget):
         """Spawn MythTV-Setup binary."""
-        execute("/usr/lib/ubiquity/mythbuntu/mythbuntu-setup")
+        execute("/usr/share/ubiquity/mythbuntu-setup")
         
     def do_connection_test(self,widget):
         """Tests to make sure that the backend is accessible"""

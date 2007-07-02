@@ -1,9 +1,9 @@
 #d-i pieces
-d-i/source/mythbuntu/mythbuntu-ask usr/lib/ubiquity/mythbuntu
-d-i/source/mythbuntu/mythbuntu-apply usr/lib/ubiquity/mythbuntu
-d-i/source/mythbuntu/mythbuntu-drivers usr/lib/ubiquity/mythbuntu
-d-i/source/mythbuntu/mythbuntu-services usr/lib/ubiquity/mythbuntu
-d-i/source/mythbuntu/mythbuntu-setup usr/lib/ubiquity/mythbuntu
+scripts/mythbuntu-ask usr/share/ubiquity
+scripts/mythbuntu-apply usr/share/ubiquity
+scripts/mythbuntu-drivers usr/share/ubiquity
+scripts/mythbuntu-services usr/share/ubiquity
+scripts/mythbuntu-setup usr/share/ubiquity
 
 #individual python components
 ubiquity/components/mythbuntu.py usr/lib/ubiquity/ubiquity/components

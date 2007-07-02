@@ -21,4 +21,4 @@ from ubiquity.filteredcommand import FilteredCommand
 
 class AdditionalDrivers(FilteredCommand):
     def prepare(self):
-        return (['/usr/lib/ubiquity/mythbuntu/mythbuntu-drivers', '/target'],[])
+        return (['/usr/share/ubiquity/mythbuntu-drivers', '/target'],[])

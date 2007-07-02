@@ -23,7 +23,7 @@ from ubiquity.filteredcommand import FilteredCommand
 
 class MythbuntuApply(FilteredCommand):
     def prepare(self):
-        return (['/usr/lib/ubiquity/mythbuntu/mythbuntu-apply', '/target'],
+        return (['/usr/share/ubiquity/mythbuntu-apply', '/target'],
                 [])
         
     def run(self):

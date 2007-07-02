@@ -53,7 +53,7 @@ class MythbuntuSetup(FilteredCommand):
              '^mythtv/mysql_mythtv_password',
              '^mythtv/mysql_mythtv_dbname',
              '^mythtv/mysql_host']
-        return (['/usr/lib/ubiquity/mythbuntu/mythbuntu-ask'], questions)
+        return (['/usr/share/ubiquity/mythbuntu-ask'], questions)
 
     def run(self,priority,question):
         if question.startswith('mythbuntu/install_type'):

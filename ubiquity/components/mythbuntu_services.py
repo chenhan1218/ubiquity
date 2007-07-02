@@ -63,4 +63,4 @@ class VNCHandler:
 
 class AdditionalServices(FilteredCommand):
     def prepare(self):
-        return (['/usr/lib/ubiquity/mythbuntu/mythbuntu-services', '/target'],[])
+        return (['/usr/share/ubiquity/mythbuntu-services', '/target'],[])
