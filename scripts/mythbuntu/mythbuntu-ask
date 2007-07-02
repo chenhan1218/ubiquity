@@ -1,0 +1,49 @@
+#!/bin/sh -e
+#Provides all mythbuntu questions asked by 
+#ubiquity during install process
+# Written by Mario Limonciello <superm1@ubuntu.com>
+# Copyright (C) 2007 Mario Limonciello
+# Copyright (C) 2007 Jared Greenwald
+
+. /usr/share/debconf/confmodule
+
+# Determine install type
+db_input high mythbuntu/install_type || true
+#detemine plugins
+db_input high mythbuntu/mytharchive || true
+db_input high mythbuntu/mythbrowser || true
+db_input high mythbuntu/mythcontrols || true
+db_input high mythbuntu/mythdvd || true
+db_input high mythbuntu/mythflix || true
+db_input high mythbuntu/mythgallery || true
+db_input high mythbuntu/mythgame || true
+db_input high mythbuntu/mythmusic || true
+db_input high mythbuntu/mythnews || true
+db_input high mythbuntu/mythphone || true
+db_input high mythbuntu/mythvideo || true
+db_input high mythbuntu/mythweather || true
+db_input high mythbuntu/mythweb || true
+#determine themes
+db_input high mythbuntu/officialthemes || true
+db_input high mythbuntu/communitythemes || true
+#determine services
+db_input high mythbuntu/vncservice || true
+db_input high mythbuntu/vnc_password || true
+db_input high mythbuntu/sshservice || true
+db_input high mythbuntu/sambaservice || true
+db_input high mythbuntu/nfsservice || true
+db_input high mythbuntu/mysqlservice || true
+#determine prop. drivers
+db_input high mythbuntu/proprietary_driver || true
+#determine tv out settings
+db_input high mythbuntu/tvout || true
+db_input high mythbuntu/tvstandard || true
+#determine mysql info
+db_input high mythtv/mysql_mythtv_user || true
+db_input high mythtv/mysql_mythtv_password || true
+db_input high mythtv/mysql_mythtv_dbname || true
+db_input high mythtv/mysql_host || true
+#root password
+db_input high mythtv/mysql_admin_password || true
+#mythweb pass
+#TODO
