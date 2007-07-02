@@ -49,11 +49,6 @@ import pango
 import gobject
 import gtk.glade
 
-try:
-    from debconf import DebconfCommunicator
-except ImportError:
-    from ubiquity.debconfcommunicator import DebconfCommunicator
-
 from ubiquity import filteredcommand, i18n, validation
 from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
@@ -160,8 +155,7 @@ class Wizard(BaseFrontend):
         self.laptop = execute("laptop-detect")
 
         # set default language
-        dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
-                                                               cloexec=True))
+        dbfilter = language.Language(self, self.debconf_communicator())
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 
