@@ -44,7 +44,6 @@ import subprocess
 import syslog
 import signal
 
-import gtk.glade
 import MySQLdb
 
 from ubiquity.misc import *
