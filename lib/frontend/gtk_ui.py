@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 # Copyright (C) 2005, 2006, 2007 Canonical Ltd.
+# Copyright (C) 2007 Mario Limonciello <superm1@ubuntu.com>
 # Written by Colin Watson <cjwatson@ubuntu.com>.
 #
 # This program is free software; you can redistribute it and/or modify
@@ -47,8 +48,39 @@ BREADCRUMB_STEPS = {
 }
 BREADCRUMB_MAX_STEP = 4
 
+# Define what pages of the UI we want to load.
+SUBPAGES = [
+    "step_language",
+    "step_timezone",
+    "step_keyboard",
+    "step_user",
+]
+
 class Frontend:
     def __init__(self):
+        def add_subpage(self, steps, name):
+            """Inserts a subpage into the notebook.  This assumes the file
+            shares the same base name as the page you are looking for."""
+            gladefile = GLADEDIR + '/' + name + '.glade'
+            gladexml = gtk.glade.XML(gladefile, name)
+            widget = gladexml.get_widget(name)
+            steps.append_page(widget)
+            add_widgets(self, gladexml)
+            gladexml.signal_autoconnect(self)
+
+        def add_widgets(self, glade):
+            """Makes all widgets callable by the toplevel."""
+            for widget in glade.get_widget_prefix(""):
+                setattr(self, widget.get_name(), widget)
+                # We generally want labels to be selectable so that people can
+                # easily report problems in them
+                # (https://launchpad.net/bugs/41618), but GTK+ likes to put
+                # selectable labels in the focus chain, and I can't seem to turn
+                # this off in glade and have it stick. Accordingly, make sure
+                # labels are unfocusable here.
+                if isinstance(widget, gtk.Label):
+                    widget.set_property('can-focus', False)
+
         self.current_page = None
         self.locale = None
         self.current_layout = None
@@ -68,18 +100,11 @@ class Frontend:
         else:
             gladefile = '%s/oem-config.glade' % GLADEDIR
         self.glade = gtk.glade.XML(gladefile)
+        add_widgets(self, self.glade)
 
-        # Map widgets into our namespace.
-        for widget in self.glade.get_widget_prefix(""):
-            setattr(self, widget.get_name(), widget)
-            # We generally want labels to be selectable so that people can
-            # easily report problems in them
-            # (https://launchpad.net/bugs/41618), but GTK+ likes to put
-            # selectable labels in the focus chain, and I can't seem to turn
-            # this off in glade and have it stick. Accordingly, make sure
-            # labels are unfocusable here.
-            if isinstance(widget, gtk.Label):
-                widget.set_property('can-focus', False)
+        steps = self.glade.get_widget("steps")
+        for page in SUBPAGES:
+            add_subpage(self, steps, page)
 
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()

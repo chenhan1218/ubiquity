@@ -5,6 +5,8 @@ oem-config (1.17) UNRELEASED; urgency=low
     /usr/share/oem-config/qt respectively.
   * Rename gtk-ui to gtk_ui and kde-ui to kde_ui, to make it easier to
     subclass them.
+  * Break up the glade file into multiple pieces to make updates to single
+    pages a lot easier (port of work done in ubiquity by Mario Limonciello).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 02 Jul 2007 12:45:26 +0100
 
