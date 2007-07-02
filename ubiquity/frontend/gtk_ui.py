@@ -133,9 +133,10 @@ class Wizard(BaseFrontend):
         # declare attributes
         self.gconf_previous = {}
         self.thunar_previous = {}
-        self.language_questions = ('live_installer', 'welcome_heading_label',
-                                   'welcome_text_label', 'release_notes_label',
-                                   'release_notes_url', 'step_label',
+        self.language_questions = ('live_installer', 'oem_config_title',
+                                   'welcome_heading_label', 'welcome_text_label',
+                                   'release_notes_label', 'release_notes_url',
+                                   'step_label',
                                    'cancel', 'back', 'next',
                                    'warning_dialog', 'warning_dialog_label',
                                    'cancelbutton', 'exitbutton')
@@ -427,6 +428,15 @@ class Wizard(BaseFrontend):
 
         self.logo_image.set_from_file(logo)
         self.photo.set_from_file(photo)
+
+        if self.oem_config:
+            self.live_installer.set_title(self.get_string('oem_config_title'))
+            self.fullname.set_text('OEM Configuration (temporary user)')
+            self.fullname.set_editable(False)
+            self.username.set_text('oem')
+            self.username.set_editable(False)
+            # The UserSetup component takes care of preseeding passwd/user-uid.
+            execute('apt-install', 'oem-config-gtk')
 
         self.live_installer.show()
         self.allow_change_step(False)

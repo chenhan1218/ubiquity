@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-04-12 17:05+0100\n"
+"POT-Creation-Date: 2007-07-02 12:14+0100\n"
 "PO-Revision-Date: 2007-04-07 19:07+0000\n"
 "Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -24,12 +24,18 @@ msgstr "Įdiegti į kompiuterį"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
+msgid "Install (OEM mode, for manufacturers only)"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:4001
 msgid "Welcome"
 msgstr "Sveiki!"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:4001
+#: ../ubiquity.templates:5001
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
@@ -41,13 +47,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:4001
+#: ../ubiquity.templates:5001
 msgid "Answering the questions should only take a few minutes."
 msgstr "Atsakymai į šiuos klausimus turėtų užtrukti keletą minučių."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:4001
+#: ../ubiquity.templates:5001
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
@@ -57,7 +63,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:5001
+#: ../ubiquity.templates:6001
 msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
@@ -65,19 +71,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:6001
+#: ../ubiquity.templates:7001
 msgid "Release Notes"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001
+#: ../ubiquity.templates:8001
 msgid "Where are you?"
 msgstr "Iš kur jūs?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:8001
+#: ../ubiquity.templates:9001
 msgid ""
 "Select a city in your country and time zone. If the indicated current time "
 "is incorrect even after selecting the correct time zone, you can adjust it "
@@ -89,67 +95,67 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:9001
+#: ../ubiquity.templates:10001
 msgid "Selected city:"
 msgstr "Pasirinktas miestas:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:10001
+#: ../ubiquity.templates:11001
 msgid "Time zone:"
 msgstr "Laiko juosta:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:11001
+#: ../ubiquity.templates:12001
 msgid "Selected region:"
 msgstr "Pasirinktas regionas:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:13001
 msgid "Current time:"
 msgstr "Dabartinis laikas:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:14001
 msgid "Keyboard layout"
 msgstr "Klaviatūros išdėstymas"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:15001
 msgid "Which layout is most similar to your keyboard?"
 msgstr "Kuris išdėstymas labiausiai panašus į jūsų klaviaturos?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:15001
+#: ../ubiquity.templates:16001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr "Rašydami į šį langelį galite išbandyti jūsų klaviaturos išdėstyma."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:16001
+#: ../ubiquity.templates:17001
 msgid "Who are you?"
 msgstr "Kas jūs esate?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:17001
+#: ../ubiquity.templates:18001
 msgid "What is your name?"
 msgstr "Koks jūsų vardas?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:18001
+#: ../ubiquity.templates:19001
 msgid "What name do you want to use to log in?"
 msgstr "Kokiu vardu jūs norite registruotis sistemoje?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:19001
+#: ../ubiquity.templates:20001
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
@@ -159,13 +165,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:20001
+#: ../ubiquity.templates:21001
 msgid "Choose a password to keep your account safe."
 msgstr "Jūsų prisijungimo saugumui pasirinkite slaptažodį."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:21001
+#: ../ubiquity.templates:22001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
 "Jūs naudojate klaidų paieškos ir taisymo režimą. Nenaudokite vertingo "
@@ -173,7 +179,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:22001
+#: ../ubiquity.templates:23001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
@@ -182,13 +188,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:23001
+#: ../ubiquity.templates:24001
 msgid "What is the name of this computer?"
 msgstr "Koks yra šio kompiuterio vardas?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:24001
+#: ../ubiquity.templates:25001
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
@@ -198,13 +204,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:25001
+#: ../ubiquity.templates:26001
 msgid "Migrate Documents and Settings"
 msgstr "Perkelkite dokumentus bei nustatymus"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:26001
+#: ../ubiquity.templates:27001
 msgid ""
 "Select any accounts you would like to import and fill in the form below for "
 "each one.  The documents and settings for these accounts will be available "
@@ -216,7 +222,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:26001
+#: ../ubiquity.templates:27001
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
@@ -226,56 +232,56 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:27001
+#: ../ubiquity.templates:28001
 msgid "Create a user to import the selected account into:"
 msgstr ""
 "Sukurkite naudotoją, į kurio aplanką bus importuoti duomenys bei nustatymai:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:28001
+#: ../ubiquity.templates:29001
 msgid "Full Name:"
 msgstr "Vardas ir pavardė:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:29001
+#: ../ubiquity.templates:30001
 msgid "Login Name:"
 msgstr "Prisijungimo vardas:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:30001
+#: ../ubiquity.templates:31001
 msgid "Password:"
 msgstr "Slaptažodis:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:31001
+#: ../ubiquity.templates:32001
 msgid "Confirm:"
 msgstr "Patvirtinkite:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:32001
+#: ../ubiquity.templates:33001
 msgid "Prepare disk space"
 msgstr "Paruošti disko vietą"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:33001
+#: ../ubiquity.templates:34001
 msgid "How do you want to partition the disk?"
 msgstr "Kaip norite sudalinti diską?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:34001
+#: ../ubiquity.templates:35001
 msgid "Prepare partitions"
 msgstr "Paruošti skirsnius"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:35001
+#: ../ubiquity.templates:36001
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
@@ -289,13 +295,13 @@ msgstr ""
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:36001 ../ubiquity.templates:49001
+#: ../ubiquity.templates:37001 ../ubiquity.templates:50001
 msgid "Ready to install"
 msgstr "Paruošta įdiegti"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:37001
+#: ../ubiquity.templates:38001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
@@ -303,55 +309,55 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:38001
+#: ../ubiquity.templates:39001
 msgid "Boot loader"
 msgstr "Sistemų įkėliklis"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:40001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "${INDEX} žingsnis iš ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:41001
 msgid "Abort the installation?"
 msgstr "Nutraukti įdiegimą?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:42001
 msgid "Do you really want to abort the installation now?"
 msgstr "Ar tikrai norite nutraukti įdiegimą dabar?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:43001
 msgid "Skip"
 msgstr "Praleisti"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:44001
 msgid "Installation complete"
 msgstr "Įdiegimas užbaigtas"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:45001
 msgid "Continue using the live CD"
 msgstr "Toliau naudoti demonstracinį kompaktinį diską"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:46001
 msgid "Restart now"
 msgstr "Perkrauti kompiuterį dabar"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:47001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -363,7 +369,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:47001
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
@@ -374,20 +380,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:48001
 msgid "Go Back"
 msgstr "Grįžti"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:49001
 msgid "Continue"
 msgstr "Tęsti"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:50001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -407,37 +413,37 @@ msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:51001
 msgid "Installing system"
 msgstr "Įdiegiama sistema"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:52001
 msgid "Finding the distribution to copy..."
 msgstr "Ieškoma distribucija kopijavimui..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Scanning files..."
 msgstr "Peržiūrimos bylos..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "Copying files..."
 msgstr "Kopijuojamos bylos..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "Kopijuojami failai (liko mažiau nei viena minutė)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:57001
 msgid "Failed to copy files; faulty CD/DVD?"
 msgstr "Nepavyko nukopijuoti failų; blogas CD ar DVD?"
 
@@ -447,14 +453,14 @@ msgstr "Nepavyko nukopijuoti failų; blogas CD ar DVD?"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:56001 ../ubiquity.templates:57001
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:57001 ../ubiquity.templates:58001
+#: ../ubiquity.templates:59001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "Įvyko klaida kopijuojant failus į kietąjį diską:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:57001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive. It may "
 "help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
@@ -468,13 +474,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr "Nepavyko nukopijuoti; sugedęs kietasis diskas?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
 msgid ""
 "This particular error is often due to a faulty hard disk. It may help to "
 "check whether the hard disk is old and in need of replacement, or to move "
@@ -486,7 +492,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:59001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr "Nepavyko nukopijuoti failų; blogas CD/DVD arba kietasis diskas?"
 
@@ -494,7 +500,7 @@ msgstr "Nepavyko nukopijuoti failų; blogas CD/DVD arba kietasis diskas?"
 #. Description
 #. This is used when we don't know whether the CD/DVD or the hard disk is at
 #. fault.
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:59001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -511,127 +517,127 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:60001
 msgid "Copying installation logs..."
 msgstr "Kopijuojami įdiegimo žurnalai..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:61001
 msgid "Configuring target system..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:62001
 msgid "Configuring system locales..."
 msgstr "Konfigūruojamos sistemos lokalės..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:63001
 msgid "Configuring apt..."
 msgstr "Konfigūruojamas apt...."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:64001
 msgid "Configuring time zone..."
 msgstr "Konfigūruojama laiko zona..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:65001
 msgid "Configuring keyboard..."
 msgstr "Konfigūruojama klaviatūra..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:66001
 msgid "Creating user..."
 msgstr "Kuriamas vartotojas..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:67001
 msgid "Importing documents and settings..."
 msgstr "Perkeliami dokumentai ir nustatymai..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:68001
 msgid "Configuring hardware..."
 msgstr "Konfigūruojama aparatinė įranga..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:69001
 msgid "Configuring network..."
 msgstr "Konfigūruojamas tinklas..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:70001
 msgid "Setting computer name..."
 msgstr "Nustatomas kompiuterio vardas..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:71001
 msgid "Configuring boot loader..."
 msgstr "Konfigūruojama sistemos įkėlimo programa..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:72001
 msgid "Removing extra packages..."
 msgstr "Pašalinami papildomi (nereikalingi) paketai..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:73001
 msgid "Checking for packages to remove..."
 msgstr "Ieškoma ištrintinų (nereikalingų) paketų..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:74001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Atsiunčiami paketai (liko ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:75001
 msgid "Downloading package lists..."
 msgstr "Atsiunčiami paketų sąrašai..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:76001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Atsiunčiami paketų sąrašai (${TIME} liko)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:78001
 msgid "Error installing ${PACKAGE}"
 msgstr "Klaida įdiegiant ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:79001
 msgid "Error removing ${PACKAGE}"
 msgstr "Klaida šalinant ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:80001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:80001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -639,7 +645,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:79001 ../ubiquity.templates:80001
+#: ../ubiquity.templates:80001 ../ubiquity.templates:81001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -647,7 +653,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:79001 ../ubiquity.templates:80001
+#: ../ubiquity.templates:80001 ../ubiquity.templates:81001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -660,37 +666,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:81001
 msgid "Error while removing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:81001
 msgid "An error occurred while removing packages:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:82001
 msgid "Installing language packs"
 msgstr "Diegiami kalbos paketai"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Atsiunčiami kalbos paketai (${TIME} liko)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 msgid "Failed to unmount partitions"
 msgstr "Nepavyko atjungti skirsnių"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -701,7 +707,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 msgid "Please close any applications using these mount points."
 msgstr ""
 "Uždarykite visas programas, kurios naudoja failus ar poaplankius, esančius "
@@ -709,7 +715,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Ar jūs norite,  kad įdiegimo programa vėl pabandytų atjungti šiuos "
@@ -717,13 +723,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:88001
 msgid "System partition not formatted"
 msgstr "Failų sistema sistemos skirsnyje iš naujo neperkuriama."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:88001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"

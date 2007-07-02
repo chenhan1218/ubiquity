@@ -5,6 +5,14 @@ ubiquity (1.5.5) UNRELEASED; urgency=low
     installation (LP: #122500).
   * Rename gtk-ui to gtk_ui and kde-ui to kde_ui, to make it easier to
     subclass them.
+  * If oem-config/enable is true, then:
+    - Adjust title bar to indicate that Ubiquity is running in OEM mode.
+    - Hardcode the user's full name to "OEM Configuration (temporary user)",
+      the username to "oem", and the UID to 29999.
+    - Install the appropriate oem-config-FRONTEND package on the target
+      system.
+    - Install a desktop file for oem-config-prepare on the oem user's
+      desktop.
 
   [ Evan Dandrea ]
   * Initial commit of ubiquity-automation work:
