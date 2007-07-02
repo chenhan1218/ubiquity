@@ -26,7 +26,9 @@ pygtk.require('2.0')
 import gobject
 import gtk
 import gtk.glade
+
 from debconf import DebconfCommunicator
+
 from oem_config import filteredcommand
 from oem_config.components import console_setup, language, timezone, user, \
                                   language_apply, timezone_apply, \

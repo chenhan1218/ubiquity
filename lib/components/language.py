@@ -20,6 +20,7 @@
 import os
 import re
 import locale
+
 from oem_config.filteredcommand import FilteredCommand
 from oem_config import i18n
 

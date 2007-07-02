@@ -20,11 +20,17 @@
 # https://wiki.kubuntu.org/KubuntuOEMInstaller
 # Bugs: https://launchpad.net/ubuntu/+source/oem-config/+filebug
 
-import sys, os, datetime, gettext, syslog
+import sys
+import os
+import datetime
+import gettext
+import syslog
+
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4 import uic
 from debconf import DebconfCommunicator
+
 from oem_config import filteredcommand
 from oem_config.components import console_setup, language, timezone, user, \
                                   language_apply, timezone_apply, \

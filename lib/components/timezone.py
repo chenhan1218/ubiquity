@@ -19,6 +19,7 @@
 
 import os
 import locale
+
 from oem_config.filteredcommand import FilteredCommand
 from oem_config import i18n
 import oem_config.tz

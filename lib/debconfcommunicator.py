@@ -19,6 +19,7 @@
 
 import popen2
 import fcntl
+
 import debconf
 
 class DebconfCommunicator(debconf.Debconf, object):
