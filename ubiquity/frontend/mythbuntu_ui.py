@@ -104,15 +104,15 @@ SUBPAGES = [
     "mythbuntu_stepBackendSetup"
 ]
 
-ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS;
-ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP;
-ubiquity.frontend.gtk_ui.SUBPAGES = SUBPAGES;
+ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS
+ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP
+ubiquity.frontend.gtk_ui.SUBPAGES = SUBPAGES
 
 class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
 #Overriden Methods    
     def __init__(self, distro):
-        del os.environ['UBIQUITY_MIGRATION_ASSISTANT'];
+        del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
         
     def run(self):
@@ -150,8 +150,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 BREADCRUMB_STEPS[step] += 1
             BREADCRUMB_STEPS["stepWelcome"] = 1
             BREADCRUMB_MAX_STEP += 1
-            ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS;
-            ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP;
+            ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS
+            ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP
             first_step = self.stepWelcome
         else:
             first_step = self.stepLanguage
