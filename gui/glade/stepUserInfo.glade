@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Wed Jun 13 20:47:16 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.3.1 on Mon Jul  2 14:19:43 2007 by cjwatson@cairhien-->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -94,10 +94,11 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <widget class="GtkLabel" id="hostname_error_reason">
+                                  <widget class="GtkLabel" id="fullname_error_reason">
                                     <property name="visible">True</property>
                                     <property name="xalign">0</property>
                                     <property name="wrap">True</property>
+                                    <property name="selectable">True</property>
                                   </widget>
                                   <packing>
                                     <property name="expand">False</property>
@@ -184,6 +185,7 @@
                                         <property name="visible">True</property>
                                         <property name="xalign">0</property>
                                         <property name="wrap">True</property>
+                                        <property name="selectable">True</property>
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
@@ -327,6 +329,7 @@
                                         <property name="visible">True</property>
                                         <property name="xalign">0</property>
                                         <property name="wrap">True</property>
+                                        <property name="selectable">True</property>
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
@@ -440,6 +443,7 @@
                                     <property name="visible">True</property>
                                     <property name="xalign">0</property>
                                     <property name="wrap">True</property>
+                                    <property name="selectable">True</property>
                                   </widget>
                                   <packing>
                                     <property name="expand">False</property>
