@@ -14,7 +14,7 @@ oem-config (1.17) UNRELEASED; urgency=low
   * Minor UI tweaks to sync up with ubiquity.
   * Add a warning in d-i/source/README about modifying files in this
     directory.
-  * Implement ubiquity-oem specification:
+  * Implement the oem-config parts of the ubiquity-oem specification:
     - Fix desktop file installation harder.
     - Update user page layout to match ubiquity, including filling in a
       suggested username automatically, displaying error messages inline,
