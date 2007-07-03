@@ -25,6 +25,7 @@
 import sys
 import os
 import optparse
+import subprocess
 
 sys.path.insert(0, '/usr/lib/oem-config')
 
@@ -69,6 +70,24 @@ def disable_autologin():
         except OSError:
             traceback.print_exc()
 
+def run_hooks():
+    """Run hook scripts from /usr/lib/oem-config/post-install."""
+
+    hookdir = '/usr/lib/oem-config/post-install'
+
+    if os.path.isdir(hookdir):
+        # Exclude hooks containing '.', so that *.dpkg-* et al are avoided.
+        hooks = filter(lambda entry: '.' not in entry, os.listdir(hookdir))
+        child_env = dict(os.environ)
+        child_env['DEBIAN_FRONTEND'] = 'noninteractive'
+        if 'DEBIAN_HAS_FRONTEND' in child_env:
+            del child_env['DEBIAN_HAS_FRONTEND']
+        for hookentry in hooks:
+            hook = os.path.join(hookdir, hookentry)
+            if os.access(hook, os.X_OK):
+                # Errors are ignored at present, although this may change.
+                subprocess.call([hook], env=child_env)
+
 if __name__ == '__main__':
     usage = ("usage: %prog [options]\n\n"
              "Use oem-config-prepare to prepare the system for an end user.")
@@ -99,4 +118,5 @@ if __name__ == '__main__':
     wizard = Wizard(frontend_name=options.frontend)
     wizard.run()
     disable_autologin()
+    run_hooks()
     sys.exit(0)

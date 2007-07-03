@@ -20,6 +20,10 @@ oem-config (1.17) UNRELEASED; urgency=low
     showing a warning message in debugging mode.
   * Set up autologin for the oem user via gdm/kdm.
   * Disable the hwdb-client notification for the created user.
+  * Add a facility to run hook scripts from /usr/lib/oem-config/post-install
+    just before exiting. Hook scripts are run noninteractively, although
+    they can talk to debconf for database queries and the like if they need
+    to.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 02 Jul 2007 12:45:26 +0100
 
