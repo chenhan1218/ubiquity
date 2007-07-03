@@ -41,6 +41,8 @@ from PyQt4 import uic
 #from kio import KRun
 #import kdedesigner
 
+import debconf
+
 from ubiquity import filteredcommand, i18n, validation
 from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
@@ -121,6 +123,7 @@ class Wizard(BaseFrontend):
         self.release_notes_url_template = None
         self.language_questions = ('live_installer', 'oem_config_title',
                                    'welcome_heading_label', 'welcome_text_label',
+                                   'oem_id_label',
                                    'release_notes_label', 'release_notes_url',
                                    'step_label',
                                    'cancel', 'back', 'next')
@@ -354,6 +357,11 @@ class Wizard(BaseFrontend):
         if self.oem_config:
             self.userinterface.setWindowTitle(
                 self.get_string('oem_config_title'))
+            try:
+                self.userinterface.oem_id_entry.setText(
+                    self.debconf_operation('get', 'oem-config/id'))
+            except debconf.DebconfError:
+                pass
             self.userinterface.fullname.setText(
                 'OEM Configuration (temporary user)')
             self.userinterface.fullname.setReadOnly(True)
@@ -361,6 +369,9 @@ class Wizard(BaseFrontend):
             self.userinterface.username.setReadOnly(True)
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute('apt-install', 'oem-config-kde')
+        else:
+            self.userinterface.oem_id_label.hide()
+            self.userinterface.oem_id_entry.hide()
 
         try:
             release_notes = open('/cdrom/.disk/release_notes_url')
@@ -1026,6 +1037,9 @@ class Wizard(BaseFrontend):
             return self.language_choice_map[value][0]
         else:
             return 'C'
+
+    def get_oem_id (self):
+        return unicode(self.userinterface.oem_id_entry.text())
 
     def set_timezone (self, timezone):
         self.tzmap.set_tz_from_name(timezone)
