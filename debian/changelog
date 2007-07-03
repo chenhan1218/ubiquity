@@ -19,6 +19,7 @@ oem-config (1.17) UNRELEASED; urgency=low
     suggested username automatically, displaying error messages inline, and
     showing a warning message in debugging mode.
   * Set up autologin for the oem user via gdm/kdm.
+  * Disable the hwdb-client notification for the created user.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 02 Jul 2007 12:45:26 +0100
 

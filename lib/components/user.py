@@ -26,7 +26,8 @@ class User(FilteredCommand):
         questions = ['^passwd/user-fullname$', '^passwd/username$',
                      '^passwd/user-password$', '^passwd/user-password-again$',
                      'ERROR']
-        return (['/usr/lib/oem-config/user/user-setup', '/'], questions)
+        return (['/usr/lib/oem-config/user/user-setup-wrapper', '/'],
+                questions)
 
     def set(self, question, value):
         if question == 'passwd/username':
