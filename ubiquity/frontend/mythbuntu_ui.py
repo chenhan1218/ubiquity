@@ -41,22 +41,16 @@
 
 import os
 import subprocess
-import gtk.glade
-import MySQLdb
 import syslog
 import signal
-try:
-    from debconf import DebconfCommunicator
-except ImportError:
-    from ubiquity.debconfcommunicator import DebconfCommunicator
+import gtk
+
+import MySQLdb
 
 from ubiquity.misc import *
-
-from ubiquity import misc
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, \
                                 mythbuntu, mythbuntu_install, mythbuntu_summary
-
 import ubiquity.frontend.gtk_ui
 import ubiquity.components.mythbuntu_install
 import ubiquity.components.mythbuntu_summary
@@ -104,15 +98,15 @@ SUBPAGES = [
     "mythbuntu_stepBackendSetup"
 ]
 
-ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS;
-ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP;
-ubiquity.frontend.gtk_ui.SUBPAGES = SUBPAGES;
+ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS
+ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP
+ubiquity.frontend.gtk_ui.SUBPAGES = SUBPAGES
 
 class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
 #Overriden Methods    
     def __init__(self, distro):
-        del os.environ['UBIQUITY_MIGRATION_ASSISTANT'];
+        del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
         
     def run(self):
@@ -150,8 +144,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 BREADCRUMB_STEPS[step] += 1
             BREADCRUMB_STEPS["stepWelcome"] = 1
             BREADCRUMB_MAX_STEP += 1
-            ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS;
-            ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP;
+            ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS
+            ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP
             first_step = self.stepWelcome
         else:
             first_step = self.stepLanguage

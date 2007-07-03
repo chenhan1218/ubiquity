@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Tue Jun 12 23:47:28 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.3.1 on Mon Jul  2 13:58:11 2007 by cjwatson@cairhien-->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -92,6 +92,7 @@
               <widget class="GtkButton" id="advanced_button">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Advanced...</property>
+                <property name="response_id">0</property>
                 <signal name="clicked" handler="on_advanced_button_clicked"/>
               </widget>
             </child>

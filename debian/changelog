@@ -1,10 +1,23 @@
-ubiquity (1.5.5mythbuntu3) UNRELEASED; urgency=low
+ubiquity (1.5.5) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * KDE frontend: Disable the KDE media notifier for the entire duration of
     installation (LP: #122500).
   * Rename gtk-ui to gtk_ui and kde-ui to kde_ui, to make it easier to
     subclass them.
+  * If oem-config/enable is true, then:
+    - Adjust title bar to indicate that Ubiquity is running in OEM mode.
+    - Hardcode the user's full name to "OEM Configuration (temporary user)",
+      the username to "oem", and the UID to 29999.
+    - Install the appropriate oem-config-FRONTEND package on the target
+      system.
+    - Install a desktop file for oem-config-prepare on the oem user's
+      desktop.
+  * Add a warning in d-i/source/README about modifying files in this
+    directory.
+  * GTK frontend:
+    - Fix full-name error reason widget, and make the error reasons
+      selectable.
 
   [ Evan Dandrea ]
   * Initial commit of ubiquity-automation work:
@@ -13,11 +26,11 @@ ubiquity (1.5.5mythbuntu3) UNRELEASED; urgency=low
       mode.
 
   [ Mario Limonciello ]
-  * Automatic update of included source packages: silo-installer
-    1.10ubuntu4.
   * Merge in mythbuntu alpha 2 changes.
+  * Set all mythbuntu labels to word wrap.
+  * Add mythbuntu to translatable files.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Fri, 29 Jun 2007 16:54:42 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 02 Jul 2007 13:23:22 -0400
 
 ubiquity (1.5.4) gutsy; urgency=low
 

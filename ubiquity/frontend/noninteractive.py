@@ -26,11 +26,6 @@
 
 import syslog
 
-try:
-    from debconf import DebconfCommunicator
-except ImportError:
-    from ubiquity.debconfcommunicator import DebconfCommunicator
-
 # TODO drop and use a smaller event loop.
 import gobject
 import gtk
@@ -56,8 +51,7 @@ class Wizard(BaseFrontend):
         self.password = ''
         self.verifiedpassword = ''
 
-        dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
-                                                               cloexec=True))
+        dbfilter = language.Language(self, self.debconf_communicator())
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 

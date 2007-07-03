@@ -7,6 +7,10 @@ Template: ubiquity/text/live_installer
 Type: text
 _Description: Install
 
+Template: ubiquity/text/oem_config_title
+Type: text
+_Description: Install (OEM mode, for manufacturers only)
+
 Template: ubiquity/text/welcome_heading_label
 Type: text
 _Description: Welcome

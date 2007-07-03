@@ -1,9 +1,5 @@
 #d-i pieces
-scripts/mythbuntu-ask usr/share/ubiquity
-scripts/mythbuntu-apply usr/share/ubiquity
-scripts/mythbuntu-drivers usr/share/ubiquity
-scripts/mythbuntu-services usr/share/ubiquity
-scripts/mythbuntu-setup usr/share/ubiquity
+scripts/mythbuntu/* usr/share/ubiquity
 
 #individual python components
 ubiquity/components/mythbuntu.py usr/lib/ubiquity/ubiquity/components
@@ -17,10 +13,6 @@ gui/glade/mythbuntu*.glade usr/share/ubiquity/glade
 
 #Summary Generation Page
 ubiquity/components/mythbuntu_summary.py usr/lib/ubiquity/ubiquity/components
-scripts/mythbuntu_summary usr/share/ubiquity
 
 #GTK->Final installer glue
 ubiquity/components/mythbuntu_install.py usr/lib/ubiquity/ubiquity/components
-
-#Final Installer piece
-scripts/mythbuntu_install.py usr/share/ubiquity

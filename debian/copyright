@@ -14,13 +14,14 @@ The original Guadalinex source can be found at:
 and Ubiquity is developed at:
 	http://people.ubuntu.com/~cjwatson/bzr/ubiquity/ubuntu/
 
+Copyright (C) 2005  Javier Carranza
+Copyright (C) 2005, 2006, 2007  Canonical Ltd.
+
 Ubiquity has been adapted for usage by the Mythbuntu
 team for the purposes of a Ubuntu derivative focused
 upon setting up a standalone MythTV box.
 
-Copyright (C) 2005  Javier Carranza
-Copyright (C) 2005, 2006, 2007  Canonical Ltd.
-Copyright (C) 2007 Mario Limonciello
+Portions copyright (C) 2007 Mario Limonciello
 
 License:
 

@@ -41,11 +41,6 @@ from PyQt4 import uic
 #from kio import KRun
 #import kdedesigner
 
-try:
-    from debconf import DebconfCommunicator
-except ImportError:
-    from ubiquity.debconfcommunicator import DebconfCommunicator
-
 from ubiquity import filteredcommand, i18n, validation
 from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
@@ -124,9 +119,10 @@ class Wizard(BaseFrontend):
 
         # declare attributes
         self.release_notes_url_template = None
-        self.language_questions = ('live_installer', 'welcome_heading_label',
-                                   'welcome_text_label', 'release_notes_label',
-                                   'release_notes_url', 'step_label',
+        self.language_questions = ('live_installer', 'oem_config_title',
+                                   'welcome_heading_label', 'welcome_text_label',
+                                   'release_notes_label', 'release_notes_url',
+                                   'step_label',
                                    'cancel', 'back', 'next')
         self.current_page = None
         self.allowed_change_step = True
@@ -152,8 +148,7 @@ class Wizard(BaseFrontend):
         self.app.connect(self.userinterface.partition_list_treeview, SIGNAL("activated(const QModelIndex&)"), self.on_partition_list_treeview_activated)
 
         # set default language
-        dbfilter = language.Language(self, DebconfCommunicator('ubiquity',
-                                                               cloexec=True))
+        dbfilter = language.Language(self, self.debconf_communicator())
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 
@@ -355,6 +350,17 @@ class Wizard(BaseFrontend):
         self.logo_image.set_from_file(logo)
         self.photo.set_from_file(photo)
         """
+
+        if self.oem_config:
+            self.userinterface.setWindowTitle(
+                self.get_string('oem_config_title'))
+            self.userinterface.fullname.setText(
+                'OEM Configuration (temporary user)')
+            self.userinterface.fullname.setReadOnly(True)
+            self.userinterface.username.setText('oem')
+            self.userinterface.username.setReadOnly(True)
+            # The UserSetup component takes care of preseeding passwd/user-uid.
+            execute('apt-install', 'oem-config-kde')
 
         try:
             release_notes = open('/cdrom/.disk/release_notes_url')

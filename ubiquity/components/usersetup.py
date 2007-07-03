@@ -53,7 +53,10 @@ class UserSetup(FilteredCommand):
         self.preseed('passwd/user-password', password, escape=True)
         self.preseed('passwd/user-password-again', password_confirm,
                      escape=True)
-        self.preseed('passwd/user-uid', '')
+        if self.frontend.oem_config:
+            self.preseed('passwd/user-uid', '29999')
+        else:
+            self.preseed('passwd/user-uid', '')
 
         # evand 2007-01-13: This is probably unnecessary as migration-assistant
         # is run after user-setup in d-i, but it might be best to do this anyway

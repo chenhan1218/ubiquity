@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Tue Jun 26 09:48:51 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.2.0 on Mon Jul  2 20:18:15 2007 by supermario@portablemario-->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -77,11 +77,9 @@ data and configuring the backend for the first time.</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
                     <property name="xpad">60</property>
-                    <property name="label" translatable="yes">Users in the US will need to setup an account with Tribune Media Services (TMS).  
-TMS provides guide data at no charge, only requiring users to fill out a survey once 
-every 3 months. When setting up an account, the MythTV project code is:
-&lt;b&gt;ZIYN-DQZO-SBUT&lt;/b&gt;</property>
+                    <property name="label" translatable="yes">Users in the US will need to setup an account with Tribune Media Services (TMS).  TMS provides guide data at no charge, only requiring users to fill out a survey once every 3 months. When setting up an account, the MythTV project code is: &lt;b&gt;ZIYN-DQZO-SBUT&lt;/b&gt;</property>
                     <property name="use_markup">True</property>
+                    <property name="wrap">True</property>
                   </widget>
                   <packing>
                     <property name="position">1</property>
@@ -133,10 +131,9 @@ every 3 months. When setting up an account, the MythTV project code is:
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
                     <property name="xpad">60</property>
-                    <property name="label" translatable="yes">After setting up your guide data source, you will need to launch MythTV-Setup to
-run the backend configuration for the first time.  You will need to configure the first 
-four sections, being sure to provide your guide data during the third.</property>
+                    <property name="label" translatable="yes">After setting up your guide data source, you will need to launch MythTV-Setup to run the backend configuration for the first time.  You will need to configure the first four sections, being sure to provide your guide data during the third.</property>
                     <property name="use_markup">True</property>
+                    <property name="wrap">True</property>
                   </widget>
                   <packing>
                     <property name="position">3</property>

@@ -23,6 +23,12 @@ import sys
 import os
 import syslog
 
+import debconf
+try:
+    from debconf import DebconfCommunicator
+except ImportError:
+    from ubiquity.debconfcommunicator import DebconfCommunicator
+
 from ubiquity import i18n
 
 class BaseFrontend:
@@ -46,6 +52,13 @@ class BaseFrontend:
         self.manual_choice = None
         self.summary_device = None
         self.popcon = None
+
+        self.oem_config = False
+        try:
+            if self.debconf_operation('get', 'oem-config/enable') == 'true':
+                self.oem_config = True
+        except debconf.DebconfError:
+            pass
 
     def _abstract(self, method):
         raise NotImplementedError("%s.%s does not implement %s" %
@@ -135,6 +148,21 @@ class BaseFrontend:
         import pdb
         pdb.post_mortem(exctb)
         sys.exit(1)
+
+    # Debconf interaction. We cannot talk to debconf normally here, as
+    # running a normal frontend would interfere with pretending to be a
+    # frontend for components, but we can start up a debconf-communicate
+    # instance on demand for single queries.
+
+    def debconf_communicator(self):
+        return DebconfCommunicator('ubiquity', cloexec=True)
+
+    def debconf_operation(self, command, *params):
+        db = self.debconf_communicator()
+        try:
+            return getattr(db, command)(*params)
+        finally:
+            db.shutdown()
 
     # Progress bar handling.
 

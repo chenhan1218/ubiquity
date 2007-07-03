@@ -47,6 +47,9 @@ class Install(FilteredCommand):
             else:
                 self.preseed('popularity-contest/participate', 'false')
 
+        if self.frontend.oem_config:
+            self.preseed('oem-config/enable', 'true')
+
         questions = ['^.*/apt-install-failed$',
                      'migration-assistant/failed-unmount',
                      'grub-installer/install_to_xfs',

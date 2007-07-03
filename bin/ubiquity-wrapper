@@ -46,7 +46,7 @@ def main():
                 except ImportError:
                     pass
 
-        if frontend == 'gtk_ui' or frontend == 'mythbuntu_ui':
+        if frontend in ('gtk_ui', 'mythbuntu_ui'):
             toexec = ['gksudo']
             if desktop:
                 toexec.extend(['--desktop', desktop])
