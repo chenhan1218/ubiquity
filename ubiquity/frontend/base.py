@@ -212,6 +212,13 @@ class BaseFrontend:
         """Get the current selected language."""
         self._abstract('get_language')
 
+    def get_oem_id(self):
+        """Get a unique identifier for this batch of installations."""
+        try:
+            return self.debconf_operation('get', 'oem-config/id')
+        except debconf.DebconfError:
+            return ''
+
     # ubiquity.components.timezone
 
     def set_timezone(self, timezone):

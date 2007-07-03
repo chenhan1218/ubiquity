@@ -13,6 +13,8 @@ ubiquity (1.5.5) UNRELEASED; urgency=low
       system.
     - Install a desktop file for oem-config-prepare on the oem user's
       desktop.
+    - Ask for a unique identifier for this batch of installations, and save
+      that in /var/log/installer/oem-id on the installed system.
   * Add a warning in d-i/source/README about modifying files in this
     directory.
   * GTK frontend:

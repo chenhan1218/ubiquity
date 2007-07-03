@@ -49,6 +49,8 @@ import pango
 import gobject
 import gtk.glade
 
+import debconf
+
 from ubiquity import filteredcommand, i18n, validation
 from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
@@ -130,6 +132,7 @@ class Wizard(BaseFrontend):
         self.thunar_previous = {}
         self.language_questions = ('live_installer', 'oem_config_title',
                                    'welcome_heading_label', 'welcome_text_label',
+                                   'oem_id_label',
                                    'release_notes_label', 'release_notes_url',
                                    'step_label',
                                    'cancel', 'back', 'next',
@@ -425,6 +428,12 @@ class Wizard(BaseFrontend):
 
         if self.oem_config:
             self.live_installer.set_title(self.get_string('oem_config_title'))
+            self.oem_id_vbox.show()
+            try:
+                self.oem_id_entry.set_text(
+                    self.debconf_operation('get', 'oem-config/id'))
+            except debconf.DebconfError:
+                pass
             self.fullname.set_text('OEM Configuration (temporary user)')
             self.fullname.set_editable(False)
             self.username.set_text('oem')
@@ -1193,6 +1202,10 @@ class Wizard(BaseFrontend):
         else:
             value = unicode(model.get_value(iterator, 0))
             return self.language_choice_map[value][0]
+
+
+    def get_oem_id (self):
+        return self.oem_id_entry.get_text()
 
 
     def set_timezone (self, timezone):

@@ -49,6 +49,7 @@ class Install(FilteredCommand):
 
         if self.frontend.oem_config:
             self.preseed('oem-config/enable', 'true')
+            self.preseed('oem-config/id', self.frontend.get_oem_id())
 
         questions = ['^.*/apt-install-failed$',
                      'migration-assistant/failed-unmount',
