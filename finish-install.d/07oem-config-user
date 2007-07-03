@@ -13,4 +13,44 @@ if [ -d /target/home/oem ]; then
 	done
 fi
 
+# cf. casper/scripts/casper-bottom/15autologin and
+# oem-config:disable_autologin()
+
+if [ -f /target/etc/gdm/gdm-cdd.conf ]; then
+	GDMCONF=/etc/gdm/gdm-cdd.conf
+else
+	GDMCONF=/etc/gdm/gdm.conf
+fi
+
+if [ -f "/target$GDMCONF" ]; then
+	# Configure GDM autologin
+	chroot /target sed -i.oem \
+		-e "s/^AutomaticLoginEnable=.*\$/AutomaticLoginEnable=true/" \
+		-e "s/^AutomaticLogin=.*\$/AutomaticLogin=oem/" \
+		-e "s/^TimedLoginEnable=.*\$/TimedLoginEnable=true/" \
+		-e "s/^TimedLogin=.*\$/TimedLogin=oem/" \
+		-e "s/^TimedLoginDelay=.*\$/TimedLoginDelay=10/" \
+		"$GDMCONF"
+fi
+
+if [ -f /target/etc/kde3/kdm/kdmrc ]; then
+	# Configure KDM autologin
+	sed -i.oem -r \
+		-e "s/^#?AutoLoginEnable=.*\$/AutoLoginEnable=true/" \
+		-e "s/^#?AutoLoginUser=.*\$/AutoLoginUser=oem/" \
+		-e "s/^#?AutoReLogin=.*\$/AutoReLogin=true/" \
+		/target/etc/kde3/kdm/kdmrc
+fi
+
+if chroot /target /usr/bin/which kpersonalizer >/dev/null; then
+	# Disable first-login wizard for KDE
+	if [ ! -f /target/etc/kde3/kpersonalizerrc ]; then
+		cat > /target/etc/kde3/kpersonalizerrc <<EOF
+[General]
+FirstLogin=false
+EOF
+		touch /target/etc/kde3/kpersonalizerrc.created-by-oem
+	fi
+fi
+
 exit 0

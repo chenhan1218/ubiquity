@@ -46,7 +46,28 @@ class Wizard:
         self.frontend = ui.Frontend()
 
     def run(self):
-        return self.frontend.run()
+        self.frontend.run()
+
+def disable_autologin():
+    import traceback
+
+    # Reverse actions of finish-install.d/07oem-config-user.
+    for name in ('/etc/gdm/gdm-cdd.conf', '/etc/gdm/gdm.conf',
+                 '/etc/kde3/kdm/kdmrc'):
+        if os.path.exists('%s.oem' % name):
+            try:
+                os.rename('%s.oem' % name, name)
+            except OSError:
+                traceback.print_exc()
+    if os.path.exists('/etc/kde3/kpersonalizerrc.created-by-oem'):
+        try:
+            os.unlink('/etc/kde3/kpersonalizerrc')
+        except OSError:
+            traceback.print_exc()
+        try:
+            os.unlink('/etc/kde3/kpersonalizerrc.created-by-oem')
+        except OSError:
+            traceback.print_exc()
 
 if __name__ == '__main__':
     usage = ("usage: %prog [options]\n\n"
@@ -76,4 +97,6 @@ if __name__ == '__main__':
             os.environ['DEBCONF_DEBUG'] = 'developer|filter'
 
     wizard = Wizard(frontend_name=options.frontend)
-    sys.exit(wizard.run())
+    wizard.run()
+    disable_autologin()
+    sys.exit(0)
