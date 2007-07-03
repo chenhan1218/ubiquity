@@ -14,16 +14,17 @@ oem-config (1.17) UNRELEASED; urgency=low
   * Minor UI tweaks to sync up with ubiquity.
   * Add a warning in d-i/source/README about modifying files in this
     directory.
-  * Fix desktop file installation harder.
-  * Update user page layout to match ubiquity, including filling in a
-    suggested username automatically, displaying error messages inline, and
-    showing a warning message in debugging mode.
-  * Set up autologin for the oem user via gdm/kdm.
-  * Disable the hwdb-client notification for the created user.
-  * Add a facility to run hook scripts from /usr/lib/oem-config/post-install
-    just before exiting. Hook scripts are run noninteractively, although
-    they can talk to debconf for database queries and the like if they need
-    to.
+  * Implement ubiquity-oem specification:
+    - Fix desktop file installation harder.
+    - Update user page layout to match ubiquity, including filling in a
+      suggested username automatically, displaying error messages inline,
+      and showing a warning message in debugging mode.
+    - Set up autologin for the oem user via gdm/kdm.
+    - Disable the hwdb-client notification for the created user.
+    - Add a facility to run hook scripts from
+      /usr/lib/oem-config/post-install just before exiting. Hook scripts are
+      run noninteractively, although they can talk to debconf for database
+      queries and the like if they need to.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 02 Jul 2007 12:45:26 +0100
 
