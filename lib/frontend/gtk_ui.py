@@ -30,7 +30,7 @@ import gtk.glade
 
 from debconf import DebconfCommunicator
 
-from oem_config import filteredcommand
+from oem_config import filteredcommand, i18n
 from oem_config.components import console_setup, language, timezone, user, \
                                   language_apply, timezone_apply, \
                                   console_setup_apply
@@ -87,6 +87,7 @@ class Frontend:
         self.current_page = None
         self.locale = None
         self.current_layout = None
+        self.username_edited = False
         self.allowed_change_step = True
         self.allowed_go_forward = True
         self.watch = gtk.gdk.Cursor(gtk.gdk.WATCH)
@@ -111,6 +112,9 @@ class Frontend:
 
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
+
+        if 'OEM_CONFIG_DEBUG' in os.environ:
+            self.password_debug_warning_label.show()
 
     def post_mortem(self, exctype, excvalue, exctb):
         """Drop into the debugger if possible."""
@@ -158,6 +162,11 @@ class Frontend:
 
         self.glade.signal_autoconnect(self)
 
+        # Some signals need to be connected by hand so that we have the
+        # handler ids.
+        self.username_changed_id = self.username.connect(
+            'changed', self.on_username_changed)
+
         self.steps.set_current_page(self.steps.page_num(self.step_language))
         # TODO cjwatson 2006-07-07: why isn't on_steps_switch_page getting
         # invoked?
@@ -183,6 +192,9 @@ class Frontend:
 
             if self.backup:
                 pass
+            elif current_name == 'step_keyboard':
+                self.info_loop(None)
+                self.steps.next_page()
             elif current_name == 'step_user':
                 self.allow_change_step(False)
                 self.current_page = None
@@ -292,17 +304,32 @@ class Frontend:
             gtk.main_quit()
 
     def on_back_clicked(self, widget):
+        if not self.allowed_change_step:
+            return
+
+        self.allow_change_step(False)
+        self.allow_go_forward(True)
+
         self.backup = True
         self.steps.prev_page()
         if self.dbfilter is not None:
-            self.allow_change_step(False)
             self.dbfilter.cancel_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
 
     def on_next_clicked(self, widget):
+        if not self.allowed_change_step or not self.allowed_go_forward:
+            return
+
+        self.allow_change_step(False)
+
+        step = self.step_name(self.steps.get_current_page())
+
+        if step == "step_user":
+            self.username_error_box.hide()
+            self.password_error_box.hide()
+
         if self.dbfilter is not None:
-            self.allow_change_step(False)
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
@@ -465,22 +492,49 @@ class Frontend:
                 self.dbfilter.apply_keyboard(layout, variant)
 
     def set_fullname(self, value):
-        self.user_fullname_entry.set_text(value)
+        self.fullname.set_text(value)
 
     def get_fullname(self):
-        return self.user_fullname_entry.get_text()
+        return self.fullname.get_text()
 
     def set_username(self, value):
-        self.user_name_entry.set_text(value)
+        self.username.set_text(value)
 
     def get_username(self):
-        return self.user_name_entry.get_text()
+        return self.username.get_text()
 
     def get_password(self):
-        return self.user_password_entry.get_text()
+        return self.password.get_text()
 
     def get_verified_password(self):
-        return self.user_password_confirm_entry.get_text()
+        return self.verified_password.get_text()
+
+    def username_error(self, msg):
+        self.username_error_reason.set_text(msg)
+        self.username_error_box.show()
+
+    def password_error(self, msg):
+        self.password_error_reason.set_text(msg)
+        self.password_error_box.show()
+
+    def info_loop(self, widget):
+        if (widget is not None and widget.get_name() == 'fullname' and
+            not self.username_edited):
+            self.username.handler_block(self.username_changed_id)
+            new_username = widget.get_text().split(' ')[0]
+            new_username = new_username.encode('ascii', 'ascii_transliterate')
+            new_username = new_username.lower()
+            self.username.set_text(new_username)
+            self.username.handler_unblock(self.username_changed_id)
+
+        complete = True
+        for name in ('username', 'password', 'verified_password'):
+            if getattr(self, name).get_text() == '':
+                complete = False
+        self.allow_go_forward(complete)
+
+    def on_username_changed(self, widget):
+        self.username_edited = (widget.get_text() != '')
 
 
 # Much of this timezone map widget is a rough translation of

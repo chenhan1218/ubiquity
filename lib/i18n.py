@@ -17,6 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import codecs
+
 _supported_locales = None
 
 def get_supported_locales():
@@ -30,3 +32,18 @@ def get_supported_locales():
             _supported_locales[locale] = charset
         supported.close()
     return _supported_locales
+
+
+# Based on code by Walter Dörwald:
+# http://mail.python.org/pipermail/python-list/2007-January/424460.html
+def ascii_transliterate(exc):
+    if not isinstance(exc, UnicodeEncodeError):
+        raise TypeError("don't know how to handle %r" % exc)
+    import unicodedata
+    s = unicodedata.normalize('NFD', exc.object[exc.start])[:1]
+    if ord(s) in range(128):
+        return s, exc.start + 1
+    else:
+        return u'', exc.start + 1
+
+codecs.register_error('ascii_transliterate', ascii_transliterate)

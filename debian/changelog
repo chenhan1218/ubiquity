@@ -15,6 +15,9 @@ oem-config (1.17) UNRELEASED; urgency=low
   * Add a warning in d-i/source/README about modifying files in this
     directory.
   * Fix desktop file installation harder.
+  * Update user page layout to match ubiquity, including filling in a
+    suggested username automatically, displaying error messages inline, and
+    showing a warning message in debugging mode.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 02 Jul 2007 12:45:26 +0100
 
