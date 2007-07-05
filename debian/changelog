@@ -29,8 +29,10 @@ ubiquity (1.5.5) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Merge in mythbuntu alpha 2 changes.
+  * Set all mythbuntu labels to word wrap.
+  * Add mythbuntu to translatable files.
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 02 Jul 2007 13:23:22 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 05 Jul 2007 14:54:31 -0400
 
 ubiquity (1.5.4) gutsy; urgency=low
 

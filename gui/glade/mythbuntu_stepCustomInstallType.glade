@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Thu Jun 14 19:16:56 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.2.0 on Mon Jul  2 20:19:53 2007 by supermario@portablemario-->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -65,9 +65,8 @@
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
                     <property name="xpad">30</property>
-                    <property name="label" translatable="yes">A Backend/frontend combo machine is the most common setup for people wanting 
-MythTV for HTPC applications. This type of installation is intended for use as a 
-component in your home theatre.</property>
+                    <property name="label" translatable="yes">A Backend/frontend combo machine is the most common setup for people wanting MythTV for HTPC applications. This type of installation is intended for use as a component in your home theatre.</property>
+                    <property name="wrap">True</property>
                   </widget>
                   <packing>
                     <property name="position">1</property>
@@ -93,9 +92,9 @@ component in your home theatre.</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
                     <property name="xpad">30</property>
-                    <property name="label" translatable="yes">This will set up a system similar to a Primary Backend w/ Frontend, however will be 
-configured to connect to an existing backend on the network.</property>
+                    <property name="label" translatable="yes">This will set up a system similar to a Primary Backend w/ Frontend, however will be configured to connect to an existing backend on the network.</property>
                     <property name="use_markup">True</property>
+                    <property name="wrap">True</property>
                   </widget>
                   <packing>
                     <property name="position">3</property>
@@ -121,8 +120,8 @@ configured to connect to an existing backend on the network.</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
                     <property name="xpad">30</property>
-                    <property name="label" translatable="yes">A backend only machine is typically designed to function like an appliance; requiring
-very little maintenance.  This is intended to be installed as the first backend on a network.</property>
+                    <property name="label" translatable="yes">A backend only machine is typically designed to function like an appliance; requiring very little maintenance.  This is intended to be installed as the first backend on a network.</property>
+                    <property name="wrap">True</property>
                   </widget>
                   <packing>
                     <property name="position">5</property>
@@ -148,8 +147,8 @@ very little maintenance.  This is intended to be installed as the first backend 
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
                     <property name="xpad">30</property>
-                    <property name="label" translatable="yes">This will set up a system similar to a Primary Backend, however it will be configured to
-connect to an existing backend on the network.</property>
+                    <property name="label" translatable="yes">This will set up a system similar to a Primary Backend, however it will be configured to connect to an existing backend on the network.</property>
+                    <property name="wrap">True</property>
                   </widget>
                   <packing>
                     <property name="position">7</property>
@@ -175,8 +174,8 @@ connect to an existing backend on the network.</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
                     <property name="xpad">30</property>
-                    <property name="label" translatable="yes">A frontend only machine's main function is to receive media content from the backend
-and distribute it.  This configuration requires an existing backend on the network.</property>
+                    <property name="label" translatable="yes">A frontend only machine's main function is to receive media content from the backend and distribute it.  This configuration requires an existing backend on the network.</property>
+                    <property name="wrap">True</property>
                   </widget>
                   <packing>
                     <property name="position">9</property>

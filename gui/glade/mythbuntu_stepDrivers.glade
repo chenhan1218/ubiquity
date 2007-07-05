@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Sat Jun 16 10:28:16 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.2.0 on Mon Jul  2 20:23:28 2007 by supermario@portablemario-->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -53,8 +53,8 @@
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
-                        <property name="label" translatable="yes">Proprietary Graphics Drivers can provide enhanced performance during High Definition
-Video playback and Menu Effects.  They are also required for TV-Output.</property>
+                        <property name="label" translatable="yes">Proprietary Graphics Drivers can provide enhanced performance during High Definition Video playback and Menu Effects.  They are also required for TV-Output.</property>
+                        <property name="wrap">True</property>
                       </widget>
                     </child>
                     <child>
@@ -79,11 +79,14 @@ Video playback and Menu Effects.  They are also required for TV-Output.</propert
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Automatically detected:</property>
+                            <property name="wrap">True</property>
                           </widget>
                         </child>
                         <child>
                           <widget class="GtkLabel" id="auto_detect_driver">
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                            <property name="justify">GTK_JUSTIFY_CENTER</property>
+                            <property name="wrap">True</property>
                           </widget>
                           <packing>
                             <property name="position">1</property>
@@ -100,6 +103,7 @@ Video playback and Menu Effects.  They are also required for TV-Output.</propert
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">If you would like to configure TV-out, choose an option here:</property>
                         <property name="use_markup">True</property>
+                        <property name="wrap">True</property>
                       </widget>
                       <packing>
                         <property name="position">3</property>
@@ -156,9 +160,10 @@ HD1080p</property>
                     <child>
                       <widget class="GtkLabel" id="tvwarning">
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                        <property name="label" translatable="yes">&lt;b&gt;Warning:&lt;/b&gt; Do not set the TV standard to something higher than what your TV supports.
-&lt;b&gt;PERMANENT&lt;/b&gt; damage may occur.</property>
+                        <property name="label" translatable="yes">&lt;b&gt;Warning:&lt;/b&gt; Do not set the TV standard to something higher than what your TV supports. &lt;b&gt;PERMANENT&lt;/b&gt; damage may occur.</property>
                         <property name="use_markup">True</property>
+                        <property name="justify">GTK_JUSTIFY_CENTER</property>
+                        <property name="wrap">True</property>
                       </widget>
                       <packing>
                         <property name="position">5</property>
@@ -172,6 +177,7 @@ HD1080p</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
                     <property name="label" translatable="yes">Frontend Drivers</property>
+                    <property name="wrap">True</property>
                   </widget>
                   <packing>
                     <property name="type">label_item</property>
@@ -194,8 +200,8 @@ HD1080p</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
-                        <property name="label" translatable="yes">Choose all tuners that you will be using on this system that are currently present.
-If you will be adding a tuner later, this can be later reconfigured.</property>
+                        <property name="label" translatable="yes">Choose all tuners that you will be using on this system that are currently present.  If you will be adding a tuner later, this can be later reconfigured.</property>
+                        <property name="wrap">True</property>
                       </widget>
                     </child>
                     <child>
@@ -208,6 +214,7 @@ If you will be adding a tuner later, this can be later reconfigured.</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Please Choose How many Tuners will be present on this Backend:</property>
+                            <property name="wrap">True</property>
                           </widget>
                         </child>
                         <child>

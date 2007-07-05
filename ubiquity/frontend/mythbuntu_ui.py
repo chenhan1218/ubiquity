@@ -43,6 +43,7 @@ import os
 import subprocess
 import syslog
 import signal
+import gtk
 
 import MySQLdb
 
