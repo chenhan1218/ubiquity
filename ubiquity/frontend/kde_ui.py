@@ -367,6 +367,7 @@ class Wizard(BaseFrontend):
             self.userinterface.fullname.setReadOnly(True)
             self.userinterface.username.setText('oem')
             self.userinterface.username.setReadOnly(True)
+            self.username_edited = True
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute('apt-install', 'oem-config-kde')
         else:
