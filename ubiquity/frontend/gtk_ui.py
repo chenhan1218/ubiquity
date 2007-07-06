@@ -570,6 +570,8 @@ class Wizard(BaseFrontend):
                 widget.set_label(text)
 
         elif isinstance(widget, gtk.Window):
+            if name == 'live_installer' and self.oem_config:
+                text = self.get_string('oem_config_title', lang)
             widget.set_title(text)
 
 

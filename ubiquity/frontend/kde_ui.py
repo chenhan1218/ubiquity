@@ -463,6 +463,8 @@ class Wizard(BaseFrontend):
             widget.setText(text.replace('_', '&', 1))
 
         elif isinstance(widget, QWidget) and str(widget.objectName()) == "UbiquityUIBase":
+            if self.oem_config:
+                text = self.get_string('oem_config_title', lang)
             widget.setWindowTitle(text)
         else:
             print "WARNING: unknown widget: " + widget.objectName()
