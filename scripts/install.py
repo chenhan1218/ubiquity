@@ -875,6 +875,16 @@ exit 0"""
         record.close()
 
 
+    def query_recorded_installed(self):
+        apt_installed = set()
+        if os.path.exists("/var/lib/ubiquity/apt-installed"):
+            record_file = open("/var/lib/ubiquity/apt-installed")
+            for line in record_file:
+                apt_installed.add(line.strip())
+            record_file.close()
+        return apt_installed
+
+
     def mark_install(self, cache, pkg):
         cachedpkg = self.get_cache_pkg(cache, pkg)
         if cachedpkg is not None and not cachedpkg.isInstalled:
@@ -1583,13 +1593,7 @@ exit 0"""
             difference = set()
 
         # Keep packages we explicitly installed.
-        apt_installed = set()
-        if os.path.exists("/var/lib/ubiquity/apt-installed"):
-            apt_installed_file = open("/var/lib/ubiquity/apt-installed")
-            for line in apt_installed_file:
-                apt_installed.add(line.strip())
-            apt_installed_file.close()
-        difference -= apt_installed
+        difference -= self.query_recorded_installed()
 
         if len(difference) == 0:
             return
