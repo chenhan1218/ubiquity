@@ -148,6 +148,8 @@ class Wizard(BaseFrontend):
         self.resize_max_size = None
         self.new_size_scale = None
         self.username_combo = None
+        self.username_changed_id = None
+        self.hostname_changed_id = None
         self.username_edited = False
         self.hostname_edited = False
         self.previous_partitioning_page = None
@@ -765,6 +767,10 @@ class Wizard(BaseFrontend):
     def info_loop(self, widget):
         """check if all entries from Identification screen are filled. Callback
         defined in glade file."""
+
+        if (self.username_changed_id is None or
+            self.hostname_changed_id is None):
+            return
 
         if (widget is not None and widget.get_name() == 'fullname' and
             not self.username_edited):
