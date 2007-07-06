@@ -130,18 +130,18 @@ class Install(install.Install):
 
             self.db.progress('SET', 93)
             self.db.progress('REGION', 93, 95)
-            self.db.progress('INFO', 'ubiquity/install/drivers')
+            self.db.progress('INFO', 'ubiquity/install/installing')
             self.add_drivers_services()
+            self.install_extras()
+
+            self.db.progress('SET', 95)
+            self.db.progress('REGION', 95, 96)
+            self.db.progress('INFO', 'ubiquity/install/drivers')
             self.configure_drivers()
 
-            self.db.progress('SET', 94)
+            self.db.progress('SET', 96)
             self.db.progress('INFO', 'ubiquity/install/services')
             self.configure_services()
-
-            self.db.progress('SET', 96)
-            self.db.progress('REGION', 96, 97)
-            self.db.progress('INFO', 'ubiquity/install/installing')
-            self.install_extras()
 
             self.db.progress('SET', 97)
             self.db.progress('REGION', 97, 99)
@@ -191,85 +191,6 @@ class Install(install.Install):
             to_install.append('portmap')
 
         self.record_installed(to_install)
-
-        self.db.progress('START', 0, 100, 'ubiquity/install/drivers')
-
-        self.db.progress('REGION', 0, 10)
-        fetchprogress = DebconfFetchProgress(
-            self.db, 'ubiquity/install/drivers',
-            'ubiquity/install/apt_indices_starting',
-            'ubiquity/install/apt_indices')
-        cache = Cache()
-
-        if cache._depcache.BrokenCount > 0:
-            syslog.syslog(
-                'not installing drivers, since there are broken '
-                'packages: %s' % ', '.join(self.broken_packages(cache)))
-            self.db.progress('STOP')
-            return
-
-        try:
-            # update() returns False on failure and 0 on success. Madness!
-            if cache.update(fetchprogress) not in (0, True):
-                fetchprogress.stop()
-                self.db.progress('STOP')
-                return
-        except IOError, e:
-            for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_WARNING, line)
-            self.db.progress('STOP')
-            raise
-        cache.open(None)
-        self.db.progress('SET', 10)
-
-        self.db.progress('REGION', 10, 100)
-        fetchprogress = DebconfFetchProgress(
-            self.db, 'ubiquity/install/drivers', None,
-            'ubiquity/install/drivers')
-        installprogress = DebconfInstallProgress(
-            self.db, 'ubiquity/install/services', 'ubiquity/install/apt_info')
-
-        for lp in to_install:
-            self.mark_install(cache, lp)
-        installed_pkgs = []
-        for pkg in cache.keys():
-            if (cache[pkg].markedInstall or cache[pkg].markedUpgrade or
-                cache[pkg].markedReinstall or cache[pkg].markedDowngrade):
-                installed_pkgs.append(pkg)
-        self.record_installed(installed_pkgs)
-
-        commit_error = None
-        try:
-            if not cache.commit(fetchprogress, installprogress):
-                fetchprogress.stop()
-                installprogress.finishUpdate()
-                self.db.progress('STOP')
-                return
-        except IOError, e:
-            for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_WARNING, line)
-            commit_error = str(e)
-        except SystemError, e:
-            for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_WARNING, line)
-            commit_error = str(e)
-        self.db.progress('SET', 100)
-
-        cache.open(None)
-        if commit_error or cache._depcache.BrokenCount > 0:
-            if commit_error is None:
-                commit_error = ''
-            brokenpkgs = self.broken_packages(cache)
-            syslog.syslog('broken packages after driver installation: '
-                          '%s' % ', '.join(brokenpkgs))
-            self.db.subst('ubiquity/install/broken_install', 'ERROR',
-                          commit_error)
-            self.db.subst('ubiquity/install/broken_install', 'PACKAGES',
-                          ', '.join(brokenpkgs))
-            self.db.input('critical', 'ubiquity/install/broken_install')
-            self.db.go()
-
-        self.db.progress('STOP')
 
     def configure_drivers(self):
         """Activates any necessary driver configuration"""
