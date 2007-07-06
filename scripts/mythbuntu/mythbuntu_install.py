@@ -26,10 +26,7 @@ import syslog
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
-from apt.cache import Cache
-from install import InstallStepError, DebconfFetchProgress, \
-                    DebconfInstallProgress
-from ubiquity import misc
+from install import InstallStepError
 from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 clock_setup, console_setup_apply, \
                                 usersetup_apply, hw_detect, check_kernels, \
