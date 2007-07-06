@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-07-03 18:11-0500\n"
+"POT-Creation-Date: 2007-07-06 17:47+0100\n"
 "PO-Revision-Date: 2007-04-07 14:47+0000\n"
 "Last-Translator: Fumihito YOSHIDA <hito@kugutsu.org>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
@@ -595,54 +595,66 @@ msgstr "ブートローダを設定しています..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
+msgid "Installing additional packages..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:74001
+msgid "Checking for packages to install..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:75001
 msgid "Removing extra packages..."
 msgstr "余分なパッケージを削除しています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:76001
 msgid "Checking for packages to remove..."
 msgstr "削除するパッケージをチェックしています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:77001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "パッケージをダウンロードしています (残り ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:78001
 msgid "Downloading package lists..."
 msgstr "パッケージリストをダウンロードしています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:79001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "パッケージリストをダウンロードしています (残り ${TIME})..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:81001
 msgid "Error installing ${PACKAGE}"
 msgstr "${PACKAGE} をインストールできません"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:82001
 msgid "Error removing ${PACKAGE}"
 msgstr "${PACKAGE} を削除できません"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:83001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:83001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -650,7 +662,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001 ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001 ../ubiquity.templates:84001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -658,7 +670,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001 ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001 ../ubiquity.templates:84001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -671,37 +683,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:84001
 msgid "Error while removing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:84001
 msgid "An error occurred while removing packages:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:85001
 msgid "Installing language packs"
 msgstr "言語パッケージをインストールしています"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:86001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "言語パッケージをダウンロードしています (残り ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid "Failed to unmount partitions"
 msgstr "パーティションのアンマウントに失敗しました"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -712,14 +724,14 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid "Please close any applications using these mount points."
 msgstr ""
 "これらのマウントポイントを使用しているアプリケーションを終了して下さい。"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "再度、インストーラによるこれらのパーティーションのアンマウントを実行してよい"
@@ -727,13 +739,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:91001
 msgid "System partition not formatted"
 msgstr "システムパーティションがフォーマットされていません"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:91001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"

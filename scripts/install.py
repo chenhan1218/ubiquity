@@ -391,7 +391,12 @@ class Install:
             self.configure_bootloader()
 
             self.db.progress('SET', 94)
-            self.db.progress('REGION', 94, 99)
+            self.db.progress('REGION', 94, 95)
+            self.db.progress('INFO', 'ubiquity/install/installing')
+            self.install_extras()
+
+            self.db.progress('SET', 95)
+            self.db.progress('REGION', 95, 99)
             self.db.progress('INFO', 'ubiquity/install/removing')
             self.remove_extras()
 
@@ -943,86 +948,8 @@ exit 0"""
                 to_install.append(pattern.replace('$LL', lp))
             # More extensive language support packages.
             to_install.append('language-support-%s' % lp)
-        self.record_installed(to_install)
 
-        self.db.progress('START', 0, 100, 'ubiquity/langpacks/title')
-
-        self.db.progress('REGION', 0, 10)
-        fetchprogress = DebconfFetchProgress(
-            self.db, 'ubiquity/langpacks/title',
-            'ubiquity/install/apt_indices_starting',
-            'ubiquity/install/apt_indices')
-        cache = Cache()
-
-        if cache._depcache.BrokenCount > 0:
-            syslog.syslog(
-                'not installing language packs, since there are broken '
-                'packages: %s' % ', '.join(self.broken_packages(cache)))
-            self.db.progress('STOP')
-            return
-
-        try:
-            # update() returns False on failure and 0 on success. Madness!
-            if cache.update(fetchprogress) not in (0, True):
-                fetchprogress.stop()
-                self.db.progress('STOP')
-                return
-        except IOError, e:
-            for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_WARNING, line)
-            self.db.progress('STOP')
-            raise
-        cache.open(None)
-        self.db.progress('SET', 10)
-
-        self.db.progress('REGION', 10, 100)
-        fetchprogress = DebconfFetchProgress(
-            self.db, 'ubiquity/langpacks/title', None,
-            'ubiquity/langpacks/packages')
-        installprogress = DebconfInstallProgress(
-            self.db, 'ubiquity/langpacks/title', 'ubiquity/install/apt_info')
-
-        for lp in to_install:
-            self.mark_install(cache, lp)
-        installed_pkgs = []
-        for pkg in cache.keys():
-            if (cache[pkg].markedInstall or cache[pkg].markedUpgrade or
-                cache[pkg].markedReinstall or cache[pkg].markedDowngrade):
-                installed_pkgs.append(pkg)
-        self.record_installed(installed_pkgs)
-
-        commit_error = None
-        try:
-            if not cache.commit(fetchprogress, installprogress):
-                fetchprogress.stop()
-                installprogress.finishUpdate()
-                self.db.progress('STOP')
-                return
-        except IOError, e:
-            for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_WARNING, line)
-            commit_error = str(e)
-        except SystemError, e:
-            for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_WARNING, line)
-            commit_error = str(e)
-        self.db.progress('SET', 100)
-
-        cache.open(None)
-        if commit_error or cache._depcache.BrokenCount > 0:
-            if commit_error is None:
-                commit_error = ''
-            brokenpkgs = self.broken_packages(cache)
-            syslog.syslog('broken packages after language pack installation: '
-                          '%s' % ', '.join(brokenpkgs))
-            self.db.subst('ubiquity/install/broken_install', 'ERROR',
-                          commit_error)
-            self.db.subst('ubiquity/install/broken_install', 'PACKAGES',
-                          ', '.join(brokenpkgs))
-            self.db.input('critical', 'ubiquity/install/broken_install')
-            self.db.go()
-
-        self.db.progress('STOP')
+        self.do_install(to_install, langpacks=True)
 
 
     def configure_timezone(self):
@@ -1421,6 +1348,90 @@ exit 0"""
                 continue
         return brokenpkgs
 
+    def do_install(self, to_install, langpacks=False):
+        if langpacks:
+            self.db.progress('START', 0, 10, 'ubiquity/langpacks/title')
+        else:
+            self.db.progress('START', 0, 10, 'ubiquity/install/title')
+        self.db.progress('INFO', 'ubiquity/install/find_installables')
+
+        if langpacks:
+            # ... otherwise we're installing packages that have already been
+            # recorded
+            self.record_installed(to_install)
+
+        self.db.progress('REGION', 0, 1)
+        fetchprogress = DebconfFetchProgress(
+            self.db, 'ubiquity/install/title',
+            'ubiquity/install/apt_indices_starting',
+            'ubiquity/install/apt_indices')
+        cache = Cache()
+
+        if cache._depcache.BrokenCount > 0:
+            syslog.syslog(
+                'not installing additional packages, since there are broken '
+                'packages: %s' % ', '.join(self.broken_packages(cache)))
+            self.db.progress('STOP')
+            return
+
+        for pkg in to_install:
+            self.mark_install(cache, pkg)
+
+        self.db.progress('SET', 1)
+        self.db.progress('REGION', 1, 10)
+        if langpacks:
+            fetchprogress = DebconfFetchProgress(
+                self.db, 'ubiquity/langpacks/title', None,
+                'ubiquity/langpacks/packages')
+            installprogress = DebconfInstallProgress(
+                self.db, 'ubiquity/langpacks/title',
+                'ubiquity/install/apt_info')
+        else:
+            fetchprogress = DebconfFetchProgress(
+                self.db, 'ubiquity/install/title', None,
+                'ubiquity/install/fetch_remove')
+            installprogress = DebconfInstallProgress(
+                self.db, 'ubiquity/install/title',
+                'ubiquity/install/apt_info',
+                'ubiquity/install/apt_error_install')
+        self.chroot_setup()
+        commit_error = None
+        try:
+            try:
+                if not cache.commit(fetchprogress, installprogress):
+                    fetchprogress.stop()
+                    installprogress.finishUpdate()
+                    self.db.progress('STOP')
+                    return
+            except IOError, e:
+                for line in str(e).split('\n'):
+                    syslog.syslog(syslog.LOG_ERR, line)
+                commit_error = str(e)
+            except SystemError, e:
+                for line in str(e).split('\n'):
+                    syslog.syslog(syslog.LOG_ERR, line)
+                commit_error = str(e)
+        finally:
+            self.chroot_cleanup()
+        self.db.progress('SET', 10)
+
+        cache.open(None)
+        if commit_error or cache._depcache.BrokenCount > 0:
+            if commit_error is None:
+                commit_error = ''
+            brokenpkgs = self.broken_packages(cache)
+            syslog.syslog('broken packages after installation: '
+                          '%s' % ', '.join(brokenpkgs))
+            self.db.subst('ubiquity/install/broken_install', 'ERROR',
+                          commit_error)
+            self.db.subst('ubiquity/install/broken_install', 'PACKAGES',
+                          ', '.join(brokenpkgs))
+            self.db.input('critical', 'ubiquity/install/broken_install')
+            self.db.go()
+
+        self.db.progress('STOP')
+
+
     def do_remove(self, to_remove, recursive=False):
         self.db.progress('START', 0, 5, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/find_removables')
@@ -1564,6 +1575,31 @@ exit 0"""
             raise
         self.db.progress('SET', 5)
         self.db.progress('STOP')
+
+
+    def install_extras(self):
+        """Try to install additional packages requested by installer
+        components."""
+
+        # We only ever install these packages from the CD.
+        sources_list = os.path.join(self.target, 'etc/apt/sources.list')
+        os.rename(sources_list, "%s.apt-setup" % sources_list)
+        old_sources = open("%s.apt-setup" % sources_list)
+        new_sources = open(sources_list, 'w')
+        found_cdrom = False
+        for line in old_sources:
+            if 'cdrom:' in line:
+                print >>new_sources, line,
+                found_cdrom = True
+        new_sources.close()
+        old_sources.close()
+        if not found_cdrom:
+            os.rename("%s.apt-setup" % sources_list, sources_list)
+
+        self.do_install(self.query_recorded_installed())
+
+        if found_cdrom:
+            os.rename("%s.apt-setup" % sources_list, sources_list)
 
 
     def remove_extras(self):
