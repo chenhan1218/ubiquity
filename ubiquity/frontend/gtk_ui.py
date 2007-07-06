@@ -130,7 +130,7 @@ class Wizard(BaseFrontend):
         # declare attributes
         self.gconf_previous = {}
         self.thunar_previous = {}
-        self.language_questions = ('live_installer', 'oem_config_title',
+        self.language_questions = ('live_installer',
                                    'welcome_heading_label', 'welcome_text_label',
                                    'oem_id_label',
                                    'release_notes_label', 'release_notes_url',
@@ -504,6 +504,7 @@ class Wizard(BaseFrontend):
         else:
             languages = [self.locale]
         core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
+        core_names.append('ubiquity/text/oem_config_title')
         for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                            'ok', 'quit'):
             core_names.append('ubiquity/imported/%s' % stock_item)
