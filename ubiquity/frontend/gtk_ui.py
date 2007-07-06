@@ -2001,6 +2001,10 @@ class Wizard(BaseFrontend):
         if self.username_combo:
             return
 
+        # Were any users found?
+        if not self.ma_new_users:
+            return
+
         # Reconfigure username as a combobox without having to modify
         # existing code.
         self.username.destroy()

@@ -21,6 +21,8 @@ ubiquity (1.5.5) UNRELEASED; urgency=low
     - Fix full-name error reason widget, and make the error reasons
       selectable.
     - Suppress some spurious uncaught exceptions on startup.
+    - Don't reconfigure the username entry box as a combo box if
+      migration-assistant didn't find any users.
 
   [ Evan Dandrea ]
   * Initial commit of ubiquity-automation work:
