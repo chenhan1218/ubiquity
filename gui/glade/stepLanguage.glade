@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.3.1 on Tue Jul  3 12:32:06 2007 by cjwatson@cairhien-->
+<!--Generated with glade3 3.3.1 on Fri Jul  6 14:22:32 2007 by cjwatson@cairhien-->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -103,6 +103,7 @@ Please choose the language used for the installation process. This language will
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                        <property name="activates_default">True</property>
                         <property name="width_chars">30</property>
                       </widget>
                     </child>

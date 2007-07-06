@@ -130,7 +130,7 @@ class Wizard(BaseFrontend):
         # declare attributes
         self.gconf_previous = {}
         self.thunar_previous = {}
-        self.language_questions = ('live_installer', 'oem_config_title',
+        self.language_questions = ('live_installer',
                                    'welcome_heading_label', 'welcome_text_label',
                                    'oem_id_label',
                                    'release_notes_label', 'release_notes_url',
@@ -148,6 +148,8 @@ class Wizard(BaseFrontend):
         self.resize_max_size = None
         self.new_size_scale = None
         self.username_combo = None
+        self.username_changed_id = None
+        self.hostname_changed_id = None
         self.username_edited = False
         self.hostname_edited = False
         self.previous_partitioning_page = None
@@ -438,6 +440,7 @@ class Wizard(BaseFrontend):
             self.fullname.set_editable(False)
             self.username.set_text('oem')
             self.username.set_editable(False)
+            self.username_edited = True
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute('apt-install', 'oem-config-gtk')
 
@@ -502,6 +505,7 @@ class Wizard(BaseFrontend):
         else:
             languages = [self.locale]
         core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
+        core_names.append('ubiquity/text/oem_config_title')
         for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                            'ok', 'quit'):
             core_names.append('ubiquity/imported/%s' % stock_item)
@@ -567,6 +571,8 @@ class Wizard(BaseFrontend):
                 widget.set_label(text)
 
         elif isinstance(widget, gtk.Window):
+            if name == 'live_installer' and self.oem_config:
+                text = self.get_string('oem_config_title', lang)
             widget.set_title(text)
 
 
@@ -765,6 +771,10 @@ class Wizard(BaseFrontend):
     def info_loop(self, widget):
         """check if all entries from Identification screen are filled. Callback
         defined in glade file."""
+
+        if (self.username_changed_id is None or
+            self.hostname_changed_id is None):
+            return
 
         if (widget is not None and widget.get_name() == 'fullname' and
             not self.username_edited):
@@ -1989,6 +1999,10 @@ class Wizard(BaseFrontend):
 
         # If the user pressed back.
         if self.username_combo:
+            return
+
+        # Were any users found?
+        if not self.ma_new_users:
             return
 
         # Reconfigure username as a combobox without having to modify

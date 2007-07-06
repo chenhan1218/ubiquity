@@ -121,7 +121,7 @@ class Wizard(BaseFrontend):
 
         # declare attributes
         self.release_notes_url_template = None
-        self.language_questions = ('live_installer', 'oem_config_title',
+        self.language_questions = ('live_installer',
                                    'welcome_heading_label', 'welcome_text_label',
                                    'oem_id_label',
                                    'release_notes_label', 'release_notes_url',
@@ -367,6 +367,7 @@ class Wizard(BaseFrontend):
             self.userinterface.fullname.setReadOnly(True)
             self.userinterface.username.setText('oem')
             self.userinterface.username.setReadOnly(True)
+            self.username_edited = True
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute('apt-install', 'oem-config-kde')
         else:
@@ -395,6 +396,7 @@ class Wizard(BaseFrontend):
         else:
             languages = [self.locale]
         core_names = ['ubiquity/text/%s' % q for q in self.language_questions]
+        core_names.append('ubiquity/text/oem_config_title')
         for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                            'ok', 'quit'):
             core_names.append('ubiquity/imported/%s' % stock_item)
@@ -462,6 +464,8 @@ class Wizard(BaseFrontend):
             widget.setText(text.replace('_', '&', 1))
 
         elif isinstance(widget, QWidget) and str(widget.objectName()) == "UbiquityUIBase":
+            if self.oem_config:
+                text = self.get_string('oem_config_title', lang)
             widget.setWindowTitle(text)
         else:
             print "WARNING: unknown widget: " + widget.objectName()

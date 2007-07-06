@@ -792,13 +792,59 @@ exit 0"""
     def configure_apt(self):
         """Configure /etc/apt/sources.list."""
 
+        # TODO cjwatson 2007-07-06: Much of the following is
+        # cloned-and-hacked from base-installer/debian/postinst. Perhaps we
+        # should come up with a way to avoid this.
+
+        # Make apt trust CDs. This is not on by default (we think).
+        # This will be left in place on the installed system.
+        apt_conf_tc = open(os.path.join(
+            self.target, 'etc/apt/apt.conf.d/00trustcdrom'), 'w')
+        print >>apt_conf_tc, 'APT::Authentication::TrustCDROM "true";'
+        apt_conf_tc.close()
+
         # Avoid clock skew causing gpg verification issues.
         # This file will be left in place until the end of the install.
         apt_conf_itc = open(os.path.join(
             self.target, 'etc/apt/apt.conf.d/00IgnoreTimeConflict'), 'w')
-        print >>apt_conf_itc, ('Acquire::gpgv::Options {'
-                               ' "--ignore-time-conflict"; };')
+        print >>apt_conf_itc, \
+            'Acquire::gpgv::Options { "--ignore-time-conflict"; };'
         apt_conf_itc.close()
+
+        try:
+            if self.db.get('debian-installer/allow_unauthenticated') == 'true':
+                apt_conf_au = open(
+                    os.path.join(self.target,
+                                 'etc/apt/apt.conf.d/00AllowUnauthenticated'),
+                    'w')
+                print >>apt_conf_au, 'APT::Get::AllowUnauthenticated "true";'
+                print >>apt_conf_au, \
+                    'Aptitude::CmdLine::Ignore-Trust-Violations "true";'
+                apt_conf_au.close()
+        except debconf.DebconfError:
+            pass
+
+        # let apt inside the chroot see the cdrom
+        target_cdrom = os.path.join(self.target, 'cdrom')
+        misc.execute('umount', target_cdrom)
+        if not os.path.exists(target_cdrom):
+            os.mkdir(target_cdrom)
+        misc.execute('mount', '--bind', '/cdrom', target_cdrom)
+
+        # Make apt-cdrom and apt not unmount/mount CD-ROMs.
+        # This file will be left in place until the end of the install.
+        apt_conf_nmc = open(os.path.join(
+            self.target, 'etc/apt/apt.conf.d/00NoMountCDROM'), 'w')
+        print >>apt_conf_nmc, textwrap.dedent("""\
+            APT::CDROM::NoMount "true";
+            Acquire::cdrom {
+              mount "/cdrom";
+              "/cdrom/" {
+                Mount  "true";
+                UMount "true";
+              };
+            }""")
+        apt_conf_nmc.close()
 
         dbfilter = apt_setup.AptSetup(None)
         ret = dbfilter.run_command(auto_process=True)
@@ -827,6 +873,16 @@ exit 0"""
             print >>record, pkg
 
         record.close()
+
+
+    def query_recorded_installed(self):
+        apt_installed = set()
+        if os.path.exists("/var/lib/ubiquity/apt-installed"):
+            record_file = open("/var/lib/ubiquity/apt-installed")
+            for line in record_file:
+                apt_installed.add(line.strip())
+            record_file.close()
+        return apt_installed
 
 
     def mark_install(self, cache, pkg):
@@ -1537,13 +1593,7 @@ exit 0"""
             difference = set()
 
         # Keep packages we explicitly installed.
-        apt_installed = set()
-        if os.path.exists("/var/lib/ubiquity/apt-installed"):
-            apt_installed_file = open("/var/lib/ubiquity/apt-installed")
-            for line in apt_installed_file:
-                apt_installed.add(line.strip())
-            apt_installed_file.close()
-        difference -= apt_installed
+        difference -= self.query_recorded_installed()
 
         if len(difference) == 0:
             return
@@ -1557,11 +1607,17 @@ exit 0"""
 
     def cleanup(self):
         """Miscellaneous cleanup tasks."""
-        try:
-            os.unlink(os.path.join(
-                self.target, 'etc/apt/apt.conf.d/00IgnoreTimeConflict'))
-        except:
-            pass
+
+        misc.execute('umount', os.path.join(self.target, 'cdrom'))
+
+        for apt_conf in ('00NoMountCDROM', '00IgnoreTimeConflict',
+                         '00AllowUnauthenticated'):
+            try:
+                os.unlink(os.path.join(
+                    self.target, 'etc/apt/apt.conf.d', apt_conf))
+            except:
+                pass
+
         if self.source == '/var/lib/ubiquity/source':
             self.umount_source()
 
