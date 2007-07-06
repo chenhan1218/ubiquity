@@ -39,7 +39,7 @@ from ubiquity.components import language_apply, apt_setup, timezone_apply, \
 class Install(install.Install):
     def __init__(self):
         install.Install.__init__(self)
-        
+
     def run(self):
         """Run the install stage: copy everything to the target system, then
         configure it as necessary."""
@@ -147,7 +147,7 @@ class Install(install.Install):
             self.db.progress('REGION', 97, 99)
             self.db.progress('INFO', 'ubiquity/install/removing')
             self.remove_extras()
-            
+
             self.db.progress('SET', 99)
             self.db.progress('INFO', 'ubiquity/install/log_files')
             self.copy_logs()
@@ -161,7 +161,7 @@ class Install(install.Install):
                 raise
             except:
                 pass
-                
+
     def configure_mythbuntu(self):
         """Sets up mythbuntu items such as the initial database and username/password for mythtv user"""
         control = mythbuntu_apply.MythbuntuApply(None,self.db)
@@ -270,7 +270,7 @@ class Install(install.Install):
             self.db.go()
 
         self.db.progress('STOP')
-        
+
     def configure_drivers(self):
         """Activates any necessary driver configuration"""
         control = mythbuntu_drivers.AdditionalDrivers(None,self.db)
@@ -287,7 +287,7 @@ class Install(install.Install):
         control = mythbuntu_services.AdditionalServices(None,self.db)
         ret = control.run_command(auto_process=True)
         if ret != 0:
-            raise InstallStepError("Additional Service Configuration failed with code %d" % ret)            
+            raise InstallStepError("Additional Service Configuration failed with code %d" % ret)
 
     def remove_extras(self):
         """Try to remove packages that are installed on the live CD but not on
