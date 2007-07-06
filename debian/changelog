@@ -23,6 +23,10 @@ ubiquity (1.5.5) UNRELEASED; urgency=low
     - Suppress some spurious uncaught exceptions on startup.
     - Don't reconfigure the username entry box as a combo box if
       migration-assistant didn't find any users.
+  * Replicate the apt configuration done by base-installer (trust CD-ROMs,
+    allow unauthenticated packages if debian-installer/allow_unauthenticated
+    is true, bind-mount /cdrom into /target, and configure apt-cdrom/apt not
+    to mount CD-ROMs).
 
   [ Evan Dandrea ]
   * Initial commit of ubiquity-automation work:
