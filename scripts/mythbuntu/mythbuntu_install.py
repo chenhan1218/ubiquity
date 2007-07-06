@@ -34,9 +34,6 @@ from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 mythbuntu_services
 
 class Install(install.Install):
-    def __init__(self):
-        install.Install.__init__(self)
-
     def run(self):
         """Run the install stage: copy everything to the target system, then
         configure it as necessary."""
