@@ -137,9 +137,14 @@ class Install(install.Install):
             self.db.progress('SET', 94)
             self.db.progress('INFO', 'ubiquity/install/services')
             self.configure_services()
-            
+
             self.db.progress('SET', 96)
-            self.db.progress('REGION', 96, 99)
+            self.db.progress('REGION', 96, 97)
+            self.db.progress('INFO', 'ubiquity/install/installing')
+            self.install_extras()
+
+            self.db.progress('SET', 97)
+            self.db.progress('REGION', 97, 99)
             self.db.progress('INFO', 'ubiquity/install/removing')
             self.remove_extras()
             
@@ -311,13 +316,7 @@ class Install(install.Install):
             difference = set()
 
         # Keep packages we explicitly installed.
-        apt_installed = set()
-        if os.path.exists("/var/lib/ubiquity/apt-installed"):
-            apt_installed_file = open("/var/lib/ubiquity/apt-installed")
-            for line in apt_installed_file:
-                apt_installed.add(line.strip())
-            apt_installed_file.close()
-        difference -= apt_installed
+        difference -= self.query_recorded_installed()
 
         if len(difference) == 0:
             return
