@@ -111,7 +111,7 @@ EOF
         cat >> /tmp/exports << EOF
 /var/lib/mythtv/pictures    *(ro,async,no_root_squash,no_subtree_check)
 EOF
-    fi    
+    fi
 }
 
 vnc_config()
@@ -139,7 +139,7 @@ ssh_config()
     cat > $ROOT/tmp/ssh_setup <<EOF
 #!/bin/sh
 /var/lib/dpkg/info/openssh-server.postinst configure
-/etc/init.d/ssh stop    
+/etc/init.d/ssh stop
 EOF
         chmod +x $ROOT/tmp/ssh_setup
         mount -t proc none $ROOT/proc

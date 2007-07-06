@@ -42,7 +42,7 @@ db_get mythbuntu/communitythemes
 db_subst mythbuntu/summary COMMUNITY "$RET"
 
 #Services
-db_get mythbuntu/vncservice 
+db_get mythbuntu/vncservice
 db_subst mythbuntu/summary EN_VNC "$RET"
 db_get mythbuntu/vnc_password
 db_subst mythbuntu/summary VNCPASS "$RET"

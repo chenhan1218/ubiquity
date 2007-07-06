@@ -122,7 +122,7 @@ if [ "$PROP" = "nvidia" -o "$PROP" = "fglrx" ]; then
     #Due to bug 119562, restricted manager won't do this
     #For us automatically.
     #$log $chroot $ROOT /usr/bin/restricted-manager -e $PROP
-    
+
     #Work out a config that should be fairly generic
     #Also, sort tv-out mess here
     db_get mythbuntu/tvout

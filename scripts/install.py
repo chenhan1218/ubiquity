@@ -1190,11 +1190,11 @@ exit 0"""
 
     def configure_network(self):
         """Automatically configure the network.
-        
+
         At present, the only thing the user gets to tweak in the UI is the
         hostname. Some other things will be copied from the live filesystem,
         so changes made there will be reflected in the installed system.
-        
+
         Unfortunately, at present we have to duplicate a fair bit of netcfg
         here, because it's hard to drive netcfg in a way that won't try to
         bring interfaces up and down."""
