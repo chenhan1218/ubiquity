@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Mon Jul  2 20:19:53 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.2.0 on Fri Jul  6 23:51:02 2007 by supermario@portablemario-->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -61,6 +61,7 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="master_be_fe_label">
+                    <property name="width_request">650</property>
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
@@ -88,6 +89,7 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="slave_be_fe_label">
+                    <property name="width_request">650</property>
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
@@ -116,6 +118,7 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="master_be_label">
+                    <property name="width_request">650</property>
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
@@ -143,6 +146,7 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="slave_be_label">
+                    <property name="width_request">650</property>
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
@@ -170,6 +174,7 @@
                 </child>
                 <child>
                   <widget class="GtkLabel" id="fe_label">
+                    <property name="width_request">650</property>
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
