@@ -1,5 +1,5 @@
 #!/bin/sh -e
-#Provides all mythbuntu questions asked by 
+#Provides all mythbuntu questions asked by
 #ubiquity during install process
 # Written by Mario Limonciello <superm1@ubuntu.com>
 # Copyright (C) 2007 Mario Limonciello

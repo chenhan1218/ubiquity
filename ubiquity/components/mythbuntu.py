@@ -68,7 +68,7 @@ class MythbuntuSetup(FilteredCommand):
             mythbrowser = self.frontend.get_mythbrowser()
             self.preseed('mythbuntu/mythbrowser', mythbrowser)
             return True
-        elif question.startswith('mythbuntu/mythcontrols'):            
+        elif question.startswith('mythbuntu/mythcontrols'):
             mythcontrols = self.frontend.get_mythcontrols()
             self.preseed('mythbuntu/mythcontrols', mythcontrols)
             return True
@@ -76,47 +76,47 @@ class MythbuntuSetup(FilteredCommand):
             mythdvd = self.frontend.get_mythdvd()
             self.preseed('mythbuntu/mythdvd', mythdvd)
             return True
-        elif question.startswith('mythbuntu/mythflix'):            
+        elif question.startswith('mythbuntu/mythflix'):
             mythflix = self.frontend.get_mythflix()
             self.preseed('mythbuntu/mythflix', mythflix)
             return True
-        elif question.startswith('mythbuntu/mythgallery'):            
+        elif question.startswith('mythbuntu/mythgallery'):
             mythgallery = self.frontend.get_mythgallery()
             self.preseed('mythbuntu/mythgallery', mythgallery)
             return True
-        elif question.startswith('mythbuntu/mythgame'):            
+        elif question.startswith('mythbuntu/mythgame'):
             mythgame = self.frontend.get_mythgame()
             self.preseed('mythbuntu/mythgame', mythgame)
             return True
-        elif question.startswith('mythbuntu/mythmusic'):            
+        elif question.startswith('mythbuntu/mythmusic'):
             mythmusic = self.frontend.get_mythmusic()
             self.preseed('mythbuntu/mythmusic', mythmusic)
             return True
-        elif question.startswith('mythbuntu/mythnews'):            
+        elif question.startswith('mythbuntu/mythnews'):
             mythnews = self.frontend.get_mythnews()
             self.preseed('mythbuntu/mythnews', mythnews)
             return True
-        elif question.startswith('mythbuntu/mythphone'):            
+        elif question.startswith('mythbuntu/mythphone'):
             mythphone = self.frontend.get_mythphone()
             self.preseed('mythbuntu/mythphone', mythphone)
             return True
-        elif question.startswith('mythbuntu/mythvideo'):            
+        elif question.startswith('mythbuntu/mythvideo'):
             mythvideo = self.frontend.get_mythvideo()
             self.preseed('mythbuntu/mythvideo', mythvideo)
             return True
-        elif question.startswith('mythbuntu/mythweather'):            
+        elif question.startswith('mythbuntu/mythweather'):
             mythweather = self.frontend.get_mythweather()
             self.preseed('mythbuntu/mythweather', mythweather)
             return True
-        elif question.startswith('mythbuntu/mythweb'):            
+        elif question.startswith('mythbuntu/mythweb'):
             mythweb = self.frontend.get_mythweb()
             self.preseed('mythbuntu/mythweb', mythweb)
             return True
-        elif question.startswith('mythbuntu/officialthemes'):            
+        elif question.startswith('mythbuntu/officialthemes'):
             official = self.frontend.get_officialthemes()
             self.preseed('mythbuntu/officialthemes', official)
             return True
-        elif question.startswith('mythbuntu/communitythemes'):            
+        elif question.startswith('mythbuntu/communitythemes'):
             community = self.frontend.get_communitythemes()
             self.preseed('mythbuntu/communitythemes', community)
             return True
@@ -134,28 +134,28 @@ class MythbuntuSetup(FilteredCommand):
                 mysqluser = self.db.get('mythtv/mysql_mythtv_user')
             self.preseed('mythtv/mysql_mythtv_user', mysqluser)
             return True
-        elif question.startswith('mythtv/mysql_mythtv_password'):            
+        elif question.startswith('mythtv/mysql_mythtv_password'):
             if self.frontend.get_uselivemysqlinfo() == "no":
                 mysqlpass = self.frontend.get_mysqlpass()
             else:
                 mysqlpass = self.db.get('mythtv/mysql_mythtv_password')
             self.preseed('mythtv/mysql_mythtv_password', mysqlpass)
             return True
-        elif question.startswith('mythtv/mysql_mythtv_dbname'):        
+        elif question.startswith('mythtv/mysql_mythtv_dbname'):
             if self.frontend.get_uselivemysqlinfo() == "no":
                 mysqldatabase = self.frontend.get_mysqldatabase()
             else:
                 mysqldatabase = self.db.get('mythtv/mysql_mythtv_dbname')
             self.preseed('mythtv/mysql_mythtv_dbname', mysqldatabase)
             return True
-        elif question.startswith('mythtv/mysql_host'):            
+        elif question.startswith('mythtv/mysql_host'):
             if self.frontend.get_uselivemysqlinfo() == "no":
                 mysqlserver = self.frontend.get_mysqlserver()
             else:
                 mysqlserver = self.db.get('mythtv/mysql_host')
             self.preseed('mythtv/mysql_host', mysqlserver)
             return True
-        elif question.startswith('mythbuntu/vncservice'):            
+        elif question.startswith('mythbuntu/vncservice'):
             vnc = self.frontend.get_vnc()
             self.preseed('mythbuntu/vncservice', vnc)
             return True
@@ -170,25 +170,25 @@ class MythbuntuSetup(FilteredCommand):
             ssh = self.frontend.get_ssh()
             self.preseed('mythbuntu/sshservice', ssh)
             return True
-        elif question.startswith('mythbuntu/sambaservice'):            
+        elif question.startswith('mythbuntu/sambaservice'):
             samba = self.frontend.get_samba()
             self.preseed('mythbuntu/sambaservice', samba)
             return True
         elif question.startswith('mythbuntu/nfsservice'):
             nfs = self.frontend.get_nfs()
             self.preseed('mythbuntu/nfsservice', nfs)
-            return True                        
+            return True
         elif question.startswith('mythbuntu/mysqlservice'):
             mysql_secure = self.frontend.get_mysql_port()
             self.preseed('mythbuntu/mysqlservice', mysql_secure)
             return True
         return FilteredCommand.run(self, priority, question)
-        
-    def ok_handler(self):            
+
+    def ok_handler(self):
         proprietary_driver = self.frontend.get_proprietary()
         self.preseed('mythbuntu/proprietary_driver', proprietary_driver)
         tvout = self.frontend.get_tvout()
-        self.preseed('mythbuntu/tvout', tvout)    
+        self.preseed('mythbuntu/tvout', tvout)
         tvstandard = self.frontend.get_tvstandard()
         self.preseed('mythbuntu/tvstandard', tvstandard)
         return FilteredCommand.ok_handler(self)

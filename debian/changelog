@@ -27,6 +27,9 @@ ubiquity (1.5.5) UNRELEASED; urgency=low
     allow unauthenticated packages if debian-installer/allow_unauthenticated
     is true, bind-mount /cdrom into /target, and configure apt-cdrom/apt not
     to mount CD-ROMs).
+  * Install packages passed to apt-install even if they aren't on the live
+    filesystem, as long as they're available from the apt archive on the CD
+    (LP: #114296).
 
   [ Evan Dandrea ]
   * Initial commit of ubiquity-automation work:

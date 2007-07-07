@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-07-03 18:11-0500\n"
+"POT-Creation-Date: 2007-07-06 17:47+0100\n"
 "PO-Revision-Date: 2007-04-02 03:52+0000\n"
 "Last-Translator: Elian Myftiu <elian.myftiu@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
@@ -573,54 +573,66 @@ msgstr "Duke konfiguruar rrjetin..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
-msgid "Removing extra packages..."
+msgid "Installing additional packages..."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
-msgid "Checking for packages to remove..."
+msgid "Checking for packages to install..."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:75001
-msgid "Downloading packages (${TIME} remaining)..."
+msgid "Removing extra packages..."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
-msgid "Downloading package lists..."
+msgid "Checking for packages to remove..."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
+msgid "Downloading packages (${TIME} remaining)..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:78001
+msgid "Downloading package lists..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:79001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:81001
 msgid "Error installing ${PACKAGE}"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:82001
 msgid "Error removing ${PACKAGE}"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:83001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:83001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -628,7 +640,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001 ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001 ../ubiquity.templates:84001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -636,7 +648,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001 ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001 ../ubiquity.templates:84001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -649,37 +661,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:84001
 msgid "Error while removing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:84001
 msgid "An error occurred while removing packages:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:85001
 msgid "Installing language packs"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:86001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid "Failed to unmount partitions"
 msgstr "Çmontimi i ndarjes dështoi"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -687,25 +699,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid "Please close any applications using these mount points."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:91001
 msgid "System partition not formatted"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:91001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"

@@ -26,10 +26,7 @@ import syslog
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
-from apt.cache import Cache
-from install import InstallStepError, DebconfFetchProgress, \
-                    DebconfInstallProgress
-from ubiquity import misc
+from install import InstallStepError
 from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 clock_setup, console_setup_apply, \
                                 usersetup_apply, hw_detect, check_kernels, \
@@ -37,9 +34,6 @@ from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 mythbuntu_services
 
 class Install(install.Install):
-    def __init__(self):
-        install.Install.__init__(self)
-        
     def run(self):
         """Run the install stage: copy everything to the target system, then
         configure it as necessary."""
@@ -130,19 +124,24 @@ class Install(install.Install):
 
             self.db.progress('SET', 93)
             self.db.progress('REGION', 93, 95)
-            self.db.progress('INFO', 'ubiquity/install/drivers')
+            self.db.progress('INFO', 'ubiquity/install/installing')
             self.add_drivers_services()
+            self.install_extras()
+
+            self.db.progress('SET', 95)
+            self.db.progress('REGION', 95, 96)
+            self.db.progress('INFO', 'ubiquity/install/drivers')
             self.configure_drivers()
 
-            self.db.progress('SET', 94)
+            self.db.progress('SET', 96)
             self.db.progress('INFO', 'ubiquity/install/services')
             self.configure_services()
-            
-            self.db.progress('SET', 96)
-            self.db.progress('REGION', 96, 99)
+
+            self.db.progress('SET', 97)
+            self.db.progress('REGION', 97, 99)
             self.db.progress('INFO', 'ubiquity/install/removing')
             self.remove_extras()
-            
+
             self.db.progress('SET', 99)
             self.db.progress('INFO', 'ubiquity/install/log_files')
             self.copy_logs()
@@ -156,7 +155,7 @@ class Install(install.Install):
                 raise
             except:
                 pass
-                
+
     def configure_mythbuntu(self):
         """Sets up mythbuntu items such as the initial database and username/password for mythtv user"""
         control = mythbuntu_apply.MythbuntuApply(None,self.db)
@@ -187,85 +186,6 @@ class Install(install.Install):
 
         self.record_installed(to_install)
 
-        self.db.progress('START', 0, 100, 'ubiquity/install/drivers')
-
-        self.db.progress('REGION', 0, 10)
-        fetchprogress = DebconfFetchProgress(
-            self.db, 'ubiquity/install/drivers',
-            'ubiquity/install/apt_indices_starting',
-            'ubiquity/install/apt_indices')
-        cache = Cache()
-
-        if cache._depcache.BrokenCount > 0:
-            syslog.syslog(
-                'not installing drivers, since there are broken '
-                'packages: %s' % ', '.join(self.broken_packages(cache)))
-            self.db.progress('STOP')
-            return
-
-        try:
-            # update() returns False on failure and 0 on success. Madness!
-            if cache.update(fetchprogress) not in (0, True):
-                fetchprogress.stop()
-                self.db.progress('STOP')
-                return
-        except IOError, e:
-            for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_WARNING, line)
-            self.db.progress('STOP')
-            raise
-        cache.open(None)
-        self.db.progress('SET', 10)
-
-        self.db.progress('REGION', 10, 100)
-        fetchprogress = DebconfFetchProgress(
-            self.db, 'ubiquity/install/drivers', None,
-            'ubiquity/install/drivers')
-        installprogress = DebconfInstallProgress(
-            self.db, 'ubiquity/install/services', 'ubiquity/install/apt_info')
-
-        for lp in to_install:
-            self.mark_install(cache, lp)
-        installed_pkgs = []
-        for pkg in cache.keys():
-            if (cache[pkg].markedInstall or cache[pkg].markedUpgrade or
-                cache[pkg].markedReinstall or cache[pkg].markedDowngrade):
-                installed_pkgs.append(pkg)
-        self.record_installed(installed_pkgs)
-
-        commit_error = None
-        try:
-            if not cache.commit(fetchprogress, installprogress):
-                fetchprogress.stop()
-                installprogress.finishUpdate()
-                self.db.progress('STOP')
-                return
-        except IOError, e:
-            for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_WARNING, line)
-            commit_error = str(e)
-        except SystemError, e:
-            for line in str(e).split('\n'):
-                syslog.syslog(syslog.LOG_WARNING, line)
-            commit_error = str(e)
-        self.db.progress('SET', 100)
-
-        cache.open(None)
-        if commit_error or cache._depcache.BrokenCount > 0:
-            if commit_error is None:
-                commit_error = ''
-            brokenpkgs = self.broken_packages(cache)
-            syslog.syslog('broken packages after driver installation: '
-                          '%s' % ', '.join(brokenpkgs))
-            self.db.subst('ubiquity/install/broken_install', 'ERROR',
-                          commit_error)
-            self.db.subst('ubiquity/install/broken_install', 'PACKAGES',
-                          ', '.join(brokenpkgs))
-            self.db.input('critical', 'ubiquity/install/broken_install')
-            self.db.go()
-
-        self.db.progress('STOP')
-        
     def configure_drivers(self):
         """Activates any necessary driver configuration"""
         control = mythbuntu_drivers.AdditionalDrivers(None,self.db)
@@ -282,7 +202,7 @@ class Install(install.Install):
         control = mythbuntu_services.AdditionalServices(None,self.db)
         ret = control.run_command(auto_process=True)
         if ret != 0:
-            raise InstallStepError("Additional Service Configuration failed with code %d" % ret)            
+            raise InstallStepError("Additional Service Configuration failed with code %d" % ret)
 
     def remove_extras(self):
         """Try to remove packages that are installed on the live CD but not on
@@ -311,13 +231,7 @@ class Install(install.Install):
             difference = set()
 
         # Keep packages we explicitly installed.
-        apt_installed = set()
-        if os.path.exists("/var/lib/ubiquity/apt-installed"):
-            apt_installed_file = open("/var/lib/ubiquity/apt-installed")
-            for line in apt_installed_file:
-                apt_installed.add(line.strip())
-            apt_installed_file.close()
-        difference -= apt_installed
+        difference -= self.query_recorded_installed()
 
         if len(difference) == 0:
             return

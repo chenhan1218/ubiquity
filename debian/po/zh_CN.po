@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-07-03 18:11-0500\n"
+"POT-Creation-Date: 2007-07-06 17:47+0100\n"
 "PO-Revision-Date: 2007-04-06 15:19+0000\n"
 "Last-Translator: Xu Zehua <hhhpppsss1@hotmail.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -575,54 +575,66 @@ msgstr "正在设置启动器..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
+msgid "Installing additional packages..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:74001
+msgid "Checking for packages to install..."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:75001
 msgid "Removing extra packages..."
 msgstr "正在删除额外的软件包..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:76001
 msgid "Checking for packages to remove..."
 msgstr "正在检测要删除的软件包..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:77001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "下载软件包 (${TIME} 剩余)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:78001
 msgid "Downloading package lists..."
 msgstr "正在下载软件包列表……"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:79001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "下载软件包列表 (${TIME} 剩余)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:81001
 msgid "Error installing ${PACKAGE}"
 msgstr "安装 ${PACKAGE} 期间有错误发生"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:82001
 msgid "Error removing ${PACKAGE}"
 msgstr "卸载 ${PACKAGE} 期间有错误发生"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:83001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:83001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -630,7 +642,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001 ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001 ../ubiquity.templates:84001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -638,7 +650,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001 ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001 ../ubiquity.templates:84001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -651,37 +663,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:84001
 msgid "Error while removing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:84001
 msgid "An error occurred while removing packages:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:85001
 msgid "Installing language packs"
 msgstr "正在安装语言支持软件包"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:86001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "下载语言软件包 (${TIME} 剩余)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid "Failed to unmount partitions"
 msgstr "无法卸载分区"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -691,25 +703,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid "Please close any applications using these mount points."
 msgstr "请关闭所有正在使用这些挂载点的程序"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "您是否想要安装程序再次尝试unmount这些分区？"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:91001
 msgid "System partition not formatted"
 msgstr "系统分区未格式化"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:91001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"

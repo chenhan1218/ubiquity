@@ -365,8 +365,10 @@ class Wizard(BaseFrontend):
             self.userinterface.fullname.setText(
                 'OEM Configuration (temporary user)')
             self.userinterface.fullname.setReadOnly(True)
+            self.userinterface.fullname.setEnabled(False)
             self.userinterface.username.setText('oem')
             self.userinterface.username.setReadOnly(True)
+            self.userinterface.username.setEnabled(False)
             self.username_edited = True
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute('apt-install', 'oem-config-kde')

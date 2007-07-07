@@ -30,12 +30,12 @@ from ubiquity.filteredcommand import FilteredCommand
 
 class VNCHandler:
     """Used to properly enable VNC in a target configuration"""
-    
+
     def __init__(self,root):
         self.add_modules = ["vnc"]
         self.add_screen = [ ['SecurityTypes', 'VncAuth'], ['UserPasswdVerifier', 'VncAuth'], ['PasswordFile', '/root/.vnc/passwd']]
         self.root = root
-        
+
         try:
             self.xorg_conf = xorgconfig.readConfig(root + '/etc/X11/xorg.conf')
         except (IOError, xorgconfig.ParseException, AttributeError):
@@ -43,7 +43,7 @@ class VNCHandler:
 
     def run(self):
         """Adds necessary lines for enabling VNC upon the next boot"""
-        
+
         # backup the current xorg.conf
         open(os.path.join(self.root + "/etc/X11/xorg.conf.oldconf"), "w").write(open(self.root + '/etc/X11/xorg.conf').read())
 
@@ -53,8 +53,8 @@ class VNCHandler:
                 self.xorg_conf.append(self.xorg_conf.makeSection(None, ["Section",
                     "Module"]))
             for m in self.add_modules:
-                self.xorg_conf.getSections("module")[0].addModule(m)        
-        
+                self.xorg_conf.getSections("module")[0].addModule(m)
+
         screen_opts=self.xorg_conf.getSections("screen")[0].option
         for item in self.add_screen:
             screen_opts.append(screen_opts.makeLine(None,item))

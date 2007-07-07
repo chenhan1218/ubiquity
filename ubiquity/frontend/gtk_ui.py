@@ -438,8 +438,10 @@ class Wizard(BaseFrontend):
                 pass
             self.fullname.set_text('OEM Configuration (temporary user)')
             self.fullname.set_editable(False)
+            self.fullname.set_sensitive(False)
             self.username.set_text('oem')
             self.username.set_editable(False)
+            self.username.set_sensitive(False)
             self.username_edited = True
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute('apt-install', 'oem-config-gtk')

@@ -370,6 +370,14 @@ Template: ubiquity/install/bootloader
 Type: text
 _Description: Configuring boot loader...
 
+Template: ubiquity/install/installing
+Type: text
+_Description: Installing additional packages...
+
+Template: ubiquity/install/find_installables
+Type: text
+_Description: Checking for packages to install...
+
 Template: ubiquity/install/removing
 Type: text
 _Description: Removing extra packages...

@@ -25,7 +25,7 @@ class MythbuntuApply(FilteredCommand):
     def prepare(self):
         return (['/usr/share/ubiquity/mythbuntu-apply', '/target'],
                 [])
-        
+
     def run(self):
         out_f = open("/tmp/filesystem.manifest-mythbuntu", 'w')
         in_f = open("/cdrom/casper/filesystem.manifest-desktop")

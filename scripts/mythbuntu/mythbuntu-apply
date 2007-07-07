@@ -43,7 +43,7 @@ mythtv_common()
 #! /bin/sh
 set -e
 
-. /usr/share/debconf/confmodule    
+. /usr/share/debconf/confmodule
 db_set mythtv/mysql_mythtv_user $USER
 db_set mythtv/mysql_mythtv_password $PASSWORD
 db_set mythtv/mysql_mythtv_dbname $DB
@@ -112,7 +112,7 @@ for \\\$s (@statements) { \\\$db->do(\\\$s) || die 'Failed to execute SQL: ' . \
 db_set mythtv/mysql_admin_user $ADMINUSER
 if [ ! -z "$ADMINPASS" ]; then
     db_set mythtv/mysql_admin_password $ADMINPASS
-    DoSQL "$HOSTNAME" "$ADMINUSER" "" "" "SET PASSWORD FOR root@localhost=PASSWORD('$ADMINPASS')"    
+    DoSQL "$HOSTNAME" "$ADMINUSER" "" "" "SET PASSWORD FOR root@localhost=PASSWORD('$ADMINPASS')"
 fi
 
 #Setup the mysql server with the new mythtv db defaults
@@ -140,7 +140,7 @@ s/\(^[ \t]*setenv[ \t]\+db_name[ \t]\+\"\)[^\"]*\"/\1$DB\"/g;
 s/\(^[ \t]*setenv[ \t]\+db_login[ \t]\+\"\)[^\"]*\"/\1$USER\"/g;
 s/\(^[ \t]*setenv[ \t]\+db_password[ \t]\+\"\)[^\"]*\"/\1$PASSWORD\"/g;
     " > $NEW
-    mv $NEW $HTACCESS    
+    mv $NEW $HTACCESS
 }
 
 add_groups()
