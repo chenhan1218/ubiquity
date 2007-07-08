@@ -49,3 +49,8 @@ db_input high mythtv/mysql_admin_password || true
 db_input high mythweb/enable || true
 db_input high mythweb/username || true
 db_input high mythweb/password || true
+#remote controls
+db_input high mythbuntu/en_lirc || true
+db_input high mythbuntu/lirc_remote || true
+db_input high mythbuntu/lirc_driver || true
+db_input high mythbuntu/lirc_rc || true

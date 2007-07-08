@@ -1140,3 +1140,17 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             return "yes"
         else:
             return "no"
+    def get_lirc(self):
+        if self.lirc_enable.get_active():
+            return "yes"
+        else:
+            return "no"
+
+    def get_lirc_remote(self):
+        return self.lirc_remote.get_active_text()
+
+    def get_lirc_driver(self):
+        return self.lirc_driver.get_active_text()
+
+    def get_lirc_rc(self):
+        return self.lirc_rc.get_active_text()

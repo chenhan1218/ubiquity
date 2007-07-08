@@ -55,7 +55,11 @@ class MythbuntuSetup(FilteredCommand):
              '^mythtv/mysql_host',
              '^mythweb/enable',
              '^mythweb/username',
-             '^mythweb/password']
+             '^mythweb/password',
+             '^mythbuntu/en_lirc',
+             '^mythbuntu/lirc_remote',
+             '^mythbuntu/lirc_driver',
+             '^mythbuntu/lirc_rc']
         return (['/usr/share/ubiquity/mythbuntu-ask'], questions)
 
     def run(self,priority,question):
@@ -199,6 +203,18 @@ class MythbuntuSetup(FilteredCommand):
             passw = self.frontend.get_mythweb_password()
             self.preseed('mythweb/password', passw)
             return True
+        elif question.startswith('mythbuntu/en_lirc'):
+            en_lirc = self.frontend.get_lirc()
+            self.preseed('mythbuntu/en_lirc',en_lirc)
+        elif question.startswith('mythbuntu/lirc_remote'):
+            remote = self.frontend.get_lirc_remote()
+            self.preseed('mythbuntu/lirc_remote',remote)
+        elif question.startswith('mythbuntu/lirc_driver'):
+            driver = self.frontend.get_lirc_driver()
+            self.preseed('mythbuntu/lirc_driver',driver)
+        elif question.startswith('mythbuntu/lirc_rc'):
+            rc = self.frontend.get_lirc_rc()
+            self.preseed('mythbuntu/lirc_rc')
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):

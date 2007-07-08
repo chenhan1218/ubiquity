@@ -1,0 +1,23 @@
+#! /bin/sh -e
+#Chooses the appropriate lirc driver,
+#lircrc, and lircd.conf for the options
+#Chosen during installation
+# Written by Mario Limonciello <superm1@ubuntu.com>
+# Copyright (C) 2007 Mario Limonciello
+
+. /usr/share/debconf/confmodule
+
+if [ "$1" ]; then
+    ROOT="$1"
+    chroot=chroot
+    log='log-output -t mythbuntu'
+fi
+
+db_get mythbuntu/en_lirc
+EN_LIRC="$RET"
+if [ "$EN_LIRC" = "yes" ]; then
+    #TODO: Magic
+    echo "We need to do some lirc magic"
+fi
+
+exit 0

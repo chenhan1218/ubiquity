@@ -31,7 +31,7 @@ from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 clock_setup, console_setup_apply, \
                                 usersetup_apply, hw_detect, check_kernels, \
                                 mythbuntu_apply, mythbuntu_drivers, \
-                                mythbuntu_services
+                                mythbuntu_services, mythbuntu_lirc
 
 class Install(install.Install):
     def run(self):
@@ -137,6 +137,10 @@ class Install(install.Install):
             self.db.progress('INFO', 'ubiquity/install/services')
             self.configure_services()
 
+            self.db.progress('SET', 96)
+            self.db.progress('INFO', 'ubiquity/install/remote')
+            self.configure_remote()
+
             self.db.progress('SET', 97)
             self.db.progress('REGION', 97, 99)
             self.db.progress('INFO', 'ubiquity/install/removing')
@@ -192,6 +196,13 @@ class Install(install.Install):
         ret = control.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("Additional Driver Configuration failed with code %d" % ret)
+
+    def configure_remote(self):
+        """Configures the remote per user choices"""
+        control = mythbuntu_lirc.RemoteConfiguration(None,self.db)
+        ret = control.run_command(auto_process=True)
+        if ret != 0:
+            raise InstallStepError("Remote Control Configuration failed with code %d" % ret)
 
     def configure_services(self):
         """Activates any necessary service configuration"""
