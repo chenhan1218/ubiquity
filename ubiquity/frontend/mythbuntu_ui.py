@@ -17,7 +17,7 @@
 #   - Colin Watson <cjwatson@ubuntu.com>
 #   - Evan Dandrea <evand@ubuntu.com>
 #   - Mario Limonciello <superm1@ubuntu.com>
-# 
+#
 # - This Document:
 #   - Mario Limonciello <superm1@mythbuntu.org>
 #   - Jared Greenwald <greenwaldjared@gmail.com>
@@ -68,12 +68,13 @@ BREADCRUMB_STEPS = {
     "mythbuntu_stepThemes": 7,
     "mythbuntu_stepServices": 8,
     "mythbuntu_stepPasswords": 9,
-    "mythbuntu_stepDrivers": 10,
-    "stepPartAuto": 11,
-    "stepPartAdvanced": 11,
-    "stepUserInfo": 12,
-    "stepReady": 13, 
-    "mythbuntu_stepBackendSetup": 14
+    "mythbuntu_stepLirc": 10,
+    "mythbuntu_stepDrivers": 11,
+    "stepPartAuto": 12,
+    "stepPartAdvanced": 12,
+    "stepUserInfo": 13,
+    "stepReady": 14,
+    "mythbuntu_stepBackendSetup": 15
 }
 BREADCRUMB_MAX_STEP = 14
 
@@ -90,6 +91,7 @@ SUBPAGES = [
     "mythbuntu_stepThemes",
     "mythbuntu_stepServices",
     "mythbuntu_stepPasswords",
+    "mythbuntu_stepLirc",
     "mythbuntu_stepDrivers",
     "stepPartAuto",
     "stepPartAdvanced",
@@ -104,11 +106,11 @@ ubiquity.frontend.gtk_ui.SUBPAGES = SUBPAGES
 
 class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
-#Overriden Methods    
+#Overriden Methods
     def __init__(self, distro):
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
-        
+
     def run(self):
         """run the interface."""
 
@@ -155,7 +157,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             # removed, so we end up with no input focus and thus pressing
             # Enter doesn't activate the default widget. Work around this.
             self.next.grab_focus()
-        
+
         while self.current_page is not None:
             if not self.installing:
                 # Make sure any started progress bars are stopped.
@@ -252,9 +254,13 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         #Themes
         elif step == "mythbuntu_stepThemes":
             self.steps.next_page()
-        #Backend Info
+        #Possible passwords
         elif step == "mythbuntu_stepPasswords":
             self.steps.next_page()
+        #Remote controls
+        elif step == "mythbuntu_stepLirc":
+            self.steps.next_page()
+        #Misc applicable services
         elif step == "mythbuntu_stepServices":
             self.steps.next_page()
         #Proprietary Video Drivers
@@ -413,7 +419,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def mythbuntu_password(self,widget):
         """Checks that certain passwords meet requirements"""
-                
         #For the services page, the only password we have is the VNC
         if (widget is not None and widget.get_name() == 'vnc_password'):
             password= widget.get_text().split(' ')[0]
@@ -430,14 +435,14 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             if len(username) >= 1:
                 self.mythweb_user_error_image.hide()
             else:
-                self.mythweb_user_error_image.show()        
+                self.mythweb_user_error_image.show()
         elif (widget is not None and widget.get_name() == 'mythweb_password'):
             password = widget.get_text().split(' ')[0]
             if len(password) >= 1:
                 self.mythweb_pass_error_image.hide()
             else:
                 self.mythweb_pass_error_image.show()
-                
+
         elif (widget is not None and widget.get_name() == 'mysql_root_password'):
             password = widget.get_text().split(' ')[0]
             if len(password) >= 1:
@@ -446,20 +451,19 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 self.mysql_root_error_image.show()
 
         #The password check page is much more complex. Pieces have to be
-        #done in a sequential order        
+        #done in a sequential order
         if (self.usemysqlrootpassword.get_active() or self.usemythwebpassword.get_active()):
             mysql_root_flag = self.mysql_root_error_image.flags() & gtk.VISIBLE
             mythweb_user_flag = self.mythweb_user_error_image.flags() & gtk.VISIBLE
             mythweb_pass_flag = self.mythweb_pass_error_image.flags() & gtk.VISIBLE
             result = not (mythweb_user_flag | mythweb_pass_flag | mysql_root_flag)
             self.allow_go_forward(result)
-            self.allow_go_backward(result)            
-        
-    
+            self.allow_go_backward(result)
+
     def do_mythtv_setup(self,widget):
         """Spawn MythTV-Setup binary."""
         execute("/usr/share/ubiquity/mythbuntu-setup")
-        
+
     def do_connection_test(self,widget):
         """Tests to make sure that the backend is accessible"""
         host = self.mysql_server.get_text()
@@ -467,8 +471,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         user = self.mysql_user.get_text()
         password = self.mysql_password.get_text()
         try:
-            db = MySQLdb.connect(host=host, user=user, passwd=password,
-db=database)
+            db = MySQLdb.connect(host=host, user=user, passwd=password,db=database)
             cursor = db.cursor()
             cursor.execute("SELECT NULL")
             result = cursor.fetchone()
@@ -479,7 +482,6 @@ db=database)
             result = "Failure"
         self.connection_results_label.show()
         self.connection_results.set_text(result)
-        
 
     def toggle_installtype (self,widget):
         """Called whenever standard or full are toggled"""
@@ -494,12 +496,13 @@ db=database)
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).hide()
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPasswords)).hide()
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepServices)).hide()
+            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             self.enablessh.set_active(True)
             self.enablevnc.set_active(False)
             self.enablenfs.set_active(False)
             self.enablesamba.set_active(True)
             self.enablemysql.set_active(False)
-            
+
         else:
             # For a custom install, reinsert our missing pages
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepCustomInstallType)).show()
@@ -507,10 +510,11 @@ db=database)
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).show()
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPasswords)).show()
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepServices)).show()
+            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             self.master_backend_expander.hide()
             self.mythweb_expander.show()
             self.mysql_server_expander.show()
-    
+
     def toggle_customtype (self,widget):
         """Called whenever a custom type is toggled"""
 
@@ -520,7 +524,7 @@ db=database)
                 self.frontend_driver_list.show()
             else:
                 self.frontend_driver_list.hide()
-        
+
         def set_be_drivers(self,enable):
             """Toggles Visible Backend Applicable Drivers"""
             if enable:
@@ -545,7 +549,7 @@ db=database)
                 self.samba_option_hbox.hide()
                 self.nfs_option_hbox.hide()
                 self.mysql_option_hbox.hide()
-                
+
         def set_all_passwords(self,enable):
             """Toggles visibility on all password selection boxes"""
             if enable:
@@ -558,7 +562,7 @@ db=database)
                 self.mythweb_expander.hide()
                 self.mysql_server_expander.hide()
                 self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPasswords)).hide()
-        
+
         def set_all_themes(self,enable):
             """Enables all themes for defaults"""
             self.communitythemes.set_active(enable)
@@ -578,24 +582,25 @@ db=database)
             self.mythphone.set_active(enable)
             self.mythvideo.set_active(enable)
             self.mythweather.set_active(enable)
-        
+
         def set_all_be_plugins(self,enable):
             """ Enables all backend plugins for defaults"""
             self.mythweb.set_active(enable)
-        
-        if self.master_be_fe.get_active() :
+
+        if self.master_be_fe.get_active():
             set_all_themes(self,True)
             set_all_fe_plugins(self,True)
             set_all_be_plugins(self,True)
             set_all_passwords(self,True)
             set_all_services(self,True)
             self.enablessh.set_active(True)
-            self.enablesamba.set_active(True)            
+            self.enablesamba.set_active(True)
             self.frontend_plugin_list.show()
             self.backend_plugin_list.show()
             self.febe_heading_label.set_label("Choose Frontend / Backend Plugins")
             self.master_backend_expander.hide()
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).show()
+            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             set_fe_drivers(self,True)
             set_be_drivers(self,True)
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).show()
@@ -604,15 +609,16 @@ db=database)
             set_all_fe_plugins(self,True)
             set_all_be_plugins(self,True)
             set_all_services(self,True)
-            set_all_passwords(self,True)  
+            set_all_passwords(self,True)
             self.enablessh.set_active(True)
-            self.enablesamba.set_active(True)            
+            self.enablesamba.set_active(True)
             self.frontend_plugin_list.show()
             self.backend_plugin_list.show()
             self.febe_heading_label.set_label("Choose Frontend / Backend Plugins")
             self.mysql_server_expander.hide()
             self.mysql_option_hbox.hide()
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).show()
+            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             set_fe_drivers(self,True)
             set_be_drivers(self,True)
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).show()
@@ -623,36 +629,38 @@ db=database)
             set_all_services(self,True)
             set_all_passwords(self,True)
             self.enablessh.set_active(True)
-            self.enablesamba.set_active(True)            
+            self.enablesamba.set_active(True)
             self.frontend_plugin_list.hide()
             self.backend_plugin_list.show()
             self.febe_heading_label.set_label("Choose Backend Plugins")
             self.master_backend_expander.hide()
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).hide()
+            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).hide()
             set_fe_drivers(self,False)
             set_be_drivers(self,True)
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).show()
         elif self.slave_be.get_active():
             set_all_themes(self,False)
             set_all_fe_plugins(self,False)
-            set_all_be_plugins(self,True)      
-            set_all_services(self,True)      
+            set_all_be_plugins(self,True)
+            set_all_services(self,True)
             set_all_passwords(self,True)
             self.enablessh.set_active(True)
-            self.enablesamba.set_active(True)            
+            self.enablesamba.set_active(True)
             self.frontend_plugin_list.hide()
             self.backend_plugin_list.show()
             self.febe_heading_label.set_label("Choose Backend Plugins")
             self.mysql_server_expander.hide()
             self.mysql_option_hbox.hide()
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).hide()
+            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).hide()
             set_fe_drivers(self,False)
             set_be_drivers(self,True)
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).show()
         else:
             set_all_themes(self,True)
             set_all_fe_plugins(self,True)
-            set_all_be_plugins(self,False)   
+            set_all_be_plugins(self,False)
             set_all_services(self,True)
             set_all_passwords(self,True)
             self.enablessh.set_active(True)
@@ -668,38 +676,48 @@ db=database)
             self.nfs_option_hbox.hide()
             self.samba_option_hbox.hide()
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).show()
+            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             set_fe_drivers(self,True)
             set_be_drivers(self,False)
             self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).hide()
-    
+
+    def lirc_toggled(self,widget):
+        """Called when the checkbox to configure a remote is toggled"""
+        if (self.lirc_enable.get_active()):
+            self.lirc_middle_vbox.show()
+            self.lirc_remote.set_active(0)
+        else:
+            self.lirc_middle_vbox.hide()
+            self.lirc_remote.set_active(0)
+
     def mythweb_toggled(self,widget):
         """Called when the checkbox to install Mythweb is toggled"""
         if (self.mythweb.get_active()):
             self.mythweb_expander.show()
         else:
             self.mythweb_expander.hide()
-    
+
     def enablevnc_toggled(self,widget):
         """Called when the checkbox to turn on VNC is toggled"""
         if (self.enablevnc.get_active()):
             self.vnc_pass_hbox.show()
             self.allow_go_forward(False)
             self.allow_go_backward(False)
-            self.vnc_error_image.show()            
+            self.vnc_error_image.show()
         else:
             self.vnc_pass_hbox.hide()
             self.vnc_password.set_text("")
             self.allow_go_forward(True)
             self.allow_go_backward(True)
             self.vnc_error_image.hide()
-    
+
     def uselivemysqlinfo_toggled(self,widget):
         """Called when the checkbox to copy live mysql information is pressed"""
         if (self.uselivemysqlinfo.get_active()):
             self.master_backend_table.hide()
         else:
-            self.master_backend_table.show()        
-    
+            self.master_backend_table.show()
+
     def usemythwebpassword_toggled(self,widget):
         """Called when the checkbox to set a mythweb password is pressed"""
         if (self.usemythwebpassword.get_active()):
@@ -717,14 +735,14 @@ db=database)
             if (not self.usemysqlrootpassword.get_active() or not self.mysql_root_error_image.flags() & gtk.VISIBLE):
                 self.allow_go_forward(True)
                 self.allow_go_backward(True)
-    
+
     def usemysqlrootpassword_toggled(self,widget):
         """Called when the checkbox to set a MySQL root password is pressed"""
         if (self.usemysqlrootpassword.get_active()):
             self.mysql_server_hbox.show()
             self.allow_go_forward(False)
             self.allow_go_backward(False)
-            self.mysql_root_error_image.show()              
+            self.mysql_root_error_image.show()
         else:
             self.mysql_server_hbox.hide()
             self.mysql_root_password.set_text("")
@@ -732,9 +750,7 @@ db=database)
             if (not self.usemythwebpassword.get_active() or not self.mythweb_error_image.flags() & gtk.VISIBLE):
                 self.allow_go_forward(True)
                 self.allow_go_backward(True)
-                
-                      
-    
+
     def toggle_number_tuners (self,widget):
         """Called whenever a number of tuners is changed"""
         num = self.number_tuners.get_value()
@@ -747,14 +763,14 @@ db=database)
                             self.tuner1.show()
                             self.tuner2.show()
                             self.tuner3.show()
-                            self.tuner4.show()                    
+                            self.tuner4.show()
                         else:
                             self.tuner0.show()
                             self.tuner1.show()
                             self.tuner2.show()
                             self.tuner3.show()
                             self.tuner4.hide()
-                            self.tuner4.set_active(0)                    
+                            self.tuner4.set_active(0)
                     else:
                         self.tuner0.show()
                         self.tuner1.show()
@@ -762,7 +778,7 @@ db=database)
                         self.tuner3.hide()
                         self.tuner3.set_active(0)
                         self.tuner4.hide()
-                        self.tuner4.set_active(0)                    
+                        self.tuner4.set_active(0)
                 else:
                     self.tuner0.show()
                     self.tuner1.show()
@@ -771,7 +787,7 @@ db=database)
                     self.tuner3.hide()
                     self.tuner3.set_active(0)
                     self.tuner4.hide()
-                    self.tuner4.set_active(0)                                    
+                    self.tuner4.set_active(0)
             else:
                 self.tuner0.show()
                 self.tuner1.hide()
@@ -781,7 +797,7 @@ db=database)
                 self.tuner3.hide()
                 self.tuner3.set_active(0)
                 self.tuner4.hide()
-                self.tuner4.set_active(0)                    
+                self.tuner4.set_active(0)
         else:
             self.tuner0.hide()
             self.tuner0.set_active(0)
@@ -792,8 +808,8 @@ db=database)
             self.tuner3.hide()
             self.tuner3.set_active(0)
             self.tuner4.hide()
-            self.tuner4.set_active(0)    
-    
+            self.tuner4.set_active(0)
+
     def toggle_tuners (self,widget):
         """Checks to make sure no tuner widgets have same value"""
         def return_tuner_val(self,num):
@@ -807,26 +823,10 @@ db=database)
                 return self.tuner3.get_active()
             elif num == 4:
                 return self.tuner4.get_active()
-            
-        def set_tuner_val(self,num_tuner,val):
-            if num_tuner == 0:
-                return self.tuner0.set_active(val)
-            elif num_tuner == 1:
-                return self.tuner1.set_active(val)
-            elif num_tuner == 2:
-                return self.tuner2.set_active(val)
-            elif num_tuner == 3:
-                return self.tuner3.set_active(val)
-            elif num_tuner == 4:
-                return self.tuner4.set_active(val)
-                
+
         number_tuners = self.number_tuners.get_value_as_int()
         enable_warning=False
         for i in range(number_tuners):
-            for j in range(i+1,number_tuners):
-                #Check for duplicates
-                if (return_tuner_val(self,i) != 0 and return_tuner_val(self,i) !=19 and return_tuner_val(self,i) !=20 and return_tuner_val(self,i) == return_tuner_val(self,j)):
-                    set_tuner_val(self,j,0)
             #Check for the unknown Analogue or Digital Option
             if (return_tuner_val(self,i) == 19 or return_tuner_val(self,i) == 20):
                 enable_warning=True
@@ -834,7 +834,6 @@ db=database)
             self.tunernotice.show()
         else:
             self.tunernotice.hide()
-                
 
     def toggle_proprietary (self,widget):
         """Called whenever the proprietary driver option is toggled"""
@@ -849,9 +848,9 @@ db=database)
             self.auto_detect_driver.show()
             # run restricted-manager --check to poll the restricted devices
             # we don't care about the results of this
-            subprocess.Popen(["/usr/bin/restricted-manager", "--check"], stdout=subprocess.PIPE).communicate()[0]          
+            subprocess.Popen(["/usr/bin/restricted-manager", "--check"], stdout=subprocess.PIPE).communicate()[0]
             # now actually get the list of restricted modules
-            drivers = subprocess.Popen(["/usr/bin/restricted-manager", "--list"], stdout=subprocess.PIPE).communicate()[0]                    
+            drivers = subprocess.Popen(["/usr/bin/restricted-manager", "--list"], stdout=subprocess.PIPE).communicate()[0]
             for driver in drivers.split():
                 if driver == "nvidia":
                     self.auto_detect_driver.set_text("nvidia")
@@ -867,7 +866,7 @@ db=database)
             self.auto_detect.hide()
             self.auto_detect_driver.hide()
             self.auto_detect_driver.set_text("None")
-        
+
     def toggle_tv_out (self,widget):
         """Called when the tv-out type is toggled"""
         if (self.tvouttype.get_active() == 0):
@@ -888,6 +887,50 @@ db=database)
         elif (self.tvoutstandard.get_active() == 0):
             self.tvouttype.set_active(0)
 
+    def lirc_changed(self,widget):
+        """Called when anything remote related is changed"""
+
+        if (widget is not None and widget.get_name() == 'lirc_remote'):
+            #If the remote type isn't other, don't
+            #allow them to change any other settings
+            if (self.widget.get_active() == 5):
+                self.lirc_driver.set_sensitive(True)
+                self.lirc_driver_label.set_sensitive(True)
+                self.lirc_rc.set_sensitive(True)
+                self.lirc_rc_label.set_sensitive(True)
+                self.lirc_bug_vbox.show()
+            else
+                self.lirc_driver.set_sensitive(False)
+                self.lirc_driver_label.set_sensitive(False)
+                self.lirc_rc.set_sensitive(False)
+                self.lirc_rc_label.set_sensitive(False)
+                self.lirc_bug_vbox.hide()
+
+                #ATI RF Remote
+                if (self.widget.get_active() == 1):
+                    #atiusb
+                    self.lirc_driver.set_active(1)
+                    #ATI RF
+                    self.lirc_rc.set_active(1)
+                #Hauppaugge PVR-XXX Series
+                elif (self.widget.get_active() == 2):
+                    #i2c
+                    self.lirc_driver.set_active(5)
+                    #Hauppaugge
+                    self.lirc_rc.set_active(2)
+                #Windows MCE Ver 1
+                elif (self.widget.get_active() == 3):
+                    #mceusb
+                    self.lirc_driver.set_active(9)
+                    #Windows Media Center
+                    self.lirc_rc.set_active(3)
+                #Windows MCE Ver 2
+                elif (self.widget.get_active() == 4):
+                    #mceusb2
+                    self.lirc_driver.set_active(10)
+                    #Windows Media Center
+                    self.lirc_rc.set_active(3)
+
     def get_installtype(self):
         """Returns the current custom installation type"""
         if self.master_be_fe.get_active():
@@ -900,7 +943,7 @@ db=database)
                 return "Slave Backend"
         elif self.fe.get_active():
                 return "Frontend"
-        
+
     def get_mytharchive(self):
         """Returns the status of the mytharchive plugin"""
         if self.mytharchive.get_active():
@@ -991,7 +1034,7 @@ db=database)
             return "yes"
         else:
             return "no"
-            
+
     def get_officialthemes(self):
         """Returns the status of the official themes"""
         if self.officialthemes.get_active():
@@ -1022,10 +1065,10 @@ db=database)
     def get_tvstandard(self):
         """Returns the status of the TV Standard type"""
         if (self.proprietarydrivers.get_active()):
-            return self.tvoutstandard.get_active_text()           
+            return self.tvoutstandard.get_active_text()
         else:
             return "TV Out Disabled"
-            
+
     def get_uselivemysqlinfo(self):
         if (self.uselivemysqlinfo.get_active()):
             return "yes"
@@ -1034,13 +1077,13 @@ db=database)
 
     def get_mysqluser(self):
         return self.mysql_user.get_text()
-        
+
     def get_mysqlpass(self):
         return self.mysql_password.get_text()
-        
+
     def get_mysqldatabase(self):
         return self.mysql_database.get_text()
-        
+
     def get_mysqlserver(self):
         return self.mysql_server.get_text()
 
@@ -1051,8 +1094,8 @@ db=database)
             return "no"
 
     def get_mysql_root_password(self):
-        return self.mysql_root_password.get_text()           
-        
+        return self.mysql_root_password.get_text()
+
     def get_secure_mythweb(self):
         if self.usemythwebpassword.get_active():
             return "yes"
@@ -1063,7 +1106,7 @@ db=database)
         return self.mythweb_username.get_text()
 
     def get_mythweb_password(self):
-        return self.mythweb_password.get_text()   
+        return self.mythweb_password.get_text()
 
     def get_vnc(self):
         if self.enablevnc.get_active():
@@ -1072,8 +1115,8 @@ db=database)
             return "no"
 
     def get_vnc_password(self):
-        return self.vnc_password.get_text()           
-            
+        return self.vnc_password.get_text()
+
     def get_ssh(self):
         if self.enablessh.get_active():
             return "yes"
@@ -1085,15 +1128,15 @@ db=database)
             return "yes"
         else:
             return "no"
-            
+
     def get_nfs(self):
         if self.enablenfs.get_active():
             return "yes"
         else:
-            return "no"                        
+            return "no"
 
     def get_mysql_port(self):
         if self.enablemysql.get_active():
             return "yes"
         else:
-            return "no"   
+            return "no"
