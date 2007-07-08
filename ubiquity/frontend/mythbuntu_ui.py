@@ -425,12 +425,18 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 self.allow_go_forward(False)
                 self.allow_go_backward(False)
                 self.vnc_error_image.show()
+        elif (widget is not None and widget.get_name() == 'mythweb_username'):
+            username = widget.get_text().split(' ')[0]
+            if len(username) >= 1:
+                self.mythweb_user_error_image.hide()
+            else:
+                self.mythweb_user_error_image.show()        
         elif (widget is not None and widget.get_name() == 'mythweb_password'):
             password = widget.get_text().split(' ')[0]
             if len(password) >= 1:
-                self.mythweb_error_image.hide()
+                self.mythweb_pass_error_image.hide()
             else:
-                self.mythweb_error_image.show()
+                self.mythweb_pass_error_image.show()
                 
         elif (widget is not None and widget.get_name() == 'mysql_root_password'):
             password = widget.get_text().split(' ')[0]
@@ -443,8 +449,9 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         #done in a sequential order        
         if (self.usemysqlrootpassword.get_active() or self.usemythwebpassword.get_active()):
             mysql_root_flag = self.mysql_root_error_image.flags() & gtk.VISIBLE
-            mythweb_flag = self.mythweb_error_image.flags() & gtk.VISIBLE
-            result = not (mythweb_flag | mysql_root_flag)
+            mythweb_user_flag = self.mythweb_user_error_image.flags() & gtk.VISIBLE
+            mythweb_pass_flag = self.mythweb_pass_error_image.flags() & gtk.VISIBLE
+            result = not (mythweb_user_flag | mythweb_pass_flag | mysql_root_flag)
             self.allow_go_forward(result)
             self.allow_go_backward(result)            
         
@@ -696,14 +703,17 @@ db=database)
     def usemythwebpassword_toggled(self,widget):
         """Called when the checkbox to set a mythweb password is pressed"""
         if (self.usemythwebpassword.get_active()):
-            self.mythweb_hbox.show()
+            self.mythweb_table.hide()
             self.allow_go_forward(False)
             self.allow_go_backward(False)
-            self.mythweb_error_image.show()            
+            self.mythweb_user_error_image.show()
+            self.mythweb_pass_error_image.show()
         else:
-            self.mythweb_hbox.hide()
+            self.mythweb_table.hide()
             self.mythweb_password.set_text("")
-            self.mythweb_error_image.hide()
+            self.mythweb_username.set_text("")
+            self.mythweb_user_error_image.hide()
+            self.mythweb_pass_error_image.hide()
             if (not self.usemysqlrootpassword.get_active() or not self.mysql_root_error_image.flags() & gtk.VISIBLE):
                 self.allow_go_forward(True)
                 self.allow_go_backward(True)
@@ -1048,6 +1058,9 @@ db=database)
             return "yes"
         else:
             return "no"
+
+    def get_mythweb_username(self):
+        return self.mythweb_username.get_text()
 
     def get_mythweb_password(self):
         return self.mythweb_password.get_text()   

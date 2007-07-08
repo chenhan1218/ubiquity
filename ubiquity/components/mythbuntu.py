@@ -52,7 +52,10 @@ class MythbuntuSetup(FilteredCommand):
              '^mythtv/mysql_mythtv_user',
              '^mythtv/mysql_mythtv_password',
              '^mythtv/mysql_mythtv_dbname',
-             '^mythtv/mysql_host']
+             '^mythtv/mysql_host',
+             '^mythweb/enable',
+             '^mythweb/username',
+             '^mythweb/password']
         return (['/usr/share/ubiquity/mythbuntu-ask'], questions)
 
     def run(self,priority,question):
@@ -181,6 +184,20 @@ class MythbuntuSetup(FilteredCommand):
         elif question.startswith('mythbuntu/mysqlservice'):
             mysql_secure = self.frontend.get_mysql_port()
             self.preseed('mythbuntu/mysqlservice', mysql_secure)
+            return True
+        elif question.startswith('mythweb/enable'):
+            if self.frontend.get_secure_mythweb() == "yes":
+                self.preseed('mythweb/enable', 'true')
+            else
+                self.preseed('mythweb/enable', 'false')
+            return True
+        elif question.startswith('mythweb/username'):
+            user = self.frontend.get_mythweb_username()
+            self.preseed('mythweb/username', user)
+            return True
+        elif question.startswith('mythweb/password'):
+            passw = self.frontend.get_mythweb_password()
+            self.preseed('mythweb/password', passw)
             return True
         return FilteredCommand.run(self, priority, question)
 
