@@ -1,4 +1,4 @@
-ubiquity (1.5.5) UNRELEASED; urgency=low
+ubiquity (1.5.5mythbuntu5) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * KDE frontend: Disable the KDE media notifier for the entire duration of
