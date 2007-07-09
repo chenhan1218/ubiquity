@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Fri Jul  6 23:57:14 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.2.0 on Sun Jul  8 19:38:41 2007 by supermario@portablemario-->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -35,15 +35,19 @@
         <child>
           <widget class="GtkVBox" id="vbox29">
             <property name="visible">True</property>
-            <property name="spacing">24</property>
+            <property name="spacing">7</property>
             <child>
               <widget class="GtkLabel" id="plugin_description">
-                <property name="width_request">650</property>
+                <property name="width_request">500</property>
                 <property name="visible">True</property>
                 <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                 <property name="xalign">0</property>
                 <property name="label" translatable="yes">Plugins can be used to extend MythTV functionality beyond a time shifting TV solution.</property>
               </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+              </packing>
             </child>
             <child>
               <widget class="GtkExpander" id="backend_plugin_list">
@@ -73,7 +77,7 @@
                     </child>
                     <child>
                       <widget class="GtkLabel" id="mythweb_label">
-                        <property name="width_request">650</property>
+                        <property name="width_request">500</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
@@ -81,6 +85,8 @@
                         <property name="wrap">True</property>
                       </widget>
                       <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
                         <property name="padding">25</property>
                         <property name="position">1</property>
                       </packing>
@@ -91,6 +97,7 @@
                   <widget class="GtkLabel" id="backend_plugin_label">
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Backend Plugins</property>
                   </widget>
                   <packing>
@@ -99,11 +106,14 @@
                 </child>
               </widget>
               <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
                 <property name="position">1</property>
               </packing>
             </child>
             <child>
               <widget class="GtkExpander" id="frontend_plugin_list">
+                <property name="width_request">600</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -116,7 +126,7 @@
                     <property name="n_columns">2</property>
                     <child>
                       <widget class="GtkLabel" id="mythweather_label">
-                        <property name="width_request">650</property>
+                        <property name="width_request">500</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
@@ -128,11 +138,13 @@
                         <property name="right_attach">2</property>
                         <property name="top_attach">11</property>
                         <property name="bottom_attach">12</property>
+                        <property name="x_options">GTK_FILL</property>
+                        <property name="y_options"></property>
                       </packing>
                     </child>
                     <child>
                       <widget class="GtkLabel" id="mythvideo_label">
-                        <property name="width_request">650</property>
+                        <property name="width_request">500</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
@@ -144,11 +156,12 @@
                         <property name="right_attach">2</property>
                         <property name="top_attach">10</property>
                         <property name="bottom_attach">11</property>
+                        <property name="x_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
                       <widget class="GtkLabel" id="mythphone_label">
-                        <property name="width_request">650</property>
+                        <property name="width_request">500</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
@@ -160,11 +173,12 @@
                         <property name="right_attach">2</property>
                         <property name="top_attach">9</property>
                         <property name="bottom_attach">10</property>
+                        <property name="x_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
                       <widget class="GtkLabel" id="mythnews_label">
-                        <property name="width_request">650</property>
+                        <property name="width_request">500</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
@@ -176,6 +190,7 @@
                         <property name="right_attach">2</property>
                         <property name="top_attach">8</property>
                         <property name="bottom_attach">9</property>
+                        <property name="x_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
@@ -192,11 +207,12 @@
                         <property name="right_attach">2</property>
                         <property name="top_attach">7</property>
                         <property name="bottom_attach">8</property>
+                        <property name="x_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
                       <widget class="GtkLabel" id="mythgame_label">
-                        <property name="width_request">650</property>
+                        <property name="width_request">500</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
@@ -208,11 +224,12 @@
                         <property name="right_attach">2</property>
                         <property name="top_attach">6</property>
                         <property name="bottom_attach">7</property>
+                        <property name="x_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
                       <widget class="GtkLabel" id="mythgallery_label">
-                        <property name="width_request">650</property>
+                        <property name="width_request">500</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
@@ -224,11 +241,12 @@
                         <property name="right_attach">2</property>
                         <property name="top_attach">5</property>
                         <property name="bottom_attach">6</property>
+                        <property name="x_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
                       <widget class="GtkLabel" id="mythflix_label">
-                        <property name="width_request">650</property>
+                        <property name="width_request">500</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
@@ -240,11 +258,12 @@
                         <property name="right_attach">2</property>
                         <property name="top_attach">4</property>
                         <property name="bottom_attach">5</property>
+                        <property name="x_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
                       <widget class="GtkLabel" id="mythdvd_label">
-                        <property name="width_request">650</property>
+                        <property name="width_request">500</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
@@ -256,11 +275,12 @@
                         <property name="right_attach">2</property>
                         <property name="top_attach">3</property>
                         <property name="bottom_attach">4</property>
+                        <property name="x_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
                       <widget class="GtkLabel" id="mythcontrols_label">
-                        <property name="width_request">650</property>
+                        <property name="width_request">500</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
@@ -272,11 +292,12 @@
                         <property name="right_attach">2</property>
                         <property name="top_attach">2</property>
                         <property name="bottom_attach">3</property>
+                        <property name="x_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
                       <widget class="GtkLabel" id="mythbrowser_label">
-                        <property name="width_request">650</property>
+                        <property name="width_request">400</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
@@ -288,11 +309,12 @@
                         <property name="right_attach">2</property>
                         <property name="top_attach">1</property>
                         <property name="bottom_attach">2</property>
+                        <property name="x_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
                       <widget class="GtkLabel" id="mytharchive_label">
-                        <property name="width_request">650</property>
+                        <property name="width_request">500</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
@@ -302,6 +324,7 @@
                       <packing>
                         <property name="left_attach">1</property>
                         <property name="right_attach">2</property>
+                        <property name="x_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
@@ -477,6 +500,7 @@
                         <property name="top_attach">1</property>
                         <property name="bottom_attach">2</property>
                         <property name="x_options">GTK_FILL</property>
+                        <property name="y_options">GTK_FILL</property>
                         <property name="x_padding">10</property>
                       </packing>
                     </child>
@@ -491,6 +515,7 @@
                       </widget>
                       <packing>
                         <property name="x_options">GTK_FILL</property>
+                        <property name="y_options">GTK_FILL</property>
                         <property name="x_padding">10</property>
                       </packing>
                     </child>
@@ -500,6 +525,7 @@
                   <widget class="GtkLabel" id="frontend_plugin_label">
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Frontend Plugins</property>
                   </widget>
                   <packing>
@@ -508,13 +534,15 @@
                 </child>
               </widget>
               <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
                 <property name="position">2</property>
               </packing>
             </child>
           </widget>
           <packing>
             <property name="expand">False</property>
-            <property name="padding">6</property>
+            <property name="fill">False</property>
             <property name="position">2</property>
           </packing>
         </child>

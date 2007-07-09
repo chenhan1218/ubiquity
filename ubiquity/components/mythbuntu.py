@@ -206,15 +206,28 @@ class MythbuntuSetup(FilteredCommand):
         elif question.startswith('mythbuntu/en_lirc'):
             en_lirc = self.frontend.get_lirc()
             self.preseed('mythbuntu/en_lirc',en_lirc)
+            return True
         elif question.startswith('mythbuntu/lirc_remote'):
-            remote = self.frontend.get_lirc_remote()
+            if self.frontend.get_lirc() == "yes":
+                remote = self.frontend.get_lirc_remote()
+            else:
+                remote = "n/a"
             self.preseed('mythbuntu/lirc_remote',remote)
+            return True
         elif question.startswith('mythbuntu/lirc_driver'):
-            driver = self.frontend.get_lirc_driver()
+            if self.frontend.get_lirc() == "yes":
+                driver = self.frontend.get_lirc_driver()
+            else:
+                driver = "n/a"
             self.preseed('mythbuntu/lirc_driver',driver)
+            return True
         elif question.startswith('mythbuntu/lirc_rc'):
-            rc = self.frontend.get_lirc_rc()
-            self.preseed('mythbuntu/lirc_rc')
+            if self.frontend.get_lirc() == "yes":
+                rc = self.frontend.get_lirc_rc()
+            else:
+                rc = "n/a"
+            self.preseed('mythbuntu/lirc_rc',rc)
+            return True
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):

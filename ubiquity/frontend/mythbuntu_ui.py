@@ -76,7 +76,7 @@ BREADCRUMB_STEPS = {
     "stepReady": 14,
     "mythbuntu_stepBackendSetup": 15
 }
-BREADCRUMB_MAX_STEP = 14
+BREADCRUMB_MAX_STEP = 15
 
 # Define what pages of the UI we want to load.  Note that most of these pages
 # are required for the install to complete successfully.
@@ -721,7 +721,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
     def usemythwebpassword_toggled(self,widget):
         """Called when the checkbox to set a mythweb password is pressed"""
         if (self.usemythwebpassword.get_active()):
-            self.mythweb_table.hide()
+            self.mythweb_table.show()
             self.allow_go_forward(False)
             self.allow_go_backward(False)
             self.mythweb_user_error_image.show()
@@ -747,7 +747,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.mysql_server_hbox.hide()
             self.mysql_root_password.set_text("")
             self.mysql_root_error_image.hide()
-            if (not self.usemythwebpassword.get_active() or not self.mythweb_error_image.flags() & gtk.VISIBLE):
+            if (not self.usemythwebpassword.get_active() or ((not self.mythweb_pass_error_image.flags() & gtk.VISIBLE) and (not self.mythweb_user_error_image.flags() & gtk.VISIBLE))):
                 self.allow_go_forward(True)
                 self.allow_go_backward(True)
 
@@ -889,43 +889,46 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def lirc_changed(self,widget):
         """Called when anything remote related is changed"""
-
         if (widget is not None and widget.get_name() == 'lirc_remote'):
             #If the remote type isn't other, don't
             #allow them to change any other settings
-            if (self.widget.get_active() == 5):
+            if (widget.get_active() == 5):
                 self.lirc_driver.set_sensitive(True)
                 self.lirc_driver_label.set_sensitive(True)
                 self.lirc_rc.set_sensitive(True)
                 self.lirc_rc_label.set_sensitive(True)
                 self.lirc_bug_vbox.show()
-            else
+            else:
                 self.lirc_driver.set_sensitive(False)
                 self.lirc_driver_label.set_sensitive(False)
                 self.lirc_rc.set_sensitive(False)
                 self.lirc_rc_label.set_sensitive(False)
                 self.lirc_bug_vbox.hide()
 
+                #no remote chosen
+                if (widget.get_active() == 0):
+                    self.lirc_driver.set_active(0)
+                    self.lirc_rc.set_active(0)
                 #ATI RF Remote
-                if (self.widget.get_active() == 1):
+                elif (widget.get_active() == 1):
                     #atiusb
                     self.lirc_driver.set_active(1)
                     #ATI RF
                     self.lirc_rc.set_active(1)
                 #Hauppaugge PVR-XXX Series
-                elif (self.widget.get_active() == 2):
+                elif (widget.get_active() == 2):
                     #i2c
                     self.lirc_driver.set_active(5)
                     #Hauppaugge
                     self.lirc_rc.set_active(2)
                 #Windows MCE Ver 1
-                elif (self.widget.get_active() == 3):
+                elif (widget.get_active() == 3):
                     #mceusb
                     self.lirc_driver.set_active(9)
                     #Windows Media Center
                     self.lirc_rc.set_active(3)
                 #Windows MCE Ver 2
-                elif (self.widget.get_active() == 4):
+                elif (widget.get_active() == 4):
                     #mceusb2
                     self.lirc_driver.set_active(10)
                     #Windows Media Center

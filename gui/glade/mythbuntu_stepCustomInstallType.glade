@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Fri Jul  6 23:51:02 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.2.0 on Sun Jul  8 19:18:19 2007 by supermario@portablemario-->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -43,6 +43,9 @@
                 <property name="xalign">0</property>
                 <property name="label" translatable="yes">What type of system will this be?</property>
               </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
             </child>
             <child>
               <widget class="GtkVBox" id="vbox33">
@@ -58,10 +61,13 @@
                     <property name="draw_indicator">True</property>
                     <signal name="toggled" handler="toggle_customtype"/>
                   </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                  </packing>
                 </child>
                 <child>
                   <widget class="GtkLabel" id="master_be_fe_label">
-                    <property name="width_request">650</property>
+                    <property name="width_request">600</property>
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
@@ -70,6 +76,7 @@
                     <property name="wrap">True</property>
                   </widget>
                   <packing>
+                    <property name="expand">False</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
@@ -84,12 +91,13 @@
                     <signal name="toggled" handler="toggle_customtype"/>
                   </widget>
                   <packing>
+                    <property name="expand">False</property>
                     <property name="position">2</property>
                   </packing>
                 </child>
                 <child>
                   <widget class="GtkLabel" id="slave_be_fe_label">
-                    <property name="width_request">650</property>
+                    <property name="width_request">500</property>
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
@@ -99,6 +107,7 @@
                     <property name="wrap">True</property>
                   </widget>
                   <packing>
+                    <property name="expand">False</property>
                     <property name="position">3</property>
                   </packing>
                 </child>
@@ -113,12 +122,13 @@
                     <signal name="toggled" handler="toggle_customtype"/>
                   </widget>
                   <packing>
+                    <property name="expand">False</property>
                     <property name="position">4</property>
                   </packing>
                 </child>
                 <child>
                   <widget class="GtkLabel" id="master_be_label">
-                    <property name="width_request">650</property>
+                    <property name="width_request">600</property>
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
@@ -127,6 +137,7 @@
                     <property name="wrap">True</property>
                   </widget>
                   <packing>
+                    <property name="expand">False</property>
                     <property name="position">5</property>
                   </packing>
                 </child>
@@ -141,12 +152,13 @@
                     <signal name="toggled" handler="toggle_customtype"/>
                   </widget>
                   <packing>
+                    <property name="expand">False</property>
                     <property name="position">6</property>
                   </packing>
                 </child>
                 <child>
                   <widget class="GtkLabel" id="slave_be_label">
-                    <property name="width_request">650</property>
+                    <property name="width_request">600</property>
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
@@ -155,6 +167,7 @@
                     <property name="wrap">True</property>
                   </widget>
                   <packing>
+                    <property name="expand">False</property>
                     <property name="position">7</property>
                   </packing>
                 </child>
@@ -169,12 +182,13 @@
                     <signal name="toggled" handler="toggle_customtype"/>
                   </widget>
                   <packing>
+                    <property name="expand">False</property>
                     <property name="position">8</property>
                   </packing>
                 </child>
                 <child>
                   <widget class="GtkLabel" id="fe_label">
-                    <property name="width_request">650</property>
+                    <property name="width_request">600</property>
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
@@ -183,11 +197,13 @@
                     <property name="wrap">True</property>
                   </widget>
                   <packing>
+                    <property name="expand">False</property>
                     <property name="position">9</property>
                   </packing>
                 </child>
               </widget>
               <packing>
+                <property name="expand">False</property>
                 <property name="position">1</property>
               </packing>
             </child>
