@@ -31,20 +31,18 @@ ubiquity (1.5.5) UNRELEASED; urgency=low
     filesystem, as long as they're available from the apt archive on the CD
     (LP: #114296).
 
-  [ Mario Limonciello ]
-  * Merge in mythbuntu alpha 2 changes.
-  * Set all mythbuntu labels to word wrap.
-  * Add mythbuntu to translatable files.
-
   [ Evan Dandrea ]
   * Initial commit of ubiquity-automation work:
     - Added a new frontend, noninteractive.
     - debconffilter now respects the "seen" flag when running in automatic
       mode.
-  * Automatic update of included source packages: base-installer
-    1.80ubuntu2, hw-detect 1.53ubuntu1, silo-installer 1.10ubuntu4.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 10 Jul 2007 14:21:17 +0100
+  [ Mario Limonciello ]
+  * Merge in mythbuntu alpha 2 changes.
+  * Set all mythbuntu labels to word wrap.
+  * Add mythbuntu to translatable files.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 05 Jul 2007 14:54:31 -0400
 
 ubiquity (1.5.4) gutsy; urgency=low
 

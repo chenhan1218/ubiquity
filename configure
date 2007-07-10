@@ -886,6 +886,34 @@ INTLLIBS
 LIBINTL
 LTLIBINTL
 POSUB
+INTLTOOL_DESKTOP_RULE
+INTLTOOL_DIRECTORY_RULE
+INTLTOOL_KEYS_RULE
+INTLTOOL_PROP_RULE
+INTLTOOL_OAF_RULE
+INTLTOOL_PONG_RULE
+INTLTOOL_SERVER_RULE
+INTLTOOL_SHEET_RULE
+INTLTOOL_SOUNDLIST_RULE
+INTLTOOL_UI_RULE
+INTLTOOL_XAM_RULE
+INTLTOOL_KBD_RULE
+INTLTOOL_XML_RULE
+INTLTOOL_XML_NOMERGE_RULE
+INTLTOOL_CAVES_RULE
+INTLTOOL_SCHEMAS_RULE
+INTLTOOL_THEME_RULE
+INTLTOOL_SERVICE_RULE
+INTLTOOL_EXTRACT
+INTLTOOL_MERGE
+INTLTOOL_UPDATE
+INTLTOOL_PERL
+INTLTOOL_ICONV
+INTLTOOL_MSGFMT
+INTLTOOL_MSGMERGE
+INTLTOOL_XGETTEXT
+ALL_LINGUAS
+DATADIRNAME
 PYTHON
 PYTHON_VERSION
 PYTHON_PREFIX
@@ -4387,7 +4415,7 @@ ia64-*-hpux*)
   ;;
 *-*-irix6*)
   # Find out which ABI we are using.
-  echo '#line 4390 "configure"' > conftest.$ac_ext
+  echo '#line 4418 "configure"' > conftest.$ac_ext
   if { (eval echo "$as_me:$LINENO: \"$ac_compile\"") >&5
   (eval $ac_compile) 2>&5
   ac_status=$?
@@ -7118,11 +7146,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:7121: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:7149: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:7125: \$? = $ac_status" >&5
+   echo "$as_me:7153: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -7386,11 +7414,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:7389: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:7417: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:7393: \$? = $ac_status" >&5
+   echo "$as_me:7421: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -7490,11 +7518,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:7493: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:7521: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:7497: \$? = $ac_status" >&5
+   echo "$as_me:7525: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -9787,7 +9815,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<EOF
-#line 9790 "configure"
+#line 9818 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -9887,7 +9915,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<EOF
-#line 9890 "configure"
+#line 9918 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -12223,11 +12251,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:12226: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:12254: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:12230: \$? = $ac_status" >&5
+   echo "$as_me:12258: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -12327,11 +12355,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:12330: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:12358: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:12334: \$? = $ac_status" >&5
+   echo "$as_me:12362: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -13888,11 +13916,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:13891: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:13919: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:13895: \$? = $ac_status" >&5
+   echo "$as_me:13923: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -13992,11 +14020,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:13995: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:14023: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:13999: \$? = $ac_status" >&5
+   echo "$as_me:14027: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -16179,11 +16207,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:16182: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:16210: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:16186: \$? = $ac_status" >&5
+   echo "$as_me:16214: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -16447,11 +16475,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:16450: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:16478: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:16454: \$? = $ac_status" >&5
+   echo "$as_me:16482: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -16551,11 +16579,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:16554: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:16582: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:16558: \$? = $ac_status" >&5
+   echo "$as_me:16586: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -21056,7 +21084,460 @@ _ACEOF
 
 
 
-IT_PROG_INTLTOOL
+
+case "$am__api_version" in
+    1.01234)
+	{ { echo "$as_me:$LINENO: error: Automake 1.5 or newer is required to use intltool" >&5
+echo "$as_me: error: Automake 1.5 or newer is required to use intltool" >&2;}
+   { (exit 1); exit 1; }; }
+    ;;
+    *)
+    ;;
+esac
+
+if test -n ""; then
+    { echo "$as_me:$LINENO: checking for intltool >= " >&5
+echo $ECHO_N "checking for intltool >= ... $ECHO_C" >&6; }
+
+    INTLTOOL_REQUIRED_VERSION_AS_INT=`echo  | awk -F. '{ print $ 1 * 1000 + $ 2 * 100 + $ 3; }'`
+    INTLTOOL_APPLIED_VERSION=`awk -F\" '/\\$VERSION / { print $ 2; }' ${ac_aux_dir}/intltool-update.in`
+    INTLTOOL_APPLIED_VERSION_AS_INT=`awk -F\" '/\\$VERSION / { split($ 2, VERSION, "."); print VERSION[1] * 1000 + VERSION[2] * 100 + VERSION[3];}' ${ac_aux_dir}/intltool-update.in`
+
+    { echo "$as_me:$LINENO: result: $INTLTOOL_APPLIED_VERSION found" >&5
+echo "${ECHO_T}$INTLTOOL_APPLIED_VERSION found" >&6; }
+    test "$INTLTOOL_APPLIED_VERSION_AS_INT" -ge "$INTLTOOL_REQUIRED_VERSION_AS_INT" ||
+	{ { echo "$as_me:$LINENO: error: Your intltool is too old.  You need intltool  or later." >&5
+echo "$as_me: error: Your intltool is too old.  You need intltool  or later." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+
+  INTLTOOL_DESKTOP_RULE='%.desktop:   %.desktop.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+INTLTOOL_DIRECTORY_RULE='%.directory: %.directory.in $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+     INTLTOOL_KEYS_RULE='%.keys:      %.keys.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -k -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+     INTLTOOL_PROP_RULE='%.prop:      %.prop.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+      INTLTOOL_OAF_RULE='%.oaf:       %.oaf.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -o -p $(top_srcdir)/po $< $@'
+     INTLTOOL_PONG_RULE='%.pong:      %.pong.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+   INTLTOOL_SERVER_RULE='%.server:    %.server.in    $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -o -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+    INTLTOOL_SHEET_RULE='%.sheet:     %.sheet.in     $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+INTLTOOL_SOUNDLIST_RULE='%.soundlist: %.soundlist.in $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+       INTLTOOL_UI_RULE='%.ui:        %.ui.in        $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+      INTLTOOL_XML_RULE='%.xml:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+      INTLTOOL_XML_NOMERGE_RULE='%.xml:       %.xml.in       $(INTLTOOL_MERGE) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u /tmp $< $@'
+      INTLTOOL_XAM_RULE='%.xam:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+      INTLTOOL_KBD_RULE='%.kbd:       %.kbd.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -m -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+    INTLTOOL_CAVES_RULE='%.caves:     %.caves.in     $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+  INTLTOOL_SCHEMAS_RULE='%.schemas:   %.schemas.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -s -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+    INTLTOOL_THEME_RULE='%.theme:     %.theme.in     $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+    INTLTOOL_SERVICE_RULE='%.service: %.service.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Use the tools built into the package, not the ones that are installed.
+INTLTOOL_EXTRACT='$(top_builddir)/intltool-extract'
+
+INTLTOOL_MERGE='$(top_builddir)/intltool-merge'
+
+INTLTOOL_UPDATE='$(top_builddir)/intltool-update'
+
+
+# Extract the first word of "perl", so it can be a program name with args.
+set dummy perl; ac_word=$2
+{ echo "$as_me:$LINENO: checking for $ac_word" >&5
+echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6; }
+if test "${ac_cv_path_INTLTOOL_PERL+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  case $INTLTOOL_PERL in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_INTLTOOL_PERL="$INTLTOOL_PERL" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+  for ac_exec_ext in '' $ac_executable_extensions; do
+  if { test -f "$as_dir/$ac_word$ac_exec_ext" && $as_test_x "$as_dir/$ac_word$ac_exec_ext"; }; then
+    ac_cv_path_INTLTOOL_PERL="$as_dir/$ac_word$ac_exec_ext"
+    echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+done
+IFS=$as_save_IFS
+
+  ;;
+esac
+fi
+INTLTOOL_PERL=$ac_cv_path_INTLTOOL_PERL
+if test -n "$INTLTOOL_PERL"; then
+  { echo "$as_me:$LINENO: result: $INTLTOOL_PERL" >&5
+echo "${ECHO_T}$INTLTOOL_PERL" >&6; }
+else
+  { echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6; }
+fi
+
+
+if test -z "$INTLTOOL_PERL"; then
+   { { echo "$as_me:$LINENO: error: perl not found; required for intltool" >&5
+echo "$as_me: error: perl not found; required for intltool" >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "`$INTLTOOL_PERL -v | fgrep '5.' 2> /dev/null`"; then
+   { { echo "$as_me:$LINENO: error: perl 5.x required for intltool" >&5
+echo "$as_me: error: perl 5.x required for intltool" >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test "x" != "xno-xml"; then
+   { echo "$as_me:$LINENO: checking for XML::Parser" >&5
+echo $ECHO_N "checking for XML::Parser... $ECHO_C" >&6; }
+   if `$INTLTOOL_PERL -e "require XML::Parser" 2>/dev/null`; then
+       { echo "$as_me:$LINENO: result: ok" >&5
+echo "${ECHO_T}ok" >&6; }
+   else
+       { { echo "$as_me:$LINENO: error: XML::Parser perl module is required for intltool" >&5
+echo "$as_me: error: XML::Parser perl module is required for intltool" >&2;}
+   { (exit 1); exit 1; }; }
+   fi
+fi
+
+# Extract the first word of "iconv", so it can be a program name with args.
+set dummy iconv; ac_word=$2
+{ echo "$as_me:$LINENO: checking for $ac_word" >&5
+echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6; }
+if test "${ac_cv_path_INTLTOOL_ICONV+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  case $INTLTOOL_ICONV in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_INTLTOOL_ICONV="$INTLTOOL_ICONV" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+  for ac_exec_ext in '' $ac_executable_extensions; do
+  if { test -f "$as_dir/$ac_word$ac_exec_ext" && $as_test_x "$as_dir/$ac_word$ac_exec_ext"; }; then
+    ac_cv_path_INTLTOOL_ICONV="$as_dir/$ac_word$ac_exec_ext"
+    echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_INTLTOOL_ICONV" && ac_cv_path_INTLTOOL_ICONV="iconv"
+  ;;
+esac
+fi
+INTLTOOL_ICONV=$ac_cv_path_INTLTOOL_ICONV
+if test -n "$INTLTOOL_ICONV"; then
+  { echo "$as_me:$LINENO: result: $INTLTOOL_ICONV" >&5
+echo "${ECHO_T}$INTLTOOL_ICONV" >&6; }
+else
+  { echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6; }
+fi
+
+
+# Extract the first word of "msgfmt", so it can be a program name with args.
+set dummy msgfmt; ac_word=$2
+{ echo "$as_me:$LINENO: checking for $ac_word" >&5
+echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6; }
+if test "${ac_cv_path_INTLTOOL_MSGFMT+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  case $INTLTOOL_MSGFMT in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_INTLTOOL_MSGFMT="$INTLTOOL_MSGFMT" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+  for ac_exec_ext in '' $ac_executable_extensions; do
+  if { test -f "$as_dir/$ac_word$ac_exec_ext" && $as_test_x "$as_dir/$ac_word$ac_exec_ext"; }; then
+    ac_cv_path_INTLTOOL_MSGFMT="$as_dir/$ac_word$ac_exec_ext"
+    echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_INTLTOOL_MSGFMT" && ac_cv_path_INTLTOOL_MSGFMT="msgfmt"
+  ;;
+esac
+fi
+INTLTOOL_MSGFMT=$ac_cv_path_INTLTOOL_MSGFMT
+if test -n "$INTLTOOL_MSGFMT"; then
+  { echo "$as_me:$LINENO: result: $INTLTOOL_MSGFMT" >&5
+echo "${ECHO_T}$INTLTOOL_MSGFMT" >&6; }
+else
+  { echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6; }
+fi
+
+
+# Extract the first word of "msgmerge", so it can be a program name with args.
+set dummy msgmerge; ac_word=$2
+{ echo "$as_me:$LINENO: checking for $ac_word" >&5
+echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6; }
+if test "${ac_cv_path_INTLTOOL_MSGMERGE+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  case $INTLTOOL_MSGMERGE in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_INTLTOOL_MSGMERGE="$INTLTOOL_MSGMERGE" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+  for ac_exec_ext in '' $ac_executable_extensions; do
+  if { test -f "$as_dir/$ac_word$ac_exec_ext" && $as_test_x "$as_dir/$ac_word$ac_exec_ext"; }; then
+    ac_cv_path_INTLTOOL_MSGMERGE="$as_dir/$ac_word$ac_exec_ext"
+    echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_INTLTOOL_MSGMERGE" && ac_cv_path_INTLTOOL_MSGMERGE="msgmerge"
+  ;;
+esac
+fi
+INTLTOOL_MSGMERGE=$ac_cv_path_INTLTOOL_MSGMERGE
+if test -n "$INTLTOOL_MSGMERGE"; then
+  { echo "$as_me:$LINENO: result: $INTLTOOL_MSGMERGE" >&5
+echo "${ECHO_T}$INTLTOOL_MSGMERGE" >&6; }
+else
+  { echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6; }
+fi
+
+
+# Extract the first word of "xgettext", so it can be a program name with args.
+set dummy xgettext; ac_word=$2
+{ echo "$as_me:$LINENO: checking for $ac_word" >&5
+echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6; }
+if test "${ac_cv_path_INTLTOOL_XGETTEXT+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  case $INTLTOOL_XGETTEXT in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_INTLTOOL_XGETTEXT="$INTLTOOL_XGETTEXT" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+  for ac_exec_ext in '' $ac_executable_extensions; do
+  if { test -f "$as_dir/$ac_word$ac_exec_ext" && $as_test_x "$as_dir/$ac_word$ac_exec_ext"; }; then
+    ac_cv_path_INTLTOOL_XGETTEXT="$as_dir/$ac_word$ac_exec_ext"
+    echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_INTLTOOL_XGETTEXT" && ac_cv_path_INTLTOOL_XGETTEXT="xgettext"
+  ;;
+esac
+fi
+INTLTOOL_XGETTEXT=$ac_cv_path_INTLTOOL_XGETTEXT
+if test -n "$INTLTOOL_XGETTEXT"; then
+  { echo "$as_me:$LINENO: result: $INTLTOOL_XGETTEXT" >&5
+echo "${ECHO_T}$INTLTOOL_XGETTEXT" >&6; }
+else
+  { echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6; }
+fi
+
+
+
+# Substitute ALL_LINGUAS so we can use it in po/Makefile
+
+
+# Set DATADIRNAME correctly if it is not set yet
+# (copied from glib-gettext.m4)
+if test -z "$DATADIRNAME"; then
+  cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+int
+main ()
+{
+extern int _nl_msg_cat_cntr;
+                       return _nl_msg_cat_cntr
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (ac_try="$ac_link"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
+  (eval "$ac_link") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest$ac_exeext &&
+       $as_test_x conftest$ac_exeext; then
+  DATADIRNAME=share
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	case $host in
+    *-*-solaris*)
+                        { echo "$as_me:$LINENO: checking for bind_textdomain_codeset" >&5
+echo $ECHO_N "checking for bind_textdomain_codeset... $ECHO_C" >&6; }
+if test "${ac_cv_func_bind_textdomain_codeset+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+/* Define bind_textdomain_codeset to an innocuous variant, in case <limits.h> declares bind_textdomain_codeset.
+   For example, HP-UX 11i <limits.h> declares gettimeofday.  */
+#define bind_textdomain_codeset innocuous_bind_textdomain_codeset
+
+/* System header to define __stub macros and hopefully few prototypes,
+    which can conflict with char bind_textdomain_codeset (); below.
+    Prefer <limits.h> to <assert.h> if __STDC__ is defined, since
+    <limits.h> exists even on freestanding compilers.  */
+
+#ifdef __STDC__
+# include <limits.h>
+#else
+# include <assert.h>
+#endif
+
+#undef bind_textdomain_codeset
+
+/* Override any GCC internal prototype to avoid an error.
+   Use char because int might match the return type of a GCC
+   builtin and then its argument prototype would still apply.  */
+#ifdef __cplusplus
+extern "C"
+#endif
+char bind_textdomain_codeset ();
+/* The GNU C library defines this for functions which it implements
+    to always fail with ENOSYS.  Some functions are actually named
+    something starting with __ and the normal name is an alias.  */
+#if defined __stub_bind_textdomain_codeset || defined __stub___bind_textdomain_codeset
+choke me
+#endif
+
+int
+main ()
+{
+return bind_textdomain_codeset ();
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (ac_try="$ac_link"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
+  (eval "$ac_link") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest$ac_exeext &&
+       $as_test_x conftest$ac_exeext; then
+  ac_cv_func_bind_textdomain_codeset=yes
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	ac_cv_func_bind_textdomain_codeset=no
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
+      conftest$ac_exeext conftest.$ac_ext
+fi
+{ echo "$as_me:$LINENO: result: $ac_cv_func_bind_textdomain_codeset" >&5
+echo "${ECHO_T}$ac_cv_func_bind_textdomain_codeset" >&6; }
+if test $ac_cv_func_bind_textdomain_codeset = yes; then
+  DATADIRNAME=share
+else
+  DATADIRNAME=lib
+fi
+
+    ;;
+    *)
+    DATADIRNAME=lib
+    ;;
+    esac
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
+      conftest$ac_exeext conftest.$ac_ext
+fi
+
+
+
+
+
+ac_config_commands="$ac_config_commands intltool"
+
+
+
 
 
         { echo "$as_me:$LINENO: checking for strerror in -lcposix" >&5
@@ -23369,6 +23850,10 @@ echo "$as_me: error: conditional \"am__fastdepCXX\" was never defined.
 Usually this means the macro was only invoked conditionally." >&2;}
    { (exit 1); exit 1; }; }
 fi
+
+  ac_config_commands="$ac_config_commands po/stamp-it"
+
+
 if test -z "${am__fastdepCC_TRUE}" && test -z "${am__fastdepCC_FALSE}"; then
   { { echo "$as_me:$LINENO: error: conditional \"am__fastdepCC\" was never defined.
 Usually this means the macro was only invoked conditionally." >&5
@@ -23848,6 +24333,11 @@ AMDEP_TRUE="$AMDEP_TRUE" ac_aux_dir="$ac_aux_dir"
     # Capture the value of LINGUAS because we need it to compute CATALOGS.
     LINGUAS="${LINGUAS-%UNSET%}"
 
+INTLTOOL_PERL='${INTLTOOL_PERL}' ac_aux_dir='${ac_aux_dir}'
+prefix="$prefix" exec_prefix="$exec_prefix" INTLTOOL_LIBDIR="$libdir"
+INTLTOOL_EXTRACT='${INTLTOOL_EXTRACT}' INTLTOOL_ICONV='${INTLTOOL_ICONV}'
+INTLTOOL_MSGFMT='${INTLTOOL_MSGFMT}' INTLTOOL_MSGMERGE='${INTLTOOL_MSGMERGE}'
+INTLTOOL_XGETTEXT='${INTLTOOL_XGETTEXT}'
 
 _ACEOF
 
@@ -23860,6 +24350,7 @@ do
     "config.h") CONFIG_HEADERS="$CONFIG_HEADERS config.h" ;;
     "depfiles") CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
     "default-1") CONFIG_COMMANDS="$CONFIG_COMMANDS default-1" ;;
+    "intltool") CONFIG_COMMANDS="$CONFIG_COMMANDS intltool" ;;
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
     "src/cut-and-paste/Makefile") CONFIG_FILES="$CONFIG_FILES src/cut-and-paste/Makefile" ;;
     "src/cut-and-paste/e-map/Makefile") CONFIG_FILES="$CONFIG_FILES src/cut-and-paste/e-map/Makefile" ;;
@@ -23867,6 +24358,7 @@ do
     "desktop/Makefile") CONFIG_FILES="$CONFIG_FILES desktop/Makefile" ;;
     "pixmaps/Makefile") CONFIG_FILES="$CONFIG_FILES pixmaps/Makefile" ;;
     "po/Makefile.in") CONFIG_FILES="$CONFIG_FILES po/Makefile.in" ;;
+    "po/stamp-it") CONFIG_COMMANDS="$CONFIG_COMMANDS po/stamp-it" ;;
 
   *) { { echo "$as_me:$LINENO: error: invalid argument: $ac_config_target" >&5
 echo "$as_me: error: invalid argument: $ac_config_target" >&2;}
@@ -24087,6 +24579,34 @@ INTLLIBS!$INTLLIBS$ac_delim
 LIBINTL!$LIBINTL$ac_delim
 LTLIBINTL!$LTLIBINTL$ac_delim
 POSUB!$POSUB$ac_delim
+INTLTOOL_DESKTOP_RULE!$INTLTOOL_DESKTOP_RULE$ac_delim
+INTLTOOL_DIRECTORY_RULE!$INTLTOOL_DIRECTORY_RULE$ac_delim
+INTLTOOL_KEYS_RULE!$INTLTOOL_KEYS_RULE$ac_delim
+INTLTOOL_PROP_RULE!$INTLTOOL_PROP_RULE$ac_delim
+INTLTOOL_OAF_RULE!$INTLTOOL_OAF_RULE$ac_delim
+INTLTOOL_PONG_RULE!$INTLTOOL_PONG_RULE$ac_delim
+INTLTOOL_SERVER_RULE!$INTLTOOL_SERVER_RULE$ac_delim
+INTLTOOL_SHEET_RULE!$INTLTOOL_SHEET_RULE$ac_delim
+INTLTOOL_SOUNDLIST_RULE!$INTLTOOL_SOUNDLIST_RULE$ac_delim
+INTLTOOL_UI_RULE!$INTLTOOL_UI_RULE$ac_delim
+INTLTOOL_XAM_RULE!$INTLTOOL_XAM_RULE$ac_delim
+INTLTOOL_KBD_RULE!$INTLTOOL_KBD_RULE$ac_delim
+INTLTOOL_XML_RULE!$INTLTOOL_XML_RULE$ac_delim
+INTLTOOL_XML_NOMERGE_RULE!$INTLTOOL_XML_NOMERGE_RULE$ac_delim
+INTLTOOL_CAVES_RULE!$INTLTOOL_CAVES_RULE$ac_delim
+INTLTOOL_SCHEMAS_RULE!$INTLTOOL_SCHEMAS_RULE$ac_delim
+INTLTOOL_THEME_RULE!$INTLTOOL_THEME_RULE$ac_delim
+INTLTOOL_SERVICE_RULE!$INTLTOOL_SERVICE_RULE$ac_delim
+INTLTOOL_EXTRACT!$INTLTOOL_EXTRACT$ac_delim
+INTLTOOL_MERGE!$INTLTOOL_MERGE$ac_delim
+INTLTOOL_UPDATE!$INTLTOOL_UPDATE$ac_delim
+INTLTOOL_PERL!$INTLTOOL_PERL$ac_delim
+INTLTOOL_ICONV!$INTLTOOL_ICONV$ac_delim
+INTLTOOL_MSGFMT!$INTLTOOL_MSGFMT$ac_delim
+INTLTOOL_MSGMERGE!$INTLTOOL_MSGMERGE$ac_delim
+INTLTOOL_XGETTEXT!$INTLTOOL_XGETTEXT$ac_delim
+ALL_LINGUAS!$ALL_LINGUAS$ac_delim
+DATADIRNAME!$DATADIRNAME$ac_delim
 PYTHON!$PYTHON$ac_delim
 PYTHON_VERSION!$PYTHON_VERSION$ac_delim
 PYTHON_PREFIX!$PYTHON_PREFIX$ac_delim
@@ -24114,7 +24634,7 @@ LIBOBJS!$LIBOBJS$ac_delim
 LTLIBOBJS!$LTLIBOBJS$ac_delim
 _ACEOF
 
-  if test `sed -n "s/.*$ac_delim\$/X/p" conf$$subs.sed | grep -c X` = 45; then
+  if test `sed -n "s/.*$ac_delim\$/X/p" conf$$subs.sed | grep -c X` = 73; then
     break
   elif $ac_last_try; then
     { { echo "$as_me:$LINENO: error: could not make $CONFIG_STATUS" >&5
@@ -24792,6 +25312,50 @@ done
         ;;
       esac
     done ;;
+    "intltool":C)
+
+for file in intltool-extract intltool-merge intltool-update; do
+  sed -e "s|@INTLTOOL_EXTRACT@|`pwd`/intltool-extract|g" \
+      -e "s|@INTLTOOL_LIBDIR@|${INTLTOOL_LIBDIR}|g" \
+      -e "s|@INTLTOOL_ICONV@|${INTLTOOL_ICONV}|g" \
+      -e "s|@INTLTOOL_MSGFMT@|${INTLTOOL_MSGFMT}|g" \
+      -e "s|@INTLTOOL_MSGMERGE@|${INTLTOOL_MSGMERGE}|g" \
+      -e "s|@INTLTOOL_XGETTEXT@|${INTLTOOL_XGETTEXT}|g" \
+      -e "s|@INTLTOOL_PERL@|${INTLTOOL_PERL}|g" \
+	< ${ac_aux_dir}/${file}.in > ${file}.out
+  if cmp -s ${file} ${file}.out 2>/dev/null; then
+    rm -f ${file}.out
+  else
+    mv -f ${file}.out ${file}
+  fi
+  chmod ugo+x ${file}
+  chmod u+w ${file}
+done
+
+ ;;
+    "po/stamp-it":C)
+    rm -f "po/stamp-it" "po/stamp-it.tmp" "po/POTFILES" "po/Makefile.tmp"
+    >"po/stamp-it.tmp"
+    sed '/^#/d
+	 s/^[[].*] *//
+	 /^[ 	]*$/d
+	'"s|^|	$ac_top_srcdir/|" \
+      "$srcdir/po/POTFILES.in" | sed '$!s/$/ \\/' >"po/POTFILES"
+
+    if test ! -f "po/Makefile"; then
+      { { echo "$as_me:$LINENO: error: po/Makefile is not ready." >&5
+echo "$as_me: error: po/Makefile is not ready." >&2;}
+   { (exit 1); exit 1; }; }
+    fi
+    mv "po/Makefile" "po/Makefile.tmp"
+    sed '/^POTFILES =/,/[^\\]$/ {
+		/^POTFILES =/!d
+		r po/POTFILES
+	  }
+	 ' "po/Makefile.tmp" >"po/Makefile"
+    rm -f "po/Makefile.tmp"
+    mv "po/stamp-it.tmp" "po/stamp-it"
+   ;;
 
   esac
 done # for ac_tag
