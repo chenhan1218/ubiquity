@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Mon Jul  2 20:23:28 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.2.0 on Sun Jul  8 19:46:45 2007 by supermario@portablemario-->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -36,7 +36,7 @@
         <child>
           <widget class="GtkVBox" id="vbox10">
             <property name="visible">True</property>
-            <property name="spacing">24</property>
+            <property name="spacing">10</property>
             <child>
               <widget class="GtkExpander" id="frontend_driver_list">
                 <property name="visible">True</property>
@@ -50,12 +50,16 @@
                     <property name="spacing">5</property>
                     <child>
                       <widget class="GtkLabel" id="frontend_driver_list_description">
+                        <property name="width_request">600</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">Proprietary Graphics Drivers can provide enhanced performance during High Definition Video playback and Menu Effects.  They are also required for TV-Output.</property>
                         <property name="wrap">True</property>
                       </widget>
+                      <packing>
+                        <property name="expand">False</property>
+                      </packing>
                     </child>
                     <child>
                       <widget class="GtkCheckButton" id="proprietarydrivers">
@@ -67,6 +71,7 @@
                         <signal name="toggled" handler="toggle_proprietary"/>
                       </widget>
                       <packing>
+                        <property name="expand">False</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
@@ -81,6 +86,9 @@
                             <property name="label" translatable="yes">Automatically detected:</property>
                             <property name="wrap">True</property>
                           </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                          </packing>
                         </child>
                         <child>
                           <widget class="GtkLabel" id="auto_detect_driver">
@@ -89,11 +97,14 @@
                             <property name="wrap">True</property>
                           </widget>
                           <packing>
+                            <property name="expand">False</property>
+                            <property name="padding">15</property>
                             <property name="position">1</property>
                           </packing>
                         </child>
                       </widget>
                       <packing>
+                        <property name="expand">False</property>
                         <property name="position">2</property>
                       </packing>
                     </child>
@@ -106,6 +117,7 @@
                         <property name="wrap">True</property>
                       </widget>
                       <packing>
+                        <property name="expand">False</property>
                         <property name="position">3</property>
                       </packing>
                     </child>
@@ -123,6 +135,9 @@ S-Video Video Output
 Component Video Output</property>
                             <signal name="changed" handler="toggle_tv_out"/>
                           </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                          </packing>
                         </child>
                         <child>
                           <widget class="GtkComboBox" id="tvoutstandard">
@@ -149,11 +164,13 @@ HD1080p</property>
                             <signal name="changed" handler="toggle_tv_standard"/>
                           </widget>
                           <packing>
+                            <property name="expand">False</property>
                             <property name="position">1</property>
                           </packing>
                         </child>
                       </widget>
                       <packing>
+                        <property name="expand">False</property>
                         <property name="position">4</property>
                       </packing>
                     </child>
@@ -166,6 +183,7 @@ HD1080p</property>
                         <property name="wrap">True</property>
                       </widget>
                       <packing>
+                        <property name="expand">False</property>
                         <property name="position">5</property>
                       </packing>
                     </child>
@@ -184,6 +202,9 @@ HD1080p</property>
                   </packing>
                 </child>
               </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
             </child>
             <child>
               <widget class="GtkExpander" id="backend_driver_list">
@@ -196,13 +217,17 @@ HD1080p</property>
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <child>
-                      <widget class="GtkLabel" id="backend_driver_list_description2">
+                      <widget class="GtkLabel" id="backend_driver_list_description">
+                        <property name="width_request">600</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">Choose all tuners that you will be using on this system that are currently present.  If you will be adding a tuner later, this can be later reconfigured.</property>
                         <property name="wrap">True</property>
                       </widget>
+                      <packing>
+                        <property name="expand">False</property>
+                      </packing>
                     </child>
                     <child>
                       <widget class="GtkHBox" id="hbox1">
@@ -210,12 +235,16 @@ HD1080p</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <child>
                           <widget class="GtkLabel" id="choosetuners">
+                            <property name="width_request">450</property>
                             <property name="visible">True</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">Please Choose How many Tuners will be present on this Backend:</property>
                             <property name="wrap">True</property>
                           </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                          </packing>
                         </child>
                         <child>
                           <widget class="GtkSpinButton" id="number_tuners">
@@ -226,11 +255,14 @@ HD1080p</property>
                             <signal name="value_changed" handler="toggle_number_tuners"/>
                           </widget>
                           <packing>
+                            <property name="expand">False</property>
                             <property name="position">1</property>
                           </packing>
                         </child>
                       </widget>
                       <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
@@ -262,6 +294,7 @@ Other V4L Supported Digital Capture Card</property>
                         <signal name="changed" handler="toggle_tuners"/>
                       </widget>
                       <packing>
+                        <property name="expand">False</property>
                         <property name="position">2</property>
                       </packing>
                     </child>
@@ -292,6 +325,7 @@ Other V4L Supported Digital Capture Card</property>
                         <signal name="changed" handler="toggle_tuners"/>
                       </widget>
                       <packing>
+                        <property name="expand">False</property>
                         <property name="position">3</property>
                       </packing>
                     </child>
@@ -322,6 +356,7 @@ Other V4L Supported Digital Capture Card</property>
                         <signal name="changed" handler="toggle_tuners"/>
                       </widget>
                       <packing>
+                        <property name="expand">False</property>
                         <property name="position">4</property>
                       </packing>
                     </child>
@@ -352,6 +387,7 @@ Other V4L Supported Digital Capture Card</property>
                         <signal name="changed" handler="toggle_tuners"/>
                       </widget>
                       <packing>
+                        <property name="expand">False</property>
                         <property name="position">5</property>
                       </packing>
                     </child>
@@ -382,6 +418,7 @@ Other V4L Supported Digital Capture Card</property>
                         <signal name="changed" handler="toggle_tuners"/>
                       </widget>
                       <packing>
+                        <property name="expand">False</property>
                         <property name="position">6</property>
                       </packing>
                     </child>
@@ -392,6 +429,7 @@ Other V4L Supported Digital Capture Card</property>
                         <property name="label" translatable="yes">If your tuner isn't list above, please contact us at tuners@mythbuntu.org with more information.</property>
                       </widget>
                       <packing>
+                        <property name="expand">False</property>
                         <property name="position">7</property>
                       </packing>
                     </child>
@@ -409,6 +447,7 @@ Other V4L Supported Digital Capture Card</property>
                 </child>
               </widget>
               <packing>
+                <property name="expand">False</property>
                 <property name="position">1</property>
               </packing>
             </child>

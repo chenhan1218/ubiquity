@@ -45,5 +45,12 @@ db_input high mythtv/mysql_mythtv_dbname || true
 db_input high mythtv/mysql_host || true
 #root password
 db_input high mythtv/mysql_admin_password || true
-#mythweb pass
-#TODO
+#mythweb htaccess
+db_input high mythweb/enable || true
+db_input high mythweb/username || true
+db_input high mythweb/password || true
+#remote controls
+db_input high mythbuntu/en_lirc || true
+db_input high mythbuntu/lirc_remote || true
+db_input high mythbuntu/lirc_driver || true
+db_input high mythbuntu/lirc_rc || true

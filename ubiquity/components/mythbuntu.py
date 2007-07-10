@@ -52,7 +52,14 @@ class MythbuntuSetup(FilteredCommand):
              '^mythtv/mysql_mythtv_user',
              '^mythtv/mysql_mythtv_password',
              '^mythtv/mysql_mythtv_dbname',
-             '^mythtv/mysql_host']
+             '^mythtv/mysql_host',
+             '^mythweb/enable',
+             '^mythweb/username',
+             '^mythweb/password',
+             '^mythbuntu/en_lirc',
+             '^mythbuntu/lirc_remote',
+             '^mythbuntu/lirc_driver',
+             '^mythbuntu/lirc_rc']
         return (['/usr/share/ubiquity/mythbuntu-ask'], questions)
 
     def run(self,priority,question):
@@ -121,35 +128,35 @@ class MythbuntuSetup(FilteredCommand):
             self.preseed('mythbuntu/communitythemes', community)
             return True
         elif question.startswith('mythtv/mysql_admin_password'):
-            if self.frontend.get_secure_mysql() == "yes":
+            if self.frontend.get_secure_mysql():
                 mysql_root = self.frontend.get_mysql_root_password()
             else:
                 mysql_root = ""
             self.preseed('mythtv/mysql_admin_password',mysql_root)
             return True
         elif question.startswith('mythtv/mysql_mythtv_user'):
-            if self.frontend.get_uselivemysqlinfo() == "no":
+            if not self.frontend.get_uselivemysqlinfo():
                 mysqluser = self.frontend.get_mysqluser()
             else:
                 mysqluser = self.db.get('mythtv/mysql_mythtv_user')
             self.preseed('mythtv/mysql_mythtv_user', mysqluser)
             return True
         elif question.startswith('mythtv/mysql_mythtv_password'):
-            if self.frontend.get_uselivemysqlinfo() == "no":
+            if not self.frontend.get_uselivemysqlinfo():
                 mysqlpass = self.frontend.get_mysqlpass()
             else:
                 mysqlpass = self.db.get('mythtv/mysql_mythtv_password')
             self.preseed('mythtv/mysql_mythtv_password', mysqlpass)
             return True
         elif question.startswith('mythtv/mysql_mythtv_dbname'):
-            if self.frontend.get_uselivemysqlinfo() == "no":
+            if not self.frontend.get_uselivemysqlinfo():
                 mysqldatabase = self.frontend.get_mysqldatabase()
             else:
                 mysqldatabase = self.db.get('mythtv/mysql_mythtv_dbname')
             self.preseed('mythtv/mysql_mythtv_dbname', mysqldatabase)
             return True
         elif question.startswith('mythtv/mysql_host'):
-            if self.frontend.get_uselivemysqlinfo() == "no":
+            if not self.frontend.get_uselivemysqlinfo():
                 mysqlserver = self.frontend.get_mysqlserver()
             else:
                 mysqlserver = self.db.get('mythtv/mysql_host')
@@ -160,7 +167,7 @@ class MythbuntuSetup(FilteredCommand):
             self.preseed('mythbuntu/vncservice', vnc)
             return True
         elif question.startswith('mythbuntu/vnc_password'):
-            if self.frontend.get_vnc() == "no":
+            if not self.frontend.get_vnc():
                 vnc_pass = "N/A"
             else:
                 vnc_pass = self.frontend.get_vnc_password()
@@ -181,6 +188,45 @@ class MythbuntuSetup(FilteredCommand):
         elif question.startswith('mythbuntu/mysqlservice'):
             mysql_secure = self.frontend.get_mysql_port()
             self.preseed('mythbuntu/mysqlservice', mysql_secure)
+            return True
+        elif question.startswith('mythweb/enable'):
+            if self.frontend.get_secure_mythweb():
+                self.preseed('mythweb/enable', 'true')
+            else:
+                self.preseed('mythweb/enable', 'false')
+            return True
+        elif question.startswith('mythweb/username'):
+            user = self.frontend.get_mythweb_username()
+            self.preseed('mythweb/username', user)
+            return True
+        elif question.startswith('mythweb/password'):
+            passw = self.frontend.get_mythweb_password()
+            self.preseed('mythweb/password', passw)
+            return True
+        elif question.startswith('mythbuntu/en_lirc'):
+            en_lirc = self.frontend.get_lirc()
+            self.preseed('mythbuntu/en_lirc',en_lirc)
+            return True
+        elif question.startswith('mythbuntu/lirc_remote'):
+            if self.frontend.get_lirc():
+                remote = self.frontend.get_lirc_remote()
+            else:
+                remote = "n/a"
+            self.preseed('mythbuntu/lirc_remote',remote)
+            return True
+        elif question.startswith('mythbuntu/lirc_driver'):
+            if self.frontend.get_lirc():
+                driver = self.frontend.get_lirc_driver()
+            else:
+                driver = "n/a"
+            self.preseed('mythbuntu/lirc_driver',driver)
+            return True
+        elif question.startswith('mythbuntu/lirc_rc'):
+            if self.frontend.get_lirc():
+                rc = self.frontend.get_lirc_rc()
+            else:
+                rc = "n/a"
+            self.preseed('mythbuntu/lirc_rc',rc)
             return True
         return FilteredCommand.run(self, priority, question)
 

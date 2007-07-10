@@ -40,9 +40,9 @@ _Description: Ready to install
       NFS:                ${EN_NFS}
       Open MySQL Port:    ${EN_MYSQL}
  .
-  Normal Ubuntu Install Questions:   
+  Normal Ubuntu Install Questions:
       Language:           ${LANGUAGE}
-      Keyboard layout:    ${KEYMAP}  
+      Keyboard layout:    ${KEYMAP}
       Regular Name:       ${FULLNAME}
       Regular Login name: ${USERNAME}
       Location:           ${LOCATION}
@@ -64,7 +64,7 @@ _Description: Standard Installation
 Template: ubiquity/text/standard_label
 Type: text
 _Description:
- A standard installation will install and configure every option with minimal user interaction. 
+ A standard installation will install and configure every option with minimal user interaction.
  This will install a backend, frontend, all plugins, and all themes.
 
 Template: ubiquity/text/custominstall
@@ -75,7 +75,7 @@ Template: ubiquity/text/custom_label
 Type: text
 _Description:
  An advanced installation can be used to customize what is needed for this Mythbuntu install.
- NOTE: An advanced install is necessary to add a Mythbuntu 
+ NOTE: An advanced install is necessary to add a Mythbuntu
  machine to an existing MythTV based network.
 
 Template: ubiquity/text/installtype_heading_label
@@ -97,8 +97,8 @@ _Description: Primary Backend w/ Frontend
 Template: ubiquity/text/master_be_fe_label
 Type: text
 _Description:
- A Backend/frontend combo machine is the most common setup for people wanting 
- MythTV for HTPC applications. This type of installation is intended for use as a 
+ A Backend/frontend combo machine is the most common setup for people wanting
+ MythTV for HTPC applications. This type of installation is intended for use as a
  component in your home theatre.
 
 Template: ubiquity/text/slave_be_fe
@@ -108,7 +108,7 @@ _Description: Secondary Backend w/ Frontend
 Template: ubiquity/text/slave_be_fe_label
 Type: text
 _Description:
- This will set up a system similar to a Primary Backend w/ Frontend, however will be 
+ This will set up a system similar to a Primary Backend w/ Frontend, however will be
  configured to connect to an existing backend on the network.
 
 Template: ubiquity/text/master_be
@@ -164,7 +164,7 @@ _Description: mythweb
 Template: ubiquity/text/mythweb_label
 Type: text
 _Description:
- MythWeb provides a web interface which can be used to view listings, 
+ MythWeb provides a web interface which can be used to view listings,
  schedule recordings, delete recordings, and search for programs.
 
 Template: ubiquity/text/mytharchive
@@ -294,7 +294,7 @@ _Description: This themes package includes all themes distributed by the MythTV 
 Template: ubiquity/text/communitythemes_label
 Type: text
 _Description:
- This themes package is a collection of community themes generated 
+ This themes package is a collection of community themes generated
  by other MythTV users.
 
 Template: ubiquity/text/driver_heading_label
@@ -304,13 +304,13 @@ _Description: Additional Drivers/Firmware
 Template: ubiquity/text/driver_description
 Type: text
 _Description:
- Proprietary video drivers aren't necessary for MythTV usage unless you need TV out on your 
- machine.  They can, however, provide enhanced performance for high definition content and 
+ Proprietary video drivers aren't necessary for MythTV usage unless you need TV out on your
+ machine.  They can, however, provide enhanced performance for high definition content and
  enable OpenGL effects in MythTV.
 
 Template: ubiquity/text/proprietarydrivers
 Type: text
-_Description: Install Proprietary Video Driver    
+_Description: Install Proprietary Video Driver
 
 Template: ubiquity/text/tvout_label
 Type: text
@@ -367,8 +367,8 @@ _Description: Click to open the TMS Zap2It website
 Template: ubiquity/text/zap2it_description
 Type: text
 _Description:
- Users in the US will need to setup an account with Tribune Media Services (TMS).  
- TMS provides guide data at no charge, only requiring users to fill out a survey once 
+ Users in the US will need to setup an account with Tribune Media Services (TMS).
+ TMS provides guide data at no charge, only requiring users to fill out a survey once
  every 3 months. When setting up an account, the MythTV project code is:
  ZIYN-DQZO-SBUT
 
@@ -380,7 +380,7 @@ Template: ubiquity/text/myth_button_description
 Type: text
 _Description:
  After setting up your guide data source, you will need to launch MythTV-Setup to
- run the backend configuration for the first time.  You will need to configure the first 
+ run the backend configuration for the first time.  You will need to configure the first
  four sections, being sure to provide your guide data during the third.
 
 Template: ubiquity/install/mythbuntu
@@ -394,6 +394,10 @@ _Description: Configuring additional drivers...
 Template: ubiquity/install/services
 Type: text
 _Description: Configuring additional services...
+
+Template: ubiquity/install/remote
+Type: text
+_Description: Configuring remote control...
 
 Template: mythbuntu/install_type
 Type: string
@@ -495,3 +499,20 @@ Description: for internal use; determines if nfs is enabled
 Template: mythbuntu/mysqlservice
 Type: string
 Description: for internal use; determines if mysql access is enabled
+
+Template: mythbuntu/en_lirc
+Type: string
+Description: for internal use; determines if mysql access is enabled
+
+Template: mythbuntu/lirc_remote
+Type: string
+Description: for internal use; determines if mysql access is enabled
+
+Template: mythbuntu/lirc_driver
+Type: string
+Description: for internal use; determines if mysql access is enabled
+
+Template: mythbuntu/lirc_rc
+Type: string
+Description: for internal use; determines if mysql access is enabled
+
