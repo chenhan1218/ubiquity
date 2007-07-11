@@ -42,7 +42,11 @@ ubiquity (1.5.5) UNRELEASED; urgency=low
   * Set all mythbuntu labels to word wrap.
   * Add mythbuntu to translatable files.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 05 Jul 2007 14:54:31 -0400
+  [ Evan Dandrea ]
+  * Automatic update of included source packages: base-installer
+    1.80ubuntu2, hw-detect 1.53ubuntu1, silo-installer 1.10ubuntu4.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 11 Jul 2007 10:22:21 +0100
 
 ubiquity (1.5.4) gutsy; urgency=low
 
