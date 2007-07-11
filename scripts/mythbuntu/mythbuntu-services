@@ -164,7 +164,7 @@ db_get mythbuntu/sshservice
 SSH="$RET"
 db_get mythbuntu/mysqlservice
 MYSQL="$RET"
-if [ "$SAMBA" = "yes" -o "$NFS" = "yes" ]; then
+if [ "$SAMBA" = "yes" ] || [ "$NFS" = "yes" ]; then
     db_get mythbuntu/mythvideo
     VIDEO="$RET"
     db_get mythbuntu/mythgallery

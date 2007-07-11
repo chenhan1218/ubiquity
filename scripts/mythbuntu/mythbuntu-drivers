@@ -118,7 +118,7 @@ EOF
 #Enable Proprietary Drivers as necessary
 db_get mythbuntu/proprietary_driver
 PROP="$RET"
-if [ "$PROP" = "nvidia" -o "$PROP" = "fglrx" ]; then
+if [ "$PROP" = "nvidia" ] || [ "$PROP" = "fglrx" ]; then
     #Due to bug 119562, restricted manager won't do this
     #For us automatically.
     #$log $chroot $ROOT /usr/bin/restricted-manager -e $PROP
