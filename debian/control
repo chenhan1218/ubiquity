@@ -60,7 +60,7 @@ Description: KDE frontend for Ubiquity live installer
  live CD installer.
 
 Package: ubiquity-frontend-mythbuntu
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity, ubiquity-frontend-gtk, restricted-manager, mythtv-common, python-mysqldb, expect, guidance-backends, vnc4-common
 XB-Python-Version: ${python:Versions}
 Description: Mythbuntu frontend for the Ubiquity live installer
