@@ -1,12 +1,17 @@
 ubiquity (1.5.6) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Make ubiquity-frontend-mythbuntu Architecture: all.
   * Fix question_type vs. self.question_type crash in partman_commit
     (LP: #125539).
   * Unmangle entries from /etc/mtab before trying to unmount them (also
     LP: #125539).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Jul 2007 09:49:24 +0100
+  [ Evan Dandrea ]
+  * Don't preseed seen to false, or stay in the gtk event loop on the
+    summary page, when using --automatic.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 13 Jul 2007 15:05:54 +0100
 
 ubiquity (1.5.5) gutsy; urgency=low
 
