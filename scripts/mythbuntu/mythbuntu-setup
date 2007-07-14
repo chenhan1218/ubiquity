@@ -15,8 +15,7 @@ mount -t sysfs sysfs $ROOT/sys
 mount --bind /lib/modules/`uname -r`/volatile $ROOT/lib/modules/`uname -r`/volatile
 
 #to run X apps in the chroot
-HOSTNAME=`cat $ROOT/etc/hostname`
-xhost +$HOSTNAME
+xhost +
 mkdir -p $ROOT/tmp/.X11-unix
 mount --bind /tmp/.X11-unix $ROOT/tmp/.X11-unix
 xauth extract - $DISPLAY > $ROOT/tmp/Xcookie

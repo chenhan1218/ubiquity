@@ -40,6 +40,8 @@
 ##################################################################################
 
 import os
+import re
+import string
 import subprocess
 import syslog
 import signal
@@ -110,6 +112,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
     def __init__(self, distro):
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
+        self.populate_lirc()
 
     def run(self):
         """run the interface."""
@@ -413,6 +416,26 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
 
 #Added Methods
+    def populate_lirc(self):
+        """Fills the lirc pages with the appropriate data"""
+        #Note, this requires lirc >= 0.8.2
+        hwdb = open('/usr/share/lirc/lirc.hwdb')
+        remotes = []
+        drivers = []
+        lircd = []
+        #Filter out uncessary lines
+        filter = "^\#|^\["
+        pattern = re.compile(filter)
+        for line in hwdb:
+            if pattern.search(line) is None:
+                list = string.split(line, ";")
+                if len(list) > 1:
+                    self.lirc_remote.append_text(list[0])
+                    self.lirc_driver.append_text(list[2])
+                    self.lirc_rc.append_text(list[4])
+        hwdb.close()
+        self.lirc_remote.append_text("Other Remote")
+
     def allow_go_backward(self, allowed):
         self.back.set_sensitive(allowed and self.allowed_change_step)
         self.allowed_go_backward = allowed
@@ -892,7 +915,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         if (widget is not None and widget.get_name() == 'lirc_remote'):
             #If the remote type isn't other, don't
             #allow them to change any other settings
-            if (widget.get_active() == 5):
+            if (widget.get_active_text() == "Other Remote"):
                 self.lirc_driver.set_sensitive(True)
                 self.lirc_driver_label.set_sensitive(True)
                 self.lirc_rc.set_sensitive(True)
@@ -905,34 +928,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 self.lirc_rc_label.set_sensitive(False)
                 self.lirc_bug_vbox.hide()
 
-                #no remote chosen
-                if (widget.get_active() == 0):
-                    self.lirc_driver.set_active(0)
-                    self.lirc_rc.set_active(0)
-                #ATI RF Remote
-                elif (widget.get_active() == 1):
-                    #atiusb
-                    self.lirc_driver.set_active(1)
-                    #ATI RF
-                    self.lirc_rc.set_active(1)
-                #Hauppaugge PVR-XXX Series
-                elif (widget.get_active() == 2):
-                    #i2c
-                    self.lirc_driver.set_active(5)
-                    #Hauppaugge
-                    self.lirc_rc.set_active(2)
-                #Windows MCE Ver 1
-                elif (widget.get_active() == 3):
-                    #mceusb
-                    self.lirc_driver.set_active(9)
-                    #Windows Media Center
-                    self.lirc_rc.set_active(3)
-                #Windows MCE Ver 2
-                elif (widget.get_active() == 4):
-                    #mceusb2
-                    self.lirc_driver.set_active(10)
-                    #Windows Media Center
-                    self.lirc_rc.set_active(3)
+            self.lirc_driver.set_active(widget.get_active())
+            self.lirc_rc.set_active(widget.get_active())
 
     def get_installtype(self):
         """Returns the current custom installation type"""
