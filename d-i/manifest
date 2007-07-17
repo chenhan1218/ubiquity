@@ -10,9 +10,9 @@ kboot-installer 0.0.1ubuntu3
 localechooser 1.38ubuntu1
 migration-assistant 0.4.5
 partconf 1.23
-partman-auto 69ubuntu1
-partman-base 107ubuntu1
-partman-basicfilesystems 54ubuntu1
+partman-auto 69ubuntu3
+partman-base 107ubuntu2
+partman-basicfilesystems 54ubuntu2
 partman-basicmethods 35
 partman-efi 13ubuntu1
 partman-ext3 47
@@ -20,7 +20,7 @@ partman-jfs 22
 partman-newworld 18ubuntu1
 partman-partitioning 50ubuntu1
 partman-reiserfs 36
-partman-target 50ubuntu1
+partman-target 50ubuntu2
 partman-xfs 34
 silo-installer 1.10ubuntu4
 tzsetup 1:0.17

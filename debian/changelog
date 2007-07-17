@@ -11,8 +11,11 @@ ubiquity (1.5.6) UNRELEASED; urgency=low
   * Don't preseed seen to false, or stay in the gtk event loop on the
     summary page, when using --automatic.
   * Temporary workaround for 122645.
+  * Automatic update of included source packages: partman-auto
+    69ubuntu3, partman-base 107ubuntu2, partman-basicfilesystems
+    54ubuntu2, partman-target 50ubuntu2.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 17 Jul 2007 09:39:19 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 17 Jul 2007 09:47:01 -0400
 
 ubiquity (1.5.5) gutsy; urgency=low
 
