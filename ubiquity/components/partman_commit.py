@@ -54,7 +54,7 @@ class PartmanCommit(FilteredCommand):
             self.preseed(question, 'true')
             return True
 
-        elif question_type(question) == 'boolean':
+        elif self.question_type(question) == 'boolean':
             response = self.frontend.question_dialog(
                 self.description(question),
                 self.extended_description(question),

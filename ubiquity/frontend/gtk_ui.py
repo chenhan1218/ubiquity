@@ -1167,7 +1167,8 @@ class Wizard(BaseFrontend):
 
     def debconffilter_done (self, dbfilter):
         if BaseFrontend.debconffilter_done(self, dbfilter):
-            if isinstance(dbfilter, summary.Summary):
+            if isinstance(dbfilter, summary.Summary) and \
+                not 'UBIQUITY_AUTOMATIC' in os.environ:
                 # The Summary component is just there to gather information,
                 # and won't call run_main_loop() for itself.
                 self.allow_change_step(True)

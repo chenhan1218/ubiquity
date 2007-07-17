@@ -201,8 +201,8 @@ fix_init_scripts
 #Only used on backend
 db_get mythbuntu/install_type
 TYPE="$RET"
-if [ "$TYPE" = "Master Backend/Frontend" -o "$TYPE" = "Master Backend" -o "$TYPE" = "Slave Backend/Frontend" -o "$TYPE" = "Slave Backend" ]; then
-    if [ "$TYPE" = "Master Backend/Frontend" -o "$TYPE" = "Master Backend" ]; then
+if [ "$TYPE" = "Master Backend/Frontend" ] || [ "$TYPE" = "Master Backend" ] || [ "$TYPE" = "Slave Backend/Frontend" ] || [ "$TYPE" = "Slave Backend" ]; then
+    if [ "$TYPE" = "Master Backend/Frontend" ] || [ "$TYPE" = "Master Backend" ]; then
         #Check for needing to set up a DB too
         #If so - do it
         db_get mythtv/mysql_admin_user

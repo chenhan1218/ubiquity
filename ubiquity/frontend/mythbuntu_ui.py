@@ -947,107 +947,107 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
     def get_mytharchive(self):
         """Returns the status of the mytharchive plugin"""
         if self.mytharchive.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mythbrowser(self):
         """Returns the status of the mythbrowser plugin"""
         if self.mythbrowser.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mythcontrols(self):
         """Returns the status of the mythcontrols plugin"""
         if self.mythcontrols.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mythdvd(self):
         """Returns the status of the mythdvd plugin"""
         if self.mythdvd.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mythflix(self):
         """Returns the status of the mythflix plugin"""
         if self.mythflix.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mythgallery(self):
         """Returns the status of the mythgallery plugin"""
         if self.mythgallery.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mythgame(self):
         """Returns the status of the mythgame plugin"""
         if self.mythgame.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mythmusic(self):
         """Returns the status of the mythmusic plugin"""
         if self.mythmusic.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mythnews(self):
         """Returns the status of the mythnews plugin"""
         if self.mythnews.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mythphone(self):
         """Returns the status of the mythphone plugin"""
         if self.mythphone.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mythvideo(self):
         """Returns the status of the mythvideo plugin"""
         if self.mythvideo.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mythweather(self):
         """Returns the status of the mythweather plugin"""
         if self.mythweather.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mythweb(self):
         """Returns the status of the mythweb plugin"""
         if self.mythweb.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_officialthemes(self):
         """Returns the status of the official themes"""
         if self.officialthemes.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_communitythemes(self):
         """Returns the status of the community themes"""
         if self.communitythemes.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
     def get_proprietary(self):
         """Returns the status of the proprietary graphics drivers"""
         if (self.proprietarydrivers.get_active()):
@@ -1071,9 +1071,9 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def get_uselivemysqlinfo(self):
         if (self.uselivemysqlinfo.get_active()):
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mysqluser(self):
         return self.mysql_user.get_text()
@@ -1089,18 +1089,18 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def get_secure_mysql(self):
         if self.usemysqlrootpassword.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mysql_root_password(self):
         return self.mysql_root_password.get_text()
 
     def get_secure_mythweb(self):
         if self.usemythwebpassword.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mythweb_username(self):
         return self.mythweb_username.get_text()
@@ -1110,41 +1110,41 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def get_vnc(self):
         if self.enablevnc.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_vnc_password(self):
         return self.vnc_password.get_text()
 
     def get_ssh(self):
         if self.enablessh.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_samba(self):
         if self.enablesamba.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_nfs(self):
         if self.enablenfs.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_mysql_port(self):
         if self.enablemysql.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
     def get_lirc(self):
         if self.lirc_enable.get_active():
-            return "yes"
+            return True
         else:
-            return "no"
+            return False
 
     def get_lirc_remote(self):
         return self.lirc_remote.get_active_text()

@@ -25,7 +25,7 @@ cat $ROOT/tmp/Xcookie | $chroot $ROOT xauth merge -
 #Prepare chroot script
 db_get mythbuntu/install_type
 TYPE="$RET"
-if [ "$TYPE" = "Master Backend/Frontend" -o "$TYPE" = "Master Backend" ]; then
+if [ "$TYPE" = "Master Backend/Frontend" ] || [ "$TYPE" = "Master Backend" ]; then
     cat <<SETUP >$ROOT/tmp/mythtv_setup
 #!/bin/bash
 

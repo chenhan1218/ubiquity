@@ -48,8 +48,9 @@ class ConsoleSetup(FilteredCommand):
         # Make sure debconf doesn't do anything with crazy "preseeded"
         # answers to these questions. If you want to preseed these, use the
         # *code variants.
-        self.db.fset('console-setup/layout', 'seen', 'false')
-        self.db.fset('console-setup/variant', 'seen', 'false')
+        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+            self.db.fset('console-setup/layout', 'seen', 'false')
+            self.db.fset('console-setup/variant', 'seen', 'false')
 
         # Technically we should provide a version as the second argument,
         # but that isn't currently needed and it would require querying

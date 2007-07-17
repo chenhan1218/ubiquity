@@ -1,16 +1,35 @@
-ubiquity (1.5.6) UNRELEASED; urgency=low
+ubiquity (1.5.7) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Fix mythbuntu lircd.conf generation.
   * Update lircd gui to fit better.
-  * Clean up mythbuntu summary text.  Remove all passwords that are 
+  * Clean up mythbuntu summary text.  Remove all passwords that are
     shown.
   * Activate mythweb security.
   * Add lirc to mythbuntu depends.
   * In postinstall mythbuntu-setup, change xhost behavior.
   * Add lirc.hwdb population to mythbuntu lirc steps
 
- -- Mario Limonciello <superm1@ubuntu.com>  Sat, 14 Jul 2007 18:23:10 -0500
+ -- Mario Limonciello <superm1@ubuntu.com>  Tue, 17 Jul 2007 10:28:25 -0500
+
+ubiquity (1.5.6) gutsy; urgency=low
+
+  [ Colin Watson ]
+  * Make ubiquity-frontend-mythbuntu Architecture: all.
+  * Fix question_type vs. self.question_type crash in partman_commit
+    (LP: #125539).
+  * Unmangle entries from /etc/mtab before trying to unmount them (also
+    LP: #125539).
+
+  [ Evan Dandrea ]
+  * Don't preseed seen to false, or stay in the gtk event loop on the
+    summary page, when using --automatic.
+  * Temporary workaround for 122645.
+  * Automatic update of included source packages: partman-auto
+    69ubuntu3, partman-base 107ubuntu2, partman-basicfilesystems
+    54ubuntu2, partman-target 50ubuntu2.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 17 Jul 2007 09:48:14 -0400
 
 ubiquity (1.5.5) gutsy; urgency=low
 
@@ -56,7 +75,11 @@ ubiquity (1.5.5) gutsy; urgency=low
   * Set all mythbuntu labels to word wrap.
   * Add mythbuntu to translatable files.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 05 Jul 2007 14:54:31 -0400
+  [ Evan Dandrea ]
+  * Automatic update of included source packages: base-installer
+    1.80ubuntu2, hw-detect 1.53ubuntu1, silo-installer 1.10ubuntu4.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 11 Jul 2007 10:34:53 +0100
 
 ubiquity (1.5.4) gutsy; urgency=low
 

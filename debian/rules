@@ -209,7 +209,8 @@ binary-indep: install
 	dh_strip
 	dh_compress
 	dh_fixperms
-	DH_OPTIONS= dh_pycentral -pubiquity-frontend-kde
+	DH_OPTIONS= dh_pycentral -pubiquity-frontend-kde \
+				 -pubiquity-frontend-mythbuntu
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol

@@ -58,7 +58,31 @@ while :; do
     failed_mountpoints=
     for part in $busy_partitions; do
 	for mp in $(grep "^$part " "$MTAB" | cut -d' ' -f2); do
-	    umount $mp || failed_mountpoints="${failed_mountpoints:+$failed_mountpoints }$mp"
+	    # This is impressively horrible, but it's the best way I can
+	    # come up with to unmangle mtab entries in shell.
+	    new_mp=
+	    while [ "$mp" ]; do
+		case $mp in
+		    \\[0-9][0-9][0-9]*)
+			octal="$(echo "$mp" | sed 's/^\\\([0-9][0-9][0-9]\).*/\1/')"
+			new_mp="$new_mp$(printf "\\$octal")"
+			mp="${mp#\\[0-9][0-9][0-9]}"
+			;;
+		    \\*)
+			new_mp="$new_mp\\"
+			mp="${mp#\\}"
+			;;
+		    *\\*)
+			new_mp="$new_mp${mp%%\\*}"
+			mp="\\${mp#*\\}"
+			;;
+		    *)
+			new_mp="$new_mp$mp"
+			mp=
+			;;
+		esac
+	    done
+	    umount "$new_mp" || failed_mountpoints="${failed_mountpoints:+$failed_mountpoints }$new_mp"
 	done
     done
 

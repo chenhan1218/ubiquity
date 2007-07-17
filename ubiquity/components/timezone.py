@@ -27,7 +27,8 @@ import ubiquity.tz
 class Timezone(FilteredCommand):
     def prepare(self):
         self.tzdb = ubiquity.tz.Database()
-        self.db.fset('time/zone', 'seen', 'false')
+        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+            self.db.fset('time/zone', 'seen', 'false')
         questions = ['^time/zone$']
         return (['/usr/share/ubiquity/tzsetup'], questions)
 
