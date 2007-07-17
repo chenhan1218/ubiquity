@@ -1,3 +1,10 @@
+ubiquity (1.5.7) gutsy; urgency=low
+
+  * Don't dump debug information to the console when using --automatic.
+  * Get the user password straight from debconf in noninteractive mode.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 17 Jul 2007 16:53:04 -0400
+
 ubiquity (1.5.6) gutsy; urgency=low
 
   [ Colin Watson ]
