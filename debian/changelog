@@ -1,4 +1,4 @@
-ubiquity (1.5.6) UNRELEASED; urgency=low
+ubiquity (1.5.6) gutsy; urgency=low
 
   [ Colin Watson ]
   * Make ubiquity-frontend-mythbuntu Architecture: all.
@@ -15,7 +15,7 @@ ubiquity (1.5.6) UNRELEASED; urgency=low
     69ubuntu3, partman-base 107ubuntu2, partman-basicfilesystems
     54ubuntu2, partman-target 50ubuntu2.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 17 Jul 2007 09:47:01 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 17 Jul 2007 09:48:14 -0400
 
 ubiquity (1.5.5) gutsy; urgency=low
 
