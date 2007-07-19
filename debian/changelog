@@ -1,4 +1,4 @@
-ubiquity (1.5.7) gutsy; urgency=low
+ubiquity (1.5.7) UNRELEASED; urgency=low
 
   * Don't dump debug information to the console when using --automatic.
   * Get the user password straight from debconf in noninteractive mode.
