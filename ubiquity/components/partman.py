@@ -205,7 +205,7 @@ class Partman(FilteredCommand):
             else:
                 return partition['method']
         else:
-            return 'dontuse'
+            return 'dont_use'
 
     def get_current_mountpoint(self, partition):
         if ('method' in partition and 'acting_filesystem' in partition and

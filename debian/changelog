@@ -1,11 +1,7 @@
 ubiquity (1.5.7) UNRELEASED; urgency=low
 
-  [ Evan Dandrea ]
   * Don't dump debug information to the console when using --automatic.
   * Get the user password straight from debconf in noninteractive mode.
-
-  [ Colin Watson ]
-  * Fix crash related to partitions without a method set (LP: #110269).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 17 Jul 2007 16:53:04 -0400
 
