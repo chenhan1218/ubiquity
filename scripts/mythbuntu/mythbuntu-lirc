@@ -18,6 +18,28 @@ EN_LIRC="$RET"
 if [ "$EN_LIRC" = "yes" ]; then
     #TODO: Magic
     echo "We need to do some lirc magic"
+    db_get mythbuntu/lirc_driver
+    DRIVER="$RET"
+    if [ "$DRIVER" != "none" ]; then
+        #add driver to hardware.conf for autoloading
+        sed "s/MODULES=\"\"/MODULES=\"${DRIVER}\"/" $ROOT/etc/lirc/hardware.conf | tee $ROOT/etc/lirc/hardware.conf.new > /dev/null
+        mv $ROOT/etc/lirc/hardware.conf.new $ROOT/etc/lirc/hardware.conf
+    fi
+
+    db_get mythbuntu/lirc_rc
+    CONFIG="$RET"
+    if [ -e $ROOT/usr/share/lirc/remotes/$CONFIG ]; then
+        cat > $ROOT/etc/lirc/lircd.conf <<EOF
+####PRECONFIGURED MYTHBUNTU BLOCK.  DO NOT MODIFY####
+####---------------------------------------------####
+EOF
+        cat $ROOT/usr/share/lirc/remotes/$CONFIG | tee -a $ROOT/etc/lirc/lircd.conf > /dev/null
+        cat >> $ROOT/etc/lirc/lircd.conf <<EOF
+####---------------------------------------------####
+####PRECONFIGURED MYTHBUNTU BLOCK.  DO NOT MODIFY####
+EOF
+    fi
+
 fi
 
 exit 0

@@ -2,43 +2,16 @@ Template: mythbuntu/summary
 Type: note
 _Description: Ready to install
   Install Type:           ${INSTALLTYPE}
-  Plugins:
-      MythArchive:        ${MYTHARCHIVE}
-      MythBrowser:       ${MYTHBROWSER}
-      MythControls:      ${MYTHCONTROLS}
-      MythDVD:            ${MYTHDVD}
-      MythFlix:             ${MYTHFLIX}
-      MythGallery:        ${MYTHGALLERY}
-      MythGame:          ${MYTHGAME}
-      MythMusic:          ${MYTHMUSIC}
-      MythNews:           ${MYTHNEWS}
-      MythPhone:         ${MYTHPHONE}
-      MythVideo:          ${MYTHVIDEO}
-      MythWeather:       ${MYTHWEATHER}
-      MythWeb:            ${MYTHWEB}
-  Themes:
-      Official:              ${OFFICIAL}
-      Community:          ${COMMUNITY}
   Drivers:
       Add. Video Driver:  ${PROPRIETARY_VIDEO_DRIVER}
-          TV-Out:             ${TVOUT}
-          TV-Standard:    ${TVSTANDARD}
+          TV-Out:             ${TVOUT}, ${TVSTANDARD}
       TV-Tuners:          ${TUNER0} ${TUNER1} ${TUNER2} ${TUNER3} ${TUNER4}
-  MySQL Info:
-      MythTV User Name:   ${MYSQLUSER}
-      MythTV Password:    ${MYSQLPASS}
-      MythTV Database:    ${MYSQLDATABASE}
-      Server:                  ${MYSQLSERVER}
-      Root Password:      ${MYSQLROOT}
-  Mythweb Security:
-      Password:           ${MYTHWEBPASS}
   Additional Services:
       VNC:                ${EN_VNC}
-          VNC Password:   ${VNCPASS}
       SSH:                ${EN_OPENSSH}
-      Samba:             ${EN_SAMBA}
+      Samba:              ${EN_SAMBA}
       NFS:                ${EN_NFS}
-      Open MySQL Port:    ${EN_MYSQL}
+      MythTV Service:     ${EN_MYSQL}
  .
   Normal Ubuntu Install Questions:
       Language:           ${LANGUAGE}
