@@ -425,6 +425,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         lircd = []
         #Filter out uncessary lines
         filter = "^\#|^\["
+        #Filter out the /dev/input/eventX remote
+        filter += "|http"
         pattern = re.compile(filter)
         for line in hwdb:
             if pattern.search(line) is None:
