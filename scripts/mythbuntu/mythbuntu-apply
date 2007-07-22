@@ -215,12 +215,12 @@ if [ "$TYPE" = "Master Backend/Frontend" ] || [ "$TYPE" = "Master Backend" ] || 
     #Mythweb is actually enabled
     db_get mythbuntu/mythweb
     MYTHWEB="$RET"
-    if [ "$MYTHWEB" = "yes" ]; then
+    if [ "$MYTHWEB" = True ]; then
         setup_mythweb
         #Check if we need security turned on
         db_get mythweb/enable
         AUTHENABLE="$RET"
-        if [ "$AUTHENABLE" = true ]; then
+        if [ "$AUTHENABLE" = True ]; then
             db_get mythweb/username
             MYTHWEB_USER="$RET"
             db_get mythweb/password

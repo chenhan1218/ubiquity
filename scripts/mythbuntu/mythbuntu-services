@@ -39,7 +39,7 @@ force user = nobody
 force group = nogroup
 
 EOF
-    if [ "$1" = "yes" ]; then
+    if [ "$1" = True ]; then
         #videos
         cat >> /tmp/smb.conf << EOF
 [videos]
@@ -54,7 +54,7 @@ force group = mythtv
 
 EOF
     fi
-    if [ "$2" = "yes" ]; then
+    if [ "$2" = True ]; then
         #music
         cat >> /tmp/smb.conf << EOF
 [music]
@@ -69,7 +69,7 @@ force group = mythtv
 
 EOF
     fi
-    if [ "$3" = "yes" ]; then
+    if [ "$3" = True ]; then
         #pictures
         cat >> /tmp/smb.conf << EOF
 [pictures]
@@ -94,19 +94,19 @@ nfs_config()
     cat > /tmp/exports << EOF
 /var/lib/mythtv/recordings    *(ro,async,no_root_squash,no_subtree_check)
 EOF
-    if [ "$1" = "yes" ]; then
+    if [ "$1" = True ]; then
         #videos
         cat >> /tmp/exports << EOF
 /var/lib/mythtv/videos    *(ro,async,no_root_squash,no_subtree_check)
 EOF
     fi
-    if [ "$2" = "yes" ]; then
+    if [ "$2" = True ]; then
         #music
         cat >> /tmp/exports << EOF
 /var/lib/mythtv/music    *(ro,async,no_root_squash,no_subtree_check)
 EOF
     fi
-    if [ "$3" = "yes" ]; then
+    if [ "$3" = True ]; then
         #pictures
         cat >> /tmp/exports << EOF
 /var/lib/mythtv/pictures    *(ro,async,no_root_squash,no_subtree_check)
@@ -164,29 +164,29 @@ db_get mythbuntu/sshservice
 SSH="$RET"
 db_get mythbuntu/mysqlservice
 MYSQL="$RET"
-if [ "$SAMBA" = "yes" ] || [ "$NFS" = "yes" ]; then
+if [ "$SAMBA" = True ] || [ "$NFS" = True ]; then
     db_get mythbuntu/mythvideo
     VIDEO="$RET"
     db_get mythbuntu/mythgallery
     PICTURES="$RET"
     db_get mythbuntu/mythmusic
     MUSIC="$RET"
-    if [ "$SAMBA" = "yes" ]; then
+    if [ "$SAMBA" = True ]; then
         samba_config $VIDEO $MUSIC $PICTURES
         mv /tmp/smb.conf $ROOT/etc/samba
     fi
-    if [ "$NFS" = "yes" ]; then
+    if [ "$NFS" = True ]; then
         nfs_config $VIDEO $MUSIC $PICTURES
         mv /tmp/exports $ROOT/etc
     fi
 fi
-if [ "$VNC" = "yes" ]; then
+if [ "$VNC" = True ]; then
     vnc_config
 fi
-if [ "$SSH" = "yes" ]; then
+if [ "$SSH" = True ]; then
     ssh_config
 fi
-if [ "$MYSQL" = "yes" ]; then
+if [ "$MYSQL" = True ]; then
     mysql_config
 fi
 

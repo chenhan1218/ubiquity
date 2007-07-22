@@ -189,9 +189,11 @@ def main():
         if err.errno != errno.EACCES:
             raise
 
-    # Default to enabling internal (non-debconf) debugging.
+    # Default to enabling internal (non-debconf) debugging except for when
+    # using --automatic.
     if 'UBIQUITY_DEBUG_CORE' not in os.environ:
-        os.environ['UBIQUITY_DEBUG_CORE'] = '1'
+        if options.automatic:
+            os.environ['UBIQUITY_DEBUG_CORE'] = '1'
 
     # Clean up old state.
     if os.path.exists("/var/lib/ubiquity/apt-installed"):

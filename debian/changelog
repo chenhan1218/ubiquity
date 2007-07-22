@@ -9,8 +9,13 @@ ubiquity (1.5.7) UNRELEASED; urgency=low
   * Add lirc to mythbuntu depends.
   * In postinstall mythbuntu-setup, change xhost behavior.
   * Add lirc.hwdb population to mythbuntu lirc steps
+  * Make all "yes"/"no"'s True/False
 
- -- Mario Limonciello <superm1@ubuntu.com>  Tue, 17 Jul 2007 10:28:25 -0500
+  [ Evan Dandrea ]
+  * Don't dump debug information to the console when using --automatic.
+  * Get the user password straight from debconf in noninteractive mode.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 20 Jul 2007 10:41:47 -0400
 
 ubiquity (1.5.6) gutsy; urgency=low
 

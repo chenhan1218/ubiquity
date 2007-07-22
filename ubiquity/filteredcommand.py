@@ -280,10 +280,11 @@ class FilteredCommand(object):
         escaped = text.replace('\\', '\\\\').replace('\n', '\\n')
         return re.sub(r'(\s)', r'\\\1', escaped)
 
-    def preseed(self, name, value, seen=True, escape=False):
+    def preseed(self, name, value, seen=True, escape=False,encode=True):
         if escape:
             value = self.escape(value)
-        value = value.encode("UTF-8", "ignore")
+        if encode:
+            value = value.encode("UTF-8", "ignore")
         if escape:
             old_capb = self.db.capb()
             capb_list = old_capb.split()

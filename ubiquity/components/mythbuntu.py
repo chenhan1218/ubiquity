@@ -69,63 +69,63 @@ class MythbuntuSetup(FilteredCommand):
             return True
         elif question.startswith('mythbuntu/mytharchive'):
             mytharchive = self.frontend.get_mytharchive()
-            self.preseed('mythbuntu/mytharchive', mytharchive)
+            self.preseed('mythbuntu/mytharchive', mytharchive,True,False,False)
             return True
         elif question.startswith('mythbuntu/mythbrowser'):
             mythbrowser = self.frontend.get_mythbrowser()
-            self.preseed('mythbuntu/mythbrowser', mythbrowser)
+            self.preseed('mythbuntu/mythbrowser', mythbrowser,True,False,False)
             return True
         elif question.startswith('mythbuntu/mythcontrols'):
             mythcontrols = self.frontend.get_mythcontrols()
-            self.preseed('mythbuntu/mythcontrols', mythcontrols)
+            self.preseed('mythbuntu/mythcontrols', mythcontrols,True,False,False)
             return True
         elif question.startswith('mythbuntu/mythdvd'):
             mythdvd = self.frontend.get_mythdvd()
-            self.preseed('mythbuntu/mythdvd', mythdvd)
+            self.preseed('mythbuntu/mythdvd', mythdvd,True,False,False)
             return True
         elif question.startswith('mythbuntu/mythflix'):
             mythflix = self.frontend.get_mythflix()
-            self.preseed('mythbuntu/mythflix', mythflix)
+            self.preseed('mythbuntu/mythflix', mythflix,True,False,False)
             return True
         elif question.startswith('mythbuntu/mythgallery'):
             mythgallery = self.frontend.get_mythgallery()
-            self.preseed('mythbuntu/mythgallery', mythgallery)
+            self.preseed('mythbuntu/mythgallery', mythgallery,True,False,False)
             return True
         elif question.startswith('mythbuntu/mythgame'):
             mythgame = self.frontend.get_mythgame()
-            self.preseed('mythbuntu/mythgame', mythgame)
+            self.preseed('mythbuntu/mythgame', mythgame,True,False,False)
             return True
         elif question.startswith('mythbuntu/mythmusic'):
             mythmusic = self.frontend.get_mythmusic()
-            self.preseed('mythbuntu/mythmusic', mythmusic)
+            self.preseed('mythbuntu/mythmusic', mythmusic,True,False,False)
             return True
         elif question.startswith('mythbuntu/mythnews'):
             mythnews = self.frontend.get_mythnews()
-            self.preseed('mythbuntu/mythnews', mythnews)
+            self.preseed('mythbuntu/mythnews', mythnews,True,False,False)
             return True
         elif question.startswith('mythbuntu/mythphone'):
             mythphone = self.frontend.get_mythphone()
-            self.preseed('mythbuntu/mythphone', mythphone)
+            self.preseed('mythbuntu/mythphone', mythphone,True,False,False)
             return True
         elif question.startswith('mythbuntu/mythvideo'):
             mythvideo = self.frontend.get_mythvideo()
-            self.preseed('mythbuntu/mythvideo', mythvideo)
+            self.preseed('mythbuntu/mythvideo', mythvideo,True,False,False)
             return True
         elif question.startswith('mythbuntu/mythweather'):
             mythweather = self.frontend.get_mythweather()
-            self.preseed('mythbuntu/mythweather', mythweather)
+            self.preseed('mythbuntu/mythweather', mythweather,True,False,False)
             return True
         elif question.startswith('mythbuntu/mythweb'):
             mythweb = self.frontend.get_mythweb()
-            self.preseed('mythbuntu/mythweb', mythweb)
+            self.preseed('mythbuntu/mythweb', mythweb,True,False,False)
             return True
         elif question.startswith('mythbuntu/officialthemes'):
             official = self.frontend.get_officialthemes()
-            self.preseed('mythbuntu/officialthemes', official)
+            self.preseed('mythbuntu/officialthemes', official,True,False,False)
             return True
         elif question.startswith('mythbuntu/communitythemes'):
             community = self.frontend.get_communitythemes()
-            self.preseed('mythbuntu/communitythemes', community)
+            self.preseed('mythbuntu/communitythemes', community,True,False,False)
             return True
         elif question.startswith('mythtv/mysql_admin_password'):
             if self.frontend.get_secure_mysql():
@@ -164,7 +164,7 @@ class MythbuntuSetup(FilteredCommand):
             return True
         elif question.startswith('mythbuntu/vncservice'):
             vnc = self.frontend.get_vnc()
-            self.preseed('mythbuntu/vncservice', vnc)
+            self.preseed('mythbuntu/vncservice', vnc,True,False,False)
             return True
         elif question.startswith('mythbuntu/vnc_password'):
             if not self.frontend.get_vnc():
@@ -175,25 +175,25 @@ class MythbuntuSetup(FilteredCommand):
             return True
         elif question.startswith('mythbuntu/sshservice'):
             ssh = self.frontend.get_ssh()
-            self.preseed('mythbuntu/sshservice', ssh)
+            self.preseed('mythbuntu/sshservice', ssh,True,False,False)
             return True
         elif question.startswith('mythbuntu/sambaservice'):
             samba = self.frontend.get_samba()
-            self.preseed('mythbuntu/sambaservice', samba)
+            self.preseed('mythbuntu/sambaservice', samba,True,False,False)
             return True
         elif question.startswith('mythbuntu/nfsservice'):
             nfs = self.frontend.get_nfs()
-            self.preseed('mythbuntu/nfsservice', nfs)
+            self.preseed('mythbuntu/nfsservice', nfs,True,False,False)
             return True
         elif question.startswith('mythbuntu/mysqlservice'):
             mysql_secure = self.frontend.get_mysql_port()
-            self.preseed('mythbuntu/mysqlservice', mysql_secure)
+            self.preseed('mythbuntu/mysqlservice', mysql_secure,True,False,False)
             return True
         elif question.startswith('mythweb/enable'):
             if self.frontend.get_secure_mythweb():
-                self.preseed('mythweb/enable', 'true')
+                self.preseed('mythweb/enable', 'true',True,False,False)
             else:
-                self.preseed('mythweb/enable', 'false')
+                self.preseed('mythweb/enable', 'false',True,False,False)
             return True
         elif question.startswith('mythweb/username'):
             user = self.frontend.get_mythweb_username()
@@ -205,7 +205,7 @@ class MythbuntuSetup(FilteredCommand):
             return True
         elif question.startswith('mythbuntu/en_lirc'):
             en_lirc = self.frontend.get_lirc()
-            self.preseed('mythbuntu/en_lirc',en_lirc)
+            self.preseed('mythbuntu/en_lirc',en_lirc,True,False,False)
             return True
         elif question.startswith('mythbuntu/lirc_remote'):
             if self.frontend.get_lirc():

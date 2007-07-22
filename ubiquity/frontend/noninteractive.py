@@ -50,6 +50,8 @@ class Wizard(BaseFrontend):
         self.username = ''
         self.password = ''
         self.verifiedpassword = ''
+        self.progress_val = 0
+        self.progress_info = ''
 
         dbfilter = language.Language(self, self.debconf_communicator())
         dbfilter.cleanup()
@@ -78,7 +80,7 @@ class Wizard(BaseFrontend):
 
         dbfilter = partman_commit.PartmanCommit(self)
         if dbfilter.run_command(auto_process=True) != 0:
-            print 'Unable to commit the partition table, exiting.'
+            print '\nUnable to commit the partition table, exiting.'
             return
         
         dbfilter = install.Install(self)
@@ -141,7 +143,7 @@ class Wizard(BaseFrontend):
 
     def run_main_loop(self):
         """Block until the UI returns control."""
-        print '*** run_main_loop'
+        #print '*** run_main_loop'
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
         elif gtk.main_level() > 0:
@@ -151,7 +153,7 @@ class Wizard(BaseFrontend):
 
     def quit_main_loop(self):
         """Return control blocked in run_main_loop."""
-        print '*** quit_main_loop'
+        #print '*** quit_main_loop'
         if not self.dbfilter and gtk.main_level() > 0:
             gtk.main_quit()
 
@@ -164,7 +166,8 @@ class Wizard(BaseFrontend):
 
     def debconf_progress_set(self, progress_val):
         """Set the current progress bar's position to progress_val."""
-        sys.stdout.write('\r%d percent complete.' % progress_val)
+        self.progress_val = progress_val
+        sys.stdout.write('\r%d percent complete: %s' % (self.progress_val, self.progress_info))
         sys.stdout.flush()
 
     def debconf_progress_step(self, progress_inc):
@@ -173,7 +176,9 @@ class Wizard(BaseFrontend):
 
     def debconf_progress_info(self, progress_info):
         """Set the current progress bar's message to progress_info."""
-        print progress_info
+        self.progress_info = progress_info
+        sys.stdout.write('\r%d percent complete: %s' % (self.progress_val, self.progress_info))
+        sys.stdout.flush()
 
     def debconf_progress_stop(self):
         """Stop the current progress bar."""
@@ -238,7 +243,7 @@ class Wizard(BaseFrontend):
         self.keyboard_variant = variant
 
     def get_keyboard_variant(self):
-        print '*** get_keyboard_variant'
+        #print '*** get_keyboard_variant'
         return self.keyboard_variant
 
     # ubiquity.components.partman
@@ -248,11 +253,11 @@ class Wizard(BaseFrontend):
         """Set available autopartitioning choices."""
         self.resize_choice = resize_choice
         self.manual_choice = manual_choice
-        print '*** set_autopartition_choices: manual_choice: %s' % manual_choice
+        #print '*** set_autopartition_choices: manual_choice: %s' % manual_choice
 
     def get_autopartition_choice(self):
         """Get the selected autopartitioning choice."""
-        print '*** get_autopartition_choice'
+        #print '*** get_autopartition_choice'
 
     # ubiquity.components.partman_commit
 
@@ -276,11 +281,11 @@ class Wizard(BaseFrontend):
 
     def ma_user_error(self, error, user):
         """The selected migration-assistant username was bad."""
-        print 'Error: %s: %s' % (user, error)
+        print '\nError: %s: %s' % (user, error)
 
     def ma_password_error(self, error, user):
         """The selected migration-assistant password was bad."""
-        print 'Error: %s: %s' % (user, error)
+        print '\nError: %s: %s' % (user, error)
 
     # ubiquity.components.usersetup
 
@@ -294,7 +299,6 @@ class Wizard(BaseFrontend):
 
     def set_username(self, value):
         """Set the user's Unix user name."""
-        print 'Setting username to: %s' % value
         self.username = value
 
     def get_username(self):
@@ -303,20 +307,20 @@ class Wizard(BaseFrontend):
 
     def get_password(self):
         """Get the user's password."""
-        return self.password
+        return self.frontend.db.get('passwd/user-password') #self.password
 
     def get_verified_password(self):
         """Get the user's password confirmation."""
-        return self.verifiedpassword
+        return self.frontend.db.get('passwd/user-password-again') #self.verifiedpassword
 
     def username_error(self, msg):
         """The selected username was bad."""
-        print 'username error: %s' % msg
+        print '\nusername error: %s' % msg
         self.username = raw_input('Username: ')
 
     def password_error(self, msg):
         """The selected password was bad."""
-        print 'Bad password: %s' % msg
+        print '\nBad password: %s' % msg
         self.password = getpass.getpass('Password: ')
         self.verifiedpassword = getpass.getpass('Password again: ')
 
@@ -358,7 +362,7 @@ class Wizard(BaseFrontend):
 
     def error_dialog(self, title, msg, fatal=True):
         """Display an error message dialog."""
-        print '%s: %s' % (title, msg)
+        print '\n%s: %s' % (title, msg)
 
     def question_dialog(self, title, msg, options, use_templates=True):
         """Ask a question."""
