@@ -190,10 +190,8 @@ class MythbuntuSetup(FilteredCommand):
             self.preseed('mythbuntu/mysqlservice', mysql_secure,True,False,False)
             return True
         elif question.startswith('mythweb/enable'):
-            if self.frontend.get_secure_mythweb():
-                self.preseed('mythweb/enable', 'true',True,False,False)
-            else:
-                self.preseed('mythweb/enable', 'false',True,False,False)
+            auth = self.frontend.get_secure_mythweb()
+            self.preseed('mythweb/enable', auth,True,False,False)
             return True
         elif question.startswith('mythweb/username'):
             user = self.frontend.get_mythweb_username()

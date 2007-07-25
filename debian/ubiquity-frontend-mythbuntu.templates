@@ -12,7 +12,6 @@ _Description: Ready to install
       Samba:              ${EN_SAMBA}
       NFS:                ${EN_NFS}
       MythTV Service:     ${EN_MYSQL}
- .
   Normal Ubuntu Install Questions:
       Language:           ${LANGUAGE}
       Keyboard layout:    ${KEYMAP}
