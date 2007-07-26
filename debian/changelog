@@ -9,6 +9,7 @@ ubiquity (1.5.7) UNRELEASED; urgency=low
   * Add lirc to mythbuntu depends.
   * In postinstall mythbuntu-setup, change xhost behavior.
   * Add lirc.hwdb population to mythbuntu lirc steps
+  * Make all "yes"/"no"'s True/False
 
   [ Evan Dandrea ]
   * Don't dump debug information to the console when using --automatic.

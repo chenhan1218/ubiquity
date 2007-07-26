@@ -12,7 +12,6 @@ _Description: Ready to install
       Samba:              ${EN_SAMBA}
       NFS:                ${EN_NFS}
       MythTV Service:     ${EN_MYSQL}
- .
   Normal Ubuntu Install Questions:
       Language:           ${LANGUAGE}
       Keyboard layout:    ${KEYMAP}
@@ -377,63 +376,63 @@ Type: string
 Description: for internal use; determines install type
 
 Template: mythbuntu/mytharchive
-Type: string
+Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythbrowser
-Type: string
+Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythcontrols
-Type: string
+Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythdvd
-Type: string
+Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythflix
-Type: string
+Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythgallery
-Type: string
+Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythgame
-Type: string
+Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythmusic
-Type: string
+Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythnews
-Type: string
+Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythphone
-Type: string
+Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythvideo
-Type: string
+Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythweather
-Type: string
+Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythweb
-Type: string
+Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/officialthemes
-Type: string
+Type: boolean
 Description: for internal use; determines if themes are installed
 
 Template: mythbuntu/communitythemes
-Type: string
+Type: boolean
 Description: for internal use; determines if themes are installed
 
 Template: mythbuntu/proprietary_driver
@@ -450,7 +449,7 @@ Type: string
 Description: for internal use; determines tvstandard
 
 Template: mythbuntu/vncservice
-Type: string
+Type: boolean
 Description: for internal use; determines if vnc is enabled
 
 Template: mythbuntu/vnc_password
@@ -458,23 +457,23 @@ Type: string
 Description: for internal use; stores the chosen vnc password
 
 Template: mythbuntu/sshservice
-Type: string
+Type: boolean
 Description: for internal use; determines if ssh is enabled
 
 Template: mythbuntu/sambaservice
-Type: string
+Type: boolean
 Description: for internal use; determines if samba is enabled
 
 Template: mythbuntu/nfsservice
-Type: string
+Type: boolean
 Description: for internal use; determines if nfs is enabled
 
 Template: mythbuntu/mysqlservice
-Type: string
+Type: boolean
 Description: for internal use; determines if mysql access is enabled
 
 Template: mythbuntu/en_lirc
-Type: string
+Type: boolean
 Description: for internal use; determines if mysql access is enabled
 
 Template: mythbuntu/lirc_remote
@@ -488,4 +487,3 @@ Description: for internal use; determines if mysql access is enabled
 Template: mythbuntu/lirc_rc
 Type: string
 Description: for internal use; determines if mysql access is enabled
-

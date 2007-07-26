@@ -433,7 +433,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 list = string.split(line, ";")
                 if len(list) > 1:
                     #Make sure we have a config file before including
-                    if list[4] != ""
+                    if list[4] != "":
                         self.lirc_remote.append_text(list[0])
                         self.lirc_driver.append_text(list[2])
                         self.lirc_rc.append_text(list[4])

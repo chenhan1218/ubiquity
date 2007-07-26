@@ -164,7 +164,7 @@ s/\/var\/www\/htdigest/\/etc\/mythtv\/mythweb-digest/;
     # create htdigest file create password hash thanks to
     # http://trac.lighttpd.net/trac/wiki/Docs:ModAuth :)
     HASH=`echo -n ${MYTHWEB_USER}:MythTV:${MYTHWEB_PASS} | md5sum | cut -b -32` || true
-    echo ${USERNAME}:MythTV:${HASH} > $ROOT/etc/mythtv/mythweb-digest
+    echo ${MYTHWEB_USER}:MythTV:${HASH} > $ROOT/etc/mythtv/mythweb-digest
     chown mythtv:www-data $ROOT/etc/mythtv/mythweb-digest
     chmod 640 $ROOT/etc/mythtv/mythweb-digest
 }
@@ -215,7 +215,7 @@ if [ "$TYPE" = "Master Backend/Frontend" ] || [ "$TYPE" = "Master Backend" ] || 
     #Mythweb is actually enabled
     db_get mythbuntu/mythweb
     MYTHWEB="$RET"
-    if [ "$MYTHWEB" = "yes" ]; then
+    if [ "$MYTHWEB" = true ]; then
         setup_mythweb
         #Check if we need security turned on
         db_get mythweb/enable
