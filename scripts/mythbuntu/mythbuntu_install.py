@@ -182,9 +182,9 @@ class Install(install.Install):
             to_install.append('nvidia-glx')
         elif video_driver == "fglrx":
             to_install.append('xorg-driver-fglrx')
-        if vnc:
+        if vnc == 'true':
             to_install.append('vnc4server')
-        if nfs:
+        if nfs == 'true':
             to_install.append('nfs-kernel-server')
             to_install.append('portmap')
 
@@ -207,7 +207,7 @@ class Install(install.Install):
     def configure_services(self):
         """Activates any necessary service configuration"""
         vnc = self.db.get('mythbuntu/vncservice')
-        if vnc:
+        if vnc == 'true':
             handler = mythbuntu_services.VNCHandler('/target')
             handler.run()
         control = mythbuntu_services.AdditionalServices(None,self.db)

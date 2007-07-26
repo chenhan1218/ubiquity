@@ -66,7 +66,7 @@ db_subst mythbuntu/summary LOCATION "$RET"
 
 db_capb escape
 db_get ubiquity/partman-made-changes
-if [ "$RET" = True ]; then
+if [ "$RET" = true ]; then
     db_metaget partman/confirm Extended_description
 else
     db_metaget partman/confirm_nochanges Extended_description

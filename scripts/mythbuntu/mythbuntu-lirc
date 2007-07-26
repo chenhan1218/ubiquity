@@ -15,7 +15,7 @@ fi
 
 db_get mythbuntu/en_lirc
 EN_LIRC="$RET"
-if [ "$EN_LIRC" = True ]; then
+if [ "$EN_LIRC" = true ]; then
     #TODO: Magic
     echo "We need to do some lirc magic"
     db_get mythbuntu/lirc_driver
