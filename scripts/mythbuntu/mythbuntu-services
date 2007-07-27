@@ -138,7 +138,7 @@ ssh_config()
     rm $ROOT/etc/ssh/*host*
     cat > $ROOT/tmp/ssh_setup <<EOF
 #!/bin/sh
-/var/lib/dpkg/info/openssh-server.postinst configure
+dpkg-reconfigure -fnoninteractive openssh-server
 /etc/init.d/ssh stop
 EOF
         chmod +x $ROOT/tmp/ssh_setup
@@ -150,8 +150,9 @@ EOF
 
 mysql_config()
 {
-    sed s/^bind-address/\#bind-address/ /etc/mysql/my.cnf | tee /etc/mysql/my.cnf.new > /dev/null
-    mv /etc/mysql/my.cnf.new $ROOT/etc/mysql/my.cnf
+    MYSQLCONFIG="/etc/mysql/conf.d/mythtv.cnf"
+    sed s/^bind-address/\#bind-address/ ${MYSQLCONFIG} | tee ${MYSQLCONFIG}.new > /dev/null
+    mv ${MYSQLCONFIG}.new ${ROOT}${MYSQLCONFIG}
 }
 
 db_get mythbuntu/sambaservice
