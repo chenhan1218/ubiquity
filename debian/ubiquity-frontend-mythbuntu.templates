@@ -475,15 +475,3 @@ Description: for internal use; determines if mysql access is enabled
 Template: mythbuntu/en_lirc
 Type: boolean
 Description: for internal use; determines if mysql access is enabled
-
-Template: mythbuntu/lirc_remote
-Type: string
-Description: for internal use; determines if mysql access is enabled
-
-Template: mythbuntu/lirc_driver
-Type: string
-Description: for internal use; determines if mysql access is enabled
-
-Template: mythbuntu/lirc_rc
-Type: string
-Description: for internal use; determines if mysql access is enabled

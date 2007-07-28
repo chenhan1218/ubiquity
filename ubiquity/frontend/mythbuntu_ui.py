@@ -418,11 +418,9 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 #Added Methods
     def populate_lirc(self):
         """Fills the lirc pages with the appropriate data"""
-        #Note, this requires lirc >= 0.8.2
-        hwdb = open('/usr/share/lirc/lirc.hwdb')
-        remotes = []
-        drivers = []
-        lircd = []
+        #Note, this requires lirc >= 0.8.2-0ubuntu3
+        hwdb = open('/usr/share/lirc/lirc.hwdb').readlines()
+        hwdb.sort()
         #Filter out uncessary lines
         filter = "^\#|^\["
         #Filter out the /dev/input/eventX remote
@@ -434,10 +432,10 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 if len(list) > 1:
                     #Make sure we have a config file before including
                     if list[4] != "":
-                        self.lirc_remote.append_text(list[0])
-                        self.lirc_driver.append_text(list[2])
+                        self.lirc_remote.append_text(list[0].translate(string.maketrans('',''),','))
+                        self.lirc_driver.append_text(list[1])
+                        self.lirc_modules.append_text(list[2])
                         self.lirc_rc.append_text(list[4])
-        hwdb.close()
         self.lirc_remote.append_text("Other Remote")
 
     def allow_go_backward(self, allowed):
@@ -922,17 +920,22 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             if (widget.get_active_text() == "Other Remote"):
                 self.lirc_driver.set_sensitive(True)
                 self.lirc_driver_label.set_sensitive(True)
+                self.lirc_modules.set_sensitive(True)
+                self.lirc_modules_label.set_sensitive(True)
                 self.lirc_rc.set_sensitive(True)
                 self.lirc_rc_label.set_sensitive(True)
                 self.lirc_bug_vbox.show()
             else:
                 self.lirc_driver.set_sensitive(False)
                 self.lirc_driver_label.set_sensitive(False)
+                self.lirc_modules.set_sensitive(False)
+                self.lirc_modules_label.set_sensitive(False)
                 self.lirc_rc.set_sensitive(False)
                 self.lirc_rc_label.set_sensitive(False)
                 self.lirc_bug_vbox.hide()
 
             self.lirc_driver.set_active(widget.get_active())
+            self.lirc_modules.set_active(widget.get_active())
             self.lirc_rc.set_active(widget.get_active())
 
     def get_installtype(self):
@@ -1152,6 +1155,9 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def get_lirc_remote(self):
         return self.lirc_remote.get_active_text()
+
+    def get_lirc_modules(self):
+        return self.lirc_modules.get_active_text()
 
     def get_lirc_driver(self):
         return self.lirc_driver.get_active_text()
