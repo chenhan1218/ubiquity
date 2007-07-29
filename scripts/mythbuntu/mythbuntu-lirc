@@ -64,6 +64,8 @@ EOF
             mkdir -p $ROOT/home/mythtv/.mythtv
             ln -s /home/$USER/.lircrc $ROOT/home/$USER/.mythtv/lircrc
             ln -s /home/mythtv/.lircrc $ROOT/home/mythtv/.mythtv/lircrc
+            chown mythtv:mythtv $ROOT/home/mythtv -R
+            chown 1000:1000 $ROOT/home/$USER -R
         fi
     fi
 fi
