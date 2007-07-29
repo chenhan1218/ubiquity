@@ -53,8 +53,8 @@ db_fset lirc/reconfigure config_changed true
 EOF
         chmod +x $ROOT/tmp/lirc_setup
         $log $chroot $ROOT /tmp/lirc_setup
-        if [ -x /usr/bin/mythbuntu-lirc-generator ]; then
-            mythbuntu-lirc-generator --config $ROOT/etc/lirc/lircd.conf --output /tmp/lircrc
+        if [ -x /usr/bin/mythbuntu-lircrc-generator ]; then
+            mythbuntu-lircrc-generator --lircd $ROOT/etc/lirc/lircd.conf --lircrc /tmp/lircrc
 
             db_get passwd/username
             USER=$RET
