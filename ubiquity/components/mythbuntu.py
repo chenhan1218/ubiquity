@@ -57,9 +57,10 @@ class MythbuntuSetup(FilteredCommand):
              '^mythweb/username',
              '^mythweb/password',
              '^mythbuntu/en_lirc',
-             '^mythbuntu/lirc_remote',
-             '^mythbuntu/lirc_driver',
-             '^mythbuntu/lirc_rc']
+             '^lirc/remote',
+             '^lirc/lircd_conf',
+             '^lirc/modules',
+             '^lirc/driver']
         return (['/usr/share/ubiquity/mythbuntu-ask'], questions)
 
     def run(self,priority,question):
@@ -205,26 +206,33 @@ class MythbuntuSetup(FilteredCommand):
             en_lirc = self.frontend.get_lirc()
             self.preseed_bool('mythbuntu/en_lirc',en_lirc)
             return True
-        elif question.startswith('mythbuntu/lirc_remote'):
+        elif question.startswith('lirc/remote'):
             if self.frontend.get_lirc():
                 remote = self.frontend.get_lirc_remote()
             else:
                 remote = "n/a"
-            self.preseed('mythbuntu/lirc_remote',remote)
+            self.preseed('lirc/remote',remote)
             return True
-        elif question.startswith('mythbuntu/lirc_driver'):
+        elif question.startswith('lirc/lircd_conf'):
+            if self.frontend.get_lirc():
+                config = self.frontend.get_lirc_rc()
+            else:
+                config = "n/a"
+            self.preseed('lirc/lircd_conf',config)
+            return True
+        elif question.startswith('lirc/modules'):
+            if self.frontend.get_lirc():
+                modules = self.frontend.get_lirc_modules()
+            else:
+                modules = "n/a"
+            self.preseed('lirc/modules',modules)
+            return True
+        elif question.startswith('lirc/driver'):
             if self.frontend.get_lirc():
                 driver = self.frontend.get_lirc_driver()
             else:
                 driver = "n/a"
-            self.preseed('mythbuntu/lirc_driver',driver)
-            return True
-        elif question.startswith('mythbuntu/lirc_rc'):
-            if self.frontend.get_lirc():
-                rc = self.frontend.get_lirc_rc()
-            else:
-                rc = "n/a"
-            self.preseed('mythbuntu/lirc_rc',rc)
+            self.preseed('lirc/driver',driver)
             return True
         return FilteredCommand.run(self, priority, question)
 

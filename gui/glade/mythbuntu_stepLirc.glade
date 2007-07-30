@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Wed Jul 11 01:44:05 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.2.0 on Sat Jul 28 00:51:10 2007 by supermario@portablemario-->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -91,7 +91,7 @@
                         <property name="width_request">400</property>
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                        <property name="items" translatable="yes">[No Remote Chosen]</property>
+                        <property name="items" translatable="yes">None</property>
                         <signal name="changed" handler="lirc_changed"/>
                       </widget>
                       <packing>
@@ -107,17 +107,18 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkHBox" id="lirc_driver_hbox">
+                  <widget class="GtkHBox" id="lirc_modules_hbox">
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <child>
-                      <widget class="GtkLabel" id="lirc_driver_label">
+                      <widget class="GtkLabel" id="lirc_modules_label">
                         <property name="width_request">250</property>
                         <property name="visible">True</property>
+                        <property name="sensitive">False</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
                         <property name="xpad">30</property>
-                        <property name="label" translatable="yes">Driver:</property>
+                        <property name="label" translatable="yes">Kernel Modules:</property>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
@@ -125,12 +126,13 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkComboBox" id="lirc_driver">
+                      <widget class="GtkComboBox" id="lirc_modules">
                         <property name="width_request">400</property>
                         <property name="visible">True</property>
                         <property name="sensitive">False</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="items">[No Driver Needed]</property>
+                        <signal name="changed" handler="lirc_changed"/>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
@@ -146,13 +148,55 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkHBox" id="lirc_rc">
+                  <widget class="GtkHBox" id="lirc_driver_hbox">
+                    <property name="visible">True</property>
+                    <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                    <child>
+                      <widget class="GtkLabel" id="lirc_driver_label">
+                        <property name="width_request">250</property>
+                        <property name="visible">True</property>
+                        <property name="sensitive">False</property>
+                        <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                        <property name="xalign">0</property>
+                        <property name="xpad">30</property>
+                        <property name="label" translatable="yes">Driver</property>
+                      </widget>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="GtkComboBox" id="lirc_driver">
+                        <property name="width_request">400</property>
+                        <property name="visible">True</property>
+                        <property name="sensitive">False</property>
+                        <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                        <property name="items">[No Driver Needed]</property>
+                        <signal name="changed" handler="lirc_changed"/>
+                      </widget>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkHBox" id="lirc_rc_hbox">
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <child>
                       <widget class="GtkLabel" id="lirc_rc_label">
                         <property name="width_request">250</property>
                         <property name="visible">True</property>
+                        <property name="sensitive">False</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
                         <property name="xpad">30</property>
@@ -170,6 +214,7 @@
                         <property name="sensitive">False</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="items" translatable="yes">[No Remote Chosen]</property>
+                        <signal name="changed" handler="lirc_changed"/>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
@@ -181,14 +226,14 @@
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
-                    <property name="position">2</property>
+                    <property name="position">3</property>
                   </packing>
                 </child>
                 <child>
                   <widget class="GtkVBox" id="lirc_bug_vbox">
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <child>
-                      <widget class="GtkLabel" id="bug_message">
+                      <widget class="GtkLabel" id="bug_message1">
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
@@ -200,7 +245,7 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkLinkButton" id="bug_url">
+                      <widget class="GtkLinkButton" id="bug_url1">
                         <property name="width_request">500</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
@@ -220,7 +265,7 @@
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
-                    <property name="position">3</property>
+                    <property name="position">4</property>
                   </packing>
                 </child>
               </widget>
