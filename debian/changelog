@@ -19,6 +19,8 @@ ubiquity (1.5.7) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Add partman-auto-loop.
+  * Run apt's DoInstall() method with stdin redirected from /dev/null, to
+    stop it hijacking the debconf protocol (LP: #130843).
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 20 Jul 2007 10:41:47 -0400
 
