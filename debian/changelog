@@ -17,6 +17,9 @@ ubiquity (1.5.7) UNRELEASED; urgency=low
   * Don't dump debug information to the console when using --automatic.
   * Get the user password straight from debconf in noninteractive mode.
 
+  [ Colin Watson ]
+  * Add partman-auto-loop.
+
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 20 Jul 2007 10:41:47 -0400
 
 ubiquity (1.5.6) gutsy; urgency=low

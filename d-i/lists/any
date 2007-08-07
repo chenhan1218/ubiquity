@@ -9,6 +9,7 @@ localechooser
 migration-assistant
 partconf
 partman-auto
+partman-auto-loop
 partman-base
 partman-basicfilesystems
 partman-basicmethods
