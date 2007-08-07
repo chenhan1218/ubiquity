@@ -153,6 +153,7 @@ class Wizard(BaseFrontend):
         self.username_edited = False
         self.hostname_edited = False
         self.previous_partitioning_page = None
+        self.grub_en = True
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
@@ -2339,10 +2340,13 @@ class Wizard(BaseFrontend):
     def on_advanced_button_clicked (self, button):
         display = False
         summary_device = self.get_summary_device()
+        grub_en = self.get_grub()
         if summary_device is not None:
             display = True
             self.bootloader_vbox.show()
             self.grub_device_entry.set_text(summary_device)
+            self.grub_device_entry.set_sensitive(grub_en)
+            self.grub_device_label.set_sensitive(grub_en)
         else:
             self.bootloader_vbox.hide()
         if self.popcon is not None:
@@ -2359,8 +2363,13 @@ class Wizard(BaseFrontend):
         if response == gtk.RESPONSE_OK:
             self.set_summary_device(self.grub_device_entry.get_text())
             self.set_popcon(self.popcon_checkbutton.get_active())
+            self.set_grub(self.grub_enable.get_active())
         return True
 
+    def toggle_grub(self, widget):
+         if (widget is not None and widget.get_name() == 'grub_enable'):
+            self.grub_device_entry.set_sensitive(widget.get_active())
+            self.grub_device_label.set_sensitive(widget.get_active())
 
     def return_to_partitioning (self):
         """If the install progress bar is up but still at the partitioning

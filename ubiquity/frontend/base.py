@@ -348,6 +348,15 @@ class BaseFrontend:
                 device = '/dev/%s' % device
         self.summary_device = device
 
+    def set_grub(self, enable):
+        """Sets whether we will be installing GRUB."""
+        self.grub_en = enable
+
+    # called from ubiquity.components.install
+    def get_grub(self):
+        """Returns whether we will be installing GRUB."""
+        return self.grub_en
+
     # called from ubiquity.components.install
     def get_summary_device(self):
         """Get the selected GRUB device."""

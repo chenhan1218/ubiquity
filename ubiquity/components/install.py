@@ -1,7 +1,9 @@
 # -*- coding: UTF-8 -*-
 
 # Copyright (C) 2006 Canonical Ltd.
-# Written by Colin Watson <cjwatson@ubuntu.com>.
+# Author(s):
+#   Colin Watson <cjwatson@ubuntu.com>.
+#   Mario Limonciello <superm1@ubuntu.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -39,6 +41,10 @@ class Install(FilteredCommand):
             self.preseed('grub-installer/with_other_os', 'false')
             self.preseed('grub-installer/only_debian', 'false')
             self.preseed('grub-installer/bootdev', bootdev)
+        if self.frontend.get_grub() is not None:
+            self.preseed_bool('ubiquity/install_bootloader', self.frontend.get_grub())
+        else:
+            self.preseed_bool('ubiquity/install_bootloader', True)
 
         popcon = self.frontend.get_popcon()
         if popcon is not None:
