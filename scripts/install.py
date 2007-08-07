@@ -175,8 +175,15 @@ class DebconfInstallProgress(InstallProgress):
 
         self.statusfd.close()
 
-        # Redirect stdout to stderr to avoid it interfering with our
-        # debconf protocol stream.
+        # Redirect stdin from /dev/null and stdout to stderr to avoid them
+        # interfering with our debconf protocol stream.
+        saved_stdin = os.dup(0)
+        try:
+            null = os.open('/dev/null', os.O_RDONLY)
+            os.dup2(null, 0)
+            os.close(null)
+        except OSError:
+            pass
         saved_stdout = os.dup(1)
         os.dup2(2, 1)
 
@@ -212,7 +219,9 @@ class DebconfInstallProgress(InstallProgress):
                 except OSError:
                     break
 
-            # Put back stdout.
+            # Put back stdin and stdout.
+            os.dup2(saved_stdin, 0)
+            os.close(saved_stdin)
             os.dup2(saved_stdout, 1)
             os.close(saved_stdout)
 
