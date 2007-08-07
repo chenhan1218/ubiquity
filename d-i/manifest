@@ -1,5 +1,5 @@
-apt-setup 1:0.21ubuntu1
-base-installer 1.80ubuntu2
+apt-setup 1:0.21ubuntu2
+base-installer 1.81ubuntu1
 choose-mirror 2.15ubuntu1
 clock-setup 0.16ubuntu1
 console-setup 1.16ubuntu4
@@ -10,7 +10,7 @@ kboot-installer 0.0.1ubuntu3
 localechooser 1.38ubuntu1
 migration-assistant 0.4.5
 partconf 1.23
-partman-auto 69ubuntu3
+partman-auto 69ubuntu5
 partman-base 107ubuntu2
 partman-basicfilesystems 54ubuntu2
 partman-basicmethods 35
