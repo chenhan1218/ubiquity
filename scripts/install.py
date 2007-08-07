@@ -3,6 +3,7 @@
 
 # Copyright (C) 2005 Javier Carranza and others for Guadalinex
 # Copyright (C) 2005, 2006 Canonical Ltd.
+# Copyright (C) 2007 Mario Limonciello
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -1299,42 +1300,43 @@ exit 0"""
     def configure_bootloader(self):
         """configuring and installing boot loader into installed
         hardware system."""
+        install_bootloader = self.db.get('ubiquity/install_bootloader')
+        if install_bootloader == "true":
+            misc.execute('mount', '--bind', '/proc', self.target + '/proc')
+            misc.execute('mount', '--bind', '/dev', self.target + '/dev')
 
-        misc.execute('mount', '--bind', '/proc', self.target + '/proc')
-        misc.execute('mount', '--bind', '/dev', self.target + '/dev')
+            archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
+            subarch = archdetect.communicate()[0].strip()
 
-        archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
-        subarch = archdetect.communicate()[0].strip()
-
-        try:
-            if subarch.startswith('amd64/') or subarch.startswith('i386/'):
-                from ubiquity.components import grubinstaller
-                dbfilter = grubinstaller.GrubInstaller(None)
-                ret = dbfilter.run_command(auto_process=True)
-                if ret != 0:
-                    raise InstallStepError(
-                        "GrubInstaller failed with code %d" % ret)
-            elif subarch == 'powerpc/ps3':
-                from ubiquity.components import kbootinstaller
-                dbfilter = kbootinstaller.KbootInstaller(None)
-                ret = dbfilter.run_command(auto_process=True)
-                if ret != 0:
-                    raise InstallStepError(
-                        "KbootInstaller failed with code %d" % ret)
-            elif subarch.startswith('powerpc/'):
-                from ubiquity.components import yabootinstaller
-                dbfilter = yabootinstaller.YabootInstaller(None)
-                ret = dbfilter.run_command(auto_process=True)
-                if ret != 0:
-                    raise InstallStepError(
-                        "YabootInstaller failed with code %d" % ret)
-            else:
+            try:
+                if subarch.startswith('amd64/') or subarch.startswith('i386/'):
+                    from ubiquity.components import grubinstaller
+                    dbfilter = grubinstaller.GrubInstaller(None)
+                    ret = dbfilter.run_command(auto_process=True)
+                    if ret != 0:
+                        raise InstallStepError(
+                            "GrubInstaller failed with code %d" % ret)
+                elif subarch == 'powerpc/ps3':
+                    from ubiquity.components import kbootinstaller
+                    dbfilter = kbootinstaller.KbootInstaller(None)
+                    ret = dbfilter.run_command(auto_process=True)
+                    if ret != 0:
+                        raise InstallStepError(
+                            "KbootInstaller failed with code %d" % ret)
+                elif subarch.startswith('powerpc/'):
+                    from ubiquity.components import yabootinstaller
+                    dbfilter = yabootinstaller.YabootInstaller(None)
+                    ret = dbfilter.run_command(auto_process=True)
+                    if ret != 0:
+                        raise InstallStepError(
+                            "YabootInstaller failed with code %d" % ret)
+                else:
+                    raise InstallStepError("No bootloader installer found")
+            except ImportError:
                 raise InstallStepError("No bootloader installer found")
-        except ImportError:
-            raise InstallStepError("No bootloader installer found")
 
-        misc.execute('umount', '-f', self.target + '/proc')
-        misc.execute('umount', '-f', self.target + '/dev')
+            misc.execute('umount', '-f', self.target + '/proc')
+            misc.execute('umount', '-f', self.target + '/dev')
 
 
     def broken_packages(self, cache):

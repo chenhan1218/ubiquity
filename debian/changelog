@@ -10,6 +10,8 @@ ubiquity (1.5.7) UNRELEASED; urgency=low
   * In postinstall mythbuntu-setup, change xhost behavior.
   * Add lirc.hwdb population to mythbuntu lirc steps
   * Make all "yes"/"no"'s True/False
+  * Add support to enable/disable boot loader installation in GTK,
+    KDE, and Mythbuntu frontends (LP: #130445)
 
   [ Evan Dandrea ]
   * Don't dump debug information to the console when using --automatic.

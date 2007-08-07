@@ -2,8 +2,9 @@
 #
 # Copyright (C) 2006, 2007 Canonical Ltd.
 #
-# Author:
+# Author(s):
 #   Jonathan Riddell <jriddell@ubuntu.com>
+#   Mario Limonciello <superm1@ubuntu.com>
 #
 # This file is part of Ubiquity.
 #
@@ -141,6 +142,7 @@ class Wizard(BaseFrontend):
         self.username_edited = False
         self.hostname_edited = False
         self.previous_partitioning_page = None
+        self.grub_en = True
         self.installing = False
         self.installing_no_return = False
         self.returncode = 0
@@ -1274,7 +1276,7 @@ class Wizard(BaseFrontend):
         self.userinterface.partition_list_treeview.setModel(self.partition_tree_model)
         self.app.disconnect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
         self.app.connect(self.userinterface.partition_list_treeview.selectionModel(), SIGNAL("selectionChanged(const QItemSelection&, const QItemSelection&)"), self.on_partition_list_treeview_selection_changed)
-        
+
         # make sure we're on the advanced partitioning page
         self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
 
@@ -1697,14 +1699,18 @@ class Wizard(BaseFrontend):
         self.userinterface.ready_text.setText(text)
 
     def on_advanced_button_clicked (self):
+        self.app.connect(self.advanceddialog.grub_enable, SIGNAL("stateChanged(int)"), self.toggle_grub)
         display = False
         summary_device = self.get_summary_device()
+        grub_en = self.get_grub()
         if summary_device is not None:
             display = True
             self.advanceddialog.bootloader_group_label.show()
             self.advanceddialog.grub_device_label.show()
             self.advanceddialog.grub_device_entry.show()
             self.advanceddialog.grub_device_entry.setText(summary_device)
+            self.advanceddialog.grub_device_entry.setEnabled(grub_en)
+            self.advanceddialog.grub_device_label.setEnabled(grub_en)
         else:
             self.advanceddialog.bootloader_group_label.hide()
             self.advanceddialog.grub_device_label.hide()
@@ -1725,6 +1731,12 @@ class Wizard(BaseFrontend):
             self.set_summary_device(
                 unicode(self.advanceddialog.grub_device_entry.text()))
             self.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
+            self.set_grub(self.advanceddialog.grub_enable.isChecked())
+
+    def toggle_grub(self):
+        grub_en = self.advanceddialog.grub_enable.isChecked()
+        self.advanceddialog.grub_device_entry.setEnabled(grub_en)
+        self.advanceddialog.grub_device_label.setEnabled(grub_en)
 
     def return_to_partitioning (self):
         """If the install progress bar is up but still at the partitioning
