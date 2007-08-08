@@ -1,3 +1,10 @@
+oem-config (1.18) UNRELEASED; urgency=low
+
+  * Chroot to test for existence of gdm-cdd.conf to avoid problems with
+    broken symlinks; cf. casper 1.93.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 09 Aug 2007 00:09:30 +0100
+
 oem-config (1.17) gutsy; urgency=low
 
   * Move .glade and .ui files to a new top-level gui directory in the source

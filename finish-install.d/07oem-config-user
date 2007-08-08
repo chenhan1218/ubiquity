@@ -16,13 +16,15 @@ fi
 # cf. casper/scripts/casper-bottom/15autologin and
 # oem-config:disable_autologin()
 
-if [ -f /target/etc/gdm/gdm-cdd.conf ]; then
+# chroot needed to handle symlinks correctly
+if chroot /target [ -f /etc/gdm/gdm-cdd.conf ]; then
 	GDMCONF=/etc/gdm/gdm-cdd.conf
 else
 	GDMCONF=/etc/gdm/gdm.conf
 fi
 
-if [ -f "/target$GDMCONF" ]; then
+# chroot needed to handle symlinks correctly
+if chroot /target [ -f "$GDMCONF" ]; then
 	# Configure GDM autologin
 	chroot /target sed -i.oem \
 		-e "s/^AutomaticLoginEnable=.*\$/AutomaticLoginEnable=true/" \
