@@ -996,23 +996,6 @@ exit 0"""
         if ret != 0:
             raise InstallStepError("UserSetupApply failed with code %d" % ret)
 
-        try:
-            if self.db.get('oem-config/enable') == 'true':
-                if os.path.isdir(os.path.join(self.target, 'home/oem')):
-                    for desktop_file in (
-                        'usr/share/applications/oem-config-prepare-gtk.desktop',
-                        'usr/share/applications/kde/oem-config-prepare-kde.desktop'):
-                        if os.path.exists(os.path.join(self.target,
-                                                       desktop_file)):
-                            desktop_base = os.path.basename(desktop_file)
-                            self.chrex('install', '-D',
-                                       '-o', 'oem', '-g', 'oem',
-                                       '/%s' % desktop_file,
-                                       '/home/oem/Desktop/%s' % desktop_base)
-                            break
-        except debconf.DebconfError:
-            pass
-
     def configure_ma(self):
         """import documents, settings, and users from previous operating
         systems."""
@@ -1611,6 +1594,23 @@ exit 0"""
 
         if found_cdrom:
             os.rename("%s.apt-setup" % sources_list, sources_list)
+
+        try:
+            if self.db.get('oem-config/enable') == 'true':
+                if os.path.isdir(os.path.join(self.target, 'home/oem')):
+                    for desktop_file in (
+                        'usr/share/applications/oem-config-prepare-gtk.desktop',
+                        'usr/share/applications/kde/oem-config-prepare-kde.desktop'):
+                        if os.path.exists(os.path.join(self.target,
+                                                       desktop_file)):
+                            desktop_base = os.path.basename(desktop_file)
+                            self.chrex('install', '-D',
+                                       '-o', 'oem', '-g', 'oem',
+                                       '/%s' % desktop_file,
+                                       '/home/oem/Desktop/%s' % desktop_base)
+                            break
+        except debconf.DebconfError:
+            pass
 
 
     def remove_extras(self):
