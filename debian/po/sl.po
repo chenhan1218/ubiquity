@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-07-08 16:05-0500\n"
+"POT-Creation-Date: 2007-08-09 18:24+0100\n"
 "PO-Revision-Date: 2007-04-02 03:51+0000\n"
 "Last-Translator: Matej Kovačič <matej.kovacic@owca.info>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -678,13 +678,13 @@ msgstr "Prenašanje jezikovnih paketov (preostaja ${TIME}) ..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Failed to unmount partitions"
 msgstr "Nisem mogel odklopiti razdelkov"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -692,25 +692,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Please close any applications using these mount points."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid "System partition not formatted"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
@@ -723,49 +723,16 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid ""
 " Install Type:           ${INSTALLTYPE}\n"
-" Plugins:\n"
-"     MythArchive:        ${MYTHARCHIVE}\n"
-"     MythBrowser:       ${MYTHBROWSER}\n"
-"     MythControls:      ${MYTHCONTROLS}\n"
-"     MythDVD:            ${MYTHDVD}\n"
-"     MythFlix:             ${MYTHFLIX}\n"
-"     MythGallery:        ${MYTHGALLERY}\n"
-"     MythGame:          ${MYTHGAME}\n"
-"     MythMusic:          ${MYTHMUSIC}\n"
-"     MythNews:           ${MYTHNEWS}\n"
-"     MythPhone:         ${MYTHPHONE}\n"
-"     MythVideo:          ${MYTHVIDEO}\n"
-"     MythWeather:       ${MYTHWEATHER}\n"
-"     MythWeb:            ${MYTHWEB}\n"
-" Themes:\n"
-"     Official:              ${OFFICIAL}\n"
-"     Community:          ${COMMUNITY}\n"
 " Drivers:\n"
 "     Add. Video Driver:  ${PROPRIETARY_VIDEO_DRIVER}\n"
-"         TV-Out:             ${TVOUT}\n"
-"         TV-Standard:    ${TVSTANDARD}\n"
+"         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
 "     TV-Tuners:          ${TUNER0} ${TUNER1} ${TUNER2} ${TUNER3} ${TUNER4}\n"
-" MySQL Info:\n"
-"     MythTV User Name:   ${MYSQLUSER}\n"
-"     MythTV Password:    ${MYSQLPASS}\n"
-"     MythTV Database:    ${MYSQLDATABASE}\n"
-"     Server:                  ${MYSQLSERVER}\n"
-"     Root Password:      ${MYSQLROOT}\n"
-" Mythweb Security:\n"
-"     Password:           ${MYTHWEBPASS}\n"
 " Additional Services:\n"
 "     VNC:                ${EN_VNC}\n"
-"         VNC Password:   ${VNCPASS}\n"
 "     SSH:                ${EN_OPENSSH}\n"
-"     Samba:             ${EN_SAMBA}\n"
+"     Samba:              ${EN_SAMBA}\n"
 "     NFS:                ${EN_NFS}\n"
-"     Open MySQL Port:    ${EN_MYSQL}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:1001
-msgid ""
+"     MythTV Service:     ${EN_MYSQL}\n"
 " Normal Ubuntu Install Questions:\n"
 "     Language:           ${LANGUAGE}\n"
 "     Keyboard layout:    ${KEYMAP}\n"
