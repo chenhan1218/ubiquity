@@ -20,7 +20,8 @@ ubiquity (1.5.8) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Add partman-auto-loop.
   * Move oem-config post-user-creation hacks to the end of install_extras,
-    when oem-config-gtk/kde will have been installed in /target.
+    when oem-config-gtk/kde will have been installed in /target
+    (LP: #131250).
   * Reimplement more of oem-config-udeb (ugh): disable the hwdb-client
     notification for the created user; set up autologin for the oem user via
     gdm/kdm.
