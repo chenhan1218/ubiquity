@@ -11,6 +11,7 @@ localechooser 1.38ubuntu1
 migration-assistant 0.4.5
 partconf 1.23
 partman-auto 69ubuntu5
+partman-auto-loop 0ubuntu3
 partman-base 107ubuntu2
 partman-basicfilesystems 54ubuntu2
 partman-basicmethods 35
