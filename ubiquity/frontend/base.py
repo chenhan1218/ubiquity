@@ -57,6 +57,12 @@ class BaseFrontend:
         try:
             if self.debconf_operation('get', 'oem-config/enable') == 'true':
                 self.oem_config = True
+                # It seems unlikely that anyone will need
+                # migration-assistant in the OEM installation process. If it
+                # turns out that they do, just delete the following two
+                # lines.
+                if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+                    del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         except debconf.DebconfError:
             pass
 
