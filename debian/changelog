@@ -1,3 +1,9 @@
+ubiquity (1.5.9) UNRELEASED; urgency=low
+
+  * Add a manual page for ubiquity.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 09 Aug 2007 23:20:42 +0100
+
 ubiquity (1.5.8) gutsy; urgency=low
 
   [ Mario Limonciello ]
