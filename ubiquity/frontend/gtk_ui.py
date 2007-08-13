@@ -349,49 +349,32 @@ class Wizard(BaseFrontend):
                     BREADCRUMB_STEPS[step] -= 1
             BREADCRUMB_MAX_STEP -= 1
 
-        while self.current_page is not None:
+        # FIXME: Removing migrationassistant for right now as it fiddles with
+        # cleanup() and that doesn't work with recent changes to Ubiquity.
+        self.pages = [language.Language, timezone.Timezone,
+            console_setup.ConsoleSetup, partman.Partman, usersetup.UserSetup,
+            summary.Summary]
+        self.pagesindex = 0
+        pageslen = len(self.pages)
+        
+        if got_intro:
+            gtk.main()
+        
+        while(self.pagesindex < pageslen):
             if not self.installing:
                 # Make sure any started progress bars are stopped.
                 while self.progress_position.depth() != 0:
                     self.debconf_progress_stop()
 
             self.backup = False
-            current_name = self.step_name(self.current_page)
             old_dbfilter = self.dbfilter
-            if current_name == "stepLanguage":
-                self.dbfilter = language.Language(self)
-                gtk.link_button_set_uri_hook(self.link_button_browser)
-            elif current_name == "stepMigrationAssistant":
-                self.dbfilter = migrationassistant.MigrationAssistant(self)
-            elif current_name == "stepLocation":
-                self.dbfilter = timezone.Timezone(self)
-            elif current_name == "stepKeyboardConf":
-                self.dbfilter = console_setup.ConsoleSetup(self)
-            elif current_name == "stepUserInfo":
-                self.dbfilter = usersetup.UserSetup(self)
-            elif current_name == "stepPartAuto":
-                self.dbfilter = partman.Partman(self)
-            elif current_name == "stepPartAdvanced":
-                if isinstance(self.dbfilter, partman.Partman):
-                    pre_log('info', 'reusing running partman')
-                else:
-                    self.dbfilter = partman.Partman(self)
-            elif current_name == "stepReady":
-                self.dbfilter = summary.Summary(self)
-            else:
-                self.dbfilter = None
+            self.dbfilter = self.pages[self.pagesindex](self)
 
+            # Non-debconf steps are no longer possible as the interface is now
+            # driven by whether there is a question to ask.
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.allow_change_step(False)
                 self.dbfilter.start(auto_process=True)
-            else:
-                # Non-debconf steps don't have a mechanism for turning this
-                # back on, so we do it here. process_step should block until
-                # the next step has started up; this will block the UI, but
-                # that's probably unavoidable for now. (This is currently
-                # believed to be unused; we only used this for gparted,
-                # which had its own UI loop.)
-                self.allow_change_step(True)
             gtk.main()
 
             if self.backup or self.dbfilter_handle_status():
@@ -399,10 +382,30 @@ class Wizard(BaseFrontend):
                     self.progress_loop()
                 elif self.current_page is not None and not self.backup:
                     self.process_step()
+                    self.pagesindex = self.pagesindex + 1
+                if self.backup:
+                    if self.pagesindex > 0:
+                        self.pagesindex = self.pagesindex - 1
+            
+            self.back.show()
+
+            # TODO: Move this to after we're done processing GTK events, or is
+            # that not worth the CPU time?
+            if self.current_page == None:
+                break
 
             while gtk.events_pending():
                 gtk.main_iteration()
 
+            # needed to be here for --automatic as there might not be any
+            # current page in the event all of the questions have been
+            # preseeded.
+            if self.pagesindex == pageslen:
+                # Ready to install
+                self.live_installer.hide()
+                self.current_page = None
+                self.installing = True
+                self.progress_loop()
         return self.returncode
 
 
@@ -584,7 +587,8 @@ class Wizard(BaseFrontend):
             cursor = None
         else:
             cursor = self.watch
-        self.live_installer.window.set_cursor(cursor)
+        if self.live_installer.window:
+            self.live_installer.window.set_cursor(cursor)
         self.back.set_sensitive(allowed)
         self.next.set_sensitive(allowed and self.allowed_go_forward)
         self.allowed_change_step = allowed
@@ -631,6 +635,7 @@ class Wizard(BaseFrontend):
         else:
             step = self.step_name(self.steps.get_current_page())
             if step.startswith("stepPart"):
+                print('dbfilter_handle_status stepPart')
                 self.set_current_page(self.steps.page_num(self.stepPartAuto))
             return False
 
@@ -872,22 +877,12 @@ class Wizard(BaseFrontend):
 
         if step.startswith("stepPart"):
             self.previous_partitioning_page = step_num
-
-        # Welcome
-        if step == "stepWelcome":
-            self.steps.next_page()
-        # Language
+        
         elif step == "stepLanguage":
             self.translate_widgets()
-            self.steps.next_page()
             self.back.show()
-            self.allow_go_forward(self.get_timezone() is not None)
-        # Location
-        elif step == "stepLocation":
-            self.steps.next_page()
-        # Keyboard
-        elif step == "stepKeyboardConf":
-            self.steps.next_page()
+            # FIXME: needed anymore now that we're doing dbfilter first?
+            #self.allow_go_forward(self.get_timezone() is not None)
         # Automatic partitioning
         elif step == "stepPartAuto":
             self.process_autopartitioning()
@@ -895,30 +890,17 @@ class Wizard(BaseFrontend):
         elif step == "stepPartAdvanced":
             if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
                 self.info_loop(None)
-                self.set_current_page(self.steps.page_num(self.stepUserInfo))
-            else:
-                self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
+            # FIXME: this will probably cause problems.
+            #    self.set_current_page(self.steps.page_num(self.stepUserInfo))
+            #else:
+            #    self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
         # Migration Assistant
         elif step == "stepMigrationAssistant":
-            self.steps.next_page()
             self.ma_configure_usersetup()
             self.info_loop(None)
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
-        # Ready to install
-        elif step == "stepReady":
-            self.live_installer.hide()
-            self.current_page = None
-            self.installing = True
-            self.progress_loop()
-            return
-
-        step = self.step_name(self.steps.get_current_page())
-        syslog.syslog('Step_after = %s' % step)
-
-        if step == "stepReady":
-            self.next.set_label("Install")
 
     def process_identification (self):
         """Processing identification step tasks."""
@@ -942,12 +924,11 @@ class Wizard(BaseFrontend):
         if len(error_msg) != 0:
             self.hostname_error_reason.set_text("\n".join(error_msg))
             self.hostname_error_box.show()
-        else:
-            self.steps.next_page()
 
 
     def process_autopartitioning(self):
         """Processing automatic partitioning step tasks."""
+
 
         while gtk.events_pending ():
             gtk.main_iteration ()
@@ -957,12 +938,12 @@ class Wizard(BaseFrontend):
         choice = self.get_autopartition_choice()[0]
         if self.manual_choice is None or choice == self.manual_choice:
             self.steps.next_page()
-        else:
-            if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-                self.info_loop(None)
-                self.set_current_page(self.steps.page_num(self.stepUserInfo))
-            else:
-                self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
+        #else:
+        #    if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+        #        self.info_loop(None)
+        #        self.set_current_page(self.steps.page_num(self.stepUserInfo))
+        #    else:
+        #        self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
 
 
     def on_back_clicked(self, widget):
@@ -980,31 +961,9 @@ class Wizard(BaseFrontend):
         # Setting actual step
         step = self.step_name(self.steps.get_current_page())
 
-        changed_page = False
-
-        if step == "stepLocation":
-            self.back.hide()
-        elif step == "stepPartAuto":
-            self.set_current_page(self.steps.page_num(self.stepKeyboardConf))
-            changed_page = True
-        elif step == "stepPartAdvanced":
-            self.set_current_page(self.steps.page_num(self.stepPartAuto))
-            changed_page = True
-        elif step == "stepMigrationAssistant":
-            self.set_current_page(self.previous_partitioning_page)
-            changed_page = True
-        elif step == "stepUserInfo":
-            if 'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
-                self.set_current_page(self.previous_partitioning_page)
-                changed_page = True
-        elif step == "stepReady":
+        if step == "stepReady":
             self.next.set_label("gtk-go-forward")
             self.translate_widget(self.next, self.locale)
-            self.steps.prev_page()
-            changed_page = True
-
-        if not changed_page:
-            self.steps.prev_page()
 
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
@@ -1168,12 +1127,7 @@ class Wizard(BaseFrontend):
 
     def debconffilter_done (self, dbfilter):
         if BaseFrontend.debconffilter_done(self, dbfilter):
-            if isinstance(dbfilter, summary.Summary) and \
-                not 'UBIQUITY_AUTOMATIC' in os.environ:
-                # The Summary component is just there to gather information,
-                # and won't call run_main_loop() for itself.
-                self.allow_change_step(True)
-            elif gtk.main_level() > 0:
+            if gtk.main_level() > 0:
                 gtk.main_quit()
             return True
         else:
@@ -2367,9 +2321,10 @@ class Wizard(BaseFrontend):
         return True
 
     def toggle_grub(self, widget):
-         if (widget is not None and widget.get_name() == 'grub_enable'):
+        if (widget is not None and widget.get_name() == 'grub_enable'):
             self.grub_device_entry.set_sensitive(widget.get_active())
             self.grub_device_label.set_sensitive(widget.get_active())
+
 
     def return_to_partitioning (self):
         """If the install progress bar is up but still at the partitioning
@@ -2379,6 +2334,9 @@ class Wizard(BaseFrontend):
         if self.installing and not self.installing_no_return:
             # Go back to the partitioner and try again.
             self.live_installer.show()
+            # FIXME: ugh, can't hardcode this.
+            self.pagesindex = 1
+            self.dbfilter = partman.Partman(self)
             self.set_current_page(self.previous_partitioning_page)
             self.next.set_label("gtk-go-forward")
             self.translate_widget(self.next, self.locale)

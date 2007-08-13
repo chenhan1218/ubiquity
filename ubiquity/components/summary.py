@@ -70,4 +70,5 @@ class Summary(FilteredCommand):
 
             # This component exists only to gather some information and then
             # get out of the way.
-            return True
+            #return True
+        return FilteredCommand.run(self, priority, question)

@@ -1,8 +1,13 @@
 ubiquity (1.5.9) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Add a manual page for ubiquity.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 09 Aug 2007 23:20:42 +0100
+  [ Evan Dandrea ]
+  * Merged in changes to modify the way pages are called.  This is
+    necessary to support page skipping in automatic mode.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 13 Aug 2007 12:38:07 -0400
 
 ubiquity (1.5.8) gutsy; urgency=low
 
