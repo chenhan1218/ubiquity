@@ -1,4 +1,4 @@
-ubiquity (1.5.9) UNRELEASED; urgency=low
+ubiquity (1.5.9) gutsy; urgency=low
 
   [ Colin Watson ]
   * Add a manual page for ubiquity.
@@ -9,7 +9,7 @@ ubiquity (1.5.9) UNRELEASED; urgency=low
   * Use a migration-assistant script to continuously call m-a rather
     than hacking cleanup().
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 16 Aug 2007 12:24:44 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 16 Aug 2007 13:35:18 -0400
 
 ubiquity (1.5.8) gutsy; urgency=low
 
