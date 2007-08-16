@@ -352,7 +352,8 @@ class Wizard(BaseFrontend):
         # FIXME: Removing migrationassistant for right now as it fiddles with
         # cleanup() and that doesn't work with recent changes to Ubiquity.
         self.pages = [language.Language, timezone.Timezone,
-            console_setup.ConsoleSetup, partman.Partman, usersetup.UserSetup,
+            console_setup.ConsoleSetup, partman.Partman,
+            migrationassistant.MigrationAssistant, usersetup.UserSetup,
             summary.Summary]
         self.pagesindex = 0
         pageslen = len(self.pages)

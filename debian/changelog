@@ -6,8 +6,10 @@ ubiquity (1.5.9) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Merged in changes to modify the way pages are called.  This is
     necessary to support page skipping in automatic mode.
+  * Use a migration-assistant script to continuously call m-a rather
+    than hacking cleanup().
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 13 Aug 2007 12:38:07 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 16 Aug 2007 12:24:44 -0400
 
 ubiquity (1.5.8) gutsy; urgency=low
 

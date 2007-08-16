@@ -511,3 +511,8 @@ _Description: System partition not formatted
  marked for formatting. File systems used by the system (/, /boot, /usr,
  /var) must be reformatted for use by this installer. Other file systems
  (/home, /media/*, /usr/local, etc.) may be used without reformatting.
+
+Template: ubiquity/run-ma-again
+Type: boolean
+Default: true
+Description: for internal use; run migration-assistant again.
