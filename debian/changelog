@@ -1,3 +1,9 @@
+ubiquity (1.5.10) gutsy; urgency=low
+
+  * Fix intltool to fix FTBFS.  Thanks Keybuk.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 16 Aug 2007 17:06:12 -0400
+
 ubiquity (1.5.9) gutsy; urgency=low
 
   [ Colin Watson ]
