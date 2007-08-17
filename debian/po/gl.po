@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-07-08 16:05-0500\n"
+"POT-Creation-Date: 2007-08-09 18:24+0100\n"
 "PO-Revision-Date: 2007-04-02 03:14+0000\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@debian.org>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -707,13 +707,13 @@ msgstr "Descargando paquetes de idioma (quedan ${TIME})"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Failed to unmount partitions"
 msgstr "Non se puido desmontar as particións"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -724,26 +724,26 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Please close any applications using these mount points."
 msgstr ""
 "Por favor, peche as aplicación que estean usando estes puntos de montaxe."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "¿Desexa que o instalador tente desmontar outra vez estas particións?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid "System partition not formatted"
 msgstr "A partición do sistema non está formatada"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
@@ -761,50 +761,16 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid ""
 " Install Type:           ${INSTALLTYPE}\n"
-" Plugins:\n"
-"     MythArchive:        ${MYTHARCHIVE}\n"
-"     MythBrowser:       ${MYTHBROWSER}\n"
-"     MythControls:      ${MYTHCONTROLS}\n"
-"     MythDVD:            ${MYTHDVD}\n"
-"     MythFlix:             ${MYTHFLIX}\n"
-"     MythGallery:        ${MYTHGALLERY}\n"
-"     MythGame:          ${MYTHGAME}\n"
-"     MythMusic:          ${MYTHMUSIC}\n"
-"     MythNews:           ${MYTHNEWS}\n"
-"     MythPhone:         ${MYTHPHONE}\n"
-"     MythVideo:          ${MYTHVIDEO}\n"
-"     MythWeather:       ${MYTHWEATHER}\n"
-"     MythWeb:            ${MYTHWEB}\n"
-" Themes:\n"
-"     Official:              ${OFFICIAL}\n"
-"     Community:          ${COMMUNITY}\n"
 " Drivers:\n"
 "     Add. Video Driver:  ${PROPRIETARY_VIDEO_DRIVER}\n"
-"         TV-Out:             ${TVOUT}\n"
-"         TV-Standard:    ${TVSTANDARD}\n"
+"         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
 "     TV-Tuners:          ${TUNER0} ${TUNER1} ${TUNER2} ${TUNER3} ${TUNER4}\n"
-" MySQL Info:\n"
-"     MythTV User Name:   ${MYSQLUSER}\n"
-"     MythTV Password:    ${MYSQLPASS}\n"
-"     MythTV Database:    ${MYSQLDATABASE}\n"
-"     Server:                  ${MYSQLSERVER}\n"
-"     Root Password:      ${MYSQLROOT}\n"
-" Mythweb Security:\n"
-"     Password:           ${MYTHWEBPASS}\n"
 " Additional Services:\n"
 "     VNC:                ${EN_VNC}\n"
-"         VNC Password:   ${VNCPASS}\n"
 "     SSH:                ${EN_OPENSSH}\n"
-"     Samba:             ${EN_SAMBA}\n"
+"     Samba:              ${EN_SAMBA}\n"
 "     NFS:                ${EN_NFS}\n"
-"     Open MySQL Port:    ${EN_MYSQL}"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
-msgid ""
+"     MythTV Service:     ${EN_MYSQL}\n"
 " Normal Ubuntu Install Questions:\n"
 "     Language:           ${LANGUAGE}\n"
 "     Keyboard layout:    ${KEYMAP}\n"
@@ -812,13 +778,6 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
-" Idioma: ${LANGUAGE}\n"
-" Mapa de teclado: ${KEYMAP}\n"
-" Nome completo: ${FULLNAME}\n"
-" Nome de usuario: ${USERNAME}\n"
-" Localización: ${LOCATION}\n"
-" Asistente de migración:\n"
-" ${MIGRATE}"
 
 #. Type: note
 #. Description
@@ -1345,3 +1304,20 @@ msgstr "A configurar o hardware..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "A configurar o fuso horario..."
+
+#, fuzzy
+#~ msgid ""
+#~ " Normal Ubuntu Install Questions:\n"
+#~ "     Language:           ${LANGUAGE}\n"
+#~ "     Keyboard layout:    ${KEYMAP}\n"
+#~ "     Regular Name:       ${FULLNAME}\n"
+#~ "     Regular Login name: ${USERNAME}\n"
+#~ "     Location:           ${LOCATION}"
+#~ msgstr ""
+#~ " Idioma: ${LANGUAGE}\n"
+#~ " Mapa de teclado: ${KEYMAP}\n"
+#~ " Nome completo: ${FULLNAME}\n"
+#~ " Nome de usuario: ${USERNAME}\n"
+#~ " Localización: ${LOCATION}\n"
+#~ " Asistente de migración:\n"
+#~ " ${MIGRATE}"

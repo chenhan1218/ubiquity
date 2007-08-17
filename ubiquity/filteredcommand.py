@@ -352,10 +352,36 @@ class FilteredCommand(object):
     # The confmodule asked a question; process it. Subclasses only need to
     # override this if they want to do something special like updating their
     # UI depending on what questions were asked.
+
+    # TODO: Make the steps references in the individual components, rather than
+    # having to define the relationship here?
     def run(self, priority, question):
         self.current_question = question
+        self.frontend.live_installer.show()
         if not self.done:
             self.succeeded = False
+            n = self.__class__.__name__
+            if n == 'Language':
+                self.frontend.set_current_page(self.frontend.steps.page_num(self.frontend.stepLanguage))
+            elif n == 'ConsoleSetup':
+                self.frontend.set_current_page(self.frontend.steps.page_num(self.frontend.stepKeyboardConf))
+            elif n == 'Timezone':
+                self.frontend.set_current_page(self.frontend.steps.page_num(self.frontend.stepLocation))
+            elif n == 'Partman':
+                # Rather than try to guess which partman page we should be on,
+                # we leave that decision to set_autopartitioning_choices and
+                # update_partman.
+                pass
+            elif n == 'UserSetup':
+                self.frontend.set_current_page(self.frontend.steps.page_num(self.frontend.stepUserInfo))
+            elif n == 'Summary':
+                self.frontend.set_current_page(self.frontend.steps.page_num(self.frontend.stepReady))
+                self.frontend.next.set_label("Install")
+            elif n == 'MigrationAssistant':
+                self.frontend.set_current_page(self.frontend.steps.page_num(self.frontend.stepMigrationAssistant))
+            else:
+                print >>sys.stderr, 'No page found for %s' % n
+
             self.enter_ui_loop()
         return self.succeeded
 

@@ -1,4 +1,23 @@
-ubiquity (1.5.7) UNRELEASED; urgency=low
+ubiquity (1.5.10) gutsy; urgency=low
+
+  * Fix intltool to fix FTBFS.  Thanks Keybuk.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 16 Aug 2007 17:10:35 -0400
+
+ubiquity (1.5.9) gutsy; urgency=low
+
+  [ Colin Watson ]
+  * Add a manual page for ubiquity.
+
+  [ Evan Dandrea ]
+  * Merged in changes to modify the way pages are called.  This is
+    necessary to support page skipping in automatic mode.
+  * Use a migration-assistant script to continuously call m-a rather
+    than hacking cleanup().
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 16 Aug 2007 13:35:18 -0400
+
+ubiquity (1.5.8) gutsy; urgency=low
 
   [ Mario Limonciello ]
   * Fix mythbuntu lircd.conf generation.
@@ -19,8 +38,25 @@ ubiquity (1.5.7) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Add partman-auto-loop.
+  * Move oem-config post-user-creation hacks to the end of install_extras,
+    when oem-config-gtk/kde will have been installed in /target
+    (LP: #131250).
+  * Reimplement more of oem-config-udeb (ugh): disable the hwdb-client
+    notification for the created user; set up autologin for the oem user via
+    gdm/kdm.
+  * Disable migration-assistant if oem-config/enable=true.
+  * Adjust apport hook to attach /var/log/installer/debug too if available.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 20 Jul 2007 10:41:47 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 09 Aug 2007 19:57:31 +0100
+
+ubiquity (1.5.7) gutsy; urgency=low
+
+  * Run apt's DoInstall() method with stdin redirected from /dev/null, to
+    stop it hijacking the debconf protocol (LP: #130843).
+  * Automatic update of included source packages: apt-setup 1:0.21ubuntu2,
+    base-installer 1.81ubuntu1, partman-auto 69ubuntu5.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 07 Aug 2007 17:25:04 +0100
 
 ubiquity (1.5.6) gutsy; urgency=low
 
