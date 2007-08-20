@@ -1,3 +1,18 @@
+ubiquity (1.5.11) UNRELEASED; urgency=low
+
+  [ Mario Limonciello ]
+  * Disable tv-tuner selection GUI in mythbuntu frontend
+    until mythbuntu-firmware-detector is completed.
+  * Remove mythbuntu scripts present in multiple binary
+    packages from ubiquity binary package. (LP: #131092)
+
+  [Thomas Mashos ]
+  * Update mythbuntu GUI to reflect schedules direct requirement for
+    North American users.
+  * Make sure Mythbuntu automatic login is prepared for proper user.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Sun, 19 Aug 2007 21:16:35 -0500
+
 ubiquity (1.5.10) gutsy; urgency=low
 
   * Fix intltool to fix FTBFS.  Thanks Keybuk.
