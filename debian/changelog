@@ -2,8 +2,10 @@ ubiquity (1.5.11) UNRELEASED; urgency=low
 
   * Remove accidentally leftover debugging code
   * Repeat changes to page handling code to kdeui.
+  * Automatic update of included source packages: partman-
+    basicfilesystems 54ubuntu3, partman-partitioning 50ubuntu2.
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 20 Aug 2007 15:33:52 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 20 Aug 2007 17:29:23 -0400
 
 ubiquity (1.5.10) gutsy; urgency=low
 
