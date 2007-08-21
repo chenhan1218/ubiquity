@@ -349,8 +349,6 @@ class Wizard(BaseFrontend):
                     BREADCRUMB_STEPS[step] -= 1
             BREADCRUMB_MAX_STEP -= 1
 
-        # FIXME: Removing migrationassistant for right now as it fiddles with
-        # cleanup() and that doesn't work with recent changes to Ubiquity.
         self.pages = [language.Language, timezone.Timezone,
             console_setup.ConsoleSetup, partman.Partman,
             migrationassistant.MigrationAssistant, usersetup.UserSetup,
@@ -658,6 +656,29 @@ class Wizard(BaseFrontend):
     def step_name(self, step_index):
         return self.steps.get_nth_page(step_index).get_name()
 
+
+    def set_page(self, n):
+        self.live_installer.show()
+        if n == 'Language':
+            self.set_current_page(self.steps.page_num(self.stepLanguage))
+        elif n == 'ConsoleSetup':
+            self.set_current_page(self.steps.page_num(self.stepKeyboardConf))
+        elif n == 'Timezone':
+            self.set_current_page(self.steps.page_num(self.stepLocation))
+        elif n == 'Partman':
+            # Rather than try to guess which partman page we should be on,
+            # we leave that decision to set_autopartitioning_choices and
+            # update_partman.
+            pass
+        elif n == 'UserSetup':
+            self.set_current_page(self.steps.page_num(self.stepUserInfo))
+        elif n == 'Summary':
+            self.set_current_page(self.steps.page_num(self.stepReady))
+            self.next.set_label("Install")
+        elif n == 'MigrationAssistant':
+            self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
+        else:
+            print >>sys.stderr, 'No page found for %s' % n
 
     def set_current_page(self, current):
         if self.steps.get_current_page() == current:

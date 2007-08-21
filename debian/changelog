@@ -1,4 +1,4 @@
-ubiquity (1.5.11) UNRELEASED; urgency=low
+ubiquity (1.5.12) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Disable tv-tuner selection GUI in mythbuntu frontend
@@ -12,6 +12,15 @@ ubiquity (1.5.11) UNRELEASED; urgency=low
   * Make sure Mythbuntu automatic login is prepared for proper user.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Sun, 19 Aug 2007 21:16:35 -0500
+
+ubiquity (1.5.11) gutsy; urgency=low
+
+  * Remove accidentally leftover debugging code
+  * Repeat changes to page handling code to kdeui.
+  * Automatic update of included source packages: partman-
+    basicfilesystems 54ubuntu3, partman-partitioning 50ubuntu2.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 20 Aug 2007 17:31:47 -0400
 
 ubiquity (1.5.10) gutsy; urgency=low
 

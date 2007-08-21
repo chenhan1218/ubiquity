@@ -8,10 +8,7 @@ ubiquity/frontend/noninteractive.py usr/lib/ubiquity/ubiquity/frontend
 compat/anna-install usr/lib/ubiquity/compat
 compat/apt-install usr/lib/ubiquity/compat
 compat/udpkg usr/lib/ubiquity/compat
-scripts/*.py usr/share/ubiquity
-scripts/*-* usr/share/ubiquity
-scripts/summary usr/share/ubiquity
-scripts/tzserup usr/share/ubiquity
+scripts/* usr/share/ubiquity
 desktop/ubiquity.png usr/share/pixmaps
 pixmaps/world_map-960.png usr/share/ubiquity/pixmaps
 apport/ubiquity.py usr/share/apport/package-hooks

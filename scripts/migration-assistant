@@ -12,5 +12,3 @@ while [ "$CONT" = true ]; do
 	CONT="$RET"
 	db_fset ubiquity/run-ma-again seen false
 done
-db_get partman-auto/choose_recipe
-echo "EXITING EXITING"

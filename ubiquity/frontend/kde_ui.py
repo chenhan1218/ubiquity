@@ -284,41 +284,30 @@ class Wizard(BaseFrontend):
             first_step = "stepLanguage"
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
 
-        while self.current_page is not None:
+        self.pages = [language.Language, timezone.Timezone,
+            console_setup.ConsoleSetup, partman.Partman,
+            usersetup.UserSetup, summary.Summary]
+        self.pagesindex = 0
+        pageslen = len(self.pages)
+        
+        if got_intro:
+            self.app.exec_()
+        
+        while(self.pagesindex < pageslen):
             if not self.installing:
                 # Make sure any started progress bars are stopped.
                 while self.progress_position.depth() != 0:
                     self.debconf_progress_stop()
 
             self.backup = False
-            current_name = self.step_name(self.current_page)
             old_dbfilter = self.dbfilter
-            if current_name == "stepLanguage":
-                self.dbfilter = language.Language(self)
-            elif current_name == "stepLocation":
-                self.dbfilter = timezone.Timezone(self)
-            elif current_name == "stepKeyboardConf":
-                self.dbfilter = console_setup.ConsoleSetup(self)
-            elif current_name == "stepPartAuto":
-                self.dbfilter = partman.Partman(self)
-            elif current_name == "stepPartAdvanced":
-                if isinstance(self.dbfilter, partman.Partman):
-                    pre_log('info', 'reusing running partman')
-                else:
-                    self.dbfilter = partman.Partman(self)
-            elif current_name == "stepUserInfo":
-                self.dbfilter = usersetup.UserSetup(self)
-            elif current_name == "stepReady":
-                self.dbfilter = summary.Summary(self)
-            else:
-                self.dbfilter = None
+            self.dbfilter = self.pages[self.pagesindex](self)
 
+            # Non-debconf steps are no longer possible as the interface is now
+            # driven by whether there is a question to ask.
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.allow_change_step(False)
                 self.dbfilter.start(auto_process=True)
-            else:
-                self.allow_change_step(not self.installing)
-
             self.app.exec_()
 
             if self.backup or self.dbfilter_handle_status():
@@ -326,9 +315,28 @@ class Wizard(BaseFrontend):
                     self.progress_loop()
                 elif self.current_page is not None and not self.backup:
                     self.process_step()
+                    self.pagesindex = self.pagesindex + 1
+                if self.backup:
+                    if self.pagesindex > 0:
+                        self.pagesindex = self.pagesindex - 1
+            
+            self.userinterface.back.show()
+
+            # TODO: Move this to after we're done processing GTK events, or is
+            # that not worth the CPU time?
+            if self.current_page == None:
+                break
 
             self.app.processEvents()
 
+            # needed to be here for --automatic as there might not be any
+            # current page in the event all of the questions have been
+            # preseeded.
+            if self.pagesindex == pageslen:
+                # Ready to install
+                self.current_page = None
+                self.installing = True
+                self.progress_loop()
         return self.returncode
 
     def customize_installer(self):
@@ -543,6 +551,28 @@ class Wizard(BaseFrontend):
             step_index = 0
         return str(self.userinterface.widgetStack.widget(step_index).objectName())
 
+    def set_page(self, n):
+        self.userinterface.show()
+        if n == 'Language':
+            self.set_current_page(WIDGET_STACK_STEPS["stepLanguage"])
+        elif n == 'ConsoleSetup':
+            self.set_current_page(WIDGET_STACK_STEPS["stepKeyboardConf"])
+        elif n == 'Timezone':
+            self.set_current_page(WIDGET_STACK_STEPS["stepLocation"])
+        elif n == 'Partman':
+            # Rather than try to guess which partman page we should be on,
+            # we leave that decision to set_autopartitioning_choices and
+            # update_partman.
+            pass
+        elif n == 'UserSetup':
+            self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
+        elif n == 'Summary':
+            self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
+            installText = self.get_string("live_installer")
+            self.userinterface.next.setText(installText)
+        else:
+            print >>sys.stderr, 'No page found for %s' % n
+    
     def set_current_page(self, current):
         widget = self.userinterface.widgetStack.widget(current)
         if self.userinterface.widgetStack.currentWidget() == widget:
@@ -735,21 +765,10 @@ class Wizard(BaseFrontend):
         if step.startswith("stepPart"):
             self.previous_partitioning_page = step_num
 
-        # Welcome
-        if step == "stepWelcome":
-            self.set_current_page(WIDGET_STACK_STEPS["stepLanguage"])
         # Language
         elif step == "stepLanguage":
             self.translate_widgets()
-            self.set_current_page(WIDGET_STACK_STEPS["stepLocation"])
             self.userinterface.back.show()
-            self.allow_go_forward(self.get_timezone() is not None)
-        # Location
-        elif step == "stepLocation":
-            self.set_current_page(WIDGET_STACK_STEPS["stepKeyboardConf"])
-        # Keyboard
-        elif step == "stepKeyboardConf":
-            self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
         # Automatic partitioning
         elif step == "stepPartAuto":
             self.process_autopartitioning()
@@ -757,26 +776,11 @@ class Wizard(BaseFrontend):
         elif step == "stepPartAdvanced":
             ##if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:  #FIXME for migration-assistant
             self.info_loop(None)
-            self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
             #else:
             #    self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
         # Identification
         elif step == "stepUserInfo":
             self.process_identification()
-        # Ready to install
-        elif step == "stepReady":
-            # FIXME self.live_installer.hide()
-            self.current_page = None
-            self.installing = True
-            self.progress_loop()
-            return
-
-        step = self.step_name(self.get_current_page())
-        syslog.syslog('Step_after = %s' % step)
-
-        if step == "stepReady":
-            installText = self.get_string("live_installer")
-            self.userinterface.next.setText(installText)
 
     def process_identification (self):
         """Processing identification step tasks."""
@@ -801,8 +805,6 @@ class Wizard(BaseFrontend):
             self.userinterface.hostname_error_reason.setText("\n".join(error_msg))
             self.userinterface.hostname_error_reason.show()
             self.userinterface.hostname_error_image.show()
-        else:
-            self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
 
     def process_autopartitioning(self):
         """Processing automatic partitioning step tasks."""
@@ -811,11 +813,11 @@ class Wizard(BaseFrontend):
 
         # For safety, if we somehow ended up improperly initialised
         # then go to manual partitioning.
-        choice = self.get_autopartition_choice()[0]
-        if self.manual_choice is None or choice == self.manual_choice:
-            self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
-        else:
-            self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
+        #choice = self.get_autopartition_choice()[0]
+        #if self.manual_choice is None or choice == self.manual_choice:
+        #    self.set_current_page(WIDGET_STACK_STEPS["stepPartAdvanced"])
+        #else:
+        #    self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
 
     def on_back_clicked(self):
         """Callback to set previous screen."""
@@ -837,28 +839,9 @@ class Wizard(BaseFrontend):
 
         if str(step) == "stepLocation":
             self.userinterface.back.hide()
-        elif str(step) == "stepPartAuto":
-            self.set_current_page(WIDGET_STACK_STEPS["stepKeyboardConf"])
-            changed_page = True
-        elif str(step) == "stepPartAdvanced":
-            self.set_current_page(WIDGET_STACK_STEPS["stepPartAuto"])
-            changed_page = True
-#        elif step == "stepMigrationAssistant":
-#            self.set_current_page(self.previous_partitioning_page)
-#            changed_page = True
-        elif step == "stepUserInfo":
-            # TODO cjwatson 2007-03-19: check 'UBIQUITY_MIGRATION_ASSISTANT'
-            # not in os.environ when m-a is implemented here
-            self.set_current_page(self.previous_partitioning_page)
-            changed_page = True
         elif str(step) == "stepReady":
             self.userinterface.next.setText("Next >")
             self.translate_widget(self.userinterface.next, self.locale)
-            self.set_current_page(self.previous_partitioning_page)
-            changed_page = True
-
-        if not changed_page:
-            self.set_current_page(self.get_current_page() - 1)
 
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
@@ -1007,12 +990,7 @@ class Wizard(BaseFrontend):
         ## a crash after the keyboard stage.  No idea why.
         self.app.disconnect(self.socketNotifierRead, SIGNAL("activated(int)"), self.watch_debconf_fd_helper_read)
         if BaseFrontend.debconffilter_done(self, dbfilter):
-            if isinstance(dbfilter, summary.Summary):
-                # The Summary component is just there to gather information,
-                # and won't call run_main_loop() for itself.
-                self.allow_change_step(True)
-            else:
-                self.app.exit()
+            self.app.exit()
             return True
         else:
             return False
@@ -1745,6 +1723,8 @@ class Wizard(BaseFrontend):
         if self.installing and not self.installing_no_return:
             # Go back to the partitioner and try again.
             #self.live_installer.show()
+            self.pagesindex = 1
+            self.dbfilter = partman.Partman(self)
             self.set_current_page(self.previous_partitioning_page)
             self.userinterface.next.setText("Next >")
             self.translate_widget(self.userinterface.next, self.locale)

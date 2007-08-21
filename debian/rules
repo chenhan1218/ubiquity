@@ -121,6 +121,9 @@ endif
 endif
 
 	# Bits of manual installation that can't be done by dh_install
+	
+	# Get rid of duplicate mythbuntu scripts
+	rm -rf debian/ubiquity/usr/share/ubiquity/mythbuntu
 	install bin/ubiquity-wrapper debian/ubiquity/usr/bin/ubiquity
 	sed 's/@VERSION@/$(VERSION)/g' bin/ubiquity \
 		> debian/ubiquity/usr/lib/ubiquity/bin/ubiquity
