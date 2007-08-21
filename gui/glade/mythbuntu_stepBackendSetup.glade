@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Sun Jul  8 19:17:55 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.2.0 on Sun Aug 19 15:27:06 2007 by thomas@poseidon-->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
@@ -61,11 +61,11 @@
                     <property name="xalign">0</property>
                     <property name="xscale">0</property>
                     <child>
-                      <widget class="GtkLinkButton" id="zap2itlink">
+                      <widget class="GtkLinkButton" id="schedulesdirect">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">Click to open the TMS Zap2it Website</property>
+                        <property name="label" translatable="yes">Click to open the Schedules Direct Website</property>
                         <property name="xalign">0</property>
-                        <property name="uri">http://labs.zap2it.com</property>
+                        <property name="uri">http://www.schedulesdirect.org/</property>
                       </widget>
                     </child>
                   </widget>
@@ -75,13 +75,13 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="GtkLabel" id="zap2it_description">
+                  <widget class="GtkLabel" id="schedulesdirect_description">
                     <property name="width_request">600</property>
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0</property>
                     <property name="xpad">60</property>
-                    <property name="label" translatable="yes">Users in the US will need to setup an account with Tribune Media Services (TMS).  TMS provides guide data at no charge, only requiring users to fill out a survey once every 3 months. When setting up an account, the MythTV project code is: &lt;b&gt;ZIYN-DQZO-SBUT&lt;/b&gt;</property>
+                    <property name="label" translatable="yes">Users in North America will need to setup an account with Schedules Direct (SD).  SD provides guide data for a nominal fee.  Without SD, North American users may lose many of the scheduling features in MythTV.</property>
                     <property name="use_markup">True</property>
                     <property name="wrap">True</property>
                   </widget>

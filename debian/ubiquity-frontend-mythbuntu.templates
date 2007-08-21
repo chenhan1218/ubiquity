@@ -5,7 +5,6 @@ _Description: Ready to install
   Drivers:
       Add. Video Driver:  ${PROPRIETARY_VIDEO_DRIVER}
           TV-Out:             ${TVOUT}, ${TVSTANDARD}
-      TV-Tuners:          ${TUNER0} ${TUNER1} ${TUNER2} ${TUNER3} ${TUNER4}
   Additional Services:
       VNC:                ${EN_VNC}
       SSH:                ${EN_OPENSSH}
@@ -334,15 +333,14 @@ _Description:
 
 Template: ubiquity/text/zap2itlink
 Type: text
-_Description: Click to open the TMS Zap2It website
+_Description: Click to open the Schedules Direct website
 
 Template: ubiquity/text/zap2it_description
 Type: text
 _Description:
- Users in the US will need to setup an account with Tribune Media Services (TMS).
- TMS provides guide data at no charge, only requiring users to fill out a survey once
- every 3 months. When setting up an account, the MythTV project code is:
- ZIYN-DQZO-SBUT
+ Users in North America will need to setup an account with Schedules
+ Direct (SD).  SD provides guide data for a nominal fee.  Without SD,
+ North American users may lose many of the scheduling features in MythTV.
 
 Template: ubiquity/text/myth_button
 Type: text

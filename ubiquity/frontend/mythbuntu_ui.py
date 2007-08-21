@@ -553,7 +553,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         def set_be_drivers(self,enable):
             """Toggles Visible Backend Applicable Drivers"""
             if enable:
-                self.backend_driver_list.show()
+                #self.backend_driver_list.show()
+                self.backend_driver_list.hide()
                 self.tuner0.set_active(0)
                 self.tuner1.set_active(0)
                 self.tuner2.set_active(0)
