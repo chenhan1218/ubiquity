@@ -6,7 +6,7 @@ ubiquity (1.5.12) UNRELEASED; urgency=low
   * Remove mythbuntu scripts present in multiple binary
     packages from ubiquity binary package. (LP: #131092)
 
-  [Thomas Mashos ]
+  [ Thomas Mashos ]
   * Update mythbuntu GUI to reflect schedules direct requirement for
     North American users.
   * Make sure Mythbuntu automatic login is prepared for proper user.
