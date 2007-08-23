@@ -371,7 +371,8 @@ class MythbuntuDrivers(FilteredCommand):
     def prepare(self):
         questions = ['^mythbuntu/proprietary_driver',
              '^mythbuntu/tvout',
-             '^mythbuntu/tvstandard']
+             '^mythbuntu/tvstandard',
+             '^mythbuntu/hdhomerun']
         return (['/usr/share/ubiquity/ask-drivers'], questions)
 
     def run(self,priority,question):
@@ -384,6 +385,9 @@ class MythbuntuDrivers(FilteredCommand):
         elif question.startswith('mythbuntu/tvstandard'):
             tvstandard = self.frontend.get_tvstandard()
             self.preseed('mythbuntu/tvstandard', tvstandard)
+        elif question.startswith('mythbuntu/hdhomerun'):
+            hdhomerun = self.frontend.get_hdhomerun()
+            self.preseed_bool('mythbuntu/hdhomerun',hdhomerun)
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
@@ -393,4 +397,6 @@ class MythbuntuDrivers(FilteredCommand):
         self.preseed('mythbuntu/tvout', tvout)
         tvstandard = self.frontend.get_tvstandard()
         self.preseed('mythbuntu/tvstandard', tvstandard)
+        hdhomerun = self.frontend.get_hdhomerun()
+        self.preseed_bool('mythbuntu/hdhomerun',hdhomerun)
         FilteredCommand.ok_handler(self)

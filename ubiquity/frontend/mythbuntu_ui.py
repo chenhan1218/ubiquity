@@ -232,6 +232,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.cancel.hide()
             self.next.set_label("Finish")
             gtk.main()
+            self.live_installer.hide()
             self.finished_dialog.run()
         return self.returncode
 
@@ -313,25 +314,25 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 ubiquity.frontend.gtk_ui.Wizard.set_page(self,n)
                 break
         if not found:
+            installtype = self.get_installtype()
+            advanced = self.get_advanced()
             self.live_installer.show()
             if n == 'MythbuntuAdvancedType':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepInstallType))
-            elif n == 'MythbuntuInstallType':
-                self.set_current_page(self.steps.page_num(self.mythbuntu_stepCustomInstallType))
-            elif n == 'MythbuntuPlugins':
-                self.set_current_page(self.steps.page_num(self.mythbuntu_stepPlugins))
-            elif n == 'MythbuntuThemes':
-                self.set_current_page(self.steps.page_num(self.mythbuntu_stepThemes))
-            elif n == 'MythbuntuPasswords':
-                self.set_current_page(self.steps.page_num(self.mythbuntu_stepPasswords))
-            elif n == 'MythbuntuServices':
-                self.set_current_page(self.steps.page_num(self.mythbuntu_stepServices))
-            elif n == 'MythbuntuRemote':
+            elif n == 'MythbuntuRemote' and installtype != "Master Backend" and installtype != "Slave Backend":
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepLirc))
             elif n == 'MythbuntuDrivers':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepDrivers))
-            else:
-                print >>sys.stderr, 'No page found for %s' % n
+            if n == 'MythbuntuInstallType' and advanced:
+                self.set_current_page(self.steps.page_num(self.mythbuntu_stepCustomInstallType))
+            elif n == 'MythbuntuPlugins' and advanced:
+                self.set_current_page(self.steps.page_num(self.mythbuntu_stepPlugins))
+            elif n == 'MythbuntuThemes' and advanced and installtype != "Master Backend" and installtype != "Slave Backend":
+                self.set_current_page(self.steps.page_num(self.mythbuntu_stepThemes))
+            elif n == 'MythbuntuPasswords' and advanced:
+                self.set_current_page(self.steps.page_num(self.mythbuntu_stepPasswords))
+            elif n == 'MythbuntuServices' and advanced:
+                self.set_current_page(self.steps.page_num(self.mythbuntu_stepServices))
 
 #Added Methods
     def populate_lirc(self):
@@ -471,8 +472,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         def set_be_drivers(self,enable):
             """Toggles Visible Backend Applicable Drivers"""
             if enable:
-                #self.backend_driver_list.show()
-                self.backend_driver_list.hide()
+                self.backend_driver_list.show()
                 self.tuner0.set_active(0)
                 self.tuner1.set_active(0)
                 self.tuner2.set_active(0)
@@ -1087,3 +1087,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def get_lirc_rc(self):
         return self.lirc_rc.get_active_text()
+
+    def get_hdhomerun(self):
+        return self.hdhomerun.get_active()

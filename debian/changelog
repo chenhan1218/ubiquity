@@ -7,6 +7,9 @@ ubiquity (1.5.11+mythbuntu2) gutsy; urgency=low
     packages from ubiquity binary package. (LP: #131092)
   * Rework all mythbuntu scripts and behavior of UI
     to make every GTK notebook page a debconf step.
+  * Add support to choose hdhomerun during install.
+  * Fix broken mythbuntu_apply that still had "no"
+    rather than "false" for items to remove.
 
   [Thomas Mashos ]
   * Update mythbuntu GUI to reflect schedules direct requirement for

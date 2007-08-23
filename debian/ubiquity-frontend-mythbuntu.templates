@@ -477,3 +477,7 @@ Description: for internal use; determines if mysql access is enabled
 Template: mythbuntu/en_lirc
 Type: boolean
 Description: for internal use; determines if mysql access is enabled
+
+Template: mythbuntu/hdhomerun
+Type: boolean
+Description: for internal use; determines if hdhomerun config is to be installed
