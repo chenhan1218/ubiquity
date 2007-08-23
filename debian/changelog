@@ -1,4 +1,4 @@
-ubiquity (1.5.11+mythbuntu2) gutsy; urgency=low
+ubiquity (1.5.12) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Disable tv-tuner selection GUI in mythbuntu frontend
@@ -9,7 +9,7 @@ ubiquity (1.5.11+mythbuntu2) gutsy; urgency=low
     to make every GTK notebook page a debconf step.
   * Add support to choose hdhomerun during install.
   * Fix broken mythbuntu_apply that still had "no"
-    rather than "false" for items to remove.
+    rather than "false" for items to remove. (LP: #130641)
 
   [Thomas Mashos ]
   * Update mythbuntu GUI to reflect schedules direct requirement for
