@@ -369,6 +369,10 @@ Template: ubiquity/install/remote
 Type: text
 _Description: Configuring remote control...
 
+Template: mythbuntu/advanced_install
+Type: boolean
+Description: for internal use; determines if this is an advanced install
+
 Template: mythbuntu/install_type
 Type: string
 Description: for internal use; determines install type

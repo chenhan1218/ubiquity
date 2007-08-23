@@ -30,8 +30,7 @@ from install import InstallStepError
 from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 clock_setup, console_setup_apply, \
                                 usersetup_apply, hw_detect, check_kernels, \
-                                mythbuntu_apply, mythbuntu_drivers, \
-                                mythbuntu_services, mythbuntu_lirc
+                                mythbuntu_apply
 
 class Install(install.Install):
     def run(self):
@@ -192,14 +191,14 @@ class Install(install.Install):
 
     def configure_drivers(self):
         """Activates any necessary driver configuration"""
-        control = mythbuntu_drivers.AdditionalDrivers(None,self.db)
+        control = mythbuntu_apply.AdditionalDrivers(None,self.db)
         ret = control.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("Additional Driver Configuration failed with code %d" % ret)
 
     def configure_remote(self):
         """Configures the remote per user choices"""
-        control = mythbuntu_lirc.RemoteConfiguration(None,self.db)
+        control = mythbuntu_apply.RemoteConfiguration(None,self.db)
         ret = control.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("Remote Control Configuration failed with code %d" % ret)
@@ -208,9 +207,9 @@ class Install(install.Install):
         """Activates any necessary service configuration"""
         vnc = self.db.get('mythbuntu/vncservice')
         if vnc == 'true':
-            handler = mythbuntu_services.VNCHandler('/target')
+            handler = mythbuntu_apply.VNCHandler('/target')
             handler.run()
-        control = mythbuntu_services.AdditionalServices(None,self.db)
+        control = mythbuntu_apply.AdditionalServices(None,self.db)
         ret = control.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("Additional Service Configuration failed with code %d" % ret)

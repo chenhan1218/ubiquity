@@ -1,10 +1,12 @@
-ubiquity (1.5.12) UNRELEASED; urgency=low
+ubiquity (1.5.11+mythbuntu2) gutsy; urgency=low
 
   [ Mario Limonciello ]
   * Disable tv-tuner selection GUI in mythbuntu frontend
     until mythbuntu-firmware-detector is completed.
   * Remove mythbuntu scripts present in multiple binary
     packages from ubiquity binary package. (LP: #131092)
+  * Rework all mythbuntu scripts and behavior of UI
+    to make every GTK notebook page a debconf step.
 
   [Thomas Mashos ]
   * Update mythbuntu GUI to reflect schedules direct requirement for
