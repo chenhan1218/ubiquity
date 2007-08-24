@@ -103,15 +103,6 @@ SUBPAGES = [
     "mythbuntu_stepBackendSetup"
 ]
 
-MYTHBUNTU_DEBCONF = ['MythbuntuAdvancedType',
-                     'MythbuntuInstallType',
-                     'MythbuntuPlugins',
-                     'MythbuntuThemes',
-                     'MythbuntuServices',
-                     'MythbuntuPasswords',
-                     'MythbuntuRemote',
-                     'MythbuntuDrivers' ]
-
 ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS
 ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP
 ubiquity.frontend.gtk_ui.SUBPAGES = SUBPAGES
