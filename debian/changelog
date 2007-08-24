@@ -11,7 +11,7 @@ ubiquity (1.5.12) UNRELEASED; urgency=low
   * Fix broken mythbuntu_apply that still had "no"
     rather than "false" for items to remove. (LP: #130641)
 
-  [Thomas Mashos ]
+  [ Thomas Mashos ]
   * Update mythbuntu GUI to reflect schedules direct requirement for
     North American users.
   * Make sure Mythbuntu automatic login is prepared for proper user.
