@@ -1,0 +1,15 @@
+#!/bin/sh -e
+#Provides all mythbuntu questions asked by
+#ubiquity during install process
+# Written by Mario Limonciello <superm1@ubuntu.com>
+# Copyright (C) 2007 Mario Limonciello
+# Copyright (C) 2007 Jared Greenwald
+
+. /usr/share/debconf/confmodule
+
+#remote controls
+db_input high mythbuntu/en_lirc || true
+db_input high lirc/remote || true
+db_input high lirc/lircd_conf || true
+db_input high lirc/modules || true
+db_input high lirc/driver || true

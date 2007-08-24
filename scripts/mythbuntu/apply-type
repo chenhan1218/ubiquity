@@ -66,13 +66,13 @@ EOF
 
 grabuser()
 {
-	#! /bin/sh -e
-	db_get passwd/username
-	USER=$RET
+    #! /bin/sh -e
+    db_get passwd/username
+    USER=$RET
 
-	sed '/AutomaticLogin=/ c\AutomaticLogin='$USER'
-	/TimedLogin=/ c\TimedLogin='$USER'' $ROOT/etc/gdm/gdm-cdd.conf | tee $ROOT/etc/gdm/gdm-cdd.conf.NEW > /dev/null
-	mv $ROOT/etc/gdm/gdm-cdd.conf.NEW $ROOT/etc/gdm/gdm-cdd.conf
+    sed '/AutomaticLogin=/ c\AutomaticLogin='$USER'
+    /TimedLogin=/ c\TimedLogin='$USER'' $ROOT/etc/gdm/gdm-cdd.conf | tee $ROOT/etc/gdm/gdm-cdd.conf.NEW > /dev/null
+    mv $ROOT/etc/gdm/gdm-cdd.conf.NEW $ROOT/etc/gdm/gdm-cdd.conf
 }
 
 mythtv_db()
@@ -240,9 +240,10 @@ if [ "$TYPE" = "Master Backend/Frontend" ] || [ "$TYPE" = "Master Backend" ] || 
         fi
     fi
 fi
-#tgm4883's section
-	if [ "$TYPE" = "Master Backend/Frontend" ] || [ "$TYPE" = "Slave Backend/Frontend" ] || [ "$TYPE" = "Frontend" ]; then
-		#Replace Auto-login with user specified at install time
-		grabuser	
-	fi
+
+if [ "$TYPE" = "Master Backend/Frontend" ] || [ "$TYPE" = "Slave Backend/Frontend" ] || [ "$TYPE" = "Frontend" ]; then
+    #Replace Auto-login with user specified at install time
+    grabuser
+fi
+
 exit 0

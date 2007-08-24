@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Sat Jul 28 00:51:10 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.3.3 on Thu Aug 23 23:53:37 2007 -->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
+    <property name="visible">True</property>
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
     <child>
       <widget class="GtkVBox" id="mythbuntu_stepLirc">
@@ -57,6 +58,7 @@
                 <property name="can_focus">True</property>
                 <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                 <property name="label" translatable="yes">Configure a Remote Control</property>
+                <property name="response_id">0</property>
                 <property name="draw_indicator">True</property>
                 <signal name="toggled" handler="lirc_toggled"/>
               </widget>
@@ -68,6 +70,8 @@
             </child>
             <child>
               <widget class="GtkVBox" id="lirc_middle_vbox">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                 <child>
                   <widget class="GtkHBox" id="lirc_remote_hbox">
@@ -253,6 +257,7 @@
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_MOTION_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="label" translatable="yes">https://bugs.launchpad.net/mythbuntu/+filebug</property>
                         <property name="relief">GTK_RELIEF_NONE</property>
+                        <property name="response_id">0</property>
                         <property name="uri">https://bugs.launchpad.net/mythbuntu/+filebug</property>
                       </widget>
                       <packing>

@@ -5,6 +5,11 @@ ubiquity (1.5.12) UNRELEASED; urgency=low
     until mythbuntu-firmware-detector is completed.
   * Remove mythbuntu scripts present in multiple binary
     packages from ubiquity binary package. (LP: #131092)
+  * Rework all mythbuntu scripts and behavior of UI
+    to make every GTK notebook page a debconf step.
+  * Add support to choose hdhomerun during install.
+  * Fix broken mythbuntu_apply that still had "no"
+    rather than "false" for items to remove. (LP: #130641)
 
   [ Thomas Mashos ]
   * Update mythbuntu GUI to reflect schedules direct requirement for

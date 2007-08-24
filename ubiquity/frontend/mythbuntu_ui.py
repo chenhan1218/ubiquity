@@ -41,6 +41,7 @@
 
 import os
 import re
+import sys
 import string
 import subprocess
 import syslog
@@ -113,9 +114,35 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
         self.populate_lirc()
+        self.backup=False
 
     def run(self):
         """run the interface."""
+        def skip_pages(old_backup,old_name,new_name):
+            """Skips a mythbuntu page if we should"""
+            advanced=self.get_advanced()
+            #advanced install conditionally skips a few pages
+            if advanced:
+                type = self.get_installtype()
+                if (type == "Master Backend" or type == "Slave Backend") and \
+                   (new_name == 'MythbuntuThemes' or new_name == 'MythbuntuRemote'):
+                    if not old_backup:
+                        self.dbfilter.ok_handler()
+                    else:
+                        self.dbfilter.cancel_handler()
+                        self.backup=True
+            #standard install should fly right through forward
+            else:
+                if new_name == 'MythbuntuInstallType' or \
+                   new_name == 'MythbuntuPlugins' or \
+                   new_name == 'MythbuntuThemes' or \
+                   new_name == 'MythbuntuServices' or \
+                   new_name == 'MythbuntuPasswords':
+                    if not old_backup:
+                        self.dbfilter.ok_handler()
+                    else:
+                        self.dbfilter.cancel_handler()
+                        self.backup=True
 
         if os.getuid() != 0:
             title = ('This installer must be run with administrative '
@@ -161,51 +188,36 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             # Enter doesn't activate the default widget. Work around this.
             self.next.grab_focus()
 
-        while self.current_page is not None:
+        self.pages = [language.Language, timezone.Timezone,
+            console_setup.ConsoleSetup, mythbuntu.MythbuntuAdvancedType,
+            mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuPlugins,
+            mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
+            mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
+            mythbuntu.MythbuntuDrivers, partman.Partman, usersetup.UserSetup,
+            mythbuntu_summary.Summary]
+        self.pagesindex = 0
+        pageslen = len(self.pages)
+
+        if got_intro:
+            gtk.main()
+
+        while(self.pagesindex < pageslen):
             if not self.installing:
                 # Make sure any started progress bars are stopped.
                 while self.progress_position.depth() != 0:
                     self.debconf_progress_stop()
 
+            old_backup = self.backup
             self.backup = False
-            current_name = self.step_name(self.current_page)
             old_dbfilter = self.dbfilter
-            if current_name == "stepLanguage":
-                self.dbfilter = language.Language(self)
-                gtk.link_button_set_uri_hook(self.link_button_browser)
-            elif current_name == "stepMigrationAssistant":
-                self.dbfilter = migrationassistant.MigrationAssistant(self)
-            elif current_name == "stepLocation":
-                self.dbfilter = timezone.Timezone(self)
-            elif current_name == "stepKeyboardConf":
-                self.dbfilter = console_setup.ConsoleSetup(self)
-            elif current_name == "mythbuntu_stepDrivers":
-                self.dbfilter = mythbuntu.MythbuntuSetup(self)
-            elif current_name == "stepUserInfo":
-                self.dbfilter = usersetup.UserSetup(self)
-            elif current_name == "stepPartAuto":
-                self.dbfilter = partman.Partman(self)
-            elif current_name == "stepPartAdvanced":
-                if isinstance(self.dbfilter, partman.Partman):
-                    pre_log('info', 'reusing running partman')
-                else:
-                    self.dbfilter = partman.Partman(self)
-            elif current_name == "stepReady":
-                self.dbfilter = mythbuntu_summary.Summary(self)
-            else:
-                self.dbfilter = None
+            self.dbfilter = self.pages[self.pagesindex](self)
 
+            # Non-debconf steps are no longer possible as the interface is now
+            # driven by whether there is a question to ask.
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.allow_change_step(False)
                 self.dbfilter.start(auto_process=True)
-            else:
-                # Non-debconf steps don't have a mechanism for turning this
-                # back on, so we do it here. process_step should block until
-                # the next step has started up; this will block the UI, but
-                # that's probably unavoidable for now. (This is currently
-                # believed to be unused; we only used this for gparted,
-                # which had its own UI loop.)
-                self.allow_change_step(True)
+                skip_pages(old_backup,old_dbfilter.__class__.__name__,self.dbfilter.__class__.__name__)
             gtk.main()
 
             if self.backup or self.dbfilter_handle_status():
@@ -213,10 +225,45 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                     self.progress_loop()
                 elif self.current_page is not None and not self.backup:
                     self.process_step()
+                    self.pagesindex = self.pagesindex + 1
+                if self.backup:
+                    if self.pagesindex > 0:
+                        self.pagesindex = self.pagesindex - 1
+
+            self.back.show()
+
+            # TODO: Move this to after we're done processing GTK events, or is
+            # that not worth the CPU time?
+            if self.current_page == None:
+                break
 
             while gtk.events_pending():
                 gtk.main_iteration()
 
+            # needed to be here for --automatic as there might not be any
+            # current page in the event all of the questions have been
+            # preseeded.
+            if self.pagesindex == pageslen:
+                # Ready to install
+                self.live_installer.hide()
+                self.current_page = None
+                self.installing = True
+                self.progress_loop()
+
+        #After (and if) install is done, decide what to do
+        if self.pagesindex == pageslen:
+            if self.get_installtype() == "Frontend":
+                self.finished_dialog.run()
+            else:
+                self.live_installer.show()
+                self.installing = False
+                self.steps.next_page()
+                self.back.hide()
+                self.cancel.hide()
+                self.next.set_label("Finish")
+                gtk.main()
+                self.live_installer.hide()
+                self.finished_dialog.run()
         return self.returncode
 
     def process_step(self):
@@ -225,141 +272,15 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         # setting actual step
         step_num = self.steps.get_current_page()
         step = self.step_name(step_num)
-        syslog.syslog('Step_before = %s' % step)
 
-        if step.startswith("stepPart"):
-            self.previous_partitioning_page = step_num
-
-        # Welcome
-        if step == "stepWelcome":
-            self.steps.next_page()
-        # Language
-        elif step == "stepLanguage":
-            self.translate_widgets()
-            self.steps.next_page()
-            self.back.show()
-            self.allow_go_forward(self.get_timezone() is not None)
-        # Location
-        elif step == "stepLocation":
-            self.steps.next_page()
-        # Keyboard
-        elif step == "stepKeyboardConf":
-            self.steps.next_page()
-        #Install Type
-        elif step == "mythbuntu_stepInstallType":
-            self.steps.next_page()
-        #Adv Install Type
-        elif step == "mythbuntu_stepCustomInstallType":
-            self.steps.next_page()
-        #Frontend/Backend Plugins
-        elif step == "mythbuntu_stepPlugins":
-            self.steps.next_page()
-        #Themes
-        elif step == "mythbuntu_stepThemes":
-            self.steps.next_page()
-        #Possible passwords
-        elif step == "mythbuntu_stepPasswords":
-            self.steps.next_page()
-        #Remote controls
-        elif step == "mythbuntu_stepLirc":
-            self.steps.next_page()
-        #Misc applicable services
-        elif step == "mythbuntu_stepServices":
-            self.steps.next_page()
-        #Proprietary Video Drivers
-        elif step == "mythbuntu_stepDrivers":
-            self.steps.next_page()
-        # Automatic partitioning
-        elif step == "stepPartAuto":
-            self.process_autopartitioning()
-        # Advanced partitioning
-        elif step == "stepPartAdvanced":
-            if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-                self.info_loop(None)
-                self.set_current_page(self.steps.page_num(self.stepUserInfo))
-            else:
-                self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
-        # Migration Assistant
-        elif step == "stepMigrationAssistant":
-            self.steps.next_page()
-            self.ma_configure_usersetup()
-            self.info_loop(None)
-        # Identification
-        elif step == "stepUserInfo":
-            self.process_identification()
-            self.next.set_label("Install")
-        # Ready to install
-        elif step == "stepReady":
-            self.live_installer.hide()
-            self.current_page = None
-            self.installing = True
-            self.progress_loop()
-            if self.get_installtype() == "Frontend":
-                self.finished_dialog.run()
-                return
-            else:
-                self.live_installer.show()
-                self.installing = False
-                self.steps.next_page()
-                self.back.hide()
-                self.cancel.hide()
-                self.next.set_label("Finish")
-        #Post Install Steps
-        elif step == "mythbuntu_stepBackendSetup":
+        #Figure out if this is a mythbuntu specific step
+        if step == "mythbuntu_stepBackendSetup":
+            syslog.syslog('Step_before = %s' % step)
             self.live_installer.hide()
             self.current_page = None
             self.finished_dialog.run()
-            return
-        step = self.step_name(self.steps.get_current_page())
-        syslog.syslog('Step_after = %s' % step)
-
-    def on_back_clicked(self, widget):
-        """Callback to set previous screen."""
-
-        if not self.allowed_change_step:
-            return
-
-        self.allow_change_step(False)
-
-        self.backup = True
-
-        # Enabling next button
-        self.allow_go_forward(True)
-        # Setting actual step
-        step = self.step_name(self.steps.get_current_page())
-
-        changed_page = False
-
-        if step == "stepLocation":
-            self.back.hide()
-        elif step == "stepPartAuto":
-            self.set_current_page(self.steps.page_num(self.mythbuntu_stepDrivers))
-            changed_page = True
-        elif step == "stepPartAdvanced":
-            self.set_current_page(self.steps.page_num(self.stepPartAuto))
-            changed_page = True
-        elif step == "stepMigrationAssistant":
-            self.set_current_page(self.previous_partitioning_page)
-            changed_page = True
-        elif step == "stepUserInfo":
-            if 'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
-                self.set_current_page(self.previous_partitioning_page)
-                changed_page = True
-        elif step == "stepReady":
-            self.next.set_label("gtk-go-forward")
-            self.translate_widget(self.next, self.locale)
-            self.steps.prev_page()
-            changed_page = True
-
-        if not changed_page:
-            self.steps.prev_page()
-
-        if self.dbfilter is not None:
-            self.dbfilter.cancel_handler()
-            # expect recursive main loops to be exited and
-            # debconffilter_done() to be called when the filter exits
-        elif gtk.main_level() > 0:
-            gtk.main_quit()
+        else:
+            ubiquity.frontend.gtk_ui.Wizard.process_step(self)
 
     def progress_loop(self):
         """prepare, copy and config the system in the core install process."""
@@ -414,6 +335,32 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
         self.installing = False
 
+    def set_page(self, n):
+        gtk_ui_pages  = ['Language', 'ConsoleSetup', 'Timezone', 'Partman', 'UserSetup', 'Summary', 'MigrationAssistant']
+        found = False
+        for item in gtk_ui_pages:
+            if n == item:
+                found = True
+                ubiquity.frontend.gtk_ui.Wizard.set_page(self,n)
+                break
+        if not found:
+            self.live_installer.show()
+            if n == 'MythbuntuAdvancedType':
+                self.set_current_page(self.steps.page_num(self.mythbuntu_stepInstallType))
+            elif n == 'MythbuntuRemote':
+                self.set_current_page(self.steps.page_num(self.mythbuntu_stepLirc))
+            elif n == 'MythbuntuDrivers':
+                self.set_current_page(self.steps.page_num(self.mythbuntu_stepDrivers))
+            if n == 'MythbuntuInstallType':
+                self.set_current_page(self.steps.page_num(self.mythbuntu_stepCustomInstallType))
+            elif n == 'MythbuntuPlugins':
+                self.set_current_page(self.steps.page_num(self.mythbuntu_stepPlugins))
+            elif n == 'MythbuntuThemes':
+                self.set_current_page(self.steps.page_num(self.mythbuntu_stepThemes))
+            elif n == 'MythbuntuPasswords':
+                self.set_current_page(self.steps.page_num(self.mythbuntu_stepPasswords))
+            elif n == 'MythbuntuServices':
+                self.set_current_page(self.steps.page_num(self.mythbuntu_stepServices))
 
 #Added Methods
     def populate_lirc(self):
@@ -515,13 +462,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             #and changed their mind
             #Note: This will recursively handle changing the values on the pages
             self.master_be_fe.set_active(True)
-            #For a standard install, remove any customization pages
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepCustomInstallType)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPlugins)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPasswords)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepServices)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             self.enablessh.set_active(True)
             self.enablevnc.set_active(False)
             self.enablenfs.set_active(False)
@@ -529,13 +469,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.enablemysql.set_active(False)
 
         else:
-            # For a custom install, reinsert our missing pages
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepCustomInstallType)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPlugins)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPasswords)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepServices)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             self.master_backend_expander.hide()
             self.mythweb_expander.show()
             self.mysql_server_expander.show()
@@ -553,8 +486,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         def set_be_drivers(self,enable):
             """Toggles Visible Backend Applicable Drivers"""
             if enable:
-                #self.backend_driver_list.show()
-                self.backend_driver_list.hide()
+                self.backend_driver_list.show()
                 self.tuner0.set_active(0)
                 self.tuner1.set_active(0)
                 self.tuner2.set_active(0)
@@ -582,12 +514,10 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 self.master_backend_expander.show()
                 self.mythweb_expander.show()
                 self.mysql_server_expander.show()
-                self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPasswords)).show()
             else:
                 self.master_backend_expander.hide()
                 self.mythweb_expander.hide()
                 self.mysql_server_expander.hide()
-                self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPasswords)).hide()
 
         def set_all_themes(self,enable):
             """Enables all themes for defaults"""
@@ -625,11 +555,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.backend_plugin_list.show()
             self.febe_heading_label.set_label("Choose Frontend / Backend Plugins")
             self.master_backend_expander.hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             set_fe_drivers(self,True)
             set_be_drivers(self,True)
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).show()
         elif self.slave_be_fe.get_active():
             set_all_themes(self,True)
             set_all_fe_plugins(self,True)
@@ -643,11 +570,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.febe_heading_label.set_label("Choose Frontend / Backend Plugins")
             self.mysql_server_expander.hide()
             self.mysql_option_hbox.hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             set_fe_drivers(self,True)
             set_be_drivers(self,True)
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).show()
         elif self.master_be.get_active():
             set_all_themes(self,False)
             set_all_fe_plugins(self,False)
@@ -660,11 +584,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.backend_plugin_list.show()
             self.febe_heading_label.set_label("Choose Backend Plugins")
             self.master_backend_expander.hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).hide()
             set_fe_drivers(self,False)
             set_be_drivers(self,True)
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).show()
         elif self.slave_be.get_active():
             set_all_themes(self,False)
             set_all_fe_plugins(self,False)
@@ -678,11 +599,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.febe_heading_label.set_label("Choose Backend Plugins")
             self.mysql_server_expander.hide()
             self.mysql_option_hbox.hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).hide()
             set_fe_drivers(self,False)
             set_be_drivers(self,True)
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).show()
         else:
             set_all_themes(self,True)
             set_all_fe_plugins(self,True)
@@ -701,19 +619,16 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.mysql_option_hbox.hide()
             self.nfs_option_hbox.hide()
             self.samba_option_hbox.hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             set_fe_drivers(self,True)
             set_be_drivers(self,False)
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).hide()
 
     def lirc_toggled(self,widget):
         """Called when the checkbox to configure a remote is toggled"""
         if (self.lirc_enable.get_active()):
-            self.lirc_middle_vbox.show()
+            self.lirc_middle_vbox.set_sensitive(True)
             self.lirc_remote.set_active(0)
         else:
-            self.lirc_middle_vbox.hide()
+            self.lirc_middle_vbox.set_sensitive(False)
             self.lirc_remote.set_active(0)
 
     def mythweb_toggled(self,widget):
@@ -726,12 +641,12 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
     def enablevnc_toggled(self,widget):
         """Called when the checkbox to turn on VNC is toggled"""
         if (self.enablevnc.get_active()):
-            self.vnc_pass_hbox.show()
+            self.vnc_pass_hbox.set_sensitive(True)
             self.allow_go_forward(False)
             self.allow_go_backward(False)
             self.vnc_error_image.show()
         else:
-            self.vnc_pass_hbox.hide()
+            self.vnc_pass_hbox.set_sensitive(False)
             self.vnc_password.set_text("")
             self.allow_go_forward(True)
             self.allow_go_backward(True)
@@ -938,6 +853,10 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.lirc_driver.set_active(widget.get_active())
             self.lirc_modules.set_active(widget.get_active())
             self.lirc_rc.set_active(widget.get_active())
+
+    def get_advanced(self):
+        """Returns if this is an advanced install"""
+        return self.custominstall.get_active()
 
     def get_installtype(self):
         """Returns the current custom installation type"""
@@ -1165,3 +1084,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def get_lirc_rc(self):
         return self.lirc_rc.get_active_text()
+
+    def get_hdhomerun(self):
+        return self.hdhomerun.get_active()

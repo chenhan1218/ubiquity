@@ -18,12 +18,17 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import os
+import sys
+
+import xorgconfig
+
 import re
 from ubiquity.filteredcommand import FilteredCommand
 
 class MythbuntuApply(FilteredCommand):
     def prepare(self):
-        return (['/usr/share/ubiquity/mythbuntu-apply', '/target'],
+        return (['/usr/share/ubiquity/apply-type', '/target'],
                 [])
 
     def run(self):
@@ -40,61 +45,109 @@ class MythbuntuApply(FilteredCommand):
         elif installtype == "Frontend":
             patternline += "|^mythtv-backend-master|^mythtv-database|^mythtv-backend|^mysql-server-5.0|^mysql-server|^mythtv\ "
         mytharchive = self.db.get('mythbuntu/mytharchive')
-        if mytharchive == "no":
+        if mytharchive == "false":
             patternline += "|^mytharchive|^ffmpeg|^mkisofs|^dvdauthor|^mjpegtools|^dvd+rw-tools|^python-imaging|^python-mysqldb"
         mythbrowser = self.db.get('mythbuntu/mythbrowser')
-        if mythbrowser == "no":
+        if mythbrowser == "false":
             patternline += "|^kdelibs4c2a|^mythbrowser"
         mythcontrols = self.db.get('mythbuntu/mythcontrols')
-        if mythcontrols == "no":
+        if mythcontrols == "false":
             patternline += "|^mythcontrols"
         mythdvd = self.db.get('mythbuntu/mythdvd')
-        if mythdvd == "no":
+        if mythdvd == "false":
             patternline += "|^mythdvd"
         mythflix = self.db.get('mythbuntu/mythflix')
-        if mythflix == "no":
+        if mythflix == "false":
             patternline += "|^mythflix"
         mythgallery = self.db.get('mythbuntu/mythgallery')
-        if mythgallery == "no":
+        if mythgallery == "false":
             patternline += "|^mythgallery"
         mythgame = self.db.get('mythbuntu/mythgame')
-        if mythgame == "no":
+        if mythgame == "false":
             patternline += "|^mythgame"
         mythmusic = self.db.get('mythbuntu/mythmusic')
-        if mythmusic == "no":
+        if mythmusic == "false":
             patternline += "|^mythmusic|^fftw2|^libcdaudio1|^libfaad2-0|^libflac8"
         mythnews = self.db.get('mythbuntu/mythnews')
-        if mythnews == "no":
+        if mythnews == "false":
             patternline += "|^mythnews"
         mythphone = self.db.get('mythbuntu/mythphone')
-        if mythphone == "no":
+        if mythphone == "false":
             patternline += "|^mythphone"
         mythvideo = self.db.get('mythbuntu/mythvideo')
-        if mythvideo == "no":
+        if mythvideo == "false":
             patternline += "|^mythvideo|^libwww-perl|^libxml-simple-perl"
         mythweather = self.db.get('mythbuntu/mythweather')
-        if mythweather == "no":
+        if mythweather == "false":
             patternline += "|^mythweather"
         mythweb = self.db.get('mythbuntu/mythweb')
-        if mythweb == "no":
+        if mythweb == "false":
             patternline += "|^apache2|^libapache2|^php|^mythweb"
         official = self.db.get('mythbuntu/officialthemes')
-        if official == "no":
+        if official == "false":
             patternline += "|^mythtv-themes"
         community = self.db.get('mythbuntu/communitythemes')
         samba = self.db.get('mythbuntu/sambaservice')
-        if samba == "no":
+        if samba == "false":
             patternline += "|^samba|^samba-common"
         vnc = self.db.get('mythbuntu/vncservice')
-        if vnc == "no":
+        if vnc == "false":
             patternline += "|^vnc4-common"
         ssh = self.db.get('mythbuntu/sshservice')
-        if ssh == "no":
+        if ssh == "false":
             patternline += "|^openssh-server"
         pattern = re.compile(patternline)
+        hdhomerun = self.db.geT('mythbuntu/hdhomerun')
+        if hdhomerun == "false":
+            patternline += "|^hdhomerun-config"
         for line in in_f:
             if pattern.search(line) is None:
                 out_f.write(line)
         in_f.close()
         out_f.close()
         return 0
+
+class AdditionalDrivers(FilteredCommand):
+    def prepare(self):
+        return (['/usr/share/ubiquity/apply-drivers', '/target'],[])
+
+class RemoteConfiguration(FilteredCommand):
+    def prepare(self):
+        return (['/usr/share/ubiquity/apply-remote', '/target'],[])
+
+class VNCHandler:
+    """Used to properly enable VNC in a target configuration"""
+
+    def __init__(self,root):
+        self.add_modules = ["vnc"]
+        self.add_screen = [ ['SecurityTypes', 'VncAuth'], ['UserPasswdVerifier', 'VncAuth'], ['PasswordFile', '/root/.vnc/passwd']]
+        self.root = root
+
+        try:
+            self.xorg_conf = xorgconfig.readConfig(root + '/etc/X11/xorg.conf')
+        except (IOError, xorgconfig.ParseException, AttributeError):
+            self.xorg_conf = None
+
+    def run(self):
+        """Adds necessary lines for enabling VNC upon the next boot"""
+
+        # backup the current xorg.conf
+        open(os.path.join(self.root + "/etc/X11/xorg.conf.oldconf"), "w").write(open(self.root + '/etc/X11/xorg.conf').read())
+
+        have_modules = len(self.xorg_conf.getSections("module")) > 0
+        if self.add_modules:
+            if not have_modules:
+                self.xorg_conf.append(self.xorg_conf.makeSection(None, ["Section",
+                    "Module"]))
+            for m in self.add_modules:
+                self.xorg_conf.getSections("module")[0].addModule(m)
+
+        screen_opts=self.xorg_conf.getSections("screen")[0].option
+        for item in self.add_screen:
+            screen_opts.append(screen_opts.makeLine(None,item))
+
+        self.xorg_conf.writeConfig(self.root + '/etc/X11/xorg.conf')
+
+class AdditionalServices(FilteredCommand):
+    def prepare(self):
+        return (['/usr/share/ubiquity/apply-services', '/target'],[])

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Sun Jul  8 19:46:45 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.3.3 on Thu Aug 23 23:53:54 2007 -->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
+    <property name="visible">True</property>
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
     <child>
       <widget class="GtkVBox" id="mythbuntu_stepDrivers">
@@ -67,6 +68,7 @@
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="label" translatable="yes">Install Proprietary Video Driver	</property>
+                        <property name="response_id">0</property>
                         <property name="draw_indicator">True</property>
                         <signal name="toggled" handler="toggle_proprietary"/>
                       </widget>
@@ -219,7 +221,6 @@ HD1080p</property>
                     <child>
                       <widget class="GtkLabel" id="backend_driver_list_description">
                         <property name="width_request">600</property>
-                        <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">Choose all tuners that you will be using on this system that are currently present.  If you will be adding a tuner later, this can be later reconfigured.</property>
@@ -231,7 +232,6 @@ HD1080p</property>
                     </child>
                     <child>
                       <widget class="GtkHBox" id="hbox1">
-                        <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <child>
                           <widget class="GtkLabel" id="choosetuners">
@@ -431,6 +431,20 @@ Other V4L Supported Digital Capture Card</property>
                       <packing>
                         <property name="expand">False</property>
                         <property name="position">7</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="GtkCheckButton" id="hdhomerun">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                        <property name="label" translatable="yes">Silicon Dust HDHomerun Configuration Utility</property>
+                        <property name="response_id">0</property>
+                        <property name="active">True</property>
+                        <property name="draw_indicator">True</property>
+                      </widget>
+                      <packing>
+                        <property name="position">8</property>
                       </packing>
                     </child>
                   </widget>
