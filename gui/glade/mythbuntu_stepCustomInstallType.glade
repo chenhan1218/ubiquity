@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Sun Jul  8 19:18:19 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.3.3 on Thu Aug 23 23:54:11 2007 -->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
     <child>
       <widget class="GtkVBox" id="mythbuntu_stepCustomInstallType">
+        <property name="visible">True</property>
         <property name="border_width">6</property>
         <child>
           <widget class="GtkLabel" id="installtype_heading_label">
@@ -57,6 +58,7 @@
                     <property name="can_focus">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="label" translatable="yes">Primary Backend w/ Frontend</property>
+                    <property name="response_id">0</property>
                     <property name="active">True</property>
                     <property name="draw_indicator">True</property>
                     <signal name="toggled" handler="toggle_customtype"/>
@@ -86,6 +88,7 @@
                     <property name="can_focus">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="label" translatable="yes">Secondary Backend w/ Frontend</property>
+                    <property name="response_id">0</property>
                     <property name="draw_indicator">True</property>
                     <property name="group">master_be_fe</property>
                     <signal name="toggled" handler="toggle_customtype"/>
@@ -117,6 +120,7 @@
                     <property name="can_focus">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="label" translatable="yes">Primary Backend</property>
+                    <property name="response_id">0</property>
                     <property name="draw_indicator">True</property>
                     <property name="group">master_be_fe</property>
                     <signal name="toggled" handler="toggle_customtype"/>
@@ -147,6 +151,7 @@
                     <property name="can_focus">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="label" translatable="yes">Secondary Backend</property>
+                    <property name="response_id">0</property>
                     <property name="draw_indicator">True</property>
                     <property name="group">master_be_fe</property>
                     <signal name="toggled" handler="toggle_customtype"/>
@@ -177,6 +182,7 @@
                     <property name="can_focus">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="label" translatable="yes">Frontend</property>
+                    <property name="response_id">0</property>
                     <property name="draw_indicator">True</property>
                     <property name="group">master_be_fe</property>
                     <signal name="toggled" handler="toggle_customtype"/>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Sun Jul  8 19:33:50 2007 by supermario@portablemario-->
+<!--Generated with glade3 3.3.3 on Fri Aug 24 02:01:32 2007 -->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
+    <property name="visible">True</property>
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
     <child>
       <widget class="GtkVBox" id="mythbuntu_stepInstallType">
@@ -60,6 +61,7 @@
                     <property name="can_focus">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="label" translatable="yes">Standard Installation</property>
+                    <property name="response_id">0</property>
                     <property name="active">True</property>
                     <property name="draw_indicator">True</property>
                     <signal name="toggled" handler="toggle_installtype"/>
@@ -75,7 +77,7 @@
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0.10000000149011612</property>
-                    <property name="label" translatable="yes">A standard installation will install and configure every option with minimal user interaction.   This will install a backend, frontend, all plugins, and all themes.</property>
+                    <property name="label" translatable="yes">A standard installation will install and configure every option with minimal user interaction.   This will install a backend, frontend, all plugins, all themes, and preconfigure Samba and SSH services.</property>
                     <property name="wrap">True</property>
                   </widget>
                   <packing>
@@ -90,6 +92,7 @@
                     <property name="can_focus">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="label" translatable="yes">Advanced Installation</property>
+                    <property name="response_id">0</property>
                     <property name="draw_indicator">True</property>
                     <property name="group">standardinstall</property>
                     <signal name="toggled" handler="toggle_installtype"/>
@@ -106,7 +109,7 @@
                     <property name="visible">True</property>
                     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                     <property name="xalign">0.10000000149011612</property>
-                    <property name="label" translatable="yes">An advanced installation can be used to customize what is needed for this Mythbuntu install. &lt;b&gt;NOTE:&lt;/b&gt; An advanced install is necessary to add a Mythbuntu machine to an existing MythTV  based network.</property>
+                    <property name="label" translatable="yes">An advanced installation can be used to customize what is needed for this Mythbuntu installation. &lt;b&gt;NOTE:&lt;/b&gt; An advanced installation is necessary to add a Mythbuntu machine to an existing MythTV  based network.</property>
                     <property name="use_markup">True</property>
                     <property name="wrap">True</property>
                   </widget>

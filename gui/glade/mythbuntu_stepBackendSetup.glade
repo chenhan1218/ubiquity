@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.2.0 on Sun Aug 19 15:27:06 2007 by thomas@poseidon-->
+<!--Generated with glade3 3.3.3 on Thu Aug 23 23:50:09 2007 -->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
+    <property name="visible">True</property>
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
     <child>
       <widget class="GtkVBox" id="mythbuntu_stepBackendSetup">
@@ -65,6 +66,7 @@
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">Click to open the Schedules Direct Website</property>
                         <property name="xalign">0</property>
+                        <property name="response_id">0</property>
                         <property name="uri">http://www.schedulesdirect.org/</property>
                       </widget>
                     </child>
@@ -103,6 +105,7 @@
                         <property name="receives_default">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="label" translatable="yes">Launch MythTV-Setup</property>
+                        <property name="response_id">0</property>
                         <signal name="clicked" handler="do_mythtv_setup"/>
                       </widget>
                     </child>

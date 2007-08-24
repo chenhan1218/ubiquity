@@ -103,6 +103,15 @@ SUBPAGES = [
     "mythbuntu_stepBackendSetup"
 ]
 
+MYTHBUNTU_DEBCONF = ['MythbuntuAdvancedType',
+                     'MythbuntuInstallType',
+                     'MythbuntuPlugins',
+                     'MythbuntuThemes',
+                     'MythbuntuServices',
+                     'MythbuntuPasswords',
+                     'MythbuntuRemote',
+                     'MythbuntuDrivers' ]
+
 ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS
 ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP
 ubiquity.frontend.gtk_ui.SUBPAGES = SUBPAGES
@@ -114,9 +123,35 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
         self.populate_lirc()
+        self.backup=False
 
     def run(self):
         """run the interface."""
+        def skip_pages(old_backup,old_name,new_name):
+            """Skips a mythbuntu page if we should"""
+            advanced=self.get_advanced()
+            #advanced install conditionally skips a few pages
+            if advanced:
+                type = self.get_installtype()
+                if (type == "Master Backend" or type == "Slave Backend") and \
+                   (new_name == 'MythbuntuThemes' or new_name == 'MythbuntuRemote'):
+                    if not old_backup:
+                        self.dbfilter.ok_handler()
+                    else:
+                        self.dbfilter.cancel_handler()
+                        self.backup=True
+            #standard install should fly right through forward
+            else:
+                if new_name == 'MythbuntuInstallType' or \
+                   new_name == 'MythbuntuPlugins' or \
+                   new_name == 'MythbuntuThemes' or \
+                   new_name == 'MythbuntuServices' or \
+                   new_name == 'MythbuntuPasswords':
+                    if not old_backup:
+                        self.dbfilter.ok_handler()
+                    else:
+                        self.dbfilter.cancel_handler()
+                        self.backup=True
 
         if os.getuid() != 0:
             title = ('This installer must be run with administrative '
@@ -180,6 +215,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 while self.progress_position.depth() != 0:
                     self.debconf_progress_stop()
 
+            old_backup = self.backup
             self.backup = False
             old_dbfilter = self.dbfilter
             self.dbfilter = self.pages[self.pagesindex](self)
@@ -189,6 +225,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                 self.allow_change_step(False)
                 self.dbfilter.start(auto_process=True)
+                skip_pages(old_backup,old_dbfilter.__class__.__name__,self.dbfilter.__class__.__name__)
             gtk.main()
 
             if self.backup or self.dbfilter_handle_status():
@@ -221,19 +258,20 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 self.installing = True
                 self.progress_loop()
 
-        #After install is done, decide what to do
-        if self.get_installtype() == "Frontend":
-            self.finished_dialog.run()
-        else:
-            self.live_installer.show()
-            self.installing = False
-            self.steps.next_page()
-            self.back.hide()
-            self.cancel.hide()
-            self.next.set_label("Finish")
-            gtk.main()
-            self.live_installer.hide()
-            self.finished_dialog.run()
+        #After (and if) install is done, decide what to do
+        if self.pagesindex == pageslen:
+            if self.get_installtype() == "Frontend":
+                self.finished_dialog.run()
+            else:
+                self.live_installer.show()
+                self.installing = False
+                self.steps.next_page()
+                self.back.hide()
+                self.cancel.hide()
+                self.next.set_label("Finish")
+                gtk.main()
+                self.live_installer.hide()
+                self.finished_dialog.run()
         return self.returncode
 
     def process_step(self):
@@ -314,24 +352,22 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 ubiquity.frontend.gtk_ui.Wizard.set_page(self,n)
                 break
         if not found:
-            installtype = self.get_installtype()
-            advanced = self.get_advanced()
             self.live_installer.show()
             if n == 'MythbuntuAdvancedType':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepInstallType))
-            elif n == 'MythbuntuRemote' and installtype != "Master Backend" and installtype != "Slave Backend":
+            elif n == 'MythbuntuRemote':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepLirc))
             elif n == 'MythbuntuDrivers':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepDrivers))
-            if n == 'MythbuntuInstallType' and advanced:
+            if n == 'MythbuntuInstallType':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepCustomInstallType))
-            elif n == 'MythbuntuPlugins' and advanced:
+            elif n == 'MythbuntuPlugins':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepPlugins))
-            elif n == 'MythbuntuThemes' and advanced and installtype != "Master Backend" and installtype != "Slave Backend":
+            elif n == 'MythbuntuThemes':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepThemes))
-            elif n == 'MythbuntuPasswords' and advanced:
+            elif n == 'MythbuntuPasswords':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepPasswords))
-            elif n == 'MythbuntuServices' and advanced:
+            elif n == 'MythbuntuServices':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepServices))
 
 #Added Methods
@@ -434,13 +470,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             #and changed their mind
             #Note: This will recursively handle changing the values on the pages
             self.master_be_fe.set_active(True)
-            #For a standard install, remove any customization pages
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepCustomInstallType)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPlugins)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPasswords)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepServices)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             self.enablessh.set_active(True)
             self.enablevnc.set_active(False)
             self.enablenfs.set_active(False)
@@ -448,13 +477,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.enablemysql.set_active(False)
 
         else:
-            # For a custom install, reinsert our missing pages
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepCustomInstallType)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPlugins)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPasswords)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepServices)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             self.master_backend_expander.hide()
             self.mythweb_expander.show()
             self.mysql_server_expander.show()
@@ -500,12 +522,10 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 self.master_backend_expander.show()
                 self.mythweb_expander.show()
                 self.mysql_server_expander.show()
-                self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPasswords)).show()
             else:
                 self.master_backend_expander.hide()
                 self.mythweb_expander.hide()
                 self.mysql_server_expander.hide()
-                self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepPasswords)).hide()
 
         def set_all_themes(self,enable):
             """Enables all themes for defaults"""
@@ -543,11 +563,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.backend_plugin_list.show()
             self.febe_heading_label.set_label("Choose Frontend / Backend Plugins")
             self.master_backend_expander.hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             set_fe_drivers(self,True)
             set_be_drivers(self,True)
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).show()
         elif self.slave_be_fe.get_active():
             set_all_themes(self,True)
             set_all_fe_plugins(self,True)
@@ -561,11 +578,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.febe_heading_label.set_label("Choose Frontend / Backend Plugins")
             self.mysql_server_expander.hide()
             self.mysql_option_hbox.hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             set_fe_drivers(self,True)
             set_be_drivers(self,True)
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).show()
         elif self.master_be.get_active():
             set_all_themes(self,False)
             set_all_fe_plugins(self,False)
@@ -578,11 +592,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.backend_plugin_list.show()
             self.febe_heading_label.set_label("Choose Backend Plugins")
             self.master_backend_expander.hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).hide()
             set_fe_drivers(self,False)
             set_be_drivers(self,True)
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).show()
         elif self.slave_be.get_active():
             set_all_themes(self,False)
             set_all_fe_plugins(self,False)
@@ -596,11 +607,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.febe_heading_label.set_label("Choose Backend Plugins")
             self.mysql_server_expander.hide()
             self.mysql_option_hbox.hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).hide()
             set_fe_drivers(self,False)
             set_be_drivers(self,True)
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).show()
         else:
             set_all_themes(self,True)
             set_all_fe_plugins(self,True)
@@ -619,19 +627,16 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.mysql_option_hbox.hide()
             self.nfs_option_hbox.hide()
             self.samba_option_hbox.hide()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepThemes)).show()
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepLirc)).show()
             set_fe_drivers(self,True)
             set_be_drivers(self,False)
-            self.steps.get_nth_page(self.steps.page_num(self.mythbuntu_stepBackendSetup)).hide()
 
     def lirc_toggled(self,widget):
         """Called when the checkbox to configure a remote is toggled"""
         if (self.lirc_enable.get_active()):
-            self.lirc_middle_vbox.show()
+            self.lirc_middle_vbox.set_sensitive(True)
             self.lirc_remote.set_active(0)
         else:
-            self.lirc_middle_vbox.hide()
+            self.lirc_middle_vbox.set_sensitive(False)
             self.lirc_remote.set_active(0)
 
     def mythweb_toggled(self,widget):
@@ -644,12 +649,12 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
     def enablevnc_toggled(self,widget):
         """Called when the checkbox to turn on VNC is toggled"""
         if (self.enablevnc.get_active()):
-            self.vnc_pass_hbox.show()
+            self.vnc_pass_hbox.set_sensitive(True)
             self.allow_go_forward(False)
             self.allow_go_backward(False)
             self.vnc_error_image.show()
         else:
-            self.vnc_pass_hbox.hide()
+            self.vnc_pass_hbox.set_sensitive(False)
             self.vnc_password.set_text("")
             self.allow_go_forward(True)
             self.allow_go_backward(True)
