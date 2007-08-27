@@ -189,11 +189,12 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.next.grab_focus()
 
         self.pages = [language.Language, timezone.Timezone,
-            console_setup.ConsoleSetup,
-            mythbuntu.MythbuntuAdvancedType, mythbuntu.MythbuntuInstallType,
-            mythbuntu.MythbuntuPlugins, mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
-            mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote, mythbuntu.MythbuntuDrivers,
-            partman.Partman, usersetup.UserSetup, mythbuntu_summary.Summary]
+            console_setup.ConsoleSetup, mythbuntu.MythbuntuAdvancedType,
+            mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuPlugins,
+            mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
+            mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
+            mythbuntu.MythbuntuDrivers, partman.Partman, usersetup.UserSetup,
+            mythbuntu_summary.Summary]
         self.pagesindex = 0
         pageslen = len(self.pages)
 

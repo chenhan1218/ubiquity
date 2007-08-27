@@ -1,22 +1,26 @@
-ubiquity (1.5.12) UNRELEASED; urgency=low
+ubiquity (1.5.12) gutsy; urgency=low
 
   [ Mario Limonciello ]
-  * Disable tv-tuner selection GUI in mythbuntu frontend
-    until mythbuntu-firmware-detector is completed.
-  * Remove mythbuntu scripts present in multiple binary
-    packages from ubiquity binary package. (LP: #131092)
-  * Rework all mythbuntu scripts and behavior of UI
-    to make every GTK notebook page a debconf step.
+  * Disable tv-tuner selection GUI in mythbuntu frontend until
+    mythbuntu-firmware-detector is completed.
+  * Remove mythbuntu scripts present in multiple binary packages from
+    ubiquity binary package. (LP: #131092)
+  * Rework all mythbuntu scripts and behavior of UI to make every GTK
+    notebook page a debconf step.
   * Add support to choose hdhomerun during install.
-  * Fix broken mythbuntu_apply that still had "no"
-    rather than "false" for items to remove. (LP: #130641)
+  * Fix broken mythbuntu_apply that still had "no" rather than "false" for
+    items to remove. (LP: #130641)
 
   [ Thomas Mashos ]
-  * Update mythbuntu GUI to reflect schedules direct requirement for
-    North American users.
+  * Update mythbuntu GUI to reflect schedules direct requirement for North
+    American users.
   * Make sure Mythbuntu automatic login is prepared for proper user.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Sun, 19 Aug 2007 21:16:35 -0500
+  [ Evan Dandrea ]
+  * Automatic update of included source packages: grub-installer
+    1.24ubuntu2, partman-target 50ubuntu3.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Sat, 25 Aug 2007 14:05:06 -0400
 
 ubiquity (1.5.11) gutsy; urgency=low
 
