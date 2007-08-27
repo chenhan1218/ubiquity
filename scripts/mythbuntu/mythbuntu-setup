@@ -71,9 +71,11 @@ if [ "\$DATABASE_NOT" = "0" ]; then
 fi
 
 #Make sure warning doesn't come up on next boot
-mkdir -p /home/mythtv/.mythtv
-touch /home/mythtv/.mythtv/backend_configured
-chown mythtv:mythtv -R /home/mythtv/.mythtv
+db_get passwd/username
+USER=$RET
+mkdir -p /home/$USER/.mythtv
+touch /home/$USER/.mythtv/backend_configured
+chown 1000:1000 -R /home/$USER/.mythtv
 SETUP
 fi
 

@@ -97,7 +97,7 @@ class MythbuntuApply(FilteredCommand):
         if ssh == "false":
             patternline += "|^openssh-server"
         pattern = re.compile(patternline)
-        hdhomerun = self.db.geT('mythbuntu/hdhomerun')
+        hdhomerun = self.db.get('mythbuntu/hdhomerun')
         if hdhomerun == "false":
             patternline += "|^hdhomerun-config"
         for line in in_f:
