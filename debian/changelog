@@ -1,8 +1,10 @@
-ubiquity (1.5.12+mythbuntu2) gutsy; urgency=low
+ubiquity (1.5.13) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Correct typo in HDHomerun application.
   * Make sure that backend_configured happens for right user.
+  * Re-order installer so Mythbuntu steps appear at a different
+    time.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Mon, 27 Aug 2007 16:24:57 -0500
 

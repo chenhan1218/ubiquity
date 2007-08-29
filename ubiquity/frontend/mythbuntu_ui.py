@@ -65,17 +65,17 @@ BREADCRUMB_STEPS = {
     "stepLanguage": 1,
     "stepLocation": 2,
     "stepKeyboardConf": 3,
-    "mythbuntu_stepInstallType": 4,
-    "mythbuntu_stepCustomInstallType": 5,
-    "mythbuntu_stepPlugins": 6,
-    "mythbuntu_stepThemes": 7,
-    "mythbuntu_stepServices": 8,
-    "mythbuntu_stepPasswords": 9,
-    "mythbuntu_stepLirc": 10,
-    "mythbuntu_stepDrivers": 11,
-    "stepPartAuto": 12,
-    "stepPartAdvanced": 12,
-    "stepUserInfo": 13,
+    "stepPartAuto": 4,
+    "stepPartAdvanced": 4,
+    "stepUserInfo": 5,
+    "mythbuntu_stepInstallType": 6,
+    "mythbuntu_stepCustomInstallType": 7,
+    "mythbuntu_stepPlugins": 8,
+    "mythbuntu_stepThemes": 9,
+    "mythbuntu_stepServices": 10,
+    "mythbuntu_stepPasswords": 11,
+    "mythbuntu_stepLirc": 12,
+    "mythbuntu_stepDrivers": 13,
     "stepReady": 14,
     "mythbuntu_stepBackendSetup": 15
 }
@@ -88,6 +88,9 @@ SUBPAGES = [
     "stepLanguage",
     "stepLocation",
     "stepKeyboardConf",
+    "stepPartAuto",
+    "stepPartAdvanced",
+    "stepUserInfo",
     "mythbuntu_stepInstallType",
     "mythbuntu_stepCustomInstallType",
     "mythbuntu_stepPlugins",
@@ -96,9 +99,6 @@ SUBPAGES = [
     "mythbuntu_stepPasswords",
     "mythbuntu_stepLirc",
     "mythbuntu_stepDrivers",
-    "stepPartAuto",
-    "stepPartAdvanced",
-    "stepUserInfo",
     "stepReady",
     "mythbuntu_stepBackendSetup"
 ]
@@ -189,12 +189,12 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.next.grab_focus()
 
         self.pages = [language.Language, timezone.Timezone,
-            console_setup.ConsoleSetup, mythbuntu.MythbuntuAdvancedType,
+            console_setup.ConsoleSetup, partman.Partman,
+            usersetup.UserSetup, mythbuntu.MythbuntuAdvancedType,
             mythbuntu.MythbuntuInstallType, mythbuntu.MythbuntuPlugins,
             mythbuntu.MythbuntuThemes, mythbuntu.MythbuntuServices,
             mythbuntu.MythbuntuPasswords, mythbuntu.MythbuntuRemote,
-            mythbuntu.MythbuntuDrivers, partman.Partman, usersetup.UserSetup,
-            mythbuntu_summary.Summary]
+            mythbuntu.MythbuntuDrivers, mythbuntu_summary.Summary]
         self.pagesindex = 0
         pageslen = len(self.pages)
 
