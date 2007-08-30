@@ -2,8 +2,9 @@ ubiquity (1.5.13) UNRELEASED; urgency=low
 
   * The migration-assistant page will now be skipped if there are no
     partitions able to be imported from.
+  * Initialize self.errors in migration-assistant (LP: #134254).
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 27 Aug 2007 11:55:37 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 30 Aug 2007 11:20:41 -0400
 
 ubiquity (1.5.12) gutsy; urgency=low
 

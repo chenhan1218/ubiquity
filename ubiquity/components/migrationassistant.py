@@ -26,6 +26,7 @@ class MigrationAssistant(FilteredCommand):
     firstrun = True
     def prepare(self):
         self.err = None
+        self.errors = False
         self.error_list = ['migration-assistant/password-mismatch',
                            'migration-assistant/password-empty',
                            'migration-assistant/username-bad',
