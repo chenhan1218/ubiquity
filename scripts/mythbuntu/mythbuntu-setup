@@ -4,6 +4,8 @@
 
 #Let debconf work
 . /usr/share/debconf/confmodule
+db_get passwd/username
+USER=$RET
 
 ROOT="/target"
 chroot=chroot
@@ -49,9 +51,9 @@ fi
 /etc/init.d/mysql stop
 
 #Make sure warning doesn't come up on next boot
-mkdir -p /home/mythtv/.mythtv
-touch /home/mythtv/.mythtv/backend_configured
-chown mythtv:mythtv -R /home/mythtv/.mythtv
+mkdir -p /home/$USER/.mythtv
+touch /home/$USER/.mythtv/backend_configured
+chown 1000:1000 -R /home/$USER/.mythtv
 SETUP
 else
     cat <<SETUP >$ROOT/tmp/mythtv_setup
@@ -71,9 +73,9 @@ if [ "\$DATABASE_NOT" = "0" ]; then
 fi
 
 #Make sure warning doesn't come up on next boot
-mkdir -p /home/mythtv/.mythtv
-touch /home/mythtv/.mythtv/backend_configured
-chown mythtv:mythtv -R /home/mythtv/.mythtv
+mkdir -p /home/$USER/.mythtv
+touch /home/$USER/.mythtv/backend_configured
+chown 1000:1000 -R /home/$USER/.mythtv
 SETUP
 fi
 

@@ -1,5 +1,12 @@
 ubiquity (1.5.13) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
+  * Correct typo in HDHomerun application.
+  * Make sure that backend_configured happens for right user.
+  * Re-order installer so Mythbuntu steps appear at a different
+    time.
+
+  [ Evan Dandrea ]
   * The migration-assistant page will now be skipped if there are no
     partitions able to be imported from.
   * Initialize self.errors in migration-assistant (LP: #134254).
