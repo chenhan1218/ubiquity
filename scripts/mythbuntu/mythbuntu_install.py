@@ -23,6 +23,8 @@ import os
 import install
 import sys
 import syslog
+import errno
+
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 

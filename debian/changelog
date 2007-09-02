@@ -5,6 +5,8 @@ ubiquity (1.5.13) UNRELEASED; urgency=low
   * Make sure that backend_configured happens for right user.
   * Re-order installer so Mythbuntu steps appear at a different
     time.
+  * Make sure errno errors can be reported properly in 
+    mythbuntu_install.py (LP: #130771)
 
  -- Mario Limonciello <superm1@ubuntu.com>  Mon, 27 Aug 2007 16:24:57 -0500
 
