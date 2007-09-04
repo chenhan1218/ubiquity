@@ -66,7 +66,7 @@ class MigrationAssistant(FilteredCommand):
                     self.firstrun = False
                     return FilteredCommand.run(self, priority, question)
                 else:
-                    self.db.set('migration-assistant/run-ma-again', 'false')
+                    self.db.set('ubiquity/run-ma-again', 'false')
 
             # In order to find out what operating systems and users we're
             # dealing with we need to seed all of the questions to step through

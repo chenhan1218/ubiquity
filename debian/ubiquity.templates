@@ -251,6 +251,10 @@ _Description: Ready to install
  .
  ${PARTMAN_CHANGES}
 
+Template: ubiquity/install/checking
+Type: text
+_Description: Checking the installation...
+
 Template: ubiquity/install/title
 Type: title
 _Description: Installing system
