@@ -154,6 +154,11 @@ class BaseFrontend:
         import pdb
         pdb.post_mortem(exctb)
         sys.exit(1)
+    
+    def set_page(self, page):
+        """A question has been asked.  Set the interface to the appropriate
+        page given the component, page."""
+        self._abstract('set_page')
 
     # Debconf interaction. We cannot talk to debconf normally here, as
     # running a normal frontend would interfere with pretending to be a

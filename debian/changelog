@@ -11,8 +11,9 @@ ubiquity (1.5.13) UNRELEASED; urgency=low
     partitions able to be imported from.
   * Initialize self.errors in migration-assistant (LP: #134254).
   * Add a progress bar for automatic mode.
+  * Update noninteractive frontend to work with recent changes.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Sep 2007 14:26:42 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 05 Sep 2007 12:26:20 -0400
 
 ubiquity (1.5.12) gutsy; urgency=low
 
