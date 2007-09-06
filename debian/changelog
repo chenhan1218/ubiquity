@@ -13,6 +13,10 @@ ubiquity (1.5.13) UNRELEASED; urgency=low
   * Add a progress bar for automatic mode.
   * Update noninteractive frontend to work with recent changes.
 
+  [ Colin Watson ]
+  * If 'automatic-ubiquity' is on the kernel command line, start Ubiquity in
+    its own X session.
+
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 05 Sep 2007 12:26:20 -0400
 
 ubiquity (1.5.12) gutsy; urgency=low
