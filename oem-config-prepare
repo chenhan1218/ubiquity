@@ -1,19 +1,20 @@
 #! /bin/sh
 set -e
 
+# Try to detect which frontend will be used by looking for a frontend
+# module.
+frontend=
+for f in gtk_ui kde_ui; do
+	if [ -f "/usr/lib/oem-config/oem_config/frontend/$f.py" ]; then
+		frontend="$f"
+		break
+	fi
+done
+
 if [ "$(id -u)" = 0 ]; then
 	# no privilege escalation required
 	:
 else
-	# Try to detect which frontend will be used by looking for a
-	# frontend module.
-	frontend=
-	for f in gtk_ui kde_ui; do
-		if [ -f "/usr/lib/oem-config/oem_config/frontend/$f.py" ]; then
-			frontend="$f"
-			break
-		fi
-	done
 	case $frontend in
 		gtk_ui)
 			exec gksudo --desktop /usr/share/applications/oem-config-prepare.desktop -- "$0" "$@"
@@ -29,6 +30,22 @@ fi
 
 update-rc.d oem-config start 12 2 3 4 5 .
 
-echo "oem-config will run the next time the system boots."
+MESSAGE='oem-config will run the next time the system boots.'
+case $frontend in
+	gtk_ui)
+		if type zenity >/dev/null 2>&1; then
+			zenity --title oem-config-prepare --info --text \
+				"$MESSAGE"
+			exit 0
+		fi
+		;;
+	kde_ui)
+		if type kdialog >/dev/null 2>&1; then
+			kdialog --title oem-config-prepare --msgbox "$MESSAGE"
+			exit 0
+		fi
+		;;
+esac
+echo "$MESSAGE"
 
 exit 0
