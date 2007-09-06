@@ -5,7 +5,7 @@ ubiquity (1.5.13) UNRELEASED; urgency=low
   * Make sure that backend_configured happens for right user.
   * Re-order installer so Mythbuntu steps appear at a different
     time.
-  * Make sure errno errors can be reported properly in 
+  * Make sure errno errors can be reported properly in
     mythbuntu_install.py (LP: #130771)
 
   [ Evan Dandrea ]
@@ -14,6 +14,8 @@ ubiquity (1.5.13) UNRELEASED; urgency=low
   * Initialize self.errors in migration-assistant (LP: #134254).
   * Add a progress bar for automatic mode.
   * Update noninteractive frontend to work with recent changes.
+  * Temporary fix for the language packs no longer installing bug (LP:
+    #131294)
 
   [ Colin Watson ]
   * If 'automatic-ubiquity' is on the kernel command line, start Ubiquity in
@@ -21,7 +23,7 @@ ubiquity (1.5.13) UNRELEASED; urgency=low
   * Just call 'reboot' rather than gdm/kdm-specific reboot methods if
     DESKTOP_SESSION isn't set in the environment.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 05 Sep 2007 12:26:20 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 06 Sep 2007 18:08:05 -0400
 
 ubiquity (1.5.12) gutsy; urgency=low
 

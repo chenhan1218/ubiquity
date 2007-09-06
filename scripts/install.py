@@ -282,6 +282,10 @@ class Install:
         # out the list of pre-installation hooks.
         apt_pkg.Config.Clear("DPkg::Pre-Install-Pkgs")
         apt_pkg.InitSystem()
+        # TODO evand 2007-09-06: Temporary fix until I can get to the bottom of
+        # the real cause of the cache being out of sync with respect to the
+        # language packs (LP: #131294).
+        apt_pkg.init()
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler. Dump the traceback to a file so that it can be
