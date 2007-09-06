@@ -1,10 +1,10 @@
-oem-config (1.19) UNRELEASED; urgency=low
+oem-config (1.19) gutsy; urgency=low
 
   * Run gnome-settings-daemon so that we use the normal theme (LP: #23899).
   * Use zenity or kdialog if available to display oem-config-prepare's
     acknowledgement message (LP: #131309).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 06 Sep 2007 14:10:55 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 06 Sep 2007 14:38:08 +0100
 
 oem-config (1.18) gutsy; urgency=low
 
