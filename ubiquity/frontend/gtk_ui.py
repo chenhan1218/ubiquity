@@ -764,7 +764,8 @@ class Wizard(BaseFrontend):
         """Callback for main program to actually reboot the machine."""
 
         if (os.path.exists("/usr/bin/gdm-signal") and
-            os.path.exists("/usr/bin/gnome-session-save")):
+            os.path.exists("/usr/bin/gnome-session-save") and
+            'DESKTOP_SESSION' in os.environ):
             execute("gdm-signal", "--reboot")
             if 'SUDO_UID' in os.environ:
                 user = '#%d' % int(os.environ['SUDO_UID'])

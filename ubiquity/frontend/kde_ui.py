@@ -656,9 +656,13 @@ class Wizard(BaseFrontend):
     def do_reboot(self):
         """Callback for main program to actually reboot the machine."""
 
-        execute('dcop', 'ksmserver', 'ksmserver', 'logout',
-                # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
-                '0', '1', '2')
+        if 'DESKTOP_SESSION' in os.environ:
+            execute('dcop', 'ksmserver', 'ksmserver', 'logout',
+                    # ShutdownConfirmNo, ShutdownTypeReboot,
+                    # ShutdownModeForceNow
+                    '0', '1', '2')
+        else:
+            execute('reboot')
 
     def quit(self):
         """quit installer cleanly."""

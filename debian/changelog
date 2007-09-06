@@ -16,6 +16,8 @@ ubiquity (1.5.13) UNRELEASED; urgency=low
   [ Colin Watson ]
   * If 'automatic-ubiquity' is on the kernel command line, start Ubiquity in
     its own X session.
+  * Just call 'reboot' rather than gdm/kdm-specific reboot methods if
+    DESKTOP_SESSION isn't set in the environment.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 05 Sep 2007 12:26:20 -0400
 
