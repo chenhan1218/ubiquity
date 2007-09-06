@@ -5,6 +5,8 @@ ubiquity (1.5.13) UNRELEASED; urgency=low
   * Make sure that backend_configured happens for right user.
   * Re-order installer so Mythbuntu steps appear at a different
     time.
+  * Make sure errno errors can be reported properly in 
+    mythbuntu_install.py (LP: #130771)
 
   [ Evan Dandrea ]
   * The migration-assistant page will now be skipped if there are no
