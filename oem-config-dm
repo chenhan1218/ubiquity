@@ -78,8 +78,10 @@ class DM:
                 root.clear()
                 gtk.gdk.flush()
 
+        extras = []
         if self.frontend == 'gtk_ui':
             wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
+            extras.append(subprocess.Popen(['/usr/lib/gnome-control-center/gnome-settings-daemon'], stdin=null, stdout=logfile, stderr=logfile))
         elif self.frontend == 'kde_ui':
             wm = subprocess.Popen('/usr/bin/kwin', stdin=null, stdout=logfile, stderr=logfile)
 
@@ -88,18 +90,27 @@ class DM:
 
         def sigalrm_handler(signum, frame):
             os.kill(wm.pid, signal.SIGKILL)
+            for extra in extras:
+                os.kill(extra.pid, signal.SIGKILL)
 
         os.kill(wm.pid, signal.SIGTERM)
+        for extra in extras:
+            os.kill(extra.pid, signal.SIGTERM)
         signal.signal(signal.SIGALRM, sigalrm_handler)
         signal.alarm(1) # low patience with WMs failing to exit on demand
-        while True:
-            try:
-                wm.wait()
-            except OSError, e:
-                if e.errno == errno.EINTR:
-                    continue
-                raise
-            break
+        processes = set(extras)
+        processes.add(wm)
+        while processes:
+            done = set()
+            for process in processes:
+                try:
+                    process.wait()
+                    done.add(process)
+                except OSError, e:
+                    if e.errno == errno.EINTR:
+                        continue
+                    raise
+            processes -= done
         signal.alarm(0)
         os.kill(server.pid, signal.SIGTERM)
         server.wait()
