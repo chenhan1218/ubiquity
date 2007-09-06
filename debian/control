@@ -22,7 +22,7 @@ Description: Perform end-user configuration after initial installation
 
 Package: oem-config-gtk
 Architecture: any
-Depends: ${shlibs:Depends}, ${python:Depends}, oem-config, python-gtk2, python-glade2, metacity
+Depends: ${shlibs:Depends}, ${python:Depends}, oem-config, python-gtk2, python-glade2, metacity, gnome-control-center
 Replaces: oem-config (<< 1.0)
 Provides: oem-config-frontend-${source:Version}
 XB-Python-Version: ${python:Versions}
