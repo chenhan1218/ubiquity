@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-08-09 18:24+0100\n"
+"POT-Creation-Date: 2007-09-07 18:19+0100\n"
 "PO-Revision-Date: 2007-04-05 09:31+0000\n"
 "Last-Translator: Vojtěch Smejkal <goldfreedom@centrum.cz>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
@@ -418,39 +418,47 @@ msgstr ""
 " Pomocník migrace:\n"
 " ${MIGRATE}"
 
-#. Type: title
+#. Type: text
 #. Description
 #: ../ubiquity.templates:52001
+#, fuzzy
+#| msgid "Copying installation logs..."
+msgid "Checking the installation..."
+msgstr "Kopírují se instalační záznamy..."
+
+#. Type: title
+#. Description
+#: ../ubiquity.templates:53001
 msgid "Installing system"
 msgstr "Instaluje se systém"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "Finding the distribution to copy..."
 msgstr "Hledá se distribuce ke kopírování"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Scanning files..."
 msgstr "Prohledávají se soubory..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:57001
 msgid "Copying files..."
 msgstr "Kopírují se soubory..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "Kopírují se soubory (zbývá méně než minuta)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:59001
 msgid "Failed to copy files; faulty CD/DVD?"
 msgstr "Kopírování souborů selhalo; možná je CD/DVD vadné?"
 
@@ -460,14 +468,14 @@ msgstr "Kopírování souborů selhalo; možná je CD/DVD vadné?"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:58001 ../ubiquity.templates:59001
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:59001 ../ubiquity.templates:60001
+#: ../ubiquity.templates:61001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "Při kopírování souborů na pevný disk oznámil instalátor chybu:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:59001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive. It may "
 "help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
@@ -481,13 +489,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:60001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr "Nepodařilo se zkopírovat soubory; možná je vadný pevný disk?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:60001
 msgid ""
 "This particular error is often due to a faulty hard disk. It may help to "
 "check whether the hard disk is old and in need of replacement, or to move "
@@ -499,7 +507,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:61001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr "Kopírování souborů selhalo; možná je vadné CD/DVD nebo pevný disk?"
 
@@ -507,7 +515,7 @@ msgstr "Kopírování souborů selhalo; možná je vadné CD/DVD nebo pevný dis
 #. Description
 #. This is used when we don't know whether the CD/DVD or the hard disk is at
 #. fault.
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:61001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -524,139 +532,139 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:62001
 msgid "Copying installation logs..."
 msgstr "Kopírují se instalační záznamy..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:63001
 msgid "Configuring target system..."
 msgstr "Nastavuji cílový systém..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:64001
 msgid "Configuring system locales..."
 msgstr "Konfiguruje se místní nastavení systému..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:65001
 msgid "Configuring apt..."
 msgstr "Konfiguruje se apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:66001
 msgid "Configuring time zone..."
 msgstr "Nastavuje se časové pásmo..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:67001
 msgid "Configuring keyboard..."
 msgstr "Nastavuje se klávesnice..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:68001
 msgid "Creating user..."
 msgstr "Vytvářím uživatele..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:69001
 msgid "Importing documents and settings..."
 msgstr "Importuji dokumenty a nastavení..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:70001
 msgid "Configuring hardware..."
 msgstr "Nastavuje se hardware..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:71001
 msgid "Configuring network..."
 msgstr "Nastavuje se síť..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:72001
 msgid "Setting computer name..."
 msgstr "Nastavuje se jméno počítače..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:73001
 msgid "Configuring boot loader..."
 msgstr "Nastavuje se zavaděč..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:74001
 msgid "Installing additional packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:75001
 msgid "Checking for packages to install..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:76001
 msgid "Removing extra packages..."
 msgstr "Odstraňují se extra balíky..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:77001
 msgid "Checking for packages to remove..."
 msgstr "Kontrolují se balíky, které se odstraní..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:78001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Stahuji balíky (zbývá ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:79001
 msgid "Downloading package lists..."
 msgstr "Stahuji seznamy balíků"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:80001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Stahuji seznam balíků (zbývá ${TIME})..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:82001
 msgid "Error installing ${PACKAGE}"
 msgstr "Chyba při instalaci ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001
 msgid "Error removing ${PACKAGE}"
 msgstr "Chyba při odebírání ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:84001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:84001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -664,7 +672,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:83001 ../ubiquity.templates:84001
+#: ../ubiquity.templates:84001 ../ubiquity.templates:85001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -672,7 +680,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:83001 ../ubiquity.templates:84001
+#: ../ubiquity.templates:84001 ../ubiquity.templates:85001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -685,37 +693,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:85001
 msgid "Error while removing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:85001
 msgid "An error occurred while removing packages:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:86001
 msgid "Installing language packs"
 msgstr "Instalují se jazykové balíky"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Stahují se jazykové balíky (zbývá ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid "Failed to unmount partitions"
 msgstr "Selhalo odpojování oblastí"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -725,25 +733,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid "Please close any applications using these mount points."
 msgstr "Prosím uzavřete všechny aplikace používající tyto přípojná místa."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Chcete, aby instalátor zkusil znovu odpojit tyto oddíly?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
 msgid "System partition not formatted"
 msgstr "Systémový oddíl není zformátovaný"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
@@ -764,7 +772,6 @@ msgid ""
 " Drivers:\n"
 "     Add. Video Driver:  ${PROPRIETARY_VIDEO_DRIVER}\n"
 "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-"     TV-Tuners:          ${TUNER0} ${TUNER1} ${TUNER2} ${TUNER3} ${TUNER4}\n"
 " Additional Services:\n"
 "     VNC:                ${EN_VNC}\n"
 "     SSH:                ${EN_OPENSSH}\n"
@@ -1248,17 +1255,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
-msgid "Click to open the TMS Zap2It website"
+msgid "Click to open the Schedules Direct website"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:72001
 msgid ""
-"Users in the US will need to setup an account with Tribune Media Services "
-"(TMS). TMS provides guide data at no charge, only requiring users to fill "
-"out a survey once every 3 months. When setting up an account, the MythTV "
-"project code is: ZIYN-DQZO-SBUT"
+"Users in North America will need to setup an account with Schedules Direct "
+"(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+"users may lose many of the scheduling features in MythTV."
 msgstr ""
 
 #. Type: text
