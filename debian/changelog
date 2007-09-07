@@ -1,12 +1,11 @@
-ubiquity (1.5.13) UNRELEASED; urgency=low
+ubiquity (1.5.13) gutsy; urgency=low
 
   [ Mario Limonciello ]
   * Correct typo in HDHomerun application.
   * Make sure that backend_configured happens for right user.
-  * Re-order installer so Mythbuntu steps appear at a different
-    time.
-  * Make sure errno errors can be reported properly in
-    mythbuntu_install.py (LP: #130771)
+  * Re-order installer so Mythbuntu steps appear at a different time.
+  * Make sure errno errors can be reported properly in mythbuntu_install.py
+    (LP: #130771)
 
   [ Evan Dandrea ]
   * The migration-assistant page will now be skipped if there are no
@@ -27,7 +26,7 @@ ubiquity (1.5.13) UNRELEASED; urgency=low
     partman-auto-loop 0ubuntu5, partman-efi 13ubuntu2, partman-target
     50ubuntu4.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 06 Sep 2007 18:08:05 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 07 Sep 2007 18:24:17 +0100
 
 ubiquity (1.5.12) gutsy; urgency=low
 
