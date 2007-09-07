@@ -22,6 +22,10 @@ ubiquity (1.5.13) UNRELEASED; urgency=low
     its own X session. Thanks to Agostino Russo for the prototype of this.
   * Just call 'reboot' rather than gdm/kdm-specific reboot methods if
     DESKTOP_SESSION isn't set in the environment.
+  * Automatic update of included source packages: apt-setup 1:0.21ubuntu3,
+    base-installer 1.81ubuntu2, grub-installer 1.24ubuntu3,
+    partman-auto-loop 0ubuntu5, partman-efi 13ubuntu2, partman-target
+    50ubuntu4.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 06 Sep 2007 18:08:05 -0400
 
