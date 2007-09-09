@@ -369,16 +369,16 @@ class MythbuntuRemote(FilteredCommand):
 
 class MythbuntuDrivers(FilteredCommand):
     def prepare(self):
-        questions = ['^mythbuntu/proprietary_driver',
+        questions = ['^mythbuntu/video_driver',
              '^mythbuntu/tvout',
              '^mythbuntu/tvstandard',
              '^mythbuntu/hdhomerun']
         return (['/usr/share/ubiquity/ask-drivers'], questions)
 
     def run(self,priority,question):
-        if question.startswith('mythbuntu/proprietary_driver'):
-            proprietary_driver = self.frontend.get_proprietary()
-            self.preseed('mythbuntu/proprietary_driver', proprietary_driver)
+        if question.startswith('mythbuntu/video_driver'):
+            video_driver = self.frontend.get_video()
+            self.preseed('mythbuntu/video_driver', video_driver)
         elif question.startswith('mythbuntu/tvout'):
             tvout = self.frontend.get_tvout()
             self.preseed('mythbuntu/tvout', tvout)
@@ -391,8 +391,8 @@ class MythbuntuDrivers(FilteredCommand):
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
-        proprietary_driver = self.frontend.get_proprietary()
-        self.preseed('mythbuntu/proprietary_driver', proprietary_driver)
+        video_driver = self.frontend.get_video()
+        self.preseed('mythbuntu/video_driver', video_driver)
         tvout = self.frontend.get_tvout()
         self.preseed('mythbuntu/tvout', tvout)
         tvstandard = self.frontend.get_tvstandard()

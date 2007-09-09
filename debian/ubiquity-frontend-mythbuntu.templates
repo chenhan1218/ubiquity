@@ -3,7 +3,7 @@ Type: note
 _Description: Ready to install
   Install Type:           ${INSTALLTYPE}
   Drivers:
-      Add. Video Driver:  ${PROPRIETARY_VIDEO_DRIVER}
+      Add. Video Driver:  ${VIDEO_DRIVER}
           TV-Out:             ${TVOUT}, ${TVSTANDARD}
   Additional Services:
       VNC:                ${EN_VNC}
@@ -275,13 +275,11 @@ _Description: Additional Drivers/Firmware
 Template: ubiquity/text/driver_description
 Type: text
 _Description:
- Proprietary video drivers aren't necessary for MythTV usage unless you need TV out on your
- machine.  They can, however, provide enhanced performance for high definition content and
- enable OpenGL effects in MythTV.
+ An open source graphics driver is already enabled and configured for your installation.  If you would like to use a different graphics driver, you can do so here.  Note that proprietary graphics drivers may be necessary for TV Output or OpenGL effects.
 
-Template: ubiquity/text/proprietarydrivers
+Template: ubiquity/text/modifyvideodriver
 Type: text
-_Description: Install Proprietary Video Driver
+_Description: Modify Video Driver & Settings
 
 Template: ubiquity/text/tvout_label
 Type: text
@@ -437,10 +435,10 @@ Template: mythbuntu/communitythemes
 Type: boolean
 Description: for internal use; determines if themes are installed
 
-Template: mythbuntu/proprietary_driver
+Template: mythbuntu/video_driver
 Type: string
 Default: none
-Description: for internal use; determines what proprietary graphics driver to use
+Description: for internal use; determines what video graphics driver to use
 
 Template: mythbuntu/tvout
 Type: string
