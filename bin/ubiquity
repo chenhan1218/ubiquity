@@ -181,7 +181,7 @@ def main():
             os.environ['DEBCONF_DEBUG'] = 'developer|filter'
     # The frontend should take care of displaying a helpful message if
     # we are being run without root privileges.
-    if args[0] != 'noninteractive':
+    if args and args[0] != 'noninteractive':
         try:
             sys.stderr = open('/var/log/installer/debug', 'a', 1)
             os.dup2(sys.stderr.fileno(), 2)

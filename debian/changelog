@@ -1,10 +1,13 @@
 ubiquity (1.5.14) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
-  * Rework proprietary drivers page.  Include openchrome and 
+  * Rework proprietary drivers page.  Include openchrome and
     nvidia legacy support.  Drop restricted-manager --check and --list.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Sun, 09 Sep 2007 13:02:46 -0500
+  [ Evan Dandrea ]
+  * Fixed a typo in noninteractive check.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 10 Sep 2007 15:52:23 -0400
 
 ubiquity (1.5.13) gutsy; urgency=low
 
