@@ -175,7 +175,7 @@ class Install(install.Install):
 
     def add_drivers_services(self):
         """Installs Additional Drivers, Services & Firmware"""
-        video_driver = self.db.get('mythbuntu/proprietary_driver')
+        video_driver = self.db.get('mythbuntu/video_driver')
         vnc = self.db.get('mythbuntu/vncservice')
         nfs = self.db.get('mythbuntu/nfsservice')
         to_install = []
