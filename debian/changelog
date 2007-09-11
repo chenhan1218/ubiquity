@@ -7,6 +7,9 @@ ubiquity (1.5.14) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Fixed a typo in noninteractive check.
 
+  [ Colin Watson ]
+  * Call update-rc.d so that automatic-ubiquity stands a chance of working.
+
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 10 Sep 2007 15:52:23 -0400
 
 ubiquity (1.5.13) gutsy; urgency=low
