@@ -9,6 +9,8 @@ ubiquity (1.5.14) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Call update-rc.d so that automatic-ubiquity stands a chance of working.
+  * Automatic update of included source packages: grub-installer
+    1.24ubuntu4.
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 10 Sep 2007 15:52:23 -0400
 
