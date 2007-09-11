@@ -1,8 +1,8 @@
-ubiquity (1.5.14) UNRELEASED; urgency=low
+ubiquity (1.5.14) gutsy; urgency=low
 
   [ Mario Limonciello ]
-  * Rework proprietary drivers page.  Include openchrome and
-    nvidia legacy support.  Drop restricted-manager --check and --list.
+  * Rework proprietary drivers page.  Include openchrome and nvidia legacy
+    support.  Drop restricted-manager --check and --list.
 
   [ Evan Dandrea ]
   * Fixed a typo in noninteractive check.
@@ -12,7 +12,7 @@ ubiquity (1.5.14) UNRELEASED; urgency=low
   * Automatic update of included source packages: grub-installer
     1.24ubuntu4.
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 10 Sep 2007 15:52:23 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Sep 2007 20:16:42 +0100
 
 ubiquity (1.5.13) gutsy; urgency=low
 
