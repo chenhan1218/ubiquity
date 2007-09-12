@@ -1,3 +1,9 @@
+ubiquity (1.5.15) UNRELEASED; urgency=low
+
+  * Fixed backup in the UI wrt the new page turning code.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 11 Sep 2007 18:18:27 -0400
+
 ubiquity (1.5.14) gutsy; urgency=low
 
   [ Mario Limonciello ]
