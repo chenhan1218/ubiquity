@@ -1,6 +1,10 @@
 ubiquity (1.5.15) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Fixed backup in the UI wrt the new page turning code.
+
+  [ Colin Watson ]
+  * Start ubiquity init script at 29; don't bother stopping it.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 11 Sep 2007 18:18:27 -0400
 
