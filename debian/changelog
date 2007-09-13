@@ -6,6 +6,10 @@ ubiquity (1.5.15) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Start ubiquity init script at 29; don't bother stopping it.
 
+  [ Michael Haas ]
+  * Allow VNC to be selected with foreign locales in mythbuntu
+    interface. (LP: #136482)
+
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 11 Sep 2007 18:18:27 -0400
 
 ubiquity (1.5.14) gutsy; urgency=low
