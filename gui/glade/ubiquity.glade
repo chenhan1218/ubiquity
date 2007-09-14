@@ -1096,7 +1096,7 @@ Be sure to remove the CD when restarting the computer, otherwise it will start b
                       <widget class="GtkCheckButton" id="popcon_checkbutton">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="label" translatable="yes">Participate in the package usage survey?</property>
+                        <property name="label" translatable="yes">Participate in the package usage survey</property>
                         <property name="draw_indicator">True</property>
                       </widget>
                     </child>
