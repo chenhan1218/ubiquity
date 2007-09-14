@@ -185,10 +185,6 @@ Template: ubiquity/text/ready_description_label
 Type: text
 _Description: Your new operating system will now be installed with the following settings:
 
-Template: ubiquity/text/bootloader_group_label
-Type: text
-_Description: Boot loader
-
 Template: ubiquity/text/step_label
 Type: text
 _Description: Step ${INDEX} of ${TOTAL}
@@ -216,6 +212,80 @@ _Description: Continue using the live CD
 Template: ubiquity/text/reboot_button
 Type: text
 _Description: Restart now
+
+Template: ubiquity/text/crash_dialog
+Type: text
+_Description: Installer crashed
+
+Template: ubiquity/text/crash_heading_label
+Type: text
+_Description: Installer crashed
+
+Template: ubiquity/text/crash_text_label
+Type: text
+_Description:
+ We're sorry; the installer crashed. Please file a new bug report at
+ https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your
+ details to any existing bug) and a developer will attend to the problem as
+ soon as possible. To help the developers understand what went wrong,
+ include the following detail in your bug report, and attach the files
+ /var/log/syslog and /var/log/partman:
+
+Template: ubiquity/text/partition_create_dialog
+Type: text
+_Description: Create partition
+
+Template: ubiquity/text/partition_create_size_label
+Type: text
+_Description: New partition size in megabytes (1000000 bytes):
+
+Template: ubiquity/text/partition_create_place_beginning
+Type: text
+_Description: Beginning
+
+Template: ubiquity/text/partition_create_place_end
+Type: text
+_Description: End
+
+Template: ubiquity/text/partition_create_type_primary
+Type: text
+_Description: Primary
+
+Template: ubiquity/text/partition_create_type_logical
+Type: text
+_Description: Logical
+
+Template: ubiquity/text/partition_edit_dialog
+Type: text
+_Description: Edit partition
+
+Template: ubiquity/text/partition_edit_heading_label
+Type: text
+_Description: Edit a partition
+
+Template: ubiquity/text/partition_edit_size_label
+Type: text
+_Description: New partition size in megabytes (1000000 bytes):
+
+Template: ubiquity/text/advanced_dialog
+Type: text
+_Description: Advanced Options
+
+Template: ubiquity/text/bootloader_group_label
+Type: text
+_Description: Boot loader
+
+Template: ubiquity/text/grub_enable
+Type: text
+_Description: Install boot loader
+
+Template: ubiquity/text/popcon_group_label
+Type: text
+_Description: Popularity contest
+
+Template: ubiquity/text/popcon_checkbutton
+Type: text
+_Description: Participate in the package usage survey
 
 Template: ubiquity/text/finished_label
 Type: text
