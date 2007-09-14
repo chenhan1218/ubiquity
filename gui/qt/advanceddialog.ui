@@ -138,7 +138,7 @@
    <item row="1" column="0" >
     <widget class="QCheckBox" name="grub_enable" >
      <property name="text" >
-      <string>Install Bootloader</string>
+      <string>Install boot loader</string>
      </property>
      <property name="checked" >
       <bool>true</bool>

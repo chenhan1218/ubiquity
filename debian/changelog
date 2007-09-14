@@ -8,6 +8,7 @@ ubiquity (1.5.15) UNRELEASED; urgency=low
   * Update translations from Rosetta (LP: #132157).
   * Remove question mark from popularity-contest checkbox text
     (LP: #135140).
+  * Adjust grub_enable text to have more usual capitalisation and spelling.
 
   [ Michael Haas ]
   * Allow VNC to be selected with foreign locales in mythbuntu

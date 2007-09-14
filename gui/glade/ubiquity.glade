@@ -1025,7 +1025,7 @@ Be sure to remove the CD when restarting the computer, otherwise it will start b
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="label" translatable="yes">Install Bootloader</property>
+                            <property name="label" translatable="yes">Install boot loader</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="toggle_grub"/>
