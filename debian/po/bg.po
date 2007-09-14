@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-04 13:37+0000\n"
-"Last-Translator: Kamen Lichev <kamenlitchev@abv.bg>\n"
+"PO-Revision-Date: 2007-09-11 05:25+0100\n"
+"Last-Translator: Damyan Ivanov <dam@modsoftsys.com>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:09:36+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:10:09+0000\n"
 
 #. Type: text
 #. Description
@@ -429,7 +429,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 #, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
 msgstr "Копиране на инсталационните журнали..."
 
@@ -1323,20 +1322,3 @@ msgstr "Настройване на хардуера..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Настройване на часовата зона..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Език: ${LANGUAGE}\n"
-#~ " Клавиатурна подредба: ${KEYMAP}\n"
-#~ " Пълно име: ${FULLNAME}\n"
-#~ " Потребителско име: ${USERNAME}\n"
-#~ " Местоположение: ${LOCATION}\n"
-#~ " Асистент за мигрирането:\n"
-#~ " ${MIGRATE}"

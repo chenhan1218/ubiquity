@@ -9,12 +9,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
 "PO-Revision-Date: 2006-10-14 05:28+0000\n"
-"Last-Translator: teferra <tefera@online.no>\n"
+"Last-Translator: teferra <tefera.tegegne@gmail.com>\n"
 "Language-Team: Amharic\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:10:37+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:11:07+0000\n"
 
 #. Type: text
 #. Description
@@ -124,8 +124,9 @@ msgstr "የአሁን ሰዓት፡"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
+#, fuzzy
 msgid "Keyboard layout"
-msgstr ""
+msgstr "የፊደል ገበታ አቀራረብ \"%s\""
 
 #. Type: text
 #. Description
@@ -254,8 +255,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
+#, fuzzy
 msgid "Prepare disk space"
-msgstr ""
+msgstr "ከአምዱ በኋላ ክፍተት"
 
 #. Type: text
 #. Description
@@ -303,8 +305,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
+#, fuzzy
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "የመረጃ ማውጫ አሳይ"
 
 #. Type: title
 #. Description
@@ -389,34 +392,36 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Abort the installation?"
 msgid "Checking the installation..."
-msgstr "ተከላውን ይቁም?"
+msgstr ""
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:53001
+#, fuzzy
 msgid "Installing system"
-msgstr ""
+msgstr "የገዢ ስልት ቋንቋ(%s)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
+#, fuzzy
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "ወደ ተቀመጠው የ%s ግልባጭ ይመለስ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
+#, fuzzy
 msgid "Scanning files..."
-msgstr ""
+msgstr "ፋይሎችን በማሰስ ላይ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
+#, fuzzy
 msgid "Copying files..."
-msgstr ""
+msgstr "የቅርብ ጊዜ ፋይሎች"
 
 #. Type: text
 #. Description
@@ -488,8 +493,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
+#, fuzzy
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "የተከላ ደረጃው አልተሳካም"
 
 #. Type: text
 #. Description
@@ -500,8 +506,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
+#, fuzzy
 msgid "Configuring system locales..."
-msgstr ""
+msgstr "Ext2 የፋይል ሥርዓት"
 
 #. Type: text
 #. Description
@@ -512,8 +519,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
+#, fuzzy
 msgid "Configuring time zone..."
-msgstr ""
+msgstr "ቀን እና ሰዓት"
 
 #. Type: text
 #. Description
@@ -743,9 +751,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "ተከላውን ይቁም?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -771,9 +778,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "ተከላውን ይቁም?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -787,9 +793,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "ተከላው ተፈጽሟል"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1234,27 +1239,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "አውታርን በማዘጋጀት ላይ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "አውታርን በማዘጋጀት ላይ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "አውታርን በማዘጋጀት ላይ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "አውታርን በማዘጋጀት ላይ..."
+msgstr ""

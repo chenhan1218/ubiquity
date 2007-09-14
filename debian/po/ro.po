@@ -1,19 +1,20 @@
-# Romanian messages for debian-installer.
-# Copyright (C) 2003 Software in the Public Interest, Inc.
-# This file is distributed under the same license as debian-installer.
+# Romanian translation for edubuntu-docs
+# Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
+# This file is distributed under the same license as the edubuntu-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: edubuntu-docs\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-02 06:57+0000\n"
-"Last-Translator: Adi Roiban <adi@roiban.ro>\n"
-"Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
+"PO-Revision-Date: 2007-08-19 06:36+0000\n"
+"Last-Translator: Bivolaru Cătălin <katalin.xtrem@gmail.com>\n"
+"Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:08:58+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:17:03+0000\n"
 
 #. Type: text
 #. Description
@@ -296,6 +297,9 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Trebuie să specificaţi o partiţie pentru sistemul de fişiere rădăcină (loc "
+"montare \"/\") cu o dimensiune de minum 2GB, şi o partiţie swap  de cel "
+"puţin 256 MB. Deasemenea, dacă doriţi puteţi configura si alte partiţii."
 
 #. Type: text
 #. Description
@@ -380,6 +384,8 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Asiguraţi-vă că scoateţi CD-ul când reporniţi calculatorul, altfel va porni "
+"din nou acest live CD în locul noului sistem instalat."
 
 #. Type: text
 #. Description
@@ -418,10 +424,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
-msgstr "Copiere jurnal de instalare..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -799,9 +803,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "Abandonează instalarea?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -827,9 +830,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Abandonează instalarea?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -843,9 +845,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Instalare completă"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1221,9 +1222,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Parola:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1291,44 +1291,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Configurează apt..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Configurare hardware..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Configurare hardware..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "Configurare fus orar..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Limba: ${LANGUAGE}\n"
-#~ " Aranjamentul tastaturii: ${KEYMAP}\n"
-#~ " Numele: ${FULLNAME}\n"
-#~ " Numele de utilizator: ${USERNAME}\n"
-#~ " Locaţia: ${LOCATION}\n"
-#~ " Asitare migraţie:\n"
-#~ " ${MIGRATE}"
+msgstr ""

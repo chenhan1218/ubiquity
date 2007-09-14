@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-09 12:47+0000\n"
-"Last-Translator: Frank Groeneveld <frankgroeneveld@gmail.com>\n"
+"PO-Revision-Date: 2007-09-11 05:35+0100\n"
+"Last-Translator: Bart Cornelis <cobaco@skolelinux.no>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-10 15:08:38+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:16:10+0000\n"
 
 #. Type: text
 #. Description
@@ -428,7 +428,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 #, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
 msgstr "De installatielogs worden gekopieerd..."
 
@@ -1325,20 +1324,3 @@ msgstr "De hardware wordt geconfigureerd..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "De tijdzone wordt ingesteld..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Taal: ${LANGUAGE}\n"
-#~ " Toetsenbordindeling: ${KEYMAP}\n"
-#~ " Naam: ${FULLNAME}\n"
-#~ " Gebruikersnaam: ${USERNAME}\n"
-#~ " Locatie: ${LOCATION}\n"
-#~ "Migratie assistent:\n"
-#~ "${MIGRATE}"

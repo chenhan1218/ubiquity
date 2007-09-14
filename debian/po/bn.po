@@ -13,13 +13,18 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:10:57+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:19:23+0000\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
+#, fuzzy
 msgid "Install"
-msgstr "ইনস্টল"
+msgstr ""
+"#-#-#-#-#  bn.po (debian-installer)  #-#-#-#-#\n"
+"ইনস্টল\n"
+"#-#-#-#-#  bn.po (ubiquity)  #-#-#-#-#\n"
+"ইনস্টল করো"
 
 #. Type: text
 #. Description
@@ -156,8 +161,9 @@ msgstr "আপনার নাম কি?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
+#, fuzzy
 msgid "What name do you want to use to log in?"
-msgstr "আপনি কি নামে লগিন করতে চান?"
+msgstr "আপনি কি নামে লগ ইন করতে চান?"
 
 #. Type: text
 #. Description
@@ -278,11 +284,14 @@ msgstr "পার্টিশন প্রস্ততি"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
+#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"নিশ্চিত করুন যে রুট পার্টিশনের (\"/\") জন্য নির্ধারিত জায়গা কমপক্ষে ২ গিগাবাইট, এবং "
+"সোয়াপ পার্টিশনের জন্য কমপক্ষে ২৫৬ মেগাবাইট।"
 
 #. Type: text
 #. Description
@@ -351,19 +360,26 @@ msgstr "এখন রিস্টার্ট করুন"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
+#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"ইনস্টলেশন সম্পূর্ন হয়েছে। নতুন এই ইনস্টলেশন ব্যবহার করবার জন্য আপনাকে কম্পিউটারটি "
+"রিস্টার্ট করতে হবে। আপনি এই লাইভ সিডি ব্যবহার চালু রাখতে পারেন, তবে তাতে আপনার "
+"দ্বারা কৃত কোন পরিবর্তন সংরক্ষণ করা হবে না।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
+#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"কম্পিউটারটি রিস্টার্ট করবার সময় সিডিটি বের হয়েছে কি-না তা নিশ্চত করুন, নয়তবা এটি "
+"নতুন ইনস্টলকৃত সিস্টেমের পরিবর্তে এই লাইভ সিডি ব্যবহার করেই ব্যাকআপ করা শুরূ করবে।"
 
 #. Type: text
 #. Description
@@ -401,17 +417,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Abort the installation?"
 msgid "Checking the installation..."
-msgstr "ইনস্টলেশন বাতিল করো?"
+msgstr ""
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:53001
 #, fuzzy
 msgid "Installing system"
-msgstr "ইনস্টলেশন সম্পূর্ণ হয়েছে"
+msgstr "সিস্টেম ইনস্টল করা হচ্ছে"
 
 #. Type: text
 #. Description
@@ -501,8 +515,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
+#, fuzzy
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "ইনস্টালেশন লগ কপি করা হচ্ছে..."
 
 #. Type: text
 #. Description
@@ -586,8 +601,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
+#, fuzzy
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "অতিরিক্ত প্যাকেজ বাতিল করা হচ্ছে..."
 
 #. Type: text
 #. Description
@@ -598,8 +614,9 @@ msgstr "বাদ দেবার জন্য প্যাকেজ খোজ�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
+#, fuzzy
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "প্যাকেজগুলো ডাউনলোড করা হছে {$(সময়)অবশিষ্ট আছে } ..."
 
 #. Type: text
 #. Description
@@ -610,20 +627,23 @@ msgstr "প্যাকেজগুলোর তালিকা ডাউনল�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
+#, fuzzy
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "প্যাকেজগুলোর তালিকা ডাউনলোড করা হছে (${TIME}অবশিষ্ট আছে ) ..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:82001
+#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "${PACKAGE} ইনস্টল করা যাচ্ছে না"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:83001
+#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "${PACKAGE} বাতিল করা যাচ্ছে না"
 
 #. Type: error
 #. Description
@@ -757,9 +777,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "ইনস্টলেশন বাতিল করো?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -785,9 +804,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "ইনস্টলেশন বাতিল করো?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -801,9 +819,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "ইনস্টলেশন সম্পূর্ণ হয়েছে"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1248,42 +1265,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "এপিটি(apt) কনফিগার করা হচ্ছে..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "হার্ডওয়্যার কনফিগার করা হচ্ছে..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "হার্ডওয়্যার কনফিগার করা হচ্ছে..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "সময় অঞ্চল কনফিগার করা হচ্ছে..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " ভাষা: ${LANGUAGE}\n"
-#~ " কীবোর্ড লেআউট: ${KEYMAP}\n"
-#~ " নাম: ${FULLNAME}\n"
-#~ " লগইন নাম: ${USERNAME}\n"
-#~ " অবস্থান: ${LOCATION}"
+msgstr ""

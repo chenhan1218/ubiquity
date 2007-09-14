@@ -2,20 +2,18 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
-# Gabor Kelemen <kelemeng@gnome.hu>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-09 18:30+0000\n"
-"Last-Translator: Gabor Kelemen <kelemengabor@linuxforum.hu>\n"
+"PO-Revision-Date: 2007-09-11 05:31+0100\n"
+"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-10 15:08:44+0000\n"
-"X-Generator: KBabel 1.11.2\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:18:50+0000\n"
 
 #. Type: text
 #. Description
@@ -427,7 +425,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 #, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
 msgstr "Telepítési naplófájlok másolása..."
 
@@ -765,7 +762,7 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-"A(z) ${MOUNTPOINT} castolási ponthoz társított ${PARTITION} pírtíció "
+"A(z) ${MOUNTPOINT} csatolási ponthoz társított ${PARTITION} partíció "
 "fájlrendszere nincs kijelölve formázásra. A rendszer által használt "
 "fájlrendszereket (/, /boot, /usr, /var) újra kell formázni, hogy a telepítő "
 "használhassa azokat. Más fájlrendszereket (/home, /media/*, /usr/local, "
@@ -1318,20 +1315,3 @@ msgstr "A hardver konfigurálása..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Az időzóna konfigurálása..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Nyelv: ${LANGUAGE}\n"
-#~ " Billentyűzetkiosztás: ${KEYMAP}\n"
-#~ " Név: ${FULLNAME}\n"
-#~ " Bejelentkezési név: ${USERNAME}\n"
-#~ " Hely: ${LOCATION}\n"
-#~ " Átviteli segéd:\n"
-#~ " ${MIGRATE}"

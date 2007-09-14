@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-03-28 10:35+0000\n"
-"Last-Translator: Medical-Wei <medicalwei@gmail.com>\n"
+"PO-Revision-Date: 2007-09-11 05:42+0100\n"
+"Last-Translator: Tetralet <tetralet@pchome.com.tw>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:08:41+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:09:37+0000\n"
 
 #. Type: text
 #. Description
@@ -103,8 +103,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
+#, fuzzy
 msgid "Selected city:"
-msgstr ""
+msgstr "被選定的時區"
 
 #. Type: text
 #. Description
@@ -127,8 +128,9 @@ msgstr "目前時間："
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
+#, fuzzy
 msgid "Keyboard layout"
-msgstr ""
+msgstr "選擇鍵盤排列方式"
 
 #. Type: text
 #. Description
@@ -146,19 +148,19 @@ msgstr "您可以在此處測試您新選擇的鍵盤排列方式"
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Who are you?"
-msgstr ""
+msgstr "您是哪位？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "What is your name?"
-msgstr ""
+msgstr "您的名字是？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "您要使用什麼名字登入？"
 
 #. Type: text
 #. Description
@@ -166,32 +168,32 @@ msgstr ""
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
-msgstr ""
+msgstr "如果不只一人使用本電腦，您可以在安裝完成之後再設定多個帳戶。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "請選一個密碼以確保您的帳戶安全."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "你正在除錯模式下. 別使用重要的密碼！"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "輸入相同的密碼兩次，以檢查是否有打錯字。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "您要將這台電腦取什麼名字？"
 
 #. Type: text
 #. Description
@@ -199,13 +201,13 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
+msgstr "如果您設定讓別人能在網路上看到這台電腦, 將會是這個名字."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "匯入/搬移文件與設定"
 
 #. Type: text
 #. Description
@@ -215,6 +217,8 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"選擇你想要匯入的帳戶及填寫以下的表格，安裝完成後這些帳號的檔案及設定即可使"
+"用。"
 
 #. Type: text
 #. Description
@@ -222,55 +226,57 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr ""
+msgstr "假如你不想匯入任何帳戶, 請選擇不匯入, 並且進行下一頁"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "建立一個使用者，以供匯入："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Full Name:"
-msgstr ""
+msgstr "全名:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Login Name:"
-msgstr ""
+msgstr "登入名稱："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Password:"
-msgstr ""
+msgstr "密碼："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Confirm:"
-msgstr ""
+msgstr "確認："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Prepare disk space"
-msgstr ""
+msgstr "預備磁碟空間"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
+#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "您是否想要重新分割磁區？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
+#, fuzzy
 msgid "Prepare partitions"
-msgstr ""
+msgstr "建立新分割區"
 
 #. Type: text
 #. Description
@@ -280,6 +286,8 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"您需要指定一個最少有2 GB 的分割區作根檔案系統（掛載點“/”），和一個最少有 256 "
+"MB容量的交換分割區。如果您喜歡，您亦同時設定其他分割區。"
 
 #. Type: text
 #. Description
@@ -287,39 +295,42 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:38001 ../ubiquity.templates:51001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
+#, fuzzy
 msgid "Ready to install"
-msgstr ""
+msgstr "要安裝的 Kernel："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "您的作業系統將會依據以下設定安裝："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Boot loader"
-msgstr ""
+msgstr "Boot loader"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "步驟  ${TOTAL} 之 ${INDEX}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:42001
+#, fuzzy
 msgid "Abort the installation?"
-msgstr ""
+msgstr "中止安裝作業"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
+#, fuzzy
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "您是否想返回磁碟分割選單？"
 
 #. Type: text
 #. Description
@@ -337,13 +348,13 @@ msgstr "安裝作業完成"
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "繼續使用 live CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Restart now"
-msgstr ""
+msgstr "立刻重新啟動"
 
 #. Type: text
 #. Description
@@ -353,14 +364,19 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"安裝已經完成。 您必須重新啟動電腦以使用新安裝的系統。 您可以繼續使用這個 "
+"live CD，但是您所做的更改或儲存的文件將不會被保留。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
+#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"請確定當重新啟動電腦的時候將安裝光碟取出，不然的話電腦會以這片live CD啟動電腦"
+"而不是剛安裝好的系統。"
 
 #. Type: text
 #. Description
@@ -388,6 +404,13 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" 使用語言：${LANGUAGE}\n"
+" 鍵盤模式：${KEYMAP}\n"
+" 使用者名稱：${FULLNAME}\n"
+" 登入帳號：${USERNAME}\n"
+" 所在地區：${LOCATION}\n"
+" 資料轉移：\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
@@ -405,7 +428,7 @@ msgstr "安裝系統中"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "正在尋找需要複製的類別"
 
 #. Type: text
 #. Description
@@ -423,13 +446,13 @@ msgstr "複製檔案中..."
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "正在複製檔案 (剩餘時間少於一分鐘)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "檔案複製失敗。可能是您的CD或DVD資料有損毀？"
 
 #. Type: error
 #. Description
@@ -440,7 +463,7 @@ msgstr ""
 #: ../ubiquity.templates:59001 ../ubiquity.templates:60001
 #: ../ubiquity.templates:61001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "安裝程式在複製檔案到硬碟時遇到一個錯誤。"
 
 #. Type: error
 #. Description
@@ -451,12 +474,15 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"此錯誤經常是由破損的 CD/DVD 光碟片或光碟機所導致。試著清潔光碟片和光碟機的雷"
+"射讀取頭（光碟機清潔用品可以從電腦零售商購得），或者使用較低倍速重新燒錄安裝"
+"光碟。"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "複製檔案失敗；硬碟出錯？"
 
 #. Type: error
 #. Description
@@ -466,12 +492,14 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"此錯誤經常是由破損的硬碟所導致。請先檢查硬碟是否過於老舊和需要替換，並且試著"
+"把系統移到較通風的地方。"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "複製檔案失敗; CD/DVD 或是硬碟有問題？"
 
 #. Type: error
 #. Description
@@ -485,18 +513,22 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"此錯誤經常是由破損的 CD/DVD 光碟機或硬碟所導致。試著清潔光碟片和光碟機的雷射"
+"讀取頭（光碟機清潔用品可以從電腦零售商購得），使用較低倍速重新燒錄安裝光碟，"
+"檢查硬碟是否過於老舊需要替換，或者試著把系統移到較通風的地方。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
+#, fuzzy
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "正在複製分割區..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "正在設定調較目標系統..."
 
 #. Type: text
 #. Description
@@ -509,7 +541,7 @@ msgstr "正在設定網路..."
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Configuring apt..."
-msgstr ""
+msgstr "正在設定調較 apt..."
 
 #. Type: text
 #. Description
@@ -522,19 +554,20 @@ msgstr "正在設定網路..."
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "正在設定調較鍵盤..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
+#, fuzzy
 msgid "Creating user..."
-msgstr ""
+msgstr "正在建立裝置檔..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "匯入文件與設定..."
 
 #. Type: text
 #. Description
@@ -552,8 +585,9 @@ msgstr "正在設定網路..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
+#, fuzzy
 msgid "Setting computer name..."
-msgstr ""
+msgstr "正在設定 Frame Buffer..."
 
 #. Type: text
 #. Description
@@ -577,44 +611,47 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
+#, fuzzy
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "正在安裝額外的套件..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "正在檢查需要移除的套件..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "正在下載套件 (剩餘時間 ${TIME})..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "正在下載套件列表..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr ""
+msgstr "正在下載套件列表 (剩餘時間 ${TIME} )..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:82001
+#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "無法安裝 ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:83001
+#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "正在接收 ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -666,14 +703,15 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:86001
+#, fuzzy
 msgid "Installing language packs"
-msgstr ""
+msgstr "正在安裝核心套件"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr ""
+msgstr "下載語言套件中（剩餘 ${TIME}）..."
 
 #. Type: boolean
 #. Description
@@ -687,25 +725,25 @@ msgstr "無法卸載磁碟分割區"
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
-msgstr ""
+msgstr "安裝程式需要對分割區進行修改但不成功，因為以下分割區不能被卸載:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "請關閉所有使用這些分割區的程式。"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "您想安裝程式嘗試再次卸載這些分割區嗎？"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:93001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "系統分割區仍未被格式化"
 
 #. Type: error
 #. Description
@@ -716,6 +754,9 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+"在 ${PARTITION} 的檔案系統指定到 ${MOUNTPOINT} 還未標示為格式化。檔案系統 "
+"(/, /boot, /usr, /var) 必須格式化以給系統使用，其他檔案系統 /home, /media/"
+"*, /usr/local, etc.) 則無須格式化"
 
 #. Type: note
 #. Description

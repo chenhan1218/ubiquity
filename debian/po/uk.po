@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-04 23:32+0000\n"
-"Last-Translator: Serhey Kusyumoff <gpalco@gmail.com>\n"
+"PO-Revision-Date: 2007-09-11 05:41+0100\n"
+"Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:08:26+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:11:14+0000\n"
 
 #. Type: text
 #. Description
@@ -100,6 +100,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Оберіть місто у вашій країні і часовому поясі. Якщо зазначений поточний час "
+"є неправильним навіть після вибору часового поясу, ви можете його поправити "
+"після перевантаження у встановлену систему."
 
 #. Type: text
 #. Description
@@ -117,7 +120,7 @@ msgstr "Часовий пояс:"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Selected region:"
-msgstr ""
+msgstr "Обраний регіон:"
 
 #. Type: text
 #. Description
@@ -181,7 +184,7 @@ msgstr "Виберіть пароль задля безпеки вашого р�
 #. Description
 #: ../ubiquity.templates:23001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "Ви у налагоджувальному режимі. Не використовуйте важливих паролів!"
 
 #. Type: text
 #. Description
@@ -218,6 +221,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"Виберіть рахунки, які ви хотіли б імпортувати і заповніть форму нижче для "
+"кожного з них. Документи і налаштування для цих рахунків будуль доступними "
+"після завершення встановлення."
 
 #. Type: text
 #. Description
@@ -226,12 +232,14 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Якщо ви не хочете імпортувати рахунки, нічого не вибирайте і переходьте до "
+"наступної сторінки."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "Створіть користувача для імпорту вибраного рахунку до нього:"
 
 #. Type: text
 #. Description
@@ -283,6 +291,8 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Не забудьте створити розділ root (\"/\") роміром не більше 2 GB, та розділ "
+"swap розміром не меньше 256 MB."
 
 #. Type: text
 #. Description
@@ -341,13 +351,13 @@ msgstr "Встановлення завершено"
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Продовжити роботу з LiveCD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Restart now"
-msgstr ""
+msgstr "Перезавантажити"
 
 #. Type: text
 #. Description
@@ -369,6 +379,8 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Не забудьте вийняти Ubuntu CD при перезавантаженні компютера, тому що при "
+"перезавантаженні компьютер знов завантажить систему з компакт диску."
 
 #. Type: text
 #. Description
@@ -396,6 +408,13 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" Мова: ${LANGUAGE}\n"
+" Мапа клівіатури: ${KEYMAP}\n"
+" Ім'я: ${FULLNAME}\n"
+" Назва користувача: ${USERNAME}\n"
+" Місце знаходження: ${LOCATION}\n"
+" Помічник міграції:\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
@@ -513,7 +532,6 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
-#, fuzzy
 msgid "Copying installation logs..."
 msgstr "Копіювання розділу..."
 
@@ -521,14 +539,13 @@ msgstr "Копіювання розділу..."
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Конфігурація цільової системи..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Налаштування мережі..."
+msgstr "Налаштування ситемних локалей"
 
 #. Type: text
 #. Description
@@ -710,24 +727,28 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Встановлювач має здійснити зміни до таблиці розділів, але не може, оскільки, "
+"розділи на наступних точках монтування не можуть бути змонтовані:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Please close any applications using these mount points."
 msgstr ""
+"Будь ласка закрийте будь-які програми, що використовують ці точки монтування."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
+"Чи хотіли б ви, щоб встановлювач спробував розмонтувати ці розділи ще раз?"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:93001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Системний розділ не формативаний."
 
 #. Type: error
 #. Description
@@ -738,6 +759,11 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+"Файловій система розділу ${PARTITION}, якій присвоєна точка монтування "
+"${MOUNTPOINT}, не була відмічена для форматування. Файлові системи, "
+"використовувані системою (/, /boot, /usr, /var) мають бути перефориматовані "
+"для використання цим встановлювачем. Інші файлові системи (/home, /media/*, /"
+"usr/local, etc.) можуть використовуватись без форматування."
 
 #. Type: note
 #. Description

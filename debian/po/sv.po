@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-02 09:34+0000\n"
-"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"PO-Revision-Date: 2007-09-13 17:11+0000\n"
+"Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
 "Language-Team: Swedish <debian-boot@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:10:06+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:19:55+0000\n"
 
 #. Type: text
 #. Description
@@ -25,7 +25,7 @@ msgstr "Installera"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Installera (OEM-läge, endast för tillverkare)"
 
 #. Type: text
 #. Description
@@ -423,10 +423,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
-msgstr "Kopierar installationsloggfiler..."
+msgstr "Kontrollerar installationen..."
 
 #. Type: title
 #. Description
@@ -609,13 +607,13 @@ msgstr "Konfigurerar starthanteraren..."
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Installerar ytterligare paket..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Letar efter paket att installera..."
 
 #. Type: text
 #. Description
@@ -663,7 +661,7 @@ msgstr "Fel vid hämtning av ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Fel vid installation av paket"
 
 #. Type: error
 #. Description
@@ -800,9 +798,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "Avbryt installationen?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -814,7 +811,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Standardinstallation"
 
 #. Type: text
 #. Description
@@ -828,9 +825,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Avbryt installationen?"
+msgstr "Avancerad installation"
 
 #. Type: text
 #. Description
@@ -844,9 +840,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Installationen slutförd"
+msgstr "Avancerad installationstyp"
 
 #. Type: text
 #. Description
@@ -960,7 +955,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "mythweb"
-msgstr ""
+msgstr "mythweb"
 
 #. Type: text
 #. Description
@@ -1222,9 +1217,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Lösenord:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1292,44 +1286,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Konfigurerar apt..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Konfigurerar maskinvaran..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Konfigurerar maskinvaran..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "Konfigurerar tidszonen..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Språk: ${LANGUAGE}\n"
-#~ " Tangentbordslayout: ${KEYMAP}\n"
-#~ " Namn: ${FULLNAME}\n"
-#~ " Inloggningsnamn: ${USERNAME}\n"
-#~ " Plats: ${LOCATION}\n"
-#~ " Migreringsguide:\n"
-#~ " ${MIGRATE}"
+msgstr ""

@@ -7,19 +7,19 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-07 13:37+0000\n"
-"Last-Translator: Anivar Aravind <anivar@movingrepublic.org>\n"
+"PO-Revision-Date: 2007-06-19 14:18+0000\n"
+"Last-Translator: പ്രതീഷ് പ്രകാശ് <royal.mexian@gmail.com>\n"
 "Language-Team: malayalam <smc-discuss@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-07 13:38:15+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:19:33+0000\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr ""
+msgstr "ഇന്‍സ്റ്റാള്‍"
 
 #. Type: text
 #. Description
@@ -31,7 +31,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Welcome"
-msgstr ""
+msgstr "സ്വാഗതം"
 
 #. Type: text
 #. Description
@@ -83,7 +83,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:9001
 msgid "Where are you?"
-msgstr ""
+msgstr "നിങ്ങള്‍ എവിടെയാണ്?"
 
 #. Type: text
 #. Description
@@ -98,37 +98,37 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Selected city:"
-msgstr ""
+msgstr "തിരഞ്ഞെടുത്ത പട്ടണം:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Time zone:"
-msgstr ""
+msgstr "സമയ മേഖല:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Selected region:"
-msgstr ""
+msgstr "തിരഞ്ഞെടുത്ത പ്രദേശം:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Current time:"
-msgstr ""
+msgstr "ഇപ്പോഴത്തെ സമയം:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Keyboard layout"
-msgstr ""
+msgstr "കീബോര്‍ഡ് ലേയൌട്ട്"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "ഏത് ലേയൌട്ടിനാണ് നിങ്ങളുടെ കീബോര്‍ഡുമായി കൂടുതല്‍ സാമ്യം?"
 
 #. Type: text
 #. Description
@@ -140,19 +140,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Who are you?"
-msgstr ""
+msgstr "നിങ്ങളാരാണ്?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "What is your name?"
-msgstr ""
+msgstr "നിങ്ങളുടെ പേരെന്താണ്?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "എന്ത് പേര് വെച്ചാണ് നിങ്ങള്‍ അകത്ത് കടക്കുവാന്‍ (log in) ഉദ്ദേശിക്കുന്നത്?"
 
 #. Type: text
 #. Description
@@ -166,7 +166,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "നിങ്ങ്~അളുടെ അക്കൌണ്ട് സുരക്ഷിതമാക്കുവാന്‍ ഒരു പാസ്സ്‍വേഡ് കൊടുക്കുക."
 
 #. Type: text
 #. Description
@@ -185,7 +185,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:25001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "ഈ കംപ്യൂട്ടറിന്റെ പേരെന്താണ്?"
 
 #. Type: text
 #. Description
@@ -228,25 +228,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Full Name:"
-msgstr ""
+msgstr "മുഴുവന്‍ പേര്:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Login Name:"
-msgstr ""
+msgstr "ലോഗിന്‍ നാമം:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Password:"
-msgstr ""
+msgstr "പാസ്സ്‍വേഡ്:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Confirm:"
-msgstr ""
+msgstr "ഉറപ്പിക്കുക:"
 
 #. Type: text
 #. Description
@@ -258,13 +258,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:35001
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "ഡീസ്ക് എങ്ങനെയാണ് വിഭജിക്കേണ്ടത്?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Prepare partitions"
-msgstr ""
+msgstr "പാര്‍ട്ടീഷനുകള്‍ തയ്യാറാക്കുക"
 
 #. Type: text
 #. Description
@@ -282,7 +282,7 @@ msgstr ""
 #: ../ubiquity.templates:38001 ../ubiquity.templates:51001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
-msgstr ""
+msgstr "ഇന്‍സ്റ്റാള്‍ ചെയ്യാന്‍ തയ്യാര്‍"
 
 #. Type: text
 #. Description
@@ -295,49 +295,49 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Boot loader"
-msgstr ""
+msgstr "ബൂട്ട് ലോഡര്‍"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "Step ${INDEX} of ${TOTAL}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Abort the installation?"
-msgstr ""
+msgstr "ഇന്‍സ്റ്റാളേഷന്‍ ഉപേക്ഷിക്കേണമോ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "ഇന്‍സ്റ്റാളേഷന്‍ ശരിക്കും ഉപേക്ഷിക്കേണമോ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Skip"
-msgstr ""
+msgstr "അടുത്തതിലേക്ക് കടക്കുക"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Installation complete"
-msgstr ""
+msgstr "ഇന്‍സ്റ്റോളേഷന്‍ പൂര്‍ണ്ണം"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "ലൈവ് CD ഉപയോഗിക്കുന്നത് തുടരുക"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Restart now"
-msgstr ""
+msgstr "ഇപ്പോള്‍ റീസ്റ്റാര്‍ട്ട് ചെയ്യുക"
 
 #. Type: text
 #. Description
@@ -393,7 +393,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Installing system"
-msgstr ""
+msgstr "സിസ്റ്റം ഇന്‍സ്റ്റോള്‍ ചെയ്ത് കൊണ്ടിരിക്കുന്നു"
 
 #. Type: text
 #. Description
@@ -405,25 +405,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Scanning files..."
-msgstr ""
+msgstr "ഫയലുകള്‍ പരിശോധിക്കുന്നു..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Copying files..."
-msgstr ""
+msgstr "ഫയലുകള്‍ പകര്‍ത്തിക്കൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "ഫയലുകള്‍ പകര്‍ത്തിക്കൊണ്ടിരിക്കുന്നു (ഇനി ഒരു മിനിറ്റില്‍ താഴെ)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "ഫയലുകള്‍ പകര്‍ത്തുവാന്‍ പരാജയപ്പെട്ടു; ചീത്ത CD/DVD?"
 
 #. Type: error
 #. Description
@@ -450,7 +450,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "ഫയലുകള്‍ പകര്‍ത്തുവാന്‍ പരാജയപ്പെട്ടു; ചീത്ത ഹാര്‍ഡ് ഡിസ്ക്?"
 
 #. Type: error
 #. Description
@@ -465,7 +465,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "ഫയലുകള്‍ പകര്‍ത്തുവാന്‍ പരാജയപ്പെട്ടു; ചീത്ത CD/DVD അല്ലെങ്കില്‍ ഹാര്‍ഡ് ഡിസ്ക്?"
 
 #. Type: error
 #. Description
@@ -483,14 +483,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
+#, fuzzy
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "ഭാഗം പകര്‍ത്തിക്കൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
+#, fuzzy
 msgid "Configuring target system..."
-msgstr ""
+msgstr "സിസ്റ്റം ക്രമീകരിച്ചു കൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
@@ -502,25 +504,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Configuring apt..."
-msgstr ""
+msgstr "apt ക്രമീകരിച്ചു കൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Configuring time zone..."
-msgstr ""
+msgstr "സമയ മേഖല ക്രമീകരിക്കുന്നു..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "കീബോഡ് ക്രമീകരിക്കുന്നു..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Creating user..."
-msgstr ""
+msgstr "ഉപയോക്താവിനെ നിര്‍മ്മിച്ചുകൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
@@ -532,25 +534,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:70001
 msgid "Configuring hardware..."
-msgstr ""
+msgstr "ഹാര്‍ഡ് വെയര്‍ ക്രമീകരിച്ചുകൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Configuring network..."
-msgstr ""
+msgstr "നെറ്റ്‍വെര്‍ക്ക് ക്രമീകരിച്ചുകൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Setting computer name..."
-msgstr ""
+msgstr "കംപ്യൂട്ടര്‍ നാമകരണം നടത്തിക്കൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Configuring boot loader..."
-msgstr ""
+msgstr "ഭൂട്ട് ലോഡര്‍ ക്രമീകരിക്കുന്നു..."
 
 #. Type: text
 #. Description
@@ -568,13 +570,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "അധിക പാക്കേജുകള്‍ നീക്കം ചെയ്തു കൊണ്ടിരിക്കുന്നു..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "നീക്കം ചെയ്യുവാനുള്ള പാക്കേജുകള്‍ പരിശോധിക്കുന്നു..."
 
 #. Type: text
 #. Description
@@ -586,7 +588,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "പാക്കേജ് പട്ടികകള്‍ ഡൌണ്‍ലോഡ് ചെയ്ത് കൊണ്ടിരിക്കുന്നു"
 
 #. Type: text
 #. Description
@@ -598,13 +600,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "${PACKAGE} ഇന്‍സ്റ്റാള്‍ ചെയ്തപ്പോള്‍ പിശക്"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:83001
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "${PACKAGE} നീക്കം ചെയ്യുമ്പോള്‍ പിശക്"
 
 #. Type: error
 #. Description
@@ -657,7 +659,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Installing language packs"
-msgstr ""
+msgstr "ഭാഷാ പാക്കേജുകള്‍ ഇന്‍സ്റ്റാള്‍ ചെയ്ത് കൊണ്ടിരിക്കുന്നു"
 
 #. Type: text
 #. Description
@@ -669,7 +671,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "പാര്‍ട്ടീഷനുകള്‍ അണ്‍മൌണ്ട് ചെയ്തപ്പോള്‍ പരാജയപ്പെട്ടു"
 
 #. Type: boolean
 #. Description
@@ -695,7 +697,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "സിസ്റ്റം പാര്‍ട്ടീഷന്‍ ഫോര്‍മാറ്റ് ചെയ്തിട്ടില്ല"
 
 #. Type: error
 #. Description

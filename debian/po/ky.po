@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:10:29+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:13:32+0000\n"
 
 #. Type: text
 #. Description
@@ -263,14 +263,16 @@ msgstr "Диск боштугун даярдоо"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
+#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "Дисктин кандай бөлүнүшүн каалайсыз?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
+#, fuzzy
 msgid "Prepare partitions"
-msgstr ""
+msgstr "Бөлүмдөрдү даярдоо"
 
 #. Type: text
 #. Description
@@ -662,8 +664,9 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:86001
+#, fuzzy
 msgid "Installing language packs"
-msgstr ""
+msgstr "Тил пакеттерин жүктөө"
 
 #. Type: text
 #. Description
@@ -786,9 +789,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Жүктөө аяктады"
+msgstr ""
 
 #. Type: text
 #. Description

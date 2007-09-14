@@ -7,19 +7,24 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-02 03:55+0000\n"
-"Last-Translator: Damodharan Rajalingam <rdamodharan@gmail.com>\n"
-"Language-Team: Tamil <tamil-DI@yahoogroups.com>\n"
+"PO-Revision-Date: 2007-09-11 05:39+0100\n"
+"Last-Translator: Dr.T.Vasudevan <agnihot3@gmail.com>\n"
+"Language-Team: TAMIL <ubuntu-l10n-tam@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:10:49+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:15:03+0000\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
+#, fuzzy
 msgid "Install"
-msgstr "நிறுவுக"
+msgstr ""
+"#-#-#-#-#  ta.po (debian-installer)  #-#-#-#-#\n"
+"நிறுவுக\n"
+"#-#-#-#-#  ta.po (ubiquity)  #-#-#-#-#\n"
+"நிறுவு"
 
 #. Type: text
 #. Description
@@ -234,7 +239,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Full Name:"
-msgstr ""
+msgstr "முழு பெயர்:"
 
 #. Type: text
 #. Description
@@ -246,7 +251,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Password:"
-msgstr ""
+msgstr "கடவுச்சொல்:"
 
 #. Type: text
 #. Description
@@ -275,11 +280,14 @@ msgstr "பகிர்வுகளை தயாரி"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
+#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"குறைந்தது 2 GB அளவு உள்ள மூல (ரூட்) பகிர்வு \"/\"),  உருவாக்கவும்.இட மாற்றுக்கு "
+"(swap) குறைந்தது 256 MB. அளவு உடைய பகிர்வு உருவாக்கவும்."
 
 #. Type: text
 #. Description
@@ -360,10 +368,13 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
+#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"கணினியை மறு துவக்கம் செய்யும் போது நிறுவா குறுந் தட்டை எடுத்து விடவும். இல்லாவிடில் "
+"புதிய நிறுவலுக்கு பதில் இந்த நிறுவா குறுந் தட்டே மீண்டும் இயங்க ஆரம்பிக்கும்."
 
 #. Type: text
 #. Description
@@ -402,7 +413,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 #, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
 msgstr "நிறுவல் பதிவேடு நகலெடுக்கப்படுகிறது."
 
@@ -1270,18 +1280,3 @@ msgstr "வன் பொருள் வடிவமைக்கப்படு�
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "நேர மண்டலம் வடிவமைக்கப்படுகிறது..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " மொழி: ${LANGUAGE}\n"
-#~ " விசைப்பலகை உருவரை: ${KEYMAP}\n"
-#~ " பெயர்: ${FULLNAME}\n"
-#~ " உள்நுழை பெயர்: ${USERNAME}\n"
-#~ " இடம்: ${LOCATION}"

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-02 02:53+0000\n"
+"PO-Revision-Date: 2007-09-11 05:25+0100\n"
 "Last-Translator: Pavel Piatruk <berserker@neolocation.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:09:31+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:08:26+0000\n"
 
 #. Type: text
 #. Description
@@ -258,13 +258,13 @@ msgstr "Уліковае імя:"
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Password:"
-msgstr ""
+msgstr "Пароль"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Confirm:"
-msgstr ""
+msgstr "Пацьверджаньне:"
 
 #. Type: text
 #. Description
@@ -292,6 +292,9 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Патрэбна падрыхтаваць месца для карнявой партыцыі (пункт мантаваньня \"/\") "
+"мінімальным памерам у 2 GB і для партыцыі абмену мінімальным памерам у 256 "
+"MB. Таксама можна ўсталяваць іншыя партыцыі, калі жадаеце."
 
 #. Type: text
 #. Description
@@ -315,7 +318,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Boot loader"
-msgstr ""
+msgstr "Загрузчык"
 
 #. Type: text
 #. Description
@@ -327,13 +330,13 @@ msgstr "Этап ${INDEX} з ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Абарваць усталяваньне?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "Ці насамрэч вы жадаеце абарваць усталяваньне?"
 
 #. Type: text
 #. Description
@@ -378,6 +381,8 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Не забудзьцеся вынуць CD падчас перазагрузкі кампутара, бо іначай ён "
+"запусьціцца з гэтага загрузачнага CD замест наноў інсталяванай сыстэмы."
 
 #. Type: text
 #. Description
@@ -391,7 +396,7 @@ msgstr "Вярнуцца"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:50001
 msgid "Continue"
-msgstr "Далей"
+msgstr "Працяг"
 
 #. Type: note
 #. Description
@@ -405,12 +410,18 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" Мова: ${LANGUAGE}\n"
+"Раскладка клявіятуры: ${KEYMAP}\n"
+"Імя: ${FULLNAME}\n"
+"Імя па ўваходзе: ${USERNAME}\n"
+"Месца: ${LOCATION}\n"
+"Асыстэнт міграцыі:\n"
+"${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 #, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
 msgstr "Капіяваньне логаў усталёўкі..."
 
@@ -527,7 +538,7 @@ msgstr "Капіяваньне логаў усталёўкі..."
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Канфігураваньне мэтавай сыстэмы..."
 
 #. Type: text
 #. Description
@@ -557,13 +568,13 @@ msgstr "Канфігурацыя клявіятуры..."
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Creating user..."
-msgstr ""
+msgstr "Стварэньне карыстальніка"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Імпартаваньне дакумантаў і ўсталёвак..."
 
 #. Type: text
 #. Description
@@ -715,24 +726,30 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Інсталятар павінны выканаць зьмены ў табліцах партыцыяў, але ня можа зрабіць "
+"гэтага, бо партыцыі на наступных пунктах мантаваньня не атрымалася "
+"адмантаваць:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Please close any applications using these mount points."
 msgstr ""
+"Закрыйце, калі ласка, усе праграмы, што карыстаюцца гэтымі пунктамі "
+"мантаваньня."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
+"Ці жадаеце, каб усталёўнік яшчэ раз паспрабаваў адмантаваць гэтыя падзелы?"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:93001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Сістэмны раздзел не фарматаваны"
 
 #. Type: error
 #. Description

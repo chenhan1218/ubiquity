@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-02 04:04+0000\n"
+"PO-Revision-Date: 2007-09-11 05:40+0100\n"
 "Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:09:28+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:14:52+0000\n"
 
 #. Type: text
 #. Description
@@ -108,7 +108,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Selected city:"
-msgstr "Seçili şehir:"
+msgstr "Seçilen şehir:"
 
 #. Type: text
 #. Description
@@ -120,13 +120,13 @@ msgstr "Zaman dilimi:"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Selected region:"
-msgstr "Seçili bölge:"
+msgstr "Seçilen bölge:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Current time:"
-msgstr "Güncel zaman:"
+msgstr "Geçerli zaman:"
 
 #. Type: text
 #. Description
@@ -156,13 +156,13 @@ msgstr "Kimsiniz?"
 #. Description
 #: ../ubiquity.templates:19001
 msgid "What is your name?"
-msgstr "İsminiz nedir?"
+msgstr "Adınız nedir?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "What name do you want to use to log in?"
-msgstr "Oturum açmak için hangi ismi kullanmak istersiniz?"
+msgstr "Oturum açmak için hangi adı kullanmak istersiniz?"
 
 #. Type: text
 #. Description
@@ -171,8 +171,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Eğer bu bilgisayarı birden fazla kişi kullanacak ise, kurulumdan sonra çoklu "
-"hesap ayarlayabilirsiniz."
+"Eğer bu bilgisayarı birden fazla kişi kullanacak ise, kurulumdan sonra "
+"birden fazla hesap ayarlayabilirsiniz."
 
 #. Type: text
 #. Description
@@ -191,9 +191,7 @@ msgstr "Hata ayıklama kipinde çalışıyorsunuz. Değerli bir parola kullanmay
 #: ../ubiquity.templates:24001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
-"Aynı şifreyi iki kez girin, böylece şifreniz yazım hataları için "
-"denetlenebilir."
+msgstr "Yazım hatalarının denetlenebilmesi için aynı şifreyi iki defa girin."
 
 #. Type: text
 #. Description
@@ -208,14 +206,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Bu isim, bilgisayarı, eğer ağınızdaki diğer kişilere görünür hale "
-"getirirseniz kullanılacaktır."
+"Bilgisayarı ağınızdaki diğer kişilere görünür hale getirirseniz bu ad "
+"kullanılacaktır."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr "Belgeler ve Ayaları Taşı"
+msgstr "Belge ve Ayarları Taşı"
 
 #. Type: text
 #. Description
@@ -225,6 +223,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"İçe aktarmak istediğiniz hesapları seçin ve her biri için aşağıdaki formu "
+"doldurun. Bu hesapların belge ve ayarları kurulum tamamlandıktan sonra "
+"kullanılabilir."
 
 #. Type: text
 #. Description
@@ -233,14 +234,14 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Eğer eklemek istediğiniz bir hesap yoksa hiçbirşeyi seçmeyin ve bir sonraki "
-"sayfaya geçin."
+"Herhangi bir hesap içe aktarmak istemiyorsanız hiçbirşeyi seçmeden bir "
+"sonraki sayfaya geçin."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Create a user to import the selected account into:"
-msgstr "Seçilen hesabı aktarmak için bir kullanıcı oluştur:"
+msgstr "Seçilen hesabı içe aktarmak için bir kullanıcı oluştur:"
 
 #. Type: text
 #. Description
@@ -252,7 +253,7 @@ msgstr "Tam Ad"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Login Name:"
-msgstr "Giriş Adı"
+msgstr "Oturum Açma Adı"
 
 #. Type: text
 #. Description
@@ -292,6 +293,9 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Kök dosya sistemi bölümü (\"/\" bağlama noktası) için en az 2 GB, takas "
+"bölümü için en az 256 MB yer ayırmanız gerekir. İsterseniz başka bölümler de "
+"ayarlayabilirsiniz."
 
 #. Type: text
 #. Description
@@ -307,7 +311,7 @@ msgstr "Kuruluma hazır"
 #: ../ubiquity.templates:39001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "Yeni işletim sisteminiz şu özelliklerle birlikte yüklenecektir:"
+msgstr "Yeni işletim sisteminiz aşağıdaki özelliklerle  kurulacaktır:"
 
 #. Type: text
 #. Description
@@ -331,13 +335,13 @@ msgstr "Kurulum durdurulsun mu?"
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Do you really want to abort the installation now?"
-msgstr "Kurulumu şimdi gerçekten durdurmak istiyor musunuz?"
+msgstr "Kurulumu gerçekten şimdi durdurmak istiyor musunuz?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Skip"
-msgstr "Geç"
+msgstr "Atla"
 
 #. Type: title
 #. Description
@@ -349,7 +353,7 @@ msgstr "Kurulum tamamlandı"
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Continue using the live CD"
-msgstr "Çalışan CD kullanarak devam et"
+msgstr "Çalışan CD'yi kullanarak devam et"
 
 #. Type: text
 #. Description
@@ -376,25 +380,27 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Bilgisayarı yeniden başlatmadan önce CD'yi çıkardığınızdan emin olun. Aksi "
+"takdirde bilgisayarınız yeni kurulan sistem yerine yeniden bu live CD'yi  "
+"başlatacaktır."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:49001
 msgid "Go Back"
-msgstr "Geri"
+msgstr "Geri Dön"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:50001
 msgid "Continue"
-msgstr "Devam"
+msgstr "Devam Et"
 
 #. Type: note
 #. Description
 #: ../ubiquity.templates:51001
-#, fuzzy
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -406,15 +412,16 @@ msgid ""
 msgstr ""
 " Dil: ${LANGUAGE}\n"
 " Klavye düzeni: ${KEYMAP}\n"
-" İsim: ${FULLNAME}\n"
-" Kullanıcı adı: ${USERNAME}\n"
-" Konum: ${LOCATION}"
+" Ad: ${FULLNAME}\n"
+" Oturum açma adı: ${USERNAME}\n"
+" Konum: ${LOCATION}\n"
+" Aktarım Yardımcısı:\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 #, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
 msgstr "Kurulum kayıtları kopyalanıyor..."
 
@@ -446,13 +453,13 @@ msgstr "Dosyalar kopyalanıyor..."
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Dosyalar kopyalanıyor (bir dakikadan daha kısa süre kaldı)..."
+msgstr "Dosyalar kopyalanıyor (bir dakikadan daha az kaldı)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr "Kopyalama başarısız; bozuk CD/DVD?"
+msgstr "Dosyaların kopyalanması başarısız oldu; bozuk CD/DVD?"
 
 #. Type: error
 #. Description
@@ -720,6 +727,9 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Kurulum programının değişiklikleri bölümleme tablosuna işlemesi gerekiyor "
+"ancak bunu yapamıyor çünkü şu bağlama noktalarındaki bölümler dosya "
+"sisteminden ayırılamıyor:"
 
 #. Type: boolean
 #. Description
@@ -732,6 +742,7 @@ msgstr "Bu bağlama noktalarını kullan uygulamaları lütfen kapatın."
 #: ../ubiquity.templates:92001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
+"Kurulum programının bu bölümleri yeniden ayırmayı denemesini ister misiniz?"
 
 #. Type: error
 #. Description
@@ -748,6 +759,12 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+"${MOUNTPOINT} noktasına bağlanmış olan ${PARTITION} bölümündeki dosya "
+"sistemi biçimlendirme için işaretlenmemiş. Sistem tarafından kullanılan "
+"dosya sistemleri (/, /boot, /usr, /var) kurulum programı tarafından "
+"kullanılabilmek için yeniden biçimlendirilmelidir. Diğer dosya sistemleri (/"
+"home, /media/*, /usr/local, vs.) yeniden biçimlendirilmeden de "
+"kullanılabilir."
 
 #. Type: note
 #. Description
@@ -1296,18 +1313,3 @@ msgstr "Donanım yapılandırılıyor..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Zaman dilimi yapılandırılıyor..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Dil: ${LANGUAGE}\n"
-#~ " Klavye düzeni: ${KEYMAP}\n"
-#~ " İsim: ${FULLNAME}\n"
-#~ " Kullanıcı adı: ${USERNAME}\n"
-#~ " Konum: ${LOCATION}"

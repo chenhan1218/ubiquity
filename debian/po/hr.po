@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-02 03:19+0000\n"
+"PO-Revision-Date: 2007-09-11 05:31+0100\n"
 "Last-Translator: Josip Rodin <joy+ditrans@linux.hr>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:09:40+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:19:12+0000\n"
 
 #. Type: text
 #. Description
@@ -293,6 +293,8 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Svakako pronađite prostor za root particiju (\"/\"), najmanje 2 GB, a za "
+"swap particiju najmanje 256 MB. Možete postaviti i druge particije."
 
 #. Type: text
 #. Description
@@ -377,6 +379,8 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Svakako uklonite CD pri ponovnom pokretanju računala, u suprotnom će se "
+"ponovo pokrenuti ovaj Live CD umjesto novoinstaliranog sustava."
 
 #. Type: text
 #. Description
@@ -408,13 +412,14 @@ msgstr ""
 " Raspored tipkovnice: ${KEYMAP}\n"
 " Ime: ${FULLNAME}\n"
 " Korisničko ime: ${USERNAME)\n"
-" Lokacija: ${LOCATION}"
+" Lokacija: ${LOCATION}\n"
+" Pomočnik pri migraciji:\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 #, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
 msgstr "Kopiram zapise instalacije..."
 
@@ -531,7 +536,7 @@ msgstr "Kopiram zapise instalacije..."
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Konfiguriram cilajni sistem ..."
 
 #. Type: text
 #. Description
@@ -1304,18 +1309,3 @@ msgstr "Postavljam hardver..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Postavljam vremensku zonu..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Jezik: ${LANGUAGE}\n"
-#~ " Raspored tipkovnice: ${KEYMAP}\n"
-#~ " Ime: ${FULLNAME}\n"
-#~ " Korisničko ime: ${USERNAME)\n"
-#~ " Lokacija: ${LOCATION}"

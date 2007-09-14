@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-02 03:17+0000\n"
-"Last-Translator: Lior Kaplan <kaplan@debian.org>\n"
+"PO-Revision-Date: 2007-09-10 20:35+0000\n"
+"Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:09:23+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:16:39+0000\n"
 
 #. Type: text
 #. Description
@@ -74,12 +74,14 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"אם יש לך גישה לאינטרנט, קרא את הערות שחרור הגרסא כדי למצוא מידע אשר יכול "
+"לעניין אותך."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Release Notes"
-msgstr ""
+msgstr "הערות שחרור גירסה"
 
 #. Type: text
 #. Description
@@ -95,6 +97,8 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"בחר עיר במדינתך ובאזור הזמן שלך. אם הזמן המוצג עדיין אינו מדוייק אף לאחר "
+"הבחירה, תוכל לשנותו לאחר איתחול מחדש של המערכת."
 
 #. Type: text
 #. Description
@@ -175,7 +179,7 @@ msgstr "בחר סיסמה כדי לשמור על חשבונך בטוח."
 #. Description
 #: ../ubiquity.templates:23001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "אתה נמצא כרגע במצב ניסוי. היזהר לא להכניס סיסמאות חשובות!"
 
 #. Type: text
 #. Description
@@ -202,7 +206,7 @@ msgstr "בשם זה יעשה שימוש אם תבחרו לחבר את המחשב
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "יבא מסמכים והגדרות"
 
 #. Type: text
 #. Description
@@ -212,6 +216,8 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"בחר בכל החשבונות אשר ברצונך ליבא ומלא בשדה למטה בשביל כל אחד. המסמכים "
+"וההגדרות לכל חשבון יהיו זמינים לאחר סיום ההתקנה."
 
 #. Type: text
 #. Description
@@ -219,37 +225,37 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr ""
+msgstr "אם אין ברצונך ליבא חשבונות, השאר את השדות לא מסומנים ועבור לעמוד הבא."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "צור משתמש אשר אליו יועבר החשבון הנבחר:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Full Name:"
-msgstr ""
+msgstr "שם מלא:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Login Name:"
-msgstr ""
+msgstr "שם משתמש:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Password:"
-msgstr ""
+msgstr "סיסמה:‏"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Confirm:"
-msgstr ""
+msgstr "אשר:"
 
 #. Type: text
 #. Description
@@ -268,16 +274,19 @@ msgstr "באיזו דרך תרצו לחלק את הכונן למחיצות?"
 #: ../ubiquity.templates:36001
 #, fuzzy
 msgid "Prepare partitions"
-msgstr "יצירת מחיצה חדשה"
+msgstr "יצירת מחיצות"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
+#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"ודא כי אתה מקצה מספיק שטח למחיצת ה root (\"/\"), בגודל מינימלי של 2GB, "
+"ומחיצת swap בגודל של לפחות 256MB."
 
 #. Type: text
 #. Description
@@ -299,7 +308,7 @@ msgstr "מערכת ההפעלה החדשה שלך תותקן כעת עם ההג�
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Boot loader"
-msgstr ""
+msgstr "טעינה באתחול"
 
 #. Type: text
 #. Description
@@ -362,6 +371,8 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"זכור להוציא את הדיסק מהכונן לפני האתחול מחדש, אחרת האתחול יתבצע ע\"י הדיסק "
+"במקום ע\"י המערכת החדשה שהותקנה."
 
 #. Type: text
 #. Description
@@ -389,14 +400,19 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" שפה: ${LANGUAGE}\n"
+" סידור המקשים במקלדת: ${KEYMAP}\n"
+" שם: ${FULLNAME}\n"
+" שם משתמש: ${USERNAME}\n"
+" מיקום: ${LOCATION}\n"
+"עזרה ביבוא:\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
-msgstr "מעתיק רישומי התקנה..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -409,7 +425,7 @@ msgstr "מתקין את מערכת הבסיס"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "מוצא את ההפצה להעתקה.."
 
 #. Type: text
 #. Description
@@ -429,13 +445,13 @@ msgstr "מעתיק מחיצה..."
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "מעתיק קבצים (נשארה פחות מדקה)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "העתקת הקבצים נכשלה; דיסק CD/DVD פגום?"
 
 #. Type: error
 #. Description
@@ -446,7 +462,7 @@ msgstr ""
 #: ../ubiquity.templates:59001 ../ubiquity.templates:60001
 #: ../ubiquity.templates:61001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "ההתקנה נתקלה בשגיאה בעת העתקת הקבצים אל הדיסק הקשיח:"
 
 #. Type: error
 #. Description
@@ -457,12 +473,15 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"שגיאה זאת היא בדרך כלל עקב דיסק CD/DVD או כונן קשיח פגומים. ניקוי דיסק ה-CD/"
+"DVD, צריבה במהירות יותר נמוכה או ניקוי עדשת צורב ה-CD/DVD (ערכות ניקוי "
+"יכולות להיות זמינות מספקי אלקטרוניקה) עשויים לפתור את הבעיה."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "נכשל בהעתקת הקבצים; דיסק קשיח פגום?"
 
 #. Type: error
 #. Description
@@ -472,12 +491,14 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"שגיאה זאת היא בדרך כלל עקב דיסק קשיח פגום. יש לבדוק האם הדיסק קשיח ישן וזקוק "
+"להחלפה או להעביר את המערכת לסביבה מקוררת יותר."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "נכשל בהעתקת הקבצים; דיסק CD/DVD או כונן קשיח פגומים?"
 
 #. Type: error
 #. Description
@@ -491,6 +512,11 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"שגיאה זאת היא בדרך כלל עקב דיסק קשיח פגום או לחילופין דיסק או כונן CD/DVD "
+"פגומים. אחת מהפעולות הבאות תוכל לעזור - ניקוי דיסק הCD/DVD, צריבה במהירות "
+"יותר נמוכה, ניקוי עדשת צורב הCD/DVD (ערכות ניקוי יכולות להיות זמינות מספקי "
+"אלקטרוניקה), בדיקת הדיסק הקשיח במקרה שהוא ישן וזקוק להחלפה או העברת המערכת "
+"לסביבה מקוררת יותר."
 
 #. Type: text
 #. Description
@@ -502,13 +528,13 @@ msgstr "מעתיק רישומי התקנה..."
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "מגדיר מיקום מערכת..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Configuring system locales..."
-msgstr ""
+msgstr "מגדיר הגדרות מקומיות..."
 
 #. Type: text
 #. Description
@@ -538,7 +564,7 @@ msgstr "יוצר משתמש..."
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "מייבא קבצים ומאפיינים..."
 
 #. Type: text
 #. Description
@@ -690,24 +716,26 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"תוכנית ההתקנה צריכה לבצע שינויים לטבלת המחיצות שבכונן הקשיח, אך אין באפשרותה "
+"לעשות כן בגלל שלא ניתן לכבות כמה מחיצות אשר נמצאות במיקומים הבאים:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "אנא סגור את כל היישומים המשתמשים במחיצות שבמיקומים אלו."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "האם ברצונך שתוכנית ההתקנה תנסה לכבות את המחיצות הללו שוב?"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:93001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "מחצית המערכת עדיין לא פורמטה"
 
 #. Type: error
 #. Description
@@ -718,6 +746,10 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+"מערכת הקבצים אשר נמצאת ב ${PARTITION} ובמיקום ${MOUNTPOINT} לא סומנה "
+"לפירמוט. מערכות קבצים המשמשות את המערכת (/, /boot, /usr, /var) חייבות לעבור "
+"פירמוט מחדש כדי להיות שמישות ע\"י תוכנית ההתקנה. מערכות קבצים אחרות (/home, /"
+"media/*, /usr/local, etc.) יכולות להישאר ללא פירמוט מחדש."
 
 #. Type: note
 #. Description
@@ -750,9 +782,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "לבטל את ההתקנה?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -778,9 +809,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "לבטל את ההתקנה?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -794,9 +824,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "ההתקנה הסתיימה"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1241,27 +1270,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "מגדיר את apt..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "מגדיר את החומרה..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "מגדיר את החומרה..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "מגדיר איזור זמן..."
+msgstr ""

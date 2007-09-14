@@ -9,13 +9,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-05 08:20+0000\n"
-"Last-Translator: cynthia <cc@kinki-kids.com>\n"
+"PO-Revision-Date: 2007-04-18 03:38+0000\n"
+"Last-Translator: Cynthia Cheung <cc@kinki-kids.com>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:08:39+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:14:36+0000\n"
 
 #. Type: text
 #. Description
@@ -395,10 +395,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
-msgstr "正在複製安裝日誌..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -433,8 +431,9 @@ msgstr "正在複製檔案 (還剩下不到一分鐘的時間) ..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:59001
+#, fuzzy
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "複製檔案失敗; CD/DVD損壞了?"
 
 #. Type: error
 #. Description
@@ -586,8 +585,9 @@ msgstr "正在移除額外的套件..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
+#, fuzzy
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "正在找出可以移除的套件..."
 
 #. Type: text
 #. Description
@@ -751,9 +751,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "中止安裝？"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -779,9 +778,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "中止安裝？"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -795,9 +793,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "安裝完成"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1242,44 +1239,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "設定 apt..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "正在設定硬體..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "正在設定硬體..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "正在設定時區..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " 語言: ${LANGUAGE}\n"
-#~ " 鍵盤排列: ${KEYMAP}\n"
-#~ " 姓名: ${FULLNAME}\n"
-#~ " 登入名稱: ${USERNAME}\n"
-#~ " 位置: ${LOCATION}\n"
-#~ " 移植助理:\n"
-#~ " ${MIGRATE}"
+msgstr ""

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-07 10:59+0000\n"
+"PO-Revision-Date: 2007-06-21 16:50+0000\n"
 "Last-Translator: Agari <bluesolid@gmail.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-10 15:08:23+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:18:07+0000\n"
 
 #. Type: text
 #. Description
@@ -181,7 +181,7 @@ msgstr "اختر كلمة السر لحفظ حسابك."
 #. Description
 #: ../ubiquity.templates:23001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "أنت الأن تعمل في وضع تدقيقي. لا تستخدم كلمة مرور ذات قيمة!"
 
 #. Type: text
 #. Description
@@ -208,7 +208,7 @@ msgstr "هذا الاسم سيستخدم إذا جعلت هذا الحاسوب �
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "ترحيل المستندات والإعدادات"
 
 #. Type: text
 #. Description
@@ -287,6 +287,9 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"تحتاج إلى تعيين قسم من القرص الصلب ليكون حذرا (نقطة التضمين \"/\") تكون على "
+"الأقل 2 جيجا بايت، و مساحة تبادلية تكون على الأقل 256 م.ب. ربما تحتاج ﻹعداد "
+"أجزاء أخرى من القرص الصلب إذا رغبت."
 
 #. Type: text
 #. Description
@@ -371,6 +374,8 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"كن متأكدا من إزالة القرص المدمج حين تقوم بإعادة تشغيل الحاسوب، غير ذلك سيبدأ "
+"التحميل مرة أخرى باستخدام القرص المدمج بدلا من النظام المثبت حديثا."
 
 #. Type: text
 #. Description
@@ -398,14 +403,19 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" اللغه: ${LANGUAGE}\n"
+" تخطيط لوحة المفاتيح: ${KEYMAP}\n"
+" الإسم الكامل: ${FULLNAME}\n"
+" إسم الدخول: ${USERNAME}\n"
+" المكان: ${LOCATION}\n"
+" مساعد التطوير:\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
-msgstr "عملية نسخ سجلات التثبيت..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -518,7 +528,7 @@ msgstr "عملية نسخ سجلات التثبيت..."
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "تشكيل النظام الهدف..."
 
 #. Type: text
 #. Description
@@ -554,7 +564,7 @@ msgstr "إحداث المستخدم ..."
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "إستيراد الملفات والإعدادات..."
 
 #. Type: text
 #. Description
@@ -706,18 +716,20 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"برنامج التثبيت في حاجه الى تفعيل التغييرات على قوائم الأقسام، ولكن التفعيل "
+"غير ممكن لأن الأقسام الموجوده على نقاط الوصل التاليه ليس من الممكن فصلها:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "الرجاء غلق أي تطبيق يستخدم نقاط الوصل هذه."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "هل تريد من برنامج التثبيت أن يحاول فصل نقاط الوصل هذه مره أخرى؟"
 
 #. Type: error
 #. Description
@@ -770,9 +782,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "هل تريد إلغاء التثبيت؟"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -798,9 +809,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "هل تريد إلغاء التثبيت؟"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -814,9 +824,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "اكتمل التثبيت"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1192,9 +1201,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "كلمة المرور :"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1262,27 +1270,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "تهيئة apt..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "إعداد الأجهزة..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "إعداد الأجهزة..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "إعداد النطاق الزمني"
+msgstr ""

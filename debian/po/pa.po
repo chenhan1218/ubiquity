@@ -7,19 +7,19 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-02 03:41+0000\n"
+"PO-Revision-Date: 2007-09-11 05:36+0100\n"
 "Last-Translator: A S Alam <apbrar@gmail.com>\n"
 "Language-Team: Punjabi <fedora-trans-pa@redhat.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:10:58+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:17:41+0000\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr ""
+msgstr "ਇੰਸਟਾਲ"
 
 #. Type: text
 #. Description
@@ -31,7 +31,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Welcome"
-msgstr ""
+msgstr "ਜੀ ਆਇਆਂ ਨੂੰ"
 
 #. Type: text
 #. Description
@@ -41,12 +41,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"ਿੲੰਸਟਾਲ ਲੲੀ ਤਿਅਾਰ ? ਤੁਹਾਡੇ ਕੁਝ ਪ੍ਰਸ਼ਨਾਂ ਦੇ ੳੁੱਤਰ ਦੇਣ ਤੋਂ ਬਾਦ ਲਾੲੀਵ ਸੀਡੀ ਦੇ ਪਦਾਰਥ ੲਿਸ "
+"ਕਂਪਿੳੂਟਰ ੳੁਤੇ ੲਿੰਸਟਾਲ ਕੀਤੇ ਜਾ ਸਕਨਗੇ ਤਾਂਕਿ ਤੁਸੀਂ ੲਿਸ ਸਿਸਟਮ ਨੂੰ ਸੀਡੀ ਤੋਂ ਬਿਨਾ ਪੂਰੀ ਰਫਤਾਰ ਨਾਲ "
+"ਚਲਾ ਸਕੋ |"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "ਪ੍ਰਸ਼ਨਾਂ ਦੇ ੳੁੱਤਰ ਦੇਣ ਨੂੰ ਸਿਰਫ ਚੰਦ ਮਿਨਟ ਹੀ ਲਗ ਸਕਦੇ ਹਨ।"
 
 #. Type: text
 #. Description
@@ -55,6 +58,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"ਕਿਰਪਾ ਕਰਕੇ ੲਿੰਸਟਾਲੇਸ਼ਨ ਦੇ ਦੌਰ ਲੲੀ ਵਰਤੀ ਜਾਣ ਵਾਲੀ ਭਾਸ਼ਾ ਚੁਣੋਂ । ੲਿਹ ਭਾਸ਼ਾ ਅੰਤਲੇ ਸਿਸਟਮ ਦੀ ਮੁੱਢ "
+"ਭਾਸ਼ਾ ਹੋਵੇਗੀ।"
 
 #. Type: text
 #. Description
@@ -72,18 +77,20 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"ਜੇ ਤੁਹਾਢੇ ਪਾਸ ਿੲੰਟਰਨੈਟ ਦੀ ਸੁਵਿਧਾ ਹੈ ਤਾਂ ਤੁਹਾਡੀਅਾਂ ਸਂਭਾਵਿਤ ਮੁਸ਼ਕਿਲਾਂ ਦੇ ਬਾਰੇ ਜਾਨਕਾਰੀ ਲੲੀ ਜਾਰੀ "
+"ਕੀਤੇ ਨੋਟ ਪੜੋ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Release Notes"
-msgstr ""
+msgstr "ਜਾਰੀ ਕੀਤੇ ਨੋਟ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:9001
 msgid "Where are you?"
-msgstr ""
+msgstr "ਤੁਸੀਂ ਕਿੱਥੇ ਹੋ?"
 
 #. Type: text
 #. Description
@@ -93,66 +100,70 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"7.ਅਾਪਣੇ ਦੇਸ਼ ਅਤੇ ਸਮਾਂ ਖੇਤਰ ਵਿਚੋਂ ਿੲਕ ਸ਼ਹਿਰ ਚੁਣੋਂ । ਜੇ ਸਹੀ ਸਮਾਂ ਖੇਤਰ ਚੁਣਨ ਦੇ ਬਾਵਜੂਦ ਮੌਜੂਦਾ ਸਮਾਂ "
+"ਗਲਤ ਹੈ ਤਾਂ ਤੁਸੀਂ ੲਿੰਸਟਾਲ ਕੀਤੇ ਸਿਸਟਮ ਵਿਚ ਦੋਬਾਰਾ ਸ਼ੁਰੂ ਕਰ ਕੇ ੳੁਸਦਾ ਤਾਲਮੇਲ ਕਰ ਸਕਦੇ ਹੋ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
+#, fuzzy
 msgid "Selected city:"
-msgstr ""
+msgstr "ਚੁਣਿਆ ਸਮਾਂ ਜ਼ੋਨ ਚੁਣੋ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Time zone:"
-msgstr ""
+msgstr "ਸਮਾਂ ਖੇਤਰ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Selected region:"
-msgstr ""
+msgstr "ਚੁਣਿਅਾ ੲਿਲਾਕਾ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Current time:"
-msgstr ""
+msgstr "ਮੌਜੂਦਾ ਸਮਾਂ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
+#, fuzzy
 msgid "Keyboard layout"
-msgstr ""
+msgstr "ਆਪਣਾ ਕੀ-ਬੋਰਡ ਖਾਕਾ ਚੁਣੋ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "ਕਿਹੜੀ ਤਰਤੀਬ ਤੁਹਾਡੇ ਕੀਬੋਰਡ ਦੇ ਨਾਲ ਸਭ ਤੋਂ ਜਿਅਾਦਾ ਮੇਲ ਖਾਂਦੀ ਹੈ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "ਤੁਸੀਂ ੲਿਸ ਖਾਨੇ ਵਿਚ ਟਾੲੀਪ ਕਰਕੇ ਅਾਪਣੇ ਕੀਬੋਰਡ ਦੀ ਨਵੀਂ ਤਰਤੀਬ ਨੂੰ ਜਾਂਚ ਸਕਦੇ ਹੋ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Who are you?"
-msgstr ""
+msgstr "ਤੁਸੀਂ ਕੌਣ ਹੋ ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "What is your name?"
-msgstr ""
+msgstr "ਤੁਹਾਡਾ ਨਾਂ ਕੀ ਹੈ ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "ਤੁਸੀਂ ਲੌਗਿਨ ਕਰਣ ਲੲੀ ਕਿਹੜਾ ਨਾਂ ਵਰਤਣਾ ਚਾਂਓਦੇ ਹੋ?"
 
 #. Type: text
 #. Description
@@ -161,31 +172,33 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"ਜੇ ੲਿਕ ਤੋਂ ਜਿਅਾਦਾ ਵਿਅਕਤੀਅਾਂ ਨੇ ੲਿਸ ਕੰਮਪੂਟਰ ਦਾ ੲਿਸਤੇਮਾਲ ਕਰਨਾ ਹੈ ਤਾਂ ਤੁਸੀਂ ੲਿਸ ਗਤੀਵੀਧੀ ਤੋਂ "
+"ਬਾਅਦ ਗੁਣਾਂ ਖਾਤੇ ਬਣਾ ਸਕਦੇ ਹੋ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "ਅਾਪਣੇ ਖਾਤੇ ਦੀ ਰਾਖ ਲੲੀ ੲਿਕ ਸਫਲਸ਼ਬਦ ਚੁਣੋ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "ਤੁਸੀਂ ਡੀਬਗਿਂਗ ਮੋਡ ਵਿਚ ਚਲ ਰਹੇ ਹੋ। ਕੋੲੀ ਕੀਮਤੀ ਸਫਲਸ਼ਬਦ ੲਿਸਤੇਮਾਲ ਨਾਂ ਕਰੋ!"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "ਮੇਲ ਖਾਂਦਾ ਸਫਲਸ਼ਬਦ ਦੋ ਵਾਰ ਦਰਜ ਕਰੋ ਤਾਂਕਿ ੳੁਸਨੂੰ ਟਾੲੀਪ ਗਲਤੀਅਾਂ ਲੲੀ ਪੜਤਾਲਿਅਾ ਜਾ ਸਕੇ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "ੲਿਸ ਕੰਮਪੂਟਰ ਦਾ ਕੀ ਨਾਂ ਹੈ?"
 
 #. Type: text
 #. Description
@@ -193,7 +206,7 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
+msgstr "ੲਿਸ ਨਾਂ ਨੂੰ ਵਰਤਿਅਾ ਜਾੲੇਗਾ ਜੇ ਤੁਸੀਂ ਕੰਮਪੂਟਰ ਨੂੰ ਕਿਸੇ ਨੈਟਵਰਕ ੳੁਤੇ ਦਿਖਾਂਓਦੇ ਹੋ।"
 
 #. Type: text
 #. Description
@@ -209,6 +222,8 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"ਚੁਣੋ ਜਿਹੜਾ ਵੀ ਖਾਤਾ ਤੁਸੀਂ ਅਾਯਾਤ ਕਰਨਾ ਚਾਹਂਦੇ  ਹੋ ਅਤੇ ਹਰ ੲਿਕ ਲੲੀ ਹੇਠ ਦਿੱਤਾ ਖਾਨਾ ਭਰੋ । "
+"ਦਸਤਾਵੇਜ਼ ਅਤੇ ਸੈਟਿੰਗਾਂ ੲਿੰਸਟਾਲ ਪੂਰੀ ਤੋਂ ਬਾਅਦ ੳੁਪਲਭਧ ਹੋ ਜਾਣਗੀਅਾਂ ।"
 
 #. Type: text
 #. Description
@@ -216,7 +231,7 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਕੋੲੀ ਖਾਤੇ ਅਾਯਾਤ ਨਹੀਂ ਕਰਣਾ ਚਾਓਂਦੇ, ਕੁਝ ਨਹੀਂ ਚੁਣੋ ਅਤੇ ਅਗਲੇ ਪੰਨੇ ਤੇ ਜਾਓ।"
 
 #. Type: text
 #. Description
@@ -228,43 +243,45 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Full Name:"
-msgstr ""
+msgstr "ਪੂਰਾ ਨਾਂ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Login Name:"
-msgstr ""
+msgstr "ਲੌਗੲਿਨ ਨਾਂ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Password:"
-msgstr ""
+msgstr "ਗੁਪਤ-ਕੋਡ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Confirm:"
-msgstr ""
+msgstr "ਪੁਸ਼ਟੀ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Prepare disk space"
-msgstr ""
+msgstr "ਡਿਸਕ ਜਗ੍ਹਾ ਤਿਅਾਰ ਕਰੋ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
+#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "ਕੀ ਤੁਸੀਂ ਵਿਭਾਗੀਕਰਨ ਤੇ ਮੁੜ ਜਾਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
+#, fuzzy
 msgid "Prepare partitions"
-msgstr ""
+msgstr "ਨਵਾਂ ਭਾਗ ਬਣਾਓ"
 
 #. Type: text
 #. Description
@@ -274,6 +291,9 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"ਤੁਹਾਨੰੁ ਰੂਟ ਫਾੲੀਲ ਸਿਸਟਮ ਲੲੀ ੲਿਕ ਪਾਰਟੀਸ਼ਨ ਦਸਣੀ ਪੈਣੀ ਹੈ (ਮਾੳੂਂਟ ਪਵਾੲਿਂਟ \"/\") ਜਿਸਦਾ ਘਟ "
+"ਤੋਂ ਘਟ ਅਾਕਾਰ ੨ ਜੀਬੀ ਹੋਵੇ, ਅਤੇ ੲਿਕ ਸਵਾਪ ਫਾੲੀਲ ਪਾਰਟੀਸ਼ਨ ਜਿਸਦਾ ਘਟ ਤੋਂ ਘਟ ਅਾਕਾਰ ੨੫੬ ਮਬ "
+"ਹੋਵੇ। ਜੇ ਤੁਸੀਂ ਚਾਹੋ ਤਾਂ ਹੋਰ ਪਾਰਟੀਸ਼ਨਾਂ  ਵੀ ਸਥਾਪਿਥ ਕਰ ਸਕਦੇ ਹੋ।"
 
 #. Type: text
 #. Description
@@ -281,45 +301,48 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:38001 ../ubiquity.templates:51001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
+#, fuzzy
 msgid "Ready to install"
-msgstr ""
+msgstr "ਇੰਸਟਾਲ ਕਰਨ ਲਈ ਕਰਨਲ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr ""
+msgstr "ਤੁਹਾਡਾ ਨਵਾਂ ਅੌਪਰੇਟਿਂਗ ਸਿਸਟਮ ਹੁਣ ੲਿਨ੍ਹਾਂ ਸੈਟਿਂਗਾਂ ਨਾਲ ਿੲੰਸਟਾਲ ਕੀਤਾ ਜਾੲੇਗਾ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Boot loader"
-msgstr ""
+msgstr "ਬੂਟ ਲੋਡਰ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "ਕਦਮ ${INDEX} ਤੋਂ ${TOTAL}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:42001
+#, fuzzy
 msgid "Abort the installation?"
-msgstr ""
+msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਨੂੰ ਛੱਡੋ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
+#, fuzzy
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "ਕੀ ਤੁਸੀਂ ਵਿਭਾਗੀਕਰਨ ਸੂਚੀ ਤੇ ਵਾਪਸ ਜਾਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Skip"
-msgstr ""
+msgstr "ਛੱਡੋ"
 
 #. Type: title
 #. Description
@@ -331,13 +354,13 @@ msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਸਮਾਪਤ ਹੋਈ"
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "ਲਾੲੀਵ ਸੀਡੀ ਵਰਤਣੀ ਜਾਰੀ ਰਖੋ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Restart now"
-msgstr ""
+msgstr "ਹੁਣੇ ਦੋਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ"
 
 #. Type: text
 #. Description
@@ -347,6 +370,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"ੲਿੰਸਟਾਲੇਸ਼ਨ ਸਮਾਪਤ ਹੋੲੀ । ਤੁਹਾਨੂੰ ਨਵੀਂ ੲਿੰਸਟਾਲੇਸ਼ਨ ਦੀ ਵਰਤੋਂ ਲੲੀ ਕੰਮਪੂਟਰ ਦੋਬਾਰਾ ਸ਼ੁਰੂ ਕਰਨਾ ਪੈਣਾ ਹੈ। "
+"ਤੁਸੀਂ ੲਿਸ ਲਾੲੀਵ ਸੀਡੀ ਨੂੰ ਵਰਤਣਾ ਜਾਰੀ ਰਖ ਸਕਦੇ ਹੋ, ਹਾਲਾਂਕਿ ਤੁਹਾਡੀਅਾਂ ਕੋੲੀ ਵੀ ਤਬਦੀਲੀਅਾਂ ਜਾਂ "
+"ਬਚਾੲੇ ਹੋੲੇ ਦਸਤਾਵੇਜ ਸੰਭਾਲੇ ਨਹੀਂ ਜਾਣਗੇ।"
 
 #. Type: text
 #. Description
@@ -355,6 +381,8 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"ਕੰਪੂਟਰ ਦੋਬਾਰਾ ਸ਼ੁਰੂ ਕਰਣ ਵੇਲੇ ਯਾਦ ਨਾਲ ਸੀਡੀ ਨੂੰ ਕਢ੍ਹ ਦਿਓ, ਨਹੀਂ ਤਾਂ ਨਵੇਂ ੲਿੰਸਟਾਲਡ ਸਿਸਟਮ ਦੀ "
+"ਜਗ੍ਹਾ  ਓਹ ਦੋਬਾਰਾ ੲਿਸ ਲਾੲੀਵ ਸੀਡੀ ਨੂੰ ਵਰਤ ਕੇ ਸ਼ੁ੍ਰੂ ਹੋ ਜਾਵੇਗਾ।"
 
 #. Type: text
 #. Description
@@ -382,6 +410,12 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" ਭਾਸ਼ਾ: ${LANGUAGE}\n"
+" ਕੀਬੋਰਡ ਤਰਤੀਬ: ${KEYMAP}\n"
+" ਨਾਂ: ${FULLNAME}\n"
+" ਟਿਕਾਣਾ: ${LOCATION} \n"
+" ੳੁਡਾਰੀ ਸਹਾੲਿਕ: \n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
@@ -400,31 +434,33 @@ msgstr "ਇੰਸਟਾਲੇਸ਼ਨ ਸਮਾਪਤ ਹੋਈ"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "ਕਾਪੀ ਕਰਣ ਵਾਲੀ ਡਿਸਟ੍ਰੀਬਿੳੂਸ਼ਨ ਦੀ ਖੋਜ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
+#, fuzzy
 msgid "Scanning files..."
-msgstr ""
+msgstr "ਡਿਸਕਾਂ ਦੀ ਜਾਂਚ ਜਾਰੀ ਹੈ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
+#, fuzzy
 msgid "Copying files..."
-msgstr ""
+msgstr "ਭਾਗ ਨਕਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Copying files (less than a minute remaining)..."
-msgstr ""
+msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕੀਤੀਅਾਂ ਜਾ ਰਹੀਅਾਂ ਹਨ (ੲਿਕ ਮਿਨਟ ਤੋਂ ਘਟ ਬਾਕੀ)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕੀਤੀਅਾਂ ਜਾ ਰਹੀਅਾਂ ਹਨ (ੲਿਕ ਮਿਨਟ ਤੋਂ ਘਟ ਬਾਕੀ) ..."
 
 #. Type: error
 #. Description
@@ -435,7 +471,7 @@ msgstr ""
 #: ../ubiquity.templates:59001 ../ubiquity.templates:60001
 #: ../ubiquity.templates:61001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "ੲਿੰਸਟਾਲਰ ਨੇਂ ਹਾਰਡ ਡਿਸਕ ਤੇ ਫਾੲੀਲਾਂ ਕਾਪੀ ਕਰਦੇ ਹੋੲੇ ਦੋਸ਼ ਪਾੲਿਅਾ:"
 
 #. Type: error
 #. Description
@@ -446,12 +482,16 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"ੲਿਹ ਖਾਸ ਦੋਸ਼ ਜ਼ਿਅਾਦਾਤਰ ਖਰਾਬ ਸੀਡੀ/ਡੀਵੀਡੀ ਡਿਸਕ ਜਾਂ ਡਰਾੲੀਵ ਕਰਕੇ ਹੁੰਦਾ ਹੈ । ਮਦਦ ਮਿਲ ਸਕਦੀ "
+"ਹੈ ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਨੂੰ ਸਾਫ ਕੀਤਾ ਜਾਵੇ, ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਨੂੰ ਹੌਲੀ ਰਫਤਾਰ ੳੁਤੇ ਬਰਨ ਕੀਤਾ ਜਾਵੇ, "
+"ਜਾਂ ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਡਰਾੲੀਵ ਦੇ ਲੈਨਸ ਨੂੈ ਸਾਫ ਕੀਤਾ ਜਾਵੇ (ਸਫਾੲੀ ਸੰਦ ਜ਼ਿਅਾਦਾਤਰ ਤਕਨੀਕੀ ਸਮਾਨ "
+"ਵਾਲੇ ਸਪਲਾੲਿਅਰਾਂ ਕੋਲ ਮੌਜੂਦ ਹੁੰਦੇ ਹਨ)।"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕਰਣ ਵਿਚ ਅਸਫਲ; ਖਰਾਬ ਹਾਰਡ ਡਿਸਕ?"
 
 #. Type: error
 #. Description
@@ -461,12 +501,15 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"ੲਿਹ ਖਾਸ ਦੋਸ਼ ਜ਼ਿਅਾਦਾਤਰ ਖਰਾਬ ਹਾਰਡ ਡਿਸਕ ਕਰਕੇ ਹੁੰਦਾ ਹੈ । ਮਦਦ ਮਿਲ ਸਕਦੀ ਹੈ ਜੇ ਪੜਤਾਲ ਕੀਤੀ "
+"ਜਾਵੇ ਕਿ ਹਾਰਡ ਡਿਸਕ ਪੁਰਾਣੀ ਹੈ ਅਤੇ ਬਦਲਣ ਦੀ ਲੋੜ ਵਿਚ ਹੈ, ਜਾਂ ਜੇ ਸਿਸਟਮ ਨੂੰ ਠੰਡੇ ਵਾਤਾਵਰਣ ਵਿਚ "
+"ਵਿਸਥਾਪਿਤ ਕੀਤਾ ਜਾਵੇ।"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "ਫਾੲੀਲਾਂ ਕਾਪੀ ਕਰਣ ਵਿਚ ਅਸਫਲ; ਖਰਾਬ ਸੀਡੀ/ਡੀਵੀਡੀ ਜਾਂ ਹਾਰਡ ਡਿਸਕ?"
 
 #. Type: error
 #. Description
@@ -480,12 +523,19 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"ੲਿਹ ਖਾਸ ਦੋਸ਼ ਜ਼ਿਅਾਦਾਤਰ ਖਰਾਬ ਸੀਡੀ/ਡੀਵੀਡੀ ਡਿਸਕ ਜਾਂ ਡਰਾੲੀਵ, ਜਾਂ ਖਰਾਬ ਹਾਰਡ ਡਿਸਕ ਕਰਕੇ "
+"ਹੁੰਦਾ ਹੈ । ਮਦਦ ਮਿਲ ਸਕਦੀ ਹੈ ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਨੂੰ ਸਾਫ ਕੀਤਾ ਜਾਵੇ, ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਨੂੰ ਹੌਲੀ "
+"ਰਫਤਾਰ ੳੁਤੇ ਬਰਨ ਕੀਤਾ ਜਾਵੇ, ਜਾਂ ਜੇ ਸੀਡੀ/ਡੀਵੀਡੀ ਡਰਾੲੀਵ ਦੇ ਲੈਨਸ ਨੂੈ ਸਾਫ ਕੀਤਾ ਜਾਵੇ (ਸਫਾੲੀ "
+"ਸੰਦ ਜ਼ਿਅਾਦਾਤਰ ਤਕਨੀਕੀ ਸਮਾਨ ਵਾਲੇ ਸਪਲਾੲਿਅਰਾਂ ਕੋਲ ਮੌਜੂਦ ਹੁੰਦੇ ਹਨ),  ਜੇ ਪੜਤਾਲ ਕੀਤੀ ਜਾਵੇ ਕਿ "
+"ਹਾਰਡ ਡਿਸਕ ਪੁਰਾਣੀ ਹੈ ਅਤੇ ਬਦਲਣ ਦੀ ਲੋੜ ਵਿਚ ਹੈ, ਜਾਂ ਜੇ ਸਿਸਟਮ ਨੂੰ ਠੰਡੇ ਵਾਤਾਵਰਣ ਵਿਚ ਵਿਸਥਾਪਿਤ "
+"ਕੀਤਾ ਜਾਵੇ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
+#, fuzzy
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "ਭਾਗ ਨਕਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
 
 #. Type: text
 #. Description
@@ -522,14 +572,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
+#, fuzzy
 msgid "Creating user..."
-msgstr ""
+msgstr "ਜੰਤਰ ਫਾਇਲਾਂ ਬਣਾ ਰਿਹਾ ਹੈ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "ਦਸਤਾਵੇਜ਼ ਅਤੇ ਸੈਟਿੰਗਾਂ ਅਾਯਾਤ ਕੀਤੀਅਾਂ ਜਾ ਰਹੀਅਾਂ ਹਨ..."
 
 #. Type: text
 #. Description
@@ -547,8 +598,9 @@ msgstr "ਨੈੱਟਵਰਕ ਸੰਰਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹ�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
+#, fuzzy
 msgid "Setting computer name..."
-msgstr ""
+msgstr "ਫਰੇਮ ਰਾਖਵਾਂ ਸਥਾਪਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
 
 #. Type: text
 #. Description
@@ -572,8 +624,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
+#, fuzzy
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "ਵਾਧੂ ਪੈਕੇਜ ਇੰਸਟਾਲ ਕਰ ਰਹੇ ਹਨ..."
 
 #. Type: text
 #. Description
@@ -602,14 +655,16 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:82001
+#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "${BOOTDEV} ਵਿੱਚ GRUB ਇੰਸਟਾਲ ਕਰਨ ਲਈ ਅਸਮਰਥ"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:83001
+#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "${PACKAGE} ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਹੋ ਰਹੀ ਹੈ"
 
 #. Type: error
 #. Description
@@ -661,8 +716,9 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:86001
+#, fuzzy
 msgid "Installing language packs"
-msgstr ""
+msgstr "ਮੁੱਖ ਪੈਕੇਜ ਇੰਸਟਾਲ ਹੋ ਰਹੇ ਹਨ..."
 
 #. Type: text
 #. Description

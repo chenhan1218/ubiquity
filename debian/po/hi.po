@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-02 03:18+0000\n"
-"Last-Translator: Carlos Perelló Marín <carlos.perello@canonical.com>\n"
+"PO-Revision-Date: 2007-09-01 07:29+0000\n"
+"Last-Translator: Gaurav Mishra <gauravtechie@gmail.com>\n"
 "Language-Team: Hindi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:11:11+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:18:56+0000\n"
 
 #. Type: text
 #. Description
@@ -79,7 +79,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Release Notes"
-msgstr ""
+msgstr "रिलीज टिप्पणी"
 
 #. Type: text
 #. Description
@@ -227,31 +227,32 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "एक उपयोक्ता बनायें चुने हुऐ खाते को आयात करने के लिऐ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Full Name:"
-msgstr ""
+msgstr "पूरा नामः"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
+#, fuzzy
 msgid "Login Name:"
-msgstr ""
+msgstr "सत्रारंभ नाम"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Password:"
-msgstr ""
+msgstr "कूटशब्द:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Confirm:"
-msgstr ""
+msgstr "पक्का :"
 
 #. Type: text
 #. Description
@@ -274,11 +275,14 @@ msgstr "नये विभाजन बनाएँ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
+#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"रूट पार्टिशन (\"/\") कम-से-कम २ जी-बी बडा होना चाहिये, और स्वैप पार्टिशन कम-से-कम "
+"२५६ एम-बी।"
 
 #. Type: text
 #. Description
@@ -300,7 +304,7 @@ msgstr "आपका नया प्रचालन तंत्र निम�
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Boot loader"
-msgstr ""
+msgstr "बूटलोडर"
 
 #. Type: text
 #. Description
@@ -359,17 +363,21 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
+#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"जब आप कम्प्यूटर को फिर से चालू करते हैं, तो सीडी निकालना न भूलिये, नहीं तो कम्प्यूटर अभी "
+"संस्थापित ओपरेटिंग सिस्टम से नहीं, जीवंत सीडी से शुरु होगी।"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:49001
+#, fuzzy
 msgid "Go Back"
-msgstr "पीछे जाएँ"
+msgstr "वापस जाएँ"
 
 #. Type: text
 #. Description
@@ -400,10 +408,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
-msgstr "संस्थापना के लॉग का नकल कीया जा रही है..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -771,9 +777,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "संस्थापना छोड़ दें"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -799,9 +804,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "संस्थापना छोड़ दें"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -815,9 +819,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "संस्थापना सम्पन्न।"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1262,42 +1265,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "एप्ट कॉन्फ़िगर किया जा रहा है..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "हार्डवेयर कॉन्फ़िगर किया जा रहा है..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "हार्डवेयर कॉन्फ़िगर किया जा रहा है..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "समय क्षेत्र को कॉन्फ़िगर किया जा रहा है..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " भाषा: ${LANGUAGE}\n"
-#~ " कीबोर्ड विन्यास: ${KEYMAP}\n"
-#~ " नाम: ${FULLNAME}\n"
-#~ " उपयोक्ता नाम: ${USERNAME}\n"
-#~ " स्थान: ${LOCATION}"
+msgstr ""

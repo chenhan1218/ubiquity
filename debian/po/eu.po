@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-04 21:35+0000\n"
-"Last-Translator: Mikel Pascual Aldabaldetreku <mikel.paskual@gmail.com>\n"
+"PO-Revision-Date: 2007-09-11 05:29+0100\n"
+"Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale <librezale@librezale.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-04 21:38:17+0000\n"
+"X-Rosetta-Export-Date: 2007-09-13 15:28:17+0000\n"
 
 #. Type: text
 #. Description
@@ -41,15 +41,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Instalatzeko prest? Galdera gutxi batzuk erantzun eta gero zuzeneko CD-ren "
-"edukia zure ordenagailuan instalatuko da, horrela sistema abiadura osoan "
-"erabili ahal izango duzu CD-rik gabe."
+"Instalatzeko prest? Galdera gutxi batzuk erantzun ondoren, CD-aren edukia "
+"zure ordenagailuan instalatuko da. Horrela, sistema abiadura betean erabili "
+"ahal izango duzu, eta CD-rik behar gabe."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Answering the questions should only take a few minutes."
-msgstr "Gadelrak erantzutea bakarrik minutu batzuk eramango dizu."
+msgstr "Minutu batzuk besterik ez dituzu beharko galderak erantzuteko."
 
 #. Type: text
 #. Description
@@ -58,8 +58,8 @@ msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Mesedez aukeratu instaltzeko prosezuaren hizkuntza. Hizkuntz hau "
-"instalatutako sistemaren hizkuntz lehenetsia izango da."
+"Mesedez, instalatzeko prozesuan erabiliko den hizkuntza hautatu. Hizkuntza "
+"hau instalatutako sistemaren hizkuntza lehenetsia izango da."
 
 #. Type: text
 #. Description
@@ -77,7 +77,7 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
-"Internet konexiorik baduzu, azken bertsio-oharrak irakur itzazu. Zuregan "
+"Internet konexiorik baduzu, azken bertsio-oharrak irakur itzazu. Zugan "
 "eragina izan dezaketen arazoei buruzko informazioa aurkituko duzu."
 
 #. Type: text
@@ -100,14 +100,15 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
-"Aukeratu hiri bat zure herrialde eta ordu-zonan. Ordua zuzena ez bada ordu-"
-"zona ondo aukeratu eta gero, sistema berrabiarazi  ondoren doitu dezakezu."
+"Zure herrialde eta ordu-zonan dagoen hiri bat hautatu. Ordu-zona egokia "
+"hautatu ondoren adierazitako ordua okerra bada, sistema berrabiarazi ondoren "
+"zuzendu ahalko duzu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Selected city:"
-msgstr "Hautatutako ordu-zonaldea"
+msgstr "Hautatutako hiria:"
 
 #. Type: text
 #. Description
@@ -119,19 +120,19 @@ msgstr "Ordu-zona:"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Selected region:"
-msgstr "Hautatu eskualdea:"
+msgstr "Hautatutako eskualdea:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Current time:"
-msgstr "Uneko ordua:"
+msgstr "Oraingo ordua:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Keyboard layout"
-msgstr "XKB teklatu-diseinua"
+msgstr "Teklatuaren diseinua"
 
 #. Type: text
 #. Description
@@ -143,7 +144,8 @@ msgstr "Zein teklatu-diseinu da zure teklatuarenaren antzekoena?"
 #. Description
 #: ../ubiquity.templates:17001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Kutxa honetan idatz dezakezu teklatu-diseinu berria frogatzeko."
+msgstr ""
+"Kutxa honetan edozer idatz dezakezu, teklatu-diseinu berria frogatzeko."
 
 #. Type: text
 #. Description
@@ -170,36 +172,33 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Ordenagiaulu hau pertsona bat baino gehiagok erabiltzen badu instalatu "
-"andoren kontu gehiago konfigura ditzakezu."
+"Ordenagailu hau pertsona bat baino gehiagok erabiliko badu, kontu ugari sor "
+"ditzakezu instalazioaren ondoren."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Choose a password to keep your account safe."
-msgstr "Hautatu zure kontua babesteko pasahitza"
+msgstr "Pasahitz bat hautatu zure kontua babesteko."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
-"Arazte-moduan ari zara exekutatzen sistema. Ez ezazu balio handiko "
-"pasahitzik erabili!"
+msgstr "Arazte-moduan ari zara. Ez ezazu balio handiko pasahitzik erabili!"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
-"Sartu paisaitz berdina birritan, idazteko orduan egindako akatsak sahiesteko"
+msgstr "Pasahitz berdina sartu birritan, idaztean egindako hutsak saihesteko."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "What is the name of this computer?"
-msgstr "Zein da ordeganailuaren izena?"
+msgstr "Zein da ordenagailu honen izena?"
 
 #. Type: text
 #. Description
@@ -208,8 +207,8 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Izen hau zure ordenagailua sarean dauden beste ordenagailuek ikus dezaten "
-"eraboliko da."
+"Izen hau erabiliko da sarean dauden beste ordenagailuek zure ordenagailua "
+"ikustea ahalbidetzen baduzu."
 
 #. Type: text
 #. Description
@@ -225,9 +224,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
-"Hautatu itzazu inportatu nahi dituzun kontuak eta beheko galdetegia bete "
+"Inportatu nahi dituzun kontuak hautatu itzazu, eta beheko galdetegia bete "
 "ezazu bakoitzarentzat. Instalazioa bukatu ondoren erabili ahalko dituzu "
-"kontu hauentzako dokumentu eta ezarpenak."
+"kontu hauen dokumentu eta ezarpenak."
 
 #. Type: text
 #. Description
@@ -255,7 +254,7 @@ msgstr "Izen osoa:"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Login Name:"
-msgstr "Login Izena:"
+msgstr "Erabiltzaile Izena:"
 
 #. Type: text
 #. Description
@@ -273,19 +272,19 @@ msgstr "Egiaztatu:"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Prepare disk space"
-msgstr "Prestatu lekua diskan."
+msgstr "Lekua prestatu diskoan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "How do you want to partition the disk?"
-msgstr "Partizioak nola egin nahi dituzu?"
+msgstr "Nola egin nahi dituzu partizioak?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Prepare partitions"
-msgstr "Partizioak prestatu."
+msgstr "Partizioak prestatu"
 
 #. Type: text
 #. Description
@@ -295,9 +294,10 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
-"Gutxienez 2 GB dituen zatikatze bat ezarri behar duzu erro fitxategi "
-"sistemarentzat (\"/\" muntatze puntua), eta gutxienez 256 MB dituen truke-"
-"zatikatzea. Nahi baduzu, beste zatikatze batzuk ere ezarri ditzakezu."
+"Gutxienez 2 GB dituen partizio bat ezarri behar duzu erro fitxategi "
+"sistemarentzat (\"/\" muntatze-puntua), eta baita gutxienez 256 MB dituen "
+"truke-partizio bat ere. Nahi baduzu, beste partizio batzuk ere ezarri "
+"ditzakezu."
 
 #. Type: text
 #. Description
@@ -313,7 +313,7 @@ msgstr "Instalatzeko prest"
 #: ../ubiquity.templates:39001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "Orain zure sistema berria instalatuko da ondoko ezarpenekin:"
+msgstr "Orain zure sistema berria instalatuko da, ondoko ezarpenekin:"
 
 #. Type: text
 #. Description
@@ -325,19 +325,19 @@ msgstr "Abio kargatzailea"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "${INDEX} / ${TOTAL} pausua"
+msgstr "${INDEX} / ${TOTAL} urratsa"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Abort the installation?"
-msgstr "Instalazioa gelditu nahi duzu?"
+msgstr "Instalazioa bertan behera utzi?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Do you really want to abort the installation now?"
-msgstr "Partizioak egiteko menura itzuli nahi duzu?"
+msgstr "Ziur al zaude instalazioa bertan behera utzi nahi duzula?"
 
 #. Type: text
 #. Description
@@ -349,19 +349,19 @@ msgstr "Utzi"
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Installation complete"
-msgstr "Instalazioa egin da"
+msgstr "Instalazioa burutu da"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Continue using the live CD"
-msgstr "Jarraitu zuzeneko CD-a erabiltzen"
+msgstr "CD-a erabiltzen jarraitu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Restart now"
-msgstr "Berrabiarazi orain"
+msgstr "Orain berrabiarazi"
 
 #. Type: text
 #. Description
@@ -371,10 +371,9 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
-"Instalazioa amaitu egin da. Orain zure sistema berrabiarazi behar duzu zure "
-"sistema berria erabili ahal izateko. Naji baduzu zuzeneko CD hau erabiltzen "
-"jarrai dezakezu, baina edozein dokumentuan egindako aldaketak ez dira "
-"gordeko."
+"Instalazioa burutu egin da. Orain zure sistema berrabiarazi behar duzu zure "
+"sistema berria erabili ahal izateko. Nahi baduzu, CD hau erabiltzen jarrai "
+"dezakezu, baina ez da gordeko egiten duzun aldaketa edo dokumenturik."
 
 #. Type: text
 #. Description
@@ -383,8 +382,8 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
-"CD-a kendu ordenagailua berriabiaraztean. Bestela, CD hau erabiliz "
-"berrabiaraziko da zure sistemaren instalazio berriarekin ordez."
+"CD-a kendu ordenagailua berrabiaraztean. Bestela, CD hau erabiliz abiaraziko "
+"da, instalatu-berri duzun sistemarekin ordez."
 
 #. Type: text
 #. Description
@@ -413,18 +412,17 @@ msgid ""
 " ${MIGRATE}"
 msgstr ""
 " Hizkuntza: ${LANGUAGE}\n"
-" Teklatu distribuzioa: ${KEYMAP}\n"
+" Teklatu-diseinua: ${KEYMAP}\n"
 " Izen osoa: ${FULLNAME}\n"
 " Erabiltzaile izena: ${USERNAME}\n"
 " Kokalekua: ${LOCATION}\n"
-" Migrazio laguntzailea:\n"
+" Migrazio Laguntzailea:\n"
 " ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 #, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
 msgstr "Instalazio loga kopiatzen..."
 
@@ -432,13 +430,13 @@ msgstr "Instalazio loga kopiatzen..."
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Installing system"
-msgstr "Instalatzen"
+msgstr "Sistema instalatzen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Finding the distribution to copy..."
-msgstr "Kopiatzeko banaketa bilatzen..."
+msgstr "Kopiatuko den distribuzioa bilatzen..."
 
 #. Type: text
 #. Description
@@ -486,9 +484,9 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
-"Errore hau CD/DVD diska edo irakurgailu apurtu baten errua izan ohi da. "
-"Diska garbitu dezakezu, diska abiadura txikiagora grabatu dezakezu, edo "
-"irakurgailuaren lentea grabitu dezakezu (elektronika denda/"
+"Errore hau CD/DVD disko edo irakurgailu apurtu baten errua izan ohi da. "
+"Diskoa garbitu dezakezu, diskoa abiadura txikiagora grabatu dezakezu, edo "
+"irakurgailuaren lentea garbitu dezakezu (elektronika denda/"
 "hornitzaileengandik eskura ditzakezu)."
 
 #. Type: error
@@ -505,8 +503,8 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
-"Errore hau diska gogor apurtu baten errua izan ohi da. Diska gogorra zaharra "
-"bada, berau aldatzea beharrezko izan daiteke; edo sistema osoa ingurune "
+"Errore hau disko gogor apurtu baten errua izan ohi da. Disko gogorra zaharra "
+"bada, berau aldatzea beharrezko izan daiteke, edo sistema osoa ingurune "
 "freskoago batera eraman dezakezu."
 
 #. Type: error
@@ -527,18 +525,18 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
-"Errore hau CD/DVD diska edo irakurgailu apurtu baten errua izan ohi da, edo "
-"diska gogor apurtu batena. Diska garbitu dezakezu, diska abiadura txikiagora "
-"grabatu dezakezu, edo irakurgailuaren lentea grabitu dezakezu (elektronika "
-"denda/hornitzaileengandik eskura ditzakezu), diska gogorra zaharra bada, "
-"berau aldatzea beharrezko izan daiteke; edo sistema osoa ingurune freskoago "
-"batera eraman dezakezu."
+"Errore hau CD/DVD disko edo irakurgailu apurtu baten errua izan ohi da, edo "
+"disko gogor apurtu batena. Diskoa garbitu dezakezu, diskoa abiadura "
+"txikiagora grabatu dezakezu, edo irakurgailuaren lentea garbitu dezakezu "
+"(elektronika denda/hornitzaileengandik eskura ditzakezu), disko gogorra "
+"zaharra bada, berau aldatzea beharrezko izan daiteke, edo sistema osoa "
+"ingurune freskoago batera eraman dezakezu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Copying installation logs..."
-msgstr "Instalazio loga kopiatzen..."
+msgstr "Instalazioaren log-ak kopiatzen..."
 
 #. Type: text
 #. Description
@@ -562,7 +560,7 @@ msgstr "apt konfiguratzen..."
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Configuring time zone..."
-msgstr "Sarea konfiguratzen..."
+msgstr "Ordu-zona konfiguratzen..."
 
 #. Type: text
 #. Description
@@ -574,19 +572,19 @@ msgstr "Teklatua konfiguratzen..."
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Creating user..."
-msgstr "Erabiltzaileak sortzen..."
+msgstr "Erabiltzailea sortzen..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Importing documents and settings..."
-msgstr "Dokumentu eta ezarpenak inportatu..."
+msgstr "Dokumentu eta ezarpenak inportatzen..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
 msgid "Configuring hardware..."
-msgstr "Sarea konfiguratzen..."
+msgstr "Hardwarea konfiguratzen..."
 
 #. Type: text
 #. Description
@@ -598,13 +596,13 @@ msgstr "Sarea konfiguratzen..."
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Setting computer name..."
-msgstr "Ordenagailuaren izena konfiguratzen..."
+msgstr "Ordenagailuaren izena ezartzen..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Configuring boot loader..."
-msgstr "Sarea konfiguratzen..."
+msgstr "Abio kargatzailea konfiguratzen..."
 
 #. Type: text
 #. Description
@@ -622,7 +620,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Removing extra packages..."
-msgstr "Pakete gehigarriak kentzen..."
+msgstr "Pakete estrak kentzen..."
 
 #. Type: text
 #. Description
@@ -634,25 +632,25 @@ msgstr "Kendu beharreko paketeak bilatzen..."
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Paketea jeizten (falta da ${TIME})"
+msgstr "Paketeak deskargatzen (${TIME} faltan)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Downloading package lists..."
-msgstr "Pakete zerrenda jaisten..."
+msgstr "Pakete-zerrendak deskargatzen..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Pakete zerrenda jaisten (falta da ${TIME}...)"
+msgstr "Pakete-zerrendak deskargatzen (${TIME} faltan)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Error installing ${PACKAGE}"
-msgstr "Ezin da ${PACKAGE} instalatu"
+msgstr "Errorea ${PACKAGE} instalatzean"
 
 #. Type: error
 #. Description
@@ -711,19 +709,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Installing language packs"
-msgstr "Hizkuntz-paketeak ezartzen"
+msgstr "Hizkuntza-paketeak instalatzen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Hizkuntz-paketeak deskargatzen (${TIME} faltan)..."
+msgstr "Hizkuntza-paketeak deskargatzen (${TIME} faltan)..."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Failed to unmount partitions"
-msgstr "Ezin izan dira partizioak muntatu"
+msgstr "Ezin izan dira partizioak desmuntatu"
 
 #. Type: boolean
 #. Description
@@ -732,15 +730,16 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Instalatzaileak aldaketak egin behar ditu zatikatze tauletan, baina ezin du "
-"egin hurrengo muntatze puntuetako zatikatzeak ezin izan direlako muntatu:"
+"Instalatzaileak aldaketak egin behar ditu partizio-tauletan, baina ezin du "
+"hori egin hurrengo muntatze-puntuetako partizioak ezin izan direlako "
+"desmuntatu:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Please close any applications using these mount points."
 msgstr ""
-"Mesedez, itxi ezazu muntatze puntu hauek erabiltzen ari daitekeen edozein "
+"Mesedez, itxi ezazu muntatze-puntu hauek erabiltzen ari daitekeen edozein "
 "aplikazio."
 
 #. Type: boolean
@@ -748,13 +747,13 @@ msgstr ""
 #: ../ubiquity.templates:92001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"Nahi al duzu instalatzailea zatikatze hauek desmuntatzen berriro saiatzea?"
+"Nahi al duzu instalatzailea berriro saiatzea partizio hauek desmuntatzen?"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:93001
 msgid "System partition not formatted"
-msgstr "Sisteamren zatikatzea ez dago formateatua"
+msgstr "Sistemaren partizioa ez dago formateatua"
 
 #. Type: error
 #. Description
@@ -765,11 +764,11 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
-"${MOUNTPOINT} -i egokitutako ${PARTITION} -eko fitxategi sistema ez da "
-"formatua izateko markatu. Instalatzaile honek formateatu behar ditu sistemak "
-"erabilitako fitxategi sistemak (/, /boot, /usr, /var). Beste fitxategi "
-"sistemak (/home, /media/*, /usr/local, etc.) berriro formateatu gabe erabil "
-"daitezke."
+"${MOUNTPOINT} -i egokitutako ${PARTITION} -eko fitxategi-sistema ez da "
+"formateatua izateko markatu. Instalatzaile honek formateatuak behar dute "
+"sistemak erabilitako fitxategi-sistemak (/, /boot, /usr, /var). Beste "
+"fitxategi-sistemak (/home, /media/*, /usr/local, etc.) berriro formateatu "
+"gabe erabil daitezke."
 
 #. Type: note
 #. Description
@@ -1318,20 +1317,3 @@ msgstr "Sarea konfiguratzen..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Sarea konfiguratzen..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Hizkuntza: ${LANGUAGE}\n"
-#~ " Teklatu distribuzioa: ${KEYMAP}\n"
-#~ " Izen osoa: ${FULLNAME}\n"
-#~ " Erabiltzaile izena: ${USERNAME}\n"
-#~ " Kokalekua: ${LOCATION}\n"
-#~ " Migrazio laguntzailea:\n"
-#~ " ${MIGRATE}"

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-07 14:47+0000\n"
-"Last-Translator: Fumihito YOSHIDA <hito@kugutsu.org>\n"
+"PO-Revision-Date: 2007-04-20 19:34+0000\n"
+"Last-Translator: Sho \"Takeyari\" Sone <ss663995@gmail.com>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-08 09:28:10+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:14:21+0000\n"
 
 #. Type: text
 #. Description
@@ -216,7 +216,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr "Documents and Settingsを移行します。"
+msgstr "Documents and Settingsのインポート"
 
 #. Type: text
 #. Description
@@ -296,6 +296,9 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"ルートパーティション(\"/\")に最低でも2GB、スワップパーティションに最低でも"
+"256MBの領域を確保してください。　また、必要であれば別のパーティションもセット"
+"アップしてください。"
 
 #. Type: text
 #. Description
@@ -380,6 +383,8 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"コンピュータの再起動時に、CDを取り出すのを忘れないでください。CDが入ったまま"
+"の場合、新しくインストールされたシステムではなく、このライブCDが起動します。"
 
 #. Type: text
 #. Description
@@ -418,10 +423,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
-msgstr "インストールログをコピーしています..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -574,7 +577,7 @@ msgstr "クリーニング中です..."
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Importing documents and settings..."
-msgstr "Documents and Settingsを移行しています..."
+msgstr "Documents and Settingsをインポートしています..."
 
 #. Type: text
 #. Description
@@ -795,9 +798,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "インストールを中断しますか？"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -823,9 +825,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "インストールを中断しますか？"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -839,9 +840,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "インストール完了"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1217,9 +1217,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "パスワード:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1287,44 +1286,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "APTを設定しています..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "ハードウェアを設定しています..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "ハードウェアを設定しています..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "タイムゾーンを設定しています..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " 言語: ${LANGUAGE}\n"
-#~ " キーボードレイアウト: ${KEYMAP}\n"
-#~ " フルネーム: ${FULLNAME}\n"
-#~ " ログイン名: ${USERNAME}\n"
-#~ " 地域: ${LOCATION}\n"
-#~ " 移行アシスタント:\n"
-#~ " ${MIGRATE}"
+msgstr ""

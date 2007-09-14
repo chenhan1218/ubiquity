@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-02 03:22+0000\n"
+"PO-Revision-Date: 2007-09-11 05:31+0100\n"
 "Last-Translator: Arief S Fitrianto <arief@gurame.fisika.ui.ac.id>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
 "id>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:08:46+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:17:56+0000\n"
 
 #. Type: text
 #. Description
@@ -78,12 +78,14 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"JIka anda memiliki akses Internet, bacalah catatan rilis untuk informasi "
+"tentang masalah yang mungkin akan anda jumpai."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Release Notes"
-msgstr ""
+msgstr "Catatan Rilis"
 
 #. Type: text
 #. Description
@@ -228,6 +230,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"Pilih account-account yang ingin Anda impor dan isi form di bawah ini untuk "
+"masing-masing account. Dokumen dan setting untuk account-account tersebut "
+"akan tersedia setelah proses instalasi selesai."
 
 #. Type: text
 #. Description
@@ -236,12 +241,14 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Jika Anda tidak ingin mengimpor account, Anda tidak perlu memilih. Lanjut "
+"saja ke halaman berikutnya."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "Buat satu pengguna untuk mengimpor account yang terpilih ke sana:"
 
 #. Type: text
 #. Description
@@ -293,6 +300,10 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Anda perlu menyediakan sebuah partisi untuk sistem berkas root (titik kait "
+"\"/\") dengan ukuran minimal 2 GB, dan sebuah partisi swap dengan ukuran "
+"minimal 256 MB. Anda juga bisa membuat partisi-partisi lain jika anda "
+"menginginkannya."
 
 #. Type: text
 #. Description
@@ -379,6 +390,9 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Pastikan untuk memindahkan CD ini ketika melakukan restart komputer ini, "
+"kalau tidak, komputer ini akan menggunakan live CD ini kembali bukannya "
+"sistem yang baru terpasang."
 
 #. Type: text
 #. Description
@@ -406,12 +420,18 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" Bahasa: ${LANGUAGE}\n"
+" Susunan keyboard: ${KEYMAP}\n"
+" Nama: ${FULLNAME}\n"
+" Nama login: ${USERNAME}\n"
+" Lokasi: ${LOCATION}\n"
+" Asisten migrasi:\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 #, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
 msgstr "Sedang menyalin catatan instalasi..."
 
@@ -528,7 +548,7 @@ msgstr "Sedang menyalin catatan instalasi..."
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Mengkonfigurasi sistem tujuan..."
 
 #. Type: text
 #. Description
@@ -716,24 +736,30 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Proses instalasi hendak melakukan perubahan pada tabel partisi, tetapi tidak "
+"dapat, karena partisi pada titik-titik mount  berikut ini tidak dapat di-"
+"unmount:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Please close any applications using these mount points."
 msgstr ""
+"Mohon tutup semua aplikasi yang menggunakan titik-titik mount tersebut."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
+"Apakah anda ingin agar proses instalasi mencoba melakukan umount lagi "
+"terhadap partisi-partisi tersebut?"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:93001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Partisi sistem tidak diformat"
 
 #. Type: error
 #. Description
@@ -744,6 +770,11 @@ msgid ""
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+"Sistem berkas pada ${PARTITION} yang terpasang pada ${MOUNTPOINT} belum "
+"ditandai untuk diformat. Sistem berkas yang digunakan oleh sistem Linux (/, /"
+"boot, /usr, /var) harus diformat ulang agar dapat digunakan untuk instalasi. "
+"Sistem berkas lainnya (/home, /media/*, /usr/local, etc.) dapat digunakan "
+"kembali tanpa harus diformat."
 
 #. Type: note
 #. Description

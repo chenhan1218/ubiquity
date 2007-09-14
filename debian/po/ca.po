@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-02 02:58+0000\n"
-"Last-Translator: Jordi Mallach <jordi@canonical.com>\n"
+"PO-Revision-Date: 2007-09-11 05:26+0100\n"
+"Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:08:30+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:16:57+0000\n"
 
 #. Type: text
 #. Description
@@ -217,17 +217,22 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
+#, fuzzy
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "Migra els documents i els paràmetres"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
+#, fuzzy
 msgid ""
 "Select any accounts you would like to import and fill in the form below for "
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"Seleccioneu els comptes que voleu importar i empleneu el formulari d'aquí "
+"sota per a cada un. Els documents i els paràmetres d'aquests comptes estaran "
+"disponibles quan es completi la instal·lació."
 
 #. Type: text
 #. Description
@@ -290,11 +295,14 @@ msgstr "Prepareu les particions"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
+#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Assegureu-vos que assigneu espai per a una partició arrel («/»), amb una "
+"mida mínima de 2 GB, i una partició d'intercanvi d'almenys 256 MB."
 
 #. Type: text
 #. Description
@@ -376,10 +384,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
+#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Assegureu-vos que treieu el CD quan torneu a iniciar l'ordinador, o tornarà "
+"a iniciar-se utilitzant aquest CD autònom, en comptes del sistema que "
+"s'acaba d'instal·lar."
 
 #. Type: text
 #. Description
@@ -419,7 +431,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 #, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
 msgstr "S'estan copiant els registres de la instal·lació..."
 
@@ -486,6 +497,7 @@ msgstr ""
 #: ../ubiquity.templates:60001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr ""
+"La copia de fitxers ha fallat; és probable que el disc dur tingui un error."
 
 #. Type: error
 #. Description
@@ -501,6 +513,8 @@ msgstr ""
 #: ../ubiquity.templates:61001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr ""
+"La copia dels fitxers ha fallat; és probable que hi hagi un error al CD/DVD "
+"o al disc dur."
 
 #. Type: error
 #. Description
@@ -525,7 +539,7 @@ msgstr "S'estan copiant els registres de la instal·lació..."
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "S'està configurant el sistema instal·lat..."
 
 #. Type: text
 #. Description
@@ -561,7 +575,7 @@ msgstr "S'està creant un usuari..."
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "S'estan important els documents i paràmetres..."
 
 #. Type: text
 #. Description
@@ -713,18 +727,22 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"L'instal·lador necessita fer canvis a les taules de partició, però no ho pot "
+"fer perquè no pot desmuntar les particions en els següents punts de muntatge:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "Tanqueu les aplicacions que emprin aquests punts de muntatge:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
+"Voleu que l'instal·lador provi de desmuntar aquestes particions una altra "
+"vegada?"
 
 #. Type: error
 #. Description
@@ -1289,20 +1307,3 @@ msgstr "S'està configurant el maquinari..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "S'està configurant el fus horari..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Llengua:${LANGUAGE}\n"
-#~ " Disposició del teclat: ${KEYMAP}\n"
-#~ " Nom: ${FULLNAME}\n"
-#~ " Nom d'entrada: ${USERNAME}\n"
-#~ " Ubicació: ${LOCATION}\n"
-#~ " Assistent de migració:\n"
-#~ " ${MIGRATE}"

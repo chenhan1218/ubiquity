@@ -7,19 +7,19 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-03 10:36+0000\n"
-"Last-Translator: Bikram Lal Shrestha <bikram99@gmail.com>\n"
+"PO-Revision-Date: 2007-04-27 10:55+0000\n"
+"Last-Translator: dkafle <dkafle@gmail.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:11:41+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:18:20+0000\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr ""
+msgstr "स्थापना गर्नुहोस्"
 
 #. Type: text
 #. Description
@@ -41,6 +41,8 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"स्थापना गर्न तयार हुनुहुन्छ ? केही प्रश्नहरूको उत्तर दिएपछि लाईभ सिडिमा भएका बस्तुहरू यो "
+"कम्प्युटरमा स्थापित हुनेछन् र त्यसपछि सिडि बिना यो कम्प्युटर अझ छिटो चल्नेछ ।"
 
 #. Type: text
 #. Description
@@ -77,7 +79,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Release Notes"
-msgstr ""
+msgstr "सुरूवात टिप्पणी"
 
 #. Type: text
 #. Description
@@ -98,25 +100,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Selected city:"
-msgstr ""
+msgstr "सहर छान्नुहोस्:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "Time zone:"
-msgstr ""
+msgstr "समय क्षेत्र:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Selected region:"
-msgstr ""
+msgstr "क्षेत्र छान्नुहोस्:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Current time:"
-msgstr ""
+msgstr "हालको समय:"
 
 #. Type: text
 #. Description
@@ -166,26 +168,26 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "आफ्नो खाता सुरक्षित राख्न पासवर्ड छान्नुहोस् ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "तपाईं डिबगिङ् अवस्थामा चलिरहनुभएको छ । महत्वपूर्ण पासवर्ड प्रयोग नगर्नुहोस् !"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
+msgstr "टाईपिङ् गल्ती नहोस् भन्नका लागि उही पासवर्ड दुई पटक हाल्नुहोस् ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "What is the name of this computer?"
-msgstr ""
+msgstr "यो कम्प्युटरको नाम के हो ?"
 
 #. Type: text
 #. Description
@@ -193,13 +195,13 @@ msgstr ""
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr ""
+msgstr "यदि तपाईंले यो कम्प्युरलाई सञ्जालमा देखिने बनाउनुभयो भने यो नाम प्रयोग गरिने छ ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "कागजातहरू तथा सेटिङ्हरू सार्नुहोस्"
 
 #. Type: text
 #. Description
@@ -217,18 +219,19 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"यदि तपाईं कुनै खाता आयात गर्न चाहनुहुँदैन भने केहीपनि नछानिकन अर्को पृष्ठमा जानुहोस् ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "छानेको खाता आयात गर्ने प्रयोगकर्ता वनाउनुहोस्"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Full Name:"
-msgstr ""
+msgstr "पूरा नाम:"
 
 #. Type: text
 #. Description
@@ -360,8 +363,13 @@ msgstr ""
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:49001
+#, fuzzy
 msgid "Go Back"
-msgstr "पछाडी"
+msgstr ""
+"#-#-#-#-#  ne.po (ne)  #-#-#-#-#\n"
+"पछाडी जानुहोस्\n"
+"#-#-#-#-#  ne.po (debian-installer)  #-#-#-#-#\n"
+"पछाडी"
 
 #. Type: text
 #. Description

@@ -7,19 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-03-22 19:33+0000\n"
-"Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
+"PO-Revision-Date: 2007-05-10 23:14+0000\n"
+"Last-Translator: dhaval <dhaval@vyascentral.com>\n"
 "Language-Team: Gujarati <team@utkarsh.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:11:52+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:13:12+0000\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
+#, fuzzy
 msgid "Install"
-msgstr ""
+msgstr "સ્થાપન"
 
 #. Type: text
 #. Description
@@ -31,7 +32,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Welcome"
-msgstr ""
+msgstr "સ્વગતમ"
 
 #. Type: text
 #. Description
@@ -97,8 +98,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
+#, fuzzy
 msgid "Selected city:"
-msgstr ""
+msgstr "પસંદ કરેલ સમય વિસ્તાર"
 
 #. Type: text
 #. Description
@@ -109,8 +111,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
+#, fuzzy
 msgid "Selected region:"
-msgstr ""
+msgstr "પસંદ કરેલ સમય વિસ્તાર"
 
 #. Type: text
 #. Description
@@ -165,8 +168,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
+#, fuzzy
 msgid "Choose a password to keep your account safe."
-msgstr ""
+msgstr "નવા વપરાશકર્તા માટે પાસવર્ડ પસંદ કરો."
 
 #. Type: text
 #. Description
@@ -221,26 +225,30 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
+#, fuzzy
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "સામાન્ય વપરાશકર્તા ખાતું અત્યારે બનાવશો?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
+#, fuzzy
 msgid "Full Name:"
-msgstr ""
+msgstr "નામ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
+#, fuzzy
 msgid "Login Name:"
-msgstr ""
+msgstr "ડોમેઇન નામ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
+#, fuzzy
 msgid "Password:"
-msgstr ""
+msgstr "GRUB પાસવર્ડ:"
 
 #. Type: text
 #. Description
@@ -251,20 +259,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
+#, fuzzy
 msgid "Prepare disk space"
-msgstr ""
+msgstr "સ્વેપ જગ્યા બનાવો"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
+#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr ""
+msgstr "તમે પાર્ટિશન પાછુ લાવવા માંગો છો?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
+#, fuzzy
 msgid "Prepare partitions"
-msgstr ""
+msgstr "/home પાર્ટિશન અલગ કરો"
 
 #. Type: text
 #. Description
@@ -281,8 +292,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:38001 ../ubiquity.templates:51001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
+#, fuzzy
 msgid "Ready to install"
-msgstr ""
+msgstr "સ્થાપિત કરવાનું કર્નલ:"
 
 #. Type: text
 #. Description
@@ -306,14 +318,16 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:42001
+#, fuzzy
 msgid "Abort the installation?"
-msgstr ""
+msgstr "સ્થાપન અધુરૂ છોડી દો"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
+#, fuzzy
 msgid "Do you really want to abort the installation now?"
-msgstr ""
+msgstr "શું તમે પાર્ટિશન મેનુમાં પાછા જવા માંગો છો?"
 
 #. Type: text
 #. Description
@@ -324,8 +338,9 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:45001
+#, fuzzy
 msgid "Installation complete"
-msgstr ""
+msgstr "સ્થાપન નિષ્ફળ ગયું"
 
 #. Type: text
 #. Description
@@ -392,8 +407,9 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:53001
+#, fuzzy
 msgid "Installing system"
-msgstr ""
+msgstr "પાયાની સિસ્ટમ સ્થાપન કરે છે"
 
 #. Type: text
 #. Description
@@ -404,14 +420,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
+#, fuzzy
 msgid "Scanning files..."
-msgstr ""
+msgstr "ડિસ્કમાં શોધે છે..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
+#, fuzzy
 msgid "Copying files..."
-msgstr ""
+msgstr "નકલ થઈ રહી છે..."
 
 #. Type: text
 #. Description
@@ -422,8 +440,9 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:59001
+#, fuzzy
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr ""
+msgstr "સીડી-રોમમાંથી ફાઇલ નકલ કરવામાં નિષ્ફળ. ફરી પ્રયત્ન કરશો?"
 
 #. Type: error
 #. Description
@@ -449,8 +468,9 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:60001
+#, fuzzy
 msgid "Failed to copy files; faulty hard disk?"
-msgstr ""
+msgstr "સીડી-રોમમાંથી ફાઇલ નકલ કરવામાં નિષ્ફળ. ફરી પ્રયત્ન કરશો?"
 
 #. Type: error
 #. Description
@@ -464,8 +484,9 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:61001
+#, fuzzy
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "સીડી-રોમમાંથી ફાઇલ નકલ કરવામાં નિષ્ફળ. ફરી પ્રયત્ન કરશો?"
 
 #. Type: error
 #. Description
@@ -483,74 +504,86 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
+#, fuzzy
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "નકલ થઈ રહી છે..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
+#, fuzzy
 msgid "Configuring target system..."
-msgstr ""
+msgstr "પાયાની સિસ્ટમ રૂપરેખાંકિત કરે છે..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
+#, fuzzy
 msgid "Configuring system locales..."
-msgstr ""
+msgstr "APT સ્ત્રોતોને રૂપરેખાંકિત કરે છે..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
+#, fuzzy
 msgid "Configuring apt..."
-msgstr ""
+msgstr "apt રૂપરેખાંકિત કરે છે..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
+#, fuzzy
 msgid "Configuring time zone..."
-msgstr ""
+msgstr "સમય વિસ્તાર રૂપરેખાંકિત કરો"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
+#, fuzzy
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "APT સ્ત્રોતોને રૂપરેખાંકિત કરે છે..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
+#, fuzzy
 msgid "Creating user..."
-msgstr ""
+msgstr "સાફ કરે છે..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
+#, fuzzy
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "નેટવર્ક ગોઠવણીઓ સંગ્રહી રહ્યા છીએ ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
+#, fuzzy
 msgid "Configuring hardware..."
-msgstr ""
+msgstr "APT સ્ત્રોતોને રૂપરેખાંકિત કરે છે..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
+#, fuzzy
 msgid "Configuring network..."
-msgstr ""
+msgstr "નેટવર્ક રૂપરેખાંકિત કરો"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
+#, fuzzy
 msgid "Setting computer name..."
-msgstr ""
+msgstr "ગોઠવે છે..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
+#, fuzzy
 msgid "Configuring boot loader..."
-msgstr ""
+msgstr "APT સ્ત્રોતોને રૂપરેખાંકિત કરે છે..."
 
 #. Type: text
 #. Description
@@ -567,8 +600,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
+#, fuzzy
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "વધારાનાં પેકેજો સ્થાપિત કરે છે..."
 
 #. Type: text
 #. Description
@@ -585,8 +619,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:79001
+#, fuzzy
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "પેકેજનું માપ શોધે છે"
 
 #. Type: text
 #. Description
@@ -597,14 +632,16 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:82001
+#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr ""
+msgstr "${PACKAGE} સ્થાપિત કરવામાં અસક્ષમ"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:83001
+#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr ""
+msgstr "${PACKAGE} લાવે છે"
 
 #. Type: error
 #. Description
@@ -656,8 +693,9 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:86001
+#, fuzzy
 msgid "Installing language packs"
-msgstr ""
+msgstr "મુખ્ય પેકેજોનું સ્થાપન કરે છે"
 
 #. Type: text
 #. Description
@@ -682,20 +720,23 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
+#, fuzzy
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "મહેરબાની કરી આને માઉન્ટ બિંદુઓ બદલીને સુધારો."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:92001
+#, fuzzy
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "તમે આ પાર્ટિશનને સક્રિય બનાવવાનું પસંદ કરશો?"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:93001
+#, fuzzy
 msgid "System partition not formatted"
-msgstr ""
+msgstr "પાર્ટિશનોને ફોરમેટ થાય છે"
 
 #. Type: error
 #. Description

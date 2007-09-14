@@ -1,22 +1,19 @@
-# translation of debian-installer.po to Deutsch
 # German messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
-# Jannick Kuhr <jannick.kuhr@kdemail.net>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-02 22:14+0000\n"
-"Last-Translator: Jannick Kuhr <jakuhr-linux@gmx.de>\n"
-"Language-Team: Deutsch <kde-i18n-de@kde.org>\n"
+"PO-Revision-Date: 2007-09-11 05:27+0100\n"
+"Last-Translator: Jens Seidel <jensseidel@users.sf.net>\n"
+"Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:09:42+0000\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:08:34+0000\n"
 
 #. Type: text
 #. Description
@@ -438,7 +435,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 #, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
 msgstr "Installationsprotokolle werden kopiert ..."
 
@@ -1331,20 +1327,3 @@ msgstr "Hardware wird eingerichtet ..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Zeitzone wird eingerichtet ..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Sprache: ${LANGUAGE}\n"
-#~ " Tastaturlayout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Benutzername: ${USERNAME}\n"
-#~ " Standort: ${LOCATION}\n"
-#~ " Migrationsassistent:\n"
-#~ " ${MIGRATE}"

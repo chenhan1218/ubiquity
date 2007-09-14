@@ -13,13 +13,18 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:09:47+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:16:32+0000\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
+#, fuzzy
 msgid "Install"
-msgstr "نصب کردن"
+msgstr ""
+"#-#-#-#-#  fa.po (debian-installer)  #-#-#-#-#\n"
+"نصب کردن\n"
+"#-#-#-#-#  fa.po (ubiquity)  #-#-#-#-#\n"
+"نصب"
 
 #. Type: text
 #. Description
@@ -389,10 +394,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
-msgstr "در حال کپی‌کردن ثبتهای نصب..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -788,9 +791,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "نصب پایان یافت!"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1235,27 +1237,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "در حال تنظیم کردن apt..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "در حال انجام تنظیمات شبکه ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "در حال انجام تنظیمات شبکه ..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "در حال انجام تنظیمات شبکه ..."
+msgstr ""

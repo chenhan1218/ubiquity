@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-02 03:13+0000\n"
-"Last-Translator: Christian Perrier <bubulle@debian.org>\n"
+"PO-Revision-Date: 2007-09-13 18:57+0000\n"
+"Last-Translator: Doyen Philippe <dyphil@orange.fr>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:09:05+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:15:24+0000\n"
 
 #. Type: text
 #. Description
@@ -25,7 +25,7 @@ msgstr "Installer"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Installer (mode OEM, pour les constructeurs seulement)"
 
 #. Type: text
 #. Description
@@ -298,6 +298,10 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Assurez-vous d'allouer un espace d'au moins 2 Go pour la partition "
+"principale (« / »), et un espace d'au moins 256 Mo pour la partition "
+"d'échange (« swap »). Vous pouvez également configurer d'autres partitions "
+"si vous le désirez"
 
 #. Type: text
 #. Description
@@ -385,6 +389,9 @@ msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Assurez-vous de retirer le CD lorsque vous redémarrerez l'ordinateur, sinon "
+"vous relancerez le Live CD au lieu de démarrer votre système nouvellement "
+"installé."
 
 #. Type: text
 #. Description
@@ -421,10 +428,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
-msgstr "Copie des journaux de l'installation..."
+msgstr "Vérification de l'installation..."
 
 #. Type: title
 #. Description
@@ -611,13 +616,13 @@ msgstr "Configuration du chargeur de démarrage..."
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Installation des paquets additionnels..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Vérification des paquets à installer..."
 
 #. Type: text
 #. Description
@@ -665,13 +670,13 @@ msgstr "Erreur lors de la désinstallation de ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Erreur lors de l'installation des paquets"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:84001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Une erreur est survenue lors de l'installation des paquets :"
 
 #. Type: error
 #. Description
@@ -679,7 +684,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:84001 ../ubiquity.templates:85001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Les paquets suivants sont cassés :"
 
 #. Type: error
 #. Description
@@ -700,7 +705,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:85001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Erreur lors de la désinstallation des paquets"
 
 #. Type: error
 #. Description
@@ -804,9 +809,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "Interruption de l'installation"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -832,9 +836,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Interruption de l'installation"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -848,9 +851,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Installation terminée"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1226,9 +1228,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Mot de passe :"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1296,42 +1297,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Configuration de apt..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Configuration du matériel..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Configuration du matériel..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "Configuration du fuseau horaire..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Langue : ${LANGUAGE}\n"
-#~ " Disposition du clavier : ${KEYMAP}\n"
-#~ " Nom : ${FULLNAME}\n"
-#~ " Nom d'utilisateur : ${USERNAME}\n"
-#~ " Emplacement : ${LOCATION}"
+msgstr ""

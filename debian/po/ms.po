@@ -9,19 +9,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-03 09:05+0000\n"
-"Last-Translator: nbliang <nbliang@gmail.com>\n"
+"PO-Revision-Date: 2007-09-05 00:36+0000\n"
+"Last-Translator: Nicholas Ng <nbliang@gmail.com>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:11:46+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:08:41+0000\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
+#, fuzzy
 msgid "Install"
-msgstr ""
+msgstr "instal"
 
 #. Type: text
 #. Description
@@ -38,6 +39,7 @@ msgstr "Selamat Datang"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
+#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
@@ -47,18 +49,20 @@ msgstr "Bersedia untuk instal?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
+#, fuzzy
 msgid "Answering the questions should only take a few minutes."
 msgstr "Menjawab soalan sepatutnya mengambil masa beberapa minit sahaja."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
+#, fuzzy
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
-"Sila pilih bahasa untuk proses instal. Bahasa ini akan menjadi bahasa utama "
-"untuk sistem terakhir"
+"Sila pilih bahasa untuk proses instalasi. Bahasa ini akan dijadikan bahasa "
+"utama untuk sistem terakhir."
 
 #. Type: text
 #. Description
@@ -72,10 +76,13 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:7001
+#, fuzzy
 msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"Jika anda mempunyai akses Internet, baca nota yang dikeluarkan untuk "
+"maklumat tentang masalah yang mungkin memberi kesan kepada anda."
 
 #. Type: text
 #. Description
@@ -92,11 +99,15 @@ msgstr "Di mana anda?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
+#, fuzzy
 msgid ""
 "Select a city in your country and time zone. If the indicated current time "
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Pilih bandar dalam negara dan zon masa anda. Jika masa sekarang masih salah "
+"walaupun selepas memilih zon masa yang betul, anda boleh perbetulkannya "
+"selepas boot kembali ke dalam sistem yang telah diinstal."
 
 #. Type: text
 #. Description
@@ -113,8 +124,9 @@ msgstr "Zon masa:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
+#, fuzzy
 msgid "Selected region:"
-msgstr ""
+msgstr "Kawasan dipilih:"
 
 #. Type: text
 #. Description
@@ -125,14 +137,16 @@ msgstr "Masa sekarang:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
+#, fuzzy
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Paparan papan kekunci"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
+#, fuzzy
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "Paparan mana yang paling serupa dengan papan kekunci anda?"
 
 #. Type: text
 #. Description
@@ -161,10 +175,13 @@ msgstr "Apakah nama samaran yang anda ingin gunakan untuk log masuk?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
+#, fuzzy
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"Jika lebih dari seorang menggunakan komputer ini, anda boleh menetapkan "
+"banyak akaun selepas pemasangan."
 
 #. Type: text
 #. Description
@@ -196,10 +213,13 @@ msgstr "Apakah nama komputer ini?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
+#, fuzzy
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
+"Nama ini akan digunakan jika anda memaparkan komputer ini kepada pengguna "
+"lain dalam rangkaian"
 
 #. Type: text
 #. Description
@@ -219,34 +239,41 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
+#, fuzzy
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Jika anda tidak bercadang untuk mengimport sebarang akaun, pilih tiada dan "
+"pergi ke muka seterusnya."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
+#, fuzzy
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "Cipta pengguna untuk mengimport maklumat akaun yang dipilih:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
+#, fuzzy
 msgid "Full Name:"
-msgstr ""
+msgstr "Nama Penuh:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
+#, fuzzy
 msgid "Login Name:"
-msgstr ""
+msgstr "Nama Log Masuk:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
+#, fuzzy
 msgid "Password:"
-msgstr ""
+msgstr "Kata Laluan:"
 
 #. Type: text
 #. Description
@@ -293,15 +320,18 @@ msgstr "Bersedia untuk instal"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
+#, fuzzy
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
+"Sistem operasi baharu anda sekarang telah dipasang dengan ketetapan berikut:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
+#, fuzzy
 msgid "Boot loader"
-msgstr ""
+msgstr "Pemuat but"
 
 #. Type: text
 #. Description
@@ -312,8 +342,9 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:42001
+#, fuzzy
 msgid "Abort the installation?"
-msgstr ""
+msgstr "Batalkan instalasi tersebut"
 
 #. Type: text
 #. Description
@@ -330,20 +361,23 @@ msgstr "lompat"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:45001
+#, fuzzy
 msgid "Installation complete"
-msgstr ""
+msgstr "Pemasangan selesai"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
+#, fuzzy
 msgid "Continue using the live CD"
-msgstr ""
+msgstr "Sambung menggunakan live CD"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
+#, fuzzy
 msgid "Restart now"
-msgstr ""
+msgstr "Mulakan semula sekarang"
 
 #. Type: text
 #. Description
@@ -398,26 +432,30 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:53001
+#, fuzzy
 msgid "Installing system"
-msgstr ""
+msgstr "Sistem diinstal"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
+#, fuzzy
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "Mencari distribusi untuk disalin..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
+#, fuzzy
 msgid "Scanning files..."
-msgstr ""
+msgstr "Mengimbas fail..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
+#, fuzzy
 msgid "Copying files..."
-msgstr ""
+msgstr "Menyalin fail..."
 
 #. Type: text
 #. Description
@@ -489,74 +527,86 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
+#, fuzzy
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "Menyalin log pemasangan..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
+#, fuzzy
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Mengkonfigurasi sistem sasaran..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
+#, fuzzy
 msgid "Configuring system locales..."
-msgstr ""
+msgstr "Mengkonfigurasi sistem tempatan..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
+#, fuzzy
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Mengkonfigurasi apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
+#, fuzzy
 msgid "Configuring time zone..."
-msgstr ""
+msgstr "Mengkonfigurasi zon masa..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
+#, fuzzy
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Mengkonfigurasi papan kekunci..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
+#, fuzzy
 msgid "Creating user..."
-msgstr ""
+msgstr "Mencipta pengguna..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
+#, fuzzy
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Mengimport dokumen dan ketetapan..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
+#, fuzzy
 msgid "Configuring hardware..."
-msgstr ""
+msgstr "Mengkonfigurasi perkakasan..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
+#, fuzzy
 msgid "Configuring network..."
-msgstr ""
+msgstr "Mengkonfigurasi rangkaian..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
+#, fuzzy
 msgid "Setting computer name..."
-msgstr ""
+msgstr "Menetapkan nama komputer..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
+#, fuzzy
 msgid "Configuring boot loader..."
-msgstr ""
+msgstr "Mengkonfigurasi pemuat but..."
 
 #. Type: text
 #. Description
@@ -573,14 +623,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
+#, fuzzy
 msgid "Removing extra packages..."
-msgstr ""
+msgstr "Membuang pakej lebihan..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
+#, fuzzy
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Menyemak pakej untuk dibuang..."
 
 #. Type: text
 #. Description
@@ -591,8 +643,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:79001
+#, fuzzy
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Memuat turun senarai pakej..."
 
 #. Type: text
 #. Description
@@ -662,8 +715,9 @@ msgstr ""
 #. Type: title
 #. Description
 #: ../ubiquity.templates:86001
+#, fuzzy
 msgid "Installing language packs"
-msgstr ""
+msgstr "Memasang pek bahasa"
 
 #. Type: text
 #. Description

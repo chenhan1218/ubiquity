@@ -9,13 +9,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-11 20:10+0100\n"
-"PO-Revision-Date: 2007-04-10 14:42+0000\n"
-"Last-Translator: Zoran Olujic <olujicz@yahoo.com>\n"
+"PO-Revision-Date: 2007-08-26 19:28+0000\n"
+"Last-Translator: Milan Prvulović <prvulm@gmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-10 15:08:32+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:16:18+0000\n"
 
 #. Type: text
 #. Description
@@ -79,12 +79,14 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"Ако имате приступ интернету, прочитајте напомене о овом издању због "
+"информација о проблемима који вас могу погодити."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Release Notes"
-msgstr ""
+msgstr "Напомене о издању"
 
 #. Type: text
 #. Description
@@ -100,6 +102,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Изаберите град у својој држави и временску зону. Ако је тренутно назначено "
+"време нетачно, чак и после бирања временске зоне, можете га наместити после "
+"покретања система."
 
 #. Type: text
 #. Description
@@ -181,7 +186,7 @@ msgstr "Одаберите лозинку како бисте заштитили
 #. Description
 #: ../ubiquity.templates:23001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "Ви сте у режиму за налажење грешака. Не користите важне шифре!"
 
 #. Type: text
 #. Description
@@ -208,7 +213,7 @@ msgstr "Под овим ће именом други у мрежи видети 
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "Пренеси документа и подешавања"
 
 #. Type: text
 #. Description
@@ -218,6 +223,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"Одаберите неки од налога који бисте желели да увезете и попуните образац "
+"испод за сваки од њих. Документа и подешавања за одабране налоге ће бити "
+"доступни по завршетку инсталације."
 
 #. Type: text
 #. Description
@@ -226,36 +234,39 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Ако не желите да увезете ни један налог, немојте ништа одабрати и пређите на "
+"следећу страну."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Create a user to import the selected account into:"
 msgstr ""
+"Направите кориснички налог који ће преузети подешавања одабраног налога:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Full Name:"
-msgstr ""
+msgstr "Пуно име:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Login Name:"
-msgstr ""
+msgstr "Корисничко име:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Password:"
-msgstr ""
+msgstr "Лозинка:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Confirm:"
-msgstr ""
+msgstr "Потврди:"
 
 #. Type: text
 #. Description
@@ -267,22 +278,26 @@ msgstr "Припреми простор на диску"
 #. Description
 #: ../ubiquity.templates:35001
 msgid "How do you want to partition the disk?"
-msgstr "Kako želite da podelite disk?"
+msgstr "Како желите да поделите диск?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Prepare partitions"
-msgstr "Pripremi delove"
+msgstr "Припреми партиције"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
+#, fuzzy
 msgid ""
 "You need to specify a partition for the root file system (mount point \"/\") "
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Треба да одредите партицију за корени систем датотека (директоријум "
+"монтирања \"/\") са најмање 2 гигабајта, и партицију за виртуелну меморију "
+"са најмање 256 мегабајта. Такође, можете подесити и остале партиције."
 
 #. Type: text
 #. Description
@@ -303,8 +318,9 @@ msgstr "Ваш нови оперативни систем ће бити инст
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
+#, fuzzy
 msgid "Boot loader"
-msgstr ""
+msgstr "Покретач система"
 
 #. Type: text
 #. Description
@@ -363,10 +379,13 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
+#, fuzzy
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Проверите да ли сте извадили ЦД када рестартујете рачунар, ако нисте систем "
+"ће се поново покренути са Лајв ЦД-а, а не са инсталираног система."
 
 #. Type: text
 #. Description
@@ -394,14 +413,19 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" Језик: ${LANGUAGE}\n"
+" Распоред тастатуре: ${KEYMAP}\n"
+" Име: ${FULLNAME}\n"
+" Корисничко име: ${USERNAME}\n"
+" Локација: ${LOCATION}\n"
+" Миграциони асистент:\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
-#, fuzzy
-#| msgid "Copying installation logs..."
 msgid "Checking the installation..."
-msgstr "Kopiram instalacione beleške..."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -528,19 +552,19 @@ msgstr "Конфигуришем локализације система"
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Configuring apt..."
-msgstr "Podešavam apt..."
+msgstr "Подешавам apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Configuring time zone..."
-msgstr "Podešavam vremensku zonu..."
+msgstr "Подешавам временску зону..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Configuring keyboard..."
-msgstr "Podešavam tastaturu..."
+msgstr "Подешавам тастатуру..."
 
 #. Type: text
 #. Description
@@ -695,7 +719,7 @@ msgstr "Преузимам језичке пакете (преостало вр�
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Failed to unmount partitions"
-msgstr ""
+msgstr "Грешка у качењу партиција"
 
 #. Type: boolean
 #. Description
@@ -725,17 +749,22 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:93001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Системска партиција није форматирана."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:93001
+#, fuzzy
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+"Систем датотека на ${PARTITION}, који је прикључен на ${MOUNTPOINT}, није "
+"означен за форматирање. Систем датотека који користи систем (/, /boot, /"
+"usr, /var) мора бити форматиран у току процеса инсталације. Остали (/home, /"
+"media/*, /usr/local, etc.) се могу користити и без поновног форматирања."
 
 #. Type: note
 #. Description
@@ -768,9 +797,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "Прекинути инсталацију?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -796,9 +824,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Прекинути инсталацију?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -812,9 +839,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Инсталација је завршена"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1259,27 +1285,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Podešavam apt..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Подешавам физичке компоненте..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Подешавам физичке компоненте..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "Podešavam vremensku zonu..."
+msgstr ""
