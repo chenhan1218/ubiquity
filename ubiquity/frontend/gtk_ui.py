@@ -369,6 +369,9 @@ class Wizard(BaseFrontend):
             gtk.main()
         
         while(self.pagesindex < pageslen):
+            if self.current_page == None:
+                break
+
             old_dbfilter = self.dbfilter
             self.dbfilter = self.pages[self.pagesindex](self)
 
@@ -392,11 +395,6 @@ class Wizard(BaseFrontend):
                 if self.backup:
                     if self.pagesindex > 0:
                         self.pagesindex = self.pagesindex - 1
-
-            # TODO: Move this to after we're done processing GTK events, or is
-            # that not worth the CPU time?
-            if self.current_page == None:
-                break
 
             while gtk.events_pending():
                 gtk.main_iteration()
@@ -472,6 +470,9 @@ class Wizard(BaseFrontend):
 
         if 'UBIQUITY_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
+
+        # set initial bottom bar status
+        self.back.hide()
 
     def poke_screensaver(self):
         """Attempt to make sure that the screensaver doesn't kick in."""

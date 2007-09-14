@@ -2,6 +2,7 @@ ubiquity (1.5.15) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Fixed backup in the UI wrt the new page turning code.
+  * Fix canceling from the intro page.
 
   [ Colin Watson ]
   * Start ubiquity init script at 29; don't bother stopping it.
@@ -18,10 +19,10 @@ ubiquity (1.5.15) UNRELEASED; urgency=low
     interface. (LP: #136482)
 
   [ Mario Limonciello ]
-  * Include a .desktop file for mythbuntu installation.  
+  * Include a .desktop file for mythbuntu installation.
   * Divert the regular GTK desktop file on mythbuntu package.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 11 Sep 2007 18:18:27 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 14 Sep 2007 13:46:09 -0400
 
 ubiquity (1.5.14) gutsy; urgency=low
 
