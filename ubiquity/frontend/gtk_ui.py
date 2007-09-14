@@ -143,6 +143,7 @@ class Wizard(BaseFrontend):
         self.backup = None
         self.allowed_change_step = True
         self.allowed_go_forward = True
+        self.stay_on_page = False
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
         self.autopartition_extras = {}
@@ -387,7 +388,8 @@ class Wizard(BaseFrontend):
                     self.progress_loop()
                 elif self.current_page is not None and not self.backup:
                     self.process_step()
-                    self.pagesindex = self.pagesindex + 1
+                    if not self.stay_on_page:
+                        self.pagesindex = self.pagesindex + 1
                     if 'UBIQUITY_AUTOMATIC' in os.environ:
                         # if no debconf_progress, create another one, set start to pageindex
                         self.debconf_progress_step(1)
@@ -961,6 +963,9 @@ class Wizard(BaseFrontend):
         if len(error_msg) != 0:
             self.hostname_error_reason.set_text("\n".join(error_msg))
             self.hostname_error_box.show()
+            self.stay_on_page = True
+        else:
+            self.stay_on_page = False
 
 
     def process_autopartitioning(self):
