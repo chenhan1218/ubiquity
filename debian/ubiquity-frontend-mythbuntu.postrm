@@ -1,0 +1,13 @@
+#! /bin/sh
+
+set -e
+
+#DEBHELPER#
+
+case "$1" in
+        remove)
+        dpkg-divert --package ubiquity-frontend-mythbuntu --remove \
+                    --rename --divert /usr/share/applications/ubiquity-gtkui.desktop.diverted /usr/share/applications/ubiquity-gtkui.desktop
+        ;;
+esac
+

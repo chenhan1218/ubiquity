@@ -10,6 +10,10 @@ ubiquity (1.5.15) UNRELEASED; urgency=low
   * Allow VNC to be selected with foreign locales in mythbuntu
     interface. (LP: #136482)
 
+  [ Mario Limonciello ]
+  * Include a .desktop file for mythbuntu installation.  
+  * Divert the regular GTK desktop file on mythbuntu package.
+
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 11 Sep 2007 18:18:27 -0400
 
 ubiquity (1.5.14) gutsy; urgency=low
