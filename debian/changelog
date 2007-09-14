@@ -5,7 +5,7 @@ ubiquity (1.5.15) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Start ubiquity init script at 29; don't bother stopping it.
-  * Update translations from Rosetta.
+  * Update translations from Rosetta (LP: #132157).
 
   [ Michael Haas ]
   * Allow VNC to be selected with foreign locales in mythbuntu
