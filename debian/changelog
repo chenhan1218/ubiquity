@@ -14,6 +14,8 @@ ubiquity (1.5.15) UNRELEASED; urgency=low
   * Internationalise partitioning and advanced dialogs. Remove
     popcon_checkbutton special case as its text now differs from that in
     popularity-contest.
+  * Automatic update of included source packages: partman-auto-loop
+    0ubuntu6, user-setup 1.14ubuntu2.
 
   [ Michael Haas ]
   * Allow VNC to be selected with foreign locales in mythbuntu
