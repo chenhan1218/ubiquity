@@ -14,6 +14,7 @@ ubiquity (1.5.15) UNRELEASED; urgency=low
   * Internationalise partitioning and advanced dialogs. Remove
     popcon_checkbutton special case as its text now differs from that in
     popularity-contest.
+  * Don't ignore 'make distclean' errors other than missing Makefiles.
   * Automatic update of included source packages: partman-auto-loop
     0ubuntu6, user-setup 1.14ubuntu2.
 

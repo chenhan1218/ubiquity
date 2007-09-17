@@ -75,7 +75,7 @@ clean:
 	find -type f \( -name \*.pyc -o -name \*.pyo \) -print0 | xargs -0r rm -f
 
 	$(MAKE) -C d-i clean
-	-$(MAKE) distclean
+	[ ! -f Makefile ] || $(MAKE) distclean
 
 	dh_clean debian/ubiquity.install ubiquity/keyboard_names.py
 
