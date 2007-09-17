@@ -1,3 +1,9 @@
+ubiquity (1.5.16) UNRELEASED; urgency=low
+
+  * Updated kde_ui.py to reflect recent fixes to gtk_ui.py.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 17 Sep 2007 11:50:02 -0400
+
 ubiquity (1.5.15) gutsy; urgency=low
 
   [ Evan Dandrea ]
