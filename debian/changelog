@@ -1,4 +1,4 @@
-ubiquity (1.5.15) UNRELEASED; urgency=low
+ubiquity (1.5.15) gutsy; urgency=low
 
   [ Evan Dandrea ]
   * Fixed backup in the UI wrt the new page turning code.
@@ -26,7 +26,7 @@ ubiquity (1.5.15) UNRELEASED; urgency=low
   * Include a .desktop file for mythbuntu installation.
   * Divert the regular GTK desktop file on mythbuntu package.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 14 Sep 2007 13:46:09 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 17 Sep 2007 14:23:02 +0100
 
 ubiquity (1.5.14) gutsy; urgency=low
 
