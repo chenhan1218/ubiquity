@@ -1,6 +1,10 @@
 ubiquity (1.5.16) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Updated kde_ui.py to reflect recent fixes to gtk_ui.py.
+
+  [ Colin Watson ]
+  * Translate widgets from all glade files, not just the main one.
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 17 Sep 2007 11:50:02 -0400
 
