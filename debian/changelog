@@ -5,6 +5,8 @@ ubiquity (1.5.16) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Translate widgets from all glade files, not just the main one.
+  * Purge ucf's state for /etc/papersize so that it will be recreated
+    properly (LP: #128258).
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 17 Sep 2007 11:50:02 -0400
 

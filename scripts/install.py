@@ -1091,6 +1091,7 @@ exit 0"""
             os.unlink('/target/etc/papersize')
         except OSError:
             pass
+        self.chrex('ucf', '--purge', '/etc/papersize')
         try:
             self.set_debconf('libpaper/defaultpaper', '')
         except debconf.DebconfError:
