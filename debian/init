@@ -7,15 +7,17 @@ NAME=ubiquity
 
 test -x /usr/bin/ubiquity-dm || exit 0
 
+automatic=
 for x in $(cat /proc/cmdline); do
 	case $x in
 		automatic-ubiquity)
-			;;
-		*)
-			[ "$1" = force-start ] || exit 0
+			automatic=1
 			;;
 	esac
 done
+if [ -z "$automatic" ] && [ "$1" != force-start ]; then
+	exit 0
+fi
     
 if [ -r /etc/environment ]; then
 	if LANG=$(pam_getenv -l LANG); then
