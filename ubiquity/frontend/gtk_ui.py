@@ -2379,7 +2379,7 @@ class Wizard(BaseFrontend):
             # Go back to the partitioner and try again.
             self.live_installer.show()
             # FIXME: ugh, can't hardcode this.
-            self.pagesindex = 1
+            self.pagesindex = 3
             self.dbfilter = partman.Partman(self)
             self.set_current_page(self.previous_partitioning_page)
             self.next.set_label("gtk-go-forward")

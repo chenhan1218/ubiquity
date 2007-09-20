@@ -2,6 +2,7 @@ ubiquity (1.5.16) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Updated kde_ui.py to reflect recent fixes to gtk_ui.py.
+  * Small fix to return to the right page on return_to_partitioning.
 
   [ Colin Watson ]
   * Translate widgets from all glade files, not just the main one.
