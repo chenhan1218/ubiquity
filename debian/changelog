@@ -1,4 +1,4 @@
-ubiquity (1.5.16) UNRELEASED; urgency=low
+ubiquity (1.5.16) gutsy; urgency=low
 
   [ Evan Dandrea ]
   * Updated kde_ui.py to reflect recent fixes to gtk_ui.py.
@@ -14,7 +14,7 @@ ubiquity (1.5.16) UNRELEASED; urgency=low
     migration-assistant 0.5.0, partman-auto-loop 0ubuntu7, partman-base
     107ubuntu3.
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 17 Sep 2007 11:50:02 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 20 Sep 2007 22:59:23 +0100
 
 ubiquity (1.5.15) gutsy; urgency=low
 
