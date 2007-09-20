@@ -60,7 +60,7 @@ class Wizard(BaseFrontend):
     def run(self):
         """Main entry point."""
         # Is this even needed anymore now that Ubiquity elevates its
-        # privilidges?
+        # privileges?
         if os.getuid() != 0:
             print 'This installer must be run with administrative ' \
                 'privileges, and cannot continue without them.'
