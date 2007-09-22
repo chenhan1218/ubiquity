@@ -18,6 +18,7 @@
 
 import syslog
 import sys
+import os
 import debconf
 
 from ubiquity.filteredcommand import FilteredCommand
@@ -64,7 +65,13 @@ class MigrationAssistant(FilteredCommand):
                 if self.db.get('migration-assistant/partitions') != '':
                     self.set_choices()
                     self.firstrun = False
-                    return FilteredCommand.run(self, priority, question)
+                    # TODO cjwatson 2007-09-22: This is a wart, but it
+                    # prevents the ubiquity interface from always being
+                    # shown in automatic installs.
+                    if 'UBIQUITY_AUTOMATIC' in os.environ:
+                        return self.succeeded
+                    else:
+                        return FilteredCommand.run(self, priority, question)
                 else:
                     self.db.set('ubiquity/run-ma-again', 'false')
 

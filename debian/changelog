@@ -2,6 +2,8 @@ ubiquity (1.5.17) UNRELEASED; urgency=low
 
   * Use the --automatic option when running ubiquity from the init script
     (thanks, Evan Dandrea).
+  * Work around migration-assistant always being shown in automatic
+    installs.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 21 Sep 2007 20:32:52 +0100
 
