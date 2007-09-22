@@ -1,4 +1,4 @@
-ubiquity (1.5.17) UNRELEASED; urgency=low
+ubiquity (1.5.17) gutsy; urgency=low
 
   * Use the --automatic option when running ubiquity from the init script
     (thanks, Evan Dandrea).
@@ -7,7 +7,7 @@ ubiquity (1.5.17) UNRELEASED; urgency=low
   * Automatic update of included source packages: migration-assistant 0.5.1,
     partman-auto-loop 0ubuntu9.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 21 Sep 2007 20:32:52 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 22 Sep 2007 03:27:23 +0100
 
 ubiquity (1.5.16) gutsy; urgency=low
 
