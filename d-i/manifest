@@ -8,10 +8,10 @@ grub-installer 1.24ubuntu4
 hw-detect 1.53ubuntu2
 kboot-installer 0.0.1ubuntu4
 localechooser 1.38ubuntu2
-migration-assistant 0.5.0
+migration-assistant 0.5.1
 partconf 1.23
 partman-auto 69ubuntu5
-partman-auto-loop 0ubuntu7
+partman-auto-loop 0ubuntu9
 partman-base 107ubuntu3
 partman-basicfilesystems 54ubuntu3
 partman-basicmethods 35

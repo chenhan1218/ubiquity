@@ -4,6 +4,8 @@ ubiquity (1.5.17) UNRELEASED; urgency=low
     (thanks, Evan Dandrea).
   * Work around migration-assistant always being shown in automatic
     installs.
+  * Automatic update of included source packages: migration-assistant 0.5.1,
+    partman-auto-loop 0ubuntu9.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 21 Sep 2007 20:32:52 +0100
 
