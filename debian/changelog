@@ -1,3 +1,10 @@
+ubiquity (1.5.18) UNRELEASED; urgency=low
+
+  [ Mario Limonciello ]
+  * Add support for all three nvidia drivers upon install.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Sun, 23 Sep 2007 12:11:50 -0500
+
 ubiquity (1.5.17) gutsy; urgency=low
 
   * Use the --automatic option when running ubiquity from the init script

@@ -179,8 +179,10 @@ class Install(install.Install):
         vnc = self.db.get('mythbuntu/vncservice')
         nfs = self.db.get('mythbuntu/nfsservice')
         to_install = []
-        if video_driver == "nvidia":
+        if video_driver == "nvidia_new":
             to_install.append('nvidia-glx-new')
+        elif video_driver == "nvidia":
+            to_install.append('nvidia-glx')
         elif video_driver == "nvidia_legacy":
             to_install.append('nvidia-glx-legacy')
         elif video_driver == "fglrx":
