@@ -399,7 +399,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 list = string.split(line, '"')
                 if len(list) > 1:
                     self.video_driver.append_text("Open Source Driver: " + list[1])
-                    self.video_driver.set_active(5)
+                    self.video_driver.set_active(4)
                     self.tvoutstandard.set_active(0)
                     self.tvouttype.set_active(0)
                     break
@@ -804,7 +804,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             else:
                 self.tvout_vbox.set_sensitive(False)
                 self.videodrivers_hbox.set_sensitive(False)
-                self.video_driver.set_active(5)
+                self.video_driver.set_active(4)
                 self.tvoutstandard.set_active(0)
                 self.tvouttype.set_active(0)
         elif (widget is not None and widget.get_name() == 'video_driver'):
@@ -995,8 +995,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             elif driver == 2:
                 return "nvidia"
             elif driver == 3:
-                return "nvidia_new"
-            elif driver == 4:
                 return "openchrome"
             else:
                 return "None"

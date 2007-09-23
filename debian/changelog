@@ -1,7 +1,7 @@
 ubiquity (1.5.18) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
-  * Add support for all three nvidia drivers upon install.
+  * Fix minor typo in apply-drivers.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Sun, 23 Sep 2007 12:11:50 -0500
 
