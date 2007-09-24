@@ -57,7 +57,7 @@ def _realpath_root_recurse(root, filename):
                 return os.path.abspath(os.path.join(component, *bits[i:]))
             else:
                 newpath = os.path.join(resolved, *bits[i:])
-                return _realpath_root(root, newpath)
+                return _realpath_root_recurse(root, newpath)
 
     return os.path.abspath(filename)
 

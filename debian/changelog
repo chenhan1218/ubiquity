@@ -7,7 +7,10 @@ ubiquity (1.5.18) UNRELEASED; urgency=low
   * GTK frontend:
     - Make release notes button work again (LP: #138365).
 
- -- Mario Limonciello <superm1@ubuntu.com>  Sun, 23 Sep 2007 12:11:50 -0500
+  [ Evan Dandrea ]
+  * Fix typo in realpath_recurse (LP: #144460).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 24 Sep 2007 11:22:37 -0400
 
 ubiquity (1.5.17) gutsy; urgency=low
 
