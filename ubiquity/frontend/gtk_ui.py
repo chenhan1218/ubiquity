@@ -468,6 +468,7 @@ class Wizard(BaseFrontend):
             raise
         except:
             self.release_notes_vbox.hide()
+        gtk.link_button_set_uri_hook(self.link_button_browser)
 
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()

@@ -1108,3 +1108,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def get_hdhomerun(self):
         return self.hdhomerun.get_active()
+
+	def get_xmltv(self):
+		return self.xmltv.get_active()

@@ -57,14 +57,17 @@ def _realpath_root_recurse(root, filename):
                 return os.path.abspath(os.path.join(component, *bits[i:]))
             else:
                 newpath = os.path.join(resolved, *bits[i:])
-                return _realpath_root(root, newpath)
+                return _realpath_root_recurse(root, newpath)
 
     return os.path.abspath(filename)
 
 def realpath_root(root, filename):
     """Like os.path.realpath, but resolved relative to root.
     filename must be absolute."""
-    return os.path.join(root, _realpath_root_recurse(root, filename))
+    chrooted_filename = _realpath_root_recurse(root, filename)
+    if chrooted_filename.startswith('/'):
+        chrooted_filename = chrooted_filename[1:]
+    return os.path.join(root, chrooted_filename)
 
 
 def find_on_path_root(root, command):

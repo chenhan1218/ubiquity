@@ -97,10 +97,13 @@ class MythbuntuApply(FilteredCommand):
         ssh = self.db.get('mythbuntu/sshservice')
         if ssh == "false":
             patternline += "|^openssh-server"
-        pattern = re.compile(patternline)
         hdhomerun = self.db.get('mythbuntu/hdhomerun')
         if hdhomerun == "false":
             patternline += "|^hdhomerun-config"
+        xmltv = self.db.get('mythbuntu/xmltv')
+        if xmltv == "false":
+            patternline += "|^xmltv"
+        pattern = re.compile(patternline)
         for line in in_f:
             if pattern.search(line) is None:
                 out_f.write(line)
