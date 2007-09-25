@@ -129,8 +129,10 @@ class Wizard(BaseFrontend):
                                    'step_label',
                                    'cancel', 'back', 'next')
         self.current_page = None
+        self.first_seen_page = None
         self.allowed_change_step = True
         self.allowed_go_forward = True
+        self.stay_on_page = False
         self.mainLoopRunning = False
         self.progressDialogue = None
         self.progress_position = ubiquity.progressposition.ProgressPosition()
@@ -294,6 +296,9 @@ class Wizard(BaseFrontend):
             self.app.exec_()
         
         while(self.pagesindex < pageslen):
+            if self.current_page == None:
+                break
+
             if not self.installing:
                 # Make sure any started progress bars are stopped.
                 while self.progress_position.depth() != 0:
@@ -315,18 +320,12 @@ class Wizard(BaseFrontend):
                     self.progress_loop()
                 elif self.current_page is not None and not self.backup:
                     self.process_step()
-                    self.pagesindex = self.pagesindex + 1
+                    if not self.stay_on_page:
+                        self.pagesindex = self.pagesindex + 1
                 if self.backup:
                     if self.pagesindex > 0:
                         self.pagesindex = self.pagesindex - 1
             
-            self.userinterface.back.show()
-
-            # TODO: Move this to after we're done processing GTK events, or is
-            # that not worth the CPU time?
-            if self.current_page == None:
-                break
-
             self.app.processEvents()
 
             # needed to be here for --automatic as there might not be any
@@ -563,7 +562,7 @@ class Wizard(BaseFrontend):
             # Rather than try to guess which partman page we should be on,
             # we leave that decision to set_autopartitioning_choices and
             # update_partman.
-            pass
+            return
         elif n == 'UserSetup':
             self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
         elif n == 'Summary':
@@ -572,6 +571,14 @@ class Wizard(BaseFrontend):
             self.userinterface.next.setText(installText)
         else:
             print >>sys.stderr, 'No page found for %s' % n
+            return
+
+        if not self.first_seen_page:
+            self.first_seen_page = n
+        if self.first_seen_page == self.pages[self.pagesindex].__name__:
+            self.userinterface.back.hide()
+        else:
+            self.userinterface.back.show()
     
     def set_current_page(self, current):
         widget = self.userinterface.widgetStack.widget(current)
@@ -656,9 +663,13 @@ class Wizard(BaseFrontend):
     def do_reboot(self):
         """Callback for main program to actually reboot the machine."""
 
-        execute('dcop', 'ksmserver', 'ksmserver', 'logout',
-                # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
-                '0', '1', '2')
+        if 'DESKTOP_SESSION' in os.environ:
+            execute('dcop', 'ksmserver', 'ksmserver', 'logout',
+                    # ShutdownConfirmNo, ShutdownTypeReboot,
+                    # ShutdownModeForceNow
+                    '0', '1', '2')
+        else:
+            execute('reboot')
 
     def quit(self):
         """quit installer cleanly."""
@@ -768,7 +779,6 @@ class Wizard(BaseFrontend):
         # Language
         elif step == "stepLanguage":
             self.translate_widgets()
-            self.userinterface.back.show()
         # Automatic partitioning
         elif step == "stepPartAuto":
             self.process_autopartitioning()
@@ -805,6 +815,9 @@ class Wizard(BaseFrontend):
             self.userinterface.hostname_error_reason.setText("\n".join(error_msg))
             self.userinterface.hostname_error_reason.show()
             self.userinterface.hostname_error_image.show()
+            self.stay_on_page = True
+        else:
+            self.stay_on_page = False
 
     def process_autopartitioning(self):
         """Processing automatic partitioning step tasks."""
@@ -837,9 +850,7 @@ class Wizard(BaseFrontend):
 
         changed_page = False
 
-        if str(step) == "stepLocation":
-            self.userinterface.back.hide()
-        elif str(step) == "stepReady":
+        if str(step) == "stepReady":
             self.userinterface.next.setText("Next >")
             self.translate_widget(self.userinterface.next, self.locale)
 

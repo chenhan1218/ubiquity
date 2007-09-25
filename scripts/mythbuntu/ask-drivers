@@ -7,8 +7,8 @@
 
 . /usr/share/debconf/confmodule
 
-#determine prop. drivers
-db_input high mythbuntu/proprietary_driver || true
+#determine video. drivers
+db_input high mythbuntu/video_driver || true
 #determine tv out settings
 db_input high mythbuntu/tvout || true
 db_input high mythbuntu/tvstandard || true

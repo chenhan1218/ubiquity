@@ -112,6 +112,7 @@ class Wizard(BaseFrontend):
         def add_widgets(self, glade):
             """Makes all widgets callable by the toplevel."""
             for widget in glade.get_widget_prefix(""):
+                self.all_widgets.add(widget)
                 setattr(self, widget.get_name(), widget)
                 # We generally want labels to be selectable so that people can
                 # easily report problems in them
@@ -128,6 +129,7 @@ class Wizard(BaseFrontend):
         sys.excepthook = self.excepthook
 
         # declare attributes
+        self.all_widgets = set()
         self.gconf_previous = {}
         self.thunar_previous = {}
         self.language_questions = ('live_installer',
@@ -139,8 +141,11 @@ class Wizard(BaseFrontend):
                                    'warning_dialog', 'warning_dialog_label',
                                    'cancelbutton', 'exitbutton')
         self.current_page = None
+        self.first_seen_page = None
+        self.backup = None
         self.allowed_change_step = True
         self.allowed_go_forward = True
+        self.stay_on_page = False
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_cancelled = False
         self.autopartition_extras = {}
@@ -324,6 +329,20 @@ class Wizard(BaseFrontend):
         self.hostname_changed_id = self.hostname.connect(
             'changed', self.on_hostname_changed)
 
+        self.pages = [language.Language, timezone.Timezone,
+            console_setup.ConsoleSetup, partman.Partman,
+            migrationassistant.MigrationAssistant, usersetup.UserSetup,
+            summary.Summary]
+        self.pagesindex = 0
+        pageslen = len(self.pages)
+        
+        if 'UBIQUITY_AUTOMATIC' in os.environ:
+            got_intro = False
+            self.live_installer.hide()
+            self.debconf_progress_start(0, pageslen,
+                self.get_string('ubiquity/install/checking'))
+            self.refresh()
+
         # Start the interface
         if got_intro:
             global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
@@ -349,23 +368,13 @@ class Wizard(BaseFrontend):
                     BREADCRUMB_STEPS[step] -= 1
             BREADCRUMB_MAX_STEP -= 1
 
-        self.pages = [language.Language, timezone.Timezone,
-            console_setup.ConsoleSetup, partman.Partman,
-            migrationassistant.MigrationAssistant, usersetup.UserSetup,
-            summary.Summary]
-        self.pagesindex = 0
-        pageslen = len(self.pages)
-        
         if got_intro:
             gtk.main()
         
         while(self.pagesindex < pageslen):
-            if not self.installing:
-                # Make sure any started progress bars are stopped.
-                while self.progress_position.depth() != 0:
-                    self.debconf_progress_stop()
+            if self.current_page == None:
+                break
 
-            self.backup = False
             old_dbfilter = self.dbfilter
             self.dbfilter = self.pages[self.pagesindex](self)
 
@@ -381,17 +390,15 @@ class Wizard(BaseFrontend):
                     self.progress_loop()
                 elif self.current_page is not None and not self.backup:
                     self.process_step()
-                    self.pagesindex = self.pagesindex + 1
+                    if not self.stay_on_page:
+                        self.pagesindex = self.pagesindex + 1
+                    if 'UBIQUITY_AUTOMATIC' in os.environ:
+                        # if no debconf_progress, create another one, set start to pageindex
+                        self.debconf_progress_step(1)
+                        self.refresh()
                 if self.backup:
                     if self.pagesindex > 0:
                         self.pagesindex = self.pagesindex - 1
-            
-            self.back.show()
-
-            # TODO: Move this to after we're done processing GTK events, or is
-            # that not worth the CPU time?
-            if self.current_page == None:
-                break
 
             while gtk.events_pending():
                 gtk.main_iteration()
@@ -471,7 +478,6 @@ class Wizard(BaseFrontend):
         # set initial bottom bar status
         self.back.hide()
 
-
     def poke_screensaver(self):
         """Attempt to make sure that the screensaver doesn't kick in."""
         if os.path.exists('/usr/bin/gnome-screensaver-command'):
@@ -516,7 +522,7 @@ class Wizard(BaseFrontend):
             core_names.append('ubiquity/imported/%s' % stock_item)
         i18n.get_translations(languages=languages, core_names=core_names)
 
-        for widget in self.glade.get_widget_prefix(""):
+        for widget in self.all_widgets:
             self.translate_widget(widget, self.locale)
 
     def translate_widget(self, widget, lang):
@@ -658,27 +664,40 @@ class Wizard(BaseFrontend):
 
 
     def set_page(self, n):
+        # We only stop the backup process when we're on a page where questions
+        # need to be asked, otherwise you wont be able to back up past
+        # migration-assistant.
+        self.backup = False
         self.live_installer.show()
         if n == 'Language':
-            self.set_current_page(self.steps.page_num(self.stepLanguage))
+            cur = self.stepLanguage
         elif n == 'ConsoleSetup':
-            self.set_current_page(self.steps.page_num(self.stepKeyboardConf))
+            cur = self.stepKeyboardConf
         elif n == 'Timezone':
-            self.set_current_page(self.steps.page_num(self.stepLocation))
+            cur = self.stepLocation
         elif n == 'Partman':
             # Rather than try to guess which partman page we should be on,
             # we leave that decision to set_autopartitioning_choices and
             # update_partman.
-            pass
+            return
         elif n == 'UserSetup':
-            self.set_current_page(self.steps.page_num(self.stepUserInfo))
+            cur = self.stepUserInfo
         elif n == 'Summary':
-            self.set_current_page(self.steps.page_num(self.stepReady))
+            cur = self.stepReady
             self.next.set_label("Install")
         elif n == 'MigrationAssistant':
-            self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
+            cur = self.stepMigrationAssistant
         else:
             print >>sys.stderr, 'No page found for %s' % n
+            return
+        
+        self.set_current_page(self.steps.page_num(cur))
+        if not self.first_seen_page:
+            self.first_seen_page = n
+        if self.first_seen_page == self.pages[self.pagesindex].__name__:
+            self.back.hide()
+        elif 'UBIQUITY_AUTOMATIC' not in os.environ:
+            self.back.show()
 
     def set_current_page(self, current):
         if self.steps.get_current_page() == current:
@@ -758,7 +777,8 @@ class Wizard(BaseFrontend):
         """Callback for main program to actually reboot the machine."""
 
         if (os.path.exists("/usr/bin/gdm-signal") and
-            os.path.exists("/usr/bin/gnome-session-save")):
+            os.path.exists("/usr/bin/gnome-session-save") and
+            'DESKTOP_SESSION' in os.environ):
             execute("gdm-signal", "--reboot")
             if 'SUDO_UID' in os.environ:
                 user = '#%d' % int(os.environ['SUDO_UID'])
@@ -902,7 +922,6 @@ class Wizard(BaseFrontend):
         
         elif step == "stepLanguage":
             self.translate_widgets()
-            self.back.show()
             # FIXME: needed anymore now that we're doing dbfilter first?
             #self.allow_go_forward(self.get_timezone() is not None)
         # Automatic partitioning
@@ -946,6 +965,9 @@ class Wizard(BaseFrontend):
         if len(error_msg) != 0:
             self.hostname_error_reason.set_text("\n".join(error_msg))
             self.hostname_error_box.show()
+            self.stay_on_page = True
+        else:
+            self.stay_on_page = False
 
 
     def process_autopartitioning(self):
@@ -2357,7 +2379,7 @@ class Wizard(BaseFrontend):
             # Go back to the partitioner and try again.
             self.live_installer.show()
             # FIXME: ugh, can't hardcode this.
-            self.pagesindex = 1
+            self.pagesindex = 3
             self.dbfilter = partman.Partman(self)
             self.set_current_page(self.previous_partitioning_page)
             self.next.set_label("gtk-go-forward")

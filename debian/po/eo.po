@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-08-09 18:24+0100\n"
-"PO-Revision-Date: 2007-04-06 19:58+0000\n"
-"Last-Translator: OlivierWeb <olivierweb@ifrance.com>\n"
+"POT-Creation-Date: 2007-09-14 15:07+0100\n"
+"PO-Revision-Date: 2007-09-11 05:28+0100\n"
+"Last-Translator: Serge Leblanc <serge.leblanc@wanadoo.fr>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-10 15:08:57+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:19:39+0000\n"
 
 #. Type: text
 #. Description
@@ -77,6 +77,8 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"Se vi havas interretan aliron, legu la eldonajn notojn por informoj pri "
+"problemoj kiuj povus trafi vin."
 
 #. Type: text
 #. Description
@@ -98,6 +100,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"Elekti urbon en via lando kaj horan zonon. Se la vidata nuna horo estas "
+"nekorekta eĉ post elektado de la korekta hora zono, vi povas ĝustigi ĝin "
+"post la relanĉo en la instalota sistemo."
 
 #. Type: text
 #. Description
@@ -179,7 +184,7 @@ msgstr "Elektu pasvorton por sekurigi vian konton."
 #. Description
 #: ../ubiquity.templates:23001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "Vi rulas en sencimiga reĝimo. Ne uzu multvaloran pasvorton!"
 
 #. Type: text
 #. Description
@@ -210,7 +215,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "Migraad"
 
 #. Type: text
 #. Description
@@ -220,6 +225,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"Elektu iujn ajn kontojn kiujn vi volas importi kaj plenumu la enigon por "
+"ĉiu. La dokumentoj kaj agordoj por tiuj ĉi kontoj estos disponeblaj post la "
+"fino de instalado."
 
 #. Type: text
 #. Description
@@ -228,36 +236,38 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Se vi ne deziras importi iujn ajn kontojn, elektu nenion kaj iru al sekva "
+"paĝo."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "Krei uzanton por importi la elektitan konton en:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Full Name:"
-msgstr ""
+msgstr "Kompleta Nomo:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Login Name:"
-msgstr ""
+msgstr "Salutnomo:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Password:"
-msgstr ""
+msgstr "Pasvorto:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Confirm:"
-msgstr ""
+msgstr "Konfirmi:"
 
 #. Type: text
 #. Description
@@ -285,12 +295,15 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Certiĝu fari spacon por radika diskparto (\"/\"), de minimume 2 GB, kaj "
+"\"swap\"-a diskparto de minimume 256 MB. Vi ankaŭ povas establi aliajn "
+"diskpartojn laŭdezire."
 
 #. Type: text
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:38001 ../ubiquity.templates:51001
+#: ../ubiquity.templates:38001 ../ubiquity.templates:67001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr "Pretas por instalado"
@@ -305,54 +318,148 @@ msgstr "Via nova operaciumo estos nun instalita kun la sekvaj agordoj:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-msgid "Boot loader"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:41001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "Paŝo ${INDEX} el ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:41001
 msgid "Abort the installation?"
 msgstr "Ĉu abortigu la instaladon?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:42001
 msgid "Do you really want to abort the installation now?"
 msgstr "Ĉu vi vere volas abortigi la instaladon nun?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:43001
 msgid "Skip"
 msgstr "Preterpasi"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:44001
 msgid "Installation complete"
 msgstr "Kompleta instalado"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:45001
 msgid "Continue using the live CD"
 msgstr "Daŭrigu uzi la vivan KD-on"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:46001
 msgid "Restart now"
 msgstr "Rekomencu nun"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#. Type: text
+#. Description
+#: ../ubiquity.templates:47001 ../ubiquity.templates:48001
+msgid "Installer crashed"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:49001
+msgid ""
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Create partition"
+msgstr ""
+
+#. Type: text
+#. Description
+#. Type: text
+#. Description
+#: ../ubiquity.templates:51001 ../ubiquity.templates:58001
+msgid "New partition size in megabytes (1000000 bytes):"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:52001
+msgid "Beginning"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:53001
+msgid "End"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:54001
+msgid "Primary"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:55001
+msgid "Logical"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:56001
+msgid "Edit partition"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:57001
+msgid "Edit a partition"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:59001
+msgid "Advanced Options"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:60001
+msgid "Boot loader"
+msgstr "Komenciga ŝargilo"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:61001
+msgid "Install boot loader"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:62001
+msgid "Popularity contest"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:63001
+msgid "Participate in the package usage survey"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:64001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -364,30 +471,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:64001
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Certiĝu elpreni la KD-on antaŭ reiniciante la komputilon, alimaniere ĝi "
+"restartos uzante ĉi tiun viv-KD-on anstataŭ ol la nov-instalitan sistemon."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:65001
 msgid "Go Back"
 msgstr "Retroiru"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:66001
 msgid "Continue"
 msgstr "Daŭrigu"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:51001
-#, fuzzy
+#: ../ubiquity.templates:67001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -401,41 +509,50 @@ msgstr ""
 " Klavara aranĝo: ${KEYMAP}\n"
 " Nomo: ${FULLNAME}\n"
 " Salutnomo: ${USERNAME}\n"
-" Loko: ${LOCATION}"
+" Loko: ${LOCATION}\n"
+" Migra Asistilo:\n"
+" ${MIGRATE}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:68001
+#, fuzzy
+msgid "Checking the installation..."
+msgstr "Kopianta instaladajn registraĵojn..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:69001
 msgid "Installing system"
 msgstr "Instalanta sistemon"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:70001
 msgid "Finding the distribution to copy..."
 msgstr "Trovanta la disdonaĵon por kopii..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:72001
 msgid "Scanning files..."
 msgstr "Skananta dosierojn..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:73001
 msgid "Copying files..."
 msgstr "Kopianta dosierojn..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:74001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "Kopiante dosierojn (malpli ol unu minuto restas)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:75001
 msgid "Failed to copy files; faulty CD/DVD?"
 msgstr "Malsukcesis kopii dosierojn; difektita KD/DVD?"
 
@@ -445,15 +562,15 @@ msgstr "Malsukcesis kopii dosierojn; difektita KD/DVD?"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:58001 ../ubiquity.templates:59001
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:75001 ../ubiquity.templates:76001
+#: ../ubiquity.templates:77001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
 "La instalilo renkontis eraron dum kopiado de dosieroj al la fiksita disko:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:75001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive. It may "
 "help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
@@ -467,13 +584,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:76001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr "Malsukcesis kopii dosierojn; ĉu difektita fiksa disko?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:76001
 msgid ""
 "This particular error is often due to a faulty hard disk. It may help to "
 "check whether the hard disk is old and in need of replacement, or to move "
@@ -485,7 +602,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:77001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr "Malsukcesis kopii dosierojn; ĉu difektita KD/DVD aŭ fiksa disko?"
 
@@ -493,7 +610,7 @@ msgstr "Malsukcesis kopii dosierojn; ĉu difektita KD/DVD aŭ fiksa disko?"
 #. Description
 #. This is used when we don't know whether the CD/DVD or the hard disk is at
 #. fault.
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:77001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -510,139 +627,139 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:78001
 msgid "Copying installation logs..."
 msgstr "Kopianta instaladajn registraĵojn..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:79001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Konfigurante celan systemon..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:80001
 msgid "Configuring system locales..."
 msgstr "Akomodanta sistemajn lokarojn..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:81001
 msgid "Configuring apt..."
 msgstr "Konfigurado de apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:82001
 msgid "Configuring time zone..."
 msgstr "Akomodanta horan zonon..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:83001
 msgid "Configuring keyboard..."
 msgstr "Konfigurado de klavaro..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:84001
 msgid "Creating user..."
 msgstr "Kreanta uzanton..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:85001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Importado de dokumentoj kaj agordoj..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:86001
 msgid "Configuring hardware..."
 msgstr "Akomodi aparataĵon..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:87001
 msgid "Configuring network..."
 msgstr "Akomodi reton ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:88001
 msgid "Setting computer name..."
 msgstr "Fiksanta komputilan nomon..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:89001
 msgid "Configuring boot loader..."
 msgstr "Akomodanta iniciatan ŝargilon..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:90001
 msgid "Installing additional packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:91001
 msgid "Checking for packages to install..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:92001
 msgid "Removing extra packages..."
 msgstr "Foriganta ekstrajn pakojn..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:93001
 msgid "Checking for packages to remove..."
 msgstr "Kontrolanta kiujn ajn pakojn por forigi..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:94001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Elŝutanta pakojn (${TIME} restanta)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:95001
 msgid "Downloading package lists..."
 msgstr "Elŝutado de pakaĵaj listoj..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:96001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Elŝutanta pakajn listojn (${TIME} restanta)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:98001
 msgid "Error installing ${PACKAGE}"
 msgstr "Eraris instalante ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:99001
 msgid "Error removing ${PACKAGE}"
 msgstr "Eraris forigante ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:100001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:100001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -650,7 +767,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:83001 ../ubiquity.templates:84001
+#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -658,7 +775,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:83001 ../ubiquity.templates:84001
+#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -671,69 +788,75 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:101001
 msgid "Error while removing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:101001
 msgid "An error occurred while removing packages:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:102001
 msgid "Installing language packs"
 msgstr "Instalante lingvajn pakojn"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:103001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Elŝutante lingvajn pakojn (${TIME} restante)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:108001
 msgid "Failed to unmount partitions"
 msgstr "Malsukcesis malsurmeti subdiskojn"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:108001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"La instalilo bezonas fiksi ŝanĝojn al subdiskajn tabelojn, sed ne povas, ĉar "
+"subdiskoj sur la jenaj surmetingoj ne demeteblis:"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:108001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "Bonvolu fermi ĉiujn aplikaĵojn uzantajn ĉi tiujn surmetingojn."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:108001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "Ĉu vi ŝatus ke la instalilo reklopodu demeti ĉi tiujn subdiskojn?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:109001
 msgid "System partition not formatted"
-msgstr ""
+msgstr "Sistema subdisko ne formatita"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:109001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+"La dosiersistemo sur ${PARTITION} atribuata al ${MOUNTPOINT} ne estas "
+"markita por formati. Dosiersistemoj uzataj de la sistemo (/, /boot, /usr, /"
+"var) estas formatendaj por uzado de ĉi tiu instalilo. Aliaj dosiersistemoj (/"
+"home, /media/*, /usr/local, k.t.p.) estas uzeblaj sen formatado."
 
 #. Type: note
 #. Description
@@ -741,9 +864,8 @@ msgstr ""
 msgid ""
 " Install Type:           ${INSTALLTYPE}\n"
 " Drivers:\n"
-"     Add. Video Driver:  ${PROPRIETARY_VIDEO_DRIVER}\n"
+"     Add. Video Driver:  ${VIDEO_DRIVER}\n"
 "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-"     TV-Tuners:          ${TUNER0} ${TUNER1} ${TUNER2} ${TUNER3} ${TUNER4}\n"
 " Additional Services:\n"
 "     VNC:                ${EN_VNC}\n"
 "     SSH:                ${EN_OPENSSH}\n"
@@ -1142,15 +1264,16 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid ""
-"Proprietary video drivers aren't necessary for MythTV usage unless you need "
-"TV out on your machine.  They can, however, provide enhanced performance for "
-"high definition content and enable OpenGL effects in MythTV."
+"An open source graphics driver is already enabled and configured for your "
+"installation.  If you would like to use a different graphics driver, you can "
+"do so here.  Note that proprietary graphics drivers may be necessary for TV "
+"Output or OpenGL effects."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
-msgid "Install Proprietary Video Driver"
+msgid "Modify Video Driver & Settings"
 msgstr ""
 
 #. Type: text
@@ -1226,17 +1349,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
-msgid "Click to open the TMS Zap2It website"
+msgid "Click to open the Schedules Direct website"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:72001
 msgid ""
-"Users in the US will need to setup an account with Tribune Media Services "
-"(TMS). TMS provides guide data at no charge, only requiring users to fill "
-"out a survey once every 3 months. When setting up an account, the MythTV "
-"project code is: ZIYN-DQZO-SBUT"
+"Users in North America will need to setup an account with Schedules Direct "
+"(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+"users may lose many of the scheduling features in MythTV."
 msgstr ""
 
 #. Type: text
@@ -1282,18 +1404,3 @@ msgstr "Akomodi aparataĵon..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Akomodanta horan zonon..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Lingvo: ${LANGUAGE}\n"
-#~ " Klavara aranĝo: ${KEYMAP}\n"
-#~ " Nomo: ${FULLNAME}\n"
-#~ " Salutnomo: ${USERNAME}\n"
-#~ " Loko: ${LOCATION}"

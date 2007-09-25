@@ -114,6 +114,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
         self.populate_lirc()
+        self.populate_video()
         self.backup=False
 
     def run(self):
@@ -384,6 +385,25 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                         self.lirc_modules.append_text(list[2])
                         self.lirc_rc.append_text(list[4])
         self.lirc_remote.append_text("Other Remote")
+
+    def populate_video(self):
+        """Finds the currently active video driver"""
+        vid = open('/etc/X11/xorg.conf')
+        start_filter = re.compile("Section \"Device\"")
+        driver_filter = re.compile("Driver")
+        section=False
+        for line in vid:
+            if not section and start_filter.search(line):
+                section=True
+            elif section and driver_filter.search(line):
+                list = string.split(line, '"')
+                if len(list) > 1:
+                    self.video_driver.append_text("Open Source Driver: " + list[1])
+                    self.video_driver.set_active(5)
+                    self.tvoutstandard.set_active(0)
+                    self.tvouttype.set_active(0)
+                    break
+        vid.close()
 
     def allow_go_backward(self, allowed):
         self.back.set_sensitive(allowed and self.allowed_change_step)
@@ -776,37 +796,26 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         else:
             self.tunernotice.hide()
 
-    def toggle_proprietary (self,widget):
-        """Called whenever the proprietary driver option is toggled"""
-        if (self.proprietarydrivers.get_active()):
-            self.tvouttype.show()
-            self.tvout_label.show()
-            self.tvoutstandard.show()
-            self.tvwarning.show()
-            self.tvouttype.set_active(0)
-            self.tvoutstandard.set_active(0)
-            self.auto_detect.show()
-            self.auto_detect_driver.show()
-            # run restricted-manager --check to poll the restricted devices
-            # we don't care about the results of this
-            subprocess.Popen(["/usr/bin/restricted-manager", "--check"], stdout=subprocess.PIPE).communicate()[0]
-            # now actually get the list of restricted modules
-            drivers = subprocess.Popen(["/usr/bin/restricted-manager", "--list"], stdout=subprocess.PIPE).communicate()[0]
-            for driver in drivers.split():
-                if driver == "nvidia":
-                    self.auto_detect_driver.set_text("nvidia")
-                elif driver == "fglrx":
-                    self.auto_detect_driver.set_text("fglrx")
-            if self.auto_detect_driver.get_text() != "nvidia" and self.auto_detect_driver.get_text() != "fglrx":
-                self.auto_detect_driver.set_text("None")
-        else:
-            self.tvouttype.hide()
-            self.tvout_label.hide()
-            self.tvoutstandard.hide()
-            self.tvwarning.hide()
-            self.auto_detect.hide()
-            self.auto_detect_driver.hide()
-            self.auto_detect_driver.set_text("None")
+    def video_changed (self,widget):
+        """Called whenever the modify video driver option is toggled or its kids"""
+        if (widget is not None and widget.get_name() == 'modifyvideodriver'):
+            if (widget.get_active()):
+                self.videodrivers_hbox.set_sensitive(True)
+            else:
+                self.tvout_vbox.set_sensitive(False)
+                self.videodrivers_hbox.set_sensitive(False)
+                self.video_driver.set_active(5)
+                self.tvoutstandard.set_active(0)
+                self.tvouttype.set_active(0)
+        elif (widget is not None and widget.get_name() == 'video_driver'):
+            type = widget.get_active()
+            if (type == 0 or type == 1 or type == 2):
+                self.tvout_vbox.set_sensitive(True)
+            else:
+                self.tvout_vbox.set_sensitive(False)
+                self.tvoutstandard.set_active(0)
+                self.tvouttype.set_active(0)
+
 
     def toggle_tv_out (self,widget):
         """Called when the tv-out type is toggled"""
@@ -975,23 +984,35 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             return True
         else:
             return False
-    def get_proprietary(self):
-        """Returns the status of the proprietary graphics drivers"""
-        if (self.proprietarydrivers.get_active()):
-            return self.auto_detect_driver.get_text()
+    def get_video(self):
+        """Returns the status of the video graphics drivers"""
+        if (self.modifyvideodriver.get_active()):
+            driver = self.video_driver.get_active()
+            if driver == 0:
+                return "fglrx"
+            elif driver == 1:
+                return "nvidia_legacy"
+            elif driver == 2:
+                return "nvidia"
+            elif driver == 3:
+                return "nvidia_new"
+            elif driver == 4:
+                return "openchrome"
+            else:
+                return "None"
         else:
             return "None"
 
     def get_tvout(self):
         """Returns the status of the TV Out type"""
-        if (self.proprietarydrivers.get_active()):
+        if (self.modifyvideodriver.get_active()):
             return self.tvouttype.get_active_text()
         else:
             return "TV Out Disabled"
 
     def get_tvstandard(self):
         """Returns the status of the TV Standard type"""
-        if (self.proprietarydrivers.get_active()):
+        if (self.modifyvideodriver.get_active()):
             return self.tvoutstandard.get_active_text()
         else:
             return "TV Out Disabled"

@@ -75,7 +75,7 @@ clean:
 	find -type f \( -name \*.pyc -o -name \*.pyo \) -print0 | xargs -0r rm -f
 
 	$(MAKE) -C d-i clean
-	-$(MAKE) distclean
+	[ ! -f Makefile ] || $(MAKE) distclean
 
 	dh_clean debian/ubiquity.install ubiquity/keyboard_names.py
 
@@ -245,6 +245,7 @@ binary-arch: install
 	fi
 	grep-dctrl -v -FTemplate base-installer/ d-i/templates \
 		>> debian/ubiquity/DEBIAN/templates
+	dh_installinit --no-start -- start 29 2 3 4 5 .
 	dh_installman doc/ubiquity.8
 	dh_link
 	dh_strip

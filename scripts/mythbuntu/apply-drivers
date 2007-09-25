@@ -101,9 +101,20 @@ Section "Screen"
     DefaultDepth    24
     SubSection     "Display"
         Depth       24
+EOF
+    if [ "$1" = "Component Video Output" ]; then
+        cat >> /tmp/xorg.conf <<EOF
+        Modes      "1920x1080" "1280x720" "1024x768" "720x480" "800x600" "640x480"
+    EndSubSection
+EndSection
+EOF
+    else
+        cat >> /tmp/xorg.conf <<EOF
         Modes      "nvidia-auto-select" "1920x1080" "1280x720" "1024x768" "720x480" "800x600" "640x480"
     EndSubSection
 EndSection
+EOF
+	fi
 EOF
 }
 
@@ -116,9 +127,9 @@ EOF
 }
 
 #Enable Proprietary Drivers as necessary
-db_get mythbuntu/proprietary_driver
+db_get mythbuntu/video_driver
 PROP="$RET"
-if [ "$PROP" = "nvidia" ] || [ "$PROP" = "fglrx" ]; then
+if [ "$PROP" = "nvidia_new" ] || [ "$PROP" = "nvidia" ] || [ "$PROP" = "fglrx" ] || [ "$PROP" = "nvidia_legacy" ]; then
     #Due to bug 119562, restricted manager won't do this
     #For us automatically.
     #$log $chroot $ROOT /usr/bin/restricted-manager -e $PROP
@@ -132,7 +143,7 @@ if [ "$PROP" = "nvidia" ] || [ "$PROP" = "fglrx" ]; then
     if [ "$PROP" = "fglrx" ]; then
         #$log $chroot $ROOT /usr/bin/aticonfig --initial
         ati_xorg "$TVOUT" "$TVSTANDARD"
-    elif [ "$PROP" = "nvidia" ]; then
+    elif [ "$PROP" = "nvidia_new" ] || [ "$PROP" = "nvidia" ] || [ "$PROP" = "nvidia_legacy" ]; then
         #$log $chroot $ROOT nvidia-xconfig
         nvidia_xorg "$TVOUT" "$TVSTANDARD"
         nvidia_xvmc

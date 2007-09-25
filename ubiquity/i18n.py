@@ -124,9 +124,15 @@ def get_translations(languages=None, core_names=[]):
 
 string_questions = {
     'new_size_label': 'partman-partitioning/new_size',
+    'partition_create_heading_label': 'partman-partitioning/text/new',
+    'partition_create_type_label': 'partman-partitioning/new_partition_type',
+    'partition_create_mount_label': 'partman-basicfilesystems/text/specify_mountpoint',
+    'partition_create_use_label': 'partman-target/text/method',
+    'partition_create_place_label': 'partman-partitioning/new_partition_place',
+    'partition_edit_use_label': 'partman-target/text/method',
+    'partition_edit_mount_label': 'partman-basicfilesystems/text/specify_mountpoint',
     'grub_device_dialog': 'grub-installer/bootdev',
     'grub_device_label': 'grub-installer/bootdev',
-    'popcon_checkbutton': 'popularity-contest/participate',
     # TODO: it would be nice to have a neater way to handle stock buttons
     'cancel': 'ubiquity/imported/cancel',
     'back': 'ubiquity/imported/go-back',

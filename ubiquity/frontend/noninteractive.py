@@ -60,7 +60,7 @@ class Wizard(BaseFrontend):
     def run(self):
         """Main entry point."""
         # Is this even needed anymore now that Ubiquity elevates its
-        # privilidges?
+        # privileges?
         if os.getuid() != 0:
             print 'This installer must be run with administrative ' \
                 'privileges, and cannot continue without them.'
@@ -156,6 +156,11 @@ class Wizard(BaseFrontend):
         #print '*** quit_main_loop'
         if not self.dbfilter and gtk.main_level() > 0:
             gtk.main_quit()
+    
+    def set_page(self, page):
+        # There's no need to do anything here as there's no interface to speak
+        # of.
+        pass
 
     # Progress bar handling.
 
@@ -307,11 +312,11 @@ class Wizard(BaseFrontend):
 
     def get_password(self):
         """Get the user's password."""
-        return self.frontend.db.get('passwd/user-password') #self.password
+        return self.dbfilter.db.get('passwd/user-password') #self.password
 
     def get_verified_password(self):
         """Get the user's password confirmation."""
-        return self.frontend.db.get('passwd/user-password-again') #self.verifiedpassword
+        return self.dbfilter.db.get('passwd/user-password-again') #self.verifiedpassword
 
     def username_error(self, msg):
         """The selected username was bad."""
@@ -345,6 +350,11 @@ class Wizard(BaseFrontend):
         self.summary_device = device
 
     # called from ubiquity.components.install
+    def get_grub(self):
+        # Always return true as there's no UI to disable it.
+        # FIXME: Better to grab grub-installer/skip out of debconf?
+        return True
+
     def get_summary_device(self):
         """Get the selected GRUB device."""
         return self.summary_device

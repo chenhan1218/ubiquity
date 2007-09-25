@@ -20,6 +20,7 @@
 
 import os
 import sys
+import locale
 
 import xorgconfig
 
@@ -117,6 +118,9 @@ class RemoteConfiguration(FilteredCommand):
 
 class VNCHandler:
     """Used to properly enable VNC in a target configuration"""
+
+    # rather ugly workaround for lp: #1364282)
+    locale.setlocale(locale.LC_ALL, 'C')
 
     def __init__(self,root):
         self.add_modules = ["vnc"]

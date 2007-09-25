@@ -20,8 +20,8 @@ db_get mythbuntu/mysqlservice
 db_subst mythbuntu/summary EN_MYSQL "$RET"
 
 #Drivers
-db_get mythbuntu/proprietary_driver
-db_subst mythbuntu/summary PROPRIETARY_VIDEO_DRIVER "$RET"
+db_get mythbuntu/video_driver
+db_subst mythbuntu/summary VIDEO_DRIVER "$RET"
 db_get mythbuntu/tvout
 db_subst mythbuntu/summary TVOUT "$RET"
 db_get mythbuntu/tvstandard

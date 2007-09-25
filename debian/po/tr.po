@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-08-09 18:24+0100\n"
-"PO-Revision-Date: 2007-04-02 04:04+0000\n"
+"POT-Creation-Date: 2007-09-14 15:07+0100\n"
+"PO-Revision-Date: 2007-09-11 05:40+0100\n"
 "Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-04-05 11:09:28+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 12:14:52+0000\n"
 
 #. Type: text
 #. Description
@@ -108,7 +108,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Selected city:"
-msgstr "Seçili şehir:"
+msgstr "Seçilen şehir:"
 
 #. Type: text
 #. Description
@@ -120,13 +120,13 @@ msgstr "Zaman dilimi:"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Selected region:"
-msgstr "Seçili bölge:"
+msgstr "Seçilen bölge:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Current time:"
-msgstr "Güncel zaman:"
+msgstr "Geçerli zaman:"
 
 #. Type: text
 #. Description
@@ -156,13 +156,13 @@ msgstr "Kimsiniz?"
 #. Description
 #: ../ubiquity.templates:19001
 msgid "What is your name?"
-msgstr "İsminiz nedir?"
+msgstr "Adınız nedir?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "What name do you want to use to log in?"
-msgstr "Oturum açmak için hangi ismi kullanmak istersiniz?"
+msgstr "Oturum açmak için hangi adı kullanmak istersiniz?"
 
 #. Type: text
 #. Description
@@ -171,8 +171,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Eğer bu bilgisayarı birden fazla kişi kullanacak ise, kurulumdan sonra çoklu "
-"hesap ayarlayabilirsiniz."
+"Eğer bu bilgisayarı birden fazla kişi kullanacak ise, kurulumdan sonra "
+"birden fazla hesap ayarlayabilirsiniz."
 
 #. Type: text
 #. Description
@@ -191,9 +191,7 @@ msgstr "Hata ayıklama kipinde çalışıyorsunuz. Değerli bir parola kullanmay
 #: ../ubiquity.templates:24001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr ""
-"Aynı şifreyi iki kez girin, böylece şifreniz yazım hataları için "
-"denetlenebilir."
+msgstr "Yazım hatalarının denetlenebilmesi için aynı şifreyi iki defa girin."
 
 #. Type: text
 #. Description
@@ -208,14 +206,14 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Bu isim, bilgisayarı, eğer ağınızdaki diğer kişilere görünür hale "
-"getirirseniz kullanılacaktır."
+"Bilgisayarı ağınızdaki diğer kişilere görünür hale getirirseniz bu ad "
+"kullanılacaktır."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr "Belgeler ve Ayaları Taşı"
+msgstr "Belge ve Ayarları Taşı"
 
 #. Type: text
 #. Description
@@ -225,6 +223,9 @@ msgid ""
 "each one.  The documents and settings for these accounts will be available "
 "after the install completes."
 msgstr ""
+"İçe aktarmak istediğiniz hesapları seçin ve her biri için aşağıdaki formu "
+"doldurun. Bu hesapların belge ve ayarları kurulum tamamlandıktan sonra "
+"kullanılabilir."
 
 #. Type: text
 #. Description
@@ -233,14 +234,14 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Eğer eklemek istediğiniz bir hesap yoksa hiçbirşeyi seçmeyin ve bir sonraki "
-"sayfaya geçin."
+"Herhangi bir hesap içe aktarmak istemiyorsanız hiçbirşeyi seçmeden bir "
+"sonraki sayfaya geçin."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Create a user to import the selected account into:"
-msgstr "Seçilen hesabı aktarmak için bir kullanıcı oluştur:"
+msgstr "Seçilen hesabı içe aktarmak için bir kullanıcı oluştur:"
 
 #. Type: text
 #. Description
@@ -252,7 +253,7 @@ msgstr "Tam Ad"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Login Name:"
-msgstr "Giriş Adı"
+msgstr "Oturum Açma Adı"
 
 #. Type: text
 #. Description
@@ -292,12 +293,15 @@ msgid ""
 "with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
 "may also set up other partitions if you wish."
 msgstr ""
+"Kök dosya sistemi bölümü (\"/\" bağlama noktası) için en az 2 GB, takas "
+"bölümü için en az 256 MB yer ayırmanız gerekir. İsterseniz başka bölümler de "
+"ayarlayabilirsiniz."
 
 #. Type: text
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:38001 ../ubiquity.templates:51001
+#: ../ubiquity.templates:38001 ../ubiquity.templates:67001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr "Kuruluma hazır"
@@ -307,59 +311,153 @@ msgstr "Kuruluma hazır"
 #: ../ubiquity.templates:39001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "Yeni işletim sisteminiz şu özelliklerle birlikte yüklenecektir:"
+msgstr "Yeni işletim sisteminiz aşağıdaki özelliklerle  kurulacaktır:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
-msgid "Boot loader"
-msgstr "Açılış yükleyicisi"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:41001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "Adım ${INDEX} / ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:41001
 msgid "Abort the installation?"
 msgstr "Kurulum durdurulsun mu?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:42001
 msgid "Do you really want to abort the installation now?"
-msgstr "Kurulumu şimdi gerçekten durdurmak istiyor musunuz?"
+msgstr "Kurulumu gerçekten şimdi durdurmak istiyor musunuz?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:43001
 msgid "Skip"
-msgstr "Geç"
+msgstr "Atla"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:44001
 msgid "Installation complete"
 msgstr "Kurulum tamamlandı"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:45001
 msgid "Continue using the live CD"
-msgstr "Çalışan CD kullanarak devam et"
+msgstr "Çalışan CD'yi kullanarak devam et"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:46001
 msgid "Restart now"
 msgstr "Yeniden başlat"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#. Type: text
+#. Description
+#: ../ubiquity.templates:47001 ../ubiquity.templates:48001
+msgid "Installer crashed"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:49001
+msgid ""
+"We're sorry; the installer crashed. Please file a new bug report at https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
+"to any existing bug) and a developer will attend to the problem as soon as "
+"possible. To help the developers understand what went wrong, include the "
+"following detail in your bug report, and attach the files /var/log/syslog "
+"and /var/log/partman:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:50001
+msgid "Create partition"
+msgstr ""
+
+#. Type: text
+#. Description
+#. Type: text
+#. Description
+#: ../ubiquity.templates:51001 ../ubiquity.templates:58001
+msgid "New partition size in megabytes (1000000 bytes):"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:52001
+msgid "Beginning"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:53001
+msgid "End"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:54001
+msgid "Primary"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:55001
+msgid "Logical"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:56001
+msgid "Edit partition"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:57001
+msgid "Edit a partition"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:59001
+msgid "Advanced Options"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:60001
+msgid "Boot loader"
+msgstr "Açılış yükleyicisi"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:61001
+msgid "Install boot loader"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:62001
+msgid "Popularity contest"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:63001
+msgid "Participate in the package usage survey"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:64001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -371,30 +469,32 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:64001
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
+"Bilgisayarı yeniden başlatmadan önce CD'yi çıkardığınızdan emin olun. Aksi "
+"takdirde bilgisayarınız yeni kurulan sistem yerine yeniden bu live CD'yi  "
+"başlatacaktır."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:65001
 msgid "Go Back"
-msgstr "Geri"
+msgstr "Geri Dön"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:66001
 msgid "Continue"
-msgstr "Devam"
+msgstr "Devam Et"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:51001
-#, fuzzy
+#: ../ubiquity.templates:67001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -406,45 +506,54 @@ msgid ""
 msgstr ""
 " Dil: ${LANGUAGE}\n"
 " Klavye düzeni: ${KEYMAP}\n"
-" İsim: ${FULLNAME}\n"
-" Kullanıcı adı: ${USERNAME}\n"
-" Konum: ${LOCATION}"
+" Ad: ${FULLNAME}\n"
+" Oturum açma adı: ${USERNAME}\n"
+" Konum: ${LOCATION}\n"
+" Aktarım Yardımcısı:\n"
+" ${MIGRATE}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:68001
+#, fuzzy
+msgid "Checking the installation..."
+msgstr "Kurulum kayıtları kopyalanıyor..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:69001
 msgid "Installing system"
 msgstr "Sistem kuruluyor"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:70001
 msgid "Finding the distribution to copy..."
 msgstr "Kopyalanacak dağıtım bulunuyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:72001
 msgid "Scanning files..."
 msgstr "Dosyalar taranıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:73001
 msgid "Copying files..."
 msgstr "Dosyalar kopyalanıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:74001
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Dosyalar kopyalanıyor (bir dakikadan daha kısa süre kaldı)..."
+msgstr "Dosyalar kopyalanıyor (bir dakikadan daha az kaldı)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:75001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr "Kopyalama başarısız; bozuk CD/DVD?"
+msgstr "Dosyaların kopyalanması başarısız oldu; bozuk CD/DVD?"
 
 #. Type: error
 #. Description
@@ -452,14 +561,14 @@ msgstr "Kopyalama başarısız; bozuk CD/DVD?"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:58001 ../ubiquity.templates:59001
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:75001 ../ubiquity.templates:76001
+#: ../ubiquity.templates:77001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "Kurulum, dosyaları sabit diske kopyalarken bir hatayla karşılaştı:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:75001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive. It may "
 "help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
@@ -473,13 +582,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:76001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr "Kopyalama başarısız; bozuk sabit disk?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:76001
 msgid ""
 "This particular error is often due to a faulty hard disk. It may help to "
 "check whether the hard disk is old and in need of replacement, or to move "
@@ -491,7 +600,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:77001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr "Kopyalama başarısız; bozuk CD/DVD veya sabit disk?"
 
@@ -499,7 +608,7 @@ msgstr "Kopyalama başarısız; bozuk CD/DVD veya sabit disk?"
 #. Description
 #. This is used when we don't know whether the CD/DVD or the hard disk is at
 #. fault.
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:77001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -516,139 +625,139 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:78001
 msgid "Copying installation logs..."
 msgstr "Kurulum kayıtları kopyalanıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:79001
 msgid "Configuring target system..."
 msgstr "Hedef sistem yapılandırılıyor."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:80001
 msgid "Configuring system locales..."
 msgstr "Sistem alanları yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:81001
 msgid "Configuring apt..."
 msgstr "apt yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:82001
 msgid "Configuring time zone..."
 msgstr "Zaman dilimi yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:83001
 msgid "Configuring keyboard..."
 msgstr "Klavye yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:84001
 msgid "Creating user..."
 msgstr "Kullanıcı yaratılıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:85001
 msgid "Importing documents and settings..."
 msgstr "Belge ve ayarlar aktarılıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:86001
 msgid "Configuring hardware..."
 msgstr "Donanım yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:87001
 msgid "Configuring network..."
 msgstr "Ağ yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:88001
 msgid "Setting computer name..."
 msgstr "Bilgisayar ismi ayarlanıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:89001
 msgid "Configuring boot loader..."
 msgstr "Açılış yükleyicisi yapılandırılıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:90001
 msgid "Installing additional packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:91001
 msgid "Checking for packages to install..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:92001
 msgid "Removing extra packages..."
 msgstr "Ek paketler kaldırılıyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:93001
 msgid "Checking for packages to remove..."
 msgstr "Kaldırılacak paketler denetleniyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:94001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Paketler indiriliyor (${TIME} kaldı)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:95001
 msgid "Downloading package lists..."
 msgstr "Paket listeleri indiriliyor..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:96001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Paket listeleri indiriliyor (${TIME} kaldı)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:98001
 msgid "Error installing ${PACKAGE}"
 msgstr "${PACKAGE} kurulmada hata"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:99001
 msgid "Error removing ${PACKAGE}"
 msgstr "${PACKAGE} kaldırmada hata"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:100001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:100001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -656,7 +765,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:83001 ../ubiquity.templates:84001
+#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -664,7 +773,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:83001 ../ubiquity.templates:84001
+#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -677,69 +786,79 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:101001
 msgid "Error while removing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:101001
 msgid "An error occurred while removing packages:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:102001
 msgid "Installing language packs"
 msgstr "Dil paketleri kuruluyor"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:103001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Dil paketleri indiriliyor (${TIME} kaldı)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:108001
 msgid "Failed to unmount partitions"
 msgstr "Bölümlerin dosya sisteminden ayrılması işlemi başarısız"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:108001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Kurulum programının değişiklikleri bölümleme tablosuna işlemesi gerekiyor "
+"ancak bunu yapamıyor çünkü şu bağlama noktalarındaki bölümler dosya "
+"sisteminden ayırılamıyor:"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:108001
 msgid "Please close any applications using these mount points."
 msgstr "Bu bağlama noktalarını kullan uygulamaları lütfen kapatın."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:108001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
+"Kurulum programının bu bölümleri yeniden ayırmayı denemesini ister misiniz?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:109001
 msgid "System partition not formatted"
 msgstr "Sistem bölümü biçimlendirilmemiş"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:109001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgstr ""
+"${MOUNTPOINT} noktasına bağlanmış olan ${PARTITION} bölümündeki dosya "
+"sistemi biçimlendirme için işaretlenmemiş. Sistem tarafından kullanılan "
+"dosya sistemleri (/, /boot, /usr, /var) kurulum programı tarafından "
+"kullanılabilmek için yeniden biçimlendirilmelidir. Diğer dosya sistemleri (/"
+"home, /media/*, /usr/local, vs.) yeniden biçimlendirilmeden de "
+"kullanılabilir."
 
 #. Type: note
 #. Description
@@ -747,9 +866,8 @@ msgstr ""
 msgid ""
 " Install Type:           ${INSTALLTYPE}\n"
 " Drivers:\n"
-"     Add. Video Driver:  ${PROPRIETARY_VIDEO_DRIVER}\n"
+"     Add. Video Driver:  ${VIDEO_DRIVER}\n"
 "         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
-"     TV-Tuners:          ${TUNER0} ${TUNER1} ${TUNER2} ${TUNER3} ${TUNER4}\n"
 " Additional Services:\n"
 "     VNC:                ${EN_VNC}\n"
 "     SSH:                ${EN_OPENSSH}\n"
@@ -1148,15 +1266,16 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid ""
-"Proprietary video drivers aren't necessary for MythTV usage unless you need "
-"TV out on your machine.  They can, however, provide enhanced performance for "
-"high definition content and enable OpenGL effects in MythTV."
+"An open source graphics driver is already enabled and configured for your "
+"installation.  If you would like to use a different graphics driver, you can "
+"do so here.  Note that proprietary graphics drivers may be necessary for TV "
+"Output or OpenGL effects."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
-msgid "Install Proprietary Video Driver"
+msgid "Modify Video Driver & Settings"
 msgstr ""
 
 #. Type: text
@@ -1233,17 +1352,16 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
-msgid "Click to open the TMS Zap2It website"
+msgid "Click to open the Schedules Direct website"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:72001
 msgid ""
-"Users in the US will need to setup an account with Tribune Media Services "
-"(TMS). TMS provides guide data at no charge, only requiring users to fill "
-"out a survey once every 3 months. When setting up an account, the MythTV "
-"project code is: ZIYN-DQZO-SBUT"
+"Users in North America will need to setup an account with Schedules Direct "
+"(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
+"users may lose many of the scheduling features in MythTV."
 msgstr ""
 
 #. Type: text
@@ -1289,18 +1407,3 @@ msgstr "Donanım yapılandırılıyor..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Zaman dilimi yapılandırılıyor..."
-
-#, fuzzy
-#~ msgid ""
-#~ " Normal Ubuntu Install Questions:\n"
-#~ "     Language:           ${LANGUAGE}\n"
-#~ "     Keyboard layout:    ${KEYMAP}\n"
-#~ "     Regular Name:       ${FULLNAME}\n"
-#~ "     Regular Login name: ${USERNAME}\n"
-#~ "     Location:           ${LOCATION}"
-#~ msgstr ""
-#~ " Dil: ${LANGUAGE}\n"
-#~ " Klavye düzeni: ${KEYMAP}\n"
-#~ " İsim: ${FULLNAME}\n"
-#~ " Kullanıcı adı: ${USERNAME}\n"
-#~ " Konum: ${LOCATION}"

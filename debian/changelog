@@ -1,14 +1,114 @@
-ubiquity (1.5.13) UNRELEASED; urgency=low
+ubiquity (1.5.18) UNRELEASED; urgency=low
+
+  [ Mario Limonciello ]
+  * Add support for all three nvidia drivers upon install.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Sun, 23 Sep 2007 12:11:50 -0500
+
+ubiquity (1.5.17) gutsy; urgency=low
+
+  * Use the --automatic option when running ubiquity from the init script
+    (thanks, Evan Dandrea).
+  * Work around migration-assistant always being shown in automatic
+    installs.
+  * Automatic update of included source packages: migration-assistant 0.5.1,
+    partman-auto-loop 0ubuntu9.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 22 Sep 2007 03:27:23 +0100
+
+ubiquity (1.5.16) gutsy; urgency=low
+
+  [ Evan Dandrea ]
+  * Updated kde_ui.py to reflect recent fixes to gtk_ui.py.
+  * Small fix to return to the right page on return_to_partitioning.
+
+  [ Colin Watson ]
+  * Translate widgets from all glade files, not just the main one.
+  * Purge ucf's state for /etc/papersize so that it will be recreated
+    properly (LP: #128258).
+  * Fix automatic-ubiquity option handling in init script.
+  * Automatic update of included source packages: hw-detect 1.53ubuntu2,
+    kboot-installer 0.0.1ubuntu4, localechooser 1.38ubuntu2,
+    migration-assistant 0.5.0, partman-auto-loop 0ubuntu7, partman-base
+    107ubuntu3.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 20 Sep 2007 22:59:23 +0100
+
+ubiquity (1.5.15) gutsy; urgency=low
+
+  [ Evan Dandrea ]
+  * Fixed backup in the UI wrt the new page turning code.
+  * Fix canceling from the intro page.
+  * Fix hostname validation (LP: #137592).
+
+  [ Colin Watson ]
+  * Start ubiquity init script at 29; don't bother stopping it.
+  * Update translations from Rosetta (LP: #132157).
+  * Remove question mark from popularity-contest checkbox text
+    (LP: #135140).
+  * Adjust grub_enable text to have more usual capitalisation and spelling.
+  * Internationalise partitioning and advanced dialogs. Remove
+    popcon_checkbutton special case as its text now differs from that in
+    popularity-contest.
+  * Don't ignore 'make distclean' errors other than missing Makefiles.
+  * Automatic update of included source packages: partman-auto-loop
+    0ubuntu6, user-setup 1.14ubuntu2.
+
+  [ Michael Haas ]
+  * Allow VNC to be selected with foreign locales in mythbuntu
+    interface. (LP: #136482)
+
+  [ Mario Limonciello ]
+  * Include a .desktop file for mythbuntu installation.
+  * Divert the regular GTK desktop file on mythbuntu package.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 17 Sep 2007 14:23:02 +0100
+
+ubiquity (1.5.14) gutsy; urgency=low
+
+  [ Mario Limonciello ]
+  * Rework proprietary drivers page.  Include openchrome and nvidia legacy
+    support.  Drop restricted-manager --check and --list.
+
+  [ Evan Dandrea ]
+  * Fixed a typo in noninteractive check.
+
+  [ Colin Watson ]
+  * Call update-rc.d so that automatic-ubiquity stands a chance of working.
+  * Automatic update of included source packages: grub-installer
+    1.24ubuntu4.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 11 Sep 2007 20:16:42 +0100
+
+ubiquity (1.5.13) gutsy; urgency=low
 
   [ Mario Limonciello ]
   * Correct typo in HDHomerun application.
   * Make sure that backend_configured happens for right user.
-  * Re-order installer so Mythbuntu steps appear at a different
-    time.
-  * Make sure errno errors can be reported properly in 
-    mythbuntu_install.py (LP: #130771)
+  * Re-order installer so Mythbuntu steps appear at a different time.
+  * Make sure errno errors can be reported properly in mythbuntu_install.py
+    (LP: #130771)
 
- -- Mario Limonciello <superm1@ubuntu.com>  Mon, 27 Aug 2007 16:24:57 -0500
+  [ Evan Dandrea ]
+  * The migration-assistant page will now be skipped if there are no
+    partitions able to be imported from.
+  * Initialize self.errors in migration-assistant (LP: #134254).
+  * Add a progress bar for automatic mode.
+  * Update noninteractive frontend to work with recent changes.
+  * Temporary fix for the language packs no longer installing bug (LP:
+    #131294)
+
+  [ Colin Watson ]
+  * If 'automatic-ubiquity' is on the kernel command line, start Ubiquity in
+    its own X session. Thanks to Agostino Russo for the prototype of this.
+  * Just call 'reboot' rather than gdm/kdm-specific reboot methods if
+    DESKTOP_SESSION isn't set in the environment.
+  * Automatic update of included source packages: apt-setup 1:0.21ubuntu3,
+    base-installer 1.81ubuntu2, grub-installer 1.24ubuntu3,
+    partman-auto-loop 0ubuntu5, partman-efi 13ubuntu2, partman-target
+    50ubuntu4.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 07 Sep 2007 18:24:17 +0100
 
 ubiquity (1.5.12) gutsy; urgency=low
 

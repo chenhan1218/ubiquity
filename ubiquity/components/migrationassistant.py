@@ -18,6 +18,7 @@
 
 import syslog
 import sys
+import os
 import debconf
 
 from ubiquity.filteredcommand import FilteredCommand
@@ -26,6 +27,7 @@ class MigrationAssistant(FilteredCommand):
     firstrun = True
     def prepare(self):
         self.err = None
+        self.errors = False
         self.error_list = ['migration-assistant/password-mismatch',
                            'migration-assistant/password-empty',
                            'migration-assistant/username-bad',
@@ -60,9 +62,18 @@ class MigrationAssistant(FilteredCommand):
             if question == 'migration-assistant/partitions':
                 self.filter_parts()
             elif question == 'ubiquity/run-ma-again':
-                self.set_choices()
-                self.firstrun = False
-                return FilteredCommand.run(self, priority, question)
+                if self.db.get('migration-assistant/partitions') != '':
+                    self.set_choices()
+                    self.firstrun = False
+                    # TODO cjwatson 2007-09-22: This is a wart, but it
+                    # prevents the ubiquity interface from always being
+                    # shown in automatic installs.
+                    if 'UBIQUITY_AUTOMATIC' in os.environ:
+                        return self.succeeded
+                    else:
+                        return FilteredCommand.run(self, priority, question)
+                else:
+                    self.db.set('ubiquity/run-ma-again', 'false')
 
             # In order to find out what operating systems and users we're
             # dealing with we need to seed all of the questions to step through

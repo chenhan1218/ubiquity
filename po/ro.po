@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "100 > 19) || ((n % 100 == 0) && (n != 0))) ? 2: 1))\n"
-"X-Rosetta-Export-Date: 2007-03-30 14:21+0000\n"
+"X-Rosetta-Export-Date: 2007-09-14 09:08:36+0000\n"
 
 #: ../desktop/ubiquity-gtkui.desktop.in.h:1
 #: ../desktop/ubiquity-kdeui.desktop.in.h:1

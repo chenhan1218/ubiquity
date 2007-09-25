@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.3.3 on Thu Aug 23 23:53:54 2007 -->
+<!--Generated with glade3 3.4.0 on Sun Sep 23 12:02:42 2007 -->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="visible">True</property>
@@ -55,7 +55,7 @@
                         <property name="visible">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <property name="xalign">0</property>
-                        <property name="label" translatable="yes">Proprietary Graphics Drivers can provide enhanced performance during High Definition Video playback and Menu Effects.  They are also required for TV-Output.</property>
+                        <property name="label" translatable="yes">An open source graphics driver is already enabled and configured for your installation.  If you would like to use a different graphics driver, you can do so here.  Note that proprietary graphics drivers may be necessary for TV Output or OpenGL effects.</property>
                         <property name="wrap">True</property>
                       </widget>
                       <packing>
@@ -63,14 +63,14 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="proprietarydrivers">
+                      <widget class="GtkCheckButton" id="modifyvideodriver">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                        <property name="label" translatable="yes">Install Proprietary Video Driver	</property>
+                        <property name="label" translatable="yes">Modify Video Driver &amp; Settings	</property>
                         <property name="response_id">0</property>
                         <property name="draw_indicator">True</property>
-                        <signal name="toggled" handler="toggle_proprietary"/>
+                        <signal name="toggled" handler="video_changed"/>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
@@ -78,74 +78,86 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkHBox" id="hbox4">
+                      <widget class="GtkHBox" id="videodrivers_hbox">
                         <property name="visible">True</property>
+                        <property name="sensitive">False</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                        <property name="spacing">5</property>
                         <child>
-                          <widget class="GtkLabel" id="auto_detect">
+                          <widget class="GtkLabel" id="label1">
+                            <property name="visible">True</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="xalign">0</property>
-                            <property name="label" translatable="yes">Automatically detected:</property>
-                            <property name="wrap">True</property>
+                            <property name="label" translatable="yes">Selected Video Driver:</property>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkLabel" id="auto_detect_driver">
+                          <widget class="GtkComboBox" id="video_driver">
+                            <property name="visible">True</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="justify">GTK_JUSTIFY_CENTER</property>
-                            <property name="wrap">True</property>
+                            <property name="active">1</property>
+                            <property name="items" translatable="yes">AMD Proprietary Driver (fglrx)
+NVIDIA Proprietary Driver (TNT2)  (nvidia_legacy)
+NVIDIA Proprietary Driver (Geforce2-4) (nvidia)
+NVIDIA Proprietary Driver (Geforce 5+) (nvidia_new)
+VIA Openchrome Driver (openchrome)</property>
+                            <signal name="changed" handler="video_changed"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
-                            <property name="padding">15</property>
                             <property name="position">1</property>
                           </packing>
                         </child>
                       </widget>
                       <packing>
-                        <property name="expand">False</property>
                         <property name="position">2</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkLabel" id="tvout_label">
-                        <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                        <property name="xalign">0</property>
-                        <property name="label" translatable="yes">If you would like to configure TV-out, choose an option here:</property>
-                        <property name="use_markup">True</property>
-                        <property name="wrap">True</property>
-                      </widget>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="position">3</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="GtkHBox" id="hbox2">
+                      <widget class="GtkVBox" id="tvout_vbox">
                         <property name="visible">True</property>
+                        <property name="sensitive">False</property>
                         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                         <child>
-                          <widget class="GtkComboBox" id="tvouttype">
+                          <widget class="GtkLabel" id="tvout_label">
+                            <property name="visible">True</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="active">1</property>
-                            <property name="items" translatable="yes">Disable TV-Out
-Composite Video Output
-S-Video Video Output
-Component Video Output</property>
-                            <signal name="changed" handler="toggle_tv_out"/>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">If you would like to configure TV-out, choose an option here:</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkComboBox" id="tvoutstandard">
+                          <widget class="GtkHBox" id="hbox2">
+                            <property name="visible">True</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                            <property name="active">1</property>
-                            <property name="items" translatable="yes">Disable TV-Out
+                            <child>
+                              <widget class="GtkComboBox" id="tvouttype">
+                                <property name="visible">True</property>
+                                <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                                <property name="active">1</property>
+                                <property name="items" translatable="yes">Disable TV-Out
+Composite Video Output
+S-Video Video Output
+Component Video Output</property>
+                                <signal name="changed" handler="toggle_tv_out"/>
+                              </widget>
+                              <packing>
+                                <property name="expand">False</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkComboBox" id="tvoutstandard">
+                                <property name="visible">True</property>
+                                <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                                <property name="active">1</property>
+                                <property name="items" translatable="yes">Disable TV-Out
 PAL-B
 PAL-D
 PAL-G
@@ -163,7 +175,13 @@ HD576i
 HD576p
 HD1080i
 HD1080p</property>
-                            <signal name="changed" handler="toggle_tv_standard"/>
+                                <signal name="changed" handler="toggle_tv_standard"/>
+                              </widget>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -172,21 +190,7 @@ HD1080p</property>
                         </child>
                       </widget>
                       <packing>
-                        <property name="expand">False</property>
-                        <property name="position">4</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="GtkLabel" id="tvwarning">
-                        <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                        <property name="label" translatable="yes">&lt;b&gt;Warning:&lt;/b&gt; Do not set the TV standard to something higher than what your TV supports. &lt;b&gt;PERMANENT&lt;/b&gt; damage may occur.</property>
-                        <property name="use_markup">True</property>
-                        <property name="justify">GTK_JUSTIFY_CENTER</property>
-                        <property name="wrap">True</property>
-                      </widget>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="position">5</property>
+                        <property name="position">3</property>
                       </packing>
                     </child>
                   </widget>

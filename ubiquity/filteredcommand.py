@@ -356,6 +356,11 @@ class FilteredCommand(object):
     # TODO: Make the steps references in the individual components, rather than
     # having to define the relationship here?
     def run(self, priority, question):
+        if not self.frontend.installing:
+            # Make sure any started progress bars are stopped.
+            while self.frontend.progress_position.depth() != 0:
+                self.frontend.debconf_progress_stop()
+
         self.current_question = question
         if not self.done:
             self.succeeded = False
