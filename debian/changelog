@@ -1,8 +1,10 @@
 ubiquity (1.5.19) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
+  * Add support for all 3 different nvidia drivers.
   * Add initial support for xmltv during installation.
-  * Update debconf text for myth_button.
+  * Update debconf text for myth_button & mythweb.
+  * Explicity install libvia* with openchrome install.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Mon, 24 Sep 2007 19:56:38 -0500
 

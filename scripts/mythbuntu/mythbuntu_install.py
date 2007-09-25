@@ -188,6 +188,8 @@ class Install(install.Install):
         elif video_driver == "fglrx":
             to_install.append('xorg-driver-fglrx')
         elif video_driver == "openchrome":
+            to_install.append('libviaxvmcpro1')
+            to_install.append('libviaxvmc1')
             to_install.append('xserver-xorg-video-openchrome')
         if vnc == 'true':
             to_install.append('vnc4server')
