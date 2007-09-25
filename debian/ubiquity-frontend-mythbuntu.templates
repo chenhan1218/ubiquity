@@ -130,7 +130,7 @@ _Description: Frontend Plugins
 
 Template: ubiquity/text/mythweb
 Type: text
-_Description: mythweb
+_Description: Myth Web
 
 Template: ubiquity/text/mythweb_label
 Type: text

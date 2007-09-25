@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-25 01:56-0500\n"
+"POT-Creation-Date: 2007-09-25 02:01-0500\n"
 "PO-Revision-Date: 2007-09-11 05:36+0100\n"
 "Last-Translator: Håvard Korsvoll <korsvoll@skulelinux.no>\n"
 "Language-Team: Norwegian Nynorsk <nn@li.org>\n"
@@ -1066,7 +1066,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
-msgid "mythweb"
+msgid "Myth Web"
 msgstr ""
 
 #. Type: text

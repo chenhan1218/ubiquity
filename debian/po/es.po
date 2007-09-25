@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-25 01:56-0500\n"
+"POT-Creation-Date: 2007-09-25 02:01-0500\n"
 "PO-Revision-Date: 2007-09-13 19:34+0000\n"
 "Last-Translator: Ricardo Pérez López <ricardo@iesdonana.org>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -1084,8 +1084,10 @@ msgstr "Complementos de frontend"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
-msgid "mythweb"
-msgstr "mythweb"
+#, fuzzy
+#| msgid "Myth Game"
+msgid "Myth Web"
+msgstr "Juego Myth"
 
 #. Type: text
 #. Description
@@ -1466,6 +1468,9 @@ msgstr "Configurando servicios adicionales..."
 #: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring remote control..."
 msgstr "Configurando el control remoto..."
+
+#~ msgid "mythweb"
+#~ msgstr "mythweb"
 
 #~ msgid "myth_button"
 #~ msgstr "myth_button"

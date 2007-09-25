@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-25 01:56-0500\n"
+"POT-Creation-Date: 2007-09-25 02:01-0500\n"
 "PO-Revision-Date: 2007-09-13 07:56+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -1074,8 +1074,10 @@ msgstr "Edustakoneliitännäiset"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
-msgid "mythweb"
-msgstr "mythweb"
+#, fuzzy
+#| msgid "Myth Game"
+msgid "Myth Web"
+msgstr "Myth-pelit"
 
 #. Type: text
 #. Description
@@ -1458,6 +1460,9 @@ msgstr "Tehdään palveluiden asetuksia..."
 #: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring remote control..."
 msgstr "Tehdään kaukosäätimen asetuksia..."
+
+#~ msgid "mythweb"
+#~ msgstr "mythweb"
 
 #~ msgid "myth_button"
 #~ msgstr "myth_button"
