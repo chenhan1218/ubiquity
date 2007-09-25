@@ -342,7 +342,7 @@ _Description:
 
 Template: ubiquity/text/myth_button
 Type: text
-_Description: myth_button
+_Description: Launch MythTV Setup
 
 Template: ubiquity/text/myth_button_description
 Type: text

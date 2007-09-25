@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-14 15:07+0100\n"
+"POT-Creation-Date: 2007-09-25 01:56-0500\n"
 "PO-Revision-Date: 2007-03-14 16:53+0000\n"
 "Last-Translator: Olafur Arason <olafra@gmail.com>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
@@ -1334,7 +1334,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
-msgid "myth_button"
+msgid "Launch MythTV Setup"
 msgstr ""
 
 #. Type: text

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-14 15:07+0100\n"
+"POT-Creation-Date: 2007-09-25 01:56-0500\n"
 "PO-Revision-Date: 2007-09-14 07:31+0000\n"
 "Last-Translator: Milo Casagrande <milo_casagrande@yahoo.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
@@ -1505,9 +1505,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
-#, fuzzy
-msgid "myth_button"
-msgstr "myth_button"
+msgid "Launch MythTV Setup"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1550,3 +1549,7 @@ msgstr "Configurazione servizi aggiuntivi..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Configurazione controllo remoto..."
+
+#, fuzzy
+#~ msgid "myth_button"
+#~ msgstr "myth_button"
