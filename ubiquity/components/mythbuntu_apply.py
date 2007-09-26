@@ -75,6 +75,9 @@ class MythbuntuApply(FilteredCommand):
         mythphone = self.db.get('mythbuntu/mythphone')
         if mythphone == "false":
             patternline += "|^mythphone"
+        mythstream = self.db.get('mythbuntu/mythstream')
+        if mythstream == "false":
+            patternline += "|^mythstream"
         mythvideo = self.db.get('mythbuntu/mythvideo')
         if mythvideo == "false":
             patternline += "|^mythvideo|^libwww-perl|^libxml-simple-perl"

@@ -178,6 +178,10 @@ Template: ubiquity/text/mythphone
 Type: text
 _Description: Myth Phone
 
+Template: ubiquity/text/mythstream
+Type: text
+_Description: Myth Stream
+
 Template: ubiquity/text/mythvideo
 Type: text
 _Description: Myth Video
@@ -229,6 +233,10 @@ _Description:
 Template: ubiquity/text/mythphone_label
 Type: text
 _Description: A phone and videophone capability on MythTV using the standard SIP protocol.
+
+Template: ubiquity/text/mythstream_label
+Type: text
+_Description: Provides a method to listen to streaming internet radio stations.
 
 Template: ubiquity/text/mythvideo_label
 Type: text
@@ -412,6 +420,10 @@ Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythphone
+Type: boolean
+Description: for internal use; determines if plugin is installed
+
+Template: mythbuntu/mythstream
 Type: boolean
 Description: for internal use; determines if plugin is installed
 

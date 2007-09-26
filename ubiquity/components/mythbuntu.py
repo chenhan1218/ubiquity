@@ -62,6 +62,7 @@ class MythbuntuPlugins(FilteredCommand):
              '^mythbuntu/mythmusic',
              '^mythbuntu/mythnews',
              '^mythbuntu/mythphone',
+             '^mythbuntu/mythstream',
              '^mythbuntu/mythvideo',
              '^mythbuntu/mythweather',
              '^mythbuntu/mythweb']
@@ -98,6 +99,9 @@ class MythbuntuPlugins(FilteredCommand):
         elif question.startswith('mythbuntu/mythphone'):
             mythphone = self.frontend.get_mythphone()
             self.preseed_bool('mythbuntu/mythphone', mythphone)
+        elif question.startswith('mythbuntu/mythphone'):
+            mythstream = self.frontend.get_mythstream()
+            self.preseed_bool('mythbuntu/mythstream', mythstream)
         elif question.startswith('mythbuntu/mythvideo'):
             mythvideo = self.frontend.get_mythvideo()
             self.preseed_bool('mythbuntu/mythvideo', mythvideo)
@@ -130,6 +134,8 @@ class MythbuntuPlugins(FilteredCommand):
         self.preseed_bool('mythbuntu/mythnews', mythnews)
         mythphone = self.frontend.get_mythphone()
         self.preseed_bool('mythbuntu/mythphone', mythphone)
+        mythstream = self.frontend.get_mythstream()
+        self.preseed_bool('mythbuntu/mythstream', mythstream)
         mythvideo = self.frontend.get_mythvideo()
         self.preseed_bool('mythbuntu/mythvideo', mythvideo)
         mythweather = self.frontend.get_mythweather()

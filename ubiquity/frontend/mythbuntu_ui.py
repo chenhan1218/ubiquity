@@ -556,6 +556,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.mythmusic.set_active(enable)
             self.mythnews.set_active(enable)
             self.mythphone.set_active(enable)
+            self.mythstream.set_active(enable)
             self.mythvideo.set_active(enable)
             self.mythweather.set_active(enable)
 
@@ -946,6 +947,13 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
     def get_mythphone(self):
         """Returns the status of the mythphone plugin"""
         if self.mythphone.get_active():
+            return True
+        else:
+            return False
+
+    def get_mythstream(self):
+        """Returns the status of the mythstream plugin"""
+        if self.mythstream.get_active():
             return True
         else:
             return False
