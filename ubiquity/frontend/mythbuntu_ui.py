@@ -809,7 +809,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 self.tvouttype.set_active(0)
         elif (widget is not None and widget.get_name() == 'video_driver'):
             type = widget.get_active()
-            if (type == 0 or type == 1 or type == 2):
+            if (type == 0 or type == 1 or type == 2 or type == 3):
                 self.tvout_vbox.set_sensitive(True)
             else:
                 self.tvout_vbox.set_sensitive(False)
