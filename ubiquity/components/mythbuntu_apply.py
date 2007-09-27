@@ -40,9 +40,9 @@ class MythbuntuApply(FilteredCommand):
         if installtype == "Slave Backend/Frontend":
             patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mysql-server|^mythtv\ "
         elif installtype == "Master Backend":
-            patternline += "|^ubuntu-mythtv-frontend|^mythtv-frontend|^mythtv\ "
+            patternline += "|^mythtv-frontend|^mythtv\ "
         elif installtype == "Slave Backend":
-            patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^ubuntu-mythtv-frontend|^mythtv-frontend|^mythtv\ "
+            patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mythtv-frontend|^mythtv\ "
         elif installtype == "Frontend":
             patternline += "|^mythtv-backend-master|^mythtv-database|^mythtv-backend|^mysql-server-5.0|^mysql-server|^mythtv\ "
         mytharchive = self.db.get('mythbuntu/mytharchive')
