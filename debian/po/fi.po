@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-14 15:07+0100\n"
+"POT-Creation-Date: 2007-09-28 11:25-0400\n"
 "PO-Revision-Date: 2007-09-25 11:23+0000\n"
 "Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -910,12 +910,6 @@ msgstr ""
 "     Kirjautumisnimi: ${USERNAME}\n"
 "     Sijainti: ${LOCATION}"
 
-#. Type: note
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:1001
-msgid "${PARTMAN_CHANGES}"
-msgstr "${PARTMAN_CHANGES}"
-
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
@@ -1097,8 +1091,10 @@ msgstr "Edustakoneliitännäiset"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
-msgid "mythweb"
-msgstr "mythweb"
+#, fuzzy
+#| msgid "Myth Game"
+msgid "Myth Web"
+msgstr "Myth-pelit"
 
 #. Type: text
 #. Description
@@ -1173,18 +1169,26 @@ msgstr "Myth-puhelin"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
+#, fuzzy
+#| msgid "Myth Game"
+msgid "Myth Stream"
+msgstr "Myth-pelit"
+
+#. Type: text
+#. Description
+#: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Video"
 msgstr "Myth-video"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:38001
+#: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Weather"
 msgstr "Myth-sää"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:39001
+#: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
@@ -1194,13 +1198,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:40001
+#: ../ubiquity-frontend-mythbuntu.templates:41001
 msgid "An integrated web browser plugin for your MythTV system."
 msgstr "Integroitu WWW-selainliitännäinen MythTV-järjestelmään."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:41001
+#: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
@@ -1210,7 +1214,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:42001
+#: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid ""
 "Provides an interface for launching your preferred DVD player from MythTV"
 msgstr ""
@@ -1219,13 +1223,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:43001
+#: ../ubiquity-frontend-mythbuntu.templates:44001
 msgid "Allows you to monitor your Netflix dvd rental queue."
 msgstr "Mahdollistaa Netflix-DVD-vuokrajonon seuraamisen"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:44001
+#: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Allows you to visually browse a directory tree containing image files."
 msgstr ""
 "Mahdollistaa kuvatiedostoja sisältävän hakemistopuun selaamisen "
@@ -1233,20 +1237,20 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:45001
+#: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
 "Edustaohjelma minkä tahansa emulaattorin tai Linux-ohjelman suorittamiseksi."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:46001
+#: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Provides a digital audio jukebox integrated with MythTV."
 msgstr "Tarjoaa digitaalisen MythTV:seen integroidun musiikkijukeboxin."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:47001
+#: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
@@ -1256,7 +1260,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:48001
+#: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
@@ -1264,7 +1268,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:49001
+#: ../ubiquity-frontend-mythbuntu.templates:50001
+msgid "Provides a method to listen to streaming internet radio stations."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity-frontend-mythbuntu.templates:51001
 msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
@@ -1274,19 +1284,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:50001
+#: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Displays current and forecast weather information within MythTV."
 msgstr "Näyttää nykyisen ja ennustetun sään MythTV:ssä."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:51001
+#: ../ubiquity-frontend-mythbuntu.templates:53001
 msgid "Choose Extra Themes"
 msgstr "Valitse lisäteemoja"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:52001
+#: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid ""
 "Themes can greatly improve the aesthic appeal of a MythTV setup, and display "
 "it to match your tastes much better."
@@ -1296,26 +1306,26 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:53001
+#: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Official Themes"
 msgstr "Viralliset teemat"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:54001
+#: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid "Community Themes"
 msgstr "Yhteisöteemat"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:55001
+#: ../ubiquity-frontend-mythbuntu.templates:57001
 msgid ""
 "This themes package includes all themes distributed by the MythTV website."
 msgstr "Tämä teemapaketti sisältää kaikki MythTV-WWW-sivustolla jaetut teemat."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:56001
+#: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid ""
 "This themes package is a collection of community themes generated by other "
 "MythTV users."
@@ -1325,13 +1335,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:57001
+#: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
 msgstr "Lisäajurit/laiteohjelmistot"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:58001
+#: ../ubiquity-frontend-mythbuntu.templates:60001
 msgid ""
 "An open source graphics driver is already enabled and configured for your "
 "installation.  If you would like to use a different graphics driver, you can "
@@ -1345,25 +1355,25 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:59001
+#: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
 msgstr "Muuta näytönohjainajuria ja asetuksia"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:60001
+#: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
 msgstr "Jos TV-ulostulo halutaan määritellä, valitse jokin seuraavista:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:61001
+#: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr "Jos TV-ulostulo otetaan käyttöön, tulee myös valita TV-standardi:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:62001
+#: ../ubiquity-frontend-mythbuntu.templates:64001
 msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
@@ -1373,49 +1383,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:63001
+#: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
 msgstr "Päätaustakoneen tiedot"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:64001
+#: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr "Syötä tarvittavat tiedot päätaustakoneeseen yhdistämiseksi:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:65001
+#: ../ubiquity-frontend-mythbuntu.templates:67001
 msgid "MySQL Password"
 msgstr "MYSQL-salasana"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:66001
+#: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
 msgstr "MySQL-käyttäjänimi"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:67001
+#: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
 msgstr "MySQL-tietokanta"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:68001
+#: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
 msgstr "MySQL-palvelin"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:69001
+#: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
 msgstr "Määrittele opastiedot / taustakone"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:70001
+#: ../ubiquity-frontend-mythbuntu.templates:72001
 msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
@@ -1425,13 +1435,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:71001
+#: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
 msgstr "Napsauta avataksesi Schedules Direct -WWW-sivuston"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:72001
+#: ../ubiquity-frontend-mythbuntu.templates:74001
 msgid ""
 "Users in North America will need to setup an account with Schedules Direct "
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
@@ -1444,13 +1454,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:73001
-msgid "myth_button"
-msgstr "myth_button"
+#: ../ubiquity-frontend-mythbuntu.templates:75001
+msgid "Launch MythTV Setup"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:74001
+#: ../ubiquity-frontend-mythbuntu.templates:76001
 msgid ""
 "After setting up your guide data source, you will need to launch MythTV-"
 "Setup to run the backend configuration for the first time.  You will need to "
@@ -1464,24 +1474,33 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:75001
+#: ../ubiquity-frontend-mythbuntu.templates:77001
 msgid "Configuring mythtv..."
 msgstr "Tehdään mythtv:n asetuksia..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:76001
+#: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring additional drivers..."
 msgstr "Tehdään ajureiden asetuksia..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:77001
+#: ../ubiquity-frontend-mythbuntu.templates:79001
 msgid "Configuring additional services..."
 msgstr "Tehdään palveluiden asetuksia..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:78001
+#: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Tehdään kaukosäätimen asetuksia..."
+
+#~ msgid "${PARTMAN_CHANGES}"
+#~ msgstr "${PARTMAN_CHANGES}"
+
+#~ msgid "mythweb"
+#~ msgstr "mythweb"
+
+#~ msgid "myth_button"
+#~ msgstr "myth_button"

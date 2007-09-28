@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-14 15:07+0100\n"
+"POT-Creation-Date: 2007-09-28 11:25-0400\n"
 "PO-Revision-Date: 2007-09-27 23:05+0000\n"
 "Last-Translator: Aiet Kolkhi <aietkolkhi@gmail.com>\n"
 "Language-Team: Georgian <www.gia.ge>\n"
@@ -910,12 +910,6 @@ msgstr ""
 "     მომხ.სახელი: ${USERNAME}\n"
 "     მდებარეობა:           ${LOCATION}"
 
-#. Type: note
-#. Description
-#: ../ubiquity-frontend-mythbuntu.templates:1001
-msgid "${PARTMAN_CHANGES}"
-msgstr "${PARTMAN_CHANGES}"
-
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
@@ -1098,8 +1092,10 @@ msgstr "Frontend Plugins"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
-msgid "mythweb"
-msgstr "mythweb"
+#, fuzzy
+#| msgid "Myth Game"
+msgid "Myth Web"
+msgstr "Myth თამაში"
 
 #. Type: text
 #. Description
@@ -1174,18 +1170,26 @@ msgstr "Myth ტელეფონი"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
+#, fuzzy
+#| msgid "Myth Game"
+msgid "Myth Stream"
+msgstr "Myth თამაში"
+
+#. Type: text
+#. Description
+#: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Video"
 msgstr "Myth ვიდეო"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:38001
+#: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Weather"
 msgstr "Myth ამინდი"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:39001
+#: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
@@ -1194,13 +1198,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:40001
+#: ../ubiquity-frontend-mythbuntu.templates:41001
 msgid "An integrated web browser plugin for your MythTV system."
 msgstr "ინტეგრირებული ვებ–ბრაუზერის მოდული თქვენი MythTV სისტემისათვის."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:41001
+#: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
@@ -1210,7 +1214,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:42001
+#: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid ""
 "Provides an interface for launching your preferred DVD player from MythTV"
 msgstr ""
@@ -1218,13 +1222,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:43001
+#: ../ubiquity-frontend-mythbuntu.templates:44001
 msgid "Allows you to monitor your Netflix dvd rental queue."
 msgstr "საშუალებას იძლევა მონიტორინგი გაუწიოს Netflix dvd rental მიმდევრობას."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:44001
+#: ../ubiquity-frontend-mythbuntu.templates:45001
 #, fuzzy
 msgid "Allows you to visually browse a directory tree containing image files."
 msgstr ""
@@ -1232,19 +1236,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:45001
+#: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr "ლინუქში მომუშავე ემულატორის გამშვები გრაფ.პროგრამა"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:46001
+#: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Provides a digital audio jukebox integrated with MythTV."
 msgstr "შეიცავს MythTV-ში ინტეგრირებულ აუდიო დამკვრელს"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:47001
+#: ../ubiquity-frontend-mythbuntu.templates:48001
 #, fuzzy
 msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
@@ -1255,14 +1259,20 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:48001
+#: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr "MythTV-ში მომუშავე ვოიპ ტელეფონი SIP პროტოკოლის მხარდაჭერით."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:49001
+#: ../ubiquity-frontend-mythbuntu.templates:50001
+msgid "Provides a method to listen to streaming internet radio stations."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity-frontend-mythbuntu.templates:51001
 #, fuzzy
 msgid ""
 "Allows you to browse and play video streams, using an external player, from "
@@ -1273,19 +1283,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:50001
+#: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Displays current and forecast weather information within MythTV."
 msgstr "MythTV-ში ამინდის პროგნოზის ჩვენება."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:51001
+#: ../ubiquity-frontend-mythbuntu.templates:53001
 msgid "Choose Extra Themes"
 msgstr "ექსტა გაფორმების ამორჩევა"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:52001
+#: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid ""
 "Themes can greatly improve the aesthic appeal of a MythTV setup, and display "
 "it to match your tastes much better."
@@ -1293,19 +1303,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:53001
+#: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Official Themes"
 msgstr "ოფიციალური გაფორმება"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:54001
+#: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid "Community Themes"
 msgstr "სახოგადოების გაფორმება"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:55001
+#: ../ubiquity-frontend-mythbuntu.templates:57001
 #, fuzzy
 msgid ""
 "This themes package includes all themes distributed by the MythTV website."
@@ -1315,7 +1325,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:56001
+#: ../ubiquity-frontend-mythbuntu.templates:58001
 #, fuzzy
 msgid ""
 "This themes package is a collection of community themes generated by other "
@@ -1326,13 +1336,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:57001
+#: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
 msgstr "დამატებითი Drivers/Firmware"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:58001
+#: ../ubiquity-frontend-mythbuntu.templates:60001
 #, fuzzy
 msgid ""
 "An open source graphics driver is already enabled and configured for your "
@@ -1347,28 +1357,28 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:59001
+#: ../ubiquity-frontend-mythbuntu.templates:61001
 #, fuzzy
 msgid "Modify Video Driver & Settings"
 msgstr "ვიდეო დრაივერის პარამეტრების მოდიფიკაცია"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:60001
+#: ../ubiquity-frontend-mythbuntu.templates:62001
 #, fuzzy
 msgid "If you would like to configure TV-out, choose an option here:"
 msgstr "თუ გსურთ ტვ–სიგნალის გამომყვანის კონფიგურაცია, ოფციები ამოარჩიეთ აქ:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:61001
+#: ../ubiquity-frontend-mythbuntu.templates:63001
 #, fuzzy
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr "ტვ–სიგნალის გამოყვანისას აუცილებელია სატელევიზიო სტანდარტის ამორჩევა:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:62001
+#: ../ubiquity-frontend-mythbuntu.templates:64001
 #, fuzzy
 msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
@@ -1379,50 +1389,50 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:63001
+#: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
 msgstr "ინფორმაცია ძირითადი Backend-ის შესახებ"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:64001
+#: ../ubiquity-frontend-mythbuntu.templates:66001
 #, fuzzy
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr "შეიყვენეთ მასტერ ბექენდთან კავშირისათვის საჭირო საკონტაქტო ინფორმაცია:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:65001
+#: ../ubiquity-frontend-mythbuntu.templates:67001
 msgid "MySQL Password"
 msgstr "MySQL პაროლი"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:66001
+#: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
 msgstr "MySQL სახელი:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:67001
+#: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
 msgstr "MySQL მონაცემთა ბაზა"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:68001
+#: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
 msgstr "MySQL სერვერი"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:69001
+#: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
 msgstr "სახელმძღვანელოს მონაცემების და Backend-ის გამართვა"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:70001
+#: ../ubiquity-frontend-mythbuntu.templates:72001
 msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
@@ -1430,13 +1440,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:71001
+#: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
 msgstr "დააწკაპეთ «Schedules Direct» ვებ გვერდის გასახსნელად"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:72001
+#: ../ubiquity-frontend-mythbuntu.templates:74001
 msgid ""
 "Users in North America will need to setup an account with Schedules Direct "
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
@@ -1445,13 +1455,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:73001
-msgid "myth_button"
-msgstr "myth_button"
+#: ../ubiquity-frontend-mythbuntu.templates:75001
+msgid "Launch MythTV Setup"
+msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:74001
+#: ../ubiquity-frontend-mythbuntu.templates:76001
 msgid ""
 "After setting up your guide data source, you will need to launch MythTV-"
 "Setup to run the backend configuration for the first time.  You will need to "
@@ -1461,24 +1471,33 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:75001
+#: ../ubiquity-frontend-mythbuntu.templates:77001
 msgid "Configuring mythtv..."
 msgstr "mythtv კონფიგურაცია..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:76001
+#: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring additional drivers..."
 msgstr "დამატებითი დრაივერების კონფიგურაცია..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:77001
+#: ../ubiquity-frontend-mythbuntu.templates:79001
 msgid "Configuring additional services..."
 msgstr "დამატებითი სერვისების კონფიგურაცია..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:78001
+#: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "დისტანციაური მართვის კონფიგურაცია..."
+
+#~ msgid "${PARTMAN_CHANGES}"
+#~ msgstr "${PARTMAN_CHANGES}"
+
+#~ msgid "mythweb"
+#~ msgstr "mythweb"
+
+#~ msgid "myth_button"
+#~ msgstr "myth_button"
