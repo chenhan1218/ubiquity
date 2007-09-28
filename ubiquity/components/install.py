@@ -37,14 +37,20 @@ class Install(FilteredCommand):
         if os.access('/usr/share/grub-installer/grub-installer', os.X_OK):
             automatic_mode = 'UBIQUITY_AUTOMATIC' in os.environ
             bootdevice = self.db.get('grub-installer/bootdev')
+            with_other_os = self.db.get('grub-installer/with_other_os')
+            only_debian = self.db.get('grub-installer/only_debian')
             
+            # If we're in automatic mode and there's already preseeded data, we
+            # want to use it, rather than blindly writing over it.
             if not (automatic_mode and bootdevice != ''):
                 bootdev = self.frontend.get_summary_device()
                 if bootdev is None or bootdev == '':
                     bootdev = '(hd0)'
                 self.preseed('grub-installer/bootdev', 'false')
-            self.preseed('grub-installer/with_other_os', 'false')
-            self.preseed('grub-installer/only_debian', 'false')
+            if not (automatic_mode and with_other_os != ''):
+                self.preseed('grub-installer/with_other_os', 'false')
+            if not (automatic_mode and only_debian != ''):
+                self.preseed('grub-installer/only_debian', 'false')
         
         install_bootloader = self.db.get('ubiquity/install_bootloader')
         if not (automatic_mode and install_bootloader):
