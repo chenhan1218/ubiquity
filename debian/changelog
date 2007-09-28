@@ -14,6 +14,8 @@ ubiquity (1.5.19) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Update translations from Rosetta.
+  * Set Maintainer to ubuntu-installer@lists.ubuntu.com and put Evan and
+    myself in Uploaders.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 10:21:44 -0400
 
