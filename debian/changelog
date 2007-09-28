@@ -9,8 +9,10 @@ ubiquity (1.5.19) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Slight improvement for automating migration-assistant.
+  * Add preseed hooks for rebooting, install failure, and install
+    success.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 10:19:29 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 10:21:44 -0400
 
 ubiquity (1.5.18) gutsy; urgency=low
 

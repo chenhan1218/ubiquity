@@ -551,6 +551,7 @@ class Wizard(BaseFrontend):
         return str(self.userinterface.widgetStack.widget(step_index).objectName())
 
     def set_page(self, n):
+        self.run_error_cmd()
         self.userinterface.show()
         if n == 'Language':
             self.set_current_page(WIDGET_STACK_STEPS["stepLanguage"])
@@ -649,9 +650,13 @@ class Wizard(BaseFrontend):
 
         ##FIXME use non-stock messagebox to customise button text
         #quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, rebootButtonText, quitButtonText)
-        quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText)
+        self.run_success_cmd()
+        if not self.get_reboot_seen():
+            quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText)
 
-        if quitAnswer == 0:
+            if quitAnswer == 0:
+                self.reboot()
+        elif self.get_reboot():
             self.reboot()
 
     def reboot(self, *args):
@@ -1743,6 +1748,7 @@ class Wizard(BaseFrontend):
             self.installing = False
 
     def error_dialog (self, title, msg, fatal=True):
+        self.run_error_cmd()
         self.allow_change_step(True)
         # TODO: cancel button as well if capb backup
         QMessageBox.warning(self.userinterface, title, msg, QMessageBox.Ok)
@@ -1750,6 +1756,7 @@ class Wizard(BaseFrontend):
             self.return_to_partitioning()
 
     def question_dialog (self, title, msg, options, use_templates=True):
+        self.run_error_cmd()
         # I doubt we'll ever need more than three buttons.
         assert len(options) <= 3, options
 

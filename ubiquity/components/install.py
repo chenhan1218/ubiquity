@@ -53,6 +53,12 @@ class Install(FilteredCommand):
             else:
                 self.preseed('popularity-contest/participate', 'false')
 
+        reboot = self.db.get('ubiquity/reboot')
+        if reboot == 'true':
+            self.frontend.set_reboot(True)
+        else:
+            self.frontend.set_reboot(False)
+
         if self.frontend.oem_config:
             self.preseed('oem-config/enable', 'true')
             self.preseed('oem-config/id', self.frontend.get_oem_id())

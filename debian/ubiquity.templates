@@ -590,3 +590,16 @@ Template: ubiquity/run-ma-again
 Type: boolean
 Default: true
 Description: for internal use; run migration-assistant again.
+
+Template: ubiquity/reboot
+Type: boolean
+Default: false
+Description: for internal use; automatically reboot when the install completes.
+
+Template: ubiquity/success_command
+Type: string
+Description: for internal use; specify a command to be run on install success.
+
+Template: ubiquity/failure_command
+Type: string
+Description: for internal use; specify a command to be run on install failure.

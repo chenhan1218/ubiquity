@@ -66,6 +66,19 @@ class BaseFrontend:
         except debconf.DebconfError:
             pass
 
+        # set commands
+        # Note that this will never work if the database is locked, so you
+        # cannot trap that particular error using failure_command.
+        self.error_cmd = None
+        self.success_cmd = None
+        try:
+            self.error_cmd = self.debconf_operation('get',
+                'ubiquity/failure_command')
+            self.success_cmd = self.debconf_operation('get',
+                'ubiquity/success_command')
+        except debconf.DebconfError:
+            pass
+
     def _abstract(self, method):
         raise NotImplementedError("%s.%s does not implement %s" %
                                   self.__class__.__module__,
@@ -136,7 +149,8 @@ class BaseFrontend:
 
     def post_mortem(self, exctype, excvalue, exctb):
         """Drop into the debugger if possible."""
-
+        self.run_error_cmd()
+        
         # Did the user request this?
         if 'UBIQUITY_DEBUG_PDB' not in os.environ:
             return
@@ -377,6 +391,25 @@ class BaseFrontend:
         """Set whether to participate in popularity-contest."""
         self.popcon = participate
 
+    def set_reboot(self, reboot):
+        """Set whether to reboot automatically when the install completes."""
+        self.reboot_after_install = reboot
+
+    def get_reboot(self):
+        return self.reboot_after_install
+
+    def get_reboot_seen(self):
+        reboot_seen = 'false'
+        try:
+            reboot_seen = self.debconf_operation('fget', 'ubiquity/reboot',
+                'seen')
+        except debconf.DebconfError:
+            pass
+        if reboot_seen == 'false':
+            return False
+        else:
+            return True
+
     # called from ubiquity.components.install
     def get_popcon(self):
         """Get whether to participate in popularity-contest."""
@@ -391,3 +424,11 @@ class BaseFrontend:
     def question_dialog(self, title, msg, options, use_templates=True):
         """Ask a question."""
         self._abstract('question_dialog')
+    
+    def run_error_cmd(self):
+        if self.error_cmd != '':
+            subprocess.call(['sh', '-c', self.error_cmd])
+    
+    def run_success_cmd(self):
+        if self.success_cmd != '':
+            subprocess.call(['sh', '-c', self.success_cmd])

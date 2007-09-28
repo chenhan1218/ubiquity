@@ -253,8 +253,12 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
         #After (and if) install is done, decide what to do
         if self.pagesindex == pageslen:
+            self.run_success_cmd()
             if self.get_installtype() == "Frontend":
-                self.finished_dialog.run()
+                if not self.get_reboot_seen():
+                    self.finished_dialog.run()
+                elif self.get_reboot():
+                    self.reboot()
             else:
                 self.live_installer.show()
                 self.installing = False
