@@ -40,9 +40,9 @@ class MythbuntuApply(FilteredCommand):
         if installtype == "Slave Backend/Frontend":
             patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mysql-server|^mythtv\ "
         elif installtype == "Master Backend":
-            patternline += "|^ubuntu-mythtv-frontend|^mythtv-frontend|^mythtv\ "
+            patternline += "|^mythtv-frontend|^mythtv\ "
         elif installtype == "Slave Backend":
-            patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^ubuntu-mythtv-frontend|^mythtv-frontend|^mythtv\ "
+            patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mythtv-frontend|^mythtv\ "
         elif installtype == "Frontend":
             patternline += "|^mythtv-backend-master|^mythtv-database|^mythtv-backend|^mysql-server-5.0|^mysql-server|^mythtv\ "
         mytharchive = self.db.get('mythbuntu/mytharchive')
@@ -75,6 +75,9 @@ class MythbuntuApply(FilteredCommand):
         mythphone = self.db.get('mythbuntu/mythphone')
         if mythphone == "false":
             patternline += "|^mythphone"
+        mythstream = self.db.get('mythbuntu/mythstream')
+        if mythstream == "false":
+            patternline += "|^mythstream"
         mythvideo = self.db.get('mythbuntu/mythvideo')
         if mythvideo == "false":
             patternline += "|^mythvideo|^libwww-perl|^libxml-simple-perl"
@@ -97,10 +100,13 @@ class MythbuntuApply(FilteredCommand):
         ssh = self.db.get('mythbuntu/sshservice')
         if ssh == "false":
             patternline += "|^openssh-server"
-        pattern = re.compile(patternline)
         hdhomerun = self.db.get('mythbuntu/hdhomerun')
         if hdhomerun == "false":
             patternline += "|^hdhomerun-config"
+        xmltv = self.db.get('mythbuntu/xmltv')
+        if xmltv == "false":
+            patternline += "|^xmltv"
+        pattern = re.compile(patternline)
         for line in in_f:
             if pattern.search(line) is None:
                 out_f.write(line)

@@ -66,13 +66,17 @@ EOF
 
 grabuser()
 {
-    #! /bin/sh -e
     db_get passwd/username
     USER=$RET
 
     sed '/AutomaticLogin=/ c\AutomaticLogin='$USER'
+    /AutomaticLoginEnable=/ c\AutomaticLoginEnable='true'
+    /TimedLoginEnable=/ c\TimedLoginEnable='true'
     /TimedLogin=/ c\TimedLogin='$USER'' $ROOT/etc/gdm/gdm-cdd.conf | tee $ROOT/etc/gdm/gdm-cdd.conf.NEW > /dev/null
     mv $ROOT/etc/gdm/gdm-cdd.conf.NEW $ROOT/etc/gdm/gdm-cdd.conf
+    mkdir $ROOT/home/$USER/.config/autostart -p
+    ln -s /usr/share/applications/mythtv.desktop $ROOT/home/$USER/.config/autostart
+    chown 1000:1000 $ROOT/home/$USER/ -R
 }
 
 mythtv_db()

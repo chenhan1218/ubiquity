@@ -179,13 +179,17 @@ class Install(install.Install):
         vnc = self.db.get('mythbuntu/vncservice')
         nfs = self.db.get('mythbuntu/nfsservice')
         to_install = []
-        if video_driver == "nvidia":
+        if video_driver == "nvidia_new":
             to_install.append('nvidia-glx-new')
+        elif video_driver == "nvidia":
+            to_install.append('nvidia-glx')
         elif video_driver == "nvidia_legacy":
             to_install.append('nvidia-glx-legacy')
         elif video_driver == "fglrx":
             to_install.append('xorg-driver-fglrx')
         elif video_driver == "openchrome":
+            to_install.append('libviaxvmcpro1')
+            to_install.append('libviaxvmc1')
             to_install.append('xserver-xorg-video-openchrome')
         if vnc == 'true':
             to_install.append('vnc4server')

@@ -399,7 +399,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 list = string.split(line, '"')
                 if len(list) > 1:
                     self.video_driver.append_text("Open Source Driver: " + list[1])
-                    self.video_driver.set_active(4)
+                    self.video_driver.set_active(5)
                     self.tvoutstandard.set_active(0)
                     self.tvouttype.set_active(0)
                     break
@@ -556,6 +556,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.mythmusic.set_active(enable)
             self.mythnews.set_active(enable)
             self.mythphone.set_active(enable)
+            self.mythstream.set_active(enable)
             self.mythvideo.set_active(enable)
             self.mythweather.set_active(enable)
 
@@ -804,12 +805,12 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             else:
                 self.tvout_vbox.set_sensitive(False)
                 self.videodrivers_hbox.set_sensitive(False)
-                self.video_driver.set_active(4)
+                self.video_driver.set_active(5)
                 self.tvoutstandard.set_active(0)
                 self.tvouttype.set_active(0)
         elif (widget is not None and widget.get_name() == 'video_driver'):
             type = widget.get_active()
-            if (type == 0 or type == 1 or type == 2):
+            if (type == 0 or type == 1 or type == 2 or type == 3):
                 self.tvout_vbox.set_sensitive(True)
             else:
                 self.tvout_vbox.set_sensitive(False)
@@ -950,6 +951,13 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         else:
             return False
 
+    def get_mythstream(self):
+        """Returns the status of the mythstream plugin"""
+        if self.mythstream.get_active():
+            return True
+        else:
+            return False
+
     def get_mythvideo(self):
         """Returns the status of the mythvideo plugin"""
         if self.mythvideo.get_active():
@@ -995,6 +1003,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             elif driver == 2:
                 return "nvidia"
             elif driver == 3:
+                return "nvidia_new"
+            elif driver == 4:
                 return "openchrome"
             else:
                 return "None"
@@ -1106,3 +1116,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def get_hdhomerun(self):
         return self.hdhomerun.get_active()
+
+	def get_xmltv(self):
+		return self.xmltv.get_active()

@@ -130,7 +130,7 @@ _Description: Frontend Plugins
 
 Template: ubiquity/text/mythweb
 Type: text
-_Description: mythweb
+_Description: Myth Web
 
 Template: ubiquity/text/mythweb_label
 Type: text
@@ -177,6 +177,10 @@ _Description: Myth News
 Template: ubiquity/text/mythphone
 Type: text
 _Description: Myth Phone
+
+Template: ubiquity/text/mythstream
+Type: text
+_Description: Myth Stream
 
 Template: ubiquity/text/mythvideo
 Type: text
@@ -229,6 +233,10 @@ _Description:
 Template: ubiquity/text/mythphone_label
 Type: text
 _Description: A phone and videophone capability on MythTV using the standard SIP protocol.
+
+Template: ubiquity/text/mythstream_label
+Type: text
+_Description: Provides a method to listen to streaming internet radio stations.
 
 Template: ubiquity/text/mythvideo_label
 Type: text
@@ -342,7 +350,7 @@ _Description:
 
 Template: ubiquity/text/myth_button
 Type: text
-_Description: myth_button
+_Description: Launch MythTV Setup
 
 Template: ubiquity/text/myth_button_description
 Type: text
@@ -415,6 +423,10 @@ Template: mythbuntu/mythphone
 Type: boolean
 Description: for internal use; determines if plugin is installed
 
+Template: mythbuntu/mythstream
+Type: boolean
+Description: for internal use; determines if plugin is installed
+
 Template: mythbuntu/mythvideo
 Type: boolean
 Description: for internal use; determines if plugin is installed
@@ -479,3 +491,7 @@ Description: for internal use; determines if mysql access is enabled
 Template: mythbuntu/hdhomerun
 Type: boolean
 Description: for internal use; determines if hdhomerun config is to be installed
+
+Template: mythbuntu/xmltv
+Type: boolean
+Description: for internal use; determines if xmltv is to be installed
