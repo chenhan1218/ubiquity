@@ -7,13 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-14 15:07+0100\n"
-"PO-Revision-Date: 2007-04-20 19:34+0000\n"
-"Last-Translator: Sho \"Takeyari\" Sone <ss663995@gmail.com>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-09-14 12:14:21+0000\n"
+"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
@@ -396,25 +397,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Beginning"
-msgstr ""
+msgstr "先頭"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "End"
-msgstr ""
+msgstr "末尾"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Primary"
-msgstr ""
+msgstr "基本パーティション"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Logical"
-msgstr ""
+msgstr "論理パーティション"
 
 #. Type: text
 #. Description
@@ -517,8 +518,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
+#, fuzzy
 msgid "Checking the installation..."
-msgstr ""
+msgstr "インストールログをコピーしています..."
 
 #. Type: title
 #. Description
@@ -892,8 +894,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
+#, fuzzy
 msgid "What Type of Installation?"
-msgstr ""
+msgstr "インストールを中断しますか？"
 
 #. Type: text
 #. Description
@@ -919,8 +922,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
+#, fuzzy
 msgid "Advanced Installation"
-msgstr ""
+msgstr "インストールを中断しますか？"
 
 #. Type: text
 #. Description
@@ -934,8 +938,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
+#, fuzzy
 msgid "Advanced Installation Type"
-msgstr ""
+msgstr "インストール完了"
 
 #. Type: text
 #. Description
@@ -1311,8 +1316,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
+#, fuzzy
 msgid "MySQL Password"
-msgstr ""
+msgstr "パスワード:"
 
 #. Type: text
 #. Description
@@ -1380,23 +1386,27 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
+#, fuzzy
 msgid "Configuring mythtv..."
-msgstr ""
+msgstr "APTを設定しています..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
+#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr ""
+msgstr "ハードウェアを設定しています..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
+#, fuzzy
 msgid "Configuring additional services..."
-msgstr ""
+msgstr "ハードウェアを設定しています..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
+#, fuzzy
 msgid "Configuring remote control..."
-msgstr ""
+msgstr "タイムゾーンを設定しています..."

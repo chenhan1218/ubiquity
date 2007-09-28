@@ -3,19 +3,19 @@
 # This file is distributed under the same license as the debian-installer package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-14 15:07+0100\n"
-"PO-Revision-Date: 2007-08-26 19:28+0000\n"
-"Last-Translator: Milan Prvulović <prvulm@gmail.com>\n"
+"PO-Revision-Date: 2007-09-16 20:50+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-09-14 12:16:18+0000\n"
+"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
@@ -27,7 +27,7 @@ msgstr "Инсталирај"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Инсталација (ОЕМ мод, само за произвођаче)"
 
 #. Type: text
 #. Description
@@ -395,25 +395,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Beginning"
-msgstr ""
+msgstr "Почетак"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "End"
-msgstr ""
+msgstr "Крај"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Primary"
-msgstr ""
+msgstr "Примарна"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Logical"
-msgstr ""
+msgstr "Логичка"
 
 #. Type: text
 #. Description
@@ -519,7 +519,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Checking the installation..."
-msgstr ""
+msgstr "Провера инсталације..."
 
 #. Type: title
 #. Description
@@ -700,7 +700,7 @@ msgstr "Конфигуришем програм за подизање систе
 #. Description
 #: ../ubiquity.templates:90001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Инсталирање додатних пакета..."
 
 #. Type: text
 #. Description
@@ -754,13 +754,13 @@ msgstr "Грешка приликом уклањања пакета ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Грешка у току инсталирања пакета"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:100001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Грешка се догодила док су инсталирани пакети:"
 
 #. Type: error
 #. Description
@@ -768,7 +768,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:100001 ../ubiquity.templates:101001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Следећи пакети су у неповезаном стању:"
 
 #. Type: error
 #. Description
@@ -789,7 +789,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Грешка при уклањању пакета"
 
 #. Type: error
 #. Description
@@ -886,25 +886,25 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "${PARTMAN_CHANGES}"
-msgstr ""
+msgstr "${PARTMAN_CHANGES}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "What Type of Installation?"
-msgstr ""
+msgstr "Коју врсту инсталације?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "За Mythbuntu су доступна два начина инсталације:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Стандардна инсталација"
 
 #. Type: text
 #. Description
@@ -914,12 +914,15 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Стандардна инсталација инсталира и подешава све опције са минималним "
+"учествовањем корисника. Биће инсталирани програми за покретање, контролу, "
+"сви додаци, и све теме."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Advanced Installation"
-msgstr ""
+msgstr "Напредна инсталација"
 
 #. Type: text
 #. Description
@@ -929,12 +932,15 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Напредну инсталацију можете користити за подешавање ваших потреба. НАПОМЕНА: "
+"Ова инсталација је неопходна ако Mythbuntu рачунар треба да прикључите на "
+"MythTV-базирану мрежу."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
 msgid "Advanced Installation Type"
-msgstr ""
+msgstr "Напредна врста инсталације"
 
 #. Type: text
 #. Description
@@ -1036,19 +1042,19 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "Покретачки додаци"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "Контролни додаци"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "mythweb"
-msgstr ""
+msgstr "mythweb"
 
 #. Type: text
 #. Description
@@ -1062,73 +1068,73 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Myth архива"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Myth претраживач"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Myth контроле"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Myth DVD"
-msgstr ""
+msgstr "Myth ДВД"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Myth галерија"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Game"
-msgstr ""
+msgstr "Myth игре"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Music"
-msgstr ""
+msgstr "Myth музика"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth News"
-msgstr ""
+msgstr "Myth вести"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth телефон"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Video"
-msgstr ""
+msgstr "Myth видео"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Myth време"
 
 #. Type: text
 #. Description
@@ -1137,6 +1143,8 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"MythTV додатак који омогућава прављење ДВД-а од метеријала са ваше MythTV "
+"мреже."
 
 #. Type: text
 #. Description
@@ -1216,7 +1224,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:51001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "Одаберите додатне теме"
 
 #. Type: text
 #. Description
@@ -1230,13 +1238,13 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:53001
 msgid "Official Themes"
-msgstr ""
+msgstr "Званичне теме"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Community Themes"
-msgstr ""
+msgstr "Теме заједнице корисника"
 
 #. Type: text
 #. Description
@@ -1257,7 +1265,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "Додатни управљачки програми/Firmware"
 
 #. Type: text
 #. Description
@@ -1279,7 +1287,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:60001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Ако желите да подесите ТВ излаз, одаберите неку од опција:"
 
 #. Type: text
 #. Description
@@ -1311,25 +1319,25 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "MySQL Password"
-msgstr ""
+msgstr "MySQL лозинка"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "MySQL корисничко име"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
 msgid "MySQL Database"
-msgstr ""
+msgstr "MySQL база података"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL Server"
-msgstr ""
+msgstr "MySQL сервер"
 
 #. Type: text
 #. Description
@@ -1364,7 +1372,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "myth_button"
-msgstr ""
+msgstr "myth_button"
 
 #. Type: text
 #. Description
@@ -1380,22 +1388,22 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Configuring mythtv..."
-msgstr ""
+msgstr "Подешавање mythtv-а..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
 msgid "Configuring additional drivers..."
-msgstr ""
+msgstr "Подешавање додатних управљачких програма..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
 msgid "Configuring additional services..."
-msgstr ""
+msgstr "Подешавање додатних сервиса..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring remote control..."
-msgstr ""
+msgstr "Подешавање даљинске контроле..."

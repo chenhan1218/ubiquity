@@ -7,30 +7,26 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-14 15:07+0100\n"
-"PO-Revision-Date: 2007-08-28 20:06+0000\n"
-"Last-Translator: Bernard Banko <beernarrd@siol.com>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Matej Kovačič <matej.kovacic@owca.info>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-09-14 12:15:55+0000\n"
+"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
-#, fuzzy
 msgid "Install"
-msgstr ""
-"#-#-#-#-#  sl.po (debian-installer)  #-#-#-#-#\n"
-"Namestitev\n"
-"#-#-#-#-#  sl.po (ubiquity)  #-#-#-#-#\n"
-"Namesti"
+msgstr "Namesti"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Namesti (OEM način, samo za proizvajalce)"
 
 #. Type: text
 #. Description
@@ -400,25 +396,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Beginning"
-msgstr ""
+msgstr "Začetek"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "End"
-msgstr ""
+msgstr "Konec"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Primary"
-msgstr ""
+msgstr "Primarna"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Logical"
-msgstr ""
+msgstr "Logična"
 
 #. Type: text
 #. Description
@@ -483,8 +479,8 @@ msgid ""
 "start back up using this live CD rather than the newly-installed system."
 msgstr ""
 "Prepričajte se, da pred ponovnim zagonom odstranite zgoščenko. V nasprotnem "
-"primeru se bo računalnik spet zagnal s te žive zgoščenke, namesto da bi "
-"uporabil novo nameščeni sistem."
+"primeru se bo računalnik spet zagnal z žive zgoščenke, namesto da bi "
+"uporabil novi nameščeni sistem."
 
 #. Type: text
 #. Description
@@ -522,8 +518,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
+#, fuzzy
 msgid "Checking the installation..."
-msgstr ""
+msgstr "Kopiranje dnevnikov namestitve ..."
 
 #. Type: title
 #. Description
@@ -704,13 +701,13 @@ msgstr "Nastavljanje zagonskega nalagalnika ..."
 #. Description
 #: ../ubiquity.templates:90001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Nameščam dodatne programske pakete..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Preverjam programske pakete za namestitev..."
 
 #. Type: text
 #. Description
@@ -757,22 +754,25 @@ msgstr "Napaka pri odstranjevanju ${PACKAGE}"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:100001
+#, fuzzy
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Napaka med nameščanjem programskih paketov"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:100001
+#, fuzzy
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Med nameščanjem programskih paketov je prišlo do napake:"
 
 #. Type: error
 #. Description
 #. Type: error
 #. Description
 #: ../ubiquity.templates:100001 ../ubiquity.templates:101001
+#, fuzzy
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Naslednji programski paketi so v okvari:"
 
 #. Type: error
 #. Description
@@ -793,13 +793,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Napaka med odstranjevanjem programskih paketov"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Med odstranjevanjem programskih paketov je prišlo do napake:"
 
 #. Type: title
 #. Description
@@ -895,8 +895,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
+#, fuzzy
 msgid "What Type of Installation?"
-msgstr ""
+msgstr "Katero vrsto namestitve?"
 
 #. Type: text
 #. Description
@@ -922,8 +923,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
+#, fuzzy
 msgid "Advanced Installation"
-msgstr ""
+msgstr "Napredna namestitev"
 
 #. Type: text
 #. Description
@@ -937,8 +939,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
+#, fuzzy
 msgid "Advanced Installation Type"
-msgstr ""
+msgstr "Vrsta napredne namestitve"
 
 #. Type: text
 #. Description
@@ -1383,23 +1386,27 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
+#, fuzzy
 msgid "Configuring mythtv..."
-msgstr ""
+msgstr "Nastavljanje apt ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
+#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr ""
+msgstr "Nastavljanje strojne opreme ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
+#, fuzzy
 msgid "Configuring additional services..."
-msgstr ""
+msgstr "Nastavljanje strojne opreme ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
+#, fuzzy
 msgid "Configuring remote control..."
-msgstr ""
+msgstr "Nastavljanje časovnega pasu ..."

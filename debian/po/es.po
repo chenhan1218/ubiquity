@@ -7,13 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-14 15:07+0100\n"
-"PO-Revision-Date: 2007-09-13 19:34+0000\n"
-"Last-Translator: Ricardo Pérez López <ricardo@iesdonana.org>\n"
+"PO-Revision-Date: 2007-09-25 11:17+0000\n"
+"Last-Translator: Javier Fernández-Sanguino Peña <jfs@debian.org>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-09-14 12:15:44+0000\n"
+"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
@@ -371,7 +372,7 @@ msgstr "Reiniciar ahora"
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:48001
 msgid "Installer crashed"
-msgstr ""
+msgstr "El instalador ha fallado"
 
 #. Type: text
 #. Description
@@ -384,12 +385,19 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Lo sentimos; el instalador ha fallado. Por favor, envíe un nuevo informe de "
+"fallo en https://launchpad.net/ubuntu/+source/ubiquity/+filebug (no adjunte "
+"sus detalles a ningún informe de fallo existente) y un desarrollador "
+"atenderá su problema tan pronto como le sea posible. Para ayudar a los "
+"desarrolladores a entender qué ha podido ir mal, incluya los siguientes "
+"detalles en su informe de fallo, y adjunte los archivos /var/log/syslog y /"
+"var/log/partman:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Create partition"
-msgstr ""
+msgstr "Crear partición"
 
 #. Type: text
 #. Description
@@ -397,49 +405,49 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:51001 ../ubiquity.templates:58001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Nuevo tamaño de partición en megabytes (1000000 bytes):"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Beginning"
-msgstr ""
+msgstr "Principio"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "End"
-msgstr ""
+msgstr "Final"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Primary"
-msgstr ""
+msgstr "Primaria"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Logical"
-msgstr ""
+msgstr "Lógica"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Edit partition"
-msgstr ""
+msgstr "Editar partición"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Editar una partición"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Opciones avanzadas"
 
 #. Type: text
 #. Description
@@ -451,19 +459,19 @@ msgstr "Cargador de arranque"
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Instalar cargador de arranque"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Concurso de popularidad"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Participar en la encuesta de uso de paquetes"
 
 #. Type: text
 #. Description
@@ -897,6 +905,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Tipo de instalación: ${INSTALLTYPE}\n"
+" Controladores:\n"
+"     Controlador de vídeo adicional: ${VIDEO_DRIVER}\n"
+"         Salida de TV: ${TVOUT}, ${TVSTANDARD}\n"
+" Servicios adicionales:\n"
+"     VNC: ${EN_VNC}\n"
+"     SSH: ${EN_OPENSSH}\n"
+"     Samba: ${EN_SAMBA}\n"
+"     NFS: ${EN_NFS}\n"
+"     Servicio MythTV: ${EN_MYSQL}\n"
+" Preguntas de instalación normal de Ubuntu:\n"
+"     Idioma: ${LANGUAGE}\n"
+"     Teclado: ${KEYMAP}\n"
+"     Nombre completo: ${FULLNAME}\n"
+"     Nombre de usuario: ${USERNAME}\n"
+"     Ubicación: ${LOCATION}"
 
 #. Type: note
 #. Description
@@ -1068,6 +1092,8 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"Los complementos pueden ser usados para extender la funcionalidad de MythTV "
+"más allá de proveer una solución para la TV."
 
 #. Type: text
 #. Description
@@ -1208,7 +1234,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Le permite monitorear su cola de espera de renta de DVD de Netflix."
 
 #. Type: text
 #. Description
@@ -1239,6 +1265,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Un complemento lector de noticias RSS para MythTV que lo mantiene al tanto "
+"de sus temas favoritos."
 
 #. Type: text
 #. Description
@@ -1328,12 +1356,16 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Su instalación ya tiene habilitado un controlador gráfico libre. Si desea "
+"usar un controlador gráfico distinto, puede hacerlo aquí. Tenga en cuenta "
+"que se necesitan controladores gráficos privativos para la salida de TV o "
+"los efectos OpenGL."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "Modificar controlador y opciones de vídeo"
 
 #. Type: text
 #. Description
@@ -1416,7 +1448,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Clic para ingresar al sitio web Schedules Direct"
 
 #. Type: text
 #. Description
@@ -1426,6 +1458,10 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Los usuarios en Norteamérica necesitarán disponer de una cuenta Schedules "
+"Direct (SD). SD provee datos de guía para cargos nominales. Sin SD, los "
+"usuarios en Norteamérica pueden perder muchas de las características de "
+"programación en MythTV."
 
 #. Type: text
 #. Description
@@ -1442,6 +1478,10 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Después de configurar la fuente de datos de la guía, se necesita ejecutar "
+"MythTV-Setup para que se ejecute el sistema de configuración por primera "
+"vez. Necesitará configurar las primeras cuatro secciones, asegurándose de "
+"proveer los datos de la guía en la tercera."
 
 #. Type: text
 #. Description

@@ -7,24 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-14 15:07+0100\n"
-"PO-Revision-Date: 2007-09-11 05:40+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-09-14 12:17:35+0000\n"
+"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
-#, fuzzy
 msgid "Install"
-msgstr ""
-"#-#-#-#-#  tl.po (debian-installer)  #-#-#-#-#\n"
-"Iluklok\n"
-"#-#-#-#-#  tl.po (ubiquity)  #-#-#-#-#\n"
-"I-install"
+msgstr "I-install"
 
 #. Type: text
 #. Description
@@ -87,7 +83,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Release Notes"
-msgstr ""
+msgstr "Tala ng Labas"
 
 #. Type: text
 #. Description
@@ -187,7 +183,7 @@ msgstr "Pumili ng password upang mapanatiling ligtas ang iyong account."
 #. Description
 #: ../ubiquity.templates:23001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "Tumatakbo ka sa debugging mode. Huwag gumamit ng mahalagang password."
 
 #. Type: text
 #. Description
@@ -218,7 +214,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "Maglipat ng mga Dokumento at Settings"
 
 #. Type: text
 #. Description
@@ -241,7 +237,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Create a user to import the selected account into:"
-msgstr ""
+msgstr "Gumawa ng user kung saan ililipat ang napiling impormasyon:"
 
 #. Type: text
 #. Description
@@ -395,25 +391,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Beginning"
-msgstr ""
+msgstr "Umpisa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "End"
-msgstr ""
+msgstr "Dulo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Primary"
-msgstr ""
+msgstr "Pangunahin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Logical"
-msgstr ""
+msgstr "Lohikal"
 
 #. Type: text
 #. Description

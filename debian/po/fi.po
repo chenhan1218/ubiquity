@@ -7,13 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-14 15:07+0100\n"
-"PO-Revision-Date: 2007-09-13 07:56+0000\n"
-"Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
+"PO-Revision-Date: 2007-09-25 11:23+0000\n"
+"Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-09-14 12:15:10+0000\n"
+"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
@@ -363,7 +364,7 @@ msgstr "Uudelleenkäynnistä nyt"
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:48001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Asennusohjelma kaatuii"
 
 #. Type: text
 #. Description
@@ -376,12 +377,18 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Asennusohjelma kaatui, pahoittelut. Raportoi virheestä osoitteessa https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (älä tässä tapauksessa lisää "
+"tietojasi olemassa olevaan virheraporttiin), jotta kehittäjät voivat puuttua "
+"ongelmaan mahdollisimman pian. Jotta kehittäjät voisivat selvittää mikä meni "
+"pieleen, liitä virheraporttiin lokitiedostot /var/log/syslog ja /var/log/"
+"partman:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Create partition"
-msgstr ""
+msgstr "Luo osio"
 
 #. Type: text
 #. Description
@@ -389,73 +396,73 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:51001 ../ubiquity.templates:58001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Uuden osion koko megatavuissa (1000000 tavua)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Beginning"
-msgstr ""
+msgstr "Alku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "End"
-msgstr ""
+msgstr "Loppu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Primary"
-msgstr ""
+msgstr "Ensisijainen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Logical"
-msgstr ""
+msgstr "Looginen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Edit partition"
-msgstr ""
+msgstr "Muokkaa osiota"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Muokkaa osiota"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Lisäasetukset"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Boot loader"
-msgstr "Käynnistyslataaja"
+msgstr "Alkulatausohjelma"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Asenna alkulatausohjelma"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Suosiokilpailu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Osallistu pakettien käyttömäärien tutkimukseen"
 
 #. Type: text
 #. Description
@@ -886,6 +893,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Asennustyyppi: ${INSTALLTYPE}\n"
+" Ajurit:\n"
+"     Lisänäytönohj.ajuri: ${VIDEO_DRIVER}\n"
+"         TV-Out: ${TVOUT}, ${TVSTANDARD}\n"
+" Lisäpalvelut:\n"
+"     VNC: ${EN_VNC}\n"
+"     SSH: ${EN_OPENSSH}\n"
+"     Samba: ${EN_SAMBA}\n"
+"     NFS: ${EN_NFS}\n"
+"     MythTV-palvelu: ${EN_MYSQL}\n"
+" Tavalliset Ubuntun asennuskysymykset:\n"
+"     Kieli: ${LANGUAGE}\n"
+"     Näppäimistöasettelu: ${KEYMAP}\n"
+"     Koko nimi: ${FULLNAME}\n"
+"     Kirjautumisnimi: ${USERNAME}\n"
+"     Sijainti: ${LOCATION}"
 
 #. Type: note
 #. Description
@@ -1315,12 +1338,16 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Asennusta varten on jo käytössä ja asetettuna avoimen lähdekoodin "
+"näytönohjainajuri. Jos halutaan käyttää toista näytönohjainajuria, "
+"määritellään se tässä. Huomattavaa on, että TV-ulostuloa tai OpenGL-"
+"tehosteita varten saatetaan vaatia suljettua näytönohjainajuria."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "Muuta näytönohjainajuria ja asetuksia"
 
 #. Type: text
 #. Description

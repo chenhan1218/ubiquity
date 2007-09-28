@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-14 15:07+0100\n"
-"PO-Revision-Date: 2007-09-11 05:31+0100\n"
+"PO-Revision-Date: 2007-09-26 17:21+0000\n"
 "Last-Translator: Arief S Fitrianto <arief@gurame.fisika.ui.ac.id>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
 "id>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-09-14 12:17:56+0000\n"
+"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
@@ -388,7 +389,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Create partition"
-msgstr ""
+msgstr "Buat partisi"
 
 #. Type: text
 #. Description
@@ -396,49 +397,49 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:51001 ../ubiquity.templates:58001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Ukuran partisi baru dalam megabyte (1000000 byte):"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Beginning"
-msgstr ""
+msgstr "Awal"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "End"
-msgstr ""
+msgstr "Akhir"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Primary"
-msgstr ""
+msgstr "Primer"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Logical"
-msgstr ""
+msgstr "Logikal"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Edit partition"
-msgstr ""
+msgstr "Sunting partisi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Sunting sebuah partisi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Pilihan Tingkat Lanjut"
 
 #. Type: text
 #. Description
@@ -450,19 +451,19 @@ msgstr "Boot loader"
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Pasang pemuat boot"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Kontes popularitas"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Berpartisipasi dalam survey penggunaan paket"
 
 #. Type: text
 #. Description
@@ -525,9 +526,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "Sedang menyalin catatan instalasi..."
+msgstr "Sedang memeriksa instalasi..."
 
 #. Type: title
 #. Description
@@ -708,13 +708,13 @@ msgstr "Sedang mengonfigurasi boot loader..."
 #. Description
 #: ../ubiquity.templates:90001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Sedang memasang paket-paket tambahan..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Sedang memeriksa paket-paket untuk dipasang..."
 
 #. Type: text
 #. Description
@@ -762,13 +762,13 @@ msgstr "Kesalahan saat menghapus ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Kesalahan ketika memasang paket"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:100001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Sebuah kesalahan terjadi ketika sedang memasang paket:"
 
 #. Type: error
 #. Description
@@ -776,7 +776,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:100001 ../ubiquity.templates:101001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Paket-paket berikut berada dalam kondisi rusak:"
 
 #. Type: error
 #. Description
@@ -797,13 +797,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Kesalahan ketika menghapus paket"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Sebuah kesalahan terjadi ketika sedang menghapus paket:"
 
 #. Type: title
 #. Description
@@ -901,21 +901,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "Batalkan instalasi?"
+msgstr "Instalasi Tipe Apa?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Dua tipe instalasi tersedia bagi Mythbuntu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Instalasi Standar"
 
 #. Type: text
 #. Description
@@ -925,13 +924,15 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Suatu instalasi standar akan memasang dan mengkonfigur setiap opsi dengan "
+"interaksi pemakai minimum. Ini akan memasang sebuah backed, frontend, semua "
+"plugin, dan semua tema."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Batalkan instalasi?"
+msgstr "Instalasi Tingkat Lanjut"
 
 #. Type: text
 #. Description
@@ -941,13 +942,16 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Suatu instalasi tingkat lanjut dapat dipakai untuk mengkustomisasi apa yang "
+"diperlukan bagi instalasi Mythbuntu ini. CATATAN: Suatu instalasi tingkat "
+"lanjut diperlukan untuk menambahkan sebuah mesin Mythbuntu ke jaringan "
+"berbasis MythTV yang telah ada."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Instalasi selesai."
+msgstr "Tipe Instalasi Tingkat Lanjut"
 
 #. Type: text
 #. Description
@@ -1006,7 +1010,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Backend Sekunder"
 
 #. Type: text
 #. Description
@@ -1015,6 +1019,8 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Ini akan menyiapkan sistem serupa dengan Backed Primer, namun ini akan "
+"dikonfigurasi untuk menyambung ke backend yang telah ada di jaringan."
 
 #. Type: text
 #. Description
@@ -1035,7 +1041,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Pilih Plugin Frontend / Backend"
 
 #. Type: text
 #. Description
@@ -1044,18 +1050,20 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"Plugin dapat dipakai untuk memperluas fungsionaliatas MythTV lebih dari "
+"sekedar solusi penggeser waktu TV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "Plugin Backend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "Plugin Frontend"
 
 #. Type: text
 #. Description
@@ -1111,37 +1119,37 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Game"
-msgstr ""
+msgstr "Permainan Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Music"
-msgstr ""
+msgstr "Musik Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth News"
-msgstr ""
+msgstr "Berita Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Telepon Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Video"
-msgstr ""
+msgstr "Video Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Cuaca Myth"
 
 #. Type: text
 #. Description
@@ -1243,13 +1251,13 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:53001
 msgid "Official Themes"
-msgstr ""
+msgstr "Tema Resmi"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Community Themes"
-msgstr ""
+msgstr "Tema Komunitas"
 
 #. Type: text
 #. Description
@@ -1257,6 +1265,8 @@ msgstr ""
 msgid ""
 "This themes package includes all themes distributed by the MythTV website."
 msgstr ""
+"Paket tema ini mengandung semua tema yang didistribusikan oleh situs web "
+"MythTV."
 
 #. Type: text
 #. Description
@@ -1265,12 +1275,14 @@ msgid ""
 "This themes package is a collection of community themes generated by other "
 "MythTV users."
 msgstr ""
+"Paket tema ini adalah sebuah koleksi dari tema komunitas yang dibuat oleh "
+"para pemakai MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "Firmware/Driver Tambahan"
 
 #. Type: text
 #. Description
@@ -1323,27 +1335,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Password:"
+msgstr "Katasandi MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "Nama Pemakai MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
 msgid "MySQL Database"
-msgstr ""
+msgstr "Basisdata MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL Server"
-msgstr ""
+msgstr "Server MySQL"
 
 #. Type: text
 #. Description
@@ -1358,12 +1369,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Langkah terakhir instalasi membutuhkan pengaturan data guide anda dan "
+"mengkonfigur backend untuk pertama kali."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Klik untuk membuka situs web Schedules Direct"
 
 #. Type: text
 #. Description
@@ -1393,27 +1406,24 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Mengkonfigurasi apt..."
+msgstr "Mengkonfigurasi mythtv..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
 #, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Sedang mengonfigurasi perangkat keras..."
+msgstr "Sedang mengkonfigurasi driver tambahan..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Sedang mengonfigurasi perangkat keras..."
+msgstr "Sedang mengkonfigurasi layanan tambahan..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "Sedang mengkonfigurasi zona waktu..."
+msgstr "Sedang mengkonfigurasi pengendali jarak jauh..."

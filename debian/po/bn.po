@@ -7,24 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-14 15:07+0100\n"
-"PO-Revision-Date: 2007-04-02 02:56+0000\n"
-"Last-Translator: Jamil Ahmed <itsjamil@gmail.com>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Jamil Ahmed <jamil@bengalinux.org>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-09-14 12:19:23+0000\n"
+"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:2001
-#, fuzzy
 msgid "Install"
-msgstr ""
-"#-#-#-#-#  bn.po (debian-installer)  #-#-#-#-#\n"
-"ইনস্টল\n"
-"#-#-#-#-#  bn.po (ubiquity)  #-#-#-#-#\n"
-"ইনস্টল করো"
+msgstr "ইনস্টল করো"
 
 #. Type: text
 #. Description
@@ -389,25 +385,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Beginning"
-msgstr ""
+msgstr "শুরু"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "End"
-msgstr ""
+msgstr "শেষ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Primary"
-msgstr ""
+msgstr "প্রাইমারি"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Logical"
-msgstr ""
+msgstr "লজিকাল"
 
 #. Type: text
 #. Description
@@ -511,8 +507,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
+#, fuzzy
 msgid "Checking the installation..."
-msgstr ""
+msgstr "ইনস্টলেশন বাতিল করো?"
 
 #. Type: title
 #. Description
@@ -871,8 +868,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
+#, fuzzy
 msgid "What Type of Installation?"
-msgstr ""
+msgstr "ইনস্টলেশন বাতিল করো?"
 
 #. Type: text
 #. Description
@@ -898,8 +896,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
+#, fuzzy
 msgid "Advanced Installation"
-msgstr ""
+msgstr "ইনস্টলেশন বাতিল করো?"
 
 #. Type: text
 #. Description
@@ -913,8 +912,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
+#, fuzzy
 msgid "Advanced Installation Type"
-msgstr ""
+msgstr "ইনস্টলেশন সম্পূর্ণ হয়েছে"
 
 #. Type: text
 #. Description
@@ -1359,23 +1359,27 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
+#, fuzzy
 msgid "Configuring mythtv..."
-msgstr ""
+msgstr "এপিটি(apt) কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
+#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr ""
+msgstr "হার্ডওয়্যার কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
+#, fuzzy
 msgid "Configuring additional services..."
-msgstr ""
+msgstr "হার্ডওয়্যার কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
+#, fuzzy
 msgid "Configuring remote control..."
-msgstr ""
+msgstr "সময় অঞ্চল কনফিগার করা হচ্ছে..."

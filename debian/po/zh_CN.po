@@ -7,13 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-14 15:07+0100\n"
-"PO-Revision-Date: 2007-09-14 07:01+0000\n"
-"Last-Translator: marsteel <magang@gmail.com>\n"
+"PO-Revision-Date: 2007-09-28 12:12+0000\n"
+"Last-Translator: Ming Hua <minghua@rice.edu>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-09-14 12:16:01+0000\n"
+"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
@@ -48,7 +49,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Answering the questions should only take a few minutes."
-msgstr "回答这些问题只需要您几分钟的时间。"
+msgstr "回答这些问题只需要花费您几分钟的时间。"
 
 #. Type: text
 #. Description
@@ -66,6 +67,8 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"您正在以生产商模式安装。请为这批系统输入一个名字，这个名字会被储存在已安装的"
+"系统里并有助于“bug报告”。"
 
 #. Type: text
 #. Description
@@ -132,7 +135,7 @@ msgstr "键盘布局"
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "您的键盘最接近哪种键盘布局？"
+msgstr "哪种键盘布局与您的最接近？"
 
 #. Type: text
 #. Description
@@ -230,7 +233,7 @@ msgstr "如果您不打算导入任何帐号信息，请全都不选，直接进
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Create a user to import the selected account into:"
-msgstr "为导入所选帐号，请建立一个对应的帐号："
+msgstr "为导入所选帐号，请新建一个对应的帐号："
 
 #. Type: text
 #. Description
@@ -349,7 +352,7 @@ msgstr "现在重启"
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:48001
 msgid "Installer crashed"
-msgstr ""
+msgstr "安装程序崩溃"
 
 #. Type: text
 #. Description
@@ -362,12 +365,16 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"十分抱歉; 安装程序已崩溃. 请将信息文件以新bug报告的形式发布在 https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (请不要附加到现有的bug上)\r\n"
+"开发者会尽快解决这个问题. 为了让开发者更好的明白问题所在, 将/var/log/syslog "
+"和 /var/log/partman 详细信息添加到bug报告中."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Create partition"
-msgstr ""
+msgstr "创建分区"
 
 #. Type: text
 #. Description
@@ -375,49 +382,49 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:51001 ../ubiquity.templates:58001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "新分区的大小(单位:MB=megabytes, 即1000000 bytes)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Beginning"
-msgstr ""
+msgstr "开始"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "End"
-msgstr ""
+msgstr "结束"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Primary"
-msgstr ""
+msgstr "主分区"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Logical"
-msgstr ""
+msgstr "逻辑分区"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Edit partition"
-msgstr ""
+msgstr "编辑分区"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Edit a partition"
-msgstr ""
+msgstr "编辑一个分区"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Advanced Options"
-msgstr ""
+msgstr "高级选项"
 
 #. Type: text
 #. Description
@@ -429,19 +436,19 @@ msgstr "引导程序"
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Install boot loader"
-msgstr ""
+msgstr "安装启动加载器"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Popularity contest"
-msgstr ""
+msgstr "流行度对比"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "参加软件包的使用率的调查"
 
 #. Type: text
 #. Description
@@ -678,13 +685,13 @@ msgstr "正在配置启动器..."
 #. Description
 #: ../ubiquity.templates:90001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "正在安装附加软件包......"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "正在检查要安装的软件包......"
 
 #. Type: text
 #. Description
@@ -732,13 +739,13 @@ msgstr "卸载 ${PACKAGE} 时出错"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "安装软件包时发生错误"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:100001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "安装如下软件包时发生了一个错误:"
 
 #. Type: error
 #. Description
@@ -746,7 +753,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:100001 ../ubiquity.templates:101001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "下面的软件包已损坏"
 
 #. Type: error
 #. Description
@@ -767,13 +774,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "移除软件包时发生错误"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "移除软件包时发生错误"
 
 #. Type: title
 #. Description
@@ -858,7 +865,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "${PARTMAN_CHANGES}"
-msgstr ""
+msgstr "${PARTMAN_CHANGES}"
 
 #. Type: text
 #. Description
@@ -870,13 +877,13 @@ msgstr "安装类型？"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Mythbuntu有两种安装方式可用："
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "标准安装"
 
 #. Type: text
 #. Description
@@ -886,12 +893,14 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"标准安装将会在与用户交互最少的情况下安装和配置每一个选项。它将会安装后台，前"
+"台，所有的插件以及主题。"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Advanced Installation"
-msgstr ""
+msgstr "高级安装"
 
 #. Type: text
 #. Description
@@ -901,12 +910,14 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"高级安装能够用于定制Mythbuntu需要的东西。注意：高级安装需要把Mythbuntu的机器"
+"添加到MythTV的网络中。"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
 msgid "Advanced Installation Type"
-msgstr ""
+msgstr "高级安装类型"
 
 #. Type: text
 #. Description
@@ -915,7 +926,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "需要什么类型的系统？"
 
 #. Type: text
 #. Description
@@ -1008,7 +1019,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "后端插件"
 
 #. Type: text
 #. Description
@@ -1020,7 +1031,7 @@ msgstr "前端插件"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "mythweb"
-msgstr ""
+msgstr "mythweb"
 
 #. Type: text
 #. Description
@@ -1034,19 +1045,19 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Myth Archive"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Myth 浏览器"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Myth 控制"
 
 #. Type: text
 #. Description
@@ -1358,13 +1369,13 @@ msgstr "正在配置mythtv..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
 msgid "Configuring additional drivers..."
-msgstr ""
+msgstr "正在配置附加驱动..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
 msgid "Configuring additional services..."
-msgstr ""
+msgstr "正在配置附加服务..."
 
 #. Type: text
 #. Description

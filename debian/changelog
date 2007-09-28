@@ -12,6 +12,9 @@ ubiquity (1.5.19) UNRELEASED; urgency=low
   * Add preseed hooks for rebooting, install failure, and install
     success.
 
+  [ Colin Watson ]
+  * Update translations from Rosetta.
+
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 10:21:44 -0400
 
 ubiquity (1.5.18) gutsy; urgency=low

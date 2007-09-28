@@ -7,13 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-14 15:07+0100\n"
-"PO-Revision-Date: 2007-09-11 05:41+0100\n"
+"PO-Revision-Date: 2007-09-27 22:28+0000\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Rosetta-Export-Date: 2007-09-14 12:09:43+0000\n"
+"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
@@ -107,9 +108,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid "Selected city:"
-msgstr "Đã chọn thành phố:"
+msgstr "Thành phố được chọn:"
 
 #. Type: text
 #. Description
@@ -132,7 +132,6 @@ msgstr "Thời gian hiện hành:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
-#, fuzzy
 msgid "Keyboard layout"
 msgstr "Chọn kiểu bàn phím"
 
@@ -151,7 +150,6 @@ msgstr "Bạn có thể gõ vào ô này để kiểm tra kiểu bàn phím mớ
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
-#, fuzzy
 msgid "Who are you?"
 msgstr "Bạn là ai?"
 
@@ -282,9 +280,8 @@ msgstr "Tạo phần trống trên ổ đĩa"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
-#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr "Bạn muốn phân vùng ổ đĩa như thế nào?"
+msgstr "Bạn muốn phân vùng ổ đĩa cứng như thế nào?"
 
 #. Type: text
 #. Description
@@ -312,7 +309,6 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:38001 ../ubiquity.templates:67001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
 msgid "Ready to install"
 msgstr "Đã sẵn sàng cài đặt"
 
@@ -332,14 +328,12 @@ msgstr "Bước thứ ${INDEX} của tổng số ${TOTAL}"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
 msgid "Abort the installation?"
 msgstr "Hủy bỏ việc cài đặt?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
-#, fuzzy
 msgid "Do you really want to abort the installation now?"
 msgstr "Bạn có chắc chắn muốn huỷ việc cài đặt?"
 
@@ -373,7 +367,7 @@ msgstr "Khởi động lại ngay"
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:48001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Trình cài đặt đã bị dừng"
 
 #. Type: text
 #. Description
@@ -391,7 +385,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Create partition"
-msgstr ""
+msgstr "Tạo phân vùng"
 
 #. Type: text
 #. Description
@@ -405,43 +399,43 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Beginning"
-msgstr ""
+msgstr "Đầu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "End"
-msgstr ""
+msgstr "Kết thúc"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Primary"
-msgstr ""
+msgstr "Chính"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Logical"
-msgstr ""
+msgstr "Hợp lý"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Edit partition"
-msgstr ""
+msgstr "Sửa phân vùng"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Sửa một phân vùng"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Tùy chọn nâng cao"
 
 #. Type: text
 #. Description
@@ -453,7 +447,7 @@ msgstr "Chương trình hỗ trợ khởi động"
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Cài đặt boot loader"
 
 #. Type: text
 #. Description
@@ -493,9 +487,8 @@ msgstr ""
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:65001
-#, fuzzy
 msgid "Go Back"
-msgstr "Lùi lại"
+msgstr "Lùi"
 
 #. Type: text
 #. Description
@@ -768,7 +761,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:100001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Một lỗi đã xuất hiện trong khi đang cài đặt gói"
 
 #. Type: error
 #. Description
@@ -776,7 +769,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:100001 ../ubiquity.templates:101001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Những gói tiếp theo đang trong trạng thái bị hỏng"
 
 #. Type: error
 #. Description
@@ -797,13 +790,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Lỗi trong khi gỡ bỏ các gói"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Một lỗi xuất hiện trong khi đang gỡ bỏ các gói"
 
 #. Type: title
 #. Description
@@ -890,6 +883,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Kiểu cài đặt:           ${INSTALLTYPE}\n"
+" Các trình điều khiển:\n"
+"     Thêm. Trình diều khiển video:  ${VIDEO_DRIVER}\n"
+"         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
+" Những dịch vụ bổ sung:\n"
+"     VNC:                ${EN_VNC}\n"
+"     SSH:                ${EN_OPENSSH}\n"
+"     Samba:              ${EN_SAMBA}\n"
+"     NFS:                ${EN_NFS}\n"
+"     MythTV Service:     ${EN_MYSQL}\n"
+" Normal Ubuntu Install Questions:\n"
+"     Ngôn ngữ:           ${LANGUAGE}\n"
+"     Trình tự sắp xếp của bàn phím:    ${KEYMAP}\n"
+"     Tên thật:       ${FULLNAME}\n"
+"     Tên đăng nhập: ${USERNAME}\n"
+"     Vị trí:           ${LOCATION}"
 
 #. Type: note
 #. Description
@@ -901,7 +910,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "What Type of Installation?"
-msgstr ""
+msgstr "Kiểu cài đặt là gì"
 
 #. Type: text
 #. Description
@@ -912,8 +921,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
+#, fuzzy
 msgid "Standard Installation"
-msgstr ""
+msgstr "Cài đặt theo chuẩn"
 
 #. Type: text
 #. Description
@@ -1412,4 +1422,4 @@ msgstr "Đang cấu hình phần cứng..."
 #: ../ubiquity-frontend-mythbuntu.templates:78001
 #, fuzzy
 msgid "Configuring remote control..."
-msgstr "Đang chỉnh múi giờ..."
+msgstr "Đang chỉnh đồ điều khiển từ xa..."
