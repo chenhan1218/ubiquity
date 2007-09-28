@@ -7,7 +7,10 @@ ubiquity (1.5.19) UNRELEASED; urgency=low
   * Explicity install libvia* with openchrome install.
   * Setup autologin for new Xfce based approach.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Mon, 24 Sep 2007 19:56:38 -0500
+  [ Evan Dandrea ]
+  * Slight improvement for automating migration-assistant.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 10:19:29 -0400
 
 ubiquity (1.5.18) gutsy; urgency=low
 
