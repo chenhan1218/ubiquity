@@ -49,7 +49,9 @@ db_set lirc/lircd_conf "$CONF"
 db_set lirc/driver "$DRIVER"
 db_fset lirc/reconfigure config_changed true
 
+mv /sbin/udevd /sbin/udevd.temp
 /var/lib/dpkg/info/lirc.postinst configure
+mv /sbin/udevd.temp /sbin/udevd
 EOF
         chmod +x $ROOT/tmp/lirc_setup
         $log $chroot $ROOT /tmp/lirc_setup
