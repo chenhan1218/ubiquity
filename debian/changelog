@@ -1,3 +1,11 @@
+oem-config (1.20) UNRELEASED; urgency=low
+
+  * Add a --quiet option to oem-config-prepare to suppress its
+    acknowledgement message (and thus the dialog requiring user interaction
+    if $DISPLAY is set).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Sep 2007 23:57:54 +0100
+
 oem-config (1.19) gutsy; urgency=low
 
   * Run gnome-settings-daemon so that we use the normal theme (LP: #23899).
