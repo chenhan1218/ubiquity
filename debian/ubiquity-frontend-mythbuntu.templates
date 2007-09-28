@@ -1,5 +1,6 @@
 Template: mythbuntu/summary
 Type: note
+#flag:translate!:3
 _Description: Ready to install
   Install Type:           ${INSTALLTYPE}
   Drivers:
