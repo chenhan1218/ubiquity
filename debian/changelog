@@ -1,6 +1,7 @@
 ubiquity (1.6.1) UNRELEASED; urgency=low
 
   * Modified the install component to allow grub preseeding in automatic mode.
+  * Add missing subprocess import to base.py.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 15:04:59 -0400
 

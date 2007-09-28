@@ -22,6 +22,7 @@
 import sys
 import os
 import syslog
+import subprocess
 
 import debconf
 try:
