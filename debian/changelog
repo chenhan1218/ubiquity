@@ -1,4 +1,4 @@
-ubiquity (1.5.19) UNRELEASED; urgency=low
+ubiquity (1.6.0) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Add support for all 3 different nvidia drivers.
