@@ -7,17 +7,21 @@ ubiquity (1.6.0) UNRELEASED; urgency=low
   * Explicity install libvia* with openchrome install.
   * Setup autologin for new Xfce based approach.
 
-  [ Evan Dandrea ]
-  * Slight improvement for automating migration-assistant.
-  * Add preseed hooks for rebooting, install failure, and install
-    success.
-
   [ Colin Watson ]
   * Update translations from Rosetta.
   * Set Maintainer to ubuntu-installer@lists.ubuntu.com and put Evan and
     myself in Uploaders.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 10:21:44 -0400
+  [ Evan Dandrea ]
+  * Slight improvement for automating migration-assistant.
+  * Add preseed hooks for rebooting, install failure, and install
+    success.
+  * Automatic update of included source packages: hw-detect 1.53ubuntu3,
+    kboot-installer 0.0.1ubuntu5, partman-base 107ubuntu4, partman-
+    basicfilesystems 54ubuntu4, user-setup 1.14ubuntu3, yaboot-installer
+    1.1.11ubuntu2.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 11:44:20 -0400
 
 ubiquity (1.5.18) gutsy; urgency=low
 
