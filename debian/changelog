@@ -1,4 +1,4 @@
-ubiquity (1.6.0) UNRELEASED; urgency=low
+ubiquity (1.6.0) gutsy; urgency=low
 
   [ Mario Limonciello ]
   * Add support for all 3 different nvidia drivers.
@@ -21,7 +21,7 @@ ubiquity (1.6.0) UNRELEASED; urgency=low
     basicfilesystems 54ubuntu4, user-setup 1.14ubuntu3, yaboot-installer
     1.1.11ubuntu2.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 11:44:20 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 11:53:06 -0400
 
 ubiquity (1.5.18) gutsy; urgency=low
 
