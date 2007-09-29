@@ -1,10 +1,8 @@
-# Translation of GTK+ to Bengali
+# Translation of GTK+ to Bengali India
 # This file is distributed under the same license as the GTK+ package.
 # Copyright (C) 2003-2005, 2006 Free Software Foundation, Inc.
 # Sayamindu Dasgupta <unmadindu@Softhome.net>, 2004.
 # Progga <progga@BengaLinux.Org>, 2004, 2005.
-# Jamil Ahmed <jamil@bengalinux.org> 2006.
-# Mahay Alam Khan (মাহে আলম) <makl10n@yahoo.com> 2006.
 #
 msgid ""
 msgstr ""

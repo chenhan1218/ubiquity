@@ -6,7 +6,7 @@
 # Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2001,2002, 2004.
 # Marcel Telka <marcel@telka.sk>, 2005.
 #
-# $Id: sk.po,v 1.105.2.5 2006/10/03 20:49:53 matthiasc Exp $
+# $Id: sk.po,v 1.106 2006/09/22 16:11:01 matthiasc Exp $
 #
 msgid ""
 msgstr ""

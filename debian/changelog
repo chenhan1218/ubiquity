@@ -11,6 +11,7 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
     at a lower level so that it applies to the KDE frontend too.
   * KDE frontend:
     - Remove some duplicate code during widget translation.
+  * Update imported translations from gtk+2.0 2.12.0-0ubuntu1.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 15:25:34 -0400
 

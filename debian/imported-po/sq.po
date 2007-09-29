@@ -1,16 +1,16 @@
 # Përkthimi i mesazheve të GTK+ në shqip
-# Copyright (C) 2006 Free Software Foundation, Inc.
+# Copyright (C) 2006, 2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gtk+ package.
 #
 #
 # Besnik Bleta <besnikbleta@hotmail.com>, 2003.
-# Laurent Dhima <laurenti@alblinux.net>, 2003, 2004, 2005, 2006.
+# Laurent Dhima <laurenti@alblinux.net>, 2003, 2004, 2005, 2006, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+ gtk-2-10\n"
+"Project-Id-Version: gtk+ HEAD\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2006-11-25 18:06+0100\n"
+"PO-Revision-Date: 2007-09-12 17:02+0200\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "_Anullo"
 #. sync.
 #: ../ubiquity.templates-imported:2001
 msgid "_Close"
-msgstr "_Mbyll"
+msgstr "_Mbylle"
 
 #. Type: text
 #. Description
@@ -64,4 +64,4 @@ msgstr "_OK"
 #. sync.
 #: ../ubiquity.templates-imported:6001
 msgid "_Quit"
-msgstr "_Dalja"
+msgstr "_Dil"
