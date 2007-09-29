@@ -84,10 +84,6 @@ def get_translations(languages=None, core_names=[]):
             (name, value) = fieldsplitter.split(line, 1)
             if value == '':
                 continue
-            if question.startswith('ubiquity/imported/'):
-                # strip context if necessary
-                if '|' in value:
-                    value = value.split('|', 1)[1]
             name = name.lower()
             if name == 'name':
                 question = value
@@ -101,6 +97,11 @@ def get_translations(languages=None, core_names=[]):
                     lang = lang.split('.')[0]
                 if (use_langs is None or lang in use_langs or
                     question in core_names):
+                    if (question is not None and
+                        question.startswith('ubiquity/imported/')):
+                        # strip context if necessary
+                        if '|' in value:
+                            value = value.split('|', 1)[1]
                     descriptions[lang] = value.replace('\\n', '\n')
             elif name.startswith('extended_description'):
                 namebits = name.split('-', 1)
@@ -112,6 +113,11 @@ def get_translations(languages=None, core_names=[]):
                     lang = lang.split('.')[0]
                 if (use_langs is None or lang in use_langs or
                     question in core_names):
+                    if (question is not None and
+                        question.startswith('ubiquity/imported/')):
+                        # strip context if necessary
+                        if '|' in value:
+                            value = value.split('|', 1)[1]
                     if lang not in descriptions:
                         descriptions[lang] = value.replace('\\n', '\n')
                     # TODO cjwatson 2006-09-04: a bit of a hack to get the
