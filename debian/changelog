@@ -1,9 +1,14 @@
 ubiquity (1.6.1) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Modified the install component to allow grub preseeding in automatic mode.
   * Add missing subprocess import to base.py.
   * Respect preseeded values for grub-installer/with_other_os and
     grub-installer/only_debian.
+
+  [ Colin Watson ]
+  * Strip translation context for imported strings (e.g. "Navigation|_Back")
+    at a lower level so that it applies to the KDE frontend too.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 15:25:34 -0400
 

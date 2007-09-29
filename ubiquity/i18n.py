@@ -84,6 +84,10 @@ def get_translations(languages=None, core_names=[]):
             (name, value) = fieldsplitter.split(line, 1)
             if value == '':
                 continue
+            if question.startswith('ubiquity/imported/'):
+                # strip context if necessary
+                if '|' in value:
+                    value = value.split('|', 1)[1]
             name = name.lower()
             if name == 'name':
                 question = value
