@@ -73,6 +73,7 @@ class Frontend:
 
         self.debconf_callbacks = {}
         self.locale = None
+        self.language_questions = ('oem_config', 'language_heading_label')
         self.current_step = None
         self.dbfilter = None
         # Set default language.
@@ -84,6 +85,9 @@ class Frontend:
         self.allowed_go_forward = True
         self.mainLoopRunning = False
         self.apply_changes = False
+
+        self.translate_widgets()
+
         self.app = QApplication([])
         self.app.setStyle(QStyleFactory.create("Plastique"))
         self.userinterface = OEMConfUI()
@@ -196,14 +200,88 @@ class Frontend:
         self.step_icon_size = QSize(32,32)
         self.step_icons = [self.userinterface.step_icon_lang, self.userinterface.step_icon_loc, \
                            self.userinterface.step_icon_key, self.userinterface.step_icon_user]
-        self.step_labels = [self.userinterface.step_name_lang, self.userinterface.step_name_loc, \
-                            self.userinterface.step_name_key, self.userinterface.step_name_user]
+        self.step_labels = [self.userinterface.language_heading_label, self.userinterface.timezone_heading_label, \
+                            self.userinterface.keyboard_heading_label, self.userinterface.user_heading_label]
         self.step_icons_path_prefix = "../../../usr/share/icons/default.kde/32x32/apps/"
         self.step_icons_path = ["locale.png","clock.png","keyboard_layout.png","userconfig.png"]
-        self.step_labels_text = [self.userinterface.step_name_lang.text(),self.userinterface.step_name_loc.text(), \
-                                self.userinterface.step_name_key.text(), self.userinterface.step_name_user.text()]
+        self.step_labels_text = [self.userinterface.language_heading_label.text(),self.userinterface.timezone_heading_label.text(), \
+                                self.userinterface.keyboard_heading_label.text(), self.userinterface.user_heading_label.text()]
         for icon in range(WIDGET_STACK_MAX_STEPS+1):
             self.step_icons[icon].setPixmap(QPixmap(str(self.step_icons_path_prefix+self.step_icons_path[icon])))
+
+    # Internationalisation.
+
+    def translate_widgets(self, parentWidget=None):
+        if self.locale is None:
+            languages = []
+        else:
+            languages = [self.locale]
+        core_names = ['oem-config/text/%s' % q
+                      for q in self.language_questions]
+        for stock_item in ('go-back', 'go-forward'):
+            core_names.append('oem-config/imported/%s' % stock_item)
+        i18n.get_translations(languages=languages, core_names=core_names)
+
+        self.translate_widget_children(parentWidget)
+
+    def translate_widget_children(self, parentWidget=None):
+        if parentWidget is None:
+            parentWidget = self.userinterface
+
+        self.translate_widget(parentWidget, self.locale)
+        if parentWidget.children() is not None:
+            for widget in parentWidget.children():
+                self.translate_widget_children(widget)
+
+    def translate_widget(self, widget, lang):
+        if not isinstance(widget, QWidget):
+            return
+
+        name = widget.objectName()
+
+        text = self.get_string(name, lang)
+
+        if str(name) == "SysConf":
+            text = self.get_string("oem_config", lang)
+
+        if text is None:
+            return
+
+        if isinstance(widget, QLabel):
+            if 'heading_label' in name:
+                widget.setText("""<html><head><meta name="qrichtext" content="1" /><style type="text/css">
+p, li { white-space: pre-wrap; }
+</style></head><body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  <span style=" font-size:13pt; color:gray;">""" +
+                               text + "</span></p></body></html>")
+            elif 'extra_label' in name:
+                widget.setText("""<html><head><meta name="qrichtext" content="1" /><style type="text/css">
+p, li { white-space: pre-wrap; }
+</style></head><body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-style:italic;">""" +
+                               text + "</span></p></body></html>")
+            else:
+                widget.setText(text)
+
+        elif isinstance(widget, QPushButton):
+            if name == 'next':
+                text = text + " >"
+            elif name == 'back':
+                text = "< " + text
+            widget.setText(text.replace('_', '&', 1))
+
+        elif isinstance(widget, QWidget) and str(name) == "SysConf":
+            widget.setWindowTitle(text)
+
+        else:
+            print "WARNING: unknown widget: " + name
+
+    def get_string(self, name, lang=None):
+        """Get the string name in the given lang or a default."""
+        if lang is None:
+            lang = self.locale
+        return i18n.get_string(name, lang)
+
 
     def on_keyboard_layout_selected(self):
         if isinstance(self.dbfilter, console_setup.ConsoleSetup):

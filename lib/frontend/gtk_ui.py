@@ -84,6 +84,8 @@ class Frontend:
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
+        self.language_questions = ('oem_config', 'language_heading_label',
+                                   'language_text_label', 'step_label')
         self.current_page = None
         self.locale = None
         self.current_layout = None
@@ -109,6 +111,8 @@ class Frontend:
         steps = self.glade.get_widget("steps")
         for page in SUBPAGES:
             add_subpage(self, steps, page)
+
+        self.translate_widgets()
 
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
@@ -218,6 +222,86 @@ class Frontend:
 
         self.oem_config.hide()
 
+    # Internationalisation.
+
+    def translate_widgets(self):
+        if self.locale is None:
+            languages = []
+        else:
+            languages = [self.locale]
+        core_names = ['oem-config/text/%s' % q
+                      for q in self.language_questions]
+        for stock_item in ('go-back', 'go-forward'):
+            core_names.append('oem-config/imported/%s' % stock_item)
+        i18n.get_translations(languages=languages, core_names=core_names)
+
+        for widget in self.glade.get_widget_prefix(''):
+            self.translate_widget(widget, self.locale)
+
+    def translate_widget(self, widget, lang):
+        if isinstance(widget, gtk.Button) and widget.get_use_stock():
+            widget.set_label(widget.get_label())
+
+        text = self.get_string(widget.get_name(), lang)
+        if text is None:
+            return
+        name = widget.get_name()
+
+        if isinstance(widget, gtk.Label):
+            if name == 'step_label':
+                global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
+                curstep = '?'
+                if self.current_page is not None:
+                    current_name = self.step_name(self.current_page)
+                    if current_name in BREADCRUMB_STEPS:
+                        curstep = str(BREADCRUMB_STEPS[current_name])
+                text = text.replace('${INDEX}', curstep)
+                text = text.replace('${TOTAL}', str(BREADCRUMB_MAX_STEP))
+            widget.set_text(text)
+
+            # Ideally, these attributes would be in the glade file somehow ...
+            textlen = len(text.encode("UTF-8"))
+            if 'heading_label' in name:
+                attrs = pango.AttrList()
+                attrs.insert(pango.AttrScale(pango.SCALE_LARGE, 0, textlen))
+                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, textlen))
+                widget.set_attributes(attrs)
+            elif 'extra_label' in name:
+                attrs = pango.AttrList()
+                attrs.insert(pango.AttrStyle(pango.STYLE_ITALIC, 0, textlen))
+                widget.set_attributes(attrs)
+            elif 'warning_label' in name:
+                attrs = pango.AttrList()
+                attrs.insert(pango.AttrWeight(pango.WEIGHT_BOLD, 0, textlen))
+                widget.set_attributes(attrs)
+
+        elif isinstance(widget, gtk.Button):
+            # TODO evand 2007-06-26: LP #122141 causes a crash unless we keep a
+            # reference to the button image.
+            tempref = widget.get_image()
+
+            question = i18n.map_widget_name(widget.get_name())
+            if question.startswith('oem-config/imported/'):
+                if '|' in text:
+                    widget.set_label(text.split('|', 1)[1])
+                else:
+                    widget.set_label(text)
+                stock_id = question[18:]
+                widget.set_use_stock(False)
+                widget.set_image(gtk.image_new_from_stock(
+                    'gtk-%s' % stock_id, gtk.ICON_SIZE_BUTTON))
+            else:
+                widget.set_label(text)
+
+        elif isinstance(widget, gtk.Window):
+            widget.set_title(text)
+
+    def get_string(self, name, lang=None):
+        """Get the string name in the given lang or a default."""
+        if lang is None:
+            lang = self.locale
+        return i18n.get_string(name, lang)
+
     # I/O helpers.
 
     def watch_debconf_fd (self, from_debconf, process_input):
@@ -270,16 +354,6 @@ class Frontend:
             self.back.hide()
         else:
             self.back.show()
-        current_name = self.step_name(current)
-        # TODO cjwatson 2006-07-04: i18n infrastructure
-        #label_text = get_string("step_label", self.locale)
-        label_text = "Step ${INDEX} of ${TOTAL}"
-        curstep = "<i>?</i>"
-        if current_name in BREADCRUMB_STEPS:
-            curstep = str(BREADCRUMB_STEPS[current_name])
-        label_text = label_text.replace("${INDEX}", curstep)
-        label_text = label_text.replace("${TOTAL}", str(BREADCRUMB_MAX_STEP))
-        self.step_label.set_markup(label_text)
 
     def on_steps_switch_page(self, foo, bar, current):
         self.set_current_page(current)

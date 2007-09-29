@@ -82,6 +82,10 @@ endif
 	cp debian/lintian-override $(tmp)/usr/share/lintian/overrides/oem-config
 	dh_installdebconf -a
 	echo >> debian/oem-config/DEBIAN/templates
+	po2debconf --podir=debian/imported-po \
+		debian/oem-config.templates-imported \
+		>> debian/oem-config/DEBIAN/templates
+	echo >> debian/oem-config/DEBIAN/templates
 	cat d-i/templates >> debian/oem-config/DEBIAN/templates
 	dh_installdocs -a
 	dh_installchangelogs -a

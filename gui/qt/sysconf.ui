@@ -105,7 +105,7 @@
         </widget>
        </item>
        <item row="1" column="1" >
-        <widget class="QLabel" name="language_label" >
+        <widget class="QLabel" name="language_heading_label" >
          <property name="sizePolicy" >
           <sizepolicy>
            <hsizetype>5</hsizetype>
@@ -115,7 +115,7 @@
           </sizepolicy>
          </property>
          <property name="text" >
-          <string>Select a Language:</string>
+          <string>Choose language</string>
          </property>
         </widget>
        </item>
@@ -156,7 +156,7 @@
         <number>6</number>
        </property>
        <item row="1" column="1" >
-        <widget class="QLabel" name="location_label" >
+        <widget class="QLabel" name="timezone_comment_label" >
          <property name="sizePolicy" >
           <sizepolicy>
            <hsizetype>5</hsizetype>
@@ -221,7 +221,7 @@
           <number>6</number>
          </property>
          <item row="0" column="0" >
-          <widget class="QLabel" name="city_label" >
+          <widget class="QLabel" name="timezone_city_label" >
            <property name="sizePolicy" >
             <sizepolicy>
              <hsizetype>5</hsizetype>
@@ -263,7 +263,7 @@
           </widget>
          </item>
          <item row="1" column="0" >
-          <widget class="QLabel" name="tz_label" >
+          <widget class="QLabel" name="timezone_zone_label" >
            <property name="sizePolicy" >
             <sizepolicy>
              <hsizetype>5</hsizetype>
@@ -293,7 +293,7 @@
           </widget>
          </item>
          <item row="0" column="3" >
-          <widget class="QLabel" name="region_label" >
+          <widget class="QLabel" name="timezone_country_label" >
            <property name="sizePolicy" >
             <sizepolicy>
              <hsizetype>5</hsizetype>
@@ -321,7 +321,7 @@
           </spacer>
          </item>
          <item row="1" column="3" >
-          <widget class="QLabel" name="time_label" >
+          <widget class="QLabel" name="timezone_time_label" >
            <property name="sizePolicy" >
             <sizepolicy>
              <hsizetype>5</hsizetype>
@@ -574,7 +574,7 @@
           <widget class="QListWidget" name="keyboard_list_1" />
          </item>
          <item row="0" column="1" colspan="3" >
-          <widget class="QLabel" name="keyboard_label" >
+          <widget class="QLabel" name="keyboard_comment_label" >
            <property name="text" >
             <string>Which layout is most similar to your keyboard?</string>
            </property>
@@ -700,7 +700,7 @@
             </spacer>
            </item>
            <item row="0" column="1" colspan="4" >
-            <widget class="QLabel" name="name_label" >
+            <widget class="QLabel" name="fullname_label" >
              <property name="sizePolicy" >
               <sizepolicy>
                <hsizetype>5</hsizetype>
@@ -738,7 +738,7 @@
             <number>6</number>
            </property>
            <item row="2" column="1" colspan="4" >
-            <widget class="QLabel" name="uname_extra_label" >
+            <widget class="QLabel" name="username_extra_label" >
              <property name="sizePolicy" >
               <sizepolicy>
                <hsizetype>1</hsizetype>
@@ -808,7 +808,7 @@ p, li { white-space: pre-wrap; }
             </widget>
            </item>
            <item row="0" column="1" colspan="4" >
-            <widget class="QLabel" name="uname_label" >
+            <widget class="QLabel" name="username_label" >
              <property name="sizePolicy" >
               <sizepolicy>
                <hsizetype>5</hsizetype>
@@ -882,7 +882,7 @@ p, li { white-space: pre-wrap; }
             </widget>
            </item>
            <item row="0" column="1" colspan="5" >
-            <widget class="QLabel" name="pass_label" >
+            <widget class="QLabel" name="password_label" >
              <property name="sizePolicy" >
               <sizepolicy>
                <hsizetype>5</hsizetype>
@@ -918,7 +918,7 @@ p, li { white-space: pre-wrap; }
             </widget>
            </item>
            <item row="2" column="1" colspan="5" >
-            <widget class="QLabel" name="pass_extra_label" >
+            <widget class="QLabel" name="password_extra_label" >
              <property name="sizePolicy" >
               <sizepolicy>
                <hsizetype>5</hsizetype>
@@ -1026,16 +1026,16 @@ p, li { white-space: pre-wrap; }
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="button_back" >
+      <widget class="QPushButton" name="back" >
        <property name="text" >
-        <string>&lt; &amp;Go Back</string>
+        <string>&lt; &amp;Back</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="button_next" >
+      <widget class="QPushButton" name="next" >
        <property name="text" >
-        <string>&amp;Continue ></string>
+        <string>&amp;Forward ></string>
        </property>
       </widget>
      </item>
@@ -1184,22 +1184,22 @@ p, li { white-space: pre-wrap; }
       </spacer>
      </item>
      <item row="4" column="1" >
-      <widget class="QLabel" name="step_name_key" >
+      <widget class="QLabel" name="keyboard_heading_label" >
        <property name="text" >
         <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
 p, li { white-space: pre-wrap; }
 &lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;span style=" font-size:13pt; color:gray;">Keyboard Setup&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;span style=" font-size:13pt; color:gray;">Keyboard layout&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
        </property>
       </widget>
      </item>
      <item row="0" column="1" >
-      <widget class="QLabel" name="step_name_lang" >
+      <widget class="QLabel" name="language_heading_label" >
        <property name="text" >
         <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
 p, li { white-space: pre-wrap; }
 &lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;span style=" font-size:13pt; color:gray;">Language&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;span style=" font-size:13pt; color:gray;">Choose language&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
        </property>
       </widget>
      </item>
@@ -1211,12 +1211,12 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item row="2" column="1" >
-      <widget class="QLabel" name="step_name_loc" >
+      <widget class="QLabel" name="timezone_heading_label" >
        <property name="text" >
         <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
 p, li { white-space: pre-wrap; }
 &lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;span style=" font-size:13pt; color:gray;">Location&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;span style=" font-size:13pt; color:gray;">Choose time zone&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
        </property>
       </widget>
      </item>
@@ -1228,12 +1228,12 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item row="6" column="1" >
-      <widget class="QLabel" name="step_name_user" >
+      <widget class="QLabel" name="user_heading_label" >
        <property name="text" >
         <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
 p, li { white-space: pre-wrap; }
 &lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;span style=" font-size:13pt; color:gray;">User Setup&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;span style=" font-size:13pt; color:gray;">Who are you?&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
        </property>
       </widget>
      </item>
