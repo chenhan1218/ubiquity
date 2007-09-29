@@ -422,7 +422,6 @@ class Wizard(BaseFrontend):
         self.translate_widget(parentWidget, self.locale)
         if parentWidget.children() != None:
             for widget in parentWidget.children():
-                self.translate_widget(widget, self.locale)
                 self.translate_widget_children(widget)
 
     def translate_widget(self, widget, lang):
@@ -432,14 +431,13 @@ class Wizard(BaseFrontend):
 
         name = widget.objectName()
 
-        text = self.get_string(widget.objectName(), lang)
+        text = self.get_string(name, lang)
 
-        if str(widget.objectName()) == "UbiquityUIBase":
+        if str(name) == "UbiquityUIBase":
             text = self.get_string("live_installer", lang)
 
         if text is None:
             return
-        name = widget.objectName()
 
         if isinstance(widget, QLabel):
             if name == 'step_label':
@@ -474,12 +472,13 @@ class Wizard(BaseFrontend):
                 text = "< " + text
             widget.setText(text.replace('_', '&', 1))
 
-        elif isinstance(widget, QWidget) and str(widget.objectName()) == "UbiquityUIBase":
+        elif isinstance(widget, QWidget) and str(name) == "UbiquityUIBase":
             if self.oem_config:
                 text = self.get_string('oem_config_title', lang)
             widget.setWindowTitle(text)
+
         else:
-            print "WARNING: unknown widget: " + widget.objectName()
+            print "WARNING: unknown widget: " + name
 
     def allow_change_step(self, allowed):
         if allowed:
