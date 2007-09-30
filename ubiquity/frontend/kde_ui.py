@@ -813,6 +813,8 @@ class Wizard(BaseFrontend):
                 error_msg.append("The hostname may only contain letters, digits, hyphens, and dots.")
             elif result == validation.HOSTNAME_BADHYPHEN:
                 error_msg.append("The hostname may not start or end with a hyphen.")
+            elif result == validation.HOSTNAME_BADDOTS:
+                error_msg.append('The hostname may not start or end with a dot, or contain the sequence "..".')
 
         # showing warning message is error is set
         if len(error_msg) != 0:
