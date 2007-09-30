@@ -20,6 +20,7 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
     moment.
   * Stop installing doc/Changelog.Guadalinex as the upstream changelog, as
     it's no longer current.
+  * Upgrade to gettext 0.16.1.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 15:25:34 -0400
 
