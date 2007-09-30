@@ -203,7 +203,7 @@ endif
 binary-indep: install
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs doc/Changelog.Guadalinex
+	dh_installchangelogs
 	dh_installdocs
 	dh_installdebconf
 	dh_link
@@ -227,7 +227,7 @@ endif
 binary-arch: install
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs doc/Changelog.Guadalinex
+	dh_installchangelogs
 	dh_installdocs
 	dh_installdebconf
 	echo >> debian/ubiquity/DEBIAN/templates
