@@ -13,8 +13,7 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
     - Remove some duplicate code during widget translation.
   * Update imported translations from gtk+2.0 2.12.0-0ubuntu1.
   * Forbid consecutive, initial, or final dots in hostnames (LP: #105890).
-  * Make ubiquity-frontend-gtk depend on gconf2, since it calls gconftool-2
-    (thanks, Kev Rees).
+  * Check whether gconftool-2 exists before calling it.
   * Add missing Provides to ubiquity-frontend-mythbuntu.
   * Switch XS-Vcs-Bzr to the ~ubuntu-installer branch we're using at the
     moment.

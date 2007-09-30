@@ -51,7 +51,7 @@ import gtk.glade
 
 import debconf
 
-from ubiquity import filteredcommand, i18n, validation
+from ubiquity import filteredcommand, i18n, osextras, validation
 from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, \
@@ -254,28 +254,31 @@ class Wizard(BaseFrontend):
     # Disable gnome-volume-manager automounting to avoid problems during
     # partitioning.
     def disable_volume_manager(self):
-        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
-        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-        volumes_visible = '/apps/nautilus/desktop/volumes_visible'
-        if 'SUDO_USER' in os.environ:
-            gconf_dir = ('xml:readwrite:%s' %
-                         os.path.expanduser('~%s/.gconf' %
-                                            os.environ['SUDO_USER']))
-        else:
-            gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
-        self.gconf_previous = {}
-        for gconf_key in (gvm_automount_drives, gvm_automount_media,
-            volumes_visible):
-            subp = subprocess.Popen(['gconftool-2', '--config-source',
-                                     gconf_dir, '--get', gconf_key],
-                                    stdout=subprocess.PIPE,
-                                    stderr=subprocess.PIPE,
+        if osextras.find_on_path_root('/', 'gconftool-2'):
+            gvm_root = '/desktop/gnome/volume_manager'
+            gvm_automount_drives = '%s/automount_drives' % gvm_root
+            gvm_automount_media = '%s/automount_media' % gvm_root
+            volumes_visible = '/apps/nautilus/desktop/volumes_visible'
+            if 'SUDO_USER' in os.environ:
+                gconf_dir = ('xml:readwrite:%s' %
+                             os.path.expanduser('~%s/.gconf' %
+                                                os.environ['SUDO_USER']))
+            else:
+                gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
+            self.gconf_previous = {}
+            for gconf_key in (gvm_automount_drives, gvm_automount_media,
+                volumes_visible):
+                subp = subprocess.Popen(['gconftool-2', '--config-source',
+                                         gconf_dir, '--get', gconf_key],
+                                        stdout=subprocess.PIPE,
+                                        stderr=subprocess.PIPE,
+                                        preexec_fn=drop_privileges)
+                self.gconf_previous[gconf_key] = \
+                    subp.communicate()[0].rstrip('\n')
+                if self.gconf_previous[gconf_key] != 'false':
+                    subprocess.call(['gconftool-2', '--set', gconf_key,
+                                     '--type', 'bool', 'false'],
                                     preexec_fn=drop_privileges)
-            self.gconf_previous[gconf_key] = subp.communicate()[0].rstrip('\n')
-            if self.gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                 '--type', 'bool', 'false'],
-                                preexec_fn=drop_privileges)
 
         self.thunar_previous = self.thunar_set_volmanrc(
             {'AutomountDrives': 'FALSE', 'AutomountMedia': 'FALSE'})
@@ -283,19 +286,21 @@ class Wizard(BaseFrontend):
         atexit.register(self.enable_volume_manager)
 
     def enable_volume_manager(self):
-        gvm_automount_drives = '/desktop/gnome/volume_manager/automount_drives'
-        gvm_automount_media = '/desktop/gnome/volume_manager/automount_media'
-        volumes_visible = '/apps/nautilus/desktop/volumes_visible'
-        for gconf_key in (gvm_automount_drives, gvm_automount_media,
-            volumes_visible):
-            if self.gconf_previous[gconf_key] == '':
-                subprocess.call(['gconftool-2', '--unset', gconf_key],
-                                preexec_fn=drop_privileges)
-            elif self.gconf_previous[gconf_key] != 'false':
-                subprocess.call(['gconftool-2', '--set', gconf_key,
-                                 '--type', 'bool',
-                                 self.gconf_previous[gconf_key]],
-                                preexec_fn=drop_privileges)
+        if osextras.find_on_path_root('/', 'gconftool-2'):
+            gvm_root = '/desktop/gnome/volume_manager'
+            gvm_automount_drives = '%s/automount_drives' % gvm_root
+            gvm_automount_media = '%s/automount_media' % gvm_root
+            volumes_visible = '/apps/nautilus/desktop/volumes_visible'
+            for gconf_key in (gvm_automount_drives, gvm_automount_media,
+                volumes_visible):
+                if self.gconf_previous[gconf_key] == '':
+                    subprocess.call(['gconftool-2', '--unset', gconf_key],
+                                    preexec_fn=drop_privileges)
+                elif self.gconf_previous[gconf_key] != 'false':
+                    subprocess.call(['gconftool-2', '--set', gconf_key,
+                                     '--type', 'bool',
+                                     self.gconf_previous[gconf_key]],
+                                    preexec_fn=drop_privileges)
 
         if self.thunar_previous:
             self.thunar_set_volmanrc(self.thunar_previous)
