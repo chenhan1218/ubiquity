@@ -16,6 +16,8 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
   * Make ubiquity-frontend-gtk depend on gconf2, since it calls gconftool-2
     (thanks, Kev Rees).
   * Add missing Provides to ubiquity-frontend-mythbuntu.
+  * Switch XS-Vcs-Bzr to the ~ubuntu-installer branch we're using at the
+    moment.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 15:25:34 -0400
 
