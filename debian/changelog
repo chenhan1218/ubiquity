@@ -13,6 +13,8 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
     - Remove some duplicate code during widget translation.
   * Update imported translations from gtk+2.0 2.12.0-0ubuntu1.
   * Forbid consecutive, initial, or final dots in hostnames (LP: #105890).
+  * Make ubiquity-frontend-gtk depend on gconf2, since it calls gconftool-2
+    (thanks, Kev Rees).
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 15:25:34 -0400
 
