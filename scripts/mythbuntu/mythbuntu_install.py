@@ -178,6 +178,7 @@ class Install(install.Install):
         video_driver = self.db.get('mythbuntu/video_driver')
         vnc = self.db.get('mythbuntu/vncservice')
         nfs = self.db.get('mythbuntu/nfsservice')
+        xmltv = self.db.get('mythbuntu/xmltv')
         to_install = []
         if video_driver == "nvidia_new":
             to_install.append('nvidia-glx-new')
@@ -196,6 +197,8 @@ class Install(install.Install):
         if nfs == 'true':
             to_install.append('nfs-kernel-server')
             to_install.append('portmap')
+        if xmltv == 'true':
+            to_install.append('xmltv')
 
         self.record_installed(to_install)
 

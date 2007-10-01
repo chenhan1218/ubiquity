@@ -21,6 +21,9 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
     it's no longer current.
   * Upgrade to gettext 0.16.1.
 
+  [ Mario Limonciello ]
+  * Actually install xmltv from on-cd repo if checked.
+
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 15:25:34 -0400
 
 ubiquity (1.6.0) gutsy; urgency=low
