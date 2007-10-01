@@ -1,4 +1,4 @@
-oem-config (1.20) UNRELEASED; urgency=low
+oem-config (1.20) gutsy; urgency=low
 
   * Add a --quiet option to oem-config-prepare to suppress its
     acknowledgement message (and thus the dialog requiring user interaction
@@ -20,7 +20,7 @@ oem-config (1.20) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup 1.16ubuntu5,
     localechooser 1.38ubuntu2, user-setup 1.14ubuntu3.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Sep 2007 23:57:54 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 01 Oct 2007 17:59:41 +0100
 
 oem-config (1.19) gutsy; urgency=low
 
