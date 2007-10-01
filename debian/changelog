@@ -20,6 +20,8 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
   * Stop installing doc/Changelog.Guadalinex as the upstream changelog, as
     it's no longer current.
   * Upgrade to gettext 0.16.1.
+  * Start dcopserver when running the KDE frontend in automatic-ubiquity
+    mode (LP: #145226).
 
   [ Mario Limonciello ]
   * Actually install xmltv from on-cd repo if checked.

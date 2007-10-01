@@ -86,6 +86,7 @@ class DM:
             extras.append(subprocess.Popen(['/usr/lib/gnome-control-center/gnome-settings-daemon'], stdin=null, stdout=logfile, stderr=logfile))
         elif self.frontend == 'kde_ui':
             wm = subprocess.Popen('/usr/bin/kwin', stdin=null, stdout=logfile, stderr=logfile)
+            extras.append(subprocess.Popen(['/usr/bin/dcopserver', '--nosid'], stdin=null, stdout=logfile, stderr=logfile))
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()
