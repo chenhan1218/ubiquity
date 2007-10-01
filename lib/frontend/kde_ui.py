@@ -299,7 +299,7 @@ p, li { white-space: pre-wrap; }
                 self.dbfilter.apply_keyboard(layout, variant)
 
     def selected_language(self):
-        selection = self.userinterface.language_treeview.selectedItems()
+        selection = self.userinterface.language_list.selectedItems()
         if len(selection) == 1:
             value = unicode(selection[0].text())
             return self.language_choice_map[value][1]
