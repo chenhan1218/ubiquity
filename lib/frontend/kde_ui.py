@@ -334,10 +334,14 @@ p, li { white-space: pre-wrap; }
     def on_language_treeview_selection_changed(self):
         lang = self.selected_language()
         if lang:
+            global WIDGET_STACK_MAX_STEPS
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
-            for widget in (self.userinterface, self.userinterface.language_label, self.userinterface.language_heading_label, self.userinterface.timezone_heading_label, self.userinterface.keyboard_heading_label, self.userinterface.user_heading_label, self.userinterface.back, self.userinterface.next):
+            for widget in (self.userinterface, self.userinterface.language_label, self.userinterface.back, self.userinterface.next):
                 self.translate_widget(widget, lang)
+            for step in range(WIDGET_STACK_MAX_STEPS + 1):
+                self.translate_widget(self.step_labels[step], lang)
+                self.step_labels_text[step] = self.step_labels[step].text()
 
     def set_timezone (self, timezone):
         self.tzmap.set_tz_from_name(timezone)
