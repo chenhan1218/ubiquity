@@ -147,6 +147,7 @@ class Frontend:
         #Signals and Slots
         self.app.connect(self.userinterface.next,SIGNAL("clicked()"),self.on_next_clicked)
         self.app.connect(self.userinterface.back,SIGNAL("clicked()"),self.on_back_clicked)
+        self.app.connect(self.userinterface.language_list, SIGNAL("itemSelectionChanged()"), self.on_language_treeview_selection_changed)
         self.app.connect(self.userinterface.keyboard_list_1, SIGNAL("itemSelectionChanged()"), self.on_keyboard_layout_selected)
         self.app.connect(self.userinterface.keyboard_list_2, SIGNAL("itemSelectionChanged()"), self.on_keyboard_variant_selected)
         self.app.connect(self.userinterface.city_combo, SIGNAL("activated(int)"), self.tzmap.city_combo_changed)
@@ -297,6 +298,14 @@ p, li { white-space: pre-wrap; }
             if layout is not None and variant is not None:
                 self.dbfilter.apply_keyboard(layout, variant)
 
+    def selected_language(self):
+        selection = self.userinterface.language_treeview.selectedItems()
+        if len(selection) == 1:
+            value = unicode(selection[0].text())
+            return self.language_choice_map[value][1]
+        else:
+            return ''
+
     def set_language_choices(self, choices, choice_map):
         self.userinterface.language_list.clear()
         self.language_choice_map = dict(choice_map)
@@ -314,6 +323,14 @@ p, li { white-space: pre-wrap; }
     def get_language(self):
         value = unicode(self.userinterface.language_list.currentItem().text())
         return self.language_choice_map[value][0]
+
+    def on_language_treeview_selection_changed(self):
+        lang = self.selected_language()
+        if lang:
+            # strip encoding; we use UTF-8 internally no matter what
+            lang = lang.split('.')[0].lower()
+            for widget in (self.userinterface, self.userinterface.language_heading_label):
+                self.translate_widget(widget, lang)
 
     def set_timezone (self, timezone):
         self.tzmap.set_tz_from_name(timezone)
