@@ -31,7 +31,7 @@ from PyQt4.QtGui import *
 from PyQt4 import uic
 from debconf import DebconfCommunicator
 
-from oem_config import filteredcommand
+from oem_config import filteredcommand, i18n
 from oem_config.components import console_setup, language, timezone, user, \
                                   language_apply, timezone_apply, \
                                   console_setup_apply
