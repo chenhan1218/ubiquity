@@ -9,6 +9,9 @@ oem-config (1.20) UNRELEASED; urgency=low
   * Start dcopserver when running the KDE frontend (LP: #145226).
   * Add a --debug option to oem-config-firstboot to make debugging a bit
     less painful.
+  * Remove use of dh_python, since it's a no-op now. Bump debhelper
+    build-dependency to 5.0.37.3ubuntu2 (a.k.a. dh_python from 5.0.38) for
+    this.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Sep 2007 23:57:54 +0100
 
