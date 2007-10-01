@@ -187,6 +187,8 @@ class Frontend:
                 self.current_step = None
                 self.apply_changes = True
             else:
+                if self.current_step == 'step_language':
+                    self.translate_widgets()
                 self.userinterface.stackedWidget.setCurrentIndex(WIDGET_STACK_STEPS[curr]+1)
                 self.set_current_page()
             self.app.processEvents()
