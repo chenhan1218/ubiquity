@@ -127,6 +127,7 @@ def get_translations(languages=None, core_names=[]):
     return _translations
 
 string_questions = {
+    'language_label': 'oem-config/text/language_heading_label',
     # TODO: it would be nice to have a neater way to handle stock buttons
     'back': 'oem-config/imported/go-back',
     'next': 'oem-config/imported/go-forward',
