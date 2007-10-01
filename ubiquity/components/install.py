@@ -46,7 +46,7 @@ class Install(FilteredCommand):
                 bootdev = self.frontend.get_summary_device()
                 if bootdev is None or bootdev == '':
                     bootdev = '(hd0)'
-                self.preseed('grub-installer/bootdev', 'false')
+                self.preseed('grub-installer/bootdev', bootdev)
             if not (automatic_mode and with_other_os != ''):
                 self.preseed('grub-installer/with_other_os', 'false')
             if not (automatic_mode and only_debian != ''):
