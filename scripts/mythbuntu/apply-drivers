@@ -114,8 +114,7 @@ EOF
     EndSubSection
 EndSection
 EOF
-	fi
-EOF
+    fi
 }
 
 nvidia_xvmc()
