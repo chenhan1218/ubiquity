@@ -86,7 +86,8 @@ class Frontend:
         sys.excepthook = self.excepthook
 
         self.language_questions = ('oem_config', 'language_heading_label',
-                                   'language_text_label', 'step_label')
+                                   'language_text_label', 'step_label',
+                                   'back', 'next')
         self.current_page = None
         self.locale = None
         self.current_layout = None

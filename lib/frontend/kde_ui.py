@@ -73,7 +73,7 @@ class Frontend:
 
         self.debconf_callbacks = {}
         self.locale = None
-        self.language_questions = ('oem_config', 'language_heading_label')
+        self.language_questions = ('oem_config', 'language_heading_label', 'back', 'next')
         self.current_step = None
         self.dbfilter = None
         # Set default language.
@@ -329,7 +329,7 @@ p, li { white-space: pre-wrap; }
         if lang:
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
-            for widget in (self.userinterface, self.userinterface.language_heading_label):
+            for widget in (self.userinterface, self.userinterface.language_heading_label, self.userinterface.back, self.userinterface.next):
                 self.translate_widget(widget, lang)
 
     def set_timezone (self, timezone):
