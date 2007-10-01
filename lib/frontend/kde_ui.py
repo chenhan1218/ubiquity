@@ -85,14 +85,14 @@ class Frontend:
         self.allowed_go_forward = True
         self.mainLoopRunning = False
         self.apply_changes = False
-
-        self.translate_widgets()
-
         self.app = QApplication([])
         self.app.setStyle(QStyleFactory.create("Plastique"))
         self.userinterface = OEMConfUI()
         self.userinterface.setFrontend(self)
         self.userinterface.show()
+
+        self.translate_widgets()
+
         self.customize_installer()
         self.current_layout = None
         self.map_vbox = QVBoxLayout(self.userinterface.map_frame)
