@@ -24,6 +24,7 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Actually install xmltv from on-cd repo if checked.
   * Correct minor typo for nvidia xorg generation.
+  * Explicitly remove via drivers before trying to install openchrome.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 15:25:34 -0400
 

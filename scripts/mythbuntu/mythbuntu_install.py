@@ -180,6 +180,7 @@ class Install(install.Install):
         nfs = self.db.get('mythbuntu/nfsservice')
         xmltv = self.db.get('mythbuntu/xmltv')
         to_install = []
+        to_remove = set()
         if video_driver == "nvidia_new":
             to_install.append('nvidia-glx-new')
         elif video_driver == "nvidia":
@@ -192,6 +193,8 @@ class Install(install.Install):
             to_install.append('libviaxvmcpro1')
             to_install.append('libviaxvmc1')
             to_install.append('xserver-xorg-video-openchrome')
+            to_remove.add('xserver-xorg-video-all')
+            to_remove.add('xserver-xorg-video-via')
         if vnc == 'true':
             to_install.append('vnc4server')
         if nfs == 'true':
@@ -200,6 +203,10 @@ class Install(install.Install):
         if xmltv == 'true':
             to_install.append('xmltv')
 
+        #Remove any conflicts before installing new items
+        if to_remove != []:
+            self.do_remove(to_remove)
+        #Install new items
         self.record_installed(to_install)
 
     def configure_drivers(self):
