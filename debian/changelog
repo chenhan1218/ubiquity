@@ -6,6 +6,7 @@ oem-config (1.20) UNRELEASED; urgency=low
   * Add internationalisation (LP: #23537). Adjusted several widget names and
     strings in the KDE frontend to bring it into sync with the GTK frontend
     for this purpose.
+  * Start dcopserver when running the KDE frontend (LP: #145226).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Sep 2007 23:57:54 +0100
 
