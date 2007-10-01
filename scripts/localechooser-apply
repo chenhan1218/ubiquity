@@ -48,4 +48,9 @@ if [ -e /etc/default/gdm ]; then
 	sed -i "s,^#*LANG=.*,LANG=$LOCALE,g" /etc/default/gdm
 fi
 
+LANGCODE="${LOCALE%%_*}"
+LANGCODE="${LANGCODE%%.*}"
+LANGCODE="${LANGCODE%%@*}"
+/usr/share/locales/install-language-pack "$LANGCODE" '' || true
+
 # TODO: kbd/cyr handling?
