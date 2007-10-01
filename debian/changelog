@@ -13,6 +13,8 @@ oem-config (1.20) UNRELEASED; urgency=low
     build-dependency to 5.0.37.3ubuntu2 (a.k.a. dh_python from 5.0.38) for
     this.
   * Clean up subprocesses even if oem-config-dm is interrupted.
+  * GTK frontend:
+    - Go forward when activating rows in language or keyboard treeviews.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Sep 2007 23:57:54 +0100
 
