@@ -198,6 +198,9 @@ class Frontend:
 
             if self.backup:
                 pass
+            elif current_name == 'step_language':
+                self.translate_widgets()
+                self.steps.next_page()
             elif current_name == 'step_keyboard':
                 self.info_loop(None)
                 self.steps.next_page()
@@ -463,6 +466,8 @@ class Frontend:
         if lang:
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
+            for widget in self.language_questions:
+                self.translate_widget(getattr(self, widget), lang)
 
     def set_timezone (self, timezone):
         self.tzmap.set_tz_from_name(timezone)
