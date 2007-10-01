@@ -87,34 +87,37 @@ class DM:
             extras.append(subprocess.Popen(['/usr/bin/dcopserver', '--nosid'], stdin=null, stdout=logfile, stderr=logfile))
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
-        ret = greeter.wait()
 
-        def sigalrm_handler(signum, frame):
-            os.kill(wm.pid, signal.SIGKILL)
+        ret = None
+        try:
+            ret = greeter.wait()
+        finally:
+            def sigalrm_handler(signum, frame):
+                os.kill(wm.pid, signal.SIGKILL)
+                for extra in extras:
+                    os.kill(extra.pid, signal.SIGKILL)
+
+            os.kill(wm.pid, signal.SIGTERM)
             for extra in extras:
-                os.kill(extra.pid, signal.SIGKILL)
-
-        os.kill(wm.pid, signal.SIGTERM)
-        for extra in extras:
-            os.kill(extra.pid, signal.SIGTERM)
-        signal.signal(signal.SIGALRM, sigalrm_handler)
-        signal.alarm(1) # low patience with WMs failing to exit on demand
-        processes = set(extras)
-        processes.add(wm)
-        while processes:
-            done = set()
-            for process in processes:
-                try:
-                    process.wait()
-                    done.add(process)
-                except OSError, e:
-                    if e.errno == errno.EINTR:
-                        continue
-                    raise
-            processes -= done
-        signal.alarm(0)
-        os.kill(server.pid, signal.SIGTERM)
-        server.wait()
+                os.kill(extra.pid, signal.SIGTERM)
+            signal.signal(signal.SIGALRM, sigalrm_handler)
+            signal.alarm(1) # low patience with WMs failing to exit on demand
+            processes = set(extras)
+            processes.add(wm)
+            while processes:
+                done = set()
+                for process in processes:
+                    try:
+                        process.wait()
+                        done.add(process)
+                    except OSError, e:
+                        if e.errno == errno.EINTR:
+                            continue
+                        raise
+                processes -= done
+            signal.alarm(0)
+            os.kill(server.pid, signal.SIGTERM)
+            server.wait()
 
         if ret is not None and ret >= 0:
             return ret
