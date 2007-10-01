@@ -58,7 +58,7 @@ my %builddeps;
 # Always include base oem-config build dependencies.
 my @basebd = (
     'apt',
-    'debhelper (>= 5.0.37.2)',
+    'debhelper (>= 5.0.37.3ubuntu2)',
     'grep-dctrl',
     'libart-2.0-dev',
     'libglib2.0-dev',
