@@ -2,6 +2,11 @@
 # Run oem-config on the first boot after shipping to the end user.
 set -e
 
+DEBUG=
+if [ "$1" = '--debug' ]; then
+	DEBUG=1
+fi
+
 # Remove the temporary OEM configuration user, if possible.
 if getent passwd oem >/dev/null; then
 	deluser --quiet --remove-home oem || true
@@ -20,7 +25,12 @@ for q in passwd/user-fullname passwd/username; do
 	echo REGISTER "$q" "$q" | debconf-communicate oem-config >/dev/null
 done
 
-for try in $(seq 1 5); do
+if [ "$DEBUG" ]; then
+	TRY=1
+else
+	TRY=5
+fi
+for try in $(seq 1 $TRY); do
 	CODE=0
 	/usr/sbin/oem-config-dm vt7 :0 /usr/sbin/oem-config || CODE=$?
 	if [ "$CODE" -eq 0 ]; then
@@ -30,9 +40,10 @@ for try in $(seq 1 5); do
 	fi
 done
 
-# Panic. At this point, probably the best thing we can do is drop to a shell
-# so that the user has some hope of fixing things up.
-cat <<EOF
+if [ -z "$DEBUG" ]; then
+	# Panic. At this point, probably the best thing we can do is drop to
+	# a shell so that the user has some hope of fixing things up.
+	cat <<EOF
 ERROR: The OEM installer failed. Your system may not be usable yet. Please
 report this as a bug to your vendor.
 
@@ -45,9 +56,12 @@ name in lower case is normally a reasonable choice), and follow the prompts.
 If this succeeds, type 'exit' to reboot the system.
 
 EOF
-bash
+	bash
 
-# Don't run again.
-update-rc.d -f oem-config remove >/dev/null 2>&1
+	# Don't run again.
+	update-rc.d -f oem-config remove >/dev/null 2>&1
 
-reboot
+	reboot
+fi
+
+exit 0

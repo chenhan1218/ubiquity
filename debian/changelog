@@ -7,6 +7,8 @@ oem-config (1.20) UNRELEASED; urgency=low
     strings in the KDE frontend to bring it into sync with the GTK frontend
     for this purpose.
   * Start dcopserver when running the KDE frontend (LP: #145226).
+  * Add a --debug option to oem-config-firstboot to make debugging a bit
+    less painful.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Sep 2007 23:57:54 +0100
 
