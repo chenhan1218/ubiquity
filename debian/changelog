@@ -15,6 +15,8 @@ oem-config (1.20) UNRELEASED; urgency=low
   * Clean up subprocesses even if oem-config-dm is interrupted.
   * GTK frontend:
     - Go forward when activating rows in language or keyboard treeviews.
+  * Automatic update of included source packages: console-setup 1.16ubuntu5,
+    localechooser 1.38ubuntu2, user-setup 1.14ubuntu3.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Sep 2007 23:57:54 +0100
 
