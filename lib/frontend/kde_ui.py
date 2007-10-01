@@ -145,8 +145,8 @@ class Frontend:
         self.userinterface.setCursor(QCursor(Qt.ArrowCursor))
 
         #Signals and Slots
-        self.app.connect(self.userinterface.button_next,SIGNAL("clicked()"),self.on_next_clicked)
-        self.app.connect(self.userinterface.button_back,SIGNAL("clicked()"),self.on_back_clicked)
+        self.app.connect(self.userinterface.next,SIGNAL("clicked()"),self.on_next_clicked)
+        self.app.connect(self.userinterface.back,SIGNAL("clicked()"),self.on_back_clicked)
         self.app.connect(self.userinterface.keyboard_list_1, SIGNAL("itemSelectionChanged()"), self.on_keyboard_layout_selected)
         self.app.connect(self.userinterface.keyboard_list_2, SIGNAL("itemSelectionChanged()"), self.on_keyboard_variant_selected)
         self.app.connect(self.userinterface.city_combo, SIGNAL("activated(int)"), self.tzmap.city_combo_changed)
@@ -468,13 +468,13 @@ p, li { white-space: pre-wrap; }
         global WIDGET_STACK_STEPS, WIDGET_STACK_MAX_STEP
         current_name = self.get_current_step()
         if current_name == 'step_language':
-            self.userinterface.button_back.hide()
+            self.userinterface.back.hide()
         else:
-            self.userinterface.button_back.show()
+            self.userinterface.back.show()
         if current_name == 'step_user':
-            self.userinterface.button_next.setText(QApplication.translate("SysConf", "&Finish!", None, QApplication.UnicodeUTF8))
+            self.userinterface.next.setText(QApplication.translate("SysConf", "&Finish!", None, QApplication.UnicodeUTF8))
         else:
-            self.userinterface.button_next.setText(QApplication.translate("SysConf", "&Continue >", None, QApplication.UnicodeUTF8))
+            self.userinterface.next.setText(QApplication.translate("SysConf", "&Continue >", None, QApplication.UnicodeUTF8))
         for icon in self.step_icons:
             pixmap = QIcon(icon.pixmap()).pixmap(self.step_icon_size, QIcon.Disabled)
             icon.setPixmap(pixmap)
@@ -496,7 +496,7 @@ p, li { white-space: pre-wrap; }
         self.userinterface.setCursor(cursor)
 
     def allow_go_forward(self, allowed):
-        self.userinterface.button_next.setEnabled(allowed and self.allowed_change_step)
+        self.userinterface.next.setEnabled(allowed and self.allowed_change_step)
         self.allowed_go_forward = allowed
 
     def get_current_step(self):

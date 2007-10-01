@@ -1242,7 +1242,7 @@ p, li { white-space: pre-wrap; }
   </layout>
  </widget>
  <tabstops>
-  <tabstop>button_back</tabstop>
+  <tabstop>back</tabstop>
   <tabstop>language_list</tabstop>
   <tabstop>city_combo</tabstop>
   <tabstop>keyboard_list_1</tabstop>
@@ -1252,7 +1252,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>uname_ledit</tabstop>
   <tabstop>pass_ledit_1</tabstop>
   <tabstop>pass_ledit_2</tabstop>
-  <tabstop>button_next</tabstop>
+  <tabstop>next</tabstop>
  </tabstops>
  <resources/>
  <connections/>
