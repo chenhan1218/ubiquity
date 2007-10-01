@@ -11,6 +11,7 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
     at a lower level so that it applies to the KDE frontend too.
   * KDE frontend:
     - Remove some duplicate code during widget translation.
+    - Retranslate oem_id_label when the language is changed.
   * Update imported translations from gtk+2.0 2.12.0-0ubuntu1.
   * Forbid consecutive, initial, or final dots in hostnames (LP: #105890).
   * Check whether gconftool-2 exists before calling it.

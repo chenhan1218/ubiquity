@@ -880,7 +880,7 @@ class Wizard(BaseFrontend):
         if lang:
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
-            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.release_notes_label, self.userinterface.release_notes_url, self.userinterface.next, self.userinterface.back, self.userinterface.cancel, self.userinterface.step_label):
+            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.oem_id_label, self.userinterface.release_notes_label, self.userinterface.release_notes_url, self.userinterface.next, self.userinterface.back, self.userinterface.cancel, self.userinterface.step_label):
                 self.translate_widget(widget, lang)
 
     def on_steps_switch_page(self, newPageID):
