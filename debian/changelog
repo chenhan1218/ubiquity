@@ -1,8 +1,9 @@
 oem-config (1.21) UNRELEASED; urgency=low
 
-  * Work around http://bugzilla.gnome.org/show_bug.cgi?id=56070 by hiding
-    and re-showing the button widgets, following a suggestion by Scott
-    Horowitz.
+  * GTK frontend:
+    - Work around http://bugzilla.gnome.org/show_bug.cgi?id=56070 by hiding
+      and re-showing the button widgets, following a suggestion by Scott
+      Horowitz.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 01 Oct 2007 20:56:49 +0100
 
