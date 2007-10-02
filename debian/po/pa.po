@@ -1,0 +1,196 @@
+# Panjabi messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
+"POT-Creation-Date: 2007-10-01 11:37+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: A S Alam <apbrar@gmail.com>\n"
+"Language-Team: Punjabi <fedora-trans-pa@redhat.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:2001
+#, fuzzy
+msgid "System Configuration"
+msgstr "apt ਸੰਰਚਨਾ ਸਮੱਸਿਆਾ"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:3001
+msgid "Step ${INDEX} of ${TOTAL}"
+msgstr "ਕਦਮ ${INDEX} ਤੋਂ ${TOTAL}"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:4001
+msgid "Choose language"
+msgstr "ਭਾਸ਼ਾ ਚੁਣੋ/Choose language"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:5001
+msgid ""
+"Once you answer a few questions, the system will be ready for you to use."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:6001
+#, fuzzy
+msgid "Choose time zone"
+msgstr "ਸਮਾਂ ਜ਼ੋਨ ਕ ਸੰਰਚਨਾ ਕਰੋ"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:7001
+#, fuzzy
+msgid "Select a city in your country and time zone."
+msgstr "ਆਪਣੇ ਸਮਾਂ ਜ਼ੋਨ ਵਿੱਚ ਸ਼ਹਿਰ ਚੁਣੋਰ ਚੁਣੋ:"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:8001
+#, fuzzy
+msgid "Selected city:"
+msgstr "ਚੁਣਿਆ ਸਮਾਂ ਜ਼ੋਨ ਚੁਣੋ:"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:9001
+msgid "Selected region:"
+msgstr "ਚੁਣਿਅਾ ੲਿਲਾਕਾ:"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:10001
+msgid "Time zone:"
+msgstr "ਸਮਾਂ ਖੇਤਰ:"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:11001
+msgid "Current time:"
+msgstr "ਮੌਜੂਦਾ ਸਮਾਂ:"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:12001
+#, fuzzy
+msgid "Keyboard layout"
+msgstr "ਆਪਣਾ ਕੀ-ਬੋਰਡ ਖਾਕਾ ਚੁਣੋ"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:13001
+msgid "Which layout is most similar to your keyboard?"
+msgstr "ਕਿਹੜੀ ਤਰਤੀਬ ਤੁਹਾਡੇ ਕੀਬੋਰਡ ਦੇ ਨਾਲ ਸਭ ਤੋਂ ਜਿਅਾਦਾ ਮੇਲ ਖਾਂਦੀ ਹੈ?"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:14001
+msgid "You can type into this box to test your new keyboard layout."
+msgstr "ਤੁਸੀਂ ੲਿਸ ਖਾਨੇ ਵਿਚ ਟਾੲੀਪ ਕਰਕੇ ਅਾਪਣੇ ਕੀਬੋਰਡ ਦੀ ਨਵੀਂ ਤਰਤੀਬ ਨੂੰ ਜਾਂਚ ਸਕਦੇ ਹੋ।"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:15001
+msgid "Who are you?"
+msgstr "ਤੁਸੀਂ ਕੌਣ ਹੋ ?"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:16001
+msgid "What is your name?"
+msgstr "ਤੁਹਾਡਾ ਨਾਂ ਕੀ ਹੈ ?"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:17001
+msgid "What name do you want to use to log in?"
+msgstr "ਤੁਸੀਂ ਲੌਗਿਨ ਕਰਣ ਲੲੀ ਕਿਹੜਾ ਨਾਂ ਵਰਤਣਾ ਚਾਂਓਦੇ ਹੋ?"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:18001
+msgid ""
+"If more than one person will use this computer, you can set up multiple "
+"accounts after installation."
+msgstr ""
+"ਜੇ ੲਿਕ ਤੋਂ ਜਿਅਾਦਾ ਵਿਅਕਤੀਅਾਂ ਨੇ ੲਿਸ ਕੰਮਪੂਟਰ ਦਾ ੲਿਸਤੇਮਾਲ ਕਰਨਾ ਹੈ ਤਾਂ ਤੁਸੀਂ ੲਿਸ ਗਤੀਵੀਧੀ ਤੋਂ "
+"ਬਾਅਦ ਗੁਣਾਂ ਖਾਤੇ ਬਣਾ ਸਕਦੇ ਹੋ।"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:19001
+msgid "Choose a password to keep your account safe."
+msgstr "ਅਾਪਣੇ ਖਾਤੇ ਦੀ ਰਾਖ ਲੲੀ ੲਿਕ ਸਫਲਸ਼ਬਦ ਚੁਣੋ।"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:20001
+msgid "You are running in debugging mode. Do not use a valuable password!"
+msgstr "ਤੁਸੀਂ ਡੀਬਗਿਂਗ ਮੋਡ ਵਿਚ ਚਲ ਰਹੇ ਹੋ। ਕੋੲੀ ਕੀਮਤੀ ਸਫਲਸ਼ਬਦ ੲਿਸਤੇਮਾਲ ਨਾਂ ਕਰੋ!"
+
+#. Type: text
+#. Description
+#: ../oem-config.templates:21001
+msgid ""
+"Enter the same password twice, so that it can be checked for typing errors."
+msgstr "ਮੇਲ ਖਾਂਦਾ ਸਫਲਸ਼ਬਦ ਦੋ ਵਾਰ ਦਰਜ ਕਰੋ ਤਾਂਕਿ ੳੁਸਨੂੰ ਟਾੲੀਪ ਗਲਤੀਅਾਂ ਲੲੀ ਪੜਤਾਲਿਅਾ ਜਾ ਸਕੇ।"
+
+#. Type: title
+#. Description
+#. Info message displayed when running in OEM mode
+#: ../oem-config-check.templates:2001
+msgid "OEM mode (for manufacturers only)"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config-udeb.templates:1001
+#, fuzzy
+msgid "Prepare for end-user configuration"
+msgstr "ਬੇਤਾਰ ਨੈੱਟਵਰਕ ਸੰਰਚਨਾ"
+
+#. Type: text
+#. Description
+#. finish-install progress bar item
+#: ../oem-config-udeb.templates:2001
+#, fuzzy
+msgid "Preparing for end-user configuration..."
+msgstr "yaboot ਸੰਰਚਨਾ ਬਣਾ ਰਿਹਾ ਹੈ"
+
+#. Type: text
+#. Description
+#: ../oem-config-udeb.templates:3001
+#, fuzzy
+msgid "Ready for end-user configuration"
+msgstr "ਨੈੱਟਵਰਕ ਆਟੋ-ਸੰਰਚਨਾ ਦੀ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ"
+
+#. Type: text
+#. Description
+#: ../oem-config-udeb.templates:3001
+msgid ""
+"When you boot into the new system, you will be able to log in as the 'oem' "
+"user with the password you selected earlier; this user also has "
+"administrative privileges using 'sudo'. You will then be able to make any "
+"additional modifications you require to the system."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../oem-config-udeb.templates:3001
+msgid ""
+"Once the system is configured to your satisfaction, run 'oem-config-"
+"prepare'. This will cause the system to delete the temporary 'oem' user and "
+"ask the end user various configuration questions the next time it boots."
+msgstr ""
