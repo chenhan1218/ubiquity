@@ -29,6 +29,7 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
       Horowitz.
     - Make the OK button the default widget in the create and edit partition
       dialogs.
+  * Remove d-i/source/console-setup/Keyboard/MyKeyboardNames.pl on clean.
 
   [ Mario Limonciello ]
   * Actually install xmltv from on-cd repo if checked.

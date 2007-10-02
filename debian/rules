@@ -77,7 +77,9 @@ clean:
 	$(MAKE) -C d-i clean
 	[ ! -f Makefile ] || $(MAKE) distclean
 
-	dh_clean debian/ubiquity.install ubiquity/keyboard_names.py
+	dh_clean debian/ubiquity.install \
+		 d-i/source/console-setup/Keyboard/MyKeyboardNames.pl \
+		 ubiquity/keyboard_names.py
 
 	$(MAKE) -C d-i check
 
