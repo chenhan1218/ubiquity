@@ -1415,7 +1415,7 @@ exit 0"""
             self.chroot_cleanup()
         self.db.progress('SET', 10)
 
-        cache.open(None)
+#        cache.open(None)
         if commit_error or cache._depcache.BrokenCount > 0:
             if commit_error is None:
                 commit_error = ''
@@ -1526,7 +1526,7 @@ exit 0"""
             self.chroot_cleanup()
         self.db.progress('SET', 5)
 
-        cache.open(None)
+#        cache.open(None)
         if commit_error or cache._depcache.BrokenCount > 0:
             if commit_error is None:
                 commit_error = ''
