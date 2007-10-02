@@ -1,4 +1,4 @@
-# Bulgarian translation for gtk+.
+# Bulgarian translation for gtk+ po-file.
 # Copyright (C) 2002, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
 # Borislav Aleksandrov <B.Aleksandrov@CNsys.bg>, 2002.
 # Yanko Kaneti <yaneti@declera.com>, 2002.
@@ -7,10 +7,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+ HEAD\n"
+"Project-Id-Version: gtk+ trunk\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2007-01-14 19:42+0200\n"
+"PO-Revision-Date: 2007-08-27 00:09+0300\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "_Отказване"
 #. sync.
 #: ../ubiquity.templates-imported:2001
 msgid "_Close"
-msgstr "_Затваряне"
+msgstr "Зат_варяне"
 
 #. Type: text
 #. Description
@@ -64,4 +64,4 @@ msgstr "_Добре"
 #. sync.
 #: ../ubiquity.templates-imported:6001
 msgid "_Quit"
-msgstr "_Напускане"
+msgstr "_Спиране на програмата"

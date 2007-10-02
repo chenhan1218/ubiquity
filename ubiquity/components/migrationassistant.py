@@ -28,6 +28,7 @@ class MigrationAssistant(FilteredCommand):
     def prepare(self):
         self.err = None
         self.errors = False
+        self.got_a_question = False
         self.error_list = ['migration-assistant/password-mismatch',
                            'migration-assistant/password-empty',
                            'migration-assistant/username-bad',
@@ -44,6 +45,8 @@ class MigrationAssistant(FilteredCommand):
 
 
     def run(self, priority, question):
+        if question != 'ubiquity/run-ma-again':
+            self.got_a_question = True
         if question == 'migration-assistant/failed-unmount':
             response = self.frontend.question_dialog(
                 self.description(question),
@@ -68,7 +71,10 @@ class MigrationAssistant(FilteredCommand):
                     # TODO cjwatson 2007-09-22: This is a wart, but it
                     # prevents the ubiquity interface from always being
                     # shown in automatic installs.
-                    if 'UBIQUITY_AUTOMATIC' in os.environ:
+                    # TODO evand 2007-09-24: A slight improvement over the
+                    # previous wart: skip entering the GTK loop if we do not
+                    # have any questions to ask.
+                    if not self.got_a_question:
                         return self.succeeded
                     else:
                         return FilteredCommand.run(self, priority, question)

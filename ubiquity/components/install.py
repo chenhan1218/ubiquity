@@ -35,16 +35,29 @@ class Install(FilteredCommand):
                 self.preseed('netcfg/get_domain', '')
 
         if os.access('/usr/share/grub-installer/grub-installer', os.X_OK):
-            bootdev = self.frontend.get_summary_device()
-            if bootdev is None or bootdev == '':
-                bootdev = '(hd0)'
-            self.preseed('grub-installer/with_other_os', 'false')
-            self.preseed('grub-installer/only_debian', 'false')
-            self.preseed('grub-installer/bootdev', bootdev)
-        if self.frontend.get_grub() is not None:
-            self.preseed_bool('ubiquity/install_bootloader', self.frontend.get_grub())
-        else:
-            self.preseed_bool('ubiquity/install_bootloader', True)
+            automatic_mode = 'UBIQUITY_AUTOMATIC' in os.environ
+            bootdevice = self.db.get('grub-installer/bootdev')
+            with_other_os = self.db.get('grub-installer/with_other_os')
+            only_debian = self.db.get('grub-installer/only_debian')
+            
+            # If we're in automatic mode and there's already preseeded data, we
+            # want to use it, rather than blindly writing over it.
+            if not (automatic_mode and bootdevice != ''):
+                bootdev = self.frontend.get_summary_device()
+                if bootdev is None or bootdev == '':
+                    bootdev = '(hd0)'
+                self.preseed('grub-installer/bootdev', bootdev)
+            if not (automatic_mode and with_other_os != ''):
+                self.preseed('grub-installer/with_other_os', 'false')
+            if not (automatic_mode and only_debian != ''):
+                self.preseed('grub-installer/only_debian', 'false')
+        
+        install_bootloader = self.db.get('ubiquity/install_bootloader')
+        if not (automatic_mode and install_bootloader):
+            if self.frontend.get_grub() is not None:
+                self.preseed_bool('ubiquity/install_bootloader', self.frontend.get_grub())
+            else:
+                self.preseed_bool('ubiquity/install_bootloader', True)
 
         popcon = self.frontend.get_popcon()
         if popcon is not None:
@@ -52,6 +65,12 @@ class Install(FilteredCommand):
                 self.preseed('popularity-contest/participate', 'true')
             else:
                 self.preseed('popularity-contest/participate', 'false')
+
+        reboot = self.db.get('ubiquity/reboot')
+        if reboot == 'true':
+            self.frontend.set_reboot(True)
+        else:
+            self.frontend.set_reboot(False)
 
         if self.frontend.oem_config:
             self.preseed('oem-config/enable', 'true')

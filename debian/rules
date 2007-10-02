@@ -203,9 +203,8 @@ endif
 binary-indep: install
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs doc/Changelog.Guadalinex
+	dh_installchangelogs
 	dh_installdocs
-#	dh_installexamples
 	dh_installdebconf
 	dh_link
 	dh_strip
@@ -228,9 +227,8 @@ endif
 binary-arch: install
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs doc/Changelog.Guadalinex
+	dh_installchangelogs
 	dh_installdocs
-#	dh_installexamples
 	dh_installdebconf
 	echo >> debian/ubiquity/DEBIAN/templates
 	po2debconf --podir=debian/imported-po \

@@ -100,8 +100,11 @@ class Wizard(BaseFrontend):
                 raise RuntimeError, ("Install failed with exit code %s\n%s" %
                                      (ret, realtb))
         else:
-            raw_input('Installation complete.  Press any key to reboot...')
-            execute("reboot")
+            if not self.get_reboot():
+                raw_input('Installation complete.  Press any key to reboot...')
+                execute("reboot")
+            else:
+                self.reboot()
 
     def watch_debconf_fd(self, from_debconf, process_input):
         """Event loop interface to debconffilter.

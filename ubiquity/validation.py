@@ -42,7 +42,8 @@ def check_hostname(name):
         @return empty list (valid) or list of:
             - C{HOSTNAME_LENGTH} wrong length.
             - C{HOSTNAME_BADCHAR} contains invalid characters.
-            - C{HOSTNAME_BADHYPHEN} starts or ends with a hyphen."""
+            - C{HOSTNAME_BADHYPHEN} starts or ends with a hyphen.
+            - C{HOSTNAME_BADDOTS} contains consecutive/initial/final dots."""
 
     import re
     result = set()
@@ -55,5 +56,7 @@ def check_hostname(name):
         result.add(HOSTNAME_BADCHAR)
     if name.startswith('-') or name.endswith('-'):
         result.add(HOSTNAME_BADHYPHEN)
+    if '..' in name or name.startswith('.') or name.endswith('.'):
+        result.add(HOSTNAME_BADDOTS)
 
     return sorted(result)

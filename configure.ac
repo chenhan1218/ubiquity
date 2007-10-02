@@ -1,5 +1,5 @@
 AC_PREREQ(2.52)
-AC_INIT(ubiquity, 1.5.18, https://launchpad.net/ubuntu/+source/ubiquity/+filebug)
+AC_INIT(ubiquity, 1.6.1, https://launchpad.net/ubuntu/+source/ubiquity/+filebug)
 AC_CONFIG_SRCDIR(src/cut-and-paste/e-map/e-map.c)
 AC_CONFIG_AUX_DIR([build])
 AM_INIT_AUTOMAKE([foreign])
@@ -11,7 +11,7 @@ AM_MAINTAINER_MODE
 AM_PROG_LIBTOOL
 
 AM_GNU_GETTEXT([external])
-AM_GNU_GETTEXT_VERSION([0.14.5])
+AM_GNU_GETTEXT_VERSION([0.16.1])
 
 IT_PROG_INTLTOOL
 
