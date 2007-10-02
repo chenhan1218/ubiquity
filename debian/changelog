@@ -7,6 +7,7 @@ oem-config (1.21) UNRELEASED; urgency=low
     - Remove some duplication of work now done in oem_config.i18n.
   * Add lots of translations from Rosetta.
   * Don't ignore 'make distclean' errors other than missing Makefiles.
+  * Remove d-i/source/console-setup/Keyboard/MyKeyboardNames.pl on clean.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 01 Oct 2007 20:56:49 +0100
 

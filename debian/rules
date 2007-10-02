@@ -40,7 +40,8 @@ clean:
 	find -type f -name '*.pyc' -print0 | xargs -0r rm -f
 	$(MAKE) -C d-i clean
 	[ ! -f Makefile ] || $(MAKE) distclean
-	dh_clean lib/keyboard_names.py
+	dh_clean d-i/source/console-setup/Keyboard/MyKeyboardNames.pl \
+		 lib/keyboard_names.py
 
 binary-arch: build
 	dh_testdir
