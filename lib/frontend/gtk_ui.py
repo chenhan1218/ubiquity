@@ -288,17 +288,12 @@ class Frontend:
             tempref = widget.get_image()
 
             question = i18n.map_widget_name(widget.get_name())
+            widget.set_label(text)
             if question.startswith('oem-config/imported/'):
-                if '|' in text:
-                    widget.set_label(text.split('|', 1)[1])
-                else:
-                    widget.set_label(text)
                 stock_id = question[18:]
                 widget.set_use_stock(False)
                 widget.set_image(gtk.image_new_from_stock(
                     'gtk-%s' % stock_id, gtk.ICON_SIZE_BUTTON))
-            else:
-                widget.set_label(text)
 
         elif isinstance(widget, gtk.Window):
             widget.set_title(text)

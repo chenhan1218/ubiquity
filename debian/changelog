@@ -4,6 +4,7 @@ oem-config (1.21) UNRELEASED; urgency=low
     - Work around http://bugzilla.gnome.org/show_bug.cgi?id=56070 by hiding
       and re-showing the button widgets, following a suggestion by Scott
       Horowitz.
+    - Remove some duplication of work now done in oem_config.i18n.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 01 Oct 2007 20:56:49 +0100
 
