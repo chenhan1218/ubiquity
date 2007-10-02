@@ -26,6 +26,8 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
   * Work around http://bugzilla.gnome.org/show_bug.cgi?id=56070 by hiding
     and re-showing the button widgets, following a suggestion by Scott
     Horowitz.
+  * Make the OK button the default widget in the create and edit partition
+    dialogs.
 
   [ Mario Limonciello ]
   * Actually install xmltv from on-cd repo if checked.
