@@ -1,3 +1,10 @@
+oem-config (1.22) UNRELEASED; urgency=low
+
+  * Only run gnome-settings-daemon if it exists, removing dependency on
+    gnome-control-center (LP: #147852).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 03 Oct 2007 01:09:39 +0100
+
 oem-config (1.21) gutsy; urgency=low
 
   * GTK frontend:
