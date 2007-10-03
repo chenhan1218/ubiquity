@@ -185,6 +185,10 @@ Template: ubiquity/text/ready_description_label
 Type: text
 _Description: Your new operating system will now be installed with the following settings:
 
+Template: ubiquity/text/advanced_button
+Type: text
+_Description: Advanced...
+
 Template: ubiquity/text/step_label
 Type: text
 _Description: Step ${INDEX} of ${TOTAL}

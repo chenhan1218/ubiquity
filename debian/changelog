@@ -32,6 +32,7 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
   * Remove d-i/source/console-setup/Keyboard/MyKeyboardNames.pl on clean.
   * Only run gnome-settings-daemon if it exists, removing dependency on
     gnome-control-center (LP: #147852).
+  * Add advanced button text to translation template (LP: #147612).
 
   [ Mario Limonciello ]
   * Actually install xmltv from on-cd repo if checked.
