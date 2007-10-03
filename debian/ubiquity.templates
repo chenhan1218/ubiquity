@@ -5,6 +5,7 @@ Description: enable frame buffer console on boot
 
 Template: ubiquity/text/live_installer
 Type: text
+# This is used as a window title.
 _Description: Install
 
 Template: ubiquity/text/oem_config_title
@@ -188,6 +189,12 @@ _Description: Your new operating system will now be installed with the following
 Template: ubiquity/text/advanced_button
 Type: text
 _Description: Advanced...
+
+Template: ubiquity/text/install_button
+Type: text
+# This is used as a button label, and should be translated as an action.
+# Omit the [ ... ] from the translation.
+_Description: Install[ action ]
 
 Template: ubiquity/text/step_label
 Type: text

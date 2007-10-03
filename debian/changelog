@@ -33,6 +33,8 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
   * Only run gnome-settings-daemon if it exists, removing dependency on
     gnome-control-center (LP: #147852).
   * Add advanced button text to translation template (LP: #147612).
+  * Add install button text to translation template, distinguished from the
+    window title (LP: #103925).
 
   [ Mario Limonciello ]
   * Actually install xmltv from on-cd repo if checked.

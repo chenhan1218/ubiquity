@@ -699,7 +699,7 @@ class Wizard(BaseFrontend):
             cur = self.stepUserInfo
         elif n == 'Summary':
             cur = self.stepReady
-            self.next.set_label("Install")
+            self.next.set_label(self.get_string('install_button'))
         elif n == 'MigrationAssistant':
             cur = self.stepMigrationAssistant
         else:

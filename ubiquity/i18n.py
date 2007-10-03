@@ -36,6 +36,23 @@ def get_supported_locales():
     return _supported_locales
 
 
+_strip_context_re = None
+
+def strip_context(question, string):
+    # GTK context
+    if question is not None and question.startswith('ubiquity/imported/'):
+        if '|' in string:
+            string = string.split('|', 1)[1]
+
+    # po-debconf context
+    global _strip_context_re
+    if _strip_context_re is None:
+        _strip_context_re = re.compile(r'\[\s[^\[\]]*\]$')
+    string = _strip_context_re.sub('', string)
+
+    return string
+
+
 _translations = None
 
 def get_translations(languages=None, core_names=[]):
@@ -97,11 +114,7 @@ def get_translations(languages=None, core_names=[]):
                     lang = lang.split('.')[0]
                 if (use_langs is None or lang in use_langs or
                     question in core_names):
-                    if (question is not None and
-                        question.startswith('ubiquity/imported/')):
-                        # strip context if necessary
-                        if '|' in value:
-                            value = value.split('|', 1)[1]
+                    value = strip_context(question, value)
                     descriptions[lang] = value.replace('\\n', '\n')
             elif name.startswith('extended_description'):
                 namebits = name.split('-', 1)
@@ -113,11 +126,7 @@ def get_translations(languages=None, core_names=[]):
                     lang = lang.split('.')[0]
                 if (use_langs is None or lang in use_langs or
                     question in core_names):
-                    if (question is not None and
-                        question.startswith('ubiquity/imported/')):
-                        # strip context if necessary
-                        if '|' in value:
-                            value = value.split('|', 1)[1]
+                    value = strip_context(question, value)
                     if lang not in descriptions:
                         descriptions[lang] = value.replace('\\n', '\n')
                     # TODO cjwatson 2006-09-04: a bit of a hack to get the
