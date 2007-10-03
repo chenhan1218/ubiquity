@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -364,7 +364,7 @@ msgstr "Reštartovať"
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:48001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Inštalátor havaroval"
 
 #. Type: text
 #. Description
@@ -377,12 +377,18 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Ľutujeme, inštalátor havaroval. Prosím, podajte nové hlásenie o chybe na "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nepripájajte svoje "
+"podrobnosti k žiadnemu existujúcemu hláseniu) a vývojár sa na problém pozrie "
+"hneď ako to bude možné. Aby ste vývojárom pomohli zistiť, čo sa pokazilo, do "
+"svojho hlásenia o chybe uveďte nasledovné podrobnosti a priložte súbory /var/"
+"log/syslog a /var/log/partman:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Create partition"
-msgstr ""
+msgstr "Vytvoriť oddiel"
 
 #. Type: text
 #. Description
@@ -390,7 +396,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:51001 ../ubiquity.templates:58001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Veľkosť nového oddielu v megabajtoch (1000000 bajtov):"
 
 #. Type: text
 #. Description
@@ -420,19 +426,19 @@ msgstr "Logická"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Edit partition"
-msgstr ""
+msgstr "Upraviť oddiel"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Upraviť oddiel"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Pokročilé voľby"
 
 #. Type: text
 #. Description
@@ -444,19 +450,19 @@ msgstr "Zavádzač systému"
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Nainštalovať zavádzač"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Prieskum popularity"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Zúčastnite sa prieskumu využívania balíkov"
 
 #. Type: text
 #. Description
@@ -879,6 +885,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Typ inštalácie:           ${INSTALLTYPE}\n"
+" Ovládače:\n"
+"     Dopl. video ovládač:  ${VIDEO_DRIVER}\n"
+"         TV-výstup:             ${TVOUT}, ${TVSTANDARD}\n"
+" Ďalšie služby:\n"
+"     VNC:                ${EN_VNC}\n"
+"     SSH:                ${EN_OPENSSH}\n"
+"     Samba:              ${EN_SAMBA}\n"
+"     NFS:                ${EN_NFS}\n"
+"     služba MythTV:     ${EN_MYSQL}\n"
+" Bežné inštalačné otázky Ubuntu:\n"
+"     Jazyk:           ${LANGUAGE}\n"
+"     Rozloženie klávesnice:    ${KEYMAP}\n"
+"     Bežné meno:       ${FULLNAME}\n"
+"     Bežné prihlasovacie meno: ${USERNAME}\n"
+"     Lokalita:           ${LOCATION}"
 
 #. Type: text
 #. Description
@@ -924,6 +946,9 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Je možné použiť pokročilú inštaláciu na prispôsobenie potrebných komponentov "
+"Mythbuntu. POZN.: Pokročilá inštalácia je potrebná pre pridanie stroja "
+"Mythbuntu do existujúcej siete založenej na MythTV."
 
 #. Type: text
 #. Description
@@ -944,7 +969,7 @@ msgstr "Aký typ systému to bude?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Primárny backend s frontendom"
 
 #. Type: text
 #. Description
@@ -954,12 +979,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Kombinovaný stroj s backendom/frontendom je najbežnejšou voľbou pre ľudí, "
+"ktorá chcú MythTV pre HTPC aplikácie. Tento typ inštalácie je určený pre "
+"použitie ako komponent v domácom kine."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Sekundárny backend s frontendom"
 
 #. Type: text
 #. Description
@@ -968,12 +996,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Toto nastaví systém podpobný ako Primárny backend s frontendom, ale "
+"nakonfiguruje sa pre pripojenie k existujúcemu backendu v sieti."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Primárny backend"
 
 #. Type: text
 #. Description
@@ -983,12 +1013,14 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Stroj určený iba ako backend má zvyčajne fungovať ako nezávislé zariadenie "
+"vyžadujúce veľmi malú údržbu. Má sa inštalovať ako prvý backend v sieti."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Sekundárny backend"
 
 #. Type: text
 #. Description
@@ -997,12 +1029,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Toto nastaví systém podobne ako Primárny backend, ale bude nakonfigurovaný, "
+"aby sa pripájal k existujúcemu backendu v sieti."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Frontend"
 
 #. Type: text
 #. Description
@@ -1012,12 +1046,14 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Jedinou funkciou frontend stroja je prijímať multimediálny obsah od backendu "
+"a šíriť ho. Táto konfigurácia vyžaduje v sieti existujúci backend."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Zvoľte moduly frontend / backend"
 
 #. Type: text
 #. Description
@@ -1026,18 +1062,20 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"Moduly môžu byť použité na rozšírenie funkčnosti MythTV o schopnosť "
+"posúvania času TV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "Backend moduly"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "Frontend moduly"
 
 #. Type: text
 #. Description
@@ -1066,13 +1104,13 @@ msgstr "Myth archív"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Prehliadač Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Ovládacie prvky Myth"
 
 #. Type: text
 #. Description
@@ -1084,7 +1122,7 @@ msgstr "Myth DVD"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
@@ -1095,9 +1133,8 @@ msgstr "Myth galéria"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
-#, fuzzy
 msgid "Myth Game"
-msgstr "Myth hry"
+msgstr "Mýtické hry"
 
 #. Type: text
 #. Description
@@ -1108,15 +1145,14 @@ msgstr "Myth hudba"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
-#, fuzzy
 msgid "Myth News"
-msgstr "Myth správy"
+msgstr "Mýtické správy"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth Phone"
 
 #. Type: text
 #. Description
@@ -1144,12 +1180,13 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"Modul pre MythTV, ktorý umožňuje tvorbu DVD z obsahu na vašej sieti MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:41001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "Modul webového prehliadača integrovaného do vášho systému MythTV."
 
 #. Type: text
 #. Description
@@ -1158,6 +1195,8 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Externé ovládanie MythTV. Umožní vám zmeniť mapovanie kláves a klávesové "
+"väzby."
 
 #. Type: text
 #. Description
@@ -1165,30 +1204,35 @@ msgstr ""
 msgid ""
 "Provides an interface for launching your preferred DVD player from MythTV"
 msgstr ""
+"Poskytuje rozhranie pre spúšťanie vášho preferovaného prehrávača DVD z "
+"MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:44001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Umožňuje vám monitorovať váš front výpožičiek DVD Netflix."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Allows you to visually browse a directory tree containing image files."
 msgstr ""
+"Umožňuje vám vizuálne prezerať strom adresárov obsahujúci obrázkové súbory."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"Frontend, ktorý spustí akýkoľvek emulátor alebo binárny súbor, ktorý spustí "
+"Linux."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Poskytuje integráciu digitálneho jukeboxu s MythTV."
 
 #. Type: text
 #. Description
@@ -1197,6 +1241,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Zásuvný modul Čítačka RSS kanálov pre MythTV, ktorá vám prináša aktuálne "
+"informácie na vaše obľúbené témy noviniek."
 
 #. Type: text
 #. Description
@@ -1204,6 +1250,8 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"Možnosť telefonovania a videotelefonovania s MythTV pomocou štandardného "
+"protokolu SIP."
 
 #. Type: text
 #. Description
@@ -1218,18 +1266,20 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"Umožňuje prezeranie a prehrávanie streamovaného videa pomocou externého "
+"prehrávača priamo z prostredia MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "Zobrazuje aktuálne a predpovedané počasie v rámci MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:53001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "Zvoliť ďalšie témy"
 
 #. Type: text
 #. Description
@@ -1238,18 +1288,20 @@ msgid ""
 "Themes can greatly improve the aesthic appeal of a MythTV setup, and display "
 "it to match your tastes much better."
 msgstr ""
+"Témy môžu výrazne zlepšiť estetický dojem z MythTV a prispôsobiť ho tak ako "
+"sa vám páči."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Official Themes"
-msgstr ""
+msgstr "Oficiálne témy"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid "Community Themes"
-msgstr ""
+msgstr "Komunitné témy"
 
 #. Type: text
 #. Description
@@ -1257,6 +1309,8 @@ msgstr ""
 msgid ""
 "This themes package includes all themes distributed by the MythTV website."
 msgstr ""
+"Tento balík tém obsahujú všetky témy, ktoré sú šírené prostredníctvom "
+"webstránky MythTV."
 
 #. Type: text
 #. Description
@@ -1265,12 +1319,14 @@ msgid ""
 "This themes package is a collection of community themes generated by other "
 "MythTV users."
 msgstr ""
+"Tento balík tém obsahujú všetky témy, ktoré vytvorili ostatné používatelia "
+"MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "Ďalšie ovládače/firmvér"
 
 #. Type: text
 #. Description
@@ -1281,24 +1337,28 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Open source grafický ovládač je už vo vašej inštalácii zapnutý a "
+"nakonfigurovaný. Ak si želáte použiť iný grafický ovládač, môžete tak urobiť "
+"tu. Majte na pamäti, že efekty TV výstup alebo OpenGL môžu vyžadovať "
+"použitie proprietárnych grafických ovládačov."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "Zmeniť grafický ovládač a nastavenia"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Ak chcete nakonfigurovať TV-výstup, vyberte z týchto volieb:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "Ak zapánate TV-výstup, budete tiež musieť zvoliť TV štandard:"
 
 #. Type: text
 #. Description
@@ -1307,18 +1367,21 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Upozornenie: Nenastavujte TV štandard na niečo vyššie ako podporuje váš TV. "
+"Mohlo by to spôsobiť TRVALÉ poškodenie."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Master backend informácie"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
+"Prosím, zadajte informácie potrebné pre spojenie s vaším master backendom."
 
 #. Type: text
 #. Description
@@ -1330,25 +1393,25 @@ msgstr "MySQL heslo"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "Používateľské meno MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "Databáza MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "MySQL server"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Konfigurovať vodiace dáta / backend"
 
 #. Type: text
 #. Description
@@ -1357,12 +1420,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Finálne kroky inštalácie vyžadujú, aby ste nastavili svoje vodiace dáta a "
+"prvýkrát nakonfigurovali backend."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Kliknutím otvoríte webstránku Schedules Direct"
 
 #. Type: text
 #. Description
@@ -1412,6 +1477,3 @@ msgstr "Nastavujú sa prídavné služby..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Nastavuje sa vzdialené ovládanie..."
-
-#~ msgid "${PARTMAN_CHANGES}"
-#~ msgstr "${PARTMAN_CHANGES}"

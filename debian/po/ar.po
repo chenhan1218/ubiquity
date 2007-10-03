@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,7 +26,7 @@ msgstr "تثبيت"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "تثبيت (وضع الصانع الأصلي للأجهزة، للصانعين فقط)"
 
 #. Type: text
 #. Description
@@ -69,6 +69,8 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"أنت تثبّت في وضع صانع الأنظمة. رجاء إدخال إسم منفرد لهذه المجموعة من الأنظمة. "
+"هذا الإسم سوف يُحفظ في النظام المثبّت وسوف يُستخدم للمساعدة في تقريرات الأخطاء."
 
 #. Type: text
 #. Description
@@ -356,7 +358,7 @@ msgstr "إعادة التشغيل الآن"
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:48001
 msgid "Installer crashed"
-msgstr ""
+msgstr "المثبّت إنهار"
 
 #. Type: text
 #. Description
@@ -374,7 +376,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Create partition"
-msgstr ""
+msgstr "تقسيم"
 
 #. Type: text
 #. Description
@@ -382,7 +384,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:51001 ../ubiquity.templates:58001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "حجم القسم الجديد بميغابايت (1000000 بايت):"
 
 #. Type: text
 #. Description
@@ -412,19 +414,19 @@ msgstr "منطقي"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Edit partition"
-msgstr ""
+msgstr "تحرير القسم"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Edit a partition"
-msgstr ""
+msgstr "تحرير قسم"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Advanced Options"
-msgstr ""
+msgstr "الخيارات المتقدّمة"
 
 #. Type: text
 #. Description
@@ -436,7 +438,7 @@ msgstr "محمّل الإقلاع"
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Install boot loader"
-msgstr ""
+msgstr "تثبيت محمّل الإقلاع"
 
 #. Type: text
 #. Description
@@ -785,7 +787,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "حدث خطأ أثناء حذف الحزمات:"
 
 #. Type: title
 #. Description
@@ -927,7 +929,7 @@ msgstr "اكتمل التثبيت"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "ما نوع النظام سيكون هذا؟"
 
 #. Type: text
 #. Description
@@ -1031,8 +1033,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
+#, fuzzy
 msgid "Myth Web"
-msgstr ""
+msgstr "شبكة الأسطورة"
 
 #. Type: text
 #. Description
@@ -1045,20 +1048,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
+#, fuzzy
 msgid "Myth Archive"
-msgstr ""
+msgstr "أرشيف الأسطورة"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
+#, fuzzy
 msgid "Myth Browser"
-msgstr ""
+msgstr "متصفّح الأسطورة"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
+#, fuzzy
 msgid "Myth Controls"
-msgstr ""
+msgstr "تحكّم الأسطورة"
 
 #. Type: text
 #. Description
@@ -1069,38 +1075,44 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
+#, fuzzy
 msgid "Myth Flix"
-msgstr ""
+msgstr "مرئيات الأسطورة"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
+#, fuzzy
 msgid "Myth Gallery"
-msgstr ""
+msgstr "معرض الأسطورة"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
+#, fuzzy
 msgid "Myth Game"
-msgstr ""
+msgstr "لعبة الأسطورة"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
+#, fuzzy
 msgid "Myth Music"
-msgstr ""
+msgstr "موسيقا الأسطورة"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
+#, fuzzy
 msgid "Myth News"
-msgstr ""
+msgstr "أخبار الأسطورة"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
+#, fuzzy
 msgid "Myth Phone"
-msgstr ""
+msgstr "هاتف الأسطورة"
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-09-28 11:25-0400\n"
-"PO-Revision-Date: 2007-09-25 11:23+0000\n"
+"PO-Revision-Date: 2007-10-02 21:41+0000\n"
 "Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1091,10 +1091,8 @@ msgstr "Edustakoneliitännäiset"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
-#, fuzzy
-#| msgid "Myth Game"
 msgid "Myth Web"
-msgstr "Myth-pelit"
+msgstr "Myth-web"
 
 #. Type: text
 #. Description
@@ -1169,10 +1167,8 @@ msgstr "Myth-puhelin"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
-#, fuzzy
-#| msgid "Myth Game"
 msgid "Myth Stream"
-msgstr "Myth-pelit"
+msgstr "Myth-virta"
 
 #. Type: text
 #. Description
@@ -1270,7 +1266,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:50001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Tarjoaa tavan kuunnella Internetin radioasemia."
 
 #. Type: text
 #. Description
@@ -1456,7 +1452,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Käynnistä MythTV-asetukset"
 
 #. Type: text
 #. Description
@@ -1495,12 +1491,3 @@ msgstr "Tehdään palveluiden asetuksia..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Tehdään kaukosäätimen asetuksia..."
-
-#~ msgid "${PARTMAN_CHANGES}"
-#~ msgstr "${PARTMAN_CHANGES}"
-
-#~ msgid "mythweb"
-#~ msgstr "mythweb"
-
-#~ msgid "myth_button"
-#~ msgstr "myth_button"

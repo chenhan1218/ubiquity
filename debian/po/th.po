@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -25,9 +25,8 @@ msgstr "ติดตั้ง"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "ติดตั้ง (โหมดสำหรับผู้ผลิต)"
+msgstr "ติดตั้ง (โหมด OEM, สำหรับผู้ผลิตเท่านั้น)"
 
 #. Type: text
 #. Description
@@ -64,14 +63,13 @@ msgstr "กรุณาเลือกภาษาที่ต้องการ
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
-#, fuzzy
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"คุณกำลังติดตั้งในโหมดผู้ผลิต กรุณาใส่ชื่อที่ไม่ซ้ำกับเครื่องอื่นในชุดการผลิตนี้ "
-"ชื่อนี้จะถูกบันทึกในระบบที่ติดตั้งแล้วและสามารถใช้ในการรายงานบั๊ค"
+"คุณกำลังติดตั้งในโหมดผู้ผลิต กรุณาใส่ชื่อที่ไม่ซ้ำกับเครื่องอื่นสำหรับระบบในชุดการผลิตนี้ "
+"ชื่อนี้จะถูกบันทึกในระบบที่ติดตั้งแล้วและสามารถนำไปใช้ในการช่วยเหลือในด้านรายงานปัญหาต่างๆ"
 
 #. Type: text
 #. Description
@@ -209,7 +207,6 @@ msgstr "ชื่อนี้จะถูกใช้ถ้าคุณปรั
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
 msgid "Migrate Documents and Settings"
 msgstr "โอนเอกสารและการตั้งค่า"
 
@@ -487,7 +484,6 @@ msgstr "ดำเนินการต่อ"
 #. Type: note
 #. Description
 #: ../ubiquity.templates:67001
-#, fuzzy
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -501,14 +497,15 @@ msgstr ""
 " แป้นพิมพ์: ${KEYMAP}\n"
 " ชื่อ: ${FULLNAME}\n"
 " ชื่อในการเข้าระบบ: ${USERNAME}\n"
-" ตำแหน่งที่อยู่: ${LOCATION}"
+" ตำแหน่งที่อยู่: ${LOCATION}\n"
+" ผู้ช่วยเหลือในการโอนย้าย:\n"
+" ${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "กำลังทำสำเนาบันทึกของการติดตั้ง( installation logs) ..."
+msgstr "กำลังตรวจสอบการติตตั้ง..."
 
 #. Type: title
 #. Description
@@ -866,9 +863,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "ยกเลิกการติดตั้ง?"
+msgstr "ต้องการติดตั้งแบบไหน?"
 
 #. Type: text
 #. Description
@@ -894,9 +890,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "ยกเลิกการติดตั้ง?"
+msgstr "การติดตั้งโดยผู้เชี่ยวชาญ"
 
 #. Type: text
 #. Description
@@ -910,9 +905,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "การติดตั้งเรียบร้อย"
+msgstr "การติดตั้งแบบผู้เชี่ยวชาญ"
 
 #. Type: text
 #. Description
@@ -1369,27 +1363,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "กำลังตั้งค่า apt..."
+msgstr "กำลังตั้งค่า mythtv..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "กำลังปรับแต่งฮาร์ดแวร์..."
+msgstr "กำลังปรับแต่งไดร์ฟเวอร์ที่เพิ่มเติมอีก..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "กำลังปรับแต่งฮาร์ดแวร์..."
+msgstr "กำลังปรับแต่งservicesที่เพิ่มเติมอีก..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "กำลังตั้งค่าเวลา..."
+msgstr "กำลังปรับแต่งการควบคุมระยะไกล..."
