@@ -1,4 +1,4 @@
-oem-config (1.21) UNRELEASED; urgency=low
+oem-config (1.21) gutsy; urgency=low
 
   * GTK frontend:
     - Work around http://bugzilla.gnome.org/show_bug.cgi?id=56070 by hiding
@@ -9,7 +9,7 @@ oem-config (1.21) UNRELEASED; urgency=low
   * Don't ignore 'make distclean' errors other than missing Makefiles.
   * Remove d-i/source/console-setup/Keyboard/MyKeyboardNames.pl on clean.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 01 Oct 2007 20:56:49 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 03 Oct 2007 01:02:55 +0100
 
 oem-config (1.20) gutsy; urgency=low
 
