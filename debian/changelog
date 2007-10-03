@@ -1,4 +1,4 @@
-ubiquity (1.6.1) UNRELEASED; urgency=low
+ubiquity (1.6.1) gutsy; urgency=low
 
   [ Evan Dandrea ]
   * Modified the install component to allow grub preseeding in automatic mode.
@@ -45,7 +45,7 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
   * Correct minor typo for nvidia xorg generation.
   * Explicitly remove via drivers before trying to install openchrome.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 15:25:34 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 03 Oct 2007 10:36:27 +0100
 
 ubiquity (1.6.0) gutsy; urgency=low
 
