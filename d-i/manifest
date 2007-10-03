@@ -1,5 +1,5 @@
 apt-setup 1:0.21ubuntu3
-base-installer 1.81ubuntu3
+base-installer 1.81ubuntu4
 choose-mirror 2.15ubuntu1
 clock-setup 0.16ubuntu1
 console-setup 1.16ubuntu5
@@ -11,7 +11,7 @@ localechooser 1.38ubuntu2
 migration-assistant 0.5.1
 partconf 1.23
 partman-auto 69ubuntu5
-partman-auto-loop 0ubuntu9
+partman-auto-loop 0ubuntu11
 partman-base 107ubuntu4
 partman-basicfilesystems 54ubuntu4
 partman-basicmethods 35
@@ -21,7 +21,7 @@ partman-jfs 22
 partman-newworld 18ubuntu1
 partman-partitioning 50ubuntu2
 partman-reiserfs 36
-partman-target 50ubuntu4
+partman-target 50ubuntu5
 partman-xfs 34
 silo-installer 1.10ubuntu4
 tzsetup 1:0.17

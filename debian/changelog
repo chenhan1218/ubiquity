@@ -37,6 +37,8 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
     window title (LP: #103925).
   * Load strings for "Use as:" and "Mount point:".
   * Update translations from Rosetta.
+  * Automatic update of included source packages: base-installer
+    1.81ubuntu4, partman-auto-loop 0ubuntu11, partman-target 50ubuntu5.
 
   [ Mario Limonciello ]
   * Actually install xmltv from on-cd repo if checked.
