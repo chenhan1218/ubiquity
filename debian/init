@@ -7,15 +7,20 @@ NAME=ubiquity
 
 test -x /usr/bin/ubiquity-dm || exit 0
 
+ubiquity=
 automatic=
 for x in $(cat /proc/cmdline); do
 	case $x in
 		automatic-ubiquity)
-			automatic=1
+			automatic="--automatic"
+			ubiquity=1
+			;;
+		only-ubiquity)
+			ubiquity=1
 			;;
 	esac
 done
-if [ -z "$automatic" ] && [ "$1" != force-start ]; then
+if [ -z "$ubiquity" ] && [ "$1" != force-start ]; then
 	exit 0
 fi
     
@@ -46,7 +51,7 @@ case "$1" in
 			log_end_msg=log_end_msg
 		fi
 		# Run in the foreground.
-		if ubiquity-dm vt7 :0 /usr/bin/ubiquity --automatic; then
+		if ubiquity-dm vt7 :0 /usr/bin/ubiquity $automatic; then
 			$log_end_msg 0
 		else
 			log_end_msg $?
