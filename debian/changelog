@@ -35,6 +35,7 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
   * Add advanced button text to translation template (LP: #147612).
   * Add install button text to translation template, distinguished from the
     window title (LP: #103925).
+  * Load strings for "Use as:" and "Mount point:".
 
   [ Mario Limonciello ]
   * Actually install xmltv from on-cd repo if checked.
