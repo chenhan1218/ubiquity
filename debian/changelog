@@ -1,8 +1,13 @@
 ubiquity (1.6.2) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Add 'only-ubiquity' option to kernel cmdline to run ubiquity in a
     minimal session.  Thanks Tormod Volden (LP: #148341).
   * Filter out partition selections that do not have any users.
+
+  [ Jonathan Riddell ]
+  * KDE frontend:
+   - Change ext3 to a less dangerous looking colour than red
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 03 Oct 2007 21:49:43 -0400
 
