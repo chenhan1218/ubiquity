@@ -221,13 +221,20 @@ class MigrationAssistant(FilteredCommand):
         if systems:
             systems = systems.split(', ')
             try:
+                ret = []
                 for os in systems:
+                    osref = os
                     part = os[os.rfind('/')+1:-1] # hda1
                     os = os[:os.rfind('(')-1]
 
                     users = self.db.get('migration-assistant/' + part + '/users')
                     if not users:
+                        syslog.syslog('migration-assistant: filtering out %s' \
+                            ' as it has no users' % osref)
                         continue
+                    else:
+                        ret.append(osref)
+
                     users = users.split(', ')
                     for user in users:
                         items = self.db.get('migration-assistant/' + part + '/' + \
@@ -246,6 +253,8 @@ class MigrationAssistant(FilteredCommand):
                     # We now unset everything as the checkboxes will be unselected
                     # by default and debconf needs to match that.
                     self.db.set('migration-assistant/%s/users' % part, '')
+                # Prune out partitions that do not have any users.
+                self.db.set('migration-assistant/partitions', ", ".join(ret))
             except debconf.DebconfError, e:
                 for line in str(e).split('\n'):
                     syslog.syslog(syslog.LOG_ERR, line)

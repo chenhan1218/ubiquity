@@ -2,8 +2,9 @@ ubiquity (1.6.2) UNRELEASED; urgency=low
 
   * Add 'only-ubiquity' option to kernel cmdline to run ubiquity in a
     minimal session.  Thanks Tormod Volden (LP: #148341).
+  * Filter out partition selections that do not have any users.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 03 Oct 2007 18:32:50 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 03 Oct 2007 21:49:43 -0400
 
 ubiquity (1.6.1) gutsy; urgency=low
 
