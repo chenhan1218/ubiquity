@@ -11,6 +11,8 @@ ubiquity (1.6.2) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Update translations from Rosetta.
+  * Automatic update of included source packages: choose-mirror 2.15ubuntu2,
+    debian-installer-utils 1.48ubuntu2.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 03 Oct 2007 21:49:43 -0400
 
