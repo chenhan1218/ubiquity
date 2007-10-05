@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
 "POT-Creation-Date: 2007-10-03 10:30+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-04 12:48+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
+"X-Launchpad-Export-Date: 2007-10-05 11:25+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -66,11 +66,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
+#, fuzzy
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Está a instalar o sistema em modo de fabricante. Por favor introduza um nome "
+"único para este conjunto de sistemas. Este nome será guardado no sistema "
+"instalado e será utilizado para ajudar nos relatórios de erros."
 
 #. Type: text
 #. Description
@@ -323,17 +327,15 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Advanced..."
-msgstr ""
+msgstr "Avançado"
 
 #. Type: text
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Install[ action ]"
-msgstr "Instalação completa"
+msgstr "Instalar"
 
 #. Type: text
 #. Description
@@ -469,7 +471,7 @@ msgstr "Sistema de iniciação"
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Instalar o bootloader"
 
 #. Type: text
 #. Description
@@ -913,6 +915,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Tipo de instalação:           ${INSTALLTYPE}\n"
+" Drivers:\n"
+"     Driver vídeo adic.  ${VIDEO_DRIVER}\n"
+"         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
+" Serviços Adicionais:\n"
+"     VNC:                ${EN_VNC}\n"
+"     SSH:                ${EN_OPENSSH}\n"
+"     Samba:              ${EN_SAMBA}\n"
+"     NFS:                ${EN_NFS}\n"
+"     Serviço MythTV:     ${EN_MYSQL}\n"
+" Questões de Instalação Normal do Ubuntu:\n"
+"     Linguagem:           ${LANGUAGE}\n"
+"     Esquema de teclado    ${KEYMAP}\n"
+"     Nome Regular:       ${FULLNAME}\n"
+"     Nome de utilizador Regular: ${USERNAME}\n"
+"     Localização:           ${LOCATION}"
 
 #. Type: text
 #. Description
@@ -981,7 +999,7 @@ msgstr "Que tipo de sistema irá ser?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Backend principal c/ Frontend"
 
 #. Type: text
 #. Description
@@ -991,12 +1009,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Uma máquina Backend/frontend combinado é o modo mais comum de operação para "
+"quem quer o MythTV para aplicações HTPC. Este tipo de instalação tem como "
+"objectivo o uso como componente no seu sistema de Media Center."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Backend Secundário c/Frontend"
 
 #. Type: text
 #. Description
@@ -1005,6 +1026,8 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Este tipo de sistema é similar ao Backend Primário c/ Frontend, contudo será "
+"configurado para se ligar a um backend existente na rede."
 
 #. Type: text
 #. Description
@@ -1020,6 +1043,8 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Uma máquina backend apenas, é tipicamente utilizada como um servidor; requer "
+"muito pouca manutenção. O objectivo é ser o primeiro backend duma rede."
 
 #. Type: text
 #. Description
@@ -1034,6 +1059,8 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Isto irá instalar um sistema similar ao Backend Primário, contudo será "
+"configurado para se ligar a um backend existente na rede."
 
 #. Type: text
 #. Description
@@ -1063,6 +1090,8 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"Plugins podem ser usados para extender a funcionalidade do MythTV além duma "
+"solução de time shift de TV."
 
 #. Type: text
 #. Description
@@ -1090,6 +1119,8 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"O MythWeb disponibiliza uma interface web que pode ser usada para ver a "
+"programação, agendar gravações, apagar gravações e procurar programas."
 
 #. Type: text
 #. Description
@@ -1193,6 +1224,8 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Controlos externos para o MythTV. Permite-lhe modificar o mapeamento dos "
+"botões e atalhos."
 
 #. Type: text
 #. Description
@@ -1207,7 +1240,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:44001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Permite-lhe monitorizar a sua fila de espera de aluguer do Netflix."
 
 #. Type: text
 #. Description
@@ -1221,12 +1254,13 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"Um frontend para iniciar qualquer emulador ou binário que o Linux execute."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Fornece uma jukebox de áudio digital integrada com o MythTV."
 
 #. Type: text
 #. Description
@@ -1242,12 +1276,14 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"Um telefone com capacidade de vídeo-conferência com suporte ao procolo SIP, "
+"integrado no MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:50001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Fornece um método para ouvir streams de estações de rádio da internet."
 
 #. Type: text
 #. Description
@@ -1256,12 +1292,14 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"Perimite-lhe navegar e reproduzir streams de vídeo, usando um leitor "
+"externo, através do interface do MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "Mostra o estado actual e a previsão do tempo dentro do MythTV."
 
 #. Type: text
 #. Description
@@ -1276,6 +1314,8 @@ msgid ""
 "Themes can greatly improve the aesthic appeal of a MythTV setup, and display "
 "it to match your tastes much better."
 msgstr ""
+"Os temas podem melhorar bastante a aparência estética dum sistema MythTV, e "
+"mostrá-lo de forma a ir de encontro do seu gosto."
 
 #. Type: text
 #. Description
@@ -1287,7 +1327,7 @@ msgstr "Temas oficiais"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid "Community Themes"
-msgstr ""
+msgstr "Temas da comunidade"
 
 #. Type: text
 #. Description
@@ -1340,6 +1380,7 @@ msgstr "Se deseja configurar a saída de TV, escolha uma opção:"
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr ""
+"Se activar a saída de TV, também precisa de escolher um standard de TV:"
 
 #. Type: text
 #. Description
@@ -1418,7 +1459,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Executar o Configurador do MythTV"
 
 #. Type: text
 #. Description

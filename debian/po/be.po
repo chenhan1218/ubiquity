@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
 "POT-Creation-Date: 2007-10-03 10:30+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-04 13:02+0000\n"
 "Last-Translator: Pavel Piatruk <berserker@neolocation.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
+"X-Launchpad-Export-Date: 2007-10-05 11:25+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "Усталяваць"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Інсталяцыя (Рэжым OEM, толькі для вытворцаў)"
 
 #. Type: text
 #. Description
@@ -71,6 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Вы выконваеце інсталяцыю ў рэжыме сыстэмнага вытворцы. Калі ласка, падайце "
+"ўнікальнае імя для гэтай партыі сыстэмаў. Гэтае імя будзе захаванае на "
+"інсталяванай сыстэме і можа дапамагчы ў рапартах аб памылках."
 
 #. Type: text
 #. Description
@@ -327,10 +330,8 @@ msgstr ""
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Install[ action ]"
-msgstr "Інсталяцыя скончана"
+msgstr "Інсталяваць"
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
 "POT-Creation-Date: 2007-10-03 10:30+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-03 11:12+0000\n"
 "Last-Translator: Dr.T.Vasudevan <agnihot3@gmail.com>\n"
 "Language-Team: TAMIL <ubuntu-l10n-tam@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
+"X-Launchpad-Export-Date: 2007-10-05 11:25+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -83,7 +83,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Release Notes"
-msgstr ""
+msgstr "வெளியிடு குறிப்புகள்"
 
 #. Type: text
 #. Description
@@ -254,7 +254,7 @@ msgstr "கடவுச்சொல்:"
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Confirm:"
-msgstr ""
+msgstr "உறுதியாக்கம்:"
 
 #. Type: text
 #. Description
@@ -313,10 +313,8 @@ msgstr ""
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Install[ action ]"
-msgstr "நிறுவல் முடிந்தது"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -434,7 +432,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Advanced Options"
-msgstr ""
+msgstr "கூடுதல் விருப்பங்கள்"
 
 #. Type: text
 #. Description

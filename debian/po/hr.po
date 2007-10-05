@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
 "POT-Creation-Date: 2007-10-03 10:30+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-04 13:21+0000\n"
 "Last-Translator: Josip Rodin <joy+ditrans@linux.hr>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
+"X-Launchpad-Export-Date: 2007-10-05 11:25+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "Instalacija"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Instalacija (OEM način, samo za proizvođače)"
 
 #. Type: text
 #. Description
@@ -318,17 +318,15 @@ msgstr "Vaš novi operativni sustav će se instalirati sa slijedećim postavkama
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Advanced..."
-msgstr ""
+msgstr "Napredno..."
 
 #. Type: text
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Install[ action ]"
-msgstr "Instalacija potpuna"
+msgstr "Instalacija"
 
 #. Type: text
 #. Description
@@ -378,7 +376,7 @@ msgstr "Odmah ponovno pokreni računalo"
 #. Description
 #: ../ubiquity.templates:49001 ../ubiquity.templates:50001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Instalacija se srušila"
 
 #. Type: text
 #. Description
@@ -396,7 +394,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Create partition"
-msgstr ""
+msgstr "Izrada particije"
 
 #. Type: text
 #. Description
@@ -404,7 +402,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:53001 ../ubiquity.templates:60001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Veličina nove particije u MB"
 
 #. Type: text
 #. Description
@@ -434,13 +432,13 @@ msgstr "logička"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Edit partition"
-msgstr ""
+msgstr "Uređivanje particije"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Uredite particiju"
 
 #. Type: text
 #. Description
@@ -782,7 +780,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:102001 ../ubiquity.templates:103001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Sljedeći paketi su oštećeni:"
 
 #. Type: error
 #. Description
@@ -803,13 +801,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:103001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Prilikom uklanjanja paketa došlo je do greške"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:103001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Došlo je do sljedeće greške prilikom uklanjanja paketa:"
 
 #. Type: title
 #. Description
@@ -907,13 +905,13 @@ msgstr "Prekinuti instalaciju?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Dva tipa instalacije su dostupna za Mythbuntu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Standardna instalacija"
 
 #. Type: text
 #. Description
@@ -923,6 +921,9 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Standardna instalacija će instalirati i konfigurirati svaku opciju s "
+"minimalnom potrebom za korisničkom interakcijom tijekom procesa instalacije. "
+"Instalirati će se: sučelje, svi dodaci, sve teme i administracijsko sučelje."
 
 #. Type: text
 #. Description
@@ -954,7 +955,7 @@ msgstr "Instalacija potpuna"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Koji tip sustava će ovo biti?"
 
 #. Type: text
 #. Description

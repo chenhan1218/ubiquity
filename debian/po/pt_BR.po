@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
 "POT-Creation-Date: 2007-10-03 10:30+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-05 03:27+0000\n"
 "Last-Translator: Felipe Augusto van de Wiel (faw) <faw@cathedrallabs.org>\n"
 "Language-Team: l10n portuguese <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
+"X-Launchpad-Export-Date: 2007-10-05 11:25+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -328,17 +328,15 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Advanced..."
-msgstr ""
+msgstr "Avançado..."
 
 #. Type: text
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Install[ action ]"
-msgstr "Instalação finalizada"
+msgstr "Instalar[ ação ]"
 
 #. Type: text
 #. Description
@@ -479,7 +477,6 @@ msgstr "Instalar o gerenciador de boot"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
-#, fuzzy
 msgid "Popularity contest"
 msgstr "Concurso de popularidade"
 
@@ -1098,13 +1095,12 @@ msgstr "Escolha os plugins de Frontend / Backend"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:22001
-#, fuzzy
 msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
-"Plugins podem ser usados para aumentar a funcionalidade de time shifting do "
-"MythTV."
+"Plugins podem ser usados para aumentar a funcionalidade de atraso de tempo "
+"do MythTV."
 
 #. Type: text
 #. Description
@@ -1121,9 +1117,8 @@ msgstr "Plugins de Frontend"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
-#, fuzzy
 msgid "Myth Web"
-msgstr "mythweb"
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1139,67 +1134,67 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Arquivo Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Navegador Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Controles Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Myth DVD"
-msgstr ""
+msgstr "DVD Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Galeria Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Game"
-msgstr ""
+msgstr "Jogo Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Music"
-msgstr ""
+msgstr "Música Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth News"
-msgstr ""
+msgstr "Notícias Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Telefone Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Transmissão Myth"
 
 #. Type: text
 #. Description
@@ -1251,9 +1246,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:44001
-#, fuzzy
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr "Permite que você monitore sua fila Netflixdvd rental."
+msgstr "Permite que você monitore sua fila Netflixdvd de aluguel de dvd."
 
 #. Type: text
 #. Description
@@ -1289,11 +1283,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
-#, fuzzy
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
-"Telefone ou Videofone são capazes de serem usado no MythTV usando o "
+"Telefone ou Videofone são capazes de serem usados no MythTV usando o "
 "protocolo padrão SIP."
 
 #. Type: text
@@ -1301,6 +1294,8 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:50001
 msgid "Provides a method to listen to streaming internet radio stations."
 msgstr ""
+"Provê um método para escutar a uma transmissão de estação de rádio pela "
+"internet."
 
 #. Type: text
 #. Description
@@ -1331,6 +1326,8 @@ msgid ""
 "Themes can greatly improve the aesthic appeal of a MythTV setup, and display "
 "it to match your tastes much better."
 msgstr ""
+"Temas podem melhorar bastante o apelo estético da configuração de uma "
+"MythTV, combinando melhor com seu gosto."
 
 #. Type: text
 #. Description
@@ -1416,14 +1413,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
-#, fuzzy
 msgid "Master Backend Info"
 msgstr "Backend Mestre Info"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
-#, fuzzy
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
 "Por favor entre com a informação necessário para contatar seu backend mestre."
@@ -1450,13 +1445,13 @@ msgstr "Banco de Dados MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "Servidor MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Configurar Guia de Dados / Backend"
 
 #. Type: text
 #. Description
@@ -1465,12 +1460,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Os passos finais da instalação requerem configurar seus dados do guia e "
+"configurar o backend pela primeira vez."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Clique para abrir o site Schedules Direct"
 
 #. Type: text
 #. Description
@@ -1480,12 +1477,15 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Usuário no Norte dos Estados Unidos irão precisar configurar uma conta com "
+"Schedules Direct. SD prover um guia de dados para uma taxa nominal. Sem SD, "
+"Usuários do Norte dos Estados Unidos podem perder programas no MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Lançar Configuração da MythTV"
 
 #. Type: text
 #. Description
@@ -1496,6 +1496,10 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Depois de setar o seu código de dados no guia. Você irá precisar rodar o "
+"MythTV-Setup para rodar o configurador backend pela primeira vez. Você irá "
+"precisar para configurar nas primeiras quatro sessões, sendo certo fornecer "
+"seus dados da guia durante o terceiro."
 
 #. Type: text
 #. Description

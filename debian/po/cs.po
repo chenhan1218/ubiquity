@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
 "POT-Creation-Date: 2007-10-03 10:30+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-03 14:24+0000\n"
 "Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
+"X-Launchpad-Export-Date: 2007-10-05 11:25+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -43,9 +43,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Připraven na instalaci? Jakmile odpovíte na pár otázek, obsah živého CD bude "
-"nainstalován na tento počítač, takže můžete systém používat na plnou "
-"rychlost a bez CD."
+"Jste připraveni na instalaci? Jakmile odpovíte na pár otázek bude obsah "
+"tohoto CD nainstalován na váš počítač a můžete ho používat daleko rychleji a "
+"bez potřeby vkládat CD."
 
 #. Type: text
 #. Description
@@ -82,8 +82,8 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
-"Pokud máte přístup k internetu, přečtěte si poznámky k vydání pro informace "
-"o problémech, které vás mohou potkat."
+"Pokud máte přístup k Internetu, můžete si přečíst poznámky k tomuto vydání a "
+"informace o problémech, které vás mohou potkat."
 
 #. Type: text
 #. Description
@@ -276,13 +276,13 @@ msgstr "Potvrdit:"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Prepare disk space"
-msgstr "Připravuje se místo na disku"
+msgstr "Připravte si místo na disku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "How do you want to partition the disk?"
-msgstr "Jak chcete  rozdělit disk?"
+msgstr "Jak chcete rozdělit disk?"
 
 #. Type: text
 #. Description
@@ -330,10 +330,8 @@ msgstr ""
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Install[ action ]"
-msgstr "Instalace je kompletní"
+msgstr ""
 
 #. Type: text
 #. Description

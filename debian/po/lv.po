@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
 "POT-Creation-Date: 2007-10-03 10:30+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-04 12:17+0000\n"
 "Last-Translator: Aigars Mahinovs <aigarius@debian.org>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
+"X-Launchpad-Export-Date: 2007-10-05 11:25+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "Instalēt"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Instalēt (OEM režīms, tikai izgatavotājiem)"
 
 #. Type: text
 #. Description
@@ -71,6 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Jūs instalējat sistēmas izgatavotāja režīmā. Lūdzu ievadiet unikālu vārdu "
+"šim sistēmu laidienam. Šis vārds tiks saglabāts uz uzinstalētajām sistēmām "
+"un var palīdzēt apstrādāt problēmu ziņojumus."
 
 #. Type: text
 #. Description
@@ -324,10 +327,8 @@ msgstr ""
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Installation complete"
 msgid "Install[ action ]"
-msgstr "Instalācija pabeigta"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -377,7 +378,7 @@ msgstr "Restartēt tūlīt"
 #. Description
 #: ../ubiquity.templates:49001 ../ubiquity.templates:50001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Instalātors avarēja"
 
 #. Type: text
 #. Description
@@ -390,12 +391,18 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Diemžēl instalātors avarēja. Lūdzu, izveidotjiet jaunu kļūdas ziņojumu lapā "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nepievienojiet "
+"detaļas jau esošos kļūdu ziņojumos) un izstrādātājs pievērsīsies problēmai "
+"cik pēc iespējas ātrāk. Lai palīdzētu izstrādātājiem saprast, kas nogāja "
+"greizi, iekļaujiet sekojošās detaļas savā kļūdu paziņojumā un pievienojiet "
+"failus /var/log/syslog un /var/log/partman:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Create partition"
-msgstr ""
+msgstr "Izveidot partīciju"
 
 #. Type: text
 #. Description
@@ -403,7 +410,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:53001 ../ubiquity.templates:60001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Jaunās partīcijas izmērs megabaitos (1000000 baiti):"
 
 #. Type: text
 #. Description
@@ -433,19 +440,19 @@ msgstr "Loģiskā"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Edit partition"
-msgstr ""
+msgstr "Labot partīciju"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Labot partīciju"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Advancētas Opcijas"
 
 #. Type: text
 #. Description
@@ -456,8 +463,9 @@ msgstr "Sāknētājs"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
+#, fuzzy
 msgid "Install boot loader"
-msgstr ""
+msgstr "Uzinstalēt sistēmas ielādētāju"
 
 #. Type: text
 #. Description

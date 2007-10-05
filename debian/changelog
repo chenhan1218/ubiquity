@@ -9,6 +9,9 @@ ubiquity (1.6.2) UNRELEASED; urgency=low
   * KDE frontend:
    - Change ext3 to a less dangerous looking colour than red
 
+  [ Colin Watson ]
+  * Update translations from Rosetta.
+
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 03 Oct 2007 21:49:43 -0400
 
 ubiquity (1.6.1) gutsy; urgency=low
