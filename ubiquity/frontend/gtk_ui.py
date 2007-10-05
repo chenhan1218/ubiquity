@@ -334,10 +334,16 @@ class Wizard(BaseFrontend):
         self.hostname_changed_id = self.hostname.connect(
             'changed', self.on_hostname_changed)
 
-        self.pages = [language.Language, timezone.Timezone,
-            console_setup.ConsoleSetup, partman.Partman,
-            migrationassistant.MigrationAssistant, usersetup.UserSetup,
-            summary.Summary]
+        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+            self.pages = [language.Language, timezone.Timezone,
+                console_setup.ConsoleSetup, partman.Partman,
+                migrationassistant.MigrationAssistant, usersetup.UserSetup,
+                summary.Summary]
+        else:
+            self.pages = [language.Language, timezone.Timezone,
+                console_setup.ConsoleSetup, partman.Partman,
+                usersetup.UserSetup, summary.Summary]
+            
         self.pagesindex = 0
         pageslen = len(self.pages)
         

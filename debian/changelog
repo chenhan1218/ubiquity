@@ -1,3 +1,10 @@
+ubiquity (1.6.3) UNRELEASED; urgency=low
+
+  * Remember to not use the migration-assistant dbfilter when using
+    --no-migration-assistant, again (LP: #148766).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 05 Oct 2007 10:24:59 -0400
+
 ubiquity (1.6.2) gutsy; urgency=low
 
   [ Evan Dandrea ]
