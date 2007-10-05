@@ -10,6 +10,7 @@ ubiquity (1.6.2) UNRELEASED; urgency=low
    - Change ext3 to a less dangerous looking colour than red
 
   [ Colin Watson ]
+  * Disable the intro message, as Ubuntu 7.10 is approaching.
   * Update translations from Rosetta.
   * Automatic update of included source packages: choose-mirror 2.15ubuntu2,
     debian-installer-utils 1.48ubuntu2.
