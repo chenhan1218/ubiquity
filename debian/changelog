@@ -2,6 +2,9 @@ oem-config (1.22) UNRELEASED; urgency=low
 
   * Only run gnome-settings-daemon if it exists, removing dependency on
     gnome-control-center (LP: #147852).
+  * GTK frontend:
+    - Make sure the next button remains the default widget despite being
+      hidden and re-shown.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 03 Oct 2007 01:09:39 +0100
 

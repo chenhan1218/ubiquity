@@ -376,6 +376,7 @@ class Frontend:
             allowed and self.allowed_go_forward):
             self.next.hide()
             self.next.show()
+            self.next.grab_default()
         self.allowed_change_step = allowed
 
     def allow_go_forward(self, allowed):
@@ -385,6 +386,7 @@ class Frontend:
             allowed and self.allowed_change_step):
             self.next.hide()
             self.next.show()
+            self.next.grab_default()
         self.allowed_go_forward = allowed
 
     def debconffilter_done(self, dbfilter):
