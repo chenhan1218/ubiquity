@@ -1643,7 +1643,7 @@ exit 0"""
                                 line = 'TimedLogin=oem'
                             elif line.startswith('TimedLoginDelay='):
                                 line = 'TimedLoginDelay=10'
-                            print >>gdm_conf_file_new, line
+                            print >>gdm_conf_file_new, line,
                         gdm_conf_file_new.close()
                         gdm_conf_file.close()
                         break
@@ -1660,7 +1660,7 @@ exit 0"""
                             line = 'AutoLoginUser=oem'
                         elif line_nocomment.startswith('AutoReLogin='):
                             line = 'AutoReLogin=true'
-                        print >>kdmrc_file_new, line
+                        print >>kdmrc_file_new, line,
                     kdmrc_file_new.close()
                     kdmrc_file.close()
 
