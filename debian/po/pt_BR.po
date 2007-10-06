@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-05 03:27+0000\n"
 "Last-Translator: Felipe Augusto van de Wiel (faw) <faw@cathedrallabs.org>\n"
 "Language-Team: l10n portuguese <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
+"X-Launchpad-Export-Date: 2007-10-06 11:35+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "Problema de configuração do apt"
+msgstr "Configuração do sistema"
 
 #. Type: text
 #. Description
@@ -41,20 +40,20 @@ msgstr "Escolher idioma"
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
 msgstr ""
+"Uma vez que você responda algumas questões, o sistema estará pronto para "
+"você utilizá-lo."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Configurar fuso horário"
+msgstr "Escolha o fuso horário"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Selecione uma cidade em seu fuso horário:"
+msgstr "Selecione uma cidade em seu país e fuso horário."
 
 #. Type: text
 #. Description
@@ -196,3 +195,7 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Quando o sistema estiver configurado de forma satisfatória, execute 'oem-"
+"config-prepare'. Isto ira fazer com que o sistema apague o usuário "
+"temporário 'oem' e perguntar o usuário final várias questões de configuração "
+"na próxima vez que for iniciado."

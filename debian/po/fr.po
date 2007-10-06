@@ -7,20 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-05 11:25+0000\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
+"X-Launchpad-Export-Date: 2007-10-06 11:34+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "System Configuration"
-msgstr "Configuracion du système"
+msgstr "Configuration du système"
 
 #. Type: text
 #. Description
@@ -40,6 +40,7 @@ msgstr "Choisir la langue/Choose language"
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
 msgstr ""
+"Après avoir répondu à quelques questions, le système sera opérationnel."
 
 #. Type: text
 #. Description
@@ -50,9 +51,8 @@ msgstr "Choisissez un fuseau horaire"
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Ville dans votre fuseau horaire :"
+msgstr "Séléctionnez une ville de votre pays et fuseau horaire."
 
 #. Type: text
 #. Description
@@ -154,7 +154,7 @@ msgstr ""
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr "Mode OEM (pour fabricants uniquement)"
+msgstr "Installer (mode OEM, pour les constructeurs seulement)"
 
 #. Type: text
 #. Description

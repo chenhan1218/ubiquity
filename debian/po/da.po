@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-03 08:56+0000\n"
 "Last-Translator: Claus Hindsgaul <claus.hindsgaul@gmail.com>\n"
 "Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-02 23:17+0000\n"
+"X-Launchpad-Export-Date: 2007-10-06 11:34+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "Apt-opsætningsproblem"
+msgstr "Systemopsætning"
 
 #. Type: text
 #. Description
@@ -45,16 +44,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Indstil tidszone"
+msgstr "Vælg tidszone"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Vælg en by i din tidszone:"
+msgstr "Vælg en by i dit land og din tidszone."
 
 #. Type: text
 #. Description
@@ -83,9 +80,8 @@ msgstr "Aktuelt tidspunkt:"
 #. Type: text
 #. Description
 #: ../oem-config.templates:12001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "Vælg en tastaturudlægning"
+msgstr "Tastaturlayout"
 
 #. Type: text
 #. Description
@@ -158,24 +154,21 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
 msgid "Prepare for end-user configuration"
-msgstr "Trådløs netværksopsætning"
+msgstr "Forbered slutbrugerkonfiguration"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for end-user configuration..."
-msgstr "Opretter yaboot-opsætning"
+msgstr "Forbereder slutbrugerkonfiguration..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid "Ready for end-user configuration"
-msgstr "Forsøg automatisk netværksopsætning igen"
+msgstr "Klar til slutbrugerkonfiguration"
 
 #. Type: text
 #. Description
