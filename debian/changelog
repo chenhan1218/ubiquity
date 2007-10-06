@@ -6,6 +6,8 @@ oem-config (1.22) UNRELEASED; urgency=low
     - Make sure the next button remains the default widget despite being
       hidden and re-shown.
   * Update translations from Rosetta.
+  * Automatic update of included source packages: user-setup 1.14ubuntu4
+    (LP: #149582).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 03 Oct 2007 01:09:39 +0100
 
