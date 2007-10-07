@@ -1,10 +1,10 @@
-ubiquity (1.6.3) UNRELEASED; urgency=low
+ubiquity (1.6.3) gutsy; urgency=low
 
   [ Evan Dandrea ]
   * Remember to not use the migration-assistant dbfilter when using
     --no-migration-assistant, again (LP: #148766).
-  * Update noninteractive frontend to use recent changes to
-    FilteredCommand (LP: #149473).
+  * Update noninteractive frontend to use recent changes to FilteredCommand
+    (LP: #149473).
 
   [ Colin Watson ]
   * Remove excessive blank lines in GDM and KDM configuration files in OEM
@@ -18,7 +18,7 @@ ubiquity (1.6.3) UNRELEASED; urgency=low
   * Update translations from Rosetta.
   * Automatic update of included source packages: user-setup 1.14ubuntu4.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 05 Oct 2007 11:40:54 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 07 Oct 2007 21:00:19 +0100
 
 ubiquity (1.6.2) gutsy; urgency=low
 
