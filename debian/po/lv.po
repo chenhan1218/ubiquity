@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
 "POT-Creation-Date: 2007-10-03 10:30+0100\n"
-"PO-Revision-Date: 2007-10-04 12:17+0000\n"
+"PO-Revision-Date: 2007-10-05 17:05+0000\n"
 "Last-Translator: Aigars Mahinovs <aigarius@debian.org>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-05 11:25+0000\n"
+"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -809,13 +809,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:103001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Kļūda noņemot pakotnes"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:103001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Ir notikusi kļūda noņemot pakotnes:"
 
 #. Type: title
 #. Description
@@ -880,6 +880,7 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:1001
+#, fuzzy
 msgid ""
 " Install Type:           ${INSTALLTYPE}\n"
 " Drivers:\n"
@@ -898,6 +899,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Instalācijas tips: ${INSTALLTYPE}\n"
+" Draiveri:\n"
+"     Pievienot. Video draiveris: ${VIDEO_DRIVER}\n"
+"         TV-Out: ${TVOUT}, ${TVSTANDARD}\n"
+" Papildus pakalpojumi:\n"
+"     VNC: ${EN_VNC}\n"
+"     SSH: ${EN_OPENSSH}\n"
+"     Samba: ${EN_SAMBA}\n"
+"     NFS: ${EN_NFS}\n"
+"     MythTV pakalpojums: ${EN_MYSQL}\n"
+" Parastie Ubuntu instalācijas jautājumi:\n"
+"     Valoda: ${LANGUAGE}\n"
+"     Tastatūras izkārtojums: ${KEYMAP}\n"
+"     Parastais vārds: ${FULLNAME}\n"
+"     Parastais lietotāja vārds: ${USERNAME}\n"
+"     Atrašanās vieta: ${LOCATION}"
 
 #. Type: text
 #. Description
@@ -910,13 +927,13 @@ msgstr "Atcelt instalāciju"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Mythubuntu ir pieejami divi instalēšanas veidi:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Standarta instalācija"
 
 #. Type: text
 #. Description
@@ -956,8 +973,9 @@ msgstr "Instalācija pabeigta"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
+#, fuzzy
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Šī būs kāda tipa sistēma?"
 
 #. Type: text
 #. Description

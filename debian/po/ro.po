@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
 "POT-Creation-Date: 2007-10-03 10:30+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-06 13:25+0000\n"
 "Last-Translator: Eddy Petrișor <eddy.petrisor@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-05 11:25+0000\n"
+"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "Instalează"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Instalare (mod OEM, doar pentru producători)"
 
 #. Type: text
 #. Description
@@ -71,6 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Instalaţi un sistem în modul pentru producători.  Introduceţi un nume unic "
+"pentru această serie de sisteme. Acest nume va fi salvat pe sistemul "
+"instalat şi poate fi folosit pentru raportarea erorilor."
 
 #. Type: text
 #. Description
@@ -322,7 +325,7 @@ msgstr "Noul tău sistem de operare va fi instalat cu următoarele setări:"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Advanced..."
-msgstr ""
+msgstr "Avansat..."
 
 #. Type: text
 #. Description
@@ -330,7 +333,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Instalează"
 
 #. Type: text
 #. Description
@@ -380,7 +383,7 @@ msgstr "Reporneşte acum"
 #. Description
 #: ../ubiquity.templates:49001 ../ubiquity.templates:50001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Sistemul de instalare a eşuat"
 
 #. Type: text
 #. Description
@@ -393,12 +396,18 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Ne pare rău, dar sistemul de instalarea a eşuat. Vă rugăm să raportaţi "
+"această eroare la adresa https://launchpad.net/ubuntu/+source/ubiquity/"
+"+filebug (nu ataşati detaliile nici unui bug existent) iar un dezvoltator va "
+"analiza problema în cel mai scurt timp. Pentru a ajuta dezvoltatorii la "
+"analizarea problemei, includeţi următoarele detalii în raport şi ataşati "
+"fişierele /var/log/syslog şi /var/log/partman:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Create partition"
-msgstr ""
+msgstr "Creeare partiţii"
 
 #. Type: text
 #. Description
@@ -406,7 +415,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:53001 ../ubiquity.templates:60001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Dimensiunea noii partiţii în megaocteţi (1000000 octeţi):"
 
 #. Type: text
 #. Description
@@ -436,19 +445,19 @@ msgstr "Logică"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Edit partition"
-msgstr ""
+msgstr "Modifică partiţia"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Modifică o partiţie"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Opţiuni Avansate"
 
 #. Type: text
 #. Description
@@ -460,19 +469,19 @@ msgstr "Încărcător de sistem"
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Instalează programul de pornire a sistemului"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Concurs de popularitate"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Participă la sondajul de utilizare a pachetelor"
 
 #. Type: text
 #. Description
@@ -720,13 +729,13 @@ msgstr "Configurare boot loader..."
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Se instalează pachete adiţionale..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Se verifică pachetele pentru instalare..."
 
 #. Type: text
 #. Description
@@ -774,13 +783,13 @@ msgstr "Nu am putut şterge ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Eroare în timpul instalării pachetelor"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "O eroare a apărut pe parcursul instalării pachetelor:"
 
 #. Type: error
 #. Description
@@ -788,7 +797,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:102001 ../ubiquity.templates:103001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Următoarele pachete sunt în stadiul \"stricat\":"
 
 #. Type: error
 #. Description
@@ -809,13 +818,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:103001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Eroare în timpu dezinstalării pachetelor"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:103001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "O eroare a apărut în timpul dezinstalării pachetelor:"
 
 #. Type: title
 #. Description
@@ -915,13 +924,13 @@ msgstr "Abandonează instalarea?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Doua variante de instalare sunt disponibile pentru Mythbuntu"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Instalare Standard"
 
 #. Type: text
 #. Description
@@ -931,6 +940,9 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"O instalare standard va instala şi configura toate opţiunile cu o "
+"interacţiune minimă din partea utilizatorului. Aceasta va instala suportul, "
+"interfaţa, toate module şi toate temele."
 
 #. Type: text
 #. Description
@@ -962,13 +974,13 @@ msgstr "Instalare completă"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Ce rol va avea acest sistem?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Suport Principal cu inteftaţă"
 
 #. Type: text
 #. Description
@@ -978,6 +990,10 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Un calculator configurat ca Backend şi Frontend este cel mai comun tip de "
+"instalare pentru cineva care doreşte MythTV pentru o aplicaţie de gen Home "
+"Teather PC. Acest tip de instalare este gândit pentru a fi folosit ca o "
+"componentă în sistemul tău de Home Teather."
 
 #. Type: text
 #. Description
@@ -1036,12 +1052,16 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Funcţia de bază a unui sistem \"Interfaţă\" este aceea de a primi conţinut "
+"multimedia de la un Backend (principal sau secundar) şi a-l pune la "
+"dispoziţia utilizatorului pentru folosire sau distribuire. Acest tip de "
+"instalare necesită ca un Backend configurat să existe deja în reţea."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Alege Module pentru Intefaţă / Backend"
 
 #. Type: text
 #. Description
@@ -1050,24 +1070,26 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"Modulele pentru MythTV pot fi folosite pentru a-i oferi sistemului funcţii "
+"suplimentare, pe lângă cea de soluţie TV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "Module pentru Backend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "Module pentru Interfaţă"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1076,84 +1098,87 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb oferă o interfaţa web ce poate fi accesată de la distanţă pentru a "
+"vizualiza programul canalelor tv, pentru a programa înregistrări, pentru a "
+"şterge înregistrări existente sau pentru a căuta programe."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Arhiva Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Navigator Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Controale Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Myth DVD"
-msgstr ""
+msgstr "Myth DVD"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix (netflix.com)"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Galerie Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Game"
-msgstr ""
+msgstr "Jocuri Myth (emulatoare)"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Music"
-msgstr ""
+msgstr "Muzică Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth News"
-msgstr ""
+msgstr "Ştiri Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Telefon Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Radiouri Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Video"
-msgstr ""
+msgstr "Video Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Vremea Myth"
 
 #. Type: text
 #. Description
@@ -1167,7 +1192,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:41001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "Un modul integrat de navigare web pentru sistemul tau MythTV."
 
 #. Type: text
 #. Description
@@ -1176,6 +1201,8 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Modalităţi externe de a controla MythTV-ul tău. Acest modul îţi permite să "
+"modifici scurtături şi combinaţii de taste."
 
 #. Type: text
 #. Description
@@ -1183,30 +1210,33 @@ msgstr ""
 msgid ""
 "Provides an interface for launching your preferred DVD player from MythTV"
 msgstr ""
+"Oferă o interfaţă pentru a lansa playerul tău preferat de DVD-uri din MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:44001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Cu acest plugin îţi poţi monitoriza contul tău de pe Netflix.com."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
+msgstr "Oferă o aplicaţie pentru a vizualiza directoarele ce conţin imagini."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"O interfaţă pentru a porni şi configura orice emulator de jocuri care "
+"rulează pe Linux."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Oferă un player pentru a reda fişierele audio în MythTV."
 
 #. Type: text
 #. Description
@@ -1214,7 +1244,7 @@ msgstr ""
 msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
-msgstr ""
+msgstr "Un agregator RSS care te ţine la curent cu ştirile tale preferate."
 
 #. Type: text
 #. Description
@@ -1222,12 +1252,14 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"O aplicaţie care oferă capabilitatea de a folosi telefonie şi videotelefonie "
+"bazată pe protocolul SIP (VoIP) în interiorul MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:50001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Oferă posibilitatea de a ascula posturile de radio de pe internet."
 
 #. Type: text
 #. Description
@@ -1304,19 +1336,21 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "Modifică Driver şi Configurări Video"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
 msgstr ""
+"Dacă doreşti să configurezi o ieşire TV (tv-out), alege o opţiune de aici:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr ""
+"La activarea ieşirii TV (tv-out), este necesară şi alegerea unui standard TV:"
 
 #. Type: text
 #. Description
@@ -1325,18 +1359,20 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"ATENŢIE: Nu configuraţi standardul TV cu unul pe care televizorul nu îl "
+"suportă! Puteţi provoca probleme permanente televizorului dumneavoastră."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Informaţii Backend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
-msgstr ""
+msgstr "Introduce informaţia necesară conectării la Backend:"
 
 #. Type: text
 #. Description
@@ -1349,25 +1385,25 @@ msgstr "Parola:"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "Utilizator MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "Bază de Date MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "Server MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Configurează  Datele Ghidului / Backendului"
 
 #. Type: text
 #. Description
@@ -1381,7 +1417,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Clic pentru a deschide website-ul \"Schedules Direct\""
 
 #. Type: text
 #. Description
@@ -1396,7 +1432,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Porneste Configurarea MythTV"
 
 #. Type: text
 #. Description

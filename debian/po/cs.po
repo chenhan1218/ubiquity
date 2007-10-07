@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
 "POT-Creation-Date: 2007-10-03 10:30+0100\n"
-"PO-Revision-Date: 2007-10-03 14:24+0000\n"
+"PO-Revision-Date: 2007-10-05 12:57+0000\n"
 "Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-05 11:25+0000\n"
+"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -323,7 +323,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Advanced..."
-msgstr ""
+msgstr "Pokročilé..."
 
 #. Type: text
 #. Description
@@ -331,7 +331,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Nainstalovat"
 
 #. Type: text
 #. Description
@@ -540,9 +540,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "Kopírují se instalační záznamy..."
+msgstr "Kontroluji instalaci..."
 
 #. Type: title
 #. Description
@@ -930,21 +929,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "Přerušit instalaci?"
+msgstr "Který typ instalace?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Dva typy instalací jsou dostupné pro Mythbuntu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Běžná instalace"
 
 #. Type: text
 #. Description
@@ -954,13 +952,15 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Běžná instalace nainstaluje a nastaví všechny volby s minimálním zapojením "
+"uživatele. Nainstaluje backend, frontend, všechny zásuvné moduly a všechny "
+"motivy."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Přerušit instalaci?"
+msgstr "Pokročilá instalace"
 
 #. Type: text
 #. Description
@@ -970,13 +970,15 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Pokročilá instalace může být použita k potřebným úpravám této instalace "
+"Mythbuntu. POZNÁMKA: Pokročilá instalace je nutná pro přidání počítače s "
+"Mythbuntu k existující síti založené na Mythbuntu."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Instalace je kompletní"
+msgstr "Typ Pokročilá instalace"
 
 #. Type: text
 #. Description
@@ -991,7 +993,7 @@ msgstr "Jaký bude typ tohoto systému?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Primární backend s frontendem"
 
 #. Type: text
 #. Description
@@ -1006,7 +1008,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Druhotný backend s frontendem"
 
 #. Type: text
 #. Description
@@ -1364,27 +1366,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Heslo:"
+msgstr "Heslo MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "Přihlašovací jméno MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "Databáze MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "Server MySQL"
 
 #. Type: text
 #. Description
@@ -1434,27 +1435,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Konfiguruje se apt..."
+msgstr "Nastavuji mythtv..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Nastavuje se hardware..."
+msgstr "Nastavuji dodatečné ovladače..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Nastavuje se hardware..."
+msgstr "Nastavuji dodatečné služby..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "Nastavuje se časové pásmo..."
+msgstr "Nastavuji dálkové ovládání..."

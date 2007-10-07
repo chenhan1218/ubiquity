@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
 "POT-Creation-Date: 2007-10-03 10:30+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-07 11:46+0000\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-05 11:25+0000\n"
+"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -322,7 +322,7 @@ msgstr "Ваша новая операционная система устано
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Advanced..."
-msgstr ""
+msgstr "Дополнительно..."
 
 #. Type: text
 #. Description
@@ -330,7 +330,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Установить"
 
 #. Type: text
 #. Description
@@ -541,9 +541,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "Копирование лога установки..."
+msgstr "Проверка установки..."
 
 #. Type: title
 #. Description
@@ -934,9 +933,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "Отменить установку?"
+msgstr "Какой вариант установки?"
 
 #. Type: text
 #. Description
@@ -965,9 +963,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Отменить установку?"
+msgstr "Расширенная установка"
 
 #. Type: text
 #. Description
@@ -984,9 +981,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Установка завершена"
+msgstr "Тип расширенной установки"
 
 #. Type: text
 #. Description
@@ -1000,20 +996,18 @@ msgstr "Тип устанавливаемой системы?"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
-#, fuzzy
 msgid "Primary Backend w/ Frontend"
 msgstr "Основной бэкэнд/фронтэнд"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:12001
-#, fuzzy
 msgid ""
 "A Backend/frontend combo machine is the most common setup for people wanting "
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
-"Комбинированная бэкэнд/фронтэнд машина - это обычный тип установки для тех, "
+"Комбинированная бэкэнд/фронтэнд-машина - это обычный тип установки для тех, "
 "кто хочет использовать MythTV для HTPC-приложений. Этот тип установки "
 "предназначен для использования в качестве компонента вашего домашнего "
 "кинотеатра."
@@ -1021,7 +1015,6 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
-#, fuzzy
 msgid "Secondary Backend w/ Frontend"
 msgstr "Дополнительный бэкэнд/фронтэнд"
 
@@ -1050,6 +1043,9 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Компьютер без интерфейса пользователя (бэкэнд) обычно используется как "
+"законченное устройство, не требующее особой поддержки. Эта машина будет "
+"настроена для работы в качестве первого бэкэнд-компьютера в сети."
 
 #. Type: text
 #. Description
@@ -1104,23 +1100,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
-#, fuzzy
 msgid "Backend Plugins"
 msgstr "Модули бэкэнда"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
-#, fuzzy
 msgid "Frontend Plugins"
 msgstr "Модули фронтэнда"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
-#, fuzzy
 msgid "Myth Web"
-msgstr "Myth игра"
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1196,9 +1189,8 @@ msgstr "Myth телефон"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
-#, fuzzy
 msgid "Myth Stream"
-msgstr "Myth игра"
+msgstr "Myth Stream"
 
 #. Type: text
 #. Description
@@ -1248,9 +1240,8 @@ msgstr "Интерфейс запуска Вашего любимого DVD-пл
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:44001
-#, fuzzy
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr "Позволяет вам следить за очередью приобретенных DVD Netflix."
+msgstr "Позволяет вам следить за очередью проката дисков Netflix."
 
 #. Type: text
 #. Description
@@ -1294,7 +1285,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:50001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Предоставляет способ прослушивания потоковых радиостанций из Интернет"
 
 #. Type: text
 #. Description
@@ -1408,14 +1399,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
-#, fuzzy
 msgid "Master Backend Info"
 msgstr "Информация по основному бэкэнду"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
-#, fuzzy
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
 "Пожалуйста, введите информацию, необходимую для того, чтобы связаться с "
@@ -1424,9 +1413,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Пароль:"
+msgstr "Пароль MySQL:"
 
 #. Type: text
 #. Description
@@ -1449,20 +1437,18 @@ msgstr "Сервер MySQL"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
-#, fuzzy
 msgid "Configure Guide Data / Backend"
-msgstr "Настроить управляющие данные бэкэнда"
+msgstr "Настройка управляющих данных бэкэнда"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:72001
-#, fuzzy
 msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
-"В конце установки вам потребуется настроить управляющие данные и в первый "
-"раз сконфигурировать бэкэнд."
+"В конце установки вам потребуется задать управляющие данные и выполнить "
+"первичную настройку бэкэнда."
 
 #. Type: text
 #. Description
@@ -1473,22 +1459,21 @@ msgstr "Нажмите для открытия веб-сайта Schedules Direc
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:74001
-#, fuzzy
 msgid ""
 "Users in North America will need to setup an account with Schedules Direct "
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
-"Пользователям в Северной Америке необходимо настроить аккаунт с Schedules "
-"Direct (SD). SD предоставляет управляющие данные по номинальной цене. Без "
-"SD, североамериканские пользователи могут потерять многие возможности по "
-"настройке расписаний в MythTV."
+"Пользователям в Северной Америке необходимо настроить учётную запись "
+"Schedules Direct (SD). SD предоставляет управляющие данные по номинальной "
+"цене. Без SD, североамериканские пользователи могут потерять многие "
+"возможности MythTV по настройке телепрограмм."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Запуск установки MythTV"
 
 #. Type: text
 #. Description
@@ -1499,31 +1484,31 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"После настройки источника ключевых данных, вам потребуется запустить MythTV-"
+"Setup, чтобы выполнить первичную конфигурацию бэкэнд-устройства. Вам "
+"предстоит настроить первые четыре секции и убедиться, что вы предоставили "
+"ключевые данные в третьей."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Настройка apt..."
+msgstr "Настройка mythtv..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Настройка оборудования..."
+msgstr "Настройка дополнительных драйверов..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Настройка оборудования..."
+msgstr "Настройка дополнительных служб..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring remote control..."
-msgstr "Настройка часового пояса..."
+msgstr "Настройка дистанционного управления..."

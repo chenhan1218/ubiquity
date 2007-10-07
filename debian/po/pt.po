@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
 "POT-Creation-Date: 2007-10-03 10:30+0100\n"
-"PO-Revision-Date: 2007-10-04 12:48+0000\n"
+"PO-Revision-Date: 2007-10-06 10:25+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-05 11:25+0000\n"
+"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -66,7 +66,6 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
-#, fuzzy
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -1108,9 +1107,8 @@ msgstr "Plugins de Frontend"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
-#, fuzzy
 msgid "Myth Web"
-msgstr "Jogo Myth"
+msgstr "Web Myth"
 
 #. Type: text
 #. Description
@@ -1187,7 +1185,7 @@ msgstr "Telefone Myth"
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 #, fuzzy
 msgid "Myth Stream"
-msgstr "Jogo Myth"
+msgstr "Fluxo Myth"
 
 #. Type: text
 #. Description
@@ -1269,6 +1267,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Um plugin leitor de feeds RSS para o MythTV  que lhe permite manter-se "
+"actualizado nos seus tópicos favoritos de notícias."
 
 #. Type: text
 #. Description
@@ -1362,6 +1362,10 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Um controlador gráfico de código fonte aberto já está activo e configurado "
+"na sua instalação. Se pretende usar um controlador gráfico diferente, poderá "
+"fazê-lo aqui. Tenha em atenção que poderão ser necessários controladores "
+"gráficos proprietários para efeitos OpenGL ou Saída TV."
 
 #. Type: text
 #. Description
@@ -1389,6 +1393,8 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Aviso: Não configure o padrão da TV para algo superior ao que a TV suporta. "
+"Poderão ocorrer danos PERMANENTES."
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
 "POT-Creation-Date: 2007-10-03 10:30+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-06 01:31+0000\n"
 "Last-Translator: Bart Cornelis <cobaco@skolelinux.no>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-05 11:25+0000\n"
+"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -328,7 +328,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Advanced..."
-msgstr ""
+msgstr "Geavanceerd…"
 
 #. Type: text
 #. Description
@@ -336,7 +336,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:41001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Installeren"
 
 #. Type: text
 #. Description
@@ -1306,7 +1306,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:50001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Biedt de mogelijkheid om naar internetradiostations te luisteren."
 
 #. Type: text
 #. Description
@@ -1495,7 +1495,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "MythTV setup starten"
 
 #. Type: text
 #. Description
