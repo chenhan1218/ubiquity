@@ -1626,43 +1626,25 @@ exit 0"""
                 # Some serious horribleness is needed here to handle absolute
                 # symlinks.
                 for name in ('gdm-cdd.conf', 'gdm.conf'):
-                    gdm_conf_name = os.path.join(self.target, 'etc/gdm', name)
                     gdm_conf = osextras.realpath_root(
                         self.target, os.path.join('/etc/gdm', name))
                     if os.path.isfile(gdm_conf):
-                        gdm_conf_file = open(gdm_conf)
-                        gdm_conf_file_new = open('%s.oem' % gdm_conf_name, 'w')
-                        for line in gdm_conf_file:
-                            if line.startswith('AutomaticLoginEnable='):
-                                line = 'AutomaticLoginEnable=true'
-                            elif line.startswith('AutomaticLogin='):
-                                line = 'AutomaticLogin=oem'
-                            elif line.startswith('TimedLoginEnable='):
-                                line = 'TimedLoginEnable=true'
-                            elif line.startswith('TimedLogin='):
-                                line = 'TimedLogin=oem'
-                            elif line.startswith('TimedLoginDelay='):
-                                line = 'TimedLoginDelay=10'
-                            print >>gdm_conf_file_new, line,
-                        gdm_conf_file_new.close()
-                        gdm_conf_file.close()
+                        self.chrex('sed', '-i.oem',
+                                   '-e', 's/^AutomaticLoginEnable=.*$/AutomaticLoginEnable=true/',
+                                   '-e', 's/^AutomaticLogin=.*$/AutomaticLogin=oem/',
+                                   '-e', 's/^TimedLoginEnable=.*$/TimedLoginEnable=true/',
+                                   '-e', 's/^TimedLogin=.*$/TimedLogin=oem/',
+                                   '-e', 's/^TimedLoginDelay=.*$/TimedLoginDelay=10/',
+                                   os.path.join('/etc/gdm', name));
                         break
 
                 kdmrc = os.path.join(self.target, 'etc/kde3/kdm/kdmrc')
                 if os.path.isfile(kdmrc):
-                    kdmrc_file = open(kdmrc)
-                    kdmrc_file_new = open('%s.oem' % kdmrc, 'w')
-                    for line in kdmrc_file:
-                        line_nocomment = line.lstrip('#')
-                        if line_nocomment.startswith('AutoLoginEnable='):
-                            line = 'AutoLoginEnable=true'
-                        elif line_nocomment.startswith('AutoLoginUser='):
-                            line = 'AutoLoginUser=oem'
-                        elif line_nocomment.startswith('AutoReLogin='):
-                            line = 'AutoReLogin=true'
-                        print >>kdmrc_file_new, line,
-                    kdmrc_file_new.close()
-                    kdmrc_file.close()
+                    misc.execute('sed', '-i.oem', '-r',
+                                 '-e', 's/^#?AutoLoginEnable=.*$/AutoLoginEnable=true/',
+                                 '-e', 's/^#?AutoLoginUser=.*$/AutoLoginUser=oem/',
+                                 '-e', 's/^#?AutoReLogin=.*$/AutoReLogin=true/',
+                                 kdmrc)
 
                 if osextras.find_on_path_root(self.target, 'kpersonalizer'):
                     kpersonalizerrc = os.path.join(self.target,

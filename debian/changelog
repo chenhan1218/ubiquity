@@ -12,6 +12,9 @@ ubiquity (1.6.3) UNRELEASED; urgency=low
   * GTK frontend:
     - Make sure the next button remains the default widget despite being
       hidden and re-shown.
+  * Shell out to sed for now rather than using flaky, complicated, and above
+    all incorrect code to edit gdm.conf and kdmrc for autologin in OEM mode
+    (LP: #149985).
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 05 Oct 2007 11:40:54 -0400
 
