@@ -1,4 +1,45 @@
-ubiquity (1.6.1) UNRELEASED; urgency=low
+ubiquity (1.6.3) gutsy; urgency=low
+
+  [ Evan Dandrea ]
+  * Remember to not use the migration-assistant dbfilter when using
+    --no-migration-assistant, again (LP: #148766).
+  * Update noninteractive frontend to use recent changes to FilteredCommand
+    (LP: #149473).
+
+  [ Colin Watson ]
+  * Remove excessive blank lines in GDM and KDM configuration files in OEM
+    mode.
+  * GTK frontend:
+    - Make sure the next button remains the default widget despite being
+      hidden and re-shown.
+  * Shell out to sed for now rather than using flaky, complicated, and above
+    all incorrect code to edit gdm.conf and kdmrc for autologin in OEM mode
+    (LP: #149985).
+  * Update translations from Rosetta.
+  * Automatic update of included source packages: user-setup 1.14ubuntu4.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 07 Oct 2007 21:00:19 +0100
+
+ubiquity (1.6.2) gutsy; urgency=low
+
+  [ Evan Dandrea ]
+  * Add 'only-ubiquity' option to kernel cmdline to run ubiquity in a
+    minimal session.  Thanks Tormod Volden (LP: #148341).
+  * Filter out partition selections that do not have any users.
+
+  [ Jonathan Riddell ]
+  * KDE frontend:
+   - Change ext3 to a less dangerous looking colour than red
+
+  [ Colin Watson ]
+  * Disable the intro message, as Ubuntu 7.10 is approaching.
+  * Update translations from Rosetta.
+  * Automatic update of included source packages: choose-mirror 2.15ubuntu2,
+    debian-installer-utils 1.48ubuntu2.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 05 Oct 2007 13:23:00 +0100
+
+ubiquity (1.6.1) gutsy; urgency=low
 
   [ Evan Dandrea ]
   * Modified the install component to allow grub preseeding in automatic mode.
@@ -29,13 +70,23 @@ ubiquity (1.6.1) UNRELEASED; urgency=low
       Horowitz.
     - Make the OK button the default widget in the create and edit partition
       dialogs.
+  * Remove d-i/source/console-setup/Keyboard/MyKeyboardNames.pl on clean.
+  * Only run gnome-settings-daemon if it exists, removing dependency on
+    gnome-control-center (LP: #147852).
+  * Add advanced button text to translation template (LP: #147612).
+  * Add install button text to translation template, distinguished from the
+    window title (LP: #103925).
+  * Load strings for "Use as:" and "Mount point:".
+  * Update translations from Rosetta.
+  * Automatic update of included source packages: base-installer
+    1.81ubuntu4, partman-auto-loop 0ubuntu11, partman-target 50ubuntu5.
 
   [ Mario Limonciello ]
   * Actually install xmltv from on-cd repo if checked.
   * Correct minor typo for nvidia xorg generation.
   * Explicitly remove via drivers before trying to install openchrome.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 28 Sep 2007 15:25:34 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 03 Oct 2007 10:36:27 +0100
 
 ubiquity (1.6.0) gutsy; urgency=low
 

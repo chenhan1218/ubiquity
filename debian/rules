@@ -77,7 +77,9 @@ clean:
 	$(MAKE) -C d-i clean
 	[ ! -f Makefile ] || $(MAKE) distclean
 
-	dh_clean debian/ubiquity.install ubiquity/keyboard_names.py
+	dh_clean debian/ubiquity.install \
+		 d-i/source/console-setup/Keyboard/MyKeyboardNames.pl \
+		 ubiquity/keyboard_names.py
 
 	$(MAKE) -C d-i check
 
@@ -186,8 +188,6 @@ ifeq ($(DEB_HOST_ARCH),sparc)
 	install d-i/source/silo-installer/debian/silo-installer.postinst \
 		debian/ubiquity/usr/lib/ubiquity/silo-installer/silo-installer
 endif
-	install -m644 debian/intro-alpha.txt \
-		debian/ubiquity/usr/share/ubiquity/intro.txt
 
 	set -e; for size in 16 22 32 48 64 128; do \
 		mkdir -p debian/ubiquity-frontend-kde/usr/share/icons/crystalsvg/$${size}x$${size}/apps; \

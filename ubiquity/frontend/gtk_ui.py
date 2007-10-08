@@ -334,10 +334,16 @@ class Wizard(BaseFrontend):
         self.hostname_changed_id = self.hostname.connect(
             'changed', self.on_hostname_changed)
 
-        self.pages = [language.Language, timezone.Timezone,
-            console_setup.ConsoleSetup, partman.Partman,
-            migrationassistant.MigrationAssistant, usersetup.UserSetup,
-            summary.Summary]
+        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+            self.pages = [language.Language, timezone.Timezone,
+                console_setup.ConsoleSetup, partman.Partman,
+                migrationassistant.MigrationAssistant, usersetup.UserSetup,
+                summary.Summary]
+        else:
+            self.pages = [language.Language, timezone.Timezone,
+                console_setup.ConsoleSetup, partman.Partman,
+                usersetup.UserSetup, summary.Summary]
+            
         self.pagesindex = 0
         pageslen = len(self.pages)
         
@@ -605,6 +611,7 @@ class Wizard(BaseFrontend):
             allowed and self.allowed_go_forward):
             self.next.hide()
             self.next.show()
+            self.next.grab_default()
         self.allowed_change_step = allowed
 
     def allow_go_forward(self, allowed):
@@ -614,6 +621,7 @@ class Wizard(BaseFrontend):
             allowed and self.allowed_change_step):
             self.next.hide()
             self.next.show()
+            self.next.grab_default()
         self.allowed_go_forward = allowed
 
 
@@ -699,7 +707,7 @@ class Wizard(BaseFrontend):
             cur = self.stepUserInfo
         elif n == 'Summary':
             cur = self.stepReady
-            self.next.set_label("Install")
+            self.next.set_label(self.get_string('install_button'))
         elif n == 'MigrationAssistant':
             cur = self.stepMigrationAssistant
         else:

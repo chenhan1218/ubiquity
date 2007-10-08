@@ -39,6 +39,7 @@ from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, \
                                 summary, install, migrationassistant
+import ubiquity.progressposition
 from ubiquity.frontend.base import BaseFrontend
 
 class Wizard(BaseFrontend):
@@ -46,6 +47,8 @@ class Wizard(BaseFrontend):
     def __init__(self, distro):
         BaseFrontend.__init__(self, distro)
 
+        self.installing = False
+        self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.fullname = ''
         self.username = ''
         self.password = ''
@@ -66,13 +69,22 @@ class Wizard(BaseFrontend):
                 'privileges, and cannot continue without them.'
             sys.exit(1)
 
-        for x in [language.Language, timezone.Timezone, \
-            console_setup.ConsoleSetup, partman.Partman, \
-            migrationassistant.MigrationAssistant, usersetup.UserSetup]:
+        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+            pages = [language.Language, timezone.Timezone,
+                console_setup.ConsoleSetup, partman.Partman,
+                migrationassistant.MigrationAssistant, usersetup.UserSetup,
+                summary.Summary]
+        else:
+            pages = [language.Language, timezone.Timezone,
+                console_setup.ConsoleSetup, partman.Partman,
+                usersetup.UserSetup, summary.Summary]
+
+        for x in pages:
             self.dbfilter = x(self)
             self.dbfilter.start(auto_process=True)
             gtk.main()
 
+        self.installing = True
         self.progress_loop()
 
     def progress_loop(self):

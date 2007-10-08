@@ -286,9 +286,16 @@ class Wizard(BaseFrontend):
             first_step = "stepLanguage"
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
 
-        self.pages = [language.Language, timezone.Timezone,
-            console_setup.ConsoleSetup, partman.Partman,
-            usersetup.UserSetup, summary.Summary]
+        if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
+            self.pages = [language.Language, timezone.Timezone,
+                console_setup.ConsoleSetup, partman.Partman,
+                migrationassistant.MigrationAssistant, usersetup.UserSetup,
+                summary.Summary]
+        else:
+            self.pages = [language.Language, timezone.Timezone,
+                console_setup.ConsoleSetup, partman.Partman,
+                usersetup.UserSetup, summary.Summary]
+
         self.pagesindex = 0
         pageslen = len(self.pages)
         
@@ -567,8 +574,7 @@ class Wizard(BaseFrontend):
             self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
         elif n == 'Summary':
             self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
-            installText = self.get_string("live_installer")
-            self.userinterface.next.setText(installText)
+            self.userinterface.next.setText(self.get_string('install_button'))
         else:
             print >>sys.stderr, 'No page found for %s' % n
             return

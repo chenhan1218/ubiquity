@@ -5,19 +5,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
-"POT-Creation-Date: 2007-09-28 11:25-0400\n"
+"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
+"POT-Creation-Date: 2007-10-03 10:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Peter Mann <Peter.Mann@tuke.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-09-28 14:59+0000\n"
+"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
+#. This is used as a window title.
 #: ../ubiquity.templates:2001
 msgid "Install"
 msgstr "Inštalácia"
@@ -303,7 +304,7 @@ msgstr ""
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:38001 ../ubiquity.templates:67001
+#: ../ubiquity.templates:38001 ../ubiquity.templates:69001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr "Inštalácia je pripravená"
@@ -319,42 +320,56 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
+msgid "Advanced..."
+msgstr ""
+
+#. Type: text
+#. Description
+#. This is used as a button label, and should be translated as an action.
+#. Omit the [ ... ] from the translation.
+#: ../ubiquity.templates:41001
+msgid "Install[ action ]"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:42001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "Krok ${INDEX} z ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:43001
 msgid "Abort the installation?"
 msgstr "Prerušiť inštaláciu?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:44001
 msgid "Do you really want to abort the installation now?"
 msgstr "Naozaj teraz chcete prerušiť inštaláciu?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:45001
 msgid "Skip"
 msgstr "Preskočiť"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:46001
 msgid "Installation complete"
 msgstr "Inštalácia je kompletná"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:47001
 msgid "Continue using the live CD"
 msgstr "Naďalej používať toto Live CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:48001
 msgid "Restart now"
 msgstr "Reštartovať"
 
@@ -362,13 +377,13 @@ msgstr "Reštartovať"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001 ../ubiquity.templates:48001
+#: ../ubiquity.templates:49001 ../ubiquity.templates:50001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Inštalátor havaroval"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:51001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -377,90 +392,96 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:50001
-msgid "Create partition"
-msgstr ""
-
-#. Type: text
-#. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:51001 ../ubiquity.templates:58001
-msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+"Ľutujeme, inštalátor havaroval. Prosím, podajte nové hlásenie o chybe na "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (nepripájajte svoje "
+"podrobnosti k žiadnemu existujúcemu hláseniu) a vývojár sa na problém pozrie "
+"hneď ako to bude možné. Aby ste vývojárom pomohli zistiť, čo sa pokazilo, do "
+"svojho hlásenia o chybe uveďte nasledovné podrobnosti a priložte súbory /var/"
+"log/syslog a /var/log/partman:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
+msgid "Create partition"
+msgstr "Vytvoriť oddiel"
+
+#. Type: text
+#. Description
+#. Type: text
+#. Description
+#: ../ubiquity.templates:53001 ../ubiquity.templates:60001
+msgid "New partition size in megabytes (1000000 bytes):"
+msgstr "Veľkosť nového oddielu v megabajtoch (1000000 bajtov):"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:54001
 msgid "Beginning"
 msgstr "Začiatok"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:55001
 msgid "End"
 msgstr "Koniec"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:56001
 msgid "Primary"
 msgstr "Primárna"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:57001
 msgid "Logical"
 msgstr "Logická"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:58001
 msgid "Edit partition"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:57001
-msgid "Edit a partition"
-msgstr ""
+msgstr "Upraviť oddiel"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
-msgid "Advanced Options"
-msgstr ""
+msgid "Edit a partition"
+msgstr "Upraviť oddiel"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:61001
+msgid "Advanced Options"
+msgstr "Pokročilé voľby"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:62001
 msgid "Boot loader"
 msgstr "Zavádzač systému"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
-msgid "Install boot loader"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:62001
-msgid "Popularity contest"
-msgstr ""
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:63001
-msgid "Participate in the package usage survey"
-msgstr ""
+msgid "Install boot loader"
+msgstr "Nainštalovať zavádzač"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
+msgid "Popularity contest"
+msgstr "Prieskum popularity"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:65001
+msgid "Participate in the package usage survey"
+msgstr "Zúčastnite sa prieskumu využívania balíkov"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:66001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -472,7 +493,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:66001
 msgid ""
 "Be sure to remove the CD when restarting the computer, otherwise it will "
 "start back up using this live CD rather than the newly-installed system."
@@ -483,20 +504,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:67001
 msgid "Go Back"
 msgstr "Naspäť"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:68001
 msgid "Continue"
 msgstr "Pokračovať"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:69001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -516,43 +537,43 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:70001
 msgid "Checking the installation..."
 msgstr "Kontrplujem inštaláciu..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:71001
 msgid "Installing system"
 msgstr "Inštaluje sa systém"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:72001
 msgid "Finding the distribution to copy..."
 msgstr "Hľadá sa distribúcia na skopírovanie..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:74001
 msgid "Scanning files..."
 msgstr "Hľadajú sa súbory..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:75001
 msgid "Copying files..."
 msgstr "Kopírujú sa súbory..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:76001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "Prebieha kopírovanie (zostáva menej ako minúta)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:77001
 msgid "Failed to copy files; faulty CD/DVD?"
 msgstr "Nepodarilo sa skopírovať súbory; vadné CD/DVD?"
 
@@ -562,14 +583,14 @@ msgstr "Nepodarilo sa skopírovať súbory; vadné CD/DVD?"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:75001 ../ubiquity.templates:76001
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:77001 ../ubiquity.templates:78001
+#: ../ubiquity.templates:79001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "Inštalátor narazil na chybu pri kopírovaní súborov na pevný disk:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:77001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive. It may "
 "help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
@@ -583,13 +604,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:78001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr "Nepodarilo sa skopírovať súbory; vadný pevný disk?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:78001
 msgid ""
 "This particular error is often due to a faulty hard disk. It may help to "
 "check whether the hard disk is old and in need of replacement, or to move "
@@ -601,7 +622,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:79001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr "Nepodarilo sa skopírovať súbory; vadné CD/DVD alebo pevný disk?"
 
@@ -609,7 +630,7 @@ msgstr "Nepodarilo sa skopírovať súbory; vadné CD/DVD alebo pevný disk?"
 #. Description
 #. This is used when we don't know whether the CD/DVD or the hard disk is at
 #. fault.
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:79001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -626,139 +647,139 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:80001
 msgid "Copying installation logs..."
 msgstr "Kopírujú sa záznamy o inštalácii..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:81001
 msgid "Configuring target system..."
 msgstr "Konfigurujem cieľový systém..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:82001
 msgid "Configuring system locales..."
 msgstr "Nastavujú sa miestne nastavenia..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:83001
 msgid "Configuring apt..."
 msgstr "Nastavuje sa apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:84001
 msgid "Configuring time zone..."
 msgstr "Nastavuje sa časové pásmo..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:85001
 msgid "Configuring keyboard..."
 msgstr "Nastavuje sa klávesnica..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:86001
 msgid "Creating user..."
 msgstr "Vytvára sa používateľ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:87001
 msgid "Importing documents and settings..."
 msgstr "Importujem dokumenty a nastavenia..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:88001
 msgid "Configuring hardware..."
 msgstr "Nastavuje sa hardvér..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:89001
 msgid "Configuring network..."
 msgstr "Nastavuje sa sieť..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid "Setting computer name..."
 msgstr "Nastavuje sa názov počítača..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:91001
 msgid "Configuring boot loader..."
 msgstr "Nastavuje sa zavádzač..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:92001
 msgid "Installing additional packages..."
 msgstr "Inštalovať doplnkové balíčky..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Checking for packages to install..."
 msgstr "Overujem balíčky na inštaláciu..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid "Removing extra packages..."
 msgstr "Odstraňujú sa extra balíky..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:95001
 msgid "Checking for packages to remove..."
 msgstr "Zisťuje sa zoznam balíkov na odstránenie..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:96001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Sťahujú sa balíky (ostáva ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:97001
 msgid "Downloading package lists..."
 msgstr "Sťahujú sa zoznamy balíkov..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:98001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Sťahujú sa zoznamy balíkov (ostáva ${TIME})..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:100001
 msgid "Error installing ${PACKAGE}"
 msgstr "${PACKAGE} sa nedá nainštalovať"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:101001
 msgid "Error removing ${PACKAGE}"
 msgstr "${PACKAGE} sa nedá odstrániť"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:102001
 msgid "Error while installing packages"
 msgstr "Chyba pri inštalovaní balíčkov"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:102001
 msgid "An error occurred while installing packages:"
 msgstr "Vyskytla sa chyba pri inštalovaní balíčkov:"
 
@@ -766,7 +787,7 @@ msgstr "Vyskytla sa chyba pri inštalovaní balíčkov:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001 ../ubiquity.templates:103001
 msgid "The following packages are in a broken state:"
 msgstr "Nasledujúce balíčky sú pokazené:"
 
@@ -774,7 +795,7 @@ msgstr "Nasledujúce balíčky sú pokazené:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001 ../ubiquity.templates:103001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -787,37 +808,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:103001
 msgid "Error while removing packages"
 msgstr "Chyba počas odstraňovania balíčkov"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:103001
 msgid "An error occurred while removing packages:"
 msgstr "Vyskytla sa chyba pri odstraňovaní balíčkov:"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:104001
 msgid "Installing language packs"
 msgstr "Inštalujú sa jazykové balíky"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:105001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Sťahujú sa jazykové balíky (ostáva ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Failed to unmount partitions"
 msgstr "Chyba pri odpájaní oblastí"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -827,25 +848,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Please close any applications using these mount points."
 msgstr "Prosím ukončite každú aplikáciu používajúcu tieto body pripojenia."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Chcete aby sa inštalátor pokúsil opäť odpojiť tieto oddiely?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:111001
 msgid "System partition not formatted"
 msgstr "Systémový oddiel nie je naformátovaný"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:111001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
@@ -879,6 +900,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Typ inštalácie:           ${INSTALLTYPE}\n"
+" Ovládače:\n"
+"     Dopl. video ovládač:  ${VIDEO_DRIVER}\n"
+"         TV-výstup:             ${TVOUT}, ${TVSTANDARD}\n"
+" Ďalšie služby:\n"
+"     VNC:                ${EN_VNC}\n"
+"     SSH:                ${EN_OPENSSH}\n"
+"     Samba:              ${EN_SAMBA}\n"
+"     NFS:                ${EN_NFS}\n"
+"     služba MythTV:     ${EN_MYSQL}\n"
+" Bežné inštalačné otázky Ubuntu:\n"
+"     Jazyk:           ${LANGUAGE}\n"
+"     Rozloženie klávesnice:    ${KEYMAP}\n"
+"     Bežné meno:       ${FULLNAME}\n"
+"     Bežné prihlasovacie meno: ${USERNAME}\n"
+"     Lokalita:           ${LOCATION}"
 
 #. Type: text
 #. Description
@@ -924,6 +961,9 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Je možné použiť pokročilú inštaláciu na prispôsobenie potrebných komponentov "
+"Mythbuntu. POZN.: Pokročilá inštalácia je potrebná pre pridanie stroja "
+"Mythbuntu do existujúcej siete založenej na MythTV."
 
 #. Type: text
 #. Description
@@ -944,7 +984,7 @@ msgstr "Aký typ systému to bude?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Primárny backend s frontendom"
 
 #. Type: text
 #. Description
@@ -954,12 +994,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Kombinovaný stroj s backendom/frontendom je najbežnejšou voľbou pre ľudí, "
+"ktorá chcú MythTV pre HTPC aplikácie. Tento typ inštalácie je určený pre "
+"použitie ako komponent v domácom kine."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Sekundárny backend s frontendom"
 
 #. Type: text
 #. Description
@@ -968,12 +1011,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Toto nastaví systém podpobný ako Primárny backend s frontendom, ale "
+"nakonfiguruje sa pre pripojenie k existujúcemu backendu v sieti."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Primárny backend"
 
 #. Type: text
 #. Description
@@ -983,12 +1028,14 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Stroj určený iba ako backend má zvyčajne fungovať ako nezávislé zariadenie "
+"vyžadujúce veľmi malú údržbu. Má sa inštalovať ako prvý backend v sieti."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Sekundárny backend"
 
 #. Type: text
 #. Description
@@ -997,12 +1044,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Toto nastaví systém podobne ako Primárny backend, ale bude nakonfigurovaný, "
+"aby sa pripájal k existujúcemu backendu v sieti."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Frontend"
 
 #. Type: text
 #. Description
@@ -1012,12 +1061,14 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Jedinou funkciou frontend stroja je prijímať multimediálny obsah od backendu "
+"a šíriť ho. Táto konfigurácia vyžaduje v sieti existujúci backend."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Zvoľte moduly frontend / backend"
 
 #. Type: text
 #. Description
@@ -1026,18 +1077,20 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"Moduly môžu byť použité na rozšírenie funkčnosti MythTV o schopnosť "
+"posúvania času TV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "Backend moduly"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "Frontend moduly"
 
 #. Type: text
 #. Description
@@ -1066,13 +1119,13 @@ msgstr "Myth archív"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Prehliadač Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Ovládacie prvky Myth"
 
 #. Type: text
 #. Description
@@ -1084,7 +1137,7 @@ msgstr "Myth DVD"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
@@ -1095,9 +1148,8 @@ msgstr "Myth galéria"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
-#, fuzzy
 msgid "Myth Game"
-msgstr "Myth hry"
+msgstr "Mýtické hry"
 
 #. Type: text
 #. Description
@@ -1108,15 +1160,14 @@ msgstr "Myth hudba"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
-#, fuzzy
 msgid "Myth News"
-msgstr "Myth správy"
+msgstr "Mýtické správy"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth Phone"
 
 #. Type: text
 #. Description
@@ -1144,12 +1195,13 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"Modul pre MythTV, ktorý umožňuje tvorbu DVD z obsahu na vašej sieti MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:41001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "Modul webového prehliadača integrovaného do vášho systému MythTV."
 
 #. Type: text
 #. Description
@@ -1158,6 +1210,8 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Externé ovládanie MythTV. Umožní vám zmeniť mapovanie kláves a klávesové "
+"väzby."
 
 #. Type: text
 #. Description
@@ -1165,30 +1219,35 @@ msgstr ""
 msgid ""
 "Provides an interface for launching your preferred DVD player from MythTV"
 msgstr ""
+"Poskytuje rozhranie pre spúšťanie vášho preferovaného prehrávača DVD z "
+"MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:44001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Umožňuje vám monitorovať váš front výpožičiek DVD Netflix."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Allows you to visually browse a directory tree containing image files."
 msgstr ""
+"Umožňuje vám vizuálne prezerať strom adresárov obsahujúci obrázkové súbory."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"Frontend, ktorý spustí akýkoľvek emulátor alebo binárny súbor, ktorý spustí "
+"Linux."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Poskytuje integráciu digitálneho jukeboxu s MythTV."
 
 #. Type: text
 #. Description
@@ -1197,6 +1256,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Zásuvný modul Čítačka RSS kanálov pre MythTV, ktorá vám prináša aktuálne "
+"informácie na vaše obľúbené témy noviniek."
 
 #. Type: text
 #. Description
@@ -1204,6 +1265,8 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"Možnosť telefonovania a videotelefonovania s MythTV pomocou štandardného "
+"protokolu SIP."
 
 #. Type: text
 #. Description
@@ -1218,18 +1281,20 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"Umožňuje prezeranie a prehrávanie streamovaného videa pomocou externého "
+"prehrávača priamo z prostredia MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "Zobrazuje aktuálne a predpovedané počasie v rámci MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:53001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "Zvoliť ďalšie témy"
 
 #. Type: text
 #. Description
@@ -1238,18 +1303,20 @@ msgid ""
 "Themes can greatly improve the aesthic appeal of a MythTV setup, and display "
 "it to match your tastes much better."
 msgstr ""
+"Témy môžu výrazne zlepšiť estetický dojem z MythTV a prispôsobiť ho tak ako "
+"sa vám páči."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Official Themes"
-msgstr ""
+msgstr "Oficiálne témy"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid "Community Themes"
-msgstr ""
+msgstr "Komunitné témy"
 
 #. Type: text
 #. Description
@@ -1257,6 +1324,8 @@ msgstr ""
 msgid ""
 "This themes package includes all themes distributed by the MythTV website."
 msgstr ""
+"Tento balík tém obsahujú všetky témy, ktoré sú šírené prostredníctvom "
+"webstránky MythTV."
 
 #. Type: text
 #. Description
@@ -1265,12 +1334,14 @@ msgid ""
 "This themes package is a collection of community themes generated by other "
 "MythTV users."
 msgstr ""
+"Tento balík tém obsahujú všetky témy, ktoré vytvorili ostatné používatelia "
+"MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "Ďalšie ovládače/firmvér"
 
 #. Type: text
 #. Description
@@ -1281,24 +1352,28 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Open source grafický ovládač je už vo vašej inštalácii zapnutý a "
+"nakonfigurovaný. Ak si želáte použiť iný grafický ovládač, môžete tak urobiť "
+"tu. Majte na pamäti, že efekty TV výstup alebo OpenGL môžu vyžadovať "
+"použitie proprietárnych grafických ovládačov."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "Zmeniť grafický ovládač a nastavenia"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Ak chcete nakonfigurovať TV-výstup, vyberte z týchto volieb:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "Ak zapánate TV-výstup, budete tiež musieť zvoliť TV štandard:"
 
 #. Type: text
 #. Description
@@ -1307,18 +1382,21 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Upozornenie: Nenastavujte TV štandard na niečo vyššie ako podporuje váš TV. "
+"Mohlo by to spôsobiť TRVALÉ poškodenie."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Master backend informácie"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
+"Prosím, zadajte informácie potrebné pre spojenie s vaším master backendom."
 
 #. Type: text
 #. Description
@@ -1330,25 +1408,25 @@ msgstr "MySQL heslo"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "Používateľské meno MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "Databáza MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "MySQL server"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Konfigurovať vodiace dáta / backend"
 
 #. Type: text
 #. Description
@@ -1357,12 +1435,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Finálne kroky inštalácie vyžadujú, aby ste nastavili svoje vodiace dáta a "
+"prvýkrát nakonfigurovali backend."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Kliknutím otvoríte webstránku Schedules Direct"
 
 #. Type: text
 #. Description
@@ -1412,6 +1492,3 @@ msgstr "Nastavujú sa prídavné služby..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Nastavuje sa vzdialené ovládanie..."
-
-#~ msgid "${PARTMAN_CHANGES}"
-#~ msgstr "${PARTMAN_CHANGES}"
