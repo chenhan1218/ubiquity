@@ -1,3 +1,10 @@
+ubiquity (1.6.5) UNRELEASED; urgency=low
+
+  * Revert accidental copy and paste of migration-assistant specific
+    code (LP: #151051).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 09 Oct 2007 15:45:41 -0400
+
 ubiquity (1.6.4) gutsy; urgency=low
 
   [ Evan Dandrea ]
