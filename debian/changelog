@@ -4,6 +4,9 @@ ubiquity (1.6.4) UNRELEASED; urgency=low
     user (LP: #135149).
   * Properly filter out partitions marked for deletion in
     migrationassistant.py (LP: #146222).
+  * Fixed a bug where the migration-assistant page would not be updated to
+    reflect changes, such as if the user went back and partitioned
+    differently, if the page had already been shown.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 09 Oct 2007 01:30:14 -0400
 
