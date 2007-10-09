@@ -1,5 +1,6 @@
 ubiquity (1.6.4) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Only set migration-assistant data in user-setup if updating an existing
     user (LP: #135149).
   * Properly filter out partitions marked for deletion in
@@ -7,6 +8,12 @@ ubiquity (1.6.4) UNRELEASED; urgency=low
   * Fixed a bug where the migration-assistant page would not be updated to
     reflect changes, such as if the user went back and partitioned
     differently, if the page had already been shown.
+
+  [ Mario Limonciello ]
+  * Copy over detected xserver-xorg changes to ensure BulletProofX
+    is functional after installation.  This behavior is temporary
+    for gutsy and will be removed after the BulletProofX spec is
+    reworked.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 09 Oct 2007 01:30:14 -0400
 

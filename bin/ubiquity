@@ -71,7 +71,7 @@ def install(frontend=None):
 def copy_debconf():
     """Copy a few important questions into the installed system."""
     targetdb = '/target/var/cache/debconf/config.dat'
-    for q in ('^console-setup/',):
+    for q in ('^console-setup/','^xserver-xorg/'):
         misc.execute('debconf-copydb', 'configdb', 'targetdb', '-p', q,
                      '--config=Name:targetdb', '--config=Driver:File',
                      '--config=Filename:%s' % targetdb)
