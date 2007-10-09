@@ -1,4 +1,4 @@
-ubiquity (1.6.4) UNRELEASED; urgency=low
+ubiquity (1.6.4) gutsy; urgency=low
 
   [ Evan Dandrea ]
   * Only set migration-assistant data in user-setup if updating an existing
@@ -18,7 +18,7 @@ ubiquity (1.6.4) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Automatic update of included source packages: migration-assistant 0.5.3.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 09 Oct 2007 01:30:14 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Oct 2007 17:11:38 +0100
 
 ubiquity (1.6.3) gutsy; urgency=low
 
