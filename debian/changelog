@@ -1,3 +1,12 @@
+ubiquity (1.6.4) UNRELEASED; urgency=low
+
+  * Only set migration-assistant data in user-setup if updating an existing
+    user (LP: #135149).
+  * Properly filter out partitions marked for deletion in
+    migrationassistant.py (LP: #146222).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 09 Oct 2007 01:30:14 -0400
+
 ubiquity (1.6.3) gutsy; urgency=low
 
   [ Evan Dandrea ]
