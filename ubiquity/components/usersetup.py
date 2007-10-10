@@ -65,10 +65,9 @@ class UserSetup(FilteredCommand):
         if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ and \
             self.db.get('migration-assistant/partitions'):
             q = 'migration-assistant/new-user/%s/' % username
-            if self.db.get(q) != '':
-                self.preseed(q + 'fullname', fullname)
-                self.preseed(q + 'password', password, escape=True)
-                self.preseed(q + 'password-again', password_confirm, escape=True)
+            self.preseed(q + 'fullname', fullname)
+            self.preseed(q + 'password', password, escape=True)
+            self.preseed(q + 'password-again', password_confirm, escape=True)
 
         FilteredCommand.ok_handler(self)
 
