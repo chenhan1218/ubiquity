@@ -22,6 +22,9 @@ import os
 import sys
 import locale
 
+#Workaround for bugs 149935 and 150029
+os.environ['LC_CTYPE']='C'
+
 import xorgconfig
 
 import re

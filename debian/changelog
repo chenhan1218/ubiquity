@@ -5,6 +5,10 @@ ubiquity (1.6.7) UNRELEASED; urgency=low
     it isn't improperly sourced by Xfce.
   * Properly execute mythbuntu frontend from .desktop file.
 
+  [ Michael Haas ]
+  * Force LC_CTYPE as a temporary workaround for locale issues
+    when writing out VNC. (LP: #149935) (LP: #150029)
+
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 10 Oct 2007 13:07:24 -0500
 
 ubiquity (1.6.6) gutsy; urgency=low
