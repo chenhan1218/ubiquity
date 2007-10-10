@@ -1406,7 +1406,10 @@ exit 0"""
             except IOError, e:
                 for line in str(e).split('\n'):
                     syslog.syslog(syslog.LOG_ERR, line)
-                commit_error = str(e)
+                fetchprogress.stop()
+                installprogress.finishUpdate()
+                self.db.progress('STOP')
+                return
             except SystemError, e:
                 for line in str(e).split('\n'):
                     syslog.syslog(syslog.LOG_ERR, line)

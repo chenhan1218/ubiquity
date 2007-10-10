@@ -1,8 +1,14 @@
 ubiquity (1.6.6) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Back out recent test for the user existing in the m-a debconf
     section.  It isn't necessary and it breaks the installer when m-a is
     used (LP: #151243).
+
+  [ Colin Watson ]
+  * Ignore IOError exceptions while fetching packages; they happen when the
+    network is disconnected, and aren't important enough to result in scary
+    error messages or even hangs (LP: #145012).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 10 Oct 2007 09:34:46 -0400
 
