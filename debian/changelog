@@ -9,6 +9,8 @@ ubiquity (1.6.6) UNRELEASED; urgency=low
   * Ignore IOError exceptions while fetching packages; they happen when the
     network is disconnected, and aren't important enough to result in scary
     error messages or even hangs (LP: #145012).
+  * Remove apt_pkg.init() workaround for LP #131294, which had too many
+    other ill effects. We're fixing this in apt-setup instead.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 10 Oct 2007 09:34:46 -0400
 
