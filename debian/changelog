@@ -1,9 +1,11 @@
-ubiquity (1.6.7) UNRELEASED; urgency=low
+ubiquity (1.6.6+mythbuntu1) gutsy; urgency=low
 
   [ Mario Limonciello ]
   * Divert gtk frontend .desktop file to a better location to that
     it isn't improperly sourced by Xfce.
   * Properly execute mythbuntu frontend from .desktop file.
+  * Apply patch from mvo to update behavior of DebconfInstallProgress.
+    Should resolve hangups caused during package installation.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 10 Oct 2007 13:07:24 -0500
 
