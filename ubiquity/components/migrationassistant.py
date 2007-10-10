@@ -204,16 +204,17 @@ class MigrationAssistant(FilteredCommand):
                 line = [''] * 8
                 line[0:len(pieces)] = pieces
                 formatted = ['F', 'f', 'swap']
-                if line[5] not in formatted:
-                    if line[4] not in formatted:
-                        parts.append(partition[5])
+                if not (set(line) & set(formatted)):
+                    parts.append(partition[5])
+                else:
+                    syslog.syslog('filtering out %s as it is to be formatted.' % partition[5])
 
         ret = []
         for choice in self.choices(question):
             if choice[choice.rfind('(')+1:choice.rfind(')')] in parts:
                 ret.append(choice)
 
-                self.preseed(question, ", ".join(ret))
+        self.preseed(question, ", ".join(ret))
 
     def set_choices(self):
         tree = []

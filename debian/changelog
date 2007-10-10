@@ -1,10 +1,57 @@
-ubiquity (1.6.4) gutsy; urgency=low
+ubiquity (1.6.7) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
-  * Fix broken BulletProofX by copying over xserver-xorg debconf items 
-    to new installed environment.
+  * Divert gtk frontend .desktop file to a better location to that
+    it isn't improperly sourced by Xfce.
+  * Properly execute mythbuntu frontend from .desktop file.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Mon, 08 Oct 2007 18:06:33 -0500
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 10 Oct 2007 13:07:24 -0500
+
+ubiquity (1.6.6) gutsy; urgency=low
+
+  [ Evan Dandrea ]
+  * Back out recent test for the user existing in the m-a debconf
+    section.  It isn't necessary and it breaks the installer when m-a is
+    used (LP: #151243).
+
+  [ Colin Watson ]
+  * Ignore IOError exceptions while fetching packages; they happen when the
+    network is disconnected, and aren't important enough to result in scary
+    error messages or even hangs (LP: #145012).
+  * Remove apt_pkg.init() workaround for LP #131294, which had too many
+    other ill effects. We're fixing this in apt-setup instead.
+  * Automatic update of included source packages: apt-setup 1:0.21ubuntu4.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 10 Oct 2007 18:31:50 +0100
+
+ubiquity (1.6.5) gutsy; urgency=low
+
+  * Revert accidental copy and paste of migration-assistant specific
+    code (LP: #151051).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 09 Oct 2007 15:48:57 -0400
+
+ubiquity (1.6.4) gutsy; urgency=low
+
+  [ Evan Dandrea ]
+  * Only set migration-assistant data in user-setup if updating an existing
+    user (LP: #135149).
+  * Properly filter out partitions marked for deletion in
+    migrationassistant.py (LP: #146222).
+  * Fixed a bug where the migration-assistant page would not be updated to
+    reflect changes, such as if the user went back and partitioned
+    differently, if the page had already been shown.
+
+  [ Mario Limonciello ]
+  * Copy over detected xserver-xorg changes to ensure BulletProofX
+    is functional after installation.  This behavior is temporary
+    for gutsy and will be removed after the BulletProofX spec is
+    reworked.
+
+  [ Colin Watson ]
+  * Automatic update of included source packages: migration-assistant 0.5.3.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Oct 2007 17:11:38 +0100
 
 ubiquity (1.6.3) gutsy; urgency=low
 

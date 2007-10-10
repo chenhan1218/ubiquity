@@ -2272,9 +2272,10 @@ class Wizard(BaseFrontend):
                 text = model.get_value(iterator, 1)
 
             cell.set_property("markup", text)
-        # The user probably hit the back button.
+        # Showing the interface for the second time.
         if self.matreeview.get_model():
-            return
+            for col in self.matreeview.get_columns():
+                self.matreeview.remove_column(col)
 
         self.ma_choices = choices
         # For the new users.
@@ -2322,7 +2323,8 @@ class Wizard(BaseFrontend):
             self.matreeview.show_all()
 
             self.ma_loginname.set_model(gtk.ListStore(str))
-            self.ma_loginname.set_text_column(0)
+            if self.ma_loginname.get_text_column() == -1:
+                self.ma_loginname.set_text_column(0)
             self.ma_loginname.connect('changed', self.ma_combo_changed)
 
 
