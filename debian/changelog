@@ -3,6 +3,9 @@ oem-config (1.23) UNRELEASED; urgency=low
   * busybox sed doesn't support making backup files when editing in place
     (e.g. 'sed -i.oem'); chroot to edit kdmrc as well.
   * Fix GTK .desktop filename used in oem-config-prepare gksudo invocation.
+  * Install .desktop files under /usr/share/applications/ at first install
+    rather than shipping them there in the .debs, and remove them once
+    oem-config-firstboot has been run (LP: #145281).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Oct 2007 21:32:36 +0100
 

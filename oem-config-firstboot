@@ -24,6 +24,9 @@ echo RESET passwd/user-uid | debconf-communicate >/dev/null
 for q in passwd/user-fullname passwd/username; do
 	echo REGISTER "$q" "$q" | debconf-communicate oem-config >/dev/null
 done
+# Remove the oem-config-prepare menu item.
+rm -f /usr/share/applications/oem-config-prepare-gtk.desktop \
+      /usr/share/applications/kde/oem-config-prepare-kde.desktop
 
 if [ "$DEBUG" ]; then
 	TRY=1
