@@ -87,6 +87,7 @@ class DM:
         elif self.frontend == 'kde_ui':
             extras.append(subprocess.Popen(['/usr/bin/dcopserver', '--nosid'], stdin=null, stdout=logfile, stderr=logfile))
             wm = subprocess.Popen('/usr/bin/kwin', stdin=null, stdout=logfile, stderr=logfile)
+            extras.append(subprocess.Popen(['/usr/bin/kdesktop'], stdin=null, stdout=logfile, stderr=logfile))
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
 
