@@ -6,6 +6,7 @@ oem-config (1.23) UNRELEASED; urgency=low
   * Install .desktop files under /usr/share/applications/ at first install
     rather than shipping them there in the .debs, and remove them once
     oem-config-firstboot has been run (LP: #145281).
+  * Set HOME in oem-config-dm so that iceauth is happier.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Oct 2007 21:32:36 +0100
 

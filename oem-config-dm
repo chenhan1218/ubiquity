@@ -55,6 +55,7 @@ class DM:
         signal.signal(signal.SIGTTOU, signal.SIG_IGN)
         server = subprocess.Popen(['X', '-br', '-ac', '-noreset', self.vt, self.display], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.server_preexec)
 
+        os.environ['HOME'] = '/root'
         os.environ['DISPLAY'] = self.display
 
         # Really we should select on a pipe or something, but it's not worth
