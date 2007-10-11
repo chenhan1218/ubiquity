@@ -1,3 +1,10 @@
+oem-config (1.23) UNRELEASED; urgency=low
+
+  * busybox sed doesn't support making backup files when editing in place
+    (e.g. 'sed -i.oem'); chroot to edit kdmrc as well.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Oct 2007 21:32:36 +0100
+
 oem-config (1.22) gutsy; urgency=low
 
   * Only run gnome-settings-daemon if it exists, removing dependency on

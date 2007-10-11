@@ -37,11 +37,11 @@ fi
 
 if [ -f /target/etc/kde3/kdm/kdmrc ]; then
 	# Configure KDM autologin
-	sed -i.oem -r \
+	chroot /target sed -i.oem -r \
 		-e "s/^#?AutoLoginEnable=.*\$/AutoLoginEnable=true/" \
 		-e "s/^#?AutoLoginUser=.*\$/AutoLoginUser=oem/" \
 		-e "s/^#?AutoReLogin=.*\$/AutoReLogin=true/" \
-		/target/etc/kde3/kdm/kdmrc
+		/etc/kde3/kdm/kdmrc
 fi
 
 if chroot /target /usr/bin/which kpersonalizer >/dev/null; then
