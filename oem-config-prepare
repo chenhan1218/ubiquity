@@ -17,7 +17,7 @@ if [ "$(id -u)" = 0 ]; then
 else
 	case $frontend in
 		gtk_ui)
-			exec gksudo --desktop /usr/share/applications/oem-config-prepare.desktop -- "$0" "$@"
+			exec gksudo --desktop /usr/share/applications/oem-config-prepare-gtk.desktop -- "$0" "$@"
 			;;
 		kde_ui)
 			exec kdesu --nonewdcop -- "$0" "$@"
