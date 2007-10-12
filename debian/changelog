@@ -4,6 +4,8 @@ ubiquity (1.6.7) UNRELEASED; urgency=low
   * Divert gtk frontend .desktop file to a better location to that
     it isn't improperly sourced by Xfce.
   * Properly execute mythbuntu frontend from .desktop file.
+  * Apply patch from mvo to update behavior of DebconfInstallProgress.
+    Should resolve hangups caused during package installation.
 
   [ Michael Haas ]
   * Force LC_CTYPE as a temporary workaround for locale issues
