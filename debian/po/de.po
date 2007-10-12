@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-06 20:26+0000\n"
 "Last-Translator: Jens Seidel <jensseidel@users.sf.net>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-06 11:34+0000\n"
+"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "Apt-Konfigurationsproblem"
+msgstr "Systemeinrichtung"
 
 #. Type: text
 #. Description
@@ -41,20 +40,19 @@ msgstr "Sprache wählen/Choose language"
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
 msgstr ""
+"Folgende Fragen schließen die Installation ab. Das System ist dann bereit."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Zeitzone einrichten"
+msgstr "Zeitzone wählen"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Wählen Sie eine Stadt in Ihrer Zeitzone:"
+msgstr "Wählen Sie eine Stadt in Ihrem Land und Ihrer Zeitzone:"
 
 #. Type: text
 #. Description
@@ -155,7 +153,7 @@ msgstr ""
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr ""
+msgstr "OEM-Modus (nur für Hersteller)"
 
 #. Type: text
 #. Description
@@ -198,3 +196,7 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Nachdem Sie das System Ihren Wünschen gemäß angepasst haben, führen Sie den "
+"Befehl »oem-config-prepare« aus. Dadurch wird der temporäre Benutzer oem "
+"gelöscht und der Endanwender zur Einrichtung des Systems beim nächsten Start "
+"aufgefordert."

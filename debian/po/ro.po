@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: 2007-10-06 10:34+0000\n"
+"PO-Revision-Date: 2007-10-10 14:51+0000\n"
 "Last-Translator: Eddy Petrișor <eddy.petrisor@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-06 11:34+0000\n"
+"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "Problemă la configurarea apt"
+msgstr "Configurare Sistem"
 
 #. Type: text
 #. Description
@@ -46,16 +45,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Configurează fusul orar"
+msgstr "Alege fusul orar"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Selectaţi un oraş de pe fusul dumneavoastră orar:"
+msgstr "Alege un oraş din ţara sau fusul tău orar:"
 
 #. Type: text
 #. Description

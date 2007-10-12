@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2007-10-10 12:40+0000\n"
 "Last-Translator: Tetralet <tetralet@pchome.com.tw>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-06 11:34+0000\n"
+"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -22,7 +22,7 @@ msgstr ""
 #: ../oem-config.templates:2001
 #, fuzzy
 msgid "System Configuration"
-msgstr "Apt 設定問題"
+msgstr "系統組態"
 
 #. Type: text
 #. Description
@@ -41,7 +41,7 @@ msgstr "選擇語言 / Choose language"
 #: ../oem-config.templates:5001
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
-msgstr ""
+msgstr "回答下列問題後，您將可以使用此系統。"
 
 #. Type: text
 #. Description
@@ -62,7 +62,7 @@ msgstr "請選擇一個位於您的時區裡的城市："
 #: ../oem-config.templates:8001
 #, fuzzy
 msgid "Selected city:"
-msgstr "被選定的時區"
+msgstr "目前所選擇的城市："
 
 #. Type: text
 #. Description
@@ -159,7 +159,7 @@ msgstr "安裝（OEM模式，僅限製造商）"
 #: ../oem-config-udeb.templates:1001
 #, fuzzy
 msgid "Prepare for end-user configuration"
-msgstr "無線網路設定"
+msgstr "準備最終用戶設定"
 
 #. Type: text
 #. Description
@@ -167,14 +167,14 @@ msgstr "無線網路設定"
 #: ../oem-config-udeb.templates:2001
 #, fuzzy
 msgid "Preparing for end-user configuration..."
-msgstr "正在建立 yaboot 設定"
+msgstr "正在準備最終用戶設定..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
 #, fuzzy
 msgid "Ready for end-user configuration"
-msgstr "再次嘗試網路自動設定"
+msgstr "最終用戶設定準備就緒"
 
 #. Type: text
 #. Description
@@ -197,3 +197,5 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"當您完成本系統的設定後，請執行「oem-config-prepare」指令，本指令會刪除暫時的"
+"「oem」使用者，並在下次重新開機後詢問用戶相關設定問題。"
