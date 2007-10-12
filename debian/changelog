@@ -1,4 +1,4 @@
-oem-config (1.23) UNRELEASED; urgency=low
+oem-config (1.23) gutsy; urgency=low
 
   * busybox sed doesn't support making backup files when editing in place
     (e.g. 'sed -i.oem'); chroot to edit kdmrc as well.
@@ -11,7 +11,7 @@ oem-config (1.23) UNRELEASED; urgency=low
   * Run kdesktop too to fix the background in KDE.
   * Update translations from Rosetta.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Oct 2007 21:32:36 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 12 Oct 2007 15:04:03 +0100
 
 oem-config (1.22) gutsy; urgency=low
 
