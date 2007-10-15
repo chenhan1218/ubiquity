@@ -1,3 +1,10 @@
+ubiquity (1.6.8) UNRELEASED; urgency=low
+
+  * Fix non-x86 installation: initialise automatic_mode even if we aren't
+    using grub-installer.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 15 Oct 2007 20:34:13 +0100
+
 ubiquity (1.6.7) gutsy; urgency=low
 
   * Reset migration-assistant page state when returning to it.

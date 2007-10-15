@@ -34,8 +34,9 @@ class Install(FilteredCommand):
             else:
                 self.preseed('netcfg/get_domain', '')
 
+        automatic_mode = 'UBIQUITY_AUTOMATIC' in os.environ
+
         if os.access('/usr/share/grub-installer/grub-installer', os.X_OK):
-            automatic_mode = 'UBIQUITY_AUTOMATIC' in os.environ
             bootdevice = self.db.get('grub-installer/bootdev')
             with_other_os = self.db.get('grub-installer/with_other_os')
             only_debian = self.db.get('grub-installer/only_debian')
