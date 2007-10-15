@@ -2277,6 +2277,13 @@ class Wizard(BaseFrontend):
             for col in self.matreeview.get_columns():
                 self.matreeview.remove_column(col)
 
+        # TODO: evand 2007-10-12: Save state by comparing choices and
+        # self.ma_choices.
+        self.ma_fullname.set_text('')
+        self.ma_loginname.child.set_text('')
+        self.ma_password.set_text('')
+        self.ma_confirm.set_text('')
+        self.ma_userinfo.set_sensitive(False)
         self.ma_choices = choices
         # For the new users.
         self.ma_new_users = {}
