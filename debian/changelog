@@ -1,3 +1,9 @@
+oem-config (1.24) UNRELEASED; urgency=low
+
+  * Fix "Step 1 of 4" counter advancement (part of LP #153139, #153336).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 16 Oct 2007 19:29:01 +0100
+
 oem-config (1.23) gutsy; urgency=low
 
   * busybox sed doesn't support making backup files when editing in place

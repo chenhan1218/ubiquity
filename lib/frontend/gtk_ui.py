@@ -352,6 +352,7 @@ class Frontend:
     def set_current_page(self, current):
         global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         self.current_page = current
+        self.translate_widget(self.step_label, self.locale)
         if current == 0:
             self.back.hide()
         else:
