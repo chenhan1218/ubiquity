@@ -1,4 +1,4 @@
-apt-setup 1:0.21ubuntu3
+apt-setup 1:0.21ubuntu4
 base-installer 1.81ubuntu4
 choose-mirror 2.15ubuntu2
 clock-setup 0.16ubuntu1
@@ -8,7 +8,7 @@ grub-installer 1.24ubuntu4
 hw-detect 1.53ubuntu3
 kboot-installer 0.0.1ubuntu5
 localechooser 1.38ubuntu2
-migration-assistant 0.5.3
+migration-assistant 0.5.4
 partconf 1.23
 partman-auto 69ubuntu5
 partman-auto-loop 0ubuntu11

@@ -1,13 +1,31 @@
-ubiquity (1.6.6+mythbuntu1) gutsy; urgency=low
+ubiquity (1.6.9) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Divert gtk frontend .desktop file to a better location to that
     it isn't improperly sourced by Xfce.
   * Properly execute mythbuntu frontend from .desktop file.
-  * Apply patch from mvo to update behavior of DebconfInstallProgress.
-    Should resolve hangups caused during package installation.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Wed, 10 Oct 2007 13:27:19 -0500
+  [ Michael Haas ]
+  * Force LC_CTYPE as a temporary workaround for locale issues
+    when writing out VNC. (LP: #149935) (LP: #150029)
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 10 Oct 2007 13:07:24 -0500
+
+ubiquity (1.6.8) gutsy; urgency=low
+
+  * Fix non-x86 installation: initialise automatic_mode even if we aren't
+    using grub-installer.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 15 Oct 2007 20:40:46 +0100
+
+ubiquity (1.6.7) gutsy; urgency=low
+
+  * Reset migration-assistant page state when returning to it.
+    Temporary fix for (LP: #151126).
+  * Automatic update of included source packages: migration-assistant
+    0.5.4.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 15 Oct 2007 12:48:45 -0400
 
 ubiquity (1.6.6) gutsy; urgency=low
 
