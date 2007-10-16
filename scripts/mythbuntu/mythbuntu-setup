@@ -38,7 +38,7 @@ hostname -F /etc/hostname
 /etc/init.d/mysql start
 
 #Run Mythtv-setup
-mythtv-setup.real
+/usr/bin/x-terminal-emulator -e mythtv-setup.real
 
 #Fill Database
 zenity --title "Fill Database?" --question --text "Would you like to run mythfilldatabase?"
@@ -63,7 +63,7 @@ else
 hostname -F /etc/hostname
 
 #Run Mythtv-setup
-mythtv-setup.real
+/usr/bin/x-terminal-emulator -e mythtv-setup.real
 
 #Fill Database
 zenity --title "Fill Database?" --question --text "Would you like to run mythfilldatabase?"

@@ -7,6 +7,9 @@ ubiquity (1.6.9) UNRELEASED; urgency=low
   * Set default mythtv theme on all installs to be mythtv-theme-mythbuntu.
   * Apply patch from mvo to update behavior of DebconfInstallProgress.
     Should resolve hangups caused during package installation.
+  * Fix a few typos preventing xmltv from being installed.
+  * Launch mythtv-setup.real in a terminal window allowing xmltv
+    to be used during it.
 
   [ Michael Haas ]
   * Force LC_CTYPE as a temporary workaround for locale issues
