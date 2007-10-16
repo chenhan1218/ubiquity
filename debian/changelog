@@ -5,6 +5,8 @@ ubiquity (1.6.9) UNRELEASED; urgency=low
     it isn't improperly sourced by Xfce.
   * Properly execute mythbuntu frontend from .desktop file.
   * Set default mythtv theme on all installs to be mythtv-theme-mythbuntu.
+  * Apply patch from mvo to update behavior of DebconfInstallProgress.
+    Should resolve hangups caused during package installation.
 
   [ Michael Haas ]
   * Force LC_CTYPE as a temporary workaround for locale issues
