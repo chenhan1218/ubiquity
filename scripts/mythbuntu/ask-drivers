@@ -14,3 +14,4 @@ db_input high mythbuntu/tvout || true
 db_input high mythbuntu/tvstandard || true
 #Backend drivers
 db_input high mythbuntu/hdhomerun || true
+db_input high mythbuntu/xmltv || true

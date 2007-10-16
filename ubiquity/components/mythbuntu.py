@@ -396,7 +396,7 @@ class MythbuntuDrivers(FilteredCommand):
             hdhomerun = self.frontend.get_hdhomerun()
             self.preseed_bool('mythbuntu/hdhomerun',hdhomerun)
         elif question.startswith('mythbuntu/xmltv'):
-            hdhomerun = self.frontend.get_xmltv()
+            xmltv = self.frontend.get_xmltv()
             self.preseed_bool('mythbuntu/xmltv',xmltv)
         return FilteredCommand.run(self, priority, question)
 
