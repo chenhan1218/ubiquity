@@ -81,6 +81,8 @@ grabuser()
 
 mythtv_db()
 {
+    LOCALHOSTNAME=`cat $ROOT/etc/hostname`
+    MYSQL="/usr/share/mythtv/sql/mythtv_0.20.1.sql"
     cat <<DBSETUP >$ROOT/tmp/db_setup
 #!/bin/sh
 #Sets up mythtv-database on a new mythbuntu
@@ -134,6 +136,17 @@ fi
 DoSQL "$HOSTNAME" "$ADMINUSER" "$ADMINPASS" "" "CREATE DATABASE $DB"
 DoSQL "$HOSTNAME" "$ADMINUSER" "$ADMINPASS" "$DB" "GRANT ALL PRIVILEGES ON $DB.* TO $USER@localhost IDENTIFIED BY '$PASSWORD'"
 DoSQL "$HOSTNAME" "$ADMINUSER" "$ADMINPASS" "$DB" "GRANT ALL PRIVILEGES ON $DB.* TO $USER@'%' IDENTIFIED BY '$PASSWORD'"
+
+#Setup database
+if [ "$ADMINPASS" != "" ]; then
+    mysql -h $HOSTNAME -u $ADMINUSER -p$ADMINPASS $DB < $MYSQL
+else
+    mysql -h $HOSTNAME -u $ADMINUSER $DB < $MYSQL
+fi
+
+#Setup theme
+DoSQL "$HOSTNAME" "$ADMINUSER" "$ADMINPASS" "$DB" "INSERT INTO $DB.settings (data,hostname,value) VALUES ('Mythbuntu', '$HOSTNAME', 'Theme')"
+DoSQL "$HOSTNAME" "$ADMINUSER" "$ADMINPASS" "$DB" "INSERT INTO $DB.settings (data,hostname,value) VALUES ('Mythbuntu', '$LOCALHOSTNAME', 'Theme')"
 
 #Stop SQL
 /etc/init.d/mysql stop
@@ -209,6 +222,77 @@ FIXINIT
     rm $ROOT/tmp/fix_init_scripts
 }
 
+setup_theme()
+{
+    #Sets up the theme to be the Mythbuntu theme
+    #by default
+
+    #pull in username info for mysql db
+    db_get mythtv/mysql_mythtv_user
+    USER="$RET"
+    db_get mythtv/mysql_mythtv_password
+    PASSWORD="$RET"
+    if [ -z "$PASSWORD" ]; then
+        #in case the password screen isn't shown
+        #or if they forget to enter one
+        set +e
+        PASSWORD="$(pwgen -s 8)"
+        set -e
+    fi
+    db_get mythtv/mysql_mythtv_dbname
+    DB="$RET"
+    db_get mythtv/mysql_host
+    HOSTNAME="$RET"
+
+    #Figure out our local hostname
+    LOCALHOSTNAME=`cat $ROOT/etc/hostname`
+
+    cat <<THEME >$ROOT/tmp/theme
+#!/bin/sh
+#Prepares the theme to be the Mythbuntu theme
+#For non master be installs
+#Copyright (C) 2007 Mario Limonciello
+
+escape_quotes() {
+    cat <<EOF | sed -e "s/'/\\\\\\\\'/g"
+\$1
+EOF
+}
+
+DoSQL() {
+    local host="\$1"
+    local ADMINUSER="\$2"
+    local ADMINPASS="\$3"
+    local DB="\$4"
+    local statement="\`escape_quotes \"\$5\"\`"
+    local tmp=\`tempfile -m 600\`
+    cat <<EOF >\$tmp
+\$ADMINPASS
+EOF
+    perl -e "
+use DBI;
+chomp(\\\$password=<>);
+@statements=split(/;/, '\$statement');
+\\\$db = DBI->connect('dbi:mysql:host=\$host;database=\$DB',
+                    '\$ADMINUSER', \\\$password,
+                    { PrintError => 0 }) || die 'Failed to connect to DB: ' . \\\$DBI::errstr;
+for \\\$s (@statements) { \\\$db->do(\\\$s) || die 'Failed to execute SQL: ' . \\\$s . '\n' . \\\$DBI::errstr; }
+" < \$tmp
+    ret=\$?
+    rm -f \$tmp
+    return \$ret
+}
+
+#Setup theme
+DoSQL "$HOSTNAME" "$USER" "$PASSWORD" "$DB" "INSERT INTO $DB.settings (data,hostname,value) VALUES ('Mythbuntu', '$LOCALHOSTNAME', 'Theme')"
+THEME
+    chmod +x $ROOT/tmp/theme
+    mount -t proc none $ROOT/proc
+    $log $chroot $ROOT /tmp/theme
+    umount $ROOT/proc
+    rm $ROOT/tmp/theme
+}
+
 #Commonly used across any setup
 mythtv_common
 add_groups
@@ -226,6 +310,8 @@ if [ "$TYPE" = "Master Backend/Frontend" ] || [ "$TYPE" = "Master Backend" ] || 
         ADMINPASS="$RET"
         db_get mythtv/mysql_mythtv_user
         mythtv_db
+    else
+        setup_theme
     fi
     #Mythweb is actually enabled
     db_get mythbuntu/mythweb
@@ -243,6 +329,8 @@ if [ "$TYPE" = "Master Backend/Frontend" ] || [ "$TYPE" = "Master Backend" ] || 
             secure_mythweb
         fi
     fi
+else
+    setup_theme
 fi
 
 if [ "$TYPE" = "Master Backend/Frontend" ] || [ "$TYPE" = "Slave Backend/Frontend" ] || [ "$TYPE" = "Frontend" ]; then
