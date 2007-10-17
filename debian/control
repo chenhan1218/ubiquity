@@ -8,7 +8,7 @@ XS-Python-Version: current, >= 2.4
 
 Package: oem-config
 Architecture: any
-Depends: ${shlibs:Depends}, ${python:Depends}, debconf (>= 1.4.52), oem-config-frontend-${source:Version}, xserver-xorg, localechooser-data, iso-codes, apt, locales (>= 2.3.7-1), ${console-setup-depends}, passwd, adduser
+Depends: ${shlibs:Depends}, ${python:Depends}, debconf (>= 1.4.52), oem-config-frontend-${mangled-version}, xserver-xorg, localechooser-data, iso-codes, apt, locales (>= 2.3.7-1), ${console-setup-depends}, passwd, adduser
 Recommends: hwdb-client
 Conflicts: oem-config-keyboard, oem-config-locale, oem-config-timezone
 Replaces: oem-config-keyboard, oem-config-locale, oem-config-timezone
@@ -25,7 +25,7 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${python:Depends}, oem-config, python-gtk2, python-glade2, metacity
 Suggests: gnome-control-center
 Replaces: oem-config (<< 1.0)
-Provides: oem-config-frontend-${source:Version}
+Provides: oem-config-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
 Description: GTK+ frontend for end-user post-install configuration
  The oem-config script re-asks a number of questions that are normally asked
@@ -40,7 +40,7 @@ Package: oem-config-kde
 Architecture: all
 Depends: ${python:Depends}, oem-config, python-qt4, kwin
 Replaces: oem-config (<< 1.0)
-Provides: oem-config-frontend-${source:Version}
+Provides: oem-config-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
 Description: KDE frontend for end-user post-install configuration
  The oem-config script re-asks a number of questions that are normally asked
