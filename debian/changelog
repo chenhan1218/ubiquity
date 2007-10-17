@@ -1,4 +1,4 @@
-ubiquity (1.6.9) UNRELEASED; urgency=low
+ubiquity (1.7.0) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Divert gtk frontend .desktop file to a better location to that
