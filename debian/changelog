@@ -9,6 +9,10 @@ ubiquity (1.6.9) UNRELEASED; urgency=low
   * Force LC_CTYPE as a temporary workaround for locale issues
     when writing out VNC. (LP: #149935) (LP: #150029)
 
+  [ Colin Watson ]
+  * Fix ubiquity-frontend-* and ubiquity-artwork-* virtual package name
+    generation to handle ~ in versions.
+
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 10 Oct 2007 13:07:24 -0500
 
 ubiquity (1.6.8) gutsy; urgency=low

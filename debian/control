@@ -10,7 +10,7 @@ XS-Vcs-Bzr: http://bazaar.launchpad.net/~ubuntu-installer/ubiquity/trunk
 
 Package: ubiquity
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf (>= 1.4.72ubuntu5), ubiquity-frontend-${source:Version}, ubiquity-artwork-${source:Version}, laptop-detect, lsb-release, ubiquity-casper, python-apt (>= 0.6.16.2ubuntu4), ${console-setup-depends}, iso-codes, passwd, adduser, os-prober, ${bootloader-depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf (>= 1.4.72ubuntu5), ubiquity-frontend-${mangled-version}, ubiquity-artwork-${mangled-version}, laptop-detect, lsb-release, ubiquity-casper, python-apt (>= 0.6.16.2ubuntu4), ${console-setup-depends}, iso-codes, passwd, adduser, os-prober, ${bootloader-depends}
 Conflicts: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
 Replaces: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot, ubiquity-frontend-gtk (<< 0.99.82)
 XB-Python-Version: ${python:Versions}
@@ -25,7 +25,7 @@ Package: ubiquity-ubuntu-artwork
 Architecture: all
 Conflicts: ubuntu-express-ubuntu-artwork, ubuntu-express-ubuntu-doc, espresso-ubuntu-artwork, espresso-ubuntu-doc, ubiquity-ubuntu-doc
 Replaces: ubuntu-express-ubuntu-artwork, ubuntu-express-ubuntu-doc, espresso-ubuntu-artwork, espresso-ubuntu-doc, ubiquity-ubuntu-doc
-Provides: ubiquity-artwork-${source:Version}
+Provides: ubiquity-artwork-${mangled-version}
 Description: Ubuntu artwork for Ubiquity live installer
  This package provides Ubuntu-themed user interface artwork, help files, and
  user interface text for the Ubiquity live CD installer.
@@ -34,7 +34,7 @@ Description: Ubuntu artwork for Ubiquity live installer
 #Architecture: all
 #Conflicts: ubuntu-express-guadalinex-artwork, ubuntu-express-guadalinex-doc, espresso-guadalinex-artwork, espresso-guadalinex-doc, ubiquity-guadalinex-doc
 #Replaces: ubuntu-express-guadalinex-artwork, ubuntu-express-guadalinex-doc, espresso-guadalinex-artwork, espresso-guadalinex-doc, ubiquity-guadalinex-doc
-#Provides: ubiquity-artwork-${source:Version}
+#Provides: ubiquity-artwork-${mangled-version}
 #Description: Guadalinex artwork for Ubiquity live installer
 # This package provides Guadalinex-themed user interface artwork, help
 # files, and user interface text for the Ubiquity live CD installer.
@@ -46,7 +46,7 @@ Recommends: gnome-system-tools
 Suggests: gnome-control-center
 Conflicts: ubuntu-express-frontend-gtk, espresso-frontend-gtk
 Replaces: ubuntu-express-frontend-gtk, espresso-frontend-gtk
-Provides: ubiquity-frontend-${source:Version}
+Provides: ubiquity-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
 Description: GTK+ frontend for Ubiquity live installer
  This package provides a GTK+-based user interface frontend for the Ubiquity
@@ -55,7 +55,7 @@ Description: GTK+ frontend for Ubiquity live installer
 Package: ubiquity-frontend-kde
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends}, ubiquity, python-qt4, kwin
-Provides: ubiquity-frontend-${source:Version}
+Provides: ubiquity-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
 Description: KDE frontend for Ubiquity live installer
  This package provides a KDE-based user interface frontend for the Ubiquity
@@ -64,7 +64,7 @@ Description: KDE frontend for Ubiquity live installer
 Package: ubiquity-frontend-mythbuntu
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity, ubiquity-frontend-gtk, restricted-manager, mythtv-common, python-mysqldb, expect, guidance-backends, vnc4-common, lirc (>= 0.8.2-0ubuntu3)
-Provides: ubiquity-frontend-${source:Version}
+Provides: ubiquity-frontend-${mangled-version}
 XB-Python-Version: ${python:Versions}
 Description: Mythbuntu frontend for the Ubiquity live installer
  This package provides a GTK+-based user interface frontend for the use
