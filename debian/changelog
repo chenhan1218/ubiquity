@@ -1,4 +1,4 @@
-ubiquity (1.6.9) UNRELEASED; urgency=low
+ubiquity (1.6.8+mythbuntu3) gutsy; urgency=low
 
   [ Mario Limonciello ]
   * Divert gtk frontend .desktop file to a better location to that
@@ -10,6 +10,7 @@ ubiquity (1.6.9) UNRELEASED; urgency=low
   * Fix a few typos preventing xmltv from being installed.
   * Launch mythtv-setup.real in a terminal window allowing xmltv
     to be used during it.
+  * Fix typo preventing mysql service from activating.
 
   [ Michael Haas ]
   * Force LC_CTYPE as a temporary workaround for locale issues
