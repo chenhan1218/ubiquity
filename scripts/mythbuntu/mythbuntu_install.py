@@ -127,6 +127,7 @@ class Install(install.Install):
             self.db.progress('REGION', 93, 95)
             self.db.progress('INFO', 'ubiquity/install/installing')
             self.add_drivers_services()
+            self.enable_cdrom()
             self.install_extras()
 
             self.db.progress('SET', 95)
@@ -160,6 +161,10 @@ class Install(install.Install):
                 raise
             except:
                 pass
+
+    def enable_cdrom(self):
+        """Adds the cdrom repository to the target installation"""
+        self.chrex('apt-cdrom','add')
 
     def configure_mythbuntu(self):
         """Sets up mythbuntu items such as the initial database and username/password for mythtv user"""

@@ -1,4 +1,4 @@
-ubiquity (1.6.8+mythbuntu3) gutsy; urgency=low
+ubiquity (1.6.8+mythbuntu4) gutsy; urgency=low
 
   [ Mario Limonciello ]
   * Divert gtk frontend .desktop file to a better location to that
@@ -12,6 +12,7 @@ ubiquity (1.6.8+mythbuntu3) gutsy; urgency=low
     to be used during it.
   * Fix typo preventing mysql service from activating.
   * Fail more gracefully if we can't do aticonfig.
+  * Add apt-cdrom to target system. (LP: #154732)
 
   [ Michael Haas ]
   * Force LC_CTYPE as a temporary workaround for locale issues
