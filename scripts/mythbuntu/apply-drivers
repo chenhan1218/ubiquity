@@ -14,15 +14,17 @@ fi
 
 ati_xorg()
 {
-    if [ "$1" = "Composite Video Output" ]; then
-        $log $chroot $ROOT /usr/bin/aticonfig --initial --tvs VIDEO --tvf $2
-    elif [ "$1" = "S-Video Video Output" ]; then
-        $log $chroot $ROOT /usr/bin/aticonfig --initial --tvs VIDEO --tvf $2
-    elif [ "$1" = "Component Video Output" ]; then
-        $log $chroot $ROOT /usr/bin/aticonfig --initial --tvs YUV --tvf $2
-    else
-        $log $chroot $ROOT /usr/bin/aticonfig --initial
-    fi
+	if [ -x /usr/bin/aticonfig ]; then
+		if [ "$1" = "Composite Video Output" ]; then
+			$log $chroot $ROOT /usr/bin/aticonfig --initial --tvs VIDEO --tvf $2
+		elif [ "$1" = "S-Video Video Output" ]; then
+			$log $chroot $ROOT /usr/bin/aticonfig --initial --tvs VIDEO --tvf $2
+		elif [ "$1" = "Component Video Output" ]; then
+			$log $chroot $ROOT /usr/bin/aticonfig --initial --tvs YUV --tvf $2
+		else
+			$log $chroot $ROOT /usr/bin/aticonfig --initial
+		fi
+	fi
 }
 
 nvidia_xorg()

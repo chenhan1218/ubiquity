@@ -11,6 +11,7 @@ ubiquity (1.6.8+mythbuntu3) gutsy; urgency=low
   * Launch mythtv-setup.real in a terminal window allowing xmltv
     to be used during it.
   * Fix typo preventing mysql service from activating.
+  * Fail more gracefully if we can't do aticonfig.
 
   [ Michael Haas ]
   * Force LC_CTYPE as a temporary workaround for locale issues
