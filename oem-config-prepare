@@ -40,14 +40,14 @@ if [ -z "$quiet" ]; then
 	MESSAGE='oem-config will run the next time the system boots.'
 	case $frontend in
 		gtk_ui)
-			if type zenity >/dev/null 2>&1; then
+			if [ "$DISPLAY" ] && type zenity >/dev/null 2>&1; then
 				zenity --title oem-config-prepare --info --text \
 					"$MESSAGE"
 				exit 0
 			fi
 			;;
 		kde_ui)
-			if type kdialog >/dev/null 2>&1; then
+			if [ "$DISPLAY" ] && type kdialog >/dev/null 2>&1; then
 				kdialog --title oem-config-prepare --msgbox "$MESSAGE"
 				exit 0
 			fi
