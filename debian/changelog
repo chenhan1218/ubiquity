@@ -1,8 +1,8 @@
 ubiquity (1.7.0) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
-  * Divert gtk frontend .desktop file to a better location to that
-    it isn't improperly sourced by Xfce.
+  * Divert gtk frontend .desktop file and logo  to a better location 
+    so that it isn't improperly sourced by Xfce.
   * Properly execute mythbuntu frontend from .desktop file.
   * Set default mythtv theme on all installs to be mythtv-theme-mythbuntu.
   * Fix a few typos preventing xmltv from being installed.

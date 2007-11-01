@@ -126,6 +126,8 @@ endif
 	# Bits of manual installation that can't be done by dh_install
 	
 	# Get rid of duplicate mythbuntu scripts
+	mv debian/ubiquity-frontend-mythbuntu/usr/share/applications/ubiquity-mythbuntu.desktop debian/ubiquity-frontend-mythbuntu/usr/share/applications/ubiquity.desktop
+	mv debian/ubiquity-frontend-mythbuntu/usr/share/pixmaps/ubiquity-mythbuntu.png debian/ubiquity-frontend-mythbuntu/usr/share/pixmaps/ubiquity.png
 	rm -rf debian/ubiquity/usr/share/ubiquity/mythbuntu
 	install bin/ubiquity-wrapper debian/ubiquity/usr/bin/ubiquity
 	sed 's/@VERSION@/$(VERSION)/g' bin/ubiquity \
