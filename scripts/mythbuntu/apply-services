@@ -150,9 +150,9 @@ EOF
 
 mysql_config()
 {
-    MYSQLCONFIG="/etc/mysql/conf.d/mythtv.cnf"
-    sed s/^bind-address/\#bind-address/ ${MYSQLCONFIG} | tee ${MYSQLCONFIG}.new > /dev/null
-    mv ${MYSQLCONFIG}.new ${ROOT}${MYSQLCONFIG}
+    MYSQLCONFIG="${ROOT}/etc/mysql/conf.d/mythtv.cnf"
+    sed s/^\#bind-address/bind-address/ ${MYSQLCONFIG} | tee ${MYSQLCONFIG}.new > /dev/null
+    mv ${MYSQLCONFIG}.new ${MYSQLCONFIG}
 }
 
 db_get mythbuntu/sambaservice

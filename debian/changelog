@@ -4,6 +4,14 @@ ubiquity (1.7.0) UNRELEASED; urgency=low
   * Divert gtk frontend .desktop file to a better location to that
     it isn't improperly sourced by Xfce.
   * Properly execute mythbuntu frontend from .desktop file.
+  * Set default mythtv theme on all installs to be mythtv-theme-mythbuntu.
+  * Fix a few typos preventing xmltv from being installed.
+  * Launch mythtv-setup.real in a terminal window allowing xmltv
+    to be used during it.
+  * Fix typo preventing mysql service from activating.
+  * Fail more gracefully if we can't do aticonfig.
+  * Add apt-cdrom to target system for mythbuntu to work around
+    apt-setup not working in ubiquity-mythbuntu. (LP: #154732)
 
   [ Michael Haas ]
   * Force LC_CTYPE as a temporary workaround for locale issues
@@ -2515,7 +2523,7 @@ ubiquity (0.99.66) dapper; urgency=low
 ubiquity (0.99.65) dapper; urgency=low
 
   * KDE Frontend:
-    - Fix install paths of Crystal icon 
+    - Fix install paths of Crystal icon
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Sun, 23 Apr 2006 22:37:58 +0000
 
@@ -3622,7 +3630,7 @@ ubuntu-express (0.92ubuntu1) breezy; urgency=low
 
 ubuntu-express (0.91ubuntu1) breezy; urgency=low
 
-  * Validation module connected with gtk interface (for user and system input 
+  * Validation module connected with gtk interface (for user and system input
     information).
   * Gtk interface for validation module fully implemented.
   * fixed several bugs reported from ubuntu-devel list.
