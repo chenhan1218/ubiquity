@@ -20,7 +20,6 @@ ubiquity (1.7.0) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Fix ubiquity-frontend-* and ubiquity-artwork-* virtual package name
     generation to handle ~ in versions.
-  * Create /spu mount point on powerpc Cell installations.
   * Add an intro message noting that we're alpha again.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 10 Oct 2007 13:07:24 -0500

@@ -1164,21 +1164,6 @@ exit 0"""
                         continue
                 os.symlink(linksrc, linkdst)
 
-        # Create mount point for spufs, and create spu system group.
-        # Reimplemented from initscripts.postinst.
-        cpuinfo = None
-        try:
-            cpuinfo = open('/proc/cpuinfo')
-            cell_re = re.compile('^cpu.*Cell')
-            for line in cpuinfo:
-                if cell_re.match(line):
-                    self.chrex('groupadd', '-K', 'GID_MAX=1000', 'spu')
-                    os.mkdir(os.path.join(self.target, 'spu'))
-                    break
-        finally:
-            if cpuinfo:
-                cpuinfo.close()
-
 
     def get_all_interfaces(self):
         """Get all non-local network interfaces."""
