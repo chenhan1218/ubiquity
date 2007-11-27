@@ -25,10 +25,10 @@ fi
 # We set LANGUAGE only if the languagelist is a list of
 # languages with alternatives. Otherwise, setting it is useless
 if echo "$LANGLIST" | grep -q ":"; then
+	# Adjust /etc/environment if LANGUAGE is already set, but otherwise
+	# leave it alone.
 	if grep -q "^LANGUAGE=" /etc/environment; then
 		sed -i "s,^LANGUAGE=.*,LANGUAGE=\"$LANGLIST\"," /etc/environment
-	else
-		echo "LANGUAGE=\"$LANGLIST\"" >> /etc/environment
 	fi
 	if grep -q "^LANGUAGE=" /etc/default/locale; then
 		sed -i "s,^LANGUAGE=.*,LANGUAGE=\"$LANGLIST\"," /etc/default/locale

@@ -6,6 +6,9 @@ oem-config (1.24) UNRELEASED; urgency=low
   * Check $DISPLAY before trying to run zenity or kdialog.
   * Add XS-Vcs-Bzr field to debian/control.
   * Convert to python-central.
+  * Adjust for localechooser 1.39:
+    - Don't edit /etc/environment unless it already contains LANG or
+      LANGUAGE settings.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 16 Oct 2007 19:29:01 +0100
 
