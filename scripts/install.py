@@ -1093,6 +1093,15 @@ exit 0"""
         except debconf.DebconfError:
             pass
 
+        try:
+            os.unlink('/target/etc/ssl/certs/ssl-cert-snakeoil.pem')
+        except OSError:
+            pass
+        try:
+            os.unlink('/target/etc/ssl/private/ssl-cert-snakeoil.key')
+        except OSError:
+            pass
+
         self.chroot_setup()
         self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
                    '--quiet', '--add', '/usr/sbin/update-initramfs')
@@ -1105,7 +1114,8 @@ exit 0"""
                     'linux-restricted-modules-' + self.kernel_version,
                     'usplash',
                     'popularity-contest',
-                    'libpaper1']
+                    'libpaper1',
+                    'ssl-cert']
 
         try:
             for package in packages:

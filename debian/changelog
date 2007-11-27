@@ -24,6 +24,8 @@ ubiquity (1.7.0) UNRELEASED; urgency=low
   * Adjust for localechooser 1.40:
     - Cope with localechooser asking countrychooser/country-name rather than
       countrychooser/shortlist.
+  * Remove the pregenerated snakeoil certificate and reconfigure ssl-cert so
+    that each system gets a unique snakeoil certificate.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 10 Oct 2007 13:07:24 -0500
 
