@@ -2,7 +2,7 @@ Source: oem-config
 Section: admin
 Priority: extra
 Maintainer: Colin Watson <cjwatson@ubuntu.com>
-Build-Depends: apt, dash, debhelper (>= 5.0.37.3ubuntu2), dpkg-dev (>= 1.9), grep-dctrl, intltool-debian (>= 0.30+20040212), iso-codes (>= 0.21-1), libart-2.0-dev, libglib2.0-dev, libgtk2.0-dev, libxml-parser-perl, locales, po-debconf (>= 0.5.0), python, python-all-dev (>= 2.3.5-11), python-gtk2-dev, python-support (>= 0.3), python-xml, xkb-data (>= 0.9)
+Build-Depends: apt, dash, debhelper (>= 5.0.37.3ubuntu2), dpkg-dev (>= 1.9), grep-dctrl, intltool-debian (>= 0.30+20040212), iso-codes (>= 0.21-1), libart-2.0-dev, libglib2.0-dev, libgtk2.0-dev, libxml-parser-perl, locales, po-debconf (>= 0.5.0), python, python-all-dev (>= 2.3.5-11), python-central (>= 0.5), python-gtk2-dev, python-xml, xkb-data (>= 0.9)
 Standards-Version: 3.6.2
 XS-Python-Version: current, >= 2.4
 XS-Vcs-Bzr: http://bazaar.launchpad.net/~ubuntu-core-dev/oem-config/trunk

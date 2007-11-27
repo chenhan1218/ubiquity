@@ -66,8 +66,8 @@ my @basebd = (
     'libxml-parser-perl',
     'po-debconf',
     'python-all-dev (>= 2.3.5-11)',
+    'python-central (>= 0.5)',
     'python-gtk2-dev',
-    'python-support (>= 0.3)',
     'xkb-data (>= 0.9)',
 );
 my $basebd = join ', ', @basebd;
