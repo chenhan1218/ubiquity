@@ -21,6 +21,9 @@ ubiquity (1.7.0) UNRELEASED; urgency=low
   * Fix ubiquity-frontend-* and ubiquity-artwork-* virtual package name
     generation to handle ~ in versions.
   * Add an intro message noting that we're alpha again.
+  * Adjust for localechooser 1.40:
+    - Cope with localechooser asking countrychooser/country-name rather than
+      countrychooser/shortlist.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Wed, 10 Oct 2007 13:07:24 -0500
 
