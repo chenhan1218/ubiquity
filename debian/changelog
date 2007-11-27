@@ -9,6 +9,9 @@ oem-config (1.24) UNRELEASED; urgency=low
   * Adjust for localechooser 1.39:
     - Don't edit /etc/environment unless it already contains LANG or
       LANGUAGE settings.
+  * Adjust for localechooser 1.40:
+    - Cope with localechooser asking countrychooser/country-name rather than
+      countrychooser/shortlist.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 16 Oct 2007 19:29:01 +0100
 

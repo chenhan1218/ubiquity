@@ -30,7 +30,7 @@ class Language(FilteredCommand):
         self.db.fset('languagechooser/language-name', 'seen', 'false')
         self.db.set('localechooser/alreadyrun', 'false')
         questions = ['^languagechooser/language-name',
-                     '^countrychooser/shortlist$']
+                     '^countrychooser/(shortlist|country-name)$']
         return (['/usr/lib/oem-config/language/localechooser-wrapper'],
                 questions)
 
@@ -94,7 +94,7 @@ class Language(FilteredCommand):
                                                language_display_map)
             self.frontend.set_language(current_language)
 
-        elif question == 'countrychooser/shortlist':
+        elif question.startswith('countrychooser/'):
             if 'DEBCONF_USE_CDEBCONF' not in os.environ:
                 # Normally this default is handled by Default-$LL, but since
                 # we can't change debconf's language on the fly (unlike
