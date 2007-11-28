@@ -341,9 +341,7 @@
             <property name="can_focus">True</property>
             <property name="xpad">6</property>
             <property name="ypad">6</property>
-            <property name="label" translatable="yes">Installation is complete. You need to restart the computer in order to use the new installation. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.
-
-Be sure to remove the CD when restarting the computer, otherwise it will start back up using this live CD rather than the newly-installed system.</property>
+            <property name="label" translatable="yes">Installation is complete. You need to restart the computer in order to use the new installation. You can continue to use this live CD, although any changes you make or documents you save will not be preserved.</property>
             <property name="wrap">True</property>
             <property name="selectable">True</property>
           </widget>

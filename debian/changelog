@@ -1,7 +1,7 @@
 ubiquity (1.7.0) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
-  * Divert gtk frontend .desktop file and logo  to a better location 
+  * Divert gtk frontend .desktop file and logo  to a better location
     so that it isn't improperly sourced by Xfce.
   * Properly execute mythbuntu frontend from .desktop file.
   * Set default mythtv theme on all installs to be mythtv-theme-mythbuntu.
@@ -27,7 +27,12 @@ ubiquity (1.7.0) UNRELEASED; urgency=low
   * Remove the pregenerated snakeoil certificate and reconfigure ssl-cert so
     that each system gets a unique snakeoil certificate.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Wed, 10 Oct 2007 13:07:24 -0500
+  [ Evan Dandrea ]
+  * Removed the somewhat confusing reminder to remove the CD from the reboot
+    dialog.  Casper handles telling the user this at the right moment via
+    a final usplash message. (LP: #70088)
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 28 Nov 2007 16:03:31 -0500
 
 ubiquity (1.6.8) gutsy; urgency=low
 
