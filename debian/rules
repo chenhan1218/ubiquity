@@ -141,8 +141,10 @@ endif
 		install -m644 d-i/source/base-installer/kernel/$(DEB_HOST_ARCH).sh \
 			debian/ubiquity/usr/lib/ubiquity/base-installer/kernel.sh; \
 	fi
-	install d-i/source/clock-setup/debian/clock-setup.postinst \
-		debian/ubiquity/usr/lib/ubiquity/clock-setup/clock-setup
+	# tzsetup is called by clock-setup now, but we handle tzsetup earlier.
+	sed 's,^tzsetup,,' \
+		d-i/source/clock-setup/debian/clock-setup.postinst \
+		> debian/ubiquity/usr/lib/ubiquity/clock-setup/clock-setup
 	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/clock-setup
 	install d-i/source/clock-setup/finish-install.d/10clock-setup \
 		debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
