@@ -1,4 +1,4 @@
-ubiquity (1.7.0) UNRELEASED; urgency=low
+ubiquity (1.7.0) hardy; urgency=low
 
   [ Mario Limonciello ]
   * Divert gtk frontend .desktop file and logo  to a better location
@@ -42,7 +42,7 @@ ubiquity (1.7.0) UNRELEASED; urgency=low
     xfs 35, silo-installer 1.12ubuntu1, tzsetup 1:0.19, user-setup
     1.16ubuntu1.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 29 Nov 2007 11:44:31 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 29 Nov 2007 11:56:18 -0500
 
 ubiquity (1.6.8) gutsy; urgency=low
 
