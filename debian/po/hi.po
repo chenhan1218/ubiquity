@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Nishant Sharma <me at nishants.net>\n"
 "Language-Team: Hindi\n"
@@ -469,17 +469,6 @@ msgstr ""
 "संस्थापना पूरा हो चुका है। नई संस्थापना का इस्तेमाल करने के लिए आपको कम्प्यूटर फिर से चालू "
 "करना होगा। इस जीवंत सीडी का इस्तेमाल आप जारी रख सकते हैं, मगर जो परिवर्तन आप करेंगे या "
 "दस्तावेज़ सहेजेंगे, वे सुरक्षित सहेजे नहीं जाऐंगे।"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-#, fuzzy
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"जब आप कम्प्यूटर को फिर से चालू करते हैं, तो सीडी निकालना न भूलिये, नहीं तो कम्प्यूटर अभी "
-"संस्थापित ओपरेटिंग सिस्टम से नहीं, जीवंत सीडी से शुरु होगी।"
 
 #. Type: text
 #. Description
@@ -1409,3 +1398,11 @@ msgstr "हार्डवेयर कॉन्फ़िगर किया ज
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "समय क्षेत्र को कॉन्फ़िगर किया जा रहा है..."
+
+#, fuzzy
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "जब आप कम्प्यूटर को फिर से चालू करते हैं, तो सीडी निकालना न भूलिये, नहीं तो कम्प्यूटर "
+#~ "अभी संस्थापित ओपरेटिंग सिस्टम से नहीं, जीवंत सीडी से शुरु होगी।"

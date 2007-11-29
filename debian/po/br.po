@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-08-17 13:15+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Breton <br@li.org>\n"
@@ -467,14 +467,6 @@ msgstr ""
 "Echu eo gant ar staliadur. Dav eo deoc'h adloc'hañ an urzhiataer evit implij "
 "ar staliadur nevez. Bez e c'hellit kenderc'hel da implij ar CD live-mañ, met "
 "an holl gemmoù a reot pe an holl restroù a enrolloc'h ne vint ket memoret."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
 
 #. Type: text
 #. Description

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-09-16 20:50+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -484,17 +484,6 @@ msgstr ""
 "Инсталација је завршена. Морате изнова покренути рачунар како бисте "
 "подигнули нови систем. Можете наставити користити овај Live CD, али промјене "
 "које направите на документима, неће бити сачуване."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-#, fuzzy
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Проверите да ли сте извадили ЦД када рестартујете рачунар, ако нисте систем "
-"ће се поново покренути са Лајв ЦД-а, а не са инсталираног система."
 
 #. Type: text
 #. Description
@@ -1428,3 +1417,11 @@ msgstr "Подешавање додатних сервиса..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Подешавање даљинске контроле..."
+
+#, fuzzy
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Проверите да ли сте извадили ЦД када рестартујете рачунар, ако нисте "
+#~ "систем ће се поново покренути са Лајв ЦД-а, а не са инсталираног система."

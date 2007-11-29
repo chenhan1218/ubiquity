@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
@@ -485,16 +485,6 @@ msgstr ""
 "インストールが完了しました。新しくインストールしたシステムを使うには、コン"
 "ピュータを再起動する必要があります。このライブCDを使い続けることもできます"
 "が、変更した内容や保存したドキュメントは残りません。"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"コンピュータの再起動時に、CDを取り出すのを忘れないでください。CDが入ったまま"
-"の場合、新しくインストールされたシステムではなく、このライブCDが起動します。"
 
 #. Type: text
 #. Description
@@ -1431,3 +1421,11 @@ msgstr "ハードウェアを設定しています..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "タイムゾーンを設定しています..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "コンピュータの再起動時に、CDを取り出すのを忘れないでください。CDが入ったま"
+#~ "まの場合、新しくインストールされたシステムではなく、このライブCDが起動しま"
+#~ "す。"

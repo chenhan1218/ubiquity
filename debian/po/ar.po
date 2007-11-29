@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-10-03 16:08+0000\n"
 "Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -478,16 +478,6 @@ msgstr ""
 "عملية التثبيت تمت. عليك إعادة تشغيل النظام لكي تتمكن من استخدام النظام "
 "الجديد. بامكانك متابعة استخدام القرص المباشر، علما أنه لن يتم حفظ أي تعديلات "
 "تجريها أو أي مستندات تنشئها."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"كن متأكدا من إزالة القرص المدمج حين تقوم بإعادة تشغيل الحاسوب، غير ذلك سيبدأ "
-"التحميل مرة أخرى باستخدام القرص المدمج بدلا من النظام المثبت حديثا."
 
 #. Type: text
 #. Description
@@ -1428,3 +1418,10 @@ msgstr "إعداد الأجهزة..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "إعداد النطاق الزمني"
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "كن متأكدا من إزالة القرص المدمج حين تقوم بإعادة تشغيل الحاسوب، غير ذلك "
+#~ "سيبدأ التحميل مرة أخرى باستخدام القرص المدمج بدلا من النظام المثبت حديثا."

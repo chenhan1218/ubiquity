@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
@@ -480,18 +480,6 @@ msgstr ""
 "magamit ang bagong installation. Maari mong ituloy ang paggamit ng live CD "
 "na ito subalit anumang pagbabagong iyong gagawin o mga dokumentong iyong "
 "nais i-save ay mawawala."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-#, fuzzy
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Siguraduhing alisin ang CD kapag i-restart ang kompyuter dahil ang kompyuter "
-"babalik sa paggamit ng live CD na ito sa halip na gamitin ang bagong install "
-"na system."
 
 #. Type: text
 #. Description
@@ -1412,3 +1400,12 @@ msgstr "Isinasaayos ng network..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Isinasaayos ng network..."
+
+#, fuzzy
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Siguraduhing alisin ang CD kapag i-restart ang kompyuter dahil ang "
+#~ "kompyuter babalik sa paggamit ng live CD na ito sa halip na gamitin ang "
+#~ "bagong install na system."

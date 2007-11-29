@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-10-04 14:39+0000\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
@@ -494,17 +494,6 @@ msgstr ""
 "A telepítés befejeződött. Az új rendszer használatához újra kell indítani a "
 "számítógépet. Folytatható a live CD használata is, de az így létrejött "
 "változtatások és dokumentumok el fognak veszni."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Győződjön meg róla, hogy eltávolította a CD-t a számítógép újraindítása "
-"előtt, ellenkező esetben a rendszer ismét a live CD-ről fog elindulni a "
-"frissen telepített helyett."
 
 #. Type: text
 #. Description
@@ -1515,3 +1504,11 @@ msgstr "A további kiszolgálók konfigurálása..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "A távirányító konfigurálása..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Győződjön meg róla, hogy eltávolította a CD-t a számítógép újraindítása "
+#~ "előtt, ellenkező esetben a rendszer ismét a live CD-ről fog elindulni a "
+#~ "frissen telepített helyett."

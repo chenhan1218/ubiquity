@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-10-05 12:57+0000\n"
 "Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
@@ -492,16 +492,6 @@ msgstr ""
 "Instalace úspěšně dokončena. Pro použití nové instalace je potřeba "
 "restartovat počítač. I nadále můžete používat toto živé CD, ale jakékoliv "
 "změny, které provedete, nebo dokumenty, které vytvoříte, nebudou zachovány."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Ujistěte se, že vyjmete CD při restartu počítače, jinak opět nastartuje toto "
-"spustitelné CD místo nově nainstalovaného systému."
 
 #. Type: text
 #. Description
@@ -1455,3 +1445,10 @@ msgstr "Nastavuji dodatečné služby..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Nastavuji dálkové ovládání..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Ujistěte se, že vyjmete CD při restartu počítače, jinak opět nastartuje "
+#~ "toto spustitelné CD místo nově nainstalovaného systému."

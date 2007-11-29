@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -482,17 +482,6 @@ msgstr ""
 "Kurulum tamamlandı. Yeni kurulumu kullanmak için bilgisayarı yeniden "
 "başlatmanız gerekiyor. Bu live CD'yi kullanmaya devam edebilirsiniz ancak "
 "yapacağınız değişiklikler veya kaydedeceğiniz belgeler saklanmayacaktır."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Bilgisayarı yeniden başlatmadan önce CD'yi çıkardığınızdan emin olun. Aksi "
-"takdirde bilgisayarınız yeni kurulan sistem yerine yeniden bu live CD'yi  "
-"başlatacaktır."
 
 #. Type: text
 #. Description
@@ -1429,3 +1418,11 @@ msgstr "Donanım yapılandırılıyor..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Zaman dilimi yapılandırılıyor..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Bilgisayarı yeniden başlatmadan önce CD'yi çıkardığınızdan emin olun. "
+#~ "Aksi takdirde bilgisayarınız yeni kurulan sistem yerine yeniden bu live "
+#~ "CD'yi  başlatacaktır."

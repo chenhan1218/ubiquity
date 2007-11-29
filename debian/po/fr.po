@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-10-05 11:25+0000\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -501,17 +501,6 @@ msgstr ""
 "pour utiliser le nouveau système. Vous pouvez continuer à utiliser ce Live "
 "CD, toutefois, aucun des changements effectués ou documents enregistrés ne "
 "seront préservés."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Assurez-vous de retirer le CD lorsque vous redémarrerez l'ordinateur, sinon "
-"vous relancerez le Live CD au lieu de démarrer votre système nouvellement "
-"installé."
 
 #. Type: text
 #. Description
@@ -1540,3 +1529,11 @@ msgstr "Configuration de services supplémentaires..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Configuration de la télécommande..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Assurez-vous de retirer le CD lorsque vous redémarrerez l'ordinateur, "
+#~ "sinon vous relancerez le Live CD au lieu de démarrer votre système "
+#~ "nouvellement installé."

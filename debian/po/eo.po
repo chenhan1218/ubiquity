@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Serge Leblanc <serge.leblanc@wanadoo.fr>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
@@ -484,16 +484,6 @@ msgstr ""
 "Instalado finiĝis. Vi bezonas rekomenci la komputilon por uzi la novan "
 "instalon. Vi povas daŭrigi uzi ĉi tiun vivan KD-on, kvankam ĉiuj ŝanĝoj "
 "farataj de vi, aŭ dokumentoj konservataj de vi ne perdiĝos."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Certiĝu elpreni la KD-on antaŭ reiniciante la komputilon, alimaniere ĝi "
-"restartos uzante ĉi tiun viv-KD-on anstataŭ ol la nov-instalitan sistemon."
 
 #. Type: text
 #. Description
@@ -1426,3 +1416,10 @@ msgstr "Akomodi aparataĵon..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Akomodanta horan zonon..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Certiĝu elpreni la KD-on antaŭ reiniciante la komputilon, alimaniere ĝi "
+#~ "restartos uzante ĉi tiun viv-KD-on anstataŭ ol la nov-instalitan sistemon."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-10-04 14:12+0000\n"
 "Last-Translator: Bartosz Fenski <fenio@debian.org>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
@@ -493,17 +493,6 @@ msgstr ""
 "Instalacja zakończona. Konieczne jest ponowne uruchomienie komputera, aby "
 "skorzystać z nowej instalacji. Możesz dalej używać tego Desktop CD, "
 "aczkolwiek wprowadzane zmiany i zapisywane dokumenty nie zostaną zachowane."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Pamiętaj o wyjęciu płyty CD podczas ponownego uruchomienia komputera, w "
-"przeciwnym wypadku uruchomisz Live CD zamiast systemu zainstalowanego na "
-"komputerze."
 
 #. Type: text
 #. Description
@@ -1520,3 +1509,11 @@ msgstr "Konfigurowanie dodatkowych usług..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Konfigurowanie pilota..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Pamiętaj o wyjęciu płyty CD podczas ponownego uruchomienia komputera, w "
+#~ "przeciwnym wypadku uruchomisz Live CD zamiast systemu zainstalowanego na "
+#~ "komputerze."

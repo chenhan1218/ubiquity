@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: quad-nrg.net <yodesy@quad-nrg.net>\n"
 "Language-Team: el <debian-l10n-greek@lists.debian.org>\n"
@@ -480,17 +480,6 @@ msgstr ""
 "σας για να χρησιμοποιήσετε τη νέα εγκατάσταση. Μπορείτε να συνεχίσετε να "
 "χρησιμοποιείτε το live CD, αλλά δεν θα αποθηκευθούν όποιες αλλαγές κάνετε "
 "από εδώ και πέρα."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-#, fuzzy
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Βεβαιωθείτε ότι αφαιρέσατε το CD όταν επανεκκινήσετε τον υπολογιστή, αλλιώς "
-"θα χρησιμοποιείτε πάλι το live CD και όχι το νέο σας σύστημα."
 
 #. Type: text
 #. Description
@@ -1418,3 +1407,11 @@ msgstr "Ρύθμιση υλικού..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Ρύθμιση ζώνης ώρας..."
+
+#, fuzzy
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Βεβαιωθείτε ότι αφαιρέσατε το CD όταν επανεκκινήσετε τον υπολογιστή, "
+#~ "αλλιώς θα χρησιμοποιείτε πάλι το live CD και όχι το νέο σας σύστημα."

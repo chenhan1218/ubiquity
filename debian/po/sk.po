@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Peter Mann <Peter.Mann@tuke.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -490,16 +490,6 @@ msgstr ""
 "Inštalácia je ukončená. Ak chcete použiť nový nainštalovaný systém, musíte "
 "reštartovať počítač. Samozrejme môžete naďalej používať toto Live CD, no "
 "nezachovajú sa žiadne zmeny alebo súbory uložené počas používania tohto CD."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Pred reštartom počítača vyberte CD z mechaniky, aby ste namiesto opätovného "
-"spustenia Live CD mohli spustiť váš nový nainštalovaný systém."
 
 #. Type: text
 #. Description
@@ -1492,3 +1482,10 @@ msgstr "Nastavujú sa prídavné služby..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Nastavuje sa vzdialené ovládanie..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Pred reštartom počítača vyberte CD z mechaniky, aby ste namiesto "
+#~ "opätovného spustenia Live CD mohli spustiť váš nový nainštalovaný systém."

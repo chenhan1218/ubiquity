@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-10-06 20:26+0000\n"
 "Last-Translator: Jens Seidel <jensseidel@users.sf.net>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
@@ -504,17 +504,6 @@ msgstr ""
 "starten, um die neue Installation zu benutzen. Sie können fortfahren, diese "
 "Live-CD zu benutzen, aber Änderungen, die Sie vornehmen und Dokumente, die "
 "Sie speichern, werden nicht erhalten bleiben."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Stellen Sie sicher, dass Sie die CD entfernen, wenn Sie den Computer neu "
-"starten. Ansonsten wird dieser von der Live-CD statt von Ihrem neu "
-"installierten System starten."
 
 #. Type: text
 #. Description
@@ -1505,3 +1494,11 @@ msgstr "Zusätzliche Dienste werden eingerichtet ..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Fernbedienung wird eingerichtet ..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Stellen Sie sicher, dass Sie die CD entfernen, wenn Sie den Computer neu "
+#~ "starten. Ansonsten wird dieser von der Live-CD statt von Ihrem neu "
+#~ "installierten System starten."

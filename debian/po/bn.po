@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jamil Ahmed <jamil@bengalinux.org>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
@@ -474,17 +474,6 @@ msgstr ""
 "ইনস্টলেশন সম্পূর্ন হয়েছে। নতুন এই ইনস্টলেশন ব্যবহার করবার জন্য আপনাকে কম্পিউটারটি "
 "রিস্টার্ট করতে হবে। আপনি এই লাইভ সিডি ব্যবহার চালু রাখতে পারেন, তবে তাতে আপনার "
 "দ্বারা কৃত কোন পরিবর্তন সংরক্ষণ করা হবে না।"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-#, fuzzy
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"কম্পিউটারটি রিস্টার্ট করবার সময় সিডিটি বের হয়েছে কি-না তা নিশ্চত করুন, নয়তবা এটি "
-"নতুন ইনস্টলকৃত সিস্টেমের পরিবর্তে এই লাইভ সিডি ব্যবহার করেই ব্যাকআপ করা শুরূ করবে।"
 
 #. Type: text
 #. Description
@@ -1404,3 +1393,12 @@ msgstr "হার্ডওয়্যার কনফিগার করা হচ
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "সময় অঞ্চল কনফিগার করা হচ্ছে..."
+
+#, fuzzy
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "কম্পিউটারটি রিস্টার্ট করবার সময় সিডিটি বের হয়েছে কি-না তা নিশ্চত করুন, নয়তবা "
+#~ "এটি নতুন ইনস্টলকৃত সিস্টেমের পরিবর্তে এই লাইভ সিডি ব্যবহার করেই ব্যাকআপ করা শুরূ "
+#~ "করবে।"

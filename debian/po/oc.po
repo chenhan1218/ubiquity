@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-09-30 09:41+0000\n"
 "Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannick.marchegay@lokanova."
 "com>\n"
@@ -492,17 +492,6 @@ msgstr ""
 "L'installacion es terminada. Debètz tornar aviar l'ordenador per utilisar lo "
 "sistèma nòu. Podètz contunhar a utilisar lo live CD mas los cambis que "
 "farètz o los fichièrs qu'enregistrarètz seràn pas conservats."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Vos cal assegurar qu'avètz plan levat lo CD-Rom del legidor quora serètz a "
-"tornar aviar l'ordenador, si que non tornaretz aviar lo Live CD-Rom al luòc "
-"de desamarrar lo vòstre sistèma novèl."
 
 #. Type: text
 #. Description
@@ -1434,3 +1423,11 @@ msgstr "Configuracion de servicis suplementaris..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr ""
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Vos cal assegurar qu'avètz plan levat lo CD-Rom del legidor quora serètz "
+#~ "a tornar aviar l'ordenador, si que non tornaretz aviar lo Live CD-Rom al "
+#~ "luòc de desamarrar lo vòstre sistèma novèl."

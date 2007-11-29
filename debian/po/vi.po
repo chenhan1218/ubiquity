@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -487,16 +487,6 @@ msgstr ""
 "Quá trình cài đặt đã hoàn tất. Bạn cần khởi động lại máy để có thể dùng bản "
 "cài đặt mới. Bạn có thể tiếp tục sử dụng live CD này, mặc dù các thay đổi mà "
 "bạn đã thực hiện hay các tài liệu bạn đã lưu sẽ không được lưu giữ."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Hãy chắc chắn là bạn đã lấy đĩa CD ra khi khởi động lại máy, nếu không nó sẽ "
-"khởi động lại đĩa live CD thay vì hệ thống vừa được cài đặt."
 
 #. Type: text
 #. Description
@@ -1444,3 +1434,10 @@ msgstr "Đang cấu hình phần cứng..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Đang chỉnh đồ điều khiển từ xa..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Hãy chắc chắn là bạn đã lấy đĩa CD ra khi khởi động lại máy, nếu không nó "
+#~ "sẽ khởi động lại đĩa live CD thay vì hệ thống vừa được cài đặt."

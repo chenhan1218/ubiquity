@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Lior Kaplan <kaplan@debian.org>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
@@ -473,16 +473,6 @@ msgstr ""
 "ההתקנה הושלמה. עליך לאתחל את המחשב על מנת להשתמש בהתקנה החדשה.\r\n"
 "ניתן להמשיך להשתמש ב live CD, על אף ששינוים שייעשו או מסמכים שיווצרו, לא "
 "ישמרו."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"זכור להוציא את הדיסק מהכונן לפני האתחול מחדש, אחרת האתחול יתבצע ע\"י הדיסק "
-"במקום ע\"י המערכת החדשה שהותקנה."
 
 #. Type: text
 #. Description
@@ -1414,3 +1404,10 @@ msgstr "מגדיר את החומרה..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "מגדיר איזור זמן..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "זכור להוציא את הדיסק מהכונן לפני האתחול מחדש, אחרת האתחול יתבצע ע\"י "
+#~ "הדיסק במקום ע\"י המערכת החדשה שהותקנה."

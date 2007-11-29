@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-10-04 13:21+0000\n"
 "Last-Translator: Josip Rodin <joy+ditrans@linux.hr>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -481,16 +481,6 @@ msgstr ""
 "Instalacija je završena. Morate ponovo pokrenuti računalo kako biste "
 "podignuli novi sustav. Možete nastaviti koristiti ovaj Live CD, ali promjene "
 "koje napravite na dokumentima, neće biti spremljene."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Svakako uklonite CD pri ponovnom pokretanju računala, u suprotnom će se "
-"ponovo pokrenuti ovaj Live CD umjesto novoinstaliranog sustava."
 
 #. Type: text
 #. Description
@@ -1428,3 +1418,10 @@ msgstr "Postavljam hardver..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Postavljam vremensku zonu..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Svakako uklonite CD pri ponovnom pokretanju računala, u suprotnom će se "
+#~ "ponovo pokrenuti ovaj Live CD umjesto novoinstaliranog sustava."

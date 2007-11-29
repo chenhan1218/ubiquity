@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-10-03 08:56+0000\n"
 "Last-Translator: Claus Hindsgaul <claus.hindsgaul@gmail.com>\n"
 "Language-Team: Danish\n"
@@ -473,16 +473,6 @@ msgstr ""
 "Installationen er færdig. Du skal genstarte computeren, for at kunne bruge "
 "den nye installation. Du kan forsætte med at bruge denne live-cd, men de "
 "ændringer du foretager eller dokumenter du gemmer, vil ikke blive gemt."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Sørg for at fjerne cd'en når du genstarter computeren, ellers vil den starte "
-"op via live-cd'en i stedet for det nyligt installerede system."
 
 #. Type: text
 #. Description
@@ -1380,3 +1370,10 @@ msgstr "Konfigurerer øvrige tjenester..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Konfigurerer fjernbetjening..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Sørg for at fjerne cd'en når du genstarter computeren, ellers vil den "
+#~ "starte op via live-cd'en i stedet for det nyligt installerede system."

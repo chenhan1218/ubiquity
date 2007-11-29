@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Sunjae park <darehanl@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -477,16 +477,6 @@ msgstr ""
 "설치가 완료되었습니다. 새로 설치된 프로그램을 사용하기 위해 컴퓨터를 다시 시"
 "작하십시오. 변경된 문서가 보존되지는 않지만, 현재 CD를 계속 사용할 수 있습니"
 "다."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"컴퓨터를 다시 시작할 때 CD를 제거하는 것을 잊지 마십시오. 제거하지 않으면 새"
-"로운 시스템으로 시작되지 않고 이 CD로 시작될 것입니다."
 
 #. Type: text
 #. Description
@@ -1414,3 +1404,10 @@ msgstr "네트워크를 설정하는 중입니다..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "네트워크를 설정하는 중입니다..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "컴퓨터를 다시 시작할 때 CD를 제거하는 것을 잊지 마십시오. 제거하지 않으면 "
+#~ "새로운 시스템으로 시작되지 않고 이 CD로 시작될 것입니다."

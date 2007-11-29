@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-10-04 12:36+0000\n"
 "Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -490,17 +490,6 @@ msgstr ""
 "Asennus on valmis. Tietokone täytyy käynnistää uudelleen, jotta uutta "
 "asennusta käytettäisiin. Voit myös jatkaa tämän Ubuntu-CD:n käyttöä, mutta "
 "mitkään tekemäsi muutokset tai tallentamasi asiakirjat eivät säily."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Poista CD-levy asemasta kun käynnistät tietokoneen uudelleen, muuten "
-"tietokone käynnistyy uudelleen tältä Ubuntu-CD:ltä eikä juuri asennettuun "
-"järjestelmään."
 
 #. Type: text
 #. Description
@@ -1506,3 +1495,11 @@ msgstr "Tehdään palveluiden asetuksia..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Tehdään kaukosäätimen asetuksia..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Poista CD-levy asemasta kun käynnistät tietokoneen uudelleen, muuten "
+#~ "tietokone käynnistyy uudelleen tältä Ubuntu-CD:ltä eikä juuri asennettuun "
+#~ "järjestelmään."

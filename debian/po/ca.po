@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -493,18 +493,6 @@ msgstr ""
 "utilitzar la instal·lació nova. Podeu continuar utilitzant aquest CD "
 "autònom, tot i que qualsevol canvi que feu els documents que deseu no es "
 "preservaran."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-#, fuzzy
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Assegureu-vos que treieu el CD quan torneu a iniciar l'ordinador, o tornarà "
-"a iniciar-se utilitzant aquest CD autònom, en comptes del sistema que "
-"s'acaba d'instal·lar."
 
 #. Type: text
 #. Description
@@ -1431,3 +1419,12 @@ msgstr "S'està configurant el maquinari..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "S'està configurant el fus horari..."
+
+#, fuzzy
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Assegureu-vos que treieu el CD quan torneu a iniciar l'ordinador, o "
+#~ "tornarà a iniciar-se utilitzant aquest CD autònom, en comptes del sistema "
+#~ "que s'acaba d'instal·lar."

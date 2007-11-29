@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Matej Kovačič <matej.kovacic@owca.info>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -484,18 +484,6 @@ msgstr ""
 "Namestitev je zaključena. Da bi lahko uporabili novo namestitev, je potrebno "
 "znova zagnati računalnik. Z uporabo tega živege zgoščenke lahko nadaljujete, "
 "vendar opravljene spremembe in shranjeni dokumenti ne bodo ohranjeni."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-#, fuzzy
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Prepričajte se, da pred ponovnim zagonom odstranite zgoščenko. V nasprotnem "
-"primeru se bo računalnik spet zagnal z žive zgoščenke, namesto da bi "
-"uporabil novi nameščeni sistem."
 
 #. Type: text
 #. Description
@@ -1431,3 +1419,12 @@ msgstr "Nastavljanje strojne opreme ..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Nastavljanje časovnega pasu ..."
+
+#, fuzzy
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Prepričajte se, da pred ponovnim zagonom odstranite zgoščenko. V "
+#~ "nasprotnem primeru se bo računalnik spet zagnal z žive zgoščenke, namesto "
+#~ "da bi uporabil novi nameščeni sistem."

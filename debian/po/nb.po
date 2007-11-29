@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Bjørn Steensrud <bjornst@powertech.no>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -492,17 +492,6 @@ msgstr ""
 "Installasjonen er fullført. Du må starte datamaskinen på nytt for å bruke "
 "den nye installasjonen. Du kan fortsette å bruke denne live CD'en, men ingen "
 "endringer du gjør eller dokumenter du lagrer vil ikke bli bevart."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Pass på at du fjerner CD'en når du starter systemet på nytt, ellers vil "
-"systemet starte opp  fra denne live-cd'en isteden for det nyinstallerte "
-"systemet."
 
 #. Type: text
 #. Description
@@ -1480,3 +1469,11 @@ msgstr "Setter opp maskinvare..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Setter opp tidssone..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Pass på at du fjerner CD'en når du starter systemet på nytt, ellers vil "
+#~ "systemet starte opp  fra denne live-cd'en isteden for det nyinstallerte "
+#~ "systemet."

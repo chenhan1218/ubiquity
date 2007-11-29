@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-03-19 18:26+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Kashubian <csb@li.org>\n"
@@ -473,14 +473,6 @@ msgstr ""
 "Instalacëjô je ju zakùńczonô. Nót je zrëszëc znowa kòmpùtr abë brëkòwac nową "
 "instalacëjã. Mòże téż dali brëkòwac systemë z ti live CD, leno zmianë czë "
 "dokùmentë nie òstaną zachòwóné."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
 
 #. Type: text
 #. Description

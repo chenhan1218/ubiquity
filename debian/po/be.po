@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-10-04 13:02+0000\n"
 "Last-Translator: Pavel Piatruk <berserker@neolocation.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -486,16 +486,6 @@ msgstr ""
 "Інсталяцыя скончаная. Каб карыстацца новай інсталяцыяй, трэба перагрузіць "
 "кампутар. Можаш працягваць карыстацца сыстэмай на гэтым кампакт-дыску, але "
 "ўсе зробленые зьмены і записаныя дакуманты ня будуць захаваныя."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Не забудзьцеся вынуць CD падчас перазагрузкі кампутара, бо іначай ён "
-"запусьціцца з гэтага загрузачнага CD замест наноў інсталяванай сыстэмы."
 
 #. Type: text
 #. Description
@@ -1429,3 +1419,10 @@ msgstr "Канфігураваньне абсталяваньня..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Канфігураваньне часовай зоны..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Не забудзьцеся вынуць CD падчас перазагрузкі кампутара, бо іначай ён "
+#~ "запусьціцца з гэтага загрузачнага CD замест наноў інсталяванай сыстэмы."

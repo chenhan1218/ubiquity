@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-10-07 11:46+0000\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -493,16 +493,6 @@ msgstr ""
 "использования системы. Вы можете продолжить использования live CD, но все "
 "изменения, которые вы сделаете и все документы, которые вы сохраните будут "
 "потеряны"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Убедитесь, что вы извлекли CD до перезагрузки. Иначе компьютер снова "
-"загрузится, используя этот LiveCD, а не вновь установленную систему."
 
 #. Type: text
 #. Description
@@ -1512,3 +1502,10 @@ msgstr "Настройка дополнительных служб..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Настройка дистанционного управления..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Убедитесь, что вы извлекли CD до перезагрузки. Иначе компьютер снова "
+#~ "загрузится, используя этот LiveCD, а не вновь установленную систему."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: 2007-10-06 13:25+0000\n"
 "Last-Translator: Eddy Petrișor <eddy.petrisor@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
@@ -494,16 +494,6 @@ msgstr ""
 "Instalarea este completă. Trebuie să reporniţi calculatorul pentru a utiliza "
 "noua instalare. Puteţi continua să folosiţi acest live CD, dar modificările "
 "efectuate sau documentele create nu vor fi păstrate."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Asiguraţi-vă că scoateţi CD-ul când reporniţi calculatorul, altfel va porni "
-"din nou acest live CD în locul noului sistem instalat."
 
 #. Type: text
 #. Description
@@ -1471,3 +1461,10 @@ msgstr "Configurare hardware..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Configurare fus orar..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Asiguraţi-vă că scoateţi CD-ul când reporniţi calculatorul, altfel va "
+#~ "porni din nou acest live CD în locul noului sistem instalat."

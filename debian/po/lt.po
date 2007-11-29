@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -490,16 +490,6 @@ msgstr ""
 "Įdiegimas baigtas. Jūs turite perkrauti kompiuterį norėdami naudoti naująją "
 "sistemą. Arba galite toliau naudoti demonstracinį kompaktinį diską, tačiau "
 "visi jūsų padaryti pakeitimai ar dokumentai nebus išsaugoti."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"Įsitikinkite, jog iš naujo paleisdami kompiuterį išėmėte CD diską. Kitu "
-"atveju vėl bus paleista šiame CD esanti, o ne naujai įdiegta sistema."
 
 #. Type: text
 #. Description
@@ -1438,3 +1428,10 @@ msgstr "Konfigūruojama aparatinė įranga..."
 #, fuzzy
 msgid "Configuring remote control..."
 msgstr "Konfigūruojama laiko zona..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "Įsitikinkite, jog iš naujo paleisdami kompiuterį išėmėte CD diską. Kitu "
+#~ "atveju vėl bus paleista šiame CD esanti, o ne naujai įdiegta sistema."

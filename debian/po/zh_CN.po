@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-10-03 10:30+0100\n"
+"POT-Creation-Date: 2007-11-29 11:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ming Hua <minghua@rice.edu>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -475,16 +475,6 @@ msgid ""
 msgstr ""
 "安装完毕。在使用新装的系统之前，需要重启电脑。您可以继续使用这个live CD，但是"
 "您所做的任何修改或保存的文件不会被保留。"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:66001
-msgid ""
-"Be sure to remove the CD when restarting the computer, otherwise it will "
-"start back up using this live CD rather than the newly-installed system."
-msgstr ""
-"重启计算机时请确保 CD 已取出，否则会重新引导到这张 live CD 系统而非新安装的系"
-"统。"
 
 #. Type: text
 #. Description
@@ -1405,3 +1395,10 @@ msgstr "正在配置附加服务..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "正在配置遥控器..."
+
+#~ msgid ""
+#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
+#~ "start back up using this live CD rather than the newly-installed system."
+#~ msgstr ""
+#~ "重启计算机时请确保 CD 已取出，否则会重新引导到这张 live CD 系统而非新安装"
+#~ "的系统。"
