@@ -1,9 +1,9 @@
-ubiquity (1.7.1) UNRELEASED; urgency=low
+ubiquity (1.7.1) hardy; urgency=low
 
   * clock-setup in d-i now explicitly calls tzsetup, but we handle tzsetup
     earlier on, so remove the tzsetup call in clock-setup.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 29 Nov 2007 13:55:32 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 29 Nov 2007 13:59:01 -0500
 
 ubiquity (1.7.0) hardy; urgency=low
 
