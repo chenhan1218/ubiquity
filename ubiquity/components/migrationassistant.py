@@ -24,15 +24,8 @@ import debconf
 from ubiquity.filteredcommand import FilteredCommand
 
 class MigrationAssistant(FilteredCommand):
-    firstrun = True
     def prepare(self):
-        self.err = None
-        self.errors = False
         self.got_a_question = False
-        self.error_list = ['migration-assistant/password-mismatch',
-                           'migration-assistant/password-empty',
-                           'migration-assistant/username-bad',
-                           'migration-assistant/username-reserved']
         questions = ['^migration-assistant/partitions',
                      '^migration-assistant/.*/users$',
                      '^migration-assistant/.*/items$',
@@ -45,7 +38,8 @@ class MigrationAssistant(FilteredCommand):
 
 
     def run(self, priority, question):
-        if question != 'ubiquity/run-ma-again':
+        if (question != 'ubiquity/run-ma-again') and \
+            (question != 'migration-assistant/partitions'):
             self.got_a_question = True
         if question == 'migration-assistant/failed-unmount':
             response = self.frontend.question_dialog(
@@ -58,84 +52,45 @@ class MigrationAssistant(FilteredCommand):
                 self.preseed(question, 'false')
             return True
 
-        # FIXME: This is not preseed friendly.
-        if self.firstrun:
-            # We cannot currently import from partitions that are scheduled for
-            # deletion, so we filter them out of the list.
-            if question == 'migration-assistant/partitions':
-                self.filter_parts()
-            elif question == 'ubiquity/run-ma-again':
-                if self.db.get('migration-assistant/partitions') != '':
-                    self.set_choices()
-                    self.firstrun = False
-                    # TODO cjwatson 2007-09-22: This is a wart, but it
-                    # prevents the ubiquity interface from always being
-                    # shown in automatic installs.
-                    # TODO evand 2007-09-24: A slight improvement over the
-                    # previous wart: skip entering the GTK loop if we do not
-                    # have any questions to ask.
-                    if not self.got_a_question:
-                        return self.succeeded
-                    else:
-                        return FilteredCommand.run(self, priority, question)
-                else:
-                    self.db.set('ubiquity/run-ma-again', 'false')
+        # We cannot currently import from partitions that are scheduled for
+        # deletion, so we filter them out of the list.
+        if question == 'migration-assistant/partitions':
+            self.filter_parts()
 
-            # In order to find out what operating systems and users we're
-            # dealing with we need to seed all of the questions to step through
-            # ma-ask, but we cannot seed user and password with an empty string
-            # because that will cause errors so we cheat and tell m-a that we
-            # want to continue with the invalid data anyway.
-            elif question.endswith('user'):
-                self.preseed(question, 'skip-question')
-            elif question.endswith('password'):
-                self.preseed(question, 'skip-question')
-            else:
-                self.preseed(question, ", ".join(self.choices(question)))
-
-
-        elif self.err:
-            # As mentioned in error() we are looking for the question
-            # after the error as it's what the error is associated with.
-            if question.endswith('password'):
-                user = question[:question.rfind('/')]
-                user = user[user.rfind('/')+1:]
-
-                self.frontend.ma_password_error(self.err, user)
-                self.preseed(question, 'skip-question')
-                self.err = ''
-
-            elif question.endswith('user'):
-                user = question[:question.rfind('/')]
-                user = user[user.rfind('/')+1:]
-
-                self.frontend.ma_user_error(self.err, user)
-                self.preseed(question, 'skip-question')
-                self.err = ''
         elif question == 'ubiquity/run-ma-again':
-            if self.errors:
+            self.db.set('ubiquity/run-ma-again', False)
+            self.set_choices()
+            # If we didn't ask any questions, they're all preseeded and we don't
+            # need to show the page, so we'll continue along.  If we got at
+            # least one question, show the page.
+            if not self.got_a_question:
+                return self.succeeded
+            else:
                 return FilteredCommand.run(self, priority, question)
-            self.db.set('ubiquity/run-ma-again', 'false')
-        return True # False is backup
+
+        elif question.endswith('user'):
+            username = self.db.get('passwd/username')
+            self.preseed(question, username)
+        elif question.endswith('password'):
+            # Just in case for now.  It should never get here as there's a check
+            # in ma-ask that skips asking the user details if the username is
+            # already preseeded in passwd.
+            password = self.db.get('passwd/user-password')
+            self.preseed(question, password)
+            self.preseed(question + '-again', password)
+        else:
+            self.preseed(question, ", ".join(self.choices(question)))
+
+        return True
 
     def error(self, priority, question):
-        # Because we have already seeded the questions and thus will not see
-        # them in run() we have to hold onto the error until the next question
-        # which will tell us what question, and thus what partition and user
-        # this error is tied to.
-        # This of course assumes that the next question is related to the error,
-        # but that's a safe bet as I cannot think of a question we wouldn't want
-        # to re-ask if an error occurred.
-        if question in self.error_list:
-            self.errors = True
-            self.err = self.extended_description(question)
-        else:
-            self.frontend.error_dialog(self.description(question),
-                                       self.extended_description(question))
+        self.frontend.error_dialog(self.description(question),
+                                   self.extended_description(question))
         return FilteredCommand.error(self, priority, question)
     
     def ok_handler(self):
-        choices, new_users = self.frontend.ma_get_choices()
+        choices = self.frontend.ma_get_choices()
+        username = self.db.get('passwd/username')
         users = {}
 
         for c in choices:
@@ -145,7 +100,7 @@ class MigrationAssistant(FilteredCommand):
                 self.db.register('migration-assistant/items', question + 'items')
                 self.preseed(question + 'items', ', '.join(c['items']))
                 self.db.register('migration-assistant/user', question + 'user')
-                self.preseed(question + 'user', c['newuser'])
+                self.preseed(question + 'user', username)
                 try:
                     users[c['part']].append(c['user'])
                 except KeyError:
@@ -156,33 +111,7 @@ class MigrationAssistant(FilteredCommand):
             self.db.register('migration-assistant/users', question)
             self.preseed(question, ', '.join(users[p]))
 
-        for u in new_users.iterkeys():
-            user = new_users[u]
-            question = 'migration-assistant/new-user/%s/' % u
-
-            try:
-                self.db.register('migration-assistant/fullname', question + 'fullname')
-                self.preseed(question + 'fullname', user['fullname'])
-            except KeyError:
-                self.preseed(question + 'fullname', '')
-            try:
-                self.db.register('migration-assistant/password', question + 'password')
-                self.preseed(question + 'password', user['password'],
-                             escape=True)
-            except KeyError:
-                self.preseed(question + 'password', '')
-            try:
-                self.db.register('migration-assistant/password-again', question + 'password-again')
-                self.preseed(question + 'password-again', user['confirm'],
-                             escape=True)
-            except KeyError:
-                self.preseed(question + 'password-again', '')
-
-        self.errors = None
-        self.db.set('ubiquity/run-ma-again', 'true')
         FilteredCommand.ok_handler(self)
-        #self.db.shutdown()
-        #self.run_command()
 
     def filter_parts(self):
         question = 'migration-assistant/partitions'
@@ -248,7 +177,6 @@ class MigrationAssistant(FilteredCommand):
                             tree.append({'user': user,
                                          'part': part,
                                          'os': os,
-                                         'newuser': '',
                                          'items': items,
                                          'selected': False})
                     # We now unset everything as the checkboxes will be unselected

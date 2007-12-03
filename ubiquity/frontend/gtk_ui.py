@@ -76,8 +76,8 @@ BREADCRUMB_STEPS = {
     "stepKeyboardConf": 3,
     "stepPartAuto": 4,
     "stepPartAdvanced": 4,
-    "stepMigrationAssistant": 5,
-    "stepUserInfo": 6,
+    "stepUserInfo": 5,
+    "stepMigrationAssistant": 6,
     "stepReady": 7
 }
 BREADCRUMB_MAX_STEP = 7
@@ -91,8 +91,8 @@ SUBPAGES = [
     "stepKeyboardConf",
     "stepPartAuto",
     "stepPartAdvanced",
-    "stepMigrationAssistant",
     "stepUserInfo",
+    "stepMigrationAssistant",
     "stepReady"
 ]
 
@@ -337,7 +337,7 @@ class Wizard(BaseFrontend):
         if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
             self.pages = [language.Language, timezone.Timezone,
                 console_setup.ConsoleSetup, partman.Partman,
-                migrationassistant.MigrationAssistant, usersetup.UserSetup,
+                usersetup.UserSetup, migrationassistant.MigrationAssistant,
                 summary.Summary]
         else:
             self.pages = [language.Language, timezone.Timezone,
@@ -898,16 +898,6 @@ class Wizard(BaseFrontend):
             self.password_error_box.hide()
             self.hostname_error_box.hide()
 
-        if step == "stepMigrationAssistant":
-            for u in self.ma_new_users.iterkeys():
-                self.ma_new_users[u]['password-error'] = ''
-                self.ma_new_users[u]['loginname-error'] = ''
-            self.ma_seed_userinfo()
-            # To get a watch cursor and non-sensitive next button before the
-            # next page.
-            while gtk.events_pending():
-                gtk.main_iteration(False)
-
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
             # expect recursive main loops to be exited and
@@ -956,15 +946,6 @@ class Wizard(BaseFrontend):
             self.process_autopartitioning()
         # Advanced partitioning
         elif step == "stepPartAdvanced":
-            if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-                self.info_loop(None)
-            # FIXME: this will probably cause problems.
-            #    self.set_current_page(self.steps.page_num(self.stepUserInfo))
-            #else:
-            #    self.set_current_page(self.steps.page_num(self.stepMigrationAssistant))
-        # Migration Assistant
-        elif step == "stepMigrationAssistant":
-            self.ma_configure_usersetup()
             self.info_loop(None)
         # Identification
         elif step == "stepUserInfo":
@@ -1988,115 +1969,8 @@ class Wizard(BaseFrontend):
         # make sure we're on the advanced partitioning page
         self.set_current_page(self.steps.page_num(self.stepPartAdvanced))
 
-
-    def ma_info_loop(self, widget):
-        """migration-assistant version of info_loop. For now it just autofills
-        the username.  Callback defined in glade file."""
-        edited = False
-        m, i = self.matreeview.get_selection().get_selected()
-        if not m.iter_children(i):
-            i = m.iter_parent(i)
-        for k in m.get_value(i, 1).iterkeys():
-            val = m.get_value(i, 1)[k]
-            if k == 'newuser' and val != '' and self.ma_loginname.child.get_text() != '':
-                edited = True
-
-        if (widget is not None and widget.get_name() == 'ma_fullname' and
-            not edited):
-            new_username = widget.get_text().split(' ')[0]
-            new_username = new_username.encode('ascii', 'ascii_transliterate')
-            new_username = new_username.lower()
-            self.ma_loginname.child.set_text(new_username)
-
-    def ma_configure_usersetup(self):
-
-        def selection_changed(sender):
-            if sender.get_active() >= 0:
-                user = self.ma_new_users[sender.child.get_text()]
-                self.fullname.set_text(user['fullname'])
-                self.password.set_text(user['password'])
-                self.verified_password.set_text(user['confirm'])
-
-        def focus_out(sender, event):
-            user = self.username.get_text()
-            if user in self.ma_new_users.keys():
-                u = self.ma_new_users[user]
-                self.fullname.set_text(u['fullname'])
-                self.password.set_text(u['password'])
-                self.verified_password.set_text(u['confirm'])
-                # This prevents auto filling based on the full name from
-                # clobbering m-a usernames.
-                self.username_edited = True
-
-        # If the user pressed back.
-        if self.username_combo:
-            return
-
-        # Were any users found?
-        if not self.ma_new_users:
-            return
-
-        # Reconfigure username as a combobox without having to modify
-        # existing code.
-        self.username.destroy()
-        self.username_combo = gtk.combo_box_entry_new_text()
-        model = self.username_combo.get_model()
-        for k in self.ma_new_users.iterkeys():
-            if k != '-':
-                model.append([k])
-
-        self.username = self.username_combo.child
-        self.username.set_width_chars(20)
-        self.username.set_name('username')
-        self.username_combo.connect('changed', selection_changed)
-        self.username.connect('changed', self.info_loop)
-        self.username.connect('focus-out-event', focus_out)
-        self.username_changed_id = self.username.connect(
-            'changed', self.on_username_changed)
-        self.username_hbox.pack_start(self.username_combo, False, False, 0)
-        self.username_hbox.reorder_child(self.username_combo, 0)
-        self.username_combo.show_all()
-
-    def ma_user_error(self, error, user):
-        # Note that 'user' is the original user.
-        model = self.matreeview.get_model()
-        iterator = model.get_iter(0)
-        while iterator:
-            val = model.get_value(iterator, 1)
-            if user == val['user']:
-                newuser = val['newuser']
-                self.ma_new_users[newuser]['loginname-error'] = error
-
-                # selection_changed only gets emitted if the selection actually
-                # changes.  So we only change the selection if we need to,
-                # otherwise we just call update_selection directly.
-                selection = self.matreeview.get_selection()
-                if selection.iter_is_selected(iterator):
-                    self.ma_update_selection()
-                else:
-                    selection.select_iter(iterator)
-                break
-            iterator = model.iter_next(iterator)
-
-    def ma_password_error(self, error, user):
-        # Note that 'user' is the user we're importing to.
-        model = self.matreeview.get_model()
-        iterator = model.get_iter(0)
-        while iterator:
-            val = model.get_value(iterator, 1)
-            if user == val['newuser']:
-                self.ma_new_users[user]['password-error'] = error
-
-                selection = self.matreeview.get_selection()
-                if selection.iter_is_selected(iterator):
-                    self.ma_update_selection()
-                else:
-                    selection.select_iter(iterator)
-                break
-            iterator = model.iter_next(iterator)
-
     def ma_get_choices(self):
-        return (self.ma_choices, self.ma_new_users)
+        return self.ma_choices
 
     def ma_cb_toggle(self, cell, path, model=None):
         iterator = model.get_iter(path)
@@ -2105,11 +1979,6 @@ class Wizard(BaseFrontend):
 
         # We're on a user checkbox.
         if model.iter_children(iterator):
-            if checked:
-                self.ma_userinfo.set_sensitive(True)
-            else:
-                self.ma_userinfo.set_sensitive(False)
-
             if not cell.get_active():
                 model.get_value(iterator, 1)['selected'] = True
             else:
@@ -2138,120 +2007,6 @@ class Wizard(BaseFrontend):
             else:
                 items.remove(item)
 
-    def ma_seed_userinfo(self):
-        sel = self.ma_previous_selection
-        if not sel:
-            return
-
-        m = sel[0]
-        i = sel[1]
-        if not m.iter_children(i):
-            i = m.iter_parent(i)
-        newuser = self.ma_loginname.child.get_text()
-        if m.get_value(i, 0):
-            if not newuser:
-                # Use - as a key for a null username.
-                newuser = '-'
-            try:
-                val = self.ma_new_users[newuser]
-            except KeyError:
-                self.ma_new_users[newuser] = {}
-                val = self.ma_new_users[newuser]
-                val['loginname-error'] = ''
-                val['password-error'] = ''
-
-            m.get_value(i, 1)['newuser'] = newuser
-
-            # Clear out any unused new users.
-            keys = self.ma_new_users.keys()
-            for k in keys:
-                it = m.get_iter(0)
-                found = False
-                while it:
-                    u = m.get_value(it, 1)['newuser']
-                    if k == u:
-                        found = True
-                        break
-                    it = m.iter_next(it)
-                if not found:
-                    self.ma_new_users.pop(k)
-
-            self.ma_loginname.set_model(gtk.ListStore(str))
-            for u in self.ma_new_users.iterkeys():
-                if u and u != '-':
-                    self.ma_loginname.append_text(u)
-            val['fullname'] = self.ma_fullname.get_text()
-            val['password'] = self.ma_password.get_text()
-            val['confirm'] = self.ma_confirm.get_text()
-            # We don't have to clear the username error because changing the
-            # username creates a new user.
-            if val['password'] and (val['password'] == val['confirm']):
-                val['password-error'] = ''
-            else:
-                val['password-error'] = self.ma_password_error_reason.get_text()
-
-    def ma_update_selection(self):
-        model, iterator = self.matreeview.get_selection().get_selected()
-        if not model.iter_children(iterator):
-            iterator = model.iter_parent(iterator)
-
-        self.ma_loginname_error_box.hide()
-        self.ma_password_error_box.hide()
-
-        newuser = model.get_value(iterator, 1)['newuser']
-        try:
-            val = self.ma_new_users[newuser]
-            if newuser == '-':
-                self.ma_loginname.child.set_text('')
-            else:
-                self.ma_loginname.child.set_text(newuser)
-
-            self.ma_fullname.set_text(val['fullname'])
-            self.ma_password.set_text(val['password'])
-            self.ma_confirm.set_text(val['confirm'])
-
-            error = val['loginname-error']
-            if error:
-                self.ma_loginname_error_reason.set_text(error)
-                self.ma_loginname_error_box.show()
-            error = val['password-error']
-            if error:
-                self.ma_password_error_reason.set_text(error)
-                self.ma_password_error_box.show()
-
-        except KeyError:
-            self.ma_fullname.set_text('')
-            self.ma_loginname.child.set_text('')
-            self.ma_password.set_text('')
-            self.ma_confirm.set_text('')
-
-    def ma_selection_changed(self, selection):
-        if self.ma_previous_selection:
-            self.ma_seed_userinfo()
-
-        model, iterator = selection.get_selected()
-        if not iterator:
-            return
-        if model.iter_parent(iterator):
-            iterator = model.iter_parent(iterator)
-
-        if model.get_value(iterator, 0):
-            self.ma_userinfo.set_sensitive(True)
-        else:
-            self.ma_userinfo.set_sensitive(False)
-
-        self.ma_previous_selection = selection.get_selected()
-        self.ma_update_selection()
-
-    def ma_combo_changed(self, sender):
-        if sender.get_active() >= 0:
-            user = self.ma_loginname.child.get_text()
-            val = self.ma_new_users[user]
-            self.ma_fullname.set_text(val['fullname'])
-            self.ma_password.set_text(val['password'])
-            self.ma_confirm.set_text(val['confirm'])
-
-
     def ma_set_choices(self, choices):
 
         def cell_data_func(column, cell, model, iterator):
@@ -2260,13 +2015,6 @@ class Wizard(BaseFrontend):
                 # Windows XP...
                 text = '%s  <small><i>%s (%s)</i></small>' % \
                        (val['user'], val['os'], val['part'])
-                newuser = val['newuser']
-                if newuser and model.get_value(iterator, 0):
-                    newuser = self.ma_new_users[newuser]
-                    if newuser['password-error'] or newuser['loginname-error']:
-                        text = '<span foreground="red">%s  <small><i>%s' \
-                               ' (%s)</i></small></span>' % \
-                               (val['user'], val['os'], val['part'])
             else:
                 # Gaim, Yahoo, etc
                 text = model.get_value(iterator, 1)
@@ -2279,14 +2027,7 @@ class Wizard(BaseFrontend):
 
         # TODO: evand 2007-10-12: Save state by comparing choices and
         # self.ma_choices.
-        self.ma_fullname.set_text('')
-        self.ma_loginname.child.set_text('')
-        self.ma_password.set_text('')
-        self.ma_confirm.set_text('')
-        self.ma_userinfo.set_sensitive(False)
         self.ma_choices = choices
-        # For the new users.
-        self.ma_new_users = {}
         # For the previous selected item.
         self.ma_previous_selection = None
 
@@ -2325,15 +2066,7 @@ class Wizard(BaseFrontend):
 
             self.matreeview.set_search_column(1)
 
-            self.matreeview.get_selection().connect('changed',
-                                                    self.ma_selection_changed)
             self.matreeview.show_all()
-
-            self.ma_loginname.set_model(gtk.ListStore(str))
-            if self.ma_loginname.get_text_column() == -1:
-                self.ma_loginname.set_text_column(0)
-            self.ma_loginname.connect('changed', self.ma_combo_changed)
-
 
     def set_fullname(self, value):
         self.fullname.set_text(value)
