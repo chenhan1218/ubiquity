@@ -4,7 +4,7 @@ oem-config (1.24) UNRELEASED; urgency=low
   * Fix oem-config-frontend-* virtual package name generation to handle ~ in
     versions.
   * Check $DISPLAY before trying to run zenity or kdialog.
-  * Add XS-Vcs-Bzr field to debian/control.
+  * Add Vcs-Bzr field to debian/control.
   * Convert to python-central.
   * Adjust for localechooser 1.39:
     - Don't edit /etc/environment unless it already contains LANG or
