@@ -12,6 +12,8 @@ oem-config (1.24) UNRELEASED; urgency=low
   * Adjust for localechooser 1.40:
     - Cope with localechooser asking countrychooser/country-name rather than
       countrychooser/shortlist.
+  * Automatic update of included source packages: console-setup 1.19ubuntu1,
+    localechooser 1.42ubuntu1, tzsetup 1:0.19, user-setup 1.16ubuntu1.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 16 Oct 2007 19:29:01 +0100
 
