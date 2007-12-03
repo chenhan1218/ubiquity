@@ -1072,6 +1072,11 @@ exit 0"""
             os.unlink('/target/etc/usplash.conf')
         except OSError:
             pass
+        try:
+            modes = self.db.get('xserver-xorg/config/display/modes')
+            self.set_debconf('xserver-xorg/config/display/modes', modes)
+        except debconf.DebconfError:
+            pass
 
         try:
             os.unlink('/target/etc/popularity-contest.conf')
