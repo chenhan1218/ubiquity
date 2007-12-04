@@ -152,6 +152,7 @@ class Wizard(BaseFrontend):
         self.resize_min_size = None
         self.resize_max_size = None
         self.new_size_scale = None
+        self.ma_choices = []
         self.username_combo = None
         self.username_changed_id = None
         self.hostname_changed_id = None
@@ -2025,9 +2026,6 @@ class Wizard(BaseFrontend):
             for col in self.matreeview.get_columns():
                 self.matreeview.remove_column(col)
 
-        # TODO: evand 2007-10-12: Save state by comparing choices and
-        # self.ma_choices.
-        self.ma_choices = choices
         # For the previous selected item.
         self.ma_previous_selection = None
 
@@ -2041,15 +2039,40 @@ class Wizard(BaseFrontend):
             self.matreeview.set_model(liststore)
             column = gtk.TreeViewColumn('item', gtk.CellRendererText(), text=0)
             self.matreeview.append_column(column)
-            self.matreeview.show_all()
         else:
             treestore = gtk.TreeStore(bool, object)
-            for choice in choices:
-                piter = treestore.append(None, [False, choice])
-                for item in choice['items']:
-                    treestore.append(piter, [False, item])
-                choice['items'] = []
 
+            # We save the choices list so we can preserve state, should the user
+            # decide to move back through the interface.  We cannot just put the
+            # old list back as the options could conceivably change.  For
+            # example, the user moves back to the partitioning page, removes a
+            # partition, and moves forward to the migration-assistant page.
+
+            # TODO evand 2007-12-04: simplify.
+            for choice in choices:
+                kept = False
+                for old_choice in self.ma_choices:
+                    if (old_choice['user'] == choice['user']) and \
+                    (old_choice['part'] == choice['part']):
+                        piter = treestore.append(None, \
+                            [old_choice['selected'], choice])
+                        choice['selected'] = old_choice['selected']
+                        new_items = []
+                        for item in choice['items']:
+                            if item in old_choice['items']:
+                                treestore.append(piter, [True, item])
+                                new_items.append(item)
+                            else:
+                                treestore.append(piter, [False, item])
+                        choice['items'] = new_items
+                        kept = True
+                        break
+                if kept == False:
+                    piter = treestore.append(None, [False, choice])
+                    for item in choice['items']:
+                        treestore.append(piter, [False, item])
+                    choice['items'] = []
+            
             self.matreeview.set_model(treestore)
 
             renderer = gtk.CellRendererToggle()
@@ -2066,7 +2089,10 @@ class Wizard(BaseFrontend):
 
             self.matreeview.set_search_column(1)
 
-            self.matreeview.show_all()
+        self.matreeview.show_all()
+        
+        # Save the list so we can preserve state.
+        self.ma_choices = choices
 
     def set_fullname(self, value):
         self.fullname.set_text(value)

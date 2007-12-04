@@ -3,6 +3,7 @@ ubiquity (1.7.2) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * XS-Vcs-Bzr is now Vcs-Bzr.
   * Strip out support for creating multiple users in migration-assistant.
+  * Save state in between runs of migration-assistant (LP: #151126).
 
   [ Colin Watson ]
   * Copy xserver-xorg/config/display/modes to the installed system before
