@@ -1,0 +1,42 @@
+#! /bin/sh
+# Check that the root filesystem is large enough to hold /rofs.
+
+. /lib/partman/definitions.sh
+
+rofssize="$(du -s /rofs | cut -f1)"
+# Fudge factor, specified in bytes.
+fudge=209715200 # 200MB
+
+for dev in $DEVICES/*; do
+    [ -d "$dev" ] || continue
+    cd $dev
+    root_mountpoint=
+    root_size=
+    open_dialog PARTITIONS
+    while { read_line num id size type fs path name; [ "$id" ]; }; do
+        [ -f "$id/mountpoint" ] || continue
+        mountpoint="$(cat "$id/mountpoint")"
+        if [ "$mountpoint" = "/" ]; then
+            root_mountpoint="$mountpoint"
+            root_size="$size"
+        fi
+    done
+    close_dialog
+	
+    if [ "$root_mountpoint" = "/" ]; then
+        minsize=$(expr 1024 \* $rofssize + $fudge)
+        if ! longint_le $minsize $root_size ; then
+            db_reset ubiquity/root-too-small
+            db_subst ubiquity/root-too-small MINSIZE "$minsize"
+            db_input critical ubiquity/root-too-small || true
+            db_go || true
+            db_get ubiquity/root-too-small
+            if [ "$RET" = true ]; then
+                exit 1
+            fi
+        fi
+        exit 0
+    fi
+done
+
+exit 0

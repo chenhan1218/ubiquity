@@ -611,3 +611,12 @@ Description: for internal use; specify a command to be run on install success.
 Template: ubiquity/failure_command
 Type: string
 Description: for internal use; specify a command to be run on install failure.
+
+Template: ubiquity/root-too-small
+Type: boolean
+_Description: Do you want to return to the partitioner?
+ The partition you created for the root filesystem is too small.  The partition
+ needs to be at least ${MINSIZE} bytes.
+ .
+ If you do not go back to the partitioner and increase the size of the root
+ partition, the installation may fail.
