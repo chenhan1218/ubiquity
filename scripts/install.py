@@ -333,6 +333,12 @@ class Install:
                     # Exit code 3 signals to the frontend that we have
                     # handled this error.
                     sys.exit(3)
+                elif e.errno == errno.ENOSPC:
+                    error_template = 'ubiquity/install/copying_error/no_space'
+                    self.db.subst(error_template, 'ERROR', str(e))
+                    self.db.input('critical', error_template)
+                    self.db.go()
+                    sys.exit(3)
                 else:
                     raise
 

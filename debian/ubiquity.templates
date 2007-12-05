@@ -361,6 +361,18 @@ Template: ubiquity/install/copying_minute
 Type: text
 _Description: Copying files (less than a minute remaining)...
 
+Template: ubiquity/install/copying_error/no_space
+Type: error
+#flag:translate!:3
+_Description: Failed to copy files; out of disk space.
+ The installer encountered an error copying files to the hard disk:
+ .
+ ${ERROR}
+ .
+ This particular error is due to there being insufficient disk space for the
+ install to complete on the target partition.  Please run the installer again
+ and select a larger partition to install into.
+
 Template: ubiquity/install/copying_error/cd_fault
 Type: error
 #flag:translate!:3
