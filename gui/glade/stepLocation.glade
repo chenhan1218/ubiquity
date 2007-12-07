@@ -85,7 +85,6 @@
                     <child>
                       <widget class="GtkComboBox" id="timezone_city_combo">
                         <property name="visible">True</property>
-                        <property name="can_focus">True</property>
                       </widget>
                       <packing>
                         <property name="left_attach">1</property>

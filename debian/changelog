@@ -10,6 +10,8 @@ ubiquity (1.7.2) UNRELEASED; urgency=low
   * Modified scripts/install.py to handle ENOSPC.
   * Tore out partition_help.  This may be replaced by more detailed help text,
     viewable by pressing a help button.
+  * Don't set can_focus on the timezone combo box as it prevents you from
+    tabbing back out of it.  Thanks Sebastien (LP: #136665).
 
   [ Colin Watson ]
   * Copy xserver-xorg/config/display/modes to the installed system before
