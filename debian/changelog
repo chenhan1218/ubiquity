@@ -4,8 +4,9 @@ ubiquity (1.7.2) UNRELEASED; urgency=low
   * XS-Vcs-Bzr is now Vcs-Bzr.
   * Strip out support for creating multiple users in migration-assistant.
   * Save state in between runs of migration-assistant (LP: #151126).
-  * Added partman/check.d/03root_too_small to warn the user when their root
-    partition isn't large enough to contain /rofs plus a bit (LP: #48355).
+  * Added partman/check.d/03partition_too_small to warn the user when a
+    partition isn't large enough to contain the respective part of /rofs
+    (LP: #48355).
   * Modified scripts/install.py to handle ENOSPC.
 
   [ Colin Watson ]

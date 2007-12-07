@@ -1,0 +1,70 @@
+#! /bin/sh
+# Check that the root filesystem is large enough to hold /rofs.
+
+. /lib/partman/definitions.sh
+
+# Fudge factors
+rootfudge=200000000 # 200MB
+bootmultfudge=3
+
+partitions=
+rofssum=0
+rootrofssize=
+rootsize=
+for dev in $DEVICES/*; do
+    [ -d "$dev" ] || continue
+    cd $dev
+    open_dialog PARTITIONS
+    while { read_line num id size type fs path name; [ "$id" ]; }; do
+        [ -f "$id/mountpoint" ] || continue
+        mountpoint="$(cat "$id/mountpoint")"
+        if [ "$mountpoint" = "/" ]; then
+            rofssize="$(du -s --block-size=1 /rofs | cut -f1)"
+            rootrofssize="$rofssize"
+            rootsize="$size"
+        else
+            [ -d "/rofs$mountpoint" ] || continue
+            rofssize="$(du -s --block-size=1 /rofs$mountpoint | cut -f1)"
+            if [ "$mountpoint" = "/boot" ]; then
+                rofssize="$(expr $rofssize \* $bootmultfudge)"
+            fi
+            if ! longint_le $rofssize $size ; then
+                if [ -z "$partitions" ]; then
+                    partitions="$mountpoint $rofssize"
+                else
+                    partitions="$partitions, $mountpoint $rofssize"
+                fi
+            fi
+            rofssum="$(expr $rofssum + $rofssize)"
+        fi
+    done
+    close_dialog
+done
+
+if [ -n "$rootrofssize" ]; then
+    rofs=$(expr $rootrofssize - $rofssum + $rootfudge)
+    if ! longint_le $rofs $rootsize ; then
+        if [ -z "$partitions" ]; then
+            partitions="/ $rofs"
+        else
+            partitions="/ $rofs, $partitions"
+        fi
+
+    fi
+fi
+
+if [ -n "$partitions" ]; then
+    partitions="$(echo "$partitions" | sed -e 's/, /\n/g')"
+    db_capb escape
+    db_reset ubiquity/partition-too-small
+    db_subst ubiquity/partition-too-small PARTITIONS "$(printf %s "$partitions" | debconf-escape -e)"
+    db_capb
+    db_input critical ubiquity/partition-too-small || true
+    db_go || true
+    db_get ubiquity/partition-too-small
+    if [ "$RET" = true ]; then
+        exit 1
+    fi
+fi
+
+exit 0
