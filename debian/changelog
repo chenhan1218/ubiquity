@@ -8,6 +8,8 @@ ubiquity (1.7.2) UNRELEASED; urgency=low
     partition isn't large enough to contain the respective part of /rofs
     (LP: #48355).
   * Modified scripts/install.py to handle ENOSPC.
+  * Tore out partition_help.  This may be replaced by more detailed help text,
+    viewable by pressing a help button.
 
   [ Colin Watson ]
   * Copy xserver-xorg/config/display/modes to the installed system before
