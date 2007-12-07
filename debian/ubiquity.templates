@@ -171,13 +171,6 @@ Template: ubiquity/text/part_advanced_heading_label
 Type: text
 _Description: Prepare partitions
 
-Template: ubiquity/text/partition_help
-Type: text
-_Description:
- You need to specify a partition for the root file system (mount point "/")
- with a minimum size of 2 GB, and a swap partition of at least 256 MB. You
- may also set up other partitions if you wish.
-
 Template: ubiquity/text/ready_heading_label
 Type: text
 _Description: Ready to install
