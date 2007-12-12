@@ -71,6 +71,8 @@ def install(frontend=None):
 def copy_debconf():
     """Copy a few important questions into the installed system."""
     targetdb = '/target/var/cache/debconf/config.dat'
+    # xserver-xorg is temporary, pending a rework of bullet-proof-x; but
+    # note that xserver-xorg/config/inputdevice/keyboard/* is still needed
     for q in ('^console-setup/','^xserver-xorg/'):
         misc.execute('debconf-copydb', 'configdb', 'targetdb', '-p', q,
                      '--config=Name:targetdb', '--config=Driver:File',
