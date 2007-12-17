@@ -379,7 +379,8 @@ class MythbuntuDrivers(FilteredCommand):
              '^mythbuntu/tvout',
              '^mythbuntu/tvstandard',
              '^mythbuntu/hdhomerun',
-             '^mythbuntu/xmltv']
+             '^mythbuntu/xmltv',
+             '^mythbuntu/dvbutils']
         return (['/usr/share/ubiquity/ask-drivers'], questions)
 
     def run(self,priority,question):
@@ -398,6 +399,9 @@ class MythbuntuDrivers(FilteredCommand):
         elif question.startswith('mythbuntu/xmltv'):
             xmltv = self.frontend.get_xmltv()
             self.preseed_bool('mythbuntu/xmltv',xmltv)
+        elif question.startswith('mythbuntu/dvbutils'):
+            dvbutils = self.frontend.get_dvbutils()
+            self.preseed_bool('mythbuntu/dvbutils',dvbutils)
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):

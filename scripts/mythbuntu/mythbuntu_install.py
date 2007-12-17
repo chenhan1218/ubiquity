@@ -184,6 +184,8 @@ class Install(install.Install):
         vnc = self.db.get('mythbuntu/vncservice')
         nfs = self.db.get('mythbuntu/nfsservice')
         xmltv = self.db.get('mythbuntu/xmltv')
+        dvbutils = self.db.get('mythbuntu/xmltv')
+        hdhomerun = self.db.get('mythbuntu/hdhomerun')
         to_install = []
         to_remove = set()
         if video_driver == "nvidia_new":
@@ -207,6 +209,10 @@ class Install(install.Install):
             to_install.append('portmap')
         if xmltv == 'true':
             to_install.append('xmltv')
+        if dvbutils == 'true':
+        	to_install.append('dvbutils')
+        if hdhomerun == 'true':
+        	to_install.append('hdhomerun-config')
 
         #Remove any conflicts before installing new items
         if to_remove != []:

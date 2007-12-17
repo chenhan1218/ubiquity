@@ -109,6 +109,9 @@ class MythbuntuApply(FilteredCommand):
         xmltv = self.db.get('mythbuntu/xmltv')
         if xmltv == "false":
             patternline += "|^xmltv"
+        dvbutils = self.db.get('mythbuntu/dvbutils')
+        if dvbutils == "false":
+            patternline += "|^dvbutils"
         pattern = re.compile(patternline)
         for line in in_f:
             if pattern.search(line) is None:

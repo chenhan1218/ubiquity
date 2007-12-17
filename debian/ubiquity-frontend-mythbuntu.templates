@@ -496,3 +496,7 @@ Description: for internal use; determines if hdhomerun config is to be installed
 Template: mythbuntu/xmltv
 Type: boolean
 Description: for internal use; determines if xmltv is to be installed
+
+Template: mythbuntu/dvbutils
+Type: boolean
+Description: for internal use; determines if dvbutils is to be installed

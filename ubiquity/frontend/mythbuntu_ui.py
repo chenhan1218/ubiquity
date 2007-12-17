@@ -1165,3 +1165,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def get_xmltv(self):
         return self.xmltv.get_active()
+
+    def get_dvbutils(self):
+        return self.dvbutils.get_active()
