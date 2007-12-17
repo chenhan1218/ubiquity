@@ -210,7 +210,7 @@ class Install(install.Install):
         if xmltv == 'true':
             to_install.append('xmltv')
         if dvbutils == 'true':
-        	to_install.append('dvbutils')
+        	to_install.append('dvb-utils')
         if hdhomerun == 'true':
         	to_install.append('hdhomerun-config')
 
