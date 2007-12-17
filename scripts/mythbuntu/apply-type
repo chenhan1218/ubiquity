@@ -69,14 +69,39 @@ grabuser()
     db_get passwd/username
     USER=$RET
 
+    #prep symbolic link to prevent mishaps from $ROOT/home/$USER/.mythtv/mysql.txt
+    if [ -e $HOME/.mythtv/mysql.txt ]; then
+        rm $ROOT/home/$USER/.mythtv/mysql.txt -f
+    fi
+    mkdir -p $ROOT/home/$USER/.mythtv
+    ln -s /etc/mythtv/mysql.txt $ROOT/home/$USER/.mythtv/mysql.txt
+
+    #Configure automatic login
     sed '/AutomaticLogin=/ c\AutomaticLogin='$USER'
     /AutomaticLoginEnable=/ c\AutomaticLoginEnable='true'
     /TimedLoginEnable=/ c\TimedLoginEnable='true'
     /TimedLogin=/ c\TimedLogin='$USER'' $ROOT/etc/gdm/gdm-cdd.conf | tee $ROOT/etc/gdm/gdm-cdd.conf.NEW > /dev/null
     mv $ROOT/etc/gdm/gdm-cdd.conf.NEW $ROOT/etc/gdm/gdm-cdd.conf
     mkdir $ROOT/home/$USER/.config/autostart -p
-    ln -s /usr/share/applications/mythtv.desktop $ROOT/home/$USER/.config/autostart
-    chown 1000:1000 $ROOT/home/$USER/ -R
+
+    #Only setup autostart if it wasn't already setup (From a previous install's home directory)
+    if [ ! -e $ROOT/home/$USER/.config/autostart ]; then
+        ln -s /usr/share/applications/mythtv.desktop $ROOT/home/$USER/.config/autostart
+    fi
+
+    #Fix up permissions as necessary
+    if db_get passwd/user-uid && [ "$RET" ]; then
+        UID=$RET
+    else
+        UID=1000
+    fi
+    if db_get passwd/user-gid && [ "$RET" ]; then
+        GID=$RET
+    else
+        GID=1000
+    fi
+    chown $UID:$GID $ROOT/home/$USER/.config -R
+    chown $UID:$GID $ROOT/home/$USER/.mythtv -R
 }
 
 mythtv_db()
