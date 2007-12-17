@@ -256,7 +256,7 @@ _Description: Choose Extra Themes
 Template: ubiquity/text/theme_description
 Type: text
 _Description:
- Themes can greatly improve the aesthic appeal of a MythTV
+ Themes can greatly improve the aesthetic appeal of a MythTV
  setup, and display it to match your tastes much better.
 
 Template: ubiquity/text/officialthemes
