@@ -20,6 +20,8 @@ ubiquity (1.7.2) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Correct a small typo in mythbuntu template. (LP: #155194)
+  * Don't allow mythbuntu remote configuration pages to progress
+    when "Other Remote" is selected. (LP: #157233)
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 03 Dec 2007 18:22:51 -0500
 

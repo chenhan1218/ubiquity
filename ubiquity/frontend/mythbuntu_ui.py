@@ -848,21 +848,26 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             #If the remote type isn't other, don't
             #allow them to change any other settings
             if (widget.get_active_text() == "Other Remote"):
-                self.lirc_driver.set_sensitive(True)
-                self.lirc_driver_label.set_sensitive(True)
-                self.lirc_modules.set_sensitive(True)
-                self.lirc_modules_label.set_sensitive(True)
-                self.lirc_rc.set_sensitive(True)
-                self.lirc_rc_label.set_sensitive(True)
+            #Please see bug 157233 for why "Other Remote" is disabled for now
+            #    self.lirc_driver.set_sensitive(True)
+            #    self.lirc_driver_label.set_sensitive(True)
+            #    self.lirc_modules.set_sensitive(True)
+            #    self.lirc_modules_label.set_sensitive(True)
+            #    self.lirc_rc.set_sensitive(True)
+            #    self.lirc_rc_label.set_sensitive(True)
                 self.lirc_bug_vbox.show()
+                self.allow_go_forward(False)
+                self.allow_go_backward(False)
             else:
-                self.lirc_driver.set_sensitive(False)
-                self.lirc_driver_label.set_sensitive(False)
-                self.lirc_modules.set_sensitive(False)
-                self.lirc_modules_label.set_sensitive(False)
-                self.lirc_rc.set_sensitive(False)
-                self.lirc_rc_label.set_sensitive(False)
+            #    self.lirc_driver.set_sensitive(False)
+            #    self.lirc_driver_label.set_sensitive(False)
+            #    self.lirc_modules.set_sensitive(False)
+            #    self.lirc_modules_label.set_sensitive(False)
+            #    self.lirc_rc.set_sensitive(False)
+            #    self.lirc_rc_label.set_sensitive(False)
                 self.lirc_bug_vbox.hide()
+                self.allow_go_forward(True)
+                self.allow_go_backward(True)
 
             self.lirc_driver.set_active(widget.get_active())
             self.lirc_modules.set_active(widget.get_active())
