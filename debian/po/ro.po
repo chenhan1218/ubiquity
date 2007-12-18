@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 12:17+0000\n"
+"POT-Creation-Date: 2007-12-18 13:02+0000\n"
 "PO-Revision-Date: 2007-10-06 13:25+0000\n"
 "Last-Translator: Eddy Petrișor <eddy.petrisor@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
@@ -902,12 +902,6 @@ msgstr "Cum doriţi să partiţionaţi discul?"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
-msgstr ""
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:116001
-msgid "${PARTITIONS}"
 msgstr ""
 
 #. Type: boolean

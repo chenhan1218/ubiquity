@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 12:17+0000\n"
+"POT-Creation-Date: 2007-12-18 13:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ming Hua <minghua@rice.edu>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -866,12 +866,6 @@ msgstr "您想如何分区？"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
-msgstr ""
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:116001
-msgid "${PARTITIONS}"
 msgstr ""
 
 #. Type: boolean
