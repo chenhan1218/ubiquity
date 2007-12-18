@@ -1,7 +1,7 @@
 #! /bin/sh
 # Check that the root filesystem is large enough to hold /rofs.
 
-. /lib/partman/definitions.sh
+. /lib/partman/lib/base.sh
 
 # Fudge factors
 rootfudge=200000000 # 200MB

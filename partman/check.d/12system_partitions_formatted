@@ -1,7 +1,7 @@
 #! /bin/sh
 # Check that all system partitions are formatted.
 
-. /lib/partman/definitions.sh
+. /lib/partman/lib/base.sh
 
 for dev in $DEVICES/*; do
     [ -d "$dev" ] || continue

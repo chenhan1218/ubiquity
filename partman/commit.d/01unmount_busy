@@ -1,6 +1,6 @@
 #! /bin/sh
 
-. /lib/partman/definitions.sh
+. /lib/partman/lib/base.sh
 
 if [ -f /etc/mtab ]; then
     MTAB=/etc/mtab
