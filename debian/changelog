@@ -1,4 +1,4 @@
-ubiquity (1.7.2) UNRELEASED; urgency=low
+ubiquity (1.7.2) hardy; urgency=low
 
   [ Evan Dandrea ]
   * XS-Vcs-Bzr is now Vcs-Bzr.
@@ -37,7 +37,7 @@ ubiquity (1.7.2) UNRELEASED; urgency=low
   * Allow dvb-utils to be selected during installation (LP: #130924)
   * Allow hdhomerun configuration to be installed. (LP: #153065)
 
- -- Mario Limonciello <superm1@ubuntu.com>  Mon, 17 Dec 2007 15:21:41 -0600
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Dec 2007 13:05:15 +0000
 
 ubiquity (1.7.1) hardy; urgency=low
 
