@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-11-29 11:52-0500\n"
+"POT-Creation-Date: 2007-12-18 12:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Peter Mann <Peter.Mann@tuke.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -291,27 +291,16 @@ msgstr "Pripravujú sa oblasti"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:37001
-msgid ""
-"You need to specify a partition for the root file system (mount point \"/\") "
-"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
-"may also set up other partitions if you wish."
-msgstr ""
-"Uistite sa, že koreňová oblasť (\"/\") bude mať najmenej 2 GB a odkladací "
-"(swap) priestor bude aspoň 256 MB."
-
-#. Type: text
-#. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:38001 ../ubiquity.templates:69001
+#: ../ubiquity.templates:37001 ../ubiquity.templates:68001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr "Inštalácia je pripravená"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:38001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
@@ -319,7 +308,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:39001
 msgid "Advanced..."
 msgstr ""
 
@@ -327,49 +316,49 @@ msgstr ""
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:40001
 msgid "Install[ action ]"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:41001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "Krok ${INDEX} z ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:42001
 msgid "Abort the installation?"
 msgstr "Prerušiť inštaláciu?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:43001
 msgid "Do you really want to abort the installation now?"
 msgstr "Naozaj teraz chcete prerušiť inštaláciu?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:44001
 msgid "Skip"
 msgstr "Preskočiť"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:45001
 msgid "Installation complete"
 msgstr "Inštalácia je kompletná"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:46001
 msgid "Continue using the live CD"
 msgstr "Naďalej používať toto Live CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:47001
 msgid "Restart now"
 msgstr "Reštartovať"
 
@@ -377,13 +366,13 @@ msgstr "Reštartovať"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:49001 ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001 ../ubiquity.templates:49001
 msgid "Installer crashed"
 msgstr "Inštalátor havaroval"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:50001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -401,7 +390,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:51001
 msgid "Create partition"
 msgstr "Vytvoriť oddiel"
 
@@ -409,79 +398,79 @@ msgstr "Vytvoriť oddiel"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001 ../ubiquity.templates:60001
+#: ../ubiquity.templates:52001 ../ubiquity.templates:59001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "Veľkosť nového oddielu v megabajtoch (1000000 bajtov):"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:53001
 msgid "Beginning"
 msgstr "Začiatok"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:54001
 msgid "End"
 msgstr "Koniec"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:55001
 msgid "Primary"
 msgstr "Primárna"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:56001
 msgid "Logical"
 msgstr "Logická"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:57001
 msgid "Edit partition"
 msgstr "Upraviť oddiel"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:58001
 msgid "Edit a partition"
 msgstr "Upraviť oddiel"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:60001
 msgid "Advanced Options"
 msgstr "Pokročilé voľby"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:61001
 msgid "Boot loader"
 msgstr "Zavádzač systému"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:62001
 msgid "Install boot loader"
 msgstr "Nainštalovať zavádzač"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:63001
 msgid "Popularity contest"
 msgstr "Prieskum popularity"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:64001
 msgid "Participate in the package usage survey"
 msgstr "Zúčastnite sa prieskumu využívania balíkov"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:65001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -494,20 +483,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:66001
 msgid "Go Back"
 msgstr "Naspäť"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:67001
 msgid "Continue"
 msgstr "Pokračovať"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:68001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -527,56 +516,75 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:69001
 msgid "Checking the installation..."
 msgstr "Kontrplujem inštaláciu..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:70001
 msgid "Installing system"
 msgstr "Inštaluje sa systém"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:71001
 msgid "Finding the distribution to copy..."
 msgstr "Hľadá sa distribúcia na skopírovanie..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:73001
 msgid "Scanning files..."
 msgstr "Hľadajú sa súbory..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:74001
 msgid "Copying files..."
 msgstr "Kopírujú sa súbory..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:75001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "Prebieha kopírovanie (zostáva menej ako minúta)..."
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:76001
+#, fuzzy
+#| msgid "Failed to copy files; faulty hard disk?"
+msgid "Failed to copy files; out of disk space."
+msgstr "Nepodarilo sa skopírovať súbory; vadný pevný disk?"
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:76001 ../ubiquity.templates:77001
+#: ../ubiquity.templates:78001 ../ubiquity.templates:79001
+msgid "The installer encountered an error copying files to the hard disk:"
+msgstr "Inštalátor narazil na chybu pri kopírovaní súborov na pevný disk:"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:76001
+msgid ""
+"This particular error is due to there being insufficient disk space for the "
+"install to complete on the target partition.  Please run the installer again "
+"and select a larger partition to install into."
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Failed to copy files; faulty CD/DVD?"
 msgstr "Nepodarilo sa skopírovať súbory; vadné CD/DVD?"
-
-#. Type: error
-#. Description
-#. Type: error
-#. Description
-#. Type: error
-#. Description
-#: ../ubiquity.templates:77001 ../ubiquity.templates:78001
-#: ../ubiquity.templates:79001
-msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "Inštalátor narazil na chybu pri kopírovaní súborov na pevný disk:"
 
 #. Type: error
 #. Description
@@ -868,6 +876,36 @@ msgstr ""
 "usr, /var) musia byť sformátované pre použitie s týmto inštalátorom. Ostatné "
 "systémy súborov (/home, /media/*, /usr/local, etc.) môžu byť použité bez "
 "formátovania."
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:116001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "Akým spôsobom chcete rozdeliť disk?"
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:116001
+msgid ""
+"Some of the partitions you created are too small.  Please make the following "
+"partitions at least this large (in bytes):"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:116001
+msgid "${PARTITIONS}"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:116001
+msgid ""
+"If you do not go back to the partitioner and increase the size of these "
+"partitions, the installation may fail."
+msgstr ""
 
 #. Type: note
 #. Description
@@ -1289,9 +1327,13 @@ msgstr "Zvoliť ďalšie témy"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
+#, fuzzy
+#| msgid ""
+#| "Themes can greatly improve the aesthic appeal of a MythTV setup, and "
+#| "display it to match your tastes much better."
 msgid ""
-"Themes can greatly improve the aesthic appeal of a MythTV setup, and display "
-"it to match your tastes much better."
+"Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
+"display it to match your tastes much better."
 msgstr ""
 "Témy môžu výrazne zlepšiť estetický dojem z MythTV a prispôsobiť ho tak ako "
 "sa vám páči."
@@ -1482,6 +1524,14 @@ msgstr "Nastavujú sa prídavné služby..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Nastavuje sa vzdialené ovládanie..."
+
+#~ msgid ""
+#~ "You need to specify a partition for the root file system (mount point \"/"
+#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
+#~ "You may also set up other partitions if you wish."
+#~ msgstr ""
+#~ "Uistite sa, že koreňová oblasť (\"/\") bude mať najmenej 2 GB a odkladací "
+#~ "(swap) priestor bude aspoň 256 MB."
 
 #~ msgid ""
 #~ "Be sure to remove the CD when restarting the computer, otherwise it will "

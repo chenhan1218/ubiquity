@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-11-29 11:52-0500\n"
+"POT-Creation-Date: 2007-12-18 12:17+0000\n"
 "PO-Revision-Date: 2007-10-04 11:57+0000\n"
 "Last-Translator: Javier Fernández-Sanguino Peña <jfs@debian.org>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -297,29 +297,16 @@ msgstr "Preparar particiones"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:37001
-msgid ""
-"You need to specify a partition for the root file system (mount point \"/\") "
-"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
-"may also set up other partitions if you wish."
-msgstr ""
-"Necesita especificar una partición para el sistema de archivos raíz (punto "
-"de montaje \"/\") con un tamaño mínimo de 2 GB, y una partición de "
-"intercambio de, al menos, 256 MB. También puede configurar otras particiones "
-"si lo desea."
-
-#. Type: text
-#. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:38001 ../ubiquity.templates:69001
+#: ../ubiquity.templates:37001 ../ubiquity.templates:68001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr "Listo para instalar"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:38001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
@@ -327,7 +314,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:39001
 msgid "Advanced..."
 msgstr "Avanzado..."
 
@@ -335,49 +322,49 @@ msgstr "Avanzado..."
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:40001
 msgid "Install[ action ]"
 msgstr "Instalar"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:41001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr "Etapa ${INDEX} de ${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:42001
 msgid "Abort the installation?"
 msgstr "¿Interrumpir la instalación?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:43001
 msgid "Do you really want to abort the installation now?"
 msgstr "¿Desea interrumpir la instalación ahora?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:44001
 msgid "Skip"
 msgstr "Saltar"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:45001
 msgid "Installation complete"
 msgstr "Instalación completada"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:46001
 msgid "Continue using the live CD"
 msgstr "Continuar usando el live CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:47001
 msgid "Restart now"
 msgstr "Reiniciar ahora"
 
@@ -385,13 +372,13 @@ msgstr "Reiniciar ahora"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:49001 ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001 ../ubiquity.templates:49001
 msgid "Installer crashed"
 msgstr "El instalador ha fallado"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:50001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -410,7 +397,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:51001
 msgid "Create partition"
 msgstr "Crear partición"
 
@@ -418,79 +405,79 @@ msgstr "Crear partición"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001 ../ubiquity.templates:60001
+#: ../ubiquity.templates:52001 ../ubiquity.templates:59001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "Nuevo tamaño de partición en megabytes (1000000 bytes):"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:53001
 msgid "Beginning"
 msgstr "Principio"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:54001
 msgid "End"
 msgstr "Final"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:55001
 msgid "Primary"
 msgstr "Primaria"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:56001
 msgid "Logical"
 msgstr "Lógica"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:57001
 msgid "Edit partition"
 msgstr "Editar partición"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:58001
 msgid "Edit a partition"
 msgstr "Editar una partición"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:60001
 msgid "Advanced Options"
 msgstr "Opciones avanzadas"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:61001
 msgid "Boot loader"
 msgstr "Cargador de arranque"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:62001
 msgid "Install boot loader"
 msgstr "Instalar cargador de arranque"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:63001
 msgid "Popularity contest"
 msgstr "Concurso de popularidad"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:64001
 msgid "Participate in the package usage survey"
 msgstr "Participar en la encuesta de uso de paquetes"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:65001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -503,20 +490,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:66001
 msgid "Go Back"
 msgstr "Retroceder"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:67001
 msgid "Continue"
 msgstr "Continuar"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:68001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -536,56 +523,75 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:69001
 msgid "Checking the installation..."
 msgstr "Comprobando la instalación..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:70001
 msgid "Installing system"
 msgstr "Instalando el sistema"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:71001
 msgid "Finding the distribution to copy..."
 msgstr "Buscando la distribución a copiar..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:73001
 msgid "Scanning files..."
 msgstr "Analizando archivos..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:74001
 msgid "Copying files..."
 msgstr "Copiando archivos..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:75001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "Copiando archivos (falta menos de un minuto)..."
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:76001
+#, fuzzy
+#| msgid "Failed to copy files; faulty hard disk?"
+msgid "Failed to copy files; out of disk space."
+msgstr "Error al copiar archivos; ¿disco duro defectuoso?"
+
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#. Type: error
+#. Description
+#: ../ubiquity.templates:76001 ../ubiquity.templates:77001
+#: ../ubiquity.templates:78001 ../ubiquity.templates:79001
+msgid "The installer encountered an error copying files to the hard disk:"
+msgstr "El instalador encontró un error al copiar los archivos al disco duro:"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:76001
+msgid ""
+"This particular error is due to there being insufficient disk space for the "
+"install to complete on the target partition.  Please run the installer again "
+"and select a larger partition to install into."
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Failed to copy files; faulty CD/DVD?"
 msgstr "Error al copiar archivos; ¿CD/DVD defectuoso?"
-
-#. Type: error
-#. Description
-#. Type: error
-#. Description
-#. Type: error
-#. Description
-#: ../ubiquity.templates:77001 ../ubiquity.templates:78001
-#: ../ubiquity.templates:79001
-msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "El instalador encontró un error al copiar los archivos al disco duro:"
 
 #. Type: error
 #. Description
@@ -887,6 +893,36 @@ msgstr ""
 "boot, /usr, /var) deben ser reformateados para usar éste instalador. Otros "
 "sistemas de archivos (/home, /media/*, /usr/local, etc.) pueden ser usados "
 "sin reformatear."
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:116001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "¿Cómo desea particionar el disco?"
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:116001
+msgid ""
+"Some of the partitions you created are too small.  Please make the following "
+"partitions at least this large (in bytes):"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:116001
+msgid "${PARTITIONS}"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:116001
+msgid ""
+"If you do not go back to the partitioner and increase the size of these "
+"partitions, the installation may fail."
+msgstr ""
 
 #. Type: note
 #. Description
@@ -1315,9 +1351,13 @@ msgstr "Selecciona temas adicionales"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
+#, fuzzy
+#| msgid ""
+#| "Themes can greatly improve the aesthic appeal of a MythTV setup, and "
+#| "display it to match your tastes much better."
 msgid ""
-"Themes can greatly improve the aesthic appeal of a MythTV setup, and display "
-"it to match your tastes much better."
+"Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
+"display it to match your tastes much better."
 msgstr ""
 "Los temas pueden mejorar significativamente el aspecto estético de una "
 "instalación MythTV, y lo muestra para ajustarla mucho mejor a sus gustos."
@@ -1518,6 +1558,16 @@ msgstr "Configurando servicios adicionales..."
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 msgid "Configuring remote control..."
 msgstr "Configurando el control remoto..."
+
+#~ msgid ""
+#~ "You need to specify a partition for the root file system (mount point \"/"
+#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
+#~ "You may also set up other partitions if you wish."
+#~ msgstr ""
+#~ "Necesita especificar una partición para el sistema de archivos raíz "
+#~ "(punto de montaje \"/\") con un tamaño mínimo de 2 GB, y una partición de "
+#~ "intercambio de, al menos, 256 MB. También puede configurar otras "
+#~ "particiones si lo desea."
 
 #~ msgid ""
 #~ "Be sure to remove the CD when restarting the computer, otherwise it will "

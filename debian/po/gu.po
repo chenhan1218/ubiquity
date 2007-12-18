@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-11-29 11:52-0500\n"
+"POT-Creation-Date: 2007-12-18 12:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <team@utkarsh.org>\n"
@@ -281,18 +281,9 @@ msgstr "/home પાર્ટિશન અલગ કરો"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:37001
-msgid ""
-"You need to specify a partition for the root file system (mount point \"/\") "
-"with a minimum size of 2 GB, and a swap partition of at least 256 MB. You "
-"may also set up other partitions if you wish."
-msgstr ""
-
-#. Type: text
-#. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:38001 ../ubiquity.templates:69001
+#: ../ubiquity.templates:37001 ../ubiquity.templates:68001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 #, fuzzy
 msgid "Ready to install"
@@ -300,14 +291,14 @@ msgstr "સ્થાપિત કરવાનું કર્નલ:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:38001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:39001
 msgid "Advanced..."
 msgstr ""
 
@@ -315,52 +306,52 @@ msgstr ""
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:40001
 msgid "Install[ action ]"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:41001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:42001
 #, fuzzy
 msgid "Abort the installation?"
 msgstr "સ્થાપન અધુરૂ છોડી દો"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:43001
 #, fuzzy
 msgid "Do you really want to abort the installation now?"
 msgstr "શું તમે પાર્ટિશન મેનુમાં પાછા જવા માંગો છો?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:44001
 msgid "Skip"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:45001
 #, fuzzy
 msgid "Installation complete"
 msgstr "સ્થાપન નિષ્ફળ ગયું"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:46001
 msgid "Continue using the live CD"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:47001
 msgid "Restart now"
 msgstr ""
 
@@ -368,13 +359,13 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:49001 ../ubiquity.templates:50001
+#: ../ubiquity.templates:48001 ../ubiquity.templates:49001
 msgid "Installer crashed"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:50001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -386,7 +377,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:51001
 msgid "Create partition"
 msgstr ""
 
@@ -394,79 +385,79 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001 ../ubiquity.templates:60001
+#: ../ubiquity.templates:52001 ../ubiquity.templates:59001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:53001
 msgid "Beginning"
 msgstr "શરૂઆત"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:54001
 msgid "End"
 msgstr "અંત"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:55001
 msgid "Primary"
 msgstr "પ્રાથમિક"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:56001
 msgid "Logical"
 msgstr "તાર્કિક"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:57001
 msgid "Edit partition"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:58001
 msgid "Edit a partition"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:60001
 msgid "Advanced Options"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:61001
 msgid "Boot loader"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:62001
 msgid "Install boot loader"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:63001
 msgid "Popularity contest"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:64001
 msgid "Participate in the package usage survey"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:65001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -476,20 +467,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:66001
 msgid "Go Back"
 msgstr "પાછા જાઓ"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:67001
 msgid "Continue"
 msgstr "ચાલુ રાખો"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:68001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -502,48 +493,48 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:69001
 msgid "Checking the installation..."
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:70001
 #, fuzzy
 msgid "Installing system"
 msgstr "પાયાની સિસ્ટમ સ્થાપન કરે છે"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:71001
 msgid "Finding the distribution to copy..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:73001
 #, fuzzy
 msgid "Scanning files..."
 msgstr "ડિસ્કમાં શોધે છે..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:74001
 #, fuzzy
 msgid "Copying files..."
 msgstr "નકલ થઈ રહી છે..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:75001
 msgid "Copying files (less than a minute remaining)..."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:76001
 #, fuzzy
-msgid "Failed to copy files; faulty CD/DVD?"
+msgid "Failed to copy files; out of disk space."
 msgstr "સીડી-રોમમાંથી ફાઇલ નકલ કરવામાં નિષ્ફળ. ફરી પ્રયત્ન કરશો?"
 
 #. Type: error
@@ -552,10 +543,28 @@ msgstr "સીડી-રોમમાંથી ફાઇલ નકલ કરવ�
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:77001 ../ubiquity.templates:78001
-#: ../ubiquity.templates:79001
+#. Type: error
+#. Description
+#: ../ubiquity.templates:76001 ../ubiquity.templates:77001
+#: ../ubiquity.templates:78001 ../ubiquity.templates:79001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:76001
+msgid ""
+"This particular error is due to there being insufficient disk space for the "
+"install to complete on the target partition.  Please run the installer again "
+"and select a larger partition to install into."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:77001
+#, fuzzy
+msgid "Failed to copy files; faulty CD/DVD?"
+msgstr "સીડી-રોમમાંથી ફાઇલ નકલ કરવામાં નિષ્ફળ. ફરી પ્રયત્ન કરશો?"
 
 #. Type: error
 #. Description
@@ -848,6 +857,35 @@ msgid ""
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
 "var) must be reformatted for use by this installer. Other file systems (/"
 "home, /media/*, /usr/local, etc.) may be used without reformatting."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:116001
+#, fuzzy
+msgid "Do you want to return to the partitioner?"
+msgstr "તમે પાર્ટિશન પાછુ લાવવા માંગો છો?"
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:116001
+msgid ""
+"Some of the partitions you created are too small.  Please make the following "
+"partitions at least this large (in bytes):"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:116001
+msgid "${PARTITIONS}"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:116001
+msgid ""
+"If you do not go back to the partitioner and increase the size of these "
+"partitions, the installation may fail."
 msgstr ""
 
 #. Type: note
@@ -1218,8 +1256,8 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid ""
-"Themes can greatly improve the aesthic appeal of a MythTV setup, and display "
-"it to match your tastes much better."
+"Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
+"display it to match your tastes much better."
 msgstr ""
 
 #. Type: text
