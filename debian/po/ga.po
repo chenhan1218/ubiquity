@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:02+0000\n"
+"POT-Creation-Date: 2007-12-18 13:03+0000\n"
 "PO-Revision-Date: 2007-09-09 16:32+0000\n"
 "Last-Translator: Kevin Patrick Scannell <scannell@SLU.EDU>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -210,9 +210,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:28001
 msgid ""
-"Select any accounts you would like to import and fill in the form below for "
-"each one.  The documents and settings for these accounts will be available "
-"after the install completes."
+"Select any accounts you would like to import.  The documents and settings "
+"for these accounts will be available after the install completes."
 msgstr ""
 
 #. Type: text
@@ -226,49 +225,19 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-msgid "Create a user to import the selected account into:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:30001
-msgid "Full Name:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:31001
-msgid "Login Name:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:32001
-msgid "Password:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:33001
-msgid "Confirm:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:34001
 msgid "Prepare disk space"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:35001
+#: ../ubiquity.templates:30001
 #, fuzzy
 msgid "How do you want to partition the disk?"
 msgstr "Ar mhaith leat leanúint ar aghaidh leis an deighilt?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
+#: ../ubiquity.templates:31001
 #, fuzzy
 msgid "Prepare partitions"
 msgstr "Deighilt /home ar leith"
@@ -277,21 +246,21 @@ msgstr "Deighilt /home ar leith"
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:37001 ../ubiquity.templates:68001
+#: ../ubiquity.templates:32001 ../ubiquity.templates:63001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:38001
+#: ../ubiquity.templates:33001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:34001
 msgid "Advanced..."
 msgstr ""
 
@@ -299,52 +268,52 @@ msgstr ""
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:35001
 msgid "Install[ action ]"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:36001
 msgid "Step ${INDEX} of ${TOTAL}"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:37001
 #, fuzzy
 msgid "Abort the installation?"
 msgstr "Tobscoir an tsuiteáil"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:38001
 #, fuzzy
 msgid "Do you really want to abort the installation now?"
 msgstr "An bhfuil tú cinnte gur mian leat scor anois?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:39001
 msgid "Skip"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:40001
 #, fuzzy
 msgid "Installation complete"
 msgstr "Theip ar shuiteáil LILO"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:41001
 msgid "Continue using the live CD"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:42001
 msgid "Restart now"
 msgstr ""
 
@@ -352,13 +321,13 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001 ../ubiquity.templates:49001
+#: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:45001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -370,7 +339,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:46001
 msgid "Create partition"
 msgstr ""
 
@@ -378,79 +347,79 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001 ../ubiquity.templates:59001
+#: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:48001
 msgid "Beginning"
 msgstr "Tosach"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:49001
 msgid "End"
 msgstr "Deireadh"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:50001
 msgid "Primary"
 msgstr "Príomhúil"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:51001
 msgid "Logical"
 msgstr "Loighciúil"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:52001
 msgid "Edit partition"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:53001
 msgid "Edit a partition"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:55001
 msgid "Advanced Options"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:56001
 msgid "Boot loader"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:57001
 msgid "Install boot loader"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:58001
 msgid "Popularity contest"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:60001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -460,20 +429,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:61001
 msgid "Go Back"
 msgstr "Téigh Siar"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:62001
 msgid "Continue"
 msgstr "Lean ar aghaidh"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:63001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -486,46 +455,46 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:64001
 msgid "Checking the installation..."
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:65001
 #, fuzzy
 msgid "Installing system"
 msgstr "Bunchóras á shuiteáil"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:66001
 msgid "Finding the distribution to copy..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:68001
 #, fuzzy
 msgid "Scanning files..."
 msgstr "Dioscaí á scanadh..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:69001
 #, fuzzy
 msgid "Copying files..."
 msgstr "Deighilt á cóipeáil..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:70001
 msgid "Copying files (less than a minute remaining)..."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:71001
 msgid "Failed to copy files; out of disk space."
 msgstr ""
 
@@ -537,14 +506,14 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:76001 ../ubiquity.templates:77001
-#: ../ubiquity.templates:78001 ../ubiquity.templates:79001
+#: ../ubiquity.templates:71001 ../ubiquity.templates:72001
+#: ../ubiquity.templates:73001 ../ubiquity.templates:74001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:71001
 msgid ""
 "This particular error is due to there being insufficient disk space for the "
 "install to complete on the target partition.  Please run the installer again "
@@ -553,13 +522,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:72001
 msgid "Failed to copy files; faulty CD/DVD?"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:72001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive. It may "
 "help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
@@ -569,13 +538,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:73001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:73001
 msgid ""
 "This particular error is often due to a faulty hard disk. It may help to "
 "check whether the hard disk is old and in need of replacement, or to move "
@@ -584,7 +553,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:74001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr ""
 
@@ -592,7 +561,7 @@ msgstr ""
 #. Description
 #. This is used when we don't know whether the CD/DVD or the hard disk is at
 #. fault.
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:74001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -603,153 +572,153 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:75001
 #, fuzzy
 msgid "Copying installation logs..."
 msgstr "Deighilt á cóipeáil..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:76001
 msgid "Configuring target system..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:77001
 #, fuzzy
 msgid "Configuring system locales..."
 msgstr "Foinsí API á gcumrú..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:78001
 #, fuzzy
 msgid "Configuring apt..."
 msgstr "apt á chumrú"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:79001
 #, fuzzy
 msgid "Configuring time zone..."
 msgstr "Cumraigh an crios ama"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:80001
 #, fuzzy
 msgid "Configuring keyboard..."
 msgstr "Méarchlár á chumrú..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:81001
 #, fuzzy
 msgid "Creating user..."
 msgstr "Á Ghlanadh..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:82001
 msgid "Importing documents and settings..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:83001
 #, fuzzy
 msgid "Configuring hardware..."
 msgstr "Méarchlár á chumrú..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:84001
 #, fuzzy
 msgid "Configuring network..."
 msgstr "Méarchlár á chumrú..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:85001
 #, fuzzy
 msgid "Setting computer name..."
 msgstr "Á Shocrú..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:86001
 #, fuzzy
 msgid "Configuring boot loader..."
 msgstr "Méarchlár á chumrú..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:87001
 msgid "Installing additional packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:88001
 msgid "Checking for packages to install..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:89001
 #, fuzzy
 msgid "Removing extra packages..."
 msgstr "Pacáistí breisithe á suiteáil..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:90001
 msgid "Checking for packages to remove..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:91001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:92001
 #, fuzzy
 msgid "Downloading package lists..."
 msgstr "Comhad \"Release\" á íosluchtú..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:93001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:95001
 #, fuzzy
 msgid "Error installing ${PACKAGE}"
 msgstr "${PACKAGE} á fháil"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:96001
 #, fuzzy
 msgid "Error removing ${PACKAGE}"
 msgstr "${PACKAGE} á fháil"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:97001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:97001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -757,7 +726,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:102001 ../ubiquity.templates:103001
+#: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -765,7 +734,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:102001 ../ubiquity.templates:103001
+#: ../ubiquity.templates:97001 ../ubiquity.templates:98001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -778,38 +747,38 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:98001
 msgid "Error while removing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:98001
 msgid "An error occurred while removing packages:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:99001
 #, fuzzy
 msgid "Installing language packs"
 msgstr "Bunphacáistí á suiteáil"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:100001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:105001
 msgid "Failed to unmount partitions"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:105001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -817,25 +786,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:105001
 msgid "Please close any applications using these mount points."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:105001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:106001
 msgid "System partition not formatted"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:106001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting. File systems used by the system (/, /boot, /usr, /"
@@ -845,14 +814,14 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:111001
 #, fuzzy
 msgid "Do you want to return to the partitioner?"
 msgstr "Ar mhaith leat leanúint ar aghaidh leis an deighilt?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:111001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -860,7 +829,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:111001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
