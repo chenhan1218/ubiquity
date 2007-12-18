@@ -1,3 +1,10 @@
+oem-config (1.25) UNRELEASED; urgency=low
+
+  * Update d-i/update-control to work with the new Dpkg::Deps module in
+    dpkg-dev 1.14.8.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Dec 2007 10:26:47 +0000
+
 oem-config (1.24) hardy; urgency=low
 
   * Fix "Step 1 of 4" counter advancement (part of LP #153139, #153336).

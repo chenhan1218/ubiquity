@@ -16,6 +16,10 @@ endif
 PACKAGES := $(filter-out console-setup,$(PACKAGES))
 
 update:
+	@perl -MDpkg::Deps -e1 >/dev/null 2>&1 || { \
+		echo "You need dpkg-dev >= 1.14.8 installed to do this." >&2; \
+		exit 1; \
+	}
 	./get-sources update
 	./get-sources $(shell sort -u $(LISTDIR)/*)
 	./update-control
