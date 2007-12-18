@@ -1,48 +1,20 @@
 #! /usr/bin/perl -w
 use strict;
 
-my $dpkglibdir = '/usr/lib/dpkg';
-push @INC, $dpkglibdir;
-require 'controllib.pl';
+use Dpkg::Deps;
 
-# Is $x a stricter dependency than $y?
-sub stricter ($$) {
-	my ($x, $y) = @_;
-	my ($xrel, $xver) = @{$x}[1, 2];
-	my ($yrel, $yver) = @{$y}[1, 2];
-
-	# Trivial cases.
-	if (!$xrel and !$yrel) {
-		return 0;
-	} elsif (!$xrel and $yrel) {
-		return 0;
-	} elsif ($xrel and !$yrel) {
-		return 1;
+# Get the first in a list of or-ed dependencies.
+sub first_dep ($) {
+	my $inner = shift;
+	while ($inner->isa('Dpkg::Deps::OR')) {
+		my @deps = $inner->get_deps();
+		$inner = $deps[0];
 	}
-
-	system('dpkg', '--compare-versions', $xver, 'gt', $yver);
-	my $xnewer = (($? >> 8) == 0);
-	system('dpkg', '--compare-versions', $yver, 'gt', $xver);
-	my $ynewer = (($? >> 8) == 0);
-
-	if ($xrel eq $yrel) {
-		return $xnewer;
-	} elsif ($xrel eq '>=' and $yrel eq '>>') {
-		return $xnewer;
-	} elsif ($xrel eq '>>' and $yrel eq '>=') {
-		return !$ynewer;
-	} else {
-		die "Don't know how to compare dependency relations '$xrel' and '$yrel'!\n";
+	unless ($inner->isa('Dpkg::Deps::Simple')) {
+		die sprintf "Couldn't reduce %s to a simple dependency!\n",
+			    $inner->dump();
 	}
-}
-
-sub depstring ($) {
-	my ($package, $relation, $version) = @{$_[0]}[0, 1, 2];
-	if ($relation) {
-		return "$package ($relation $version)";
-	} else {
-		return $package;
-	}
+	return $inner;
 }
 
 my $control = 'debian/control';
@@ -71,8 +43,10 @@ my @basebd = (
     'xkb-data (>= 0.9)',
 );
 my $basebd = join ', ', @basebd;
-for my $bd (@{parsedep($basebd, 1, 1)}) {
-	$builddeps{$bd->[0][0]} = $bd->[0];
+my $parsed = Dpkg::Deps::parse($basebd, reduce_arch => 1);
+for my $bd ($parsed->get_deps()) {
+	my $firstbd = first_dep($bd);
+	$builddeps{$firstbd->{package}} = $firstbd;
 }
 
 for my $source (<source/*/debian/control>) {
@@ -81,13 +55,15 @@ for my $source (<source/*/debian/control>) {
 	open SOURCE, '<', $source or die "can't open $source: $!";
 	while (<SOURCE>) {
 		if (/^Build-Depends(?:-Indep)?:\s*(.*)/i) {
-			for my $bd (split /, */, $1) {
-				# TODO: doesn't handle or-ed dependencies
-				my $dep = parsedep($bd, 1, 1)->[0][0];
-				my $package = $dep->[0];
+			$parsed = Dpkg::Deps::parse($1, reduce_arch => 1);
+			for my $bd ($parsed->get_deps()) {
+				# Reduce any or-ed dependencies to the first
+				# alternative.
+				my $firstbd = first_dep($bd);
+				my $package = $firstbd->{package};
 				if (not exists $builddeps{$package} or
-				    stricter($dep, $builddeps{$package})) {
-					$builddeps{$package} = $dep;
+				    $firstbd->implies($builddeps{$package})) {
+					$builddeps{$package} = $firstbd;
 				}
 			}
 			next;
@@ -97,7 +73,7 @@ for my $source (<source/*/debian/control>) {
 }
 
 my $builddeps =
-	join ', ', map { depstring($builddeps{$_}) } sort keys %builddeps;
+	join ', ', map { $builddeps{$_}->dump() } sort keys %builddeps;
 open IN, '<', $control or die "can't open $control: $!";
 open OUT, '>', "$control.tmp" or die "can't open $control.tmp for writing: $!";
 foreach (<IN>) {

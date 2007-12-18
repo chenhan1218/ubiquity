@@ -17,6 +17,8 @@ ubiquity (1.7.2) UNRELEASED; urgency=low
   * Copy xserver-xorg/config/display/modes to the installed system before
     reconfiguring usplash (LP: #150930).
   * Update for apt-setup 1:0.31ubuntu1.
+  * Update d-i/update-control to work with the new Dpkg::Deps module in
+    dpkg-dev 1.14.8.
 
   [ Mario Limonciello ]
   * Correct a small typo in mythbuntu template. (LP: #155194)
