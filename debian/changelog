@@ -1,3 +1,10 @@
+ubiquity (1.7.3) UNRELEASED; urgency=low
+
+  [ Mario Limonciello ]
+  * Show correct image in ubiquity-mythbuntu.desktop.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Wed, 19 Dec 2007 00:26:12 -0600
+
 ubiquity (1.7.2) hardy; urgency=low
 
   [ Evan Dandrea ]
