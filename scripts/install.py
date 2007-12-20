@@ -628,10 +628,14 @@ class Install:
                 sysloopf.close()
                 if sysloopsize == '0':
                     devnull = open('/dev/null')
+                    if osextras.find_on_path('udevadm'):
+                        udevinfo_cmd = ['udevadm', 'info']
+                    else:
+                        udevinfo_cmd = ['udevinfo']
+                    udevinfo_cmd.extend(
+                        ['-q', 'name', '-p', os.path.join('/block', sysloop)])
                     udevinfo = subprocess.Popen(
-                        ['udevinfo', '-q', 'name',
-                         '-p', os.path.join('/block', sysloop)],
-                        stdout=subprocess.PIPE, stderr=devnull)
+                        udevinfo_cmd, stdout=subprocess.PIPE, stderr=devnull)
                     devbase = udevinfo.communicate()[0]
                     devnull.close()
                     if udevinfo.returncode != 0:

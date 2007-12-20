@@ -82,3 +82,17 @@ def find_on_path_root(root, command):
         if os.path.isfile(filename) and os.access(filename, os.X_OK):
             return True
     return False
+
+
+def find_on_path(command):
+    """Is command on the executable search path?"""
+    if 'PATH' not in os.environ:
+        return False
+    path = os.environ['PATH']
+    for element in path.split(os.pathsep):
+        if not element:
+            continue
+        filename = os.path.join(element, command)
+        if os.path.isfile(filename) and os.access(filename, os.X_OK):
+            return True
+    return False
