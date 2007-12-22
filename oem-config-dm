@@ -48,7 +48,7 @@ class DM:
 
     def run(self, *program):
         null = open('/dev/null', 'w')
-        logfile = open('/var/log/oem-config.log', 'w')
+        logfile = open('/var/log/oem-config.log', 'a')
 
         signal.signal(signal.SIGUSR1, self.sigusr1_handler)
         signal.signal(signal.SIGTTIN, signal.SIG_IGN)

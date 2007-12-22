@@ -2,6 +2,7 @@ oem-config (1.25) UNRELEASED; urgency=low
 
   * Update d-i/update-control to work with the new Dpkg::Deps module in
     dpkg-dev 1.14.8.
+  * Append to /var/log/oem-config.log rather than overwriting it.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Dec 2007 10:26:47 +0000
 
