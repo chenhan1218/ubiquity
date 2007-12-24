@@ -2,6 +2,7 @@ ubiquity (1.7.3) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Show correct image in ubiquity-mythbuntu.desktop.
+  * Check only for .desktop file in autostart on mythbuntu.
 
   [ Colin Watson ]
   * udev 117 merged all udev tools into a single binary called udevadm.
