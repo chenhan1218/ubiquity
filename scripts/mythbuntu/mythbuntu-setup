@@ -17,12 +17,11 @@ mount -t sysfs sysfs $ROOT/sys
 mount --bind /lib/modules/`uname -r`/volatile $ROOT/lib/modules/`uname -r`/volatile
 
 #to run X apps in the chroot
-xhost +
+NEW_HOSTNAME=$(cat $ROOT/etc/hostname)
+xhost + local:""
+sed -i s/ubuntu$/ubuntu\ $NEW_HOSTNAME/ /etc/hosts
 mkdir -p $ROOT/tmp/.X11-unix
 mount --bind /tmp/.X11-unix $ROOT/tmp/.X11-unix
-xauth extract - $DISPLAY > $ROOT/tmp/Xcookie
-cat $ROOT/tmp/Xcookie | $chroot $ROOT xauth -f /root/.Xauthority merge -
-cat $ROOT/tmp/Xcookie | $chroot $ROOT xauth merge -
 
 #Prepare chroot script
 db_get mythbuntu/install_type
@@ -32,13 +31,13 @@ if [ "$TYPE" = "Master Backend/Frontend" ] || [ "$TYPE" = "Master Backend" ]; th
 #!/bin/bash
 
 #Set our new hostname
-hostname -F /etc/hostname
+hostname $NEW_HOSTNAME
 
 #Startup SQL
 /etc/init.d/mysql start
 
 #Run Mythtv-setup
-/usr/bin/x-terminal-emulator -e mythtv-setup.real
+xterm -e mythtv-setup.real
 
 #Fill Database
 zenity --title "Fill Database?" --question --text "Would you like to run mythfilldatabase?"
@@ -52,7 +51,6 @@ fi
 
 #Make sure warning doesn't come up on next boot
 mkdir -p /home/$USER/.mythtv
-touch /home/$USER/.mythtv/backend_configured
 chown 1000:1000 -R /home/$USER/.mythtv
 SETUP
 else
@@ -60,10 +58,10 @@ else
 #!/bin/bash
 
 #Set our new hostname
-hostname -F /etc/hostname
+hostname $NEW_HOSTNAME
 
 #Run Mythtv-setup
-/usr/bin/x-terminal-emulator -e mythtv-setup.real
+xterm -e mythtv-setup.real
 
 #Fill Database
 zenity --title "Fill Database?" --question --text "Would you like to run mythfilldatabase?"
@@ -74,7 +72,6 @@ fi
 
 #Make sure warning doesn't come up on next boot
 mkdir -p /home/$USER/.mythtv
-touch /home/$USER/.mythtv/backend_configured
 chown 1000:1000 -R /home/$USER/.mythtv
 SETUP
 fi
