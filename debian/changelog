@@ -8,7 +8,7 @@ oem-config (1.25) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Copy the value of debian-installer/locale over to the target system
     so that it gets used by oem-config as the default language
-    selection.
+    selection (LP: #181291).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 09 Jan 2008 02:08:52 -0500
 
