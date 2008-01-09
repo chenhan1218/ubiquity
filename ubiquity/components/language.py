@@ -40,16 +40,13 @@ class Language(FilteredCommand):
 
             # Get index of untranslated value; we'll map this to the
             # translated value later.
-            current_language_index = self.value_index(
-                'languagechooser/language-name')
+            current_language_index = self.value_index(question)
             current_language = "English"
 
             language_choices = self.split_choices(
-                unicode(self.db.metaget('languagechooser/language-name',
-                                        'choices-en.utf-8'),
+                unicode(self.db.metaget(question, 'choices-en.utf-8'),
                         'utf-8', 'replace'))
-            language_choices_c = self.choices_untranslated(
-                'languagechooser/language-name')
+            language_choices_c = self.choices_untranslated(question)
 
             language_codes = {}
             languagelist = open('/usr/lib/ubiquity/localechooser/languagelist')
