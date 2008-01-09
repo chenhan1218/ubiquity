@@ -1,10 +1,16 @@
 oem-config (1.25) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Update d-i/update-control to work with the new Dpkg::Deps module in
     dpkg-dev 1.14.8.
   * Append to /var/log/oem-config.log rather than overwriting it.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 18 Dec 2007 10:26:47 +0000
+  [ Evan Dandrea ]
+  * Copy the value of debian-installer/locale over to the target system
+    so that it gets used by oem-config as the default language
+    selection.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 09 Jan 2008 02:08:52 -0500
 
 oem-config (1.24) hardy; urgency=low
 

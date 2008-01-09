@@ -8,3 +8,7 @@ apt-install "oem-config${RET:+-$RET}"
 
 db_input high oem-config-udeb/instructions || true
 db_go || true
+
+# Copy the value of debian-installer/locale over to the target system so that
+# it gets used by oem-config as the default language selection.
+echo "oem-config $(debconf-dumpdb configdb -p 'debian-installer/locale$')" | chroot /target debconf-set-selections || true
