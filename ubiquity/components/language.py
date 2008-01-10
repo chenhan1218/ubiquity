@@ -96,7 +96,18 @@ class Language(FilteredCommand):
                 # Normally this default is handled by Default-$LL, but since
                 # we can't change debconf's language on the fly (unlike
                 # cdebconf), we have to fake it.
-                self.db.set(question, self.db.get('debian-installer/country'))
+                country = self.db.get('debian-installer/country')
+                if question.endswith('shortlist'):
+                    self.db.set(question, country)
+                elif question.endswith('country-name') and country:
+                    fp = open('/usr/share/iso-codes/iso_3166.tab')
+                    try:
+                        for line in fp:
+                            if line.startswith(country):
+                                self.db.set(question, line.split()[1])
+                                break
+                    finally:
+                        fp.close()
             return True
 
         return FilteredCommand.run(self, priority, question)

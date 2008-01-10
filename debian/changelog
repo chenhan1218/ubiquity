@@ -13,6 +13,8 @@ ubiquity (1.7.3) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Properly handle situations where localechooser might ask
     languagechooser/language-name-* (LP: #181440).
+  * Correctly answer both countrychooser/shortlist and
+    countrychooser/country-name (LP: #174937).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 09 Jan 2008 13:51:09 -0500
 
