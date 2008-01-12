@@ -58,7 +58,7 @@ class MigrationAssistant(FilteredCommand):
             self.filter_parts()
 
         elif question == 'ubiquity/run-ma-again':
-            self.db.set('ubiquity/run-ma-again', False)
+            self.db.set('ubiquity/run-ma-again', 'false')
             self.set_choices()
             # If we didn't ask any questions, they're all preseeded and we don't
             # need to show the page, so we'll continue along.  If we got at
