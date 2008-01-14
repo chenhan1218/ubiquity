@@ -265,7 +265,7 @@ class Install(install.Install):
                 ir_device["lircd_conf"] = ""
             self.lirc.set_device(ir_device,"remote")
         except debconf.DebconfError:
-            raise InstallStepError("Remote debconf read/write failed")
+            pass
 
         try:
             ir_device["transmitter"] = self.db.get('lirc/transmitter')
@@ -286,12 +286,12 @@ class Install(install.Install):
                 ir_device["lircd_conf"] = ""
             self.lirc.set_device(transmitter,"transmitter")
         except debconf.DebconfError:
-            raise InstallStepError("Transmitter debconf read/write failed")
+            pass
 
         self.lirc.write_hardware_conf('/target/etc/lirc/hardware.conf')
 
         try:
-            self.reconfigure(lirc)
+            self.reconfigure('lirc')
         finally:
             try:
                 os.unlink('/target/sbin/udevd')
