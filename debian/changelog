@@ -3,8 +3,9 @@ ubiquity (1.7.4) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * debian/control:
     - add mythbuntu-common to depends.
+  * Modify lirc handling to use mythbuntu-common.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Sat, 12 Jan 2008 10:30:26 -0600
+ -- Mario Limonciello <superm1@ubuntu.com>  Sat, 12 Jan 2008 10:51:55 -0600
 
 ubiquity (1.7.3) hardy; urgency=low
 

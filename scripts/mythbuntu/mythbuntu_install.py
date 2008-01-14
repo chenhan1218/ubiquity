@@ -3,7 +3,7 @@
 
 # Copyright (C) 2005 Javier Carranza and others for Guadalinex
 # Copyright (C) 2005, 2006 Canonical Ltd.
-# Copyright (C) 2007 Mario Limonciello for Mythbuntu
+# Copyright (C) 2007-2008 Mario Limonciello for Mythbuntu
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ import install
 import sys
 import syslog
 import errno
+import debconf
 
 
 sys.path.insert(0, '/usr/lib/ubiquity')
@@ -34,7 +35,14 @@ from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 usersetup_apply, hw_detect, check_kernels, \
                                 mythbuntu_apply
 
+from mythbuntu_common.lirc import LircHandler
+
 class Install(install.Install):
+    def __init__(self):
+        """Initializes the Mythbuntu installer extra objects"""
+        self.lirc=LircHandler()
+        install.Install.__init__(self)
+
     def run(self):
         """Run the install stage: copy everything to the target system, then
         configure it as necessary."""
@@ -140,8 +148,8 @@ class Install(install.Install):
             self.configure_services()
 
             self.db.progress('SET', 96)
-            self.db.progress('INFO', 'ubiquity/install/remote')
-            self.configure_remote()
+            self.db.progress('INFO', 'ubiquity/install/ir')
+            self.configure_ir()
 
             self.db.progress('SET', 97)
             self.db.progress('REGION', 97, 99)
@@ -197,11 +205,11 @@ class Install(install.Install):
         elif video_driver == "fglrx":
             to_install.append('xorg-driver-fglrx')
         elif video_driver == "openchrome":
-            to_install.append('libviaxvmcpro1')
-            to_install.append('libviaxvmc1')
+            to_install.append('libchomexvmcpro1')
+            to_install.append('libchomexvmc1')
             to_install.append('xserver-xorg-video-openchrome')
-            to_remove.add('xserver-xorg-video-all')
-            to_remove.add('xserver-xorg-video-via')
+        elif video_driver == "pvr_350":
+            to_install.append('xserver-xorg-video-ivtv')
         if vnc == 'true':
             to_install.append('vnc4server')
         if nfs == 'true':
@@ -210,9 +218,9 @@ class Install(install.Install):
         if xmltv == 'true':
             to_install.append('xmltv')
         if dvbutils == 'true':
-        	to_install.append('dvb-utils')
+            to_install.append('dvb-utils')
         if hdhomerun == 'true':
-        	to_install.append('hdhomerun-config')
+            to_install.append('hdhomerun-config')
 
         #Remove any conflicts before installing new items
         if to_remove != []:
@@ -227,12 +235,71 @@ class Install(install.Install):
         if ret != 0:
             raise InstallStepError("Additional Driver Configuration failed with code %d" % ret)
 
-    def configure_remote(self):
-        """Configures the remote per user choices"""
-        control = mythbuntu_apply.RemoteConfiguration(None,self.db)
-        ret = control.run_command(auto_process=True)
-        if ret != 0:
-            raise InstallStepError("Remote Control Configuration failed with code %d" % ret)
+    def configure_ir(self):
+        """Configures the remote & transmitter per user choices"""
+        ir_device={"modules":"","driver":"","device":"","lircd_conf":"","remote":"","transmitter":""}
+        self.chroot_setup()
+        self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
+                   '--quiet', '--add', '/sbin/udevd')
+        try:
+            os.symlink('/bin/true', '/target/sbin/udevd')
+        except OSError:
+            pass
+
+        try:
+            ir_device["remote"] = self.db.get('lirc/remote')
+            self.set_debconf('lirc/remote',ir_device["remote"])
+            if ir_device["remote"] == "Custom":
+                ir_device["modules"] = self.db.get('lirc/remote_modules')
+                ir_device["driver"] = self.db.get('lirc/remote_driver')
+                ir_device["device"] = self.db.get('lirc/remote_device')
+                ir_device["lircd_conf"] = self.db.get('lirc/remote_lircd_conf')
+                self.set_debconf('lirc/remote_modules',ir_device["modules"])
+                self.set_debconf('lirc/remote_driver',ir_device["driver"])
+                self.set_debconf('lirc/remote_device',ir_device["device"])
+                self.set_debconf('lirc/remote_lircd_conf',ir_device["lircd_conf"])
+            else:
+                ir_device["modules"] = ""
+                ir_device["driver"] = ""
+                ir_device["device"] = ""
+                ir_device["lircd_conf"] = ""
+            self.lirc.set_device(ir_device,"remote")
+        except debconf.DebconfError:
+            raise InstallStepError("Remote debconf read/write failed")
+
+        try:
+            ir_device["transmitter"] = self.db.get('lirc/transmitter')
+            self.set_debconf('lirc/transmitter',ir_device["transmitter"])
+            if ir_device["transmitter"] == "Custom":
+                ir_device["modules"] = self.db.get('lirc/transmitter_modules')
+                ir_device["driver"] = self.db.get('lirc/transmitter_driver')
+                ir_device["device"] = self.db.get('lirc/transmitter_device')
+                ir_device["lircd_conf"] = self.db.get('lirc/transmitter_lircd_conf')
+                self.set_debconf('lirc/transmitter_modules',ir_device["modules"])
+                self.set_debconf('lirc/transmitter_driver',ir_device["driver"])
+                self.set_debconf('lirc/transmitter_device',ir_device["device"])
+                self.set_debconf('lirc/transmitter_lircd_conf',ir_device["lircd_conf"])
+            else:
+                ir_device["modules"] = ""
+                ir_device["driver"] = ""
+                ir_device["device"] = ""
+                ir_device["lircd_conf"] = ""
+            self.lirc.set_device(transmitter,"transmitter")
+        except debconf.DebconfError:
+            raise InstallStepError("Transmitter debconf read/write failed")
+
+        self.lirc.write_hardware_conf('/target/etc/lirc/hardware.conf')
+
+        try:
+            self.reconfigure(lirc)
+        finally:
+            try:
+                os.unlink('/target/sbin/udevd')
+            except OSError:
+                pass
+            self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
+                       '--quiet', '--remove', '/sbin/udevd')
+        self.chroot_cleanup()
 
     def configure_services(self):
         """Activates any necessary service configuration"""

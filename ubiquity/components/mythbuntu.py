@@ -311,66 +311,56 @@ def ok_handler(self):
 
 class MythbuntuRemote(FilteredCommand):
     def prepare(self):
-        questions = ['^mythbuntu/en_lirc',
-             '^lirc/remote',
-             '^lirc/lircd_conf',
-             '^lirc/modules',
-             '^lirc/driver']
-        return (['/usr/share/ubiquity/ask-remote'], questions)
+        questions = ['^lirc/remote',
+             '^lirc/remote_lircd_conf',
+             '^lirc/remote_modules',
+             '^lirc/remote_driver',
+             '^lirc/transmitter',
+             '^lirc/transmitter_lircd_conf',
+             '^lirc/transmitter_modules',
+             '^lirc/transmitter_driver']
+        return (['/usr/share/ubiquity/ask-ir'], questions)
 
     def run(self,priority,question):
-        if question.startswith('mythbuntu/en_lirc'):
-            en_lirc = self.frontend.get_lirc()
-            self.preseed_bool('mythbuntu/en_lirc',en_lirc)
-        elif question.startswith('lirc/remote'):
-            if self.frontend.get_lirc():
-                remote = self.frontend.get_lirc_remote()
-            else:
-                remote = "n/a"
-            self.preseed('lirc/remote',remote)
-        elif question.startswith('lirc/lircd_conf'):
-            if self.frontend.get_lirc():
-                config = self.frontend.get_lirc_rc()
-            else:
-                config = "n/a"
-            self.preseed('lirc/lircd_conf',config)
-        elif question.startswith('lirc/modules'):
-            if self.frontend.get_lirc():
-                modules = self.frontend.get_lirc_modules()
-            else:
-                modules = "n/a"
-            self.preseed('lirc/modules',modules)
-        elif question.startswith('lirc/driver'):
-            if self.frontend.get_lirc():
-                driver = self.frontend.get_lirc_driver()
-            else:
-                driver = "n/a"
-            self.preseed('lirc/driver',driver)
+        if question.startswith('lirc/remote'):
+            device=self.frontend.get_lirc("remote")
+            if question.startswith('lirc/remote_modules'):
+                self.preseed('lirc/remote_modules',device["modules"])
+            elif question.startswith('lirc/remote_lircd_conf'):
+                self.preseed('lirc/remote_lircd_conf',device["lircd_conf"])
+            elif question.startswith('lirc/remote_driver'):
+                self.preseed('lirc/remote_driver',device["driver"])
+            elif question.startswith('lirc/remote_device'):
+                self.preseed('lirc/remote_device',device["device"])
+            elif question.startswith('lirc/remote'):
+                self.preseed('lirc/remote',device["remote"])
+        elif question.startswith('lirc/transmitter'):
+            device=self.frontend.get_lirc("transmitter")
+            if question.startswith('lirc/transmitter_modules'):
+                self.preseed('lirc/transmitter_modules',device["modules"])
+            elif question.startswith('lirc/transmitter_lircd_conf'):
+                self.preseed('lirc/transmitter_lircd_conf',device["lircd_conf"])
+            elif question.startswith('lirc/transmitter_driver'):
+                self.preseed('lirc/transmitter_driver',device["driver"])
+            elif question.startswith('lirc/transmitter_device'):
+                self.preseed('lirc/transmitter_device',device["device"])
+            elif question.startswith('lirc/transmitter'):
+                self.preseed('lirc/transmitter',device["transmitter"])
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
-        en_lirc = self.frontend.get_lirc()
-        self.preseed_bool('mythbuntu/en_lirc',en_lirc)
-        if self.frontend.get_lirc():
-            remote = self.frontend.get_lirc_remote()
-        else:
-            remote = "n/a"
-        self.preseed('lirc/remote',remote)
-        if self.frontend.get_lirc():
-            config = self.frontend.get_lirc_rc()
-        else:
-            config = "n/a"
-        self.preseed('lirc/lircd_conf',config)
-        if self.frontend.get_lirc():
-            modules = self.frontend.get_lirc_modules()
-        else:
-            modules = "n/a"
-        self.preseed('lirc/modules',modules)
-        if self.frontend.get_lirc():
-            driver = self.frontend.get_lirc_driver()
-        else:
-            driver = "n/a"
-        self.preseed('lirc/driver',driver)
+        device = self.frontend.get_lirc("remote")
+        self.preseed('lirc/remote_modules',device["modules"])
+        self.preseed('lirc/remote_lircd_conf',device["lircd_conf"])
+        self.preseed('lirc/remote_driver',device["driver"])
+        self.preseed('lirc/remote_device',device["device"])
+        self.preseed('lirc/remote',device["remote"])
+        device = self.frontend.get_lirc("transmitter")
+        self.preseed('lirc/transmitter_modules',device["modules"])
+        self.preseed('lirc/transmitter_lircd_conf',device["lircd_conf"])
+        self.preseed('lirc/transmitter_driver',device["driver"])
+        self.preseed('lirc/transmitter_device',device["device"])
+        self.preseed('lirc/transmitter',device["transmitter"])
         FilteredCommand.ok_handler(self)
 
 class MythbuntuDrivers(FilteredCommand):

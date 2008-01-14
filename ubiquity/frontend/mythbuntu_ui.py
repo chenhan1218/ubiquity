@@ -50,6 +50,9 @@ import signal
 import gtk
 import MySQLdb
 
+#Lirc support
+from mythbuntu_common.lirc import LircHandler
+
 from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, \
@@ -74,7 +77,7 @@ BREADCRUMB_STEPS = {
     "mythbuntu_stepThemes": 9,
     "mythbuntu_stepServices": 10,
     "mythbuntu_stepPasswords": 11,
-    "mythbuntu_stepLirc": 12,
+    "tab_remote_control": 12,
     "mythbuntu_stepDrivers": 13,
     "stepReady": 14,
     "mythbuntu_stepBackendSetup": 15
@@ -97,7 +100,7 @@ SUBPAGES = [
     "mythbuntu_stepThemes",
     "mythbuntu_stepServices",
     "mythbuntu_stepPasswords",
-    "mythbuntu_stepLirc",
+    "tab_remote_control",
     "mythbuntu_stepDrivers",
     "stepReady",
     "mythbuntu_stepBackendSetup"
@@ -353,7 +356,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             if n == 'MythbuntuAdvancedType':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepInstallType))
             elif n == 'MythbuntuRemote':
-                self.set_current_page(self.steps.page_num(self.mythbuntu_stepLirc))
+                self.set_current_page(self.steps.page_num(self.tab_remote_control))
             elif n == 'MythbuntuDrivers':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepDrivers))
             if n == 'MythbuntuInstallType':
@@ -372,26 +375,18 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
 #Added Methods
     def populate_lirc(self):
-        """Fills the lirc pages with the appropriate data"""
-        #Note, this requires lirc >= 0.8.2-0ubuntu3
-        hwdb = open('/usr/share/lirc/lirc.hwdb').readlines()
-        hwdb.sort()
-        #Filter out uncessary lines
-        filter = "^\#|^\["
-        #Filter out the /dev/input/eventX remote
-        filter += "|http"
-        pattern = re.compile(filter)
-        for line in hwdb:
-            if pattern.search(line) is None:
-                list = string.split(line, ";")
-                if len(list) > 1:
-                    #Make sure we have a config file before including
-                    if list[4] != "":
-                        self.lirc_remote.append_text(list[0].translate(string.maketrans('',''),','))
-                        self.lirc_driver.append_text(list[1])
-                        self.lirc_modules.append_text(list[2])
-                        self.lirc_rc.append_text(list[4])
-        self.lirc_remote.append_text("Other Remote")
+            """Fills the lirc pages with the appropriate data"""
+            self.remote_count = 0
+            self.transmitter_count = 0
+            self.lirc=LircHandler()
+            for item in self.lirc.get_possible_devices("remote"):
+                self.remote_list.append_text(item)
+                self.remote_count = self.remote_count + 1
+            for item in self.lirc.get_possible_devices("transmitter"):
+                self.transmitter_list.append_text(item)
+                self.transmitter_count = self.transmitter_count + 1
+            self.remote_list.set_active(0)
+            self.transmitter_list.set_active(0)
 
     def populate_video(self):
         """Finds the currently active video driver"""
@@ -406,7 +401,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 list = string.split(line, '"')
                 if len(list) > 1:
                     self.video_driver.append_text("Open Source Driver: " + list[1])
-                    self.video_driver.set_active(5)
+                    self.video_driver.set_active(6)
                     self.tvoutstandard.set_active(0)
                     self.tvouttype.set_active(0)
                     break
@@ -652,14 +647,61 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             set_fe_drivers(self,True)
             set_be_drivers(self,False)
 
-    def lirc_toggled(self,widget):
-        """Called when the checkbox to configure a remote is toggled"""
-        if (self.lirc_enable.get_active()):
-            self.lirc_middle_vbox.set_sensitive(True)
-            self.lirc_remote.set_active(0)
-        else:
-            self.lirc_middle_vbox.set_sensitive(False)
-            self.lirc_remote.set_active(0)
+    def toggle_ir(self,widget):
+        """Called whenever a request to enable/disable remote is called"""
+        if widget is not None:
+            #turn on/off IR remote
+            if widget.get_name() == 'remotecontrol':
+                self.remote_hbox.set_sensitive(widget.get_active())
+                self.generate_lircrc_checkbox.set_sensitive(widget.get_active())
+                if widget.get_active() and self.remote_list.get_active() == 0:
+                        self.remote_list.set_active(1)
+                else:
+                    self.remote_list.set_active(0)
+            #turn on/off IR transmitter
+            elif widget.get_name() == "transmittercontrol":
+                self.transmitter_hbox.set_sensitive(widget.get_active())
+                if widget.get_active():
+                    if self.transmitter_list.get_active() == 0:
+                        self.transmitter_list.set_active(1)
+                else:
+                    self.transmitter_list.set_active(0)
+            #if our selected remote itself changed
+            elif widget.get_name() == 'remote_list':
+                self.generate_lircrc_checkbox.set_active(True)
+                if self.remote_list.get_active() == 0:
+                    custom = False
+                    self.remotecontrol.set_active(False)
+                    self.generate_lircrc_checkbox.set_active(False)
+                elif self.remote_list.get_active_text() == "Custom":
+                    custom = True
+                else:
+                    custom = False
+                    self.remote_driver.set_text("")
+                    self.remote_modules.set_text("")
+                    self.remote_device.set_text("")
+                self.remote_driver_hbox.set_sensitive(custom)
+                self.remote_modules_hbox.set_sensitive(custom)
+                self.remote_device_hbox.set_sensitive(custom)
+                self.remote_configuration_hbox.set_sensitive(custom)
+                self.browse_remote_lircd_conf.set_filename("/usr/share/lirc/remotes")
+            #if our selected transmitter itself changed
+            elif widget.get_name() == 'transmitter_list':
+                if self.transmitter_list.get_active() == 0:
+                    custom = False
+                    self.transmittercontrol.set_active(False)
+                elif self.transmitter_list.get_active_text() == "Custom":
+                    custom = True
+                else:
+                    custom = False
+                    self.transmitter_driver.set_text("")
+                    self.transmitter_modules.set_text("")
+                    self.transmitter_device.set_text("")
+                self.transmitter_driver_hbox.set_sensitive(custom)
+                self.transmitter_modules_hbox.set_sensitive(custom)
+                self.transmitter_device_hbox.set_sensitive(custom)
+                self.transmitter_configuration_hbox.set_sensitive(custom)
+                self.browse_transmitter_lircd_conf.set_filename("/usr/share/lirc/transmitters")
 
     def mythweb_toggled(self,widget):
         """Called when the checkbox to install Mythweb is toggled"""
@@ -846,18 +888,17 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             else:
                 self.tvout_vbox.set_sensitive(False)
                 self.videodrivers_hbox.set_sensitive(False)
-                self.video_driver.set_active(5)
+                self.video_driver.set_active(6)
                 self.tvoutstandard.set_active(0)
                 self.tvouttype.set_active(0)
         elif (widget is not None and widget.get_name() == 'video_driver'):
             type = widget.get_active()
-            if (type == 0 or type == 1 or type == 2 or type == 3):
+            if (type == 0 or type == 1 or type == 2 or type == 3 or type == 5):
                 self.tvout_vbox.set_sensitive(True)
             else:
                 self.tvout_vbox.set_sensitive(False)
                 self.tvoutstandard.set_active(0)
                 self.tvouttype.set_active(0)
-
 
     def toggle_tv_out (self,widget):
         """Called when the tv-out type is toggled"""
@@ -878,37 +919,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.tvouttype.set_active(1)
         elif (self.tvoutstandard.get_active() == 0):
             self.tvouttype.set_active(0)
-
-    def lirc_changed(self,widget):
-        """Called when anything remote related is changed"""
-        if (widget is not None and widget.get_name() == 'lirc_remote'):
-            #If the remote type isn't other, don't
-            #allow them to change any other settings
-            if (widget.get_active_text() == "Other Remote"):
-            #Please see bug 157233 for why "Other Remote" is disabled for now
-            #    self.lirc_driver.set_sensitive(True)
-            #    self.lirc_driver_label.set_sensitive(True)
-            #    self.lirc_modules.set_sensitive(True)
-            #    self.lirc_modules_label.set_sensitive(True)
-            #    self.lirc_rc.set_sensitive(True)
-            #    self.lirc_rc_label.set_sensitive(True)
-                self.lirc_bug_vbox.show()
-                self.allow_go_forward(False)
-                self.allow_go_backward(False)
-            else:
-            #    self.lirc_driver.set_sensitive(False)
-            #    self.lirc_driver_label.set_sensitive(False)
-            #    self.lirc_modules.set_sensitive(False)
-            #    self.lirc_modules_label.set_sensitive(False)
-            #    self.lirc_rc.set_sensitive(False)
-            #    self.lirc_rc_label.set_sensitive(False)
-                self.lirc_bug_vbox.hide()
-                self.allow_go_forward(True)
-                self.allow_go_backward(True)
-
-            self.lirc_driver.set_active(widget.get_active())
-            self.lirc_modules.set_active(widget.get_active())
-            self.lirc_rc.set_active(widget.get_active())
 
     def get_advanced(self):
         """Returns if this is an advanced install"""
@@ -1052,6 +1062,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 return "nvidia_new"
             elif driver == 4:
                 return "openchrome"
+            elif driver == 5:
+                return "pvr_350"
             else:
                 return "None"
         else:
@@ -1142,23 +1154,24 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             return True
         else:
             return False
-    def get_lirc(self):
-        if self.lirc_enable.get_active():
-            return True
-        else:
-            return False
 
-    def get_lirc_remote(self):
-        return self.lirc_remote.get_active_text()
-
-    def get_lirc_modules(self):
-        return self.lirc_modules.get_active_text()
-
-    def get_lirc_driver(self):
-        return self.lirc_driver.get_active_text()
-
-    def get_lirc_rc(self):
-        return self.lirc_rc.get_active_text()
+    def get_lirc(self,type):
+        item = {"modules":"","device":"","driver":"","lircd_conf":""}
+        if type == "remote":
+            item["remote"]=self.remote_list.get_active_text()
+            if item["remote"] == "Custom":
+                item["modules"]=self.remote_modules.get_text()
+                item["device"]=self.remote_device.get_text()
+                item["driver"]=self.remote_driver.get_text()
+                item["lircd_conf"]=self.browse_remote_lircd_conf.get_filename()
+        elif type == "transmitter":
+            item["transmitter"]=self.transmitter_list.get_active_text()
+            if item["transmitter"] == "Custom":
+                item["modules"]=self.transmitter_modules.get_text()
+                item["device"]=self.transmitter_device.get_text()
+                item["driver"]=self.transmitter_driver.get_text()
+                item["lircd_conf"]=self.browse_transmitter_lircd_conf.get_filename()
+        return item
 
     def get_hdhomerun(self):
         return self.hdhomerun.get_active()

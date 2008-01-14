@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 # Written by Mario Limonciello <superm1@ubuntu.com>.
-# Copyright (C) 2007 Mario Limonciello
+# Copyright (C) 2007-2008 Mario Limonciello
 # Copyright (C) 2007 Jared Greenwald
 #
 # This program is free software; you can redistribute it and/or modify
@@ -96,7 +96,7 @@ class MythbuntuApply(FilteredCommand):
         community = self.db.get('mythbuntu/communitythemes')
         samba = self.db.get('mythbuntu/sambaservice')
         if samba == "false":
-            patternline += "|^samba|^samba-common"
+            patternline += "|^samba|^samba-common|^smbfs"
         vnc = self.db.get('mythbuntu/vncservice')
         if vnc == "false":
             patternline += "|^vnc4-common"
@@ -123,10 +123,6 @@ class MythbuntuApply(FilteredCommand):
 class AdditionalDrivers(FilteredCommand):
     def prepare(self):
         return (['/usr/share/ubiquity/apply-drivers', '/target'],[])
-
-class RemoteConfiguration(FilteredCommand):
-    def prepare(self):
-        return (['/usr/share/ubiquity/apply-remote', '/target'],[])
 
 class VNCHandler:
     """Used to properly enable VNC in a target configuration"""
