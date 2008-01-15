@@ -237,6 +237,7 @@ class Install(install.Install):
 
     def configure_ir(self):
         """Configures the remote & transmitter per user choices"""
+        #configure lircd for remote and transmitter
         ir_device={"modules":"","driver":"","device":"","lircd_conf":"","remote":"","transmitter":""}
         self.chroot_setup()
         self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
@@ -300,6 +301,12 @@ class Install(install.Install):
             self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
                        '--quiet', '--remove', '/sbin/udevd')
         self.chroot_cleanup()
+
+        #configure lircrc
+        home = '/target/home/' + self.db.get('passwd/username')
+        os.putenv('HOME',home)
+        self.lirc.create_lircrc("/target/etc/lirc/lircd.conf",False)
+        os.system('chown 1000:1000 -R ' + home)
 
     def configure_services(self):
         """Activates any necessary service configuration"""
