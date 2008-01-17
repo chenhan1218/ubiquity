@@ -50,8 +50,6 @@ def get_language():
 def read_config_file(f):
     if not os.path.isfile(f) or not os.access(f, os.R_OK):
         return None
-    import sys
-    print >>sys.stderr, "Configuration: %s" % f
     cfg = subprocess.Popen('''\
 . %s
 echo "XIM: $XIM"
@@ -122,13 +120,9 @@ def start_im():
             args = ''
         args = shlex.split(args)
         args.insert(0, cfg['XIM_PROGRAM'])
-        import sys
-        print >>sys.stderr, 'Starting: %s' % ' '.join(args)
         _im_subps.append(subprocess.Popen(args, preexec_fn=subprocess_setup))
 
     if cfg_has('XIM_PROGRAM_XTRA'):
-        import sys
-        print >>sys.stderr, 'Starting: %s' % cfg['XIM_PROGRAM_XTRA']
         _im_subps.append(subprocess.Popen([cfg['XIM_PROGRAM_XTRA']],
                                           preexec_fn=subprocess_setup))
 
