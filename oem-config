@@ -29,6 +29,8 @@ import subprocess
 
 sys.path.insert(0, '/usr/lib/oem-config')
 
+from oem_config import im_switch
+
 class Wizard:
     def __init__(self, frontend_name=None):
         if frontend_name is None:
@@ -119,4 +121,5 @@ if __name__ == '__main__':
     wizard.run()
     disable_autologin()
     run_hooks()
+    im_switch.kill_im()
     sys.exit(0)

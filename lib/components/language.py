@@ -23,6 +23,7 @@ import locale
 
 from oem_config.filteredcommand import FilteredCommand
 from oem_config import i18n
+from oem_config import im_switch
 
 class Language(FilteredCommand):
     def prepare(self):
@@ -124,3 +125,4 @@ class Language(FilteredCommand):
             except locale.Error, e:
                 self.debug('locale.setlocale failed: %s (LANG=%s)',
                            e, di_locale)
+            im_switch.start_im()

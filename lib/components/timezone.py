@@ -22,6 +22,7 @@ import locale
 
 from oem_config.filteredcommand import FilteredCommand
 from oem_config import i18n
+from oem_config import im_switch
 import oem_config.tz
 
 class Timezone(FilteredCommand):
@@ -85,3 +86,4 @@ class Timezone(FilteredCommand):
             except locale.Error, e:
                 self.debug('locale.setlocale failed: %s (LANG=%s)',
                            e, di_locale)
+            im_switch.start_im()
