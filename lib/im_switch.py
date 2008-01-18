@@ -97,7 +97,7 @@ def start_im():
     def cfg_has(var):
         return (var in cfg and cfg[var])
 
-    if cfg_has('XMODIFIERS') and cfg_has('XIM'):
+    if not cfg_has('XMODIFIERS') and cfg_has('XIM'):
         cfg['XMODIFIERS'] = '@im=%s' % cfg['XIM']
 
     def subprocess_setup():
