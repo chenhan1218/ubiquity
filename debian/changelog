@@ -5,6 +5,9 @@ ubiquity (1.7.4) UNRELEASED; urgency=low
     - add mythbuntu-common to depends.
   * Modify lirc handling to use mythbuntu-common.
 
+  [ Colin Watson ]
+  * Simplify check for gconftool-2 being on $PATH.
+
  -- Mario Limonciello <superm1@ubuntu.com>  Sat, 12 Jan 2008 10:51:55 -0600
 
 ubiquity (1.7.3) hardy; urgency=low

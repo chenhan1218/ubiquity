@@ -255,7 +255,7 @@ class Wizard(BaseFrontend):
     # Disable gnome-volume-manager automounting to avoid problems during
     # partitioning.
     def disable_volume_manager(self):
-        if osextras.find_on_path_root('/', 'gconftool-2'):
+        if osextras.find_on_path('gconftool-2'):
             gvm_root = '/desktop/gnome/volume_manager'
             gvm_automount_drives = '%s/automount_drives' % gvm_root
             gvm_automount_media = '%s/automount_media' % gvm_root
@@ -287,7 +287,7 @@ class Wizard(BaseFrontend):
         atexit.register(self.enable_volume_manager)
 
     def enable_volume_manager(self):
-        if osextras.find_on_path_root('/', 'gconftool-2'):
+        if osextras.find_on_path('gconftool-2'):
             gvm_root = '/desktop/gnome/volume_manager'
             gvm_automount_drives = '%s/automount_drives' % gvm_root
             gvm_automount_media = '%s/automount_media' % gvm_root
