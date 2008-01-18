@@ -71,12 +71,15 @@ echo "QT_IM_MODULE: $QT_IM_MODULE"''' % f, stdout=subprocess.PIPE, shell=True)
 def read_config():
     lang = get_language()
     files = []
+    # im-switch also reads all_ALL and default, as per the commented-out
+    # lines. We avoid these since that would involve starting up scim even
+    # for English, which is going a bit far.
     if 'HOME' in os.environ:
         files.append('%s/.xinput.d/%s' % (os.environ['HOME'], lang))
-        files.append('%s/.xinput.d/all_ALL' % os.environ['HOME'])
+        #files.append('%s/.xinput.d/all_ALL' % os.environ['HOME'])
     files.append('/etc/X11/xinit/xinput.d/%s' % lang)
-    files.append('/etc/X11/xinit/xinput.d/all_ALL')
-    files.append('/etc/X11/xinit/xinput.d/default')
+    #files.append('/etc/X11/xinit/xinput.d/all_ALL')
+    #files.append('/etc/X11/xinit/xinput.d/default')
 
     for f in files:
         cfg_dict = read_config_file(f)
