@@ -120,6 +120,8 @@ def start_im():
     for var in ('GTK_IM_MODULE', 'QT_IM_MODULE', 'XMODIFIERS'):
         if cfg_has(var):
             os.environ[var] = cfg[var]
+        elif var in os.environ:
+            del os.environ[var]
 
     _im_subps = []
     if cfg_has('XIM_PROGRAM') and os.access(cfg['XIM_PROGRAM'], os.X_OK):
