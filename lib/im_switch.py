@@ -84,6 +84,20 @@ def read_config():
             return cfg_dict
     return {}
 
+def drop_privileges():
+    if 'SUDO_GID' in os.environ:
+        gid = int(os.environ['SUDO_GID'])
+        os.setregid(gid, gid)
+    if 'SUDO_UID' in os.environ:
+        uid = int(os.environ['SUDO_UID'])
+        os.setreuid(uid, uid)
+
+def subprocess_setup():
+    drop_privileges()
+    signal.signal(signal.SIGINT, signal.SIG_DFL)
+    signal.signal(signal.SIGPIPE, signal.SIG_DFL)
+    os.setsid()
+
 _im_subps = []
 
 # Entry point
@@ -100,13 +114,9 @@ def start_im():
     if not cfg_has('XMODIFIERS') and cfg_has('XIM'):
         cfg['XMODIFIERS'] = '@im=%s' % cfg['XIM']
 
-    def subprocess_setup():
-        for var in ('GTK_IM_MODULE', 'QT_IM_MODULE', 'XMODIFIERS'):
-            if cfg_has(var):
-                os.environ[var] = cfg[var]
-        signal.signal(signal.SIGINT, signal.SIG_DFL)
-        signal.signal(signal.SIGPIPE, signal.SIG_DFL)
-        os.setsid()
+    for var in ('GTK_IM_MODULE', 'QT_IM_MODULE', 'XMODIFIERS'):
+        if cfg_has(var):
+            os.environ[var] = cfg[var]
 
     _im_subps = []
     if cfg_has('XIM_PROGRAM') and os.access(cfg['XIM_PROGRAM'], os.X_OK):
