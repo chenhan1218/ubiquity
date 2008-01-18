@@ -39,14 +39,17 @@ class Wizard:
             frontend_names = [frontend_name]
         mod = __import__('oem_config.frontend', globals(), locals(),
                          frontend_names)
+        chosen = None
         for f in frontend_names:
             if hasattr(mod, f):
+                chosen = f
                 ui = getattr(mod, f)
                 break
         else:
             raise AttributeError, ('No frontend available; tried %s' %
                                    ', '.join(frontend_names))
         self.frontend = ui.Frontend()
+        os.environ['OEM_CONFIG_FRONTEND'] = chosen
 
     def run(self):
         self.frontend.run()

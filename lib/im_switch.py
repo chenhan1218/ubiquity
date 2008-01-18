@@ -123,6 +123,18 @@ def start_im():
         elif var in os.environ:
             del os.environ[var]
 
+    # Inform GTK about the change if necessary; requires
+    # http://bugzilla.gnome.org/show_bug.cgi?id=502446.
+    if (cfg_has('GTK_IM_MODULE') and
+        'OEM_CONFIG_FRONTEND' in os.environ and
+        os.environ['OEM_CONFIG_FRONTEND'] == 'gtk_ui'):
+        import gtk
+        settings = gtk.settings_get_default()
+        try:
+            settings.set_string_property('gtk-im-module', cfg['GTK_IM_MODULE'])
+        except TypeError:
+            pass
+
     _im_subps = []
     if cfg_has('XIM_PROGRAM') and os.access(cfg['XIM_PROGRAM'], os.X_OK):
         if cfg_has('XIM_ARGS'):
