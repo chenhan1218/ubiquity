@@ -285,7 +285,7 @@ class Install(install.Install):
                 ir_device["driver"] = ""
                 ir_device["device"] = ""
                 ir_device["lircd_conf"] = ""
-            self.lirc.set_device(transmitter,"transmitter")
+            self.lirc.set_device(ir_device,"transmitter")
         except debconf.DebconfError:
             pass
 
