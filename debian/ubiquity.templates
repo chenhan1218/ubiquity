@@ -571,12 +571,15 @@ _Description: Failed to unmount partitions
  Would you like the installer to try to unmount these partitions again?
 
 Template: ubiquity/partman-system-unformatted
-Type: error
-_Description: System partition not formatted
- The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been
- marked for formatting. File systems used by the system (/, /boot, /usr,
- /var) must be reformatted for use by this installer. Other file systems
- (/home, /media/*, /usr/local, etc.) may be used without reformatting.
+Type: boolean
+#flag:translate!:3
+_Description: Do you want to return to the partitioner?
+ The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been marked
+ for formatting.  Directories containing system files (/boot, /etc, /usr, /var,
+ ...) that already exist under any defined mountpoint will be deleted during the
+ install.
+ .
+ Please ensure that you have backed up any critical data before installing.
 
 Template: ubiquity/run-ma-again
 Type: boolean

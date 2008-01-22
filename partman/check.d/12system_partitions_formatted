@@ -29,9 +29,14 @@ for dev in $DEVICES/*; do
 		db_reset ubiquity/partman-system-unformatted
 		db_subst ubiquity/partman-system-unformatted PARTITION "$path"
 		db_subst ubiquity/partman-system-unformatted MOUNTPOINT "$mountpoint"
-		db_input critical ubiquity/partman-system-unformatted || true
+		db_input high ubiquity/partman-system-unformatted || true
 		db_go || true
-		exit 1
+		db_get ubiquity/partman-system-unformatted
+		if [ "$RET" = true ]; then
+		    exit 1
+		else
+		    exit 0
+		fi
 		;;
 	esac
     done
