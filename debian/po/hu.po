@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: 2007-10-04 14:39+0000\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
@@ -841,34 +841,36 @@ msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Kívánja, hogy a telepítő újra megppróbálja leválasztani ezeket a partíciókat?"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "A rendszerpartíció nincs leformázva."
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "Hogyan kívánja particionálni a lemezt?"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "A(z) ${MOUNTPOINT} csatolási ponthoz társított ${PARTITION} partíció "
 "fájlrendszere nincs kijelölve formázásra. A rendszer által használt "
 "fájlrendszereket (/, /boot, /usr, /var) újra kell formázni, hogy a telepítő "
 "használhassa azokat. Más fájlrendszereket (/home, /media/*, /usr/local, "
 "stb.) újraformázás nélkül is lehet használni."
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
-msgid "Do you want to return to the partitioner?"
-msgstr "Hogyan kívánja particionálni a lemezt?"
 
 #. Type: boolean
 #. Description
@@ -1511,8 +1513,16 @@ msgstr "A további kiszolgálók konfigurálása..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-msgid "Configuring remote control..."
-msgstr "A távirányító konfigurálása..."
+#, fuzzy
+#| msgid "Configuring additional services..."
+msgid "Configuring infrared devices..."
+msgstr "A további kiszolgálók konfigurálása..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "A rendszerpartíció nincs leformázva."
+
+#~ msgid "Configuring remote control..."
+#~ msgstr "A távirányító konfigurálása..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr "Felhasználó létrehozása a kijelölt fiókok importáláshoz:"

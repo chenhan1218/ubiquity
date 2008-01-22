@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Lior Kaplan <kaplan@debian.org>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
@@ -813,33 +813,35 @@ msgstr "אנא סגור את כל היישומים המשתמשים במחיצו
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "האם ברצונך שתוכנית ההתקנה תנסה לכבות את המחיצות הללו שוב?"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "מחצית המערכת עדיין לא פורמטה"
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "באיזו דרך תרצו לחלק את הכונן למחיצות?"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "מערכת הקבצים אשר נמצאת ב ${PARTITION} ובמיקום ${MOUNTPOINT} לא סומנה "
 "לפירמוט. מערכות קבצים המשמשות את המערכת (/, /boot, /usr, /var) חייבות לעבור "
 "פירמוט מחדש כדי להיות שמישות ע\"י תוכנית ההתקנה. מערכות קבצים אחרות (/home, /"
 "media/*, /usr/local, etc.) יכולות להישאר ללא פירמוט מחדש."
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
-msgid "Do you want to return to the partitioner?"
-msgstr "באיזו דרך תרצו לחלק את הכונן למחיצות?"
 
 #. Type: boolean
 #. Description
@@ -1407,8 +1409,15 @@ msgstr "מגדיר את החומרה..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 #, fuzzy
-msgid "Configuring remote control..."
-msgstr "מגדיר איזור זמן..."
+msgid "Configuring infrared devices..."
+msgstr "מגדיר את החומרה..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "מחצית המערכת עדיין לא פורמטה"
+
+#, fuzzy
+#~ msgid "Configuring remote control..."
+#~ msgstr "מגדיר איזור זמן..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr "צור משתמש אשר אליו יועבר החשבון הנבחר:"

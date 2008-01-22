@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: 2007-10-03 16:08+0000\n"
 "Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -815,33 +815,35 @@ msgstr "الرجاء غلق أي تطبيق يستخدم نقاط الوصل ه�
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "هل تريد من برنامج التثبيت أن يحاول فصل نقاط الوصل هذه مره أخرى؟"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "قسم النظام غير مجهز"
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "كيف تريد أن تجزئ الاسطوانة؟"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "النظام الملفّي على القسم ${PARTITION} والمخصص لنقطة الوصل ${MOUNTPOINT} لم "
 "يتم تأشيرها للتجهيز. الأنظمه الملفّيه المستخدمة من قبل النظام (/, /boot, /"
 "usr, /var) يجب أن يتم تجهيزها من قبل برنامج التنصيب هذا. يمكن إستخذام "
 "الأنظمه الملفّيه الأخرى من غير إعادة التجهيز."
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
-msgid "Do you want to return to the partitioner?"
-msgstr "كيف تريد أن تجزئ الاسطوانة؟"
 
 #. Type: boolean
 #. Description
@@ -1421,8 +1423,15 @@ msgstr "إعداد الأجهزة..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 #, fuzzy
-msgid "Configuring remote control..."
-msgstr "إعداد النطاق الزمني"
+msgid "Configuring infrared devices..."
+msgstr "إعداد الأجهزة..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "قسم النظام غير مجهز"
+
+#, fuzzy
+#~ msgid "Configuring remote control..."
+#~ msgstr "إعداد النطاق الزمني"
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr "أختلق مستخدم لإستيراد الحساب المختار اليه"

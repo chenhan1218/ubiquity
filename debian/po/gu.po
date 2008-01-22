@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <team@utkarsh.org>\n"
@@ -807,29 +807,24 @@ msgstr "મહેરબાની કરી આને માઉન્ટ બિ�
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "તમે આ પાર્ટિશનને સક્રિય બનાવવાનું પસંદ કરશો?"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
 #, fuzzy
-msgid "System partition not formatted"
-msgstr "પાર્ટિશનોને ફોરમેટ થાય છે"
+msgid "Do you want to return to the partitioner?"
+msgstr "તમે પાર્ટિશન પાછુ લાવવા માંગો છો?"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-msgid "Do you want to return to the partitioner?"
-msgstr "તમે પાર્ટિશન પાછુ લાવવા માંગો છો?"
 
 #. Type: boolean
 #. Description
@@ -1390,8 +1385,13 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-msgid "Configuring remote control..."
-msgstr ""
+#, fuzzy
+msgid "Configuring infrared devices..."
+msgstr "APT સ્ત્રોતોને રૂપરેખાંકિત કરે છે..."
+
+#, fuzzy
+#~ msgid "System partition not formatted"
+#~ msgstr "પાર્ટિશનોને ફોરમેટ થાય છે"
 
 #, fuzzy
 #~ msgid "Create a user to import the selected account into:"

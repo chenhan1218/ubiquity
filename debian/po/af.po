@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: 2006-05-29 17:58+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
@@ -795,29 +795,25 @@ msgstr ""
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
-#. Type: error
-#. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr ""
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:106001
-msgid ""
-"The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
-msgstr ""
-
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:111001
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
 #, fuzzy
 #| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
 msgstr "Hoe wil jy die skyf partisie?"
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001
+msgid ""
+"The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1378,5 +1374,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-msgid "Configuring remote control..."
-msgstr ""
+#, fuzzy
+#| msgid "Configuring hardware..."
+msgid "Configuring infrared devices..."
+msgstr "Stel hardeware op..."

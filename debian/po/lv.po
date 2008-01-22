@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: 2007-10-05 17:05+0000\n"
 "Last-Translator: Aigars Mahinovs <aigarius@debian.org>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -828,33 +828,35 @@ msgstr "Lūdzu aizveriet visas programmas, kas varētu izmantot šīs vietas."
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Vai vēlaties, lai instalators vēlreiz mēģina atmontēt šīs partīcijas?"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "Sistēmas partīcija nav noformatēta"
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "Kā jūs vēlaties particionēt disku?"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "Failu sistēma uz partīcijas ${PARTITION}, kuru ir paredzēts montēt uz "
 "${MOUNTPOINT} nav izvēlēta formatēšanai. Sekojošas vietas ir jānoformatē "
 "instalācijas laikā (/, /boot, /usr, /var). Citas vietas, kā piemēram (/"
 "home, /media/*, /usr/local, u.c.) var izmantot bez formatēšanas."
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
-msgid "Do you want to return to the partitioner?"
-msgstr "Kā jūs vēlaties particionēt disku?"
 
 #. Type: boolean
 #. Description
@@ -1441,8 +1443,15 @@ msgstr "Konfigurēju iekārtas..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 #, fuzzy
-msgid "Configuring remote control..."
-msgstr "Konfigurēju laika zonu..."
+msgid "Configuring infrared devices..."
+msgstr "Konfigurēju iekārtas..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "Sistēmas partīcija nav noformatēta"
+
+#, fuzzy
+#~ msgid "Configuring remote control..."
+#~ msgstr "Konfigurēju laika zonu..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr "Izveidojiet jaunu lietotāju kam pārcelt izvēlētos elementus:"

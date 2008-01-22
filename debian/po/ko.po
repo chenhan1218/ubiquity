@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Sunjae park <darehanl@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -815,33 +815,35 @@ msgstr "이 마운트 포인트를 사용하는 프로그램들을 종료해 주
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "설치 프로그램이 이 파티션들의 언마운트를 시도할까요?"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "시스템 파티션이 포맷되지 않았습니다."
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "파티션을 다시 시작하시겠습니까?"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "${MOUNTPOINT} 에 마운트될 ${PARTITION} 파티션의 포맷을 결정하지 않으셨습니"
 "다. 설치를 위해서 반드시 이 컴퓨터에서 사용할 파일 시스템들(/, /boot, /usr, /"
 "var)을 재포맷하셔야 합니다. 이외의 파일 시스템들(/home, /media/*, /usr/"
 "local, 등)은 반드시 재포맷하시지 않으셔도 됩니다."
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
-msgid "Do you want to return to the partitioner?"
-msgstr "파티션을 다시 시작하시겠습니까?"
 
 #. Type: boolean
 #. Description
@@ -1407,8 +1409,15 @@ msgstr "네트워크를 설정하는 중입니다..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 #, fuzzy
-msgid "Configuring remote control..."
+msgid "Configuring infrared devices..."
 msgstr "네트워크를 설정하는 중입니다..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "시스템 파티션이 포맷되지 않았습니다."
+
+#, fuzzy
+#~ msgid "Configuring remote control..."
+#~ msgstr "네트워크를 설정하는 중입니다..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr "선택된 계정을 사용해서 새로운 계정을 만듭니다:"

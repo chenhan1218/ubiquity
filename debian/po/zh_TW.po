@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Tetralet <tetralet@pchome.com.tw>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
@@ -820,31 +820,33 @@ msgstr "請關閉所有使用這些分割區的程式。"
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "您想安裝程式嘗試再次卸載這些分割區嗎？"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "系統分割區仍未被格式化"
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+msgid "Do you want to return to the partitioner?"
+msgstr "您是否想要重新分割磁區？"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "在 ${PARTITION} 的檔案系統指定到 ${MOUNTPOINT} 還未標示為格式化。檔案系統 "
 "(/, /boot, /usr, /var) 必須格式化以給系統使用，其他檔案系統 /home, /media/"
 "*, /usr/local, etc.) 則無須格式化"
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-msgid "Do you want to return to the partitioner?"
-msgstr "您是否想要重新分割磁區？"
 
 #. Type: boolean
 #. Description
@@ -1410,8 +1412,15 @@ msgstr "正在設定網路..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 #, fuzzy
-msgid "Configuring remote control..."
+msgid "Configuring infrared devices..."
 msgstr "正在設定網路..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "系統分割區仍未被格式化"
+
+#, fuzzy
+#~ msgid "Configuring remote control..."
+#~ msgstr "正在設定網路..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr "建立一個使用者，以供匯入："

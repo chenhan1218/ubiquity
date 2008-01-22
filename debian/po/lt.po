@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -834,34 +834,36 @@ msgstr ""
 "Ar jūs norite,  kad įdiegimo programa vėl pabandytų atjungti šiuos "
 "skirsnius ?"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "Failų sistema sistemos skirsnyje iš naujo neperkuriama."
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "Kaip norite sudalinti diską?"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "${PARTITION} skirsnio, jungiamo prie ${MOUNTPOINT} aplanko, failų sistema "
 "nėra pažymėta formatavimui. Skirsniai, skirti Linux sistemos naudojamiems "
 "aplankams („/“, „/boot“, „/usr“, „/var“) turi būti suformatuojami iš naujo. "
 "Skirsniai, prijungiami prie kitų aplankų („/home“, „/media“, „/usr/local“, "
 "ir pan.) gali būti naudojami nesunaikinant juose esamos informacijos."
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
-msgid "Do you want to return to the partitioner?"
-msgstr "Kaip norite sudalinti diską?"
 
 #. Type: boolean
 #. Description
@@ -1430,8 +1432,15 @@ msgstr "Konfigūruojama aparatinė įranga..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 #, fuzzy
-msgid "Configuring remote control..."
-msgstr "Konfigūruojama laiko zona..."
+msgid "Configuring infrared devices..."
+msgstr "Konfigūruojama aparatinė įranga..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "Failų sistema sistemos skirsnyje iš naujo neperkuriama."
+
+#, fuzzy
+#~ msgid "Configuring remote control..."
+#~ msgstr "Konfigūruojama laiko zona..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr ""

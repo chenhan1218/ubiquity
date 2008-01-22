@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ming Hua <minghua@rice.edu>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -807,32 +807,34 @@ msgstr "请关闭所有正在使用这些挂载点的程序"
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "你是否想让安装程序再次尝试卸载这些分区？"
 
-#. Type: error
-#. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "系统分区未格式化"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:106001
-msgid ""
-"The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
-msgstr ""
-"${MOUNTPOINT}指定的${PARTITION}上的文件系统还没有格式化，安装程序将为用户重新"
-"格式化供系统使用的文件系统(/, /boot, /usr, /var)。其他文件系统(/home, /media/"
-"*, /usr/local, etc.)不必重新格式化。"
-
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:111001
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
 #, fuzzy
 #| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
 msgstr "您想如何分区？"
+
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
+msgid ""
+"The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
+msgstr ""
+"${MOUNTPOINT}指定的${PARTITION}上的文件系统还没有格式化，安装程序将为用户重新"
+"格式化供系统使用的文件系统(/, /boot, /usr, /var)。其他文件系统(/home, /media/"
+"*, /usr/local, etc.)不必重新格式化。"
 
 #. Type: boolean
 #. Description
@@ -1399,8 +1401,16 @@ msgstr "正在配置附加服务..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-msgid "Configuring remote control..."
-msgstr "正在配置遥控器..."
+#, fuzzy
+#| msgid "Configuring additional services..."
+msgid "Configuring infrared devices..."
+msgstr "正在配置附加服务..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "系统分区未格式化"
+
+#~ msgid "Configuring remote control..."
+#~ msgstr "正在配置遥控器..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr "为导入所选帐号，请新建一个对应的帐号："

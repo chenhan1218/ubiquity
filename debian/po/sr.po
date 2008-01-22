@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: 2007-09-16 20:50+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -822,34 +822,30 @@ msgstr ""
 "Да ли желите да програм за инсталацију још једном проба да искључи ове "
 "прикључне тачке?"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "Системска партиција није форматирана."
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "Како желите да поделите диск?"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
 #, fuzzy
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "Систем датотека на ${PARTITION}, који је прикључен на ${MOUNTPOINT}, није "
 "означен за форматирање. Систем датотека који користи систем (/, /boot, /"
 "usr, /var) мора бити форматиран у току процеса инсталације. Остали (/home, /"
 "media/*, /usr/local, etc.) се могу користити и без поновног форматирања."
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
-msgid "Do you want to return to the partitioner?"
-msgstr "Како желите да поделите диск?"
 
 #. Type: boolean
 #. Description
@@ -1418,8 +1414,16 @@ msgstr "Подешавање додатних сервиса..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-msgid "Configuring remote control..."
-msgstr "Подешавање даљинске контроле..."
+#, fuzzy
+#| msgid "Configuring additional services..."
+msgid "Configuring infrared devices..."
+msgstr "Подешавање додатних сервиса..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "Системска партиција није форматирана."
+
+#~ msgid "Configuring remote control..."
+#~ msgstr "Подешавање даљинске контроле..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr ""

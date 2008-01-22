@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Damyan Ivanov <dam@modsoftsys.com>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -832,34 +832,36 @@ msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Желаете ли инсталаторът да направи повторен опит да отмонтира тези дялове?"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "Не е форматиран системен дял"
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "Как желаете да разделите диска?"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "Файловата система на ${PARTITION} отделена за ${MOUNTPOINT} не е маркиран за "
 "форматиране. Файловите системи, използвани от системата (/, /boot, /usr, /"
 "var), трябва да бъдат преформатирани за употреба от този инсталатор. Други "
 "файлови системи (/home, /media/*, /usr/local, etc.) може да бъдат ползвани "
 "брез преформатиране."
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
-msgid "Do you want to return to the partitioner?"
-msgstr "Как желаете да разделите диска?"
 
 #. Type: boolean
 #. Description
@@ -1428,8 +1430,15 @@ msgstr "Настройване на хардуера..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 #, fuzzy
-msgid "Configuring remote control..."
-msgstr "Настройване на часовата зона..."
+msgid "Configuring infrared devices..."
+msgstr "Настройване на хардуера..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "Не е форматиран системен дял"
+
+#, fuzzy
+#~ msgid "Configuring remote control..."
+#~ msgstr "Настройване на часовата зона..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr ""

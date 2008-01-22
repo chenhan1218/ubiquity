@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
@@ -839,34 +839,36 @@ msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Чи хотіли б ви, щоб встановлювач спробував розмонтувати ці розділи ще раз?"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "Системний розділ не формативаний."
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "Яким чином бажаєте поділити жорсткий диск?"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "Файловій система розділу ${PARTITION}, якій присвоєна точка монтування "
 "${MOUNTPOINT}, не була відмічена для форматування. Файлові системи, "
 "використовувані системою (/, /boot, /usr, /var) мають бути перефориматовані "
 "для використання цим встановлювачем. Інші файлові системи (/home, /media/*, /"
 "usr/local, etc.) можуть використовуватись без форматування."
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
-msgid "Do you want to return to the partitioner?"
-msgstr "Яким чином бажаєте поділити жорсткий диск?"
 
 #. Type: boolean
 #. Description
@@ -1435,8 +1437,15 @@ msgstr "Налаштування заліза..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 #, fuzzy
-msgid "Configuring remote control..."
-msgstr "Налаштування часового поясу..."
+msgid "Configuring infrared devices..."
+msgstr "Налаштування заліза..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "Системний розділ не формативаний."
+
+#, fuzzy
+#~ msgid "Configuring remote control..."
+#~ msgstr "Налаштування часового поясу..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr "Створіть користувача для імпорту вибраного рахунку до нього:"

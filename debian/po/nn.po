@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Håvard Korsvoll <korsvoll@skulelinux.no>\n"
 "Language-Team: Norwegian Nynorsk <nn@li.org>\n"
@@ -843,32 +843,34 @@ msgstr ""
 "Vil du at installasjonsprogrammet skal prøva å avmontera desse partisjonane "
 "igjen?"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "Systempartisjonen vart ikkje formatert"
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+msgid "Do you want to return to the partitioner?"
+msgstr "Korleis vil du partisjonera harddisken?"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "Filsystemet på ${PARTITION}, med monteringspunktet ${MOUNTPOINT}, er ikkje "
 "merka for formatering. Filsystem som er i bruk (/, /boot, /usr, /var) må "
 "formaterast på nytt for at installasjonsprogrammet skal bruka dei. Andre "
 "filsystem (/home, /media/*, /usr/local, osb.) treng ikkje formaterast."
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-msgid "Do you want to return to the partitioner?"
-msgstr "Korleis vil du partisjonera harddisken?"
 
 #. Type: boolean
 #. Description
@@ -1434,8 +1436,15 @@ msgstr "Set opp nettverk ..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 #, fuzzy
-msgid "Configuring remote control..."
+msgid "Configuring infrared devices..."
 msgstr "Set opp nettverk ..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "Systempartisjonen vart ikkje formatert"
+
+#, fuzzy
+#~ msgid "Configuring remote control..."
+#~ msgstr "Set opp nettverk ..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr "Lag ein brukar å importere den valgte kontoen til:"

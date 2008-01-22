@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: 2007-10-04 15:15+0000\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale <librezale@librezale.org>\n"
@@ -845,34 +845,36 @@ msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Nahi al duzu instalatzailea berriro saiatzea partizio hauek desmuntatzen?"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "Sistemaren partizioa ez dago formateatua"
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "Nola egin nahi dituzu partizioak?"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "${MOUNTPOINT} -i egokitutako ${PARTITION} -eko fitxategi-sistema ez da "
 "formateatua izateko markatu. Instalatzaile honek formateatuak behar dute "
 "sistemak erabilitako fitxategi-sistemak (/, /boot, /usr, /var). Beste "
 "fitxategi-sistemak (/home, /media/*, /usr/local, etc.) berriro formateatu "
 "gabe erabil daitezke."
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
-msgid "Do you want to return to the partitioner?"
-msgstr "Nola egin nahi dituzu partizioak?"
 
 #. Type: boolean
 #. Description
@@ -1512,8 +1514,16 @@ msgstr "Zerbitzu gehigarriak konfiguratzen..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-msgid "Configuring remote control..."
-msgstr "Urruneko kontrola konfiguratzen..."
+#, fuzzy
+#| msgid "Configuring additional services..."
+msgid "Configuring infrared devices..."
+msgstr "Zerbitzu gehigarriak konfiguratzen..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "Sistemaren partizioa ez dago formateatua"
+
+#~ msgid "Configuring remote control..."
+#~ msgstr "Urruneko kontrola konfiguratzen..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr "Erabiltzaile bat sor ezazu, hautatutako kontua bertan inportatzeko:"

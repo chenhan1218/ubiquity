@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: 2007-10-04 13:21+0000\n"
 "Last-Translator: Josip Rodin <joy+ditrans@linux.hr>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -823,34 +823,36 @@ msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Želite li da instalacijski program pokuša ponovo odmontirati ove particije?"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "Particija sustava nije formatirana"
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "Kako želite particionirati disk?"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "Datotečni sustav na ${PARTITION} pridružen na ${MOUNTPOINT} nije označen za "
 "formatiranje. Datotečni sustavi koje koristi sustav (/, /boot, /usr, /var) "
 "moraju biti ponovo formatirani za upotrebu od instalacijskog programa. "
 "Ostali datotečni sustavi (/home, /media/*, /usr/local, itd.) mogu se "
 "koristiti bez ponovnog formatiranja."
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
-msgid "Do you want to return to the partitioner?"
-msgstr "Kako želite particionirati disk?"
 
 #. Type: boolean
 #. Description
@@ -1422,8 +1424,15 @@ msgstr "Postavljam hardver..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 #, fuzzy
-msgid "Configuring remote control..."
-msgstr "Postavljam vremensku zonu..."
+msgid "Configuring infrared devices..."
+msgstr "Postavljam hardver..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "Particija sustava nije formatirana"
+
+#, fuzzy
+#~ msgid "Configuring remote control..."
+#~ msgstr "Postavljam vremensku zonu..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr "Izradite korisnika za kojeg će biti uvezen korisnički račun:"

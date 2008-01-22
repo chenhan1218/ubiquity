@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubuntu-installer@lists.ubuntu.com\n"
-"POT-Creation-Date: 2007-12-18 13:03+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-01-22 16:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -825,34 +825,36 @@ msgstr "Hãy đóng các ứng dụng đang sử dụng các thiết bị này."
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Bạn có muốn chương trình cài đặt cố gỡ bỏ các phân vùng này lần nữa?"
 
-#. Type: error
+#. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
-msgid "System partition not formatted"
-msgstr "Phân vùng hệ thống chưa được định dạng."
+#. Type: boolean
+#. Description
+#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#, fuzzy
+#| msgid "How do you want to partition the disk?"
+msgid "Do you want to return to the partitioner?"
+msgstr "Bạn muốn phân vùng ổ đĩa cứng như thế nào?"
 
-#. Type: error
+#. Type: boolean
 #. Description
 #: ../ubiquity.templates:106001
+#, fuzzy
+#| msgid ""
+#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
+#| "var) must be reformatted for use by this installer. Other file systems (/"
+#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting. File systems used by the system (/, /boot, /usr, /"
-"var) must be reformatted for use by this installer. Other file systems (/"
-"home, /media/*, /usr/local, etc.) may be used without reformatting."
+"marked for formatting.  Directories containing system files (/boot, /etc, /"
+"usr, /var, ...) that already exist under any defined mountpoint will be "
+"deleted during the install."
 msgstr ""
 "Phân vùng hệ thống trên ${PARTITION} được gắn vào ${MOUNTPOINT} chưa được "
 "đánh dấu để định dạng. Các hệ thống tập tin đang được sử dụng bởi hệ thống "
 "(/, /boot, /usr, /var) phải được định dạng lại thì chương trình cài đặt mới "
 "có thể dùng được. Những hệ thống tập tin khác (/home, /media/*, /usr/local, "
 "etc.) có thể được dùng mà không cần phải định dạng lại."
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
-msgid "Do you want to return to the partitioner?"
-msgstr "Bạn muốn phân vùng ổ đĩa cứng như thế nào?"
 
 #. Type: boolean
 #. Description
@@ -1435,8 +1437,15 @@ msgstr "Đang cấu hình phần cứng..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
 #, fuzzy
-msgid "Configuring remote control..."
-msgstr "Đang chỉnh đồ điều khiển từ xa..."
+msgid "Configuring infrared devices..."
+msgstr "Đang cấu hình phần cứng..."
+
+#~ msgid "System partition not formatted"
+#~ msgstr "Phân vùng hệ thống chưa được định dạng."
+
+#, fuzzy
+#~ msgid "Configuring remote control..."
+#~ msgstr "Đang chỉnh đồ điều khiển từ xa..."
 
 #~ msgid "Create a user to import the selected account into:"
 #~ msgstr ""
