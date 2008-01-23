@@ -11,8 +11,11 @@ ubiquity (1.7.4) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Changed the system partition unformatted check to a warning, in support of
     ubiquity-preserve-home.
+  * Automatic update of included source packages: grub-installer
+    1.27ubuntu2, partman-auto-loop 0ubuntu13, partman-basicfilesystems
+    56ubuntu2, partman-ext3 49ubuntu1, partman-target 52ubuntu2.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 22 Jan 2008 15:45:15 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 23 Jan 2008 16:29:10 +0000
 
 ubiquity (1.7.3) hardy; urgency=low
 
