@@ -23,6 +23,24 @@ class DM:
         self.display = display
         self.server_started = False
 
+        fp = open('/etc/casper.conf', 'r')
+        try:
+            for line in fp:
+                if line.startswith('#'):
+                    continue
+                line = line.split()
+                if not line:
+                    continue
+                if line[0] == 'export':
+                    w = line[1].split('=')
+                    if w[0] == 'USERNAME':
+                        self.username = w[1].strip('"')
+        except IOError:
+            import syslog
+            syslog.syslog('Unable to determine the username from /etc/casper.conf, using the default.')
+            self.username = 'ubuntu'
+        finally:
+            fp.close()
         # Look for a frontend module; we won't actually use it (yet), but
         # this lets us find out which window manager etc. to launch. Be
         # careful that importing this here will cause the underlying library
@@ -85,6 +103,26 @@ class DM:
             wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
             if os.path.exists('/usr/lib/gnome-control-center/gnome-settings-daemon'):
                 extras.append(subprocess.Popen(['/usr/lib/gnome-control-center/gnome-settings-daemon'], stdin=null, stdout=logfile, stderr=logfile))
+            
+            # Accessibility
+            os.environ['GTK_MODULES'] = 'gail:atk-bridge'
+            gconf_dir = ('xml:readwrite:%s' %
+                os.path.expanduser('~%s/.gconf' %
+                self.username))
+            subp = subprocess.Popen(['gconftool-2', '--config-source',
+                gconf_dir, '--get', '/desktop/gnome/interface/accessibility'],
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            accessibility = subp.communicate()[0].rstrip('\n')
+            if accessibility == 'true':
+                extras.append(subprocess.Popen(['/usr/lib/at-spi/at-spi-registryd'], stdin=null, stdout=logfile, stderr=logfile))
+                fp = open('/proc/cmdline', 'r')
+                if 'access=m2' in fp.readline():
+                    if os.path.exists('/usr/bin/onboard'):
+                        extras.append(subprocess.Popen(['/usr/bin/onboard'], stdin=null, stdout=logfile, stderr=logfile))
+                else:
+                    if os.path.exists('/usr/bin/orca'):
+                        extras.append(subprocess.Popen(['/usr/bin/orca', '-n'], stdin=null, stdout=logfile, stderr=logfile))
+                fp.close()
         elif self.frontend == 'kde_ui':
             wm = subprocess.Popen('/usr/bin/kwin', stdin=null, stdout=logfile, stderr=logfile)
             extras.append(subprocess.Popen(['/usr/bin/dcopserver', '--nosid'], stdin=null, stdout=logfile, stderr=logfile))
