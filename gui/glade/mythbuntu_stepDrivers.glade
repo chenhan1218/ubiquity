@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.4.0 on Sun Jan 13 19:33:56 2008 -->
+<!--Generated with glade3 3.4.1 on Tue Jan 22 02:01:21 2008 -->
 <glade-interface>
   <widget class="GtkWindow" id="dummy_window">
     <property name="visible">True</property>
@@ -102,8 +102,7 @@
 NVIDIA Proprietary Driver (TNT2)  (nvidia_legacy)
 NVIDIA Proprietary Driver (Geforce2-4) (nvidia)
 NVIDIA Proprietary Driver (Geforce 5+) (nvidia_new)
-Hauppauge PVR-350 (ivtv)
-VIA Openchrome Driver (openchrome)</property>
+Hauppauge PVR-350 (ivtv)</property>
                             <signal name="changed" handler="video_changed"/>
                           </widget>
                           <packing>

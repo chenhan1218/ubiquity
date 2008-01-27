@@ -57,6 +57,8 @@ cat <<EOF2 >> /etc/mythtv/mysql.txt.dist
 DBPassword=$PASSWORD
 EOF2
 mv /etc/mythtv/mysql.txt.dist /etc/mythtv/mysql.txt
+chmod ug+rw /etc/mythtv/mysql.txt
+chown mythtv:mythtv /etc/mythtv/mysql.txt
 exit 0
 EOF
     chmod +x $ROOT/tmp/myth_setup

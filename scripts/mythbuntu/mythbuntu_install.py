@@ -204,10 +204,6 @@ class Install(install.Install):
             to_install.append('nvidia-glx-legacy')
         elif video_driver == "fglrx":
             to_install.append('xorg-driver-fglrx')
-        elif video_driver == "openchrome":
-            to_install.append('libchomexvmcpro1')
-            to_install.append('libchomexvmc1')
-            to_install.append('xserver-xorg-video-openchrome')
         elif video_driver == "pvr_350":
             to_install.append('xserver-xorg-video-ivtv')
         if vnc == 'true':

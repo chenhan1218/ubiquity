@@ -53,6 +53,9 @@ import MySQLdb
 #Lirc support
 from mythbuntu_common.lirc import LircHandler
 
+#Theme support
+from mythbuntu_common.dictionaries import *
+
 from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, \
@@ -74,7 +77,7 @@ BREADCRUMB_STEPS = {
     "mythbuntu_stepInstallType": 6,
     "mythbuntu_stepCustomInstallType": 7,
     "mythbuntu_stepPlugins": 8,
-    "mythbuntu_stepThemes": 9,
+    "tab_themes": 9,
     "mythbuntu_stepServices": 10,
     "mythbuntu_stepPasswords": 11,
     "tab_remote_control": 12,
@@ -97,7 +100,7 @@ SUBPAGES = [
     "mythbuntu_stepInstallType",
     "mythbuntu_stepCustomInstallType",
     "mythbuntu_stepPlugins",
-    "mythbuntu_stepThemes",
+    "tab_themes",
     "mythbuntu_stepServices",
     "mythbuntu_stepPasswords",
     "tab_remote_control",
@@ -364,7 +367,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             elif n == 'MythbuntuPlugins':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepPlugins))
             elif n == 'MythbuntuThemes':
-                self.set_current_page(self.steps.page_num(self.mythbuntu_stepThemes))
+                self.set_current_page(self.steps.page_num(self.tab_themes))
             elif n == 'MythbuntuPasswords':
                 self.set_current_page(self.steps.page_num(self.mythbuntu_stepPasswords))
                 installtype=self.get_installtype()
@@ -405,6 +408,11 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                     self.tvoutstandard.set_active(0)
                     self.tvouttype.set_active(0)
                     break
+        if not section:
+            self.video_driver.append_text("Open Source Driver")
+            self.video_driver.set_active(6)
+            self.tvoutstandard.set_active(0)
+            self.tvouttype.set_active(0)
         vid.close()
 
     def allow_go_backward(self, allowed):
@@ -493,6 +501,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.enablemysql.set_active(False)
 
         else:
+            self.theme_mythbuntu.set_sensitive(False)
             self.master_backend_expander.hide()
             self.mythweb_expander.show()
             self.mysql_server_expander.show()
@@ -893,12 +902,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                 self.tvouttype.set_active(0)
         elif (widget is not None and widget.get_name() == 'video_driver'):
             type = widget.get_active()
-            if (type == 0 or type == 1 or type == 2 or type == 3 or type == 5):
+            if (type == 0 or type == 1 or type == 2 or type == 3 or type == 4):
                 self.tvout_vbox.set_sensitive(True)
-            else:
-                self.tvout_vbox.set_sensitive(False)
-                self.tvoutstandard.set_active(0)
-                self.tvouttype.set_active(0)
 
     def toggle_tv_out (self,widget):
         """Called when the tv-out type is toggled"""
@@ -1037,17 +1042,11 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def get_officialthemes(self):
         """Returns the status of the official themes"""
-        if self.officialthemes.get_active():
-            return True
-        else:
-            return False
+        return get_official_theme_dictionary(self)
 
     def get_communitythemes(self):
         """Returns the status of the community themes"""
-        if self.communitythemes.get_active():
-            return True
-        else:
-            return False
+        return get_community_theme_dictionary(self)
     def get_video(self):
         """Returns the status of the video graphics drivers"""
         if (self.modifyvideodriver.get_active()):
@@ -1061,8 +1060,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             elif driver == 3:
                 return "nvidia_new"
             elif driver == 4:
-                return "openchrome"
-            elif driver == 5:
                 return "pvr_350"
             else:
                 return "None"
@@ -1181,3 +1178,18 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def get_dvbutils(self):
         return self.dvbutils.get_active()
+
+    def toggle_meta(self,widget):
+        """Called whenever a request to enable / disable all plugins"""
+        if widget is not None:
+            list = []
+            name = widget.get_name()
+            if (name == 'officialthemes'):
+                list = get_official_theme_dictionary(self)
+            elif (name == 'communitythemes'):
+                list = get_community_theme_dictionary(self)
+
+            toggle = widget.get_active()
+            for item in list:
+                if list[item].flags() & gtk.SENSITIVE:
+                    list[item].set_active(toggle)

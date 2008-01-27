@@ -28,6 +28,7 @@ os.environ['LC_CTYPE']='C'
 import xorgconfig
 
 import re
+import string
 from ubiquity.filteredcommand import FilteredCommand
 
 class MythbuntuApply(FilteredCommand):
@@ -91,9 +92,11 @@ class MythbuntuApply(FilteredCommand):
         if mythweb == "false":
             patternline += "|^apache2|^libapache2|^php|^mythweb"
         official = self.db.get('mythbuntu/officialthemes')
-        if official == "false":
-            patternline += "|^mythtv-themes"
+        for theme in string.split(official," "):
+            patternline += "|^" + theme
         community = self.db.get('mythbuntu/communitythemes')
+        for theme in string.split(community," "):
+            patternline += "|^" + theme
         samba = self.db.get('mythbuntu/sambaservice')
         if samba == "false":
             patternline += "|^samba|^samba-common|^smbfs"

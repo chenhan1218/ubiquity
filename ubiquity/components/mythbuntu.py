@@ -145,6 +145,8 @@ class MythbuntuPlugins(FilteredCommand):
         FilteredCommand.ok_handler(self)
 
 class MythbuntuThemes(FilteredCommand):
+#since all themes are pre-installed, we are seeding the ones
+#that will be *removed*
     def prepare(self):
         questions = ['^mythbuntu/officialthemes',
              '^mythbuntu/communitythemes']
@@ -153,18 +155,34 @@ class MythbuntuThemes(FilteredCommand):
     def run(self,priority,question):
         if question.startswith('mythbuntu/officialthemes'):
             official = self.frontend.get_officialthemes()
-            self.preseed_bool('mythbuntu/officialthemes', official)
+            official_string=""
+            for theme in official:
+                if not official[theme].get_active():
+                    official_string+=theme + " "
+            self.preseed('mythbuntu/officialthemes', official_string)
         elif question.startswith('mythbuntu/communitythemes'):
             community = self.frontend.get_communitythemes()
-            self.preseed_bool('mythbuntu/communitythemes', community)
+            community_string=""
+            for theme in community:
+                if not community[theme].get_active():
+                    community_string+=theme + " "
+            self.preseed('mythbuntu/communitythemes', community_string)
 
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
         official = self.frontend.get_officialthemes()
-        self.preseed_bool('mythbuntu/officialthemes', official)
+        official_string=""
+        for theme in official:
+            if not official[theme].get_active():
+                official_string+=theme + " "
+        self.preseed('mythbuntu/officialthemes', official_string)
         community = self.frontend.get_communitythemes()
-        self.preseed_bool('mythbuntu/communitythemes', community)
+        community_string=""
+        for theme in community:
+            if not community[theme].get_active():
+                community_string+=theme + " "
+        self.preseed('mythbuntu/communitythemes', community_string)
         FilteredCommand.ok_handler(self)
 
 class MythbuntuServices(FilteredCommand):
