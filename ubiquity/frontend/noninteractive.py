@@ -26,9 +26,7 @@
 
 import syslog
 
-# TODO drop and use a smaller event loop.
 import gobject
-import gtk
 
 import getpass
 import os
@@ -55,6 +53,7 @@ class Wizard(BaseFrontend):
         self.verifiedpassword = ''
         self.progress_val = 0
         self.progress_info = ''
+        self.mainloop = gobject.MainLoop()
 
         dbfilter = language.Language(self, self.debconf_communicator())
         dbfilter.cleanup()
@@ -82,7 +81,7 @@ class Wizard(BaseFrontend):
         for x in pages:
             self.dbfilter = x(self)
             self.dbfilter.start(auto_process=True)
-            gtk.main()
+            self.mainloop.run()
 
         self.installing = True
         self.progress_loop()
@@ -146,8 +145,8 @@ class Wizard(BaseFrontend):
 
     def debconffilter_done(self, dbfilter):
         if BaseFrontend.debconffilter_done(self, dbfilter):
-            if gtk.main_level() > 0:
-                gtk.main_quit()
+            if self.mainloop.is_running():
+                self.mainloop.quit()
             return True
         else:
             return False
@@ -158,19 +157,17 @@ class Wizard(BaseFrontend):
 
     def run_main_loop(self):
         """Block until the UI returns control."""
-        #print '*** run_main_loop'
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
-        elif gtk.main_level() > 0:
-            gtk.main_quit()
+        elif self.mainloop.is_running():
+            self.mainloop.quit()
         else:
-            gtk.main()
+            self.mainloop.run()
 
     def quit_main_loop(self):
         """Return control blocked in run_main_loop."""
-        #print '*** quit_main_loop'
-        if not self.dbfilter and gtk.main_level() > 0:
-            gtk.main_quit()
+        if not self.dbfilter and self.mainloop.is_running():
+            self.mainloop.quit()
     
     def set_page(self, page):
         # There's no need to do anything here as there's no interface to speak

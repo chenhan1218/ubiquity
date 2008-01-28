@@ -54,6 +54,9 @@ def install(frontend=None):
     for f in frontends:
         if hasattr(mod, f):
             ui = getattr(mod, f)
+            # Noninteractive implies automatic mode.
+            if f == 'noninteractive':
+                os.environ['UBIQUITY_AUTOMATIC'] = '1'
             break
     else:
         raise AttributeError, ('No frontend available; tried %s' %
