@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-# Copyright (C) 2005, 2006 Canonical Ltd.
+# Copyright (C) 2005, 2006, 2007, 2008 Canonical Ltd.
 # Written by Tollef Fog Heen <tfheen@ubuntu.com> and
 # Colin Watson <cjwatson@ubuntu.com>
 #
@@ -112,15 +112,8 @@ class ConsoleSetup(FilteredCommand):
                       'th', 'tj', 'tam', 'ua', 'uz'):
             latin = False
             real_layout = 'us,%s' % layout
-        elif layout == 'cs':
-            if variant.startswith('latin'):
-                latin = True
-                real_layout = layout
-            else:
-                latin = False
-                real_layout = 'cs,cs'
         elif layout == 'jp':
-            if variant == 'latin':
+            if variant in ('106', 'common', 'OADG109A', 'nicola_f_bs'):
                 latin = True
                 real_layout = layout
             else:
@@ -129,26 +122,47 @@ class ConsoleSetup(FilteredCommand):
         elif layout == 'lt':
             latin = False
             real_layout = 'lt,lt'
+        elif layout == 'me':
+            if variant == 'basic' or variant.startswith('latin'):
+                latin = True
+                real_layout = layout
+            else:
+                latin = False
+                real_layout = 'me,me'
+        elif layout == 'rs':
+            if variant == 'basic' or variant.startswith('latin'):
+                latin = True
+                real_layout = layout
+            else:
+                latin = False
+                real_layout = 'rs,rs'
         else:
             latin = True
             real_layout = layout
 
         if latin:
             real_variant = variant
-        elif real_layout == 'cs,cs':
+        elif real_layout == 'jp,jp':
+            real_variant = '106,%s' % variant
+        elif real_layout == 'lt,lt':
+            if variant == 'us':
+                real_variant = 'us,'
+            else:
+                real_variant = '%s,us' % variant
+        elif real_layout == 'me,me':
+            if variant == 'cyrillicyz':
+                real_variant = 'latinyz,%s' % variant
+            elif variant == 'cyrillicalternatequotes':
+                real_variant = 'latinalternatequotes,%s' % variant
+            else:
+                real_variant = 'basic,%s' % variant
+        elif real_layout == 'rs,rs':
             if variant == 'yz':
                 real_variant = 'latinyz,%s' % variant
             elif variant == 'alternatequotes':
                 real_variant = 'latinalternatequotes,%s' % variant
             else:
                 real_variant = 'latin,%s' % variant
-        elif real_layout == 'jp,jp':
-            real_variant = 'latin,%s' % variant
-        elif real_layout == 'lt,lt':
-            if variant == 'us':
-                real_variant = 'us,'
-            else:
-                real_variant = '%s,us' % variant
         else:
             real_variant = ',%s' % variant
 
