@@ -13,6 +13,8 @@ ubiquity (1.7.5) UNRELEASED; urgency=low
   * Update console-setup component for layout and variant changes in
     console-setup 1.21ubuntu1.
   * Run fontconfig-voodoo with --force.
+  * Call 'fontconfig-voodoo --auto --force --quiet' when the language is
+    changed. May help with LP #185269.
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 28 Jan 2008 16:20:33 -0500
 

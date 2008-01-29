@@ -23,6 +23,7 @@ import locale
 
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import i18n
+from ubiquity import misc
 
 class Language(FilteredCommand):
     def prepare(self):
@@ -130,3 +131,4 @@ class Language(FilteredCommand):
             except locale.Error, e:
                 self.debug('locale.setlocale failed: %s (LANG=%s)',
                            e, di_locale)
+            misc.execute('fontconfig-voodoo', '--auto', '--force', '--quiet')
