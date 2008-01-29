@@ -20,6 +20,7 @@
 import os
 import re
 import locale
+import subprocess
 
 from oem_config.filteredcommand import FilteredCommand
 from oem_config import i18n
@@ -125,4 +126,6 @@ class Language(FilteredCommand):
             except locale.Error, e:
                 self.debug('locale.setlocale failed: %s (LANG=%s)',
                            e, di_locale)
+            subprocess.call(['fontconfig-voodoo',
+                             '--auto', '--force', '--quiet'])
             im_switch.start_im()
