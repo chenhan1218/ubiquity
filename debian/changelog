@@ -1,7 +1,7 @@
 ubiquity (1.7.5) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
-  * Add usability support to 'only-ubiquity'.
+  * Add accessibility support to 'only-ubiquity'.
   * Move noninteractive frontend to a purely gobject-based event loop
     (LP: #149477).
   * Noninteractive mode now implies --automatic (LP: #149473).
