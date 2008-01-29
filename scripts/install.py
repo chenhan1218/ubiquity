@@ -812,7 +812,7 @@ exit 0"""
         # fontconfig configuration needs to be adjusted based on the
         # selected locale (from language-selector-common.postinst). Ignore
         # errors.
-        self.chrex('fontconfig-voodoo', '--auto', '--quiet')
+        self.chrex('fontconfig-voodoo', '--auto', '--force', '--quiet')
 
 
     def configure_apt(self):
