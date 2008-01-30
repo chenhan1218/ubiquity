@@ -260,6 +260,8 @@ class Wizard(BaseFrontend):
             gvm_automount_drives = '%s/automount_drives' % gvm_root
             gvm_automount_media = '%s/automount_media' % gvm_root
             volumes_visible = '/apps/nautilus/desktop/volumes_visible'
+            media_automount = '/apps/nautilus/preferences/media_automount'
+            media_automount_open = '/apps/nautilus/preferences/media_automount_open'
             if 'SUDO_USER' in os.environ:
                 gconf_dir = ('xml:readwrite:%s' %
                              os.path.expanduser('~%s/.gconf' %
@@ -268,7 +270,7 @@ class Wizard(BaseFrontend):
                 gconf_dir = 'xml:readwrite:%s' % os.path.expanduser('~/.gconf')
             self.gconf_previous = {}
             for gconf_key in (gvm_automount_drives, gvm_automount_media,
-                volumes_visible):
+                volumes_visible, media_automount, media_automount_open):
                 subp = subprocess.Popen(['gconftool-2', '--config-source',
                                          gconf_dir, '--get', gconf_key],
                                         stdout=subprocess.PIPE,
@@ -292,8 +294,10 @@ class Wizard(BaseFrontend):
             gvm_automount_drives = '%s/automount_drives' % gvm_root
             gvm_automount_media = '%s/automount_media' % gvm_root
             volumes_visible = '/apps/nautilus/desktop/volumes_visible'
+            media_automount = '/apps/nautilus/preferences/media_automount'
+            media_automount_open = '/apps/nautilus/preferences/media_automount_open'
             for gconf_key in (gvm_automount_drives, gvm_automount_media,
-                volumes_visible):
+                volumes_visible, media_automount, media_automount_open):
                 if self.gconf_previous[gconf_key] == '':
                     subprocess.call(['gconftool-2', '--unset', gconf_key],
                                     preexec_fn=drop_privileges)
