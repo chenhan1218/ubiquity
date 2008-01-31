@@ -151,9 +151,13 @@ Template: ubiquity/text/mythcontrols
 Type: text
 _Description: Myth Controls
 
-Template: ubiquity/text/mythdvd
+Template: ubiquity/text/mythappearance
 Type: text
-_Description: Myth DVD
+_Description: Myth Appearance
+
+Template: ubiquity/text/mythmovies
+Type: text
+_Description: Myth Movies
 
 Template: ubiquity/text/mythflix
 Type: text
@@ -205,9 +209,13 @@ _Description:
  External controls for MythTV. This will allow you to modify button mappings and
  key bindings.
 
-Template: ubiquity/text/mythdvd_label
+Template: ubiquity/text/mythappearance_label
 Type: text
-_Description: Provides an interface for launching your preferred DVD player from MythTV
+_Description: Controls the size of the Mythfrontend GUI
+
+Template: ubiquity/text/mythmovies_label
+Type: text
+_Description: Find movies playing in nearby local cinemas
 
 Template: ubiquity/text/mythflix_label
 Type: text
@@ -386,7 +394,11 @@ Template: mythbuntu/mythcontrols
 Type: boolean
 Description: for internal use; determines if plugin is installed
 
-Template: mythbuntu/mythdvd
+Template: mythbuntu/mythappearance
+Type: boolean
+Description: for internal use; determines if plugin is installed
+
+Template: mythbuntu/mythmovies
 Type: boolean
 Description: for internal use; determines if plugin is installed
 

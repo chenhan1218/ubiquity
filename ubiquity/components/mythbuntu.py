@@ -52,13 +52,14 @@ class MythbuntuInstallType(FilteredCommand):
 
 class MythbuntuPlugins(FilteredCommand):
     def prepare(self):
-        questions = ['^mythbuntu/mytharchive',
+        questions = ['^mythbuntu/mythappearance',
+             '^mythbuntu/mytharchive',
              '^mythbuntu/mythbrowser',
              '^mythbuntu/mythcontrols',
-             '^mythbuntu/mythdvd',
              '^mythbuntu/mythflix',
              '^mythbuntu/mythgallery',
              '^mythbuntu/mythgame',
+             '^mythbuntu/mythmovies',
              '^mythbuntu/mythmusic',
              '^mythbuntu/mythnews',
              '^mythbuntu/mythphone',
@@ -69,7 +70,10 @@ class MythbuntuPlugins(FilteredCommand):
         return (['/usr/share/ubiquity/ask-plugins'], questions)
 
     def run(self,priority,question):
-        if question.startswith('mythbuntu/mytharchive'):
+        if question.startswith('mythbuntu/mythappearance'):
+            mythappearance = self.frontend.get_mythappearance()
+            self.preseed_bool('mythbuntu/mythappearance', mythappearance)
+        elif question.startswith('mythbuntu/mytharchive'):
             mytharchive = self.frontend.get_mytharchive()
             self.preseed_bool('mythbuntu/mytharchive', mytharchive)
         elif question.startswith('mythbuntu/mythbrowser'):
@@ -78,9 +82,6 @@ class MythbuntuPlugins(FilteredCommand):
         elif question.startswith('mythbuntu/mythcontrols'):
             mythcontrols = self.frontend.get_mythcontrols()
             self.preseed_bool('mythbuntu/mythcontrols', mythcontrols)
-        elif question.startswith('mythbuntu/mythdvd'):
-            mythdvd = self.frontend.get_mythdvd()
-            self.preseed_bool('mythbuntu/mythdvd', mythdvd)
         elif question.startswith('mythbuntu/mythflix'):
             mythflix = self.frontend.get_mythflix()
             self.preseed_bool('mythbuntu/mythflix', mythflix)
@@ -90,6 +91,9 @@ class MythbuntuPlugins(FilteredCommand):
         elif question.startswith('mythbuntu/mythgame'):
             mythgame = self.frontend.get_mythgame()
             self.preseed_bool('mythbuntu/mythgame', mythgame)
+        elif question.startswith('mythbuntu/mythmovies'):
+            mythmovies = self.frontend.get_mythmovies()
+            self.preseed_bool('mythbuntu/mythmovies', mythmovies)
         elif question.startswith('mythbuntu/mythmusic'):
             mythmusic = self.frontend.get_mythmusic()
             self.preseed_bool('mythbuntu/mythmusic', mythmusic)
@@ -114,20 +118,22 @@ class MythbuntuPlugins(FilteredCommand):
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
+        mythappearance = self.frontend.get_mythappearance()
+        self.preseed_bool('mythbuntu/mythappearance', mythappearance)
         mytharchive = self.frontend.get_mytharchive()
         self.preseed_bool('mythbuntu/mytharchive', mytharchive)
         mythbrowser = self.frontend.get_mythbrowser()
         self.preseed_bool('mythbuntu/mythbrowser', mythbrowser)
         mythcontrols = self.frontend.get_mythcontrols()
         self.preseed_bool('mythbuntu/mythcontrols', mythcontrols)
-        mythdvd = self.frontend.get_mythdvd()
-        self.preseed_bool('mythbuntu/mythdvd', mythdvd)
         mythflix = self.frontend.get_mythflix()
         self.preseed_bool('mythbuntu/mythflix', mythflix)
         mythgallery = self.frontend.get_mythgallery()
         self.preseed_bool('mythbuntu/mythgallery', mythgallery)
         mythgame = self.frontend.get_mythgame()
         self.preseed_bool('mythbuntu/mythgame', mythgame)
+        mythmovies = self.frontend.get_mythmovies()
+        self.preseed_bool('mythbuntu/mythmovies', mythmovies)
         mythmusic = self.frontend.get_mythmusic()
         self.preseed_bool('mythbuntu/mythmusic', mythmusic)
         mythnews = self.frontend.get_mythnews()

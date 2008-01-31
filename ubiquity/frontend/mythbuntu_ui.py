@@ -559,13 +559,14 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
         def set_all_fe_plugins(self,enable):
             """ Enables all frontend plugins for defaults"""
+            self.mythappearance.set_active(enable)
             self.mytharchive.set_active(enable)
             self.mythbrowser.set_active(enable)
             self.mythcontrols.set_active(enable)
-            self.mythdvd.set_active(enable)
             self.mythflix.set_active(enable)
             self.mythgallery.set_active(enable)
             self.mythgame.set_active(enable)
+            self.mythmovies.set_active(enable)
             self.mythmusic.set_active(enable)
             self.mythnews.set_active(enable)
             self.mythphone.set_active(enable)
@@ -963,9 +964,16 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         else:
             return False
 
-    def get_mythdvd(self):
-        """Returns the status of the mythdvd plugin"""
-        if self.mythdvd.get_active():
+    def get_mythappearance(self):
+        """Returns the status of the mythappearance plugin"""
+        if self.mythappearance.get_active():
+            return True
+        else:
+            return False
+
+    def get_mythmovies(self):
+        """Returns the status of the mythmovies plugin"""
+        if self.mythmovies.get_active():
             return True
         else:
             return False

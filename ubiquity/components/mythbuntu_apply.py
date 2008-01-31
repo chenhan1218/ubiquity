@@ -49,18 +49,18 @@ class MythbuntuApply(FilteredCommand):
             patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mythtv-frontend|^mythtv\ "
         elif installtype == "Frontend":
             patternline += "|^mythtv-backend-master|^mythtv-database|^mythtv-backend|^mysql-server-5.0|^mysql-server|^mythtv\ "
+        mythappearance = self.db.get('mythbuntu/mythappearance')
+        if mythappearance == "false":
+            patternline += "^mythappearance"
         mytharchive = self.db.get('mythbuntu/mytharchive')
         if mytharchive == "false":
-            patternline += "|^mytharchive|^ffmpeg|^mkisofs|^dvdauthor|^mjpegtools|^dvd+rw-tools|^python-imaging|^python-mysqldb"
+            patternline += "|^mytharchive|^ffmpeg|^genisoimage|^dvdauthor|^mjpegtools|^dvd+rw-tools|^python-imaging|^python-mysqldb"
         mythbrowser = self.db.get('mythbuntu/mythbrowser')
         if mythbrowser == "false":
             patternline += "|^kdelibs4c2a|^mythbrowser"
         mythcontrols = self.db.get('mythbuntu/mythcontrols')
         if mythcontrols == "false":
             patternline += "|^mythcontrols"
-        mythdvd = self.db.get('mythbuntu/mythdvd')
-        if mythdvd == "false":
-            patternline += "|^mythdvd"
         mythflix = self.db.get('mythbuntu/mythflix')
         if mythflix == "false":
             patternline += "|^mythflix"
@@ -70,6 +70,9 @@ class MythbuntuApply(FilteredCommand):
         mythgame = self.db.get('mythbuntu/mythgame')
         if mythgame == "false":
             patternline += "|^mythgame"
+        mythmovies = self.db.get('mythbuntu/mythmovies')
+        if mythmovies == "false":
+            patternline += "^mythmovies"
         mythmusic = self.db.get('mythbuntu/mythmusic')
         if mythmusic == "false":
             patternline += "|^mythmusic|^fftw2|^libcdaudio1|^libfaad2-0|^libflac8"
