@@ -1,4 +1,4 @@
-ubiquity (1.7.6) UNRELEASED; urgency=low
+ubiquity (1.7.6) hardy; urgency=low
 
   [ Mario Limonciello ]
   * Update plugins for changes with MythTV 0.21
@@ -7,7 +7,7 @@ ubiquity (1.7.6) UNRELEASED; urgency=low
   * Automatic update of included source packages: partman-target
     52ubuntu4.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 01 Feb 2008 11:26:53 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 01 Feb 2008 11:30:33 -0500
 
 ubiquity (1.7.5) hardy; urgency=low
 
