@@ -202,12 +202,10 @@ def main():
             os.environ['UBIQUITY_DEBUG_CORE'] = '1'
 
     # Clean up old state.
-    if os.path.exists("/var/lib/ubiquity/apt-installed"):
-        os.unlink("/var/lib/ubiquity/apt-installed")
-    if os.path.exists("/var/lib/ubiquity/apt-install-direct"):
-        os.unlink("/var/lib/ubiquity/apt-install-direct")
-    if os.path.exists("/var/lib/ubiquity/remove-kernels"):
-        os.unlink("/var/lib/ubiquity/remove-kernels")
+    for name in ('apt-installed', 'apt-install-direct', 'remove-kernels'):
+        path = os.path.join('/var/lib/ubiquity', name)
+        if os.path.exists(path):
+            os.unlink(path)
     shutil.rmtree("/var/lib/partman", ignore_errors=True)
 
     if args:
