@@ -4,7 +4,7 @@ for package; do
 	echo "$package" >> /var/lib/ubiquity/apt-installed
 done
 # TODO cjwatson 2006-09-04: queueing not implemented
-if [ -f /target/etc/apt/sources.list ]; then
+if [ -f /var/lib/ubiquity/apt-install-direct ]; then
 	installed="$(mktemp -t ubiquity.XXXXXX)"
 	trap "rm -f '$installed'" EXIT HUP INT QUIT TERM
 	chroot /target dpkg-query -W --showformat='${Package} ${Status}\n' | \

@@ -1682,6 +1682,10 @@ exit 0"""
         except debconf.DebconfError:
             pass
 
+        # Tell apt-install to install packages directly from now on.
+        apt_install_direct = open('/var/lib/ubiquity/apt-install-direct', 'w')
+        apt_install_direct.close()
+
 
     def remove_extras(self):
         """Try to remove packages that are needed on the live CD but not on

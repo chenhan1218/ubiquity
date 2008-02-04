@@ -3,6 +3,11 @@ ubiquity (1.7.7) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Add ubiquity-frontend-mythbuntu.links to source exterior glade files.
 
+  [ Colin Watson ]
+  * Prevent apt-install from installing packages directly unless
+    install_extras has been run (previously, it would do so once apt was
+    configured, which produced some confusing error messages).
+
  -- Mario Limonciello <superm1@ubuntu.com>  Sun, 03 Feb 2008 23:31:13 -0600
 
 ubiquity (1.7.6) hardy; urgency=low

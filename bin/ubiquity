@@ -204,6 +204,8 @@ def main():
     # Clean up old state.
     if os.path.exists("/var/lib/ubiquity/apt-installed"):
         os.unlink("/var/lib/ubiquity/apt-installed")
+    if os.path.exists("/var/lib/ubiquity/apt-install-direct"):
+        os.unlink("/var/lib/ubiquity/apt-install-direct")
     if os.path.exists("/var/lib/ubiquity/remove-kernels"):
         os.unlink("/var/lib/ubiquity/remove-kernels")
     shutil.rmtree("/var/lib/partman", ignore_errors=True)
