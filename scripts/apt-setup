@@ -9,7 +9,6 @@ if CODENAME="$(lsb_release -cs)"; then
 fi
 
 rm -f /target/etc/apt/sources.list
-export OVERRIDE_BASE_INSTALLABLE=1
 PATH="/usr/lib/ubiquity/apt-setup:/usr/lib/ubiquity/choose-mirror:$PATH" \
+	OVERRIDE_BASE_INSTALLABLE=1 \
 	/usr/lib/ubiquity/apt-setup/apt-setup /target
-/usr/lib/ubiquity/apt-setup/finish-install

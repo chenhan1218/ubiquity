@@ -1731,6 +1731,11 @@ exit 0"""
 
         misc.execute('umount', os.path.join(self.target, 'cdrom'))
 
+        env = dict(os.environ)
+        env['OVERRIDE_BASE_INSTALLABLE'] = '1'
+        subprocess.call(['/usr/lib/ubiquity/apt-setup/finish-install'],
+                        env=env)
+
         for apt_conf in ('00NoMountCDROM', '00IgnoreTimeConflict',
                          '00AllowUnauthenticated'):
             try:
