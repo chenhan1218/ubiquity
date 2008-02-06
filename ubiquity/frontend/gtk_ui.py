@@ -2136,6 +2136,27 @@ class Wizard(BaseFrontend):
         ready_buffer.set_text(text)
         self.ready_text.set_buffer(ready_buffer)
 
+    def set_grub_combo (self, options):
+        self.grub_device_entry.clear()
+        l = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        renderer = gtk.CellRendererText()
+        self.grub_device_entry.pack_start(renderer, True)
+        self.grub_device_entry.add_attribute(renderer, 'text', 0)
+        renderer = gtk.CellRendererText()
+        self.grub_device_entry.pack_start(renderer, True)
+        self.grub_device_entry.add_attribute(renderer, 'text', 1)
+        for opt in options:
+            l.append(opt)
+        self.grub_device_entry.set_model(l)
+        self.grub_device_entry.set_text_column(0)
+
+    def grub_verify_loop(self, widget):
+        if widget is not None:
+            if validation.check_grub_device(widget.child.get_text()):
+                self.advanced_okbutton.set_sensitive(True)
+            else:
+                self.advanced_okbutton.set_sensitive(False)
+
     def on_advanced_button_clicked (self, button):
         display = False
         summary_device = self.get_summary_device()
@@ -2143,7 +2164,7 @@ class Wizard(BaseFrontend):
         if summary_device is not None:
             display = True
             self.bootloader_vbox.show()
-            self.grub_device_entry.set_text(summary_device)
+            self.grub_device_entry.child.set_text(summary_device)
             self.grub_device_entry.set_sensitive(grub_en)
             self.grub_device_label.set_sensitive(grub_en)
         else:
@@ -2160,7 +2181,7 @@ class Wizard(BaseFrontend):
         response = self.advanced_dialog.run()
         self.advanced_dialog.hide()
         if response == gtk.RESPONSE_OK:
-            self.set_summary_device(self.grub_device_entry.get_text())
+            self.set_summary_device(self.grub_device_entry.child.get_text())
             self.set_popcon(self.popcon_checkbutton.get_active())
             self.set_grub(self.grub_enable.get_active())
         return True

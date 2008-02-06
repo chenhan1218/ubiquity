@@ -3,7 +3,7 @@
 # «validation» - miscellaneous validation of user-entered data
 #
 # Copyright (C) 2005 Junta de Andalucía
-# Copyright (C) 2005, 2006 Canonical Ltd.
+# Copyright (C) 2005, 2006, 2007, 2008 Canonical Ltd.
 #
 # Authors:
 #
@@ -11,6 +11,7 @@
 # - Javier Carranza <javier.carranza#interactors._coop>
 # - Juan Jesús Ojeda Croissier <juanje#interactors._coop>
 # - Colin Watson <cjwatson@ubuntu.com>
+# - Evan Dandrea <evand@ubuntu.com>
 #
 # This file is part of Ubiquity.
 #
@@ -30,6 +31,20 @@
 
 # Validation library.
 # Created by Antonio Olmo <aolmo#emergya._info> on 26 jul 2005.
+
+def check_grub_device(device):
+    """Check that the user entered a valid boot device.
+        @return True if the device is valid, False if it is not."""
+    import re
+    regex = re.compile(r'^/dev/[a-zA-Z0-9]+$')
+    if regex.search(device):
+        return True
+    # (device[,part-num])
+    regex = re.compile(r'^\((hd|fd)[0-9](,[0-9])*\)$')
+    if regex.search(device):
+        return True
+    else:
+        return False
 
 HOSTNAME_LENGTH = 1
 HOSTNAME_BADCHAR = 2

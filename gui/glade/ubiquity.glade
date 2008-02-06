@@ -1051,12 +1051,9 @@
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkEntry" id="grub_device_entry">
+                          <widget class="GtkComboBoxEntry" id="grub_device_entry">
                             <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="invisible_char">*</property>
-                            <property name="activates_default">True</property>
-                            <property name="width_chars">20</property>
+                            <signal name="changed" handler="grub_verify_loop"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>

@@ -369,9 +369,6 @@ class BaseFrontend:
 
     def set_summary_device(self, device):
         """Set the GRUB device. A hack until we have something better."""
-        if device is not None:
-            if not device.startswith('(') and not device.startswith('/dev/'):
-                device = '/dev/%s' % device
         self.summary_device = device
 
     def set_grub(self, enable):

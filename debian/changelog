@@ -11,7 +11,12 @@ ubiquity (1.7.7) UNRELEASED; urgency=low
     configuring apt; removing cdrom entries from sources.list at this point
     broke OEM installs and probably other things (LP: #188240).
 
- -- Mario Limonciello <superm1@ubuntu.com>  Sun, 03 Feb 2008 23:31:13 -0600
+  [ Evan Dandrea ]
+  * Validate the boot device string that the user provides on the
+    advanced page.
+  * Change the boot device Entry to a ComboBox that displays suitable targets.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 05 Feb 2008 03:04:14 -0500
 
 ubiquity (1.7.6) hardy; urgency=low
 
