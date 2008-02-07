@@ -61,7 +61,7 @@ def grub_options():
                 l.append([dev, mod])
         for part in p.partitions():
             ostype = ''
-            if part[4] == 'xfs':
+            if part[4] == 'xfs' or part[4] == 'linux-swap':
                 continue
             if os.path.exists(p.part_entry(part[1], 'format')):
                 pass
