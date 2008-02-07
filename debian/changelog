@@ -15,6 +15,7 @@ ubiquity (1.7.7) UNRELEASED; urgency=low
   * Validate the boot device string that the user provides on the
     advanced page.
   * Change the boot device Entry to a ComboBox that displays suitable targets.
+  * Updated the location of gnome-settings-daemon in ubiquity-dm.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 05 Feb 2008 03:04:14 -0500
 
