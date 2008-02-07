@@ -82,8 +82,8 @@ class DM:
         extras = []
         if self.frontend == 'gtk_ui':
             wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
-            if os.path.exists('/usr/lib/gnome-control-center/gnome-settings-daemon'):
-                extras.append(subprocess.Popen(['/usr/lib/gnome-control-center/gnome-settings-daemon'], stdin=null, stdout=logfile, stderr=logfile))
+            if os.path.exists('/usr/lib/gnome-settings-daemon/gnome-settings-daemon'):
+                extras.append(subprocess.Popen(['/usr/lib/gnome-settings-daemon/gnome-settings-daemon'], stdin=null, stdout=logfile, stderr=logfile))
         elif self.frontend == 'kde_ui':
             extras.append(subprocess.Popen(['/usr/bin/dcopserver', '--nosid'], stdin=null, stdout=logfile, stderr=logfile))
             wm = subprocess.Popen('/usr/bin/kwin', stdin=null, stdout=logfile, stderr=logfile)

@@ -1,9 +1,13 @@
 oem-config (1.27) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Call 'fontconfig-voodoo --auto --force --quiet' on startup and when the
     language is changed. May help with LP #185269.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 29 Jan 2008 10:13:02 +0000
+  [ Evan Dandrea ]
+  * Updated the location of gnome-settings-daemon (LP: #190029).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 07 Feb 2008 16:32:35 -0500
 
 oem-config (1.26) hardy; urgency=low
 
