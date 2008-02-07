@@ -1,4 +1,4 @@
-oem-config (1.27) UNRELEASED; urgency=low
+oem-config (1.27) hardy; urgency=low
 
   [ Colin Watson ]
   * Call 'fontconfig-voodoo --auto --force --quiet' on startup and when the
@@ -9,7 +9,7 @@ oem-config (1.27) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup
     1.21ubuntu2.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 07 Feb 2008 16:35:47 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 07 Feb 2008 16:36:50 -0500
 
 oem-config (1.26) hardy; urgency=low
 
