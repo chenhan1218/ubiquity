@@ -12,6 +12,7 @@ ubiquity (1.7.7) UNRELEASED; urgency=low
     broke OEM installs and probably other things (LP: #188240).
   * Fetch http_proxy and no_proxy from gconf (if possible) immediately
     before configuring apt.
+  * Update installed file list for apt-setup 1:0.31ubuntu3.
 
   [ Evan Dandrea ]
   * Validate the boot device string that the user provides on the
