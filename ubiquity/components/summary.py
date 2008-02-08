@@ -32,11 +32,10 @@ def grub_options():
     oslist = {}
     subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,
         stderr=subprocess.PIPE)
-    result = subp.communicate()[:-1]
-    if result[0] != '\n':
-        for res in result:
-            res = res.split(':')
-            oslist[res[0]] = res[1]
+    result = subp.communicate()[0].splitlines()
+    for res in result:
+        res = res.split(':')
+        oslist[res[0]] = res[1]
     p = PartedServer()
     for disk in p.disks():
         p.select_disk(disk)
