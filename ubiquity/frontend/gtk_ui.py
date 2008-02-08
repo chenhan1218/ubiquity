@@ -2144,6 +2144,7 @@ class Wizard(BaseFrontend):
         display = False
         summary_device = self.get_summary_device()
         grub_en = self.get_grub()
+
         if summary_device is not None:
             display = True
             self.bootloader_vbox.show()
@@ -2152,12 +2153,24 @@ class Wizard(BaseFrontend):
             self.grub_device_label.set_sensitive(grub_en)
         else:
             self.bootloader_vbox.hide()
+
         if self.popcon is not None:
             display = True
             self.popcon_vbox.show()
             self.popcon_checkbutton.set_active(self.popcon)
         else:
             self.popcon_vbox.hide()
+
+        display = True
+        if self.http_proxy_host:
+            self.proxy_host_entry.set_text(self.http_proxy_host)
+            self.proxy_port_spinbutton.set_sensitive(True)
+        else:
+            self.proxy_port_spinbutton.set_sensitive(False)
+        self.proxy_port_spinbutton.set_value(self.http_proxy_port)
+
+        # never happens at the moment because the HTTP proxy question is
+        # always valid
         if not display:
             return
 
@@ -2167,12 +2180,19 @@ class Wizard(BaseFrontend):
             self.set_summary_device(self.grub_device_entry.child.get_text())
             self.set_popcon(self.popcon_checkbutton.get_active())
             self.set_grub(self.grub_enable.get_active())
+            self.set_proxy_host(self.proxy_host_entry.get_text())
+            self.set_proxy_port(self.proxy_port_spinbutton.get_value_as_int())
         return True
 
     def toggle_grub(self, widget):
         if (widget is not None and widget.get_name() == 'grub_enable'):
             self.grub_device_entry.set_sensitive(widget.get_active())
             self.grub_device_label.set_sensitive(widget.get_active())
+
+    def on_proxy_host_changed(self, widget):
+        if widget is not None and widget.get_name() == 'proxy_host_entry':
+            text = self.proxy_host_entry.get_text()
+            self.proxy_port_spinbutton.set_sensitive(text != '')
 
 
     def return_to_partitioning (self):

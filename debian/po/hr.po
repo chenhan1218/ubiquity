@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-01-30 15:30-0500\n"
+"Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-02-08 20:06+0000\n"
 "PO-Revision-Date: 2007-10-04 13:21+0000\n"
 "Last-Translator: Josip Rodin <joy+ditrans@linux.hr>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -265,7 +265,7 @@ msgstr "Pripremi particije"
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:32001 ../ubiquity.templates:63001
+#: ../ubiquity.templates:32001 ../ubiquity.templates:66001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr "Spreman za instalaciju"
@@ -436,6 +436,24 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
+msgid "Network proxy"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:61001
+msgid "HTTP proxy:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:62001
+msgid "Port:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:63001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation. You can continue to use this live CD, although any "
@@ -448,20 +466,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:64001
 msgid "Go Back"
 msgstr "Natrag"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:65001
 msgid "Continue"
 msgstr "Nastavi"
 
 #. Type: note
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:66001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -481,44 +499,44 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:67001
 #, fuzzy
 msgid "Checking the installation..."
 msgstr "Kopiram zapise instalacije..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:68001
 msgid "Installing system"
 msgstr "Instaliram sustav"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:69001
 msgid "Finding the distribution to copy..."
 msgstr "Pronalazim presliku distribucije..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:71001
 msgid "Scanning files..."
 msgstr "Pretraživanje datoteka..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:72001
 msgid "Copying files..."
 msgstr "Kopiram datoteke..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:73001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "Kopiranje datoteka (preostalo je manje od jedne minute)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:74001
 #, fuzzy
 #| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
@@ -532,14 +550,14 @@ msgstr "Neuspješno kopiranje datoteka; oštečenje tvrdog diska?"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:71001 ../ubiquity.templates:72001
-#: ../ubiquity.templates:73001 ../ubiquity.templates:74001
+#: ../ubiquity.templates:74001 ../ubiquity.templates:75001
+#: ../ubiquity.templates:76001 ../ubiquity.templates:77001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "Instaler je naišao na grešku tijekom kopiranja datoteka na tvrdi disk."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:74001
 msgid ""
 "This particular error is due to there being insufficient disk space for the "
 "install to complete on the target partition.  Please run the installer again "
@@ -548,13 +566,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:75001
 msgid "Failed to copy files; faulty CD/DVD?"
 msgstr "Neuspjeh pri kopiranju datoteka; neispravan CD/DVD?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:75001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive. It may "
 "help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
@@ -568,13 +586,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:76001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr "Neuspješno kopiranje datoteka; oštečenje tvrdog diska?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:76001
 msgid ""
 "This particular error is often due to a faulty hard disk. It may help to "
 "check whether the hard disk is old and in need of replacement, or to move "
@@ -586,7 +604,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:77001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr "Neuspješno kopiranje datoteka; oštečen CD/DVD ili tvrdi disk?"
 
@@ -594,7 +612,7 @@ msgstr "Neuspješno kopiranje datoteka; oštečen CD/DVD ili tvrdi disk?"
 #. Description
 #. This is used when we don't know whether the CD/DVD or the hard disk is at
 #. fault.
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:77001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -610,139 +628,139 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:78001
 msgid "Copying installation logs..."
 msgstr "Kopiram zapise instalacije..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:79001
 msgid "Configuring target system..."
 msgstr "Konfiguriram cilajni sistem ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:80001
 msgid "Configuring system locales..."
 msgstr "Postavljam lokalizirano sučelje..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:81001
 msgid "Configuring apt..."
 msgstr "Postavljam apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:82001
 msgid "Configuring time zone..."
 msgstr "Postavljam vremensku zonu..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:83001
 msgid "Configuring keyboard..."
 msgstr "Postavljam tipkovnicu..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:84001
 msgid "Creating user..."
 msgstr "Izrađujem korisnika..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:85001
 msgid "Importing documents and settings..."
 msgstr "Uvozim dokumente i postavke..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:86001
 msgid "Configuring hardware..."
 msgstr "Postavljam hardver..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:87001
 msgid "Configuring network..."
 msgstr "Podešavam mrežu..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:88001
 msgid "Setting computer name..."
 msgstr "Postavljanje imena računala..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:89001
 msgid "Configuring boot loader..."
 msgstr "Podešavanje boot upravitelja..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:90001
 msgid "Installing additional packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:91001
 msgid "Checking for packages to install..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:92001
 msgid "Removing extra packages..."
 msgstr "Uklanjam ekstra pakete..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:93001
 msgid "Checking for packages to remove..."
 msgstr "Provjeravam pakete za uklanjanje..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:94001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Preuzimam pakete (preostalo vrijeme: ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:95001
 msgid "Downloading package lists..."
 msgstr "Preuzimam liste paketa..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:96001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Preuzimam liste paketa (preostalo vrijeme: ${TIME})..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:98001
 msgid "Error installing ${PACKAGE}"
 msgstr "Greška prilikom instaliranja paketa ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:99001
 msgid "Error removing ${PACKAGE}"
 msgstr "Greška prilikom uklanjanja paketa ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:100001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:100001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -750,7 +768,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:97001 ../ubiquity.templates:98001
+#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
 msgid "The following packages are in a broken state:"
 msgstr "Sljedeći paketi su oštećeni:"
 
@@ -758,7 +776,7 @@ msgstr "Sljedeći paketi su oštećeni:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:97001 ../ubiquity.templates:98001
+#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -771,37 +789,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:101001
 msgid "Error while removing packages"
 msgstr "Prilikom uklanjanja paketa došlo je do greške"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:101001
 msgid "An error occurred while removing packages:"
 msgstr "Došlo je do sljedeće greške prilikom uklanjanja paketa:"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:102001
 msgid "Installing language packs"
 msgstr "Instaliram jezične pakete"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:103001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Preuzimam jezične pakete (preostalo vremena: ${TIME})"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:108001
 msgid "Failed to unmount partitions"
 msgstr "Odmontiranje particija nije uspjelo"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:108001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -812,13 +830,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:108001
 msgid "Please close any applications using these mount points."
 msgstr "Zatvorite aplikacije koje koriste ove točke montiranja."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:108001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Želite li da instalacijski program pokuša ponovo odmontirati ove particije?"
@@ -827,7 +845,7 @@ msgstr ""
 #. Description
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001 ../ubiquity.templates:111001
+#: ../ubiquity.templates:109001 ../ubiquity.templates:114001
 #, fuzzy
 #| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
@@ -835,7 +853,7 @@ msgstr "Kako želite particionirati disk?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:106001
+#: ../ubiquity.templates:109001
 #, fuzzy
 #| msgid ""
 #| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
@@ -856,7 +874,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:114001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -864,7 +882,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:114001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1089,66 +1107,72 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
-msgid "Myth DVD"
+msgid "Myth Appearance"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
-msgid "Myth Flix"
+msgid "Myth Movies"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
-msgid "Myth Gallery"
+msgid "Myth Flix"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
-msgid "Myth Game"
+msgid "Myth Gallery"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
-msgid "Myth Music"
+msgid "Myth Game"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
-msgid "Myth News"
+msgid "Myth Music"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
-msgid "Myth Phone"
+msgid "Myth News"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
-msgid "Myth Stream"
+msgid "Myth Phone"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
-msgid "Myth Video"
+msgid "Myth Stream"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
-msgid "Myth Weather"
+msgid "Myth Video"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
+msgid "Myth Weather"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity-frontend-mythbuntu.templates:41001
 msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
@@ -1156,13 +1180,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:41001
+#: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid "An integrated web browser plugin for your MythTV system."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:42001
+#: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
@@ -1170,38 +1194,43 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:43001
-msgid ""
-"Provides an interface for launching your preferred DVD player from MythTV"
-msgstr ""
-
-#. Type: text
-#. Description
 #: ../ubiquity-frontend-mythbuntu.templates:44001
-msgid "Allows you to monitor your Netflix dvd rental queue."
+msgid "Controls the size of the Mythfrontend GUI"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
-msgid "Allows you to visually browse a directory tree containing image files."
+msgid "Find movies playing in nearby local cinemas"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
-msgid "A frontend to start any emulator or binary that Linux runs."
+msgid "Allows you to monitor your Netflix dvd rental queue."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
-msgid "Provides a digital audio jukebox integrated with MythTV."
+msgid "Allows you to visually browse a directory tree containing image files."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
+msgid "A frontend to start any emulator or binary that Linux runs."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity-frontend-mythbuntu.templates:49001
+msgid "Provides a digital audio jukebox integrated with MythTV."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity-frontend-mythbuntu.templates:50001
 msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
@@ -1209,20 +1238,20 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:49001
+#: ../ubiquity-frontend-mythbuntu.templates:51001
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:50001
+#: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:51001
+#: ../ubiquity-frontend-mythbuntu.templates:53001
 msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
@@ -1230,19 +1259,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:52001
+#: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:53001
+#: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Choose Extra Themes"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:54001
+#: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
@@ -1252,20 +1281,20 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:55001
-#: ../ubiquity-frontend-mythbuntu.templates:56001
+#: ../ubiquity-frontend-mythbuntu.templates:57001
+#: ../ubiquity-frontend-mythbuntu.templates:58001
 msgid "Enable/Disable All"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:57001
+#: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:58001
+#: ../ubiquity-frontend-mythbuntu.templates:60001
 msgid ""
 "An open source graphics driver is already enabled and configured for your "
 "installation.  If you would like to use a different graphics driver, you can "
@@ -1275,25 +1304,25 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:59001
+#: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:60001
+#: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:61001
+#: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:62001
+#: ../ubiquity-frontend-mythbuntu.templates:64001
 msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
@@ -1301,50 +1330,50 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:63001
+#: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:64001
+#: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:65001
+#: ../ubiquity-frontend-mythbuntu.templates:67001
 #, fuzzy
 msgid "MySQL Password"
 msgstr "Lozinka:"
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:66001
+#: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:67001
+#: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:68001
+#: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:69001
+#: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:70001
+#: ../ubiquity-frontend-mythbuntu.templates:72001
 msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
@@ -1352,13 +1381,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:71001
+#: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:72001
+#: ../ubiquity-frontend-mythbuntu.templates:74001
 msgid ""
 "Users in North America will need to setup an account with Schedules Direct "
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
@@ -1367,13 +1396,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:73001
+#: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:74001
+#: ../ubiquity-frontend-mythbuntu.templates:76001
 msgid ""
 "After setting up your guide data source, you will need to launch MythTV-"
 "Setup to run the backend configuration for the first time.  You will need to "
@@ -1383,28 +1412,28 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:75001
+#: ../ubiquity-frontend-mythbuntu.templates:77001
 #, fuzzy
 msgid "Configuring mythtv..."
 msgstr "Postavljam apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:76001
+#: ../ubiquity-frontend-mythbuntu.templates:78001
 #, fuzzy
 msgid "Configuring additional drivers..."
 msgstr "Postavljam hardver..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:77001
+#: ../ubiquity-frontend-mythbuntu.templates:79001
 #, fuzzy
 msgid "Configuring additional services..."
 msgstr "Postavljam hardver..."
 
 #. Type: text
 #. Description
-#: ../ubiquity-frontend-mythbuntu.templates:78001
+#: ../ubiquity-frontend-mythbuntu.templates:80001
 #, fuzzy
 msgid "Configuring infrared devices..."
 msgstr "Postavljam hardver..."

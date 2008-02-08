@@ -17,6 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import debconf
+
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import gconftool
 
@@ -47,11 +49,17 @@ class AptSetup(FilteredCommand):
     def prepare(self):
         env = {}
 
-        http_proxy = self._gconf_http_proxy()
-        if http_proxy is not None:
-            env['http_proxy'] = http_proxy
-            no_proxy = self._gconf_no_proxy()
-            if no_proxy:
-                env['no_proxy'] = no_proxy
+        try:
+            chosen_http_proxy = self.db.get('mirror/http/proxy')
+        except debconf.DebconfError:
+            chosen_http_proxy = None
+
+        if not chosen_http_proxy:
+            http_proxy = self._gconf_http_proxy()
+            if http_proxy is not None:
+                self.preseed('mirror/http/proxy', http_proxy)
+                no_proxy = self._gconf_no_proxy()
+                if no_proxy:
+                    env['no_proxy'] = no_proxy
 
         return (['/usr/share/ubiquity/apt-setup'], [], env)

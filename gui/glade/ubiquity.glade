@@ -96,6 +96,7 @@
                                 <property name="border_width">4</property>
                                 <property name="label">gtk-cancel</property>
                                 <property name="use_stock">True</property>
+                                <property name="response_id">0</property>
                                 <signal name="clicked" handler="on_cancel_clicked"/>
                               </widget>
                             </child>
@@ -107,6 +108,7 @@
                                 <property name="border_width">4</property>
                                 <property name="label">gtk-go-back</property>
                                 <property name="use_stock">True</property>
+                                <property name="response_id">0</property>
                                 <signal name="clicked" handler="on_back_clicked"/>
                               </widget>
                               <packing>
@@ -122,6 +124,7 @@
                                 <property name="border_width">4</property>
                                 <property name="label">gtk-go-forward</property>
                                 <property name="use_stock">True</property>
+                                <property name="response_id">0</property>
                                 <signal name="clicked" handler="on_next_clicked"/>
                               </widget>
                               <packing>
@@ -308,6 +311,7 @@
                 <property name="can_focus">True</property>
                 <property name="label" translatable="yes">Skip</property>
                 <property name="use_underline">True</property>
+                <property name="response_id">0</property>
                 <signal name="clicked" handler="on_progress_cancel_button_clicked"/>
               </widget>
               <packing>
@@ -361,6 +365,7 @@
                 <property name="can_default">True</property>
                 <property name="label" translatable="yes">Continue using the live CD</property>
                 <property name="use_underline">True</property>
+                <property name="response_id">0</property>
                 <signal name="clicked" handler="on_exitbutton_clicked"/>
               </widget>
             </child>
@@ -373,6 +378,7 @@
                 <property name="has_default">True</property>
                 <property name="label" translatable="yes">Restart now</property>
                 <property name="use_underline">True</property>
+                <property name="response_id">0</property>
                 <signal name="clicked" handler="reboot"/>
               </widget>
               <packing>
@@ -653,6 +659,7 @@
                             <property name="can_focus">True</property>
                             <property name="label" translatable="yes">Beginning</property>
                             <property name="use_underline">True</property>
+                            <property name="response_id">0</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
                           </widget>
@@ -671,6 +678,7 @@
                             <property name="can_focus">True</property>
                             <property name="label" translatable="yes">End</property>
                             <property name="use_underline">True</property>
+                            <property name="response_id">0</property>
                             <property name="draw_indicator">True</property>
                             <property name="group">partition_create_place_beginning</property>
                           </widget>
@@ -689,6 +697,7 @@
                             <property name="can_focus">True</property>
                             <property name="label" translatable="yes">Primary</property>
                             <property name="use_underline">True</property>
+                            <property name="response_id">0</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
                           </widget>
@@ -705,6 +714,7 @@
                             <property name="can_focus">True</property>
                             <property name="label" translatable="yes">Logical</property>
                             <property name="use_underline">True</property>
+                            <property name="response_id">0</property>
                             <property name="draw_indicator">True</property>
                             <property name="group">partition_create_type_primary</property>
                           </widget>
@@ -1026,6 +1036,7 @@
                             <property name="can_focus">True</property>
                             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
                             <property name="label" translatable="yes">Install boot loader</property>
+                            <property name="response_id">0</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
                             <signal name="toggled" handler="toggle_grub"/>
@@ -1054,6 +1065,10 @@
                           <widget class="GtkComboBoxEntry" id="grub_device_entry">
                             <property name="visible">True</property>
                             <signal name="changed" handler="grub_verify_loop"/>
+                            <child internal-child="entry">
+                              <widget class="GtkEntry" id="comboboxentry-entry3">
+                              </widget>
+                            </child>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -1094,6 +1109,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="label" translatable="yes">Participate in the package usage survey</property>
+                        <property name="response_id">0</property>
                         <property name="draw_indicator">True</property>
                       </widget>
                     </child>
@@ -1105,6 +1121,99 @@
               </widget>
               <packing>
                 <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkVBox" id="vbox3">
+                <property name="visible">True</property>
+                <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                <property name="spacing">6</property>
+                <child>
+                  <widget class="GtkLabel" id="proxy_group_label">
+                    <property name="visible">True</property>
+                    <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">&lt;b&gt;Network proxy&lt;/b&gt;</property>
+                    <property name="use_markup">True</property>
+                    <property name="selectable">True</property>
+                    <property name="single_line_mode">True</property>
+                  </widget>
+                </child>
+                <child>
+                  <widget class="GtkAlignment" id="alignment1">
+                    <property name="visible">True</property>
+                    <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                    <property name="xalign">0</property>
+                    <property name="left_padding">12</property>
+                    <child>
+                      <widget class="GtkHBox" id="hbox1">
+                        <property name="visible">True</property>
+                        <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                        <property name="spacing">6</property>
+                        <child>
+                          <widget class="GtkLabel" id="proxy_host_label">
+                            <property name="visible">True</property>
+                            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                            <property name="xalign">1</property>
+                            <property name="xpad">6</property>
+                            <property name="label" translatable="yes">HTTP proxy:</property>
+                            <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                            <property name="selectable">True</property>
+                            <property name="single_line_mode">True</property>
+                          </widget>
+                        </child>
+                        <child>
+                          <widget class="GtkEntry" id="proxy_host_entry">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                            <property name="activates_default">True</property>
+                            <property name="truncate_multiline">True</property>
+                            <signal name="changed" handler="on_proxy_host_changed"/>
+                          </widget>
+                          <packing>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="proxy_port_label">
+                            <property name="visible">True</property>
+                            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                            <property name="xalign">1</property>
+                            <property name="xpad">6</property>
+                            <property name="label" translatable="yes">Port:</property>
+                            <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                            <property name="selectable">True</property>
+                            <property name="single_line_mode">True</property>
+                          </widget>
+                          <packing>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkSpinButton" id="proxy_port_spinbutton">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                            <property name="activates_default">True</property>
+                            <property name="truncate_multiline">True</property>
+                            <property name="adjustment">8080 0 65535 1 10 10</property>
+                            <property name="numeric">True</property>
+                          </widget>
+                          <packing>
+                            <property name="position">3</property>
+                          </packing>
+                        </child>
+                      </widget>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">2</property>
               </packing>
             </child>
           </widget>

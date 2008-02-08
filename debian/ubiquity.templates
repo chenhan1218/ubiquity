@@ -270,6 +270,18 @@ Template: ubiquity/text/popcon_checkbutton
 Type: text
 _Description: Participate in the package usage survey
 
+Template: ubiquity/text/proxy_group_label
+Type: text
+_Description: Network proxy
+
+Template: ubiquity/text/proxy_host_label
+Type: text
+_Description: HTTP proxy:
+
+Template: ubiquity/text/proxy_port_label
+Type: text
+_Description: Port:
+
 Template: ubiquity/text/finished_label
 Type: text
 _Description:

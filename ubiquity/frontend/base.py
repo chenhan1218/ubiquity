@@ -53,6 +53,8 @@ class BaseFrontend:
         self.manual_choice = None
         self.summary_device = None
         self.popcon = None
+        self.http_proxy_host = None
+        self.http_proxy_port = 8080
 
         self.oem_config = False
         try:
@@ -388,6 +390,23 @@ class BaseFrontend:
     def set_popcon(self, participate):
         """Set whether to participate in popularity-contest."""
         self.popcon = participate
+
+    def set_proxy_host(self, host):
+        """Set the HTTP proxy host."""
+        self.http_proxy_host = host
+
+    def set_proxy_port(self, port):
+        """Set the HTTP proxy port."""
+        self.http_proxy_port = port
+
+    # called from ubiquity.components.install
+    def get_proxy(self):
+        """Get the selected HTTP proxy."""
+        if self.http_proxy_host:
+            return 'http://%s:%s/' % (self.http_proxy_host,
+                                      self.http_proxy_port)
+        else:
+            return None
 
     def set_reboot(self, reboot):
         """Set whether to reboot automatically when the install completes."""

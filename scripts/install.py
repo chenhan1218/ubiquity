@@ -872,7 +872,7 @@ exit 0"""
             }""")
         apt_conf_nmc.close()
 
-        dbfilter = apt_setup.AptSetup(None)
+        dbfilter = apt_setup.AptSetup(None, self.db)
         ret = dbfilter.run_command(auto_process=True)
         if ret != 0:
             raise InstallStepError("AptSetup failed with code %d" % ret)
