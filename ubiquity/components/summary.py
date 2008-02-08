@@ -19,9 +19,12 @@
 
 import os
 import textwrap
+import subprocess
+
+import debconf
+
 from ubiquity.parted_server import PartedServer
 from ubiquity.misc import *
-import subprocess
 
 from ubiquity.filteredcommand import FilteredCommand
 
@@ -112,7 +115,7 @@ class Summary(FilteredCommand):
                 try:
                     participate = self.db.get('popularity-contest/participate')
                     self.frontend.set_popcon(participate == 'true')
-                except DebconfError:
+                except debconf.DebconfError:
                     self.frontend.set_popcon(None)
             else:
                 self.frontend.set_popcon(None)
