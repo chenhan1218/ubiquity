@@ -18,7 +18,40 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 from ubiquity.filteredcommand import FilteredCommand
+from ubiquity import gconftool
 
 class AptSetup(FilteredCommand):
+    def _gconf_http_proxy(self):
+        if gconftool.get('/system/http_proxy/use_http_proxy') != 'true':
+            return None
+
+        host = gconftool.get('/system/http_proxy/host')
+        if host == '':
+            return None
+        port = gconftool.get('/system/http_proxy/port')
+        if port == '':
+            port = '8080'
+
+        auth = gconftool.get('/system/http_proxy/use_authentication')
+        if auth == 'true':
+            user = gconftool.get('/system/http_proxy/authentication_user')
+            password = gconftool.get(
+                '/system/http_proxy/authentication_password')
+            return 'http://%s:%s@%s:%s/' % (host, port, user, password)
+        else:
+            return 'http://%s:%s/' % (host, port)
+
+    def _gconf_no_proxy(self):
+        return ','.join(gconftool.get_list('/system/http_proxy/ignore_hosts'))
+
     def prepare(self):
-        return (['/usr/share/ubiquity/apt-setup'], [])
+        env = {}
+
+        http_proxy = self._gconf_http_proxy()
+        if http_proxy is not None:
+            env['http_proxy'] = http_proxy
+            no_proxy = self._gconf_no_proxy()
+            if no_proxy:
+                env['no_proxy'] = no_proxy
+
+        return (['/usr/share/ubiquity/apt-setup'], [], env)

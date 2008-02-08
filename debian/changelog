@@ -10,6 +10,8 @@ ubiquity (1.7.7) UNRELEASED; urgency=low
   * Call apt-setup finish-install script during cleanup, not while
     configuring apt; removing cdrom entries from sources.list at this point
     broke OEM installs and probably other things (LP: #188240).
+  * Fetch http_proxy and no_proxy from gconf (if possible) immediately
+    before configuring apt.
 
   [ Evan Dandrea ]
   * Validate the boot device string that the user provides on the
