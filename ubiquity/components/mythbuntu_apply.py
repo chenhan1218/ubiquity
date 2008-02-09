@@ -51,7 +51,7 @@ class MythbuntuApply(FilteredCommand):
             patternline += "|^mythtv-backend-master|^mythtv-database|^mythtv-backend|^mysql-server-5.0|^mysql-server|^mythtv\ "
         mythappearance = self.db.get('mythbuntu/mythappearance')
         if mythappearance == "false":
-            patternline += "^mythappearance"
+            patternline += "|^mythappearance"
         mytharchive = self.db.get('mythbuntu/mytharchive')
         if mytharchive == "false":
             patternline += "|^mytharchive|^ffmpeg|^genisoimage|^dvdauthor|^mjpegtools|^dvd+rw-tools|^python-imaging|^python-mysqldb"
@@ -72,7 +72,7 @@ class MythbuntuApply(FilteredCommand):
             patternline += "|^mythgame"
         mythmovies = self.db.get('mythbuntu/mythmovies')
         if mythmovies == "false":
-            patternline += "^mythmovies"
+            patternline += "|^mythmovies"
         mythmusic = self.db.get('mythbuntu/mythmusic')
         if mythmusic == "false":
             patternline += "|^mythmusic|^fftw2|^libcdaudio1|^libfaad2-0|^libflac8"
@@ -95,11 +95,13 @@ class MythbuntuApply(FilteredCommand):
         if mythweb == "false":
             patternline += "|^apache2|^libapache2|^php|^mythweb"
         official = self.db.get('mythbuntu/officialthemes')
-        for theme in string.split(official," "):
-            patternline += "|^" + theme
+        if official != "":
+        	for theme in string.split(official," "):
+            	patternline += "|^" + theme
         community = self.db.get('mythbuntu/communitythemes')
-        for theme in string.split(community," "):
-            patternline += "|^" + theme
+        if community != "":
+        	for theme in string.split(community," "):
+            	patternline += "|^" + theme
         samba = self.db.get('mythbuntu/sambaservice')
         if samba == "false":
             patternline += "|^samba|^samba-common|^smbfs"

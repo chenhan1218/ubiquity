@@ -4,6 +4,7 @@ ubiquity (1.7.7) UNRELEASED; urgency=low
   * Add ubiquity-frontend-mythbuntu.links to source exterior glade files.
   * Add temporary workaround to allow Mythbuntu installs on low res
     displays.
+  * Fix case when no themes are removed.
 
   [ Colin Watson ]
   * Prevent apt-install from installing packages directly unless
