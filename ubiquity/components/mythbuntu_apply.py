@@ -96,12 +96,12 @@ class MythbuntuApply(FilteredCommand):
             patternline += "|^apache2|^libapache2|^php|^mythweb"
         official = self.db.get('mythbuntu/officialthemes')
         if official != "":
-        	for theme in string.split(official," "):
-            	patternline += "|^" + theme
+            for theme in string.split(official," "):
+                patternline += "|^" + theme
         community = self.db.get('mythbuntu/communitythemes')
         if community != "":
-        	for theme in string.split(community," "):
-            	patternline += "|^" + theme
+            for theme in string.split(community," "):
+                patternline += "|^" + theme
         samba = self.db.get('mythbuntu/sambaservice')
         if samba == "false":
             patternline += "|^samba|^samba-common|^smbfs"
