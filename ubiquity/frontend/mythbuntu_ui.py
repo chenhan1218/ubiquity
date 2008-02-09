@@ -119,6 +119,22 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
     def __init__(self, distro):
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
+
+        # TEMPORARY fix for:
+        # "Ubiquity dialogues too large for 800x600 display"
+        # https://bugs.launchpad.net/ubuntu/+source/ubiquity/+bug/38442
+        # If the screen res is 800x600 or 832x624,
+        # go into fullscreen so that the Next button doesn't get hidden
+        # under the lower launcher bar.
+        # for 640x480 and 768x576, fullcreen doesn't work, so
+        # leave it windowed, which also won't work, but may be
+        # more apparent.
+
+        #This fix will be removed after a proper fix is put in place
+        if 576 < gtk.gdk.screen_get_default().get_height() <= 624:
+             self.live_installer.fullscreen()
+
+
         self.populate_lirc()
         self.populate_video()
         self.backup=False
