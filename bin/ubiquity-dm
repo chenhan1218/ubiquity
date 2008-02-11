@@ -168,4 +168,12 @@ if len(sys.argv) < 3:
 
 vt, display = sys.argv[1:3]
 dm = DM(vt, display)
-sys.exit(dm.run(*sys.argv[3:]))
+proc = None
+if dm.frontend == 'gtk_ui':
+    proc = ['/etc/init.d/gdm', 'start']
+elif dm.frontend == 'kde_ui':
+    proc = ['/etc/init.d/kdm', 'start']
+ret = dm.run(*sys.argv[3:])
+if proc:
+    subprocess.Popen(proc)
+sys.exit(ret)

@@ -27,6 +27,8 @@ ubiquity (1.7.7) UNRELEASED; urgency=low
   * Change the boot device Entry to a ComboBox that displays suitable targets.
   * Updated the location of gnome-settings-daemon in ubiquity-dm.
   * Fix the installer window appearing briefly when starting automatic mode.
+  * Explicitly call GDM/KDM at the end of ubiquity-dm as we now remove the rc
+    files in casper for only-ubiquity and automatic-ubiquity.
 
   [ Agostino Russo ]
   * Added debug mode boot parameter
