@@ -337,7 +337,6 @@ class Wizard(BaseFrontend):
         
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             got_intro = False
-            self.live_installer.hide()
             self.debconf_progress_start(0, pageslen,
                 self.get_string('ubiquity/install/checking'))
             self.refresh()
@@ -455,7 +454,8 @@ class Wizard(BaseFrontend):
             # The UserSetup component takes care of preseeding passwd/user-uid.
             execute('apt-install', 'oem-config-gtk')
 
-        self.live_installer.show()
+        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+            self.live_installer.show()
         self.allow_change_step(False)
 
         try:
