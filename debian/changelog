@@ -29,11 +29,13 @@ ubiquity (1.7.7) UNRELEASED; urgency=low
   * Fix the installer window appearing briefly when starting automatic mode.
   * Explicitly call GDM/KDM at the end of ubiquity-dm as we now remove the rc
     files in casper for only-ubiquity and automatic-ubiquity.
+  * Always show the advanced partitioner buttons, greying them out
+    conditionally instead of hiding them.
 
   [ Agostino Russo ]
   * Added debug mode boot parameter
 
- -- Agostino Russo <agostino.russo@gmail.com>  Fri, 08 Feb 2008 09:00:36 +0000
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 11 Feb 2008 22:35:44 -0500
 
 ubiquity (1.7.6) hardy; urgency=low
 

@@ -524,6 +524,9 @@ class Wizard(BaseFrontend):
 
         for widget in self.all_widgets:
             self.translate_widget(widget, self.locale)
+        
+        self.partition_button_undo.set_label(
+            self.get_string('partman/text/undo_everything'))
 
     def translate_widget(self, widget, lang):
         if isinstance(widget, gtk.Button) and widget.get_use_stock():
@@ -1773,11 +1776,12 @@ class Wizard(BaseFrontend):
         return True
 
     def on_partition_list_treeview_selection_changed (self, selection):
+        self.partition_button_new_label.set_sensitive(False)
+        self.partition_button_new.set_sensitive(False)
+        self.partition_button_edit.set_sensitive(False)
+        self.partition_button_delete.set_sensitive(False)
         if not isinstance(self.dbfilter, partman.Partman):
             return
-
-        for child in self.partition_list_buttonbox.get_children():
-            self.partition_list_buttonbox.remove(child)
 
         model, iterator = selection.get_selected()
         if iterator is None:
@@ -1786,47 +1790,16 @@ class Wizard(BaseFrontend):
         else:
             devpart = model[iterator][0]
             partition = model[iterator][1]
-
         for action in self.dbfilter.get_actions(devpart, partition):
             if action == 'new_label':
-                # TODO cjwatson 2007-02-19: i18n;
-                # partman-partitioning/text/label is too long unless we can
-                # figure out how to make the row of buttons auto-wrap
-                new_label_button = gtk.Button('New partition table')
-                new_label_button.connect(
-                    'clicked', self.on_partition_list_new_label_activate,
-                    devpart, partition)
-                self.partition_list_buttonbox.pack_start(new_label_button,
-                                                         False, False)
+                self.partition_button_new_label.set_sensitive(True)
             elif action == 'new':
-                # TODO cjwatson 2007-02-19: i18n
-                new_button = gtk.Button('New partition')
-                new_button.connect(
-                    'clicked', self.on_partition_list_new_activate,
-                    devpart, partition)
-                self.partition_list_buttonbox.pack_start(new_button,
-                                                         False, False)
+                self.partition_button_new.set_sensitive(True)
             elif action == 'edit':
-                # TODO cjwatson 2007-02-19: i18n
-                edit_button = gtk.Button('Edit partition')
-                edit_button.connect(
-                    'clicked', self.on_partition_list_edit_activate,
-                    devpart, partition)
-                self.partition_list_buttonbox.pack_start(edit_button,
-                                                         False, False)
+                self.partition_button_edit.set_sensitive(True)
             elif action == 'delete':
-                # TODO cjwatson 2007-02-19: i18n
-                delete_button = gtk.Button('Delete partition')
-                delete_button.connect(
-                    'clicked', self.on_partition_list_delete_activate,
-                    devpart, partition)
-                self.partition_list_buttonbox.pack_start(delete_button,
-                                                         False, False)
-        undo_button = gtk.Button(
-            self.get_string('partman/text/undo_everything'))
-        undo_button.connect('clicked', self.on_partition_list_undo_activate)
-        self.partition_list_buttonbox.pack_start(undo_button, False, False)
-        self.partition_list_buttonbox.show_all()
+                self.partition_button_delete.set_sensitive(True)
+	self.partition_button_undo.set_sensitive(True)
 
     def on_partition_list_treeview_row_activated (self, treeview,
                                                   path, view_column):
@@ -1857,27 +1830,40 @@ class Wizard(BaseFrontend):
         else:
             self.partman_edit_dialog(devpart, partition)
 
-    def on_partition_list_new_label_activate (self, widget,
-                                              devpart, partition):
+    def partition_list_get_selection (self):
+        model, iterator = self.partition_list_treeview.get_selection().get_selected()
+        if iterator is None:
+            devpart = None
+            partition = None
+        else:
+            devpart = model[iterator][0]
+            partition = model[iterator][1]
+        return (devpart, partition)
+
+    def on_partition_list_new_label_activate (self, widget):
         if not self.allowed_change_step:
             return
         if not isinstance(self.dbfilter, partman.Partman):
             return
         self.allow_change_step(False)
+        devpart, partition = self.partition_list_get_selection()
         self.dbfilter.create_label(devpart)
 
-    def on_partition_list_new_activate (self, widget, devpart, partition):
+    def on_partition_list_new_activate (self, widget):
+        devpart, partition = self.partition_list_get_selection()
         self.partman_create_dialog(devpart, partition)
 
-    def on_partition_list_edit_activate (self, widget, devpart, partition):
+    def on_partition_list_edit_activate (self, widget):
+        devpart, partition = self.partition_list_get_selection()
         self.partman_edit_dialog(devpart, partition)
 
-    def on_partition_list_delete_activate (self, widget, devpart, partition):
+    def on_partition_list_delete_activate (self, widget):
         if not self.allowed_change_step:
             return
         if not isinstance(self.dbfilter, partman.Partman):
             return
         self.allow_change_step(False)
+        devpart, partition = self.partition_list_get_selection()
         self.dbfilter.delete_partition(devpart)
 
     def on_partition_list_undo_activate (self, widget):
@@ -2193,7 +2179,6 @@ class Wizard(BaseFrontend):
         if widget is not None and widget.get_name() == 'proxy_host_entry':
             text = self.proxy_host_entry.get_text()
             self.proxy_port_spinbutton.set_sensitive(text != '')
-
 
     def return_to_partitioning (self):
         """If the install progress bar is up but still at the partitioning
