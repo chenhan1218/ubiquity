@@ -1,3 +1,9 @@
+oem-config (1.28) UNRELEASED; urgency=low
+
+  * Build-depend on dctrl-tools rather than grep-dctrl.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 12 Feb 2008 11:25:54 +0000
+
 oem-config (1.27) hardy; urgency=low
 
   [ Colin Watson ]

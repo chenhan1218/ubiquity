@@ -30,8 +30,8 @@ my %builddeps;
 # Always include base oem-config build dependencies.
 my @basebd = (
     'apt',
+    'dctrl-tools',
     'debhelper (>= 5.0.37.3ubuntu2)',
-    'grep-dctrl',
     'libart-2.0-dev',
     'libglib2.0-dev',
     'libgtk2.0-dev',
