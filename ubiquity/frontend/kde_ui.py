@@ -273,6 +273,19 @@ class Wizard(BaseFrontend):
 
         self.app.connect(self.userinterface.advanced_button, SIGNAL("clicked()"), self.on_advanced_button_clicked)
 
+        self.pages = [language.Language, timezone.Timezone,
+            console_setup.ConsoleSetup, partman.Partman,
+            usersetup.UserSetup, summary.Summary]
+
+        self.pagesindex = 0
+        pageslen = len(self.pages)
+
+        if 'UBIQUITY_AUTOMATIC' in os.environ:
+            got_intro = False
+            self.debconf_progress_start(0, pageslen,
+                self.get_string('ubiquity/install/checking'))
+            self.refresh()
+
         # Start the interface
         if got_intro:
             global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
@@ -284,13 +297,6 @@ class Wizard(BaseFrontend):
         else:
             first_step = "stepLanguage"
         self.set_current_page(WIDGET_STACK_STEPS[first_step])
-
-        self.pages = [language.Language, timezone.Timezone,
-            console_setup.ConsoleSetup, partman.Partman,
-            usersetup.UserSetup, summary.Summary]
-
-        self.pagesindex = 0
-        pageslen = len(self.pages)
         
         if got_intro:
             self.app.exec_()
@@ -298,11 +304,6 @@ class Wizard(BaseFrontend):
         while(self.pagesindex < pageslen):
             if self.current_page == None:
                 break
-
-            if not self.installing:
-                # Make sure any started progress bars are stopped.
-                while self.progress_position.depth() != 0:
-                    self.debconf_progress_stop()
 
             self.backup = False
             old_dbfilter = self.dbfilter
@@ -322,6 +323,10 @@ class Wizard(BaseFrontend):
                     self.process_step()
                     if not self.stay_on_page:
                         self.pagesindex = self.pagesindex + 1
+                    if 'UBIQUITY_AUTOMATIC' in os.environ:
+                        # if no debconf_progress, create another one, set start to pageindex
+                        self.debconf_progress_step(1)
+                        self.refresh()
                 if self.backup:
                     if self.pagesindex > 0:
                         self.pagesindex = self.pagesindex - 1

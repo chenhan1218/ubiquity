@@ -32,6 +32,8 @@ ubiquity (1.7.7) UNRELEASED; urgency=low
     files in casper for only-ubiquity and automatic-ubiquity.
   * Always show the advanced partitioner buttons, greying them out
     conditionally instead of hiding them.
+  * Add the progress bar for automatic mode that was already present in
+    gtk_ui to kde_ui.
 
   [ Agostino Russo ]
   * Added debug mode boot parameter
