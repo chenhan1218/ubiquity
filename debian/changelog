@@ -35,11 +35,14 @@ ubiquity (1.7.7) UNRELEASED; urgency=low
   * Add the progress bar for automatic mode that was already present in
     gtk_ui to kde_ui.
   * Replace the resize slider with a custom widget in gtk_ui.
+  * Automatic update of included source packages: apt-setup
+    1:0.31ubuntu5, grub-installer 1.27ubuntu5, hw-detect 1.58ubuntu2,
+    partman-partitioning 54ubuntu2.
 
   [ Agostino Russo ]
   * Added debug mode boot parameter
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 11 Feb 2008 22:35:44 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 13 Feb 2008 15:01:59 -0500
 
 ubiquity (1.7.6) hardy; urgency=low
 
