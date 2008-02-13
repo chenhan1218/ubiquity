@@ -1693,6 +1693,10 @@ class Wizard(BaseFrontend):
             i = text.find("\n")
         self.userinterface.ready_text.setText(text)
 
+    def set_grub_combo(self, options):
+        # TODO evand 2008-02-13: Port grub combobox.
+        pass
+
     def on_advanced_button_clicked (self):
         self.app.connect(self.advanceddialog.grub_enable, SIGNAL("stateChanged(int)"), self.toggle_grub)
         display = False
