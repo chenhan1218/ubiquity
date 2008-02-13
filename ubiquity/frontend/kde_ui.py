@@ -115,7 +115,6 @@ class Wizard(BaseFrontend):
         self.userinterface = UbiquityUI()
         self.userinterface.setWizard(self)
         #self.app.setMainWidget(self.userinterface)
-        self.userinterface.show()
 
         self.advanceddialog = QDialog(self.userinterface)
         uic.loadUi("%s/advanceddialog.ui" % UIDIR, self.advanceddialog)
@@ -385,6 +384,9 @@ class Wizard(BaseFrontend):
         else:
             self.userinterface.oem_id_label.hide()
             self.userinterface.oem_id_entry.hide()
+        
+        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+            self.userinterface.show()
 
         try:
             release_notes = open('/cdrom/.disk/release_notes_url')
