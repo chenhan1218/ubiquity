@@ -5,6 +5,23 @@ import os
 import subprocess
 import syslog
 
+def find_in_os_prober(device):
+    '''Look for the device name in the output of os-prober.
+       Returns the friendly name of the device, or the empty string on error.'''
+    try:
+        if not find_in_os_prober.oslist:
+            subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE)
+            result = subp.communicate()[0].splitlines()
+            for res in result:
+                res = res.split(':')
+                find_in_os_prober.oslist[res[0]] = res[1]
+        return find_in_os_prober.oslist[device]
+    except Error, e:
+        syslog.syslog(syslog.LOG_ERR,
+            "Error in find_in_os_prober: %s" % e.strerror)
+        return ''
+find_in_os_prober.oslist = {}
 
 def execute(*args):
     """runs args* in shell mode. Output status is taken."""

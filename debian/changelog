@@ -34,6 +34,7 @@ ubiquity (1.7.7) UNRELEASED; urgency=low
     conditionally instead of hiding them.
   * Add the progress bar for automatic mode that was already present in
     gtk_ui to kde_ui.
+  * Replace the resize slider with a custom widget in gtk_ui.
 
   [ Agostino Russo ]
   * Added debug mode boot parameter

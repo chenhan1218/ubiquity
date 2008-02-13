@@ -271,6 +271,10 @@ class Partman(FilteredCommand):
                 self.resize_min_size = self.parse_size(value)
             elif key == 'MAXSIZE':
                 self.resize_max_size = self.parse_size(value)
+            elif key == 'ORISIZE':
+                self.resize_orig_size = self.parse_size(value)
+            elif key == 'PATH':
+                self.resize_path = value
 
     def error(self, priority, question):
         if question == 'partman-partitioning/impossible_resize':
@@ -827,7 +831,8 @@ class Partman(FilteredCommand):
             if self.autopartition_question is not None:
                 if self.auto_state is not None:
                     self.extra_options[self.auto_state[1]] = \
-                        (self.resize_min_size, self.resize_max_size)
+                        (self.resize_min_size, self.resize_max_size,
+                            self.resize_orig_size, self.resize_path)
                     # Back up to autopartitioning question.
                     self.succeeded = False
                     return False

@@ -1162,8 +1162,12 @@ class Wizard(BaseFrontend):
                                      self.update_new_size_label)
                     new_size_scale_vbox.addWidget(self.new_size_scale)
                     self.new_size_scale.show()
-                    self.resize_min_size, self.resize_max_size = \
-                        extra_options[choice]
+                    # TODO evand 2008-02-12: Until the new resize widget is
+                    # ported to Qt, resize_orig_size and resize_path are not
+                    # needed.
+                    self.resize_min_size, self.resize_max_size, \
+                        dis, dis = extra_options[choice]
+                    del dis
                     if (self.resize_min_size is not None and
                         self.resize_max_size is not None):
                         min_percent = int(math.ceil(

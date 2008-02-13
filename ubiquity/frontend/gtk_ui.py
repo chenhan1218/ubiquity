@@ -151,6 +151,8 @@ class Wizard(BaseFrontend):
         self.autopartition_extras = {}
         self.resize_min_size = None
         self.resize_max_size = None
+        self.resize_orig_size = None
+        self.resize_path = ''
         self.new_size_scale = None
         self.ma_choices = []
         self.username_combo = None
@@ -1333,24 +1335,14 @@ class Wizard(BaseFrontend):
                     new_size_label.set_selectable(True)
                     new_size_label.set_property('can-focus', False)
                     hbox.pack_start(new_size_label, expand=False, fill=False)
-                    self.new_size_scale = gtk.HScale(
-                        gtk.Adjustment(0, 0, 100, 1, 10, 0))
-                    self.new_size_scale.set_draw_value(True)
-                    self.new_size_scale.set_value_pos(gtk.POS_TOP)
-                    self.new_size_scale.set_digits(0)
-                    self.new_size_scale.set_update_policy(
-                        gtk.UPDATE_CONTINUOUS)
-                    self.new_size_scale.connect(
-                        'format_value', self.on_new_size_scale_format_value)
-                    self.resize_min_size, self.resize_max_size = \
-                        extra_options[choice]
-                    if (self.resize_min_size is not None and
-                        self.resize_max_size is not None):
-                        min_percent = int(math.ceil(
-                            100 * self.resize_min_size / self.resize_max_size))
-                        self.new_size_scale.set_range(min_percent, 100)
-                        self.new_size_scale.set_value(
-                            int((min_percent + 100) / 2))
+                    self.new_size_scale = ResizeWidget()
+                    self.resize_min_size, self.resize_max_size, \
+                        self.resize_orig_size, self.resize_path = \
+                            extra_options[choice]
+                    self.new_size_scale.set_part_size(self.resize_orig_size)
+                    self.new_size_scale.set_min(self.resize_min_size)
+                    self.new_size_scale.set_max(self.resize_max_size)
+                    self.new_size_scale.set_device(self.resize_path)
                     hbox.pack_start(self.new_size_scale, expand=True, fill=True)
                 elif choice != manual_choice:
                     vbox = gtk.VBox(spacing=6)
@@ -1799,7 +1791,7 @@ class Wizard(BaseFrontend):
                 self.partition_button_edit.set_sensitive(True)
             elif action == 'delete':
                 self.partition_button_delete.set_sensitive(True)
-	self.partition_button_undo.set_sensitive(True)
+        self.partition_button_undo.set_sensitive(True)
 
     def on_partition_list_treeview_row_activated (self, treeview,
                                                   path, view_column):
@@ -2518,5 +2510,115 @@ class TimezoneMap(object):
             self.frontend.allow_go_forward(self.location_selected is not None)
 
         return True
+
+class ResizeWidget(gtk.HPaned):
+    def __init__(self):
+        gtk.HPaned.__init__(self)
+        self.old_os = gtk.Label()
+        self.new_os = gtk.Label()
+        self.old_os.set_justify(gtk.JUSTIFY_CENTER)
+        self.new_os.set_justify(gtk.JUSTIFY_CENTER)
+        self.old_os.set_ellipsize(pango.ELLIPSIZE_END)
+        self.new_os.set_ellipsize(pango.ELLIPSIZE_END)
+        
+        color = gtk.gdk.color_parse('orange')
+        frame = gtk.Frame()
+        eb = gtk.EventBox()
+        eb.modify_bg(gtk.STATE_NORMAL, color)
+        eb.add(self.old_os)
+        frame.add(eb)
+        self.pack1(frame, shrink=False)
+        frame = gtk.Frame()
+        eb = gtk.EventBox()
+        eb.add(self.new_os)
+        frame.add(eb)
+        self.pack2(frame, shrink=False)
+        
+        self.part_size = 0
+        self.old_os_title = ''
+        self._set_new_os_title()
+        self.max_size = 0
+        self.min_size = 0
+
+        self.connect('expose_event', self.do_expose_event)
+
+    def do_expose_event(self, widget, event):
+        self._update_min()
+        self._update_max()
+
+        s1 = self.old_os.get_allocation().width
+        s2 = self.new_os.get_allocation().width
+        total = s1 + s2
+
+        percent = (float(s1) / float(total))
+        txt = '%s\n%.0f%% (%s)' % (self.old_os_title,
+            (percent * 100.0),
+            format_size(percent * self.part_size))
+        self.old_os.set_text(txt)
+        self.old_os.set_tooltip_text(txt)
+
+        percent = (float(s2) / float(total))
+        txt = '%s\n%.0f%% (%s)' % (self.new_os_title,
+            (percent * 100.0),
+            format_size(percent * self.part_size))
+        self.new_os.set_text(txt)
+        self.new_os.set_tooltip_text(txt)
+        
+    def set_min(self, size):
+        self.min_size = size
+
+    def set_max(self, size):
+        self.max_size = size
+
+    def set_part_size(self, size):
+        self.part_size = size
+
+    def _update_min(self):
+        total = self.new_os.get_allocation().width + self.old_os.get_allocation().width
+        # The minimum percent needs to be 1% greater than the value debconf
+        # feeds us, otherwise the resize will fail.
+        tmp = (self.min_size / self.part_size) + 0.01
+        pixels = int(tmp * total)
+        self.old_os.set_size_request(pixels, -1)
+
+    def _update_max(self):
+        total = self.new_os.get_allocation().width + self.old_os.get_allocation().width
+        tmp = ((self.part_size - self.max_size) / self.part_size)
+        pixels = int(tmp * total)
+        self.new_os.set_size_request(pixels, -1)
+
+    def _set_new_os_title(self):
+        self.new_os_title = ''
+        try:
+            fp = open('/cdrom/.disk/info')
+            line = fp.readline()
+            if line:
+                self.new_os_title = ' '.join(line.split()[:2])
+        except:
+            syslog.syslog(syslog.LOG_ERR,
+                "Unable to determine the distribution name from /cdrom/.disk/info")
+        finally:
+            fp.close()
+        if not self.new_os_title:
+            self.new_os_title = 'Ubuntu'
+
+    def set_device(self, dev):
+        '''Sets the title of the old partition to the name found in os_prober.
+           On failure, sets the title to the device name or the empty string.'''
+        if dev:
+            self.old_os_title = find_in_os_prober(dev)
+        if dev and not self.old_os_title:
+            self.old_os_title = dev
+        elif not self.old_os_title:
+            self.old_os_title = ''
+            
+    def get_value(self):
+        '''Returns the percent the old partition is of the maximum size it can be.'''
+        s1 = self.old_os.get_allocation().width
+        s2 = self.new_os.get_allocation().width
+        totalwidth = s1 + s2
+        percentwidth = float(s1) / float(totalwidth)
+        percentpart = percentwidth * self.part_size
+        return int((percentpart / self.max_size) * 100)
 
 # vim:ai:et:sts=4:tw=80:sw=4:
