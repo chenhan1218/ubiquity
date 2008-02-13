@@ -1,4 +1,4 @@
-ubiquity (1.7.7) UNRELEASED; urgency=low
+ubiquity (1.7.7) hardy; urgency=low
 
   [ Mario Limonciello ]
   * Add ubiquity-frontend-mythbuntu.links to source exterior glade files.
@@ -42,7 +42,7 @@ ubiquity (1.7.7) UNRELEASED; urgency=low
   [ Agostino Russo ]
   * Added debug mode boot parameter
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 13 Feb 2008 15:01:59 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 13 Feb 2008 15:03:15 -0500
 
 ubiquity (1.7.6) hardy; urgency=low
 
