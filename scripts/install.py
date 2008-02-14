@@ -39,6 +39,7 @@ import debconf
 import apt_pkg
 from apt.cache import Cache
 from apt.progress import FetchProgress, InstallProgress
+from hashlib import md5
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -512,9 +513,35 @@ class Install:
                     sourcefh = None
                     targetfh = None
                     try:
-                        sourcefh = open(sourcepath, 'rb')
-                        targetfh = open(targetpath, 'wb')
-                        shutil.copyfileobj(sourcefh, targetfh)
+                        while True:
+                            sourcefh = open(sourcepath, 'rb')
+                            targetfh = open(targetpath, 'wb')
+                            shutil.copyfileobj(sourcefh, targetfh)
+                            sourcefh.seek(0)
+                            targetfh.close()
+                            targetfh = open(targetpath, 'rb')
+                            targethash = md5(targetfh.read()).hexdigest()
+                            sourcehash = md5(sourcefh.read()).hexdigest()
+                            if targethash != sourcehash:
+                                if targetfh:
+                                    targetfh.close()
+                                if sourcefh:
+                                    sourcefh.close()
+                                error_template = 'ubiquity/install/copying_error/md5'
+                                self.db.subst(error_template, 'FILE', targetpath)
+                                self.db.input('critical', error_template)
+                                self.db.go()
+                                response = self.db.get(error_template)
+                                if response == 'skip':
+                                    break
+                                elif response == 'abort':
+                                    syslog.syslog(syslog.LOG_ERR,
+                                        'MD5 failure on %s' % targetpath)
+                                    sys.exit(3)
+                                elif response == 'retry':
+                                    pass
+                            else:
+                                break
                     finally:
                         if targetfh:
                             targetfh.close()

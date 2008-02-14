@@ -400,6 +400,25 @@ _Description: Failed to copy files; faulty CD/DVD or hard disk?
  old and in need of replacement, or to move the system to a cooler
  environment.
 
+Template: ubiquity/install/copying_error/md5
+Type: select
+#flag:translate!:3
+#flag:comment:4
+# This is used when there was an md5 mismatch during copying, meaning that
+# the source file and destination file are not equal.
+Choices: abort, retry, skip
+_Description: Failed to copy file; faulty CD/DVD or hard disk?
+ The following file did not match its source copy on the CD/DVD:
+ .
+ ${FILE}
+ .
+ This particular error is often due to a faulty CD/DVD disk or drive, or a
+ faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a
+ lower speed, to clean the CD/DVD drive lens (cleaning kits are often
+ available from electronics suppliers), to check whether the hard disk is
+ old and in need of replacement, or to move the system to a cooler
+ environment.
+
 Template: ubiquity/install/log_files
 Type: text
 _Description: Copying installation logs...

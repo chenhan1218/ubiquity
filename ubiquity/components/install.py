@@ -84,6 +84,7 @@ class Install(FilteredCommand):
         questions = ['^.*/apt-install-failed$',
                      'migration-assistant/failed-unmount',
                      'grub-installer/install_to_xfs',
+                     'ubiquity/install/copying_error/md5',
                      'CAPB',
                      'ERROR',
                      'PROGRESS']
@@ -122,6 +123,19 @@ class Install(FilteredCommand):
                 self.preseed(question, 'true')
             else:
                 self.preseed(question, 'false')
+            return True
+        elif question == 'ubiquity/install/copying_error/md5':
+            response = self.frontend.question_dialog(
+                self.description(question),
+                self.extended_description(question),
+                ('Abort', 'Retry', 'Skip'),
+                use_templates=False)
+            if response is None or response == 'Abort':
+                self.preseed(question, 'abort')
+            elif response == 'Retry':
+                self.preseed(question, 'retry')
+            elif response == 'Skip':
+                self.preseed(question, 'skip')
             return True
 
         return FilteredCommand.run(self, priority, question)
