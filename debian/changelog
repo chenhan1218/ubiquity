@@ -2,8 +2,10 @@ ubiquity (1.7.8) UNRELEASED; urgency=low
 
   * Check the md5 hash of the source and target files on copy to ensure they
     match, giving the user the option to abort, retry, or skip the file.
+  * The md5 check can be disabled by preseeding
+    ubiquity/install/md5_check to false.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 14 Feb 2008 13:00:00 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 14 Feb 2008 17:01:52 -0500
 
 ubiquity (1.7.7) hardy; urgency=low
 

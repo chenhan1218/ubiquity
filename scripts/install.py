@@ -486,7 +486,10 @@ class Install:
         times = [(time_start, copied_size)]
         long_enough = False
         time_last_update = time_start
-
+        md5_check = False
+        if self.db.get('ubiquity/install/md5_check') == 'true':
+            md5_check = True
+        
         old_umask = os.umask(0)
         for path in files:
             sourcepath = os.path.join(self.source, path)
@@ -517,6 +520,8 @@ class Install:
                             sourcefh = open(sourcepath, 'rb')
                             targetfh = open(targetpath, 'wb')
                             shutil.copyfileobj(sourcefh, targetfh)
+                            if not md5_check:
+                                break
                             sourcefh.seek(0)
                             targetfh.close()
                             targetfh = open(targetpath, 'rb')

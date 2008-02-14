@@ -552,6 +552,11 @@ _Description: Error while removing packages
  look for newer versions of your installer image, or failing that report the
  problem to your distributor.
 
+Template: ubiquity/install/md5_check
+Type: boolean
+Default: true
+Description: for internal use; set true to check for matching md5 hashes.
+
 Template: ubiquity/langpacks/title
 Type: title
 _Description: Installing language packs

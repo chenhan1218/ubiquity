@@ -127,6 +127,7 @@ class Install(FilteredCommand):
         elif question == 'ubiquity/install/copying_error/md5':
             response = self.frontend.question_dialog(
                 self.description(question),
+                # TODO evand 2008-02-14: i18n.
                 self.extended_description(question),
                 ('Abort', 'Retry', 'Skip'),
                 use_templates=False)
