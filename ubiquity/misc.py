@@ -17,9 +17,9 @@ def find_in_os_prober(device):
                 res = res.split(':')
                 find_in_os_prober.oslist[res[0]] = res[1]
         return find_in_os_prober.oslist[device]
-    except Error, e:
+    except Exception, e:
         syslog.syslog(syslog.LOG_ERR,
-            "Error in find_in_os_prober: %s" % e.strerror)
+            "Error in find_in_os_prober: %s" % str(e))
         return ''
 find_in_os_prober.oslist = {}
 
