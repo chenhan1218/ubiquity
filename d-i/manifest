@@ -21,7 +21,7 @@ partman-jfs 23
 partman-newworld 18ubuntu1
 partman-partitioning 54ubuntu2
 partman-reiserfs 37
-partman-target 52ubuntu4
+partman-target 52ubuntu5
 partman-xfs 35
 silo-installer 1.12ubuntu1
 tzsetup 1:0.19

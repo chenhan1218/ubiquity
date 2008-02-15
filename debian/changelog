@@ -7,8 +7,10 @@ ubiquity (1.7.8) UNRELEASED; urgency=low
   * Catch exceptions around the processing of each components run()
     function.
   * seteuid as a regular user until we need to do something as root.
+  * Automatic update of included source packages: partman-target
+    52ubuntu5.
 
- -- Evan Dandrea <evand@ubuntu.com>  Thu, 14 Feb 2008 21:08:48 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 15 Feb 2008 00:09:24 -0500
 
 ubiquity (1.7.7) hardy; urgency=low
 
