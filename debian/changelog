@@ -1,4 +1,4 @@
-ubiquity (1.7.8) UNRELEASED; urgency=low
+ubiquity (1.7.8) hardy; urgency=low
 
   * Check the md5 hash of the source and target files on copy to ensure they
     match, giving the user the option to abort, retry, or skip the file.
@@ -10,7 +10,7 @@ ubiquity (1.7.8) UNRELEASED; urgency=low
   * Automatic update of included source packages: partman-target
     52ubuntu5.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 15 Feb 2008 00:09:24 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 15 Feb 2008 00:10:18 -0500
 
 ubiquity (1.7.7) hardy; urgency=low
 
