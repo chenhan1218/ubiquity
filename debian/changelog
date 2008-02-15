@@ -1,3 +1,9 @@
+ubiquity (1.7.9) UNRELEASED; urgency=low
+
+  * Drop priviliges for gnome-settings-daemon in ubiquity-dm.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 15 Feb 2008 13:34:58 -0500
+
 ubiquity (1.7.8) hardy; urgency=low
 
   * Check the md5 hash of the source and target files on copy to ensure they

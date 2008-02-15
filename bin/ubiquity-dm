@@ -103,7 +103,7 @@ class DM:
         if self.frontend == 'gtk_ui':
             wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
             if os.path.exists('/usr/lib/gnome-settings-daemon/gnome-settings-daemon'):
-                extras.append(subprocess.Popen(['/usr/lib/gnome-settings-daemon/gnome-settings-daemon'], stdin=null, stdout=logfile, stderr=logfile))
+                extras.append(subprocess.Popen(['/usr/lib/gnome-settings-daemon/gnome-settings-daemon'], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=drop_privileges))
             
             # Accessibility
             os.environ['GTK_MODULES'] = 'gail:atk-bridge'
