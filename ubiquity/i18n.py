@@ -20,6 +20,7 @@
 import re
 import subprocess
 import codecs
+import os
 
 _supported_locales = None
 
@@ -79,12 +80,15 @@ def get_translations(languages=None, core_names=[]):
 
         _translations = {}
         devnull = open('/dev/null', 'w')
+        # necessary?
+        def subprocess_setup():
+            os.seteuid(0)
         db = subprocess.Popen(
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
              '--config=InFd:none',
              '--pattern=^(ubiquity|partman/text/undo_everything|partman/text/unusable|partman-basicfilesystems/bad_mountpoint|partman-basicfilesystems/text/specify_mountpoint|partman-newworld/no_newworld|partman-partitioning|partman-target/no_root|partman-target/text/method|grub-installer/bootdev|popularity-contest/participate)'],
-            stdout=subprocess.PIPE, stderr=devnull)
+            stdout=subprocess.PIPE, stderr=devnull, preexec_fn=subprocess_setup)
         question = None
         descriptions = {}
         fieldsplitter = re.compile(r':\s*')

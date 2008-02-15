@@ -8,7 +8,7 @@ grub-installer 1.27ubuntu2
 hw-detect 1.58ubuntu1
 kboot-installer 0.0.1ubuntu6
 localechooser 1.42ubuntu1
-migration-assistant 0.5.4
+migration-assistant 0.6.0
 partconf 1.24
 partman-auto 73ubuntu1
 partman-auto-loop 0ubuntu13
@@ -25,5 +25,5 @@ partman-target 52ubuntu2
 partman-xfs 35
 silo-installer 1.12ubuntu1
 tzsetup 1:0.19
-user-setup 1.16ubuntu1
+user-setup 1.16ubuntu3
 yaboot-installer 1.1.11ubuntu2

@@ -25,10 +25,8 @@ import syslog
 import subprocess
 
 import debconf
-try:
-    from debconf import DebconfCommunicator
-except ImportError:
-    from ubiquity.debconfcommunicator import DebconfCommunicator
+from ubiquity.debconfcommunicator import DebconfCommunicator
+from ubiquity.misc import drop_privileges
 
 from ubiquity import i18n
 
@@ -54,6 +52,9 @@ class BaseFrontend:
         self.summary_device = None
         self.popcon = None
 
+        # Drop privileges so we can run the frontend as a regular user, and
+        # thus talk to a11y applications running as a regular user.
+        drop_privileges()
         self.oem_config = False
         try:
             if self.debconf_operation('get', 'oem-config/enable') == 'true':

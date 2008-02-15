@@ -46,8 +46,8 @@ def format_size(size):
         factor = 1024 * 1024 * 1024 * 1024
     return '%.1f %s' % (float(size) / factor, unit)
 
-
-def drop_privileges():
+def drop_all_privileges():
+    # gconf needs both the UID and effective UID set.
     if 'SUDO_GID' in os.environ:
         gid = int(os.environ['SUDO_GID'])
         os.setregid(gid, gid)
@@ -55,5 +55,12 @@ def drop_privileges():
         uid = int(os.environ['SUDO_UID'])
         os.setreuid(uid, uid)
 
+def drop_privileges():
+    if 'SUDO_GID' in os.environ:
+        gid = int(os.environ['SUDO_GID'])
+        os.setegid(gid)
+    if 'SUDO_UID' in os.environ:
+        uid = int(os.environ['SUDO_UID'])
+        os.seteuid(uid)
 
 # vim:ai:et:sts=4:tw=80:sw=4:

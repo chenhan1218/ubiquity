@@ -273,13 +273,13 @@ class Wizard(BaseFrontend):
                                          gconf_dir, '--get', gconf_key],
                                         stdout=subprocess.PIPE,
                                         stderr=subprocess.PIPE,
-                                        preexec_fn=drop_privileges)
+					                    preexec_fn=drop_all_privileges)
                 self.gconf_previous[gconf_key] = \
                     subp.communicate()[0].rstrip('\n')
                 if self.gconf_previous[gconf_key] != 'false':
                     subprocess.call(['gconftool-2', '--set', gconf_key,
                                      '--type', 'bool', 'false'],
-                                    preexec_fn=drop_privileges)
+                                     preexec_fn=drop_all_privileges)
 
         self.thunar_previous = self.thunar_set_volmanrc(
             {'AutomountDrives': 'FALSE', 'AutomountMedia': 'FALSE'})
@@ -296,12 +296,12 @@ class Wizard(BaseFrontend):
                 volumes_visible):
                 if self.gconf_previous[gconf_key] == '':
                     subprocess.call(['gconftool-2', '--unset', gconf_key],
-                                    preexec_fn=drop_privileges)
+                                     preexec_fn=drop_all_privileges)
                 elif self.gconf_previous[gconf_key] != 'false':
                     subprocess.call(['gconftool-2', '--set', gconf_key,
                                      '--type', 'bool',
                                      self.gconf_previous[gconf_key]],
-                                    preexec_fn=drop_privileges)
+                                     preexec_fn=drop_all_privileges)
 
         if self.thunar_previous:
             self.thunar_set_volmanrc(self.thunar_previous)
@@ -507,8 +507,7 @@ class Wizard(BaseFrontend):
         gobject.spawn_async(command, envp=env,
                             flags=(gobject.SPAWN_SEARCH_PATH |
                                    gobject.SPAWN_STDOUT_TO_DEV_NULL |
-                                   gobject.SPAWN_STDERR_TO_DEV_NULL),
-                            child_setup=drop_privileges)
+                                   gobject.SPAWN_STDERR_TO_DEV_NULL))
         return True
 
 

@@ -178,6 +178,8 @@ class DebconfFilter:
             # non-Python subprocesses, which need SIGPIPE set to the default
             # action or else they won't notice if the debconffilter dies.
             signal.signal(signal.SIGPIPE, signal.SIG_DFL)
+            # Regain root.
+            os.seteuid(0)
 
         self.subp = subprocess.Popen(
             command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
