@@ -6,6 +6,7 @@ ubiquity (1.7.8) UNRELEASED; urgency=low
     ubiquity/install/md5_check to false.
   * Catch exceptions around the processing of each components run()
     function.
+  * seteuid as a regular user until we need to do something as root.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 14 Feb 2008 21:08:48 -0500
 

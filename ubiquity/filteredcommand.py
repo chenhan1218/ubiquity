@@ -27,10 +27,7 @@ import re
 import syslog
 
 import debconf
-try:
-    from debconf import DebconfCommunicator
-except ImportError:
-    from ubiquity.debconfcommunicator import DebconfCommunicator
+from ubiquity.debconfcommunicator import DebconfCommunicator
 
 from ubiquity.debconffilter import DebconfFilter
 

@@ -11,6 +11,7 @@ import imp
 sys.path.insert(0, '/usr/lib/ubiquity')
 
 import ubiquity.frontend
+from ubiquity.misc import drop_privileges
 
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
 
@@ -114,18 +115,18 @@ class DM:
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             accessibility = subp.communicate()[0].rstrip('\n')
             if accessibility == 'true':
-                extras.append(subprocess.Popen(['/usr/lib/at-spi/at-spi-registryd'], stdin=null, stdout=logfile, stderr=logfile))
+                extras.append(subprocess.Popen(['/usr/lib/at-spi/at-spi-registryd'], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=drop_privileges))
                 fp = open('/proc/cmdline', 'r')
                 if 'access=m2' in fp.readline():
                     if os.path.exists('/usr/bin/onboard'):
-                        extras.append(subprocess.Popen(['/usr/bin/onboard'], stdin=null, stdout=logfile, stderr=logfile))
+                        extras.append(subprocess.Popen(['/usr/bin/onboard'], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=drop_privileges))
                 else:
                     if os.path.exists('/usr/bin/orca'):
-                        extras.append(subprocess.Popen(['/usr/bin/orca', '-n'], stdin=null, stdout=logfile, stderr=logfile))
+                        extras.append(subprocess.Popen(['/usr/bin/orca', '-n'], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=drop_privileges))
                 fp.close()
         elif self.frontend == 'kde_ui':
             wm = subprocess.Popen('/usr/bin/kwin', stdin=null, stdout=logfile, stderr=logfile)
-            extras.append(subprocess.Popen(['/usr/bin/dcopserver', '--nosid'], stdin=null, stdout=logfile, stderr=logfile))
+            extras.append(subprocess.Popen(['/usr/bin/dcopserver', '--nosid'], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=drop_privileges))
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()

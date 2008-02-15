@@ -24,6 +24,7 @@ import signal
 
 from ubiquity.filteredcommand import FilteredCommand
 from ubiquity import parted_server
+from ubiquity.misc import drop_privileges
 
 PARTITION_TYPE_PRIMARY = 0
 PARTITION_TYPE_LOGICAL = 1
@@ -43,6 +44,7 @@ class Partman(FilteredCommand):
 
     def prepare(self):
         # If an old parted_server is still running, clean it up.
+        os.seteuid(0)
         if os.path.exists('/var/run/parted_server.pid'):
             try:
                 pidline = open('/var/run/parted_server.pid').readline().strip()
@@ -57,6 +59,7 @@ class Partman(FilteredCommand):
 
         # Force autopartitioning to be re-run.
         shutil.rmtree('/var/lib/partman', ignore_errors=True)
+        drop_privileges()
 
         self.autopartition_question = None
         self.auto_state = None

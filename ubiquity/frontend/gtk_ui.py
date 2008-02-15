@@ -496,8 +496,7 @@ class Wizard(BaseFrontend):
         gobject.spawn_async(command, envp=env,
                             flags=(gobject.SPAWN_SEARCH_PATH |
                                    gobject.SPAWN_STDOUT_TO_DEV_NULL |
-                                   gobject.SPAWN_STDERR_TO_DEV_NULL),
-                            child_setup=drop_privileges)
+                                   gobject.SPAWN_STDERR_TO_DEV_NULL))
         return True
 
 

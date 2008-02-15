@@ -49,7 +49,7 @@ def get(key):
     subp = subprocess.Popen(['gconftool-2', '--config-source', _gconf_dir(),
                              '--get', key],
                             stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                            preexec_fn=misc.drop_privileges)
+                            preexec_fn=misc.drop_all_privileges)
     return subp.communicate()[0].rstrip('\n')
 
 def get_list(key):
@@ -60,7 +60,7 @@ def get_list(key):
     subp = subprocess.Popen(['gconftool-2', '--config-source', gconf_dir,
                              '--get-list-size', key],
                             stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                            preexec_fn=misc.drop_privileges)
+                            preexec_fn=misc.drop_all_privileges)
     size = subp.communicate()[0].rstrip('\n')
     try:
         size = int(size)
@@ -72,7 +72,7 @@ def get_list(key):
         subp = subprocess.Popen(['gconftool-2', '--config-source', gconf_dir,
                                  '--get-list-element', key, str(i)],
                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                                preexec_fn=misc.drop_privileges)
+                                preexec_fn=misc.drop_all_privileges)
         elements.append(subp.communicate()[0].rstrip('\n'))
 
     return elements
@@ -82,11 +82,11 @@ def set(key, keytype, value):
         return
 
     subprocess.call(['gconftool-2', '--set', key, '--type', keytype, value],
-                    preexec_fn=misc.drop_privileges)
+                    preexec_fn=misc.drop_all_privileges)
 
 def unset(key):
     if not _gconftool_exists():
         return
 
     subprocess.call(['gconftool-2', '--unset', key],
-                    preexec_fn=misc.drop_privileges)
+                    preexec_fn=misc.drop_all_privileges)

@@ -31,6 +31,7 @@ from ubiquity.filteredcommand import FilteredCommand
 def grub_options():
     """ Generates a list of suitable targets for grub-installer
         @return empty list or a list of ['/dev/sda1','Ubuntu Hardy 8.04'] """
+    os.seteuid(0)
     l = []
     oslist = {}
     subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,
@@ -70,6 +71,7 @@ def grub_options():
             elif part[5] in oslist.keys():
                 ostype = oslist[part[5]]
             l.append([part[5], ostype])
+    drop_privileges()
     return l
 
 def will_be_installed(pkg):

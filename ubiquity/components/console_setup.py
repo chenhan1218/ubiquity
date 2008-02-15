@@ -229,6 +229,7 @@ class ConsoleSetup(FilteredCommand):
         if layout == '':
             return
 
+        os.seteuid(0)
         oldconfigfile = '/etc/X11/xorg.conf'
         newconfigfile = '/etc/X11/xorg.conf.new'
         try:
@@ -311,3 +312,4 @@ class ConsoleSetup(FilteredCommand):
         newconfig.close()
         oldconfig.close()
         os.rename(newconfigfile, oldconfigfile)
+        misc.drop_privileges()

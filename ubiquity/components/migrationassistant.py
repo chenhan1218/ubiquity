@@ -22,6 +22,7 @@ import os
 import debconf
 
 from ubiquity.filteredcommand import FilteredCommand
+from ubiquity.misc import drop_privileges
 
 class MigrationAssistant(FilteredCommand):
     def prepare(self):
@@ -116,6 +117,7 @@ class MigrationAssistant(FilteredCommand):
     def filter_parts(self):
         question = 'migration-assistant/partitions'
         from ubiquity.parted_server import PartedServer
+        os.seteuid(0)
         parted = PartedServer()
 
         parts = []
@@ -138,6 +140,7 @@ class MigrationAssistant(FilteredCommand):
                 else:
                     syslog.syslog('filtering out %s as it is to be formatted.' % partition[5])
 
+        drop_privileges()
         ret = []
         for choice in self.choices(question):
             if choice[choice.rfind('(')+1:choice.rfind(')')] in parts:

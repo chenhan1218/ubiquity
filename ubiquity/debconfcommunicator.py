@@ -17,26 +17,29 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import popen2
+from subprocess import *
 import fcntl
+import os
 
 import debconf
 
 class DebconfCommunicator(debconf.Debconf, object):
     def __init__(self, owner, title=None, cloexec=False):
-        self.dccomm = popen2.Popen3(['debconf-communicate', '-fnoninteractive',
-                                     owner])
+        def subprocess_setup():
+            os.seteuid(0)
+        self.dccomm = Popen(['debconf-communicate', '-fnoninteractive', owner],
+            stdin=PIPE, stdout=PIPE, close_fds=True, preexec_fn=subprocess_setup)
         super(DebconfCommunicator, self).__init__(title=title,
-                                                  read=self.dccomm.fromchild,
-                                                  write=self.dccomm.tochild)
+                                                  read=self.dccomm.stdout,
+                                                  write=self.dccomm.stdin)
         if cloexec:
             fcntl.fcntl(self.read.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
             fcntl.fcntl(self.write.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
 
     def shutdown(self):
         if self.dccomm is not None:
-            self.dccomm.tochild.close()
-            self.dccomm.fromchild.close()
+            self.dccomm.stdout.close()
+            self.dccomm.stdin.close()
             self.dccomm.wait()
             self.dccomm = None
 
