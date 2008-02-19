@@ -2,6 +2,7 @@ ubiquity (1.7.9) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Drop priviliges for gnome-settings-daemon in ubiquity-dm.
+  * Added a new tzmap widget.  Ubiquity now shrinks to 674x434 (LP: #38442).
 
   [ Colin Watson ]
   * RFC 2181 clarifies that host names may be as short as one octet, so

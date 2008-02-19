@@ -147,6 +147,8 @@ def main():
     parser.add_option('--automatic', dest='automatic', action='store_true',
                       help='do not ignore the "seen" flag (useful for ' \
                       'unattended installations).')
+    parser.add_option('--old-tzmap', dest='old_tzmap', action='store_true',
+                      help='use the old timezone map.')
     (options, args) = parser.parse_args()
 
     if options.debug:
@@ -167,6 +169,9 @@ def main():
 
     if options.migration_assistant:
         os.environ['UBIQUITY_MIGRATION_ASSISTANT'] = '1'
+
+    if options.old_tzmap:
+        os.environ['UBIQUITY_OLD_TZMAP'] = '1'
 
     acquire_lock()
 

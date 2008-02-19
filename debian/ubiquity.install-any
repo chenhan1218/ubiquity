@@ -11,6 +11,7 @@ compat/udpkg usr/lib/ubiquity/compat
 scripts/* usr/share/ubiquity
 desktop/ubiquity.png usr/share/pixmaps
 pixmaps/world_map-960.png usr/share/ubiquity/pixmaps
+pixmaps/earth.jpg usr/share/ubiquity/pixmaps
 apport/ubiquity.py usr/share/apport/package-hooks
 bin/ubiquity-dm usr/bin
 

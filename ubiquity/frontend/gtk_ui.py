@@ -51,7 +51,8 @@ import gtk.glade
 
 import debconf
 
-from ubiquity import filteredcommand, gconftool, i18n, osextras, validation
+from ubiquity import filteredcommand, gconftool, i18n, osextras, validation, \
+                     zoommap
 from ubiquity.misc import *
 from ubiquity.components import console_setup, language, timezone, usersetup, \
                                 partman, partman_commit, \
@@ -471,8 +472,17 @@ class Wizard(BaseFrontend):
             self.release_notes_vbox.hide()
         gtk.link_button_set_uri_hook(self.link_button_browser)
 
-        self.tzmap = TimezoneMap(self)
-        self.tzmap.tzmap.show()
+        if 'UBIQUITY_OLD_TZMAP' in os.environ:
+            self.tzmap = TimezoneMap(self)
+            self.tzmap.tzmap.show()
+        else:
+            pixmap = '/usr/share/ubiquity/pixmaps/earth.jpg'
+            full_zoom = True
+            font_selected = "white"
+            font_unselected = "maroon"
+            args = (self, pixmap, full_zoom, font_selected, font_unselected)
+            self.tzmap = zoommap.ZoomMapWidget(*args)
+            self.tzmap.show()
 
         if 'UBIQUITY_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
@@ -2121,7 +2131,7 @@ class Wizard(BaseFrontend):
         display = False
         summary_device = self.get_summary_device()
         grub_en = self.get_grub()
-
+        
         if summary_device is not None:
             display = True
             self.bootloader_vbox.show()
