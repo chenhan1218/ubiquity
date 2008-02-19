@@ -63,7 +63,7 @@ def check_hostname(name):
     import re
     result = set()
 
-    if len (name) < 2 or len (name) > 63:
+    if len (name) < 1 or len (name) > 63:
         result.add(HOSTNAME_LENGTH)
 
     regex = re.compile(r'^[a-zA-Z0-9.-]+$')

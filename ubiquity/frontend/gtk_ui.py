@@ -955,7 +955,7 @@ class Wizard(BaseFrontend):
         hostname = self.hostname.get_property('text')
         for result in validation.check_hostname(hostname):
             if result == validation.HOSTNAME_LENGTH:
-                error_msg.append("The hostname must be between 2 and 63 characters long.")
+                error_msg.append("The hostname must be between 1 and 63 characters long.")
             elif result == validation.HOSTNAME_BADCHAR:
                 error_msg.append("The hostname may only contain letters, digits, hyphens, and dots.")
             elif result == validation.HOSTNAME_BADHYPHEN:
