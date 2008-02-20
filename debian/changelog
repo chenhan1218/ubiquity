@@ -1,4 +1,4 @@
-ubiquity (1.7.9) UNRELEASED; urgency=low
+ubiquity (1.7.9) hardy; urgency=low
 
   [ Evan Dandrea ]
   * Drop priviliges for gnome-settings-daemon in ubiquity-dm.
@@ -12,7 +12,7 @@ ubiquity (1.7.9) UNRELEASED; urgency=low
   * Automatic update of included source packages: base-installer
     1.86ubuntu2, partman-target 52ubuntu6.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 20 Feb 2008 09:27:09 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 20 Feb 2008 09:28:17 -0500
 
 ubiquity (1.7.8) hardy; urgency=low
 
