@@ -1,3 +1,10 @@
+ubiquity (1.7.10) UNRELEASED; urgency=low
+
+  * Check for a valid cursor position in zoommap's hit_test and other minor
+    fixes.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 20 Feb 2008 13:49:54 -0500
+
 ubiquity (1.7.9) hardy; urgency=low
 
   [ Evan Dandrea ]

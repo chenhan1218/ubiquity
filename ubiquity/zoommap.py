@@ -296,6 +296,8 @@ class ZoomMapWidget(gtk.Widget):
             cr.stroke()
 
     def hit_test(self, cursor_x, cursor_y):
+        if not cursor_x or not cursor_y:
+            return
         x, y, w, h = self.allocation
         map_w = self.big_pixbuf.get_width()
         map_h = self.big_pixbuf.get_height()
@@ -307,10 +309,11 @@ class ZoomMapWidget(gtk.Widget):
             x2 = offset_x + x1 - min_x
             y2 = offset_y + y1 - min_y
             if x1 < min_x or x1 > min_x + max_w or y1 < min_y or y1 > min_y + max_h: continue
-            if (abs(self.cursor_x - x2) < hotspot.width and abs(self.cursor_y - y2) < hotspot.height):
+            if (abs(cursor_x - x2) < hotspot.width and abs(cursor_y - y2) < hotspot.height):
                 self.select_hotspot(hotspot)
                 self.set_city_text(hotspot.tz.zone)
                 self.set_zone_text(hotspot.tz)
+                break
 
     def select_hotspot(self, hotspot):
         if not isinstance(hotspot, HotSpot):
@@ -341,6 +344,7 @@ class ZoomMapWidget(gtk.Widget):
 
         # FIXME evand 2008-02-18:
         #self.select_hotspot(hotspot)
+        self.location_selected = hotspot
         self.set_city_text(hotspot.tz.zone)
         self.set_zone_text(hotspot.tz)
 
