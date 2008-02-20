@@ -1,8 +1,13 @@
 oem-config (1.28) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Build-depend on dctrl-tools rather than grep-dctrl.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 12 Feb 2008 11:25:54 +0000
+  [ Evan Dandrea ]
+  * Use new timezone widget from Ubiquity.  oem-config now shrinks to a
+    much smaller size (LP: #191823).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 20 Feb 2008 10:40:23 -0500
 
 oem-config (1.27) hardy; urgency=low
 

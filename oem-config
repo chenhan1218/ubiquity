@@ -103,6 +103,8 @@ if __name__ == '__main__':
                       help='debug mode (warning: passwords will be logged!)')
     parser.add_option('--pdb', dest='debug_pdb', action='store_true',
                       help='drop into Python debugger on a crash')
+    parser.add_option('--old-tzmap', dest='old_tzmap', action='store_true',
+                      help='use the old timezone map.')
     parser.set_defaults(frontend=None, debug_pdb=False)
     (options, args) = parser.parse_args()
 
@@ -115,6 +117,9 @@ if __name__ == '__main__':
 
     if options.debug_pdb:
         os.environ['OEM_CONFIG_DEBUG_PDB'] = '1'
+
+    if options.old_tzmap:
+        os.environ['UBIQUITY_OLD_TZMAP'] = '1'
 
     if 'OEM_CONFIG_DEBUG' in os.environ:
         if 'DEBCONF_DEBUG' not in os.environ:

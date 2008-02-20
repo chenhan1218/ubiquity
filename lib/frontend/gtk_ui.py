@@ -118,8 +118,17 @@ class Frontend:
 
         self.translate_widgets()
 
-        self.tzmap = TimezoneMap(self)
-        self.tzmap.tzmap.show()
+        if 'UBIQUITY_OLD_TZMAP' in os.environ:
+            self.tzmap = TimezoneMap(self)
+            self.tzmap.tzmap.show()
+        else:
+            pixmap = '/usr/share/oem-config/pixmaps/earth.jpg'
+            full_zoom = True
+            font_selected = "white"
+            font_unselected = "maroon"
+            args = (self, pixmap, full_zoom, font_selected, font_unselected)
+            self.tzmap = zoommap.ZoomMapWidget(*args)
+            self.tzmap.show()
 
         if 'OEM_CONFIG_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
