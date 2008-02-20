@@ -8,7 +8,11 @@ ubiquity (1.7.9) UNRELEASED; urgency=low
   * RFC 2181 clarifies that host names may be as short as one octet, so
     allow that (LP: #193054).
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 15 Feb 2008 13:34:58 -0500
+  [ Evan Dandrea ]
+  * Automatic update of included source packages: base-installer
+    1.86ubuntu2, partman-target 52ubuntu6.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 20 Feb 2008 09:27:09 -0500
 
 ubiquity (1.7.8) hardy; urgency=low
 
