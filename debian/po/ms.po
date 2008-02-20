@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-02-08 20:06+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-02-20 09:18-0500\n"
 "PO-Revision-Date: 2007-09-05 00:36+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Malay <ms@li.org>\n"
@@ -607,7 +607,9 @@ msgstr ""
 #. Description
 #. This is used when we don't know whether the CD/DVD or the hard disk is at
 #. fault.
-#: ../ubiquity.templates:77001
+#. Type: select
+#. Description
+#: ../ubiquity.templates:77001 ../ubiquity.templates:78001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -616,156 +618,174 @@ msgid ""
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
 
-#. Type: text
+#. Type: select
 #. Description
 #: ../ubiquity.templates:78001
+msgid "Failed to copy file; faulty CD/DVD or hard disk?"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../ubiquity.templates:78001
+msgid "The following file did not match its source copy on the CD/DVD:"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../ubiquity.templates:78001
+msgid "${FILE}"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:79001
 #, fuzzy
 msgid "Copying installation logs..."
 msgstr "Menyalin log pemasangan..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:80001
 #, fuzzy
 msgid "Configuring target system..."
 msgstr "Mengkonfigurasi sistem sasaran..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:81001
 #, fuzzy
 msgid "Configuring system locales..."
 msgstr "Mengkonfigurasi sistem tempatan..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:82001
 #, fuzzy
 msgid "Configuring apt..."
 msgstr "Mengkonfigurasi apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001
 #, fuzzy
 msgid "Configuring time zone..."
 msgstr "Mengkonfigurasi zon masa..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:84001
 #, fuzzy
 msgid "Configuring keyboard..."
 msgstr "Mengkonfigurasi papan kekunci..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:85001
 #, fuzzy
 msgid "Creating user..."
 msgstr "Mencipta pengguna..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:86001
 #, fuzzy
 msgid "Importing documents and settings..."
 msgstr "Mengimport dokumen dan ketetapan..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 #, fuzzy
 msgid "Configuring hardware..."
 msgstr "Mengkonfigurasi perkakasan..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:88001
 #, fuzzy
 msgid "Configuring network..."
 msgstr "Mengkonfigurasi rangkaian..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:89001
 #, fuzzy
 msgid "Setting computer name..."
 msgstr "Menetapkan nama komputer..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:90001
 #, fuzzy
 msgid "Configuring boot loader..."
 msgstr "Mengkonfigurasi pemuat but..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
 #, fuzzy
 msgid "Removing extra packages..."
 msgstr "Membuang pakej lebihan..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:94001
 #, fuzzy
 msgid "Checking for packages to remove..."
 msgstr "Menyemak pakej untuk dibuang..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:95001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:96001
 #, fuzzy
 msgid "Downloading package lists..."
 msgstr "Memuat turun senarai pakej..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:97001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:99001
 msgid "Error installing ${PACKAGE}"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:100001
 msgid "Error removing ${PACKAGE}"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:101001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -773,7 +793,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
+#: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -781,7 +801,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
+#: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -794,38 +814,38 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "Error while removing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:104001
 #, fuzzy
 msgid "Installing language packs"
 msgstr "Memasang pek bahasa"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:105001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Failed to unmount partitions"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -833,13 +853,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Please close any applications using these mount points."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 
@@ -847,7 +867,7 @@ msgstr ""
 #. Description
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:109001 ../ubiquity.templates:114001
+#: ../ubiquity.templates:111001 ../ubiquity.templates:116001
 #, fuzzy
 #| msgid "Do you really want to abort the installation now?"
 msgid "Do you want to return to the partitioner?"
@@ -855,7 +875,7 @@ msgstr "Adakah anda benar-benar ingin membatalkan instalasi tersebut sekarang?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:111001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
@@ -865,7 +885,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:116001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -873,7 +893,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:116001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."

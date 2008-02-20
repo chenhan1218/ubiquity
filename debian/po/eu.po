@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-02-08 20:06+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-02-20 09:18-0500\n"
 "PO-Revision-Date: 2007-10-04 15:15+0000\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale <librezale@librezale.org>\n"
@@ -624,7 +624,9 @@ msgstr "Ezin izan dira fitxategiak kopiatu; CD/DVD ala disko gogor akatsduna?"
 #. Description
 #. This is used when we don't know whether the CD/DVD or the hard disk is at
 #. fault.
-#: ../ubiquity.templates:77001
+#. Type: select
+#. Description
+#: ../ubiquity.templates:77001 ../ubiquity.templates:78001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -639,141 +641,161 @@ msgstr ""
 "zaharra bada, berau aldatzea beharrezko izan daiteke, edo sistema osoa "
 "ingurune freskoago batera eraman dezakezu."
 
-#. Type: text
+#. Type: select
 #. Description
 #: ../ubiquity.templates:78001
+#, fuzzy
+#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+msgid "Failed to copy file; faulty CD/DVD or hard disk?"
+msgstr "Ezin izan dira fitxategiak kopiatu; CD/DVD ala disko gogor akatsduna?"
+
+#. Type: select
+#. Description
+#: ../ubiquity.templates:78001
+msgid "The following file did not match its source copy on the CD/DVD:"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../ubiquity.templates:78001
+msgid "${FILE}"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:79001
 msgid "Copying installation logs..."
 msgstr "Instalazioaren log-ak kopiatzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:80001
 msgid "Configuring target system..."
 msgstr "Helburu-sistema konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:81001
 msgid "Configuring system locales..."
 msgstr "Sistemaren lokalak ezartzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:82001
 msgid "Configuring apt..."
 msgstr "apt konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001
 msgid "Configuring time zone..."
 msgstr "Ordu-zona konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:84001
 msgid "Configuring keyboard..."
 msgstr "Teklatua konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:85001
 msgid "Creating user..."
 msgstr "Erabiltzailea sortzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:86001
 msgid "Importing documents and settings..."
 msgstr "Dokumentu eta ezarpenak inportatzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 msgid "Configuring hardware..."
 msgstr "Hardwarea konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:88001
 msgid "Configuring network..."
 msgstr "Sarea konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:89001
 msgid "Setting computer name..."
 msgstr "Ordenagailuaren izena ezartzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:90001
 msgid "Configuring boot loader..."
 msgstr "Abio kargatzailea konfiguratzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
 msgstr "Pakete gehigarriak instalatzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
 msgstr "Inslatatu beharreko paketeak bilatzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
 msgid "Removing extra packages..."
 msgstr "Pakete estrak kentzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:94001
 msgid "Checking for packages to remove..."
 msgstr "Kendu beharreko paketeak bilatzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:95001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Paketeak deskargatzen (${TIME} faltan)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:96001
 msgid "Downloading package lists..."
 msgstr "Pakete-zerrendak deskargatzen..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:97001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Pakete-zerrendak deskargatzen (${TIME} faltan)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:99001
 msgid "Error installing ${PACKAGE}"
 msgstr "Errorea ${PACKAGE} instalatzean"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:100001
 msgid "Error removing ${PACKAGE}"
 msgstr "Errorea ${PACKAGE} ezabatzean"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:101001
 msgid "Error while installing packages"
 msgstr "Errorea paketeak instalatzean"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
 msgstr "Errorea gertatu da paketeak instalatzean:"
 
@@ -781,7 +803,7 @@ msgstr "Errorea gertatu da paketeak instalatzean:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
+#: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
 msgstr "Pakete hauek apurtuta daude:"
 
@@ -789,7 +811,7 @@ msgstr "Pakete hauek apurtuta daude:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
+#: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -809,37 +831,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "Error while removing packages"
 msgstr "Errorea paketeak kentzean"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
 msgstr "Errorea gertatu da paketeak kentzean:"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:104001
 msgid "Installing language packs"
 msgstr "Hizkuntza-paketeak instalatzen"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:105001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Hizkuntza-paketeak deskargatzen (${TIME} faltan)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Failed to unmount partitions"
 msgstr "Ezin izan dira partizioak desmuntatu"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -850,7 +872,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Please close any applications using these mount points."
 msgstr ""
 "Mesedez, itxi ezazu muntatze-puntu hauek erabiltzen ari daitekeen edozein "
@@ -858,7 +880,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Nahi al duzu instalatzailea berriro saiatzea partizio hauek desmuntatzen?"
@@ -867,7 +889,7 @@ msgstr ""
 #. Description
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:109001 ../ubiquity.templates:114001
+#: ../ubiquity.templates:111001 ../ubiquity.templates:116001
 #, fuzzy
 #| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
@@ -875,7 +897,7 @@ msgstr "Nola egin nahi dituzu partizioak?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:111001
 #, fuzzy
 #| msgid ""
 #| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
@@ -896,7 +918,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:116001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -904,7 +926,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:116001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."

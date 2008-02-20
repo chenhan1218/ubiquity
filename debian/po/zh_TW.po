@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-02-08 20:06+0000\n"
+"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-02-20 09:18-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Tetralet <tetralet@pchome.com.tw>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
@@ -604,7 +604,9 @@ msgstr "複製檔案失敗; CD/DVD 或是硬碟有問題？"
 #. Description
 #. This is used when we don't know whether the CD/DVD or the hard disk is at
 #. fault.
-#: ../ubiquity.templates:77001
+#. Type: select
+#. Description
+#: ../ubiquity.templates:77001 ../ubiquity.templates:78001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -616,151 +618,171 @@ msgstr ""
 "讀取頭（光碟機清潔用品可以從電腦零售商購得），使用較低倍速重新燒錄安裝光碟，"
 "檢查硬碟是否過於老舊需要替換，或者試著把系統移到較通風的地方。"
 
-#. Type: text
+#. Type: select
 #. Description
 #: ../ubiquity.templates:78001
+#, fuzzy
+#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
+msgid "Failed to copy file; faulty CD/DVD or hard disk?"
+msgstr "複製檔案失敗; CD/DVD 或是硬碟有問題？"
+
+#. Type: select
+#. Description
+#: ../ubiquity.templates:78001
+msgid "The following file did not match its source copy on the CD/DVD:"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../ubiquity.templates:78001
+msgid "${FILE}"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:79001
 #, fuzzy
 msgid "Copying installation logs..."
 msgstr "正在複製分割區..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:80001
 msgid "Configuring target system..."
 msgstr "正在設定調較目標系統..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:81001
 #, fuzzy
 msgid "Configuring system locales..."
 msgstr "正在設定網路..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:82001
 msgid "Configuring apt..."
 msgstr "正在設定調較 apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001
 #, fuzzy
 msgid "Configuring time zone..."
 msgstr "正在設定網路..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:84001
 msgid "Configuring keyboard..."
 msgstr "正在設定調較鍵盤..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:85001
 #, fuzzy
 msgid "Creating user..."
 msgstr "正在建立裝置檔..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:86001
 msgid "Importing documents and settings..."
 msgstr "匯入文件與設定..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 #, fuzzy
 msgid "Configuring hardware..."
 msgstr "正在設定網路..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:88001
 msgid "Configuring network..."
 msgstr "正在設定網路..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:89001
 #, fuzzy
 msgid "Setting computer name..."
 msgstr "正在設定 Frame Buffer..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:90001
 #, fuzzy
 msgid "Configuring boot loader..."
 msgstr "正在設定網路..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
 #, fuzzy
 msgid "Removing extra packages..."
 msgstr "正在安裝額外的套件..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:94001
 msgid "Checking for packages to remove..."
 msgstr "正在檢查需要移除的套件..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:95001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "正在下載套件 (剩餘時間 ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:96001
 msgid "Downloading package lists..."
 msgstr "正在下載套件列表..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:97001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "正在下載套件列表 (剩餘時間 ${TIME} )..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:99001
 #, fuzzy
 msgid "Error installing ${PACKAGE}"
 msgstr "無法安裝 ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:100001
 #, fuzzy
 msgid "Error removing ${PACKAGE}"
 msgstr "正在接收 ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:101001
 msgid "Error while installing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
 msgstr ""
 
@@ -768,7 +790,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
+#: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
 msgstr ""
 
@@ -776,7 +798,7 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001 ../ubiquity.templates:101001
+#: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -789,38 +811,38 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "Error while removing packages"
 msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
 msgstr ""
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:104001
 #, fuzzy
 msgid "Installing language packs"
 msgstr "正在安裝核心套件"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:105001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "下載語言套件中（剩餘 ${TIME}）..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Failed to unmount partitions"
 msgstr "無法卸載磁碟分割區"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -828,13 +850,13 @@ msgstr "安裝程式需要對分割區進行修改但不成功，因為以下分
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Please close any applications using these mount points."
 msgstr "請關閉所有使用這些分割區的程式。"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "您想安裝程式嘗試再次卸載這些分割區嗎？"
 
@@ -842,14 +864,14 @@ msgstr "您想安裝程式嘗試再次卸載這些分割區嗎？"
 #. Description
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:109001 ../ubiquity.templates:114001
+#: ../ubiquity.templates:111001 ../ubiquity.templates:116001
 #, fuzzy
 msgid "Do you want to return to the partitioner?"
 msgstr "您是否想要重新分割磁區？"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:111001
 #, fuzzy
 #| msgid ""
 #| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
@@ -868,7 +890,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:116001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -876,7 +898,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:116001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
