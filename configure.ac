@@ -1,5 +1,5 @@
 AC_PREREQ(2.52)
-AC_INIT(oem-config, 1.27, https://launchpad.net/ubuntu/+source/oem-config/+filebug)
+AC_INIT(oem-config, 1.28, https://launchpad.net/ubuntu/+source/oem-config/+filebug)
 AC_CONFIG_SRCDIR(src/cut-and-paste/e-map/e-map.c)
 AC_CONFIG_AUX_DIR([build])
 AM_INIT_AUTOMAKE([foreign])
