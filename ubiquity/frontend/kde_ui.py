@@ -1710,6 +1710,7 @@ class Wizard(BaseFrontend):
 
     def on_advanced_button_clicked (self):
         self.app.connect(self.advanceddialog.grub_enable, SIGNAL("stateChanged(int)"), self.toggle_grub)
+        self.app.connect(self.advanceddialog.proxy_host_entry, SIGNAL("textChanged(const QString &)"), self.enable_proxy_spinbutton)
         display = False
         summary_device = self.get_summary_device()
         grub_en = self.get_grub()
@@ -1733,6 +1734,15 @@ class Wizard(BaseFrontend):
         else:
             self.advanceddialog.popcon_group_label.hide()
             self.advanceddialog.popcon_checkbutton.hide()
+
+        display = True
+        if self.http_proxy_host:
+            self.advanceddialog.proxy_port_spinbutton.setEnabled(True)
+            self.advanceddialog.proxy_host_entry.setText(unicode(self.http_proxy_host))
+        else:
+            self.advanceddialog.proxy_port_spinbutton.setEnabled(False)
+        self.advanceddialog.proxy_port_spinbutton.setValue(self.http_proxy_port)
+
         if not display:
             return
 
@@ -1742,6 +1752,11 @@ class Wizard(BaseFrontend):
                 unicode(self.advanceddialog.grub_device_entry.text()))
             self.set_popcon(self.advanceddialog.popcon_checkbutton.isChecked())
             self.set_grub(self.advanceddialog.grub_enable.isChecked())
+            self.set_proxy_host(unicode(self.advanceddialog.proxy_host_entry.text()))
+            self.set_proxy_port(self.advanceddialog.proxy_port_spinbutton.value())
+
+    def enable_proxy_spinbutton(self):
+        self.advanceddialog.proxy_port_spinbutton.setEnabled(self.advanceddialog.proxy_host_entry.text() != '')
 
     def toggle_grub(self):
         grub_en = self.advanceddialog.grub_enable.isChecked()
