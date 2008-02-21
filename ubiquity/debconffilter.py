@@ -75,7 +75,8 @@ valid_commands = (
     'SUBST',
     'TITLE',
     'UNREGISTER',
-    'VERSION'
+    'VERSION',
+    'X_LOADTEMPLATEFILE'
 )
 
 class DebconfFilter:

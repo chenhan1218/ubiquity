@@ -50,6 +50,16 @@ from ubiquity.components import language_apply, apt_setup, timezone_apply, \
                                 usersetup_apply, hw_detect, check_kernels, \
                                 migrationassistant_apply
 
+def debconf_disconnect():
+    """Disconnect from debconf. This is only to be used as a subprocess
+    preexec_fn helper."""
+    os.environ['DEBIAN_FRONTEND'] = 'noninteractive'
+    if 'DEBIAN_HAS_FRONTEND' in os.environ:
+        del os.environ['DEBIAN_HAS_FRONTEND']
+    if 'DEBCONF_USE_CDEBCONF' in os.environ:
+        # Probably not a good idea to use this in /target too ...
+        del os.environ['DEBCONF_USE_CDEBCONF']
+
 class DebconfFetchProgress(FetchProgress):
     """An object that reports apt's fetching progress using debconf."""
 
@@ -1134,7 +1144,9 @@ exit 0"""
             os.unlink('/target/etc/papersize')
         except OSError:
             pass
-        self.chrex('ucf', '--purge', '/etc/papersize')
+        subprocess.call(['log-output', '-t', 'ubiquity', 'chroot', self.target,
+                         'ucf', '--purge', '/etc/papersize'],
+                        preexec_fn=debconf_disconnect, close_fds=True)
         try:
             self.set_debconf('libpaper/defaultpaper', '')
         except debconf.DebconfError:
@@ -1819,8 +1831,9 @@ exit 0"""
     def reconfigure(self, package):
         """executes a dpkg-reconfigure into installed system to each
         package which provided by args."""
-
-        self.chrex('dpkg-reconfigure', '-fnoninteractive', package)
+        subprocess.call(['log-output', '-t', 'ubiquity', 'chroot', self.target,
+                         'dpkg-reconfigure', '-fnoninteractive', package],
+                        preexec_fn=debconf_disconnect, close_fds=True)
 
 
 if __name__ == '__main__':
