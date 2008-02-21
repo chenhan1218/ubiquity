@@ -1,4 +1,4 @@
-ubiquity (1.7.10) UNRELEASED; urgency=low
+ubiquity (1.7.10) hardy; urgency=low
 
   [ Evan Dandrea ]
   * Check for a valid cursor position in zoommap's hit_test and other minor
@@ -9,7 +9,7 @@ ubiquity (1.7.10) UNRELEASED; urgency=low
     and when running ucf; recognise X_LOADTEMPLATEFILE as a valid debconf
     command (LP: #193986).
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 20 Feb 2008 13:49:54 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 21 Feb 2008 13:19:23 -0500
 
 ubiquity (1.7.9) hardy; urgency=low
 
