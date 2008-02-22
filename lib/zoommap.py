@@ -25,7 +25,7 @@ import gtk
 import gettext
 from math import pi
 from gtk import gdk
-import ubiquity.tz
+import oem_config.tz
 
 if gtk.pygtk_version < (2, 8):
     print "PyGtk 2.8 or later required"
@@ -67,7 +67,7 @@ class ZoomMapWidget(gtk.Widget):
         self.map_window_alllocation = (0,0,0,0)
         self.update_timeout = None
         self.location_selected = None
-        self.tzdb = ubiquity.tz.Database()
+        self.tzdb = oem_config.tz.Database()
         
         timezone_city_combo = self.frontend.timezone_city_combo
 
