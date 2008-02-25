@@ -4,7 +4,11 @@ ubiquity (1.7.11) UNRELEASED; urgency=low
   * Drop fullscreen workaround in Mythbuntu interface.
   * Adjust user permissions before/after launching MythTV setup.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Sun, 24 Feb 2008 22:01:05 -0600
+  [ Evan Dandrea ]
+  * Properly drop privileges in ubiquity-dm.  Previous attempts were
+    relying on SUDO_UID and SUDO_GID being set.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 25 Feb 2008 00:47:39 -0500
 
 ubiquity (1.7.10) hardy; urgency=low
 

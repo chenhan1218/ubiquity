@@ -11,7 +11,7 @@ import imp
 sys.path.insert(0, '/usr/lib/ubiquity')
 
 import ubiquity.frontend
-from ubiquity.misc import drop_privileges
+from pwd import getpwnam
 
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
 
@@ -42,6 +42,9 @@ class DM:
             self.username = 'ubuntu'
         finally:
             fp.close()
+        self.uid, self.gid = getpwnam(self.username)[2:4]
+        self.uid = int(self.uid)
+        self.gid = int(self.gid)
         # Look for a frontend module; we won't actually use it (yet), but
         # this lets us find out which window manager etc. to launch. Be
         # careful that importing this here will cause the underlying library
@@ -62,6 +65,10 @@ class DM:
     def sigusr1_handler(self, signum, frame):
         self.server_started = True
 
+    def drop_privileges(self):
+        os.setgid(self.gid)
+        os.setuid(self.uid)
+
     def server_preexec(self):
         signal.signal(signal.SIGUSR1, signal.SIG_IGN)
 
@@ -70,6 +77,7 @@ class DM:
         if not os.path.exists('/var/log/installer'):
             os.makedirs('/var/log/installer')
         logfile = open('/var/log/installer/dm', 'w')
+        os.chmod('/var/log/installer/dm', 0666)
 
         signal.signal(signal.SIGUSR1, self.sigusr1_handler)
         signal.signal(signal.SIGTTIN, signal.SIG_IGN)
@@ -77,6 +85,7 @@ class DM:
         server = subprocess.Popen(['X', '-br', '-ac', '-noreset', self.vt, self.display], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.server_preexec)
 
         os.environ['DISPLAY'] = self.display
+        os.environ['HOME'] = '/home/%s' % self.username
 
         # Really we should select on a pipe or something, but it's not worth
         # the effort for now.
@@ -101,9 +110,11 @@ class DM:
 
         extras = []
         if self.frontend == 'gtk_ui':
-            wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'], stdin=null, stdout=logfile, stderr=logfile)
+            wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'],
+		        stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.drop_privileges)
             if os.path.exists('/usr/lib/gnome-settings-daemon/gnome-settings-daemon'):
-                extras.append(subprocess.Popen(['/usr/lib/gnome-settings-daemon/gnome-settings-daemon'], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=drop_privileges))
+                extras.append(subprocess.Popen(['/usr/lib/gnome-settings-daemon/gnome-settings-daemon'],
+			        stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.drop_privileges))
             
             # Accessibility
             os.environ['GTK_MODULES'] = 'gail:atk-bridge'
@@ -115,18 +126,27 @@ class DM:
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             accessibility = subp.communicate()[0].rstrip('\n')
             if accessibility == 'true':
-                extras.append(subprocess.Popen(['/usr/lib/at-spi/at-spi-registryd'], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=drop_privileges))
+                extras.append(subprocess.Popen(['/usr/lib/at-spi/at-spi-registryd'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    preexec_fn=self.drop_privileges))
                 fp = open('/proc/cmdline', 'r')
                 if 'access=m2' in fp.readline():
                     if os.path.exists('/usr/bin/onboard'):
-                        extras.append(subprocess.Popen(['/usr/bin/onboard'], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=drop_privileges))
+                        extras.append(subprocess.Popen(['/usr/bin/onboard'],
+                            stdin=null, stdout=logfile, stderr=logfile,
+                            preexec_fn=self.drop_privileges))
                 else:
                     if os.path.exists('/usr/bin/orca'):
-                        extras.append(subprocess.Popen(['/usr/bin/orca', '-n'], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=drop_privileges))
+                        extras.append(subprocess.Popen(['/usr/bin/orca', '-n'],
+                            stdin=null, stdout=logfile, stderr=logfile,
+                            preexec_fn=self.drop_privileges))
                 fp.close()
         elif self.frontend == 'kde_ui':
-            wm = subprocess.Popen('/usr/bin/kwin', stdin=null, stdout=logfile, stderr=logfile)
-            extras.append(subprocess.Popen(['/usr/bin/dcopserver', '--nosid'], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=drop_privileges))
+            wm = subprocess.Popen('/usr/bin/kwin', stdin=null, stdout=logfile,
+                stderr=logfile, preexec_fn=self.drop_privileges)
+            extras.append(subprocess.Popen(['/usr/bin/dcopserver', '--nosid'],
+                stdin=null, stdout=logfile, stderr=logfile,
+                preexec_fn=self.drop_privileges))
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()
