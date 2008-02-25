@@ -33,6 +33,7 @@ class ConsoleSetup(FilteredCommand):
         # will think it's already configured and behave differently. Try to
         # save the old file for interest's sake, but it's not a big deal if
         # we can't.
+        os.seteuid(0)
         try:
             os.unlink('/etc/default/console-setup.pre-ubiquity')
         except OSError:
@@ -45,6 +46,7 @@ class ConsoleSetup(FilteredCommand):
                 os.unlink('/etc/default/console-setup')
             except OSError:
                 pass
+        misc.drop_privileges()
         # Make sure debconf doesn't do anything with crazy "preseeded"
         # answers to these questions. If you want to preseed these, use the
         # *code variants.

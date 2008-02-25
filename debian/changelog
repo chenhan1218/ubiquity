@@ -9,6 +9,8 @@ ubiquity (1.7.12) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Update partman_popup with respect to other recent changes
     (LP: #194688).
+  * Regain root when moving /etc/default/console-setup out of the way
+    (LP: #188492).
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 25 Feb 2008 10:13:27 -0500
 
