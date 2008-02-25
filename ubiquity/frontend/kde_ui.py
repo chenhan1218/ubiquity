@@ -110,7 +110,7 @@ class Wizard(BaseFrontend):
 
         #self.app = KApplication()
 
-        self.app = QApplication([])
+        self.app = QApplication(['-style=plastique'])
 
         self.userinterface = UbiquityUI()
         self.userinterface.setWizard(self)
