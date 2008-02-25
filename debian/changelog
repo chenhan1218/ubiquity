@@ -5,8 +5,8 @@ ubiquity (1.7.12) UNRELEASED; urgency=low
     partman/check.d/03partition_too_small.
 
   [ Evan Dandrea ]
-  * Update partman_popup with respect to other recent changes (LP:
-    #194688).
+  * Update partman_popup with respect to other recent changes
+    (LP: #194688).
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 25 Feb 2008 10:13:27 -0500
 
