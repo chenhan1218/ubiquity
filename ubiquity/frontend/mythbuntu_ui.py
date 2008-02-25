@@ -4,7 +4,7 @@
 #
 # Copyright (C) 2005 Junta de Andalucía
 # Copyright (C) 2005, 2006, 2007 Canonical Ltd.
-# Copyright (C) 2007, Mario Limonciello, for Mythbuntu
+# Copyright (C) 2007-2008, Mario Limonciello, for Mythbuntu
 # Copyright (C) 2007, Jared Greenwald, for Mythbuntu
 #
 # Authors:
@@ -119,21 +119,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
     def __init__(self, distro):
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
-
-        # TEMPORARY fix for:
-        # "Ubiquity dialogues too large for 800x600 display"
-        # https://bugs.launchpad.net/ubuntu/+source/ubiquity/+bug/38442
-        # If the screen res is 800x600 or 832x624,
-        # go into fullscreen so that the Next button doesn't get hidden
-        # under the lower launcher bar.
-        # for 640x480 and 768x576, fullcreen doesn't work, so
-        # leave it windowed, which also won't work, but may be
-        # more apparent.
-
-        #This fix will be removed after a proper fix is put in place
-        if 576 < gtk.gdk.screen_get_default().get_height() <= 624:
-             self.live_installer.fullscreen()
-
 
         self.populate_lirc()
         self.populate_video()
@@ -480,7 +465,9 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
     def do_mythtv_setup(self,widget):
         """Spawn MythTV-Setup binary."""
+        os.seteuid(0)
         execute("/usr/share/ubiquity/mythbuntu-setup")
+        drop_privileges()
 
     def do_connection_test(self,widget):
         """Tests to make sure that the backend is accessible"""
