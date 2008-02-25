@@ -29,11 +29,7 @@ for dev in $DEVICES/*; do
                 rofssize="$(expr $rofssize \* $bootmultfudge)"
             fi
             if ! longint_le $rofssize $size ; then
-                if [ -z "$partitions" ]; then
-                    partitions="$mountpoint $rofssize"
-                else
-                    partitions="$partitions, $mountpoint $rofssize"
-                fi
+                partitions="${partitions:+$partitions, }$mountpoint $rofssize"
             fi
             rofssum="$(expr $rofssum + $rofssize)"
         fi
@@ -44,12 +40,7 @@ done
 if [ -n "$rootrofssize" ]; then
     rofs=$(expr $rootrofssize - $rofssum + $rootfudge)
     if ! longint_le $rofs $rootsize ; then
-        if [ -z "$partitions" ]; then
-            partitions="/ $rofs"
-        else
-            partitions="/ $rofs, $partitions"
-        fi
-
+        partitions="/ $rofs${partitions:+, $partitions}"
     fi
 fi
 

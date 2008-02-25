@@ -1,3 +1,10 @@
+ubiquity (1.7.12) UNRELEASED; urgency=low
+
+  * Slight shell efficiency improvement in
+    partman/check.d/03partition_too_small.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 25 Feb 2008 14:35:31 +0000
+
 ubiquity (1.7.11) hardy; urgency=low
 
   [ Jonathan Riddell ]
