@@ -1,9 +1,14 @@
 ubiquity (1.7.12) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Slight shell efficiency improvement in
     partman/check.d/03partition_too_small.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 25 Feb 2008 14:35:31 +0000
+  [ Evan Dandrea ]
+  * Update partman_popup with respect to other recent changes (LP:
+    #194688).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 25 Feb 2008 10:13:27 -0500
 
 ubiquity (1.7.11) hardy; urgency=low
 
