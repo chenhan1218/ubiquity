@@ -14,7 +14,10 @@ ubiquity (1.7.12) UNRELEASED; urgency=low
   * Minor changes to ubiquity-dm from suggestions by Colin Watson.
   * Remove suffix from icon path in .desktop file (LP: #188221).
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 25 Feb 2008 10:13:27 -0500
+  [ Jonathan Riddell ]
+  * Fix QApplication args in ubiquity/frontend/kde_ui.py 
+	
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 25 Feb 2008 10:13:27 -0500
 
 ubiquity (1.7.11) hardy; urgency=low
 
