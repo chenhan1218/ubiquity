@@ -3,6 +3,8 @@ ubiquity (1.7.12) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Slight shell efficiency improvement in
     partman/check.d/03partition_too_small.
+  * Use 'autoreconf -fi' so that Autotools files reliably get upgraded.
+  * Upgrade to gettext 0.17.
 
   [ Evan Dandrea ]
   * Update partman_popup with respect to other recent changes
