@@ -11,7 +11,7 @@ import imp
 sys.path.insert(0, '/usr/lib/ubiquity')
 
 import ubiquity.frontend
-from pwd import getpwnam
+import pwd
 
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
 
@@ -42,7 +42,8 @@ class DM:
             self.username = 'ubuntu'
         finally:
             fp.close()
-        self.uid, self.gid = getpwnam(self.username)[2:4]
+        self.uid, self.gid = pwd.getpwnam(self.username)[2:4]
+        self.homedir = pwd.getpwnam(self.username)[5]
         self.uid = int(self.uid)
         self.gid = int(self.gid)
         # Look for a frontend module; we won't actually use it (yet), but
@@ -77,7 +78,6 @@ class DM:
         if not os.path.exists('/var/log/installer'):
             os.makedirs('/var/log/installer')
         logfile = open('/var/log/installer/dm', 'w')
-        os.chmod('/var/log/installer/dm', 0666)
 
         signal.signal(signal.SIGUSR1, self.sigusr1_handler)
         signal.signal(signal.SIGTTIN, signal.SIG_IGN)
@@ -85,7 +85,7 @@ class DM:
         server = subprocess.Popen(['X', '-br', '-ac', '-noreset', self.vt, self.display], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.server_preexec)
 
         os.environ['DISPLAY'] = self.display
-        os.environ['HOME'] = '/home/%s' % self.username
+        os.environ['HOME'] = self.homedir
 
         # Really we should select on a pipe or something, but it's not worth
         # the effort for now.
