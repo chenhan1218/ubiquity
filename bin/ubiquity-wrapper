@@ -78,7 +78,7 @@ def main():
             if frontend == 'gtk_ui':
                 for session_process in ('evolution-alarm-notify',
                                         'gnome-cups-icon',
-                                        'restricted-manager',
+                                        'jockey-gtk',
                                         'update-notifier'):
                     subprocess.call(['gnome-session-remove',
                                      session_process])

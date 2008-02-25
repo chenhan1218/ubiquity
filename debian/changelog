@@ -1,10 +1,11 @@
-ubiquity (1.7.10mythbuntu1) hardy; urgency=low
+ubiquity (1.7.10) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Drop fullscreen workaround in Mythbuntu interface.
   * Adjust user permissions before/after launching MythTV setup.
   * If mythbuntu frontend is present, use that.  This allows
     only-ubiquity to launch directly into this frontend.
+  * Check for jockey-gtk instead of restricted-manager on a PS3 install.
 
   [ Evan Dandrea ]
   * Properly drop privileges in ubiquity-dm.  Previous attempts were
