@@ -12,6 +12,7 @@ ubiquity (1.7.12) UNRELEASED; urgency=low
   * Regain root when moving /etc/default/console-setup out of the way
     (LP: #188492).  Thanks Colin Watson.
   * Minor changes to ubiquity-dm from suggestions by Colin Watson.
+  * Remove suffix from icon path in .desktop file (LP: #188221).
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 25 Feb 2008 10:13:27 -0500
 
