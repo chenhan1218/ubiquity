@@ -43,7 +43,7 @@ ubiquity (1.7.11) hardy; urgency=low
     Patch by Richard A. Johnson <nixternal@kubuntu.org>
   * Force kde_ui style to plastique, works around QtDbus/pydbus
     clash when using oxygen style
-	
+
   [ Mario Limonciello ]
   * Drop fullscreen workaround in Mythbuntu interface.
   * Adjust user permissions before/after launching MythTV setup.
