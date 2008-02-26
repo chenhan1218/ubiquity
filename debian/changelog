@@ -1,4 +1,11 @@
-ubiquity (1.7.12) UNRELEASED; urgency=low
+ubiquity (1.7.13) UNRELEASED; urgency=low
+
+  [ Mario Limonciello ]
+  * Drop all references to mythappearance.
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 25 Feb 2008 10:13:27 -0500
+
+ubiquity (1.7.12) hardy; urgency=low
 
   [ Colin Watson ]
   * Slight shell efficiency improvement in
@@ -17,9 +24,6 @@ ubiquity (1.7.12) UNRELEASED; urgency=low
   [ Jonathan Riddell ]
   * Fix QApplication args in ubiquity/frontend/kde_ui.py 
 
-  [ Mario Limonciello ]
-  * Drop all references to mythappearance.
-	
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 25 Feb 2008 10:13:27 -0500
 
 ubiquity (1.7.11) hardy; urgency=low
