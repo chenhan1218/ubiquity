@@ -41,6 +41,10 @@ endif
 endif
 endif
 
+ifneq (,$(findstring :$(DEB_HOST_ARCH_CPU);,:alpha:amd64:i386:ia64:))
+  partman-depends := ntfsprogs
+endif
+
 console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $$2}'))
 
 ifeq (,$(strip $(foreach dir,$(subst :, ,$(PATH)),$(wildcard $(dir)/pygtk-codegen-2.0))))
@@ -261,11 +265,7 @@ binary-arch: install
 	dh_pycentral
 	dh_installdeb
 	dh_shlibdeps
-ifdef bootloader-depends
-	dh_gencontrol -- -V'bootloader-depends=$(bootloader-depends)' -V'console-setup-depends=$(console-setup-depends)' -Vmangled-version='$(MANGLED_VERSION)'
-else
-	dh_gencontrol -- -V'console-setup-depends=$(console-setup-depends)' -Vmangled-version='$(MANGLED_VERSION)'
-endif
+	dh_gencontrol -- -V'console-setup-depends=$(console-setup-depends)' -V'partman-depends=$(partman-depends)' -V'bootloader-depends=$(bootloader-depends)' -Vmangled-version='$(MANGLED_VERSION)'
 	dh_md5sums
 	dh_builddeb
 

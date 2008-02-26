@@ -8,6 +8,7 @@ ubiquity (1.7.13) UNRELEASED; urgency=low
     whose names contain more than one word (LP: #193329).
   * Drop all privileges and set HOME before launching a browser to read
     release notes (LP: #194727).
+  * Explicitly depend on ntfsprogs for NTFS resizing.
 
   [ Evan Dandrea ]
   * partman/confirm_new_label is now partman-
