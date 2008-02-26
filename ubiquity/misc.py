@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import pwd
 import subprocess
 import syslog
 
@@ -74,6 +75,7 @@ def drop_all_privileges():
     if 'SUDO_UID' in os.environ:
         uid = int(os.environ['SUDO_UID'])
         os.setreuid(uid, uid)
+        os.environ['HOME'] = pwd.getpwuid(uid).pw_dir
 
 def drop_privileges():
     if 'SUDO_GID' in os.environ:

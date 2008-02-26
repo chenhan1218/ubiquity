@@ -1043,7 +1043,8 @@ class Wizard(BaseFrontend):
         lang = self.selected_language(selection)
         lang = lang.split('.')[0] # strip encoding
         uri = uri.replace('${LANG}', lang)
-        subprocess.Popen(['sensible-browser', uri], close_fds=True)
+        subprocess.Popen(['sensible-browser', uri],
+                         close_fds=True, preexec_fn=drop_all_privileges)
 
 
     def on_language_treeview_row_activated (self, treeview, path, view_column):
