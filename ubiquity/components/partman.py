@@ -82,6 +82,7 @@ class Partman(FilteredCommand):
         questions = ['^partman-auto/.*automatically_partition$',
                      '^partman-auto/select_disk$',
                      '^partman-partitioning/confirm_resize$',
+                     '^partman-partitioning/confirm_new_label$',
                      '^partman-partitioning/new_size$',
                      '^partman/choose_partition$',
                      '^partman/confirm.*',
