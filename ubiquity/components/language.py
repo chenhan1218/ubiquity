@@ -105,7 +105,8 @@ class Language(FilteredCommand):
                     try:
                         for line in fp:
                             if line.startswith(country):
-                                self.db.set(question, line.split()[1])
+                                line = line.rstrip('\n')
+                                self.db.set(question, line.split('\t')[1])
                                 break
                     finally:
                         fp.close()

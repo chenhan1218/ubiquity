@@ -3,6 +3,10 @@ ubiquity (1.7.13) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Drop all references to mythappearance.
 
+  [ Colin Watson ]
+  * Split iso_3166.tab lines by tabs, fixing an infinite loop on countries
+    whose names contain more than one word (LP: #193329).
+
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 25 Feb 2008 10:13:27 -0500
 
 ubiquity (1.7.12) hardy; urgency=low
