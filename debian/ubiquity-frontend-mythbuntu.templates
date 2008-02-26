@@ -151,10 +151,6 @@ Template: ubiquity/text/mythcontrols
 Type: text
 _Description: Myth Controls
 
-Template: ubiquity/text/mythappearance
-Type: text
-_Description: Myth Appearance
-
 Template: ubiquity/text/mythmovies
 Type: text
 _Description: Myth Movies
@@ -208,10 +204,6 @@ Type: text
 _Description:
  External controls for MythTV. This will allow you to modify button mappings and
  key bindings.
-
-Template: ubiquity/text/mythappearance_label
-Type: text
-_Description: Controls the size of the Mythfrontend GUI
 
 Template: ubiquity/text/mythmovies_label
 Type: text
@@ -391,10 +383,6 @@ Type: boolean
 Description: for internal use; determines if plugin is installed
 
 Template: mythbuntu/mythcontrols
-Type: boolean
-Description: for internal use; determines if plugin is installed
-
-Template: mythbuntu/mythappearance
 Type: boolean
 Description: for internal use; determines if plugin is installed
 

@@ -16,6 +16,9 @@ ubiquity (1.7.12) UNRELEASED; urgency=low
 
   [ Jonathan Riddell ]
   * Fix QApplication args in ubiquity/frontend/kde_ui.py 
+
+  [ Mario Limonciello ]
+  * Drop all references to mythappearance.
 	
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 25 Feb 2008 10:13:27 -0500
 

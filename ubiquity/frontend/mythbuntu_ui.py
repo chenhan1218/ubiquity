@@ -562,7 +562,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
         def set_all_fe_plugins(self,enable):
             """ Enables all frontend plugins for defaults"""
-            self.mythappearance.set_active(enable)
             self.mytharchive.set_active(enable)
             self.mythbrowser.set_active(enable)
             self.mythcontrols.set_active(enable)
@@ -963,13 +962,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
     def get_mythcontrols(self):
         """Returns the status of the mythcontrols plugin"""
         if self.mythcontrols.get_active():
-            return True
-        else:
-            return False
-
-    def get_mythappearance(self):
-        """Returns the status of the mythappearance plugin"""
-        if self.mythappearance.get_active():
             return True
         else:
             return False

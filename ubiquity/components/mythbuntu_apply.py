@@ -49,9 +49,6 @@ class MythbuntuApply(FilteredCommand):
             patternline += "|^mythtv-backend-master|^mythtv-database|^mysql-server-5.0|^mythtv-frontend|^mythtv\ "
         elif installtype == "Frontend":
             patternline += "|^mythtv-backend-master|^mythtv-database|^mythtv-backend|^mysql-server-5.0|^mysql-server|^mythtv\ "
-        mythappearance = self.db.get('mythbuntu/mythappearance')
-        if mythappearance == "false":
-            patternline += "|^mythappearance"
         mytharchive = self.db.get('mythbuntu/mytharchive')
         if mytharchive == "false":
             patternline += "|^mytharchive|^ffmpeg|^genisoimage|^dvdauthor|^mjpegtools|^dvd+rw-tools|^python-imaging|^python-mysqldb"

@@ -52,8 +52,7 @@ class MythbuntuInstallType(FilteredCommand):
 
 class MythbuntuPlugins(FilteredCommand):
     def prepare(self):
-        questions = ['^mythbuntu/mythappearance',
-             '^mythbuntu/mytharchive',
+        questions = ['^mythbuntu/mytharchive',
              '^mythbuntu/mythbrowser',
              '^mythbuntu/mythcontrols',
              '^mythbuntu/mythflix',
@@ -70,10 +69,7 @@ class MythbuntuPlugins(FilteredCommand):
         return (['/usr/share/ubiquity/ask-plugins'], questions)
 
     def run(self,priority,question):
-        if question.startswith('mythbuntu/mythappearance'):
-            mythappearance = self.frontend.get_mythappearance()
-            self.preseed_bool('mythbuntu/mythappearance', mythappearance)
-        elif question.startswith('mythbuntu/mytharchive'):
+        if question.startswith('mythbuntu/mytharchive'):
             mytharchive = self.frontend.get_mytharchive()
             self.preseed_bool('mythbuntu/mytharchive', mytharchive)
         elif question.startswith('mythbuntu/mythbrowser'):
@@ -118,8 +114,6 @@ class MythbuntuPlugins(FilteredCommand):
         return FilteredCommand.run(self, priority, question)
 
     def ok_handler(self):
-        mythappearance = self.frontend.get_mythappearance()
-        self.preseed_bool('mythbuntu/mythappearance', mythappearance)
         mytharchive = self.frontend.get_mytharchive()
         self.preseed_bool('mythbuntu/mytharchive', mytharchive)
         mythbrowser = self.frontend.get_mythbrowser()

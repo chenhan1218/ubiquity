@@ -8,7 +8,6 @@
 . /usr/share/debconf/confmodule
 
 #detemine plugins
-db_input high mythbuntu/mythappearance || true
 db_input high mythbuntu/mytharchive || true
 db_input high mythbuntu/mythbrowser || true
 db_input high mythbuntu/mythcontrols || true
