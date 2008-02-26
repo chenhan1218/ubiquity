@@ -625,7 +625,7 @@ class Partman(FilteredCommand):
                 raise AssertionError, ("Returned to %s with nothing to do" %
                                        question)
 
-        elif question == 'partman/confirm_new_label':
+        elif question == 'partman-partitioning/confirm_new_label':
             if self.creating_label:
                 response = self.frontend.question_dialog(
                     self.description(question),

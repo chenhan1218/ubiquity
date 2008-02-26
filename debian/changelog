@@ -9,7 +9,11 @@ ubiquity (1.7.13) UNRELEASED; urgency=low
   * Drop all privileges and set HOME before launching a browser to read
     release notes (LP: #194727).
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 25 Feb 2008 10:13:27 -0500
+  [ Evan Dandrea ]
+  * partman/confirm_new_label is now partman-
+    partitioning/confirm_new_label (LP: #190036).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 26 Feb 2008 13:29:36 -0500
 
 ubiquity (1.7.12) hardy; urgency=low
 
