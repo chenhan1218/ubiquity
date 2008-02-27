@@ -383,8 +383,9 @@ class DebconfFilter:
             return True
 
         try:
-            escaped_params = map(misc.debconf_escape, params)
-            data = self.db.command(command, *escaped_params)
+            if not self.escaping:
+                params = map(misc.debconf_escape, params)
+            data = self.db.command(command, *params)
             self.reply(0, data)
 
             # Visible elements reset the backup state. If we just reset the
