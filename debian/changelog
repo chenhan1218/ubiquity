@@ -9,6 +9,8 @@ ubiquity (1.7.13) UNRELEASED; urgency=low
   * Drop all privileges and set HOME before launching a browser to read
     release notes (LP: #194727).
   * Explicitly depend on ntfsprogs for NTFS resizing.
+  * Print a traceback as well as the exception message if
+    DebconfFilter.process_line raises an exception.
 
   [ Evan Dandrea ]
   * partman/confirm_new_label is now partman-

@@ -108,8 +108,10 @@ class FilteredCommand(object):
     def process_line(self):
         try:
             return self.dbfilter.process_line()
-        except Exception, e:
-            self.debug('Exception caught: %s' % e)
+        except Exception:
+            import traceback
+            print >>sys.stderr, 'Exception caught in process_line:'
+            traceback.print_exc(file=sys.stderr)
             return False
 
     def wait(self):
