@@ -27,6 +27,8 @@ import re
 
 import debconf
 
+from ubiquity import misc
+
 # Each widget should have a run(self, priority, question) method; this
 # should ask the question in whatever way is appropriate, and may then
 # communicate with the debconf frontend using db. In particular, they may
@@ -52,32 +54,33 @@ import debconf
 # confmodule asks an otherwise-unhandled question whose template has type
 # error.
 
-valid_commands = (
-    'BEGINBLOCK',
-    'CAPB',
-    'CLEAR',
-    'ENDBLOCK',
-    'FGET',
-    'FSET',
-    'GET',
-    'GO',
-    'INFO',
-    'INPUT',
-    'METAGET',
-    'PREVIOUS_MODULE',
-    'PROGRESS',
-    'PURGE',
-    'REGISTER',
-    'RESET',
-    'SET',
-    'SETTITLE',
-    'STOP',
-    'SUBST',
-    'TITLE',
-    'UNREGISTER',
-    'VERSION',
-    'X_LOADTEMPLATEFILE'
-)
+# command name => maximum argument count (or None if unlimited)
+valid_commands = {
+    'BEGINBLOCK': 0,
+    'CAPB': None,
+    'CLEAR': 0,
+    'ENDBLOCK': 0,
+    'FGET': 2,
+    'FSET': 3,
+    'GET': 1,
+    'GO': 0,
+    'INFO': 1,
+    'INPUT': 2,
+    'METAGET': 2,
+    'PREVIOUS_MODULE': 0,
+    'PROGRESS': 4,
+    'PURGE': 0,
+    'REGISTER': 2,
+    'RESET': 1,
+    'SET': 2,
+    'SETTITLE': 1,
+    'STOP': 0,
+    'SUBST': 3,
+    'TITLE': 1,
+    'UNREGISTER': 1,
+    'VERSION': 1,
+    'X_LOADTEMPLATEFILE': 2
+}
 
 class DebconfFilter:
     def __init__(self, db, widgets={}):
@@ -195,6 +198,11 @@ class DebconfFilter:
         self.next_go_backup = False
         self.waiting = False
 
+        # Always use the escape capability for our own communications with
+        # the underlying frontend. This does not affect communications
+        # between this filter and the confmodule.
+        self.db.capb('escape')
+
     def process_line(self):
         line = self.tryreadline()
         if line is None:
@@ -204,11 +212,22 @@ class DebconfFilter:
 
         # TODO: handle escaped input
         line = line.rstrip('\n')
-        params = line.split(' ')
+        params = line.split(None, 1)
         if not params:
             return True
         command = params[0].upper()
-        params = params[1:]
+        if len(params) > 1:
+            rest = params[1]
+        else:
+            rest = ''
+
+        # Split parameters according to the command name.
+        if command not in valid_commands or valid_commands[command] == 0:
+            params = [rest]
+        elif valid_commands[command] is None:
+            params = rest.split()
+        else:
+            params = rest.split(None, valid_commands[command] - 1)
 
         self.debug('filter', '<--', command, *params)
 
@@ -225,6 +244,8 @@ class DebconfFilter:
             for widget in self.find_widgets(['CAPB'], 'capb'):
                 self.debug('filter', 'capb widget found')
                 widget.capb(params)
+            if 'escape' not in params:
+                params.append('escape')
 
         if command == 'INPUT' and len(params) == 2:
             (priority, question) = params
@@ -362,7 +383,8 @@ class DebconfFilter:
             return True
 
         try:
-            data = self.db.command(command, *params)
+            escaped_params = map(misc.debconf_escape, params)
+            data = self.db.command(command, *escaped_params)
             self.reply(0, data)
 
             # Visible elements reset the backup state. If we just reset the

@@ -31,6 +31,8 @@ from ubiquity.debconfcommunicator import DebconfCommunicator
 
 from ubiquity.debconffilter import DebconfFilter
 
+from ubiquity import misc
+
 # We identify as this to debconf.
 PACKAGE = 'ubiquity'
 
@@ -254,14 +256,8 @@ class FilteredCommand(object):
                        'utf-8', 'replace')
 
     def extended_description(self, question):
-        old_capb = self.db.capb()
-        capb_list = old_capb.split()
-        capb_list.append('escape')
-        self.db.capb(' '.join(capb_list))
-        data = unicode(self.db.metaget(question, 'extended_description'),
+        return unicode(self.db.metaget(question, 'extended_description'),
                        'utf-8', 'replace')
-        self.db.capb(old_capb)
-        return data
 
     def translate_to_c(self, question, value):
         choices = self.choices(question)
@@ -279,36 +275,24 @@ class FilteredCommand(object):
                 return i
         raise ValueError, value
 
-    def escape(self, text):
-        escaped = text.replace('\\', '\\\\').replace('\n', '\\n')
-        return re.sub(r'(\s)', r'\\\1', escaped)
-
-    def preseed(self, name, value, seen=True, escape=False):
-        if escape:
-            value = self.escape(value)
+    def preseed(self, name, value, seen=True):
+        value = misc.debconf_escape(value)
         value = value.encode("UTF-8", "ignore")
-        if escape:
-            old_capb = self.db.capb()
-            capb_list = old_capb.split()
-            capb_list.append('escape')
-            self.db.capb(' '.join(capb_list))
         try:
             self.db.set(name, value)
         except debconf.DebconfError:
             self.db.register('debian-installer/dummy', name)
             self.db.set(name, value)
             self.db.subst(name, 'ID', name)
-        if escape:
-            self.db.capb(old_capb)
 
         if seen:
             self.db.fset(name, 'seen', 'true')
 
     def preseed_bool(self, name, value, seen=True):
         if value:
-            self.preseed(name, 'true', seen, False)
+            self.preseed(name, 'true', seen)
         else:
-            self.preseed(name, 'false', seen, False)
+            self.preseed(name, 'false', seen)
 
 
     def preseed_as_c(self, name, value, seen=True):

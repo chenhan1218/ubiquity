@@ -3,6 +3,7 @@
 
 import os
 import pwd
+import re
 import subprocess
 import syslog
 
@@ -84,5 +85,9 @@ def drop_privileges():
     if 'SUDO_UID' in os.environ:
         uid = int(os.environ['SUDO_UID'])
         os.seteuid(uid)
+
+def debconf_escape(text):
+    escaped = text.replace('\\', '\\\\').replace('\n', '\\n')
+    return re.sub(r'(\s)', r'\\\1', escaped)
 
 # vim:ai:et:sts=4:tw=80:sw=4:

@@ -50,9 +50,8 @@ class UserSetup(FilteredCommand):
         self.preseed('passwd/user-fullname', fullname)
         self.preseed('passwd/username', username)
         # TODO: maybe encrypt these first
-        self.preseed('passwd/user-password', password, escape=True)
-        self.preseed('passwd/user-password-again', password_confirm,
-                     escape=True)
+        self.preseed('passwd/user-password', password)
+        self.preseed('passwd/user-password-again', password_confirm)
         if self.frontend.oem_config:
             self.preseed('passwd/user-uid', '29999')
         else:
