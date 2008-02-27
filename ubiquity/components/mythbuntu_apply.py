@@ -132,7 +132,7 @@ class AdditionalDrivers(FilteredCommand):
 class VNCHandler:
     """Used to properly enable VNC in a target configuration"""
 
-    # rather ugly workaround for lp: #1364282)
+    # rather ugly workaround for lp: #136482)
     locale.setlocale(locale.LC_ALL, 'C')
 
     def __init__(self,root):
