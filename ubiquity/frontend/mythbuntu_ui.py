@@ -348,6 +348,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         self.installing = False
 
     def set_page(self, n):
+        self.run_automation_error_cmd()
         gtk_ui_pages  = ['Language', 'ConsoleSetup', 'Timezone', 'Partman', 'UserSetup', 'Summary', 'MigrationAssistant']
         found = False
         for item in gtk_ui_pages:

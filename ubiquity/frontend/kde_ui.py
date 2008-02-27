@@ -558,7 +558,7 @@ class Wizard(BaseFrontend):
         return str(self.userinterface.widgetStack.widget(step_index).objectName())
 
     def set_page(self, n):
-        self.run_error_cmd()
+        self.run_automation_error_cmd()
         self.userinterface.show()
         if n == 'Language':
             self.set_current_page(WIDGET_STACK_STEPS["stepLanguage"])
@@ -1779,7 +1779,7 @@ class Wizard(BaseFrontend):
             self.installing = False
 
     def error_dialog (self, title, msg, fatal=True):
-        self.run_error_cmd()
+        self.run_automation_error_cmd()
         self.allow_change_step(True)
         # TODO: cancel button as well if capb backup
         QMessageBox.warning(self.userinterface, title, msg, QMessageBox.Ok)
@@ -1787,7 +1787,7 @@ class Wizard(BaseFrontend):
             self.return_to_partitioning()
 
     def question_dialog (self, title, msg, options, use_templates=True):
-        self.run_error_cmd()
+        self.run_automation_error_cmd()
         # I doubt we'll ever need more than three buttons.
         assert len(options) <= 3, options
 

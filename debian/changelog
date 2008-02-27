@@ -19,6 +19,10 @@ ubiquity (1.7.13) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * partman/confirm_new_label is now partman-
     partitioning/confirm_new_label (LP: #190036).
+  * Add ubiquity/automation_failure_command debconf question which is called
+    whenever user interaction is required.  This includes non-fatal error
+    dialogs.  ubiquity/failure_command is now only called when the installer
+    crashes.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 26 Feb 2008 13:29:36 -0500
 

@@ -688,7 +688,7 @@ class Wizard(BaseFrontend):
 
 
     def set_page(self, n):
-        self.run_error_cmd()
+        self.run_automation_error_cmd()
         # We only stop the backup process when we're on a page where questions
         # need to be asked, otherwise you wont be able to back up past
         # migration-assistant.
@@ -2197,7 +2197,7 @@ class Wizard(BaseFrontend):
     
     def error_dialog (self, title, msg, fatal=True):
         # TODO: cancel button as well if capb backup
-        self.run_error_cmd()
+        self.run_automation_error_cmd()
         self.allow_change_step(True)
         if self.current_page is not None:
             transient = self.live_installer
@@ -2214,7 +2214,7 @@ class Wizard(BaseFrontend):
             self.return_to_partitioning()
 
     def question_dialog (self, title, msg, options, use_templates=True):
-        self.run_error_cmd()
+        self.run_automation_error_cmd()
         self.allow_change_step(True)
         if self.current_page is not None:
             transient = self.live_installer

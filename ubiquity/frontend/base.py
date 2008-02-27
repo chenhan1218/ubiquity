@@ -73,9 +73,12 @@ class BaseFrontend:
         # set commands
         # Note that this will never work if the database is locked, so you
         # cannot trap that particular error using failure_command.
+        self.automation_error_cmd = None
         self.error_cmd = None
         self.success_cmd = None
         try:
+            self.automation_error_cmd = self.debconf_operation('get',
+                'ubiquity/automation_failure_command')
             self.error_cmd = self.debconf_operation('get',
                 'ubiquity/failure_command')
             self.success_cmd = self.debconf_operation('get',
@@ -443,6 +446,10 @@ class BaseFrontend:
         """Ask a question."""
         self._abstract('question_dialog')
     
+    def run_automation_error_cmd(self):
+        if self.automation_error_cmd != '':
+            subprocess.call(['sh', '-c', self.automation_error_cmd])
+
     def run_error_cmd(self):
         if self.error_cmd != '':
             subprocess.call(['sh', '-c', self.error_cmd])

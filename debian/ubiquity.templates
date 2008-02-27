@@ -631,9 +631,13 @@ Template: ubiquity/success_command
 Type: string
 Description: for internal use; specify a command to be run on install success.
 
+Template: ubiquity/automation_failure_command
+Type: string
+Description: for internal use; specify a command to be run when user interaction is needed.
+
 Template: ubiquity/failure_command
 Type: string
-Description: for internal use; specify a command to be run on install failure.
+Description: for internal use; specify a command to be run on unrecoverable install failure.
 
 Template: ubiquity/partition-too-small
 Type: boolean
