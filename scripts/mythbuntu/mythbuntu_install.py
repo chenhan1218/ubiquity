@@ -207,7 +207,7 @@ class Install(install.Install):
         elif video_driver == "pvr_350":
             to_install.append('xserver-xorg-video-ivtv')
         if vnc == 'true':
-            to_install.append('vnc4server')
+            to_install.append('x11vnc')
         if nfs == 'true':
             to_install.append('nfs-kernel-server')
             to_install.append('portmap')
@@ -307,9 +307,10 @@ class Install(install.Install):
     def configure_services(self):
         """Activates any necessary service configuration"""
         vnc = self.db.get('mythbuntu/vncservice')
-        if vnc == 'true':
-            handler = mythbuntu_apply.VNCHandler('/target')
-            handler.run()
+        #vnc4server is broke in hardy.  Use x11vnc instead
+        #if vnc == 'true':
+        #    handler = mythbuntu_apply.VNCHandler('/target')
+        #    handler.run()
         control = mythbuntu_apply.AdditionalServices(None,self.db)
         ret = control.run_command(auto_process=True)
         if ret != 0:

@@ -2,6 +2,7 @@ ubiquity (1.7.13) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Drop all references to mythappearance.
+  * Use x11vnc instead of vnc4server which is broke in Hardy.
 
   [ Colin Watson ]
   * Split iso_3166.tab lines by tabs, fixing an infinite loop on countries
