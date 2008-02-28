@@ -56,7 +56,7 @@ case "$1" in
 			log_end_msg=log_end_msg
 		fi
 		# Run in the foreground.
-		if ubiquity-dm vt7 :0 /usr/bin/ubiquity $debug $automatic; then
+		if ubiquity-dm vt7 :0 /usr/bin/ubiquity $debug $automatic --no-continue; then
 			$log_end_msg 0
 		else
 			log_end_msg $?

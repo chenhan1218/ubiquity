@@ -26,6 +26,8 @@ ubiquity (1.7.13) UNRELEASED; urgency=low
     crashes.
   * Make the zoomed in tzmap bigger and the points smaller.  Only select one
     timezone at a time.
+  * Add a --no-continue option to disable the continue using the Live CD
+    button when running in only-ubiquity mode (LP: #195935).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 26 Feb 2008 13:29:36 -0500
 

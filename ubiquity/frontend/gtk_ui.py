@@ -484,6 +484,9 @@ class Wizard(BaseFrontend):
             self.tzmap = zoommap.ZoomMapWidget(*args)
             self.tzmap.show()
 
+        if 'UBIQUITY_NO_CONTINUE' in os.environ:
+            del self.quit_button
+
         if 'UBIQUITY_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
 
