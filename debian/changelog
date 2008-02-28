@@ -16,6 +16,9 @@ ubiquity (1.7.13) UNRELEASED; urgency=low
     and the underlying frontend by default. Split arguments to filtered
     commands into only as many arguments as are required by the command.
     This should fix autopartitioning in certain locales (LP: #177623).
+  * In ubiquity-dm, fall back to xfwm4 if metacity fails (unifying gtk_ui
+    and mythbuntu_ui handling in the process). Avoid hardcoding full paths
+    where possible.
 
   [ Evan Dandrea ]
   * partman/confirm_new_label is now partman-

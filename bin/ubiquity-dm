@@ -13,9 +13,14 @@ sys.path.insert(0, '/usr/lib/ubiquity')
 import ubiquity.frontend
 import pwd
 
+from ubiquity import osextras
+
 background = '/usr/share/backgrounds/warty-final-ubuntu.png'
 
 class XStartupError(EnvironmentError):
+    pass
+
+class MissingProgramError(EnvironmentError):
     pass
 
 class DM:
@@ -109,9 +114,19 @@ class DM:
                 gtk.gdk.flush()
 
         extras = []
-        if self.frontend == 'gtk_ui':
-            wm = subprocess.Popen(['/usr/bin/metacity', '--sm-disable'],
-                stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.drop_privileges)
+        if self.frontend in ('gtk_ui', 'mythbuntu_ui'):
+            if osextras.find_on_path('metacity'):
+                wm = subprocess.Popen(['metacity', '--sm-disable'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    preexec_fn=self.drop_privileges)
+            elif osextras.find_on_path('xfwm4'):
+                wm = subprocess.Popen('xfwm4',
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    preexec_fn=self.drop_privileges)
+            else:
+                raise MissingProgramError, \
+                    "No window manager found (tried metacity, xfwm4)"
+
             if os.path.exists('/usr/lib/gnome-settings-daemon/gnome-settings-daemon'):
                 extras.append(subprocess.Popen(['/usr/lib/gnome-settings-daemon/gnome-settings-daemon'],
                     stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.drop_privileges))
@@ -121,36 +136,36 @@ class DM:
             gconf_dir = ('xml:readwrite:%s' %
                 os.path.expanduser('~%s/.gconf' %
                 self.username))
-            subp = subprocess.Popen(['gconftool-2', '--config-source',
-                gconf_dir, '--get', '/desktop/gnome/interface/accessibility'],
-                stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            accessibility = subp.communicate()[0].rstrip('\n')
+            accessibility = 'false'
+            if osextras.find_on_path('gconftool-2'):
+                subp = subprocess.Popen(
+                    ['gconftool-2', '--config-source', gconf_dir,
+                     '--get', '/desktop/gnome/interface/accessibility'],
+                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                accessibility = subp.communicate()[0].rstrip('\n')
             if accessibility == 'true':
-                extras.append(subprocess.Popen(['/usr/lib/at-spi/at-spi-registryd'],
-                    stdin=null, stdout=logfile, stderr=logfile,
-                    preexec_fn=self.drop_privileges))
+                if os.path.exists('/usr/lib/at-spi/at-spi-registryd'):
+                    extras.append(subprocess.Popen(['/usr/lib/at-spi/at-spi-registryd'],
+                        stdin=null, stdout=logfile, stderr=logfile,
+                        preexec_fn=self.drop_privileges))
                 fp = open('/proc/cmdline', 'r')
                 if 'access=m2' in fp.readline():
-                    if os.path.exists('/usr/bin/onboard'):
-                        extras.append(subprocess.Popen(['/usr/bin/onboard'],
+                    if osextras.find_on_path('onboard'):
+                        extras.append(subprocess.Popen(['onboard'],
                             stdin=null, stdout=logfile, stderr=logfile,
                             preexec_fn=self.drop_privileges))
                 else:
-                    if os.path.exists('/usr/bin/orca'):
-                        extras.append(subprocess.Popen(['/usr/bin/orca', '-n'],
+                    if osextras.find_on_path('orca'):
+                        extras.append(subprocess.Popen(['orca', '-n'],
                             stdin=null, stdout=logfile, stderr=logfile,
                             preexec_fn=self.drop_privileges))
                 fp.close()
         elif self.frontend == 'kde_ui':
-            wm = subprocess.Popen('/usr/bin/kwin', stdin=null, stdout=logfile,
+            wm = subprocess.Popen('kwin', stdin=null, stdout=logfile,
                 stderr=logfile, preexec_fn=self.drop_privileges)
-            extras.append(subprocess.Popen(['/usr/bin/dcopserver', '--nosid'],
+            extras.append(subprocess.Popen(['dcopserver', '--nosid'],
                 stdin=null, stdout=logfile, stderr=logfile,
                 preexec_fn=self.drop_privileges))
-
-        elif self.frontend == 'mythbuntu_ui':
-            wm = subprocess.Popen('/usr/bin/xfwm4', stdin=null, stdout=logfile,
-                stderr=logfile, preexec_fn=self.drop_privileges)
 
         greeter = subprocess.Popen(program, stdin=null, stdout=logfile, stderr=logfile)
         ret = greeter.wait()
