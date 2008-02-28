@@ -479,7 +479,7 @@ class Wizard(BaseFrontend):
             pixmap = '/usr/share/ubiquity/pixmaps/earth.jpg'
             full_zoom = True
             font_selected = "white"
-            font_unselected = "maroon"
+            font_unselected = "orange"
             args = (self, pixmap, full_zoom, font_selected, font_unselected)
             self.tzmap = zoommap.ZoomMapWidget(*args)
             self.tzmap.show()

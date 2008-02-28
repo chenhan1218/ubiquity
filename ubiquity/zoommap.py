@@ -141,7 +141,8 @@ class ZoomMapWidget(gtk.Widget):
         except:
             raise ZoomMapException("Cannot load the pixmap file %s" % pixmap_filename)
         self.pixbuf = gtk.gdk.pixbuf_new_from_file(pixmap_filename)
-        self.big_pixbuf = self.pixbuf #do we need to enlarge this?
+        #self.big_pixbuf = self.pixbuf #do we need to enlarge this?
+        self.big_pixbuf = self.pixbuf.scale_simple(2048 * 3, 1024 * 3, gtk.gdk.INTERP_NEAREST)
 
     def button_release(self,widget,event):
         self.hit_test(event.x, event.y)
@@ -235,7 +236,7 @@ class ZoomMapWidget(gtk.Widget):
         cr.paint()
         cr.set_line_width(2)
         for hotspot in self.hotspots:
-            cr.arc(hotspot.x*w, hotspot.y*h, 2, 0, 2*pi)
+            cr.arc(hotspot.x*w, hotspot.y*h, 1, 0, 2*pi)
             if self.location_selected and hotspot == self.location_selected:
                 cr.set_source_color(self.font_selected)
             else:
@@ -277,6 +278,7 @@ class ZoomMapWidget(gtk.Widget):
         min_x, min_y, max_w, max_h = self.map_window_alllocation
         offset_x, offset_y, xx, yy = self.zoom_window_alllocation
         cr = self.context
+        selected = False
         for hotspot in self.hotspots:
             x1 = map_w * hotspot.x
             y1 = map_h * hotspot.y
@@ -286,12 +288,13 @@ class ZoomMapWidget(gtk.Widget):
             cr.move_to(x2, y2)
             if (self.location_selected and hotspot == self.location_selected):
                 cr.set_source_color(self.font_selected)
-            elif (abs(self.cursor_x - x2) < hotspot.width and abs(self.cursor_y - y2) < hotspot.height):
+            elif not selected or (abs(self.cursor_x - x2) < hotspot.width and abs(self.cursor_y - y2) < hotspot.height):
                 cr.set_source_color(self.font_selected)
+                selected = True
             else:
                 cr.set_source_color(self.font_unselected)
             cr.set_line_width(1)
-            cr.arc(x2, y2, 4, 0, 2*pi)
+            cr.arc(x2, y2, 2, 0, 2*pi)
             cr.fill()
             cr.stroke()
 
