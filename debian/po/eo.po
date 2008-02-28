@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2008-02-20 12:43+0000\n"
 "Last-Translator: Serge Leblanc <serge.leblanc@wanadoo.fr>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,8 +26,9 @@ msgstr "Instalu"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
+#, fuzzy
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Instalu (maniero nur por sistemkreistoj)"
 
 #. Type: text
 #. Description
@@ -66,11 +67,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
+#, fuzzy
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Vi estas instalanta je sistemkreista maniero. Bonvolu aldoni unikan nomon "
+"por ĉi tiu grupo de sistemoj. La nomo estos savita al la instalita sistemo "
+"kaj ĝi estos utila, kiam cimoj estas raportitaj."
 
 #. Type: text
 #. Description
@@ -222,18 +227,10 @@ msgstr "Migraad"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Elektu iujn ajn kontojn kiujn vi volas importi kaj plenumu la enigon por "
-"ĉiu. La dokumentoj kaj agordoj por tiuj ĉi kontoj estos disponeblaj post la "
-"fino de instalado."
 
 #. Type: text
 #. Description
@@ -283,7 +280,7 @@ msgstr "Via nova operaciumo estos nun instalita kun la sekvaj agordoj:"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Por progresantoj..."
 
 #. Type: text
 #. Description
@@ -291,7 +288,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Instalu"
 
 #. Type: text
 #. Description
@@ -341,7 +338,7 @@ msgstr "Rekomencu nun"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "La instalilo kraŝis"
 
 #. Type: text
 #. Description
@@ -354,12 +351,17 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Pardonu, la instalilo kraŝis. Bonvolu sendi raporton ĉe https://launchpad."
+"net/ubuntu/+source/ubiquity/+filebug (ne aldonu al jam ekzistanta eraro) kaj "
+"prizorgistoj traktos la problemon, kiam plej frue eblos. Por helpi la "
+"laboron de prizorgistoj, bonvolu priskribi la sekvajn detalojn kaj aldoni la "
+"enhavon de la dosieroj /var/log/syslog kaj /var/log/partman:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "Kreu diskpartigon"
 
 #. Type: text
 #. Description
@@ -367,13 +369,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "La amplekso de la diskopartigo en megabajtoj (1 000 000 bajtoj):"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Beginning"
-msgstr "Eko"
+msgstr "Komenco"
 
 #. Type: text
 #. Description
@@ -397,19 +399,19 @@ msgstr "Logika"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "Redaktu la diskpartigon"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Redaktu diskpartigon"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Altnivelaj Opcioj"
 
 #. Type: text
 #. Description
@@ -421,19 +423,19 @@ msgstr "Komenciga ŝargilo"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Instali praŝargilon"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Konkurso pri populareco"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Partoprenu pritaksadon de uzo de pakoj"
 
 #. Type: text
 #. Description
@@ -539,10 +541,8 @@ msgstr "Kopiante dosierojn (malpli ol unu minuto restas)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Malsukcesis kopii dosierojn; ĉu difektita fiksa disko?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -635,10 +635,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Malsukcesis kopii dosierojn; ĉu difektita KD/DVD aŭ fiksa disko?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -728,13 +726,13 @@ msgstr "Akomodanta iniciatan ŝargilon..."
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Instalu aldonajn pakojn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Vicigo de instalotaj pakoj..."
 
 #. Type: text
 #. Description
@@ -782,13 +780,13 @@ msgstr "Eraris forigante ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Eraro dum instalado de pakoj"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Eraro okazis dum instalado de la sekvaj pakoj:"
 
 #. Type: error
 #. Description
@@ -796,7 +794,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "La stato de la sekvaj pakoj estas rompita:"
 
 #. Type: error
 #. Description
@@ -812,18 +810,24 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"La kaŭzo povas esti malnova instalpakaĵo, aŭ eble iu supre listigita pako "
+"enhavas cimon. Pli da detaloj troviĝas en /var/log/syslog. La instalilo "
+"klopodos daŭrigi tamen, sed povas esti, ke ĝi fiaskos poste kaj ne plu povos "
+"instali aŭ malinstali pakojn (inkluzive sin) el/al la sistemo. Provu unue "
+"trovi pli novan version de la instalpakaĵo, kaj se vi malsukcesas, raportu "
+"tion al la distribuisto."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Eraro dum forigo de pakoj"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Eraro okazis dum forigo de pakoj:"
 
 #. Type: title
 #. Description
@@ -841,7 +845,7 @@ msgstr "Elŝutante lingvajn pakojn (${TIME} restante)..."
 #. Description
 #: ../ubiquity.templates:110001
 msgid "Failed to unmount partitions"
-msgstr "Malsukcesis malsurmeti subdiskojn"
+msgstr "Fiaskis demeti la subdiskojn"
 
 #. Type: boolean
 #. Description
@@ -870,30 +874,18 @@ msgstr "Ĉu vi ŝatus ke la instalilo reklopodu demeti ĉi tiujn subdiskojn?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Kiel vi volas partigi la diskon?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"La dosiersistemo sur ${PARTITION} atribuata al ${MOUNTPOINT} ne estas "
-"markita por formati. Dosiersistemoj uzataj de la sistemo (/, /boot, /usr, /"
-"var) estas formatendaj por uzado de ĉi tiu instalilo. Aliaj dosiersistemoj (/"
-"home, /media/*, /usr/local, k.t.p.) estas uzeblaj sen formatado."
 
 #. Type: boolean
 #. Description
@@ -932,6 +924,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Instala tipo: ${INSTALLTYPE}\n"
+" Peliloj:\n"
+"     Aldona videa pelilo: ${VIDEO_DRIVER}\n"
+"          Televida eligo: ${TVOUT}, ${TVSTANDARD}\n"
+" Aldonaj servoj:\n"
+"     VNC: ${EN_VNC}\n"
+"     SSH: ${EN_OPENSSH}\n"
+"     Samba: ${EN_SAMBA}\n"
+"     NFS: ${EN_NFS}\n"
+"     MythTV Service: ${EN_MYSQL}\n"
+" Kutimaj demandoj dum instalado de Ubuntu:\n"
+"     Lingvo: ${LANGUAGE}\n"
+"     Klavara aranĝo: ${KEYMAP}\n"
+"     Nomo: ${FULLNAME}\n"
+"     Ensaluta nomo: ${USERNAME}\n"
+"     Loko: ${LOCATION}"
 
 #. Type: text
 #. Description
@@ -944,13 +952,13 @@ msgstr "Ĉu abortigu la instaladon?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Ekzistas du manieroj por instali Mitobuntun:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Ĝenerala instalado"
 
 #. Type: text
 #. Description
@@ -960,6 +968,9 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Per standarda instalado ĉio estos agordita kun minimala uzula interagado. Ĝi "
+"instalos la fonsoftvaron, la malfonsoftvaron, ĉiujn kromaĵon kaj ĉiujn "
+"temojn."
 
 #. Type: text
 #. Description
@@ -976,6 +987,9 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Per progresanta instalado eblas agordi, kion vi bezonas dum instalado de "
+"Mitobuntu. Rimarko: por aldoni maŝinon kun Mitobuntu al MythTV-a reto, "
+"progresanta instalado estas bezonata."
 
 #. Type: text
 #. Description
@@ -991,13 +1005,13 @@ msgstr "Kompleta instalado"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Kiaspeca sistemo estos ĉi tiu?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Ĉefa fona kaj malfona softvaro"
 
 #. Type: text
 #. Description
@@ -1007,12 +1021,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Interna/fasada kunmaŝino estas la plej ofta agordo por tiuj, kiuj volas je "
+"MythTV por HTPC-aplikoj. Ĉi tia agordo estas por uzi kiel konsistaĵon de via "
+"hejma kinejo."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Kroma internaĵo kun fasado"
 
 #. Type: text
 #. Description
@@ -1021,12 +1038,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Tio agordos sistemon similan al ĉefa internaĵo kun fasado, tamen agordos por "
+"konekti al ekzistanta internaĵo en la reto."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Ĉefa Internaĵo"
 
 #. Type: text
 #. Description
@@ -1036,12 +1055,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Nur-internaĵa maŝino tipe estas planita por funkcii specialigite; bezonante "
+"tre malmultan flegadon. Ĉi tiu estas por esti instalita kiel la unua "
+"internaĵo en reto."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Kroma internaĵo"
 
 #. Type: text
 #. Description
@@ -1050,12 +1072,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Ĉi tio agordos sistemon similan al Ĉefa Internaĵo, tamen agordos ĝin por "
+"konekti al ekzistanta internaĵo en la reto."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Fasado"
 
 #. Type: text
 #. Description
@@ -1065,12 +1089,15 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"La ĉefa funkcio de nur-fasada maŝino estas akcepti aŭdvidan materialon el la "
+"internaĵo kaj distribui ĝin. Ĉi tiu agordo postulas ekzistantan internaĵon "
+"en la reto."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Elektu fontaĵajn/malfontaĵajn kromaĵon"
 
 #. Type: text
 #. Description
@@ -1096,7 +1123,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "MythTV reto"
 
 #. Type: text
 #. Description
@@ -1110,13 +1137,13 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "MythTV arkivo"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "MythTV krozilo"
 
 #. Type: text
 #. Description
@@ -1140,7 +1167,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
@@ -1176,19 +1203,19 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Myth datenfluo"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
-msgstr ""
+msgstr "Myth video"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Myth veterilo"
 
 #. Type: text
 #. Description
@@ -1197,12 +1224,14 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"Kromaĵo por MythTV kiu lasas al vi krei DVD-ojn de enhavo sur via MythTV-"
+"reto."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "Integrita TTT-legila kromaĵo por via MythTV-sistemo"
 
 #. Type: text
 #. Description
@@ -1211,6 +1240,8 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Eksteraj regiloj por MythTV. Ĉi tio permesos al vi modifi difinojn de "
+"butonoj kaj klavoj."
 
 #. Type: text
 #. Description
@@ -1228,19 +1259,20 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Permesas al vi inspekti vian DVD-luan vicon de Netfix."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
+msgstr "Permesas la vi vide foliumi dosierujan arbon enhavantan bildojn."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"Fasado por lanĉi iun ajn imitilon aŭ programkodon kiun Linukso ruligas."
 
 #. Type: text
 #. Description
@@ -1453,44 +1485,5 @@ msgstr "Akomodi aparataĵon..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "Akomodi aparataĵon..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Sistema subdisko ne formatita"
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "Akomodanta horan zonon..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Krei uzanton por importi la elektitan konton en:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Kompleta Nomo:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Salutnomo:"
-
-#~ msgid "Password:"
-#~ msgstr "Pasvorto:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Konfirmi:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Certiĝu fari spacon por radika diskparto (\"/\"), de minimume 2 GB, kaj "
-#~ "\"swap\"-a diskparto de minimume 256 MB. Vi ankaŭ povas establi aliajn "
-#~ "diskpartojn laŭdezire."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Certiĝu elpreni la KD-on antaŭ reiniciante la komputilon, alimaniere ĝi "
-#~ "restartos uzante ĉi tiun viv-KD-on anstataŭ ol la nov-instalitan sistemon."
+msgstr ""

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: 2007-10-04 14:39+0000\n"
-"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
+"PO-Revision-Date: 2008-02-20 12:38+0000\n"
+"Last-Translator: SZERVÑC Attila <Unknown>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -190,7 +190,7 @@ msgstr "Válasszon jelszót, hogy biztonságban lehessen felhasználói fiókja.
 #. Description
 #: ../ubiquity.templates:23001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "A rendszer hibakereső módban fut! Ne használjon \"értékes\" jelszót!"
+msgstr "A rendszer hibakereső módban fut! Ne használjon „értékes\" jelszót!"
 
 #. Type: text
 #. Description
@@ -226,18 +226,10 @@ msgstr "Dokumentumok és beállítások átvitele"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Válassza ki az importálandó fiókokat és töltse ki az alattuk lévő űrlapot. A "
-"fiókokhoz tartozó dokumentumok és beállítások a telepítés befejeződése után "
-"elérhetők lesznek."
 
 #. Type: text
 #. Description
@@ -548,10 +540,8 @@ msgstr "Fájlok másolása (kevesebb, mint egy perc van hátra)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "A fájlok másolása meghiúsult, hibás a merevlemez?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -643,10 +633,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "A fájlok másolása meghiúsult, hibás a CD/DVD vagy merevlemez?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -886,31 +874,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Hogyan kívánja particionálni a lemezt?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"A(z) ${MOUNTPOINT} csatolási ponthoz társított ${PARTITION} partíció "
-"fájlrendszere nincs kijelölve formázásra. A rendszer által használt "
-"fájlrendszereket (/, /boot, /usr, /var) újra kell formázni, hogy a telepítő "
-"használhassa azokat. Más fájlrendszereket (/home, /media/*, /usr/local, "
-"stb.) újraformázás nélkül is lehet használni."
 
 #. Type: boolean
 #. Description
@@ -1180,18 +1155,14 @@ msgstr "Myth vezérlés"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
-#, fuzzy
-#| msgid "Myth Archive"
 msgid "Myth Appearance"
-msgstr "Myth archívum"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
-#, fuzzy
-#| msgid "Myth News"
 msgid "Myth Movies"
-msgstr "Myth hírek"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1364,16 +1335,10 @@ msgstr "Extra témák kiválsztása"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:56001
-#, fuzzy
-#| msgid ""
-#| "Themes can greatly improve the aesthic appeal of a MythTV setup, and "
-#| "display it to match your tastes much better."
 msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
-"A témák jelentősen javítják a MythTV telepítés megjelenését és az ízlésének "
-"megfelelőbben jelenítik meg."
 
 #. Type: text
 #. Description
@@ -1545,73 +1510,5 @@ msgstr "A további kiszolgálók konfigurálása..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
-#| msgid "Configuring additional services..."
 msgid "Configuring infrared devices..."
-msgstr "A további kiszolgálók konfigurálása..."
-
-#~ msgid "Myth DVD"
-#~ msgstr "Myth DVD"
-
-#~ msgid ""
-#~ "Provides an interface for launching your preferred DVD player from MythTV"
-#~ msgstr ""
-#~ "Felületet biztosít az előnyben részesített DVD lejátszó indításához a "
-#~ "MythTV-ből"
-
-#~ msgid "Official Themes"
-#~ msgstr "Hivatalos témák"
-
-#~ msgid "Community Themes"
-#~ msgstr "Közösségi témák"
-
-#~ msgid ""
-#~ "This themes package includes all themes distributed by the MythTV website."
-#~ msgstr ""
-#~ "Ez a témacsomag a MythTV webhelye által terjesztett összes témát "
-#~ "tartalmazza."
-
-#~ msgid ""
-#~ "This themes package is a collection of community themes generated by "
-#~ "other MythTV users."
-#~ msgstr ""
-#~ "Ez a témacsomag a más MythTV felhasználók által készített közösségi témák "
-#~ "gyűjteménye."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "A rendszerpartíció nincs leformázva."
-
-#~ msgid "Configuring remote control..."
-#~ msgstr "A távirányító konfigurálása..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Felhasználó létrehozása a kijelölt fiókok importáláshoz:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Teljes név:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Bejelentkezési név:"
-
-#~ msgid "Password:"
-#~ msgstr "Jelszó:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Megerősítés:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "A gyökérpartíciónak (csatolási pontja: \"/\") legalább 2 GB-osnak, a "
-#~ "lapozópartíciónak legalább 256 MB-osnak kell lennie. Ezeken kívül más "
-#~ "partíciókat is beállíthat."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Győződjön meg róla, hogy eltávolította a CD-t a számítógép újraindítása "
-#~ "előtt, ellenkező esetben a rendszer ismét a live CD-ről fog elindulni a "
-#~ "frissen telepített helyett."
+msgstr ""

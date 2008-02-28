@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: 2007-09-16 20:50+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2008-01-29 01:33+0000\n"
+"Last-Translator: Zoran Olujic <olujicz@gmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -219,18 +219,10 @@ msgstr "Пренеси документа и подешавања"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Одаберите неки од налога који бисте желели да увезете и попуните образац "
-"испод за сваки од њих. Документа и подешавања за одабране налоге ће бити "
-"доступни по завршетку инсталације."
 
 #. Type: text
 #. Description
@@ -280,7 +272,7 @@ msgstr "Ваш нови оперативни систем ће бити инст
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Напредно..."
 
 #. Type: text
 #. Description
@@ -288,7 +280,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Инсталација[ наредба ]"
 
 #. Type: text
 #. Description
@@ -338,7 +330,7 @@ msgstr "Изнова покрени рачунар"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Инсталације је прекинута"
 
 #. Type: text
 #. Description
@@ -356,7 +348,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "Направи партицију"
 
 #. Type: text
 #. Description
@@ -364,7 +356,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Величина нове партиције у мегабајтима (1000000 бајта):"
 
 #. Type: text
 #. Description
@@ -394,24 +386,23 @@ msgstr "Логичка"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "Измени партицију"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Измена партиције"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Напредне опције"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
-#, fuzzy
 msgid "Boot loader"
 msgstr "Покретач система"
 
@@ -419,19 +410,19 @@ msgstr "Покретач система"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Инсталиран покретач система"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Такмичење у популарности"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Учествујте у анкети коришћења пакета"
 
 #. Type: text
 #. Description
@@ -536,10 +527,8 @@ msgstr "Копирање датотека (преостало је мање од
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Неуспешно копирање датотека; оштећен хард диск?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -630,10 +619,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Неуспешно копирање датотека; оштећен CD/DVD или хард диск?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -729,7 +716,7 @@ msgstr "Инсталирање додатних пакета..."
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Провера пакета за инсталацију"
 
 #. Type: text
 #. Description
@@ -818,7 +805,7 @@ msgstr "Грешка при уклањању пакета"
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Дошло је до грешке приликом уклањања пакета:"
 
 #. Type: title
 #. Description
@@ -867,25 +854,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Како желите да поделите диск?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Систем датотека на ${PARTITION}, који је прикључен на ${MOUNTPOINT}, није "
-"означен за форматирање. Систем датотека који користи систем (/, /boot, /"
-"usr, /var) мора бити форматиран у току процеса инсталације. Остали (/home, /"
-"media/*, /usr/local, etc.) се могу користити и без поновног форматирања."
 
 #. Type: boolean
 #. Description
@@ -924,6 +904,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Врста инсталације:           ${INSTALLTYPE}\n"
+" Управљачки програми:\n"
+"     Додатни управљачки програм за слику:  ${VIDEO_DRIVER}\n"
+"         ТВ-излаз:             ${TVOUT}, ${TVSTANDARD}\n"
+" Додатни сервиси:\n"
+"     VNC:                ${EN_VNC}\n"
+"     SSH:                ${EN_OPENSSH}\n"
+"     Samba:              ${EN_SAMBA}\n"
+"     NFS:                ${EN_NFS}\n"
+"     MythTV Service:     ${EN_MYSQL}\n"
+" Обична питања инсталације Убунтуа:\n"
+"     Језик:           ${LANGUAGE}\n"
+"     Распоред на тастатури:    ${KEYMAP}\n"
+"     Име и презиме:       ${FULLNAME}\n"
+"     Корисничко име: ${USERNAME}\n"
+"     Локација:           ${LOCATION}"
 
 #. Type: text
 #. Description
@@ -986,13 +982,13 @@ msgstr "Напредна врста инсталације"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Какав ће ово бити тип система?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Примарни бекенд са фронтендом"
 
 #. Type: text
 #. Description
@@ -1007,7 +1003,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Секундарни бекенд са фронтендом"
 
 #. Type: text
 #. Description
@@ -1016,6 +1012,8 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Ово ће поставити систем сличан примарном бекенду са фронтендом, само што ће "
+"бити конфигурисан да се повеже на постојећи бекенд на мрежи."
 
 #. Type: text
 #. Description
@@ -1050,7 +1048,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Сучеље"
 
 #. Type: text
 #. Description
@@ -1091,7 +1089,7 @@ msgstr "Контролни додаци"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1100,6 +1098,8 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb обезбеђује веб интерфејс који се може користити да се прегледају "
+"листинзи, заказују снимања, бришу снимања и претражују  програми."
 
 #. Type: text
 #. Description
@@ -1122,18 +1122,14 @@ msgstr "Myth контроле"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
-#, fuzzy
-#| msgid "Myth Archive"
 msgid "Myth Appearance"
-msgstr "Myth архива"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
-#, fuzzy
-#| msgid "Myth News"
 msgid "Myth Movies"
-msgstr "Myth вести"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1236,12 +1232,13 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
 msgstr ""
+"Омогућава вам да визуелно разгледате стабло фасцикли које садрже слике."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
-msgstr ""
+msgstr "Сучеље за покретање емулатора или бинарне датотеке на Линуксу"
 
 #. Type: text
 #. Description
@@ -1418,7 +1415,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Покрените MythTV поставке"
 
 #. Type: text
 #. Description
@@ -1451,57 +1448,5 @@ msgstr "Подешавање додатних сервиса..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
-#| msgid "Configuring additional services..."
 msgid "Configuring infrared devices..."
-msgstr "Подешавање додатних сервиса..."
-
-#~ msgid "Myth DVD"
-#~ msgstr "Myth ДВД"
-
-#~ msgid "Official Themes"
-#~ msgstr "Званичне теме"
-
-#~ msgid "Community Themes"
-#~ msgstr "Теме заједнице корисника"
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Системска партиција није форматирана."
-
-#~ msgid "Configuring remote control..."
-#~ msgstr "Подешавање даљинске контроле..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr ""
-#~ "Направите кориснички налог који ће преузети подешавања одабраног налога:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Пуно име:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Корисничко име:"
-
-#~ msgid "Password:"
-#~ msgstr "Лозинка:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Потврди:"
-
-#, fuzzy
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Треба да одредите партицију за корени систем датотека (директоријум "
-#~ "монтирања \"/\") са најмање 2 гигабајта, и партицију за виртуелну "
-#~ "меморију са најмање 256 мегабајта. Такође, можете подесити и остале "
-#~ "партиције."
-
-#, fuzzy
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Проверите да ли сте извадили ЦД када рестартујете рачунар, ако нисте "
-#~ "систем ће се поново покренути са Лајв ЦД-а, а не са инсталираног система."
+msgstr ""

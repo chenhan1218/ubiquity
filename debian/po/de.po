@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: 2007-10-06 20:26+0000\n"
-"Last-Translator: Jens Seidel <jensseidel@users.sf.net>\n"
+"PO-Revision-Date: 2008-02-20 12:33+0000\n"
+"Last-Translator: Jens Seidel <Unknown>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -231,19 +231,10 @@ msgstr "Dokumente und Einstellungen übernehmen"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Wählen Sie einige Benutzerkonten aus, die Sie gerne importieren möchten und "
-"füllen Sie das untenstehende Formular für jedes aus. Die Dokumente und "
-"Einstellungen für diese Benutzerkonten werden nach Abschluss der "
-"Installation verfügbar sein."
 
 #. Type: text
 #. Description
@@ -556,10 +547,8 @@ msgstr "Dateien werden kopiert (weniger als eine Minute verbleibend) ..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Die Kopie schlug fehl: Festplatte fehlerhaft?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -651,10 +640,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Die Kopie schlug fehl: CD/DVD oder Festplatte fehlerhaft?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -897,31 +884,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Wie möchten Sie die Festplatte partitionieren?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Das Dateisystem auf ${PARTITION} zugewiesen auf ${MOUNTPOINT} wurde nicht "
-"zur Formatierung markiert. Dateisysteme, die durch das System (/, /boot, /"
-"usr, /var) verwendet werden, müssen für die Verwendung durch diesen "
-"Installer reformatiert werden. Andere Dateisysteme (/home, /media/*, /usr/"
-"local, usw.) können ohne Reformatierung verwendet werden."
 
 #. Type: boolean
 #. Description
@@ -1189,18 +1163,14 @@ msgstr "Myth-Kontrollzentrum"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
-#, fuzzy
-#| msgid "Myth Archive"
 msgid "Myth Appearance"
-msgstr "Myth-Archiv"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
-#, fuzzy
-#| msgid "Myth News"
 msgid "Myth Movies"
-msgstr "Myth-Nachrichten"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1359,16 +1329,10 @@ msgstr "Themen auswählen"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:56001
-#, fuzzy
-#| msgid ""
-#| "Themes can greatly improve the aesthic appeal of a MythTV setup, and "
-#| "display it to match your tastes much better."
 msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
-"Mit Hilfe von Themen können Sie das Aussehen von MythTV Ihrem Geschmack "
-"anpassen."
 
 #. Type: text
 #. Description
@@ -1538,70 +1502,5 @@ msgstr "Zusätzliche Dienste werden eingerichtet ..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
-#| msgid "Configuring additional services..."
 msgid "Configuring infrared devices..."
-msgstr "Zusätzliche Dienste werden eingerichtet ..."
-
-#~ msgid "Myth DVD"
-#~ msgstr "Myth-DVD"
-
-#~ msgid ""
-#~ "Provides an interface for launching your preferred DVD player from MythTV"
-#~ msgstr "DVDs wiedergeben"
-
-#~ msgid "Official Themes"
-#~ msgstr "Offizielle Themen"
-
-#~ msgid "Community Themes"
-#~ msgstr "Von Benutzern erstellte Themen"
-
-#~ msgid ""
-#~ "This themes package includes all themes distributed by the MythTV website."
-#~ msgstr ""
-#~ "Sammlung aller Themen, die über die MythTV-Webseite vertrieben werden."
-
-#~ msgid ""
-#~ "This themes package is a collection of community themes generated by "
-#~ "other MythTV users."
-#~ msgstr "Sammlung von Themen, die von MythTV-Benutzern erstellt wurden"
-
-#~ msgid "System partition not formatted"
-#~ msgstr "System-Partition nicht formatiert"
-
-#~ msgid "Configuring remote control..."
-#~ msgstr "Fernbedienung wird eingerichtet ..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr ""
-#~ "Erstellen Sie einen Benutzer, um das ausgewählte Benutzerkonto zu "
-#~ "importieren:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Vollständiger Name:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Anmeldename:"
-
-#~ msgid "Password:"
-#~ msgstr "Passwort:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Bestätigen:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Bitte stellen Sie sicher, dass Sie Platz für eine root Partition (\"/\") "
-#~ "mit einer minimalen Größe von 2 GB und für eine Swap Partition mit einer "
-#~ "minimalen Größe von 256 MB zuteilen."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Stellen Sie sicher, dass Sie die CD entfernen, wenn Sie den Computer neu "
-#~ "starten. Ansonsten wird dieser von der Live-CD statt von Ihrem neu "
-#~ "installierten System starten."
+msgstr ""

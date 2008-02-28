@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Bjørn Steensrud <bjornst@powertech.no>\n"
+"PO-Revision-Date: 2008-02-20 12:48+0000\n"
+"Last-Translator: Bjørn Steensrud <Unknown>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -222,18 +222,10 @@ msgstr "Flytt over dokumenter og instillinger"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Velg en konto du vil importere fra, og fyll inn skjemaet under for hver "
-"enkelt. Dokumenter og instillinger fra disse kontoene vil bli tilgjengelig "
-"etter at installasjonen er over."
 
 #. Type: text
 #. Description
@@ -284,7 +276,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Avansert ..."
 
 #. Type: text
 #. Description
@@ -292,7 +284,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Installer"
 
 #. Type: text
 #. Description
@@ -347,7 +339,6 @@ msgstr "Installasjonsprogrammet krasjet"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
-#, fuzzy
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -356,7 +347,7 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"Beklager, installasjonsprogrammet krasjet. Fint om du kunne sende inn en "
+"Beklager, installasjonsprogrammet krasjet. Vennligst rapporter en "
 "feilmelding på https://launchpad.net/ubuntu/+source/ubiquity/+filebug - uten "
 "å legge ved detaljene til en eksisterende feilmelding. En utvikler vil ta "
 "hånd om problemet så fort som mulig. For å hjelpe utviklerne å forstå hva "
@@ -435,13 +426,13 @@ msgstr "Installer oppstartslaster"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Popularitetskonkurranse"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Delta i brukerundersøkelsen"
 
 #. Type: text
 #. Description
@@ -510,9 +501,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "Kopierer installasjons logger..."
+msgstr "Bekrefter installasjonen..."
 
 #. Type: title
 #. Description
@@ -547,10 +537,8 @@ msgstr "Kopierer filer (mindre enn ett minutt igjen)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Kunne ikke kopiere filer; defekt harddisk?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -641,10 +629,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Kunne ikke kopiere filer; defekt CD/DVD eller harddisk?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -734,19 +720,19 @@ msgstr "Setter opp oppstartslaster..."
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Installerer tilleggspakker..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Ser etter installasjonspakker..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Removing extra packages..."
-msgstr "Fjerner ekstrapakkene..."
+msgstr "Fjerner ekstra pakker..."
 
 #. Type: text
 #. Description
@@ -788,13 +774,13 @@ msgstr "Feil under fjerning av ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Feil under installasjon av pakker"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "En feil oppstod under installasjon av pakker:"
 
 #. Type: error
 #. Description
@@ -802,7 +788,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Følgende pakker er i en ødelagt tilstand:"
 
 #. Type: error
 #. Description
@@ -818,18 +804,26 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Dette kan være fordi det brukes et eldre installasjonsmedium, eller det kan "
+"være på grunn av en feil i noen av pakkene listet over. Flere detaljer kan "
+"finnes i /var/log/syslog. Installasjonsprogrammet vil forsøke å fortsette "
+"allikevel, men kan mislykkes senere, og vil ikke bli i stand til å "
+"installere eller fjerne andre pakker fra det installerte systemet, (trolig "
+"heller ikke selve installasjonsprogrammet). Du burde først se etter en nyere "
+"versjon av installasjonsmediet. Hvis det ikke lykkes med et nytt "
+"installasjonsmedium, rapporter problemet til din distributør."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Feil under fjerning av pakker"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Det oppstod en feil under fjerning av pakker:"
 
 #. Type: title
 #. Description
@@ -879,31 +873,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Hvordan vil du partisjonere disken?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Filsystemet på ${PARTITION} som er satt til ${MOUNTPOINT} er ikke markert "
-"for formatering. Filsystem brukt av systemet (/, /boot, /usr, /var) må "
-"formateres på nytt for å brukes av dette installasjonsprogrammet. Andre "
-"filsystem (/home, /media/*, /usr/local, osv.) trenger ikke formateres på "
-"nytt."
 
 #. Type: boolean
 #. Description
@@ -962,9 +943,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "Avbryt installasjonen?"
+msgstr "Hva slags installasjon?"
 
 #. Type: text
 #. Description
@@ -993,9 +973,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Avbryt installasjonen?"
+msgstr "Avansert installasjon"
 
 #. Type: text
 #. Description
@@ -1012,9 +991,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Installasjonen er ferdig"
+msgstr "Avansert installasjonstype"
 
 #. Type: text
 #. Description
@@ -1056,12 +1034,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Dette vil sette opp et system likt et primært bakende m/ framende, men vil "
+"bli satt opp for å koble til en eksisterende bakende på nettverket."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Primær bakende"
 
 #. Type: text
 #. Description
@@ -1071,12 +1051,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"En maskin med kun bakende er typisk laget for å fungere som en hjelper; som "
+"krever veldig lite vedlikehold. Dette er ment for å installeres som den "
+"første bakenden på et nettverk."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Sekundær bakende"
 
 #. Type: text
 #. Description
@@ -1085,12 +1068,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Dette vil sette opp et system likt en primær bakende, men vil konfigureres "
+"for å koble til en eksisterende bakende på nettverket."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Framende"
 
 #. Type: text
 #. Description
@@ -1100,12 +1085,15 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Hovedfunksjonen til en maskin med kun framende er å motta medieinnhold fra "
+"bakenden og distribuere det.  Denne konfigurasjonen krever en eksisterende "
+"bakende på nettverket."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Velg framende- / bakende-utvidelser"
 
 #. Type: text
 #. Description
@@ -1114,12 +1102,14 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"Utvidelser kan brukes for å bygge ut funksjonaliteten til MythTV utover en "
+"tidsskiftende TV-løsning."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "Bakende-utvidelser"
 
 #. Type: text
 #. Description
@@ -1131,7 +1121,7 @@ msgstr "Framende-utvidelser"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Nett"
 
 #. Type: text
 #. Description
@@ -1164,18 +1154,14 @@ msgstr "Myth-kontroller"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
-#, fuzzy
-#| msgid "Myth Archive"
 msgid "Myth Appearance"
-msgstr "Myth-arkiv"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
-#, fuzzy
-#| msgid "Myth Archive"
 msgid "Myth Movies"
-msgstr "Myth-arkiv"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1199,37 +1185,37 @@ msgstr "Myth Spill"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth Music"
-msgstr ""
+msgstr "Myth Musikk"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr ""
+msgstr "Myth Nyheter"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth Telefon"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Myth Strøm"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
-msgstr ""
+msgstr "Myth Video"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Myth Værmelding"
 
 #. Type: text
 #. Description
@@ -1238,12 +1224,14 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"En utvidelse for MythTV som lar deg lage DVDer fra innhold på ditt MythTV "
+"nettverk."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "En nettleserutvidelse som integreres i ditt MythTV-system."
 
 #. Type: text
 #. Description
@@ -1252,6 +1240,8 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Ekstern kontroll for MythTV. Dette vil la deg modifisere tasteoppsett og "
+"tastebindinger."
 
 #. Type: text
 #. Description
@@ -1269,7 +1259,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Lar deg overvåke din Netflix DVD-leiekø"
 
 #. Type: text
 #. Description
@@ -1280,7 +1270,6 @@ msgstr "Lar deg utforske et mappetre som inneholder bildefiler."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
-#, fuzzy
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr "En framende for å starte et program som Linux kjører."
 
@@ -1310,7 +1299,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Lar deg lytte til Internett-radio."
 
 #. Type: text
 #. Description
@@ -1337,16 +1326,10 @@ msgstr "Velger ekstra tema"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:56001
-#, fuzzy
-#| msgid ""
-#| "Themes can greatly improve the aesthic appeal of a MythTV setup, and "
-#| "display it to match your tastes much better."
 msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
-"Tema kan forbedre det estetiske inntrykket av MythTV og tilpasses din "
-"preferanse."
 
 #. Type: text
 #. Description
@@ -1361,7 +1344,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "Tilleggsdrivere/Fastvare"
 
 #. Type: text
 #. Description
@@ -1372,24 +1355,28 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"En åpen kildekode grafikkdriver er allerede aktivert og konfigurert for din "
+"installasjon. Hvis du vil bruke en annen grafikkdriver, kan du gjøre dette "
+"her. Merk at proprietære grafikkdrivere kan være nødvendig for å kunne bruke "
+"TV-utgangen eller OpenGL-effekter."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "Endre videodrivere og instillinger"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Hvis du vil konfigurere TV-utgangen, velg et av følgende alternativer:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "Hvis du benytter TV-utgangen, må du også velge en TV-standard:"
 
 #. Type: text
 #. Description
@@ -1398,12 +1385,14 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Advarsel: Ikke sett TV-standarden til noe høyere enn det din TV støtter. Det "
+"kan oppstå PERMANENT skade."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Primær bakende-info"
 
 #. Type: text
 #. Description
@@ -1414,9 +1403,8 @@ msgstr "Skriv inn informasjonen som trengs for å kontakte din primære bakende:
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Passord:"
+msgstr "MySQL Passord:"
 
 #. Type: text
 #. Description
@@ -1474,7 +1462,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Start oppsett av MythTV"
 
 #. Type: text
 #. Description
@@ -1493,72 +1481,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Setter opp apt..."
+msgstr "Konfigurerer mythtv..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Setter opp maskinvare..."
+msgstr "Konfigurerer tilleggsdrivere..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Setter opp maskinvare..."
+msgstr "Konfigurerer tilleggstjenester..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "Setter opp maskinvare..."
-
-#~ msgid "Myth DVD"
-#~ msgstr "Myth DVD"
-
-#~ msgid "Official Themes"
-#~ msgstr "Offisielle tema"
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Systempartisjonen ble ikke formatert"
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "Setter opp tidssone..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Velg en bruker du skal importere valgt konto til:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Fullt navn:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Påloggingsnavn:"
-
-#~ msgid "Password:"
-#~ msgstr "Passord:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Bekreft:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Du må spesifisere en partisjon for rotfilsystemet («/») med minimum 2 GB "
-#~ "størrelse, og en bufferpartisjon på minst 256 MB. Du kan også sette opp "
-#~ "andre partisjoner om du vil."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Pass på at du fjerner CD'en når du starter systemet på nytt, ellers vil "
-#~ "systemet starte opp  fra denne live-cd'en isteden for det nyinstallerte "
-#~ "systemet."
+msgstr ""

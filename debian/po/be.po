@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: 2007-10-04 13:02+0000\n"
-"Last-Translator: Pavel Piatruk <berserker@neolocation.com>\n"
+"PO-Revision-Date: 2008-02-20 12:37+0000\n"
+"Last-Translator: Pavel Piatruk <Unknown>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -222,18 +222,10 @@ msgstr "Міграцыя дакументаў і настаўленняў"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Вылучыце рахункі, якія вы жадаеце імпартаваць і запоўніце форму, што "
-"знаходзіцца ніжэй, для кожнага з іх. Дакументы і настаўленні для кожнага з "
-"гэтых рахункаў будуць даступны пасля завяршэння ўсталёўкі."
 
 #. Type: text
 #. Description
@@ -285,7 +277,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Адмысловае..."
 
 #. Type: text
 #. Description
@@ -361,7 +353,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "Стварыць партыцыю"
 
 #. Type: text
 #. Description
@@ -541,10 +533,8 @@ msgstr "Капіяваньне файлаў (застаецца менш за х
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Не атрымалася скапіяваць файлы; пашкоджаны цьвёрды дыск?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -635,10 +625,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Не атрымалася скапіяваць файлы; пашкоджаны CD/DVD ці цьвёрды дыск?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -874,31 +862,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Хочаш зьмяніць расклад партыцыяў на дыску?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Файлавая сістэма на ${PARTITION} з пунктам мантавання ${MOUNTPOINT} не "
-"пазначана для фарматавання. Файлавыя сістэмы, для падзелаў (/, /boot, /usr, /"
-"var) мусяць быць адфарматаваныя для выкарыстання праграмай усталёўкі. Іншыя "
-"файлавыя сістэмы /home, /media/*, /usr/local і інш.) могуць выкарыстоўвацца "
-"без перафарматавання."
 
 #. Type: boolean
 #. Description
@@ -1456,44 +1431,5 @@ msgstr "Канфігураваньне абсталяваньня..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "Канфігураваньне абсталяваньня..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Сістэмны раздзел не фарматаваны"
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "Канфігураваньне часовай зоны..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Стварыць карыстальніка для імпартавання вылучанага рахунку:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Поўнае імя:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Уліковае імя:"
-
-#~ msgid "Password:"
-#~ msgstr "Пароль"
-
-#~ msgid "Confirm:"
-#~ msgstr "Пацьверджаньне:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Патрэбна падрыхтаваць месца для карнявой партыцыі (пункт мантаваньня \"/"
-#~ "\") мінімальным памерам у 2 GB і для партыцыі абмену мінімальным памерам "
-#~ "у 256 MB. Таксама можна ўсталяваць іншыя партыцыі, калі жадаеце."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Не забудзьцеся вынуць CD падчас перазагрузкі кампутара, бо іначай ён "
-#~ "запусьціцца з гэтага загрузачнага CD замест наноў інсталяванай сыстэмы."
+msgstr ""

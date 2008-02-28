@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Lior Kaplan <kaplan@debian.org>\n"
+"PO-Revision-Date: 2008-02-23 08:34+0000\n"
+"Last-Translator: Eli Daian <Unknown>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "התקנה"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "התקנה (ליצרנים בלבד)"
 
 #. Type: text
 #. Description
@@ -68,6 +68,8 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"ההתקנה מתבצעת במצב של יצרן מערכות. אנא הכנס שם מיוחד לקבוצת המערכות הללו. שם "
+"זה ישמר על כל המערכות המותקנות, והוא יסייע בדיווח על באגים."
 
 #. Type: text
 #. Description
@@ -213,17 +215,10 @@ msgstr "יבא מסמכים והגדרות"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"בחר בכל החשבונות אשר ברצונך ליבא ומלא בשדה למטה בשביל כל אחד. המסמכים "
-"וההגדרות לכל חשבון יהיו זמינים לאחר סיום ההתקנה."
 
 #. Type: text
 #. Description
@@ -248,9 +243,8 @@ msgstr "באיזו דרך תרצו לחלק את הכונן למחיצות?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
-#, fuzzy
 msgid "Prepare partitions"
-msgstr "יצירת מחיצות"
+msgstr "הכנת מחיצות"
 
 #. Type: text
 #. Description
@@ -272,7 +266,7 @@ msgstr "מערכת ההפעלה החדשה שלך תותקן כעת עם ההג�
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "מתקדם..."
 
 #. Type: text
 #. Description
@@ -280,7 +274,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "התקן"
 
 #. Type: text
 #. Description
@@ -330,7 +324,7 @@ msgstr "בצע אתחול של המחשב"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "תוכנית ההתקנה קרסה"
 
 #. Type: text
 #. Description
@@ -343,12 +337,17 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"מצטערים, אך תוכנית ההתקנה קרסה. אנא דווח על התקלה הזו בכתובת https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (הוסף אותה כבאג חדש, ולא לבאג "
+"שכבר קיים) כדי שאחד המפתחים יוכל לפתור את הבעיה הזו בהקדם האפשרי. בכדי לסייע "
+"למפתחים להבין מהו מקור הבעיה, אנא כלול בדיווח את הפרטים הבאים, בנוסף לקבצים /"
+"var/log/syslog ו- /var/log/partman:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "צור מחיצה"
 
 #. Type: text
 #. Description
@@ -356,7 +355,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "גודל המחיצה החדשה במגה-בתים (megabyte=1000000bytes):"
 
 #. Type: text
 #. Description
@@ -386,19 +385,19 @@ msgstr "לוגית"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "ערוך מחיצה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "ערוך מחיצה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "אפשרויות מתקדמות"
 
 #. Type: text
 #. Description
@@ -410,19 +409,19 @@ msgstr "טעינה באתחול"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "התקן מערכת טעינה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "תחרות פופולריות"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "השתתף בסקר השימוש בחבילות"
 
 #. Type: text
 #. Description
@@ -491,16 +490,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "מעתיק רישומי התקנה..."
+msgstr "בודק את ההתקנה..."
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:68001
-#, fuzzy
 msgid "Installing system"
-msgstr "מתקין את מערכת הבסיס"
+msgstr "מתקין את המערכת"
 
 #. Type: text
 #. Description
@@ -511,16 +508,14 @@ msgstr "מוצא את ההפצה להעתקה.."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
-#, fuzzy
 msgid "Scanning files..."
-msgstr "סורק כוננים..."
+msgstr "סורק קבצים..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
-#, fuzzy
 msgid "Copying files..."
-msgstr "מעתיק מחיצה..."
+msgstr "מעתיק קבצים..."
 
 #. Type: text
 #. Description
@@ -531,10 +526,8 @@ msgstr "מעתיק קבצים (נשארה פחות מדקה)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "נכשל בהעתקת הקבצים; דיסק קשיח פגום?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -623,10 +616,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "נכשל בהעתקת הקבצים; דיסק CD/DVD או כונן קשיח פגומים?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -716,13 +707,13 @@ msgstr "מגדיר את מנהל ההפעלה..."
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "מתקין חבילות נוספות..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "בודק אילו חבילות להתקין..."
 
 #. Type: text
 #. Description
@@ -770,13 +761,13 @@ msgstr "שגיאה בהסרת ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "שאיגה במהלך התקנת החבילות"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "ארעה שגיאה במהלך התקנת החבילות:"
 
 #. Type: error
 #. Description
@@ -784,7 +775,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "חבילות אלו נמצאו פגומות:"
 
 #. Type: error
 #. Description
@@ -800,18 +791,24 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"זה יכול היה לקרות בשל שימוש בתמונה ישנה של תוכנית ההתקנה, או בגלל באג בכמה "
+"מהחבילות שהוזכרו למעלה. פרטים נוספים יכולים להימצא ב /var/log/syslog. תוכנית "
+"ההתקנה תנסה להמשיך בכל זאת, אבל אולי היא תיכשל בשלב מאוחר יותר ולא תוכל "
+"להתקין או להסיר חבילות אחרות (כנראה גם את תוכנית ההתקנה עצמה) מהמערכת "
+"שהותקנה. תחילה, עליך לחפש גרסאות חדשות של התמונה של תוכנית ההתקנה או לדווח "
+"על הבעייה למפיץ התוכנה."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "שאיגה במהלך הסרת חבילות"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "שגיאה קרתה במהלך הסרת החבילות:"
 
 #. Type: title
 #. Description
@@ -858,30 +855,18 @@ msgstr "האם ברצונך שתוכנית ההתקנה תנסה לכבות את
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "באיזו דרך תרצו לחלק את הכונן למחיצות?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"מערכת הקבצים אשר נמצאת ב ${PARTITION} ובמיקום ${MOUNTPOINT} לא סומנה "
-"לפירמוט. מערכות קבצים המשמשות את המערכת (/, /boot, /usr, /var) חייבות לעבור "
-"פירמוט מחדש כדי להיות שמישות ע\"י תוכנית ההתקנה. מערכות קבצים אחרות (/home, /"
-"media/*, /usr/local, etc.) יכולות להישאר ללא פירמוט מחדש."
 
 #. Type: boolean
 #. Description
@@ -920,25 +905,40 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" סוג ההתקנה:           ${INSTALLTYPE}\n"
+" התקנים:\n"
+"     הוסף התקן וידאו:  ${VIDEO_DRIVER}\n"
+"         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
+" שירותים נוספים:\n"
+"     VNC:                ${EN_VNC}\n"
+"     SSH:                ${EN_OPENSSH}\n"
+"     Samba:              ${EN_SAMBA}\n"
+"     NFS:                ${EN_NFS}\n"
+"     MythTV Service:     ${EN_MYSQL}\n"
+" מאפייני התקנה רגילה של אובונטו:\n"
+"     שפה:           ${LANGUAGE}\n"
+"     פריסת מקלדת:    ${KEYMAP}\n"
+"     שם מלא:       ${FULLNAME}\n"
+"     שם משתמש: ${USERNAME}\n"
+"     מיקום:           ${LOCATION}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "לבטל את ההתקנה?"
+msgstr "איה סוג של התקנה?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "שתי דרכים קיימות להתקנת Mythbuntu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "התקנה רגילה"
 
 #. Type: text
 #. Description
@@ -948,13 +948,14 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"התקנה רגילה תתקין ותגדיר כמעט את כל הדברים הנצרכים ללא צורך במשתמש. התקנה זו "
+"תתקין את ה-backend, frontend, ואת כל התוספים והערכות הנושא."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "לבטל את ההתקנה?"
+msgstr "התקנה מתקדמת"
 
 #. Type: text
 #. Description
@@ -964,13 +965,15 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"התקנה מתקדמת מיועדת למשתמשים הרוצים לשלוט בהגדרות של Mythubuntu. שים לב: יש "
+"להשתמש בהתקנה מתקדמת בכדי להוסיף מחשב המריץ Mythubuntu לרשת קיימת המריצה "
+"MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "ההתקנה הסתיימה"
+msgstr "סוג התקנה מתקדמת"
 
 #. Type: text
 #. Description
@@ -979,13 +982,13 @@ msgstr "ההתקנה הסתיימה"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "מה סוג המערכת שלך?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "ראשי עם Backend ו-Frontend"
 
 #. Type: text
 #. Description
@@ -995,12 +998,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"הקומבינציה של מחשב עם Backend/frontend היא הקומבינציה הנפוצה ביותר למשתמשים "
+"המעוניינים להשתמש ב-MythTV במחשב מדיה סלוני. סוג התקנה זה מיועד לשימוש כחלק "
+"ממערכת קולנוע ביתית."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "מנגנון משני עם ממשק"
 
 #. Type: text
 #. Description
@@ -1009,12 +1015,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"זה יתקין מערכת דומה למערכת מנוע עם או בלי ממשק, אבל המערכת תוגדר להתחברות "
+"למנוע קיים ברשת."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "מנגנון ראשי"
 
 #. Type: text
 #. Description
@@ -1024,12 +1032,14 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"מחשב המשמש כמנגנון בלבד מיועד לתפקד כמתקן; הדורש תחזוקה מזערית. מיועד להתקנה "
+"בתור המחשב הראשון ברשת."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "מנגנון משני"
 
 #. Type: text
 #. Description
@@ -1038,12 +1048,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"פעולה זו תתקין מערכת הדומה למנגנון ראשי, מצד שני המחשב יוגדר על מנת להתחבר "
+"למנגנון קיים ברשת."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "ממשק"
 
 #. Type: text
 #. Description
@@ -1053,12 +1065,14 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"תפקידה הראשי של מכונת ממשק הינו לקבל תוכן מדיה מהמנגנון ולהפיץ אותו. הגדרה "
+"זו דורשת מנגנון קיים ברשת."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "בחר תוספי ממשק / מנגנון"
 
 #. Type: text
 #. Description
@@ -1067,24 +1081,25 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"תוספים יכולים להרחיב את התכונות של MythTV מעבר לפתרונות צפייה מבוססי תיזמון."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "תוספי Backend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "תוספי Frontend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1093,24 +1108,26 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb מספק גישה דרך ממשק אינטרנט (דרך הדפדפן) המשמש לצפייה ברשימות צפייה, "
+"תזמון הקלטות, מחיקת הקלטות, וחיפוש תוכניות."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Myth Archive"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Myth Browser"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Myth Controls"
 
 #. Type: text
 #. Description
@@ -1128,55 +1145,55 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Myth Gallery"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Game"
-msgstr ""
+msgstr "Myth משחקים"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth Music"
-msgstr ""
+msgstr "Myth מוסיקה"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr ""
+msgstr "Myth חדשות"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth טלפון"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Myth זרימה"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
-msgstr ""
+msgstr "Myth וידאו"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Myth תחזית"
 
 #. Type: text
 #. Description
@@ -1185,12 +1202,13 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"תוסף עבור MythTV המאפשר לך ליצור תקליטורי DVD מהתוכן המצוי ברשת ה-MythTV שלך."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "תוסף דפדפן אינטרנט עבור מערכת ה-MythTV שלך."
 
 #. Type: text
 #. Description
@@ -1198,7 +1216,7 @@ msgstr ""
 msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
-msgstr ""
+msgstr "שליטה חיצונית עבור MythTV. זה מאפשר לך לשנות את מיפוי הכפתורים."
 
 #. Type: text
 #. Description
@@ -1216,25 +1234,25 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "מאפשר לפקח על רשימת ההמתנה שלך ב-Netflix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
+msgstr "מאפשר לסייר בצורה ויזואלית בעץ תיקיות המכיל תמונות."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
-msgstr ""
+msgstr "Frontend המאפשר להריץ כל emulator או קובץ בינארי שלינוקס יכול להריץ."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "מספק שילוב של נגן מדיה דיגיטלית עם MythTV."
 
 #. Type: text
 #. Description
@@ -1243,6 +1261,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"תוסף ל-MythTV הקורא עידכוני RSS המאפשר לך להישאר מועדכן בנושאים שמעניינים "
+"אותך."
 
 #. Type: text
 #. Description
@@ -1250,12 +1270,13 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"יכולת טפלון וטלפון עם וידיאו ל-MythTV באמצעות שימוש בפרוטוקול SIP הסטנדרטי."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "מאפשר האזנה לתחנות רדיו אינטרנטיות זורמות."
 
 #. Type: text
 #. Description
@@ -1264,18 +1285,20 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"מאפשר לך לדפדף בין ולנגן זירמי וידאו, באמצעות שימוש בנגן חיצוני, מיתוך ממשק "
+"MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "מציג את תחזית מזג האוויר בתוך MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "בחר ערכות נושא נוספות"
 
 #. Type: text
 #. Description
@@ -1298,7 +1321,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "מנהלי התקן/קושחה נוספים"
 
 #. Type: text
 #. Description
@@ -1309,24 +1332,27 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"מנהל התקנים גראפי בקוד פתוח כבר מאופשר ומוגדר להתקנה שלך. אם ברצונך להשתמש "
+"במנהל התקנים גראפי אחר, אתה יכול לעשות זאת כאן. שים לב לכך שמנהל התקנים "
+"גראפי הוא הכרחי לפלט טלוויזיה או אפקטים של OpenGL."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "שנה את מנהל כרטיס המסך והגדרותיו"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "אם ברצונך להגדיר פלט לטלויזיה, בחר את האפשרות מכאן:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "אם תבחר להפעיל פלט לטלויזיה, עליך לבחור תקן שידור:"
 
 #. Type: text
 #. Description
@@ -1335,48 +1361,50 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"אזהרה: אל תקבע את תקן הפלט למשהו גבוה יותר ממה שהטלויזיה שלך תומכת. עלול "
+"להגרם נזק תמידי."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "מידע מנגנון ראשי"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
-msgstr ""
+msgstr "נא הזן את המידע הנחוץ ליצירת קשר עם המנגנון הראשי."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
 msgid "MySQL Password"
-msgstr ""
+msgstr "סיסמאת MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "שם משתמש MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "מסד נתונים MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "שרת MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "הגדר מדריך נתונים / מנוע"
 
 #. Type: text
 #. Description
@@ -1385,12 +1413,13 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"השלבים האחרונים של ההתקנה דורשים את הגדרת מדריך הנתונים והמנוע בפעם הראשונה."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "לחץ כאן כדי לפתוח את אתר האינטרנט של Schedules Direct"
 
 #. Type: text
 #. Description
@@ -1400,12 +1429,15 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"משתמשים בצפון אמריקה יצטרכו לפתוח חשבון ב-Schedules Direct (SD). SD מספקת "
+"מדריך נתונים בסכום נקוב. בלי SD, משתמשי צפון אמריקה יאבדו הרבה מתכונות "
+"התזמון של MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "הרץ את התקנת MythTV"
 
 #. Type: text
 #. Description
@@ -1416,69 +1448,30 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"לאחר הגדרת מקורות מדריך הנתונים, תצטרך להפעיל את התקנת MythTV כדי להריץ את "
+"הגדרות המנוע בפעם הראשונה. תצטרך להגדיר את ארבע האיזורים הראשונים, ודא שאתה "
+"מספק את מדריך הנתונים בשלישי."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "מגדיר את apt..."
+msgstr "מגדיר את MythTV..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "מגדיר את החומרה..."
+msgstr "מגדיר התקני חומרה נוספים..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "מגדיר את החומרה..."
+msgstr "מגדיר שירותים נוספים..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "מגדיר את החומרה..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "מחצית המערכת עדיין לא פורמטה"
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "מגדיר איזור זמן..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "צור משתמש אשר אליו יועבר החשבון הנבחר:"
-
-#~ msgid "Full Name:"
-#~ msgstr "שם מלא:"
-
-#~ msgid "Login Name:"
-#~ msgstr "שם משתמש:"
-
-#~ msgid "Password:"
-#~ msgstr "סיסמה:‏"
-
-#~ msgid "Confirm:"
-#~ msgstr "אשר:"
-
-#, fuzzy
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "ודא כי אתה מקצה מספיק שטח למחיצת ה root (\"/\"), בגודל מינימלי של 2GB, "
-#~ "ומחיצת swap בגודל של לפחות 256MB."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "זכור להוציא את הדיסק מהכונן לפני האתחול מחדש, אחרת האתחול יתבצע ע\"י "
-#~ "הדיסק במקום ע\"י המערכת החדשה שהותקנה."
+msgstr ""

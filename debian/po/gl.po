@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jacobo Tarrio <jtarrio@debian.org>\n"
+"PO-Revision-Date: 2008-02-20 12:43+0000\n"
+"Last-Translator: Jacobo Tarrio <Unknown>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "Instalar"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Instalar (Modo para computadores novos, só para fabricantes)"
 
 #. Type: text
 #. Description
@@ -71,6 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Está instalando o sistema en modo para fabricantes. Por favor introduza un "
+"nome único para iste conxunto de sistemas. Iste nome se gardará no sistema "
+"instalado e serviralle de axuda para os reportes de erros."
 
 #. Type: text
 #. Description
@@ -223,18 +226,10 @@ msgstr "Migrar documentos e configuracións"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Seleccione as contas que desexe importar e encha o formulario de máis abaixo "
-"para cada unha delas. Os documentos e configuracións destas contas están "
-"dispoñibles así que finalice a instalación."
 
 #. Type: text
 #. Description
@@ -284,7 +279,7 @@ msgstr "O seu novo sistema operativo instalarase coas seguintes opcións:"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Avanzado"
 
 #. Type: text
 #. Description
@@ -292,7 +287,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Instalar[ action ]"
 
 #. Type: text
 #. Description
@@ -342,7 +337,7 @@ msgstr "Reiniciar agora"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "O instalador fallou"
 
 #. Type: text
 #. Description
@@ -355,12 +350,18 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Sentímolo; o instalador fallou. Por favor mande o reporte de erro a https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (non adxunte os seus detalles "
+"a ningún erro existente) e un desarroiador atenderá o seu problema o máis "
+"rápido posible. Para axudar aos desarroiadores a entender que foi mal, "
+"engada os seguintes detalles ao seu reporte de erro, e adxunte os ficheiros /"
+"var/log/syslog e /var/log/partman:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "Crear partición"
 
 #. Type: text
 #. Description
@@ -368,7 +369,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Novo tamaño da partición en megabytes (1048576 bytes)"
 
 #. Type: text
 #. Description
@@ -398,19 +399,19 @@ msgstr "Lóxica"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "Editar partición"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Editar unha partición"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Opcións avanzadas"
 
 #. Type: text
 #. Description
@@ -422,19 +423,19 @@ msgstr "Cargador de inicio"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Instala-lo cargador de arranque"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Concurso de popularidade"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Participe na enquisa de uso de paquetes"
 
 #. Type: text
 #. Description
@@ -503,9 +504,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "Copiando os rexistros da instalación..."
+msgstr "Comprobando a instalación..."
 
 #. Type: title
 #. Description
@@ -540,10 +540,8 @@ msgstr "Copiando ficheiros (falta menos dun minuto)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Houbo un fallo ao copiar ficheiros; ¿disco duro defectuoso?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -636,10 +634,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Houbo un fallo ao copiar ficheiros; ¿CD/DVD ou disco duro defectuosos?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -729,13 +725,13 @@ msgstr "A configurar o xestor de inicio..."
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "A instalar paquetes adicionais"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Comprobando os paquetes a instalar..."
 
 #. Type: text
 #. Description
@@ -783,13 +779,13 @@ msgstr "Erro desinstalando ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Erro na instalación de paquetes"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Aconteceu un erro na instalación de paquetes:"
 
 #. Type: error
 #. Description
@@ -797,7 +793,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Os seguintes paquetes están rotos:"
 
 #. Type: error
 #. Description
@@ -813,18 +809,25 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Isto pode ser debido a unha imaxe de instalación antiga, o pode ser debido a "
+"un erro nalgún dos paquetes listados arriba. Pode atopar máis detalles en /"
+"var/log/syslog. O instalador tratará de continúar de todos modos, pero pode "
+"fallar máis tarde, e non ser capaz de instalar ou eliminar outros paquetes "
+"(posiblemente incluso el mesmo) do sistema instalado. Debería antes buscar "
+"unha versión máis nova da imaxe de instalación, o mandar o reporte do "
+"problema ao seu distribuidor."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Erro ao eliminar os paquetes"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Ocurríu un erro ao eliminalos paquetes:"
 
 #. Type: title
 #. Description
@@ -873,31 +876,18 @@ msgstr "¿Desexa que o instalador tente desmontar outra vez estas particións?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "¿Como quere particionar o disco?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"O sistema de ficheiros na ${PARTITION} asignado a ${MOUNTPOINT}  non se "
-"marcou para formatar. Os sistemas de ficheiros usados polo sistema (/, /"
-"boot, /usr, /var)  deben ser reformatados para poder ser usados por este "
-"instalador. Outros sistemas de ficheiros (/home, /media/*, /usr/local, etc.) "
-"pódense usar sen reformatar."
 
 #. Type: boolean
 #. Description
@@ -936,25 +926,40 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Tipo de instalación: ${INSTALLTYPE}\n"
+" Controladores:\n"
+"     Engadir. Controlador de vídeo: ${VIDEO_DRIVER}\n"
+"         Saída de TV: ${TVOUT}, ${TVSTANDARD}\n"
+" Servizos adicionais:\n"
+"     VNC: ${EN_VNC}\n"
+"     SSH: ${EN_OPENSSH}\n"
+"     Samba: ${EN_SAMBA}\n"
+"     NFS: ${EN_NFS}\n"
+"     Servizo de MythTV: ${EN_MYSQL}\n"
+" Preguntas habituais da instalación de Ubuntu:\n"
+"     Idioma: ${LANGUAGE}\n"
+"     Disposición do teclado: ${KEYMAP}\n"
+"     Nome completo: ${FULLNAME}\n"
+"     Nome de usuario: ${USERNAME}\n"
+"     Ubicación: ${LOCATION}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "¿Abortar a instalación?"
+msgstr "¿Que Tipo de Instalación?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Hai do tipos de instalación disponibéis para MythTV"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Instalación estándar"
 
 #. Type: text
 #. Description
@@ -964,13 +969,15 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Unha instalación estándar instalará e configurarña cada opción coa mínima "
+"interacción co usuario. Isto instalará un backend, frontend, tódolos plugins "
+"e tódolos temas."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "¿Abortar a instalación?"
+msgstr "Instalación Avanzada"
 
 #. Type: text
 #. Description
@@ -980,13 +987,16 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Unha instalación avanzada pódese empregar para modificar o que se necesita "
+"para a instalación deste Mythbuntu. NOTA: Unha instalación avanzada  é "
+"necesaria para engadir unha máquina Mythbuntu a unha rede existente basada "
+"en MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Instalación completa"
+msgstr "Tipo de Instalación Avanzada"
 
 #. Type: text
 #. Description
@@ -995,13 +1005,13 @@ msgstr "Instalación completa"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "¿Que tipo de sistema vai ser?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Backend w/ Frontend Primario"
 
 #. Type: text
 #. Description
@@ -1011,12 +1021,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Unha máquina combo backend/frontend é a disposición máis empregada pola "
+"xente que usa MythTV para aplicacións HTPC. Este tipo de instalación está "
+"pensada para o seu uso como compoñente nun home theatre."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Backend w/ Frontend Secundario"
 
 #. Type: text
 #. Description
@@ -1025,12 +1038,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Isto instalará un sistema similar ao Backend w/ Frontend Primario, sen "
+"embargo configurarase para conectar a un backend existente na rede."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Backend Primario"
 
 #. Type: text
 #. Description
@@ -1040,12 +1055,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Unha máquina só con backend deséñase normalmente para funcionar como "
+"servidor; requerindo moi pouco mantemento. Isto faise para instalalo como o "
+"primer backend nunha rede."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Backend Secundario"
 
 #. Type: text
 #. Description
@@ -1054,12 +1072,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Isto instalará un sistema semellante ó Backend Primario, sen embargo "
+"configurarase para conectar a un backend existente na rede."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Frontend"
 
 #. Type: text
 #. Description
@@ -1069,12 +1089,15 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Unha máquina só con frontend está pensada para recibi-lo contido multimedia "
+"do backend e distribuílo. Ista configuración require un backend existente na "
+"rede."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Elixa os Plugins do Frontend / Backend"
 
 #. Type: text
 #. Description
@@ -1083,24 +1106,26 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"Os plugins poden empregarse para amplia-la funcionalidade de MythTV máis alá "
+"dunha solución con memoria de TV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "Plugins do Backend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "Plugins do Frontend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1109,24 +1134,26 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb proporciona unha interface web que se pode usar para mirar listados, "
+"programar grabacións, borrar grabacións, e buscar programas."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Arquivo Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Navegador Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Controis Myth"
 
 #. Type: text
 #. Description
@@ -1144,55 +1171,55 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Galería Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Game"
-msgstr ""
+msgstr "Xogos Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth Music"
-msgstr ""
+msgstr "Música Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr ""
+msgstr "Novas Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Teléfono Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Cadeas Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
-msgstr ""
+msgstr "Video Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Tempo Myth"
 
 #. Type: text
 #. Description
@@ -1201,12 +1228,14 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"Un plugin para MythTV que lle permite crear DVDs a partir de contidos na súa "
+"Rede MythTV"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "Un plugin con navegador web integrado para o seu sistema MythTV"
 
 #. Type: text
 #. Description
@@ -1215,6 +1244,8 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Controis externos para MythTv. Isto permitiralle modificalas asignación dos "
+"botóns e das teclas."
 
 #. Type: text
 #. Description
@@ -1232,25 +1263,28 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Permite monitorizala súa cola de alquiler de dvd Netflix."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
 msgstr ""
+"Permítelle visualizar unha árbore de cartafoles que conteñen ficheiros con "
+"imaxes."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"Unha frontend para iniciar calquer emulador ou binario que execute Linux."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Proporciona un reproductor de audio dixital integrado con MythTV."
 
 #. Type: text
 #. Description
@@ -1259,6 +1293,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Un plugin lector de noticias RSS para MythTV que lle permite ter ó día as "
+"súas noticias favoritas."
 
 #. Type: text
 #. Description
@@ -1266,12 +1302,14 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"Capacidade de chamada e videochamada no MythTV usando o protocolo estándar "
+"SIP."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Proporciona un método de escoita de estacións de radio de internet."
 
 #. Type: text
 #. Description
@@ -1280,18 +1318,21 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"Permítelle navegar e reproducir vídeos, empregando un reproductor externo, "
+"integrado na interface de MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
 msgstr ""
+"Mostra a información actual do tempo e o seu pronóstico dentro de MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "Elexir Temas Extra"
 
 #. Type: text
 #. Description
@@ -1314,7 +1355,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "Controladores/Firmware adicional"
 
 #. Type: text
 #. Description
@@ -1325,24 +1366,28 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Un controlador de gráficos libres xa está activado e configurado na súa "
+"instalación. Se quere empregar un controlador de gráficos difereten, pode "
+"face-lo eiquí. Teña en conta que os controladores de gráficos propietarios "
+"poden ser necesarios para a Saída de TV ou os efectos OpenGL."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "Modifica-lo Controlador de Video & Axustes"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Se quere configura-la Saída-TV, escolla unha opción aquí:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "Se activa a Saída de TV, necesitará elixir un Estándar de TV:"
 
 #. Type: text
 #. Description
@@ -1351,49 +1396,52 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Coidado: Non elixa un estándar de TV maior do que a súa TV soporte. Podería "
+"producir un DANO PERMANENTE."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Información do backend maestro."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
+"Por favor introduza a información necesaria para contactar co seu backend "
+"maestro:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Contrasinal:"
+msgstr "Contrasinal de MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "Nome de Usuario MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "Base de datos MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "Servidor MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Configurar Datos da Guía / Backend"
 
 #. Type: text
 #. Description
@@ -1402,12 +1450,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Os pasos finais da instalación requiren que configure os datos da guía e o "
+"backend por primeira vez."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Click para abrir a web do programador de grabacións"
 
 #. Type: text
 #. Description
@@ -1417,12 +1467,16 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Os usuarios de Norte América deben configurar unha conta de Schedules Direct "
+"(SD). SD proporciona a programación por unha suscripción. Sen SD, os "
+"usuarios de Norte América perderánse bastantes funcións de programación en "
+"MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Inicia-la configuración de MythTV"
 
 #. Type: text
 #. Description
@@ -1433,71 +1487,31 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Despois de configurar la súa fonte de datos da guía, necesita iniciar MythTV-"
+"Setup para configura-lo backend por primeira vez. Necesita configura-las "
+"primeiras catro seccións, estando seguro de proporciona-los datos da guía "
+"durante a terceira."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "A configurar apt..."
+msgstr "A configurar mythtv..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "A configurar o hardware..."
+msgstr "A configurar os controladores adicionais..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "A configurar o hardware..."
+msgstr "A configurar os servizos adicionais"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "A configurar o hardware..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "A partición do sistema non está formatada"
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "A configurar o fuso horario..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Crear un usuario para o que se importará a conta seleccionada:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Nome completo:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Nome de usuario:"
-
-#~ msgid "Password:"
-#~ msgstr "Contrasinal:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Confirmar:"
-
-#, fuzzy
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Asegurese de asignar suficiente espacio para unha partición raíz (\"/\"), "
-#~ "cun tamaño mínimo de 2 GB, e unha particion de intercambio de ó menos 256 "
-#~ "MB"
-
-#, fuzzy
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Asegurese de sacar o CD cando reinicie a computadora, da otra maneira "
-#~ "iniciarase a copia desde o CD en vez de o sitema recien instalado."
+msgstr ""

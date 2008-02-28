@@ -8,42 +8,48 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: 2007-10-05 07:44+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2007-11-16 23:07+0000\n"
+"Last-Translator: kezepema <cwepema@gmail.com>\n"
 "Language-Team: Frisian <fy@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #. This is used as a window title.
 #: ../ubiquity.templates:2001
+#, fuzzy
 msgid "Install"
-msgstr ""
+msgstr "Ynstalleer"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
+#, fuzzy
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Ynstallaasje (OEM wiize, alline foar fabrikanten)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Welcome"
-msgstr ""
+msgstr "Wolkom"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
+#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"Klear foar de ynstallaasje? Nei it beantwurden fan in pear fragen, wurd de "
+"ynhald fan de live cd ynstallearre op dizze pc en kin it systeem op folle "
+"toeren draaje sunder cd."
 
 #. Type: text
 #. Description
@@ -54,10 +60,13 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
+#, fuzzy
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"Sykje de tael ut dy't brukt wurde moat tiidens de ynstallaasje. Dizze tael "
+"wurd ek de standert tael aansten as alles klear is."
 
 #. Type: text
 #. Description
@@ -442,14 +451,15 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:64001
 msgid "Go Back"
-msgstr "Tebek"
+msgstr "Werom"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:65001
+#, fuzzy
 msgid "Continue"
-msgstr "Trochgean"
+msgstr "Fjirder"
 
 #. Type: note
 #. Description

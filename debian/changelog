@@ -21,6 +21,7 @@ ubiquity (1.7.13) UNRELEASED; urgency=low
     where possible.
   * Fix reversed handling of answer to grub-installer/install_to_xfs
     (LP: #138422).
+  * Update translations from Launchpad.
 
   [ Evan Dandrea ]
   * partman/confirm_new_label is now partman-

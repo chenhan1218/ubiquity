@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2008-02-20 12:42+0000\n"
 "Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "Kur"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Yükle (OEM kipi, sadece üreticiler için)"
 
 #. Type: text
 #. Description
@@ -71,6 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Şu an sistem üreticisi kipinde yükleme yapıyorsunuz. Lütfen bu toplu sistem "
+"kümesi için benzersiz bir isim girin. Girdiğiniz isim yüklenen sistemde "
+"saklanacak ve hata raporlarında kullanılabilir."
 
 #. Type: text
 #. Description
@@ -220,18 +223,10 @@ msgstr "Belge ve Ayarları Taşı"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"İçe aktarmak istediğiniz hesapları seçin ve her biri için aşağıdaki formu "
-"doldurun. Bu hesapların belge ve ayarları kurulum tamamlandıktan sonra "
-"kullanılabilir."
 
 #. Type: text
 #. Description
@@ -281,7 +276,7 @@ msgstr "Yeni işletim sisteminiz aşağıdaki özelliklerle  kurulacaktır:"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Gelişmiş..."
 
 #. Type: text
 #. Description
@@ -289,7 +284,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Yükle[ eylem ]"
 
 #. Type: text
 #. Description
@@ -339,7 +334,7 @@ msgstr "Yeniden başlat"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Yükleyici çöktü"
 
 #. Type: text
 #. Description
@@ -352,12 +347,18 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Üzgünüz; yükleyici çöktü. Lütfen https://launchpad.net/ubuntu/+source/"
+"ubiquity/+filebug adresinde bir hata raporu oluşturun (lütfen mevcut bir "
+"hata için bilgi göndermeyin). Bir programcı en kısa sürede sorununuzu "
+"çözecektir. Programcıların neyin yanlış olduğunu anlayabilmelerine yardım "
+"etmek için, lütfen /var/log/syslog ve /var/log/partman dosyalarını ve şu "
+"bilgileri raporunuza ekleyin:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "Bölüm oluştur"
 
 #. Type: text
 #. Description
@@ -365,7 +366,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Megabayt (~1000000 bayt) cinsinden yeni bölüm boyutu:"
 
 #. Type: text
 #. Description
@@ -395,19 +396,19 @@ msgstr "Mantıksal"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "Bölüm düzenle"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Bölümü düzenle"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Gelişmiş Seçenekler"
 
 #. Type: text
 #. Description
@@ -419,19 +420,19 @@ msgstr "Açılış yükleyicisi"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Ön yükleyici kur"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Yaygınlık araştırması"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Paket kullanım anketine katıl"
 
 #. Type: text
 #. Description
@@ -500,9 +501,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "Kurulum kayıtları kopyalanıyor..."
+msgstr "Yükleme Doğrulanıyor..."
 
 #. Type: title
 #. Description
@@ -537,10 +537,8 @@ msgstr "Dosyalar kopyalanıyor (bir dakikadan daha az kaldı)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Kopyalama başarısız; bozuk sabit disk?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -632,10 +630,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Kopyalama başarısız; bozuk CD/DVD veya sabit disk?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -725,13 +721,13 @@ msgstr "Açılış yükleyicisi yapılandırılıyor..."
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Ek paketler yükleniyor..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Yükleme için gerekli paketler kontrol ediliyor..."
 
 #. Type: text
 #. Description
@@ -779,13 +775,13 @@ msgstr "${PACKAGE} kaldırmada hata"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Paketler yüklenirken hata"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Paketler yüklenirken bir hata oluştu:"
 
 #. Type: error
 #. Description
@@ -793,7 +789,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Şu paketler bozuk durumda:"
 
 #. Type: error
 #. Description
@@ -809,18 +805,24 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Bu durum eski bir kurulum dosyası kullandığınızdan veya yukarıda sıralanan "
+"bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi /var/"
+"log/syslog dosyasında bulunabilir. Kurulum devam edecek; ancak ilerleyen bir "
+"aşamada başarısız olabilir ve kurulu sistemde (muhtemelen kendisi de dahil) "
+"diğer paketleri yükleyemeyebilir veya kaldıramayabilir. Öncelikle yükleme "
+"dosyanızın yeni sürümlerini aramalı veya sorunu yayımcısına bildirmelisiniz."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Paketler kaldırılırken hata"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Paketler kaldırılırken bir hata oluştu:"
 
 #. Type: title
 #. Description
@@ -869,32 +871,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Diski nasıl bölümlemek istiyorsunuz?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"${MOUNTPOINT} noktasına bağlanmış olan ${PARTITION} bölümündeki dosya "
-"sistemi biçimlendirme için işaretlenmemiş. Sistem tarafından kullanılan "
-"dosya sistemleri (/, /boot, /usr, /var) kurulum programı tarafından "
-"kullanılabilmek için yeniden biçimlendirilmelidir. Diğer dosya sistemleri (/"
-"home, /media/*, /usr/local, vs.) yeniden biçimlendirilmeden de "
-"kullanılabilir."
 
 #. Type: boolean
 #. Description
@@ -933,25 +921,40 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Yükleme Türü: ${INSTALLTYPE}\n"
+" Sürücüler:\n"
+"     Ek Grafik Sürücüsü: ${VIDEO_DRIVER}\n"
+"         TV-Çıkışı: ${TVOUT}, ${TVSTANDARD}\n"
+" Ek Servisler:\n"
+"     VNC (Uzak Masaüstü): ${EN_VNC}\n"
+"     SSH (Güvenli Komut İstemi): ${EN_OPENSSH}\n"
+"     Samba (Windows Ağ Hizmetleri): ${EN_SAMBA}\n"
+"     NFS (Ağ Dosya Sistemi): ${EN_NFS}\n"
+"     MythTV Servisi: ${EN_MYSQL}\n"
+" Normal Ubuntu Yükleme Soruları:\n"
+"     Dil: ${LANGUAGE}\n"
+"     Klavye Düzeni: ${KEYMAP}\n"
+"     Tam Ad: ${FULLNAME}\n"
+"     Kullanıcı Adı: ${USERNAME}\n"
+"     Konum: ${LOCATION}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "Kurulum durdurulsun mu?"
+msgstr "Yükleme Türünü Belirtin:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Mythbuntu için iki yükleme türü mevcuttur:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Standart Yükleme"
 
 #. Type: text
 #. Description
@@ -961,13 +964,15 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Standart yükleme, her seçeneği en az kullanıcı etkileşimi ile yükler ve "
+"yapılandırır. Bu; altyapı, üstyapı, tüm eklentiler ve tüm temaları "
+"yükleyecektir."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Kurulum durdurulsun mu?"
+msgstr "Gelişmiş Yükleme"
 
 #. Type: text
 #. Description
@@ -977,13 +982,15 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Mythbuntu kurulumunu özelleştirmek için gelişmiş kurulum seçeneği "
+"seçilebilir. Not: Varolan MythTV temelli ağa Mythbuntu makinesi eklemek için "
+"gelişmiş kurulum seçeneği seçilmelidir."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Kurulum tamamlandı"
+msgstr "Gelişmiş Yükleme Türü"
 
 #. Type: text
 #. Description
@@ -992,13 +999,13 @@ msgstr "Kurulum tamamlandı"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Bu ne tür bir sistem olacak?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Birincil Altyapı w/ Üstyapı"
 
 #. Type: text
 #. Description
@@ -1008,12 +1015,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Bir Arkauç/önuç karma makine yüklemesi, MythTV'yi HTPC uygulamaları için "
+"isteyenlerin en yaygın kullandığı yükleme seçeneğidir. Bu yükleme çeşidi ev "
+"sinema sistemlerinde bir bileşen olarak kullanılmak için düşünülmüştür."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "İkincil Altyapı w/ Üstyapı"
 
 #. Type: text
 #. Description
@@ -1022,12 +1032,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Bu seçenek Önuç ile birlikte Birincil Arkauca benzer bir kurulum yapacaktır, "
+"fakat arkauç olarak ağınızda varolan bir sisteme bağlanacaktır."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Birincil Arkauç"
 
 #. Type: text
 #. Description
@@ -1037,12 +1049,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Salt arkauç olarak kurulmuş bir makine bir elektronik cihaz gibi çalışarak, "
+"çok az bakıma ihtiyaç duyacaktır. Bu seçenek ağınızdaki ilk arkaucu kurmaya "
+"yarar."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "İkincil Arkauç"
 
 #. Type: text
 #. Description
@@ -1051,12 +1066,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Bu seçenek Birincil Arkauca benzer bir kurulum yapacaktır, fakat arkauç "
+"olarak ağınızda varolan bir sisteme bağlanacaktır."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Önuç"
 
 #. Type: text
 #. Description
@@ -1066,12 +1083,14 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Bir Önuç makinesinin ana işlevi arkauçtan aldığı içeriği dağıtmaktır. Bu "
+"seçeneği seçmeniz için ağınızda çalışan bir arkauç bulunmalıdır."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Önuç / Arkauç Eklentilerini Seçin"
 
 #. Type: text
 #. Description
@@ -1080,24 +1099,26 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"Eklentiler MythTV'nin geciktirme özellikli bir TV sisteminden daha fazlasını "
+"yapabilmesini sağlar."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "Altyapı Eklentileri"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "Üstyapı eklentileri"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1106,24 +1127,27 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb, yayın akışlarını görüntüleyebileceğiniz, belirli programları kayıt "
+"için işaretleyebileceğiniz, varolan kayıtları silebileceğiniz ve program "
+"arayabileceğiniz bir arayüz sunar."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Myth Arşiv"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Myth Tarayıcı"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Myth Kontroller"
 
 #. Type: text
 #. Description
@@ -1141,55 +1165,55 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Myth Galeri"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Game"
-msgstr ""
+msgstr "Myth Oyun"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth Music"
-msgstr ""
+msgstr "Myth Müzik"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr ""
+msgstr "Myth Haber"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth Telefon"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Myth Akışı"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
-msgstr ""
+msgstr "Myth Görüntü"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Myth Hava Durumu"
 
 #. Type: text
 #. Description
@@ -1198,12 +1222,13 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"MythTV Ağınızdaki içerikle DVD yaratabilmenize yarayan bir MythTV eklentisi."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "MythTV sisteminiz için bütünleşik web tarayıcı eklentisi."
 
 #. Type: text
 #. Description
@@ -1212,6 +1237,7 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Myth TV İçin harici kontroller.Bu sizin tuş görevlerini düzenlemenizi sağlar."
 
 #. Type: text
 #. Description
@@ -1229,25 +1255,27 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Netflix DVD kiralama kuyruğunuzu görmenizi sağlar."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
+msgstr "Resim dosyaları içeren dizine göz atmanızı sağlar."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"Linux üzerinde çalışan herhangi bir emulatör veya çalıştırılabilir dosyayı "
+"başlatmak için arayüz"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "MythTV ile entegre çalışan bir dijital muzik kutusu sağlar"
 
 #. Type: text
 #. Description
@@ -1288,7 +1316,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "Fazladan Tema Seç"
 
 #. Type: text
 #. Description
@@ -1327,19 +1355,20 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "Görüntü Sürücüsü & Ayarlarını Değiştir"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Eğer TV çıkışını ayarlamak istiyorsanız, buradan bir seçenek seçiniz:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr ""
+"Eğer TV çıkışını aktifleştiriyorsanız, bir TV standardı da seçmeniz gerekir:"
 
 #. Type: text
 #. Description
@@ -1353,7 +1382,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Ana Altyapı Bilgisi"
 
 #. Type: text
 #. Description
@@ -1364,27 +1393,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Parola:"
+msgstr "MySQL Parolası"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "MySQL Kullanıcı Adı"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "MySQL Veritabanı"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "MySQL Sunucu"
 
 #. Type: text
 #. Description
@@ -1419,7 +1447,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "MythTV Kuru Çalıştır"
 
 #. Type: text
 #. Description
@@ -1434,66 +1462,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "apt yapılandırılıyor..."
+msgstr "mythtv Yapılandırılıyor..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Donanım yapılandırılıyor..."
+msgstr "Ek sürücüler yapılandırılıyor..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Donanım yapılandırılıyor..."
+msgstr "Ek servisler yapılandırılıyor..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "Donanım yapılandırılıyor..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Sistem bölümü biçimlendirilmemiş"
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "Zaman dilimi yapılandırılıyor..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Seçilen hesabı içe aktarmak için bir kullanıcı oluştur:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Tam Ad"
-
-#~ msgid "Login Name:"
-#~ msgstr "Oturum Açma Adı"
-
-#~ msgid "Password:"
-#~ msgstr "Parola:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Onayla:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Kök dosya sistemi bölümü (\"/\" bağlama noktası) için en az 2 GB, takas "
-#~ "bölümü için en az 256 MB yer ayırmanız gerekir. İsterseniz başka bölümler "
-#~ "de ayarlayabilirsiniz."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Bilgisayarı yeniden başlatmadan önce CD'yi çıkardığınızdan emin olun. "
-#~ "Aksi takdirde bilgisayarınız yeni kurulan sistem yerine yeniden bu live "
-#~ "CD'yi  başlatacaktır."
+msgstr ""

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Elian Myftiu <elian.myftiu@gmail.com>\n"
+"PO-Revision-Date: 2008-02-20 12:42+0000\n"
+"Last-Translator: Elian Myftiu <Unknown>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "_Instalo"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Instalo (modi OEM, vetëm për prodhues)"
 
 #. Type: text
 #. Description
@@ -71,6 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Ju jeni duke instaluar në modin e sistemit të prodhuesit. Ju lutem shkruani "
+"një emër të veqant për këtë batch të sistemit. Ky emer do të ruhet në sistem "
+"të instaluar dhe mund të përdoret për ndihmë rreth raportimit të bug-ave."
 
 #. Type: text
 #. Description
@@ -239,12 +242,14 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"Nëse nuk doni të importoni asnjë llogari, zgjedhni asgjë dhe shkoni në faqen "
+"tjetër"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Prepare disk space"
-msgstr ""
+msgstr "Pregadit hapësirë në disk"
 
 #. Type: text
 #. Description
@@ -367,7 +372,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Madhësia e particionit të ri në megabyte (1000000 byte)"
 
 #. Type: text
 #. Description
@@ -397,43 +402,43 @@ msgstr "Llogjike"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "Edito particionin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Edito një particion"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Mundësi të avansuara"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Boot loader"
-msgstr ""
+msgstr "Boot ngarkues-i"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Instalo boot ngarkuesin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Gara e popullaritetit"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Merr pjesë në vëzhgimin mbi përdorimin e pakove"
 
 #. Type: text
 #. Description
@@ -461,13 +466,16 @@ msgid ""
 "the new installation. You can continue to use this live CD, although any "
 "changes you make or documents you save will not be preserved."
 msgstr ""
+"Instalimi u përfundua. Ju duhet ta ristartoni kompjuterin në mënyrë që të "
+"përdorni instalimin e ri. Ju mund të vazhdoni të përdorni këtë Live CD, "
+"mirëpo ndryshimet që i bëni ose dokumentet që i ruani nuk do të ruhen."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:64001
 msgid "Go Back"
-msgstr "Kthehu Prapa"
+msgstr "Kthehu prapa"
 
 #. Type: text
 #. Description
@@ -607,6 +615,11 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Ky gabim shpesh ndodh shkaku i CD/DVD pajisjeve ose disqeve të dëmtuara. "
+"Mund të ndihmoj pastrimi i CD/DVD, ta djegni CD/DVD në shpejtësi të vogël, "
+"pastrimi i CD/DVD pajisjes (komplete të pastrimit shpesh ofrohen nga shitës "
+"të elektronikës), kontrolloni nëse disku është i vjetër dhe ka nevoj për "
+"ndrrim, ose lëvizne sistemin në një ambient më të ftoht."
 
 #. Type: select
 #. Description
@@ -637,7 +650,7 @@ msgstr "Duke kopjuar ndarjen..."
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Duke konfiguruar sistemin..."
 
 #. Type: text
 #. Description
@@ -650,7 +663,7 @@ msgstr "Duke konfiguruar rrjetin..."
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Configuring apt..."
-msgstr ""
+msgstr "Duke konfiguruar apt..."
 
 #. Type: text
 #. Description
@@ -663,7 +676,7 @@ msgstr "Duke konfiguruar rrjetin..."
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Duke konfiguruar tastjeren..."
 
 #. Type: text
 #. Description
@@ -676,7 +689,7 @@ msgstr "Duke krijuar file-t e dispozitivit..."
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Duke importuar dokumentet dhe mjedisin"
 
 #. Type: text
 #. Description
@@ -709,13 +722,13 @@ msgstr "Duke konfiguruar rrjetin..."
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Duke instaluar pako shtesë..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Duke kontrolluar për pakot për instalim..."
 
 #. Type: text
 #. Description
@@ -728,19 +741,19 @@ msgstr "Duke instaluar paketat ekstra..."
 #. Description
 #: ../ubiquity.templates:94001
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Duke kontrolluar për pakot për largim..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr ""
+msgstr "Duke shkarkuar pakot (${TIME} remaining)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
 msgid "Downloading package lists..."
-msgstr ""
+msgstr "Duke shkarkuar listen e pakove..."
 
 #. Type: text
 #. Description
@@ -853,9 +866,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
 msgid "Do you want to return to the partitioner?"
-msgstr "Dëshiron të ripërmbledhësh ndarjen?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1423,10 +1435,5 @@ msgstr "Duke konfiguruar rrjetin..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "Duke konfiguruar rrjetin..."
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "Duke konfiguruar rrjetin..."
+msgstr ""

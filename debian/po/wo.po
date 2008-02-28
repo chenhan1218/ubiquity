@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: 2007-10-06 10:10+0000\n"
-"Last-Translator: Mouhamadou Mamoune Mbacke <mouhamadoumamoune@gmail.com>\n"
+"PO-Revision-Date: 2008-02-20 12:36+0000\n"
+"Last-Translator: Mouhamadou Mamoune Mbacke <Unknown>\n"
 "Language-Team: Wolof <debian-boot@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -834,9 +834,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
 msgid "Do you want to return to the partitioner?"
-msgstr "Ndax bëgg ngaa tambulewaat a partisoŋ?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1404,10 +1403,5 @@ msgstr "Mi ngi komfigure resóo bi..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "Mi ngi komfigure resóo bi..."
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "Mi ngi komfigure resóo bi..."
+msgstr ""

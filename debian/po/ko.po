@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Sunjae park <darehanl@gmail.com>\n"
+"PO-Revision-Date: 2008-02-20 12:45+0000\n"
+"Last-Translator: Sunjae Park <darehanl@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "설치"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "설치 (OEM 모드, 제조사 전용)"
 
 #. Type: text
 #. Description
@@ -70,6 +70,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"시스템 제조사 모드에서 설치 중입니다. 시스템의 일괄처리를 위한 고유의 이름을 "
+"입력해 주십시오. 이 이름은 설치된 시스템에 저장될 것이고, 버그 리포트에 사용"
+"될 수 있습니다."
 
 #. Type: text
 #. Description
@@ -216,17 +219,10 @@ msgstr "문서와 설정을 이전합니다."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"가져오고 싶은 계정을 선택한 뒤, 아래의 양식을 채워 주십시오. 이 계정의 문서"
-"와 설정은 설치가 끝나고 사용 가능합니다."
 
 #. Type: text
 #. Description
@@ -276,7 +272,7 @@ msgstr "새로운 운영체제가 다음과 같이 설치될 것입니다."
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "고급..."
 
 #. Type: text
 #. Description
@@ -284,7 +280,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "설치"
 
 #. Type: text
 #. Description
@@ -334,7 +330,7 @@ msgstr "지금 다시 시작합니다."
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "인스톨러에서 충돌이 일어났습니다"
 
 #. Type: text
 #. Description
@@ -347,12 +343,17 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"죄송합니다. 인스톨러에서 충돌이 일어났습니다. https://launchpad.net/ubuntu/"
+"+source/ubiquity/+filebug 에 새로운 버그 리포트를 제출해 주십시오. (알려진 버"
+"그에 대한 내용은 첨부하지 마십시오.) 개발자들이 해당 버그를 가능한한 빨리 처"
+"리할 것입니다. 개발자들이 버그에 대해 더 잘 알 수 있도록 다음의 내용들을 포함"
+"하여 주시고, /var/log/syslog와 /var/log/partman 을 첨부하여 주십시오."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "파티션 생성"
 
 #. Type: text
 #. Description
@@ -360,7 +361,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "새로운 파티션 크기 (Mb):"
 
 #. Type: text
 #. Description
@@ -390,19 +391,19 @@ msgstr "논리 파티션"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "파티션 편집"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "파티션 수정"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "고급 옵션"
 
 #. Type: text
 #. Description
@@ -414,19 +415,19 @@ msgstr "부트 로더"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "부트 로더 설치"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "인기도 컨테스트"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "패키지 사용에 관한 설문 참여"
 
 #. Type: text
 #. Description
@@ -496,7 +497,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Checking the installation..."
-msgstr ""
+msgstr "설치 검사 중..."
 
 #. Type: title
 #. Description
@@ -531,10 +532,8 @@ msgstr "파일을 복사중입니다. (일 분가량 남았습니다)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "파일 복사에 실패했습니다. 하드 디스크에 문제가 있는지 확인해주세요."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -625,11 +624,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
 msgstr ""
-"파일 복사에 실패했습니다. CD/DVD 또는 하드 디스크의 문제일 수 있습니다."
 
 #. Type: select
 #. Description
@@ -719,13 +715,13 @@ msgstr "부트로더를 설정하는 중입니다..."
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "추가적인 패키지들 설치중..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "설치를 위한 패키지 검사중..."
 
 #. Type: text
 #. Description
@@ -773,13 +769,13 @@ msgstr "${PACKAGE}를 제거하는데 실패했습니다"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "패키지를 설치하는 동안 에러"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "패키지를 설치하는 동안 발생한 에러:"
 
 #. Type: error
 #. Description
@@ -787,7 +783,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "다음 패키지들은 깨진 상태입니다:"
 
 #. Type: error
 #. Description
@@ -803,18 +799,23 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"이것은 예전의 설치 이미지나 위에 표시된 패키지들 중 하나의 버그일 수 있습니"
+"다. 자세한 세부 사항은 /var/log/syslog에서 볼 수 있습니다. 설치 프로그램은 계"
+"속할 것이지만, 실패할 수 있으며, 설치된 시스템에서 다른 패키지를 설치하거나 "
+"제거할 수 없을 수도 있습니다. 새로운 버전의 설치 이미지를 사용하거나, 배포자"
+"에게 이 문제를 보고할 수 있습니다."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "패키지 제거 중 에러"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "패키지를 제거하는 도중 다음 에러가 발생하였습니다:"
 
 #. Type: title
 #. Description
@@ -861,30 +862,18 @@ msgstr "설치 프로그램이 이 파티션들의 언마운트를 시도할까�
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "파티션을 다시 시작하시겠습니까?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"${MOUNTPOINT} 에 마운트될 ${PARTITION} 파티션의 포맷을 결정하지 않으셨습니"
-"다. 설치를 위해서 반드시 이 컴퓨터에서 사용할 파일 시스템들(/, /boot, /usr, /"
-"var)을 재포맷하셔야 합니다. 이외의 파일 시스템들(/home, /media/*, /usr/"
-"local, 등)은 반드시 재포맷하시지 않으셔도 됩니다."
 
 #. Type: boolean
 #. Description
@@ -923,24 +912,40 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" 설치 방식:           ${INSTALLTYPE}\n"
+" 드라이버:\n"
+"     Add. Video Driver:  ${VIDEO_DRIVER}\n"
+"         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
+" 추가적인 서비스:\n"
+"     VNC:                ${EN_VNC}\n"
+"     SSH:                ${EN_OPENSSH}\n"
+"     Samba:              ${EN_SAMBA}\n"
+"     NFS:                ${EN_NFS}\n"
+"     MythTV Service:     ${EN_MYSQL}\n"
+" 일반 우분투 설치 옵션:\n"
+"     언어:           ${LANGUAGE}\n"
+"     키보드 레이아웃:    ${KEYMAP}\n"
+"     전체 이름:       ${FULLNAME}\n"
+"     로그인 이름: ${USERNAME}\n"
+"     위치:           ${LOCATION}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
 msgid "What Type of Installation?"
-msgstr ""
+msgstr "설치 형식은 무엇입니까?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Mythbuntu는 두 가지 형식의 설치를 지원합니다:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "표준 설치"
 
 #. Type: text
 #. Description
@@ -950,12 +955,14 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"표준 설치는 최소의 사용자 대화로 모든 옵션들을 설치 및 설정할 것입니다. 이 과"
+"정은 백엔드, 프론트엔드 및 모든 플러그인과 테마들을 설치할 것입니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Advanced Installation"
-msgstr ""
+msgstr "고급 설치"
 
 #. Type: text
 #. Description
@@ -965,13 +972,15 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"고급 설치는 이 Mythbuntu 설치에 필요로 하는 것을 개인화하는데 사용될 수 있습"
+"니다. 고급 설치는 Mythbuntu 머신을 이미 존재하는 네트워크 기반의 MythTV에 추"
+"가하기 위해 필수적입니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "설치를 마쳤습니다"
+msgstr "고급 설치 형식"
 
 #. Type: text
 #. Description
@@ -980,13 +989,13 @@ msgstr "설치를 마쳤습니다"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "이 시스템은 어떤 방식입니까?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "프론트엔드를 포함한 주 백엔드"
 
 #. Type: text
 #. Description
@@ -996,12 +1005,14 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"백엔드/프론트엔드 콤보 머신은 MythTV를 홈씨어터로 이용하고자 하는 사람들에게 "
+"가장 일반적인 설정입니다. 이 설치 방식은 홈씨어터를 구성하기 위한 것입니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "프론트엔드를 포함한 부 백엔드"
 
 #. Type: text
 #. Description
@@ -1010,12 +1021,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"이 방식은 프론트엔드를 포함한 주 백엔드와 비슷하게 시스템을 설정하지만, 네트"
+"워크 상에 존재하는 백엔드에 연결하도록 설정될 것입니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "주 백엔드"
 
 #. Type: text
 #. Description
@@ -1025,12 +1038,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"백엔드 전용 머신은 일반적으로 가전제품과 같은 기능을 가지도록 설계되었으며, "
+"관리가 거의 필요없습니다. 이것은 네트워크 상의 첫 번째 백엔드로 설치하는 경우"
+"를 위한 것입니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "부 백엔드"
 
 #. Type: text
 #. Description
@@ -1039,12 +1055,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"이 방식은 주 백엔드와 비슷하게 시스템을 설정하지만, 네트워크 상에 존재하는 백"
+"엔드에 연결하도록 설정될 것입니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "프론트엔드"
 
 #. Type: text
 #. Description
@@ -1054,12 +1072,14 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"프론트엔드 전용 머신의 주요 기능은 백엔드로부터 미디어 컨텐츠를 수신하여 분배"
+"하는 것입니다. 이 설정은 네트워크 상에 백엔드가 이미 존재하고 있어야 합니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "프론트엔드/백엔드 플러그인 선택"
 
 #. Type: text
 #. Description
@@ -1068,24 +1088,26 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"플러그인은 타임시프팅 TV 기법을 포함하여 MythTV의 기능을 확장하는 데 사용될 "
+"수 있습니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "백엔드 플러그인"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "프론트엔드 플러그인"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1094,24 +1116,26 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb은 목록 보기, 예약 녹화, 녹화 삭제, 프로그램 검색 등의 기능을 이용할 "
+"수 있는 웹 인터페이스를 제공합니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Myth Archive"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Myth Browser"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Myth Controls"
 
 #. Type: text
 #. Description
@@ -1129,55 +1153,55 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Myth Gallery"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Game"
-msgstr ""
+msgstr "Myth Game"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth Music"
-msgstr ""
+msgstr "Myth Music"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr ""
+msgstr "Myth News"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth Phone"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Myth Stream"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
-msgstr ""
+msgstr "Myth Video"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Myth Weather"
 
 #. Type: text
 #. Description
@@ -1185,13 +1209,13 @@ msgstr ""
 msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
-msgstr ""
+msgstr "MythTV 네트워크 상의 컨텐츠를 이용하여 DVD를 제작할 수 있는 플러그인."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "MythTV 시스템을 위한 웹 브라우저 플러그인."
 
 #. Type: text
 #. Description
@@ -1200,6 +1224,7 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"MythTV 제어 플러그인. 이를 이용하면 버튼이나 키 매핑을 변경할 수 있습니다."
 
 #. Type: text
 #. Description
@@ -1217,25 +1242,26 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "여러분의 Netflix DVD 대여 목록을 관리합니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
+msgstr "이미지 파일을 포함하는 디렉토리 트리를 보여줍니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"리눅스에서 실행되는 에뮬레이터 혹은 실행 파일을 실행할 수 있는 프론트엔드."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "MythTV와 통합된 디지털 오디오 주크박스를 제공합니다."
 
 #. Type: text
 #. Description
@@ -1243,20 +1269,20 @@ msgstr ""
 msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
-msgstr ""
+msgstr "MythTV를 위한 RSS 피드 뉴스 리더 플러그인."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:51001
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
-msgstr ""
+msgstr "표준 SIP 프로토콜을 이용한 MythTV의 (화상) 전화 기능."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "스트리밍 인터넷 라디오 방송을 들을 수 있습니다."
 
 #. Type: text
 #. Description
@@ -1265,18 +1291,20 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"MythTV 인터페이스 내에서 외부 플레이어를 이용하여 비디오 스트림을 찾아보거나 "
+"재생할 수 있습니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "MythTV 내에 현재 날씨와 기상 예보를 표시합니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "별도의 테마 선택"
 
 #. Type: text
 #. Description
@@ -1299,7 +1327,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "추가 드라이버/펌웨어"
 
 #. Type: text
 #. Description
@@ -1310,24 +1338,27 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"오픈 소스 그래픽 드라이버가 이미 활성화되었습니다. 다른 그래픽 드라이버를 사"
+"용하기 원한다면, 여기서 바꿀 수 있습니다. TV 출력이나 OpenGL 효과를 사용하기 "
+"위해서는 독점적 드라이버가 필요할 수도 있습니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "비디오 드라이버와 설정 변경"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "TV 출력을 설정하시려면 여기서 옵션을 고르십시오:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "TV 출력을 활성화할 때는 TV 표준을 선택해야 합니다."
 
 #. Type: text
 #. Description
@@ -1336,48 +1367,50 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"경고:TV 표준을 TV가 지원하는 것보다 더 높이 설정하지 마십시오. 영구적인 손상"
+"이 일어날 수도 있습니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "주 백엔드 정보"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
-msgstr ""
+msgstr "여러분의 주 백엔드에 연결하기 위해 필요한 정보를 입력해 주십시오:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
 msgid "MySQL Password"
-msgstr ""
+msgstr "MySQL 비밀번호"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "MySQL 사용자 이름"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "MySQL 데이터베이스"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "MySQL 서버"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "가이드 데이터/백엔드 설정"
 
 #. Type: text
 #. Description
@@ -1386,12 +1419,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"설치의 마지막 단계에는 최초 연결을 위한 여러분의 가이드 데이터와 백엔드 설정"
+"이 필요합니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Schedules Direct 웹사이트 열기 (클릭)"
 
 #. Type: text
 #. Description
@@ -1401,12 +1436,16 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"북미 지역의 사용자들은 Schedules Direct (SD)의 계정을 설정할 필요가 있을 것입"
+"니다. SD는 아주 적은 금액으로 가이드 데이터를 제공합니다. SD를 설정하지 않는"
+"다면 북미 지역의 사용자들은 MythTV의 예약 기능 중 많은 부분을 이용할 수 없게 "
+"됩니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "MythTV Setup 시작"
 
 #. Type: text
 #. Description
@@ -1417,69 +1456,30 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"가이드 데이터 소스를 설정한 후에 MythTV-Setup을 실행하여 초기 백엔드 설정을 "
+"수행해야 합니다. 앞 쪽의 네 부분을 설정해야 하며, 세번째 부분에서 가이드 데이"
+"터를 지정하십시오."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "네트워크를 설정하는 중입니다..."
+msgstr "mythtv를 설정하는 중입니다..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "네트워크를 설정하는 중입니다..."
+msgstr "추가적인 드라이버를 설정하는 중입니다..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "네트워크를 설정하는 중입니다..."
+msgstr "추가적인 서비스를 설정하는 중입니다..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "네트워크를 설정하는 중입니다..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "시스템 파티션이 포맷되지 않았습니다."
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "네트워크를 설정하는 중입니다..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "선택된 계정을 사용해서 새로운 계정을 만듭니다:"
-
-#~ msgid "Full Name:"
-#~ msgstr "전체 이름:"
-
-#~ msgid "Login Name:"
-#~ msgstr "로그인 이름:"
-
-#~ msgid "Password:"
-#~ msgstr "비밀 번호:"
-
-#~ msgid "Confirm:"
-#~ msgstr "확인:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "최소 2 GB 이상의 루트 파일 시스템(마운트 포인트 \"/\") 파티션과 최소 "
-#~ "256MB 이상의 스왑 파티션을 설정하셔야 합니다. 추가적인 파티션이 필요하다"
-#~ "면 설정하실 수도 있습니다."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "컴퓨터를 다시 시작할 때 CD를 제거하는 것을 잊지 마십시오. 제거하지 않으면 "
-#~ "새로운 시스템으로 시작되지 않고 이 CD로 시작될 것입니다."
+msgstr ""

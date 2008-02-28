@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Matej Kovačič <matej.kovacic@owca.info>\n"
+"PO-Revision-Date: 2008-02-20 12:45+0000\n"
+"Last-Translator: Matej Kovačič <Unknown>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -219,14 +219,10 @@ msgstr "Prenos dokumentov in nastavitev"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Izberite vse uporabniške račune, ki jih želite uvoziti in izpolnite za "
-"vskagea spodnji obrazec. Dokumenti in nastavitve iz teh uporabniških računov "
-"bodo na razpolago, ko bo namestitev končana."
 
 #. Type: text
 #. Description
@@ -277,7 +273,7 @@ msgstr "Vaš novi operacijski sistem bo naložen z naslednjimi nastavitvami:"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Napredno..."
 
 #. Type: text
 #. Description
@@ -285,7 +281,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Namesti"
 
 #. Type: text
 #. Description
@@ -353,7 +349,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "Ustvari razdelek"
 
 #. Type: text
 #. Description
@@ -361,7 +357,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Nova velikost razdelka v megabajtih (1000000 bajtov):"
 
 #. Type: text
 #. Description
@@ -391,19 +387,19 @@ msgstr "Logična"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "Uredi razdelek"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Uredi razdelek"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Dodatne možnosti"
 
 #. Type: text
 #. Description
@@ -532,10 +528,8 @@ msgstr "Kopiranje datotek (manj kot minuto do konca)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Napaka pri kopiranju datotek; morda je poškodovan trdi disk?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -626,10 +620,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Kopiranje datotek ni uspelo; poškodovan CD/DVD ali trdi disk?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -866,31 +858,18 @@ msgstr "Ali želite, da poskusi namestilnik ponovno odklopiti te razdelke?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Kako bi želeli razdeliti disk?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Datotečni sistem na ${PARTITION} naslovljen na ${MOUNTPOING} ni označen za "
-"formatiranje. Sistemski datotečni sistemi (/, /boot, /usr, /var) morajo biti "
-"ponovno formatirani za uporabo v inštalacijskem programu. Ostali datotečni "
-"sistemi (/home, /media/*, /usr/local, etc.) se lahko uporabijo brez "
-"ponovnega formatiranja."
 
 #. Type: boolean
 #. Description
@@ -952,11 +931,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:5001
+#, fuzzy
 msgid ""
 "A standard installation will install and configure every option with minimal "
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Standardna namestitev poskrbi za nastavitev vseh možnosti s kar najmanj "
+"potrebnimi posegi uporabnika. Namestijo se ogrodje, vidni del, vsi vključki "
+"ter vse teme."
 
 #. Type: text
 #. Description
@@ -973,6 +956,9 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Napredna namestitev se lahko uporabi za prikrojene nastavitve Mythbuntu. "
+"OPOMBA: Napredna namestitev je potrebna za dodajanje računalnika Mythbuntu v "
+"obstoječo mrežo MythTV."
 
 #. Type: text
 #. Description
@@ -988,7 +974,7 @@ msgstr "Vrsta napredne namestitve"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Kakšne vrste bo ta sistem?"
 
 #. Type: text
 #. Description
@@ -1450,47 +1436,5 @@ msgstr "Nastavljanje strojne opreme ..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "Nastavljanje strojne opreme ..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Sistemski razdelek ni formatiran"
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "Nastavljanje časovnega pasu ..."
-
-#, fuzzy
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Ustvari uporabniški račun v katerega uvozi izbrane račune:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Polno ime:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Uporabniško ime:"
-
-#~ msgid "Password:"
-#~ msgstr "Geslo:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Potrdi:"
-
-#, fuzzy
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Prepričajte se, da namenite vsaj 2 GB prostora za korenski razdelek (»/«) "
-#~ "in vsaj 256 MB prostora za izmenjevalni (swap) razdelek."
-
-#, fuzzy
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Prepričajte se, da pred ponovnim zagonom odstranite zgoščenko. V "
-#~ "nasprotnem primeru se bo računalnik spet zagnal z žive zgoščenke, namesto "
-#~ "da bi uporabil novi nameščeni sistem."
+msgstr ""

@@ -10,14 +10,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: 2007-09-30 09:41+0000\n"
-"Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannick.marchegay@lokanova."
-"com>\n"
+"PO-Revision-Date: 2007-11-05 17:23+0000\n"
+"Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -229,18 +228,10 @@ msgstr "Migracion dels documents e dels paramètres"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Seleccionatz lo o los comptes que volètz importar e entresenhatz lo "
-"formulari çai sota per cadun d'entre eles. Los documents e los paramètres "
-"d'aquestes comptes seràn disponibles al cap de l'installacion."
 
 #. Type: text
 #. Description
@@ -291,7 +282,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Avançat..."
 
 #. Type: text
 #. Description
@@ -299,7 +290,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Installar[ accion ]"
 
 #. Type: text
 #. Description
@@ -435,7 +426,7 @@ msgstr "Installar lo gestionari d'aviada"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Concors de popularitat"
 
 #. Type: text
 #. Description
@@ -546,10 +537,8 @@ msgstr "Còpia de fichièrs (mens d'una minuta restanta)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Impossible de copiar los fichièrs ; disc dur defectuós ?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -642,10 +631,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Impossible de copiar los fichièrs ; CD/DVD o disc dur defectuós ?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -882,32 +869,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Cossí volètz particionar lo disc ?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Lo sistèma de fichièrs sus la particion ${PARTITION} assignada al punch de "
-"montatge ${MOUNTPOINT} es pas marcada per formatatge. Los sistèmas de "
-"fichièrs utilizats per lo sistèma (/, /boot, /usr, /var) seràn tornats "
-"formatats per èsser utilizats per aqueste  programa d'installacion. Los "
-"autres sistèmas de fichièrs (/home, /media/*, /usr/local, etc.) se pòdon "
-"utilizar sens formatatge novèl."
 
 #. Type: boolean
 #. Description
@@ -1107,7 +1080,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1144,10 +1117,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
-#, fuzzy
-#| msgid "Myth News"
 msgid "Myth Movies"
-msgstr "Novèlas Myth"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1159,7 +1130,7 @@ msgstr "Myth Flix"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Galariá Myth"
 
 #. Type: text
 #. Description
@@ -1189,7 +1160,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Flus Myth"
 
 #. Type: text
 #. Description
@@ -1430,7 +1401,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Aviar la configuracion de MythTV"
 
 #. Type: text
 #. Description
@@ -1463,48 +1434,5 @@ msgstr "Configuracion de servicis suplementaris..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
-#| msgid "Configuring additional services..."
 msgid "Configuring infrared devices..."
-msgstr "Configuracion de servicis suplementaris..."
-
-#~ msgid "Myth DVD"
-#~ msgstr "Myth DVD"
-
-#~ msgid "Official Themes"
-#~ msgstr "Tèmas oficials"
-
-#~ msgid "System partition not formatted"
-#~ msgstr "La particion sistèma es pas « formatada » (not formatted)"
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Crear un usancièr ont serà importat lo compte seleccionat :"
-
-#~ msgid "Full Name:"
-#~ msgstr "No complet :"
-
-#~ msgid "Login Name:"
-#~ msgstr "Nom de connexion :"
-
-#~ msgid "Password:"
-#~ msgstr "Mot de pas :"
-
-#~ msgid "Confirm:"
-#~ msgstr "Confirmar :"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Vos cal donar al mens 2 Go per la particion principala (« / ») e un espaci "
-#~ "d'al mens 256 Mo per la particion d'escambi (« swap »). Se vos lo "
-#~ "desiratz, podètz tanben configurar d'autras particions."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Vos cal assegurar qu'avètz plan levat lo CD-Rom del legidor quora serètz "
-#~ "a tornar aviar l'ordenador, si que non tornaretz aviar lo Live CD-Rom al "
-#~ "luòc de desamarrar lo vòstre sistèma novèl."
+msgstr ""

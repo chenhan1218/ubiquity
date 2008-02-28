@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Peter Mann <Peter.Mann@tuke.sk>\n"
+"PO-Revision-Date: 2008-02-23 11:54+0000\n"
+"Last-Translator: Pavol Klačanský <Unknown>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -21,7 +21,7 @@ msgstr ""
 #. This is used as a window title.
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr "Inštalácia"
+msgstr "Inštalovať"
 
 #. Type: text
 #. Description
@@ -224,18 +224,10 @@ msgstr "Premiestniť dokumenty a nastavenia"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Vyberte ktorýkoľvek účet, ktorý chcete importovať a vyplňte formulár nižšie "
-"pre každý z nich. Dokumenty a nastavenia pre tieto účty budú prístupné po "
-"dokončení inštalácie"
 
 #. Type: text
 #. Description
@@ -284,15 +276,16 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Pokročilé..."
 
 #. Type: text
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
+#, fuzzy
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Inštalovať"
 
 #. Type: text
 #. Description
@@ -477,7 +470,7 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:64001
 msgid "Go Back"
-msgstr "Naspäť"
+msgstr "Späť"
 
 #. Type: text
 #. Description
@@ -545,10 +538,8 @@ msgstr "Prebieha kopírovanie (zostáva menej ako minúta)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Nepodarilo sa skopírovať súbory; vadný pevný disk?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -640,10 +631,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Nepodarilo sa skopírovať súbory; vadné CD/DVD alebo pevný disk?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -817,6 +806,14 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Táto chyba mohla nastať kvôli použitiu starej verzie inštalátora alebo kvôli "
+"nejakej chybe v niektorom z balíčkov vypýsaných vyššie. Viac detailov môžte "
+"nájsť v súbore /var/log/syslog. Inštalátor sa pokúsi pokračovať aj napriek "
+"tejto chybe, ale môže sa stať, že inštalácia ďalších balíkov zlyhá. V "
+"takomto prípade sa môže stať, že inštalátor nebude môcť nainštalovať ani "
+"odstrániť ďalšie balíky (vrátane samého seba) zo systému. Radšej by ste mali "
+"použiť novšiu verziu inštalátora, alebo oznámiť túto chybu vášmu "
+"dodávateľovi."
 
 #. Type: error
 #. Description
@@ -875,31 +872,18 @@ msgstr "Chcete aby sa inštalátor pokúsil opäť odpojiť tieto oddiely?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Akým spôsobom chcete rozdeliť disk?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Systém súborov v oddiely ${PARTITION} pripojenom ako ${MOUNTPOINT} nebol "
-"označený na formátovanie. Systémy súborov používané systémom (/, /boot, /"
-"usr, /var) musia byť sformátované pre použitie s týmto inštalátorom. Ostatné "
-"systémy súborov (/home, /media/*, /usr/local, etc.) môžu byť použité bez "
-"formátovania."
 
 #. Type: boolean
 #. Description
@@ -1133,9 +1117,8 @@ msgstr "Frontend moduly"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
-#, fuzzy
 msgid "Myth Web"
-msgstr "Myth hry"
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1168,18 +1151,14 @@ msgstr "Ovládacie prvky Myth"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
-#, fuzzy
-#| msgid "Myth Archive"
 msgid "Myth Appearance"
-msgstr "Myth archív"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
-#, fuzzy
-#| msgid "Myth News"
 msgid "Myth Movies"
-msgstr "Mýtické správy"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1220,9 +1199,8 @@ msgstr "Myth Phone"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
-#, fuzzy
 msgid "Myth Stream"
-msgstr "Myth hry"
+msgstr "Myth Stream"
 
 #. Type: text
 #. Description
@@ -1323,7 +1301,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Zabezpečuje počúvanie internetových rádio staníc."
 
 #. Type: text
 #. Description
@@ -1350,16 +1328,10 @@ msgstr "Zvoliť ďalšie témy"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:56001
-#, fuzzy
-#| msgid ""
-#| "Themes can greatly improve the aesthic appeal of a MythTV setup, and "
-#| "display it to match your tastes much better."
 msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
-"Témy môžu výrazne zlepšiť estetický dojem z MythTV a prispôsobiť ho tak ako "
-"sa vám páči."
 
 #. Type: text
 #. Description
@@ -1485,12 +1457,16 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Užívatelia v Severnej Amerike budú potrebovať nastaviť účet so Schedules "
+"Direct (SD). SD poskytuje sprievodné údaje za nepatrný poplatok. Bez SD, "
+"užívatelia v Severnej Amerike nemusia mať prístup k mnohým vychytávkam "
+"televízneho programu MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Spustiť MythTV Setup"
 
 #. Type: text
 #. Description
@@ -1501,6 +1477,10 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Po nastavení televýznych zdrojov, budete musieť spustiť MythTV-Setup, aby "
+"ste mohli nakonfigurovať MythTV backend po prvý raz. Budete musieť "
+"nakonfigurovat prvé štyri sekcie. Nezabudnite správne vyplniť programové "
+"nastavenia v tretej sekcii."
 
 #. Type: text
 #. Description
@@ -1523,71 +1503,5 @@ msgstr "Nastavujú sa prídavné služby..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
-#| msgid "Configuring additional services..."
 msgid "Configuring infrared devices..."
-msgstr "Nastavujú sa prídavné služby..."
-
-#~ msgid "Myth DVD"
-#~ msgstr "Myth DVD"
-
-#~ msgid ""
-#~ "Provides an interface for launching your preferred DVD player from MythTV"
-#~ msgstr ""
-#~ "Poskytuje rozhranie pre spúšťanie vášho preferovaného prehrávača DVD z "
-#~ "MythTV."
-
-#~ msgid "Official Themes"
-#~ msgstr "Oficiálne témy"
-
-#~ msgid "Community Themes"
-#~ msgstr "Komunitné témy"
-
-#~ msgid ""
-#~ "This themes package includes all themes distributed by the MythTV website."
-#~ msgstr ""
-#~ "Tento balík tém obsahujú všetky témy, ktoré sú šírené prostredníctvom "
-#~ "webstránky MythTV."
-
-#~ msgid ""
-#~ "This themes package is a collection of community themes generated by "
-#~ "other MythTV users."
-#~ msgstr ""
-#~ "Tento balík tém obsahujú všetky témy, ktoré vytvorili ostatné "
-#~ "používatelia MythTV."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Systémový oddiel nie je naformátovaný"
-
-#~ msgid "Configuring remote control..."
-#~ msgstr "Nastavuje sa vzdialené ovládanie..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Vytvoríť užívateľa a importovať do neho vybrané účty:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Celé meno:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Prihlasovacie meno:"
-
-#~ msgid "Password:"
-#~ msgstr "Heslo :"
-
-#~ msgid "Confirm:"
-#~ msgstr "Potvrdiť:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Uistite sa, že koreňová oblasť (\"/\") bude mať najmenej 2 GB a odkladací "
-#~ "(swap) priestor bude aspoň 256 MB."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Pred reštartom počítača vyberte CD z mechaniky, aby ste namiesto "
-#~ "opätovného spustenia Live CD mohli spustiť váš nový nainštalovaný systém."
+msgstr ""

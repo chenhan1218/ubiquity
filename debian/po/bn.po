@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jamil Ahmed <jamil@bengalinux.org>\n"
+"PO-Revision-Date: 2008-02-20 12:48+0000\n"
+"Last-Translator: Jamil Ahmed <itsjamil@gmail.com>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,8 +26,9 @@ msgstr "ইনস্টল করো"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
+#, fuzzy
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "ইন্সটল (ওইম অবস্থায়, শুধুমাত্র প্রস্তুতকারকদের জন্য)"
 
 #. Type: text
 #. Description
@@ -66,25 +67,32 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
+#, fuzzy
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"আপনি সিস্টেম প্রস্তুতকারকের মোডে ইন্সটল করছেন। অনুগ্রহ করে এই ব্যাচের সিস্টেমের জন্য "
+"একটি অনন্য নাম প্রদান করুন। এই নামটি ইন্সটলকৃত সিস্টেমে সংরক্ষিত থাকবে এবং নামটি "
+"ক্রুটি রিপোর্টিং-এর সময় সাহায্য করবে।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:7001
+#, fuzzy
 msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"আপনার যদি ইন্টারনেট ব্যবহারের সুযোগ থাকে, তাহলে যে সকল সমস্যা আপনাকে প্রভাব করতে "
+"পারে সেগুলো সম্পর্কে জানতে রিলিজ নোট পড়ে নিন।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Release Notes"
-msgstr ""
+msgstr "রিলিজ নোট"
 
 #. Type: text
 #. Description
@@ -95,11 +103,15 @@ msgstr "আপনি কোথায়?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
+#, fuzzy
 msgid ""
 "Select a city in your country and time zone. If the indicated current time "
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"আপনার দেশ ও সময়ের অঞ্চল অনুযায়ী শহর নির্বাচন করুন। যদি সঠিক সময়ের অঞ্চল নির্বাচনের "
+"পরও নির্দেশিত বর্তমান সময় সঠিক না হয় তবে আপনি সিস্টেম পুনরায় চালু করার পর ইন্সটলকৃত "
+"সিস্টেমে এটি সমন্বয়সাধন করতে পারবেন।"
 
 #. Type: text
 #. Description
@@ -181,8 +193,9 @@ msgstr "আপনার আকাউন্টটি নিরাপদ রাখ
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
+#, fuzzy
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "আপনি ত্রুটিমুক্তকরণ অবস্থায় আছেন। গুরুত্বপূর্ণ পাসওয়ার্ড ব্যবহার করবেন না।"
 
 #. Type: text
 #. Description
@@ -224,10 +237,13 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
+#, fuzzy
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"আপনি যদি কোন অ্যাকাউন্ট না আমদানি করতে চান তাহলে কিছুই চিহ্নিত করবেন না এবং "
+"পরবর্তী পৃষ্ঠায় যান।"
 
 #. Type: text
 #. Description
@@ -266,16 +282,18 @@ msgstr "আপনার নতুন অপারেটিং সিস্টে
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
+#, fuzzy
 msgid "Advanced..."
-msgstr ""
+msgstr "অগ্রসর..."
 
 #. Type: text
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
+#, fuzzy
 msgid "Install[ action ]"
-msgstr ""
+msgstr "ইনস্টল[ক্রিয়া]"
 
 #. Type: text
 #. Description
@@ -325,7 +343,7 @@ msgstr "এখন রিস্টার্ট করুন"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "ইনস্টলার ক্র্যাশ করেছে"
 
 #. Type: text
 #. Description
@@ -343,7 +361,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "পার্টিশন তৈরি করুন"
 
 #. Type: text
 #. Description
@@ -351,7 +369,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "নতুন পার্টিশনের আয়তন মেগাবাইটে (১০০০০০০ বাইটস)"
 
 #. Type: text
 #. Description
@@ -381,31 +399,31 @@ msgstr "লজিকাল"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "পার্টিশন সম্পাদন করুন"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "একটি পার্টিশন সম্পাদন করুন"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "অগ্রসর বৈশিষ্ট্যাবলী"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Boot loader"
-msgstr ""
+msgstr "বুট লোডার"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "বুট লোডার ইনস্টল করুন"
 
 #. Type: text
 #. Description
@@ -447,8 +465,8 @@ msgid ""
 "changes you make or documents you save will not be preserved."
 msgstr ""
 "ইনস্টলেশন সম্পূর্ন হয়েছে। নতুন এই ইনস্টলেশন ব্যবহার করবার জন্য আপনাকে কম্পিউটারটি "
-"রিস্টার্ট করতে হবে। আপনি এই লাইভ সিডি ব্যবহার চালু রাখতে পারেন, তবে তাতে আপনার "
-"দ্বারা কৃত কোন পরিবর্তন সংরক্ষণ করা হবে না।"
+"পুনরায় চালু করতে হবে। আপনি এই লাইভ সিডি ব্যবহার চালু রাখতে পারেন, যদিও তাতে "
+"আপনার দ্বারা কৃত কোন পরিবর্তন অথবা কোনও সংরক্ষিত নথি সংরক্ষণ করা হবে না।"
 
 #. Type: text
 #. Description
@@ -488,7 +506,7 @@ msgstr ""
 #: ../ubiquity.templates:67001
 #, fuzzy
 msgid "Checking the installation..."
-msgstr "ইনস্টলেশন বাতিল করো?"
+msgstr "ইনস্টলেশন পরীক্ষিত হচ্ছে"
 
 #. Type: title
 #. Description
@@ -524,10 +542,8 @@ msgstr "ফাইল কপি করা হচ্ছে (একটি মিন
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "ফাইল কপি করতে ব্যর্থ; হার্ড ডিস্কে সমস্যা?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -606,10 +622,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "ফাইল কপি করতে ব্যর্থ; সিডি/ডিভিডি অথবা হার্ড ডিস্কে সমস্যা?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -633,8 +647,9 @@ msgstr "ইনস্টালেশন লগ কপি করা হচ্ছ�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
+#, fuzzy
 msgid "Configuring target system..."
-msgstr ""
+msgstr "চিহ্নিত সিস্টেম কনফিগার করা হচ্ছে"
 
 #. Type: text
 #. Description
@@ -671,7 +686,7 @@ msgstr "ব্যবহারকারী তৈরি করা হচ্ছে
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "ডকুমেন্টস ও বৈশিষ্ট্যসমূহ আমদানি করা হচ্ছে..."
 
 #. Type: text
 #. Description
@@ -701,13 +716,13 @@ msgstr "বুট লোডার কনফিগার করা হচ্ছ�
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "অতিরিক্ত প্যাকেজসমূহ ইনস্টল করা হচ্ছে..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "প্যাকেজসমূহ ইনস্টল করার জন্য পরীক্ষা করা হচ্ছে..."
 
 #. Type: text
 #. Description
@@ -760,13 +775,13 @@ msgstr "${PACKAGE} বাতিল করা যাচ্ছে না"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "প্যাকেজসমূহ ইনস্টলের সময় সমস্যা দেখা দিয়েছে"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "প্যাকেজসমূহ ইনস্টলের সময় একটি সমস্যা হয়েছে"
 
 #. Type: error
 #. Description
@@ -795,13 +810,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "প্যাকেজসমূহ অপসারণের সময় সমস্যা দেখা দিয়েছে"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "প্যাকেজসমূহ অপসারণের সময় একটি সমস্যা হয়েছে"
 
 #. Type: title
 #. Description
@@ -846,10 +861,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "আপনি কিভাবে ডিস্কটি পার্টিশন করতে চান?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -957,7 +970,7 @@ msgstr "ইনস্টলেশন সম্পূর্ণ হয়েছে"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "এটি কি ধরণের সিস্টেম হবে?"
 
 #. Type: text
 #. Description
@@ -1419,28 +1432,5 @@ msgstr "হার্ডওয়্যার কনফিগার করা হচ
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "হার্ডওয়্যার কনফিগার করা হচ্ছে..."
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "সময় অঞ্চল কনফিগার করা হচ্ছে..."
-
-#, fuzzy
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "নিশ্চিত করুন যে রুট পার্টিশনের (\"/\") জন্য নির্ধারিত জায়গা কমপক্ষে ২ গিগাবাইট, "
-#~ "এবং সোয়াপ পার্টিশনের জন্য কমপক্ষে ২৫৬ মেগাবাইট।"
-
-#, fuzzy
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "কম্পিউটারটি রিস্টার্ট করবার সময় সিডিটি বের হয়েছে কি-না তা নিশ্চত করুন, নয়তবা "
-#~ "এটি নতুন ইনস্টলকৃত সিস্টেমের পরিবর্তে এই লাইভ সিডি ব্যবহার করেই ব্যাকআপ করা শুরূ "
-#~ "করবে।"
+msgstr ""

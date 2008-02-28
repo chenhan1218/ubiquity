@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Arief S Fitrianto <arief@gurame.fisika.ui.ac.id>\n"
+"PO-Revision-Date: 2008-02-20 12:41+0000\n"
+"Last-Translator: Arief S Fitrianto <Unknown>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
 "id>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -28,7 +28,7 @@ msgstr "Instal"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Pasang (Mode OEM, hanya untuk pemanufaktur)"
 
 #. Type: text
 #. Description
@@ -72,6 +72,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Anda sedang memasang dalam mode manufaktur sistem. Silahkan masukkan nama "
+"unik untuk kelompok sistem ini. Nama ini akan disimpan pada sistem terpasang "
+"dan dapat dipakai untuk membantu laporan bug."
 
 #. Type: text
 #. Description
@@ -227,18 +230,10 @@ msgstr "Migrasi Dokumen dan Setting"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Pilih account-account yang ingin Anda impor dan isi form di bawah ini untuk "
-"masing-masing account. Dokumen dan setting untuk account-account tersebut "
-"akan tersedia setelah proses instalasi selesai."
 
 #. Type: text
 #. Description
@@ -289,7 +284,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Lanjut..."
 
 #. Type: text
 #. Description
@@ -297,7 +292,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Pasang"
 
 #. Type: text
 #. Description
@@ -347,7 +342,7 @@ msgstr "Restart sekarang"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Pemasang kres"
 
 #. Type: text
 #. Description
@@ -360,6 +355,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Mohon maaf, program pemasang kres. Silahkan mengajukan laporan bug baru pada "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (jangan melampirkan "
+"detail anda pada sebarang bug yang telah ada) dan seorang pengembang akan "
+"menangani masalah tersebut secepat mungkin. Untuk membantu para pengembang "
+"memahami apa yang salah, sertakan rincian berikut pada laporan bug anda, dan "
+"lampirkan berkas-berkas /var/log/syslog dan /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -545,10 +546,8 @@ msgstr "Menyalin berkas (kurang dari satu menit lagi)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Gagal menyalin berkas; hard disk cacat?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -639,10 +638,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Gagal menyalin berkas; hard disk cacat atau CD/DVD cacat?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -816,6 +813,14 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Hal ini mungkin karena pemakaian image installer lama, atau karena sebuah "
+"bug pada bebarapa dari paket yang didaftar di atas. Rincian lebih lanjut "
+"mungkin dapat ditemukan di /var/log/syslog. Installer akan mencoba "
+"melanjutkan, tapi mungkin akan gagal pada suatu saat setelahnya, dan tidak "
+"akan mampu memasang atau menghapus paket lain (mungkin termasuk dirinya "
+"sendiri) dari sistem terpasang. Anda pertama kali mesti mencari versi lebih "
+"baru dari image installer anda, atau kalau tidak melaporkan masalah itu ke "
+"distributor anda."
 
 #. Type: error
 #. Description
@@ -878,31 +883,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Bagaimana anda ingin membuat partisi disk?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Sistem berkas pada ${PARTITION} yang terpasang pada ${MOUNTPOINT} belum "
-"ditandai untuk diformat. Sistem berkas yang digunakan oleh sistem Linux (/, /"
-"boot, /usr, /var) harus diformat ulang agar dapat digunakan untuk instalasi. "
-"Sistem berkas lainnya (/home, /media/*, /usr/local, etc.) dapat digunakan "
-"kembali tanpa harus diformat."
 
 #. Type: boolean
 #. Description
@@ -941,6 +933,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Tipe Pemasangan: ${INSTALLTYPE}\n"
+" Driver:\n"
+"     Driver Video Ekstra: ${VIDEO_DRIVER}\n"
+"         TV-Out: ${TVOUT}, ${TVSTANDARD}\n"
+" Layanan Tambahan:\n"
+"     VNC: ${EN_VNC}\n"
+"     SSH: ${EN_OPENSSH}\n"
+"     Samba: ${EN_SAMBA}\n"
+"     NFS: ${EN_NFS}\n"
+"     Layanan MythTV: ${EN_MYSQL}\n"
+" Pertanyaan Pemasangan Ubuntu Normal:\n"
+"     Bahasa: ${LANGUAGE}\n"
+"     Tata letak papan kunci: ${KEYMAP}\n"
+"     Nama Biasa: ${FULLNAME}\n"
+"     Nama Login Biasa: ${USERNAME}\n"
+"     Lokasi: ${LOCATION}"
 
 #. Type: text
 #. Description
@@ -1004,13 +1012,13 @@ msgstr "Tipe Instalasi Tingkat Lanjut"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Sistem ini akan bertipe apa?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Backend Utama dgn Frontend"
 
 #. Type: text
 #. Description
@@ -1020,12 +1028,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Suatu mesin gabungan backend/frontend adalah setup paling umum bagi pengguna "
+"yang menginginkan MythTV untuk aplikasi HTPC. Tipe instalasi ini ditujukan "
+"bagi sebuah komponen dalam teater rumah anda."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Backend Sekunder dgn Frontend"
 
 #. Type: text
 #. Description
@@ -1034,12 +1045,15 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Ini akan menyiapkan sebuah sistem yang serupa dengan Backend Primer dgn "
+"Frontend, namun akan diatur untuk menyambung ke backed yang telah ada di "
+"jaringan."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Backend Utama"
 
 #. Type: text
 #. Description
@@ -1049,6 +1063,9 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Mesin hanya backend biasanya dirancang untuk berfungsi seperti sebuah "
+"appliance; membutuhkan perawatan minimum. Ini ditujukan untuk dipasang "
+"sebagai backend pertama pada sebuah jaringan."
 
 #. Type: text
 #. Description
@@ -1070,7 +1087,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Frontend"
 
 #. Type: text
 #. Description
@@ -1080,6 +1097,9 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Fungsi utama sebuah mesin hanya frontend adalah untuk menerima isi media "
+"dari backend dan menyebarkannya. Konfigurasi ini memerlukan sebuah backend "
+"yang telah ada pada jaringan."
 
 #. Type: text
 #. Description
@@ -1112,9 +1132,8 @@ msgstr "Plugin Frontend"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
-#, fuzzy
 msgid "Myth Web"
-msgstr "Permainan Myth"
+msgstr "Web Myth"
 
 #. Type: text
 #. Description
@@ -1123,6 +1142,8 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb menyediakan antarmuka web yang dapat dipakai untuk melihat daftar, "
+"jadwal perekaman, menghapus rekaman, dan mencari acara."
 
 #. Type: text
 #. Description
@@ -1134,41 +1155,37 @@ msgstr "Arsip Myth"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Perambah Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Pengendali Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
-#, fuzzy
-#| msgid "Myth Archive"
 msgid "Myth Appearance"
-msgstr "Arsip Myth"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
-#, fuzzy
-#| msgid "Myth News"
 msgid "Myth Movies"
-msgstr "Berita Myth"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Myth Galeri"
 
 #. Type: text
 #. Description
@@ -1197,9 +1214,8 @@ msgstr "Telepon Myth"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
-#, fuzzy
 msgid "Myth Stream"
-msgstr "Permainan Myth"
+msgstr "Stream Myth"
 
 #. Type: text
 #. Description
@@ -1220,12 +1236,14 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"Sebuah plugin bagi MythTV yang memungkinkan anda membuat DVD dari isi pada "
+"Jaringan MythTV anda."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "Sebuah plugin perambah web terintegrasi bagi sistem MythTV anda."
 
 #. Type: text
 #. Description
@@ -1234,6 +1252,8 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Pengendali eksternal bagi MythTV. Ini akan memungkinkan anda mengubah "
+"pemetaan tombol dan pengaitan kunci."
 
 #. Type: text
 #. Description
@@ -1251,25 +1271,29 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Memungkinkan anda memantau antrian rental DVD Netflix anda."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
 msgstr ""
+"Memungkinkan anda merambah secara visual suatu struktur direktori yang "
+"memuat berkas-berkas citra."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"Sebuah frontend untuk memulai sebarang emulator atau biner yang berjalan di "
+"Linux."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Menyediakan jukebox audio dijital yang terintegrasi dengan MythTV."
 
 #. Type: text
 #. Description
@@ -1278,6 +1302,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Sebuah plugin pembaca berita asupan RSS bagi MythTV yang menjaga anda tetap "
+"up-to-date pada topik-topik berita favorit anda."
 
 #. Type: text
 #. Description
@@ -1285,12 +1311,16 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"Sebuah kapabilitas telepon dan telepon video pada MythTV memakai protokol "
+"SIP standar."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
 msgstr ""
+"Menyediakan sebuah metoda untuk mendengarkan stasiun radio internet "
+"streaming."
 
 #. Type: text
 #. Description
@@ -1299,12 +1329,15 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"Membolehkan anda merambah dan memainkan stream video, menggunakan pemutar "
+"eksternal, dari dalam antarmuka MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
 msgstr ""
+"Menampilkan informasi cuaca saat ini dan ramalan cuaca dari dalam MythTV."
 
 #. Type: text
 #. Description
@@ -1344,24 +1377,29 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Sebuah driver grafik open source telah diaktifkan dan dikonfigurasi untuk "
+"instalasi anda. Bila anda ingin memakai driver grafik yang berbeda, anda "
+"dapat melakukannya disini. Perlu dicatat bahwa driver grafik proprietary "
+"mungkin diperlukan bagi TV Output atau efek-efek OpenGL."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "Ubah Pengaturan & Driver Video"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Bila anda ingin mengkonfigur TV-out, pilih sebuah opsi disini:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr ""
+"Bila mengaktifkan TV Out, anda juga akan perlu memilih sebuah Standar TV:"
 
 #. Type: text
 #. Description
@@ -1370,18 +1408,22 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Peringatan: Jangan mengatur standar TV ke sesuatu yang lebih tinggi daripada "
+"yang didukung TV anda. Kerusakan PERMANEN dapat terjadi."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Info Backend Master"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
+"Silahkan masukkan informasi yang diperlukan untuk menghubungi backend master "
+"anda:"
 
 #. Type: text
 #. Description
@@ -1411,7 +1453,7 @@ msgstr "Server MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Atur Data Penuntun / Backend"
 
 #. Type: text
 #. Description
@@ -1437,12 +1479,16 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Pengguna di Amerika Utara perlu menyiapkan sebuah akun dengan Schedules "
+"Direct (SD). SD menyediakan data penuntun dengan biaya tertentu. Tanpa SD, "
+"pengguna Amerika Utara mungkin kehilangan banyak fitur penskedulan pada "
+"MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Luncurkan Setup MythTV"
 
 #. Type: text
 #. Description
@@ -1453,6 +1499,10 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Setelah menyiapkan sumber data penuntun anda, anda perlu meluncurkan MythTV-"
+"Setup untuk menjalankan konfigurasi backend yang pertama kali. Anda perlu "
+"mengatur empat seksi pertama, untuk memastikan penyediaan data penuntun anda "
+"pada seksi ketiga."
 
 #. Type: text
 #. Description
@@ -1463,7 +1513,6 @@ msgstr "Mengkonfigurasi mythtv..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
 msgstr "Sedang mengkonfigurasi driver tambahan..."
 
@@ -1476,65 +1525,5 @@ msgstr "Sedang mengkonfigurasi layanan tambahan..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
-#| msgid "Configuring additional services..."
 msgid "Configuring infrared devices..."
-msgstr "Sedang mengkonfigurasi layanan tambahan..."
-
-#~ msgid "Official Themes"
-#~ msgstr "Tema Resmi"
-
-#~ msgid "Community Themes"
-#~ msgstr "Tema Komunitas"
-
-#~ msgid ""
-#~ "This themes package includes all themes distributed by the MythTV website."
-#~ msgstr ""
-#~ "Paket tema ini mengandung semua tema yang didistribusikan oleh situs web "
-#~ "MythTV."
-
-#~ msgid ""
-#~ "This themes package is a collection of community themes generated by "
-#~ "other MythTV users."
-#~ msgstr ""
-#~ "Paket tema ini adalah sebuah koleksi dari tema komunitas yang dibuat oleh "
-#~ "para pemakai MythTV."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Partisi sistem tidak diformat"
-
-#~ msgid "Configuring remote control..."
-#~ msgstr "Sedang mengkonfigurasi pengendali jarak jauh..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Buat satu pengguna untuk mengimpor account yang terpilih ke sana:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Nama Lengkap:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Nama Login:"
-
-#~ msgid "Password:"
-#~ msgstr "Password:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Konfirmasi:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Anda perlu menyediakan sebuah partisi untuk sistem berkas root (titik "
-#~ "kait \"/\") dengan ukuran minimal 2 GB, dan sebuah partisi swap dengan "
-#~ "ukuran minimal 256 MB. Anda juga bisa membuat partisi-partisi lain jika "
-#~ "anda menginginkannya."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Pastikan untuk memindahkan CD ini ketika melakukan restart komputer ini, "
-#~ "kalau tidak, komputer ini akan menggunakan live CD ini kembali bukannya "
-#~ "sistem yang baru terpasang."
+msgstr ""

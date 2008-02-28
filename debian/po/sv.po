@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: 2007-10-04 12:44+0000\n"
-"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"PO-Revision-Date: 2008-02-20 12:50+0000\n"
+"Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
 "Language-Team: Swedish <debian-boot@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -225,18 +225,10 @@ msgstr "Migrera dokument och inställningar"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Välj de konton som du vill importera och fyll i formuläret nedan för varje "
-"konto. Dokumenten och inställningarna för dessa konton kommer att finnas "
-"tillgängliga efter att installationen slutförts."
 
 #. Type: text
 #. Description
@@ -548,10 +540,8 @@ msgstr "Kopierar filer (mindre än en minut återstår)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Misslyckades med att kopiera filer; trasig hårddisk?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -645,10 +635,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Misslyckades med att kopiera filer; trasig cd/dvd eller hårddisk?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -890,31 +878,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Hur vill du partitionera disken?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Filsystemet på ${PARTITION}, tilldelat till ${MOUNTPOINT} har inte markerats "
-"för formatering. Filsystem som används av systemet (/, /boot, /usr, /var) "
-"måste formateras om för att kunna användas av installationsprogrammet. "
-"Övriga filsystem (/home, /media/*, /usr/local, etc.) kan användas utan att "
-"formateras om."
 
 #. Type: boolean
 #. Description
@@ -1188,18 +1163,14 @@ msgstr "Myth Styrning"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
-#, fuzzy
-#| msgid "Myth Archive"
 msgid "Myth Appearance"
-msgstr "Myth Arkiv"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
-#, fuzzy
-#| msgid "Myth News"
 msgid "Myth Movies"
-msgstr "Myth Nyheter"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1368,16 +1339,10 @@ msgstr "Välj extrateman"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:56001
-#, fuzzy
-#| msgid ""
-#| "Themes can greatly improve the aesthic appeal of a MythTV setup, and "
-#| "display it to match your tastes much better."
 msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
-"Teman kan förbättra det estetiska utseendet för en MythTV-installation och "
-"visa den för att bättre passa dina behov."
 
 #. Type: text
 #. Description
@@ -1547,73 +1512,5 @@ msgstr "Konfigurerar ytterligare tjänster..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
-#| msgid "Configuring additional services..."
 msgid "Configuring infrared devices..."
-msgstr "Konfigurerar ytterligare tjänster..."
-
-#~ msgid "Myth DVD"
-#~ msgstr "Myth DVD"
-
-#~ msgid ""
-#~ "Provides an interface for launching your preferred DVD player from MythTV"
-#~ msgstr ""
-#~ "Tillhandahåller ett gränssnitt för att starta din föredragna dvd-spelare "
-#~ "från MythTV"
-
-#~ msgid "Official Themes"
-#~ msgstr "Officiella teman"
-
-#~ msgid "Community Themes"
-#~ msgstr "Teman från gemenskapen"
-
-#~ msgid ""
-#~ "This themes package includes all themes distributed by the MythTV website."
-#~ msgstr ""
-#~ "Detta temapaket inkluderar alla teman som distribueras av MythTV-"
-#~ "webbplatsen."
-
-#~ msgid ""
-#~ "This themes package is a collection of community themes generated by "
-#~ "other MythTV users."
-#~ msgstr ""
-#~ "Dessa temapaket är en samling av teman från gemenskapen som genererats av "
-#~ "andra MythTV-användare."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Systempartitionen är inte formaterad"
-
-#~ msgid "Configuring remote control..."
-#~ msgstr "Konfigurerar fjärrkontroll..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Skapa en användare för att importera det valda kontot till:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Fullständigt namn:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Inloggningsnamn:"
-
-#~ msgid "Password:"
-#~ msgstr "Lösenord:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Bekräfta:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Du behöver ange en partition för rotfilsystemet (monteringspunkten \"/\") "
-#~ "med en minimal storlek på 2 GB, och en växlingspartition på minst 256 MB. "
-#~ "Du kan även ställa in andra partitioner om du önskar."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Se till att mata ut cd-skivan vid omstart av datorn, annars kommer den "
-#~ "att starta upp med denna live-cd istället för det nyligen installerade "
-#~ "systemet."
+msgstr ""

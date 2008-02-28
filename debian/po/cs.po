@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: 2007-10-05 12:57+0000\n"
-"Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
+"PO-Revision-Date: 2008-02-27 14:29+0000\n"
+"Last-Translator: Kamil Páral <ripper42@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -223,18 +223,10 @@ msgstr "Migrovat Dokumenty a Nastavení"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Vyberte účty, které chcete importovat, a pro každý z nich vyplňte formulář "
-"níže. Dokumenty a nastavení pro tyto účty budou dostupné po skončení "
-"instalace."
 
 #. Type: text
 #. Description
@@ -546,10 +538,8 @@ msgstr "Kopírují se soubory (zbývá méně než minuta)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Nepodařilo se zkopírovat soubory; možná je vadný pevný disk?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -641,10 +631,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Kopírování souborů selhalo; možná je vadné CD/DVD nebo pevný disk?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -883,31 +871,18 @@ msgstr "Chcete, aby instalátor zkusil znovu odpojit tyto oddíly?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Jak chcete rozdělit disk?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Souborový systém na ${PARTITION} přiřazený k ${MOUNTPOINT} nebyl označen pro "
-"formátování. Souborový systém použitý systémem (/, /boot, /usr, /var) musí "
-"být přeformátován, aby mohl být použit tímto instalátorem. Ostatní souborové "
-"systémy (/home, /media/*, /usr/local, atd.) mohou být použity bez "
-"přeformátování."
 
 #. Type: boolean
 #. Description
@@ -1483,44 +1458,5 @@ msgstr "Nastavuji dodatečné služby..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
-#| msgid "Configuring additional services..."
 msgid "Configuring infrared devices..."
-msgstr "Nastavuji dodatečné služby..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Systémový oddíl není zformátovaný"
-
-#~ msgid "Configuring remote control..."
-#~ msgstr "Nastavuji dálkové ovládání..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Vytvořte uživatele, pro kterého importovat vybraný účet:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Plné jméno:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Přihlašovací jméno:"
-
-#~ msgid "Password:"
-#~ msgstr "Heslo:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Potvrdit:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Je nutné vybrat oddíl pro kořenový souborový systém (přípojné místo \"/"
-#~ "\") o velikosti nejméně 2 GB a pro odkládací oblast o velikosti nejméně "
-#~ "256 MB. Také můžete nastavit další oddíly."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Ujistěte se, že vyjmete CD při restartu počítače, jinak opět nastartuje "
-#~ "toto spustitelné CD místo nově nainstalovaného systému."
+msgstr ""

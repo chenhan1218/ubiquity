@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: 2007-10-03 16:08+0000\n"
+"PO-Revision-Date: 2008-02-20 12:50+0000\n"
 "Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -217,17 +217,10 @@ msgstr "ترحيل المستندات والإعدادات"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"أختر أي من الحسابات التي ترغب بإستيرادها وإملاْ النموذج أدناه. الملفات "
-"والأعدادات لهذه الحسابات ستصبح متوفره بعد إكتمال عملية التنصيب."
 
 #. Type: text
 #. Description
@@ -277,7 +270,7 @@ msgstr "نظام تشغيلك الجديد سوف يثبت الآن وفقا ل�
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "متقدم..."
 
 #. Type: text
 #. Description
@@ -285,7 +278,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "تثبيت"
 
 #. Type: text
 #. Description
@@ -348,6 +341,11 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"نحن نعتذر، برنامج التنصيب توقف بسبب وجود خطأ. الرجاء كتابة تقرير بالمشكلة في "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug ( الرجاء عدم ارفاق "
+"بيانات اية مشكلة متواجدة ) والمطورون سيعالجون المشكلة في اقرب وقت ممكن. "
+"لمساعدة المطورين لفهم المشكلة. ارفق البيانات التالية مع تقريرك. وقم بارفاق "
+"الملفات /var/log/syslog و /var/log/partman"
 
 #. Type: text
 #. Description
@@ -427,7 +425,7 @@ msgstr "مسابقة الشهرة"
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "شارك في استبانة استخدام الحزمة"
 
 #. Type: text
 #. Description
@@ -533,10 +531,8 @@ msgstr "جاري نسخ الملفات (المتبقي أقل من دقيقة)..
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "نسخ الملفات فشل، قرص صلب معتل؟"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -625,10 +621,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "نسخ الملفات فشل، قرص صلب أو قارءة CD/DVD معتلة؟"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -786,7 +780,7 @@ msgstr "حدث خطأ أثناء تثبيت الحزمات:"
 #. Description
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "الحزم التالية متواجدة في حالة العطل"
 
 #. Type: error
 #. Description
@@ -860,30 +854,18 @@ msgstr "هل تريد من برنامج التثبيت أن يحاول فصل ن
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "كيف تريد أن تجزئ الاسطوانة؟"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"النظام الملفّي على القسم ${PARTITION} والمخصص لنقطة الوصل ${MOUNTPOINT} لم "
-"يتم تأشيرها للتجهيز. الأنظمه الملفّيه المستخدمة من قبل النظام (/, /boot, /"
-"usr, /var) يجب أن يتم تجهيزها من قبل برنامج التنصيب هذا. يمكن إستخذام "
-"الأنظمه الملفّيه الأخرى من غير إعادة التجهيز."
 
 #. Type: boolean
 #. Description
@@ -934,22 +916,26 @@ msgstr "هل تريد إلغاء التثبيت؟"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "يوجد نوعين من التنصيب لـ Mythbuntu"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "التنصيب القياسي"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:5001
+#, fuzzy
 msgid ""
 "A standard installation will install and configure every option with minimal "
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"التنصيب القياسي سوف يقوم بتنصيب واعداد كل الخيارات مع قليل من التعليمات "
+"للمستخدم. سوف يتم تنصيب الاساس والواجهة وجميع الملحقات مع جميع التشكيلات "
+"المظهرية"
 
 #. Type: text
 #. Description
@@ -961,11 +947,15 @@ msgstr "هل تريد إلغاء التثبيت؟"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:7001
+#, fuzzy
 msgid ""
 "An advanced installation can be used to customize what is needed for this "
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"التنصيب المتقدم يمكن استخدامه لتحديد الاحتياجات المطلوبة لـتنصيب Mythbuntu. "
+"ملاحظة: التنصيب المتقدم يتطلب اضافة Mythbuntu الى جهاز يتضمن MythTV متواجد "
+"على الشبكة"
 
 #. Type: text
 #. Description
@@ -1121,16 +1111,14 @@ msgstr "تحكّم الأسطورة"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
-#, fuzzy
 msgid "Myth Appearance"
-msgstr "أرشيف الأسطورة"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
-#, fuzzy
 msgid "Myth Movies"
-msgstr "أخبار الأسطورة"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1456,51 +1444,5 @@ msgstr "إعداد الأجهزة..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "إعداد الأجهزة..."
-
-#~ msgid "Official Themes"
-#~ msgstr "السِمات الإضافيّة"
-
-#, fuzzy
-#~ msgid "Community Themes"
-#~ msgstr "السِمات الإجتماعيّة"
-
-#~ msgid "System partition not formatted"
-#~ msgstr "قسم النظام غير مجهز"
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "إعداد النطاق الزمني"
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "أختلق مستخدم لإستيراد الحساب المختار اليه"
-
-#~ msgid "Full Name:"
-#~ msgstr "الاسم الكامل:"
-
-#~ msgid "Login Name:"
-#~ msgstr "إسم الدخول:"
-
-#~ msgid "Password:"
-#~ msgstr "كلمة المرور :"
-
-#~ msgid "Confirm:"
-#~ msgstr "أكّد:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "تحتاج إلى تعيين قسم من القرص الصلب ليكون حذرا (نقطة التضمين \"/\") تكون "
-#~ "على الأقل 2 جيجا بايت، و مساحة تبادلية تكون على الأقل 256 م.ب. ربما تحتاج "
-#~ "ﻹعداد أجزاء أخرى من القرص الصلب إذا رغبت."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "كن متأكدا من إزالة القرص المدمج حين تقوم بإعادة تشغيل الحاسوب، غير ذلك "
-#~ "سيبدأ التحميل مرة أخرى باستخدام القرص المدمج بدلا من النظام المثبت حديثا."
+msgstr ""

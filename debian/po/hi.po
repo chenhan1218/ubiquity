@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Nishant Sharma <me at nishants.net>\n"
+"PO-Revision-Date: 2008-02-20 12:47+0000\n"
+"Last-Translator: Carlos Perelló Marín <carlos.perello@canonical.com>\n"
 "Language-Team: Hindi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "संस्थापित करें"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "संस्थापन्ना (मौलिक उपकरण निर्माता विधा ,केवल निर्माताओ के लिए।)"
 
 #. Type: text
 #. Description
@@ -68,6 +68,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"आप यह संस्थापना तंत्र निर्माता विधा मे कर रहे है।कृपया इस समूह के तंत्रों को अनूठा नाम "
+"देवे।संस्थापित तंत्र पर यह नाम सुरक्षित रहेगा एवं आपको बाद मे तकलीफो की रपट भेजने मे काम "
+"आएगा।"
 
 #. Type: text
 #. Description
@@ -76,6 +79,8 @@ msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"अगर आपके पास इंटरनेट की सुविधा है तो आप विमोचन वचन पत्र पढ़ के, आने वाली समस्याओ के बारे "
+"मे जान सकते है।"
 
 #. Type: text
 #. Description
@@ -97,6 +102,8 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"अपने देश एवं समय क्षेत्र के चुनाव करे। अगर दृश्य समय ग़लत है तो इसे आप संस्थापना के बाद भी "
+"बदल सकते है।"
 
 #. Type: text
 #. Description
@@ -178,7 +185,7 @@ msgstr "अपने खाते को सुरक्षित रखने �
 #. Description
 #: ../ubiquity.templates:23001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "आप दोषमुक्ति विधा चला रहे है।किसी महत्वपूर्ण शब्दकूट के चुनाव ना करे।"
 
 #. Type: text
 #. Description
@@ -206,7 +213,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr ""
+msgstr "दस्तावेज एवं अनुकुलुनो को दूसरी चालक तंत्र से आयात करे।"
 
 #. Type: text
 #. Description
@@ -223,6 +230,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"अगर आप किसी भी खातो का आयातन नही करना चाहते तो कुछ चुनाव न करते हुआ अगले पन्ने पर "
+"जाए।"
 
 #. Type: text
 #. Description
@@ -262,7 +271,7 @@ msgstr "आपका नया प्रचालन तंत्र निम�
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "उन्नत..."
 
 #. Type: text
 #. Description
@@ -270,7 +279,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "संस्थापना"
 
 #. Type: text
 #. Description
@@ -388,7 +397,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "विस्तृत विकल्प"
 
 #. Type: text
 #. Description
@@ -519,10 +528,8 @@ msgstr "फाईल नकल किये जा रहे हैं (एक �
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "फाईल का नकल नहीं हो पाया; क्या हार्ड डिस्क खराब है?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -617,11 +624,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
 msgstr ""
-"फाईल का नकल नहीं हो पाया; क्या हार्ड डिस्क या सीडी/डीवीडी डिस्क या ड्राईव खराब है?"
 
 #. Type: select
 #. Description
@@ -681,7 +685,7 @@ msgstr "ुउपयोक्ता बन रहा हैं..."
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "दस्तावेजों एवं अनुकुलनो का आयतन किया जा रहा है।"
 
 #. Type: text
 #. Description
@@ -711,13 +715,13 @@ msgstr "बूट लोडर कॉन्फ़िगर किया जा �
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "अतिरिक्त संकुलों का संस्थापन किया जा रहा है।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "संस्थापना के लिए संकुलों की जांच की जा रही है...."
 
 #. Type: text
 #. Description
@@ -765,13 +769,13 @@ msgstr "${PACKAGE} मिटाने में समस्या"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "संकुलों का संस्थापना मे त्रुटी हो गई है।"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "संकुलों का संस्थापना मे  एक त्रुटी हो गई है।"
 
 #. Type: error
 #. Description
@@ -779,7 +783,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "निम्नलिखित संकुल अपूर्णस्थिति मे है।"
 
 #. Type: error
 #. Description
@@ -795,18 +799,24 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"यह स्थिति  पुरानी संस्थापक के इस्तेमाल के कारण हो सकती है,या उपरोक्त संकुलों मे गलतियों की "
+"वजह से भी ऐसा हो सकता है।अधिक जानकारी आपको /var/log/syslog से प्राप्त हो सकती "
+"है।फ़िर भी संस्थापक  संथापना की प्रक्रिया को जारी रखेगा पर आगे जा कर यह प्रक्रिया बिगड़ "
+"भी सकती है और आगे की संस्थापन्ना बाधित हो सकती है जिससे संकुलों की संस्थापना विस्थापना न "
+"हो पाए(और संस्थापक ख़ुद को तंत्र से विस्थापित न कर पाए )।आप पहले संथापक के नविन संस्करण "
+"की जांच करे या फ़िर आपके वितरक को  इसकी सूचना दे।"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "संकुलों की विस्थापना मे त्रुटी हो गई है।"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "संकुलों की विस्थापना मे एक त्रुटी हो गई है।"
 
 #. Type: title
 #. Description
@@ -833,6 +843,8 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"संस्थापक को यह बदलाव partition table मे डालने की जरुरत है,पर वह ऐसा करने मे अक्षम है "
+"क्युकि  विभाजन में नाम्नालिखित mount points को unmount नही कर सका।"
 
 #. Type: boolean
 #. Description
@@ -851,10 +863,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "चुने गये डिस्क को कैसे विभाजन करना चाहते हैं?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1424,43 +1434,5 @@ msgstr "हार्डवेयर कॉन्फ़िगर किया ज
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "हार्डवेयर कॉन्फ़िगर किया जा रहा है..."
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "समय क्षेत्र को कॉन्फ़िगर किया जा रहा है..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "एक उपयोक्ता बनायें चुने हुऐ खाते को आयात करने के लिऐ"
-
-#~ msgid "Full Name:"
-#~ msgstr "पूरा नामः"
-
-#, fuzzy
-#~ msgid "Login Name:"
-#~ msgstr "सत्रारंभ नाम"
-
-#~ msgid "Password:"
-#~ msgstr "कूटशब्द:"
-
-#~ msgid "Confirm:"
-#~ msgstr "पक्का :"
-
-#, fuzzy
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "रूट पार्टिशन (\"/\") कम-से-कम २ जी-बी बडा होना चाहिये, और स्वैप पार्टिशन कम-से-कम "
-#~ "२५६ एम-बी।"
-
-#, fuzzy
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "जब आप कम्प्यूटर को फिर से चालू करते हैं, तो सीडी निकालना न भूलिये, नहीं तो कम्प्यूटर "
-#~ "अभी संस्थापित ओपरेटिंग सिस्टम से नहीं, जीवंत सीडी से शुरु होगी।"
+msgstr ""

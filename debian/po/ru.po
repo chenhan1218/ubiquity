@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: 2007-10-07 11:46+0000\n"
+"PO-Revision-Date: 2008-02-20 12:37+0000\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -222,18 +222,10 @@ msgstr "Миграция документов и настроек"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Выберите учетные записи, которые вы хотите импортировать и заполните форму "
-"для каждой. Документы и установки для этих учетных записей будут доступны "
-"после завершения установки."
 
 #. Type: text
 #. Description
@@ -546,10 +538,8 @@ msgstr "Копирование файлов (осталось меньше ми�
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Ошибка при копировании файлов; битый жесткий диск?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -640,10 +630,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Ошибка при копировании файлов; битый CD/DVD или жесткий диск?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -886,31 +874,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Как вы желаете сделать разметку диска?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Файловая система на ${PARTITION}, подключаемая на ${MOUNTPOINT}, не была "
-"отмечена для форматирования. Для работы данной программы установки файловые "
-"системы, использующиеся системой (/, /boot, /usr, /var), должны быть "
-"переформатированы. Другие файловые системы (/home, /media/*, /usr/local, "
-"etc.) могут быть использованы без переформатирования."
 
 #. Type: boolean
 #. Description
@@ -1183,18 +1158,14 @@ msgstr "Myth управление"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
-#, fuzzy
-#| msgid "Myth Archive"
 msgid "Myth Appearance"
-msgstr "Myth архив"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
-#, fuzzy
-#| msgid "Myth News"
 msgid "Myth Movies"
-msgstr "Myth новости"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1363,16 +1334,10 @@ msgstr "Выбор дополнительных тем"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:56001
-#, fuzzy
-#| msgid ""
-#| "Themes can greatly improve the aesthic appeal of a MythTV setup, and "
-#| "display it to match your tastes much better."
 msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
-"Темы значительно улучшают эстетическую привлекательность MythTV и отображают "
-"его в большем соответствии с вашими вкусами."
 
 #. Type: text
 #. Description
@@ -1545,69 +1510,5 @@ msgstr "Настройка дополнительных служб..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
-#| msgid "Configuring additional services..."
 msgid "Configuring infrared devices..."
-msgstr "Настройка дополнительных служб..."
-
-#~ msgid "Myth DVD"
-#~ msgstr "Myth DVD"
-
-#~ msgid ""
-#~ "Provides an interface for launching your preferred DVD player from MythTV"
-#~ msgstr "Интерфейс запуска Вашего любимого DVD-плеера из MythTV"
-
-#~ msgid "Official Themes"
-#~ msgstr "Официальные темы"
-
-#~ msgid "Community Themes"
-#~ msgstr "Темы от сообщества"
-
-#~ msgid ""
-#~ "This themes package includes all themes distributed by the MythTV website."
-#~ msgstr "Этот пакет включает все темы, размещённые на веб-сайте MythTV."
-
-#~ msgid ""
-#~ "This themes package is a collection of community themes generated by "
-#~ "other MythTV users."
-#~ msgstr ""
-#~ "Этот пакет является собранием тем от сообщества, созданных другими "
-#~ "пользователями MythTV."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Системный раздел не отформатирован"
-
-#~ msgid "Configuring remote control..."
-#~ msgstr "Настройка дистанционного управления..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Создать пользователя для импортирования выделенной учетной записи:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Полное имя:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Имя пользователя:"
-
-#~ msgid "Password:"
-#~ msgstr "Пароль:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Подтвердите:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Вам необходимо указать раздел для корневой файловой системы (точка "
-#~ "монтирования \"/\") с минимальным размером в 2Гб, и раздел для "
-#~ "виртуальной памяти (swap) как минимум в 256 Мб. При необходимости вы "
-#~ "можете также настроить дополнительные разделы."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Убедитесь, что вы извлекли CD до перезагрузки. Иначе компьютер снова "
-#~ "загрузится, используя этот LiveCD, а не вновь установленную систему."
+msgstr ""

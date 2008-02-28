@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: 2007-10-04 13:21+0000\n"
-"Last-Translator: Josip Rodin <joy+ditrans@linux.hr>\n"
+"PO-Revision-Date: 2008-02-20 12:33+0000\n"
+"Last-Translator: Josip Rodin <Unknown>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -220,18 +220,10 @@ msgstr "Prebaci dokumente i postavke"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Odaberite korisničke račune koje želite uvesti te popunite obrazac za svaki "
-"od njih. Dokumenti i postavke za te korisničke račune biti će dostupni nakon "
-"završetka instalacije."
 
 #. Type: text
 #. Description
@@ -492,7 +484,7 @@ msgstr ""
 " Jezik: ${LANGUAGE}\n"
 " Raspored tipkovnice: ${KEYMAP}\n"
 " Ime: ${FULLNAME}\n"
-" Korisničko ime: ${USERNAME)\n"
+" Korisničko ime: ${USERNAME}\n"
 " Lokacija: ${LOCATION}\n"
 " Pomočnik pri migraciji:\n"
 " ${MIGRATE}"
@@ -500,9 +492,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "Kopiram zapise instalacije..."
+msgstr "Provjera instalacije..."
 
 #. Type: title
 #. Description
@@ -537,10 +528,8 @@ msgstr "Kopiranje datoteka (preostalo je manje od jedne minute)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Neuspješno kopiranje datoteka; oštečenje tvrdog diska?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -631,10 +620,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Neuspješno kopiranje datoteka; oštečen CD/DVD ili tvrdi disk?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -658,7 +645,7 @@ msgstr "Kopiram zapise instalacije..."
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Configuring target system..."
-msgstr "Konfiguriram cilajni sistem ..."
+msgstr "Konfiguriram ciljani sustav..."
 
 #. Type: text
 #. Description
@@ -868,31 +855,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Kako želite particionirati disk?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Datotečni sustav na ${PARTITION} pridružen na ${MOUNTPOINT} nije označen za "
-"formatiranje. Datotečni sustavi koje koristi sustav (/, /boot, /usr, /var) "
-"moraju biti ponovo formatirani za upotrebu od instalacijskog programa. "
-"Ostali datotečni sustavi (/home, /media/*, /usr/local, itd.) mogu se "
-"koristiti bez ponovnog formatiranja."
 
 #. Type: boolean
 #. Description
@@ -935,9 +909,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "Prekinuti instalaciju?"
+msgstr "Vrsta instalacije?"
 
 #. Type: text
 #. Description
@@ -966,9 +939,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Prekinuti instalaciju?"
+msgstr "Napredna instalacija"
 
 #. Type: text
 #. Description
@@ -982,9 +954,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Instalacija potpuna"
+msgstr "Tip napredne instalacije"
 
 #. Type: text
 #. Description
@@ -1365,9 +1336,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Lozinka:"
+msgstr "MySQL lozinka"
 
 #. Type: text
 #. Description
@@ -1435,64 +1405,23 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Postavljam apt..."
+msgstr "Postavljanje mythtva..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Postavljam hardver..."
+msgstr "Postavljanje dodatnih upravljačkih programa..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Postavljam hardver..."
+msgstr "Postavljanje dodatnih usluga..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "Postavljam hardver..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Particija sustava nije formatirana"
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "Postavljam vremensku zonu..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Izradite korisnika za kojeg će biti uvezen korisnički račun:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Puno ime:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Korisničko ime:"
-
-#~ msgid "Password:"
-#~ msgstr "Lozinka:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Potvrda:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Svakako pronađite prostor za root particiju (\"/\"), najmanje 2 GB, a za "
-#~ "swap particiju najmanje 256 MB. Možete postaviti i druge particije."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Svakako uklonite CD pri ponovnom pokretanju računala, u suprotnom će se "
-#~ "ponovo pokrenuti ovaj Live CD umjesto novoinstaliranog sustava."
+msgstr ""

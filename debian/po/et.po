@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Siim Põder <windo@p6drad-teel.net>\n"
+"PO-Revision-Date: 2008-02-20 12:36+0000\n"
+"Last-Translator: Siim Põder <Unknown>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -71,6 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Installeerite süsteemitootja režiimis. Palun sisestage nende süsteemide "
+"pakile unikaalne nimi. See nimi salvestatakse installeeritud süsteemile ja "
+"seda saab kasutada teatiste esitamisel vigade kohta."
 
 #. Type: text
 #. Description
@@ -109,9 +112,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:11001
-#, fuzzy
 msgid "Selected city:"
-msgstr "Vali oma flopiseade:"
+msgstr "Valitud linn:"
 
 #. Type: text
 #. Description
@@ -134,9 +136,8 @@ msgstr "Kohalik aeg:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "Vali klaviatuuri paigutus:"
+msgstr "Klaviatuuripaigutus"
 
 #. Type: text
 #. Description
@@ -218,9 +219,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
 msgid "Migrate Documents and Settings"
-msgstr "Migreeri Dokumendid ja Seaded"
+msgstr "Dokumentide ja seadistuste ülekandmine"
 
 #. Type: text
 #. Description
@@ -249,16 +249,14 @@ msgstr "Valmista ette kettaruum"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
 msgid "How do you want to partition the disk?"
-msgstr "Kas soovid partitsioneerimist jätkata?"
+msgstr "Kuidas sa tahad ketast partitsioneerida?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
-#, fuzzy
 msgid "Prepare partitions"
-msgstr "Loo uus partitsioon"
+msgstr "Partitsioonide ettevalmistamine"
 
 #. Type: text
 #. Description
@@ -266,9 +264,8 @@ msgstr "Loo uus partitsioon"
 #. Description
 #: ../ubiquity.templates:32001 ../ubiquity.templates:66001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
-#, fuzzy
 msgid "Ready to install"
-msgstr "Paigaldatav tuum:"
+msgstr "Paigaldamiseks valmis"
 
 #. Type: text
 #. Description
@@ -281,7 +278,7 @@ msgstr "Sinu uus operatsioonisüsteem paigaldatakse nüüd järgmiste seadetega:
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Täpsemalt..."
 
 #. Type: text
 #. Description
@@ -289,7 +286,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Paigalda"
 
 #. Type: text
 #. Description
@@ -300,16 +297,14 @@ msgstr "Samm ${INDEX} / ${TOTAL} 'st"
 #. Type: title
 #. Description
 #: ../ubiquity.templates:37001
-#, fuzzy
 msgid "Abort the installation?"
-msgstr "Katkesta paigaldamine"
+msgstr "Katkestada paigaldamine?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
-#, fuzzy
 msgid "Do you really want to abort the installation now?"
-msgstr "Kas soovid minna tagasi partitsioneerimise menüü juurde?"
+msgstr "Kas sa tõesti tahad paigaldamise praegu katkestada?"
 
 #. Type: text
 #. Description
@@ -341,7 +336,7 @@ msgstr "Taaskäivita nüüd"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Paigaldaja krahhis"
 
 #. Type: text
 #. Description
@@ -354,6 +349,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Vabandust - paigaldaja krahhis. Palun lisage vearaport  aadressil https://"
+"launchpad.net/ubuntu/+source/ubiquity/+filebug (ärge lisage oma veateadet "
+"juba olemasolevale veateatele) ja arendaja vaatab selle probleemi üle nii "
+"pea kui võimalik. Et aidata arendajatel vea põhjustest aru saada, lisage "
+"järgnevad üksikasjad oma vearaportisse ja lisage failid /var/log/syslog ja /"
+"var/log/partman:"
 
 #. Type: text
 #. Description
@@ -409,7 +410,7 @@ msgstr "Muuda partitsiooni"
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Täpsemad valikud"
 
 #. Type: text
 #. Description
@@ -421,19 +422,19 @@ msgstr "Alglaadimine"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Paigalda alglaadur"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Populaarsusvõistlus"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Osale pakettide kasutamise uuringus"
 
 #. Type: text
 #. Description
@@ -508,9 +509,8 @@ msgstr "Paigalduse kontrollimine..."
 #. Type: title
 #. Description
 #: ../ubiquity.templates:68001
-#, fuzzy
 msgid "Installing system"
-msgstr "Paigaldamine on lõppenud"
+msgstr "Süsteemi paigaldamine"
 
 #. Type: text
 #. Description
@@ -521,16 +521,14 @@ msgstr "Otsin kopeerimiseks ditributsiooni..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
-#, fuzzy
 msgid "Scanning files..."
-msgstr "Ketaste skännimine..."
+msgstr "Failide skaneerimine..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
-#, fuzzy
 msgid "Copying files..."
-msgstr "Partitsiooni kopeerimine..."
+msgstr "Failide kopeerimine..."
 
 #. Type: text
 #. Description
@@ -541,10 +539,8 @@ msgstr "Failide kopeerimine (vähem kui minut on jäänud)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Failide kopeerimine ebaõnnestus; vigane kõvaketas?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -583,6 +579,9 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"See viga juhtub tihti vigase CD/DVD plaadi või lugeja tõttu. Aidata võib CD/"
+"DVD puhastamine, väiksemal kiirusel kirjutamine või kettalugeja läätsede "
+"puhastamine (puhastuskomplekte saab osta arvutipoodidest)."
 
 #. Type: error
 #. Description
@@ -598,6 +597,9 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"See viga juhtub tihti vigase kõvaketta tõttu. Võibolla on kõvaketas vana "
+"ning vajab vahetamist või tuleb arvuti paigutada jahedamasse kohta (kestas "
+"on ülekuumenenud)."
 
 #. Type: error
 #. Description
@@ -619,14 +621,17 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"See viga juhtub tihti vigase CD/DVD plaadi või lugeja või ka vigase "
+"kõvaketta tõttu. Aidata võib CD/DVD puhastamine, väiksemal kiirusel "
+"kirjutamine või kettalugeja läätsede puhastamine (puhastuskomplekte saab "
+"osta arvutipoodidest), vana kõvaketta välja vahetamine või arvuti "
+"jahedamasse kohta paigutamine."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Failide kopeerimine ebaõnnestus; vigane CD/DVD või kõvaketas?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -643,22 +648,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:79001
-#, fuzzy
 msgid "Copying installation logs..."
-msgstr "Partitsiooni kopeerimine..."
+msgstr "Paigalduslogide kopeerimine..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Seadistatakse sihtsüsteemi..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:81001
-#, fuzzy
 msgid "Configuring system locales..."
-msgstr "Võrgu seadistamine..."
+msgstr "Süsteemi lokaadi seadistamine..."
 
 #. Type: text
 #. Description
@@ -669,35 +672,32 @@ msgstr "Seadistan apt'i..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:83001
-#, fuzzy
 msgid "Configuring time zone..."
-msgstr "Võrgu seadistamine..."
+msgstr "Ajavööndi seadistamine..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Configuring keyboard..."
-msgstr ""
+msgstr "Seadistatakse klaviatuuri..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:85001
-#, fuzzy
 msgid "Creating user..."
-msgstr "Seadmefailide loomine..."
+msgstr "Kasutaja loomine..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:86001
 msgid "Importing documents and settings..."
-msgstr ""
+msgstr "Dokumentide ja seadete importimine..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:87001
-#, fuzzy
 msgid "Configuring hardware..."
-msgstr "Võrgu seadistamine..."
+msgstr "Riistvara seadistamine..."
 
 #. Type: text
 #. Description
@@ -708,41 +708,38 @@ msgstr "Võrgu seadistamine..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
-#, fuzzy
 msgid "Setting computer name..."
-msgstr "Videomälu häälestamine..."
+msgstr "Arvuti nime määramine..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:90001
-#, fuzzy
 msgid "Configuring boot loader..."
-msgstr "Võrgu seadistamine..."
+msgstr "Alglaaduri seadistamine..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Lisapakettide paigaldamine..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Kontrollitakse, kas on pakette mida paigaldada..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
-#, fuzzy
 msgid "Removing extra packages..."
-msgstr "Lisapakettide paigaldamine..."
+msgstr "Lisapakettide eemaldamine..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:94001
 msgid "Checking for packages to remove..."
-msgstr ""
+msgstr "Kontrollitakse, kas on pakette mida eemaldada..."
 
 #. Type: text
 #. Description
@@ -765,28 +762,26 @@ msgstr "Laadin pakettide nimekirja (${TIME} järelejäänud)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:99001
-#, fuzzy
 msgid "Error installing ${PACKAGE}"
-msgstr "GRUB'i paigaldamine seadmele ${BOOTDEV} nurjus"
+msgstr "Viga ${PACKAGE} paigaldamisel"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:100001
-#, fuzzy
 msgid "Error removing ${PACKAGE}"
-msgstr "${PACKAGE} hankimine"
+msgstr "Viga ${PACKAGE} eemaldamisel"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Pakettide paigaldamisel ilmnes viga"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Pakettide paigaldamisel ilmnes viga"
 
 #. Type: error
 #. Description
@@ -794,7 +789,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Vigaseks osutusid järgmised paketid:"
 
 #. Type: error
 #. Description
@@ -810,25 +805,30 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"See võib juhtuda kui kasutada vana paigaldajatõmmist, või on tegemist veaga "
+"mõnes eeltoodud paketis. Detailsem info leidub /var/log/syslog. Paigaldaja "
+"üritab jätkata, kuid võib siiski ebaõnnestuda ning ei osutu võimeliseks "
+"paigaldama ja teisi pakette installeeritud süsteemist eemaldama (võimalik, "
+"et ka iseennast). Esiteks oleks mõttekas otsida uuemaid paigaldajatõmmiseid, "
+"või kui see ei aita, siis anda ilmnenud veast levitajale teada."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Pakettide eemaldamisel ilmnes viga"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Pakettide eemaldamisel ilmnes viga:"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:104001
-#, fuzzy
 msgid "Installing language packs"
-msgstr "Tuumikpakettide paigaldamine"
+msgstr "Keelepakkide paigaldamine"
 
 #. Type: text
 #. Description
@@ -849,27 +849,30 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Paigaldaja peab rakendama muudatused partitsioonitabelisse, aga ei saa seda "
+"teha, sest järgnevates ühenduskohtades olevaid partitsioone ei saanud lahti "
+"haakida:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:110001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "Palun sulge kõik rakendused, mis kasutavad neid haakepunkte."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:110001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
+"Kas soovite, et paigaldaja üritab neid partitsioone uuesti lahti haakida?"
 
 #. Type: boolean
 #. Description
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
 msgid "Do you want to return to the partitioner?"
-msgstr "Kas soovid partitsioneerimist jätkata?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -918,6 +921,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Paigaldamistüüp:           ${INSTALLTYPE}\n"
+" Draiverid:\n"
+"     Lisa videodraiver:  ${VIDEO_DRIVER}\n"
+"         TV-Out:             ${TVOUT}, ${TVSTANDARD}\n"
+" Lisateenused:\n"
+"     VNC:                ${EN_VNC}\n"
+"     SSH:                ${EN_OPENSSH}\n"
+"     Samba:              ${EN_SAMBA}\n"
+"     NFS:                ${EN_NFS}\n"
+"     MythTV teenus:     ${EN_MYSQL}\n"
+" Tavalised Ubuntu paigaldamise küsimused:\n"
+"     Keel:           ${LANGUAGE}\n"
+"     Klaviatuuri paigutus:    ${KEYMAP}\n"
+"     Täisnimi:       ${FULLNAME}\n"
+"     Kasutajanimi: ${USERNAME}\n"
+"     Asukoht:           ${LOCATION}"
 
 #. Type: text
 #. Description
@@ -929,7 +948,7 @@ msgstr "Mis tüüpi paigaldus?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Mythbuntu tarbeks on kaks paigaldustüüpi:"
 
 #. Type: text
 #. Description
@@ -945,12 +964,15 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Tavapaigaldus paigaldab ja seadistab kõik valikud vähima kasutajapoolse "
+"sekkumisega. See paigaldab taustarakenduse, kasutajaliidese, kõik pluginad "
+"ja teemad."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
 msgid "Advanced Installation"
-msgstr ""
+msgstr "Täpsem paigaldus"
 
 #. Type: text
 #. Description
@@ -960,6 +982,9 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Täpsem paigaldus on mõeldud selleks, et seadistada Mythbuntu paigaldus oma "
+"valikutega. MÄRKUS: See valik on vajalik, kui on sooviks lisada Mythbuntu "
+"masin olemasolevasse MythTV võrku."
 
 #. Type: text
 #. Description
@@ -975,13 +1000,13 @@ msgstr "Paigaldamine on lõppenud"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Mis tüüpi saab see süsteem olema?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Peamine taustarakendus / kasutajaliides"
 
 #. Type: text
 #. Description
@@ -991,12 +1016,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Taustarakendus / kasutajaliides ühendus on kõige tavalisem masina seadistus "
+"neile, kes soovivad MythTV HTPC rakenduste jaoks. Seda tüüpi paigaldus on "
+"mõeldud kasutamiseks kodukino osana."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Teisane taustarakendus / kasutajaliides"
 
 #. Type: text
 #. Description
@@ -1005,12 +1033,15 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"See paigaldab süsteemi sarnaselt peamisele taustarakendus / "
+"kasutajaliidesele, erinevuseks on, et see seadistatakse ühenduma olemasoleva "
+"võrgus asuva taustarakendusega."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Peamine taustarakendus"
 
 #. Type: text
 #. Description
@@ -1020,12 +1051,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Vaid taustarakendusega masin on tavaliselt mõeldud töötama eraldiseisva "
+"seadmena, mis vajab väga vähe hooldust. See on mõeldud paigaldamiseks "
+"kohtvõrgu esimese taustarakendusena."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Teisane taustarakendus"
 
 #. Type: text
 #. Description
@@ -1034,12 +1068,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"See paigaldab süsteemi sarnaselt peamisele taustarakendusele, erinevuseks "
+"on, et see seadistatakse ühenduma olemasoleva võrgus asuva taustarakendusega."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Kasutajaliides"
 
 #. Type: text
 #. Description
@@ -1118,9 +1154,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
-#, fuzzy
 msgid "Myth Movies"
-msgstr "mythweb"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1349,9 +1384,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Parool:"
+msgstr "MySQL parool"
 
 #. Type: text
 #. Description
@@ -1440,28 +1474,5 @@ msgstr "Võrgu seadistamine..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "Võrgu seadistamine..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Süsteemi partitsiooni ei vormindatud"
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "Võrgu seadistamine..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Loo kasutaja importimaks valitud kontod:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Täisnimi:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Sisselogimisnimi:"
-
-#~ msgid "Password:"
-#~ msgstr "Parool:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Kinnita:"
+msgstr ""

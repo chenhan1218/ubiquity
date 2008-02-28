@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
+"PO-Revision-Date: 2008-02-20 12:36+0000\n"
+"Last-Translator: Eugeniy Meshcheryakov <Unknown>\n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,7 +26,6 @@ msgstr "Встановити"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
 msgid "Install (OEM mode, for manufacturers only)"
 msgstr "Встановлення (режим OEM, лише для виробників)"
 
@@ -67,14 +66,13 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
-#, fuzzy
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
 "Ви встановлюєте в режимі виробника системи. Прошу ввести унікальну назву для "
-"цього пакету систем. Ця назва буде збережена у встановленій системі і може "
+"цієї серії систем. Ця назва буде збережена у встановленій системі і може "
 "використовуватися для допомоги при звітуванні про помилки."
 
 #. Type: text
@@ -218,23 +216,15 @@ msgstr "Ця назва буде відображатись при відобр�
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr "Пренесення документів та налаштувань"
+msgstr "Перенесення документів та налаштувань"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Виберіть рахунки, які ви хотіли б імпортувати і заповніть форму нижче для "
-"кожного з них. Документи і налаштування для цих рахунків будуль доступними "
-"після завершення встановлення."
 
 #. Type: text
 #. Description
@@ -285,7 +275,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Додатково..."
 
 #. Type: text
 #. Description
@@ -293,7 +283,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Встановити[ action ]"
 
 #. Type: text
 #. Description
@@ -343,7 +333,7 @@ msgstr "Перезавантажити"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Програма встановлення аварійно завершилась"
 
 #. Type: text
 #. Description
@@ -356,12 +346,18 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Ми вибачаємся, але встановлювач дав збій. Будь ласка, сформуйте новий звіт "
+"про помилку на https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не "
+"додавайте своїх даних до існуючої інформації про помилку) і розробник "
+"виправить її, по можливості, у у найкоротший термін. Щоб допомогти "
+"розробникам зрозуміти що працювало неправильно, включіть у ваш звіт про "
+"помилку наступні дані та долучіть файли /var/log/syslog і /var/log/partman:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "Створити розділ"
 
 #. Type: text
 #. Description
@@ -369,7 +365,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Новий розмір розділу в мегабайтах (1000000 байтів)"
 
 #. Type: text
 #. Description
@@ -399,19 +395,19 @@ msgstr "Логічний"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "Редагувати розділ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Редагування розділа"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Розширені налаштування"
 
 #. Type: text
 #. Description
@@ -423,19 +419,19 @@ msgstr "Завантажувач"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Встановити завантажувач"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Змагання з популярності"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Прийняти участь в дослідженні про користування пакетами"
 
 #. Type: text
 #. Description
@@ -505,9 +501,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "Копіювання розділу..."
+msgstr "Перевірка встановлення..."
 
 #. Type: title
 #. Description
@@ -542,10 +537,8 @@ msgstr "Копіювання файлів (залишилося менше хв�
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Не вдалося скопіювати файли; можливо, пошкоджено жорсткий диск."
+msgstr ""
 
 #. Type: error
 #. Description
@@ -639,10 +632,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Не вдалося скопіювати файли. Поганий CD/DVD або жорсткий диск."
+msgstr ""
 
 #. Type: select
 #. Description
@@ -807,7 +798,6 @@ msgstr "Наступні пакети є пошкодженими:"
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
-#, fuzzy
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -817,13 +807,13 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Це може бути через використання застарілого образу для встановлення, чи "
-"внаслідок помилки в одному з перелічених вище пакетів . Більше деталей можна "
-"знайти в /var/log/syslog. Встановлення буде продовжене, але може бути "
-"перерваним на наступних кроках, та не зможе встановити чи видалити інші "
-"пакети (можливо включаючи самого себе) з встановленої системи. Вам необхідно "
-"спочатку пошукати новішу версію образу для встановлення, чи повідомити про "
-"проблему постачальникові."
+"Це може бути спричинено використанням застарілого образу встановлювача, чи "
+"внаслідок помилки в одному з перелічених вище пакетів. Більше інформації "
+"можна знайти в /var/log/syslog. Встановлювач спробує продовжити роботу, але "
+"може зазнати невдачі на наступних кроках, та не зможе встановити чи видалити "
+"інші пакунки (можливо включаючи самого себе) з встановленої системи. Вам "
+"необхідно спочатку пошукати новішу версію образу встановлювача, чи "
+"повідомити про проблему постачальникові."
 
 #. Type: error
 #. Description
@@ -884,31 +874,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Яким чином бажаєте поділити жорсткий диск?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Файловій система розділу ${PARTITION}, якій присвоєна точка монтування "
-"${MOUNTPOINT}, не була відмічена для форматування. Файлові системи, "
-"використовувані системою (/, /boot, /usr, /var) мають бути перефориматовані "
-"для використання цим встановлювачем. Інші файлові системи (/home, /media/*, /"
-"usr/local, etc.) можуть використовуватись без форматування."
 
 #. Type: boolean
 #. Description
@@ -947,25 +924,40 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Тип Встановлення: ${INSTALLTYPE}\n"
+" Драйвери:\n"
+"     Додатковий Відео Драйвер: ${VIDEO_DRIVER}\n"
+"         ТВ-вихід: ${TVOUT}, ${TVSTANDARD}\n"
+" Додаткові сервіси:\n"
+"     VNC: ${EN_VNC}\n"
+"     SSH: ${EN_OPENSSH}\n"
+"     Samba: ${EN_SAMBA}\n"
+"     NFS: ${EN_NFS}\n"
+"     MythTV сервіс: ${EN_MYSQL}\n"
+" Типові Запитання Встановлення Ubuntu:\n"
+"     Мова: ${LANGUAGE}\n"
+"     Мапа клавіатури: ${KEYMAP}\n"
+"     Типове Ім'я: ${FULLNAME}\n"
+"     Типове ім'я користувача: ${USERNAME}\n"
+"     Розташування: ${LOCATION}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "Перервати встановлення"
+msgstr "Який тип встановлення?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Для Mythbuntu можливі два типи встановлення:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Типове встановлення"
 
 #. Type: text
 #. Description
@@ -975,13 +967,15 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Стандартний тип встановлення встановить та налаштує всі елементи при "
+"мінімальному втручанні користувача. Він встановить основну програму, її "
+"інтерфейс, усі плагіни та усі теми."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Перервати встановлення"
+msgstr "Розширений режим встановлення"
 
 #. Type: text
 #. Description
@@ -991,13 +985,16 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Розширений тип встановлення використовується для вибору компонентів, "
+"потрібних для цього встановлення Mythbuntu. ПРИМІТКА: Розширений тип "
+"встановлення необхідний для того, щоб додати машину Mythbuntu до існуючої "
+"мережі MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Встановлення завершено"
+msgstr "Тип розширеного встановлення"
 
 #. Type: text
 #. Description
@@ -1006,13 +1003,13 @@ msgstr "Встановлення завершено"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Якого типу буде ця система?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Головний рушій із зовнішнім інтерфейсом"
 
 #. Type: text
 #. Description
@@ -1022,12 +1019,16 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Комбінована рушій/інтерфейс машина - найбільш звичайний тип встановлення для "
+"людей, що хочуть використовувати MythTV для HTPC додатків. Цей тип "
+"встановлення призначений для використання як компонент у вашому домашньому "
+"кінотеатрі."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Додатковий рушій із зовнішнім інтерфейсом"
 
 #. Type: text
 #. Description
@@ -1036,12 +1037,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Це встановить систему, схожу на Головний рушій з зовнішнім інтерфейсом, "
+"проте буде налаштований для підключення до вже існуючого в мережі рушія."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Головний рушій"
 
 #. Type: text
 #. Description
@@ -1051,12 +1054,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Машина лише з рушієм типово призначається для функціонування у ролі окремого "
+"приладу; він потребує дуже мало обслуговування. Це робиться для встановлення "
+"першого рушія у мережі."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Додатковий рушій"
 
 #. Type: text
 #. Description
@@ -1065,12 +1071,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Це встановить систему, схожу на первинний рушій, проте вона буде налаштована "
+"для підключення до існуючого в мережі рушія."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Зовнішній інтерфейс"
 
 #. Type: text
 #. Description
@@ -1080,12 +1088,15 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Головним призначенням машини лише із зовнішнім інтерфейсом є отримання "
+"мультимедійних даних від рушія та їх розповсюдження. Таке налаштування "
+"вимагає існування рушія в мережі."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Оберіть втулки зовнішнього інтерфейсу та рушія"
 
 #. Type: text
 #. Description
@@ -1094,24 +1105,26 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"Втулки можуть вживатись для розширення функціональності MythTV, незалежно "
+"від змінюваних з часом телевізійних рішень."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "Втулки рушія"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "Втулки зовнішнього інтерфейсу"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1120,24 +1133,26 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb надає веб інтерфейс, котрий можна використовувати для перегляду "
+"списків, записів розкладу, видалення записів та пошуку програм."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Myth Архів"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Myth Переглядач"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Myth Керування"
 
 #. Type: text
 #. Description
@@ -1154,56 +1169,57 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
+#, fuzzy
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Myth Галерея"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Game"
-msgstr ""
+msgstr "Myth Гра"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth Music"
-msgstr ""
+msgstr "Myth Музика"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr ""
+msgstr "Myth Новини"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth Телефон"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Myth Потік"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
-msgstr ""
+msgstr "Myth Відео"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Myth Погода"
 
 #. Type: text
 #. Description
@@ -1212,12 +1228,14 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"Втулок для MythTV, що дозволяє вам створювати DVD з даних, що знаходяться у "
+"вашій мережі MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "Інтегрований втулок веб-переглядача для вашої системи MythTV."
 
 #. Type: text
 #. Description
@@ -1226,6 +1244,8 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Зовнішні налаштування для MythTV. Вони дозволять вам змінювати функції "
+"клавіш миші та налаштування клавіатурних скорочень."
 
 #. Type: text
 #. Description
@@ -1243,25 +1263,28 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Дозволяє вам контролювати чергу оренди dvd Netflix."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
 msgstr ""
+"Дозволяє вам візуально проглядати дерево теки, яка містить файли зображень."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"Зовнішній інтерфейс для запуску будь-якого емулятора або програми, котрі "
+"Linux може виконати."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Надає цифровий аудіопрогравач, інтегрований з MythTV."
 
 #. Type: text
 #. Description
@@ -1270,6 +1293,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Втулок для читання новин у форматі подач RSS для MythTV, що надає вам "
+"найновіші новини на ваші улюблені теми."
 
 #. Type: text
 #. Description
@@ -1277,12 +1302,14 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"Функція телефону та відеотелефону у MythTV, яка використовує стандартний "
+"протокол SIP."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Надає метод для прослуховування потокових інтернет-радіостанцій."
 
 #. Type: text
 #. Description
@@ -1291,18 +1318,20 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"Дозволяє вам оглядати та програвати відеопотоки, за допомогою зовнішнього "
+"програвача, з інтерфейсу MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "Відображає інформацію про поточну погоду та її прогноз в MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "Оберіть Додаткові теми"
 
 #. Type: text
 #. Description
@@ -1325,7 +1354,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "Додаткові Драйвери/Прошивки"
 
 #. Type: text
 #. Description
@@ -1336,24 +1365,28 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Графічний драйвер з відкритим кодом вже увімкнений та налаштований для "
+"вашого встановлення.  Якщо ви хочете використовувати інший графічний "
+"драйвер, ви можете це зробити тут.  Пам'ятайте, що для TV виводу чи ефектів "
+"OpenGL можуть знадобитись графічні драйвери з закритим кодом."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "Змінити Відео Драйвер та Налаштування"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Якщо ви хочете налаштувати TV-вихід, оберіть опцію тут:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "Якщо увімкнено TV вихід, вам також потрібно обрати TV стандарт:"
 
 #. Type: text
 #. Description
@@ -1362,49 +1395,52 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Увага: Не встановлюйте вищий TV стандарт ніж той, який підтримує ваш "
+"телевізор. Можуть бути НЕВИПРАВНІ пошкодження."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Інформація про Головний рушій"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
+"Будь ласка, введіть інформацію, необхідну для зв'язку з вашим головним "
+"рушієм:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Пароль:"
+msgstr "Пароль MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "Ім'я користувача MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "База даних MySQL"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "MySQL сервер"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Налаштування керуючих даних / рушія"
 
 #. Type: text
 #. Description
@@ -1413,12 +1449,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Останні кроки встановлення вимагають налагодження ваших керуючих даних та "
+"налаштування рушія для першого запуску."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Клацніть щоб відкрити вебсайт Schedules Direct"
 
 #. Type: text
 #. Description
@@ -1428,12 +1466,16 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Користувачам у Північній Америці потрібно встановити рахунок з Schedules "
+"Direct (SD). SD надає скеровуючі дані за номінальну оплату. Без SD, "
+"північноамериканські користувачі можуть втратити багато можливостей "
+"планування у MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Запуск встановлення MythTV"
 
 #. Type: text
 #. Description
@@ -1444,68 +1486,31 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Після встановлення джерела скеровуючих даних, вам потрібно запустити MythTV-"
+"Setup, щоб виконати початкове налаштування рушія. Вам потрібно налаштувати "
+"перші чотири секції, та переконатись, що ви надали скеровуючі дані під час "
+"налаштування третьої."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Налаштувати apt..."
+msgstr "Налаштування mythtv..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Налаштування заліза..."
+msgstr "Налаштування додаткових драйверів..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Налаштування заліза..."
+msgstr "Налаштування додаткових сервісів..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "Налаштування заліза..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Системний розділ не формативаний."
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "Налаштування часового поясу..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "Створіть користувача для імпорту вибраного рахунку до нього:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Повне ім'я:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Логін:"
-
-#~ msgid "Password:"
-#~ msgstr "Пароль:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Підтвердіть:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Не забудьте створити розділ root (\"/\") роміром не більше 2 GB, та "
-#~ "розділ swap розміром не меньше 256 MB."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Не забудьте вийняти Ubuntu CD при перезавантаженні компютера, тому що при "
-#~ "перезавантаженні компьютер знов завантажить систему з компакт диску."
+msgstr ""

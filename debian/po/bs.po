@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Safir Secerovic <sapphire@linux.org.ba>\n"
+"PO-Revision-Date: 2008-02-20 12:48+0000\n"
+"Last-Translator: Safir Šećerović <Unknown>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -523,10 +523,8 @@ msgstr "Kopiranje datoteka (preostalo je manje od jedne minute)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Neuspiješno kopiranje datoteka; oštečen tvrdi disk?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -619,10 +617,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Neuspiješno kopiranje datoteka; oštećen CD/DVD ili tvrdi disk?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -863,9 +859,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
 msgid "Do you want to return to the partitioner?"
-msgstr "Da li želite nastaviti particionisanje?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1433,19 +1428,5 @@ msgstr "Podešavam mrežu..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "Podešavam mrežu..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Sistemska particija nije montirana"
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "Podešavam mrežu..."
-
-#~ msgid "Full Name:"
-#~ msgstr "Puno ime:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Korisničko ime:"
+msgstr ""

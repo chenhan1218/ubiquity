@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
+"PO-Revision-Date: 2008-02-21 13:02+0000\n"
+"Last-Translator: Yuji Kaneko <yuyu@sb3.so-net.ne.jp>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "インストール"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "インストール（PC製造業者のためのOEMモード）"
 
 #. Type: text
 #. Description
@@ -71,6 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"PC製造業者モードでインストール中です\r\n"
+"この製造ロットのPCのために、特定の名前を入力してください\r\n"
+"この名前はインストールされたPCに保存され、バグレポートのために使用できます"
 
 #. Type: text
 #. Description
@@ -223,18 +226,10 @@ msgstr "Documents and Settingsのインポート"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"インポートしたいアカウントをすべて選択し、それぞれについて下に表示される"
-"フォームに入力して下さい。それらのアカウントのドキュメントや設定は、インス"
-"トール完了後に利用できるようになるでしょう。"
 
 #. Type: text
 #. Description
@@ -284,7 +279,7 @@ msgstr "新しいオペレーティングシステムは、以下の設定でイ
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "拡張..."
 
 #. Type: text
 #. Description
@@ -292,7 +287,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "インストール"
 
 #. Type: text
 #. Description
@@ -342,7 +337,7 @@ msgstr "すぐに再起動する"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "インストーラがクラッシュしました"
 
 #. Type: text
 #. Description
@@ -355,12 +350,17 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"インストーラがクラッシュしました。新たにバグレポートを https://launchpad.net/"
+"ubuntu/+source/ubiquity/+filebug に書き込んでください (ただし、既存のバグと結"
+"び付けないようにしてください)。開発者ができる限り早く問題に対処します。開発者"
+"が問題点を理解しやすいように、次の点をバグレポートに含めてください。また、 /"
+"var/log/syslog と /var/log/partmanを添付してください。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "パーティションを作成する"
 
 #. Type: text
 #. Description
@@ -369,6 +369,7 @@ msgstr ""
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr ""
+"新しいパーティションのサイズをメガバイト(1000000バイト)単位で指定する："
 
 #. Type: text
 #. Description
@@ -398,19 +399,19 @@ msgstr "論理パーティション"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "パーティションを編集する"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "パーティション編集"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "詳細オプション"
 
 #. Type: text
 #. Description
@@ -422,19 +423,19 @@ msgstr "ブートローダ"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "ブートローダーをインストール"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "人気投票"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "パッケージの使用調査に参加してください"
 
 #. Type: text
 #. Description
@@ -503,9 +504,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "インストールログをコピーしています..."
+msgstr "インストールをチェックしています..."
 
 #. Type: title
 #. Description
@@ -540,10 +540,8 @@ msgstr "ファイルをコピーしています (残り1分弱です)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "ファイルのコピーに失敗しました; ハードディスクが壊れている ?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -636,12 +634,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
 msgstr ""
-"ファイルのコピーに失敗しました; CD/DVD ドライブもしくはハードディスクが壊れて"
-"いる ?"
 
 #. Type: select
 #. Description
@@ -731,13 +725,13 @@ msgstr "ブートローダを設定しています..."
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "追加パッケージのインストール中..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "インストールするパッケージのチェック中..."
 
 #. Type: text
 #. Description
@@ -785,13 +779,13 @@ msgstr "${PACKAGE} を削除できません"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "パッケージのインストール中にエラーが発生しました"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "パッケージのインストール中にエラーが１件発生しました"
 
 #. Type: error
 #. Description
@@ -799,7 +793,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "次のパッケージは壊れています："
 
 #. Type: error
 #. Description
@@ -815,18 +809,26 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"このエラーは、古いインストールイメージを使用したか、上記のパッケージのエラー"
+"のため発生しました\r\n"
+"より詳細な情報は、/var/log/syslogを確認してください\r\n"
+"インストーラーはインストールを続行しますが、この先失敗する可能性があり、イン"
+"ストール済みのPCから他のパッケージ（上記のパッケージもおそらく含まれます）の"
+"インストール／削除ができなくなる可能性があります\r\n"
+"より新しいインストーラーのイメージファイルをまず探し、それでも失敗するなら問"
+"題点を販売業者に報告してください"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "パッケージの削除中にエラーが起きました"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "パッケージの削除中に1件のエラーが発生しました"
 
 #. Type: title
 #. Description
@@ -877,29 +879,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "どのようにディスクを分割しますか？"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"${MOUNTPOINT}が設定されている${PARTITION}上のファイルシステムをフォーマットす"
-"る為のマークがされていません。システムで使用する(/,/boot,/user,/var)ファイル"
-"システムはインストーラにより再フォーマットしなくてはいけません。"
 
 #. Type: boolean
 #. Description
@@ -938,25 +929,40 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" インストールタイプ:　${INSTALLTYPE}\n"
+" ドライバ:\n"
+"     追加ビデオドライバ: ${VIDEO_DRIVER}\n"
+"         テレビ出力: ${TVOUT}, ${TVSTANDARD}\n"
+" 付加的なサービス:\n"
+"     VNC: ${EN_VNC}\n"
+"     SSH: ${EN_OPENSSH}\n"
+"     Samba: ${EN_SAMBA}\n"
+"     NFS: ${EN_NFS}\n"
+"     MythTV サービス: ${EN_MYSQL}\n"
+" 通常の Ubuntu インストール時における質問 :\n"
+"     言語: ${LANGUAGE}\n"
+"     キーボード: ${KEYMAP}\n"
+"     名前: ${FULLNAME}\n"
+"     ログイン名: ${USERNAME}\n"
+"     地域: ${LOCATION}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "インストールを中断しますか？"
+msgstr "インストールのタイプをどれにしますか？"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Mythbuntu では、2つのインストール方法を選択できます。"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "通常のインストール"
 
 #. Type: text
 #. Description
@@ -966,13 +972,16 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"標準のインストールでは、ユーザーの作業が最小となるよう、全てのオプションが設"
+"定されインストールされます\r\n"
+"このインストールでは、バックエンド、フロントエンド、全てのテーマとプラグイン"
+"がインストールされます"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "インストールを中断しますか？"
+msgstr "詳細なインストール設定"
 
 #. Type: text
 #. Description
@@ -982,13 +991,16 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"高度なインストールは、Mythbuntu のインストールにカスタマイズが必要な際に利用"
+"できます\r\n"
+"注意：高度なインストールはMythTVネットワークにMythbuntuマシンを加えるのに必要"
+"です"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "インストール完了"
+msgstr "詳細なインストールタイプ"
 
 #. Type: text
 #. Description
@@ -997,13 +1009,13 @@ msgstr "インストール完了"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "このPCをどの形式のシステムにしますか？"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "フロントエンドを備えた基本的なバックエンドシステム"
 
 #. Type: text
 #. Description
@@ -1013,12 +1025,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"バックエンド／フロントエンドのコンボマシンは、HTPCアプリケーション用にMythTV "
+"が必要な方に、もっとも一般的なセットアップです。ホームシアターの一部として使"
+"われるインストール形式です。"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "フロントエンドを備えた二台目のバックエンドシステム"
 
 #. Type: text
 #. Description
@@ -1027,12 +1042,15 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"この形式は、フロントエンドを備えた基本的なバックエンドシステムと似たシステム"
+"をセットアップしますが、ネットワーク上の既存のバックエンドマシンに接続するた"
+"めの設定がされます"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "基本的なバックエンド"
 
 #. Type: text
 #. Description
@@ -1042,12 +1060,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"バックエンド専用マシンは電化製品のような機能を持たせるよう設定されます；ほと"
+"んどメンテナンスの必要がありません\r\n"
+"ネットワーク上の最初のバックエンドマシンとするためのインストール形式です"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "二台目のバックエンド"
 
 #. Type: text
 #. Description
@@ -1056,12 +1077,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"この形式は基本的なバックエンドマシンと似たシステムをセットアップしますが、"
+"ネットワーク上の既存のバックエンドマシンに接続するために設定されます"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "フロントエンド"
 
 #. Type: text
 #. Description
@@ -1071,12 +1094,15 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"フロントエンド専用マシンの主な機能は、バックエンドからメディアコンテンツを受"
+"け取り、そのコンテンツを配信することです\r\n"
+"この設定には、ネットワーク上にバックエンドマシンがあることが必要です"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "フロントエンド／バックエンドプラグインの選択"
 
 #. Type: text
 #. Description
@@ -1084,25 +1110,25 @@ msgstr ""
 msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
-msgstr ""
+msgstr "プラグインはMythTVにタイムシフト視聴機能を拡張するために使われます"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "バックエンドプラグイン"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "フロントエンドプラグイン"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1111,24 +1137,26 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWebはリスト表示、録画予約、録画の削除、番組の検索を行うためのWebインター"
+"フェースです"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Myth アーカイブ"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Myth ブラウザ"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Myth コントロール"
 
 #. Type: text
 #. Description
@@ -1146,55 +1174,55 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Myth ギャラリー"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Game"
-msgstr ""
+msgstr "Myth ゲーム"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth Music"
-msgstr ""
+msgstr "Myth ミュージック"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth News"
-msgstr ""
+msgstr "Myth ニュース"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth 電話"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Mythストリーム"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Video"
-msgstr ""
+msgstr "Myth ビデオ"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Myth天気情報"
 
 #. Type: text
 #. Description
@@ -1202,13 +1230,13 @@ msgstr ""
 msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
-msgstr ""
+msgstr "MythTVネットワーク上のコンテンツからDVDを作成するためのプラグイン"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "MythTVに組み込まれたWebブラウザプラグイン"
 
 #. Type: text
 #. Description
@@ -1216,7 +1244,7 @@ msgstr ""
 msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
-msgstr ""
+msgstr "MythTV の外部コントロール。ボタン配置とキーバインドを変更できます"
 
 #. Type: text
 #. Description
@@ -1234,25 +1262,26 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Netflix のDVD貸出し状況を表示します"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
+msgstr "画像を含むディレクトリ・ツリーをブラウズできます"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:48001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"Linuxで動作するエミュレータやプログラムを起動させるためのフロントエンドです"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:49001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "MythTVに組み込まれた音楽プレーヤーです"
 
 #. Type: text
 #. Description
@@ -1260,20 +1289,20 @@ msgstr ""
 msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
-msgstr ""
+msgstr "お好みの最新のニュースを表示するRSSフィードニュースリーダーです"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:51001
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
-msgstr ""
+msgstr "MythTVに電話／テレビ電話機能（SIP標準プロトコル）を追加します"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "インターネットラジオステーションのストリーミングを聴く方法を提供します"
 
 #. Type: text
 #. Description
@@ -1282,18 +1311,20 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"MythTV の画面から、外部プレーヤーによるストリーミングビデオのブラウズと再生を"
+"行います"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:54001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "MythTV で現在の天気と天気予報を表示します"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 msgid "Choose Extra Themes"
-msgstr ""
+msgstr "拡張テーマを選びます"
 
 #. Type: text
 #. Description
@@ -1316,7 +1347,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "追加ドライバ／ファームウエア"
 
 #. Type: text
 #. Description
@@ -1327,24 +1358,27 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"オープンソースのグラフィックドライバーが既にインストール・設定されています"
+"が、別のグラフィックドライバーを使用することもできます。なおTV出力または"
+"OpenGLは多くの場合プロプライエタリなグラフィックドライバを必要とします。"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "ビデオドライバと設定を変更してください"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:62001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "TV出力を設定するにはここでオプションを選択してください"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "TV出力を有効にする場合、TVの放送方式を選択する必要があります"
 
 #. Type: text
 #. Description
@@ -1353,49 +1387,51 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"警告：お持ちのTVがサポートしている放送方式より高度な放送方式を選ばないでくだ"
+"さい\r\n"
+"TVが破壊されるおそれがあります"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "マスター側バックエンドの情報"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "Please enter the information necessary to contact your master backend:"
-msgstr ""
+msgstr "マスター側バックエンドにコンタクトする為に必要な情報を入力してください"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:67001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "パスワード:"
+msgstr "MySQLパスワード"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:68001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "MySQL ユーザーネーム"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "MySQL Database"
-msgstr ""
+msgstr "MySQL データベース"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
 msgid "MySQL Server"
-msgstr ""
+msgstr "MySQL サーバー"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "番組ガイドデータ／バックエンドの設定"
 
 #. Type: text
 #. Description
@@ -1404,12 +1440,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"セットアップの最後にお好みの番組ガイドデータの設定とバックエンドマシーンの初"
+"期設定が必要です"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "クリックしてWebサイトの番組表を開く"
 
 #. Type: text
 #. Description
@@ -1419,12 +1457,16 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"北米のユーザはSchedules Direct (SD) のアカウント設定が必要です\r\n"
+"SDは安価に番組ガイドデータを提供しています\r\n"
+"SDを使用しない場合、北米のユーザーはMythTVのスケジュール機能の多くを利用でき"
+"ません"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Launch MythTV Setup"
-msgstr ""
+msgstr "Myth TVのセットアップを立ち上げてください"
 
 #. Type: text
 #. Description
@@ -1435,70 +1477,30 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"番組ガイドデータの提供元を指定した後、最初にMythTV-Setupをバックエンドマシン"
+"を設定するため起動する必要があります\r\n"
+"次にまず４つのセクションを設定し、三番目にお好みの番組データを入力します"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "APTを設定しています..."
+msgstr "mythtvを設定しています・・・"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "ハードウェアを設定しています..."
+msgstr "追加ドライバの設定をしています・・・"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:79001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "ハードウェアを設定しています..."
+msgstr "追加サービスの設定をしています・・・"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "ハードウェアを設定しています..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "システムパーティションがフォーマットされていません"
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "タイムゾーンを設定しています..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr "選択したアカウントをインポートするユーザの作成:"
-
-#~ msgid "Full Name:"
-#~ msgstr "フルネーム:"
-
-#~ msgid "Login Name:"
-#~ msgstr "ログイン名:"
-
-#~ msgid "Password:"
-#~ msgstr "パスワード:"
-
-#~ msgid "Confirm:"
-#~ msgstr "確認:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "ルートパーティション(\"/\")に最低でも2GB、スワップパーティションに最低でも"
-#~ "256MBの領域を確保してください。　また、必要であれば別のパーティションも"
-#~ "セットアップしてください。"
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "コンピュータの再起動時に、CDを取り出すのを忘れないでください。CDが入ったま"
-#~ "まの場合、新しくインストールされたシステムではなく、このライブCDが起動しま"
-#~ "す。"
+msgstr ""

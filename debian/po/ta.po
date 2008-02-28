@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: 2007-10-03 11:12+0000\n"
-"Last-Translator: Dr.T.Vasudevan <agnihot3@gmail.com>\n"
+"PO-Revision-Date: 2008-02-20 12:42+0000\n"
+"Last-Translator: drtvasudevan <Unknown>\n"
 "Language-Team: TAMIL <ubuntu-l10n-tam@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -829,10 +829,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "உங்களுக்கு வன் தட்டில் எப்படி இடம் பிரிக்க வேண்டும்?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1402,36 +1400,5 @@ msgstr "வன் பொருள் வடிவமைக்கப்படு�
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "வன் பொருள் வடிவமைக்கப்படுகிறது..."
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "நேர மண்டலம் வடிவமைக்கப்படுகிறது..."
-
-#~ msgid "Full Name:"
-#~ msgstr "முழு பெயர்:"
-
-#~ msgid "Password:"
-#~ msgstr "கடவுச்சொல்:"
-
-#~ msgid "Confirm:"
-#~ msgstr "உறுதியாக்கம்:"
-
-#, fuzzy
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "குறைந்தது 2 GB அளவு உள்ள மூல (ரூட்) பகிர்வு \"/\"),  உருவாக்கவும்.இட மாற்றுக்கு "
-#~ "(swap) குறைந்தது 256 MB. அளவு உடைய பகிர்வு உருவாக்கவும்."
-
-#, fuzzy
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "கணினியை மறு துவக்கம் செய்யும் போது நிறுவா குறுந் தட்டை எடுத்து விடவும். இல்லாவிடில் "
-#~ "புதிய நிறுவலுக்கு பதில் இந்த நிறுவா குறுந் தட்டே மீண்டும் இயங்க ஆரம்பிக்கும்."
+msgstr ""

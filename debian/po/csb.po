@@ -9,12 +9,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
 "PO-Revision-Date: 2007-03-19 18:26+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: Michôł Òstrowsczi <Unknown>\n"
 "Language-Team: Kashubian <csb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -518,10 +518,8 @@ msgstr "Kòpérowanié lopków (òsta mni nigle minuta)..."
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Nie dało sã skòpiërowac lopków; mòże disk je ùszkòdzony?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -613,10 +611,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Kòpérowanié lopków nie darzëło sã, lëchi CD/DVD abò cwiôrdi disk?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -846,10 +842,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Chcesz zmienic ùkłôd particëji na tim diskù?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1413,10 +1407,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
-#| msgid "Configuring hardware..."
 msgid "Configuring infrared devices..."
-msgstr "Kònfigùrowanié hard-wôrë..."
-
-#~ msgid "Full Name:"
-#~ msgstr "Fùl miono:"
+msgstr ""

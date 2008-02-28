@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Praveen A <pravi.a@gmail.com>\n"
+"PO-Revision-Date: 2008-02-20 12:47+0000\n"
+"Last-Translator: Praveen A <Unknown>\n"
 "Language-Team: Swathanthra Malayalam Computing <smc-discuss@googlegroups."
 "com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -503,10 +503,8 @@ msgstr "ഫയലുകള്‍ പകര്‍ത്തിക്കൊണ്�
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "ഫയലുകള്‍ പകര്‍ത്തുവാന്‍ പരാജയപ്പെട്ടു; ചീത്ത ഹാര്‍ഡ് ഡിസ്ക്?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -585,10 +583,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "ഫയലുകള്‍ പകര്‍ത്തുവാന്‍ പരാജയപ്പെട്ടു; ചീത്ത CD/DVD അല്ലെങ്കില്‍ ഹാര്‍ഡ് ഡിസ്ക്?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -820,10 +816,8 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "ഡീസ്ക് എങ്ങനെയാണ് വിഭജിക്കേണ്ടത്?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -1387,22 +1381,5 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
-#| msgid "Configuring hardware..."
 msgid "Configuring infrared devices..."
-msgstr "ഹാര്‍ഡ് വെയര്‍ ക്രമീകരിച്ചുകൊണ്ടിരിക്കുന്നു..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "സിസ്റ്റം പാര്‍ട്ടീഷന്‍ ഫോര്‍മാറ്റ് ചെയ്തിട്ടില്ല"
-
-#~ msgid "Full Name:"
-#~ msgstr "മുഴുവന്‍ പേര്:"
-
-#~ msgid "Login Name:"
-#~ msgstr "ലോഗിന്‍ നാമം:"
-
-#~ msgid "Password:"
-#~ msgstr "പാസ്സ്‍വേഡ്:"
-
-#~ msgid "Confirm:"
-#~ msgstr "ഉറപ്പിക്കുക:"
+msgstr ""

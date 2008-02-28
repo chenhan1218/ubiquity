@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-02-20 09:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2008-02-20 12:36+0000\n"
 "Last-Translator: Damyan Ivanov <dam@modsoftsys.com>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-07 16:59+0000\n"
+"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "Инсталиране"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Инсталиране (OEM режим, само за поризводители)"
 
 #. Type: text
 #. Description
@@ -71,6 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Инсталирате в режим за производители на системи. Моля, въведете уникално име "
+"за тази серия от системи! Това име ще бъде съхранено на инсталираните "
+"системи и ще бъде използвано в докладите за грешки."
 
 #. Type: text
 #. Description
@@ -223,18 +226,10 @@ msgstr "Мигриране на документи и настройки"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
-#, fuzzy
-#| msgid ""
-#| "Select any accounts you would like to import and fill in the form below "
-#| "for each one.  The documents and settings for these accounts will be "
-#| "available after the install completes."
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Изберете кои потребителски сметки желаете да внесете и попълнете формуляра "
-"по-долу за всяка една. Документите и настройките за тези потребители ще "
-"бъдат достъпни след като инсталацията приключи."
 
 #. Type: text
 #. Description
@@ -285,7 +280,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Допълнителни..."
 
 #. Type: text
 #. Description
@@ -293,7 +288,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Инсталиране"
 
 #. Type: text
 #. Description
@@ -343,7 +338,7 @@ msgstr "Рестартиране сега"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Инсталаторът се срина"
 
 #. Type: text
 #. Description
@@ -356,12 +351,18 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Съжалавяме, но инсталаторът се срина. Моля, качете файл с нов доклад за "
+"грешка на https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не "
+"добавяйте лична информация в съществуващи бъгове) и някой от разработчиците "
+"ще се заеме с проблема при първа възможност. За да помогнете на "
+"разработчиците какво се е объркало, включете в доклада следната информация и "
+"прикрепете файловете \"/var/log/syslog\" и \"/var/log/partman\":"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "Създаване на дял"
 
 #. Type: text
 #. Description
@@ -369,7 +370,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Размер на новия дял в мегабайтове (1000000 байта):"
 
 #. Type: text
 #. Description
@@ -399,19 +400,19 @@ msgstr "Логически"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "Редакция на дял"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Редакция на дял"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Допълнителни опции"
 
 #. Type: text
 #. Description
@@ -423,19 +424,19 @@ msgstr "Зареждане на ОС"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Инсталиране на зареждащата програма"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Състазение по известност"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Участвайте в проучването за употреба на пакетите"
 
 #. Type: text
 #. Description
@@ -542,10 +543,8 @@ msgstr "Копиране на файлове (остава по-малко от 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:74001
-#, fuzzy
-#| msgid "Failed to copy files; faulty hard disk?"
 msgid "Failed to copy files; out of disk space."
-msgstr "Копирането на файлове неуспешно; повреден твърд диск?"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -638,10 +637,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
-#| msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr "Копирането на файлове неуспешно; повреден CD/DVD или твърд диск?"
+msgstr ""
 
 #. Type: select
 #. Description
@@ -731,13 +728,13 @@ msgstr "Настройване на приложението за начално
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Инсталиране на допълнителни пакети..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Проверка за пакети за инсталация..."
 
 #. Type: text
 #. Description
@@ -785,13 +782,13 @@ msgstr "Грешка при премахването на ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Грешка при инсталиране на пакетите"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:101001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Възникна грешка при инсталиране на пакетите:"
 
 #. Type: error
 #. Description
@@ -799,7 +796,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:101001 ../ubiquity.templates:102001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Следните пакети са повредени:"
 
 #. Type: error
 #. Description
@@ -820,13 +817,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Грешка при премахване на пакети"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Възникна грешка при премахването на пакетите:"
 
 #. Type: title
 #. Description
@@ -877,31 +874,18 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001 ../ubiquity.templates:116001
-#, fuzzy
-#| msgid "How do you want to partition the disk?"
 msgid "Do you want to return to the partitioner?"
-msgstr "Как желаете да разделите диска?"
+msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
-#, fuzzy
-#| msgid ""
-#| "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#| "marked for formatting. File systems used by the system (/, /boot, /usr, /"
-#| "var) must be reformatted for use by this installer. Other file systems (/"
-#| "home, /media/*, /usr/local, etc.) may be used without reformatting."
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
-"Файловата система на ${PARTITION} отделена за ${MOUNTPOINT} не е маркиран за "
-"форматиране. Файловите системи, използвани от системата (/, /boot, /usr, /"
-"var), трябва да бъдат преформатирани за употреба от този инсталатор. Други "
-"файлови системи (/home, /media/*, /usr/local, etc.) може да бъдат ползвани "
-"брез преформатиране."
 
 #. Type: boolean
 #. Description
@@ -952,13 +936,13 @@ msgstr "Прекъсване на инсталацията?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Предлагат се два типа инсталация за Mythbuntu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Стандартна инсталация"
 
 #. Type: text
 #. Description
@@ -968,6 +952,9 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Стандартната инсталация ще инсталира и конфигурира всяка опция с минимална "
+"намеса от потребителя. Ще бъдат инсталирани бекенд, фронтенд, всички "
+"приставки и всички теми."
 
 #. Type: text
 #. Description
@@ -984,6 +971,10 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Инсталацията за напреднали ще бъде ползвана за персонализация, която е нужна "
+"за тази инсталация на Mythbuntu. ЗАБЕЛЕЖКА: Необходима е инсталация за "
+"напреднали, за да бъде добавена Mythbuntu машина към съществуваща MythTV "
+"мрежа."
 
 #. Type: text
 #. Description
@@ -999,13 +990,13 @@ msgstr "Завършване на инсталацията"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Що за система ще бъде това?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Основен бекенд с фронтенд"
 
 #. Type: text
 #. Description
@@ -1078,7 +1069,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Избор на фронтенд/бекенд приставки"
 
 #. Type: text
 #. Description
@@ -1092,19 +1083,19 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "Бекенд приставки"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "Фронтенд приставки"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth уеб"
 
 #. Type: text
 #. Description
@@ -1118,19 +1109,19 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Myth архив"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Myth браузър"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Myth контроли"
 
 #. Type: text
 #. Description
@@ -1196,7 +1187,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:40001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Myth време"
 
 #. Type: text
 #. Description
@@ -1462,47 +1453,5 @@ msgstr "Настройване на хардуера..."
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:80001
-#, fuzzy
 msgid "Configuring infrared devices..."
-msgstr "Настройване на хардуера..."
-
-#~ msgid "System partition not formatted"
-#~ msgstr "Не е форматиран системен дял"
-
-#, fuzzy
-#~ msgid "Configuring remote control..."
-#~ msgstr "Настройване на часовата зона..."
-
-#~ msgid "Create a user to import the selected account into:"
-#~ msgstr ""
-#~ "Създаване на потребител, за когото да бъде внесен избраната потребителска "
-#~ "сметка:"
-
-#~ msgid "Full Name:"
-#~ msgstr "Пълно име:"
-
-#~ msgid "Login Name:"
-#~ msgstr "Потребителско име:"
-
-#~ msgid "Password:"
-#~ msgstr "Парола:"
-
-#~ msgid "Confirm:"
-#~ msgstr "Потвърждение:"
-
-#~ msgid ""
-#~ "You need to specify a partition for the root file system (mount point \"/"
-#~ "\") with a minimum size of 2 GB, and a swap partition of at least 256 MB. "
-#~ "You may also set up other partitions if you wish."
-#~ msgstr ""
-#~ "Нужно е да зададете дял за галвната (root) файлова система (точка на "
-#~ "монтиране \"/\") с минимален размер 2 ГБ и суап дял от поне 256 МБ. Също "
-#~ "така може да настроите други дялове, ако желаете."
-
-#~ msgid ""
-#~ "Be sure to remove the CD when restarting the computer, otherwise it will "
-#~ "start back up using this live CD rather than the newly-installed system."
-#~ msgstr ""
-#~ "Уверете се, че сте извадили компактдиска когато рестартирате компютъра, в "
-#~ "противен случай той по-скоро ще се стартира отново от това CD, отколкото "
-#~ "от новоинсталираната Ви система."
+msgstr ""
