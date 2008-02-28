@@ -19,6 +19,8 @@ ubiquity (1.7.13) UNRELEASED; urgency=low
   * In ubiquity-dm, fall back to xfwm4 if metacity fails (unifying gtk_ui
     and mythbuntu_ui handling in the process). Avoid hardcoding full paths
     where possible.
+  * Fix reversed handling of answer to grub-installer/install_to_xfs
+    (LP: #138422).
 
   [ Evan Dandrea ]
   * partman/confirm_new_label is now partman-
