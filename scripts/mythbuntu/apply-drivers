@@ -12,6 +12,71 @@ if [ "$1" ]; then
     log='log-output -t mythbuntu'
 fi
 
+pvr_350_xorg()
+{
+	cat > /tmp/xorg.conf <<EOF
+Section "Module"
+        Load "dbe"
+        Load "v4l"
+        Load "extmod"
+        Load "type1"
+        Load "freetype"
+EndSection
+
+Section "InputDevice"
+    Identifier     "Generic Keyboard"
+    Driver         "kbd"
+    Option         "CoreKeyboard"
+    Option         "XkbRules" "xorg"
+    Option         "XkbModel" "pc105"
+    Option         "XkbLayout" "us"
+EndSection
+
+Section "Screen"
+    Identifier     "Default Screen"
+    Device         "PVR-350"
+    Monitor        "Configured Monitor"
+    DefaultDepth 24
+    DefaultFbbpp 32
+    Subsection "Display"
+          Depth 24
+          FbBpp 32
+          Modes "720x480"
+    EndSubsection
+EndSection
+
+Section "InputDevice"
+    Identifier     "Configured Mouse"
+    Driver         "mouse"
+EndSection
+
+Section "Monitor"
+    Identifier     "Configured Monitor"
+    Option         "DPMS"
+    HorizSync 30-68
+    VertRefresh 50-120
+    DisplaySize 183 122
+    Mode "720x480"
+    DotClock 34.564
+    HTimings 720 752 840 928
+    VTimings 480 484 488 504
+    Flags "-HSync" "-VSync"
+    EndMode
+
+EndSection
+
+Section "Device"
+    Identifier     "PVR-350"
+    Driver         "ivtv"
+    Option "fbdev" "/dev/fb$1"
+    Option "TVStandard" "$3"
+    Option "XVideo" "1"
+    BusID "PCI:$2"
+    Screen 0
+EndSection
+EOF
+}
+
 ati_xorg()
 {
 	if [ -x /usr/bin/aticonfig ]; then
@@ -127,10 +192,17 @@ libXvMCNVIDIA_dynamic.so.1
 EOF
 }
 
+add_module()
+{
+    cat >> $ROOT/etc/modules <<EOF
+$1
+EOF
+}
+
 #Enable Proprietary Drivers as necessary
 db_get mythbuntu/video_driver
 PROP="$RET"
-if [ "$PROP" = "nvidia_new" ] || [ "$PROP" = "nvidia" ] || [ "$PROP" = "fglrx" ] || [ "$PROP" = "nvidia_legacy" ]; then
+if [ "$PROP" = "nvidia_new" ] || [ "$PROP" = "nvidia" ] || [ "$PROP" = "fglrx" ] || [ "$PROP" = "nvidia_legacy" ] || [ "$PROP" = "pvr_350" ]; then
     #Due to bug 119562, restricted manager won't do this
     #For us automatically.
     #$log $chroot $ROOT /usr/bin/restricted-manager -e $PROP
@@ -150,6 +222,20 @@ if [ "$PROP" = "nvidia_new" ] || [ "$PROP" = "nvidia" ] || [ "$PROP" = "fglrx" ]
         nvidia_xvmc
         mv $ROOT/etc/X11/xorg.conf $ROOT/etc/X11/xorg.conf.livecd
         mv /tmp/xorg.conf $1/etc/X11/xorg.conf
+    elif [ "$PROP" = "pvr_350" ]; then
+        #find our framebuffer device
+        FB=`cat /proc/fb | grep cx23415 | awk '{print $1}'`
+        #find our pci address
+        PCI=`lspci | grep "Internext Compression" | awk '{print $1}' | \
+            sed "s/a/10/; \
+                 s/b/11/; \
+                 s/c/12/; \
+                 s/d/13/; \
+                 s/e/14/; \
+                 s/f/15/; \
+                 s/\./\:/;" `
+        add_module ivtv-fb
+        pvr_350_xorg "$FB" "$PCI" "$TVSTANDARD"
     fi
 fi
 
