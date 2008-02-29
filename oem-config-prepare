@@ -34,6 +34,11 @@ if [ "$1" = --quiet ]; then
 	shift
 fi
 
+# Machine-specific, so remove in case this system is going to be cloned.
+# These will be regenerated on the first boot.
+rm -f /etc/udev/rules.d/70-persistent-cd.rules \
+      /etc/udev/rules.d/70-persistent-net.rules
+
 update-rc.d oem-config start 12 2 3 4 5 .
 
 if [ -z "$quiet" ]; then
