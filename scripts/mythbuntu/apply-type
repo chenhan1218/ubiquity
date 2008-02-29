@@ -187,22 +187,21 @@ DBSETUP
 
 setup_mythweb()
 {
-    HTACCESS=$ROOT/etc/mythtv/mythweb-htaccess
-    NEW=${HTACCESS}.new
-    cat $HTACCESS | sed -e "
+    MYTHWEBCONF=$ROOT/usr/share/mythtv/mythweb/mythweb.conf.apache
+    NEW=$ROOT/etc/apache2/sites-available/mythweb.conf
+    cat $MYTHWEBCONF | sed -e "
 s/\(^[ \t]*setenv[ \t]\+db_server[ \t]\+\"\)[^\"]*\"/\1$HOSTNAME\"/g;
 s/\(^[ \t]*setenv[ \t]\+db_name[ \t]\+\"\)[^\"]*\"/\1$DB\"/g;
 s/\(^[ \t]*setenv[ \t]\+db_login[ \t]\+\"\)[^\"]*\"/\1$USER\"/g;
 s/\(^[ \t]*setenv[ \t]\+db_password[ \t]\+\"\)[^\"]*\"/\1$PASSWORD\"/g;
     " > $NEW
-    mv $NEW $HTACCESS
 }
 
 secure_mythweb()
 {
-    HTACCESS=$ROOT/etc/mythtv/mythweb-htaccess
-    NEW=${HTACCESS}.new
-    cat $HTACCESS | sed -e "
+    DIGEST=$ROOT/etc/mythtv/mythweb-digest
+    NEW=${DIGEST}.new
+    cat $DIGEST | sed -e "
 s/\#    AuthType/AuthType/;
 s/^\#    AuthName/AuthName/;
 s/^\#    AuthUserFile/AuthUserFile/;
@@ -212,7 +211,7 @@ s/^\#    Order/Order/;
 s/^\#    Satisfy/Satisfy/;
 s/\/var\/www\/htdigest/\/etc\/mythtv\/mythweb-digest/;
     " > $NEW
-    mv $NEW $HTACCESS
+    mv $NEW $DIGEST
 
     $log $chroot $ROOT a2enmod auth_digest
 

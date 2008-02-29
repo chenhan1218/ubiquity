@@ -5,6 +5,7 @@ ubiquity (1.7.13) UNRELEASED; urgency=low
   * Use x11vnc instead of vnc4server which is broke in Hardy.
   * Add support for PVR-350 TV-Out.
   * Only remove themes when selected for removal.
+  * Update included mythweb postinst for trunk behavior.
 
   [ Colin Watson ]
   * Split iso_3166.tab lines by tabs, fixing an infinite loop on countries
