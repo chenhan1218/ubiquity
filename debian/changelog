@@ -1,4 +1,4 @@
-ubiquity (1.7.13) UNRELEASED; urgency=low
+ubiquity (1.7.14) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Drop all references to mythappearance.
@@ -43,6 +43,15 @@ ubiquity (1.7.13) UNRELEASED; urgency=low
     setup 1.16ubuntu4.
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 29 Feb 2008 10:56:04 -0500
+
+ubiquity (1.7.13) hardy; urgency=low
+
+  * Drop build dependency on python-xml.
+  * d-i/source/localechooser/iso3166tab.py: Include ErrorPrinter and
+    DefaultHandler from obsolete saxutils.py
+  * d-i/source/choose-mirror/iso3166tab.py: Likewise.
+
+ -- Matthias Klose <doko@ubuntu.com>  Fri, 29 Feb 2008 15:53:13 +0000
 
 ubiquity (1.7.12) hardy; urgency=low
 
