@@ -1,8 +1,16 @@
-oem-config (1.29) UNRELEASED; urgency=low
+oem-config (1.30) UNRELEASED; urgency=low
 
   * Fix zoommap import, references to ubiquity (LP: #194491).
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 22 Feb 2008 16:19:48 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 29 Feb 2008 17:34:41 +0100
+
+oem-config (1.29) hardy; urgency=low
+
+  * Drop build dependency on python-xml.
+  * d-i/source/localechooser/iso3166tab.py: Include ErrorPrinter and
+    DefaultHandler from obsolete saxutils.py
+
+ -- Matthias Klose <doko@ubuntu.com>  Fri, 29 Feb 2008 15:45:24 +0000
 
 oem-config (1.28) hardy; urgency=low
 
