@@ -1,8 +1,12 @@
-oem-config (1.30) UNRELEASED; urgency=low
+oem-config (1.30) hardy; urgency=low
 
+  [ Evan Dandrea ]
   * Fix zoommap import, references to ubiquity (LP: #194491).
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 29 Feb 2008 17:34:41 +0100
+  [ Matthias Klose ]
+  * Automatic update of included source packages.
+
+ -- Matthias Klose <doko@ubuntu.com>  Fri, 29 Feb 2008 20:41:40 +0000
 
 oem-config (1.29) hardy; urgency=low
 
