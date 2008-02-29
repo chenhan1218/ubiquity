@@ -104,7 +104,7 @@ class MythbuntuApply(FilteredCommand):
             patternline += "|^samba|^samba-common|^smbfs"
         vnc = self.db.get('mythbuntu/vncservice')
         if vnc == "false":
-            patternline += "|^vnc4-common"
+            patternline += "|^vnc4-common|^x11vnc"
         ssh = self.db.get('mythbuntu/sshservice')
         if ssh == "false":
             patternline += "|^openssh-server"
