@@ -3,6 +3,8 @@ oem-config (1.31) UNRELEASED; urgency=low
   * Remove /etc/udev/rules.d/70-persistent-cd.rules and
     /etc/udev/rules.d/70-persistent-net.rules in oem-config-prepare, in case
     the system is going to be cloned.
+  * Remove /home/oem/.ssh/known_hosts in oem-config-prepare. If ssh was used
+    then this might be slightly sensitive.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 29 Feb 2008 21:09:38 +0000
 
