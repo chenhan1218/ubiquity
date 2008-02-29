@@ -1,4 +1,4 @@
-ubiquity (1.7.14) UNRELEASED; urgency=low
+ubiquity (1.7.14) hardy; urgency=low
 
   [ Mario Limonciello ]
   * Drop all references to mythappearance.
@@ -42,7 +42,7 @@ ubiquity (1.7.14) UNRELEASED; urgency=low
     1.50ubuntu2, partman-auto 73ubuntu3, partman-base 114ubuntu2, user-
     setup 1.16ubuntu4.
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 29 Feb 2008 10:56:04 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 29 Feb 2008 11:59:45 -0500
 
 ubiquity (1.7.13) hardy; urgency=low
 
