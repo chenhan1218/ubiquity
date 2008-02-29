@@ -37,8 +37,12 @@ ubiquity (1.7.13) UNRELEASED; urgency=low
     timezone at a time.
   * Add a --no-continue option to disable the continue using the Live CD
     button when running in only-ubiquity mode (LP: #195935).
+  * Automatic update of included source packages: apt-setup
+    1:0.31ubuntu6, console-setup 1.21ubuntu3, debian-installer-utils
+    1.50ubuntu2, partman-auto 73ubuntu3, partman-base 114ubuntu2, user-
+    setup 1.16ubuntu4.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 26 Feb 2008 13:29:36 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 29 Feb 2008 10:56:04 -0500
 
 ubiquity (1.7.12) hardy; urgency=low
 
