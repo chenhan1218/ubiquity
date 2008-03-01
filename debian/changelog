@@ -1,3 +1,14 @@
+ubiquity (1.7.15) UNRELEASED; urgency=low
+
+  [ Mario Limonciello ]
+  * debian/control:
+    - Make ubiquity-frontend-gtk depend on x-window-manager to prevent
+      pulling in unnecessary window managers in Xubuntu and Mythbuntu.
+      This shouldn't break anything since the Ubuntu seed explicitly
+      depends upon metacity and Xubuntu upon xfwm4.
+
+ -- Mario Limonciello <superm1@ubuntu.com>  Sat, 01 Mar 2008 13:12:56 -0600
+
 ubiquity (1.7.14) hardy; urgency=low
 
   [ Mario Limonciello ]
