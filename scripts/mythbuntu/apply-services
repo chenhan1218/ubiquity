@@ -130,6 +130,7 @@ EOF
     /tmp/vnc_pass_script
     mkdir -p $ROOT/root/.vnc
     mv /tmp/vnc-passwd $ROOT/root/.vnc/passwd
+    chmod a+r $ROOT/.vnc/passwd
     rm /tmp/vnc_pass_script
 }
 

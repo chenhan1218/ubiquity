@@ -9,6 +9,7 @@ ubiquity (1.7.15) UNRELEASED; urgency=low
   * bin/ubiquity-dm:
     - Take command out of subprocess line for X to allow it to be started
       differently for different frontends.
+  * Make VNC password readable.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Sun, 02 Mar 2008 13:14:28 -0600
 
