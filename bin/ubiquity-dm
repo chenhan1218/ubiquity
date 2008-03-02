@@ -87,7 +87,13 @@ class DM:
         signal.signal(signal.SIGUSR1, self.sigusr1_handler)
         signal.signal(signal.SIGTTIN, signal.SIG_IGN)
         signal.signal(signal.SIGTTOU, signal.SIG_IGN)
-        server = subprocess.Popen(['X', '-br', '-ac', '-noreset', self.vt, self.display], stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.server_preexec)
+
+        servercommand = ['X', '-br', '-ac', '-noreset', self.vt, self.display]
+        if self.frontend == 'mythbuntu_ui':
+            servercommand.append('-dpi')
+            servercommand.append('100')
+
+        server = subprocess.Popen(servercommand, stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.server_preexec)
 
         os.environ['DISPLAY'] = self.display
         os.environ['HOME'] = self.homedir

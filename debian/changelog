@@ -6,8 +6,11 @@ ubiquity (1.7.15) UNRELEASED; urgency=low
       pulling in unnecessary window managers in Xubuntu and Mythbuntu.
       This shouldn't break anything since the Ubuntu seed explicitly
       depends upon metacity and Xubuntu upon xfwm4.
+  * bin/ubiquity-dm:
+    - Take command out of subprocess line for X to allow it to be started
+      differently for different frontends.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Sat, 01 Mar 2008 13:12:56 -0600
+ -- Mario Limonciello <superm1@ubuntu.com>  Sun, 02 Mar 2008 13:14:28 -0600
 
 ubiquity (1.7.14) hardy; urgency=low
 
