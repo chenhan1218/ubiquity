@@ -65,7 +65,9 @@ class Wizard(BaseFrontend):
         except debconf.DebconfError:
             self.oem_id = ''
         if self.oem_config:
+            os.seteuid(0)
             execute('apt-install', 'oem-config-gtk')
+            drop_privileges()
 
     def run(self):
         """Main entry point."""

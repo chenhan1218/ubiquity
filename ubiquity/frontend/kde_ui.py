@@ -385,7 +385,9 @@ class Wizard(BaseFrontend):
             self.userinterface.username.setEnabled(False)
             self.username_edited = True
             # The UserSetup component takes care of preseeding passwd/user-uid.
+            os.seteuid(0)
             execute('apt-install', 'oem-config-kde')
+            drop_privileges()
         else:
             self.userinterface.oem_id_label.hide()
             self.userinterface.oem_id_entry.hide()

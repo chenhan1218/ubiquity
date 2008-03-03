@@ -22,6 +22,7 @@ ubiquity (1.7.15) UNRELEASED; urgency=low
     frontend and trying to talk to debconf when the install process already
     has the database locked (LP: #198108).
   * Install oem-config-gtk in the noninteractive frontend when appropriate.
+  * apt-install needs to be called as root or it will fail silently.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Sun, 02 Mar 2008 13:14:28 -0600
 
