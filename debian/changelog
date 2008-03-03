@@ -18,7 +18,7 @@ ubiquity (1.7.15) UNRELEASED; urgency=low
   * Update imported translations from gtk+2.0 2.12.8-1.
 
   [ Evan Dandrea ]
-  * Overload get_oem_id in noninteractive to avoid calling back into the
+  * Overload get_oem_id in base frontend to avoid calling back into the
     frontend and trying to talk to debconf when the install process already
     has the database locked (LP: #198108).
   * Install oem-config-gtk in the noninteractive frontend when appropriate.

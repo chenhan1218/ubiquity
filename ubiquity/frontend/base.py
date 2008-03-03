@@ -69,6 +69,11 @@ class BaseFrontend:
                     del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
         except debconf.DebconfError:
             pass
+        
+        try:
+            self.oem_id = self.debconf_operation('get', 'oem-config/id')
+        except debconf.DebconfError:
+            self.oem_id = ''
 
         # set commands
         # Note that this will never work if the database is locked, so you
@@ -246,10 +251,7 @@ class BaseFrontend:
 
     def get_oem_id(self):
         """Get a unique identifier for this batch of installations."""
-        try:
-            return self.debconf_operation('get', 'oem-config/id')
-        except debconf.DebconfError:
-            return ''
+        return self.oem_id
 
     # ubiquity.components.timezone
 

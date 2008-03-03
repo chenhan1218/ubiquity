@@ -60,10 +60,6 @@ class Wizard(BaseFrontend):
         dbfilter.cleanup()
         dbfilter.db.shutdown()
 
-        try:
-            self.oem_id = self.debconf_operation('get', 'oem-config/id')
-        except debconf.DebconfError:
-            self.oem_id = ''
         if self.oem_config:
             os.seteuid(0)
             execute('apt-install', 'oem-config-gtk')
@@ -237,9 +233,6 @@ class Wizard(BaseFrontend):
         """Get the current selected language."""
         return self.language
     
-    def get_oem_id (self):
-        return self.oem_id
-
     # ubiquity.components.timezone
 
     def set_timezone(self, timezone):
