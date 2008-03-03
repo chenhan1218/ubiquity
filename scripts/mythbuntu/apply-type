@@ -87,9 +87,7 @@ grabuser()
     mkdir $ROOT/home/$USER/.config/autostart -p
 
     #Only setup autostart if it wasn't already setup (From a previous install's home directory)
-    if [ ! -e $ROOT/home/$USER/.config/autostart/mythtv.desktop ]; then
-        ln -s /usr/share/applications/mythtv.desktop $ROOT/home/$USER/.config/autostart
-    fi
+    ln -s /usr/share/applications/mythtv.desktop $ROOT/home/$USER/.config/autostart 2>/dev/null || true
 
     #Fix up permissions as necessary
     if db_get passwd/user-uid && [ "$RET" ]; then
