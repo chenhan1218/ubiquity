@@ -5,17 +5,18 @@
 # Stefan Ondrejicka <ondrej@idata.sk>, 1999.
 # Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2001,2002, 2004.
 # Marcel Telka <marcel@telka.sk>, 2005.
+# Pavol Šimo <palo.simo@gmail.com>, 2006, 2007, 2008.
 #
-# $Id: sk.po,v 1.106 2006/09/22 16:11:01 matthiasc Exp $
+# $Id: sk.po,v 1.102 2006/07/03 06:05:15 matthiasc Exp $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2005-10-18 01:00+0200\n"
-"Last-Translator: Marcel Telka <marcel@telka.sk>\n"
-"Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
+"PO-Revision-Date: 2008-01-30 09:25+0100\n"
+"Last-Translator: Pavol Šimo <palo.simo@gmail.com>\n"
+"Language-Team: Slovak <sk-i18n@linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,7 +52,7 @@ msgstr "_Späť"
 #. sync.
 #: ../ubiquity.templates-imported:4001
 msgid "Navigation|_Forward"
-msgstr "_Vpred"
+msgstr "Ď_alej"
 
 #. Type: text
 #. Description

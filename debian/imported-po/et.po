@@ -2,20 +2,20 @@
 # Estonian translation of GTK+.
 #
 # Copyright (C) 1999-2006 Free Software Foundation, Inc.
-# Copyright (C) 2007 The GNOME Project.
+# Copyright (C) 2007, 2008 The GNOME Project.
 # This file is distributed under the same license as the gtk package.
 #
 # Lauris Kaplinski <lauris@ariman.ee>, 1999.
 # Tõivo Leedjärv <toivo@linux.ee>, 2002-2004.
 # Priit Laes <amd@tt.ee>, 2004, 2005.
-# Ivar Smolin <okul@linux.ee>, 2005-2007.
+# Ivar Smolin <okul@linux.ee>, 2005-2008.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+ HEAD\n"
+"Project-Id-Version: gtk+ 2.12\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-02-08 11:28+0000\n"
-"PO-Revision-Date: 2007-09-06 16:57+0300\n"
+"PO-Revision-Date: 2008-01-05 11:03+0200\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr "_Loobu"
 #. sync.
 #: ../ubiquity.templates-imported:2001
 msgid "_Close"
-msgstr "_Sulge"
+msgstr "Sul_ge"
 
 #. Type: text
 #. Description

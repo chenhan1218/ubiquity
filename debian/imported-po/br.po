@@ -1,6 +1,6 @@
 # Breton (brezhoneg) translation of gtk+ 2.0.
 # Copyright (C) 2004 Thierry Vignaud <tvignaud@mandrakesoft.com>.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: 2.3.1\n"

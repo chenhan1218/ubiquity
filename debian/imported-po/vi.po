@@ -4,7 +4,7 @@
 # Joern v. Kattchee <kattchee@cs.tu-berlin.de>, 2000-2002.
 # Nguyễn Thái Ngọc Duy <pclouds@gmail.com>, 2002-2004,2007.
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2007.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Gtk+ 2.11.4\n"

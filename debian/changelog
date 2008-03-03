@@ -15,6 +15,7 @@ ubiquity (1.7.15) UNRELEASED; urgency=low
   * test -e fails on dangling symlinks; simply ignore errors when creating
     ~/.config/autostart/mythtv.desktop symlink, rather than trying to test
     for it in advance (LP: #197915).
+  * Update imported translations from gtk+2.0 2.12.8-1.
 
  -- Mario Limonciello <superm1@ubuntu.com>  Sun, 02 Mar 2008 13:14:28 -0600
 

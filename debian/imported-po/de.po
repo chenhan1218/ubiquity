@@ -8,7 +8,7 @@
 # Hendrik Brandt <heb@gnome-de.org>, 2004-2005.
 #
 # IM = Input method => Eingabemethode
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: GTK+ HEAD\n"
