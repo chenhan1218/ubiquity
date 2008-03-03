@@ -48,6 +48,10 @@ def execute(*args):
         syslog.syslog(' '.join(log_args))
         return True
 
+def execute_root(*args):
+    os.seteuid(0)
+    execute(*args)
+    drop_privileges()
 
 def format_size(size):
     """Format a partition size."""

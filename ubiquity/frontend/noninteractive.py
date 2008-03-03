@@ -61,9 +61,7 @@ class Wizard(BaseFrontend):
         dbfilter.db.shutdown()
 
         if self.oem_config:
-            os.seteuid(0)
-            execute('apt-install', 'oem-config-gtk')
-            drop_privileges()
+            execute_root('apt-install', 'oem-config-gtk')
 
     def run(self):
         """Main entry point."""
