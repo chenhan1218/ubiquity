@@ -5,6 +5,8 @@ oem-config (1.31) UNRELEASED; urgency=low
     the system is going to be cloned.
   * Remove /home/oem/.ssh/known_hosts in oem-config-prepare. If ssh was used
     then this might be slightly sensitive.
+  * Allow user creation even if a non-system user already exists (thanks,
+    Torsten Spindler; LP: #153310).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 29 Feb 2008 21:09:38 +0000
 

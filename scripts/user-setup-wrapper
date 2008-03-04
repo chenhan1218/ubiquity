@@ -5,7 +5,7 @@ set -e
 
 ROOT="$1"
 
-/usr/lib/oem-config/user/user-setup "$@"
+OVERRIDE_SYSTEM_USER=1 /usr/lib/oem-config/user/user-setup "$@"
 
 db_get passwd/make-user
 if [ "$RET" = true ]; then
