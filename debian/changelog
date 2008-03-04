@@ -11,8 +11,10 @@ oem-config (1.31) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Port zoommap fixes from ubiquity.
+  * Automatic update of included source packages: console-setup
+    1.21ubuntu4, user-setup 1.16ubuntu5.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Mar 2008 11:11:58 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Mar 2008 11:50:25 -0500
 
 oem-config (1.30) hardy; urgency=low
 
