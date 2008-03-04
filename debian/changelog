@@ -1,4 +1,11 @@
-oem-config (1.31) UNRELEASED; urgency=low
+oem-config (1.32) UNRELEASED; urgency=low
+
+  * Use a GtkEventBox rather than a GtkScrolledWindow for the tzmap to
+    match ubiquity (LP: #198179)
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Mar 2008 12:10:21 -0500
+
+oem-config (1.31) hardy; urgency=low
 
   [ Colin Watson ]
   * Remove /etc/udev/rules.d/70-persistent-cd.rules and
@@ -14,7 +21,7 @@ oem-config (1.31) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup
     1.21ubuntu4, user-setup 1.16ubuntu5.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Mar 2008 11:50:25 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Mar 2008 11:51:16 -0500
 
 oem-config (1.30) hardy; urgency=low
 

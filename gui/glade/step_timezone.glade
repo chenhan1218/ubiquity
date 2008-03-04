@@ -58,7 +58,7 @@
                 <property name="visible">True</property>
                 <property name="spacing">6</property>
                 <child>
-                  <widget class="GtkScrolledWindow" id="timezone_map_window">
+                  <widget class="GtkEventBox" id="timezone_map_window">
                     <property name="width_request">680</property>
                     <property name="height_request">340</property>
                     <property name="visible">True</property>
