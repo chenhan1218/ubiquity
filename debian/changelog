@@ -23,8 +23,13 @@ ubiquity (1.7.15) UNRELEASED; urgency=low
     has the database locked (LP: #198108).
   * Install oem-config-gtk in the noninteractive frontend when appropriate.
   * apt-install needs to be called as root or it will fail silently.
+  * Automatic update of included source packages: choose-mirror
+    2.19ubuntu2, console-setup 1.21ubuntu4, localechooser 1.42ubuntu2,
+    partman-base 114ubuntu3, partman-basicmethods 38ubuntu1, partman-jfs
+    25, partman-partitioning 54ubuntu3, partman-target 54ubuntu1, user-
+    setup 1.16ubuntu5.
 
- -- Mario Limonciello <superm1@ubuntu.com>  Sun, 02 Mar 2008 13:14:28 -0600
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Mar 2008 11:18:16 -0500
 
 ubiquity (1.7.14) hardy; urgency=low
 
