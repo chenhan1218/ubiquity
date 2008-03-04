@@ -1,5 +1,6 @@
 oem-config (1.31) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Remove /etc/udev/rules.d/70-persistent-cd.rules and
     /etc/udev/rules.d/70-persistent-net.rules in oem-config-prepare, in case
     the system is going to be cloned.
@@ -8,7 +9,10 @@ oem-config (1.31) UNRELEASED; urgency=low
   * Allow user creation even if a non-system user already exists (thanks,
     Torsten Spindler; LP: #153310).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 29 Feb 2008 21:09:38 +0000
+  [ Evan Dandrea ]
+  * Port zoommap fixes from ubiquity.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Mar 2008 11:11:58 -0500
 
 oem-config (1.30) hardy; urgency=low
 
