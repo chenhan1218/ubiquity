@@ -299,6 +299,12 @@ Type: text
 # Translators, this text will appear on a button, so KEEP IT SHORT
 _Description: Continue
 
+Template: ubiquity/finished_restart_only
+Type: text
+_Description:
+ Installation is complete. You need to restart the computer in order to use
+ the new installation.
+
 Template: ubiquity/summary
 Type: note
 #flag:translate!:3

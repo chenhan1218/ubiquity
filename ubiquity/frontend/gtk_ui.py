@@ -484,9 +484,6 @@ class Wizard(BaseFrontend):
             self.tzmap = zoommap.ZoomMapWidget(*args)
             self.tzmap.show()
 
-        if 'UBIQUITY_NO_CONTINUE' in os.environ:
-            del self.quit_button
-
         if 'UBIQUITY_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
 
@@ -793,6 +790,10 @@ class Wizard(BaseFrontend):
 
         self.run_success_cmd()
         if not self.get_reboot_seen():
+            if 'UBIQUITY_NO_CONTINUE' in os.environ:
+                txt = self.get_string('ubiquity/finished_restart_only')
+                self.finished_label.set_label(txt)
+                self.quit_button.hide()
             self.finished_dialog.run()
         elif self.get_reboot():
             self.reboot()

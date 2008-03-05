@@ -1,3 +1,9 @@
+ubiquity (1.7.16) UNRELEASED; urgency=low
+
+  * Fix the --no-continue option.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 05 Mar 2008 15:30:51 -0500
+
 ubiquity (1.7.15) hardy; urgency=low
 
   [ Mario Limonciello ]
