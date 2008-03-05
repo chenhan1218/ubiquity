@@ -1,8 +1,10 @@
 ubiquity (1.7.16) UNRELEASED; urgency=low
 
   * Fix the --no-continue option.
+  * Properly handle success_command and rebooting in the noninteractive
+    frontend.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 05 Mar 2008 15:30:51 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 05 Mar 2008 18:09:53 -0500
 
 ubiquity (1.7.15) hardy; urgency=low
 
