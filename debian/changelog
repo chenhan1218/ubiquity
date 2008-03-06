@@ -1,4 +1,4 @@
-ubiquity (1.7.16) UNRELEASED; urgency=low
+ubiquity (1.7.16) hardy; urgency=low
 
   [ Evan Dandrea ]
   * Fix the --no-continue option.
@@ -11,7 +11,7 @@ ubiquity (1.7.16) UNRELEASED; urgency=low
     partman-jfs 25ubuntu1, partman-partitioning 54ubuntu4, partman-reiserfs
     39ubuntu1, partman-target 54ubuntu2, partman-xfs 35ubuntu2.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 05 Mar 2008 18:09:53 -0500
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 06 Mar 2008 15:58:39 +0000
 
 ubiquity (1.7.15) hardy; urgency=low
 
