@@ -29,6 +29,9 @@ else
 	./update-changelog
 endif
 
+check:
+	./check-manifest
+
 maintainer-clean:
 	rm -rf $(SOURCEDIR)
 

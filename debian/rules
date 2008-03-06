@@ -44,6 +44,8 @@ clean:
 	dh_clean d-i/source/console-setup/Keyboard/MyKeyboardNames.pl \
 		 lib/keyboard_names.py
 
+	$(MAKE) -C d-i check
+
 binary-arch: build
 	dh_testdir
 	dh_testroot
