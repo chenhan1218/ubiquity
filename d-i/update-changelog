@@ -26,6 +26,6 @@ done
 MESSAGE="$MESSAGE."
 
 echo "$MESSAGE"
-(cd $TOPDIR && dch -D UNRELEASED "$MESSAGE")
+(cd $TOPDIR && dch -t -D UNRELEASED "$MESSAGE")
 
 rm -f manifest.old
