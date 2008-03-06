@@ -46,7 +46,7 @@ build:
 clean:
 	rm -rf $(APTDIR)
 	for dir in $(SOURCEDIR)/*; do \
-		if [ -d "$$dir" ]; then \
+		if [ "$${dir##*/}" != console-setup ] && [ -d "$$dir" ]; then \
 			(cd "$$dir" && debian/rules clean) || exit 1; \
 		fi; \
 	done

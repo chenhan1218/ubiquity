@@ -8,6 +8,8 @@ oem-config (1.32) UNRELEASED; urgency=low
   * Ensure that our build fails if one of the d-i components fails to build.
   * Add a check-manifest tool to ensure that d-i/manifest is in sync with
     d-i/source/ on upload (from ubiquity).
+  * Don't clean console-setup; bits of it are intentionally missing from our
+    copy, and it's not necessary.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Mar 2008 12:10:21 -0500
 
