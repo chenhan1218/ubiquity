@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-02-29 10:49-0500\n"
+"Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-03-06 15:51+0000\n"
 "PO-Revision-Date: 2008-02-20 12:50+0000\n"
 "Last-Translator: Ming Hua <minghua-list@sbcglobal.net>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -247,7 +247,7 @@ msgstr "准备分区"
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:32001 ../ubiquity.templates:66001
+#: ../ubiquity.templates:32001 ../ubiquity.templates:67001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr "准备安装"
@@ -462,9 +462,24 @@ msgstr "返回"
 msgid "Continue"
 msgstr "继续"
 
-#. Type: note
+#. Type: text
 #. Description
 #: ../ubiquity.templates:66001
+#, fuzzy
+#| msgid ""
+#| "Installation is complete. You need to restart the computer in order to "
+#| "use the new installation. You can continue to use this live CD, although "
+#| "any changes you make or documents you save will not be preserved."
+msgid ""
+"Installation is complete. You need to restart the computer in order to use "
+"the new installation."
+msgstr ""
+"安装完成。你需要重新启动计算机以使用新安装的系统。你可以继续使用live CD，不过"
+"你所做的任何更改和保存的文档不会被保留。"
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:67001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -484,43 +499,43 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:68001
 msgid "Checking the installation..."
 msgstr "正在检查安装…"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:69001
 msgid "Installing system"
 msgstr "正在安装系统"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:70001
 msgid "Finding the distribution to copy..."
 msgstr "正在寻找要复制的发布内容…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:72001
 msgid "Scanning files..."
 msgstr "正在扫描文件…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:73001
 msgid "Copying files..."
 msgstr "正在复制文件…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:74001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "正在复制文件（剩余不到一分钟时间）…"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:75001
 msgid "Failed to copy files; out of disk space."
 msgstr ""
 
@@ -532,14 +547,14 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:74001 ../ubiquity.templates:75001
-#: ../ubiquity.templates:76001 ../ubiquity.templates:77001
+#: ../ubiquity.templates:75001 ../ubiquity.templates:76001
+#: ../ubiquity.templates:77001 ../ubiquity.templates:78001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "安装程序向硬盘复制文件时遇到错误："
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:75001
 msgid ""
 "This particular error is due to there being insufficient disk space for the "
 "install to complete on the target partition.  Please run the installer again "
@@ -548,13 +563,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:76001
 msgid "Failed to copy files; faulty CD/DVD?"
 msgstr "文件复制失败；CD／DVD有缺陷？"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:76001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive. It may "
 "help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
@@ -567,13 +582,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:77001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr "文件复制失败；硬盘有缺陷？"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:77001
 msgid ""
 "This particular error is often due to a faulty hard disk. It may help to "
 "check whether the hard disk is old and in need of replacement, or to move "
@@ -584,7 +599,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:78001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr "复制文件失败；CD／DVD或者硬盘有缺陷？"
 
@@ -594,7 +609,7 @@ msgstr "复制文件失败；CD／DVD或者硬盘有缺陷？"
 #. fault.
 #. Type: select
 #. Description
-#: ../ubiquity.templates:77001 ../ubiquity.templates:78001
+#: ../ubiquity.templates:78001 ../ubiquity.templates:79001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -609,157 +624,157 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:79001
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:79001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:79001
 msgid "${FILE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:80001
 msgid "Copying installation logs..."
 msgstr "正在复制安装日志…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:81001
 msgid "Configuring target system..."
 msgstr "正在设置目标系统…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:82001
 msgid "Configuring system locales..."
 msgstr "正在设置系统位置…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001
 msgid "Configuring apt..."
 msgstr "正在设置apt…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:84001
 msgid "Configuring time zone..."
 msgstr "正在设置时区…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:85001
 msgid "Configuring keyboard..."
 msgstr "正在设置键盘…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:86001
 msgid "Creating user..."
 msgstr "正在创建用户…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 msgid "Importing documents and settings..."
 msgstr "正在导入文档和设置…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:88001
 msgid "Configuring hardware..."
 msgstr "正在设置硬件…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:89001
 msgid "Configuring network..."
 msgstr "正在设置网络…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:90001
 msgid "Setting computer name..."
 msgstr "正在设置计算机名称…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Configuring boot loader..."
 msgstr "正在设置启动器…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid "Installing additional packages..."
 msgstr "正在安装附加软件包…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
 msgid "Checking for packages to install..."
 msgstr "正在检查要安装的软件包…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:94001
 msgid "Removing extra packages..."
 msgstr "正在删除额外的软件包…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:95001
 msgid "Checking for packages to remove..."
 msgstr "正在检查要删除的软件包…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:96001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "正在下载软件包（剩余时间${TIME}）…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:97001
 msgid "Downloading package lists..."
 msgstr "正在下载软件包列表…"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:98001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "正在下载软件包列表（剩余时间${TIME}）…"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:100001
 msgid "Error installing ${PACKAGE}"
 msgstr "安装 ${PACKAGE} 时出错"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:101001
 msgid "Error removing ${PACKAGE}"
 msgstr "删除${PACKAGE}时发生错误"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "Error while installing packages"
 msgstr "安装软件包时发生错误"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "An error occurred while installing packages:"
 msgstr "安装软件包时发生了一个错误:"
 
@@ -767,7 +782,7 @@ msgstr "安装软件包时发生了一个错误:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001 ../ubiquity.templates:102001
+#: ../ubiquity.templates:102001 ../ubiquity.templates:103001
 msgid "The following packages are in a broken state:"
 msgstr "下列软件包已经损坏："
 
@@ -775,7 +790,7 @@ msgstr "下列软件包已经损坏："
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001 ../ubiquity.templates:102001
+#: ../ubiquity.templates:102001 ../ubiquity.templates:103001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -793,37 +808,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:103001
 msgid "Error while removing packages"
 msgstr "删除软件包时发生错误"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:103001
 msgid "An error occurred while removing packages:"
 msgstr "删除软件包时发生了一个错误："
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:105001
 msgid "Installing language packs"
 msgstr "正在安装语言包"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:106001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "正在下载语言包（剩余时间${TIME}）…"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:111001
 msgid "Failed to unmount partitions"
 msgstr "卸载分区失败"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:111001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -831,13 +846,13 @@ msgstr "安装程序需要更改分区表，但未能实现，因为以下挂载
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:111001
 msgid "Please close any applications using these mount points."
 msgstr "请关闭所有正在使用这些挂载点的应用程序。"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:111001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "你是否想让安装程序再次尝试卸载这些分区？"
 
@@ -845,13 +860,13 @@ msgstr "你是否想让安装程序再次尝试卸载这些分区？"
 #. Description
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:111001 ../ubiquity.templates:117001
+#: ../ubiquity.templates:112001 ../ubiquity.templates:118001
 msgid "Do you want to return to the partitioner?"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:112001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
@@ -861,7 +876,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:118001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -869,7 +884,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:118001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."

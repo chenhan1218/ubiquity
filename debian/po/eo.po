@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-02-29 10:49-0500\n"
+"Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
+"POT-Creation-Date: 2008-03-06 15:51+0000\n"
 "PO-Revision-Date: 2008-02-20 12:43+0000\n"
 "Last-Translator: Serge Leblanc <serge.leblanc@wanadoo.fr>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
@@ -264,7 +264,7 @@ msgstr "Kreu subdiskojn"
 #. Description
 #. Type: note
 #. Description
-#: ../ubiquity.templates:32001 ../ubiquity.templates:66001
+#: ../ubiquity.templates:32001 ../ubiquity.templates:67001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
 msgstr "Pretas por instalado"
@@ -481,9 +481,25 @@ msgstr "Retroiru"
 msgid "Continue"
 msgstr "Daŭrigu"
 
-#. Type: note
+#. Type: text
 #. Description
 #: ../ubiquity.templates:66001
+#, fuzzy
+#| msgid ""
+#| "Installation is complete. You need to restart the computer in order to "
+#| "use the new installation. You can continue to use this live CD, although "
+#| "any changes you make or documents you save will not be preserved."
+msgid ""
+"Installation is complete. You need to restart the computer in order to use "
+"the new installation."
+msgstr ""
+"Instalado finiĝis. Vi bezonas rekomenci la komputilon por uzi la novan "
+"instalon. Vi povas daŭrigi uzi ĉi tiun vivan KD-on, kvankam ĉiuj ŝanĝoj "
+"farataj de vi, aŭ dokumentoj konservataj de vi ne perdiĝos."
+
+#. Type: note
+#. Description
+#: ../ubiquity.templates:67001
 msgid ""
 " Language: ${LANGUAGE}\n"
 " Keyboard layout: ${KEYMAP}\n"
@@ -503,44 +519,44 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:68001
 #, fuzzy
 msgid "Checking the installation..."
 msgstr "Kopianta instaladajn registraĵojn..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:69001
 msgid "Installing system"
 msgstr "Instalanta sistemon"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:70001
 msgid "Finding the distribution to copy..."
 msgstr "Trovanta la disdonaĵon por kopii..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:72001
 msgid "Scanning files..."
 msgstr "Skananta dosierojn..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:73001
 msgid "Copying files..."
 msgstr "Kopianta dosierojn..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:74001
 msgid "Copying files (less than a minute remaining)..."
 msgstr "Kopiante dosierojn (malpli ol unu minuto restas)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:75001
 msgid "Failed to copy files; out of disk space."
 msgstr ""
 
@@ -552,15 +568,15 @@ msgstr ""
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:74001 ../ubiquity.templates:75001
-#: ../ubiquity.templates:76001 ../ubiquity.templates:77001
+#: ../ubiquity.templates:75001 ../ubiquity.templates:76001
+#: ../ubiquity.templates:77001 ../ubiquity.templates:78001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
 "La instalilo renkontis eraron dum kopiado de dosieroj al la fiksita disko:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:75001
 msgid ""
 "This particular error is due to there being insufficient disk space for the "
 "install to complete on the target partition.  Please run the installer again "
@@ -569,13 +585,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:76001
 msgid "Failed to copy files; faulty CD/DVD?"
 msgstr "Malsukcesis kopii dosierojn; difektita KD/DVD?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:76001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive. It may "
 "help to clean the CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
@@ -589,13 +605,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:77001
 msgid "Failed to copy files; faulty hard disk?"
 msgstr "Malsukcesis kopii dosierojn; ĉu difektita fiksa disko?"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:77001
 msgid ""
 "This particular error is often due to a faulty hard disk. It may help to "
 "check whether the hard disk is old and in need of replacement, or to move "
@@ -607,7 +623,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:78001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
 msgstr "Malsukcesis kopii dosierojn; ĉu difektita KD/DVD aŭ fiksa disko?"
 
@@ -617,7 +633,7 @@ msgstr "Malsukcesis kopii dosierojn; ĉu difektita KD/DVD aŭ fiksa disko?"
 #. fault.
 #. Type: select
 #. Description
-#: ../ubiquity.templates:77001 ../ubiquity.templates:78001
+#: ../ubiquity.templates:78001 ../ubiquity.templates:79001
 msgid ""
 "This particular error is often due to a faulty CD/DVD disk or drive, or a "
 "faulty hard disk. It may help to clean the CD/DVD, to burn the CD/DVD at a "
@@ -634,157 +650,157 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:79001
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:79001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:79001
 msgid "${FILE}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001
+#: ../ubiquity.templates:80001
 msgid "Copying installation logs..."
 msgstr "Kopianta instaladajn registraĵojn..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001
+#: ../ubiquity.templates:81001
 msgid "Configuring target system..."
 msgstr "Konfigurante celan systemon..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:82001
 msgid "Configuring system locales..."
 msgstr "Akomodanta sistemajn lokarojn..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001
 msgid "Configuring apt..."
 msgstr "Konfigurado de apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:84001
 msgid "Configuring time zone..."
 msgstr "Akomodanta horan zonon..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:85001
 msgid "Configuring keyboard..."
 msgstr "Konfigurado de klavaro..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:86001
 msgid "Creating user..."
 msgstr "Kreanta uzanton..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 msgid "Importing documents and settings..."
 msgstr "Importado de dokumentoj kaj agordoj..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:88001
 msgid "Configuring hardware..."
 msgstr "Akomodi aparataĵon..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:89001
 msgid "Configuring network..."
 msgstr "Akomodi reton ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:90001
 msgid "Setting computer name..."
 msgstr "Fiksanta komputilan nomon..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Configuring boot loader..."
 msgstr "Akomodanta iniciatan ŝargilon..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid "Installing additional packages..."
 msgstr "Instalu aldonajn pakojn"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
 msgid "Checking for packages to install..."
 msgstr "Vicigo de instalotaj pakoj..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:94001
 msgid "Removing extra packages..."
 msgstr "Foriganta ekstrajn pakojn..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:95001
 msgid "Checking for packages to remove..."
 msgstr "Kontrolanta kiujn ajn pakojn por forigi..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:96001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Elŝutanta pakojn (${TIME} restanta)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:97001
 msgid "Downloading package lists..."
 msgstr "Elŝutado de pakaĵaj listoj..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:98001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Elŝutanta pakajn listojn (${TIME} restanta)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:100001
 msgid "Error installing ${PACKAGE}"
 msgstr "Eraris instalante ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:101001
 msgid "Error removing ${PACKAGE}"
 msgstr "Eraris forigante ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "Error while installing packages"
 msgstr "Eraro dum instalado de pakoj"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "An error occurred while installing packages:"
 msgstr "Eraro okazis dum instalado de la sekvaj pakoj:"
 
@@ -792,7 +808,7 @@ msgstr "Eraro okazis dum instalado de la sekvaj pakoj:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001 ../ubiquity.templates:102001
+#: ../ubiquity.templates:102001 ../ubiquity.templates:103001
 msgid "The following packages are in a broken state:"
 msgstr "La stato de la sekvaj pakoj estas rompita:"
 
@@ -800,7 +816,7 @@ msgstr "La stato de la sekvaj pakoj estas rompita:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:101001 ../ubiquity.templates:102001
+#: ../ubiquity.templates:102001 ../ubiquity.templates:103001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -819,37 +835,37 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:103001
 msgid "Error while removing packages"
 msgstr "Eraro dum forigo de pakoj"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:103001
 msgid "An error occurred while removing packages:"
 msgstr "Eraro okazis dum forigo de pakoj:"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:105001
 msgid "Installing language packs"
 msgstr "Instalante lingvajn pakojn"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:106001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Elŝutante lingvajn pakojn (${TIME} restante)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:111001
 msgid "Failed to unmount partitions"
 msgstr "Fiaskis demeti la subdiskojn"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:111001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -859,13 +875,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:111001
 msgid "Please close any applications using these mount points."
 msgstr "Bonvolu fermi ĉiujn aplikaĵojn uzantajn ĉi tiujn surmetingojn."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:111001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Ĉu vi ŝatus ke la instalilo reklopodu demeti ĉi tiujn subdiskojn?"
 
@@ -873,13 +889,13 @@ msgstr "Ĉu vi ŝatus ke la instalilo reklopodu demeti ĉi tiujn subdiskojn?"
 #. Description
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:111001 ../ubiquity.templates:117001
+#: ../ubiquity.templates:112001 ../ubiquity.templates:118001
 msgid "Do you want to return to the partitioner?"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:112001
 msgid ""
 "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
 "marked for formatting.  Directories containing system files (/boot, /etc, /"
@@ -889,7 +905,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:118001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -897,7 +913,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:118001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
