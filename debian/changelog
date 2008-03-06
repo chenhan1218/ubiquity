@@ -1,7 +1,11 @@
 oem-config (1.32) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Use a GtkEventBox rather than a GtkScrolledWindow for the tzmap to
     match ubiquity (LP: #198179)
+
+  [ Colin Watson ]
+  * Ensure that our build fails if one of the d-i components fails to build.
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Mar 2008 12:10:21 -0500
 

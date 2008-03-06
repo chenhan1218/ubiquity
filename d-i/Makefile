@@ -35,7 +35,8 @@ maintainer-clean:
 build:
 	set -e; for package in $(PACKAGES); do \
 		if [ -d "$(SOURCEDIR)/$$package" ]; then \
-			(cd "$(SOURCEDIR)/$$package" && debian/rules build); \
+			(cd "$(SOURCEDIR)/$$package" && \
+			 debian/rules build) || exit 1; \
 		fi; \
 	done
 
@@ -43,7 +44,7 @@ clean:
 	rm -rf $(APTDIR)
 	for dir in $(SOURCEDIR)/*; do \
 		if [ -d "$$dir" ]; then \
-			(cd "$$dir" && debian/rules clean); \
+			(cd "$$dir" && debian/rules clean) || exit 1; \
 		fi; \
 	done
 	rm -f $(SOURCEDIR)/*.deb $(SOURCEDIR)/*.udeb
@@ -56,7 +57,7 @@ install:
 			(export NO_PKG_MANGLE=1; \
 			 cd "$(SOURCEDIR)/$$package" && \
 			 debian/rules binary && \
-			 rm -rf debian/*/DEBIAN); \
+			 rm -rf debian/*/DEBIAN) || exit 1; \
 		fi; \
 	done
 	rm -rf udeb-control templates
