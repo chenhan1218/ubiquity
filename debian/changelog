@@ -1,8 +1,15 @@
 ubiquity (1.7.16) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Fix the --no-continue option.
   * Properly handle success_command and rebooting in the noninteractive
     frontend.
+
+  [ Colin Watson ]
+  * Automatic update of included source packages: partman-basicfilesystems
+    56ubuntu3, partman-basicmethods 38ubuntu2, partman-ext3 49ubuntu2,
+    partman-jfs 25ubuntu1, partman-partitioning 54ubuntu4, partman-reiserfs
+    39ubuntu1, partman-target 54ubuntu2, partman-xfs 35ubuntu2.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 05 Mar 2008 18:09:53 -0500
 
