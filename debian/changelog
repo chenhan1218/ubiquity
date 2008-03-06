@@ -1,6 +1,7 @@
 ubiquity (1.7.17) UNRELEASED; urgency=low
 
   * Ensure that our build fails if one of the d-i components fails to build.
+  * Automatic update of included source packages: partman-target 54ubuntu3.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 06 Mar 2008 22:48:34 +0000
 
