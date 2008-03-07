@@ -179,10 +179,32 @@ class Wizard(BaseFrontend):
         self.partition_bar_vbox.setSpacing(0)
         self.partition_bar_vbox.setMargin(0)
 
-        self.userinterface.fullname_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
-        self.userinterface.username_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
-        self.userinterface.password_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
-        self.userinterface.hostname_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
+        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/32x32/status/dialog-warning.png"):
+            warningIcon = QPixmap("/usr/lib/kde4/share/icons/oxygen/32x32/status/dialog-warning.png")
+        else:
+            warningIcon = QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png")
+        self.userinterface.fullname_error_image.setPixmap(warningIcon)
+        self.userinterface.username_error_image.setPixmap(warningIcon)
+        self.userinterface.password_error_image.setPixmap(warningIcon)
+        self.userinterface.hostname_error_image.setPixmap(warningIcon)
+
+        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/22x22/actions/go-next.png"):
+            forwardIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/22x22/actions/go-next.png")
+        else:
+            forwardIcon = QIcon("/usr/share/icons/crystalsvg/16x16/actions/forward.png")
+        self.userinterface.next.setIcon(forwardIcon)
+
+        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/22x22/actions/go-previous.png"):
+            backIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/22x22/actions/go-previous.png")
+        else:
+            backIcon = QIcon("/usr/share/icons/crystalsvg/16x16/actions/back.png")
+        self.userinterface.back.setIcon(backIcon)
+
+        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/22x22/actions/dialog-cancel.png"):
+            cancelIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/22x22/actions/dialog-cancel.png")
+        else:
+            cancelIcon = QIcon("/usr/share/icons/crystalsvg/22x22/actions/button_cancel.png")
+        self.userinterface.cancel.setIcon(cancelIcon)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -350,7 +372,7 @@ class Wizard(BaseFrontend):
     def customize_installer(self):
         """Initial UI setup."""
 
-        self.userinterface.setWindowIcon(QIcon("/usr/share/icons/crystalsvg/64x64/apps/ubiquity.png"))
+        self.userinterface.setWindowIcon(QIcon("/usr/share/icons/hicolor/64x64/apps/ubiquity.png"))
         self.userinterface.back.hide()
 
         """
