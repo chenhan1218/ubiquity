@@ -179,8 +179,6 @@ class Wizard(BaseFrontend):
         self.partition_bar_vbox.setSpacing(0)
         self.partition_bar_vbox.setMargin(0)
 
-        self.partition_list_buttonbox = QHBoxLayout(self.userinterface.partition_list_buttons)
-
         self.userinterface.fullname_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
         self.userinterface.username_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
         self.userinterface.password_error_image.setPixmap(QPixmap("/usr/share/icons/crystalsvg/32x32/actions/messagebox_warning.png"))
@@ -272,6 +270,12 @@ class Wizard(BaseFrontend):
         self.app.connect(self.userinterface.timezone_city_combo, SIGNAL("activated(int)"), self.tzmap.city_combo_changed)
 
         self.app.connect(self.userinterface.advanced_button, SIGNAL("clicked()"), self.on_advanced_button_clicked)
+
+        self.app.connect(self.userinterface.partition_button_new_label, SIGNAL("clicked(bool)"), self.on_partition_list_new_label_activate)
+        self.app.connect(self.userinterface.partition_button_new, SIGNAL("clicked(bool)"), self.on_partition_list_new_activate)
+        self.app.connect(self.userinterface.partition_button_edit, SIGNAL("clicked(bool)"),self.on_partition_list_edit_activate)
+        self.app.connect(self.userinterface.partition_button_delete, SIGNAL("clicked(bool)"),self.on_partition_list_delete_activate)
+        self.app.connect(self.userinterface.partition_button_undo, SIGNAL("clicked(bool)"),self.on_partition_list_undo_activate)
 
         self.pages = [language.Language, timezone.Timezone,
             console_setup.ConsoleSetup, partman.Partman,
@@ -1476,15 +1480,12 @@ class Wizard(BaseFrontend):
             self.edit_dialog.partition_edit_mount_combo.setEnabled(True)
 
     def on_partition_list_treeview_selection_changed(self, selected, deselected):
+        self.userinterface.partition_button_new_label.setEnabled(False)
+        self.userinterface.partition_button_new.setEnabled(False)
+        self.userinterface.partition_button_edit.setEnabled(False)
+        self.userinterface.partition_button_delete.setEnabled(False)
         if not isinstance(self.dbfilter, partman.Partman):
             return
-
-        for child in self.userinterface.partition_list_buttons.children():
-            if isinstance(child, QHBoxLayout):
-                pass
-            else:
-                self.partition_list_buttonbox.removeWidget(child)
-                child.hide()
 
         indexes = self.userinterface.partition_list_treeview.selectedIndexes()
         if indexes:
@@ -1501,36 +1502,14 @@ class Wizard(BaseFrontend):
 
         for action in self.dbfilter.get_actions(devpart, partition):
             if action == 'new_label':
-                # TODO cjwatson 2007-02-19: i18n;
-                # partman-partitioning/text/label is too long unless we can
-                # figure out how to make the row of buttons auto-wrap
-                new_label_button = QPushButton('New partition table', self.userinterface.partition_list_buttons)
-                self.app.connect(new_label_button, SIGNAL("clicked(bool)"),
-                                 self.on_partition_list_new_label_activate)
-                self.partition_list_buttonbox.addWidget(new_label_button)
+                self.userinterface.partition_button_new_label.setEnabled(True)
             elif action == 'new':
-                # TODO cjwatson 2007-02-19: i18n
-                new_button = QPushButton('New partition', self.userinterface.partition_list_buttons)
-                self.app.connect(new_button, SIGNAL("clicked(bool)"),
-                                 self.on_partition_list_new_activate)
-                self.partition_list_buttonbox.addWidget(new_button)
+                self.userinterface.partition_button_new.setEnabled(True)
             elif action == 'edit':
-                # TODO cjwatson 2007-02-19: i18n
-                edit_button = QPushButton('Edit partition', self.userinterface.partition_list_buttons)
-                self.app.connect(edit_button, SIGNAL("clicked(bool)"),
-                                 self.on_partition_list_edit_activate)
-                self.partition_list_buttonbox.addWidget(edit_button)
+                self.userinterface.partition_button_edit.setEnabled(True)
             elif action == 'delete':
-                # TODO cjwatson 2007-02-19: i18n
-                delete_button = QPushButton('Delete partition', self.userinterface.partition_list_buttons)
-                self.app.connect(delete_button, SIGNAL("clicked(bool)"),
-                                 self.on_partition_list_delete_activate)
-                self.partition_list_buttonbox.addWidget(delete_button)
-        undo_button = QPushButton(
-            self.get_string('partman/text/undo_everything'))
-        self.app.connect(undo_button, SIGNAL("clicked(bool)"),
-                         self.on_partition_list_undo_activate)
-        self.partition_list_buttonbox.addWidget(undo_button)
+                self.userinterface.partition_button_delete.setEnabled(True)
+        self.userinterface.partition_button_undo.setEnabled(True)
 
     def on_partition_list_treeview_activated(self, index):
         if not self.allowed_change_step:

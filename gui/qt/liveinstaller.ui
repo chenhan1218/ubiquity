@@ -10,9 +10,7 @@
    </rect>
   </property>
   <property name="sizePolicy" >
-   <sizepolicy>
-    <hsizetype>5</hsizetype>
-    <vsizetype>5</vsizetype>
+   <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -21,12 +19,6 @@
    <string>Install</string>
   </property>
   <layout class="QGridLayout" >
-   <property name="margin" >
-    <number>9</number>
-   </property>
-   <property name="spacing" >
-    <number>6</number>
-   </property>
    <item row="0" column="0" >
     <widget class="QStackedWidget" name="widgetStack" >
      <property name="currentIndex" >
@@ -34,10 +26,22 @@
      </property>
      <widget class="QWidget" name="stepWelcome" >
       <layout class="QGridLayout" >
-       <property name="margin" >
+       <property name="leftMargin" >
         <number>9</number>
        </property>
-       <property name="spacing" >
+       <property name="topMargin" >
+        <number>9</number>
+       </property>
+       <property name="rightMargin" >
+        <number>9</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>9</number>
+       </property>
+       <property name="horizontalSpacing" >
+        <number>6</number>
+       </property>
+       <property name="verticalSpacing" >
         <number>6</number>
        </property>
        <item row="3" column="1" >
@@ -153,18 +157,28 @@
      </widget>
      <widget class="QWidget" name="stepLanguage" >
       <layout class="QGridLayout" >
-       <property name="margin" >
+       <property name="leftMargin" >
         <number>9</number>
        </property>
-       <property name="spacing" >
+       <property name="topMargin" >
+        <number>9</number>
+       </property>
+       <property name="rightMargin" >
+        <number>9</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>9</number>
+       </property>
+       <property name="horizontalSpacing" >
+        <number>6</number>
+       </property>
+       <property name="verticalSpacing" >
         <number>6</number>
        </property>
        <item row="2" column="1" colspan="2" >
         <widget class="QLabel" name="welcome_text_label" >
          <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>5</hsizetype>
-           <vsizetype>5</vsizetype>
+          <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -187,9 +201,7 @@ This language will be the default language for the final system.</string>
        <item row="0" column="1" colspan="2" >
         <widget class="QLabel" name="welcome_heading_label" >
          <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>5</hsizetype>
-           <vsizetype>5</vsizetype>
+          <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
            <horstretch>1</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -271,10 +283,22 @@ This language will be the default language for the final system.</string>
      </widget>
      <widget class="QWidget" name="stepLocation" >
       <layout class="QGridLayout" >
-       <property name="margin" >
+       <property name="leftMargin" >
         <number>9</number>
        </property>
-       <property name="spacing" >
+       <property name="topMargin" >
+        <number>9</number>
+       </property>
+       <property name="rightMargin" >
+        <number>9</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>9</number>
+       </property>
+       <property name="horizontalSpacing" >
+        <number>6</number>
+       </property>
+       <property name="verticalSpacing" >
         <number>6</number>
        </property>
        <item row="2" column="0" >
@@ -302,10 +326,22 @@ This language will be the default language for the final system.</string>
        </item>
        <item row="5" column="0" >
         <layout class="QGridLayout" >
-         <property name="margin" >
+         <property name="leftMargin" >
           <number>0</number>
          </property>
-         <property name="spacing" >
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
+         </property>
+         <property name="horizontalSpacing" >
+          <number>6</number>
+         </property>
+         <property name="verticalSpacing" >
           <number>6</number>
          </property>
          <item row="0" column="3" colspan="2" >
@@ -434,9 +470,7 @@ This language will be the default language for the final system.</string>
        <item row="0" column="0" >
         <widget class="QLabel" name="timezone_heading_label" >
          <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>5</hsizetype>
-           <vsizetype>5</vsizetype>
+          <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
            <horstretch>1</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -452,9 +486,7 @@ This language will be the default language for the final system.</string>
        <item row="3" column="0" >
         <widget class="QFrame" name="map_frame" >
          <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>5</hsizetype>
-           <vsizetype>7</vsizetype>
+          <sizepolicy vsizetype="Expanding" hsizetype="Preferred" >
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -471,10 +503,22 @@ This language will be the default language for the final system.</string>
      </widget>
      <widget class="QWidget" name="stepKeyboardConf" >
       <layout class="QGridLayout" >
-       <property name="margin" >
+       <property name="leftMargin" >
         <number>9</number>
        </property>
-       <property name="spacing" >
+       <property name="topMargin" >
+        <number>9</number>
+       </property>
+       <property name="rightMargin" >
+        <number>9</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>9</number>
+       </property>
+       <property name="horizontalSpacing" >
+        <number>6</number>
+       </property>
+       <property name="verticalSpacing" >
         <number>6</number>
        </property>
        <item row="2" column="0" >
@@ -490,9 +534,7 @@ This language will be the default language for the final system.</string>
        <item row="0" column="0" >
         <widget class="QLabel" name="keyboard_heading_label" >
          <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>5</hsizetype>
-           <vsizetype>5</vsizetype>
+          <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
            <horstretch>1</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -510,11 +552,20 @@ This language will be the default language for the final system.</string>
        </item>
        <item row="5" column="0" >
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QLineEdit" name="entry1" />
@@ -562,11 +613,20 @@ This language will be the default language for the final system.</string>
        </item>
        <item row="3" column="0" >
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
+         </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
          </property>
          <item>
           <widget class="QListWidget" name="keyboardlayoutview" />
@@ -596,10 +656,22 @@ This language will be the default language for the final system.</string>
      </widget>
      <widget class="QWidget" name="stepPartAuto" >
       <layout class="QGridLayout" >
-       <property name="margin" >
+       <property name="leftMargin" >
         <number>9</number>
        </property>
-       <property name="spacing" >
+       <property name="topMargin" >
+        <number>9</number>
+       </property>
+       <property name="rightMargin" >
+        <number>9</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>9</number>
+       </property>
+       <property name="horizontalSpacing" >
+        <number>6</number>
+       </property>
+       <property name="verticalSpacing" >
         <number>6</number>
        </property>
        <item row="2" column="0" >
@@ -615,9 +687,7 @@ This language will be the default language for the final system.</string>
        <item row="0" column="0" >
         <widget class="QLabel" name="part_auto_heading_label" >
          <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>5</hsizetype>
-           <vsizetype>5</vsizetype>
+          <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
            <horstretch>1</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -672,44 +742,11 @@ This language will be the default language for the final system.</string>
       </layout>
      </widget>
      <widget class="QWidget" name="stepPartAdvanced" >
-      <layout class="QGridLayout" >
-       <property name="margin" >
-        <number>9</number>
-       </property>
-       <property name="spacing" >
-        <number>6</number>
-       </property>
-       <item row="4" column="0" >
-        <widget class="QWidget" native="1" name="partition_list_buttons" >
-         <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>1</hsizetype>
-           <vsizetype>5</vsizetype>
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" >
-        <widget class="Line" name="line9" >
-         <property name="frameShape" >
-          <enum>QFrame::HLine</enum>
-         </property>
-         <property name="frameShadow" >
-          <enum>QFrame::Sunken</enum>
-         </property>
-         <property name="orientation" >
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0" >
+      <layout class="QVBoxLayout" >
+       <item>
         <widget class="QLabel" name="part_advanced_heading_label" >
          <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>5</hsizetype>
-           <vsizetype>5</vsizetype>
+          <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
            <horstretch>1</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -722,20 +759,20 @@ This language will be the default language for the final system.</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="0" >
-        <widget class="QTreeView" name="partition_list_treeview" >
-         <property name="contextMenuPolicy" >
-          <enum>Qt::CustomContextMenu</enum>
+       <item>
+        <widget class="Line" name="line9" >
+         <property name="frameShape" >
+          <enum>QFrame::HLine</enum>
          </property>
-         <property name="alternatingRowColors" >
-          <bool>true</bool>
+         <property name="frameShadow" >
+          <enum>QFrame::Sunken</enum>
          </property>
-         <property name="rootIsDecorated" >
-          <bool>false</bool>
+         <property name="orientation" >
+          <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
-       <item row="2" column="0" >
+       <item>
         <widget class="QFrame" name="partition_bar_frame" >
          <property name="frameShape" >
           <enum>QFrame::NoFrame</enum>
@@ -748,30 +785,125 @@ This language will be the default language for the final system.</string>
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QTreeView" name="partition_list_treeview" >
+         <property name="contextMenuPolicy" >
+          <enum>Qt::CustomContextMenu</enum>
+         </property>
+         <property name="alternatingRowColors" >
+          <bool>true</bool>
+         </property>
+         <property name="rootIsDecorated" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" native="1" name="partition_list_buttons" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Preferred" hsizetype="Minimum" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <layout class="QHBoxLayout" >
+          <item>
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="partition_button_new_label" >
+            <property name="text" >
+             <string>New Label</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="partition_button_new" >
+            <property name="text" >
+             <string>New</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="partition_button_edit" >
+            <property name="text" >
+             <string>Edit</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="partition_button_delete" >
+            <property name="text" >
+             <string>Delete</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="partition_button_undo" >
+            <property name="text" >
+             <string>Undo</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="stepUserInfo" >
       <layout class="QGridLayout" >
-       <property name="margin" >
+       <property name="leftMargin" >
         <number>9</number>
        </property>
-       <property name="spacing" >
+       <property name="topMargin" >
+        <number>9</number>
+       </property>
+       <property name="rightMargin" >
+        <number>9</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>9</number>
+       </property>
+       <property name="horizontalSpacing" >
+        <number>6</number>
+       </property>
+       <property name="verticalSpacing" >
         <number>6</number>
        </property>
        <item row="13" column="0" >
         <layout class="QGridLayout" >
-         <property name="margin" >
+         <property name="leftMargin" >
           <number>0</number>
          </property>
-         <property name="spacing" >
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
+         </property>
+         <property name="horizontalSpacing" >
+          <number>6</number>
+         </property>
+         <property name="verticalSpacing" >
           <number>6</number>
          </property>
          <item row="0" column="0" >
           <widget class="QLineEdit" name="hostname" >
            <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>7</hsizetype>
-             <vsizetype>0</vsizetype>
+            <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -810,9 +942,7 @@ This language will be the default language for the final system.</string>
          <item row="0" column="1" >
           <widget class="QLabel" name="hostname_error_image" >
            <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>0</hsizetype>
-             <vsizetype>0</vsizetype>
+            <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -843,9 +973,7 @@ This language will be the default language for the final system.</string>
          <item row="0" column="2" >
           <widget class="QLabel" name="hostname_error_reason" >
            <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>7</hsizetype>
-             <vsizetype>5</vsizetype>
+            <sizepolicy vsizetype="Preferred" hsizetype="Expanding" >
              <horstretch>1</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -871,10 +999,22 @@ This language will be the default language for the final system.</string>
        </item>
        <item row="10" column="0" >
         <layout class="QGridLayout" >
-         <property name="margin" >
+         <property name="leftMargin" >
           <number>0</number>
          </property>
-         <property name="spacing" >
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
+         </property>
+         <property name="horizontalSpacing" >
+          <number>6</number>
+         </property>
+         <property name="verticalSpacing" >
           <number>6</number>
          </property>
          <item row="0" column="4" >
@@ -903,9 +1043,7 @@ This language will be the default language for the final system.</string>
          <item row="0" column="2" >
           <widget class="QLabel" name="password_error_image" >
            <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>0</hsizetype>
-             <vsizetype>0</vsizetype>
+            <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -936,9 +1074,7 @@ This language will be the default language for the final system.</string>
          <item row="0" column="3" >
           <widget class="QLabel" name="password_error_reason" >
            <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>7</hsizetype>
-             <vsizetype>5</vsizetype>
+            <sizepolicy vsizetype="Preferred" hsizetype="Expanding" >
              <horstretch>1</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -963,9 +1099,7 @@ This language will be the default language for the final system.</string>
          <item row="0" column="1" >
           <widget class="QLineEdit" name="verified_password" >
            <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>7</hsizetype>
-             <vsizetype>0</vsizetype>
+            <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -984,9 +1118,7 @@ This language will be the default language for the final system.</string>
          <item row="0" column="0" >
           <widget class="QLineEdit" name="password" >
            <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>7</hsizetype>
-             <vsizetype>0</vsizetype>
+            <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -1058,18 +1190,28 @@ This language will be the default language for the final system.</string>
        </item>
        <item row="3" column="0" >
         <layout class="QGridLayout" >
-         <property name="margin" >
+         <property name="leftMargin" >
           <number>0</number>
          </property>
-         <property name="spacing" >
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
+         </property>
+         <property name="horizontalSpacing" >
+          <number>6</number>
+         </property>
+         <property name="verticalSpacing" >
           <number>6</number>
          </property>
          <item row="0" column="2" >
           <widget class="QLabel" name="fullname_error_reason" >
            <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>7</hsizetype>
-             <vsizetype>5</vsizetype>
+            <sizepolicy vsizetype="Preferred" hsizetype="Expanding" >
              <horstretch>1</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -1098,9 +1240,7 @@ This language will be the default language for the final system.</string>
          <item row="0" column="1" >
           <widget class="QLabel" name="fullname_error_image" >
            <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>0</hsizetype>
-             <vsizetype>0</vsizetype>
+            <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -1166,9 +1306,7 @@ This language will be the default language for the final system.</string>
        <item row="0" column="0" >
         <widget class="QLabel" name="userinfo_heading_label" >
          <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>5</hsizetype>
-           <vsizetype>5</vsizetype>
+          <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
            <horstretch>1</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -1216,18 +1354,28 @@ This language will be the default language for the final system.</string>
        </item>
        <item row="6" column="0" >
         <layout class="QGridLayout" >
-         <property name="margin" >
+         <property name="leftMargin" >
           <number>0</number>
          </property>
-         <property name="spacing" >
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
+         </property>
+         <property name="horizontalSpacing" >
+          <number>6</number>
+         </property>
+         <property name="verticalSpacing" >
           <number>6</number>
          </property>
          <item row="0" column="0" >
           <widget class="QLineEdit" name="username" >
            <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>7</hsizetype>
-             <vsizetype>0</vsizetype>
+            <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -1253,9 +1401,7 @@ This language will be the default language for the final system.</string>
          <item row="0" column="1" >
           <widget class="QLabel" name="username_error_image" >
            <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>0</hsizetype>
-             <vsizetype>0</vsizetype>
+            <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -1299,9 +1445,7 @@ This language will be the default language for the final system.</string>
          <item row="0" column="2" >
           <widget class="QLabel" name="username_error_reason" >
            <property name="sizePolicy" >
-            <sizepolicy>
-             <hsizetype>7</hsizetype>
-             <vsizetype>5</vsizetype>
+            <sizepolicy vsizetype="Preferred" hsizetype="Expanding" >
              <horstretch>1</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -1345,10 +1489,22 @@ This language will be the default language for the final system.</string>
      </widget>
      <widget class="QWidget" name="stepReady" >
       <layout class="QGridLayout" >
-       <property name="margin" >
+       <property name="leftMargin" >
         <number>9</number>
        </property>
-       <property name="spacing" >
+       <property name="topMargin" >
+        <number>9</number>
+       </property>
+       <property name="rightMargin" >
+        <number>9</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>9</number>
+       </property>
+       <property name="horizontalSpacing" >
+        <number>6</number>
+       </property>
+       <property name="verticalSpacing" >
         <number>6</number>
        </property>
        <item row="5" column="0" colspan="2" >
@@ -1367,9 +1523,7 @@ This language will be the default language for the final system.</string>
        <item row="5" column="2" >
         <widget class="QPushButton" name="advanced_button" >
          <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>4</hsizetype>
-           <vsizetype>5</vsizetype>
+          <sizepolicy vsizetype="Preferred" hsizetype="Maximum" >
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -1389,9 +1543,7 @@ This language will be the default language for the final system.</string>
        <item row="0" column="0" colspan="3" >
         <widget class="QLabel" name="ready_heading_label" >
          <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>5</hsizetype>
-           <vsizetype>5</vsizetype>
+          <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
            <horstretch>1</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -1462,11 +1614,20 @@ This language will be the default language for the final system.</string>
    </item>
    <item row="1" column="0" >
     <layout class="QHBoxLayout" >
-     <property name="margin" >
-      <number>0</number>
-     </property>
      <property name="spacing" >
       <number>6</number>
+     </property>
+     <property name="leftMargin" >
+      <number>0</number>
+     </property>
+     <property name="topMargin" >
+      <number>0</number>
+     </property>
+     <property name="rightMargin" >
+      <number>0</number>
+     </property>
+     <property name="bottomMargin" >
+      <number>0</number>
      </property>
      <item>
       <widget class="QLabel" name="step_label" >
@@ -1505,6 +1666,9 @@ This language will be the default language for the final system.</string>
       <widget class="QPushButton" name="next" >
        <property name="text" >
         <string>Next ></string>
+       </property>
+       <property name="icon" >
+        <iconset>../../desktop/cr16-app-ubiquity.png</iconset>
        </property>
       </widget>
      </item>

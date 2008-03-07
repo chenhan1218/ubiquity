@@ -1,3 +1,10 @@
+ubiquity (1.7.17ubuntu1) hardy; urgency=low
+
+  * kde_ui:
+   - Enable/disable advanced partitioner buttons, don't hide/show
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 07 Mar 2008 13:26:35 +0000
+
 ubiquity (1.7.17) hardy; urgency=low
 
   * Ensure that our build fails if one of the d-i components fails to build.
