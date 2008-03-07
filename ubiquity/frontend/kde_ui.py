@@ -684,7 +684,10 @@ class Wizard(BaseFrontend):
         #quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, rebootButtonText, quitButtonText)
         self.run_success_cmd()
         if not self.get_reboot_seen():
-            quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText)
+            messageBox = QMessageBox(QMessageBox.Question, titleText, quitText, QMessageBox.NoButton, self.userinterface)
+            messageBox.addButton(rebootButtonText, QMessageBox.AcceptRole)
+            messageBox.addButton(quitButtonText, QMessageBox.RejectRole)
+            quitAnswer = messageBox.exec_()
 
             if quitAnswer == 0:
                 self.reboot()
