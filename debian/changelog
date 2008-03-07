@@ -1,10 +1,15 @@
 ubiquity (1.7.18) UNRELEASED; urgency=low
 
+  [ Jonathan Riddell ]
   * kde_ui:
    - Enable/disable advanced partitioner buttons, don't hide/show
    - Use Oxygen icon and make it findable by KDE 4
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 07 Mar 2008 13:26:35 +0000
+  [ Evan Dandrea ]
+  * Move cancelButton.hide() to after setCancelButton in the KDE frontend as
+    the latter function causes the button to be shown again.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 07 Mar 2008 10:27:05 -0500
 
 ubiquity (1.7.17) hardy; urgency=low
 

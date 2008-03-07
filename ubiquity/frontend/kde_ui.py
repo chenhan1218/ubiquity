@@ -970,8 +970,10 @@ class Wizard(BaseFrontend):
             self.progressDialogue = QProgressDialog('', skipText, 0, total_steps, self.userinterface)
             self.progressDialogue.setWindowModality(Qt.WindowModal);
             self.cancelButton = QPushButton(skipText, self.progressDialogue)
-            self.cancelButton.hide()
             self.progressDialogue.setCancelButton(self.cancelButton)
+            # This needs to be called after setCancelButton, otherwise that
+            # function will cause the button to be shown again.
+            self.cancelButton.hide()
         elif self.progress_position.depth() == 0:
             self.progressDialogue.setMaximum(total_steps)
 
