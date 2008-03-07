@@ -2,6 +2,7 @@ ubiquity (1.7.17ubuntu1) hardy; urgency=low
 
   * kde_ui:
    - Enable/disable advanced partitioner buttons, don't hide/show
+   - Use Oxygen icon and make it findable by KDE 4
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 07 Mar 2008 13:26:35 +0000
 

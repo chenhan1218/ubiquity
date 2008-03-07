@@ -203,8 +203,8 @@ endif
 		debian/ubiquity/usr/share/ubiquity/intro.txt
 
 	set -e; for size in 16 22 32 48 64 128; do \
-		mkdir -p debian/ubiquity-frontend-kde/usr/share/icons/crystalsvg/$${size}x$${size}/apps; \
-		cp desktop/cr$${size}-app-ubiquity.png debian/ubiquity-frontend-kde/usr/share/icons/crystalsvg/$${size}x$${size}/apps/ubiquity.png; \
+		mkdir -p debian/ubiquity-frontend-kde/usr/share/icons/hicolor/$${size}x$${size}/apps; \
+		cp desktop/hi$${size}-app-ubiquity.png debian/ubiquity-frontend-kde/usr/share/icons/hicolor/$${size}x$${size}/apps/ubiquity.png; \
 	done
 
 # Build architecture-independent files here.
