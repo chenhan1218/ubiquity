@@ -1,4 +1,4 @@
-ubiquity (1.7.17ubuntu1) hardy; urgency=low
+ubiquity (1.7.18) UNRELEASED; urgency=low
 
   * kde_ui:
    - Enable/disable advanced partitioner buttons, don't hide/show
