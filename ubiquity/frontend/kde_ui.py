@@ -355,8 +355,10 @@ class Wizard(BaseFrontend):
                         self.refresh()
                 if self.backup:
                     if self.pagesindex > 0:
-                        self.pagesindex = self.pagesindex - 1
-            
+                        step = self.step_name(self.get_current_page())
+                        if not step == "stepPartAdvanced": #Advanced will already have pagesindex pointing at first Paritioning page
+                            self.pagesindex = self.pagesindex - 1
+
             self.app.processEvents()
 
             # needed to be here for --automatic as there might not be any
@@ -893,7 +895,7 @@ class Wizard(BaseFrontend):
         changed_page = False
 
         if str(step) == "stepReady":
-            self.userinterface.next.setText("Next >")
+            self.userinterface.next.setText("Next")
             self.translate_widget(self.userinterface.next, self.locale)
 
         if self.dbfilter is not None:

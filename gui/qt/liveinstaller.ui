@@ -1658,17 +1658,17 @@ This language will be the default language for the final system.</string>
      <item>
       <widget class="QPushButton" name="back" >
        <property name="text" >
-        <string>&lt; Back</string>
+        <string>Back</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="next" >
        <property name="text" >
-        <string>Next ></string>
+        <string>Next</string>
        </property>
        <property name="icon" >
-        <iconset>../../desktop/cr16-app-ubiquity.png</iconset>
+        <iconset/>
        </property>
       </widget>
      </item>
