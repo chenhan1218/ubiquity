@@ -234,7 +234,7 @@ if [ "$PROP" = "nvidia_new" ] || [ "$PROP" = "nvidia" ] || [ "$PROP" = "fglrx" ]
                  s/e/14/; \
                  s/f/15/; \
                  s/\./\:/;" `
-        add_module ivtv-fb
+        add_module ivtvfb
         pvr_350_xorg "$FB" "$PCI" "$TVSTANDARD"
     fi
 fi
