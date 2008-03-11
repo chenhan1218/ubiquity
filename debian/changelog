@@ -10,6 +10,11 @@ ubiquity (1.7.18) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Move cancelButton.hide() to after setCancelButton in the KDE frontend as
     the latter function causes the button to be shown again.
+  * Use a black border around tzmap points to assist the visually impaired.
+  * Flash the currently selected location on the tzmap so that it's easier to
+    spot.
+  * When clicking on the tzmap, if the closest match is already selected, take
+    the next closest.
 
   [ Mario Limonciello ]
   * For PVR-350 output support, use ivtvfb not ivtv-fb.
