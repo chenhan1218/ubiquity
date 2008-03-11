@@ -15,6 +15,8 @@ ubiquity (1.7.18) UNRELEASED; urgency=low
     spot.
   * When clicking on the tzmap, if the closest match is already selected, take
     the next closest.
+  * Place the tzmap in an AspectFrame so it doesn't look distorted on
+    widescreen displays (LP: #200152).
 
   [ Mario Limonciello ]
   * For PVR-350 output support, use ivtvfb not ivtv-fb.
