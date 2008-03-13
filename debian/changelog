@@ -21,6 +21,7 @@ ubiquity (1.7.18) UNRELEASED; urgency=low
   * Automatic update of included source packages: clock-setup
     0.92ubuntu2, grub-installer 1.27ubuntu6, partman-auto 73ubuntu5,
     partman-target 54ubuntu4.
+  * UI Freeze exception upload (LP: #201788).
 
   [ Mario Limonciello ]
   * For PVR-350 output support, use ivtvfb not ivtv-fb.
