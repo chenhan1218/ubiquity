@@ -17,6 +17,7 @@ ubiquity (1.7.18) UNRELEASED; urgency=low
     the next closest.
   * Place the tzmap in an AspectFrame so it doesn't look distorted on
     widescreen displays (LP: #200152).
+  * Add missing signal import in noninteractive frontend.
 
   [ Mario Limonciello ]
   * For PVR-350 output support, use ivtvfb not ivtv-fb.

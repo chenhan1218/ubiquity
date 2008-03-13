@@ -31,6 +31,7 @@ import gobject
 import getpass
 import os
 import sys
+import signal
 
 from ubiquity import filteredcommand, i18n
 from ubiquity.misc import *
