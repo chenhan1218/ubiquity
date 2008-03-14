@@ -149,10 +149,10 @@ def main():
                       'unattended installations).')
     parser.add_option('--old-tzmap', dest='old_tzmap', action='store_true',
                       help='use the old timezone map.')
-    parser.add_option('--no-continue', dest='no_continue', action='store_true',
-                      help='Disable the continue using the Live CD button.  ' \
-                      'Useful for when ubiquity is running in only-ubiquity ' \
-                      'mode.')
+    parser.add_option('--only', dest='only', action='store_true',
+                      help='tell the application that it is the only desktop ' \
+                      'program running so that it can customize its UI to ' \
+		      'better suit a minimal environment.')
     (options, args) = parser.parse_args()
 
     if options.debug:
@@ -177,8 +177,8 @@ def main():
     if options.old_tzmap:
         os.environ['UBIQUITY_OLD_TZMAP'] = '1'
 
-    if options.no_continue:
-        os.environ['UBIQUITY_NO_CONTINUE'] = '1'
+    if options.only
+        os.environ['UBIQUITY_ONLY'] = '1'
 
     acquire_lock()
 
