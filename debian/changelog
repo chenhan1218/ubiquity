@@ -1,8 +1,13 @@
 ubiquity (1.7.19) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Change --no-continue option to a more general --only option for use
     in only-ubiquity and automatic-ubiquity modes.
   * Disable the minimize button when using --only (LP: #200034).
+
+  [ Colin Watson ]
+  * Set OVERRIDE_SHOW_ALL_LANGUAGES while calling localechooser, so that
+    even languages with complex scripts are displayed (LP: #202291).
 
  -- Evan Dandrea <evand@ubuntu.com>  Fri, 14 Mar 2008 16:24:49 -0400
 

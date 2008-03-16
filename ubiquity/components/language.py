@@ -33,7 +33,8 @@ class Language(FilteredCommand):
         questions = ['^languagechooser/language-name',
                      '^countrychooser/(shortlist|country-name)$']
         return (['/usr/lib/ubiquity/localechooser/localechooser'], questions,
-                {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH']})
+                {'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH'],
+                 'OVERRIDE_SHOW_ALL_LANGUAGES': '1'})
 
     def run(self, priority, question):
         if question.startswith('languagechooser/language-name'):
