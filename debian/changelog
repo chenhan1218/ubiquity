@@ -3,6 +3,15 @@ oem-config (1.32) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Use a GtkEventBox rather than a GtkScrolledWindow for the tzmap to
     match ubiquity (LP: #198179)
+  * Port changes to zoommap.py from ubiquity:
+    - Use a black border around tzmap points to assist the visually
+      impaired.
+    - Flash the currently selected location on the tzmap so that it's easier
+      to spot.
+    - When clicking on the tzmap, if the closest match is already selected,
+      take the next closest.
+    - Place the tzmap in an AspectFrame so it doesn't look distorted on
+      widescreen displays (LP: #200152).
 
   [ Colin Watson ]
   * Ensure that our build fails if one of the d-i components fails to build.

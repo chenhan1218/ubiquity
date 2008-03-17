@@ -46,7 +46,7 @@ class HotSpot:
         self.y = float(y)
         self.selected = False
         # FIXME evand 2008-02-18: something a bit more accurate.
-        self.width, self.height = (10, 10)
+        self.width, self.height = (5, 5)
 
 class ZoomMapWidget(gtk.Widget):
     __gsignals__ = {
@@ -68,6 +68,7 @@ class ZoomMapWidget(gtk.Widget):
         self.update_timeout = None
         self.location_selected = None
         self.tzdb = oem_config.tz.Database()
+        self.lit = False
         
         timezone_city_combo = self.frontend.timezone_city_combo
 
@@ -119,6 +120,7 @@ class ZoomMapWidget(gtk.Widget):
 
     def timeout(self):
         self.update_current_time()
+        self.blink()
         return True
 
     def mapped(self, widget, event):
@@ -141,8 +143,9 @@ class ZoomMapWidget(gtk.Widget):
         except:
             raise ZoomMapException("Cannot load the pixmap file %s" % pixmap_filename)
         self.pixbuf = gtk.gdk.pixbuf_new_from_file(pixmap_filename)
-        #self.big_pixbuf = self.pixbuf #do we need to enlarge this?
-        self.big_pixbuf = self.pixbuf.scale_simple(2048 * 3, 1024 * 3, gtk.gdk.INTERP_NEAREST)
+        # TODO evand 2008-03-11: re-investigate enlarging this.  Past testing
+        # has shown it to be too slow to be useful.
+        self.big_pixbuf = self.pixbuf
 
     def button_release(self,widget,event):
         self.hit_test(event.x, event.y)
@@ -218,8 +221,8 @@ class ZoomMapWidget(gtk.Widget):
         x, y, w, h = self.allocation
         map_w = self.big_pixbuf.get_width()
         map_h = self.big_pixbuf.get_height()
-        map_x = 1.0*self.cursor_x/w *map_w
-        map_y = 1.0*self.cursor_y/h * map_h
+        map_x = 1.0 * self.cursor_x / w * map_w
+        map_y = 1.0 * self.cursor_y / h * map_h
         map_x_offset = min(map_w-w, max(map_x-w/2, 0.0))
         map_y_offset = min(map_h-h, max(map_y-h/2, 0.0))
         self.zoom_window_alllocation =  (0, 0, w, h)
@@ -234,8 +237,10 @@ class ZoomMapWidget(gtk.Widget):
         map_h = self.small_pixbuf.get_height()
         cr.set_source_pixbuf(self.small_pixbuf, 0, 0)
         cr.paint()
-        cr.set_line_width(2)
         for hotspot in self.hotspots:
+            cr.set_source_color(gtk.gdk.color_parse("black"))
+            cr.arc(hotspot.x*w, hotspot.y*h, 2, 0, 2*pi)
+            cr.fill()
             cr.arc(hotspot.x*w, hotspot.y*h, 1, 0, 2*pi)
             if self.location_selected and hotspot == self.location_selected:
                 cr.set_source_color(self.font_selected)
@@ -243,6 +248,40 @@ class ZoomMapWidget(gtk.Widget):
                 cr.set_source_color(self.font_unselected)
             cr.fill()
             cr.stroke()
+
+    def blink(self):
+        if not self.location_selected:
+            return
+        cr = self.window.cairo_create()
+        if self.cursor_x and self.cursor_y:
+            map_w = self.big_pixbuf.get_width()
+            map_h = self.big_pixbuf.get_height()
+            x1 = map_w * self.location_selected.x
+            y1 = map_h * self.location_selected.y
+            min_x, min_y, max_w, max_h = self.map_window_alllocation
+            offset_x, offset_y, xx, yy = self.zoom_window_alllocation
+            x2 = offset_x + x1 - min_x
+            y2 = offset_y + y1 - min_y
+            cr.set_source_color(gtk.gdk.color_parse("black"))
+            cr.arc(x2, y2, 2, 0, 2*pi)
+            cr.fill()
+            x = x2
+            y = y2
+        else:
+            x, y, w, h = self.allocation
+            x = self.location_selected.x * w
+            y = self.location_selected.y * h
+            cr.set_source_color(gtk.gdk.color_parse("black"))
+            cr.arc(self.location_selected.x*w, self.location_selected.y*h, 2, 0, 2*pi)
+            cr.fill()
+        if self.lit:
+            cr.set_source_color(self.font_selected)
+        else:
+            cr.set_source_color(self.font_unselected)
+        self.lit = not self.lit
+        cr.arc(x, y, 1, 0, 2*pi)
+        cr.fill()
+        cr.stroke()
 
     def draw_zoom_window(self):
         if not self.cursor_x and not self.cursor_y: return
@@ -286,6 +325,11 @@ class ZoomMapWidget(gtk.Widget):
             y2 = offset_y + y1 - min_y
             if x1 < min_x or x1 > min_x + max_w or y1 < min_y or y1 > min_y + max_h: continue
             cr.move_to(x2, y2)
+            
+            cr.set_source_color(gtk.gdk.color_parse("black"))
+            cr.arc(x2, y2, 2, 0, 2*pi)
+            cr.fill()
+
             if (self.location_selected and hotspot == self.location_selected):
                 cr.set_source_color(self.font_selected)
             elif not selected or (abs(self.cursor_x - x2) < hotspot.width and abs(self.cursor_y - y2) < hotspot.height):
@@ -293,8 +337,7 @@ class ZoomMapWidget(gtk.Widget):
                 selected = True
             else:
                 cr.set_source_color(self.font_unselected)
-            cr.set_line_width(1)
-            cr.arc(x2, y2, 2, 0, 2*pi)
+            cr.arc(x2, y2, 1, 0, 2*pi)
             cr.fill()
             cr.stroke()
 
@@ -313,6 +356,8 @@ class ZoomMapWidget(gtk.Widget):
             y2 = offset_y + y1 - min_y
             if x1 < min_x or x1 > min_x + max_w or y1 < min_y or y1 > min_y + max_h: continue
             if (abs(cursor_x - x2) < hotspot.width and abs(cursor_y - y2) < hotspot.height):
+                if self.location_selected and hotspot == self.location_selected:
+                    continue
                 self.select_hotspot(hotspot)
                 self.set_city_text(hotspot.tz.zone)
                 self.set_zone_text(hotspot.tz)
