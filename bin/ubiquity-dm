@@ -138,7 +138,6 @@ class DM:
                     stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.drop_privileges))
 
             # Accessibility
-            os.environ['GTK_MODULES'] = 'gail:atk-bridge'
             gconf_dir = ('xml:readwrite:%s' %
                 os.path.expanduser('~%s/.gconf' %
                 self.username))
@@ -154,6 +153,7 @@ class DM:
                     extras.append(subprocess.Popen(['/usr/lib/at-spi/at-spi-registryd'],
                         stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges))
+                    os.environ['GTK_MODULES'] = 'gail:atk-bridge'
                 fp = open('/proc/cmdline', 'r')
                 if 'access=m2' in fp.readline():
                     if osextras.find_on_path('onboard'):

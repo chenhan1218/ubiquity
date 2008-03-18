@@ -9,7 +9,11 @@ ubiquity (1.7.19) UNRELEASED; urgency=low
   * Set OVERRIDE_SHOW_ALL_LANGUAGES while calling localechooser, so that
     even languages with complex scripts are displayed (LP: #202291).
 
- -- Evan Dandrea <evand@ubuntu.com>  Fri, 14 Mar 2008 16:24:49 -0400
+  [ Luke Yelavich ]
+  * bin/ubiquity-dm: Set the GTK_MODULES environment variable only when
+    at-spi-registryd is loaded.
+
+ -- Luke Yelavich <luke.yelavich@canonical.com>  Tue, 18 Mar 2008 18:46:11 +1100
 
 ubiquity (1.7.18) hardy; urgency=low
 
