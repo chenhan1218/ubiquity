@@ -4,6 +4,10 @@ ubiquity (1.7.19) UNRELEASED; urgency=low
   * Change --no-continue option to a more general --only option for use
     in only-ubiquity and automatic-ubiquity modes.
   * Disable the minimize button when using --only (LP: #200034).
+  * Properly return in debconf progress functions in the noninteractive
+    frontend.  Thanks Colin Watson.
+  * Print progress updates on a new line again in the noninteractive
+    frontend.
 
   [ Colin Watson ]
   * Set OVERRIDE_SHOW_ALL_LANGUAGES while calling localechooser, so that

@@ -183,27 +183,29 @@ class Wizard(BaseFrontend):
     def debconf_progress_start(self, progress_min, progress_max,
                                progress_title):
         """Start a progress bar. May be nested."""
-        pass
+        return True
 
     def debconf_progress_set(self, progress_val):
         """Set the current progress bar's position to progress_val."""
         self.progress_val = progress_val
-        sys.stdout.write('\r%d percent complete: %s' % (self.progress_val, self.progress_info))
+        sys.stdout.write('%d percent complete: %s' % (self.progress_val, self.progress_info))
         sys.stdout.flush()
+        return True
 
     def debconf_progress_step(self, progress_inc):
         """Increment the current progress bar's position by progress_inc."""
-        pass
+        return True
 
     def debconf_progress_info(self, progress_info):
         """Set the current progress bar's message to progress_info."""
         self.progress_info = progress_info
-        sys.stdout.write('\r%d percent complete: %s' % (self.progress_val, self.progress_info))
+        sys.stdout.write('%d percent complete: %s' % (self.progress_val, self.progress_info))
         sys.stdout.flush()
+        return True
 
     def debconf_progress_stop(self):
         """Stop the current progress bar."""
-        pass
+        return True
 
     def debconf_progress_region(self, region_start, region_end):
         """Confine nested progress bars to a region of the current bar."""
