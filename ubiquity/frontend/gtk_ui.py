@@ -399,7 +399,9 @@ class Wizard(BaseFrontend):
                         self.refresh()
                 if self.backup:
                     if self.pagesindex > 0:
-                        self.pagesindex = self.pagesindex - 1
+                        step = self.step_name(self.steps.get_current_page())
+                        if not step == 'stepPartAdvanced':
+                            self.pagesindex = self.pagesindex - 1
 
             while gtk.events_pending():
                 gtk.main_iteration()

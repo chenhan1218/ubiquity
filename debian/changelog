@@ -8,6 +8,9 @@ ubiquity (1.7.19) UNRELEASED; urgency=low
     frontend.  Thanks Colin Watson.
   * Print progress updates on a new line again in the noninteractive
     frontend.
+  * When clicking back from the advanced partitioner, go back to the first
+    partitioning page rather than the keyboard page.  Thanks Jonathan
+    Riddell.
 
   [ Colin Watson ]
   * Set OVERRIDE_SHOW_ALL_LANGUAGES while calling localechooser, so that
