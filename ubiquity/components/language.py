@@ -133,4 +133,5 @@ class Language(FilteredCommand):
             except locale.Error, e:
                 self.debug('locale.setlocale failed: %s (LANG=%s)',
                            e, di_locale)
-            misc.execute('fontconfig-voodoo', '--auto', '--force', '--quiet')
+            misc.execute_root('fontconfig-voodoo',
+                              '--auto', '--force', '--quiet')
