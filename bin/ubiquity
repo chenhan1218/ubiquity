@@ -177,7 +177,7 @@ def main():
     if options.old_tzmap:
         os.environ['UBIQUITY_OLD_TZMAP'] = '1'
 
-    if options.only
+    if options.only:
         os.environ['UBIQUITY_ONLY'] = '1'
 
     acquire_lock()
