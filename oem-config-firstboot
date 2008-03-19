@@ -7,10 +7,6 @@ if [ "$1" = '--debug' ]; then
 	DEBUG=1
 fi
 
-# Remove the temporary OEM configuration user, if possible.
-if getent passwd oem >/dev/null; then
-	deluser --quiet --remove-home oem || true
-fi
 # KDM stores the default user here, and apparently gets upset that we've
 # just removed its previous default user.
 rm -f /var/lib/kdm/kdmsts
@@ -47,6 +43,10 @@ for try in $(seq 1 $TRY); do
 	if [ "$CODE" -eq 0 ]; then
 		# Don't run again.
 		update-rc.d -f oem-config remove >/dev/null 2>&1
+		# Remove the temporary OEM configuration user, if possible.
+		if getent passwd oem >/dev/null; then
+			deluser --quiet --remove-home oem || true
+		fi
 		exit 0
 	fi
 done

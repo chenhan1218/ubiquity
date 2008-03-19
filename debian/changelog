@@ -19,6 +19,9 @@ oem-config (1.32) UNRELEASED; urgency=low
     d-i/source/ on upload (from ubiquity).
   * Don't clean console-setup; bits of it are intentionally missing from our
     copy, and it's not necessary.
+  * Now that we allow user creation even if a non-system user already
+    exists, we can only delete the temporary oem user once oem-config has
+    actually succeeded (LP: #153311).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Mar 2008 12:10:21 -0500
 
