@@ -1,9 +1,9 @@
-ubiquity (1.8.0) UNRELEASED; urgency=low
+ubiquity (1.8.0) hardy; urgency=low
 
   * Disable the intro message in preparation for Ubuntu 8.04 beta.
   * Run ubiquity under hal-lock if possible (LP: #199129).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Mar 2008 15:44:01 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 19 Mar 2008 15:49:26 +0000
 
 ubiquity (1.7.18) hardy; urgency=low
 
