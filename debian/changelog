@@ -12,6 +12,7 @@ oem-config (1.32) UNRELEASED; urgency=low
       take the next closest.
     - Place the tzmap in an AspectFrame so it doesn't look distorted on
       widescreen displays (LP: #200152).
+  * Center the oem-config window to match ubiquity.
 
   [ Colin Watson ]
   * Ensure that our build fails if one of the d-i components fails to build.
