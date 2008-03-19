@@ -10,6 +10,8 @@ import subprocess
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
+from ubiquity import osextras
+
 def main():
     newargv = []
     desktop = None
@@ -93,8 +95,18 @@ def main():
     except:
         pass
 
-    toexec.append('/usr/lib/ubiquity/bin/ubiquity')
-    toexec.extend(newargv)
+    inner = ['/usr/lib/ubiquity/bin/ubiquity']
+    inner.extend(newargv)
+
+    # Lock HAL's storage subsystem.
+    if osextras.find_on_path('hal-lock'):
+        toexec.extend(['hal-lock',
+                       '--interface', 'org.freedesktop.Hal.Device.Storage',
+                       '--exclusive', '--run'])
+        # hal-lock has irritating argument passing conventions.
+        toexec.append(' '.join(inner))
+    else:
+        toexec.extend(inner)
 
     if 'UBIQUITY_WRAPPER_DEBUG' in os.environ:
         print >>sys.stderr, toexec
