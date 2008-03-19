@@ -16,6 +16,7 @@ ubiquity (1.7.19) UNRELEASED; urgency=low
   * Set OVERRIDE_SHOW_ALL_LANGUAGES while calling localechooser, so that
     even languages with complex scripts are displayed (LP: #202291).
   * Run fontconfig-voodoo as root (LP: #203086).
+  * Disable the intro message in preparation for Ubuntu 8.04 beta.
 
   [ Luke Yelavich ]
   * bin/ubiquity-dm: Set the GTK_MODULES environment variable only when
