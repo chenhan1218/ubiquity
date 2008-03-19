@@ -14,7 +14,7 @@ oem-config (1.32) UNRELEASED; urgency=low
       widescreen displays (LP: #200152).
   * Center the oem-config window to match ubiquity.
   * Port fix for correctly answering the countrychooser/country-name question
-    from ubiquity (was LP #174937).
+    from ubiquity (was LP #174937) (LP: #203648).
 
   [ Colin Watson ]
   * Ensure that our build fails if one of the d-i components fails to build.
