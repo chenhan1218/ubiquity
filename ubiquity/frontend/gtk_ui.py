@@ -1067,16 +1067,6 @@ class Wizard(BaseFrontend):
             for widget in self.language_questions:
                 self.translate_widget(getattr(self, widget), lang)
 
-
-    def on_new_size_scale_format_value (self, widget, value):
-        # TODO cjwatson 2006-01-09: get minsize/maxsize through to here
-        if self.resize_max_size is not None:
-            size = value * self.resize_max_size / 100
-            return '%d%% (%s)' % (value, format_size(size))
-        else:
-            return '%d%%' % value
-
-
     def on_steps_switch_page (self, foo, bar, current):
         self.current_page = current
         self.translate_widget(self.step_label, self.locale)

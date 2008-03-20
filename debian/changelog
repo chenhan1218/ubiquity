@@ -11,6 +11,7 @@ ubiquity (1.8.1) UNRELEASED; urgency=low
   * When clicking back from the advanced partitioner, go back to the first
     partitioning page rather than the keyboard page.  Thanks Jonathan
     Riddell.
+  * Remove dead code for the old resize widget.
 
   [ Colin Watson ]
   * Set OVERRIDE_SHOW_ALL_LANGUAGES while calling localechooser, so that
