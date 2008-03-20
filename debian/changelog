@@ -12,6 +12,7 @@ ubiquity (1.8.1) UNRELEASED; urgency=low
     partitioning page rather than the keyboard page.  Thanks Jonathan
     Riddell.
   * Remove dead code for the old resize widget.
+  * Fix printing of non-latin text in the noninteractive frontend.
 
   [ Colin Watson ]
   * Set OVERRIDE_SHOW_ALL_LANGUAGES while calling localechooser, so that

@@ -188,8 +188,7 @@ class Wizard(BaseFrontend):
     def debconf_progress_set(self, progress_val):
         """Set the current progress bar's position to progress_val."""
         self.progress_val = progress_val
-        sys.stdout.write('%d percent complete: %s' % (self.progress_val, self.progress_info))
-        sys.stdout.flush()
+        print '%d%%: %s' % (self.progress_val, self.progress_info)
         return True
 
     def debconf_progress_step(self, progress_inc):
@@ -199,8 +198,7 @@ class Wizard(BaseFrontend):
     def debconf_progress_info(self, progress_info):
         """Set the current progress bar's message to progress_info."""
         self.progress_info = progress_info
-        sys.stdout.write('%d percent complete: %s' % (self.progress_val, self.progress_info))
-        sys.stdout.flush()
+        print '%d%%: %s' % (self.progress_val, self.progress_info)
         return True
 
     def debconf_progress_stop(self):
