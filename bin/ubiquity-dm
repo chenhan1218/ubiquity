@@ -7,6 +7,7 @@ import time
 import signal
 import errno
 import imp
+import grp
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -51,6 +52,11 @@ class DM:
         self.homedir = pwd.getpwnam(self.username)[5]
         self.uid = int(self.uid)
         self.gid = int(self.gid)
+        self.groups = []
+        for g in grp.getgrall():
+            if self.username in g[3] or g[0] == self.username:
+                self.groups.append(g[2])
+
         # Look for a frontend module; we won't actually use it (yet), but
         # this lets us find out which window manager etc. to launch. Be
         # careful that importing this here will cause the underlying library
@@ -72,6 +78,7 @@ class DM:
         self.server_started = True
 
     def drop_privileges(self):
+        os.setgroups(self.groups)
         os.setgid(self.gid)
         os.setuid(self.uid)
 

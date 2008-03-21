@@ -13,6 +13,7 @@ ubiquity (1.8.1) UNRELEASED; urgency=low
     Riddell.
   * Remove dead code for the old resize widget.
   * Fix printing of non-latin text in the noninteractive frontend.
+  * bin/ubiquity-dm: Set groups in drop_privileges.
 
   [ Colin Watson ]
   * Set OVERRIDE_SHOW_ALL_LANGUAGES while calling localechooser, so that
