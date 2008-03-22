@@ -24,6 +24,9 @@ ubiquity (1.8.1) UNRELEASED; urgency=low
   * bin/ubiquity-dm: Set the GTK_MODULES environment variable only when
     at-spi-registryd is loaded.
 
+  [ Mario Limonciello ]
+  * Set proper path to change permissions of vnc files.  (LP: #204985)
+
  -- Luke Yelavich <luke.yelavich@canonical.com>  Tue, 18 Mar 2008 18:46:11 +1100
 
 ubiquity (1.8.0) hardy; urgency=low
