@@ -141,19 +141,22 @@ Section "Device"
 EOF
     if [ "$1" = "Composite Video Output" ]; then
         cat >> /tmp/xorg.conf <<EOF
-    Option         "UseDisplayDevice" "TV"
+    #Option         "UseDisplayDevice" "TV"
+    Option          "ConnectedMonitor"      "TV"
     Option         "TVOutFormat" "COMPOSITE"
     Option         "TVStandard" "$2"
 EOF
     elif [ "$1" = "S-Video Video Output" ]; then
         cat >> /tmp/xorg.conf <<EOF
-    Option         "UseDisplayDevice" "TV"
+    #Option         "UseDisplayDevice" "TV"
+    Option          "ConnectedMonitor"      "TV"
     Option         "TVOutFormat" "SVIDEO"
     Option         "TVStandard" "$2"
 EOF
     elif [ "$1" = "Component Video Output" ]; then
         cat >> /tmp/xorg.conf <<EOF
-    Option         "UseDisplayDevice" "TV"
+    #Option         "UseDisplayDevice" "TV"
+    Option          "ConnectedMonitor"      "TV"
     Option         "TVOutFormat" "COMPONENT"
     Option         "TVStandard" "$2"
 EOF

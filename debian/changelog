@@ -26,6 +26,7 @@ ubiquity (1.8.1) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Set proper path to change permissions of vnc files.  (LP: #204985)
+  * Use newer nvidia syntax in xorg.conf.
 
  -- Luke Yelavich <luke.yelavich@canonical.com>  Tue, 18 Mar 2008 18:46:11 +1100
 
