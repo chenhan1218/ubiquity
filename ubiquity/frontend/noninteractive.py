@@ -284,7 +284,8 @@ class Wizard(BaseFrontend):
 
     def return_to_partitioning(self):
         """Return to partitioning following a commit error."""
-        self._abstract('return_to_partitioning')
+        print '\nCommit failed on partitioning.  Exiting.'
+        sys.exit(1)
 
     # ubiquity.components.migrationassistant
 
@@ -316,6 +317,8 @@ class Wizard(BaseFrontend):
 
     def get_fullname(self):
         """Get the user's full name."""
+        if self.oem_config:
+            return 'OEM Configuration (temporary user)'
         return self.fullname
 
     def set_username(self, value):
@@ -324,6 +327,8 @@ class Wizard(BaseFrontend):
 
     def get_username(self):
         """Get the user's Unix user name."""
+        if self.oem_config:
+            return 'oem'
         return self.username
 
     def get_password(self):
