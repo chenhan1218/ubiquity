@@ -15,6 +15,8 @@ oem-config (1.32) UNRELEASED; urgency=low
   * Center the oem-config window to match ubiquity.
   * Port fix for correctly answering the countrychooser/country-name question
     from ubiquity (was LP #174937) (LP: #203648).
+  * Automatic update of included source packages: localechooser
+    1.42ubuntu3.
 
   [ Colin Watson ]
   * Ensure that our build fails if one of the d-i components fails to build.
@@ -27,10 +29,10 @@ oem-config (1.32) UNRELEASED; urgency=low
     actually succeeded (LP: #153311).
 
   [ Jonathan Riddell ]
-  * kde_ui: 
+  * kde_ui:
     - Load new Kubuntu wallpaper, also fix background if it can't find wallpaper
     - Load Oxygen icons if available
-	
+
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Mar 2008 12:10:21 -0500
 
 oem-config (1.31) hardy; urgency=low
