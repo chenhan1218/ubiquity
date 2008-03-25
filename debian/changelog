@@ -20,6 +20,9 @@ ubiquity (1.8.1) UNRELEASED; urgency=low
     frontend.
   * Move the spawning of the noninteractive frontend when the noninteractive
     kernel cmdline option is present out of casper and into debian/init.
+  * Automatic update of included source packages: choose-mirror
+    2.19ubuntu3, localechooser 1.42ubuntu3, partman-auto 73ubuntu6,
+    partman-base 114ubuntu4, partman-partitioning 54ubuntu5.
 
   [ Colin Watson ]
   * Set OVERRIDE_SHOW_ALL_LANGUAGES while calling localechooser, so that
