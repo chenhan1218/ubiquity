@@ -86,8 +86,8 @@ WIDGET_STACK_STEPS = {
 
 class UbiquityUI(QWidget):
 
-    def __init__(self):
-        QWidget.__init__(self)
+    def __init__(self, parent):
+        QWidget.__init__(self, parent)
         uic.loadUi("%s/liveinstaller.ui" % UIDIR, self)
 
     def setWizard(self, wizardRef):
@@ -112,8 +112,16 @@ class Wizard(BaseFrontend):
 
         self.app = QApplication(['ubiquity', '-style=plastique'])
 
-        self.userinterface = UbiquityUI()
+        # We want to hide the minimise button if running in the ubiquity-only mode (no desktop)
+        # To achieve this we need to set window flags to Dialog but we also need a parent widget which is showing
+        # else Qt tried to be clever and puts the minimise button back
+        self.parentWidget = QWidget()
+        if 'UBIQUITY_ONLY' in os.environ:
+            self.parentWidget.show()
+        self.userinterface = UbiquityUI(self.parentWidget)
         self.userinterface.setWizard(self)
+        #if 'UBIQUITY_ONLY' in os.environ:
+        self.userinterface.setWindowFlags(Qt.Dialog)
         #self.app.setMainWidget(self.userinterface)
 
         self.advanceddialog = QDialog(self.userinterface)
@@ -420,6 +428,7 @@ class Wizard(BaseFrontend):
         
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             self.userinterface.show()
+            self.parentWidget.hide()
 
         try:
             release_notes = open('/cdrom/.disk/release_notes_url')
@@ -686,9 +695,12 @@ class Wizard(BaseFrontend):
         #quitAnswer = QMessageBox.question(self.userinterface, titleText, quitText, rebootButtonText, quitButtonText)
         self.run_success_cmd()
         if not self.get_reboot_seen():
+            if 'UBIQUITY_ONLY' in os.environ:
+                quitText = self.get_string('ubiquity/finished_restart_only')
             messageBox = QMessageBox(QMessageBox.Question, titleText, quitText, QMessageBox.NoButton, self.userinterface)
             messageBox.addButton(rebootButtonText, QMessageBox.AcceptRole)
-            messageBox.addButton(quitButtonText, QMessageBox.RejectRole)
+            if not 'UBIQUITY_ONLY' in os.environ:
+                messageBox.addButton(quitButtonText, QMessageBox.RejectRole)
             quitAnswer = messageBox.exec_()
 
             if quitAnswer == 0:
