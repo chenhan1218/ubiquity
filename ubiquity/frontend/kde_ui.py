@@ -120,7 +120,6 @@ class Wizard(BaseFrontend):
             self.parentWidget.show()
         self.userinterface = UbiquityUI(self.parentWidget)
         self.userinterface.setWizard(self)
-        #if 'UBIQUITY_ONLY' in os.environ:
         self.userinterface.setWindowFlags(Qt.Dialog)
         #self.app.setMainWidget(self.userinterface)
 
@@ -196,20 +195,26 @@ class Wizard(BaseFrontend):
         self.userinterface.password_error_image.setPixmap(warningIcon)
         self.userinterface.hostname_error_image.setPixmap(warningIcon)
 
-        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/22x22/actions/go-next.png"):
-            forwardIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/22x22/actions/go-next.png")
+        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/16x16/actions/go-next.png"):
+            self.forwardIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/16x16/actions/go-next.png")
         else:
-            forwardIcon = QIcon("/usr/share/icons/crystalsvg/16x16/actions/forward.png")
-        self.userinterface.next.setIcon(forwardIcon)
+            self.forwardIcon = QIcon("/usr/share/icons/crystalsvg/16x16/actions/forward.png")
+        self.userinterface.next.setIcon(self.forwardIcon)
 
-        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/22x22/actions/go-previous.png"):
-            backIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/22x22/actions/go-previous.png")
+        #Used for the last step
+        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/16x16/actions/dialog-ok-apply.png"):
+            self.applyIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/16x16/actions/dialog-ok-apply.png")
+        else:
+            self.applyIcon = QIcon("/usr/share/icons/crystalsvg/16x16/actions/ok.png")
+
+        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/16x16/actions/go-previous.png"):
+            backIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/16x16/actions/go-previous.png")
         else:
             backIcon = QIcon("/usr/share/icons/crystalsvg/16x16/actions/back.png")
         self.userinterface.back.setIcon(backIcon)
 
-        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/22x22/actions/dialog-cancel.png"):
-            cancelIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/22x22/actions/dialog-cancel.png")
+        if os.path.exists("/usr/lib/kde4/share/icons/oxygen/16x16/actions/dialog-cancel.png"):
+            cancelIcon = QIcon("/usr/lib/kde4/share/icons/oxygen/16x16/actions/dialog-cancel.png")
         else:
             cancelIcon = QIcon("/usr/share/icons/crystalsvg/22x22/actions/button_cancel.png")
         self.userinterface.cancel.setIcon(cancelIcon)
@@ -613,6 +618,7 @@ class Wizard(BaseFrontend):
         elif n == 'Summary':
             self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
             self.userinterface.next.setText(self.get_string('install_button'))
+            self.userinterface.next.setIcon(self.applyIcon)
         else:
             print >>sys.stderr, 'No page found for %s' % n
             return
@@ -908,6 +914,7 @@ class Wizard(BaseFrontend):
 
         if str(step) == "stepReady":
             self.userinterface.next.setText("Next")
+            self.userinterface.next.setIcon(self.forwardIcon)
             self.translate_widget(self.userinterface.next, self.locale)
 
         if self.dbfilter is not None:
@@ -1793,7 +1800,8 @@ class Wizard(BaseFrontend):
             self.pagesindex = 1
             self.dbfilter = partman.Partman(self)
             self.set_current_page(self.previous_partitioning_page)
-            self.userinterface.next.setText("Next >")
+            self.userinterface.next.setText(_("Next"))
+            self.userinterface.next.setIcon(self.forwardIcon)
             self.translate_widget(self.userinterface.next, self.locale)
             self.backup = True
             self.installing = False

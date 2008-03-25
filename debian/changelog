@@ -29,8 +29,9 @@ ubiquity (1.8.1) UNRELEASED; urgency=low
   * Use newer nvidia syntax in xorg.conf.
 
   [ Jonathan Riddell ]
-  * kde_ui changes for UBIQUITY_ONLY mode, don't offer a no-reboot method at
+  * kde_ui: changes for UBIQUITY_ONLY mode, don't offer a no-reboot method at
     end of install, and hide minimise button on window frame.
+  * kde_ui: Fixes to the button icons
 	
  -- Luke Yelavich <luke.yelavich@canonical.com>  Tue, 18 Mar 2008 18:46:11 +1100
 
