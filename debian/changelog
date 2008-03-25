@@ -26,6 +26,11 @@ oem-config (1.32) UNRELEASED; urgency=low
     exists, we can only delete the temporary oem user once oem-config has
     actually succeeded (LP: #153311).
 
+  [ Jonathan Riddell ]
+  * kde_ui: 
+    - Load new Kubuntu wallpaper, also fix background if it can't find wallpaper
+    - Load Oxygen icons if available
+	
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Mar 2008 12:10:21 -0500
 
 oem-config (1.31) hardy; urgency=low

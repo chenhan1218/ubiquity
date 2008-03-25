@@ -59,8 +59,16 @@ class OEMConfUI(QWidget):
         self.frontend = fe
 
     def resizeEvent(self, event):
+        if QFile.exists("/usr/lib/kde4/share/wallpapers/EOS/contents/images/1920x1200.jpg"):
+            imageFile = "/usr/lib/kde4/share/wallpapers/EOS/contents/images/1920x1200.jpg"
+        elif QFile.exists("/usr/share/wallpapers/kubuntu-wallpaper.png"):
+            imageFile = "/usr/share/wallpapers/kubuntu-wallpaper.png"
+        elif QFile.exists("/usr/share/wallpapers/kubuntu-wallpaper.jpg"):
+            imageFile = "/usr/share/wallpapers/kubuntu-wallpaper.jpg"
+        else:
+            return
         pixmapUnscaled = QPixmap()
-        loaded = pixmapUnscaled.load("/usr/share/wallpapers/kubuntu-wallpaper.png")
+        loaded = pixmapUnscaled.load(imageFile)
         pixmap = pixmapUnscaled.scaled(QSize(self.width(), self.height()), Qt.IgnoreAspectRatio, Qt.SmoothTransformation)
         palette = self.palette()
         palette.setBrush(self.backgroundRole(),QBrush(pixmap))
@@ -210,8 +218,12 @@ class Frontend:
                            self.userinterface.step_icon_key, self.userinterface.step_icon_user]
         self.step_labels = [self.userinterface.language_heading_label, self.userinterface.timezone_heading_label, \
                             self.userinterface.keyboard_heading_label, self.userinterface.user_heading_label]
-        self.step_icons_path_prefix = "../../../usr/share/icons/default.kde/32x32/apps/"
-        self.step_icons_path = ["locale.png","clock.png","keyboard_layout.png","userconfig.png"]
+        if QFile.exists("../../../usr/lib/kde4/share/icons/oxygen/32x32/apps/preferences-desktop-locale.png"):
+            self.step_icons_path_prefix = "../../../usr/lib/kde4/share/icons/oxygen/32x32/apps/"
+            self.step_icons_path = ["preferences-desktop-locale.png", "preferences-system-time.png", "preferences-desktop-keyboard.png", "system-users.png"]
+        else:
+            self.step_icons_path_prefix = "../../../usr/share/icons/default.kde/32x32/apps/"
+            self.step_icons_path = ["locale.png", "clock.png", "keyboard_layout.png", "userconfig.png"]
         self.step_labels_text = [self.userinterface.language_heading_label.text(),self.userinterface.timezone_heading_label.text(), \
                                 self.userinterface.keyboard_heading_label.text(), self.userinterface.user_heading_label.text()]
         for icon in range(WIDGET_STACK_MAX_STEPS+1):
