@@ -1,4 +1,4 @@
-oem-config (1.32) UNRELEASED; urgency=low
+oem-config (1.32) hardy; urgency=low
 
   [ Evan Dandrea ]
   * Use a GtkEventBox rather than a GtkScrolledWindow for the tzmap to
@@ -33,7 +33,7 @@ oem-config (1.32) UNRELEASED; urgency=low
     - Load new Kubuntu wallpaper, also fix background if it can't find wallpaper
     - Load Oxygen icons if available
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 04 Mar 2008 12:10:21 -0500
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 25 Mar 2008 16:32:01 -0400
 
 oem-config (1.31) hardy; urgency=low
 
