@@ -18,6 +18,8 @@ ubiquity (1.8.1) UNRELEASED; urgency=low
     noninteractive frontend.
   * Exit on failure to commit to the partition table in the noninteractive
     frontend.
+  * Move the spawning of the noninteractive frontend when the noninteractive
+    kernel cmdline option is present out of casper and into debian/init.
 
   [ Colin Watson ]
   * Set OVERRIDE_SHOW_ALL_LANGUAGES while calling localechooser, so that
