@@ -87,6 +87,8 @@ class Wizard(BaseFrontend):
             self.dbfilter = x(self)
             self.dbfilter.start(auto_process=True)
             self.mainloop.run()
+            if self.dbfilter_status:
+                sys.exit(1)
 
         self.installing = True
         self.progress_loop()

@@ -1,3 +1,10 @@
+ubiquity (1.8.2) UNRELEASED; urgency=low
+
+  * Treat the dbfilter returning nonzero as a fatal error in the
+    noninteractive frontend.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 26 Mar 2008 15:27:30 -0400
+
 ubiquity (1.8.1) hardy; urgency=low
 
   [ Evan Dandrea ]
