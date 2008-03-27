@@ -496,8 +496,9 @@ class Install:
         times = [(time_start, copied_size)]
         long_enough = False
         time_last_update = time_start
-        md5_check = False
-        if self.db.get('ubiquity/install/md5_check') == 'true':
+        if self.db.get('ubiquity/install/md5_check') == 'false':
+            md5_check = False
+        else:
             md5_check = True
         
         old_umask = os.umask(0)
@@ -526,18 +527,31 @@ class Install:
                     sourcefh = None
                     targetfh = None
                     try:
-                        while True:
+                        while 1:
                             sourcefh = open(sourcepath, 'rb')
                             targetfh = open(targetpath, 'wb')
-                            shutil.copyfileobj(sourcefh, targetfh)
+                            if md5_check:
+                                sourcehash = md5()
+                            while 1:
+                                buf = sourcefh.read(16 * 1024)
+                                if not buf:
+                                    break
+                                targetfh.write(buf)
+                                if md5_check:
+                                    sourcehash.update(buf)
+
                             if not md5_check:
                                 break
-                            sourcefh.seek(0)
                             targetfh.close()
                             targetfh = open(targetpath, 'rb')
-                            targethash = md5(targetfh.read()).hexdigest()
-                            sourcehash = md5(sourcefh.read()).hexdigest()
-                            if targethash != sourcehash:
+                            if md5_check:
+                                targethash = md5()
+                            while 1:
+                                buf = targetfh.read(16 * 1024)
+                                if not buf:
+                                    break
+                                targethash.update(buf)
+                            if targethash.digest() != sourcehash.digest():
                                 if targetfh:
                                     targetfh.close()
                                 if sourcefh:

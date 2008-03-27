@@ -3,6 +3,7 @@ ubiquity (1.8.2) UNRELEASED; urgency=low
   * Treat the dbfilter returning nonzero as a fatal error in the
     noninteractive frontend.
   * Clean up the reboot message in the noninteractive frontend.
+  * Optimize the md5 check on file copy (LP: #198019).
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 26 Mar 2008 15:27:30 -0400
 
