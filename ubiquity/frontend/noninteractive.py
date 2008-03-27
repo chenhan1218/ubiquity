@@ -119,9 +119,9 @@ class Wizard(BaseFrontend):
                                      (ret, realtb))
         else:
             self.run_success_cmd()
-            if not self.get_reboot():
-                raw_input('Installation complete.  Press enter or return to reboot...')
-            execute("reboot")
+            print 'Installation complete.'
+            if self.get_reboot():
+                execute("reboot")
 
     def watch_debconf_fd(self, from_debconf, process_input):
         """Event loop interface to debconffilter.
