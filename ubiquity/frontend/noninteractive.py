@@ -356,8 +356,9 @@ class Wizard(BaseFrontend):
     # ubiquity.components.install
     def get_hostname(self):
         """Get the selected hostname."""
-        # FIXME
-        return 'ubuntu-desktop'
+        #We set a default in install.py in case it isn't preseeded
+        #but when we preseed, we are looking for None anyhow.
+        return None
 
     # ubiquity.components.summary
 

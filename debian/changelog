@@ -1,9 +1,14 @@
 ubiquity (1.8.2) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Treat the dbfilter returning nonzero as a fatal error in the
     noninteractive frontend.
   * Clean up the reboot message in the noninteractive frontend.
   * Optimize the md5 check on file copy (LP: #198019).
+
+  [ Mario Limonciello ]
+  * Don't unnecessarily hardcode the return of get_hostname()
+    in the noninteractive frontend.
 
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 26 Mar 2008 15:27:30 -0400
 
