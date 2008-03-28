@@ -5,6 +5,8 @@ ubiquity (1.8.2) UNRELEASED; urgency=low
     noninteractive frontend.
   * Clean up the reboot message in the noninteractive frontend.
   * Optimize the md5 check on file copy (LP: #198019).
+  * Copy the locale over to the target system when using oem-config.
+    This was previously fixed for the alternate CD in LP 181291.
 
   [ Mario Limonciello ]
   * Don't unnecessarily hardcode the return of get_hostname()

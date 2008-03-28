@@ -1737,6 +1737,11 @@ exit 0"""
                         print >>kpersonalizerrc_file, 'FirstLogin=false'
                         kpersonalizerrc_file.close()
                         open('%s.created-by-oem', 'w').close()
+		# Carry the locale setting over to the installed system.
+		# This mimics the behavior in 01oem-config-udeb.
+                di_locale = self.db.get('debian-installer/locale')
+                if di_locale:
+                    self.set_debconf('debian-installer/locale', di_locale)
         except debconf.DebconfError:
             pass
 
