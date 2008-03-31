@@ -12,6 +12,10 @@ ubiquity (1.8.2) UNRELEASED; urgency=low
   * Don't unnecessarily hardcode the return of get_hostname()
     in the noninteractive frontend.
 
+  [ Colin Watson ]
+  * Fix crash if partitioning failed when partitioning was automated (see LP
+    #206113).
+
  -- Evan Dandrea <evand@ubuntu.com>  Wed, 26 Mar 2008 15:27:30 -0400
 
 ubiquity (1.8.1) hardy; urgency=low

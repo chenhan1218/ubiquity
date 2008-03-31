@@ -161,7 +161,6 @@ class Wizard(BaseFrontend):
         self.hostname_changed_id = None
         self.username_edited = False
         self.hostname_edited = False
-        self.previous_partitioning_page = None
         self.grub_en = True
         self.installing = False
         self.installing_no_return = False
@@ -491,6 +490,9 @@ class Wizard(BaseFrontend):
 
         if 'UBIQUITY_DEBUG' in os.environ:
             self.password_debug_warning_label.show()
+
+        self.previous_partitioning_page = \
+            self.steps.page_num(self.stepPartAuto)
 
         # set initial bottom bar status
         self.back.hide()

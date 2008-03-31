@@ -149,7 +149,7 @@ class Wizard(BaseFrontend):
         self.new_size_scale = None
         self.username_edited = False
         self.hostname_edited = False
-        self.previous_partitioning_page = None
+        self.previous_partitioning_page = WIDGET_STACK_STEPS["stepPartAuto"]
         self.grub_en = True
         self.installing = False
         self.installing_no_return = False
