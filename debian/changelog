@@ -1,6 +1,8 @@
 oem-config (1.33) UNRELEASED; urgency=low
 
   * Fix ownership of /home/oem/Desktop (LP: #209683).
+  * Automatic update of included source packages: console-setup 1.21ubuntu5,
+    tzsetup 1:0.20.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 01 Apr 2008 14:28:58 +0100
 
