@@ -7,6 +7,8 @@ ubiquity (1.8.2) UNRELEASED; urgency=low
   * Optimize the md5 check on file copy (LP: #198019).
   * Copy the locale over to the target system when using oem-config.
     This was previously fixed for the alternate CD in LP 181291.
+  * Use + instead of : for a replacement character for m-a as it is
+    explicitly allowed by debconf policy.
 
   [ Mario Limonciello ]
   * Don't unnecessarily hardcode the return of get_hostname()
@@ -18,7 +20,7 @@ ubiquity (1.8.2) UNRELEASED; urgency=low
   * Remove packages in the restricted section from the installed system if
     apt-setup/restricted is false.
 
- -- Evan Dandrea <evand@ubuntu.com>  Wed, 26 Mar 2008 15:27:30 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 01 Apr 2008 11:49:51 -0400
 
 ubiquity (1.8.1) hardy; urgency=low
 
