@@ -1782,6 +1782,20 @@ exit 0"""
         if len(difference) == 0:
             return
 
+        use_restricted = True
+        try:
+            if self.db.get('apt-setup/restricted') == 'false':
+                use_restricted = False
+        except debconf.DebconfError:
+            pass
+        if not use_restricted:
+            cache = Cache()
+            for pkg in cache.keys():
+                if (cache[pkg].isInstalled and
+                    cache[pkg].section.startswith('restricted/')):
+                    difference.add(pkg)
+            del cache
+
         # Don't worry about failures removing packages; it will be easier
         # for the user to sort them out with a graphical package manager (or
         # whatever) after installation than it will be to try to deal with
