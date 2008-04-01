@@ -1,3 +1,9 @@
+oem-config (1.34) UNRELEASED; urgency=low
+
+  * Port hiding the minimize button on the main window from Ubiquity.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 01 Apr 2008 14:11:33 -0400
+
 oem-config (1.33) hardy; urgency=low
 
   * Fix ownership of /home/oem/Desktop (LP: #209683).

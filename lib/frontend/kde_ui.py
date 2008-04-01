@@ -100,7 +100,13 @@ class Frontend:
         self.apply_changes = False
         self.app = QApplication([])
         self.app.setStyle(QStyleFactory.create("Plastique"))
-        self.userinterface = OEMConfUI()
+        # We want to hide the minimise button if running in the ubiquity-only mode (no desktop)
+        # To achieve this we need to set window flags to Dialog but we also need a parent widget which is showing
+        # else Qt tried to be clever and puts the minimise button back
+        self.parentWidget = QWidget()
+        self.parentWidget.show()
+        self.userinterface = OEMConfUI(self.parentWidget)
+        self.userinterface.setWindowFlags(Qt.Dialog)
         self.userinterface.setFrontend(self)
         self.userinterface.show()
 
