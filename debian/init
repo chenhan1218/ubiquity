@@ -60,6 +60,8 @@ case "$1" in
 			usplash=false
 			log_end_msg=log_end_msg
 		fi
+		# turn off console blanking for install process
+		setterm -blank 0
 		if [ -n "$noninteractive" ]; then
 			cmd="ubiquity noninteractive"
 		else

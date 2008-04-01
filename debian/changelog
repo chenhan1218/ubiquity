@@ -13,6 +13,8 @@ ubiquity (1.8.2) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Don't unnecessarily hardcode the return of get_hostname()
     in the noninteractive frontend.
+  * Turn off console blanking in Ubiquity init script to prevent
+    confusion on the noninteractive frontend.
 
   [ Colin Watson ]
   * Fix crash if partitioning failed when partitioning was automated (see LP
