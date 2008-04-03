@@ -1589,10 +1589,11 @@ class Wizard(BaseFrontend):
         self.partition_create_use_combo.clear()
         renderer = gtk.CellRendererText()
         self.partition_create_use_combo.pack_start(renderer)
-        self.partition_create_use_combo.add_attribute(renderer, 'text', 1)
-        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
-        for method, name in partman.Partman.create_use_as():
-            list_store.append([method, name])
+        self.partition_create_use_combo.add_attribute(renderer, 'text', 2)
+        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING,
+                                   gobject.TYPE_STRING)
+        for method, name, description in self.dbfilter.create_use_as():
+            list_store.append([method, name, description])
         self.partition_create_use_combo.set_model(list_store)
         if list_store.get_iter_first():
             self.partition_create_use_combo.set_active(0)
@@ -1679,10 +1680,10 @@ class Wizard(BaseFrontend):
         self.partition_edit_use_combo.clear()
         renderer = gtk.CellRendererText()
         self.partition_edit_use_combo.pack_start(renderer)
-        self.partition_edit_use_combo.add_attribute(renderer, 'text', 0)
-        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        self.partition_edit_use_combo.add_attribute(renderer, 'text', 1)
+        list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         for script, arg, option in partition['method_choices']:
-            list_store.append([arg])
+            list_store.append([arg, option])
         self.partition_edit_use_combo.set_model(list_store)
         current_method = self.dbfilter.get_current_method(partition)
         if current_method:

@@ -1380,10 +1380,10 @@ class Wizard(BaseFrontend):
         self.create_dialog.partition_create_size_spinbutton.setMaximum(max_size_mb)
         self.create_dialog.partition_create_size_spinbutton.setValue(max_size_mb)
 
-        partition_uses = {}
-        for method, name in partman.Partman.create_use_as():
-            partition_uses[name] = method
-            self.create_dialog.partition_create_use_combo.addItem(name)
+        self.create_use_method_names = {}
+        for method, name, description in self.dbfilter.create_use_as():
+            self.create_use_method_names[description] = name
+            self.create_dialog.partition_create_use_combo.addItem(description)
         if self.create_dialog.partition_create_use_combo.count() == 0:
             self.create_dialog.partition_create_use_combo.setEnabled(False)
 
@@ -1409,7 +1409,8 @@ class Wizard(BaseFrontend):
             else:
                 place = partman.PARTITION_PLACE_END
 
-            method = str(self.create_dialog.partition_create_use_combo.currentText())
+            method_description = unicode(self.create_dialog.partition_create_use_combo.currentText())
+            method = self.create_use_method_names[method_description]
 
             mountpoint = str(self.create_dialog.partition_create_mount_combo.currentText())
 
@@ -1420,10 +1421,15 @@ class Wizard(BaseFrontend):
                 prilog, place, method, mountpoint)
 
     def on_partition_create_use_combo_changed (self, combobox):
+        if not hasattr(self, 'create_use_method_names'):
+            return
         known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
                              'fat16', 'fat32', 'ntfs')
         text = str(self.create_dialog.partition_create_use_combo.currentText())
-        if text not in known_filesystems:
+        if text not in self.create_use_method_names:
+            return
+        method = self.create_use_method_names[text]
+        if method not in known_filesystems:
             #self.create_dialog.partition_create_mount_combo.child.setText('')
             self.create_dialog.partition_create_mount_combo.setEnabled(False)
         else:
@@ -1461,12 +1467,17 @@ class Wizard(BaseFrontend):
 
             current_size = str(self.edit_dialog.partition_edit_size_spinbutton.value())
 
+        self.edit_use_method_names = {}
+        method_descriptions = {}
         self.edit_dialog.partition_edit_use_combo.clear()
         for script, arg, option in partition['method_choices']:
-            self.edit_dialog.partition_edit_use_combo.addItem(arg)
+            self.edit_use_method_names[option] = arg
+            method_descriptions[arg] = option
+            self.edit_dialog.partition_edit_use_combo.addItem(option)
         current_method = self.dbfilter.get_current_method(partition)
-        if current_method:
-            index = self.edit_dialog.partition_edit_use_combo.findText(current_method)
+        if current_method and current_method in method_descriptions:
+            current_method_description = method_descriptions[current_method]
+            index = self.edit_dialog.partition_edit_use_combo.findText(current_method_description)
             self.edit_dialog.partition_edit_use_combo.setCurrentIndex(index)
 
         # TODO cjwatson 2006-11-02: mountpoint_choices won't be available
@@ -1496,7 +1507,8 @@ class Wizard(BaseFrontend):
             if current_size is not None:
                 size = str(self.edit_dialog.partition_edit_size_spinbutton.value())
 
-            method = str(self.edit_dialog.partition_edit_use_combo.currentText())
+            method_description = unicode(self.edit_dialog.partition_edit_use_combo.currentText())
+            method = self.edit_use_method_names[method_description]
 
             mountpoint = str(self.edit_dialog.partition_edit_mount_combo.currentText())
 
@@ -1515,13 +1527,18 @@ class Wizard(BaseFrontend):
                                              method, mountpoint)
 
     def on_partition_edit_use_combo_changed(self, combobox):
+        if not hasattr(self, 'edit_use_method_names'):
+            return
         # If the selected method isn't a filesystem, then selecting a mount
         # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
         # have to hardcode the list of known filesystems here.
         known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
                              'fat16', 'fat32', 'ntfs')
         text = str(self.edit_dialog.partition_edit_use_combo.currentText())
-        if text not in known_filesystems:
+        if text not in self.edit_use_method_names:
+            return
+        method = self.edit_use_method_names[text]
+        if method not in known_filesystems:
             #self.edit_dialog.partition_edit_mount_combo.child.setText('')
             self.edit_dialog.partition_edit_mount_combo.setEnabled(False)
         else:
