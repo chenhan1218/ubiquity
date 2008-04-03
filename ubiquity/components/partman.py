@@ -196,6 +196,8 @@ class Partman(FilteredCommand):
                         yield (method, 'fat32')
                     else:
                         yield (method, fs)
+            elif method == 'dont_use':
+                yield (method, 'dontuse')
             else:
                 yield (method, method)
 
@@ -209,7 +211,7 @@ class Partman(FilteredCommand):
             else:
                 return partition['method']
         else:
-            return 'dont_use'
+            return 'dontuse'
 
     def get_current_mountpoint(self, partition):
         if ('method' in partition and 'acting_filesystem' in partition and

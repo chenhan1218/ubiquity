@@ -21,6 +21,7 @@ ubiquity (1.8.2) UNRELEASED; urgency=low
     #206113).
   * Remove packages in the restricted section from the installed system if
     apt-setup/restricted is false.
+  * Fix crash with the "don't use" partitioning option (LP: #132611).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 01 Apr 2008 11:49:51 -0400
 
