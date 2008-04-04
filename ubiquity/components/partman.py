@@ -80,6 +80,7 @@ class Partman(FilteredCommand):
         self.deleting_partition = None
         self.undoing = False
         self.finish_partitioning = False
+        self.bad_auto_size = False
 
         questions = ['^partman-auto/.*automatically_partition$',
                      '^partman-auto/select_disk$',
@@ -318,6 +319,11 @@ class Partman(FilteredCommand):
             if self.editing_partition:
                 # Break out of resizing the partition.
                 self.editing_partition['bad_size'] = True
+            else:
+                # Break out of resizing the partition in cases where partman
+                # fed us bad boundary values.  These are bugs in partman, but
+                # we should handle the result as gracefully as possible.
+                self.bad_auto_size = True
         elif question == 'partman-basicfilesystems/bad_mountpoint':
             # Break out of creating or editing the partition.
             if self.creating_partition:
@@ -867,6 +873,9 @@ class Partman(FilteredCommand):
                     return False
                 else:
                     assert self.extra_choice is not None
+                    if self.bad_auto_size:
+                        self.bad_auto_size = False
+                        return False
                     self.preseed(question, '%d%%' % self.extra_choice)
                     self.succeeded = True
                     return True

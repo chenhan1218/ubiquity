@@ -9,6 +9,8 @@ ubiquity (1.8.2) UNRELEASED; urgency=low
     This was previously fixed for the alternate CD in LP 181291.
   * Use + instead of : for a replacement character for m-a as it is
     explicitly allowed by debconf policy.
+  * Break out of resizing the partition in cases where partman fed us bad
+    boundary values (LP: #197838).
 
   [ Mario Limonciello ]
   * Don't unnecessarily hardcode the return of get_hostname()
