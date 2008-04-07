@@ -795,7 +795,7 @@ class Install:
                     "Failed to detach loopback device %s" % dev)
 
 
-    def chroot_setup(self):
+    def chroot_setup(self, x11=False):
         """Set up /target for safe package management operations."""
         policy_rc_d = os.path.join(self.target, 'usr/sbin/policy-rc.d')
         f = open(policy_rc_d, 'w')
@@ -822,8 +822,30 @@ exit 0"""
         if not os.path.exists(os.path.join(self.target, 'sys/devices')):
             self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
 
-    def chroot_cleanup(self):
+        if x11:
+            if 'SUDO_USER' in os.environ:
+                xauthority = os.path.expanduser('~%s/.Xauthority' %
+                                                os.environ['SUDO_USER'])
+            else:
+                xauthority = os.path.expanduser('~/.Xauthority')
+            shutil.copy(xauthority,
+                        os.path.join(self.target, 'root/.Xauthority'))
+
+            if not os.path.isdir(os.path.join(self.target, 'tmp/.X11-unix')):
+                os.mkdir(os.path.join(self.target, 'tmp/.X11-unix'))
+            misc.execute('mount', '--bind', '/tmp/.X11-unix',
+                         os.path.join(self.target, 'tmp/.X11-unix'))
+
+    def chroot_cleanup(self, x11=False):
         """Undo the work done by chroot_setup."""
+        if x11:
+            misc.execute('umount', os.path.join(self.target, 'tmp/.X11-unix'))
+            try:
+                os.rmdir(os.path.join(self.target, 'tmp/.X11-unix'))
+            except OSError:
+                pass
+            os.unlink(os.path.join(self.target, 'root/.Xauthority'))
+
         self.chrex('umount', '/sys')
         self.chrex('umount', '/proc')
 
@@ -1175,7 +1197,7 @@ exit 0"""
         except OSError:
             pass
 
-        self.chroot_setup()
+        self.chroot_setup(x11=True)
         self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
                    '--quiet', '--add', '/usr/sbin/update-initramfs')
         try:
@@ -1201,7 +1223,7 @@ exit 0"""
             self.chrex('dpkg-divert', '--package', 'ubiquity', '--rename',
                        '--quiet', '--remove', '/usr/sbin/update-initramfs')
             self.chrex('update-initramfs', '-c', '-k', os.uname()[2])
-            self.chroot_cleanup()
+            self.chroot_cleanup(x11=True)
 
         # Fix up kernel symlinks now that the initrd exists. Depending on
         # the architecture, these may be in / or in /boot.
@@ -1861,12 +1883,16 @@ exit 0"""
             dccomm.wait()
 
 
+    def reconfigure_preexec(self):
+        debconf_disconnect()
+        os.environ['XAUTHORITY'] = '/root/.Xauthority'
+
     def reconfigure(self, package):
         """executes a dpkg-reconfigure into installed system to each
         package which provided by args."""
         subprocess.call(['log-output', '-t', 'ubiquity', 'chroot', self.target,
                          'dpkg-reconfigure', '-fnoninteractive', package],
-                        preexec_fn=debconf_disconnect, close_fds=True)
+                        preexec_fn=self.reconfigure_preexec, close_fds=True)
 
 
 if __name__ == '__main__':
