@@ -1694,6 +1694,23 @@ class Wizard(BaseFrontend):
                     break
                 iterator = list_store.iter_next(iterator)
 
+        if 'id' not in partition:
+            self.partition_edit_format_label.hide()
+            self.partition_edit_format_checkbutton.hide()
+            current_format = False
+        elif 'method' in partition:
+            self.partition_edit_format_label.show()
+            self.partition_edit_format_checkbutton.show()
+            self.partition_edit_format_checkbutton.set_sensitive(
+                'can_activate_format' in partition)
+            current_format = (partition['method'] == 'format')
+        else:
+            self.partition_edit_format_label.show()
+            self.partition_edit_format_checkbutton.show()
+            self.partition_edit_format_checkbutton.set_sensitive(False)
+            current_format = False
+        self.partition_edit_format_checkbutton.set_active(current_format)
+
         # TODO cjwatson 2006-11-02: mountpoint_choices won't be available
         # unless the method is already one that can be mounted, so we may
         # need to calculate this dynamically based on the method instead of
@@ -1731,6 +1748,8 @@ class Wizard(BaseFrontend):
                 model = self.partition_edit_use_combo.get_model()
                 method = model.get_value(method_iter, 0)
 
+            format = self.partition_edit_format_checkbutton.get_active()
+
             mountpoint = self.partition_edit_mount_combo.child.get_text()
 
             if (current_size is not None and size is not None and
@@ -1738,13 +1757,19 @@ class Wizard(BaseFrontend):
                 size = None
             if method == current_method:
                 method = None
+            if format == current_format:
+                format = None
             if mountpoint == current_mountpoint:
                 mountpoint = None
 
-            if (size is not None or method is not None or
+            if (size is not None or method is not None or format is not None or
                 mountpoint is not None):
                 self.allow_change_step(False)
-                self.dbfilter.edit_partition(devpart, size, method, mountpoint)
+                edits = {'size': size, 'method': method,
+                         'mountpoint': mountpoint}
+                if format is not None:
+                    edits['format'] = 'dummy'
+                self.dbfilter.edit_partition(devpart, **edits)
 
     def on_partition_edit_use_combo_changed (self, combobox):
         model = combobox.get_model()

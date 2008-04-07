@@ -87,7 +87,7 @@ def get_translations(languages=None, core_names=[]):
             ['debconf-copydb', 'templatedb', 'pipe',
              '--config=Name:pipe', '--config=Driver:Pipe',
              '--config=InFd:none',
-             '--pattern=^(ubiquity|partman/text/undo_everything|partman/text/unusable|partman-basicfilesystems/bad_mountpoint|partman-basicfilesystems/text/specify_mountpoint|partman-newworld/no_newworld|partman-partitioning|partman-target/no_root|partman-target/text/method|grub-installer/bootdev|popularity-contest/participate)'],
+             '--pattern=^(ubiquity|partman/text/undo_everything|partman/text/unusable|partman-basicfilesystems/bad_mountpoint|partman-basicfilesystems/text/specify_mountpoint|partman-basicmethods/text/format|partman-newworld/no_newworld|partman-partitioning|partman-target/no_root|partman-target/text/method|grub-installer/bootdev|popularity-contest/participate)'],
             stdout=subprocess.PIPE, stderr=devnull, preexec_fn=subprocess_setup)
         question = None
         descriptions = {}
@@ -153,6 +153,7 @@ string_questions = {
     'partition_create_use_label': 'partman-target/text/method',
     'partition_create_place_label': 'partman-partitioning/new_partition_place',
     'partition_edit_use_label': 'partman-target/text/method',
+    'partition_edit_format_label': 'partman-basicmethods/text/format',
     'partition_edit_mount_label': 'partman-basicfilesystems/text/specify_mountpoint',
     'grub_device_dialog': 'grub-installer/bootdev',
     'grub_device_label': 'grub-installer/bootdev',

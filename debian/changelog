@@ -27,6 +27,8 @@ ubiquity (1.8.2) UNRELEASED; urgency=low
   * Use localised, human-readable names for partitioning methods.
   * Reorganise the wrapper script to cope with kdesu's broken argument
     handling.
+  * Add a "Format the partition?" checkbox to the partition edit dialog
+    (LP: #184838).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 01 Apr 2008 11:49:51 -0400
 
