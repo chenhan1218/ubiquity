@@ -11,6 +11,8 @@ ubiquity (1.8.2) UNRELEASED; urgency=low
     explicitly allowed by debconf policy.
   * Break out of resizing the partition in cases where partman fed us bad
     boundary values (LP: #197838).
+  * Don't miscalculate with nested partitions in 03partition_too_small (LP:
+    #198039).
 
   [ Mario Limonciello ]
   * Don't unnecessarily hardcode the return of get_hostname()

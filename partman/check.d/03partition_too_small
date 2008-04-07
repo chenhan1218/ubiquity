@@ -1,6 +1,5 @@
 #! /bin/sh
 # Check that the root filesystem is large enough to hold /rofs.
-
 . /lib/partman/lib/base.sh
 
 # Fudge factors
@@ -11,6 +10,8 @@ partitions=
 rofssum=0
 rootrofssize=
 rootsize=
+
+parts=$(
 for dev in $DEVICES/*; do
     [ -d "$dev" ] || continue
     cd $dev
@@ -18,23 +19,51 @@ for dev in $DEVICES/*; do
     while { read_line num id size type fs path name; [ "$id" ]; }; do
         [ -f "$id/mountpoint" ] || continue
         mountpoint="$(cat "$id/mountpoint")"
-        if [ "$mountpoint" = "/" ]; then
-            rofssize="$(du -s --block-size=1 /rofs | cut -f1)"
-            rootrofssize="$rofssize"
-            rootsize="$size"
-        else
-            [ -d "/rofs$mountpoint" ] || continue
-            rofssize="$(du -s --block-size=1 /rofs$mountpoint | cut -f1)"
-            if [ "$mountpoint" = "/boot" ]; then
-                rofssize="$(expr $rofssize \* $bootmultfudge)"
-            fi
-            if ! longint_le $rofssize $size ; then
-                partitions="${partitions:+$partitions, }$mountpoint $rofssize"
-            fi
-            rofssum="$(expr $rofssum + $rofssize)"
-        fi
+	echo "$mountpoint,$size"
     done
     close_dialog
+done | sort
+)
+
+seen=
+for part in $parts; do
+	mountpoint="${part%,*}"
+	size="${part#*,}"
+	if [ "$mountpoint" = "/" ]; then
+		rofssize="$(du -s --block-size=1 /rofs | cut -f1)"
+		rootrofssize="$rofssize"
+		rootsize="$size"
+	else
+		[ -d "/rofs$mountpoint" ] || continue
+		rofssize="$(du -s --block-size=1 /rofs$mountpoint | cut -f1)"
+		if [ "$mountpoint" = "/boot" ]; then
+			rofssize="$(expr $rofssize \* $bootmultfudge)"
+		fi
+		if ! longint_le $rofssize $size ; then
+			partitions="${partitions:+$partitions, }$mountpoint $rofssize"
+		fi
+
+		# Make sure that no parent of $mountpoint has been added to
+		# $rofssum yet, otherwise we'll produce an invalid size.
+		d="$(dirname $mountpoint)"
+		found=
+		if [ -n "$seen" ]; then
+			while :; do
+				if [ "$d" = / ]; then
+					break
+				fi
+				if echo "$seen" | grep -wqs "$d"; then
+					found=1
+					break
+				fi
+				d="$(dirname $d)"
+			done
+		fi
+		if [ -z "$found" ]; then
+			rofssum="$(expr $rofssum + $rofssize)"
+			seen="$seen $mountpoint"
+		fi
+	fi
 done
 
 if [ -n "$rootrofssize" ]; then
