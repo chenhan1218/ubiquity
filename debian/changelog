@@ -19,6 +19,7 @@ ubiquity (1.8.2) UNRELEASED; urgency=low
     in the noninteractive frontend.
   * Turn off console blanking in Ubiquity init script to prevent
     confusion on the noninteractive frontend.
+  * Update mythbuntu ubiquity icon.
 
   [ Colin Watson ]
   * Fix crash if partitioning failed when partitioning was automated (see LP
