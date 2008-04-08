@@ -1,12 +1,16 @@
 ubiquity (1.8.3) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Make all text in the partitioner translatable (LP: #144741).
     Unfortunately we don't have time to get translations in place for 8.04,
     but there ought to be time to do this for 8.04.1. This also involved
     moving the "Undo changes to partitions" button to a second line in order
     to avoid excessive horizontal growth.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 08 Apr 2008 10:49:44 +0100
+  [ Evan Dandrea ]
+  * Update the translations from Rosetta.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 08 Apr 2008 13:05:20 -0400
 
 ubiquity (1.8.2) hardy; urgency=low
 
