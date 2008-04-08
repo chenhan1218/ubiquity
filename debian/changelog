@@ -1,4 +1,4 @@
-ubiquity (1.8.2) UNRELEASED; urgency=low
+ubiquity (1.8.2) hardy; urgency=low
 
   [ Evan Dandrea ]
   * Treat the dbfilter returning nonzero as a fatal error in the
@@ -39,7 +39,7 @@ ubiquity (1.8.2) UNRELEASED; urgency=low
   * Give reconfigured packages access to our X display, so that
     usplash.postinst can check its dimensions (LP: #188764).
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 01 Apr 2008 11:49:51 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 08 Apr 2008 02:02:23 -0400
 
 ubiquity (1.8.1) hardy; urgency=low
 
