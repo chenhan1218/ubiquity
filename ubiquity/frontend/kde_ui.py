@@ -1706,24 +1706,23 @@ class Wizard(BaseFrontend):
         partition_list_menu = QMenu(self.userinterface)
         for action in self.dbfilter.get_actions(devpart, partition):
             if action == 'new_label':
-                # TODO cjwatson 2006-12-21: i18n;
-                # partman-partitioning/text/label text is quite long?
-                new_label_item = partition_list_menu.addAction('New partition table')
+                new_label_item = partition_list_menu.addAction(
+                    self.get_string('partition_button_new_label'))
                 self.app.connect(new_label_item, SIGNAL("triggered(bool)"),
                                  self.on_partition_list_new_label_activate)
             elif action == 'new':
-                # TODO cjwatson 2006-10-31: i18n
-                new_item = partition_list_menu.addAction('New partition')
+                new_item = partition_list_menu.addAction(
+                    self.get_string('partition_button_new'))
                 self.app.connect(new_item, SIGNAL("triggered(bool)"),
                                  self.on_partition_list_new_activate)
             elif action == 'edit':
-                # TODO cjwatson 2006-10-31: i18n
-                edit_item = partition_list_menu.addAction('Edit partition')
+                edit_item = partition_list_menu.addAction(
+                    self.get_string('partition_button_edit'))
                 self.app.connect(edit_item, SIGNAL("triggered(bool)"),
                                  self.on_partition_list_edit_activate)
             elif action == 'delete':
-                # TODO cjwatson 2006-10-31: i18n
-                delete_item = partition_list_menu.addAction('Delete partition')
+                delete_item = partition_list_menu.addAction(
+                    self.get_string('partition_button_delete'))
                 self.app.connect(delete_item, SIGNAL("triggered(bool)"),
                                  self.on_partition_list_delete_activate)
         if partition_list_menu.children():
@@ -2217,12 +2216,13 @@ class PartitionModel(QAbstractItemModel):
         QAbstractItemModel.__init__(self, parent)
 
         rootData = []
-        rootData.append(QVariant("Device")) ##FIXME i18n
-        rootData.append(QVariant("Type"))
-        rootData.append(QVariant("Mount point"))
-        rootData.append(QVariant("Format?"))
-        rootData.append(QVariant("Size"))
-        rootData.append(QVariant("Used"))
+        rootData.append(QVariant(self.get_string('partition_column_device')))
+        rootData.append(QVariant(self.get_string('partition_column_type')))
+        rootData.append(QVariant(
+            self.get_string('partition_column_mountpoint')))
+        rootData.append(QVariant(self.get_string('partition_column_format')))
+        rootData.append(QVariant(self.get_string('partition_column_size')))
+        rootData.append(QVariant(self.get_string('partition_column_used')))
         self.rootItem = TreeItem(rootData)
 
     def append(self, data, ubiquity):
@@ -2372,9 +2372,9 @@ class TreeItem:
         elif partition['parted']['type'] == 'unusable':
             return '  %s' % self.ubiquity.get_string('partman/text/unusable')
         else:
-            # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
-            # feels a bit too SHOUTY for this interface.
-            return '  free space'
+            # partman uses "FREE SPACE" which feels a bit too SHOUTY for
+            # this interface.
+            return '  %s' % self.ubiquity.get_string('partition_free_space')
 
     def partman_column_type(self):
         partition = self.itemData[1]
@@ -2452,8 +2452,7 @@ class TreeItem:
         if 'id' not in partition or partition['parted']['fs'] == 'free':
             return ''
         elif 'resize_min_size' not in partition:
-            # TODO cjwatson 2007-03-26: i18n
-            return 'unknown'
+            return self.ubiquity.get_string('partition_used_unknown')
         else:
             # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
             # partman expects.

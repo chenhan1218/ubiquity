@@ -1418,9 +1418,10 @@ class Wizard(BaseFrontend):
             unusable = self.get_string('partman/text/unusable')
             cell.set_property('text', '  %s' % unusable)
         else:
-            # TODO cjwatson 2006-10-30 i18n; partman uses "FREE SPACE" which
-            # feels a bit too SHOUTY for this interface.
-            cell.set_property('text', '  free space')
+            # partman uses "FREE SPACE" which feels a bit too SHOUTY for
+            # this interface.
+            free_space = self.get_string('partition_free_space')
+            cell.set_property('text', '  %s' % free_space)
 
     def partman_column_type (self, column, cell, model, iterator):
         partition = model[iterator][1]
@@ -1485,8 +1486,8 @@ class Wizard(BaseFrontend):
         if 'id' not in partition or partition['parted']['fs'] == 'free':
             cell.set_property('text', '')
         elif 'resize_min_size' not in partition:
-            # TODO cjwatson 2007-03-26: i18n
-            cell.set_property('text', 'unknown')
+            unknown = self.get_string('partition_used_unknown')
+            cell.set_property('text', unknown)
         else:
             # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
             # partman expects.
@@ -1510,27 +1511,26 @@ class Wizard(BaseFrontend):
         partition_list_menu = gtk.Menu()
         for action in self.dbfilter.get_actions(devpart, partition):
             if action == 'new_label':
-                # TODO cjwatson 2006-12-21: i18n;
-                # partman-partitioning/text/label text is quite long?
-                new_label_item = gtk.MenuItem('New partition table')
+                new_label_item = gtk.MenuItem(
+                    self.get_string('partition_button_new_label'))
                 new_label_item.connect(
                     'activate', self.on_partition_list_new_label_activate)
                 partition_list_menu.append(new_label_item)
             elif action == 'new':
-                # TODO cjwatson 2006-10-31: i18n
-                new_item = gtk.MenuItem('New partition')
+                new_item = gtk.MenuItem(
+                    self.get_string('partition_button_new'))
                 new_item.connect(
                     'activate', self.on_partition_list_new_activate)
                 partition_list_menu.append(new_item)
             elif action == 'edit':
-                # TODO cjwatson 2006-10-31: i18n
-                edit_item = gtk.MenuItem('Edit partition')
+                edit_item = gtk.MenuItem(
+                    self.get_string('partition_button_edit'))
                 edit_item.connect(
                     'activate', self.on_partition_list_edit_activate)
                 partition_list_menu.append(edit_item)
             elif action == 'delete':
-                # TODO cjwatson 2006-10-31: i18n
-                delete_item = gtk.MenuItem('Delete partition')
+                delete_item = gtk.MenuItem(
+                    self.get_string('partition_button_delete'))
                 delete_item.connect(
                     'activate', self.on_partition_list_delete_activate)
                 partition_list_menu.append(delete_item)
@@ -1910,28 +1910,32 @@ class Wizard(BaseFrontend):
                 else:
                     partition_tree_model.append([item, partition_cache[item]])
 
-            # TODO cjwatson 2006-08-05: i18n
             cell_name = gtk.CellRendererText()
-            column_name = gtk.TreeViewColumn("Device", cell_name)
+            column_name = gtk.TreeViewColumn(
+                self.get_string('partition_column_device'), cell_name)
             column_name.set_cell_data_func(cell_name, self.partman_column_name)
             column_name.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
             self.partition_list_treeview.append_column(column_name)
 
             cell_type = gtk.CellRendererText()
-            column_type = gtk.TreeViewColumn("Type", cell_type)
+            column_type = gtk.TreeViewColumn(
+                self.get_string('partition_column_type'), cell_type)
             column_type.set_cell_data_func(cell_type, self.partman_column_type)
             column_type.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
             self.partition_list_treeview.append_column(column_type)
 
             cell_mountpoint = gtk.CellRendererText()
-            column_mountpoint = gtk.TreeViewColumn("Mount point", cell_mountpoint)
+            column_mountpoint = gtk.TreeViewColumn(
+                self.get_string('partition_column_mountpoint'),
+                cell_mountpoint)
             column_mountpoint.set_cell_data_func(
                 cell_mountpoint, self.partman_column_mountpoint)
             column_mountpoint.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
             self.partition_list_treeview.append_column(column_mountpoint)
 
             cell_format = gtk.CellRendererToggle()
-            column_format = gtk.TreeViewColumn("Format?", cell_format)
+            column_format = gtk.TreeViewColumn(
+                self.get_string('partition_column_format'), cell_format)
             column_format.set_cell_data_func(
                 cell_format, self.partman_column_format)
             column_format.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
@@ -1940,13 +1944,15 @@ class Wizard(BaseFrontend):
             self.partition_list_treeview.append_column(column_format)
 
             cell_size = gtk.CellRendererText()
-            column_size = gtk.TreeViewColumn("Size", cell_size)
+            column_size = gtk.TreeViewColumn(
+                self.get_string('partition_column_size'), cell_size)
             column_size.set_cell_data_func(cell_size, self.partman_column_size)
             column_size.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
             self.partition_list_treeview.append_column(column_size)
 
             cell_used = gtk.CellRendererText()
-            column_used = gtk.TreeViewColumn("Used", cell_used)
+            column_used = gtk.TreeViewColumn(
+                self.get_string('partition_column_used'), cell_used)
             column_used.set_cell_data_func(cell_used, self.partman_column_used)
             column_used.set_sizing(gtk.TREE_VIEW_COLUMN_AUTOSIZE)
             self.partition_list_treeview.append_column(column_used)

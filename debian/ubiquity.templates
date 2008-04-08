@@ -214,6 +214,68 @@ _Description:
  include the following detail in your bug report, and attach the files
  /var/log/syslog and /var/log/partman:
 
+Template: ubiquity/text/partition_button_new_label
+Type: text
+# An action, displayed on a button or as a menu item.
+_Description: New partition table
+
+Template: ubiquity/text/partition_button_new
+Type: text
+# An action, displayed on a button or as a menu item.
+_Description: New partition
+
+Template: ubiquity/text/partition_button_edit
+Type: text
+# An action, displayed on a button or as a menu item.
+_Description: Edit partition
+
+Template: ubiquity/text/partition_button_delete
+Type: text
+# An action, displayed on a button or as a menu item.
+_Description: Delete partition
+
+Template: ubiquity/text/partition_column_device
+Type: text
+# A column heading in the partitioner.
+_Description: Device
+
+Template: ubiquity/text/partition_column_type
+Type: text
+# A column heading in the partitioner. Indicates how the partition is to be
+# used (ext2, swap, etc.).
+_Description: Type
+
+Template: ubiquity/text/partition_column_mountpoint
+Type: text
+# A column heading in the partitioner.
+_Description: Mount point
+
+Template: ubiquity/text/partition_column_format
+Type: text
+# A column heading in the partitioner.
+_Description: Format?
+
+Template: ubiquity/text/partition_column_size
+Type: text
+# A column heading in the partitioner.
+_Description: Size
+
+Template: ubiquity/text/partition_column_used
+Type: text
+# A column heading in the partitioner. Indicates how much of the space on
+# this partition is used by data.
+_Description: Used
+
+Template: ubiquity/text/partition_free_space
+Type: text
+# Indicates unpartitioned free space on a disk.
+_Description: free space
+
+Template: ubiquity/text/partition_used_unknown
+Type: text
+# Indicates that we do not know how much space is used on this partition.
+_Description: unknown
+
 Template: ubiquity/text/partition_create_dialog
 Type: text
 _Description: Create partition
