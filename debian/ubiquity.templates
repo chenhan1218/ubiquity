@@ -470,11 +470,11 @@ _Description: Failed to copy files; faulty CD/DVD or hard disk?
 
 Template: ubiquity/install/copying_error/md5
 Type: select
+Choices: abort, retry, skip
 #flag:translate!:3
 #flag:comment:4
 # This is used when there was an md5 mismatch during copying, meaning that
 # the source file and destination file are not equal.
-Choices: abort, retry, skip
 _Description: Failed to copy file; faulty CD/DVD or hard disk?
  The following file did not match its source copy on the CD/DVD:
  .

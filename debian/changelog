@@ -6,6 +6,8 @@ ubiquity (1.8.3) UNRELEASED; urgency=low
     but there ought to be time to do this for 8.04.1. This also involved
     moving the "Undo changes to partitions" button to a second line in order
     to avoid excessive horizontal growth.
+  * Adjust po-debconf flags in ubiquity/install/copying_error/md5, so that
+    ${FILE} doesn't get translated.
 
   [ Evan Dandrea ]
   * Update the translations from Rosetta.
