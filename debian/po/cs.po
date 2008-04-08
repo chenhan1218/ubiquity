@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-27 14:29+0000\n"
+"PO-Revision-Date: 2008-03-27 18:01+0000\n"
 "Last-Translator: Kamil Páral <ripper42@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -482,18 +482,10 @@ msgstr "Pokračovat"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Instalace úspěšně dokončena. Pro použití nové instalace je potřeba "
-"restartovat počítač. I nadále můžete používat toto živé CD, ale jakékoliv "
-"změny, které provedete, nebo dokumenty, které vytvoříte, nebudou zachovány."
 
 #. Type: note
 #. Description
@@ -696,7 +688,7 @@ msgstr "Nastavuje se časové pásmo..."
 #. Description
 #: ../ubiquity.templates:85001
 msgid "Configuring keyboard..."
-msgstr "Nastavuje se klávesnice..."
+msgstr "Nastavuje se klávesnice ..."
 
 #. Type: text
 #. Description

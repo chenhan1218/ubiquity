@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -479,19 +479,10 @@ msgstr "Gaan voort"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Installasie is voltooi.  Jy moet die rekenaar laat restart om die nuwe "
-"installasie te gebruik.  Jy mag hierdie live CD aanhou gebruik, maar enige "
-"veranderinge wat jy aanbring of dokumente wat jy stoor sal nie bewaar word "
-"nie."
 
 #. Type: note
 #. Description

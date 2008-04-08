@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -74,6 +74,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Efectuatz l'installacion en mòde revendeire informatic. Picatz un nom unic "
+"per aqueste lòt de sistèmas. Aqueste nom serà salvagardat sul sistèma "
+"installat e poirà èsser utilizat pels rapòrts d'anomalias."
 
 #. Type: text
 #. Description
@@ -340,7 +343,7 @@ msgstr "Tornar aviar ara"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "L'installaire a rencontrat una error"
 
 #. Type: text
 #. Description
@@ -353,6 +356,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"O planhèm, l'installaire a rencontrat una error. Senhalatz aqueste bòg sus "
+"https://launchpad.net/ubuntu/+source/ubiquity/+filebug (ajustetz pas vòstras "
+"entresenhas a un bòg existent) e un desvolopaire s'ocuparà del problèma lo "
+"mai lèu possible. Per ajudar lo desvolopaire a compréner lo problèma, "
+"incluissetz las entresenhas seguentas dins vòstre rapòrt e ligatz los "
+"fichièrs /var/log/syslog e /var/log/partma :"
 
 #. Type: text
 #. Description
@@ -432,7 +441,7 @@ msgstr "Concors de popularitat"
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Concors de popularitat"
 
 #. Type: text
 #. Description
@@ -481,18 +490,10 @@ msgstr "Contunhar"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"L'installacion es terminada. Debètz tornar aviar l'ordenador per utilisar lo "
-"sistèma nòu. Podètz contunhar a utilisar lo live CD mas los cambis que "
-"farètz o los fichièrs qu'enregistrarètz seràn pas conservats."
 
 #. Type: note
 #. Description
@@ -822,6 +823,13 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Aquò pòt èsser degut a l'utilizacion d'un imatge ancian de l'installaire, o "
+"alara a un bòg dins d'unes paquets listats çaijós. De detalhs mai amples se "
+"pòdon trobar dins /var/log/syslog. L'installaire va ensajar de perseguir "
+"malgrat tot, mas pòt fracassar a una etapa ulteriora, e poirà pas installar "
+"o suprimir d'autres paquets (i compres ele-meteis probablament) del sistèma "
+"installat. Deuriatz, d'en primièr, cercar de versions novèlas de l'imatge de "
+"l'installaire, o se s'escai, senhalar aqueste problèma a vòstre revendeire."
 
 #. Type: error
 #. Description
@@ -935,6 +943,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Tipe d'installacion[nbsp ]: ${INSTALLTYPE}\n"
+" Pilòts :\n"
+"     Pilòt vidèo suplementar : ${VIDEO_DRIVER}\n"
+"         Sortida TV : ${TVOUT}, ${TVSTANDARD}\n"
+" Servicis suplementaris :\n"
+"     VNC : ${EN_VNC}\n"
+"     SSH : ${EN_OPENSSH}\n"
+"     Samba : ${EN_SAMBA}\n"
+"     NFS : ${EN_NFS}\n"
+"     Servici MythTV : ${EN_MYSQL}\n"
+" Questions per l'installacion Ubuntu estandarda :\n"
+"     Lenga : ${LANGUAGE}\n"
+"     Disposicion del clavièr : ${KEYMAP}\n"
+"     Nom : ${FULLNAME}\n"
+"     Identificant de connexion : ${USERNAME}\n"
+"     Emplaçament : ${LOCATION}"
 
 #. Type: text
 #. Description
@@ -962,6 +986,9 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Una installacion estandarda installarà e configurarà totas las opcions amb "
+"un minimom d'intervencion de l'utilizaire. Aquò installarà lo motor de "
+"tractament, l'interfàcia, totes los ensèrts e totes los tèmas."
 
 #. Type: text
 #. Description
@@ -977,6 +1004,9 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Una installacion avançada pòt èsser utilizada per personalizar çò qu'es "
+"necessari a aquesta installacion de Mythbuntu. Una installacion avançada es "
+"necessària per ajustar una maquina MythBuntu a una ret basada sus MythTV."
 
 #. Type: text
 #. Description
@@ -997,7 +1027,7 @@ msgstr "Quina mena de sistèma serà ?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Maquina primària combinant motor de tractament e interfàcia"
 
 #. Type: text
 #. Description
@@ -1007,12 +1037,16 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Una maquina combinant motor de tractament e interfàcia es la configuracion "
+"mai correnta per las personas desirant utilizar MythTV per las aplicacions "
+"HTPC. Aqueste tipe d'installacion es previst per utilizar en tant que "
+"compausant de vòstre « home cinèma »."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Maquina segondària combinant motor de tractament e interfàcia"
 
 #. Type: text
 #. Description
@@ -1021,12 +1055,15 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Lo sistèma serà configurat d'un biais similar a una maquina primària "
+"combinant motor de tractament e interfàcia, çaquelà serà configurat per se "
+"connectar a un motor de tractament existent sus la ret."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Maquina primària de tractament"
 
 #. Type: text
 #. Description
@@ -1036,12 +1073,16 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Una maquina contenent unicament lo motor de tractament es concebuda per se "
+"comportar coma un serveire aplicatiu ; necessitant fòrt pauc de mantenença. "
+"Es prevista per èsser installada en tant que motor de tractament primari sus "
+"la ret"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Maquina segondària de tractament"
 
 #. Type: text
 #. Description
@@ -1050,12 +1091,15 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Lo sistèma serà configurat d'un biais similar a un motor de tractament "
+"primari, çaquelà serà configurat per se connectar a un motor de tractament "
+"existent sus la ret."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Maquina servent unicament d'interfàcia"
 
 #. Type: text
 #. Description
@@ -1065,12 +1109,16 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"La foncion principala d'una maquina servent unicament d'interfàcia, es de "
+"recebre los contenguts multimèdia del motor de tractament e de los "
+"distribuir. Aquesta configuracion necessita un motor de tractament existent "
+"sus la ret."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Causir los ensèrts per l'interfàcia/motor de tractament"
 
 #. Type: text
 #. Description
@@ -1079,18 +1127,20 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"D'ensèrtss pòdon èsser utilizats per espandir las foncionalitats de MythTV "
+"al delà de la foncion de « dirècte en diferit » (Time Shifting)."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "Ensèrts pel motor de tractament"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "Ensèrts per l'interfàcia"
 
 #. Type: text
 #. Description
@@ -1105,24 +1155,27 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb prepausa una interfàcia Web que permet de veire de listas, de "
+"programar d'enregistraments, suprimir d'enregistraments, e de cercar de "
+"programas."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Archiu Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Navegaire Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Contraròtles Myth"
 
 #. Type: text
 #. Description
@@ -1164,7 +1217,7 @@ msgstr "Novèlas Myth"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Telèfon Myth"
 
 #. Type: text
 #. Description
@@ -1176,13 +1229,13 @@ msgstr "Flus Myth"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Video"
-msgstr ""
+msgstr "Vidèo Myth"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Meteo Myth"
 
 #. Type: text
 #. Description
@@ -1191,12 +1244,14 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
+"Un ensèrt per MythTV que vos permet de crear de DVD à partir du contenu "
+"présent sur votre réseau MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:41001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "Un navegaire Web integrat per vòstre sistèma MythTV."
 
 #. Type: text
 #. Description
@@ -1205,6 +1260,8 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Contraròtles extèrnes per MythTV. Aquò vos permetrà de modificar los botons "
+"e acorchis de clavièr."
 
 #. Type: text
 #. Description
@@ -1216,25 +1273,28 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:44001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "Vos permet de susvelhar vòstra lista de locacion de DVD Netfix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Allows you to visually browse a directory tree containing image files."
 msgstr ""
+"Vos permet de navegar visualament dins un repertòri contenent d'imatges."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
+"Una interfàcia permetent d'aviar tot emulator o executable que Linux pòt "
+"amodar."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Provesís un lector audio numeric integrat a MythTV."
 
 #. Type: text
 #. Description
@@ -1243,6 +1303,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Un lector de flus RSS per MythTV que permet de demorar a jorn sus vòstres "
+"subjèctes preferits."
 
 #. Type: text
 #. Description
@@ -1250,12 +1312,16 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"Una foncion de telefonia e visiofonia, utilizant lo protocòl estandard SIP, "
+"integrada a MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:50001
 msgid "Provides a method to listen to streaming internet radio stations."
 msgstr ""
+"Provesîs un mejan d'escotar d'estacions de ràdio difusent lor flus sus "
+"Internet"
 
 #. Type: text
 #. Description
@@ -1264,12 +1330,14 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"Vos permet de legir e de navegar demest las vidèos, en utilizant un lector "
+"extèrn, al sen de l'interfàcia MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "Aficha la meteo actuala e las previsions dins MythTV."
 
 #. Type: text
 #. Description
@@ -1298,7 +1366,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "Pilòts/micrologicials (firmwares) adicionals"
 
 #. Type: text
 #. Description
@@ -1309,24 +1377,28 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Un pilòt grafic open source ja es activat e configurat per vòstra "
+"installacion. Se desiratz utilizar un pilòt grafic diferent, o podètz far "
+"aicí. Notatz qu'un pilòt grafic proprietari pòt èsser necessari per la "
+"sortida TV o los efièches OpenGL."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Modify Video Driver & Settings"
-msgstr ""
+msgstr "Cambiar lo pilòt e los paramètres vidèo"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:60001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr ""
+msgstr "Se desiratz configurar la sortida TV, causissètz una opcion aicí :"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
-msgstr ""
+msgstr "Se activatz la sortida TV, tanben devètz causir un estandard TV :"
 
 #. Type: text
 #. Description
@@ -1335,18 +1407,22 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Atencion : Definissetz pas un estandard TV qu'es pas pres en carga per "
+"vòstre televisor. Lo riscatz de damatjar definitivament."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "Master Backend Info"
-msgstr ""
+msgstr "Entresenha sus la maquina de tractament primari"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:64001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
+"Picatz l'entresenha necessària per contactar vòstra maquina de tractament "
+"primari :"
 
 #. Type: text
 #. Description
@@ -1376,7 +1452,7 @@ msgstr "Servidor MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Configurar las donadas pels programas TV/ motor de tractament"
 
 #. Type: text
 #. Description
@@ -1385,12 +1461,14 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Las etapas finalas de l'installacion necessitan de definir las donadas pels "
+"programas TV e d'efectuar una primièra configuracion del motor de tractament."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Clicatz per dobrir lo sit web « Schedules Direct »"
 
 #. Type: text
 #. Description
@@ -1400,6 +1478,10 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Los utilizaires en America del Nòrd deuràn crear un compte çò « Schedules "
+"Direct » (SD). SD provesís los programas TV per un prètz nominal. Sens SD, "
+"los utilizaires d'America del Nòrd poirián perdre fòrça foncionalitats de "
+"programacion dins MythTV."
 
 #. Type: text
 #. Description
@@ -1416,6 +1498,10 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Aprèp aver configurat vòstra font de donada pels programas TV, anatz dever "
+"amodar MythTV-Setup per una primièra execucion de la configuracion del motor "
+"de tractament. Deuretz configurar las quatre primièras seccions, asseguratz-"
+"vos de provesir las donadas pels programas dins la tresena."
 
 #. Type: text
 #. Description

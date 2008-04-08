@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -485,14 +485,10 @@ msgstr "এগিয়ে যাও"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"ইনস্টলেশন সম্পূর্ন হয়েছে। নতুন এই ইনস্টলেশন ব্যবহার করবার জন্য আপনাকে কম্পিউটারটি "
-"পুনরায় চালু করতে হবে। আপনি এই লাইভ সিডি ব্যবহার চালু রাখতে পারেন, যদিও তাতে "
-"আপনার দ্বারা কৃত কোন পরিবর্তন অথবা কোনও সংরক্ষিত নথি সংরক্ষণ করা হবে না।"
 
 #. Type: note
 #. Description

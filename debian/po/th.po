@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:37+0000\n"
-"Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
+"PO-Revision-Date: 2008-03-01 13:16+0000\n"
+"Last-Translator: SvZ <Unknown>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -78,7 +78,7 @@ msgstr ""
 msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
-msgstr "ถ้าคุณสามารถใช้อินเทอร์เน็ต อ่านบันทึกการออกรุ่นสำหรับข้อมูลเกี่ยวกับปัญหาที่ท่านพบ"
+msgstr "ถ้าคุณเชื่อมต่ออินเทอร์เน็ต คุณสามารถอ่านข้อมูลเกี่ยวกับปัญหาที่พบได้"
 
 #. Type: text
 #. Description
@@ -156,13 +156,13 @@ msgstr "คุณคือใคร?"
 #. Description
 #: ../ubiquity.templates:19001
 msgid "What is your name?"
-msgstr "ชื่อของคุณ"
+msgstr "คุณชื่ออะไร?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "What name do you want to use to log in?"
-msgstr "ชื่อที่คุณต้องการใช้ในการเข้าสู่ระบบ"
+msgstr "คุณต้องการใช้ชื่ออะไรในการเข้าสู่ระบบ?"
 
 #. Type: text
 #. Description
@@ -225,7 +225,7 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr "ถ้าคุณไม่ต้องการที่จะเพิ่มผู้ใช้  , ก็ไม่ตอ้งเลือกอะไรและให้ไปที่หน้าถัดไป"
+msgstr "หากคุณไม่ต้องการที่จะเพิ่มผู้ใช้ ให้ไปยังหน้าถัดไปได้เลย"
 
 #. Type: text
 #. Description
@@ -265,7 +265,7 @@ msgstr "ระบบปฏิบัติการใหม่ของคุณ
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "ขั้นสูง..."
 
 #. Type: text
 #. Description
@@ -273,7 +273,7 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "ติดตั้ง"
 
 #. Type: text
 #. Description
@@ -315,7 +315,7 @@ msgstr "ใช้แผ่น Live ซีดีต่อไป"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Restart now"
-msgstr "เริ่มใหม่เดี๋ยวนี้"
+msgstr "รีสตาร์ทเดี๋ยวนี้"
 
 #. Type: text
 #. Description
@@ -323,7 +323,7 @@ msgstr "เริ่มใหม่เดี๋ยวนี้"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "การติดตั้งไม่ประสบผลสำเร็จ"
 
 #. Type: text
 #. Description
@@ -336,12 +336,17 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"เสียใจ ! การติดตั้งไม่ประสบผลสำเร็จ โปรดแจ้งบั๊กที่ https://launchpad.net/ubuntu/"
+"+source/ubiquity/+filebug (โดยไม่ต้องแนบหรือรายละเอียดใด ๆ) "
+"และทางผู้พัฒนาจะดำเนินแก้ไขโดยเร็วที่สุด เพื่อให้ผู้พัฒนาทราบว่าเกิดอะไรผิดพลาด "
+"โปรดแนบรายละเอียดต่อไปนี้ในการรายงานบั๊ก คือ ไฟล์ /var/log/syslog และ /var/log/"
+"partman :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "สร้างพาร์ติชั่น"
 
 #. Type: text
 #. Description
@@ -349,7 +354,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "สร้างพาร์ติชั่นใหม่ในขนาดเม็กกะไบต์​(1000000 ไบต์)"
 
 #. Type: text
 #. Description
@@ -379,19 +384,19 @@ msgstr "ลอจิคัล"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "แก้ไขพาร์ติชั่น"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "แก้ไขพาร์ติชั่น"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "ตัวเลือกขั้นสูง"
 
 #. Type: text
 #. Description
@@ -403,19 +408,19 @@ msgstr "บูตโหลดเดอร์"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "ติดตั้ง boot loader"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "การแข่งขันความนิยม"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "เข้าร่วมในการสำรวจการใ้ช้งานแพคเกจ"
 
 #. Type: text
 #. Description
@@ -464,18 +469,10 @@ msgstr "ดำเนินการต่อ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"การติดตั้งสำเร็จแล้วคุณจะต้องเริ่มการทำงานของเครื่องคอมพิวเตอร์ใหม่ "
-"เพื่อเริ่มใช้งานระบบที่ติดตั้งลงไป หรือจะทำงานบนแผ่นไลฟ์ซีดีนี้ต่อไปก็ได้ "
-"แต่งานต่างๆที่คุณทำไว้จะไม่สามารถบันทึกลงในเครื่องของคุณได้"
 
 #. Type: note
 #. Description
@@ -584,7 +581,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr "ไม่สามารถคัดลอกไฟล์ ฮาร์ดดิสก์มีปัญหาหรือเปล่า?"
+msgstr "ไม่สามารถคัดลอกไฟล์ได้ อาจจะเกิดจากฮาร์ดดิสก์อาจมีปัญหา"
 
 #. Type: error
 #. Description
@@ -601,7 +598,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr "ไม่สามารถคัดลอกไฟล์ แผ่นซีดี/ดีวีดีหรือฮาร์ดดิสก์เสียหรือเปล่า?"
+msgstr "ไม่สามารถคัดลอกไฟล์ได้ อาจจะเกิดจากแผ่น ซีดี/ดีวีดี หรือ ฮาร์ดดิสก์อาจมีปัญหา"
 
 #. Type: error
 #. Description
@@ -809,13 +806,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:103001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดขณะเอาแพคเกจออก"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:103001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดขณะเอาแพคเกจออก:"
 
 #. Type: title
 #. Description
@@ -838,22 +835,25 @@ msgstr "เลิกเมานท์พาร์ทิชันไม่สำ
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
+#, fuzzy
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"ตัวติดตั้งต้องการบันทึกการแก้ไขลงในตารางพาร์ติชัน "
+"แต่ไม่สามารถทำได้เนื่องจากพาร์ติชันที่อยู่บนจุดเมานท์ต่อไปนี้ไม่สามารถยกเลิกเมานท์ได้:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "โปรดปิดโปรแกรมใดๆที่ใช้จุดเมานท์เหล่านี้"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "คุณต้องการให้ตัวติดตั้งลองยกเิลิกเมานท์พาร์ติัชั่นเหล่านี้อีกหรือไม่?"
 
 #. Type: boolean
 #. Description
@@ -910,6 +910,22 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" ชนิดการติดตั้ง:           ${INSTALLTYPE}\n"
+" ไดรฟ์เวอร์:\n"
+"     เพิ่มไดรฟ์เวอร์วิดีโอการ์ด:  ${VIDEO_DRIVER}\n"
+"         ออกโทรทัศน์:             ${TVOUT}, ${TVSTANDARD}\n"
+" บริการเสริม:\n"
+"     VNC:                ${EN_VNC}\n"
+"     SSH:                ${EN_OPENSSH}\n"
+"     Samba:              ${EN_SAMBA}\n"
+"     NFS:                ${EN_NFS}\n"
+"     บริการ MythTV:     ${EN_MYSQL}\n"
+" คำถามการติดตั้ง Ubuntu ทั่วไป:\n"
+"    ภาษา:           ${LANGUAGE}\n"
+"     โครงสร้างแป้นพิมพ์:    ${KEYMAP}\n"
+"     ชื่อทั่วไป:       ${FULLNAME}\n"
+"     ชื่อเข้าระบบทั่วไป: ${USERNAME}\n"
+"     ที่อยู่:           ${LOCATION}"
 
 #. Type: text
 #. Description
@@ -921,13 +937,13 @@ msgstr "ต้องการติดตั้งแบบไหน?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "มีชนิดการติดตั้งให้เลือกสองแบบสำหรับ Mythbuntu"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "ติดตั้งแบบมาตราฐาน"
 
 #. Type: text
 #. Description
@@ -937,6 +953,8 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"การติดตั้งแบบมาตราฐานจะติดตั้งและตั้งค่าตัวเลือกทุกอย่างโดยให้ผู้ใช้ทำงานน้อยที่สุด "
+"มันจะติดตั้งแบ็คเอนด์, ฟรอนท์เอนด์, ส่วนขยายทั้งหมด, และธีมทั้งหมด"
 
 #. Type: text
 #. Description
@@ -952,6 +970,8 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"สามารถใช้การติดตั้งขั้นสูงเพื่อปรับแต่งว่าต้องการอะไรบ้างในการติดตั้ง Mythbuntu นี้ โปรดจำ: "
+"จำเป็นต้องใช้การติดตั้งขั้นสูงถ้าจะเพิ่มเครื่อง Mythbuntu ไปยังเครือข่าย MythTV ที่มีอยู่แล้ว"
 
 #. Type: text
 #. Description
@@ -966,13 +986,13 @@ msgstr "การติดตั้งแบบผู้เชี่ยวชา
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "เครื่องนี้จะเป็นระบบแบบใด"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "แบ็คเอนด์หลักพร้อมด้วยฟรอนท์เอนด์"
 
 #. Type: text
 #. Description
@@ -982,12 +1002,14 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"เครื่องคอมโบแบ็คเอนด์/ฟรอนท์เอนด์เป็นการติดตั้งที่แพร่หลายที่สุดสำหรับคนที่ต้องการ MythTV "
+"สำหรับโปรแกรม HTPC การติดตั้งแบบนี้เหมาะสำหรับใช้เป็นส่วนประกอบในชุด Home Theatre ของคุณ"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "แบ็คเอนด์อันดับสองพร้อมฟรอนท์เอนด์"
 
 #. Type: text
 #. Description
@@ -996,12 +1018,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"นี่จะติดตั้งระบบคล้ายกับแบ็คเอนด์หลักพร้อมด้วยฟรอนท์เอนด์ "
+"แต่จะถูกตั้งค่าให้ติดต่อกับแบ็คเอนด์ที่มีอยู่แล้วบนเครือข่าย"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "แบ็คเอนด์หลัก"
 
 #. Type: text
 #. Description
@@ -1011,12 +1035,14 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"เครื่องแบบมีเฉพาะแบ็คเอนด์ออกแบบมาเพื่อทำงานเหมือนเครื่องใช้ไฟฟ้า "
+"มันต้องการการดูแลรักษาน้อยมาก การติดตั้งแบบนี้เหมาะสำหรับการติดตั้งเป็นแบ็คเอนด์ตัวแรกบนเครือข่าย"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "แบ็คเอนด์ตัวที่สอง"
 
 #. Type: text
 #. Description
@@ -1024,13 +1050,13 @@ msgstr ""
 msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
-msgstr ""
+msgstr "นี่จะติดตั้งระบบคล้ายกับแบ็คเอนด์หลัก แต่จะถูกตั้งค่าให้ติดต่อกับแบ็คเอนด์ที่มีอยู่แล้วบนเครือข่าย"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "ฟรอนท์เอนด์"
 
 #. Type: text
 #. Description
@@ -1040,12 +1066,14 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"การทำงานหลักของเครื่องที่มีเพียงฟรอนท์เอนด์คือรับสื่อจากเครื่องแบ็คเอนด์และแพร่กระจายมัน "
+"การติดตั้งแบบนี้ต้องการแบ็คเอนด์ที่มีอยู่แล้วบนเครือข่าย"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "เลือกส่วนขยายฟรอนท์เอนด์/แบ็คเอนด์"
 
 #. Type: text
 #. Description
@@ -1053,25 +1081,25 @@ msgstr ""
 msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
-msgstr ""
+msgstr "ส่วนขยายสามารถใช้เพื่อเพิ่มฟังค์ชั่นของ MyTV นอกเหนือจากการดูโทรทัศน์แบบย้อนภาพได้"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "ส่วนขยายแบ็คเอนด์"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "ส่วนขยายฟรอนท์เอนด์"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth Web"
 
 #. Type: text
 #. Description
@@ -1080,24 +1108,25 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"MythWeb จะให้บริการหน้าเว็บที่สามารถดูรายชื่อ, การอัดที่ตั้งเวลาไว้, ลบการอัด และค้นหารายการ"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Myth Archive"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Myth Browser"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
 msgid "Myth Controls"
-msgstr ""
+msgstr "Myth Controls"
 
 #. Type: text
 #. Description
@@ -1109,55 +1138,55 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Gallery"
-msgstr ""
+msgstr "Myth Gallery"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
 msgid "Myth Game"
-msgstr ""
+msgstr "Myth Game"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Music"
-msgstr ""
+msgstr "Myth Music"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth News"
-msgstr ""
+msgstr "Myth News"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
 msgid "Myth Phone"
-msgstr ""
+msgstr "Myth Phone"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Myth Stream"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Video"
-msgstr ""
+msgstr "Myth Video"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Weather"
-msgstr ""
+msgstr "Myth Weather"
 
 #. Type: text
 #. Description
@@ -1165,21 +1194,23 @@ msgstr ""
 msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
-msgstr ""
+msgstr "ปลั๊คอินสำหรับ MythTV ที่ให้คุณสร้าง DVD จากเนื้อหาในเครือข่าย MythTV ของคุณ"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:41001
+#, fuzzy
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "ปลั๊คอินเว็บบราว์เซอร์สำหรับระบบ MythTV ของคุณ"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:42001
+#, fuzzy
 msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
-msgstr ""
+msgstr "ส่วนควบคุมภายนอกสำหรับ MythTV นี่จะอนุญาตให้คุณแก้ไข Mapping ของปุ่มและไบน์ดิงของคีย์"
 
 #. Type: text
 #. Description
@@ -1191,13 +1222,13 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:44001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr ""
+msgstr "ทำให้คุณสามารถดูคิวการยืม DVD จาก Netflix"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
+msgstr "ให้คุณดูโครงสร้างไดเรคทอรี่ที่เก็บไฟล์ภาพไว้"
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-24 17:19+0000\n"
-"Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
+"PO-Revision-Date: 2008-03-30 13:40+0000\n"
+"Last-Translator: Amed Çeko Jiyan <amedcj@gmail.com>\n"
 "Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -125,7 +125,7 @@ msgstr "Herêma demê:"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Selected region:"
-msgstr "Herêma hilbijartî:"
+msgstr "Herêma destnîşankirî:"
 
 #. Type: text
 #. Description
@@ -213,7 +213,7 @@ msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
 msgstr ""
-"Heke ev komputer li ser torê ji bo kesên din were vekirin, dê ev nav bê "
+"Heke ev komputer li ser torê ji bo kesên din were vekirin, ev nav dê bê "
 "bikaranîn."
 
 #. Type: text
@@ -434,7 +434,7 @@ msgstr "Bertekên naskirî"
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Tev li lêkolîna bikaranîna pakêtê bibe"
 
 #. Type: text
 #. Description
@@ -471,30 +471,22 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:64001
 msgid "Go Back"
-msgstr "Vegere"
+msgstr "Paş ve"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:65001
 msgid "Continue"
-msgstr "Bidomîne"
+msgstr "Pêşve"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Sazkirin qediya. Ji bo ku tu karibî sazkirina nû bikar bînî divê tu "
-"komputera xwe ji nû ve bidî destpêkirin. Tu dikarî vê CD'ya zindî bikar bînî "
-"lê guherîn û belgeyên ku tu tomar bikî dê neyên tomarkirin."
 
 #. Type: note
 #. Description
@@ -823,6 +815,12 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Dibe ku ev rewş ji ber ku tu peleke kevn a sazkirinê bi kar tînî an jî di "
+"pakêtên li jorê de hin çewtî hene. Zêdetir agahî di pela /var/log/syslog de "
+"heye. Sazkirinn dê bidome lê dibe ku di gaveke pêştir de neserketî be û hin "
+"pakêtan (pakêta sazkirinê jî tê de) saz neke an jî raneke. Divê pêşî li "
+"guhertoya nû ya pela sazkirinê bigerî û çewtiyê ragihînî belavkara "
+"pêşkêşkarê."
 
 #. Type: error
 #. Description
@@ -1016,7 +1014,7 @@ msgstr "Ev ê kîjan cureyê pergalan be?"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Yekemîn binesazî w/ seresazî"
 
 #. Type: text
 #. Description

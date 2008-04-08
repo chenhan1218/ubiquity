@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:33+0000\n"
-"Last-Translator: Georgi Stanojevski <glisha@gmail.com>\n"
+"PO-Revision-Date: 2008-03-24 12:21+0000\n"
+"Last-Translator: Арангел Ангов <ufo@linux.net.mk>\n"
 "Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,13 +27,13 @@ msgstr "Инсталирај"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Инсталација (OEM режим, само за производители)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Welcome"
-msgstr "Добродојдовте"
+msgstr "Добредојдовте"
 
 #. Type: text
 #. Description
@@ -72,6 +72,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Инсталирате во режимот за изработка на системи. Внесете единствено име за "
+"оваа серија системи. Ова име ќе биде зачувано на инсталираниот систем и може "
+"да биде искористено при пријавуавњето на грешки."
 
 #. Type: text
 #. Description
@@ -189,7 +192,6 @@ msgstr "Одберете лозинка за да ја обезбедите Ва
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr "Работите во режим за исправување грешки. Не користете вредна лозинка!"
 
@@ -281,7 +283,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr ""
+msgstr "Напредно..."
 
 #. Type: text
 #. Description
@@ -289,13 +291,13 @@ msgstr ""
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr ""
+msgstr "Инсталирај[ акција ]"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "${INDEX} од ${TOTAL} чекори"
 
 #. Type: title
 #. Description
@@ -339,7 +341,7 @@ msgstr "Рестартирај сега"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr ""
+msgstr "Инсталерот падна"
 
 #. Type: text
 #. Description
@@ -357,7 +359,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Create partition"
-msgstr ""
+msgstr "Креирај партиција"
 
 #. Type: text
 #. Description
@@ -365,7 +367,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr ""
+msgstr "Големина на новата партиција во мегабајти (1000000 бајти)"
 
 #. Type: text
 #. Description
@@ -395,19 +397,19 @@ msgstr "Логичка"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Edit partition"
-msgstr ""
+msgstr "Уреди партиција"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr ""
+msgstr "Уреди партиција"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Advanced Options"
-msgstr ""
+msgstr "Напредни опции"
 
 #. Type: text
 #. Description
@@ -419,19 +421,19 @@ msgstr "Подигнувач"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Инсталирај подигнувач"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Popularity contest"
-msgstr ""
+msgstr "Натпревар во популарност"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr ""
+msgstr "Учествувај во анкетата за користење пакети"
 
 #. Type: text
 #. Description
@@ -481,19 +483,10 @@ msgstr "Продолжи"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Инсталацијата е завршена. Треба да го рестартирате компјутерот за да ја "
-"користите новата инсталација. Можете да продолжите до го користите ова живо "
-"CD, иако сите промени кои ќе ги направите или документи кои ќе ги зачувате "
-"нема да бидат зачувани."
 
 #. Type: note
 #. Description
@@ -507,11 +500,17 @@ msgid ""
 " Migration Assistant:\n"
 " ${MIGRATE}"
 msgstr ""
+" Јазик: ${LANGUAGE}\n"
+"Јазична поддршка: ${KEYMAP}\n"
+"Име: ${FULLNAME}\n"
+"Налог: ${USERNAME}\n"
+"Локација: ${LOCATION}\n"
+"Асистент за миграција:\n"
+"${MIGRATE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
-#, fuzzy
 msgid "Checking the installation..."
 msgstr "Копирам инсталациони логови..."
 
@@ -630,6 +629,12 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Оваа определена грешка често се случува поради расипан CD/DVD диск или уред, "
+"или пак расипан тврд диск. Може да е потребно да се исчисти CD/DVD-то, да се "
+"сними на пониска брзина, да се исчистат леќите на уредот (опремата за "
+"чистење е често достапна од електронските доставувачи), да се провери дали "
+"тврдиот диск е стар и е потребна замена, или да се премести системот во "
+"поладна околина."
 
 #. Type: select
 #. Description
@@ -659,7 +664,7 @@ msgstr "Копирам инсталациони логови..."
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "Го конфигурирам целниот систем..."
 
 #. Type: text
 #. Description
@@ -725,13 +730,13 @@ msgstr "Конфигурирање на подигнувач на системо
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "Инсталирам додатни пакети..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "Проверувам пакети за инсталирање..."
 
 #. Type: text
 #. Description
@@ -779,13 +784,13 @@ msgstr "Грешка при отстранување на ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "Грешка при инсталирање на пакетите"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "Се случи грешка при инсталирање пакетите:"
 
 #. Type: error
 #. Description
@@ -793,7 +798,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:102001 ../ubiquity.templates:103001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "Следниве пакети се во расипана состојба:"
 
 #. Type: error
 #. Description
@@ -814,13 +819,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:103001
 msgid "Error while removing packages"
-msgstr ""
+msgstr "Грешка при отстранување на пакетите"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:103001
 msgid "An error occurred while removing packages:"
-msgstr ""
+msgstr "Се случи грешка при инсталирање пакетите:"
 
 #. Type: title
 #. Description
@@ -847,18 +852,22 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"Инсталерот треба да направи промени во табелите за партициите но партициите "
+"на следните точки на монтирање не може да бидат демонтирани."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Please close any applications using these mount points."
 msgstr ""
+"Ве молам затворете ги апликациите кои ги користат овие точки на монитрање."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
+"Дали сакате инсталерот повторно да се обиде да ги демонтира овие партиции?"
 
 #. Type: boolean
 #. Description
@@ -915,25 +924,40 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" Тип на инсталација: ${INSTALLTYPE}\n"
+"Драјвери:\n"
+"Додај видео драјвер: ${VIDEO_DRIVER}\n"
+"ТВ излез: ${TVOUT}, ${TVSTANDARD}\n"
+"Додатни сервиси:\n"
+"VNC: ${EN_VNC}\n"
+"SSH: ${EN_OPENSSH}\n"
+"Samba: ${EN_SAMBA}\n"
+"NFS: ${EN_NFS}\n"
+"MythTV Сервис: ${EN_MYSQL{\n"
+"Стандардни инсталациони прашања:\n"
+"Јазик: ${LANGUAGE}\n"
+"Јазична поддршка: ${KEYMAP}\n"
+"Вообичаено име: ${FULLNAME}\n"
+"Вообичаен корисничко име: ${USERNAME}\n"
+"Локација: ${LOCATION}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "Да ја прекинам инсталацијата?"
+msgstr "Кој тип на инсталација?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:3001
 msgid "Two installation types are available for Mythbuntu:"
-msgstr ""
+msgstr "Достапни се два вида на инсталација за Mythbuntu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:4001
 msgid "Standard Installation"
-msgstr ""
+msgstr "Стандардна инсталација"
 
 #. Type: text
 #. Description
@@ -943,13 +967,15 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Стандардната инсталација ќе ги инсталира и конфигурира сите опции со "
+"минимален труд од страна на корисникот. Ова ќе инсталира backend, frontend, "
+"сите додатоци, и сите теми."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Да ја прекинам инсталацијата?"
+msgstr "Напредна инсталација"
 
 #. Type: text
 #. Description
@@ -959,13 +985,15 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"Напредна инсталација може да се користи за да се постави што е потребно за "
+"оваа Mythbuntu инсталација. Забелешка: За да додадете Mythbuntu машина во "
+"веќе постоечка MythTV мрежа, потребна е напредната инсталација."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Инсталацијата успешно заврши"
+msgstr "Напреден тип на инсталација"
 
 #. Type: text
 #. Description
@@ -974,13 +1002,13 @@ msgstr "Инсталацијата успешно заврши"
 #: ../ubiquity-frontend-mythbuntu.templates:9001
 #: ../ubiquity-frontend-mythbuntu.templates:10001
 msgid "What type of system will this be?"
-msgstr ""
+msgstr "Каков вид на систем ќе биде ова?"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "Примарен backend со frontend"
 
 #. Type: text
 #. Description
@@ -990,12 +1018,15 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Backend/Frontend комбо машина е најчестото поставување за луѓе кои го сакаат "
+"MythTV за HTPC апликации. Овој тип на инсталација е наменет за да се "
+"искористи како дел во Вашето домашно кино."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Секундарен backend со frontend"
 
 #. Type: text
 #. Description
@@ -1004,12 +1035,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Ова ќе постави систем сличен на примарен backend со фrontend, иако ќе биде "
+"поставен за да се поврзува на постоечки backend на мрежата."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Примарен backend."
 
 #. Type: text
 #. Description
@@ -1019,12 +1052,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Backend-only машина е типично дизајнирана да функционира како инструмент; "
+"барајќи многу малку оддржување. Ова е наменето за да биде инсталирано како "
+"првиот backend на една мрежа."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Секундарен backend"
 
 #. Type: text
 #. Description
@@ -1033,12 +1069,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Ова ќе постави систем сличен на примарен backend, иако ќе биде поставен за "
+"да се поврзува на постоечки backend на мрежата."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "Frontend"
 
 #. Type: text
 #. Description
@@ -1053,7 +1091,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Изберете frontend / backend додатоци"
 
 #. Type: text
 #. Description
@@ -1073,13 +1111,13 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "Frontend додатоци"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
 msgid "Myth Web"
-msgstr ""
+msgstr "Myth веб"
 
 #. Type: text
 #. Description
@@ -1088,18 +1126,20 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
+"Myth веб нуди веб интерфејс кој што може да се користи за преглед на листи, "
+"распореди за снимање, бришење на снимки и пребарување на програми."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
 msgid "Myth Archive"
-msgstr ""
+msgstr "Myth Архива"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
 msgid "Myth Browser"
-msgstr ""
+msgstr "Myth Прелистувач"
 
 #. Type: text
 #. Description
@@ -1334,9 +1374,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Лозинка:"
+msgstr "MySQL лозинка"
 
 #. Type: text
 #. Description
@@ -1404,23 +1443,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Конфигурирам apt..."
+msgstr "Конфигурирам mythtv..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Конфигурирација на хардвер..."
+msgstr "Конфигурирам додатни драјвери..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Конфигурирација на хардвер..."
+msgstr "Конфигурирам додатни сервиси..."
 
 #. Type: text
 #. Description

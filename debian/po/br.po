@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -463,18 +463,10 @@ msgstr "War-raok"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Echu eo gant ar staliadur. Dav eo deoc'h adloc'hañ an urzhiataer evit implij "
-"ar staliadur nevez. Bez e c'hellit kenderc'hel da implij ar CD live-mañ, met "
-"an holl gemmoù a reot pe an holl restroù a enrolloc'h ne vint ket memoret."
 
 #. Type: note
 #. Description

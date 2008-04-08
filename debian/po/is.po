@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-21 23:23+0000\n"
-"Last-Translator: Stefán Sigurjónsson <stefans@mmedia.is>\n"
+"PO-Revision-Date: 2008-04-01 22:33+0000\n"
+"Last-Translator: Davíð Steinn Geirsson <Unknown>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -413,7 +413,7 @@ msgstr "Fleiri stillingar"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Boot loader"
-msgstr "Ræsiforrit"
+msgstr "Ræsihlaði"
 
 #. Type: text
 #. Description
@@ -480,18 +480,10 @@ msgstr "Halda áfram"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Uppsetningu er lokið. Þú þarft að endurræsa tölvuna til að nota nýuppsetta "
-"kerfið. Þú getur haldið áfram að nota þennan geisladisk, en engar breytingar "
-"eða vistuð skjöl halda sér."
 
 #. Type: note
 #. Description
@@ -669,7 +661,7 @@ msgstr "Afrita uppsetningarannála"
 #. Description
 #: ../ubiquity.templates:81001
 msgid "Configuring target system..."
-msgstr "Stilli upp kerfið..."
+msgstr "Stilli kerfið..."
 
 #. Type: text
 #. Description
@@ -1308,13 +1300,12 @@ msgstr "Býður upp á leið til að hlusta á strauma frá netútvarpsstöðvum
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:51001
-#, fuzzy
 msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
 "Leyfir þér að skoða og spila kvikmyndastrauma með aðstoð utanaðkomandi "
-"forrita í myndrænu viðmóti MythTV."
+"forrita úr MythTV."
 
 #. Type: text
 #. Description

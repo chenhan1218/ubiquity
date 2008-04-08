@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:40+0000\n"
-"Last-Translator: Tetralet <Unknown>\n"
+"PO-Revision-Date: 2008-03-02 14:23+0000\n"
+"Last-Translator: Narcissusbi <Narcissusbi@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -59,7 +59,9 @@ msgstr "回答以下問題只需要幾分鐘。"
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
-msgstr "請選擇安裝時所使用的語言。被選擇的語言將會是系統安裝完成時的預設語言。"
+msgstr ""
+"請選擇安裝時所要使用的語言。 您在此選定的語言將會是本系統安裝完成時的預設語"
+"言。"
 
 #. Type: text
 #. Description
@@ -107,7 +109,11 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Selected city:"
-msgstr "已選擇的城市："
+msgstr ""
+"#-#-#-#-#  zh_TW.po (debian-installer)  #-#-#-#-#\n"
+"目前所選擇的城市：\n"
+"#-#-#-#-#  zh_TW.po (debian-installer)  #-#-#-#-#\n"
+"被選定的時區"
 
 #. Type: text
 #. Description
@@ -130,9 +136,8 @@ msgstr "目前時間："
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
-#, fuzzy
 msgid "Keyboard layout"
-msgstr "鍵盤配置"
+msgstr "選擇鍵盤排列方式"
 
 #. Type: text
 #. Description
@@ -225,7 +230,7 @@ msgstr ""
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
-msgstr "假如你不想匯入任何帳戶, 請選擇不匯入, 並且進行下一頁"
+msgstr "假如你不想匯入任何帳戶，請選擇不匯入，並且進行下一頁。"
 
 #. Type: text
 #. Description
@@ -273,7 +278,7 @@ msgstr "進階..."
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:35001
 msgid "Install[ action ]"
-msgstr "安裝"
+msgstr "安裝[ action ]"
 
 #. Type: text
 #. Description
@@ -285,7 +290,7 @@ msgstr "步驟  ${TOTAL} 之 ${INDEX}"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Abort the installation?"
-msgstr "中止安裝作業？"
+msgstr "要中止安裝作業嗎？"
 
 #. Type: text
 #. Description
@@ -323,7 +328,7 @@ msgstr "立刻重新啟動"
 #. Description
 #: ../ubiquity.templates:43001 ../ubiquity.templates:44001
 msgid "Installer crashed"
-msgstr "安裝程式異常"
+msgstr "安裝程式發生錯誤"
 
 #. Type: text
 #. Description
@@ -336,10 +341,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"很抱歉，安裝程式當掉了。請傳送一份臭蟲回報到 https://launchpad.net/ubuntu/"
-"+source/ubiquity/+filebug （請不要附加細節到任何已知的臭蟲），開發人員將會盡"
-"快處理這個問題。為了幫助開發人員了解哪裡出了問題，請在臭蟲回報中寫入下列資"
-"訊，並附加 /var/log/syslog 和 /var/log/partman 這兩個檔案。"
+"很抱歉，安裝程式發生錯誤。請傳送一份錯誤回報到 https://launchpad.net/ubuntu/"
+"+source/ubiquity/+filebug\r\n"
+"（請不要附加細節到任何已知的錯誤內），開發人員將會盡快處理這個問題。為了幫助"
+"開發人員瞭解何處發生問題，\r\n"
+"請附加下面的細節到你的錯誤回報中，並且附加以下檔案：/var/log/syslog 和 /var/"
+"log/partman。"
 
 #. Type: text
 #. Description
@@ -353,7 +360,7 @@ msgstr "建立分割區"
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "新分割區大小（以 MB(1000000 bytes) 表示）"
+msgstr "新分割區大小（以 MB (1000000 bytes) 表示）"
 
 #. Type: text
 #. Description
@@ -401,7 +408,7 @@ msgstr "進階選項"
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Boot loader"
-msgstr "Boot loader"
+msgstr "開機載入器"
 
 #. Type: text
 #. Description
@@ -467,17 +474,10 @@ msgstr "繼續"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"安裝已經完成。 您必須重新啟動電腦以使用新安裝的系統。 您可以繼續使用這個 "
-"live CD，但是您所做的更改或儲存的文件將不會被保留。"
 
 #. Type: note
 #. Description
@@ -515,7 +515,7 @@ msgstr "安裝系統中"
 #. Description
 #: ../ubiquity.templates:70001
 msgid "Finding the distribution to copy..."
-msgstr "正在尋找檔案分佈以複製..."
+msgstr "正在尋找檔案分佈以進行複製..."
 
 #. Type: text
 #. Description
@@ -567,7 +567,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Failed to copy files; faulty CD/DVD?"
-msgstr "檔案複製失敗。可能是您的CD或DVD資料損毀？"
+msgstr "檔案複製失敗。可能是您的CD或DVD資料損毀。"
 
 #. Type: error
 #. Description
@@ -586,7 +586,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr "複製檔案失敗；硬碟出錯？"
+msgstr "檔案複製失敗。請檢查磁碟機是否有損毀。"
 
 #. Type: error
 #. Description
@@ -675,7 +675,7 @@ msgstr "正在設定時區..."
 #. Description
 #: ../ubiquity.templates:85001
 msgid "Configuring keyboard..."
-msgstr "正在設定鍵盤..."
+msgstr "正在設定鍵盤的排列方式..."
 
 #. Type: text
 #. Description
@@ -802,9 +802,9 @@ msgid ""
 "distributor."
 msgstr ""
 "這問題可能由於使用了舊的安裝程式映像檔，或者是因為上列部份軟體有臭蟲，更多的"
-"細節可以在 /var/log/syslog 中找到。安裝程式將會試著繼續執行，但是有可能會再次"
-"當掉，而且可能會無法在系統中安裝或移除其他的套件（可能包含安裝程式本身）。您"
-"必須找尋較新版本的安裝程式映像檔，或者回報問題給您的發行版提供者。"
+"細節可以在 /var/log/syslog 中找到。安裝程式將會試著繼續執行，但是安裝有可能會"
+"再次失敗，而且可能會無法在系統中安裝或移除其他的套件（可能包含安裝程式本"
+"身）。您必須找尋較新版本的安裝程式映像檔，或者回報問題給您的發行版提供者。"
 
 #. Type: error
 #. Description
@@ -914,7 +914,7 @@ msgstr ""
 " 安裝模式：${INSTALLTYPE}\n"
 " 驅動程式：\n"
 "     新增視訊驅動程式：${VIDEO_DRIVER}\n"
-"         輸出到電視：${TVOUT}, ${TVSTANDARD}\n"
+"         輸出到電視；${TVOUT}, ${TVSTANDARD}\n"
 " 附加服務：\n"
 "     VNC: ${EN_VNC}\n"
 "     SSH: ${EN_OPENSSH}\n"
@@ -954,8 +954,8 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
-"標準安裝以最少的使用者互動（問最少的問題）來安裝以及設定每個項目。標準安裝將"
-"會安裝後台、前台、所有的plugins以及所有的佈景主題。"
+"標準安裝以最少的使用者互動（即問最少的問題）來安裝以及設定每個項目。標準安裝"
+"將會安裝後台、前台、所有的附加元件以及所有的佈景主題。"
 
 #. Type: text
 #. Description
@@ -971,8 +971,8 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
-"進階安裝可以用來個人化 Mythbuntu 需要安裝哪些東西。注意：進階安裝必須新增一"
-"個 Mythbuntu 機器到存在的 MythTV 基礎網路。"
+"進階安裝可以用來個人化 Mythbuntu 安裝程式需要安裝哪些元件。注意：進階安裝必須"
+"新增一個 Mythbuntu 機器到存在的 MythTV 基礎網路。"
 
 #. Type: text
 #. Description
@@ -1109,7 +1109,8 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
-"MythWeb 提供一個網路介面可以用來觀看節目表、排程錄影、刪除錄影、及搜尋程式。"
+"MythWeb 提供一個可以用來觀看節目表，排程錄音，刪除錄音，並搜尋程式的網路介"
+"面。"
 
 #. Type: text
 #. Description
@@ -1139,7 +1140,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
 msgid "Myth Flix"
-msgstr ""
+msgstr "Myth Flix"
 
 #. Type: text
 #. Description
@@ -1187,7 +1188,7 @@ msgstr "Myth 影音"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Weather"
-msgstr "Myth 天氣"
+msgstr "Myth 氣象"
 
 #. Type: text
 #. Description
@@ -1195,13 +1196,13 @@ msgstr "Myth 天氣"
 msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
-msgstr "一個讓你從你的 MythTV 網路的內容建立 DVD 的附加元件。"
+msgstr "一個讓您從您的 MythTV 網路的內容建立 DVD 的附加元件。"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:41001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr "一個 MythTV系統的整合的網路瀏覽器附加元件。"
+msgstr "一個 MythTV 系統的整合網路瀏覽器附加元件。"
 
 #. Type: text
 #. Description
@@ -1209,7 +1210,7 @@ msgstr "一個 MythTV系統的整合的網路瀏覽器附加元件。"
 msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
-msgstr "MythTV 的外部控制。這將允許你修改按鍵和鍵盤對應。"
+msgstr "MythTV 的外部控制。這將允許您修改按鍵和鍵盤對應。"
 
 #. Type: text
 #. Description
@@ -1221,7 +1222,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:44001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr "讓你可以監視你的 Netflix dvd rental 佇列。"
+msgstr "讓您可以監視您的 Netflix dvd rental 佇列。"
 
 #. Type: text
 #. Description
@@ -1232,7 +1233,6 @@ msgstr "讓你可以視覺化的瀏覽包含圖檔的樹狀資料夾。"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
-#, fuzzy
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr "用來啟動任何模擬器或 Linux 可執行的二進位檔案的前端介面。"
 
@@ -1269,13 +1269,13 @@ msgstr "提供一個方法聆聽網路廣播電台。"
 msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
-msgstr "讓你可以在 MyTV 的介面使用外部播放程式瀏覽並播放視訊串流。"
+msgstr "讓您可以在 MythTV 的介面使用外部播放程式瀏覽並播放串流視訊。"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr "在 MythTV 內顯示現在天氣和天氣預報。"
+msgstr "在 MythTV 內顯示現在的天氣和氣象預報。"
 
 #. Type: text
 #. Description
@@ -1315,8 +1315,8 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
-"一個開放原始碼的顯示卡驅動程式已經啟用並在你的安裝中設定完成。如果你想要使用"
-"不同的顯示卡驅動程式，你可以在此完成變更。請注意輸出到電視的功能或 OpenGL 特"
+"一個開放原始碼的顯示卡驅動程式已經啟用並在安裝過程中設定完成。如果您想要使用"
+"不同的顯示卡驅動程式，您可以在此完成變更。請注意輸出到電視的功能或 OpenGL 特"
 "效可能需要專有的顯示卡驅動程式。"
 
 #. Type: text
@@ -1343,7 +1343,7 @@ msgstr "如果啟用「輸出到電視」功能，你將必須選擇一種電視
 msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
-msgstr "警告：不要設定高於你的電視支援的電視標準。可能會造成電視的永久損害！"
+msgstr "警告：不要設定高於您的電視支援的標準。這可能會造成電視的永久損害！"
 
 #. Type: text
 #. Description
@@ -1355,7 +1355,7 @@ msgstr "主要後端程式資訊"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:64001
 msgid "Please enter the information necessary to contact your master backend:"
-msgstr "請輸入連接你的主要後端程式的必要資訊。"
+msgstr "請輸入連接您的主要後端程式的必要資訊。"
 
 #. Type: text
 #. Description
@@ -1393,7 +1393,7 @@ msgstr "設定引導資料/後端程式"
 msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
-msgstr "安裝的最後步驟需要設定你的引導數據並第一次設定後端程式。"
+msgstr "安裝的最後步驟需要設定您的引導數據並第一次設定後端程式。"
 
 #. Type: text
 #. Description
@@ -1404,15 +1404,14 @@ msgstr "點擊以開啟網站控制表"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:72001
-#, fuzzy
 msgid ""
 "Users in North America will need to setup an account with Schedules Direct "
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
-"處於北美洲的使用者需要建立 Schedule Direct(SD) 的使用帳號. 只需些許費用, SD "
-"會提供導覽資料. 若沒有SD 帳號, 北美的使用者可能無法使用 MythTV 提供的許多排程"
-"功能！"
+"位於北美洲的使用者需要建立 Schedule Direct (SD) 的使用帳號. 只需些許費用，SD "
+"會提供導覽資料。若沒有SD 帳號，北美洲的使用者可能無法使用 MythTV 提供的許多排"
+"程功能！"
 
 #. Type: text
 #. Description
@@ -1423,21 +1422,20 @@ msgstr "執行 MythTV 安裝"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:74001
-#, fuzzy
 msgid ""
 "After setting up your guide data source, you will need to launch MythTV-"
 "Setup to run the backend configuration for the first time.  You will need to "
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
-"設定完您的導覽資料來源後, 您需要啟動 MythTV-Setup 以執行第一次的背景設定. 您"
-"需要設定最開始的四個大項, 請確定您在第三個大項中提供了您的導覽資料."
+"設定完您的導引資料來源後，您需要啟動 MythTV 安裝程式以執行第一次的背景設定。"
+"您需要設定最開始的四個選項, 請確定您在第三個選項中提供了您的導引資料。"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
 msgid "Configuring mythtv..."
-msgstr "正在設定 mythtv..."
+msgstr "正在設定 MythTV..."
 
 #. Type: text
 #. Description

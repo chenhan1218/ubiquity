@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:42+0000\n"
-"Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
+"PO-Revision-Date: 2008-03-02 22:58+0000\n"
+"Last-Translator: Serhat Demirkol <serhat_demirkol@yahoo.com>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 08:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -481,18 +481,10 @@ msgstr "Devam Et"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Kurulum tamamlandı. Yeni kurulumu kullanmak için bilgisayarı yeniden "
-"başlatmanız gerekiyor. Bu live CD'yi kullanmaya devam edebilirsiniz ancak "
-"yapacağınız değişiklikler veya kaydedeceğiniz belgeler saklanmayacaktır."
 
 #. Type: note
 #. Description
@@ -1122,7 +1114,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr "Altyapı Eklentileri"
+msgstr "Arkauç Eklentileri"
 
 #. Type: text
 #. Description
@@ -1288,6 +1280,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"MythTV için en sevilen haber konularınızı güncel tutan bir RSS haber okuyucu "
+"eklentisi"
 
 #. Type: text
 #. Description
@@ -1295,12 +1289,14 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"MythTV'de standart SIP protokolünü kullanan bir telefon ve görüntülü telefon "
+"kapasitesi"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:50001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Akıcı internet radyo istasyonlarını dinleme yöntemi sağlar."
 
 #. Type: text
 #. Description
@@ -1309,12 +1305,14 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"Harici bir oynatıcı kullanarak, MythTV arabirimi içerisindeki video "
+"akışlarına göz atmanıza ve oynatmanıza izin verir."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:52001
 msgid "Displays current and forecast weather information within MythTV."
-msgstr ""
+msgstr "MythTV içerisinde güncel ve tahmini hava durumunu gösterir."
 
 #. Type: text
 #. Description
@@ -1343,7 +1341,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 msgid "Additional Drivers/Firmware"
-msgstr ""
+msgstr "Ek Sürücüler/Aygıt Yazılımı"
 
 #. Type: text
 #. Description
@@ -1354,6 +1352,10 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"Bir açık kaynak grafik sürücüsü halihazırda etkinleştirildi ve kurulumunuz "
+"için ayarlandı. Eğer farklı bir grafik sürücüsü kullanmak isterseniz, "
+"buradan seçebilirsiniz. Tescilli grafik sürücülerinin TV Output veya OpenGL "
+"etkileri için gerekli olabileceğine dikkat edin."
 
 #. Type: text
 #. Description
@@ -1381,6 +1383,8 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Uyarı: TV'nizin desteklediğinden daha yüksek TV standardı belirlemeyin. "
+"KALICI hasar meydana gelebilir."
 
 #. Type: text
 #. Description
@@ -1392,7 +1396,7 @@ msgstr "Ana Altyapı Bilgisi"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:64001
 msgid "Please enter the information necessary to contact your master backend:"
-msgstr ""
+msgstr "Lütfen ana arkaucunuzla irtibat için gerekli bilgiyi giriniz:"
 
 #. Type: text
 #. Description
@@ -1421,22 +1425,26 @@ msgstr "MySQL Sunucu"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
+#, fuzzy
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Klavuz Verisini / Arkaucu Ayarla"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
+#, fuzzy
 msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Kurulumun son adımı kılavuz verinizin kurulmasını ve ilk kez için arkaucun "
+"ayarlanmasına gerek duyuyor."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Click to open the Schedules Direct website"
-msgstr ""
+msgstr "Schedules Direct internet sitesini açmak için tıklayınız"
 
 #. Type: text
 #. Description
@@ -1446,6 +1454,10 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Kuzey Amerika'da bununan kullanıcılar Schedules Direct (SD) aracılığıyla bir "
+"hesap açmalıdırlar. SD rehber veriyi az bir ücret karşılığında vermketedir. "
+"SD olmadan, Kuzey Amerikadaki kullanıcılar MythTV'nin birçok planlama "
+"özelliğini kaybedeceklerdir."
 
 #. Type: text
 #. Description
@@ -1456,12 +1468,17 @@ msgstr "MythTV Kuru Çalıştır"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:74001
+#, fuzzy
 msgid ""
 "After setting up your guide data source, you will need to launch MythTV-"
 "Setup to run the backend configuration for the first time.  You will need to "
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Kılavuz veri kaynağını kurduktan sonra, arkauç yapılandırmasını ilk kez "
+"çalıştırmak için MythTV-Kurulumunu başlatmanız gerekecektir. Dördüncü "
+"bölümde kılavuz verinizi sağladığınızdan emin olarak, ilk dört bölümü "
+"ayarlamanız gerekecektir."
 
 #. Type: text
 #. Description

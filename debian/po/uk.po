@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:36+0000\n"
-"Last-Translator: Eugeniy Meshcheryakov <Unknown>\n"
+"PO-Revision-Date: 2008-03-14 20:23+0000\n"
+"Last-Translator: roman prokopyshyn <colobocman@mail.ru>\n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -401,7 +401,7 @@ msgstr "Редагувати розділ"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Edit a partition"
-msgstr "Редагування розділа"
+msgstr "Редагувати розділ"
 
 #. Type: text
 #. Description
@@ -481,19 +481,10 @@ msgstr "Продовжити"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Встановлення завершено. Ви повинні перезавантажити комп'ютер для того, щоб "
-"почати користуватись вашою щойно встановленою системою. Ви можете продовжити "
-"використання LiveCD, але зауважте, що будь-які зроблені Вами зміни не будуть "
-"збережені."
 
 #. Type: note
 #. Description
@@ -986,7 +977,7 @@ msgid ""
 msgstr ""
 "Стандартний тип встановлення встановить та налаштує всі елементи при "
 "мінімальному втручанні користувача. Він встановить основну програму, її "
-"інтерфейс, усі плагіни та усі теми."
+"фронтенд, плагіни та всі теми."
 
 #. Type: text
 #. Description
@@ -1002,10 +993,9 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
-"Розширений тип встановлення використовується для вибору компонентів, "
-"потрібних для цього встановлення Mythbuntu. ПРИМІТКА: Розширений тип "
-"встановлення необхідний для того, щоб додати машину Mythbuntu до існуючої "
-"мережі MythTV."
+"Розширений тип встановлення використовується для ручного налаштування "
+"компонентів, які буде встановлено. ПРИМІТКА: Цей тип встановлення необхідний "
+"для того, щоб додати машину Mythbuntu до існуючої мережі MythTV."
 
 #. Type: text
 #. Description
@@ -1113,7 +1103,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr "Оберіть втулки зовнішнього інтерфейсу та рушія"
+msgstr "Оберіть модулі зовнішнього інтерфейсу та рушія"
 
 #. Type: text
 #. Description
@@ -1122,14 +1112,14 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
-"Втулки можуть вживатись для розширення функціональності MythTV, незалежно "
+"Модулі можуть вживатись для розширення функціональності MythTV, незалежно "
 "від змінюваних з часом телевізійних рішень."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr "Втулки рушія"
+msgstr "Модулі рушія"
 
 #. Type: text
 #. Description
@@ -1239,14 +1229,14 @@ msgid ""
 "A plugin for MythTV that lets you create DVDs from content on your MythTV "
 "Network."
 msgstr ""
-"Втулок для MythTV, що дозволяє вам створювати DVD з даних, що знаходяться у "
-"вашій мережі MythTV."
+"Модуль для MythTV, що дозволяє вам створювати DVD диски з даними, що "
+"знаходяться в вашій мережі MythTV"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:41001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr "Інтегрований втулок веб-переглядача для вашої системи MythTV."
+msgstr "Інтегрований модуль для веб-перегляду у вашій системі MythTV."
 
 #. Type: text
 #. Description
@@ -1256,7 +1246,7 @@ msgid ""
 "and key bindings."
 msgstr ""
 "Зовнішні налаштування для MythTV. Вони дозволять вам змінювати функції "
-"клавіш миші та налаштування клавіатурних скорочень."
+"кнопок миші та налаштування комбінацій клавіш."
 
 #. Type: text
 #. Description
@@ -1274,16 +1264,15 @@ msgstr "Дозволяє вам контролювати чергу оренди
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:45001
 msgid "Allows you to visually browse a directory tree containing image files."
-msgstr ""
-"Дозволяє вам візуально проглядати дерево теки, яка містить файли зображень."
+msgstr "Дозволяє вам переглядати дерево теки, яка містить файли зображень."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:46001
 msgid "A frontend to start any emulator or binary that Linux runs."
 msgstr ""
-"Зовнішній інтерфейс для запуску будь-якого емулятора або програми, котрі "
-"Linux може виконати."
+"Зовнішній інтерфейс для запуску будь-якого емулятора або  Linux-сумісної "
+"програми,"
 
 #. Type: text
 #. Description
@@ -1336,7 +1325,7 @@ msgstr "Відображає інформацію про поточну пого
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:53001
 msgid "Choose Extra Themes"
-msgstr "Оберіть Додаткові теми"
+msgstr "Оберіть Додаткові Теми"
 
 #. Type: text
 #. Description
@@ -1370,22 +1359,22 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
-"Графічний драйвер з відкритим кодом вже увімкнений та налаштований для "
-"вашого встановлення.  Якщо ви хочете використовувати інший графічний "
-"драйвер, ви можете це зробити тут.  Пам'ятайте, що для TV виводу чи ефектів "
-"OpenGL можуть знадобитись графічні драйвери з закритим кодом."
+"Графічний драйвер з відкритим кодом уже ввімкнено та налаштовано для "
+"встановлення.  Якщо ви хочете використовувати інший графічний драйвер, ви "
+"можете це зробити тут.  Пам'ятайте, що для ефектів OpenGL чи переглядання TV "
+"можуть знадобитись графічні драйвери з закритим кодом."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Modify Video Driver & Settings"
-msgstr "Змінити Відео Драйвер та Налаштування"
+msgstr "Змінити Відео Драйвер & Налаштування"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:60001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr "Якщо ви хочете налаштувати TV-вихід, оберіть опцію тут:"
+msgstr "Якщо ви хочете настроїти TV-вихід, виберіть цю опцію:"
 
 #. Type: text
 #. Description
@@ -1400,21 +1389,21 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
-"Увага: Не встановлюйте вищий TV стандарт ніж той, який підтримує ваш "
-"телевізор. Можуть бути НЕВИПРАВНІ пошкодження."
+"Увага: Не встановлюйте TV стандарт вищий, ніж підтримує ваш телевізор. Це "
+"може призвести до НЕВИПРАВНИХ пошкоджень."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:63001
 msgid "Master Backend Info"
-msgstr "Інформація про Головний рушій"
+msgstr "Інформація про Master Backend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:64001
 msgid "Please enter the information necessary to contact your master backend:"
 msgstr ""
-"Будь ласка, введіть інформацію, необхідну для зв'язку з вашим головним "
+"Будь-ласка, внесіть інформацію, необхідну для зв'язку з вашим головним "
 "рушієм:"
 
 #. Type: text
@@ -1445,7 +1434,7 @@ msgstr "MySQL сервер"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "Configure Guide Data / Backend"
-msgstr "Налаштування керуючих даних / рушія"
+msgstr "Налаштування рушія / керівних даних"
 
 #. Type: text
 #. Description
@@ -1454,8 +1443,8 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
-"Останні кроки встановлення вимагають налагодження ваших керуючих даних та "
-"налаштування рушія для першого запуску."
+"Останні кроки встановлення вимагають налагодити керівні дані та налаштувати "
+"рушій для першого запуску."
 
 #. Type: text
 #. Description
@@ -1480,7 +1469,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Launch MythTV Setup"
-msgstr "Запуск встановлення MythTV"
+msgstr "Запуск налаштування MythTV"
 
 #. Type: text
 #. Description

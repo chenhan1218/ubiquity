@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:41+0000\n"
-"Last-Translator: Javier Fernández-Sanguino <jfs@debian.org>\n"
+"PO-Revision-Date: 2008-03-28 23:29+0000\n"
+"Last-Translator: Alberto Caso <alberto.caso@adaptia.es>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 08:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -89,7 +89,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Release Notes"
-msgstr "Notas de publicación"
+msgstr "Notas de la versión"
 
 #. Type: text
 #. Description
@@ -177,7 +177,7 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Si este ordenador va a ser usado por más de una persona, deberá configurar "
+"Si este equipo va a ser usado por más de una persona, deberá configurar "
 "varias cuentas después de la instalación."
 
 #. Type: text
@@ -488,18 +488,10 @@ msgstr "Continuar"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"La instalación se ha completado. Necesita reiniciar el equipo para poder "
-"usar la nueva instalación. Puede continuar usando este Live CD, aunque no se "
-"conservarán los cambios que realice ni los documentos que guarde."
 
 #. Type: note
 #. Description
@@ -804,7 +796,7 @@ msgstr "Error al instalar paquetes"
 #. Description
 #: ../ubiquity.templates:102001
 msgid "An error occurred while installing packages:"
-msgstr "Ocurrió un error al instalar paquetes:"
+msgstr "Ha ocurrido un error durante la instalación de paquetes:"
 
 #. Type: error
 #. Description
@@ -812,7 +804,7 @@ msgstr "Ocurrió un error al instalar paquetes:"
 #. Description
 #: ../ubiquity.templates:102001 ../ubiquity.templates:103001
 msgid "The following packages are in a broken state:"
-msgstr "Los siguientes paquetes se encuentran en un estado dañado:"
+msgstr "Los siguientes paquetes están dañados:"
 
 #. Type: error
 #. Description
@@ -846,7 +838,7 @@ msgstr "Error al desinstalar paquetes"
 #. Description
 #: ../ubiquity.templates:103001
 msgid "An error occurred while removing packages:"
-msgstr "Ocurrió un error al desinstalar paquetes:"
+msgstr "Ha ocurrido un error al desinstalar los paquetes"
 
 #. Type: title
 #. Description
@@ -1400,7 +1392,7 @@ msgstr "Si desea configurar la salida de TV, seleccione una opción aquí:"
 #: ../ubiquity-frontend-mythbuntu.templates:61001
 msgid "If enabling TV Out, you will also need to choose a TV Standard:"
 msgstr ""
-"Si habilita la salida TV, también necesitará seleccionar un TV Standard:"
+"Si habilita la salida TV, también necesitará seleccionar una TV estándar:"
 
 #. Type: text
 #. Description

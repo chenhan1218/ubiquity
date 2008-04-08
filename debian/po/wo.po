@@ -7,94 +7,115 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:36+0000\n"
-"Last-Translator: Mouhamadou Mamoune Mbacke <Unknown>\n"
+"PO-Revision-Date: 2008-03-16 01:56+0000\n"
+"Last-Translator: Saer Kamara <lordsaka@gmail.com>\n"
 "Language-Team: Wolof <debian-boot@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #. This is used as a window title.
 #: ../ubiquity.templates:2001
+#, fuzzy
 msgid "Install"
-msgstr ""
+msgstr "santie jumtukay bi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
+#, fuzzy
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "santie jumtukay bi (diaye kat ordinateur bi)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
+#, fuzzy
 msgid "Welcome"
-msgstr ""
+msgstr "dalal ak jamm"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
+#, fuzzy
 msgid ""
 "Ready to install? Once you answer a few questions, the contents of the live "
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
+"bo bëgg santie jumtukay bi , ay laaj cu tuuti doy na ngir santie lii ci biir "
+"CD bi . su noppe jumtukay bi di na dox gënnë gaaw ba noppi du soxla CD bi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
+#, fuzzy
 msgid "Answering the questions should only take a few minutes."
-msgstr ""
+msgstr "tontu ci laaj yi du yaag"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
+#, fuzzy
 msgid ""
 "Please choose the language used for the installation process. This language "
 "will be the default language for the final system."
 msgstr ""
+"tannal làkk bi ga bëgg njariño ci santie bi , làkk bo bu moom la jumtukay bi "
+"di melo ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:6001
+#, fuzzy
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"ya gi njariño santie bii di ngiir jaaykatu ordinateur bi .niou gi lay digal "
+"ga bind tur ngiir xame say jumtukay.tur bi di nañ ko jox jumtukay gi ba "
+"noppi moom lay njariño ngiir yonne ay bataxal jafe-jafe"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:7001
+#, fuzzy
 msgid ""
 "If you have Internet access, read the release notes for information on "
 "problems that may affect you."
 msgstr ""
+"so ame internet , setal xabaar yi giir mën am ay leral ci say jafe-jafe"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
+#, fuzzy
 msgid "Release Notes"
-msgstr ""
+msgstr "xabaar yu takku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:9001
+#, fuzzy
 msgid "Where are you?"
-msgstr ""
+msgstr "fan ga nekk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:10001
+#, fuzzy
 msgid ""
 "Select a city in your country and time zone. If the indicated current time "
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
+"tannal tax ci sa biir dëkk ak waxtu bi .su nekke waxtu bi baxul mënn ga ko "
+"defar bou santie noppe."
 
 #. Type: text
 #. Description
@@ -106,20 +127,23 @@ msgstr "Goxu waxtu yiñu tann"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
+#, fuzzy
 msgid "Time zone:"
-msgstr ""
+msgstr "bokk waxtu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
+#, fuzzy
 msgid "Selected region:"
-msgstr ""
+msgstr "dëkk bi ga tann"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
+#, fuzzy
 msgid "Current time:"
-msgstr ""
+msgstr "waxtu bi jot"
 
 #. Type: text
 #. Description
@@ -131,32 +155,37 @@ msgstr "Tannal tërëliinu tablocaabi bi"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
+#, fuzzy
 msgid "Which layout is most similar to your keyboard?"
-msgstr ""
+msgstr "bann ci yii moo gënnë mengo ak sa bindoukay"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:17001
+#, fuzzy
 msgid "You can type into this box to test your new keyboard layout."
-msgstr ""
+msgstr "bu la nexe bind fii ngiir xool ndax baxna"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
+#, fuzzy
 msgid "Who are you?"
-msgstr ""
+msgstr "yaw yaye kan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
+#, fuzzy
 msgid "What is your name?"
-msgstr ""
+msgstr "sa tur nakala"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
+#, fuzzy
 msgid "What name do you want to use to log in?"
-msgstr ""
+msgstr "bann tur ga bëgg njariño"
 
 #. Type: text
 #. Description
@@ -165,6 +194,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
+"bu nekke ngu bëre ñoy njariño ordinateur bi , di nga lenn mën yokk bo santie "
+"jumtukay bi ba noppii"
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:36+0000\n"
-"Last-Translator: Damyan Ivanov <dam@modsoftsys.com>\n"
+"PO-Revision-Date: 2008-03-31 14:17+0000\n"
+"Last-Translator: Nikola Kasabov <nikola.kasabov@gmail.com>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -481,24 +481,15 @@ msgstr "Назад"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:65001
 msgid "Continue"
-msgstr "Напред"
+msgstr "Продължаване"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Инсталацията е завършена. Нужно е да рестартирате компютъра за да използвате "
-"новата инсталация. Можете да продължите да ползвате Живото CD, въпреки че "
-"промените, които правите, или документите, които записвате, няма да бъдат "
-"запазени."
 
 #. Type: note
 #. Description
@@ -523,9 +514,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "Копиране на инсталационните журнали..."
+msgstr "Проверка на инсталацията..."
 
 #. Type: title
 #. Description
@@ -945,9 +935,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "Прекъсване на инсталацията?"
+msgstr "Какъв вид инсталация?"
 
 #. Type: text
 #. Description
@@ -976,9 +965,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "Прекъсване на инсталацията?"
+msgstr "Инсталация за напреднали"
 
 #. Type: text
 #. Description
@@ -996,9 +984,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "Завършване на инсталацията"
+msgstr "Вид на инсталацията за напреднали"
 
 #. Type: text
 #. Description
@@ -1367,9 +1354,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "Парола:"
+msgstr "MySQL Парола"
 
 #. Type: text
 #. Description
@@ -1437,23 +1423,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "Конфигуриране на apt..."
+msgstr "Настройване на mythtv..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "Настройване на хардуера..."
+msgstr "Настройване на допълнителни драйвери..."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "Настройване на хардуера..."
+msgstr "Настройване на допълнителни услуги..."
 
 #. Type: text
 #. Description

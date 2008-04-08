@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -106,8 +106,8 @@ msgid ""
 "after rebooting into the installed system."
 msgstr ""
 "Velg en by i ditt land og tidssone. Hvis den viste tiden er feil, selv etter "
-"å ha valgt den riktige tidssonen så kan du justere den etter en omstart i "
-"det installerte systemet."
+"å ha valgt den riktige tidssonen, kan du justere den etter en omstart i det "
+"installerte systemet."
 
 #. Type: text
 #. Description
@@ -125,7 +125,7 @@ msgstr "Tidssone:"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Selected region:"
-msgstr "Velg region"
+msgstr "Valgt region:"
 
 #. Type: text
 #. Description
@@ -149,7 +149,7 @@ msgstr "Hvilken oppsett er mest likt ditt tastatur?"
 #. Description
 #: ../ubiquity.templates:17001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Her kan du skrive for å teste tastaturetoppsett."
+msgstr "Her kan du skriva for å testa tastaturoppsettet."
 
 #. Type: text
 #. Description
@@ -234,7 +234,7 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Dersom du velger å ikke importere fra noen kontoer, velg ingenting og gå "
+"Dersom du velger å ikke importere fra noen kontoer, ikke velg noe, og gå "
 "videre til neste side"
 
 #. Type: text
@@ -253,7 +253,7 @@ msgstr "Hvordan vil du partisjonere disken?"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Prepare partitions"
-msgstr "Klargjør partisjon"
+msgstr "Klargjør partisjoner"
 
 #. Type: text
 #. Description
@@ -481,18 +481,10 @@ msgstr "Fortsett"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Installasjonen er fullført. Du må starte datamaskinen på nytt for å bruke "
-"den nye installasjonen. Du kan fortsette å bruke denne live CD'en, men ingen "
-"endringer du gjør eller dokumenter du lagrer vil ikke bli bevart."
 
 #. Type: note
 #. Description

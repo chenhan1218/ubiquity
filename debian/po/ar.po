@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:50+0000\n"
-"Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
+"PO-Revision-Date: 2008-03-27 22:07+0000\n"
+"Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -474,18 +474,10 @@ msgstr "إستمرار"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"عملية التثبيت تمت. عليك إعادة تشغيل النظام لكي تتمكن من استخدام النظام "
-"الجديد. بامكانك متابعة استخدام القرص المباشر، علما أنه لن يتم حفظ أي تعديلات "
-"تجريها أو أي مستندات تنشئها."
 
 #. Type: note
 #. Description
@@ -510,9 +502,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
-#, fuzzy
 msgid "Checking the installation..."
-msgstr "عملية نسخ سجلات التثبيت..."
+msgstr "يجري فحص التثبيت..."
 
 #. Type: title
 #. Description
@@ -812,6 +803,11 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"قد يكون هذا الخطأ ناتج عن استعمال نسخة قديمة من المثبت أو خلل في إحدى الحزم "
+"في القائمه أعلاه.  لمزيد من التفاصيل انظر /var/log/syslog. سيحاول المثبت ان "
+"يكمل التثبيت ولكن قد يفشل في اكماله في اي مرحله وقد لا يمكنك من إزاله الحزم "
+"الزائده بما فيها هذه الحزمه ، يجب أولا أن تحاول أن تجد نسخه جديده من المثبت "
+"أو بلغ عن المشكله لموزعك."
 
 #. Type: error
 #. Description
@@ -920,13 +916,28 @@ msgid ""
 "     Regular Login name: ${USERNAME}\n"
 "     Location:           ${LOCATION}"
 msgstr ""
+" نوع التثبيت: ${INSTALLTYPE}\n"
+"المشغلات:\n"
+"مشغل الفيديو المضاف: ${VIDEO_DRIVER}\n"
+"خرج التلفاز: ${TVOUT}, ${TVSTANDARD}\n"
+"الخدمات الإضافية:\n"
+"VNC: ${EN_VNC}\n"
+"SSH: ${EN_OPENSSH}\n"
+"Samba: ${EN_SAMBA}\n"
+"NFS: ${EN_NFS}\n"
+"خدمة MythTV: ${EN_MYSQL}\n"
+"أسألة تثبيت أوبونتو العادية:\n"
+"اللغة: ${LANGUAGE}\n"
+"تخطيط لوحة المفاتيح: ${KEYMAP}\n"
+"الاسم العادي: ${FULLNAME}\n"
+"اسم الولوج العادي: ${USERNAME}\n"
+"المكان: ${LOCATION}"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:2001
-#, fuzzy
 msgid "What Type of Installation?"
-msgstr "هل تريد إلغاء التثبيت؟"
+msgstr "أي نوع من أنواع التثبيت؟"
 
 #. Type: text
 #. Description
@@ -943,42 +954,37 @@ msgstr "التنصيب القياسي"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:5001
-#, fuzzy
 msgid ""
 "A standard installation will install and configure every option with minimal "
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
-"التنصيب القياسي سوف يقوم بتنصيب واعداد كل الخيارات مع قليل من التعليمات "
-"للمستخدم. سوف يتم تنصيب الاساس والواجهة وجميع الملحقات مع جميع التشكيلات "
-"المظهرية"
+"التثبيت القياسي سيقوم بتثبيت وإعداد كل الخيارات مع قليل من التفاعل مع "
+"المستخدم. سيتم تثبيت الأساس والواجهة وجميع الملحقات مع جميع التيمات."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
-#, fuzzy
 msgid "Advanced Installation"
-msgstr "هل تريد إلغاء التثبيت؟"
+msgstr "تثبيت متقدم"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:7001
-#, fuzzy
 msgid ""
 "An advanced installation can be used to customize what is needed for this "
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
-"التنصيب المتقدم يمكن استخدامه لتحديد الاحتياجات المطلوبة لـتنصيب Mythbuntu. "
-"ملاحظة: التنصيب المتقدم يتطلب اضافة Mythbuntu الى جهاز يتضمن MythTV متواجد "
+"التثبيت المتقدم يمكن استخدامه لتحديد الاحتياجات المطلوبة لـتنثبيت Mythbuntu. "
+"ملاحظة: التثبيت المتقدم يتطلب إضافة Mythbuntu إلى جهاز يتضمن MythTV متواجد "
 "على الشبكة"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:8001
-#, fuzzy
 msgid "Advanced Installation Type"
-msgstr "اكتمل التثبيت"
+msgstr "نوع التثبيت المتقدم"
 
 #. Type: text
 #. Description
@@ -993,7 +999,7 @@ msgstr "ما نوع النظام سيكون هذا؟"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:11001
 msgid "Primary Backend w/ Frontend"
-msgstr ""
+msgstr "خلفية أولية مع واجهة"
 
 #. Type: text
 #. Description
@@ -1008,7 +1014,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "خلفية ثانوية مع واجهة"
 
 #. Type: text
 #. Description
@@ -1022,7 +1028,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "خلفية أولية"
 
 #. Type: text
 #. Description
@@ -1032,12 +1038,14 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"نظام يعمل كخلفية فقط مصمم خصيصا ليعمل كجهاز مخصص، فيتطلب القليل جدا من "
+"الصيانة . يقصد بهذا ان يكون أول خلفية فى الشبكة ."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "خلفية ثانوية"
 
 #. Type: text
 #. Description
@@ -1046,12 +1054,14 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"هذا الاختيار ينصب برنامجا مشابها للخلفية الأولى ولكن سيتم إعداده ليتصل "
+"بخلفية موجودة على الشبكة ."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
 msgid "Frontend"
-msgstr ""
+msgstr "واجهة"
 
 #. Type: text
 #. Description
@@ -1061,12 +1071,15 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"الغرض الرئيسي من جهاز يحتوى على الواجهة الأمامية فقط هو استقبال محتوى "
+"الوسائط من الواجهة الخلفية و توزيعه. هذه الإعدادات تتطلب وجود الواجهة "
+"الخلفية على الشبكة."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "اختر ملحقات الواجهة / الخلفية"
 
 #. Type: text
 #. Description
@@ -1080,20 +1093,19 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:23001
 msgid "Backend Plugins"
-msgstr ""
+msgstr "ملحقات الخلفية"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:24001
 msgid "Frontend Plugins"
-msgstr ""
+msgstr "ملحقات الواجهة"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:25001
-#, fuzzy
 msgid "Myth Web"
-msgstr "شبكة الأسطورة"
+msgstr "شبكة مَيِث"
 
 #. Type: text
 #. Description
@@ -1106,23 +1118,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:27001
-#, fuzzy
 msgid "Myth Archive"
-msgstr "أرشيف الأسطورة"
+msgstr "أرشيف مَيِث"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:28001
-#, fuzzy
 msgid "Myth Browser"
-msgstr "متصفّح الأسطورة"
+msgstr "متصفّح مَيِث"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:29001
-#, fuzzy
 msgid "Myth Controls"
-msgstr "تحكّم الأسطورة"
+msgstr "تحكّمات مَيِث"
 
 #. Type: text
 #. Description
@@ -1133,44 +1142,38 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:31001
-#, fuzzy
 msgid "Myth Flix"
-msgstr "مرئيات الأسطورة"
+msgstr "مرئيات مَيِث"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
-#, fuzzy
 msgid "Myth Gallery"
-msgstr "معرض الأسطورة"
+msgstr "معرض مَيِث"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:33001
-#, fuzzy
 msgid "Myth Game"
-msgstr "لعبة الأسطورة"
+msgstr "لعبة مَيِث"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
-#, fuzzy
 msgid "Myth Music"
-msgstr "موسيقا الأسطورة"
+msgstr "موسيقا مَيِث"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
-#, fuzzy
 msgid "Myth News"
-msgstr "أخبار الأسطورة"
+msgstr "أخبار مَيِث"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:36001
-#, fuzzy
 msgid "Myth Phone"
-msgstr "هاتف الأسطورة"
+msgstr "هاتف مَيِث"
 
 #. Type: text
 #. Description
@@ -1357,9 +1360,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:65001
-#, fuzzy
 msgid "MySQL Password"
-msgstr "كلمة المرور :"
+msgstr "كلمة سر MySQL"
 
 #. Type: text
 #. Description
@@ -1427,23 +1429,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:75001
-#, fuzzy
 msgid "Configuring mythtv..."
-msgstr "تهيئة apt..."
+msgstr "يجري إعداد مَيِث تي في"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:76001
-#, fuzzy
 msgid "Configuring additional drivers..."
-msgstr "إعداد الأجهزة..."
+msgstr "يجري إعداد المشغلات الإضافية"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:77001
-#, fuzzy
 msgid "Configuring additional services..."
-msgstr "إعداد الأجهزة..."
+msgstr "يجري إعداد الخدمات الإضافية..."
 
 #. Type: text
 #. Description

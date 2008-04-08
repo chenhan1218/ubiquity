@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2007-12-03 04:28+0000\n"
-"Last-Translator: Shaiffulnizam Mohamad <Unknown>\n"
+"PO-Revision-Date: 2008-04-02 00:49+0000\n"
+"Last-Translator: artificialive <mohdnajwan@gmail.com>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 08:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -44,15 +44,15 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Sedia untuk memasang? Kandungan live CD boleh dipasang ke komputer ini "
-"supaya anda boleh menggunakan sistem dengan pantas tanpa live CD, selepas "
-"anda menjawab beberapa soalan."
+"Sedia untuk memasang?  Sebaik sahaja anda menjawab beberapa soalan, "
+"kandungan live CD boleh dipasang ke komputer ini supaya anda boleh "
+"menggunakan sistem ini pada kelajuan maksimum tanpa menggunakan live CD."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Answering the questions should only take a few minutes."
-msgstr "Menjawab soalan sepatutnya mengambil masa beberapa minit sahaja."
+msgstr "Menjawab soalan hanya mengambil masa beberapa minit sahaja."
 
 #. Type: text
 #. Description
@@ -151,8 +151,8 @@ msgstr "Susunatur mana yang paling serupa dengan papan kekunci anda?"
 #: ../ubiquity.templates:17001
 msgid "You can type into this box to test your new keyboard layout."
 msgstr ""
-"Anda boleh taip apa apa pada kekotak ini untuk memeriksa susunatur papan "
-"kekunci anda."
+"Anda boleh menaip di dalam kekotak ini untuk menguji susunatur papan kekunci "
+"anda"
 
 #. Type: text
 #. Description
@@ -202,8 +202,8 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
-"Masukkan dua kali katalaluan yang sama, supaya kesilapan menaip boleh "
-"diperiksa."
+"Masukkan kata laluan yang sama sebanya dua kali supaya kesilapan menaip "
+"boleh disemak."
 
 #. Type: text
 #. Description
@@ -493,19 +493,10 @@ msgstr "Teruskan"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Pemasangan sudah selesai. Anda perlu mulakan kembali komputer anda untuk "
-"menggunakan pemasangan yang baru ini. Anda boleh terus menggunakan Live CD "
-"ini, tetapi sebarang pengubahan yang anda buat atau dokumen yang anda simpan "
-"tidak akan disimpan."
 
 #. Type: note
 #. Description
@@ -1041,75 +1032,101 @@ msgstr "Bahagian belakang utama dengan Bahagian hadapan"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:12001
+#, fuzzy
 msgid ""
 "A Backend/frontend combo machine is the most common setup for people wanting "
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Sebuah mesin kombo Backend/frontend adalah persediaan paling biasa untuk "
+"orang ramai yang inginkan MythTV untuk aplikasi-aplikasi HTPC. Jenis "
+"pemasangan ini adalah dimaksudkan untuk digunakan sebagai satu komponen "
+"dalam teater rumah anda."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:13001
+#, fuzzy
 msgid "Secondary Backend w/ Frontend"
-msgstr ""
+msgstr "Backend w/ Frontend Kedua"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:14001
+#, fuzzy
 msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Ini akan menubuhkan sebuah sistem menyerupai satu Backend w/ Frontend Utama, "
+"bagaimanapun akan ditatarajah untuk disambungkan kepada backend sedia ada "
+"pada rangkaian."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
+#, fuzzy
 msgid "Primary Backend"
-msgstr ""
+msgstr "Backend Utama"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:16001
+#, fuzzy
 msgid ""
 "A backend only machine is typically designed to function like an appliance; "
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Satu mesin backend sahaja lazimnya direka untuk berfungsi seperti satu alat; "
+"memerlukan sangat sedikit penyenggaraan. Ini adalah dimaksudkan untuk "
+"dipasang sebagai backend pertama di sebuah rangkaian."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
+#, fuzzy
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Backend Kedua"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:18001
+#, fuzzy
 msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Ini akan menubuhkan sebuah sistem menyerupai satu Backend Utama, "
+"bagaimanapun akan ditatarajah untuk disambungkan kepada backend sedia ada "
+"pada rangkaian."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:19001
+#, fuzzy
 msgid "Frontend"
-msgstr ""
+msgstr "Frontend"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:20001
+#, fuzzy
 msgid ""
 "A frontend only machine's main function is to receive media content from the "
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Fungsi utama sebuah mesin frontend sahaja adalah untuk menerima kandungan "
+"media daripada backend dan mengedarkannya. Konfigurasi ini memerlukan "
+"backend sedia ada pada rangkaian."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
+#, fuzzy
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Memilih Frontend / Backend Plugins"
 
 #. Type: text
 #. Description
@@ -1317,8 +1334,8 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
-"Membenarkan anda melayari dan memainkan aliran video, menggunakan pemain "
-"luaran, dari dalam anataramuka MythTV."
+"Membolehkan anda mencari dan memainkan aliran video dengan menggunakan "
+"pemain luar melalui antaramuka MythTV."
 
 #. Type: text
 #. Description
@@ -1440,8 +1457,9 @@ msgstr "Pelayan MySQL"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
+#, fuzzy
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Menyusun Data Panduan / Backend"
 
 #. Type: text
 #. Description
@@ -1481,12 +1499,17 @@ msgstr "Lancarkan Penetapan MythTV"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:74001
+#, fuzzy
 msgid ""
 "After setting up your guide data source, you will need to launch MythTV-"
 "Setup to run the backend configuration for the first time.  You will need to "
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Selepas menyediakan sumber data panduan anda, anda perlu melancarkan MythTV-"
+"Setup untuk melarikan konfigurasi backend buat pertama kalinya. Anda perlu "
+"mengkonfigurasi empat seksyen-seksyen pertama, dan memastikan penyediaan "
+"data panduan anda ketika yang ketiga."
 
 #. Type: text
 #. Description

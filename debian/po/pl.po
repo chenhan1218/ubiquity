@@ -7,21 +7,23 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:48+0000\n"
-"Last-Translator: Bartosz Fenski <fenio@debian.org>\n"
+"PO-Revision-Date: 2008-03-07 11:09+0000\n"
+"Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"X-Poedit-Country: Poland\n"
+"X-Poedit-Language: Polish\n"
 
 #. Type: text
 #. Description
 #. This is used as a window title.
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr "Zainstaluj"
+msgstr "Instalacja"
 
 #. Type: text
 #. Description
@@ -33,7 +35,7 @@ msgstr "Instalacja (tryb OEM, tylko dla producentów)"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Welcome"
-msgstr "Witaj"
+msgstr "Witamy"
 
 #. Type: text
 #. Description
@@ -43,9 +45,9 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"Gotowy do instalacji? Jak tylko dasz odpowiedzi na kilka pytań, zawartość "
+"Rozpocząć proces instalacji? Po odpowiedzeniu na kilka pytań, zawartość "
 "Desktop CD będzie mogła zostać zainstalowana na tym komputerze, aby można "
-"było uruchomić system z pełną wydajnością i bez płyty CD."
+"było uruchomić system z pełną wydajnością, bez płyty CD."
 
 #. Type: text
 #. Description
@@ -106,9 +108,9 @@ msgid ""
 "is incorrect even after selecting the correct time zone, you can adjust it "
 "after rebooting into the installed system."
 msgstr ""
-"Wybierz miasto w swoim państwie i strefę czasową. Jeśli wskazywany czas "
-"bieżący jest niepoprawny nawet po wybraniu prawidłowej strefy czasowej, to "
-"można go zmienić po ponownym uruchomieniu komputera w zainstalowanym "
+"Proszę wybrać miasto w swoim państwie i strefę czasową. Jeśli wskazywany "
+"czas bieżący jest niepoprawny nawet po wybraniu prawidłowej strefy czasowej, "
+"to można go zmienić po ponownym uruchomieniu komputera w zainstalowanym "
 "systemie."
 
 #. Type: text
@@ -127,7 +129,7 @@ msgstr "Strefa czasowa:"
 #. Description
 #: ../ubiquity.templates:13001
 msgid "Selected region:"
-msgstr "Wybierz region:"
+msgstr "Proszę wybrać region:"
 
 #. Type: text
 #. Description
@@ -151,7 +153,7 @@ msgstr "Który układ najbardziej przypomina twoją klawiaturę?"
 #. Description
 #: ../ubiquity.templates:17001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "Możesz pisać w tym oknie, aby przetestować nowy układ klawiatury."
+msgstr "Można pisać w tym oknie, aby przetestować nowy układ klawiatury."
 
 #. Type: text
 #. Description
@@ -169,7 +171,7 @@ msgstr "Jak się nazywasz?"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "What name do you want to use to log in?"
-msgstr "Jakiej nazwy chcesz używać podczas logowania się?"
+msgstr "Jaka nazwa ma być używana podczas logowania?"
 
 #. Type: text
 #. Description
@@ -185,7 +187,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Choose a password to keep your account safe."
-msgstr "Ustaw hasło, aby twoje konto było bezpieczne."
+msgstr "Należy ustawić hasło, aby konto było bezpieczne."
 
 #. Type: text
 #. Description
@@ -198,7 +200,9 @@ msgstr "Uruchomiono w trybie debugowania. Nie korzystaj z wartościowego hasła!
 #: ../ubiquity.templates:24001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr "Podaj to samo hasło dwukrotnie, aby uniknąć pomyłki przy wprowadzaniu."
+msgstr ""
+"Proszę wprowadzić to samo hasło dwukrotnie, aby uniknąć pomyłki przy "
+"wprowadzaniu."
 
 #. Type: text
 #. Description
@@ -212,7 +216,7 @@ msgstr "Jaka ma być nazwa tego komputera?"
 msgid ""
 "This name will be used if you make the computer visible to others on a "
 "network."
-msgstr "Nazwa zostanie użyta, jeśli uczynisz ten komputer widocznym w sieci."
+msgstr "Nazwa zostanie użyta, jeśli komputer będzie widoczny w sieci."
 
 #. Type: text
 #. Description
@@ -235,8 +239,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Przejdź do następnego etapu instalacji, jeśli nie chcesz importować żadnych "
-"kont."
+"Proszę przejść do następnego etapu instalacji, jeśli żadne konta nie mają "
+"zostać zaimportowane."
 
 #. Type: text
 #. Description
@@ -248,13 +252,13 @@ msgstr "Przygotowywanie miejsca na dysku"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "How do you want to partition the disk?"
-msgstr "Czy chcesz zmienić układ partycji na tym dysku?"
+msgstr "Zmienić układ partycji na tym dysku?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Prepare partitions"
-msgstr "Przygotuj partycje"
+msgstr "Przygotowywanie partycji"
 
 #. Type: text
 #. Description
@@ -271,7 +275,7 @@ msgstr "Gotowe do instalacji"
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
-"Twój nowy system operacyjny zostanie teraz zainstalowany z następującymi "
+"Nowy system operacyjny zostanie teraz zainstalowany z następującymi "
 "ustawieniami:"
 
 #. Type: text
@@ -304,7 +308,7 @@ msgstr "Porzucić instalację?"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Do you really want to abort the installation now?"
-msgstr "Czy chcesz natychmiast porzucić instalację?"
+msgstr "Natychmiast porzucić instalację?"
 
 #. Type: text
 #. Description
@@ -434,7 +438,7 @@ msgstr "Konkurs popularności"
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Participate in the package usage survey"
-msgstr "Weź udział w badaniu popularności wykorzystania pakietów"
+msgstr "Wzięcie udziału w badaniu popularności wykorzystania pakietów"
 
 #. Type: text
 #. Description
@@ -463,7 +467,7 @@ msgid ""
 "changes you make or documents you save will not be preserved."
 msgstr ""
 "Instalacja zakończona. Konieczne jest ponowne uruchomienie komputera, aby "
-"skorzystać z nowej instalacji. Możesz dalej używać tego Desktop CD, "
+"skorzystać z nowej instalacji. Można dalej używać tego Desktop CD, "
 "aczkolwiek wprowadzane zmiany i zapisywane dokumenty nie zostaną zachowane."
 
 #. Type: text
@@ -483,18 +487,10 @@ msgstr "Dalej"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Instalacja zakończona. Konieczne jest ponowne uruchomienie komputera, aby "
-"skorzystać z nowej instalacji. Możesz dalej używać tego Desktop CD, "
-"aczkolwiek wprowadzane zmiany i zapisywane dokumenty nie zostaną zachowane."
 
 #. Type: note
 #. Description
@@ -550,7 +546,7 @@ msgstr "Kopiowanie plików..."
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Copying files (less than a minute remaining)..."
-msgstr "Kopiowanie plików (pozostało mniej niż minuta)..."
+msgstr "Kopiowanie plików (mniej niż minuta)..."
 
 #. Type: error
 #. Description
@@ -827,12 +823,7 @@ msgstr ""
 "var/log/syslog. Instalator mimo wszystko spróbuje kontynuować, lecz może "
 "zawieść podczas jednego z dalszych kroków i nie być w stanie dodać lub "
 "usunąć innych pakietów (włącznie z sobą samym) z instalowanego systemu.  "
-"Najpierw należy poszukać nowego obrazu instalatora lub przekazać ten raport "
-"błędu swojemu dystrybutorowi.\r\n"
-"\r\n"
-"-- Ta część nie jest już tłumaczeniem. Wydaje mi się, że w ostatnim zdaniu "
-"po angielsku powinno być: or failing that report OF the problem to your "
-"distributor."
+"Najpierw należy poszukać nowego obrazu instalatora lub przekazać ten raport"
 
 #. Type: error
 #. Description
@@ -885,7 +876,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr "Czy chcesz, aby instalator ponownie spróbował odmontować te partycje?"
+msgstr "Czy instalator ma ponownie spróbować odmontować te partycje?"
 
 #. Type: boolean
 #. Description
@@ -1005,7 +996,7 @@ msgid ""
 msgstr ""
 "Zaawansowana instalacja może być używana do dostosowania instalacji "
 "Mythbuntu zgodnie z potrzebami użytkownika. UWAGA: Instalacja zaawansowana "
-"jest konieczna aby dodać maszynę Mythbuntu do istniejącej sieci opartej o "
+"jest konieczna aby dodać komputer Mythbuntu do istniejącej sieci opartej o "
 "MythTV."
 
 #. Type: text
@@ -1038,7 +1029,7 @@ msgid ""
 "as a component in your home theatre."
 msgstr ""
 "Zestawienie modułu przetwarzającego z interfejsem jest najczęstszym "
-"ustawieniem dla ludzi chcących użyć MythTV jako centrum kina domowego. Ten "
+"ustawieniem dla osób chcących użyć MythTV jako centrum kina domowego. Ten "
 "typ instalacji jest przeznaczony jako komponent kina domowego."
 
 #. Type: text
@@ -1074,7 +1065,7 @@ msgid ""
 msgstr ""
 "Komputer z zainstalowanym samym modułem przetwarzającym (bez interfejsu) "
 "pełni przeważnie rolę narzędzia. Wymaga niewielkiego dozoru i jest "
-"przeznaczone do działania jako pierwszy moduł przetwarzający w sieci."
+"przeznaczony do działania jako pierwszy moduł przetwarzający w sieci."
 
 #. Type: text
 #. Description
@@ -1336,7 +1327,7 @@ msgstr "Wyświetla obecną i prognozowaną informację o pogodzie w MythTV."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:53001
 msgid "Choose Extra Themes"
-msgstr "Wybierz dodatkowe motywy"
+msgstr "Wybór dodatkowych motywów"
 
 #. Type: text
 #. Description
@@ -1385,7 +1376,8 @@ msgstr "Zmień sterowniki karty graficznej i jej ustawienia"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:60001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr "Jeśli potrzebujesz skonfigurować wyjście TV-out, wybierz tą opcję:"
+msgstr ""
+"Jeśli należy skonfigurować wyjście TV-out, można wybrać odpowiednią opcję:"
 
 #. Type: text
 #. Description
@@ -1462,7 +1454,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Click to open the Schedules Direct website"
-msgstr "Kliknij, aby otworzyć stronę Schedules Direct"
+msgstr "Kliknięcie otworzy stronę Schedules Direct"
 
 #. Type: text
 #. Description
@@ -1473,9 +1465,9 @@ msgid ""
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
 "Użytkownicy w Ameryce Północnej będą potrzebowali skonfigurować konto przy "
-"użyciu Schedules Direct (SD). SD dostarcza danych potrzebnych do opłaty "
-"nominalnej. Bez SD północnoamerykańscy użytkownicy mogą utracić wiele "
-"funkcji planowania w MythTV."
+"użyciu Schedules Direct (SD). SD dostarcza danych potrzebnych za nominalną "
+"opłatą. Bez SD północnoamerykańscy użytkownicy mogą utracić wiele funkcji "
+"planowania w MythTV."
 
 #. Type: text
 #. Description

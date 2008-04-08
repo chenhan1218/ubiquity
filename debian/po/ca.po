@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:41+0000\n"
-"Last-Translator: Jordi Mallach <jordi@canonical.com>\n"
+"PO-Revision-Date: 2008-04-06 07:22+0000\n"
+"Last-Translator: David Planella <Unknown>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -352,6 +352,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Ho sentim: l'instal·lador ha fallat. Seria recomanable que informéssiu "
+"d'aquest error a https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
+"(sense adjuntar els detalls a cap informe ja existent), de manera que els "
+"desenvolupadors se'n puguin ocupar el més aviat possible. Hauríeu d'incloure "
+"els detalls següents a l'informe perquè pugui ser útil, així com adjuntar-hi "
+"els fitxers /var/log/syslog i /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -481,19 +487,10 @@ msgstr "Continua"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"S'ha completat la instal·lació. Heu de tornar a iniciar l'ordinador per a "
-"utilitzar la instal·lació nova. Podeu continuar utilitzant aquest CD "
-"autònom, tot i que qualsevol canvi que feu els documents que deseu no es "
-"preservaran."
 
 #. Type: note
 #. Description
@@ -595,6 +592,10 @@ msgid ""
 "the CD/DVD drive lens (cleaning kits are often available from electronics "
 "suppliers)."
 msgstr ""
+"Aquest error acostuma a ser causat per un disc o lector CD/DVD defectuós. A "
+"vegades es pot solucionar netejant el CD/DVD, enregistrant el CD/DVD a una "
+"velocitat més baixa, o bé netejant la lent del lector de CD/DVD (les "
+"botigues d'informàtica especialitzades solen vendre jocs de neteja)."
 
 #. Type: error
 #. Description
@@ -611,6 +612,9 @@ msgid ""
 "check whether the hard disk is old and in need of replacement, or to move "
 "the system to a cooler environment."
 msgstr ""
+"Aquest error acostuma ser causat per un problema amb el disc dur. Comproveu "
+"si el disc dur és massa vell i necessita ser reemplaçat, o bé traslladeu el "
+"sistema a una ubicació on hi hagi una temperatura més baixa."
 
 #. Type: error
 #. Description
@@ -634,6 +638,13 @@ msgid ""
 "available from electronics suppliers), to check whether the hard disk is old "
 "and in need of replacement, or to move the system to a cooler environment."
 msgstr ""
+"Aquest error acostuma a ser causat per un disc o lector CD/DVD defectuós, o "
+"bé per un disc dur defectuós. A vegades es pot solucionar netejant el CD/"
+"DVD, enregistrant el CD/DVD a una velocitat més baixa, o bé netejant la lent "
+"del lector de CD/DVD (les botigues d'informàtica especialitzades solen "
+"vendre jocs de neteja). Alternativament, comproveu si el disc dur és massa "
+"vell i necessita ser reemplaçat, o bé traslladeu el sistema a una ubicació "
+"on hi hagi una temperatura més baixa."
 
 #. Type: select
 #. Description
@@ -814,6 +825,14 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Això pot ser degut al fet que s'estigui utilitzant una imatge d'instal·lació "
+"vella, o bé a un error en algun dels paquets llistats aquí sobre. Podeu "
+"trobar més detalls a /var/log/syslog. De totes maneres, l'instal·lador "
+"intentarà continuar, però pot ser que falli en algun punt determinat i no "
+"pugui instal·lar o suprimir altres paquets (fins i tot el seu mateix) del "
+"sistema. Abans de res, hauríeu de comprovar si hi ha versions noves de la "
+"imatge d'instal·lació. En cas contrari, hauríeu d'informar d'aquest error a "
+"la vostra distribució."
 
 #. Type: error
 #. Description
@@ -967,6 +986,9 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"La instal·lació estàndard instal·larà i configurarà cada opció amb la mínima "
+"interacció de l'usuari possible. Això instal·larà un rerefons, un frontal, "
+"tots els connectors, i tots els temes."
 
 #. Type: text
 #. Description
@@ -982,6 +1004,9 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
+"La instal·lació avançada permet personalitzar tot el que sigui necessari per "
+"a aquesta instal·lació del Mythbuntu. Nota: si voleu afegir un ordinador "
+"Mythbuntu a una xarxa MythTV existent, aquesta és l'opció que heu de triar."
 
 #. Type: text
 #. Description
@@ -1012,6 +1037,10 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Un ordinador amb una combinació de rerefons/frontal és la configuració més "
+"habitual per als qui vulguin utilitzar el MythTV per a aplicacions de cinema "
+"de saló (HTPC). Aquest tipus d'instal·lació està pensada per a utilitzar-la "
+"com a component del cinema de saló."
 
 #. Type: text
 #. Description
@@ -1026,6 +1055,8 @@ msgid ""
 "This will set up a system similar to a Primary Backend w/ Frontend, however "
 "will be configured to connect to an existing backend on the network."
 msgstr ""
+"Això configurarà un sistema similar a un rerefons primari amb frontal que es "
+"connectarà a un rerefons existent a la xarxa."
 
 #. Type: text
 #. Description
@@ -1041,6 +1072,9 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Un ordinador només amb rerefons està típicament dissenyat per a funcionar "
+"com un electrodomèstic -requereix un manteniment mínim. La seva finalitat és "
+"ésser instal·lat com a primer rerefons d'una xarxa."
 
 #. Type: text
 #. Description
@@ -1055,6 +1089,8 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Això configurarà un sistema similar a un rerefons primari, però de tal "
+"manera que es connectarà a un rerefons existent a la xarxa."
 
 #. Type: text
 #. Description
@@ -1070,6 +1106,9 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"La funció principal d'un ordinador només amb frontal és rebre continguts "
+"multimèdia del rerefons i distribuir-los. Aquesta configuració requereix un "
+"rerefons existent a la xarxa."
 
 #. Type: text
 #. Description
@@ -1261,6 +1300,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Un connector de lector de canals RSS per al MythTV que us mantindrà informat "
+"de l'actualitat dels vostres temes preferits."
 
 #. Type: text
 #. Description
@@ -1283,6 +1324,8 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"Permet navegar per i reproduir fluxos de vídeo a través d'un reproductor "
+"extern, a través de la interfície del MythTV."
 
 #. Type: text
 #. Description
@@ -1328,6 +1371,11 @@ msgid ""
 "do so here.  Note that proprietary graphics drivers may be necessary for TV "
 "Output or OpenGL effects."
 msgstr ""
+"La vostra instal·lació ja disposa d'un controlador de programari lliure "
+"habilitat i configurat. En cas que vulgueu utilitzar-ne un altre, podeu "
+"especificar-lo aquí. Tingueu en compte que és possible que calguin "
+"controladors propietaris per a utilitzar la sortida de TV o els efectes "
+"OpenGL."
 
 #. Type: text
 #. Description
@@ -1354,6 +1402,9 @@ msgid ""
 "Warning: Do not set the TV standard to something higher than what your TV "
 "supports. PERMANENT damage may occur."
 msgstr ""
+"Avís: no establiu l'estàndard de televisió a un valor major que el "
+"compatible amb el vostre televisor, cosa que podria ocasionar-li danys "
+"permanents."
 
 #. Type: text
 #. Description
@@ -1397,7 +1448,7 @@ msgstr "Servidor MySQL"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
 msgid "Configure Guide Data / Backend"
-msgstr ""
+msgstr "Configuració de les dades de programació / rerefons"
 
 #. Type: text
 #. Description
@@ -1406,6 +1457,8 @@ msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
+"Els passos finals de la instal·lació requereixen la configuració de les "
+"dades de programació i del rerefons per a la primera utilització."
 
 #. Type: text
 #. Description
@@ -1421,6 +1474,10 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
+"Els usuaris de l'Amèrica del Nord hauran de crear o configurar un compte amb "
+"l'Schedules Direct (SD). SD ofereix dades de programació a canvi d'un petit "
+"import, sense les quals aquests usuaris es perdran moltes de les "
+"característiques de programació del MythTV."
 
 #. Type: text
 #. Description
@@ -1437,6 +1494,10 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
+"Un cop hàgiu configurat la vostra font de dades de programació, haureu "
+"d'executar el MythTV-Setup per a iniciar la configuració del rerefons per "
+"primera vegada. S'han de configurar les primeres quatre seccions; assegureu-"
+"vos d'introduir les dades de programació a la tercera."
 
 #. Type: text
 #. Description

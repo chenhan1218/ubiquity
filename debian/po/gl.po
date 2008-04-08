@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:43+0000\n"
-"Last-Translator: Jacobo Tarrio <Unknown>\n"
+"PO-Revision-Date: 2008-03-27 15:04+0000\n"
+"Last-Translator: Xosé <Unknown>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -279,7 +279,7 @@ msgstr "O seu novo sistema operativo instalarase coas seguintes opcións:"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr "Avanzado"
+msgstr "Avanzado..."
 
 #. Type: text
 #. Description
@@ -369,7 +369,7 @@ msgstr "Crear partición"
 #. Description
 #: ../ubiquity.templates:47001 ../ubiquity.templates:54001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "Novo tamaño da partición en megabytes (1048576 bytes)"
+msgstr "Novo tamaño da partición en megabytes (1000000 bytes)"
 
 #. Type: text
 #. Description
@@ -423,7 +423,7 @@ msgstr "Cargador de inicio"
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Install boot loader"
-msgstr "Instala-lo cargador de arranque"
+msgstr "Instalar o cargador de arranque"
 
 #. Type: text
 #. Description
@@ -484,18 +484,10 @@ msgstr "Continuar"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Completouse a instalación. É preciso reiniciar a computadora para poder usar "
-"a nova instalación. Pode continuar usando este \"live CD\", pero perderanse "
-"os cambios que faga ou os documentos que garde."
 
 #. Type: note
 #. Description
@@ -843,7 +835,7 @@ msgstr "Erro ao eliminar os paquetes"
 #. Description
 #: ../ubiquity.templates:103001
 msgid "An error occurred while removing packages:"
-msgstr "Ocurríu un erro ao eliminalos paquetes:"
+msgstr "Ocurríu un erro ao eliminar paquetes:"
 
 #. Type: title
 #. Description
@@ -1003,10 +995,9 @@ msgid ""
 "Mythbuntu install. NOTE: An advanced install is necessary to add a Mythbuntu "
 "machine to an existing MythTV based network."
 msgstr ""
-"Unha instalación avanzada pódese empregar para modificar o que se necesita "
-"para a instalación deste Mythbuntu. NOTA: Unha instalación avanzada  é "
-"necesaria para engadir unha máquina Mythbuntu a unha rede existente basada "
-"en MythTV."
+"Pódese empregar unha instalación avanzada para modificar todo o necesario na "
+"instalación de Mythbuntu. NOTA: É necesaria unha instalación avanzada para "
+"engadir unha máquina Mythbuntu a unha rede existente basada en MythTV."
 
 #. Type: text
 #. Description
@@ -1267,7 +1258,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:44001
 msgid "Allows you to monitor your Netflix dvd rental queue."
-msgstr "Permite monitorizala súa cola de alquiler de dvd Netflix."
+msgstr "Permite monitorizar a súa cola de aluguer de dvd Netflix."
 
 #. Type: text
 #. Description
@@ -1288,7 +1279,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr "Proporciona un reproductor de audio dixital integrado con MythTV."
+msgstr "Proporciona un reprodutor de audio dixital integrado con MythTV."
 
 #. Type: text
 #. Description
@@ -1322,7 +1313,7 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
-"Permítelle navegar e reproducir vídeos, empregando un reproductor externo, "
+"Permítelle navegar e reproducir vídeos, empregando un reprodutor externo, "
 "integrado na interface de MythTV."
 
 #. Type: text
@@ -1371,21 +1362,21 @@ msgid ""
 "Output or OpenGL effects."
 msgstr ""
 "Un controlador de gráficos libres xa está activado e configurado na súa "
-"instalación. Se quere empregar un controlador de gráficos difereten, pode "
-"face-lo eiquí. Teña en conta que os controladores de gráficos propietarios "
+"instalación. Se quere empregar un controlador de gráficos diferente, pode "
+"face-lo aquí. Teña en conta que os controladores de gráficos propietarios "
 "poden ser necesarios para a Saída de TV ou os efectos OpenGL."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
 msgid "Modify Video Driver & Settings"
-msgstr "Modifica-lo Controlador de Video & Axustes"
+msgstr "Modificar o Controlador de Video e Axustes"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:60001
 msgid "If you would like to configure TV-out, choose an option here:"
-msgstr "Se quere configura-la Saída-TV, escolla unha opción aquí:"
+msgstr "Se quere configurar a Saída a TV, escolla unha opción aquí:"
 
 #. Type: text
 #. Description
@@ -1461,7 +1452,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:71001
 msgid "Click to open the Schedules Direct website"
-msgstr "Click para abrir a web do programador de grabacións"
+msgstr "Click para abrir a web do programador de gravacións"
 
 #. Type: text
 #. Description
@@ -1471,16 +1462,16 @@ msgid ""
 "(SD).  SD provides guide data for a nominal fee.  Without SD, North American "
 "users may lose many of the scheduling features in MythTV."
 msgstr ""
-"Os usuarios de Norte América deben configurar unha conta de Schedules Direct "
-"(SD). SD proporciona a programación por unha suscripción. Sen SD, os "
-"usuarios de Norte América perderánse bastantes funcións de programación en "
+"Os usuarios de Norteamérica deben configurar unha conta de Schedules Direct "
+"(SD). SD proporciona a programación por unha subscrición. Sen SD, os "
+"usuarios de Norte América perderanse bastantes funcións de programación en "
 "MythTV."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:73001
 msgid "Launch MythTV Setup"
-msgstr "Inicia-la configuración de MythTV"
+msgstr "Iniciar a configuración de MythTV"
 
 #. Type: text
 #. Description
@@ -1491,9 +1482,9 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
-"Despois de configurar la súa fonte de datos da guía, necesita iniciar MythTV-"
-"Setup para configura-lo backend por primeira vez. Necesita configura-las "
-"primeiras catro seccións, estando seguro de proporciona-los datos da guía "
+"Despois de configurar a súa fonte de datos da guía, necesita iniciar MythTV-"
+"Setup para configura-lo backend por primeira vez. Necesita configurar as "
+"primeiras catro seccións, estando seguro de proporcionar os datos da guía "
 "durante a terceira."
 
 #. Type: text

@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -220,7 +220,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr "Migrera dokument och inställningar"
+msgstr "Migrera Documents and Settings"
 
 #. Type: text
 #. Description
@@ -484,18 +484,10 @@ msgstr "Fortsätt"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Installationen är färdig. Du måste starta om datorn för att använda den nya "
-"installationen. Du kan fortsätta använda den här live-cd:n, men de ändringar "
-"du gör eller de dokument du sparar kommer inte att bevaras."
 
 #. Type: note
 #. Description
@@ -790,7 +782,7 @@ msgstr "Fel vid installation av ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Error removing ${PACKAGE}"
-msgstr "Fel vid hämtning av ${PACKAGE}"
+msgstr "Fel vid borttagning av ${PACKAGE}"
 
 #. Type: error
 #. Description

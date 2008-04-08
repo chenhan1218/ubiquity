@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:37+0000\n"
-"Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
+"PO-Revision-Date: 2008-03-15 15:06+0000\n"
+"Last-Translator: Александр AldeX Крылов <Unknown>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -482,19 +482,10 @@ msgstr "Продолжить"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Установка завершена. Вы должны перезагрузить компьютер для начала "
-"использования системы. Вы можете продолжить использования live CD, но все "
-"изменения, которые вы сделаете и все документы, которые вы сохраните будут "
-"потеряны"
 
 #. Type: note
 #. Description

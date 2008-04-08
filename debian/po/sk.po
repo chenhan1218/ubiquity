@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-23 11:54+0000\n"
-"Last-Translator: Pavol Klačanský <Unknown>\n"
+"PO-Revision-Date: 2008-03-02 14:16+0000\n"
+"Last-Translator: Martin Harvan <martinhrvn@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -189,8 +189,9 @@ msgstr "Zvoľte si heslo na ochranu vášho účtu."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
+#, fuzzy
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Ste v režime ladenia. Nepoužívajte významné heslá!"
+msgstr "Ste v režime ladenia. Nepoužívajte dôležité heslá!"
 
 #. Type: text
 #. Description
@@ -219,7 +220,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Migrate Documents and Settings"
-msgstr "Premiestniť dokumenty a nastavenia"
+msgstr "Migrovať dokumenty a nastavenia"
 
 #. Type: text
 #. Description
@@ -482,18 +483,10 @@ msgstr "Pokračovať"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Inštalácia je ukončená. Ak chcete použiť nový nainštalovaný systém, musíte "
-"reštartovať počítač. Samozrejme môžete naďalej používať toto Live CD, no "
-"nezachovajú sa žiadne zmeny alebo súbory uložené počas používania tohto CD."
 
 #. Type: note
 #. Description
@@ -868,8 +861,8 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Inštalátor potrebuje vykonať zmeny v tabuľke oddielov, ale nemôže pretože "
-"oddiely pripojené na nasledujúcich bodoch pripojenia nemôžu byť odpojené:"
+"Inštalátor potrebuje vykonať zmeny v tabuľke oddielov, ale nemôže, pretože "
+"oddiely na nasledujúcich prípojných bodoch nemôžu byť odpojené:"
 
 #. Type: boolean
 #. Description

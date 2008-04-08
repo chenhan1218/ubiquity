@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:48+0000\n"
-"Last-Translator: Felipe Augusto van de Wiel (faw) <Unknown>\n"
+"PO-Revision-Date: 2008-03-25 16:29+0000\n"
+"Last-Translator: Laudeci Oliveira <laudeci@gmail.com>\n"
 "Language-Team: l10n portuguese <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -21,7 +21,10 @@ msgstr ""
 #. This is used as a window title.
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr "Instalar"
+msgstr ""
+"Instalar\r\n"
+"#-#-#-#-#  pt_BR.po (debian-installer)  #-#-#-#-#\r\n"
+"Instalar"
 
 #. Type: text
 #. Description
@@ -486,18 +489,10 @@ msgstr "Continuar"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Instalação completa. Você precisa reiniciar o computador para usar a nova "
-"instalação. Você pode continuar usando este live CD, embora algumas "
-"modificações feitas ou documentos salvos não serão preservados."
 
 #. Type: note
 #. Description

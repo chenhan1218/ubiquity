@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-01-29 01:33+0000\n"
-"Last-Translator: Zoran Olujic <olujicz@gmail.com>\n"
+"PO-Revision-Date: 2008-03-18 16:54+0000\n"
+"Last-Translator: Љубиша Радовановић <prevod@gmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -72,6 +72,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Инсталирате у моду произвођача система. Молим, унесите јединствено име за "
+"овај скуп система. Ово име ће бити сачувано на инсталираном систему и моћи "
+"ће се користити као помоћ при пријављивању грешака."
 
 #. Type: text
 #. Description
@@ -322,7 +325,7 @@ msgstr "Наставите користити live CD"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Restart now"
-msgstr "Изнова покрени рачунар"
+msgstr "Изнова покрените рачунар"
 
 #. Type: text
 #. Description
@@ -343,6 +346,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
+"Жао нам јеч Инсталација вам се срушила. Молим вас поднесит извештај о грешки "
+"на https://launchpad.net/ubuntu/+source/ubiquity/+filebug (не прилажите ваше "
+"детаље са постојећим грешкама) и програмер ће се позабавити са проблемом чим "
+"је то могуће. Да би помогли програмерима да боље разумеју шта није радило "
+"додајте следеће детаље у ваш извештај и приложите фајлове /var/log/syslog и /"
+"var/log/partman:"
 
 #. Type: text
 #. Description
@@ -451,7 +460,7 @@ msgid ""
 "changes you make or documents you save will not be preserved."
 msgstr ""
 "Инсталација је завршена. Морате изнова покренути рачунар како бисте "
-"подигнули нови систем. Можете наставити користити овај Live CD, али промјене "
+"подигнули нови систем. Можете наставити користити овај Live CD, али промене "
 "које направите на документима, неће бити сачуване."
 
 #. Type: text
@@ -471,18 +480,10 @@ msgstr "Настави"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Инсталација је завршена. Морате изнова покренути рачунар како бисте "
-"подигнули нови систем. Можете наставити користити овај Live CD, али промјене "
-"које направите на документима, неће бити сачуване."
 
 #. Type: note
 #. Description
@@ -520,7 +521,7 @@ msgstr "Инсталирам систем"
 #. Description
 #: ../ubiquity.templates:70001
 msgid "Finding the distribution to copy..."
-msgstr "Pronalazim distribuciju za kopiranje..."
+msgstr "Тражим дистрибуцију за пресликавање..."
 
 #. Type: text
 #. Description
@@ -532,7 +533,7 @@ msgstr "Претраживање датотека..."
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Copying files..."
-msgstr "Kopiram datoteke..."
+msgstr "Копирам датотеке..."
 
 #. Type: text
 #. Description
@@ -592,7 +593,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Failed to copy files; faulty hard disk?"
-msgstr "Неуспешно копирање датотека; оштећен хард диск?"
+msgstr "Неуспешно копирање датотека; да ли оштећен хард диск?"
 
 #. Type: error
 #. Description
@@ -603,14 +604,14 @@ msgid ""
 "the system to a cooler environment."
 msgstr ""
 "Ова грешка често настаје због неисправног хард диска. Може помоћи провера да "
-"ли је хард диск стар и треба замену, или премештање система у хладније "
+"ли је хард диск стар и треба замену или можда, премештање система у хладније "
 "окружење."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Failed to copy files; faulty CD/DVD or hard disk?"
-msgstr "Неуспешно копирање датотека; оштећен CD/DVD или хард диск?"
+msgstr "Неуспешно копирање датотека; Можда је оштећен CD/DVD или хард диск?"
 
 #. Type: error
 #. Description
@@ -654,7 +655,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Copying installation logs..."
-msgstr "Kopiram instalacione beleške..."
+msgstr "Копирам инсталационе белешке..."
 
 #. Type: text
 #. Description
@@ -666,7 +667,7 @@ msgstr "Подешавање циљног система..."
 #. Description
 #: ../ubiquity.templates:82001
 msgid "Configuring system locales..."
-msgstr "Конфигуришем локализације система"
+msgstr "Постављам локализирано сучеље..."
 
 #. Type: text
 #. Description
@@ -720,7 +721,7 @@ msgstr "Постављам име рачунара..."
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Configuring boot loader..."
-msgstr "Конфигуришем програм за подизање система..."
+msgstr "Подешавање boot управитеља..."
 
 #. Type: text
 #. Description
@@ -810,6 +811,13 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"Ово може бити због коришћења старе инсталационе слике или може бити због "
+"грешке у неком од пакета наведених горе. Више детаља је доступно у /var/log/"
+"syslog. Инсталер ће покушати да настави упркос овоме, али може пасти касније "
+"и неће моћи да инсталира или уклони друге пакете (можда не и самога себе) са "
+"инсталираног система. Требало би да прво потражите новију верзију ваше "
+"инсталационе слике или, ако не успете у томе, да пријавите проблем вашем "
+"дистрибутору."
 
 #. Type: error
 #. Description
@@ -1014,6 +1022,9 @@ msgid ""
 "MythTV for HTPC applications. This type of installation is intended for use "
 "as a component in your home theatre."
 msgstr ""
+"Комбиновани бекенд/фронтенд је најуобичајенији сетап за оне који желе MythTV "
+"за HTPC апликације. Овај тип инсталације је намењен за употребу као "
+"компонента у вашем систему куђног театра."
 
 #. Type: text
 #. Description
@@ -1035,7 +1046,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:15001
 msgid "Primary Backend"
-msgstr ""
+msgstr "Примарни бекенд"
 
 #. Type: text
 #. Description
@@ -1045,12 +1056,15 @@ msgid ""
 "requiring very little maintenance.  This is intended to be installed as the "
 "first backend on a network."
 msgstr ""
+"Машина која садржи само бекенд компоненту система је типично дизајнирана да "
+"функционише као специјализован уређај; захтева врло мало одржавања. Намењена "
+"је да буде инсталирана као први бекенд на мрежи."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:17001
 msgid "Secondary Backend"
-msgstr ""
+msgstr "Секундарни бекенд"
 
 #. Type: text
 #. Description
@@ -1059,6 +1073,8 @@ msgid ""
 "This will set up a system similar to a Primary Backend, however it will be "
 "configured to connect to an existing backend on the network."
 msgstr ""
+"Ово ће поставити систем сличан примарном бекенду, али ће бити конфигурисана "
+"тако да се качи на постојећи бекенд на мрежи."
 
 #. Type: text
 #. Description
@@ -1074,12 +1090,15 @@ msgid ""
 "backend and distribute it.  This configuration requires an existing backend "
 "on the network."
 msgstr ""
+"Главна функција машине која ради само као фронтенд је да прима медијски "
+"садржај од бекенда и дистрибуира га. Ова конфигурација захтева постојећи "
+"бекенд на мрежи."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:21001
 msgid "Choose Frontend / Backend Plugins"
-msgstr ""
+msgstr "Одаберите фронтенд / бекенд додатке"
 
 #. Type: text
 #. Description
@@ -1088,6 +1107,8 @@ msgid ""
 "Plugins can be used to extend MythTV functionality beyond a time shifting TV "
 "solution."
 msgstr ""
+"Додаци се могу користити да би проширили функционалност MythTV у односу на "
+"стандардно решење ТВ временског померања."
 
 #. Type: text
 #. Description
@@ -1181,7 +1202,7 @@ msgstr "Myth телефон"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Stream"
-msgstr ""
+msgstr "Миф Стрим"
 
 #. Type: text
 #. Description
@@ -1209,7 +1230,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:41001
 msgid "An integrated web browser plugin for your MythTV system."
-msgstr ""
+msgstr "Интегрисани додатак за Ваш веб прегледник за Миф стрим систем."
 
 #. Type: text
 #. Description
@@ -1218,6 +1239,8 @@ msgid ""
 "External controls for MythTV. This will allow you to modify button mappings "
 "and key bindings."
 msgstr ""
+"Спољне контроле за MythTV.  Оне вам дају могућност мењања функционалности "
+"типки и пречица на тастатури."
 
 #. Type: text
 #. Description
@@ -1248,7 +1271,7 @@ msgstr "Сучеље за покретање емулатора или бина�
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:47001
 msgid "Provides a digital audio jukebox integrated with MythTV."
-msgstr ""
+msgstr "Омогућава дигитални аудио џубокс интегрисан са MythTV."
 
 #. Type: text
 #. Description
@@ -1257,6 +1280,8 @@ msgid ""
 "An RSS feed news reader plugin for MythTV that keeps you up-to-date on your "
 "favorite news topics."
 msgstr ""
+"Додатак за RSS читач вести за MythTV који вам омогућава да будете у току са "
+"вашим омиљеним вестима."
 
 #. Type: text
 #. Description
@@ -1264,12 +1289,14 @@ msgstr ""
 msgid ""
 "A phone and videophone capability on MythTV using the standard SIP protocol."
 msgstr ""
+"Могућност телефонирања и видео-телефонирања у MythTV користећи стандардан "
+"SIP протокол."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:50001
 msgid "Provides a method to listen to streaming internet radio stations."
-msgstr ""
+msgstr "Омогућава слушање интернет радио станица."
 
 #. Type: text
 #. Description
@@ -1278,6 +1305,8 @@ msgid ""
 "Allows you to browse and play video streams, using an external player, from "
 "within the MythTV interface."
 msgstr ""
+"Омогућава вам да прегледате и пуштате видео записе користећи екстерни плејер "
+"унутар MythTV корисничког интерфејса."
 
 #. Type: text
 #. Description

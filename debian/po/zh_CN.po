@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:50+0000\n"
-"Last-Translator: Ming Hua <minghua-list@sbcglobal.net>\n"
+"PO-Revision-Date: 2008-03-31 12:01+0000\n"
+"Last-Translator: 刘其帅 <lqs.buaa@gmail.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -43,14 +43,14 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"准备安装了吗？你回答几个问题之后，live CD的内容就可以安装到计算机上，你就可以"
-"全速运行系统，而不需要CD了。"
+"准备好了吗？在您回答一些问题后，live CD 里的内容会被安装到这台电脑上。这样您"
+"就可以全速运行这个系统，而不需要这张 CD 了。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Answering the questions should only take a few minutes."
-msgstr "回答那些问题仅需要几分钟时间。"
+msgstr "回答这些问题只需要花费您几分钟的时间。"
 
 #. Type: text
 #. Description
@@ -142,7 +142,7 @@ msgstr "哪种布局同你的键盘最接近？"
 #. Description
 #: ../ubiquity.templates:17001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "你可以把新的键盘布局输入到方框来进行检测。"
+msgstr "您可以在该框内测试您新的键盘布局。"
 
 #. Type: text
 #. Description
@@ -160,7 +160,7 @@ msgstr "你的名字是什么？"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "What name do you want to use to log in?"
-msgstr "你想用什么名字来登录？"
+msgstr "您想用什么名字作为登录名？"
 
 #. Type: text
 #. Description
@@ -174,7 +174,7 @@ msgstr "如果有多名用户使用本计算机，你可以在完成安装后建
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Choose a password to keep your account safe."
-msgstr "选择一个密码来维护你的帐户安全。"
+msgstr "选择一个密码来确保您的帐号安全。"
 
 #. Type: text
 #. Description
@@ -187,7 +187,7 @@ msgstr "你正在以调试模式运行。请勿使用重要密码！"
 #: ../ubiquity.templates:24001
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
-msgstr "请输入相同密码两次，以检测输入错误。"
+msgstr "请再次输入相同密码，以防止输入错误。"
 
 #. Type: text
 #. Description
@@ -465,17 +465,10 @@ msgstr "继续"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"安装完成。你需要重新启动计算机以使用新安装的系统。你可以继续使用live CD，不过"
-"你所做的任何更改和保存的文档不会被保留。"
 
 #. Type: note
 #. Description

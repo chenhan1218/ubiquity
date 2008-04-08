@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-23 18:00+0000\n"
+"PO-Revision-Date: 2008-03-28 04:23+0000\n"
 "Last-Translator: Vladimer Sichinava <vsichi@gnome.org>\n"
 "Language-Team: Georgian <www.gia.ge>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:11+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 08:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -264,7 +264,7 @@ msgstr "დანაყოფების მომზადება"
 #: ../ubiquity.templates:32001 ../ubiquity.templates:67001
 #: ../ubiquity-frontend-mythbuntu.templates:1001
 msgid "Ready to install"
-msgstr "მზად ვარ ჩადგმისთვის"
+msgstr "მზადაა დაყენებისთვის"
 
 #. Type: text
 #. Description
@@ -484,19 +484,10 @@ msgstr "გაგრძელება"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"ინსტალაცია დასრულებულია. შეგიძლიათ გადატვირთოთ კომპიუტერი და იმუშაოთ ახალ "
-"სისტემაში. ასევე შეგიძლიათ გააგრძელოთ Live CD-თ მუშაობა, ოღონდ ამ "
-"შემთხვევაში თქვენ არ შეგეძლებათ სისტემური ცვლილებების ან დოკუმენტების "
-"რედაქტირების ცვლილებების შენახვა."
 
 #. Type: note
 #. Description

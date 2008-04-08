@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-06 15:51+0000\n"
-"PO-Revision-Date: 2008-02-20 12:45+0000\n"
-"Last-Translator: Sunjae Park <darehanl@gmail.com>\n"
+"PO-Revision-Date: 2008-03-25 01:27+0000\n"
+"Last-Translator: Namhyung Kim <namhyung@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-02-28 18:10+0000\n"
+"X-Launchpad-Export-Date: 2008-04-08 07:59+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -476,18 +476,10 @@ msgstr "계속"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
-#, fuzzy
-#| msgid ""
-#| "Installation is complete. You need to restart the computer in order to "
-#| "use the new installation. You can continue to use this live CD, although "
-#| "any changes you make or documents you save will not be preserved."
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"설치가 완료되었습니다. 새로 설치된 프로그램을 사용하기 위해 컴퓨터를 다시 시"
-"작하십시오. 변경된 문서가 보존되지는 않지만, 현재 CD를 계속 사용할 수 있습니"
-"다."
 
 #. Type: note
 #. Description
@@ -843,7 +835,7 @@ msgstr "언어팩을 설치하는 중입니다"
 #. Description
 #: ../ubiquity.templates:106001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "언어 팩을 다운로드하고 있습니다 ($TIME} 남음)..."
+msgstr "언어 팩을 다운로드하고 있습니다 (${TIME} 남음)..."
 
 #. Type: boolean
 #. Description
