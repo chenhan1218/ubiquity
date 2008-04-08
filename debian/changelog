@@ -13,6 +13,10 @@ ubiquity (1.8.2) UNRELEASED; urgency=low
     boundary values (LP: #197838).
   * Don't miscalculate with nested partitions in 03partition_too_small (LP:
     #198039).
+  * Automatic update of included source packages: apt-setup
+    1:0.31ubuntu7, choose-mirror 2.19ubuntu5, clock-setup 0.92ubuntu3,
+    console-setup 1.21ubuntu6, localechooser 1.42ubuntu4, migration-
+    assistant 0.6.1, partman-auto 73ubuntu7, tzsetup 1:0.20.
 
   [ Mario Limonciello ]
   * Don't unnecessarily hardcode the return of get_hostname()
