@@ -823,14 +823,15 @@ exit 0"""
         if not os.path.exists(os.path.join(self.target, 'sys/devices')):
             self.chrex('mount', '-t', 'sysfs', 'sysfs', '/sys')
 
-        if x11:
+        if x11 and 'DISPLAY' in os.environ:
             if 'SUDO_USER' in os.environ:
                 xauthority = os.path.expanduser('~%s/.Xauthority' %
                                                 os.environ['SUDO_USER'])
             else:
                 xauthority = os.path.expanduser('~/.Xauthority')
-            shutil.copy(xauthority,
-                        os.path.join(self.target, 'root/.Xauthority'))
+            if os.path.exists(xauthority):
+                shutil.copy(xauthority,
+                            os.path.join(self.target, 'root/.Xauthority'))
 
             if not os.path.isdir(os.path.join(self.target, 'tmp/.X11-unix')):
                 os.mkdir(os.path.join(self.target, 'tmp/.X11-unix'))
@@ -839,13 +840,16 @@ exit 0"""
 
     def chroot_cleanup(self, x11=False):
         """Undo the work done by chroot_setup."""
-        if x11:
+        if x11 and 'DISPLAY' in os.environ:
             misc.execute('umount', os.path.join(self.target, 'tmp/.X11-unix'))
             try:
                 os.rmdir(os.path.join(self.target, 'tmp/.X11-unix'))
             except OSError:
                 pass
-            os.unlink(os.path.join(self.target, 'root/.Xauthority'))
+            try:
+                os.unlink(os.path.join(self.target, 'root/.Xauthority'))
+            except OSError:
+                pass
 
         self.chrex('umount', '/sys')
         self.chrex('umount', '/proc')

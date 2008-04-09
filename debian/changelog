@@ -14,6 +14,8 @@ ubiquity (1.8.3) UNRELEASED; urgency=low
   * Guard against division by zero while copying files (LP: #211503).
   * Ensure that "Location for the new partition" always defaults to
     "Beginning" (LP: #207810).
+  * Stop X forwarding code from breaking if we aren't running within X
+    (LP: #214211).
 
   [ Evan Dandrea ]
   * Update the translations from Rosetta.
