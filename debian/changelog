@@ -11,6 +11,7 @@ ubiquity (1.8.3) UNRELEASED; urgency=low
   * Offer a list of mount points when creating a partition (LP: #85713).
     Adjust this list (and also that offered when editing a partition) if the
     file system is changed to FAT or NTFS.
+  * Guard against division by zero while copying files (LP: #211503).
 
   [ Evan Dandrea ]
   * Update the translations from Rosetta.
