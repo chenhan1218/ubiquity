@@ -1654,12 +1654,13 @@ class Wizard(BaseFrontend):
         else:
             self.partition_create_mount_combo.set_sensitive(True)
             if isinstance(self.dbfilter, partman.Partman):
-                fs = model[iterator][1]
                 mount_model = self.partition_create_mount_combo.get_model()
-                mount_model.clear()
-                for mp, choice_c, choice in \
-                    self.dbfilter.default_mountpoint_choices(fs):
-                    mount_model.append([mp])
+                if mount_model is not None:
+                    fs = model[iterator][1]
+                    mount_model.clear()
+                    for mp, choice_c, choice in \
+                        self.dbfilter.default_mountpoint_choices(fs):
+                        mount_model.append([mp])
 
     def partman_edit_dialog (self, devpart, partition):
         if not self.allowed_change_step:
@@ -1795,12 +1796,13 @@ class Wizard(BaseFrontend):
         else:
             self.partition_edit_mount_combo.set_sensitive(True)
             if isinstance(self.dbfilter, partman.Partman):
-                fs = model[iterator][0]
                 mount_model = self.partition_edit_mount_combo.get_model()
-                mount_model.clear()
-                for mp, choice_c, choice in \
-                    self.dbfilter.default_mountpoint_choices(fs):
-                    mount_model.append([mp, choice])
+                if mount_model is not None:
+                    fs = model[iterator][0]
+                    mount_model.clear()
+                    for mp, choice_c, choice in \
+                        self.dbfilter.default_mountpoint_choices(fs):
+                        mount_model.append([mp, choice])
 
     def on_partition_list_treeview_button_press_event (self, widget, event):
         if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
