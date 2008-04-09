@@ -913,7 +913,7 @@ class Wizard(BaseFrontend):
         changed_page = False
 
         if str(step) == "stepReady":
-            self.userinterface.next.setText("Next")
+            self.userinterface.next.setText(_("Next"))
             self.userinterface.next.setIcon(self.forwardIcon)
             self.translate_widget(self.userinterface.next, self.locale)
 
@@ -1873,7 +1873,8 @@ class Wizard(BaseFrontend):
         assert len(options) <= 3, options
 
         self.allow_change_step(True)
-        buttons = []
+        buttons = {}
+        messageBox = QMessageBox(QMessageBox.Question, title, msg, QMessageBox.NoButton, self.userinterface)
         for option in options:
             if use_templates:
                 text = self.get_string(option)
@@ -1881,31 +1882,20 @@ class Wizard(BaseFrontend):
                 text = option
             if text is None:
                 text = option
-            buttons.append(text)
-        # Convention for options is to have the affirmative action last; KDE
-        # convention is to have it first.
-        affirmative = buttons.pop()
-        buttons.insert(0, affirmative)
+            # Convention for options is to have the affirmative action last; KDE
+            # convention is to have it first.
+            if option == options[-1]:
+                button = messageBox.addButton(text, QMessageBox.AcceptRole)
+            else:
+                button = messageBox.addButton(text, QMessageBox.RejectRole)
+            buttons[button] = option
 
-        #FIXME qt 4 seems to have lost the ability to set a custom message on the buttons for stock dialogs
-        #response = QMessageBox.question(self.userinterface, title, msg,
-        #                                *buttons)
-        response = QMessageBox.question(self.userinterface, title, msg, QMessageBox.Ok, QMessageBox.Cancel)
+        response = messageBox.exec_()
 
-        """
         if response < 0:
             return None
-        elif response == 0:
-            return options[len(buttons) - 1]
         else:
-            return options[response - 1]
-        """
-        if response < 0:
-            return None
-        elif response == QMessageBox.Ok:
-            return options[1]
-        elif response == QMessageBox.Cancel:
-            return options[0]
+            return buttons[messageBox.clickedButton()]
 
     def refresh (self):
         self.app.processEvents()
