@@ -1387,8 +1387,12 @@ class Wizard(BaseFrontend):
         if self.create_dialog.partition_create_use_combo.count() == 0:
             self.create_dialog.partition_create_use_combo.setEnabled(False)
 
-        # TODO cjwatson 2006-11-01: set up mount point combo
-        #self.create_dialog.partition_create_mount_combo.setText('')
+        self.create_dialog.partition_create_mount_combo.clear()
+        for mp, choice_c, choice in self.dbfilter.default_mountpoint_choices():
+            ##FIXME gtk frontend has a nifty way of showing the user readable
+            ##'choice' text in the drop down, but only selecting the 'mp' text
+            self.create_dialog.partition_create_mount_combo.addItem(mp)
+        self.create_dialog.partition_create_mount_combo.clearEditText()
 
         response = self.create_dialog.exec_()
 
@@ -1430,10 +1434,15 @@ class Wizard(BaseFrontend):
             return
         method = self.create_use_method_names[text]
         if method not in known_filesystems:
-            #self.create_dialog.partition_create_mount_combo.child.setText('')
+            self.create_dialog.partition_create_mount_combo.clearEditText()
             self.create_dialog.partition_create_mount_combo.setEnabled(False)
         else:
             self.create_dialog.partition_create_mount_combo.setEnabled(True)
+            if isinstance(self.dbfilter, partman.Partman):
+                self.create_dialog.partition_create_mount_combo.clear()
+                for mp, choice_c, choice in \
+                    self.dbfilter.default_mountpoint_choices(method):
+                    self.create_dialog.partition_create_mount_combo.addItem(mp)
 
     def partman_edit_dialog(self, devpart, partition):
         if not self.allowed_change_step:
@@ -1498,10 +1507,6 @@ class Wizard(BaseFrontend):
         self.edit_dialog.partition_edit_format_checkbutton.setChecked(
             current_format)
 
-        # TODO cjwatson 2006-11-02: mountpoint_choices won't be available
-        # unless the method is already one that can be mounted, so we may
-        # need to calculate this dynamically based on the method instead of
-        # relying on cached information from partman
         self.edit_dialog.partition_edit_mount_combo.clear()
         if 'mountpoint_choices' in partition:
             for mp, choice_c, choice in partition['mountpoint_choices']:
@@ -1564,10 +1569,15 @@ class Wizard(BaseFrontend):
             return
         method = self.edit_use_method_names[text]
         if method not in known_filesystems:
-            #self.edit_dialog.partition_edit_mount_combo.child.setText('')
+            self.edit_dialog.partition_edit_mount_combo.clearEditText()
             self.edit_dialog.partition_edit_mount_combo.setEnabled(False)
         else:
             self.edit_dialog.partition_edit_mount_combo.setEnabled(True)
+            if isinstance(self.dbfilter, partman.Partman):
+                self.edit_dialog.partition_edit_mount_combo.clear()
+                for mp, choice_c, choice in \
+                    self.dbfilter.default_mountpoint_choices(method):
+                    self.edit_dialog.partition_edit_mount_combo.addItem(mp)
 
     def on_partition_list_treeview_selection_changed(self, selected, deselected):
         self.userinterface.partition_button_new_label.setEnabled(False)

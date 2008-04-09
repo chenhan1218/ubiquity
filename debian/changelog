@@ -8,6 +8,9 @@ ubiquity (1.8.3) UNRELEASED; urgency=low
     to avoid excessive horizontal growth.
   * Adjust po-debconf flags in ubiquity/install/copying_error/md5, so that
     ${FILE} doesn't get translated.
+  * Offer a list of mount points when creating a partition (LP: #85713).
+    Adjust this list (and also that offered when editing a partition) if the
+    file system is changed to FAT or NTFS.
 
   [ Evan Dandrea ]
   * Update the translations from Rosetta.

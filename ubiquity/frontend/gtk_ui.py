@@ -1598,7 +1598,12 @@ class Wizard(BaseFrontend):
         if list_store.get_iter_first():
             self.partition_create_use_combo.set_active(0)
 
-        # TODO cjwatson 2006-11-01: set up mount point combo
+        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        for mp, choice_c, choice in self.dbfilter.default_mountpoint_choices():
+            list_store.append([mp])
+        self.partition_create_mount_combo.set_model(list_store)
+        if self.partition_create_mount_combo.get_text_column() == -1:
+            self.partition_create_mount_combo.set_text_column(0)
         self.partition_create_mount_combo.child.set_text('')
 
         response = self.partition_create_dialog.run()
@@ -1646,6 +1651,13 @@ class Wizard(BaseFrontend):
             self.partition_create_mount_combo.set_sensitive(False)
         else:
             self.partition_create_mount_combo.set_sensitive(True)
+            if isinstance(self.dbfilter, partman.Partman):
+                fs = model[iterator][1]
+                mount_model = self.partition_create_mount_combo.get_model()
+                mount_model.clear()
+                for mp, choice_c, choice in \
+                    self.dbfilter.default_mountpoint_choices(fs):
+                    mount_model.append([mp])
 
     def partman_edit_dialog (self, devpart, partition):
         if not self.allowed_change_step:
@@ -1711,10 +1723,6 @@ class Wizard(BaseFrontend):
             current_format = False
         self.partition_edit_format_checkbutton.set_active(current_format)
 
-        # TODO cjwatson 2006-11-02: mountpoint_choices won't be available
-        # unless the method is already one that can be mounted, so we may
-        # need to calculate this dynamically based on the method instead of
-        # relying on cached information from partman
         list_store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         if 'mountpoint_choices' in partition:
             for mp, choice_c, choice in partition['mountpoint_choices']:
@@ -1784,6 +1792,13 @@ class Wizard(BaseFrontend):
             self.partition_edit_mount_combo.set_sensitive(False)
         else:
             self.partition_edit_mount_combo.set_sensitive(True)
+            if isinstance(self.dbfilter, partman.Partman):
+                fs = model[iterator][0]
+                mount_model = self.partition_edit_mount_combo.get_model()
+                mount_model.clear()
+                for mp, choice_c, choice in \
+                    self.dbfilter.default_mountpoint_choices(fs):
+                    mount_model.append([mp, choice])
 
     def on_partition_list_treeview_button_press_event (self, widget, event):
         if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:

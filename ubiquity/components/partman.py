@@ -223,6 +223,25 @@ class Partman(FilteredCommand):
             else:
                 yield (method, method, self.method_description(method))
 
+    def default_mountpoint_choices(self, fs='ext3'):
+        """Yields the possible mountpoints for a partition."""
+
+        # We can't find out the real list of possible mountpoints from
+        # partman until after the partition has been created, but we can at
+        # least fish it out of the appropriate debconf template rather than
+        # having to hardcode it.
+
+        if fs in ('fat16', 'fat32', 'ntfs'):
+            question = 'partman-basicfilesystems/fat_mountpoint'
+        else:
+            question = 'partman-basicfilesystems/mountpoint'
+        choices_c = self.choices_untranslated(question)
+        choices = self.choices(question)
+        assert len(choices_c) == len(choices)
+        for i in range(len(choices_c)):
+            if choices_c[i].startswith('/'):
+                yield (choices_c[i].split(' ')[0], choices_c[i], choices[i])
+
     def get_current_method(self, partition):
         if 'method' in partition:
             if partition['method'] in ('format', 'keep'):
