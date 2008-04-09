@@ -16,6 +16,9 @@ ubiquity (1.8.3) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Update the translations from Rosetta.
 
+  [ Jonathan Riddell ]
+  * Fix broken partition edit dialogue in kde_ui
+
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 08 Apr 2008 13:05:20 -0400
 
 ubiquity (1.8.2) hardy; urgency=low

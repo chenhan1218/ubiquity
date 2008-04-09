@@ -1533,7 +1533,7 @@ class Wizard(BaseFrontend):
             method_description = unicode(self.edit_dialog.partition_edit_use_combo.currentText())
             method = self.edit_use_method_names[method_description]
 
-            format = self.partition_edit_format_checkbutton.isChecked()
+            format = self.edit_dialog.partition_edit_format_checkbutton.isChecked()
 
             mountpoint = str(self.edit_dialog.partition_edit_mount_combo.currentText())
 
