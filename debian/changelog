@@ -12,6 +12,8 @@ ubiquity (1.8.3) UNRELEASED; urgency=low
     Adjust this list (and also that offered when editing a partition) if the
     file system is changed to FAT or NTFS.
   * Guard against division by zero while copying files (LP: #211503).
+  * Ensure that "Location for the new partition" always defaults to
+    "Beginning" (LP: #207810).
 
   [ Evan Dandrea ]
   * Update the translations from Rosetta.

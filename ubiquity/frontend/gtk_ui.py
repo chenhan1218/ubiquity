@@ -1586,6 +1586,8 @@ class Wizard(BaseFrontend):
                            step_incr=1, page_incr=100, page_size=100))
         self.partition_create_size_spinbutton.set_value(max_size_mb)
 
+        self.partition_create_place_beginning.set_active(True)
+
         self.partition_create_use_combo.clear()
         renderer = gtk.CellRendererText()
         self.partition_create_use_combo.pack_start(renderer)

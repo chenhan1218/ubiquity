@@ -1380,6 +1380,8 @@ class Wizard(BaseFrontend):
         self.create_dialog.partition_create_size_spinbutton.setMaximum(max_size_mb)
         self.create_dialog.partition_create_size_spinbutton.setValue(max_size_mb)
 
+        self.create_dialog.partition_create_place_beginning.setChecked(True)
+
         self.create_use_method_names = {}
         for method, name, description in self.dbfilter.create_use_as():
             self.create_use_method_names[description] = name
