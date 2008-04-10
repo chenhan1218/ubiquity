@@ -479,7 +479,7 @@ class Wizard(BaseFrontend):
         if not isinstance(widget, QWidget):
             return
 
-        name = widget.objectName()
+        name = str(widget.objectName())
 
         text = self.get_string(name, lang)
 
@@ -516,10 +516,6 @@ class Wizard(BaseFrontend):
                 widget.setText(text)
 
         elif isinstance(widget, QPushButton):
-            if name == 'next':
-                text = text + " >"
-            elif name == 'back':
-                text = "< " + text
             widget.setText(text.replace('_', '&', 1))
 
         elif isinstance(widget, QWidget) and str(name) == "UbiquityUIBase":
@@ -617,7 +613,7 @@ class Wizard(BaseFrontend):
             self.set_current_page(WIDGET_STACK_STEPS["stepUserInfo"])
         elif n == 'Summary':
             self.set_current_page(WIDGET_STACK_STEPS["stepReady"])
-            self.userinterface.next.setText(self.get_string('install_button'))
+            self.userinterface.next.setText(self.get_string('install_button').replace('_', '&', 1))
             self.userinterface.next.setIcon(self.applyIcon)
         else:
             print >>sys.stderr, 'No page found for %s' % n
@@ -913,7 +909,7 @@ class Wizard(BaseFrontend):
         changed_page = False
 
         if str(step) == "stepReady":
-            self.userinterface.next.setText(_("Next"))
+            self.userinterface.next.setText(self.get_string("next").replace('_', '&', 1))
             self.userinterface.next.setIcon(self.forwardIcon)
             self.translate_widget(self.userinterface.next, self.locale)
 
@@ -1853,7 +1849,7 @@ class Wizard(BaseFrontend):
             self.pagesindex = 1
             self.dbfilter = partman.Partman(self)
             self.set_current_page(self.previous_partitioning_page)
-            self.userinterface.next.setText(_("Next"))
+            self.userinterface.next.setText(self.get_string("next").replace('_', '&', 1))
             self.userinterface.next.setIcon(self.forwardIcon)
             self.translate_widget(self.userinterface.next, self.locale)
             self.backup = True

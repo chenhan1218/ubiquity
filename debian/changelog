@@ -1,3 +1,9 @@
+ubiquity (1.8.4) UNRELEASED; urgency=low
+
+  * kde_ui: Fix translations on buttons
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 10 Apr 2008 11:01:16 +0100
+
 ubiquity (1.8.3) hardy; urgency=low
 
   [ Colin Watson ]
@@ -27,9 +33,6 @@ ubiquity (1.8.3) hardy; urgency=low
   * Fix exception in edit partitions dialogue use in kde_ui
   * Add minimum size to partition_edit_dialog.ui, closes LP: #203626
   * Fix buttons on question dialogue to use supplied text, closes LP: #203660
-  * Automatic update of included source packages: debian-installer-utils
-    1.50ubuntu3, localechooser 1.42ubuntu5, partman-basicfilesystems
-    56ubuntu4.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 10 Apr 2008 04:22:15 -0400
 
