@@ -1,6 +1,7 @@
 ubiquity (1.8.4) UNRELEASED; urgency=low
 
-  * kde_ui: 
+  [ Jonathan Riddell ]
+  * kde_ui:
    - Fix translations on buttons
    - Replace the resize slider with the custom widget
    - Fix occational bug where the app would still quit after the
@@ -10,6 +11,10 @@ ubiquity (1.8.4) UNRELEASED; urgency=low
    - Fix launching browser from release notes label
   * kde_ui, gtk_ui
    - In partition edit dialogue, enable format tickbox when a format type is selected
+
+  [ Evan Dandrea ]
+  * Removed partman/check.d/12system_partitions_formatted.  A modified version
+    now lives in partman-target.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 10 Apr 2008 11:01:16 +0100
 
