@@ -94,7 +94,8 @@ class UbiquityUI(QWidget):
         self.wizard = wizardRef
 
     def closeEvent(self, event):
-        self.wizard.on_cancel_clicked()
+        if self.wizard.on_cancel_clicked() == False:
+            event.ignore()
 
 class Wizard(BaseFrontend):
 
@@ -1568,7 +1569,7 @@ class Wizard(BaseFrontend):
         # have to hardcode the list of known filesystems here.
         known_filesystems = ('ext3', 'ext2', 'reiserfs', 'jfs', 'xfs',
                              'fat16', 'fat32', 'ntfs')
-        text = str(self.edit_dialog.partition_edit_use_combo.currentText())
+        text = unicode(self.edit_dialog.partition_edit_use_combo.currentText())
         if text not in self.edit_use_method_names:
             return
         method = self.edit_use_method_names[text]

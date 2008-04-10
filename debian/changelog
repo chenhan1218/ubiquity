@@ -5,6 +5,7 @@ ubiquity (1.8.4) UNRELEASED; urgency=low
    - Replace the resize slider with the custom widget
    - Fix occational bug where the app would still quit after the
      confirm exit dialogue had been dismissed
+   - Fix exception in on_partition_edit_use_combo_changed when non ascii characters are used
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 10 Apr 2008 11:01:16 +0100
 
