@@ -1,6 +1,7 @@
 ubiquity (1.8.4) UNRELEASED; urgency=low
 
   * kde_ui: Fix translations on buttons
+  * kde_ui: Replace the resize slider with the custom widget
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 10 Apr 2008 11:01:16 +0100
 

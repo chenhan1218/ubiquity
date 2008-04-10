@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 #
 # Copyright (C) 2006 Canonical Ltd.
 #
@@ -45,7 +45,7 @@ class Partition:
     def __init__(self, size, index, fs, path, parent):
         self.size = size
         self.frame = PartitionFrame(parent)
-        self.frame.setLineWidth(3)
+        self.frame.setLineWidth(1)
         self.frame.setFrameShadow(QFrame.Raised)
         self.frame.setFrameShape(QFrame.Box)
         sizePolicy = self.frame.sizePolicy()
@@ -62,7 +62,8 @@ class Partition:
         self.frame.setAutoFillBackground(True)
         palette = self.frame.palette()
         try:
-          palette.setColor(QPalette.Normal, QPalette.Background, self.filesystemColours[fs])
+          palette.setColor(QPalette.Active, QPalette.Background, self.filesystemColours[fs])
+          palette.setColor(QPalette.Inactive, QPalette.Background, self.filesystemColours[fs])
           """ #FIXME doesn't do anything
           colour = QColor(self.filesystemColours[fs])
           red = 256 - colour.red()

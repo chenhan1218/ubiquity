@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 #
 # Copyright (C) 2006, 2007 Canonical Ltd.
 #
@@ -1201,32 +1201,35 @@ class Wizard(BaseFrontend):
                     new_size_label.show()
                     new_size_scale_vbox = QVBoxLayout()
                     new_size_hbox.addLayout(new_size_scale_vbox)
-                    self.new_size_value = QLabel(self.userinterface.autopartition_frame)
-                    new_size_scale_vbox.addWidget(self.new_size_value)
-                    self.new_size_value.show()
-                    self.new_size_scale = QSlider(Qt.Horizontal, self.userinterface.autopartition_frame)
-                    self.new_size_scale.setMaximum(100)
-                    self.new_size_scale.setSizePolicy(QSizePolicy.Expanding,
-                                                      QSizePolicy.Minimum)
-                    self.app.connect(self.new_size_scale,
-                                     SIGNAL("valueChanged(int)"),
-                                     self.update_new_size_label)
+                    #self.new_size_scale = QSlider(Qt.Horizontal, self.userinterface.autopartition_frame)
+                    self.new_size_scale = ResizeWidget(self.userinterface.autopartition_frame)
+                    #self.new_size_scale.setMaximum(100)
+                    #self.new_size_scale.setSizePolicy(QSizePolicy.Expanding,
+                    #                                  QSizePolicy.Minimum)
+                    #self.app.connect(self.new_size_scale,
+                    #                 SIGNAL("valueChanged(int)"),
+                    #                 self.update_new_size_label)
                     new_size_scale_vbox.addWidget(self.new_size_scale)
                     self.new_size_scale.show()
+
                     # TODO evand 2008-02-12: Until the new resize widget is
                     # ported to Qt, resize_orig_size and resize_path are not
                     # needed.
                     self.resize_min_size, self.resize_max_size, \
-                        dis, dis = extra_options[choice]
-                    del dis
+                        self.resize_orig_size, self.resize_path = \
+                            extra_options[choice]
                     if (self.resize_min_size is not None and
                         self.resize_max_size is not None):
                         min_percent = int(math.ceil(
                             100 * self.resize_min_size / self.resize_max_size))
-                        self.new_size_scale.setMinimum(min_percent)
-                        self.new_size_scale.setMaximum(100)
-                        self.new_size_scale.setValue(
-                            int((min_percent + 100) / 2))
+                        #self.new_size_scale.setMinimum(min_percent)
+                        #self.new_size_scale.setMaximum(100)
+                        #self.new_size_scale.setValue(
+                        #    int((min_percent + 100) / 2))
+                        self.new_size_scale.set_part_size(self.resize_orig_size)
+                        self.new_size_scale.set_min(self.resize_min_size)
+                        self.new_size_scale.set_max(self.resize_max_size)
+                        self.new_size_scale.set_device(self.resize_path)
                     self.autopartition_extras[choice] = containerWidget
                 elif choice != manual_choice:
                     disk_frame = QFrame(self.userinterface.autopartition_frame)
@@ -1287,7 +1290,7 @@ class Wizard(BaseFrontend):
         if choice == self.resize_choice:
             # resize choice should have been hidden otherwise
             assert self.new_size_scale is not None
-            return choice, self.new_size_scale.value()
+            return choice, self.new_size_scale.get_value()
         elif (choice != self.manual_choice and
               choice in self.autopartition_extra_buttongroup):
             disk_id = self.autopartition_extra_buttongroup[choice].checkedId()
@@ -2458,3 +2461,135 @@ class TreeItem:
             # partman expects.
             size_mb = int(partition['resize_min_size']) / 1000000
             return '%d MB' % size_mb
+
+#TODO much of this is duplicated from gtk_ui, abstract it
+class ResizeWidget(QWidget):
+    def __init__(self, parent=None):
+        QWidget.__init__(self, parent)
+
+        frame = QFrame(self)
+        layout = QHBoxLayout(self)
+        layout.addWidget(frame)
+
+        frame.setLineWidth(1)
+        frame.setFrameShadow(QFrame.Plain)
+        frame.setFrameShape(QFrame.StyledPanel)
+
+        layout = QHBoxLayout(frame)
+        layout.setMargin(2)
+        splitter = QSplitter(frame)
+        splitter.setChildrenCollapsible(False)
+        layout.addWidget(splitter)
+
+        self.old_os = QFrame(splitter)
+        self.old_os.setLineWidth(1)
+        self.old_os.setFrameShadow(QFrame.Raised)
+        self.old_os.setFrameShape(QFrame.Box)
+        layout = QHBoxLayout(self.old_os)
+        self.old_os_label = QLabel(self.old_os)
+        layout.addWidget(self.old_os_label)
+
+        self.new_os = QFrame(splitter)
+        self.new_os.setLineWidth(1)
+        self.new_os.setFrameShadow(QFrame.Raised)
+        self.new_os.setFrameShape(QFrame.Box)
+        layout = QHBoxLayout(self.new_os)
+        self.new_os_label = QLabel(self.new_os)
+        layout.addWidget(self.new_os_label)
+
+        self.old_os_label.setAlignment(Qt.AlignHCenter)
+        self.new_os_label.setAlignment(Qt.AlignHCenter)
+
+        self.old_os.setAutoFillBackground(True)
+        palette = self.old_os.palette()
+        palette.setColor(QPalette.Active, QPalette.Background, QColor("#FFA500"))
+        palette.setColor(QPalette.Inactive, QPalette.Background, QColor("#FFA500"))
+
+        self.new_os.setAutoFillBackground(True)
+        palette = self.new_os.palette()
+        palette.setColor(QPalette.Active, QPalette.Background, Qt.white)
+        palette.setColor(QPalette.Inactive, QPalette.Background, Qt.white)
+
+        self.part_size = 0
+        self.old_os_title = ''
+        self._set_new_os_title()
+        self.max_size = 0
+        self.min_size = 0
+
+    def paintEvent(self, event):
+        self._update_min()
+        self._update_max()
+
+        s1 = self.old_os.width()
+        s2 = self.new_os.width()
+        total = s1 + s2
+
+        percent = (float(s1) / float(total))
+        txt = '%s\n%.0f%% (%s)' % (self.old_os_title,
+            (percent * 100.0),
+            format_size(percent * self.part_size))
+        self.old_os_label.setText(txt)
+        self.old_os.setToolTip(txt)
+
+        percent = (float(s2) / float(total))
+        txt = '%s\n%.0f%% (%s)' % (self.new_os_title,
+            (percent * 100.0),
+            format_size(percent * self.part_size))
+        self.new_os_label.setText(txt)
+        self.new_os.setToolTip(txt)
+
+    def set_min(self, size):
+        self.min_size = size
+
+    def set_max(self, size):
+        self.max_size = size
+
+    def set_part_size(self, size):
+        self.part_size = size
+
+    def _update_min(self):
+        total = self.new_os.width() + self.old_os.width()
+        # The minimum percent needs to be 1% greater than the value debconf
+        # feeds us, otherwise the resize will fail.
+        tmp = (self.min_size / self.part_size) + 0.01
+        pixels = int(tmp * total)
+        self.old_os.setMinimumWidth(pixels)
+
+    def _update_max(self):
+        total = self.new_os.width() + self.old_os.width()
+        tmp = ((self.part_size - self.max_size) / self.part_size)
+        pixels = int(tmp * total)
+        self.new_os.setMinimumWidth(pixels)
+
+    def _set_new_os_title(self):
+        self.new_os_title = ''
+        try:
+            fp = open('/cdrom/.disk/info')
+            line = fp.readline()
+            if line:
+                self.new_os_title = ' '.join(line.split()[:2])
+            fp.close()
+        except:
+            syslog.syslog(syslog.LOG_ERR,
+                "Unable to determine the distribution name from /cdrom/.disk/info")
+        if not self.new_os_title:
+            self.new_os_title = 'Kubuntu'
+
+    def set_device(self, dev):
+        '''Sets the title of the old partition to the name found in os_prober.
+           On failure, sets the title to the device name or the empty string.'''
+        if dev:
+            self.old_os_title = find_in_os_prober(dev)
+        if dev and not self.old_os_title:
+            self.old_os_title = dev
+        elif not self.old_os_title:
+            self.old_os_title = ''
+     
+    def get_value(self):
+        '''Returns the percent the old partition is of the maximum size it can be.'''
+        s1 = self.old_os.width()
+        s2 = self.new_os.width()
+        totalwidth = s1 + s2
+        percentwidth = float(s1) / float(totalwidth)
+        percentpart = percentwidth * self.part_size
+        return int((percentpart / self.max_size) * 100)
