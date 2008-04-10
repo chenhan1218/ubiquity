@@ -2573,10 +2573,12 @@ class ResizeWidget(QWidget):
             line = fp.readline()
             if line:
                 self.new_os_title = ' '.join(line.split()[:2])
-            fp.close()
         except:
             syslog.syslog(syslog.LOG_ERR,
                 "Unable to determine the distribution name from /cdrom/.disk/info")
+        finally:
+            if fp:
+                fp.close()
         if not self.new_os_title:
             self.new_os_title = 'Kubuntu'
 
