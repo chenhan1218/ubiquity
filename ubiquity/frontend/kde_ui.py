@@ -465,6 +465,9 @@ class Wizard(BaseFrontend):
 
         self.translate_widget_children(parentWidget)
 
+        self.userinterface.partition_button_undo.setText(
+            self.get_string('partman/text/undo_everything').replace('_', '&', 1))
+
     def translate_widget_children(self, parentWidget=None):
         if parentWidget == None:
             parentWidget = self.userinterface
