@@ -519,7 +519,7 @@ class Wizard(BaseFrontend):
             else:
                 widget.setText(text)
 
-        elif isinstance(widget, QPushButton):
+        elif isinstance(widget, QPushButton) or isinstance(widget, QCheckBox):
             widget.setText(text.replace('_', '&', 1))
 
         elif isinstance(widget, QWidget) and str(name) == "UbiquityUIBase":
@@ -1458,6 +1458,7 @@ class Wizard(BaseFrontend):
         self.edit_dialog = QDialog(self.userinterface)
         uic.loadUi("%s/partition_edit_dialog.ui" % UIDIR, self.edit_dialog)
         self.app.connect(self.edit_dialog.partition_edit_use_combo, SIGNAL("currentIndexChanged(int)"), self.on_partition_edit_use_combo_changed)
+        self.translate_widget_children(self.edit_dialog)
 
         current_size = None
         if ('can_resize' not in partition or not partition['can_resize'] or
@@ -1792,6 +1793,7 @@ class Wizard(BaseFrontend):
         pass
 
     def on_advanced_button_clicked (self):
+        self.translate_widget_children(self.advanceddialog)
         self.app.connect(self.advanceddialog.grub_enable, SIGNAL("stateChanged(int)"), self.toggle_grub)
         self.app.connect(self.advanceddialog.proxy_host_entry, SIGNAL("textChanged(const QString &)"), self.enable_proxy_spinbutton)
         display = False
