@@ -19,6 +19,9 @@ ubiquity (1.8.3) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Update the translations from Rosetta.
+  * Automatic update of included source packages: debian-installer-utils
+    1.50ubuntu3, localechooser 1.42ubuntu5, partman-basicfilesystems
+    56ubuntu4.
 
   [ Jonathan Riddell ]
   * Fix exception in edit partitions dialogue use in kde_ui
