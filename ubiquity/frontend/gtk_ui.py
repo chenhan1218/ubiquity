@@ -1793,8 +1793,10 @@ class Wizard(BaseFrontend):
         if iterator is None or model[iterator][0] not in known_filesystems:
             self.partition_edit_mount_combo.child.set_text('')
             self.partition_edit_mount_combo.set_sensitive(False)
+            self.partition_edit_format_checkbutton.set_sensitive(False)
         else:
             self.partition_edit_mount_combo.set_sensitive(True)
+            self.partition_edit_format_checkbutton.set_sensitive(True)
             if isinstance(self.dbfilter, partman.Partman):
                 mount_model = self.partition_edit_mount_combo.get_model()
                 if mount_model is not None:

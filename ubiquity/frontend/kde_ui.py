@@ -1577,8 +1577,10 @@ class Wizard(BaseFrontend):
         if method not in known_filesystems:
             self.edit_dialog.partition_edit_mount_combo.clearEditText()
             self.edit_dialog.partition_edit_mount_combo.setEnabled(False)
+            self.edit_dialog.partition_edit_format_checkbutton.setEnabled(False)
         else:
             self.edit_dialog.partition_edit_mount_combo.setEnabled(True)
+            self.edit_dialog.partition_edit_format_checkbutton.setEnabled(True)
             if isinstance(self.dbfilter, partman.Partman):
                 self.edit_dialog.partition_edit_mount_combo.clear()
                 for mp, choice_c, choice in \
