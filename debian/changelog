@@ -7,6 +7,7 @@ ubiquity (1.8.4) UNRELEASED; urgency=low
      confirm exit dialogue had been dismissed
    - Fix exception in on_partition_edit_use_combo_changed when non ascii characters are used
    - Translate dialogues
+   - Fix launching browser from release notes label
   * kde_ui, gtk_ui
    - In partition edit dialogue, enable format tickbox when a format type is selected
 

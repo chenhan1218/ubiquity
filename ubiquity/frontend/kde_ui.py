@@ -97,6 +97,19 @@ class UbiquityUI(QWidget):
         if self.wizard.on_cancel_clicked() == False:
             event.ignore()
 
+class linkLabel(QLabel):
+
+    def __init__(self, wizard, parent):
+        QLabel.__init__(self, parent)
+        self.wizard = wizard
+
+    def mouseReleaseEvent(self, event):
+        self.wizard.openReleaseNotes()
+
+    def setText(self, text):
+        QLabel.setText(self, text)
+        self.resize(self.sizeHint())
+
 class Wizard(BaseFrontend):
 
     def __init__(self, distro):
@@ -172,6 +185,11 @@ class Wizard(BaseFrontend):
         self.map_vbox.setMargin(0)
 
         self.customize_installer()
+
+        release_notes_layout = QHBoxLayout(self.userinterface.release_notes_frame)
+        self.release_notes_url = linkLabel(self, self.userinterface.release_notes_frame)
+        self.release_notes_url.setObjectName("release_notes_url")
+        self.release_notes_url.show()
 
         self.translate_widgets()
 
@@ -256,10 +274,13 @@ class Wizard(BaseFrontend):
     def enable_volume_manager(self):
         execute('dcop', 'kded', 'kded', 'loadModule', 'medianotifier')
 
+    def openReleaseNotes(self):
+        self.openURL(self.release_notes_url_template)
+
     def openURL(self, url):
         #need to run this else kdesu can't run Konqueror
         execute('su', 'ubuntu', 'xhost', '+localhost')
-        KRun.runURL(KURL(url), "text/html")
+        execute('su', 'ubuntu', 'xdg-open', url)
 
     def run(self):
         """run the interface."""
@@ -444,7 +465,7 @@ class Wizard(BaseFrontend):
             raise
         except:
             self.userinterface.release_notes_label.hide()
-            self.userinterface.release_notes_url.hide()
+            self.userinterface.release_notes_frame.hide()
 
         self.tzmap = TimezoneMap(self)
         self.tzmap.tzmap.show()
@@ -468,6 +489,10 @@ class Wizard(BaseFrontend):
 
         self.userinterface.partition_button_undo.setText(
             self.get_string('partman/text/undo_everything').replace('_', '&', 1))
+        if self.release_notes_url_template is not None:
+            url = self.release_notes_url_template.replace('${LANG}', self.locale.split('.')[0])
+            text = self.get_string('release_notes_url')
+            self.release_notes_url.setText('<a href="%s">%s</a>' % (url, text))
 
     def translate_widget_children(self, parentWidget=None):
         if parentWidget == None:
@@ -937,7 +962,7 @@ class Wizard(BaseFrontend):
         if lang:
             # strip encoding; we use UTF-8 internally no matter what
             lang = lang.split('.')[0].lower()
-            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.oem_id_label, self.userinterface.release_notes_label, self.userinterface.release_notes_url, self.userinterface.next, self.userinterface.back, self.userinterface.cancel, self.userinterface.step_label):
+            for widget in (self.userinterface, self.userinterface.welcome_heading_label, self.userinterface.welcome_text_label, self.userinterface.oem_id_label, self.userinterface.release_notes_label, self.userinterface.release_notes_frame, self.userinterface.next, self.userinterface.back, self.userinterface.cancel, self.userinterface.step_label):
                 self.translate_widget(widget, lang)
 
     def on_steps_switch_page(self, newPageID):

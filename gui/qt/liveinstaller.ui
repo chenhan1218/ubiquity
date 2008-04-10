@@ -270,14 +270,7 @@ This language will be the default language for the final system.</string>
         </widget>
        </item>
        <item row="7" column="1" >
-        <widget class="QLabel" name="release_notes_url" >
-         <property name="text" >
-          <string>Release Notes</string>
-         </property>
-         <property name="openExternalLinks" >
-          <bool>true</bool>
-         </property>
-        </widget>
+        <widget class="QWidget" native="1" name="release_notes_frame" />
        </item>
       </layout>
      </widget>
