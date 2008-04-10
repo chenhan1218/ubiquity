@@ -1299,7 +1299,7 @@ class Wizard(BaseFrontend):
 
     def update_partman (self, disk_cache, partition_cache, cache_order):
         #throwing away the old model if there is one
-        self.partition_tree_model = PartitionModel(self.userinterface.partition_list_treeview)
+        self.partition_tree_model = PartitionModel(self, self.userinterface.partition_list_treeview)
 
         children = self.userinterface.partition_bar_frame.children()
         for child in children:
@@ -2214,17 +2214,16 @@ class MapWidget(QWidget):
         self.setPalette(palette)
 
 class PartitionModel(QAbstractItemModel):
-    def __init__(self, parent=None):
+    def __init__(self, ubiquity, parent=None):
         QAbstractItemModel.__init__(self, parent)
 
         rootData = []
-        rootData.append(QVariant(self.get_string('partition_column_device')))
-        rootData.append(QVariant(self.get_string('partition_column_type')))
-        rootData.append(QVariant(
-            self.get_string('partition_column_mountpoint')))
-        rootData.append(QVariant(self.get_string('partition_column_format')))
-        rootData.append(QVariant(self.get_string('partition_column_size')))
-        rootData.append(QVariant(self.get_string('partition_column_used')))
+        rootData.append(QVariant(ubiquity.get_string('partition_column_device')))
+        rootData.append(QVariant(ubiquity.get_string('partition_column_type')))
+        rootData.append(QVariant(ubiquity.get_string('partition_column_mountpoint')))
+        rootData.append(QVariant(ubiquity.get_string('partition_column_format')))
+        rootData.append(QVariant(ubiquity.get_string('partition_column_size')))
+        rootData.append(QVariant(ubiquity.get_string('partition_column_used')))
         self.rootItem = TreeItem(rootData)
 
     def append(self, data, ubiquity):
