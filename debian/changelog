@@ -1,4 +1,4 @@
-ubiquity (1.8.3) UNRELEASED; urgency=low
+ubiquity (1.8.3) hardy; urgency=low
 
   [ Colin Watson ]
   * Make all text in the partitioner translatable (LP: #144741).
@@ -28,7 +28,7 @@ ubiquity (1.8.3) UNRELEASED; urgency=low
   * Add minimum size to partition_edit_dialog.ui, closes LP: #203626
   * Fix buttons on question dialogue to use supplied text, closes LP: #203660
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 08 Apr 2008 13:05:20 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 10 Apr 2008 04:22:15 -0400
 
 ubiquity (1.8.2) hardy; urgency=low
 
