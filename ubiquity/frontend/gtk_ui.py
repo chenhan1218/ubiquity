@@ -1426,7 +1426,12 @@ class Wizard(BaseFrontend):
     def partman_column_type (self, column, cell, model, iterator):
         partition = model[iterator][1]
         if 'id' not in partition or 'method' not in partition:
-            cell.set_property('text', '')
+            if ('parted' in partition and
+                partition['parted']['fs'] != 'free' and
+                'detected_filesystem' in partition):
+                cell.set_property('text', partition['detected_filesystem'])
+            else:
+                cell.set_property('text', '')
         elif ('filesystem' in partition and
               partition['method'] in ('format', 'keep')):
             cell.set_property('text', partition['acting_filesystem'])

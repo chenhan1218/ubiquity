@@ -19,6 +19,10 @@ ubiquity (1.8.4) UNRELEASED; urgency=low
   [ Colin Watson ]
   * KDE frontend: Translate the partition create dialog too.
   * Fix crash if opening /cdrom/.disk/info fails (with Jonathan and Evan).
+  * Show current filesystem type if it isn't currently being used for
+    anything; now that partman no longer sets up automatic mount points for
+    everything, the lack of filesystem types made it difficult to get any
+    context on which partition was which.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 10 Apr 2008 11:01:16 +0100
 

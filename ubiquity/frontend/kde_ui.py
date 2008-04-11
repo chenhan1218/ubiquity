@@ -2413,7 +2413,12 @@ class TreeItem:
     def partman_column_type(self):
         partition = self.itemData[1]
         if 'id' not in partition or 'method' not in partition:
-            return ''
+            if ('parted' in partition and
+                partition['parted']['fs'] != 'free' and
+                'detected_filesystem' in partition):
+                return partition['detected_filesystem']
+            else:
+                return ''
         elif ('filesystem' in partition and
               partition['method'] in ('format', 'keep')):
             return partition['acting_filesystem']
