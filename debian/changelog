@@ -16,6 +16,9 @@ ubiquity (1.8.4) UNRELEASED; urgency=low
   * Removed partman/check.d/12system_partitions_formatted.  A modified version
     now lives in partman-target.
 
+  [ Colin Watson ]
+  * KDE frontend: Translate the partition create dialog too.
+
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 10 Apr 2008 11:01:16 +0100
 
 ubiquity (1.8.3) hardy; urgency=low

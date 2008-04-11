@@ -1382,6 +1382,7 @@ class Wizard(BaseFrontend):
         self.create_dialog = QDialog(self.userinterface)
         uic.loadUi("%s/partition_create_dialog.ui" % UIDIR, self.create_dialog)
         self.app.connect(self.create_dialog.partition_create_use_combo, SIGNAL("currentIndexChanged(int)"), self.on_partition_create_use_combo_changed)
+        self.translate_widget_children(self.create_dialog)
 
         # TODO cjwatson 2006-11-01: Because partman doesn't use a question
         # group for these, we have to figure out in advance whether each
