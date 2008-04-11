@@ -5,13 +5,15 @@ ubiquity (1.8.4) UNRELEASED; urgency=low
    - Fix crash in PartitionModel localisation (LP: #216031).
    - Fix translations on buttons
    - Replace the resize slider with the custom widget
-   - Fix occational bug where the app would still quit after the
-     confirm exit dialogue had been dismissed
-   - Fix exception in on_partition_edit_use_combo_changed when non ascii characters are used
+   - Fix occasional bug where the app would still quit after the confirm
+     exit dialogue had been dismissed
+   - Fix exception in on_partition_edit_use_combo_changed when non-ASCII
+     characters are used
    - Translate dialogues
    - Fix launching browser from release notes label
   * kde_ui, gtk_ui
-   - In partition edit dialogue, enable format tickbox when a format type is selected
+   - In partition edit dialogue, enable format tickbox when a format type is
+     selected
 
   [ Evan Dandrea ]
   * Removed partman/check.d/12system_partitions_formatted.  A modified version
