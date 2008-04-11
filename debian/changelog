@@ -2,6 +2,7 @@ ubiquity (1.8.4) UNRELEASED; urgency=low
 
   [ Jonathan Riddell ]
   * kde_ui:
+   - Fix crash in PartitionModel localisation (LP: #216031).
    - Fix translations on buttons
    - Replace the resize slider with the custom widget
    - Fix occational bug where the app would still quit after the
