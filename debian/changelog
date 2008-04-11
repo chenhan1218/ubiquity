@@ -18,6 +18,7 @@ ubiquity (1.8.4) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * KDE frontend: Translate the partition create dialog too.
+  * Fix crash if opening /cdrom/.disk/info fails (with Jonathan and Evan).
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 10 Apr 2008 11:01:16 +0100
 

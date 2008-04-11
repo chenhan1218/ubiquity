@@ -2594,6 +2594,7 @@ class ResizeWidget(QWidget):
 
     def _set_new_os_title(self):
         self.new_os_title = ''
+        fp = None
         try:
             fp = open('/cdrom/.disk/info')
             line = fp.readline()
@@ -2603,7 +2604,7 @@ class ResizeWidget(QWidget):
             syslog.syslog(syslog.LOG_ERR,
                 "Unable to determine the distribution name from /cdrom/.disk/info")
         finally:
-            if fp:
+            if fp is not None:
                 fp.close()
         if not self.new_os_title:
             self.new_os_title = 'Kubuntu'
