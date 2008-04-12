@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-04-10 04:12-0400\n"
-"PO-Revision-Date: 2008-03-31 12:01+0000\n"
+"PO-Revision-Date: 2008-04-10 13:52+0000\n"
 "Last-Translator: 刘其帅 <lqs.buaa@gmail.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-08 07:57+0000\n"
+"X-Launchpad-Export-Date: 2008-04-12 12:04+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -43,14 +43,14 @@ msgid ""
 "CD can be installed on this computer so you can run the system at full speed "
 "and without the CD."
 msgstr ""
-"准备好了吗？在您回答一些问题后，live CD 里的内容会被安装到这台电脑上。这样您"
-"就可以全速运行这个系统，而不需要这张 CD 了。"
+"准备安装了吗？你回答几个问题之后，live CD的内容就可以安装到计算机上，你就可以"
+"全速运行系统，而不需要CD了。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Answering the questions should only take a few minutes."
-msgstr "回答这些问题只需要花费您几分钟的时间。"
+msgstr "回答那些问题仅需要几分钟时间。"
 
 #. Type: text
 #. Description
@@ -215,7 +215,7 @@ msgstr "迁移文档及设置"
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
-msgstr ""
+msgstr "选择您想要导入的帐号。这些帐号中的文档和设置将在安装结束后可用。"
 
 #. Type: text
 #. Description
@@ -343,19 +343,15 @@ msgstr ""
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Create partition"
 msgid "New partition table"
-msgstr "创建分区"
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:47001
-#, fuzzy
-#| msgid "Create partition"
 msgid "New partition"
-msgstr "创建分区"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -370,10 +366,8 @@ msgstr "编辑分区"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:49001
-#, fuzzy
-#| msgid "Create partition"
 msgid "Delete partition"
-msgstr "创建分区"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -423,10 +417,8 @@ msgstr ""
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:56001
-#, fuzzy
-#| msgid "Prepare disk space"
 msgid "free space"
-msgstr "预备硬盘空间"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -513,19 +505,19 @@ msgstr "参加软件包使用调查"
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Network proxy"
-msgstr ""
+msgstr "网络代理"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP 代理："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Port:"
-msgstr ""
+msgstr "端口："
 
 #. Type: text
 #. Description
@@ -555,10 +547,13 @@ msgstr "继续"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
+#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"安装完成。你需要重新启动计算机以使用新安装的系统。你可以继续使用live CD，不过"
+"你所做的任何更改和保存的文档不会被保留。"
 
 #. Type: note
 #. Description
@@ -620,7 +615,7 @@ msgstr "正在复制文件（剩余不到一分钟时间）…"
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Failed to copy files; out of disk space."
-msgstr ""
+msgstr "复制文件失败，磁盘空间不足。"
 
 #. Type: error
 #. Description
@@ -643,6 +638,8 @@ msgid ""
 "install to complete on the target partition.  Please run the installer again "
 "and select a larger partition to install into."
 msgstr ""
+"此错误是由于目标分区的磁盘空间不足而无法完成安装。请重新晕新安装程序，并选择"
+"较大的分区。"
 
 #. Type: error
 #. Description
@@ -711,13 +708,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "复制文件失败，光盘或硬盘坏了吗？"
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:91001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "CD/DVD 中的以下文件与原始文件不同："
 
 #. Type: text
 #. Description
@@ -941,7 +938,7 @@ msgstr "你是否想让安装程序再次尝试卸载这些分区？"
 #. Description
 #: ../ubiquity.templates:124001 ../ubiquity.templates:130001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "您希望返回到分区工具吗？"
 
 #. Type: boolean
 #. Description
@@ -952,6 +949,8 @@ msgid ""
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
+"在 ${PARTITION} 上分配为 ${MOUNTPOINT} 的文件系统将不会格式化。在已定义的挂载"
+"点中包含系统文件的目录（如 /boot, /etc, /usr, /var, ...）将会在安装时删除。"
 
 #. Type: boolean
 #. Description
@@ -959,7 +958,7 @@ msgstr ""
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
-msgstr ""
+msgstr "您建立的一些分区太小。请确保以下分区的最少字节数："
 
 #. Type: boolean
 #. Description
@@ -967,7 +966,7 @@ msgstr ""
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
-msgstr ""
+msgstr "如果您不回到分区工具并增加这些分区的大小，安装可能会失败。"
 
 #. Type: note
 #. Description
@@ -1213,7 +1212,7 @@ msgstr "Myth 控制"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth 电影"
 
 #. Type: text
 #. Description
@@ -1295,7 +1294,7 @@ msgstr "MythTV的外部控制 。这将允许你改变按钮映射和按键绑�
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "寻找附近影院播放的电影"
 
 #. Type: text
 #. Description
@@ -1377,7 +1376,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 #: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "全部启用/禁用"
 
 #. Type: text
 #. Description
@@ -1532,4 +1531,4 @@ msgstr "正在配置附加服务..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring infrared devices..."
-msgstr ""
+msgstr "配置红外设备..."

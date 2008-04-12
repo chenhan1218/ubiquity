@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-08 07:58+0000\n"
+"X-Launchpad-Export-Date: 2008-04-12 12:02+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -346,10 +346,8 @@ msgstr ""
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:47001
-#, fuzzy
-#| msgid "Prepare partitions"
 msgid "New partition"
-msgstr "ክፋይ አዘጋጅ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -364,10 +362,8 @@ msgstr ""
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:49001
-#, fuzzy
-#| msgid "Prepare partitions"
 msgid "Delete partition"
-msgstr "ክፋይ አዘጋጅ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -417,9 +413,8 @@ msgstr ""
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:56001
-#, fuzzy
 msgid "free space"
-msgstr "ከአምዱ በኋላ ክፍተት"
+msgstr ""
 
 #. Type: text
 #. Description

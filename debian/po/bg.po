@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-04-10 04:12-0400\n"
-"PO-Revision-Date: 2008-03-31 14:17+0000\n"
-"Last-Translator: Nikola Kasabov <nikola.kasabov@gmail.com>\n"
+"PO-Revision-Date: 2008-04-08 13:41+0000\n"
+"Last-Translator: Damyan Ivanov <dmn@debian.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-08 07:57+0000\n"
+"X-Launchpad-Export-Date: 2008-04-12 12:02+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -362,19 +362,15 @@ msgstr ""
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Create partition"
 msgid "New partition table"
-msgstr "Създаване на дял"
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:47001
-#, fuzzy
-#| msgid "Create partition"
 msgid "New partition"
-msgstr "Създаване на дял"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -389,10 +385,8 @@ msgstr "Редакция на дял"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:49001
-#, fuzzy
-#| msgid "Create partition"
 msgid "Delete partition"
-msgstr "Създаване на дял"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -442,10 +436,8 @@ msgstr ""
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:56001
-#, fuzzy
-#| msgid "Prepare disk space"
 msgid "free space"
-msgstr "Подготовка на дисковото пространство"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -576,10 +568,15 @@ msgstr "Продължаване"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
+#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"Инсталацията е завършена. Нужно е да рестартирате компютъра за да използвате "
+"новата инсталация. Можете да продължите да ползвате Живото CD, въпреки че "
+"промените, които правите, или документите, които записвате, няма да бъдат "
+"запазени."
 
 #. Type: note
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-04-10 04:12-0400\n"
-"PO-Revision-Date: 2008-02-20 12:45+0000\n"
+"PO-Revision-Date: 2008-04-08 15:30+0000\n"
 "Last-Translator: A S Alam <Unknown>\n"
-"Language-Team: Punjabi <fedora-trans-pa@redhat.com>\n"
+"Language-Team: Punjabi <punjabi-l10n@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-08 07:58+0000\n"
+"X-Launchpad-Export-Date: 2008-04-12 12:02+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -358,9 +358,8 @@ msgstr ""
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:47001
-#, fuzzy
 msgid "New partition"
-msgstr "ਨਵਾਂ ਭਾਗ ਬਣਾਓ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -375,9 +374,8 @@ msgstr ""
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:49001
-#, fuzzy
 msgid "Delete partition"
-msgstr "ਨਵਾਂ ਭਾਗ ਬਣਾਓ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -427,10 +425,8 @@ msgstr ""
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:56001
-#, fuzzy
-#| msgid "Prepare disk space"
 msgid "free space"
-msgstr "ਡਿਸਕ ਜਗ੍ਹਾ ਤਿਅਾਰ ਕਰੋ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -560,10 +556,14 @@ msgstr "ਜਾਰੀ ਰੱਖੋ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
+#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"ੲਿੰਸਟਾਲੇਸ਼ਨ ਸਮਾਪਤ ਹੋੲੀ । ਤੁਹਾਨੂੰ ਨਵੀਂ ੲਿੰਸਟਾਲੇਸ਼ਨ ਦੀ ਵਰਤੋਂ ਲੲੀ ਕੰਮਪੂਟਰ ਦੋਬਾਰਾ ਸ਼ੁਰੂ ਕਰਨਾ ਪੈਣਾ ਹੈ। "
+"ਤੁਸੀਂ ੲਿਸ ਲਾੲੀਵ ਸੀਡੀ ਨੂੰ ਵਰਤਣਾ ਜਾਰੀ ਰਖ ਸਕਦੇ ਹੋ, ਹਾਲਾਂਕਿ ਤੁਹਾਡੀਅਾਂ ਕੋੲੀ ਵੀ ਤਬਦੀਲੀਅਾਂ ਜਾਂ "
+"ਬਚਾੲੇ ਹੋੲੇ ਦਸਤਾਵੇਜ ਸੰਭਾਲੇ ਨਹੀਂ ਜਾਣਗੇ।"
 
 #. Type: note
 #. Description

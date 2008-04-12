@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-04-10 04:12-0400\n"
-"PO-Revision-Date: 2008-02-20 12:50+0000\n"
+"PO-Revision-Date: 2008-04-08 17:57+0000\n"
 "Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
-"Language-Team: Swedish <debian-boot@lists.debian.org>\n"
+"Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-08 07:56+0000\n"
+"X-Launchpad-Export-Date: 2008-04-12 12:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -229,6 +229,9 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Välj de konton som du vill importera. Dokumenten och inställningarna för "
+"dessa konton kommer att finnas tillgängliga efter att installationen är "
+"färdig."
 
 #. Type: text
 #. Description
@@ -361,19 +364,15 @@ msgstr ""
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Create partition"
 msgid "New partition table"
-msgstr "Skapa partition"
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:47001
-#, fuzzy
-#| msgid "Create partition"
 msgid "New partition"
-msgstr "Skapa partition"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -388,10 +387,8 @@ msgstr "Redigera partition"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:49001
-#, fuzzy
-#| msgid "Create partition"
 msgid "Delete partition"
-msgstr "Skapa partition"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -441,10 +438,8 @@ msgstr ""
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:56001
-#, fuzzy
-#| msgid "Prepare disk space"
 msgid "free space"
-msgstr "Förbered diskutrymme"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -531,19 +526,19 @@ msgstr "Delta i undersökningen av paketanvändning"
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Network proxy"
-msgstr ""
+msgstr "Nätverksproxyserver"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP-proxy:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Port:"
-msgstr ""
+msgstr "Port:"
 
 #. Type: text
 #. Description
@@ -578,6 +573,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"Installationen är färdig. Du måste starta om datorn för att använda den nya "
+"installationen."
 
 #. Type: note
 #. Description
@@ -639,7 +636,7 @@ msgstr "Kopierar filer (mindre än en minut återstår)..."
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Failed to copy files; out of disk space."
-msgstr ""
+msgstr "Misslyckades med att kopiera filer; slut på diskutrymme."
 
 #. Type: error
 #. Description
@@ -664,6 +661,10 @@ msgid ""
 "install to complete on the target partition.  Please run the installer again "
 "and select a larger partition to install into."
 msgstr ""
+"Detta specifika fel har skett på grund av att det inte finns tillräckligt "
+"mycket diskutrymme för att installationen ska färdigställas på "
+"målpartitionen. Kör installationsprogrammet igen och välj en större "
+"partition att installera på."
 
 #. Type: error
 #. Description
@@ -736,13 +737,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Misslyckades med att kopiera fil; fel på cd/dvd eller hårddisk?"
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:91001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Följande fil stämde inte överens med sin källkopia på cd/dvd-skivan:"
 
 #. Type: text
 #. Description
@@ -973,7 +974,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:124001 ../ubiquity.templates:130001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Vill du återvända till partitioneraren?"
 
 #. Type: boolean
 #. Description
@@ -984,6 +985,10 @@ msgid ""
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
+"Filsystemet på ${PARTITION} som tilldelats till ${MOUNTPOINT} har inte "
+"markerats för formatering.  Kataloger som innehåller systemfiler (/boot, /"
+"etc, /usr, /var, ...) som redan finns under definierade monteringspunkter "
+"kommer att raderas under installationen."
 
 #. Type: boolean
 #. Description
@@ -992,6 +997,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Några av partitionerna som du skapade är för små.  Gör följande partitioner "
+"åtminstone så här stora (i byte):"
 
 #. Type: boolean
 #. Description
@@ -1000,6 +1007,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Om du inte går tillbaka till partitioneraren och ökar storleken för dessa "
+"partitioner så kan installationen misslyckas."
 
 #. Type: note
 #. Description
@@ -1258,7 +1267,7 @@ msgstr "Myth Styrning"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth Filmer"
 
 #. Type: text
 #. Description
@@ -1343,7 +1352,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Hitta filmer som visas på närliggande lokala biografer"
 
 #. Type: text
 #. Description
@@ -1425,6 +1434,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"Teman kan förbättra det estetiska för en MythTV-installation och anpassa den "
+"till din egna smak."
 
 #. Type: text
 #. Description
@@ -1433,7 +1444,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 #: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Aktivera/inaktivera alla"
 
 #. Type: text
 #. Description
@@ -1595,4 +1606,4 @@ msgstr "Konfigurerar ytterligare tjänster..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring infrared devices..."
-msgstr ""
+msgstr "Konfigurerar infraröda enheter..."

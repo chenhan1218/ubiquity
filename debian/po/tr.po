@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-04-10 04:12-0400\n"
-"PO-Revision-Date: 2008-03-02 22:58+0000\n"
-"Last-Translator: Serhat Demirkol <serhat_demirkol@yahoo.com>\n"
+"PO-Revision-Date: 2008-04-10 01:09+0000\n"
+"Last-Translator: Sait Ahmet Binselam <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-08 08:00+0000\n"
+"X-Launchpad-Export-Date: 2008-04-12 12:04+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -227,6 +227,9 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Transfer etmek istediğiniz herhangi bir hesabı seçin. Bu hesapların "
+"belgeleri ve ayarları  kurulum tamamlandıktan sonra kullanıma hazır "
+"olacaktır."
 
 #. Type: text
 #. Description
@@ -358,19 +361,15 @@ msgstr ""
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Create partition"
 msgid "New partition table"
-msgstr "Bölüm oluştur"
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:47001
-#, fuzzy
-#| msgid "Create partition"
 msgid "New partition"
-msgstr "Bölüm oluştur"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -385,10 +384,8 @@ msgstr "Bölüm düzenle"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:49001
-#, fuzzy
-#| msgid "Create partition"
 msgid "Delete partition"
-msgstr "Bölüm oluştur"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -438,10 +435,8 @@ msgstr ""
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:56001
-#, fuzzy
-#| msgid "Prepare disk space"
 msgid "free space"
-msgstr "Disk alanı hazırla"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -528,19 +523,19 @@ msgstr "Paket kullanım anketine katıl"
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Network proxy"
-msgstr ""
+msgstr "Ağ yetkili sunucu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP yetkili sunucu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Port:"
-msgstr ""
+msgstr "Bağlantı kapısı:"
 
 #. Type: text
 #. Description
@@ -575,6 +570,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"Kurulum tamamlandı. Yeni kurulumu kullanmak için bilgisayarı yeniden "
+"başlatmanız gerekiyor."
 
 #. Type: note
 #. Description
@@ -636,7 +633,7 @@ msgstr "Dosyalar kopyalanıyor (bir dakikadan daha az kaldı)..."
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Failed to copy files; out of disk space."
-msgstr ""
+msgstr "Dosyaları kopyalama başarısız oldu; disk dolu."
 
 #. Type: error
 #. Description
@@ -659,6 +656,10 @@ msgid ""
 "install to complete on the target partition.  Please run the installer again "
 "and select a larger partition to install into."
 msgstr ""
+"Bu belirli hata kurulumun tamamlanabilmesi için hedef disk bölümü üzerinde "
+"yeteri kadar boş alanın olmamasından kaynaklanmaktadır. Lütfen kurulum "
+"uygulamasını tekrar calıştır ve kurulum için daha büyük bir disk bölümünü "
+"seç."
 
 #. Type: error
 #. Description
@@ -731,13 +732,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Dosya kopyalama başarısız oldu: hatalı CD.DVD veya sabit disk-"
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:91001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Aşağıdaki dosya CD/DVD üzerindeki kaynak kopyası ile eşleşmedi:"
 
 #. Type: text
 #. Description
@@ -966,7 +967,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:124001 ../ubiquity.templates:130001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Bölücüye geri dönmek istiyor musun?"
 
 #. Type: boolean
 #. Description
@@ -977,6 +978,10 @@ msgid ""
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
+"Disk bölümü ${PARTITION} üzerinde ayrılan ${MOUNTPOINT} dosya sistemi "
+"biçimlendirme için işaretlenmemiş bulunmaktadır.  Hali hazırda herhangi bir "
+"bağlantı noktası altında tanılmlı olarak bulunan sistem dosyalarını içeren "
+"dizinler (/boot, /etc, /usr, /var, ...) kurulum sürecinde silineceklerdir."
 
 #. Type: boolean
 #. Description
@@ -985,6 +990,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Sizin oluşturduğunuz disk bölümlerinin bazılarının kapasitesi çok kücük. "
+"Lütfen aşağıdaki disk bölümlerinin kapasitesini en az bu kadar ata (bayt):"
 
 #. Type: boolean
 #. Description
@@ -993,6 +1000,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Eğer disk bölücüye geri gitmez ve bu disk bölümlerinin kapasitesini "
+"arttırmazsanız kurulum başarısız olabilir."
 
 #. Type: note
 #. Description
@@ -1247,7 +1256,7 @@ msgstr "Myth Kontroller"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth Filmleri"
 
 #. Type: text
 #. Description
@@ -1331,7 +1340,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Yakınlardaki sinemalarda gösterimde olan filmleri bul"
 
 #. Type: text
 #. Description
@@ -1413,6 +1422,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"Temalar bir MythTV kurulumunun estetik begenilirliğini iyice artırır, ve "
+"sizin zevkinize çok daha uygun olarak segiler."
 
 #. Type: text
 #. Description
@@ -1421,7 +1432,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 #: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Hepsini  Seçilir/Seçilemez Kıl"
 
 #. Type: text
 #. Description
@@ -1511,20 +1522,18 @@ msgstr "MySQL Sunucu"
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:69001
-#, fuzzy
 msgid "Configure Guide Data / Backend"
-msgstr "Klavuz Verisini / Arkaucu Ayarla"
+msgstr "Kılavuz bilgisini & altyapısını yapılandır"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:70001
-#, fuzzy
 msgid ""
 "The final steps of the installation require setting up your guide data and "
 "configuring the backend for the first time."
 msgstr ""
-"Kurulumun son adımı kılavuz verinizin kurulmasını ve ilk kez için arkaucun "
-"ayarlanmasına gerek duyuyor."
+"Kurulumun son adımları kılavuz bilgilerinizin çalışır hale getirilmesini ve "
+"altyapının ilk kez için yapılandırılmasını gerektirir."
 
 #. Type: text
 #. Description
@@ -1561,10 +1570,10 @@ msgid ""
 "configure the first four sections, being sure to provide your guide data "
 "during the third."
 msgstr ""
-"Kılavuz veri kaynağını kurduktan sonra, arkauç yapılandırmasını ilk kez "
-"çalıştırmak için MythTV-Kurulumunu başlatmanız gerekecektir. Dördüncü "
-"bölümde kılavuz verinizi sağladığınızdan emin olarak, ilk dört bölümü "
-"ayarlamanız gerekecektir."
+"Rehber bilgi kaynağınızın kurulmasının ardından, MythTV kurulumunu başlatıp "
+"altyapı ayarlarını ilk olarak çalıştırmalısınız. Üçüncüsünde rehber "
+"bilginizi verdiğinizden emin olarak, ilk dört alanıın ayarlarını yapmanız "
+"gerekmektedir."
 
 #. Type: text
 #. Description
@@ -1588,4 +1597,4 @@ msgstr "Ek servisler yapılandırılıyor..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring infrared devices..."
-msgstr ""
+msgstr "Kızılötesi cihazları yapılandırıyor..."

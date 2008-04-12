@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-04-10 04:12-0400\n"
-"PO-Revision-Date: 2008-03-02 14:23+0000\n"
-"Last-Translator: Narcissusbi <Narcissusbi@gmail.com>\n"
+"PO-Revision-Date: 2008-04-09 14:00+0000\n"
+"Last-Translator: missmomo0911 <missmomo0911@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-08 07:57+0000\n"
+"X-Launchpad-Export-Date: 2008-04-12 12:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -109,11 +109,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:11001
 msgid "Selected city:"
-msgstr ""
-"#-#-#-#-#  zh_TW.po (debian-installer)  #-#-#-#-#\n"
-"目前所選擇的城市：\n"
-"#-#-#-#-#  zh_TW.po (debian-installer)  #-#-#-#-#\n"
-"被選定的時區"
+msgstr "已選擇的城市："
 
 #. Type: text
 #. Description
@@ -352,19 +348,15 @@ msgstr ""
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Create partition"
 msgid "New partition table"
-msgstr "建立分割區"
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:47001
-#, fuzzy
-#| msgid "Create partition"
 msgid "New partition"
-msgstr "建立分割區"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -379,10 +371,8 @@ msgstr "編輯分割區"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:49001
-#, fuzzy
-#| msgid "Create partition"
 msgid "Delete partition"
-msgstr "建立分割區"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -432,10 +422,8 @@ msgstr ""
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:56001
-#, fuzzy
-#| msgid "Prepare disk space"
 msgid "free space"
-msgstr "預備磁碟空間"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -522,19 +510,19 @@ msgstr "參與套件使用調查"
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Network proxy"
-msgstr ""
+msgstr "網路代理伺服器"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP 代理伺服器："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Port:"
-msgstr ""
+msgstr "連接埠："
 
 #. Type: text
 #. Description
@@ -564,10 +552,13 @@ msgstr "繼續"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
+#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"安裝已經完成。 您必須重新啟動電腦以使用新安裝的系統。 您可以繼續使用這個 "
+"live CD，但是您所做的更改或儲存的文件將不會被保留。"
 
 #. Type: note
 #. Description
@@ -629,7 +620,7 @@ msgstr "正在複製檔案 (剩餘時間少於一分鐘)..."
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Failed to copy files; out of disk space."
-msgstr ""
+msgstr "複製檔案失敗：因為磁碟空間不足。"
 
 #. Type: error
 #. Description
@@ -719,7 +710,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "複製檔案失敗：可能因為 CD/DVD 或硬碟的錯誤造成。"
 
 #. Type: select
 #. Description
@@ -1220,7 +1211,7 @@ msgstr "Myth 控制台"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth 電影"
 
 #. Type: text
 #. Description
@@ -1384,7 +1375,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 #: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "啟用/關閉 所有"
 
 #. Type: text
 #. Description

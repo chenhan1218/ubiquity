@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-04-10 04:12-0400\n"
-"PO-Revision-Date: 2008-03-27 18:01+0000\n"
+"PO-Revision-Date: 2008-04-11 22:23+0000\n"
 "Last-Translator: Kamil Páral <ripper42@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-08 07:56+0000\n"
+"X-Launchpad-Export-Date: 2008-04-12 12:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -227,6 +227,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Vyberte účty, které chcete importovat. Dokumenty a nastavení těchto účtů "
+"budou dostupné po dokončení instalace."
 
 #. Type: text
 #. Description
@@ -359,19 +361,15 @@ msgstr ""
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:46001
-#, fuzzy
-#| msgid "Create partition"
 msgid "New partition table"
-msgstr "Vytvořit oddíl"
+msgstr ""
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:47001
-#, fuzzy
-#| msgid "Create partition"
 msgid "New partition"
-msgstr "Vytvořit oddíl"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -386,10 +384,8 @@ msgstr "Upravit oddíl"
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:49001
-#, fuzzy
-#| msgid "Create partition"
 msgid "Delete partition"
-msgstr "Vytvořit oddíl"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -439,10 +435,8 @@ msgstr ""
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:56001
-#, fuzzy
-#| msgid "Prepare disk space"
 msgid "free space"
-msgstr "Připravte si místo na disku"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -528,20 +522,21 @@ msgstr "Zúčastnit se průzkumu používání balíků"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
+#, fuzzy
 msgid "Network proxy"
-msgstr ""
+msgstr "Síťová proxy"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP proxy:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Port:"
-msgstr ""
+msgstr "Port:"
 
 #. Type: text
 #. Description
@@ -572,10 +567,14 @@ msgstr "Pokračovat"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
+#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"Instalace úspěšně dokončena. Pro použití nové instalace je potřeba "
+"restartovat počítač. I nadále můžete používat toto živé CD, ale jakékoliv "
+"změny, které provedete, nebo dokumenty, které vytvoříte, nebudou zachovány."
 
 #. Type: note
 #. Description
@@ -637,7 +636,7 @@ msgstr "Kopírují se soubory (zbývá méně než minuta)..."
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Failed to copy files; out of disk space."
-msgstr ""
+msgstr "Nepodařilo se zkopírovat soubory; nedostatek místa na disku."
 
 #. Type: error
 #. Description
@@ -660,6 +659,9 @@ msgid ""
 "install to complete on the target partition.  Please run the installer again "
 "and select a larger partition to install into."
 msgstr ""
+"K této chybě došlo z důvodu nedostatku místa potřebného k dokončení "
+"instalace na cílovém oddílu disku. Spusťe prosím instalátor znovu a pro "
+"instalaci zvolte větší oddíl."
 
 #. Type: error
 #. Description
@@ -732,13 +734,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Nepodařilo se zkopírovat soubory; vadné CD/DVD nebo pevný disk?"
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:91001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Následující soubor neodpovídá zdrojové kopii na CD/DVD:"
 
 #. Type: text
 #. Description
@@ -774,7 +776,7 @@ msgstr "Nastavuje se časové pásmo..."
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Configuring keyboard..."
-msgstr "Nastavuje se klávesnice ..."
+msgstr "Nastavuje se klávesnice..."
 
 #. Type: text
 #. Description
@@ -965,8 +967,9 @@ msgstr "Chcete, aby instalátor zkusil znovu odpojit tyto oddíly?"
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:124001 ../ubiquity.templates:130001
+#, fuzzy
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Chcete se vrátit zpět k nástroji na dělení disku?"
 
 #. Type: boolean
 #. Description
@@ -977,14 +980,21 @@ msgid ""
 "usr, /var, ...) that already exist under any defined mountpoint will be "
 "deleted during the install."
 msgstr ""
+"Souborový systém na ${PARTITION} přiřazený k ${MOUNTPOINT} nebyl označen pro "
+"zformátování. Složky obsahující systémové soubory (/boot, /etc, /usr, /"
+"var, ...), které již existují na libovolném přípojném bodu budou během "
+"instalace vymazány."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:130001
+#, fuzzy
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Některé vámi vytvořené oddíly jsou příliš malé. Upravte prosím následující "
+"oddíly minimálně na tuto velikost (v bytech):"
 
 #. Type: boolean
 #. Description
@@ -993,6 +1003,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Jestliže se nevrátíte zpět k nástroji na dělení disku a nezvětšíte oddíly, "
+"instalace může selhat."
 
 #. Type: note
 #. Description
