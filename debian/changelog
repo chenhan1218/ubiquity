@@ -15,10 +15,6 @@ ubiquity (1.8.4) UNRELEASED; urgency=low
    - In partition edit dialogue, enable format tickbox when a format type is
      selected
 
-  [ Evan Dandrea ]
-  * Removed partman/check.d/12system_partitions_formatted.  A modified version
-    now lives in partman-target.
-
   [ Colin Watson ]
   * KDE frontend: Translate the partition create dialog too.
   * Fix crash if opening /cdrom/.disk/info fails (with Jonathan and Evan).
