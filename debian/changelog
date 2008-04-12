@@ -26,6 +26,8 @@ ubiquity (1.8.4) UNRELEASED; urgency=low
     anything; now that partman no longer sets up automatic mount points for
     everything, the lack of filesystem types made it difficult to get any
     context on which partition was which.
+  * Set /apps/nautilus/preferences/media_autorun_never to true during
+    installation (LP: #210620).
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 10 Apr 2008 11:01:16 +0100
 

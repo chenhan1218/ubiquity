@@ -263,6 +263,7 @@ class Wizard(BaseFrontend):
         volumes_visible = '/apps/nautilus/desktop/volumes_visible'
         media_automount = '/apps/nautilus/preferences/media_automount'
         media_automount_open = '/apps/nautilus/preferences/media_automount_open'
+        media_autorun_never = '/apps/nautilus/preferences/media_autorun_never'
         self.gconf_previous = {}
         for gconf_key in (gvm_automount_drives, gvm_automount_media,
                           volumes_visible,
@@ -270,6 +271,10 @@ class Wizard(BaseFrontend):
             self.gconf_previous[gconf_key] = gconftool.get(gconf_key)
             if self.gconf_previous[gconf_key] != 'false':
                 gconftool.set(gconf_key, 'bool', 'false')
+        for gconf_key in (media_autorun_never,):
+            self.gconf_previous[gconf_key] = gconftool.get(gconf_key)
+            if self.gconf_previous[gconf_key] != 'true':
+                gconftool.set(gconf_key, 'bool', 'true')
 
         self.thunar_previous = self.thunar_set_volmanrc(
             {'AutomountDrives': 'FALSE', 'AutomountMedia': 'FALSE'})
@@ -283,12 +288,19 @@ class Wizard(BaseFrontend):
         volumes_visible = '/apps/nautilus/desktop/volumes_visible'
         media_automount = '/apps/nautilus/preferences/media_automount'
         media_automount_open = '/apps/nautilus/preferences/media_automount_open'
+        media_autorun_never = '/apps/nautilus/preferences/media_autorun_never'
         for gconf_key in (gvm_automount_drives, gvm_automount_media,
                           volumes_visible,
                           media_automount, media_automount_open):
             if self.gconf_previous[gconf_key] == '':
                 gconftool.unset(gconf_key)
             elif self.gconf_previous[gconf_key] != 'false':
+                gconftool.set(gconf_key, 'bool',
+                              self.gconf_previous[gconf_key])
+        for gconf_key in (media_autorun_never,):
+            if self.gconf_previous[gconf_key] == '':
+                gconftool.unset(gconf_key)
+            elif self.gconf_previous[gconf_key] != 'true':
                 gconftool.set(gconf_key, 'bool',
                               self.gconf_previous[gconf_key])
 
