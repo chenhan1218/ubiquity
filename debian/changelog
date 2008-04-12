@@ -1,3 +1,10 @@
+ubiquity (1.8.5) UNRELEASED; urgency=low
+
+  * Move the map when the cursor is near an edge instead of whenever the
+    cursor moves (LP: #214989, #195159).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Sat, 12 Apr 2008 12:22:16 -0400
+
 ubiquity (1.8.4) hardy; urgency=low
 
   [ Jonathan Riddell ]

@@ -27,6 +27,9 @@ from math import pi
 from gtk import gdk
 import ubiquity.tz
 
+# The width, in pixels, of the hover-to-move areas.
+MOTION_AREA = 20
+
 if gtk.pygtk_version < (2, 8):
     print "PyGtk 2.8 or later required"
     raise SystemExit
@@ -69,6 +72,8 @@ class ZoomMapWidget(gtk.Widget):
         self.location_selected = None
         self.tzdb = ubiquity.tz.Database()
         self.lit = False
+        self.start_x = 0
+        self.start_y = 0
         
         timezone_city_combo = self.frontend.timezone_city_combo
 
@@ -118,9 +123,87 @@ class ZoomMapWidget(gtk.Widget):
                 # before the epoch (http://python.org/sf/1646728).
                 self.frontend.timezone_time_text.set_text('<clock error>')
 
+    def scroll_map(self):
+        if not self.allocation:
+            return
+        x, y, w, h = self.allocation
+
+        left = right = bottom = top = False
+        if self.start_x >= 0:
+            self.start_x = 0
+        else:
+            left = True
+        if self.start_y >= 0:
+            self.start_y = 0
+        else:
+            top = True
+        map_w = self.big_pixbuf.get_width()
+        map_h = self.big_pixbuf.get_height()
+        if self.start_x <= (-map_w + w):
+            self.start_x = (-map_w + w)
+        else:
+            right = True
+        if self.start_y <= (-map_h + h):
+            self.start_y = (-map_h + h)
+        else:
+            bottom = True
+
+        self.zoom_window_alllocation = (0, 0, w, h)
+        self.map_window_alllocation = (-self.start_x, -self.start_y, w, h)
+        
+        cr = self.window.cairo_create()
+        self.context = cr
+        cr.set_source_pixbuf(self.big_pixbuf, self.start_x, self.start_y)
+        cr.paint()
+
+        cr.set_line_width(10)
+        cr.set_source_rgba(0.0, 0.0, 0.0, 0.5)
+        cr.set_line_join(cairo.LINE_JOIN_MITER)
+
+        if top:
+            cr.move_to((w/2)-10, 20)
+            cr.rel_line_to(10, -10)
+            cr.rel_line_to(10, 10)
+            cr.stroke()
+        if bottom:
+            cr.move_to((w/2)-10,h-20)
+            cr.rel_line_to(10, 10)
+            cr.rel_line_to(10, -10)
+            cr.stroke()
+        if left:
+            cr.move_to(20, (h/2)-10)
+            cr.rel_line_to(-10, 10)
+            cr.rel_line_to(10, 10)
+            cr.stroke()
+        if right:
+            cr.move_to(w-20, (h/2)-10)
+            cr.rel_line_to(10, 10)
+            cr.rel_line_to(-10, 10)
+            cr.stroke()
+
+        self.draw_hotspots()
+
     def timeout(self):
         self.update_current_time()
         self.blink()
+        if not self.cursor_x or not self.cursor_y:
+            return True
+        x, y, w, h = self.allocation
+        # right
+        if w - self.cursor_x < MOTION_AREA:
+            self.start_x = self.start_x - MOTION_AREA
+        # left
+        elif self.cursor_x < MOTION_AREA:
+            self.start_x = self.start_x + MOTION_AREA
+        # top
+        elif self.cursor_y < MOTION_AREA:
+            self.start_y = self.start_y + MOTION_AREA
+        # bottom
+        elif h - self.cursor_y < MOTION_AREA:
+            self.start_y = self.start_y - MOTION_AREA
+        else:
+            return True
+        self.scroll_map()
         return True
 
     def mapped(self, widget, event):
@@ -203,32 +286,14 @@ class ZoomMapWidget(gtk.Widget):
         self.context.rectangle(event.area.x, event.area.y,
                            event.area.width, event.area.height)
         self.context.clip()
-        self.draw_all()
-
-    def draw_all(self):
-        if self.full_zoom:
-            self.draw_full_zoom()
-        else:
-            self.draw_map()
-            self.draw_zoom_window()
-        self.draw_hotspots()
-
-    def draw_full_zoom(self):
         if not self.cursor_x and not self.cursor_y:
             self.draw_map()
             return
-        cr = self.context
-        x, y, w, h = self.allocation
-        map_w = self.big_pixbuf.get_width()
-        map_h = self.big_pixbuf.get_height()
-        map_x = 1.0 * self.cursor_x / w * map_w
-        map_y = 1.0 * self.cursor_y / h * map_h
-        map_x_offset = min(map_w-w, max(map_x-w/2, 0.0))
-        map_y_offset = min(map_h-h, max(map_y-h/2, 0.0))
-        self.zoom_window_alllocation =  (0, 0, w, h)
-        self.map_window_alllocation =  (map_x_offset+x, map_y_offset+y, w, h)
-        cr.set_source_pixbuf(self.big_pixbuf, -map_x_offset, -map_y_offset)
-        cr.paint()
+        if not self.full_zoom:
+            self.draw_map()
+            self.draw_zoom_window()
+        else:
+            self.scroll_map()
 
     def draw_map(self):
         x, y, w, h = self.allocation
