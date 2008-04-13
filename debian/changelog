@@ -6,7 +6,7 @@ ubiquity (1.8.5) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Default the MythTV theme to the newly changed Mythbuntu-8.04 theme
-    to prevent upgrade crashes. (LP: 215036)
+    to prevent upgrade crashes. (LP: #215036)
 
  -- Evan Dandrea <evand@ubuntu.com>  Sat, 12 Apr 2008 12:22:16 -0400
 
