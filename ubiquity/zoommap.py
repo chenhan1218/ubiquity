@@ -189,21 +189,25 @@ class ZoomMapWidget(gtk.Widget):
         if not self.cursor_x or not self.cursor_y:
             return True
         x, y, w, h = self.allocation
+        scrolling = False
         # right
         if w - self.cursor_x < MOTION_AREA:
             self.start_x = self.start_x - MOTION_AREA
+            scrolling = True
         # left
         elif self.cursor_x < MOTION_AREA:
             self.start_x = self.start_x + MOTION_AREA
+            scrolling = True
         # top
-        elif self.cursor_y < MOTION_AREA:
+        if self.cursor_y < MOTION_AREA:
             self.start_y = self.start_y + MOTION_AREA
+            scrolling = True
         # bottom
         elif h - self.cursor_y < MOTION_AREA:
             self.start_y = self.start_y - MOTION_AREA
-        else:
-            return True
-        self.scroll_map()
+            scrolling = True
+        if scrolling:
+            self.scroll_map()
         return True
 
     def mapped(self, widget, event):
