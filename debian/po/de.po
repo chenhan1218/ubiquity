@@ -62,7 +62,7 @@ msgid ""
 "will be the default language for the final system."
 msgstr ""
 "Bitte wählen Sie die Sprache, die für die Installation benutzt werden soll. "
-"Die Sprache wird auch die Standardspache für das installierte System."
+"Die Sprache wird auch die Standardsprache für das installierte System."
 
 #. Type: text
 #. Description
