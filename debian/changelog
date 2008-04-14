@@ -10,6 +10,7 @@ ubiquity (1.8.5) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Allow diagonal scrolling in timezone map.
+  * Update translations from Launchpad.
 
  -- Evan Dandrea <evand@ubuntu.com>  Sat, 12 Apr 2008 12:22:16 -0400
 

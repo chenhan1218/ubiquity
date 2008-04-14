@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-04-10 04:12-0400\n"
-"PO-Revision-Date: 2008-04-10 13:52+0000\n"
-"Last-Translator: 刘其帅 <lqs.buaa@gmail.com>\n"
+"PO-Revision-Date: 2008-04-14 02:52+0000\n"
+"Last-Translator: ChenMing <Unknown>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-12 12:04+0000\n"
+"X-Launchpad-Export-Date: 2008-04-14 09:09+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -168,7 +168,7 @@ msgstr "您想用什么名字作为登录名？"
 msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
-msgstr "如果有多名用户使用本计算机，你可以在完成安装后建立多个帐户。"
+msgstr "如果有多个用户使用本计算机，你可以在完成安装后建立多个帐户。"
 
 #. Type: text
 #. Description
@@ -263,7 +263,7 @@ msgstr "你的新操作系统将以如下设置进行安装："
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr "高级…"
+msgstr "高级..."
 
 #. Type: text
 #. Description
@@ -547,13 +547,10 @@ msgstr "继续"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
-msgstr ""
-"安装完成。你需要重新启动计算机以使用新安装的系统。你可以继续使用live CD，不过"
-"你所做的任何更改和保存的文档不会被保留。"
+msgstr "安装完成。你需要重新启动计算机以使用新安装的系统。"
 
 #. Type: note
 #. Description
@@ -1224,7 +1221,7 @@ msgstr "Myth Flix"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:32001
 msgid "Myth Gallery"
-msgstr "Myth Gallery"
+msgstr "Myth 画廊"
 
 #. Type: text
 #. Description
@@ -1236,13 +1233,13 @@ msgstr "Myth Game"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Music"
-msgstr "Myth Music"
+msgstr "Myth 音乐"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:35001
 msgid "Myth News"
-msgstr "Myth News"
+msgstr "Myth 新闻"
 
 #. Type: text
 #. Description
@@ -1254,13 +1251,13 @@ msgstr "Myth Phone"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Stream"
-msgstr "Copy text"
+msgstr "Myth Stream"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Video"
-msgstr "Myth Video"
+msgstr "Myth 视频"
 
 #. Type: text
 #. Description
