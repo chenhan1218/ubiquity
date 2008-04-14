@@ -10,6 +10,7 @@ ubiquity (1.8.5) UNRELEASED; urgency=low
     - Widen the hover-to-move areas.
     - Find the closest hotspot if there are several nearby.
     - Zoom to 4.5x.
+  * Removed 12system_partitions_formatted.  It now lives in partman-target.
 
   [ Mario Limonciello ]
   * Default the MythTV theme to the newly changed Mythbuntu-8.04 theme
