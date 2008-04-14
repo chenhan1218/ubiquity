@@ -3,6 +3,13 @@ ubiquity (1.8.5) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Move the map when the cursor is near an edge instead of whenever the
     cursor moves (LP: #214989, #195159).
+  * Various fixes to the new tzmap.  Thanks Colin Watson.
+    - Wait half a second before zooming in.
+    - Zoom in from the position of the mouse, rather than the top left
+      corner.
+    - Widen the hover-to-move areas.
+    - Find the closest hotspot if there are several nearby.
+    - Zoom to 4.5x.
 
   [ Mario Limonciello ]
   * Default the MythTV theme to the newly changed Mythbuntu-8.04 theme
