@@ -1,4 +1,4 @@
-ubiquity (1.8.5) UNRELEASED; urgency=low
+ubiquity (1.8.5) hardy; urgency=low
 
   [ Evan Dandrea ]
   * Move the map when the cursor is near an edge instead of whenever the
@@ -27,7 +27,7 @@ ubiquity (1.8.5) UNRELEASED; urgency=low
   * Set OVERRIDE_ALLOW_PRESEEDING=1 while calling console-setup to force it
     to allow preseeding (LP: #188492).
 
- -- Evan Dandrea <evand@ubuntu.com>  Sat, 12 Apr 2008 12:22:16 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 14 Apr 2008 20:47:52 -0400
 
 ubiquity (1.8.4) hardy; urgency=low
 
