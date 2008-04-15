@@ -1,11 +1,11 @@
-oem-config (1.34) UNRELEASED; urgency=low
+oem-config (1.34) hardy; urgency=low
 
   * Port hiding the minimize button on the main window from Ubiquity.
   * Port tzmap usability fixes from ubiquity.
   * Automatic update of included source packages: console-setup
     1.21ubuntu7, localechooser 1.42ubuntu5.
 
- -- Evan Dandrea <evand@ubuntu.com>  Tue, 01 Apr 2008 14:11:33 -0400
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 14 Apr 2008 22:27:11 -0400
 
 oem-config (1.33) hardy; urgency=low
 
