@@ -50,8 +50,8 @@ WIDGET_STACK_MAX_STEPS = 3
 
 class OEMConfUI(QWidget):
 
-    def __init__(self):
-        QWidget.__init__(self)
+    def __init__(self, parent):
+        QWidget.__init__(self, parent)
         uic.loadUi("%s/sysconf.ui" % UIDIR, self)
         self.setWindowState(Qt.WindowFullScreen)
 
