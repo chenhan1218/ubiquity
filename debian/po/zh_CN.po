@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2008-04-10 04:12-0400\n"
+"POT-Creation-Date: 2008-04-14 20:32-0400\n"
 "PO-Revision-Date: 2008-04-14 02:52+0000\n"
 "Last-Translator: ChenMing <Unknown>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -931,27 +931,13 @@ msgstr "你是否想让安装程序再次尝试卸载这些分区？"
 
 #. Type: boolean
 #. Description
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:124001 ../ubiquity.templates:130001
+#: ../ubiquity.templates:129001
 msgid "Do you want to return to the partitioner?"
 msgstr "您希望返回到分区工具吗？"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:124001
-msgid ""
-"The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-"marked for formatting.  Directories containing system files (/boot, /etc, /"
-"usr, /var, ...) that already exist under any defined mountpoint will be "
-"deleted during the install."
-msgstr ""
-"在 ${PARTITION} 上分配为 ${MOUNTPOINT} 的文件系统将不会格式化。在已定义的挂载"
-"点中包含系统文件的目录（如 /boot, /etc, /usr, /var, ...）将会在安装时删除。"
-
-#. Type: boolean
-#. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:129001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
@@ -959,7 +945,7 @@ msgstr "您建立的一些分区太小。请确保以下分区的最少字节数
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:129001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1529,3 +1515,13 @@ msgstr "正在配置附加服务..."
 #: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring infrared devices..."
 msgstr "配置红外设备..."
+
+#~ msgid ""
+#~ "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
+#~ "marked for formatting.  Directories containing system files (/boot, /"
+#~ "etc, /usr, /var, ...) that already exist under any defined mountpoint "
+#~ "will be deleted during the install."
+#~ msgstr ""
+#~ "在 ${PARTITION} 上分配为 ${MOUNTPOINT} 的文件系统将不会格式化。在已定义的"
+#~ "挂载点中包含系统文件的目录（如 /boot, /etc, /usr, /var, ...）将会在安装时"
+#~ "删除。"
