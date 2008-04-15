@@ -11,6 +11,8 @@ ubiquity (1.8.5) UNRELEASED; urgency=low
     - Find the closest hotspot if there are several nearby.
     - Zoom to 4.5x.
   * Removed 12system_partitions_formatted.  It now lives in partman-target.
+  * Automatic update of included source packages: console-setup
+    1.21ubuntu7, partman-target 54ubuntu6.
 
   [ Mario Limonciello ]
   * Default the MythTV theme to the newly changed Mythbuntu-8.04 theme
