@@ -1,7 +1,7 @@
 oem-config (1.35) hardy; urgency=low
 
-  * Properly initialize the UI object and its parent widget (LP:
-    #217844).
+  * Properly initialize the UI object and its parent widget
+    (LP: #217884).
 
  -- Evan Dandrea <evand@ubuntu.com>  Tue, 15 Apr 2008 16:31:04 -0400
 
