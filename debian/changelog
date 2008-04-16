@@ -1,3 +1,20 @@
+ubiquity (1.8.6) UNRELEASED; urgency=low
+
+  * bin/ubiquity-dm:
+    - Move code relating to at-spi-registryd to ensure that a11y is loaded
+      before the background and window manager. (LP: #197887)
+    - Ensure that orca/onboard are only run if the a11y gconf key is set.
+    - Don't show any background image if the v1 profile is selected, similar to
+      what happens in the GNOME desktop with this profile enabled.
+    - Do not drop privileges when running the window manager,
+      gnome-settings-daemon, or any of the a11y tools. Privileges are still
+      dropped when accessibility is not enabled.
+    - Wait for 15 seconds before loading orca, to let the a11y framework settle,
+      and prevent orca from zombifying. This is a workaround until a cleaner
+      solution is found.
+
+ -- Luke Yelavich <luke.yelavich@canonical.com>  Wed, 16 Apr 2008 16:27:04 +1000
+
 ubiquity (1.8.5) hardy; urgency=low
 
   [ Evan Dandrea ]
