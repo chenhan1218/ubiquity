@@ -19,6 +19,8 @@ ubiquity (1.8.6) UNRELEASED; urgency=low
     console-setup/variant need to be marked unseen even in automatic mode so
     that they get their defaults set correctly, so use a different method to
     avoid displaying the question in preseeded installations (LP: #188492).
+  * Fix partition_too_small check only to warn about partitions not marked
+    as "do not use" and marked for use with a filesystem.
 
  -- Luke Yelavich <luke.yelavich@canonical.com>  Wed, 16 Apr 2008 16:27:04 +1000
 

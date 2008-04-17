@@ -17,6 +17,8 @@ for dev in $DEVICES/*; do
     cd $dev
     open_dialog PARTITIONS
     while { read_line num id size type fs path name; [ "$id" ]; }; do
+	[ -f "$id/method" ] || continue
+	[ -f "$id/acting_filesystem" ] || continue
         [ -f "$id/mountpoint" ] || continue
         mountpoint="$(cat "$id/mountpoint")"
 	echo "$mountpoint,$size"
