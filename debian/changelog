@@ -1,5 +1,6 @@
 ubiquity (1.8.6) UNRELEASED; urgency=low
 
+  [ Luke Yelavich ]
   * bin/ubiquity-dm:
     - Move code relating to at-spi-registryd to ensure that a11y is loaded
       before the background and window manager. (LP: #197887)
@@ -12,6 +13,12 @@ ubiquity (1.8.6) UNRELEASED; urgency=low
     - Wait for 15 seconds before loading orca, to let the a11y framework settle,
       and prevent orca from zombifying. This is a workaround until a cleaner
       solution is found.
+
+  [ Colin Watson ]
+  * Fix console-setup seen flag handling; console-setup/layout and
+    console-setup/variant need to be marked unseen even in automatic mode so
+    that they get their defaults set correctly, so use a different method to
+    avoid displaying the question in preseeded installations (LP: #188492).
 
  -- Luke Yelavich <luke.yelavich@canonical.com>  Wed, 16 Apr 2008 16:27:04 +1000
 

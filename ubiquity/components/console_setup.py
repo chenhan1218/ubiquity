@@ -50,9 +50,8 @@ class ConsoleSetup(FilteredCommand):
         # Make sure debconf doesn't do anything with crazy "preseeded"
         # answers to these questions. If you want to preseed these, use the
         # *code variants.
-        if not 'UBIQUITY_AUTOMATIC' in os.environ:
-            self.db.fset('console-setup/layout', 'seen', 'false')
-            self.db.fset('console-setup/variant', 'seen', 'false')
+        self.db.fset('console-setup/layout', 'seen', 'false')
+        self.db.fset('console-setup/variant', 'seen', 'false')
 
         # Technically we should provide a version as the second argument,
         # but that isn't currently needed and it would require querying
@@ -83,7 +82,15 @@ class ConsoleSetup(FilteredCommand):
             self.frontend.set_keyboard_variant_choices(
                 self.choices_untranslated(question))
             self.frontend.set_keyboard_variant(self.db.get(question))
-            return FilteredCommand.run(self, priority, question)
+            # console-setup preseeding is special, and needs to be checked
+            # by hand. The seen flag on console-setup/layout is used
+            # internally by console-setup, so we can't just force it to
+            # true.
+            if ('UBIQUITY_AUTOMATIC' in os.environ and
+                self.db.fget('console-setup/layoutcode', 'seen') == 'true'):
+                return True
+            else:
+                return FilteredCommand.run(self, priority, question)
         else:
             return True
 
