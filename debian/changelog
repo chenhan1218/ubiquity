@@ -23,6 +23,10 @@ ubiquity (1.8.6) UNRELEASED; urgency=low
     free space, are not marked as "do not use", and are marked for use with
     a filesystem.
 
+  [ Evan Dandrea ]
+  * Automatic update of included source packages: grub-installer
+    1.27ubuntu7, partman-base 114ubuntu5.
+
  -- Luke Yelavich <luke.yelavich@canonical.com>  Wed, 16 Apr 2008 16:27:04 +1000
 
 ubiquity (1.8.5) hardy; urgency=low
