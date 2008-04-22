@@ -1,3 +1,9 @@
+oem-config (1.37) UNRELEASED; urgency=low
+
+  * Fix built-in lists of keyboard variant names (LP: #106971).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 22 Apr 2008 09:55:19 +0100
+
 oem-config (1.36) hardy; urgency=low
 
   * Set OVERRIDE_ALLOW_PRESEEDING=1 while calling console-setup to force it
