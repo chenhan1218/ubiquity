@@ -1,11 +1,11 @@
-oem-config (1.36) UNRELEASED; urgency=low
+oem-config (1.36) hardy; urgency=low
 
   * Set OVERRIDE_ALLOW_PRESEEDING=1 while calling console-setup to force it
     to allow preseeding (LP: #188492).
   * Update translations from Launchpad.
   * Automatic update of included source packages: console-setup 1.21ubuntu8.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 21 Apr 2008 20:31:06 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 22 Apr 2008 01:15:50 +0100
 
 oem-config (1.35) hardy; urgency=low
 
