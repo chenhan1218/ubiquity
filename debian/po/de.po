@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-04-14 20:32-0400\n"
-"PO-Revision-Date: 2008-04-08 13:20+0000\n"
-"Last-Translator: Jens Seidel <Unknown>\n"
+"PO-Revision-Date: 2008-04-17 18:21+0000\n"
+"Last-Translator: Jannick Kuhr <opensource@kuhr.org>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-14 09:06+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -235,6 +235,9 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Wählen Sie alle Konten, die Sie importieren wollen. Die Dokumente und "
+"Einstellungen dieser Konten werden nach der Installation zur Verfügung "
+"stehen."
 
 #. Type: text
 #. Description
@@ -529,19 +532,19 @@ msgstr "An der Erhebung über die Verwendung von Software-Paketen teilnehmen"
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Network proxy"
-msgstr ""
+msgstr "Netzwerk-Proxy"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP-Proxy:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Port:"
-msgstr ""
+msgstr "Port:"
 
 #. Type: text
 #. Description
@@ -643,7 +646,7 @@ msgstr "Dateien werden kopiert (weniger als eine Minute verbleibend) ..."
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Failed to copy files; out of disk space."
-msgstr ""
+msgstr "Fehler beim Kopieren der Dateien - Festplattenspeicher voll."
 
 #. Type: error
 #. Description
@@ -666,6 +669,9 @@ msgid ""
 "install to complete on the target partition.  Please run the installer again "
 "and select a larger partition to install into."
 msgstr ""
+"Dieser Fehler erscheint, wenn auf der Partition, auf der die Installation "
+"erfolgen soll, zu wenig freien Speicherplatz vorhanden ist. Bitte starten "
+"Sie den Installationsvorgang neu und wählen Sie eine größere Partition aus."
 
 #. Type: error
 #. Description
@@ -738,13 +744,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Kopiervorgang fehlgeschlagen; fehlerhafte CD/DVD oder Festplatte?"
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:91001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Die folgende Datei entspricht nicht ihrer Quellkopie auf der CD/DVD:"
 
 #. Type: text
 #. Description
@@ -974,7 +980,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Wollen Sie zum Partitionsmenü zurückkehren?"
 
 #. Type: boolean
 #. Description
@@ -983,6 +989,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Einige der erzeugten Partitionen sind zu klein. Bitte ändern Sie folgende "
+"Partitionen auf mindestens diese Größe (in Bytes):"
 
 #. Type: boolean
 #. Description
@@ -991,6 +999,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Wenn Sie nicht zum Partitionseditor zurückgehen und den Speicherplatz "
+"vergrößern, kann die Installation fehlschlagen."
 
 #. Type: note
 #. Description
@@ -1243,7 +1253,7 @@ msgstr "Myth-Kontrollzentrum"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:30001
 msgid "Myth Movies"
-msgstr ""
+msgstr "Myth-Filme"
 
 #. Type: text
 #. Description
@@ -1326,7 +1336,7 @@ msgstr ""
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:43001
 msgid "Find movies playing in nearby local cinemas"
-msgstr ""
+msgstr "Filme suchen, die in Kinos in der Umgebung gezeigt werden"
 
 #. Type: text
 #. Description
@@ -1400,6 +1410,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"Themes können die Erscheinung von MythTV entscheidend verbessern und das "
+"Programm nach Ihrem Geschmack darstellen."
 
 #. Type: text
 #. Description
@@ -1408,7 +1420,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 #: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Alle aktivieren/deaktivieren"
 
 #. Type: text
 #. Description
@@ -1570,4 +1582,4 @@ msgstr "Zusätzliche Dienste werden eingerichtet ..."
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring infrared devices..."
-msgstr ""
+msgstr "Infrarot-Geräte einrichten ..."

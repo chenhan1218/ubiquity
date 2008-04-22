@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-04-14 20:32-0400\n"
-"PO-Revision-Date: 2008-04-08 18:35+0000\n"
-"Last-Translator: Павло Славинський <pavloslav@gmail.com>\n"
+"PO-Revision-Date: 2008-04-21 18:42+0000\n"
+"Last-Translator: Denys Rtveliashvili <rtvd@mail.ru>\n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-14 09:09+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 22:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -291,13 +291,13 @@ msgstr "Встановити[ action ]"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "Кроу ${INDEX} з ${TOTAL}"
+msgstr "Крок ${INDEX} з ${TOTAL}"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Abort the installation?"
-msgstr "Перервати встановлення"
+msgstr "Перервати встановлення?"
 
 #. Type: text
 #. Description
@@ -1590,14 +1590,3 @@ msgstr "Налаштування додаткових сервісів..."
 #: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring infrared devices..."
 msgstr "Налаштовуються інфрачервоні пристрої..."
-
-#~ msgid ""
-#~ "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#~ "marked for formatting.  Directories containing system files (/boot, /"
-#~ "etc, /usr, /var, ...) that already exist under any defined mountpoint "
-#~ "will be deleted during the install."
-#~ msgstr ""
-#~ "Файлова система на  ${PARTITION}, призначена до ${MOUNTPOINT}, не була "
-#~ "позначена для форматування. Вже існуючі теки з системними файлами (/"
-#~ "boot, /etc, /usr, /var, ...) в усіх визначених точках монтування будуть "
-#~ "видалені при встановленні."

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-04-14 20:32-0400\n"
-"PO-Revision-Date: 2008-04-08 15:54+0000\n"
-"Last-Translator: Kęstutis Biliūnas <Unknown>\n"
+"PO-Revision-Date: 2008-04-21 08:27+0000\n"
+"Last-Translator: Nerijus Arlauskas <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-14 09:05+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -27,7 +27,7 @@ msgstr "Įdiegti į kompiuterį"
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Įdiegti (OEM režimas, kompiuterių gamintojams)"
+msgstr "Įdiegti (OEM rėžimas, tik kompiuterių gamintojams)"
 
 #. Type: text
 #. Description
@@ -71,6 +71,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Jūs įrašote sistemų gamintojų režimu. Prašome įvesti unikalų pavadinimą šiam "
+"sistemų paketui. Šis pavadinimas bus išsaugotas kiekvienoje sistemoje, į "
+"kurią paketas bus įrašomas, kad būtų legviau padėti dėl klaidų."
 
 #. Type: text
 #. Description
@@ -228,6 +231,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"Pasirinkite vartotojus kurie bus importuoti. Po diegimo bus prieinami jų "
+"dokumentai ir nustatymai."
 
 #. Type: text
 #. Description
@@ -278,7 +283,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Advanced..."
-msgstr "Sudėtingiau..."
+msgstr "Išsamiau..."
 
 #. Type: text
 #. Description
@@ -350,12 +355,12 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"Mes atsiprašome; diegimo programa lūžo. Prašome užpildyti naują klaidų "
+"Mes atsiprašome; diegimo programa lūžo. Malonėkite užpildyti naują klaidų "
 "ataskaitą čia: https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
-"(nepridėkite jūsų detalių prie jau egzistuojančios klaidų ataskaitos) ir "
-"tada kūrėjas kuo greičiau pasirūpins problema. Kad padėti kūrėjui suprasti "
-"kas buvo blogai, pridėkite sekančią informacija prie jūsų klaidų ataskaitos "
-"ir pridėkite bylas iš /var/log/syslog ir /var/log/partman:"
+"(nepridėkite jūsų ataskaitos prie jau egzistuojančios klaidos ataskaitos) ir "
+"kūrėjai pasirūpins problemos sprendimu kuo skubiau. Įtraukite papildomą "
+"informaciją pridedant rinkmenas /var/log/syslog ir /var/log/partman prie "
+"jūsų klaidos ataskaitos. Tai palengvins programos vystytojų darbą:"
 
 #. Type: text
 #. Description
@@ -505,7 +510,7 @@ msgstr "Sistemų įkėliklis"
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Install boot loader"
-msgstr ""
+msgstr "Įdiegti sistemos paleidimo programą"
 
 #. Type: text
 #. Description
@@ -523,19 +528,19 @@ msgstr "Dalyvauti paketų vartojimo apžvalgoje"
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Network proxy"
-msgstr ""
+msgstr "Tinklo įgaliojimas"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "HTTP proxy:"
-msgstr ""
+msgstr "HTTP įgaliojimas:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Port:"
-msgstr ""
+msgstr "Prievadas:"
 
 #. Type: text
 #. Description
@@ -617,13 +622,13 @@ msgstr "Ieškoma distribucija kopijavimui..."
 #. Description
 #: ../ubiquity.templates:84001
 msgid "Scanning files..."
-msgstr "Peržiūrimos bylos..."
+msgstr "Peržiūrimi failai..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:85001
 msgid "Copying files..."
-msgstr "Kopijuojamos bylos..."
+msgstr "Kopijuojami failai..."
 
 #. Type: text
 #. Description
@@ -635,7 +640,7 @@ msgstr "Kopijuojami failai (liko mažiau nei viena minutė)..."
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Failed to copy files; out of disk space."
-msgstr ""
+msgstr "Nepavyko nukopijuoti failų; nebėra vietos."
 
 #. Type: error
 #. Description
@@ -658,6 +663,8 @@ msgid ""
 "install to complete on the target partition.  Please run the installer again "
 "and select a larger partition to install into."
 msgstr ""
+"Ši klaida įvyko dėl nepakankamos vietos diske, pasirinktame skirsnyje. "
+"Prašome paleisit diegimą iš naujo ir pasirinkti didesnį skirsnį diegimui."
 
 #. Type: error
 #. Description
@@ -730,13 +737,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:91001
 msgid "Failed to copy file; faulty CD/DVD or hard disk?"
-msgstr ""
+msgstr "Nepavyko nukopijuoti failo; klaida CD/DVD ar kietajame diske?"
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:91001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "Šis failas neatitiko jo kopijos CD/DVD diske:"
 
 #. Type: text
 #. Description
@@ -874,16 +881,15 @@ msgstr "Paketų įdiegimo klaida"
 #. Description
 #: ../ubiquity.templates:114001
 msgid "An error occurred while installing packages:"
-msgstr "Įvyko klaida, įdiegiant paketus"
+msgstr "Įvyko klaida įdiegiant paketus"
 
 #. Type: error
 #. Description
 #. Type: error
 #. Description
 #: ../ubiquity.templates:114001 ../ubiquity.templates:115001
-#, fuzzy
 msgid "The following packages are in a broken state:"
-msgstr "Sekantys paketai yra sugadintoje būsenoje:"
+msgstr "Šie paketai yra sugadintoje būsenoje:"
 
 #. Type: error
 #. Description
@@ -918,7 +924,7 @@ msgstr "Paketų šalinimo klaida"
 #. Description
 #: ../ubiquity.templates:115001
 msgid "An error occurred while removing packages:"
-msgstr "Įvyko klaida, šalinant paketus:"
+msgstr "Įvyko klaida šalinant paketus:"
 
 #. Type: title
 #. Description
@@ -968,8 +974,9 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:129001
+#, fuzzy
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "Ar norite grįžti į diskų skirsnių tvarkymą?"
 
 #. Type: boolean
 #. Description
@@ -978,6 +985,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"Kai kurie jūsų sukurti skirsniai yra per maži. Prašome padaryti šiuos "
+"skirsnius ne mažesnius nei ( baitais ):"
 
 #. Type: boolean
 #. Description
@@ -986,6 +995,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"Jei negrįšite į skirsnių programą ir nepadidinsite šių skirsnių dydžių - "
+"diegimas gali nepavykti."
 
 #. Type: note
 #. Description
@@ -1051,13 +1062,16 @@ msgid ""
 "user interaction. This will install a backend, frontend, all plugins, and "
 "all themes."
 msgstr ""
+"Standartinis diegimas įdiegs ir sukonfigūruos kiekvieną pasirinkimą su "
+"minimaliu vartotojo įsikišimu. Bus suinstaliuota visa galinė, pradinė "
+"programinė įrangos, įskiepiai ir temos."
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:6001
 #, fuzzy
 msgid "Advanced Installation"
-msgstr "Nutraukti įdiegimą?"
+msgstr "Išsamesnis diegimas"
 
 #. Type: text
 #. Description
@@ -1199,8 +1213,8 @@ msgid ""
 "MythWeb provides a web interface which can be used to view listings, "
 "schedule recordings, delete recordings, and search for programs."
 msgstr ""
-"MythWeb pateikia žiniatinklio interfeisą, kuris gali būti panaudotas "
-"spaudinių rodymui, įrašų planavimui bei trinimui, ir programų paieškai."
+"MythWeb pateikia žiniatinklio sąsają, kuri gali būti panaudota spaudinių "
+"rodymui, įrašų planavimui, trynimui, bei programų paieškai."
 
 #. Type: text
 #. Description
@@ -1248,7 +1262,7 @@ msgstr "Myth žaidimas"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:34001
 msgid "Myth Music"
-msgstr "Myth muziką"
+msgstr "Myth muzika"
 
 #. Type: text
 #. Description
@@ -1266,19 +1280,19 @@ msgstr "Myth telefonas"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:37001
 msgid "Myth Stream"
-msgstr "Myth Srautas"
+msgstr "Myth srautas"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:38001
 msgid "Myth Video"
-msgstr "Myth Video"
+msgstr "Myth video"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:39001
 msgid "Myth Weather"
-msgstr "Myth Oras"
+msgstr "Myth orai"
 
 #. Type: text
 #. Description
@@ -1396,14 +1410,14 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 #: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "Įjungti/Išjungti viską"
 
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:57001
 #, fuzzy
 msgid "Additional Drivers/Firmware"
-msgstr "Papildomos tvarkyklės / programinė aparatininė įranga"
+msgstr "Papildomos valdyklės / programinė aparatininė įranga (firmware)"
 
 #. Type: text
 #. Description
@@ -1418,8 +1432,9 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:59001
+#, fuzzy
 msgid "Modify Video Driver & Settings"
-msgstr "Pakeisti video tvarkyklę ir nuostatas"
+msgstr "Pakeisti video valdyklę ir parinktis"
 
 #. Type: text
 #. Description
@@ -1463,7 +1478,7 @@ msgstr "MySQL slaptažodis"
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:66001
 msgid "MySQL User Name"
-msgstr ""
+msgstr "MySQL vartotojo vardas"
 
 #. Type: text
 #. Description

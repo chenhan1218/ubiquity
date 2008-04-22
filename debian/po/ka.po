@@ -1,19 +1,22 @@
+# translation of installer-po_debian-installer-ka.po to Georgian
 # Georgian messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
+# Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: installer-po_debian-installer-ka\n"
 "Report-Msgid-Bugs-To: Source: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2008-04-14 20:32-0400\n"
-"PO-Revision-Date: 2008-04-14 08:42+0000\n"
+"PO-Revision-Date: 2008-04-16 23:51+0000\n"
 "Last-Translator: Vladimer Sichinava <vsichi@gnome.org>\n"
-"Language-Team: Georgian <www.gia.ge>\n"
+"Language-Team: Georgian <http://mail.gnome.org/mailman/listinfo/gnome-ge-"
+"list>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-14 09:04+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 22:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -21,7 +24,7 @@ msgstr ""
 #. This is used as a window title.
 #: ../ubiquity.templates:2001
 msgid "Install"
-msgstr "სისტემის დაყენება"
+msgstr "სისტემის დაყენების პროცესი"
 
 #. Type: text
 #. Description
@@ -294,7 +297,7 @@ msgstr "დაყენება[ action ]"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "ეტაპი ${INDEX} ${TOTAL}-დან"
+msgstr "ბიჯი ${INDEX} ${TOTAL}-დან"
 
 #. Type: title
 #. Description
@@ -570,15 +573,12 @@ msgstr "გაგრძელება"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
-#, fuzzy
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"ინსტალაცია დასრულებულია. შეგიძლიათ გადატვირთოთ კომპიუტერი და იმუშაოთ ახალ "
-"სისტემაში. ასევე შეგიძლიათ გააგრძელოთ Live CD-თ მუშაობა, ოღონდ ამ "
-"შემთხვევაში თქვენ არ შეგეძლებათ სისტემური ცვლილებების ან დოკუმენტების "
-"რედაქტირების ცვლილებების შენახვა."
+"დაყენების პროცესი დასრულებულია. შეგიძლიათ გადატვირთოთ კომპიუტერი და დაიწყოთ "
+"მუშაობა ახლად დაყენებულ სისტემაში."
 
 #. Type: note
 #. Description
@@ -663,6 +663,9 @@ msgid ""
 "install to complete on the target partition.  Please run the installer again "
 "and select a larger partition to install into."
 msgstr ""
+"დანიშნულების დისკზე ვერ მოიძებნა საკმარისი თავისუფალი ადგილი. გეთაყვა "
+"დაუბრუნდით დისკის დაყოფის პროგრამას და ამოირჩიეთ უფრო დიდი ზომა "
+"დანაყოფისთვის."
 
 #. Type: error
 #. Description
@@ -738,7 +741,7 @@ msgstr "შეუძლებელია ფაილის ასლის გ
 #. Description
 #: ../ubiquity.templates:91001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "მოცემული ფაილი არ ემთხვევა CD/DVD-ზე მყოფ ფაილს:"
 
 #. Type: text
 #. Description
@@ -974,6 +977,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large (in bytes):"
 msgstr ""
+"თქვენს მიერ შექმნილი ზოგიერთი დანაყოფი საკმაოდ პატარა ზომისაა. დარწმუნდით "
+"რომ მოცემული დანაყოფების მინიმალური ზომებია (ბაიტებში):"
 
 #. Type: boolean
 #. Description
@@ -982,6 +987,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"თუ არ დაუბრუნდებით დანაყოფების მართვის პროგრამას, მოცემული დანაყოფების ზომის "
+"გასადიდებლად, შესაძლოა დაყენების პროცესი წარმატების გარეშე დასრულდეს."
 
 #. Type: note
 #. Description
@@ -1402,6 +1409,8 @@ msgid ""
 "Themes can greatly improve the aesthetic appeal of a MythTV setup, and "
 "display it to match your tastes much better."
 msgstr ""
+"გაფორმების თემები უზრუნველოფენ MythTV სისტემის სასიამოვნო ესთეტურ "
+"გარეგნობას, ამოირჩიეთ გაფორმება თქვენი გემოვნებისამებრ."
 
 #. Type: text
 #. Description
@@ -1410,7 +1419,7 @@ msgstr ""
 #: ../ubiquity-frontend-mythbuntu.templates:55001
 #: ../ubiquity-frontend-mythbuntu.templates:56001
 msgid "Enable/Disable All"
-msgstr ""
+msgstr "ჩართვა/ყველას გამორთვა"
 
 #. Type: text
 #. Description
@@ -1572,4 +1581,4 @@ msgstr "დამატებითი სერვისების კონ�
 #. Description
 #: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring infrared devices..."
-msgstr ""
+msgstr "ინფრაწითელი მოწყობილობების გამართვა..."

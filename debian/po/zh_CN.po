@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-14 09:09+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -1515,13 +1515,3 @@ msgstr "正在配置附加服务..."
 #: ../ubiquity-frontend-mythbuntu.templates:78001
 msgid "Configuring infrared devices..."
 msgstr "配置红外设备..."
-
-#~ msgid ""
-#~ "The file system on ${PARTITION} assigned to ${MOUNTPOINT} has not been "
-#~ "marked for formatting.  Directories containing system files (/boot, /"
-#~ "etc, /usr, /var, ...) that already exist under any defined mountpoint "
-#~ "will be deleted during the install."
-#~ msgstr ""
-#~ "在 ${PARTITION} 上分配为 ${MOUNTPOINT} 的文件系统将不会格式化。在已定义的"
-#~ "挂载点中包含系统文件的目录（如 /boot, /etc, /usr, /var, ...）将会在安装时"
-#~ "删除。"
