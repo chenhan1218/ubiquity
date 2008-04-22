@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: 2007-10-10 07:17+0000\n"
-"Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
+"PO-Revision-Date: 2008-04-08 22:43+0000\n"
+"Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "مشكلة في تهيئة apt"
+msgstr "إعدادات النظام"
 
 #. Type: text
 #. Description
@@ -45,9 +44,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "تهيئة المنطقة الزمنية"
+msgstr "اختر المنطقة الزمنية"
 
 #. Type: text
 #. Description

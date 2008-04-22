@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Nishant Sharma <me at nishants.net>\n"
+"PO-Revision-Date: 2008-04-08 15:51+0000\n"
+"Last-Translator: Carlos Perelló Marín <carlos.perello@canonical.com>\n"
 "Language-Team: Hindi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -136,7 +136,7 @@ msgstr "अपने खाते को सुरक्षित रखने �
 #. Description
 #: ../oem-config.templates:20001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "आप दोषमुक्ति विधा चला रहे है।किसी महत्वपूर्ण शब्दकूट के चुनाव ना करे।"
 
 #. Type: text
 #. Description

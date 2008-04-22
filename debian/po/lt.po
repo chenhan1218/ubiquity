@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
+"PO-Revision-Date: 2008-04-21 08:27+0000\n"
+"Last-Translator: Nerijus Arlauskas <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "Apt konfigūravimo problema"
+msgstr "Sistemos konfigūracija"
 
 #. Type: text
 #. Description
@@ -41,20 +40,19 @@ msgstr "Pasirinkite kalbą / Choose language"
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
 msgstr ""
+"Kai tik jūs atsakysite į keletą klausimų, sistema bus paruošta naudojimui."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Laiko zonos konfigūravimas"
+msgstr "Pasirinkite laiko zoną"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Pasirinkite miestą Jūsų laiko zonai:"
+msgstr "Pasirinkite miestą Jūsų šalyje ir laiko zoną."
 
 #. Type: text
 #. Description
@@ -159,39 +157,35 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
 msgid "Prepare for end-user configuration"
-msgstr "Bevielio tinklo konfigūravimas"
+msgstr "Pasiruošti galutinio naudotojo konfigūravimui"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for end-user configuration..."
-msgstr "Ruošiamasi galutinio naudotojo konfigūracijai"
+msgstr "Ruošiamasi galutinio naudotojo konfigūravimui..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid "Ready for end-user configuration"
-msgstr "Pasiruošta galutinio naudotojo konfigūracijai"
+msgstr "Pasiruošta galutinio naudotojo konfigūravimui"
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid ""
 "When you boot into the new system, you will be able to log in as the 'oem' "
 "user with the password you selected earlier; this user also has "
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"Kai pakrausite naująją sistemą, galėsite į ją įsiloginti kaip naudotojas "
-"'oem' su slaptažodžių, kurį pasirinkote anksčiau.  Šis naudotojas turi "
-"administracines teises, pasiekiamas komanda 'sudo'.  Įsiloginę galėsite "
-"atlikti norimus papildomus pakeitimus sistemoje."
+"Kai paleisite naująją sistemą, galėsite prie jos prisijungti kaip naudotojas "
+"'oem' su slaptažodžiu, kurį pasirinkote anksčiau. Šis naudotojas turi "
+"administravimo teises, pasiekiamas komandos 'sudo' pagalba. Prisijungę "
+"galėsite atlikti norimus papildomus pakeitimus sistemoje."
 
 #. Type: text
 #. Description

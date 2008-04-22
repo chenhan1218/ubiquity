@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Damyan Ivanov <dam@modsoftsys.com>\n"
+"PO-Revision-Date: 2008-04-08 13:41+0000\n"
+"Last-Translator: Damyan Ivanov <dmn@debian.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "Проблем с настройване на apt"
+msgstr "Системна настройка"
 
 #. Type: text
 #. Description
@@ -45,16 +44,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Настройване на часови пояс"
+msgstr "Изберете часова зона"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Изберете град от вашия часови пояс:"
+msgstr "Изберете град във вашата държава и времева зона:"
 
 #. Type: text
 #. Description

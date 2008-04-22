@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2008-04-08 15:00+0000\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:39+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -135,9 +135,9 @@ msgstr "Hãy chọn mật khẩu để đảm bảo an toàn cho tài khoản c�
 #. Type: text
 #. Description
 #: ../oem-config.templates:20001
+#, fuzzy
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
-"Bạn đang chạy ở chế độ truy tìm lỗi. Không nên dùng mật khẩu quan trọng!"
+msgstr "Bạn đang chạy ở chế độ gỡ rối. Không nên dùng mật khẩu quan trọng!"
 
 #. Type: text
 #. Description
@@ -156,17 +156,15 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
 msgid "Prepare for end-user configuration"
-msgstr "Cấu hình mạng không dây"
+msgstr "Chuẩn bị cấu hình cho người dùng cuối"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for end-user configuration..."
-msgstr "Đang tạo cấu hình Yaboot"
+msgstr "Đang chuẩn bị cấu hình cho người dùng cuối..."
 
 #. Type: text
 #. Description

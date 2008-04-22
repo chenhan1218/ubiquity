@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Matej Kovačič <matej.kovacic@owca.info>\n"
+"PO-Revision-Date: 2008-04-08 15:34+0000\n"
+"Last-Translator: Matej Kovačič <Unknown>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -40,7 +40,7 @@ msgstr "Izberite jezik"
 #: ../oem-config.templates:5001
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
-msgstr ""
+msgstr "Ko odgovorite na nekaj vprašanj, bo sistem pripravljen za uporabo."
 
 #. Type: text
 #. Description
@@ -184,8 +184,8 @@ msgid ""
 msgstr ""
 "Ko se novi sistem zažene, se boste lahko prijavili kot uporabnik »oem« z "
 "geslom, ki ste ga izbrali prej. Ta uporabnik ima tudi upraviteljske "
-"privilegije, ki so dostopni z uporabo ukaza »sudo«. Tako boste lahko "
-"opravili dodatne spremembe nastavitev svojega sistema."
+"privilegije, ki so dostopni z uporabo ukaza »sudo«. Tako boste lahko opravili "
+"dodatne spremembe nastavitev svojega sistema."
 
 #. Type: text
 #. Description
@@ -195,3 +195,6 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Ko je sistem enkrat nastavljen, zaženite 'oem-config-prepare'. S tem boste "
+"izbrisali začasnega 'oem' uporabnika in ob ponovnem zagonu ne bo več "
+"vprašanj."

@@ -1,19 +1,22 @@
+# translation of installer-po_debian-installer-ka.po to Georgian
 # Georgian messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
+# Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: installer-po_debian-installer-ka\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: 2007-10-06 13:43+0000\n"
-"Last-Translator: Aiet Kolkhi <aietkolkhi@gmail.com>\n"
-"Language-Team: Georgian <www.gia.ge>\n"
+"PO-Revision-Date: 2008-04-16 23:51+0000\n"
+"Last-Translator: Vladimer Sichinava <vsichi@gnome.org>\n"
+"Language-Team: Georgian <http://mail.gnome.org/mailman/listinfo/gnome-ge-"
+"list>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 22:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -26,7 +29,7 @@ msgstr "სისტემის კონფიგურაცია"
 #. Description
 #: ../oem-config.templates:3001
 msgid "Step ${INDEX} of ${TOTAL}"
-msgstr "ეტაპი ${INDEX} ${TOTAL}-დან"
+msgstr "ბიჯი ${INDEX} ${TOTAL}-დან"
 
 #. Type: text
 #. Description
@@ -125,8 +128,8 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"თუ მოცემულ კომპიუტერს ერთზე მეტი ადამიანი გამოიყენებს, ინსტალაციის შემდეგ "
-"თქვენ შეგეძლებათ  რამდენიმე ანგარიშის დამატება."
+"თუ მოცემულ კომპიუტერს ერთზე მეტი ადამიანი გამოიყენებს, სისტემის დაყენების "
+"პროცესის დასრულების შემდეგ თქვენ შეგეძლებათ ახალი ანგარიშების დამატება."
 
 #. Type: text
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2008-04-08 13:59+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
-"Language-Team: Thai <l10n@opentle.org>\n"
+"Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:39+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -40,7 +40,7 @@ msgstr "เลือกภาษา"
 #: ../oem-config.templates:5001
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
-msgstr ""
+msgstr "หลังจากคุณตอบคำถามไม่กี่ข้อ ระบบของคุณก็พร้อมใช้"
 
 #. Type: text
 #. Description
@@ -108,13 +108,13 @@ msgstr "คุณคือใคร?"
 #. Description
 #: ../oem-config.templates:16001
 msgid "What is your name?"
-msgstr "ชื่อของคุณ"
+msgstr "คุณชื่ออะไร?"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:17001
 msgid "What name do you want to use to log in?"
-msgstr "ชื่อที่คุณต้องการใช้ในการเข้าสู่ระบบ"
+msgstr "คุณต้องการใช้ชื่ออะไรในการเข้าสู่ระบบ?"
 
 #. Type: text
 #. Description
@@ -191,3 +191,5 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"เมื่อระบบถูกปรับแต่งตามความพอใจของคุณแล้ว รัน 'oem-config-prepare' "
+"นี่จะทำให้ระบบลบผู้ใช้ชั่วคราว 'oem' และถามผู้ใช้เกี่ยวกับการตั้งค่าหลายประการในครั้งต่อไปที่บูท"

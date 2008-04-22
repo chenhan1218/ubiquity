@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: 2007-10-05 12:11+0000\n"
-"Last-Translator: Stefano Canepa <sc@linux.it>\n"
+"PO-Revision-Date: 2008-04-08 20:01+0000\n"
+"Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:57+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -113,7 +113,7 @@ msgstr "Indicare il proprio nome:"
 #. Description
 #: ../oem-config.templates:17001
 msgid "What name do you want to use to log in?"
-msgstr "Indicare il nome da usare per il login:"
+msgstr "Indicare il nome da usare per l'accesso:"
 
 #. Type: text
 #. Description
@@ -181,11 +181,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"Quando si avvia il nuovo sistema, è possibile eseguire il login come "
-"l'utente «oem» con la password selezionata precedentemente; a questo utente "
-"sono concessi privilegi amministrativi usando il comando «sudo». In questo "
-"modo è quindi possibile effettuare tutte le ulteriori modifiche necessarie "
-"al sistema."
+"Quando si avvia il nuovo sistema, è possibile accedere come l'utente «oem» "
+"con la password selezionata precedentemente; a questo utente sono concessi "
+"privilegi amministrativi usando il comando «sudo». In questo modo è quindi "
+"possibile effettuare tutte le ulteriori modifiche necessarie al sistema."
 
 #. Type: text
 #. Description

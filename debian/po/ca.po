@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jordi Mallach <jordi@debian.org>\n"
+"PO-Revision-Date: 2008-04-11 10:30+0000\n"
+"Last-Translator: David Planella <Unknown>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "Problema de configuració d'apt"
+msgstr "Configuració del sistema"
 
 #. Type: text
 #. Description
@@ -41,20 +40,20 @@ msgstr "Seleccioneu una llengua/Choose language"
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
 msgstr ""
+"El sistema estarà a punt per ser utilitzat un cop hàgiu respost unes quantes "
+"preguntes."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Configura el fus horari"
+msgstr "Trieu el fus horari"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Seleccioneu una ciutat dins el vostre fus horari:"
+msgstr "Seleccioneu una ciutat del vostre país dins el vostre fus horari."
 
 #. Type: text
 #. Description
@@ -154,29 +153,26 @@ msgstr ""
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr ""
+msgstr "Mode OEM (només per a distribuïdors)"
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
 msgid "Prepare for end-user configuration"
-msgstr "Configuració de xarxa sense fil"
+msgstr "Prepara per a la configuració de l'usuari final"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for end-user configuration..."
-msgstr "S'està creant la configuració de yaboot"
+msgstr "S'està preparant per a la configuració de l'usuari final..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid "Ready for end-user configuration"
-msgstr "Reintenta la configuració automàtica de la xarxa"
+msgstr "A punt per a la configuració de l'usuari final"
 
 #. Type: text
 #. Description
@@ -200,3 +196,7 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Un cop s'hagi configurat el sistema amb els paràmetres desitjats, haureu "
+"d'executar l'ordre «oem-config-prepare». Això farà que el sistema suprimeixi "
+"l'usuari «oem» i pregunti sobre diversos paràmetres de configuració a "
+"l'usuari final la propera vegada que es torni a iniciar."

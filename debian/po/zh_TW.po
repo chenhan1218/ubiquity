@@ -7,20 +7,19 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: 2007-10-10 12:40+0000\n"
-"Last-Translator: Tetralet <tetralet@pchome.com.tw>\n"
+"PO-Revision-Date: 2008-04-19 09:24+0000\n"
+"Last-Translator: Roy Chan <roy.chan@linux.org.hk>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
 msgstr "系統組態"
 
@@ -46,23 +45,20 @@ msgstr "回答下列問題後，您將可以使用此系統。"
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "設定時區"
+msgstr "選擇您所在的時區"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "請選擇一個位於您的時區裡的城市："
+msgstr "請選擇一個位於您的國家和時區裡的城市："
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:8001
-#, fuzzy
 msgid "Selected city:"
-msgstr "目前所選擇的城市："
+msgstr "已選擇的城市："
 
 #. Type: text
 #. Description
@@ -85,7 +81,6 @@ msgstr "目前時間："
 #. Type: text
 #. Description
 #: ../oem-config.templates:12001
-#, fuzzy
 msgid "Keyboard layout"
 msgstr "選擇鍵盤排列方式"
 
@@ -93,13 +88,13 @@ msgstr "選擇鍵盤排列方式"
 #. Description
 #: ../oem-config.templates:13001
 msgid "Which layout is most similar to your keyboard?"
-msgstr "哪一種鍵盤排列方式最接近您使用的鍵盤"
+msgstr "哪一種鍵盤排列方式最接近您使用的鍵盤？"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:14001
 msgid "You can type into this box to test your new keyboard layout."
-msgstr "您可以在此處測試您新選擇的鍵盤排列方式"
+msgstr "您可以在此處測試您新選擇的鍵盤排列方式。"
 
 #. Type: text
 #. Description
@@ -150,14 +145,12 @@ msgstr "輸入相同的密碼兩次，以檢查是否有打錯字。"
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
-#, fuzzy
 msgid "OEM mode (for manufacturers only)"
 msgstr "安裝（OEM模式，僅限製造商）"
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:1001
-#, fuzzy
 msgid "Prepare for end-user configuration"
 msgstr "準備最終用戶設定"
 
@@ -165,14 +158,12 @@ msgstr "準備最終用戶設定"
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
-#, fuzzy
 msgid "Preparing for end-user configuration..."
 msgstr "正在準備最終用戶設定..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
-#, fuzzy
 msgid "Ready for end-user configuration"
 msgstr "最終用戶設定準備就緒"
 

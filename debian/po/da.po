@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: 2007-10-03 08:56+0000\n"
+"PO-Revision-Date: 2008-04-08 13:56+0000\n"
 "Last-Translator: Claus Hindsgaul <claus.hindsgaul@gmail.com>\n"
 "Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -40,6 +40,8 @@ msgstr "Vælg sprog/Choose language"
 msgid ""
 "Once you answer a few questions, the system will be ready for you to use."
 msgstr ""
+"Så snart du har svaret på nogle få spørgsmål, vil systemet være klart til "
+"brug."
 
 #. Type: text
 #. Description
@@ -134,6 +136,7 @@ msgstr "Vælg et password der skal beskytte din brugerkonto."
 #: ../oem-config.templates:20001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
+"Systemet kører i fejlsøgningstilstand. Benyt ikke et værdifuldt kodeord!"
 
 #. Type: text
 #. Description
@@ -149,7 +152,7 @@ msgstr ""
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr ""
+msgstr "OEM-tilstand (kun for fabrikanter)"
 
 #. Type: text
 #. Description
@@ -179,6 +182,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"Når du starter dit nye system, vil du kunne logge ind som brugeren 'oem' med "
+"det kodeord du valgte tidligere; denne bruger har også administrative "
+"rettigheder ved hjælp af kommandoen 'sudo'. Du vil så være i stand til at at "
+"foretage de yderligere ændringer til systemet du måtte ønske."
 
 #. Type: text
 #. Description
@@ -188,3 +195,6 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"Så snart systemet er konfigureret som du vil have det, kør så 'oem-config-"
+"prepare'. Så sletter systemet den midlertidige 'oem'-bruger og stiller, "
+"næste gang computeren startes, slutbrugeren en række konfigurationsspørgsmål."

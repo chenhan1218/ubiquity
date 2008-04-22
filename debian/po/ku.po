@@ -7,21 +7,20 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2008-04-08 13:39+0000\n"
 "Last-Translator: Amed Çeko Jiyan <amedcj@gmail.com>\n"
 "Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:39+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:58+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
-#, fuzzy
 msgid "System Configuration"
-msgstr "Pirsgirêka avakirina apt"
+msgstr "Mîhenkirina Pergalê"
 
 #. Type: text
 #. Description
@@ -45,16 +44,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../oem-config.templates:6001
-#, fuzzy
 msgid "Choose time zone"
-msgstr "Herêma demê saz bike"
+msgstr "Herêma demê hilbijêre"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:7001
-#, fuzzy
 msgid "Select a city in your country and time zone."
-msgstr "Di herêma demê xwe de bajarekî hilbijêre:"
+msgstr "Di herêma xwe ya demê de bajarekî hilbijêre:"
 
 #. Type: text
 #. Description
@@ -66,7 +63,7 @@ msgstr "Bajarê hilbijartî:"
 #. Description
 #: ../oem-config.templates:9001
 msgid "Selected region:"
-msgstr "Herêma hilbijartî:"
+msgstr "Herêma destnîşankirî:"
 
 #. Type: text
 #. Description
@@ -84,7 +81,7 @@ msgstr "Dema niha:"
 #. Description
 #: ../oem-config.templates:12001
 msgid "Keyboard layout"
-msgstr "Plana klavyeyê"
+msgstr "Rengê klavyeyê"
 
 #. Type: text
 #. Description
@@ -123,20 +120,20 @@ msgid ""
 "If more than one person will use this computer, you can set up multiple "
 "accounts after installation."
 msgstr ""
-"Heke ji yekê zêdetir kes dê vê komputerê bikar bînin, tu dikarî piştî "
-"sazkirinê hesaban mîheng bikî."
+"Heke ji yekê zêdetir kes vê komputerê bikar bînin, tu dikarî piştî sazkirinê "
+"ji bo pir kesan hesaban mîheng bikî."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:19001
 msgid "Choose a password to keep your account safe."
-msgstr "Ji bo ewlekariya hesaba xwe şîfreyekê hilbijêre."
+msgstr "Ji bo ewlekariya hesaba xwe nasnavekê (password) hilbijêre."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:20001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "Di moda neqandina çewtiyan de dixebitî. Nasnavekî girîng bi kar neyne."
 
 #. Type: text
 #. Description
@@ -144,8 +141,8 @@ msgstr ""
 msgid ""
 "Enter the same password twice, so that it can be checked for typing errors."
 msgstr ""
-"Heman şîfreyê du caran têkevê, bi vî awayê xeletbûn/rastbûna şîfreyê dê "
-"diyar bibe."
+"Heman nasnavê ()password) du caran têkevê, bi vî awayê çewtbûn an jî "
+"rastbûna nasnavê dê diyar bibe."
 
 #. Type: title
 #. Description

@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: cjwatson@ubuntu.com\n"
 "POT-Creation-Date: 2007-10-01 11:37+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jamil Ahmed <jamil@bengalinux.org>\n"
+"PO-Revision-Date: 2008-04-08 16:09+0000\n"
+"Last-Translator: Jamil Ahmed <itsjamil@gmail.com>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2007-10-12 13:38+0000\n"
+"X-Launchpad-Export-Date: 2008-04-21 21:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. Type: text
@@ -136,8 +136,9 @@ msgstr "আপনার আকাউন্টটি নিরাপদ রাখ
 #. Type: text
 #. Description
 #: ../oem-config.templates:20001
+#, fuzzy
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "আপনি ত্রুটিমুক্তকরণ অবস্থায় আছেন। গুরুত্বপূর্ণ পাসওয়ার্ড ব্যবহার করবেন না।"
 
 #. Type: text
 #. Description
