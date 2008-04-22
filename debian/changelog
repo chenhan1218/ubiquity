@@ -1,6 +1,7 @@
 oem-config (1.37) UNRELEASED; urgency=low
 
-  * Fix built-in lists of keyboard variant names (LP: #106971).
+  * Fix built-in lists of keyboard variant names (patch from ubiquity;
+    LP: #106971).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 22 Apr 2008 09:55:19 +0100
 
