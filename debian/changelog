@@ -1,3 +1,9 @@
+ubiquity (1.9.0) UNRELEASED; urgency=low
+
+  * Fix ownership of /home/oem/Desktop in OEM installations (LP: #209683).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 23 Apr 2008 22:22:52 +0100
+
 ubiquity (1.8.7) hardy; urgency=low
 
   * Update translations from Launchpad.
