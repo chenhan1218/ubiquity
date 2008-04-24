@@ -1,3 +1,9 @@
+oem-config (1.38) UNRELEASED; urgency=low
+
+  * Silence deprecation warning in zoommap.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 24 Apr 2008 11:27:13 +0100
+
 oem-config (1.37) hardy; urgency=low
 
   * Fix built-in lists of keyboard variant names (patch from ubiquity;

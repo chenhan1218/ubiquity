@@ -330,7 +330,7 @@ class ZoomMapWidget(gtk.Widget):
             self.window.move_resize(*allocation)
         x,y,w,h = allocation
         self.small_pixbuf = self.pixbuf.scale_simple(w, h, gtk.gdk.INTERP_BILINEAR)
-        self.big_pixbuf = self.pixbuf.scale_simple(w * 4.5, h * 4.5, gtk.gdk.INTERP_BILINEAR)
+        self.big_pixbuf = self.pixbuf.scale_simple(int(w * 4.5), int(h * 4.5), gtk.gdk.INTERP_BILINEAR)
 
     def do_expose_event(self, event):
         self.context = self.window.cairo_create()
