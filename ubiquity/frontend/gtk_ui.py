@@ -2062,7 +2062,11 @@ class Wizard(BaseFrontend):
                 # Gaim, Yahoo, etc
                 text = model.get_value(iterator, 1)
 
-            cell.set_property("markup", text)
+            try:
+                cell.set_property("markup", unicode(text))
+            except:
+                cell.set_property("text", '%s  %s (%s)' % \
+                    (val['user'], val['os'], val['part']))
         # Showing the interface for the second time.
         if self.matreeview.get_model():
             for col in self.matreeview.get_columns():

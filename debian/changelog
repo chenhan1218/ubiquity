@@ -10,6 +10,7 @@ ubiquity (1.9.0) UNRELEASED; urgency=low
     - Zoom in on the location of the cursor, not the edge relative to its
       position.
     - Add a delay for zooming out.
+  * Handle the migration-assistant UI being fed non-UTF data gracefully.
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 24 Apr 2008 13:11:05 -0400
 
