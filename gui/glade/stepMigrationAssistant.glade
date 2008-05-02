@@ -13,7 +13,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="xalign">0</property>
-            <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Migrate Documents and Settings&lt;/b&gt;&lt;/big&gt;</property>
+            <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Migrate documents and settings&lt;/b&gt;&lt;/big&gt;</property>
             <property name="use_markup">True</property>
             <property name="selectable">True</property>
             <property name="single_line_mode">True</property>

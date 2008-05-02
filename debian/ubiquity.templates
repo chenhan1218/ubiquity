@@ -127,7 +127,7 @@ _Description:
 
 Template: ubiquity/text/ma_heading_label
 Type: text
-_Description: Migrate Documents and Settings
+_Description: Migrate documents and settings
 
 Template: ubiquity/text/ma_text_label
 Type: text

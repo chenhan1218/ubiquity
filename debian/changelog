@@ -11,6 +11,7 @@ ubiquity (1.9.0) UNRELEASED; urgency=low
       position.
     - Add a delay for zooming out.
   * Handle the migration-assistant UI being fed non-UTF data gracefully.
+  * Make capitalization of migration-assistant consistent (LP: #225555).
 
  -- Evan Dandrea <evand@ubuntu.com>  Thu, 24 Apr 2008 13:11:05 -0400
 
