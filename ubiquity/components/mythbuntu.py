@@ -333,10 +333,12 @@ class MythbuntuRemote(FilteredCommand):
              '^lirc/remote_lircd_conf',
              '^lirc/remote_modules',
              '^lirc/remote_driver',
+             '^lirc/remote_device',
              '^lirc/transmitter',
              '^lirc/transmitter_lircd_conf',
              '^lirc/transmitter_modules',
-             '^lirc/transmitter_driver']
+             '^lirc/transmitter_driver',
+             '^lirc/transmitter_device']
         return (['/usr/share/ubiquity/ask-ir'], questions)
 
     def run(self,priority,question):
