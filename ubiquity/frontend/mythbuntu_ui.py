@@ -536,11 +536,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             """Toggles Visible Backend Applicable Drivers"""
             if enable:
                 self.backend_driver_list.show()
-                self.tuner0.set_active(0)
-                self.tuner1.set_active(0)
-                self.tuner2.set_active(0)
-                self.tuner3.set_active(0)
-                self.tuner4.set_active(0)
             else:
                 self.backend_driver_list.hide()
 
@@ -820,90 +815,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             if (not self.usemythwebpassword.get_active() or ((not self.mythweb_pass_error_image.flags() & gtk.VISIBLE) and (not self.mythweb_user_error_image.flags() & gtk.VISIBLE))):
                 self.allow_go_forward(True)
                 self.allow_go_backward(True)
-
-    def toggle_number_tuners (self,widget):
-        """Called whenever a number of tuners is changed"""
-        num = self.number_tuners.get_value()
-        if num > 0:
-            if num > 1:
-                if num > 2:
-                    if num > 3:
-                        if num > 4:
-                            self.tuner0.show()
-                            self.tuner1.show()
-                            self.tuner2.show()
-                            self.tuner3.show()
-                            self.tuner4.show()
-                        else:
-                            self.tuner0.show()
-                            self.tuner1.show()
-                            self.tuner2.show()
-                            self.tuner3.show()
-                            self.tuner4.hide()
-                            self.tuner4.set_active(0)
-                    else:
-                        self.tuner0.show()
-                        self.tuner1.show()
-                        self.tuner2.show()
-                        self.tuner3.hide()
-                        self.tuner3.set_active(0)
-                        self.tuner4.hide()
-                        self.tuner4.set_active(0)
-                else:
-                    self.tuner0.show()
-                    self.tuner1.show()
-                    self.tuner2.hide()
-                    self.tuner2.set_active(0)
-                    self.tuner3.hide()
-                    self.tuner3.set_active(0)
-                    self.tuner4.hide()
-                    self.tuner4.set_active(0)
-            else:
-                self.tuner0.show()
-                self.tuner1.hide()
-                self.tuner1.set_active(0)
-                self.tuner2.hide()
-                self.tuner2.set_active(0)
-                self.tuner3.hide()
-                self.tuner3.set_active(0)
-                self.tuner4.hide()
-                self.tuner4.set_active(0)
-        else:
-            self.tuner0.hide()
-            self.tuner0.set_active(0)
-            self.tuner1.hide()
-            self.tuner1.set_active(0)
-            self.tuner2.hide()
-            self.tuner2.set_active(0)
-            self.tuner3.hide()
-            self.tuner3.set_active(0)
-            self.tuner4.hide()
-            self.tuner4.set_active(0)
-
-    def toggle_tuners (self,widget):
-        """Checks to make sure no tuner widgets have same value"""
-        def return_tuner_val(self,num):
-            if num == 0:
-                return self.tuner0.get_active()
-            elif num == 1:
-                return self.tuner1.get_active()
-            elif num == 2:
-                return self.tuner2.get_active()
-            elif num == 3:
-                return self.tuner3.get_active()
-            elif num == 4:
-                return self.tuner4.get_active()
-
-        number_tuners = self.number_tuners.get_value_as_int()
-        enable_warning=False
-        for i in range(number_tuners):
-            #Check for the unknown Analogue or Digital Option
-            if (return_tuner_val(self,i) == 19 or return_tuner_val(self,i) == 20):
-                enable_warning=True
-        if enable_warning == True:
-            self.tunernotice.show()
-        else:
-            self.tunernotice.hide()
 
     def video_changed (self,widget):
         """Called whenever the modify video driver option is toggled or its kids"""
